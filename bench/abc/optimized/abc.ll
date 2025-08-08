@@ -5479,11 +5479,8 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i
   ret ptr %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_IntAlloc(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc noalias noundef ptr @Vec_IntAlloc(i32 noundef %0) unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = add i32 %0, -1
   %or.cond = icmp ult i32 %3, 15
@@ -5508,7 +5505,7 @@ define internal fastcc noalias noundef ptr @Vec_IntAlloc(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Vec_IntFill(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #6 {
+define internal fastcc void @Vec_IntFill(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #5 {
   %4 = load i32, ptr %0, align 8, !tbaa !41
   %.not.i = icmp slt i32 %4, %1
   br i1 %.not.i, label %5, label %Vec_IntGrow.exit
@@ -5558,9 +5555,6 @@ Vec_IntGrow.exit:                                 ; preds = %3, %14
   store i32 %1, ptr %21, align 4, !tbaa !42
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Abc_FrameDeriveStatusArray2(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -5682,7 +5676,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Abc_FrameClearDesign() local_unnamed_addr #7 {
+define void @Abc_FrameClearDesign() local_unnamed_addr #6 {
   ret void
 }
 
@@ -5821,9 +5815,9 @@ define void @Abc_FrameUpdateGia(ptr noundef captures(none) %0, ptr noundef %1) l
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #6 {
+define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !43
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %5
@@ -5888,11 +5882,11 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   br label %31
 
 31:                                               ; preds = %2, %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_FrameGetGia(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -6436,7 +6430,7 @@ define void @Abc_Init(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandPrintStats(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -10686,7 +10680,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSweep(ptr noundef %0, i32 nounde
 define internal range(i32 0, 2) i32 @Abc_CommandFastExtract(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.FxuDataStruct, align 8
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Abc_NtkSetDefaultFxParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -11012,7 +11006,7 @@ Abc_NtkIsSopLogic.exit:                           ; preds = %120
 
 159:                                              ; preds = %.loopexit, %138, %127, %124, %119, %117, %109
   %.070 = phi i32 [ 1, %.loopexit ], [ 1, %109 ], [ 0, %117 ], [ 1, %127 ], [ 0, %138 ], [ 1, %124 ], [ 1, %119 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.070
 }
 
@@ -11652,7 +11646,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %Abc_NtkIsBddLo
 define internal range(i32 0, 2) i32 @Abc_CommandLutpack(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Lpk_Par_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -11885,7 +11879,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutpack(ptr noundef %0, i32 noun
 
 101:                                              ; preds = %88, %.loopexit, %90, %87, %85, %83
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %83 ], [ 1, %87 ], [ 1, %90 ], [ 1, %85 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -11988,7 +11982,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutmin(ptr noundef %0, i32 nound
 define internal range(i32 0, 2) i32 @Abc_CommandMfs(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Mfs_Par_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Abc_NtkMfsParsDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -12292,7 +12286,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs(ptr noundef %0, i32 noundef 
 
 152:                                              ; preds = %123, %.loopexit, %125, %122, %120
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %120 ], [ 1, %125 ], [ 1, %122 ], [ 0, %123 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -12300,7 +12294,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs(ptr noundef %0, i32 noundef 
 define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sfm_Par_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Sfm_ParSetDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -12712,7 +12706,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef
 
 197:                                              ; preds = %171, %170, %172, %.loopexit, %174, %169, %166, %162, %157, %145, %143
   %.096 = phi i32 [ 1, %.loopexit ], [ 1, %143 ], [ 0, %157 ], [ 0, %162 ], [ 0, %166 ], [ 1, %169 ], [ 1, %174 ], [ 1, %145 ], [ 0, %172 ], [ 0, %170 ], [ 0, %171 ]
-  call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.096
 }
 
@@ -12720,7 +12714,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfs2(ptr noundef %0, i32 noundef
 define internal range(i32 0, 2) i32 @Abc_CommandMfs3(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sfm_Par_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Sfm_ParSetDefault3(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -13244,7 +13238,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %236, %Abc_NtkIsMapp
 
 279:                                              ; preds = %.loopexit, %241, %Abc_NtkIsMappedLogic.exit.thread, %235
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %235 ], [ 0, %241 ], [ 1, %Abc_NtkIsMappedLogic.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -13252,7 +13246,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %236, %Abc_NtkIsMapp
 define internal range(i32 0, 2) i32 @Abc_CommandMfse(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Acb_Par_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Acb_ParSetDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -13501,7 +13495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMfse(ptr noundef %0, i32 noundef
 
 125:                                              ; preds = %.loopexit, %110, %109, %104, %100, %98
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %98 ], [ 1, %104 ], [ 1, %109 ], [ 0, %110 ], [ 1, %100 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -14201,7 +14195,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAddBuffs(ptr noundef %0, i32 nou
 define internal range(i32 0, 2) i32 @Abc_CommandMerge(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Nwk_LMPars_t_, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -14423,7 +14417,7 @@ Vec_IntFree.exit:                                 ; preds = %92, %96
 
 106:                                              ; preds = %.loopexit, %Vec_IntFree.exit, %91
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %91 ], [ 0, %Vec_IntFree.exit ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -14964,7 +14958,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunSat(ptr readnone captures(non
 
 40:                                               ; preds = %32
   %41 = tail call i32 @fclose(ptr noundef nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #32
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %Abc_Clock.exit, label %44
@@ -14980,7 +14974,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunSat(ptr readnone captures(non
 
 Abc_Clock.exit:                                   ; preds = %40, %44
   %.0.i.neg = phi i64 [ %.neg61, %44 ], [ 1, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %.036.ph125, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -14990,21 +14984,21 @@ Abc_Clock.exit:                                   ; preds = %40, %44
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %.04373.us = phi i32 [ %50, %.critedge.us ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %48 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.1148, i32 noundef %.04373.us, ptr noundef %35) #32
   %49 = call i32 @system(ptr noundef nonnull %6) #32
   %.not53.us = icmp eq i32 %49, -1
   br i1 %.not53.us, label %.split.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = add nuw nsw i32 %.04373.us, 1
   %exitcond91.not = icmp eq i32 %50, %.036.ph125
   br i1 %exitcond91.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !240
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.04373 = phi i32 [ %55, %.critedge ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.1147, i32 noundef %.04373, ptr noundef %35) #32
   %52 = call i32 @system(ptr noundef nonnull %6) #32
   %.not53 = icmp eq i32 %52, -1
@@ -15013,18 +15007,18 @@ Abc_Clock.exit:                                   ; preds = %40, %44
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %53 = load ptr, ptr @stdout, align 8, !tbaa !67
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.1149, ptr noundef nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %72
 
 .critedge:                                        ; preds = %.lr.ph.split
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = add nuw nsw i32 %.04373, 1
   %exitcond.not = icmp eq i32 %55, %.036.ph125
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %Abc_Clock.exit
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1150, i32 noundef %.036.ph125)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #32
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %Abc_Clock.exit59, label %59
@@ -15040,7 +15034,7 @@ Abc_Clock.exit:                                   ; preds = %40, %44
 
 Abc_Clock.exit59:                                 ; preds = %._crit_edge, %59
   %.0.i58 = phi i64 [ %65, %59 ], [ -1, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = add i64 %.0.i58, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1157, ptr noundef nonnull @.str.1151)
   %67 = sitofp i64 %66 to double
@@ -15073,7 +15067,7 @@ Abc_Clock.exit59:                                 ; preds = %._crit_edge, %59
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -15270,7 +15264,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(non
 
 66:                                               ; preds = %.thread, %.loopexit, %._crit_edge
   %.2 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -15439,7 +15433,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunGen(ptr readnone captures(non
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandRunTest(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -15501,7 +15495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunTest(ptr readnone captures(no
 
 22:                                               ; preds = %.loopexit, %._crit_edge
   %.020 = phi i32 [ 1, %.loopexit ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.020
 }
 
@@ -17203,7 +17197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBsEval(ptr readnone captures(non
   br i1 %.not87101, label %97, label %88
 
 88:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   %89 = call fastcc i32 @Abc_TtReadHex(ptr noundef nonnull %4, ptr noundef nonnull %.0100)
   %.not90 = icmp eq i32 %.061.ph273, 0
@@ -17220,7 +17214,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBsEval(ptr readnone captures(non
   br label %94
 
 94:                                               ; preds = %93, %90
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %97
 
 .loopexit.sink.split:                             ; preds = %7, %27, %47, %36, %17
@@ -17619,8 +17613,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandFaultClasses(ptr noundef %0, i32
 define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [64 x i64], align 16
   %5 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer285
 
@@ -17919,8 +17913,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandExact(ptr noundef %0, i32 nounde
 
 101:                                              ; preds = %94, %93, %98, %97, %.loopexit, %68
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %68 ], [ 0, %97 ], [ 0, %98 ], [ 0, %93 ], [ 0, %94 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -18131,10 +18125,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAIGAugmentation(ptr noundef %0, 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -18345,10 +18339,10 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 79:                                               ; preds = %73, %74, %.loopexit, %76, %38, %35, %33
   %.053 = phi i32 [ 1, %.loopexit ], [ 1, %33 ], [ 1, %38 ], [ 1, %76 ], [ 1, %35 ], [ 0, %74 ], [ 0, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.053
 }
 
@@ -18719,7 +18713,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr readnone captures(n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   store i32 2, ptr %5, align 8, !tbaa !269
@@ -19128,14 +19122,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr readnone captures(n
 
 159:                                              ; preds = %131, %135, %138, %137, %133, %144, %129, %126, %122, %113, %112
   %.0 = phi i32 [ 1, %144 ], [ 0, %112 ], [ 1, %113 ], [ 1, %122 ], [ 1, %126 ], [ 1, %129 ], [ 0, %133 ], [ 0, %137 ], [ 0, %138 ], [ 0, %135 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -19614,14 +19608,14 @@ thread-pre-split:                                 ; preds = %151, %152
 
 189:                                              ; preds = %169, %173, %171, %178, %167, %164, %161, %156, %150, %143
   %.0 = phi i32 [ 1, %178 ], [ 1, %143 ], [ 1, %150 ], [ 1, %156 ], [ 1, %161 ], [ 1, %164 ], [ 1, %167 ], [ 0, %171 ], [ 0, %173 ], [ 0, %169 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, i8 0, i64 96, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -20017,7 +20011,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr readnone captures(n
 
 161:                                              ; preds = %151, %145, %144, %141, %138, %135, %132, %123, %.thread162, %107, %104, %95
   %.0 = phi i32 [ 1, %151 ], [ 1, %95 ], [ 1, %132 ], [ 1, %135 ], [ 1, %138 ], [ 0, %145 ], [ 1, %141 ], [ 1, %144 ], [ 1, %104 ], [ 1, %107 ], [ 1, %.thread162 ], [ 1, %123 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -20310,11 +20304,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandMiter(ptr noundef %0, i32 nounde
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -20554,11 +20548,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandMiter(ptr noundef %0, i32 nounde
 
 86:                                               ; preds = %41, %80, %76, %75, %39, %38
   %.047 = phi i32 [ 1, %80 ], [ 0, %38 ], [ 0, %39 ], [ 0, %75 ], [ 0, %76 ], [ 1, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.047
 }
 
@@ -22913,7 +22907,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtSeqDcs(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandReach(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Saig_ParBbr_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Bbr_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -23149,7 +23143,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandReach(ptr noundef %0, i32 nounde
 
 112:                                              ; preds = %86, %93, %.loopexit, %85, %78, %76, %72
   %.052 = phi i32 [ 1, %.loopexit ], [ 1, %72 ], [ 0, %76 ], [ 0, %85 ], [ 1, %78 ], [ 0, %93 ], [ 0, %86 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.052
 }
 
@@ -24418,7 +24412,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCareSet(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cut_ParamsStruct_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -24791,7 +24785,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
 
 137:                                              ; preds = %112, %.critedge, %121, %108, %106, %103, %101
   %.077 = phi i32 [ 1, %121 ], [ 1, %101 ], [ 1, %106 ], [ 1, %108 ], [ 1, %103 ], [ 0, %.critedge ], [ 0, %112 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.077
 }
 
@@ -24836,7 +24830,7 @@ sub_1:                                            ; preds = %sub_0
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %5
 
@@ -25166,14 +25160,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef 
 
 116:                                              ; preds = %.loopexit, %102, %101, %97, %74
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %74 ], [ 0, %102 ], [ 0, %97 ], [ 0, %101 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandGenTF(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -25504,14 +25498,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .critedge:                                        ; preds = %63, %66, %.loopexit, %114, %107, %._crit_edge146.thread, %43, %41
   %.085 = phi i32 [ 1, %.loopexit ], [ 0, %41 ], [ 0, %43 ], [ 0, %._crit_edge146.thread ], [ 0, %107 ], [ 0, %114 ], [ 0, %66 ], [ 0, %63 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.085
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandGenAT(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -25675,7 +25669,7 @@ Vec_IntFree.exit:                                 ; preds = %55, %59
 
 62:                                               ; preds = %.loopexit, %Vec_IntFree.exit
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %Vec_IntFree.exit ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -26160,10 +26154,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -26318,10 +26312,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
 
 60:                                               ; preds = %15, %57, %56, %55
   %.024 = phi i32 [ 1, %57 ], [ 0, %55 ], [ 0, %56 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
 
@@ -26614,7 +26608,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr readnone captures(none)
   br i1 %or.cond, label %20, label %38
 
 20:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1000, ptr noundef nonnull %16)
   %.not2021 = icmp eq ptr %21, null
   br i1 %.not2021, label %.thread, label %.lr.ph
@@ -26650,7 +26644,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr readnone captures(none)
   br i1 %.not20, label %.thread, label %.lr.ph, !llvm.loop !352
 
 .thread:                                          ; preds = %35, %20
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %39
 
 38:                                               ; preds = %10
@@ -27635,13 +27629,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandRestore(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @Abc_CommandMinisat(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #9 {
+define internal noundef i32 @Abc_CommandMinisat(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #8 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   ret i32 1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @Abc_CommandMinisimp(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #9 {
+define internal noundef i32 @Abc_CommandMinisimp(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #8 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   ret i32 1
 }
@@ -27866,7 +27860,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIRewrite(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandDRewrite(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dar_RwrPar_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Dar_ManDefaultRwrParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -28079,14 +28073,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRewrite(ptr noundef %0, i32 nou
 
 97:                                               ; preds = %.loopexit, %81, %80, %76, %74
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %74 ], [ 0, %80 ], [ 0, %81 ], [ 1, %76 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandDRefactor(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dar_RefPar_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -28279,7 +28273,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDRefactor(ptr noundef %0, i32 no
 
 90:                                               ; preds = %.loopexit, %76, %75, %71, %67, %65
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %65 ], [ 1, %71 ], [ 0, %75 ], [ 0, %76 ], [ 1, %67 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -28566,7 +28560,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDChoice(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandDch(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -28797,7 +28791,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDch(ptr noundef %0, i32 noundef 
 
 110:                                              ; preds = %.loopexit, %88, %87, %83, %81
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %81 ], [ 0, %87 ], [ 0, %88 ], [ 1, %83 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -29797,8 +29791,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandQbf(ptr noundef %0, i32 noundef 
 define internal range(i32 0, 2) i32 @Abc_CommandFraig(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [100 x i8], align 16
   %5 = alloca %struct.Fraig_ParamsStruct_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
@@ -30077,8 +30071,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraig(ptr noundef %0, i32 nounde
 
 118:                                              ; preds = %.loopexit, %103, %99, %82, %79
   %.078 = phi i32 [ 1, %.loopexit ], [ 1, %79 ], [ 1, %99 ], [ 0, %103 ], [ 1, %82 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.078
 }
 
@@ -30528,7 +30522,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigDress(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #32
   %indvars.iv.sroa.gep106 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -30646,7 +30640,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr readnone captures(
 
 45:                                               ; preds = %.loopexit, %39
   %.031 = phi i32 [ 1, %.loopexit ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031
 }
 
@@ -31161,7 +31155,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecMerge3(ptr readnone captures(
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %6
@@ -31505,14 +31499,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandMap(ptr noundef %0, i32 noundef 
 
 138:                                              ; preds = %126, %121, %114, %110, %106, %102, %97
   %.0 = phi i32 [ 1, %126 ], [ 1, %97 ], [ 1, %114 ], [ 0, %121 ], [ 1, %102 ], [ 1, %106 ], [ 1, %110 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Amap_Par_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Amap_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -31785,7 +31779,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAmap(ptr noundef %0, i32 noundef
 
 129:                                              ; preds = %.loopexit, %112, %105, %101, %97, %93, %88
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %88 ], [ 1, %105 ], [ 0, %112 ], [ 1, %93 ], [ 1, %97 ], [ 1, %101 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -32199,9 +32193,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
   %4 = alloca [100 x i8], align 16
   %5 = alloca [100 x i8], align 16
   %6 = alloca %struct.If_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @If_ManSetDefaultPars(ptr noundef nonnull %6) #32
   %8 = call ptr (...) @Abc_FrameReadLibLut() #32
@@ -33481,9 +33475,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 
 .critedge:                                        ; preds = %475, %481, %471, %465, %372, %377, %385, %548, %535, %534, %530, %523, %519, %514, %505, %500, %492, %488, %417, %414, %411, %395, %391, %366, %359, %354, %341, %332, %328, %321, %314, %111
   %.0 = phi i32 [ 1, %548 ], [ 0, %111 ], [ 1, %314 ], [ 1, %321 ], [ 1, %328 ], [ 1, %332 ], [ 1, %341 ], [ 1, %354 ], [ 1, %359 ], [ 1, %391 ], [ 1, %395 ], [ 1, %411 ], [ 1, %414 ], [ 1, %417 ], [ 0, %492 ], [ 0, %505 ], [ 1, %514 ], [ 0, %534 ], [ 0, %535 ], [ 1, %519 ], [ 1, %523 ], [ 0, %530 ], [ 0, %500 ], [ 0, %488 ], [ 1, %366 ], [ 1, %385 ], [ 1, %377 ], [ 1, %372 ], [ 0, %465 ], [ 0, %471 ], [ 0, %481 ], [ 0, %475 ]
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -33491,7 +33485,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIf(ptr noundef %0, i32 noundef %
 define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ifif_Par_t_, align 8
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call ptr (...) @Abc_FrameReadLibLut() #32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !495
@@ -33722,7 +33716,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
 
 ._crit_edge.thread132:                            ; preds = %.thread, %._crit_edge, %.loopexit, %._crit_edge.thread, %57, %51, %48, %46
   %.062 = phi i32 [ 1, %.loopexit ], [ 1, %46 ], [ 1, %51 ], [ 1, %57 ], [ 0, %._crit_edge.thread ], [ 1, %48 ], [ 1, %._crit_edge ], [ 1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.062
 }
 
@@ -36129,7 +36123,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCRetime(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Fra_Ssw_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   store i32 0, ptr %4, align 4, !tbaa !527
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -36546,14 +36540,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep(ptr noundef %0, i32 nou
 
 167:                                              ; preds = %155, %143, %142, %138, %136, %133, %131, %128
   %.0 = phi i32 [ 1, %155 ], [ 1, %128 ], [ 0, %131 ], [ 0, %136 ], [ 0, %138 ], [ 1, %142 ], [ 0, %143 ], [ 0, %133 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_Pars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -37138,14 +37132,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep2(ptr noundef %0, i32 no
 
 292:                                              ; preds = %.loopexit, %252, %251, %247, %239, %230, %225, %220, %218, %215
   %.0119 = phi i32 [ 1, %.loopexit ], [ 1, %215 ], [ 0, %218 ], [ 0, %225 ], [ 0, %230 ], [ 0, %239 ], [ 0, %247 ], [ 1, %251 ], [ 0, %252 ], [ 0, %220 ]
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0119
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Fra_Ssw_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !527
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !529
@@ -37520,7 +37514,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr readnone captur
 
 158:                                              ; preds = %146, %129, %134
   %.0 = phi i32 [ 1, %146 ], [ 0, %129 ], [ 1, %134 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -38616,9 +38610,9 @@ Abc_FrameReplaceCex.exit:                         ; preds = %76, %Vec_PtrFreeFre
 define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_RarPars_t_, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Ssw_RarSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -39093,8 +39087,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSim3(ptr noundef %0, i32 noundef
 
 228:                                              ; preds = %.thread, %202, %203, %.loopexit, %198, %139, %135, %133
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %133 ], [ 1, %139 ], [ 1, %198 ], [ 1, %135 ], [ 0, %203 ], [ 0, %202 ], [ 1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -39223,7 +39217,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
   br i1 %.not78, label %64, label %42
 
 42:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = icmp eq ptr %44, null
@@ -39275,7 +39269,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDarPhase(ptr noundef %0, i32 nou
 
 63:                                               ; preds = %62, %.critedge, %53, %46
   %.1 = phi i32 [ 1, %46 ], [ 1, %53 ], [ 0, %.critedge ], [ 1, %62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %78
 
 64:                                               ; preds = %41
@@ -39345,10 +39339,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandSynch(ptr noundef %0, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -39513,17 +39507,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandSynch(ptr noundef %0, i32 nounde
 
 68:                                               ; preds = %32, %.loopexit, %66, %65, %53, %29
   %.027 = phi i32 [ 1, %.loopexit ], [ 1, %29 ], [ 0, %65 ], [ 0, %66 ], [ 0, %53 ], [ 1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cgt_Par_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Cgt_SetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -39776,7 +39770,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandClockGate(ptr noundef %0, i32 no
 
 129:                                              ; preds = %.loopexit, %116, %115, %112, %105, %93
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %93 ], [ 1, %105 ], [ 0, %115 ], [ 0, %116 ], [ 0, %112 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -40864,7 +40858,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(non
   br i1 %or.cond, label %58, label %66
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = add nsw i32 %.080, -6
   %or.cond3 = icmp ult i32 %59, -3
   br i1 %or.cond3, label %65, label %60
@@ -40883,12 +40877,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(non
   br label %.thread
 
 .thread:                                          ; preds = %63, %60
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %80
 
 65:                                               ; preds = %58
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2665)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 66:                                               ; preds = %55
@@ -40962,11 +40956,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCec(ptr noundef %0, i32 noundef 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %10
@@ -41252,11 +41246,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandCec(ptr noundef %0, i32 noundef 
 
 115:                                              ; preds = %103, %105, %65, %110, %64
   %.066 = phi i32 [ 1, %110 ], [ 1, %64 ], [ 1, %65 ], [ 0, %105 ], [ 0, %103 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.066
 }
 
@@ -41266,10 +41260,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandDCec(ptr noundef %0, i32 noundef
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -41560,10 +41554,10 @@ thread-pre-split:                                 ; preds = %58
 
 105:                                              ; preds = %97, %99, %58, %.loopexit, %84, %53
   %.061 = phi i32 [ 1, %.loopexit ], [ 1, %53 ], [ 1, %84 ], [ 1, %58 ], [ 0, %99 ], [ 0, %97 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.061
 }
 
@@ -41574,11 +41568,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSec(ptr noundef %0, i32 noundef
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Fra_SecSetDefaultParams(ptr noundef nonnull %4) #32
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 100
@@ -41857,11 +41851,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSec(ptr noundef %0, i32 noundef
 
 129:                                              ; preds = %109, %111, %64, %.loopexit, %86
   %.043 = phi i32 [ 1, %.loopexit ], [ 0, %86 ], [ 1, %64 ], [ 0, %111 ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.043
 }
 
@@ -41869,7 +41863,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSec(ptr noundef %0, i32 noundef
 define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Fra_Sec_t_, align 4
   %5 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Fra_SecSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -42272,7 +42266,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 nound
   br i1 %214, label %215, label %260
 
 215:                                              ; preds = %211
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %216 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.2718, i32 noundef %213) #32
   %217 = call i32 @Io_ReadFileType(ptr noundef nonnull %5) #32
   %218 = call ptr @Io_Read(ptr noundef nonnull %5, i32 noundef %217, i32 noundef 1, i32 noundef 0) #32
@@ -42288,7 +42282,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 nound
   br label %222
 
 222:                                              ; preds = %221, %220
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %260
 
 .loopexit.sink.split:                             ; preds = %144, %133, %122, %111, %100, %89, %78, %67, %56, %46, %36
@@ -42384,7 +42378,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDProve(ptr noundef %0, i32 nound
 
 260:                                              ; preds = %209, %211, %222, %.loopexit, %198, %191, %189
   %.0113 = phi i32 [ 1, %.loopexit ], [ 1, %189 ], [ 0, %198 ], [ 0, %191 ], [ 0, %222 ], [ 0, %211 ], [ 0, %209 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0113
 }
 
@@ -42394,10 +42388,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbSec(ptr noundef %0, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -42578,10 +42572,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbSec(ptr noundef %0, i32 nounde
 
 75:                                               ; preds = %39, %38, %71, %69, %40, %.loopexit, %61, %33, %31
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %31 ], [ 0, %33 ], [ 0, %61 ], [ 1, %40 ], [ 0, %69 ], [ 0, %71 ], [ 0, %38 ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -42592,11 +42586,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSimSec(ptr noundef %0, i32 nound
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %4) #32
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -42806,11 +42800,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSimSec(ptr noundef %0, i32 nound
 
 96:                                               ; preds = %53, %85, %83, %55, %.loopexit, %77, %52
   %.035 = phi i32 [ 1, %.loopexit ], [ 0, %52 ], [ 0, %77 ], [ 1, %55 ], [ 0, %83 ], [ 0, %85 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.035
 }
 
@@ -42820,10 +42814,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandMatch(ptr noundef %0, i32 nounde
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -42995,10 +42989,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandMatch(ptr noundef %0, i32 nounde
 
 69:                                               ; preds = %31, %.loopexit, %66, %65, %53, %28
   %.031 = phi i32 [ 1, %.loopexit ], [ 1, %65 ], [ 0, %66 ], [ 0, %28 ], [ 0, %53 ], [ 1, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.031
 }
 
@@ -43086,7 +43080,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSat(ptr noundef %0, i32 noundef 
   br label %82
 
 38:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #32
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %Abc_Clock.exit, label %41
@@ -43102,7 +43096,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSat(ptr noundef %0, i32 noundef 
 
 Abc_Clock.exit:                                   ; preds = %38, %41
   %.0.i.neg = phi i64 [ %.neg64, %41 ], [ 1, %38 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.val59 = load i32, ptr %6, align 8, !tbaa !72
   %.not = icmp eq i32 %.val59, 3
   br i1 %.not, label %47, label %45
@@ -43157,7 +43151,7 @@ Abc_Clock.exit:                                   ; preds = %38, %41
 68:                                               ; preds = %63, %66
   %.str.2764.sink = phi ptr [ @.str.2764, %66 ], [ %.str.1965..str.1967, %63 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %.str.2764.sink)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #32
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %Abc_Clock.exit61, label %71
@@ -43173,7 +43167,7 @@ Abc_Clock.exit:                                   ; preds = %38, %41
 
 Abc_Clock.exit61:                                 ; preds = %68, %71
   %.0.i60 = phi i64 [ %77, %71 ], [ -1, %68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = add i64 %.0.i60, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1157, ptr noundef nonnull @.str.1151)
   %79 = sitofp i64 %78 to double
@@ -43366,7 +43360,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
   br i1 %73, label %74, label %107
 
 74:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !653
   %75 = sext i32 %71 to i64
   %76 = getelementptr inbounds ptr, ptr %2, i64 %75
@@ -43432,7 +43426,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
   br label %106
 
 106:                                              ; preds = %105, %103, %80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %152
 
 107:                                              ; preds = %70
@@ -43721,7 +43715,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr readnone captures(none)
   %66 = sext i32 %62 to i64
   %67 = getelementptr inbounds ptr, ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = tail call noalias ptr @fopen(ptr noundef %68, ptr noundef nonnull @.str.1145)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %73
@@ -43732,7 +43726,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr readnone captures(none)
 
 73:                                               ; preds = %65
   %74 = call i32 @xSAT_SolverParseDimacs(ptr noundef nonnull %69, ptr noundef nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #32
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %Abc_Clock.exit, label %77
@@ -43748,7 +43742,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr readnone captures(none)
 
 Abc_Clock.exit:                                   ; preds = %73, %77
   %.0.i.neg = phi i64 [ %.neg77, %77 ], [ 1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %81 = load ptr, ptr %6, align 8, !tbaa !655
   %82 = call i32 @xSAT_SolverSolve(ptr noundef %81) #32
   %83 = call i32 @fclose(ptr noundef nonnull %69)
@@ -43759,7 +43753,7 @@ Abc_Clock.exit:                                   ; preds = %73, %77
   %switch.selectcmp189 = icmp eq i32 %82, 0
   %switch.select190 = select i1 %switch.selectcmp189, ptr @.str.1965, ptr %switch.select
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %switch.select190)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %85 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #32
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %Abc_Clock.exit75, label %87
@@ -43775,7 +43769,7 @@ Abc_Clock.exit:                                   ; preds = %73, %77
 
 Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %87
   %.0.i74 = phi i64 [ %93, %87 ], [ -1, %Abc_Clock.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %94 = add i64 %.0.i74, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1157, ptr noundef nonnull @.str.1151)
   %95 = sitofp i64 %94 to double
@@ -43786,7 +43780,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %87
   br label %98
 
 98:                                               ; preds = %Abc_Clock.exit75, %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %100
 
 .loopexit.sink.split:                             ; preds = %19, %39, %9, %49, %29
@@ -43825,7 +43819,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr readnone captures(non
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.satoko_opts, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @satoko_default_opts(ptr noundef nonnull %6) #32
   %8 = call ptr @Cmd_DeriveOptionFromSettings(i32 noundef %1, ptr noundef %2) #32
   %9 = icmp eq ptr %8, null
@@ -43843,11 +43837,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr readnone captures(non
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds ptr, ptr %2, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = call i32 @satoko_parse_dimacs(ptr noundef %17, ptr noundef nonnull %7) #32
   %19 = load ptr, ptr %7, align 8, !tbaa !657
   call void @satoko_configure(ptr noundef %19, ptr noundef nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #32
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %Abc_Clock.exit, label %22
@@ -43863,7 +43857,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr readnone captures(non
 
 Abc_Clock.exit:                                   ; preds = %14, %22
   %.0.i.neg = phi i64 [ %.neg19, %22 ], [ 1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = icmp eq i32 %18, 1
   br i1 %26, label %27, label %30
 
@@ -43879,7 +43873,7 @@ Abc_Clock.exit:                                   ; preds = %14, %22
   %switch.selectcmp20 = icmp eq i32 %.0, 0
   %switch.select21 = select i1 %switch.selectcmp20, ptr @.str.1965, ptr %switch.select
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull %switch.select21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #32
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %Abc_Clock.exit17, label %33
@@ -43895,7 +43889,7 @@ Abc_Clock.exit:                                   ; preds = %14, %22
 
 Abc_Clock.exit17:                                 ; preds = %30, %33
   %.0.i16 = phi i64 [ %39, %33 ], [ -1, %30 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = add i64 %.0.i16, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1157, ptr noundef nonnull @.str.1151)
   %41 = sitofp i64 %40 to double
@@ -43903,7 +43897,7 @@ Abc_Clock.exit17:                                 ; preds = %30, %33
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1158, double noundef %42)
   %43 = load ptr, ptr %7, align 8, !tbaa !657
   call void @satoko_destroy(ptr noundef %43) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 44:                                               ; preds = %10, %3
@@ -43976,14 +43970,14 @@ Abc_Clock.exit17:                                 ; preds = %30, %33
 
 85:                                               ; preds = %44, %Abc_Clock.exit17
   %.013 = phi i32 [ 1, %44 ], [ 0, %Abc_Clock.exit17 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.satoko_opts, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @satoko_default_opts(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 100
@@ -44097,14 +44091,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr noundef readonly 
 
 46:                                               ; preds = %.loopexit, %40, %39, %31
   %.017 = phi i32 [ 1, %.loopexit ], [ 0, %31 ], [ 1, %39 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.satoko_opts, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @satoko_default_opts(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 100
@@ -44203,7 +44197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat3(ptr noundef readonly ca
 
 38:                                               ; preds = %.loopexit, %32, %31
   %.014 = phi i32 [ 1, %.loopexit ], [ 1, %31 ], [ 0, %32 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.014
 }
 
@@ -44626,8 +44620,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPSat(ptr noundef %0, i32 noundef
 define internal range(i32 0, 2) i32 @Abc_CommandProve(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.Prove_ParamsStruct_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Prove_ParamsSetDefault(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -44928,8 +44922,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandProve(ptr noundef %0, i32 nounde
 
 149:                                              ; preds = %.loopexit, %129, %107, %103, %99
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %99 ], [ 0, %103 ], [ 0, %107 ], [ 0, %129 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -44938,8 +44932,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
   %4 = alloca %struct.Prove_ParamsStruct_t_, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Prove_ParamsSetDefault(ptr noundef nonnull %4) #32
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -45255,7 +45249,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %148, i64 304
   %153 = load ptr, ptr %152, align 8, !tbaa !651
   %154 = getelementptr i8, ptr %148, i64 40
@@ -45265,7 +45259,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
   %156 = call ptr @Abc_CexDeriveFromCombModel(ptr noundef %153, i32 noundef %.val118.val, i32 noundef 0, i32 noundef %.085120) #32
   store ptr %156, ptr %6, align 8, !tbaa !23
   call void @Abc_FrameReplaceCex(ptr noundef nonnull %0, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %157
 
 157:                                              ; preds = %151, %147, %142
@@ -45327,8 +45321,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandIProve(ptr noundef %0, i32 nound
 
 181:                                              ; preds = %157, %158, %.loopexit, %111, %107
   %.084 = phi i32 [ 1, %.loopexit ], [ 1, %107 ], [ 1, %111 ], [ 0, %158 ], [ 0, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.084
 }
 
@@ -45375,7 +45369,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDebug(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandEco(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.642) #32
   %.not = icmp eq i32 %5, -1
@@ -45407,7 +45401,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandEco(ptr readnone captures(none) 
 
 13:                                               ; preds = %12, %.preheader.preheader, %11
   %.08 = phi i32 [ 1, %12 ], [ 1, %11 ], [ 0, %.preheader.preheader ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.08
 }
 
@@ -45415,7 +45409,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandEco(ptr readnone captures(none) 
 define internal range(i32 0, 2) i32 @Abc_CommandBmc(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %6
 
@@ -45661,7 +45655,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc(ptr noundef %0, i32 noundef 
 
 104:                                              ; preds = %89, %95, %.loopexit, %88, %81, %77, %75
   %.063 = phi i32 [ 1, %.loopexit ], [ 1, %75 ], [ 0, %81 ], [ 0, %88 ], [ 0, %77 ], [ 0, %95 ], [ 0, %89 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.063
 }
 
@@ -45669,7 +45663,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc(ptr noundef %0, i32 noundef 
 define internal range(i32 0, 2) i32 @Abc_CommandBmc2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %6
 
@@ -45966,7 +45960,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc2(ptr noundef %0, i32 noundef
 
 126:                                              ; preds = %111, %117, %.loopexit, %110, %103, %99, %97
   %.0100 = phi i32 [ 1, %.loopexit ], [ 1, %97 ], [ 0, %103 ], [ 0, %110 ], [ 0, %99 ], [ 0, %117 ], [ 0, %111 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0100
 }
 
@@ -45975,11 +45969,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
   %4 = alloca %struct.Saig_ParBmc_t_, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !40
   call void @Saig_ParBmcSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -46558,9 +46552,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
 
 291:                                              ; preds = %257, %258, %.loopexit, %253, %221, %214, %210, %206, %204
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %204 ], [ 0, %210 ], [ 0, %214 ], [ 0, %221 ], [ 1, %253 ], [ 0, %206 ], [ 0, %258 ], [ 0, %257 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -46568,8 +46562,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmc3(ptr noundef %0, i32 noundef
 define internal range(i32 0, 2) i32 @Abc_CommandBmcInter(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Inter_ManParams_t_, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Inter_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -47035,8 +47029,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmcInter(ptr noundef %0, i32 nou
 
 222:                                              ; preds = %.thread, %182, %183, %.loopexit, %155, %142, %138, %134, %127, %125
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %125 ], [ 0, %134 ], [ 0, %138 ], [ 0, %142 ], [ 0, %155 ], [ 0, %127 ], [ 0, %183 ], [ 0, %182 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -47566,7 +47560,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTempor(ptr noundef %0, i32 nound
   br i1 %.not82, label %78, label %63
 
 63:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %65 = load ptr, ptr %64, align 8, !tbaa !3
   %66 = icmp eq ptr %65, null
@@ -47599,7 +47593,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTempor(ptr noundef %0, i32 nound
 
 77:                                               ; preds = %73, %72, %67
   %.1 = phi i32 [ 1, %67 ], [ 1, %72 ], [ 0, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
 78:                                               ; preds = %62
@@ -48801,10 +48795,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm(ptr noundef %0, i32 noundef %
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %9 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #32
   %10 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #32
@@ -48919,10 +48913,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm(ptr noundef %0, i32 noundef %
 
 48:                                               ; preds = %44, %46, %36, %38, %14, %.loopexit
   %.013 = phi i32 [ 1, %.loopexit ], [ 1, %14 ], [ 1, %38 ], [ 1, %36 ], [ 0, %46 ], [ 0, %44 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
 
@@ -48932,10 +48926,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   %9 = tail call ptr @Abc_FrameReadOut(ptr noundef %0) #32
   %10 = tail call ptr @Abc_FrameReadErr(ptr noundef %0) #32
@@ -49191,10 +49185,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandBm2(ptr noundef %0, i32 noundef 
 
 128:                                              ; preds = %123, %125, %35, %37, %13, %127
   %.0 = phi i32 [ 1, %127 ], [ 1, %13 ], [ 1, %37 ], [ 1, %35 ], [ 0, %125 ], [ 0, %123 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -49672,7 +49666,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestCex(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandPdr(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Pdr_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #32
   call void @Pdr_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -50304,7 +50298,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdr(ptr noundef %0, i32 noundef 
 
 318:                                              ; preds = %257, %258, %.loopexit, %229, %222, %220
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %220 ], [ 0, %229 ], [ 0, %222 ], [ 0, %258 ], [ 0, %257 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -51277,7 +51271,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlockPo(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandIso(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %5
@@ -51418,7 +51412,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %21, %Vec_VecFree.ex
 
 50:                                               ; preds = %.loopexit, %Abc_FrameReplacePoEquivs.exit, %20, %15, %13
   %.020 = phi i32 [ 1, %.loopexit ], [ 0, %13 ], [ 0, %20 ], [ 0, %Abc_FrameReplacePoEquivs.exit ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.020
 }
 
@@ -52087,7 +52081,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Put(ptr noundef %0, i32 noun
   br i1 %.not141, label %136, label %92
 
 92:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %93 = getelementptr i8, ptr %.0125, i64 128
   %.0125.val167 = load i32, ptr %93, align 8, !tbaa !43
   %94 = icmp ult i32 %.0125.val167, 2
@@ -52183,7 +52177,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %Abc_Base10Log.exit
   %.pre223 = phi ptr [ %.pre223.pre, %.critedge2.loopexit ], [ %89, %Abc_Base10Log.exit ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
 
 136:                                              ; preds = %.critedge2, %.critedge
@@ -53974,7 +53968,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteLut(ptr noundef readonl
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gps_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -54179,7 +54173,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr noundef readonly capt
 
 82:                                               ; preds = %64, %70, %.loopexit, %69, %63
   %.036 = phi i32 [ 1, %.loopexit ], [ 1, %63 ], [ 1, %69 ], [ 0, %70 ], [ 0, %64 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.036
 }
 
@@ -54789,7 +54783,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxDec(ptr noundef captures(
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -54933,7 +54927,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr noundef reado
 
 .loopexit:                                        ; preds = %.lr.ph, %48, %.loopexit51, %47, %40, %33
   %.034 = phi i32 [ 1, %.loopexit51 ], [ 1, %33 ], [ 1, %40 ], [ 1, %47 ], [ 0, %48 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.034
 }
 
@@ -56687,7 +56681,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dfs(ptr noundef captures(non
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParSim_t_, align 4
   %5 = alloca [1000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Gia_ManSimSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -56840,7 +56834,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(non
   br i1 %.not58, label %88, label %81
 
 81:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %82 = call ptr @Extra_FileNameGeneric(ptr noundef nonnull %.048.ph) #32
   %83 = call ptr @Extra_FileNameExtension(ptr noundef nonnull %.048.ph) #32
   %84 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.3439, ptr noundef %82, ptr noundef %83) #32
@@ -56854,7 +56848,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(non
 86:                                               ; preds = %81, %85
   %87 = load ptr, ptr %72, align 8, !tbaa !60
   call void @Gia_ManSimSimulatePattern(ptr noundef %87, ptr noundef nonnull %.048.ph, ptr noundef nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %102
 
 88:                                               ; preds = %80
@@ -56901,7 +56895,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(non
 
 102:                                              ; preds = %.loopexit, %88, %86, %79, %75
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %75 ], [ 0, %79 ], [ 1, %86 ], [ 0, %88 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -56909,7 +56903,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(non
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   %indvars.iv.sroa.gep331 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %indvars.iv.sroa.gep334 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -57038,7 +57032,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
   br i1 %58, label %59, label %86
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = load ptr, ptr %53, align 8, !tbaa !91
   store ptr %60, ptr %5, align 16, !tbaa !91
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -57051,7 +57045,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
   br i1 %.not, label %65, label %.thread, !llvm.loop !896
 
 .thread:                                          ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr %4, align 16, !tbaa !897
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre193 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !897
@@ -57115,7 +57109,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
 
 85:                                               ; preds = %84, %79
   %.187 = phi i32 [ 1, %79 ], [ 0, %84 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread127
 
 86:                                               ; preds = %57
@@ -57272,14 +57266,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly ca
 
 .thread127:                                       ; preds = %85, %99, %118, %112, %90, %.loopexit, %139, %133, %127, %56
   %.086 = phi i32 [ 1, %.loopexit ], [ 1, %56 ], [ 1, %127 ], [ 1, %133 ], [ 0, %139 ], [ %.187, %85 ], [ 1, %99 ], [ 0, %118 ], [ 1, %112 ], [ 1, %90 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.086
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_RarPars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Ssw_RarSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -57594,7 +57588,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %144, %Vec_PtrFreeDa
 
 Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exit.i, %127, %.loopexit, %118, %114
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %114 ], [ 0, %118 ], [ 0, %127 ], [ 0, %Vec_PtrFreeFree.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -58973,7 +58967,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SimRsb(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSim_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManSimSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -59070,7 +59064,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr noundef captures(n
 
 48:                                               ; preds = %.loopexit, %33, %32
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %32 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -59207,7 +59201,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSim_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManSimSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -59405,7 +59399,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr noundef readonly c
 
 101:                                              ; preds = %.loopexit, %87, %86
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %86 ], [ 0, %87 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -59633,7 +59627,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr noundef captures(
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_RarPars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Ssw_RarSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -59937,14 +59931,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr noundef captures(
 
 156:                                              ; preds = %.loopexit, %136, %133, %124, %114, %110
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %110 ], [ 0, %114 ], [ 0, %124 ], [ 1, %133 ], [ 0, %136 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSmf_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManSmfSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -60174,7 +60168,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr noundef readonly ca
 
 122:                                              ; preds = %.loopexit, %107, %106
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %106 ], [ 0, %107 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -60255,7 +60249,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Times(ptr noundef captures(n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParFra_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Gia_ManFraSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -60449,7 +60443,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr noundef captures(
 
 84:                                               ; preds = %.loopexit, %72, %56, %52
   %.047 = phi i32 [ 1, %.loopexit ], [ 1, %52 ], [ 0, %56 ], [ 0, %72 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.047
 }
 
@@ -61996,7 +61990,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn4(ptr noundef captures(no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 100, ptr %5, align 4, !tbaa !388
@@ -62186,7 +62180,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr noundef captures(
 
 91:                                               ; preds = %.loopexit, %80, %79, %57
   %.044 = phi i32 [ 1, %.loopexit ], [ 0, %57 ], [ 1, %79 ], [ 0, %80 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.044
 }
 
@@ -62952,7 +62946,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scl(ptr noundef captures(non
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCor_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManCorSetDefaultParams(ptr noundef nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %5, align 8, !tbaa !982
@@ -63172,14 +63166,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr noundef captures(n
 
 111:                                              ; preds = %.loopexit, %97, %96, %88, %87, %76
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %76 ], [ 0, %87 ], [ 0, %88 ], [ 0, %96 ], [ 0, %97 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCor_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManCorSetDefaultParams(ptr noundef nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 1, ptr %5, align 4, !tbaa !993
@@ -63603,14 +63597,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr noundef captures(n
 
 206:                                              ; preds = %165, %.loopexit, %183, %145, %137, %136, %125
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %125 ], [ 0, %136 ], [ 0, %137 ], [ 0, %145 ], [ 0, %183 ], [ 0, %165 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParChc_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManChcSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -63697,7 +63691,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr noundef captures(
 
 40:                                               ; preds = %.loopexit, %33, %32
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %32 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -63705,7 +63699,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr noundef captures(
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSat_t_, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManSatSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
@@ -63900,7 +63894,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat(ptr noundef captures(non
   br i1 %.not99, label %131, label %99
 
 99:                                               ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not100 = icmp eq i32 %.087, 0
   br i1 %.not100, label %104, label %100
 
@@ -63971,7 +63965,7 @@ Vec_IntFree.exit:                                 ; preds = %123, %126
 
 Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit, %130
   call void @free(ptr noundef nonnull %127) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %133
 
 131:                                              ; preds = %98
@@ -64130,7 +64124,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %162, %Vec_PtrFreeDa
 
 Abc_FrameReplaceCexVec.exit:                      ; preds = %167, %163, %133, %.loopexit, %97
   %.089 = phi i32 [ 1, %.loopexit ], [ 1, %97 ], [ 0, %133 ], [ 0, %163 ], [ 0, %167 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.089
 }
 
@@ -64236,7 +64230,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr noundef readonly
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9AdvGenSim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSimGen_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_SimGenSetParDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -64507,14 +64501,14 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 
 123:                                              ; preds = %.loopexit, %Abc_FrameReplaceCex.exit, %84
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %84 ], [ 0, %Abc_FrameReplaceCex.exit ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParFra_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec4_ManSetParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 84
@@ -65049,14 +65043,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr noundef captures(n
 
 260:                                              ; preds = %.loopexit, %227, %184, %182
   %.0124 = phi i32 [ 1, %.loopexit ], [ 1, %182 ], [ 0, %184 ], [ 0, %227 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0124
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssc_Pars_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Ssc_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -65179,7 +65173,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr noundef captures(
 
 57:                                               ; preds = %.loopexit, %47, %46
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %46 ], [ 0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -65187,9 +65181,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr noundef captures(
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [10 x i8], align 1
   %5 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @__const.Abc_CommandAbc9Srm.pFileName, i64 10, i1 false)
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, ptr noundef nonnull align 1 dereferenceable(10) @__const.Abc_CommandAbc9Srm.pFileName2, i64 10, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -65389,15 +65383,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr noundef captures(non
 
 61:                                               ; preds = %49, %53, %50, %.loopexit, %34, %32
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %32 ], [ 0, %34 ], [ 0, %50 ], [ 0, %53 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -65537,7 +65531,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr noundef readonly ca
 
 60:                                               ; preds = %52, %54, %56, %51, %30, %26, %17
   %.040 = phi i32 [ 1, %56 ], [ 1, %17 ], [ 0, %26 ], [ 1, %30 ], [ 1, %51 ], [ 0, %54 ], [ 0, %52 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.040
 }
 
@@ -65900,9 +65894,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   %.sroa.0 = alloca ptr, align 16
   %.sroa.6 = alloca ptr, align 8
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   store ptr null, ptr %.sroa.0, align 16
   store ptr null, ptr %.sroa.6, align 8
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #32
@@ -66252,7 +66246,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br i1 %156, label %157, label %184
 
 157:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %158 = load ptr, ptr %69, align 8, !tbaa !91
   store ptr %158, ptr %5, align 16, !tbaa !91
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -66265,7 +66259,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br i1 %.not, label %163, label %.thread266, !llvm.loop !1079
 
 .thread266:                                       ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0..sroa.0.0..pre344 = load ptr, ptr %.sroa.0, align 16, !tbaa !897
   br label %213
 
@@ -66327,7 +66321,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
 
 183:                                              ; preds = %182, %177
   %.2 = phi i32 [ 1, %177 ], [ 0, %182 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread268
 
 184:                                              ; preds = %155
@@ -66651,9 +66645,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
 
 .thread268:                                       ; preds = %183, %194, %212, %207, %185, %.thread, %.loopexit, %301, %251, %154, %149, %81, %73, %65
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %65 ], [ 1, %73 ], [ 1, %81 ], [ 0, %149 ], [ 1, %154 ], [ 0, %251 ], [ 0, %301 ], [ %.2, %183 ], [ 0, %.thread ], [ 1, %194 ], [ 0, %212 ], [ 1, %207 ], [ 1, %185 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -66663,9 +66657,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
   %.sroa.0 = alloca ptr, align 16
   %.sroa.6 = alloca ptr, align 8
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   store ptr null, ptr %.sroa.0, align 16
   store ptr null, ptr %.sroa.6, align 8
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #32
@@ -66773,7 +66767,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
   br i1 %51, label %52, label %79
 
 52:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %53 = load ptr, ptr %46, align 8, !tbaa !91
   store ptr %53, ptr %5, align 16, !tbaa !91
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -66786,7 +66780,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
   br i1 %.not, label %58, label %.thread, !llvm.loop !1084
 
 .thread:                                          ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0..sroa.0.0..pre = load ptr, ptr %.sroa.0, align 16, !tbaa !897
   %.sroa.6.0..sroa.6.8..pre152 = load ptr, ptr %.sroa.6, align 8, !tbaa !897
   br label %111
@@ -66849,7 +66843,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
 
 78:                                               ; preds = %77, %72
   %.1 = phi i32 [ 1, %72 ], [ 0, %77 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread122
 
 79:                                               ; preds = %50
@@ -67035,9 +67029,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(no
 
 .thread122:                                       ; preds = %78, %92, %110, %105, %83, %.loopexit, %146, %49
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %49 ], [ 0, %146 ], [ %.1, %78 ], [ 1, %92 ], [ 0, %110 ], [ 1, %105 ], [ 1, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -67182,7 +67176,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -67344,7 +67338,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr noundef captures(n
 
 78:                                               ; preds = %.loopexit, %70, %61, %54
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %54 ], [ 0, %61 ], [ 0, %70 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -67439,7 +67433,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Force(ptr noundef readonly c
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Emb_Par_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %6, align 4, !tbaa !1090
@@ -67601,7 +67595,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr noundef readonly c
 
 71:                                               ; preds = %.loopexit, %62, %61
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %61 ], [ 0, %62 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -68485,9 +68479,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
   %4 = alloca [200 x i8], align 16
   %5 = alloca [200 x i8], align 16
   %6 = alloca %struct.If_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @Gia_ManSetIfParsDefault(ptr noundef nonnull %6) #32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8, !tbaa !1098
@@ -69904,9 +69898,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none
 
 .critedge:                                        ; preds = %503, %509, %499, %493, %386, %391, %399, %304, %306, %584, %571, %570, %538, %529, %520, %516, %440, %437, %434, %420, %416, %409, %405, %377, %370, %362, %358, %339, %330, %326, %319, %312, %309, %116
   %.0328 = phi i32 [ 1, %584 ], [ 0, %116 ], [ 1, %309 ], [ 1, %312 ], [ 1, %319 ], [ 1, %326 ], [ 1, %330 ], [ 1, %339 ], [ 1, %358 ], [ 1, %362 ], [ 1, %370 ], [ 1, %405 ], [ 1, %409 ], [ 1, %416 ], [ 1, %420 ], [ 1, %434 ], [ 1, %437 ], [ 1, %440 ], [ 0, %520 ], [ 1, %529 ], [ 1, %538 ], [ 1, %570 ], [ 0, %571 ], [ 0, %516 ], [ 1, %377 ], [ 0, %306 ], [ 0, %304 ], [ 1, %399 ], [ 1, %391 ], [ 1, %386 ], [ 0, %493 ], [ 0, %499 ], [ 0, %509 ], [ 0, %503 ]
-  call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0328
 }
 
@@ -70145,8 +70139,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr noundef captures(no
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9If2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Mpm_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Mpm_ManSetParsDefault(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -70495,8 +70489,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If2(ptr noundef %0, i32 noun
 
 155:                                              ; preds = %122, %129, %135, %128, %121, %113, %109, %101, %86
   %.074 = phi i32 [ 1, %135 ], [ 1, %86 ], [ 1, %101 ], [ 1, %109 ], [ 1, %113 ], [ 1, %121 ], [ 1, %128 ], [ 0, %129 ], [ 0, %122 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.074
 }
 
@@ -70601,8 +70595,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr noundef captures(non
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Jf_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -70934,8 +70928,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr noundef captures(none
 
 156:                                              ; preds = %132, %126, %125, %120, %116, %110, %107
   %.0 = phi i32 [ 1, %132 ], [ 1, %107 ], [ 1, %110 ], [ 1, %116 ], [ 1, %125 ], [ 0, %126 ], [ 1, %120 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -70943,8 +70937,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr noundef captures(none
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Kf_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -71286,8 +71280,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr noundef captures(none
 
 170:                                              ; preds = %139, %133, %132, %128
   %.0 = phi i32 [ 1, %139 ], [ 1, %128 ], [ 1, %132 ], [ 0, %133 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -71295,8 +71289,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr noundef captures(none
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Lf_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -71816,8 +71810,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr noundef captures(none
 
 259:                                              ; preds = %228, %222, %221, %209, %203, %199, %196, %110, %98, %86
   %.0 = phi i32 [ 1, %228 ], [ 0, %86 ], [ 0, %98 ], [ 0, %110 ], [ 1, %196 ], [ 1, %199 ], [ 1, %203 ], [ 1, %209 ], [ 1, %221 ], [ 0, %222 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -71825,8 +71819,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr noundef captures(none
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Mf_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -72259,8 +72253,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr noundef captures(none
 
 219:                                              ; preds = %191, %185, %176, %172, %107, %95, %83
   %.0 = phi i32 [ 1, %191 ], [ 0, %83 ], [ 0, %95 ], [ 0, %107 ], [ 1, %172 ], [ 1, %176 ], [ 0, %185 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -72268,8 +72262,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr noundef captures(none
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Nf_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -72699,8 +72693,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr noundef captures(none
 
 218:                                              ; preds = %193, %187, %186, %181, %177, %106, %94, %82
   %.0 = phi i32 [ 1, %193 ], [ 0, %82 ], [ 0, %94 ], [ 0, %106 ], [ 1, %177 ], [ 1, %181 ], [ 1, %186 ], [ 0, %187 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -72708,8 +72702,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr noundef captures(none
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Of_ManSetDefaultPars(ptr noundef nonnull %5) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 140
@@ -73179,8 +73173,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr noundef captures(none
 
 237:                                              ; preds = %208, %202, %201, %197, %194, %108, %96, %84
   %.0 = phi i32 [ 1, %208 ], [ 0, %84 ], [ 0, %96 ], [ 0, %108 ], [ 1, %194 ], [ 1, %197 ], [ 1, %201 ], [ 0, %202 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -75885,7 +75879,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -76179,7 +76173,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr noundef captures(non
 
 136:                                              ; preds = %.loopexit, %109, %95, %92
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %92 ], [ 1, %95 ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -76646,7 +76640,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr noundef captures
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -76983,14 +76977,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr noundef captures(
 
 172:                                              ; preds = %134, %142, %.loopexit, %133, %129, %125
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %125 ], [ 0, %129 ], [ 0, %133 ], [ 0, %142 ], [ 0, %134 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -77261,14 +77255,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr noundef captures(
 
 134:                                              ; preds = %.loopexit, %115, %101, %97, %93
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %93 ], [ 0, %97 ], [ 0, %101 ], [ 0, %115 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 68
@@ -77555,14 +77549,14 @@ Abc_FrameReplaceCex.exit:                         ; preds = %93, %Vec_PtrFreeFre
 
 128:                                              ; preds = %.loopexit, %115, %81, %77, %73
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %73 ], [ 0, %77 ], [ 0, %81 ], [ 0, %115 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %5, align 4, !tbaa !1218
@@ -77889,7 +77883,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %109, %Vec_PtrFreeFr
 
 149:                                              ; preds = %.loopexit, %131, %97, %93
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %93 ], [ 0, %97 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -78126,7 +78120,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iso(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
 
@@ -78342,14 +78336,14 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %39, %Vec_VecFree.ex
 
 67:                                               ; preds = %60, %Abc_FrameReplacePoEquivs.exit, %38, %30, %23
   %.043 = phi i32 [ 1, %60 ], [ 1, %23 ], [ 1, %30 ], [ 1, %38 ], [ 0, %Abc_FrameReplacePoEquivs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoNpn(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %5
 
@@ -78487,14 +78481,14 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %27, %Vec_VecFree.ex
 
 50:                                               ; preds = %48, %Abc_FrameReplacePoEquivs.exit, %26, %22, %20, %13
   %.014 = phi i32 [ 1, %48 ], [ 1, %13 ], [ 1, %20 ], [ 1, %22 ], [ 1, %26 ], [ 0, %Abc_FrameReplacePoEquivs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoSt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %5
 
@@ -78632,7 +78626,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %27, %Vec_VecFree.ex
 
 50:                                               ; preds = %48, %Abc_FrameReplacePoEquivs.exit, %26, %22, %20, %13
   %.014 = phi i32 [ 1, %48 ], [ 1, %13 ], [ 1, %20 ], [ 1, %22 ], [ 1, %26 ], [ 0, %Abc_FrameReplacePoEquivs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.014
 }
 
@@ -79218,7 +79212,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cone(ptr noundef captures(no
   br i1 %.not140, label %105, label %71
 
 71:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %72 = getelementptr i8, ptr %67, i64 16
   %.val162 = load i32, ptr %72, align 8, !tbaa !47
   %73 = getelementptr i8, ptr %67, i64 72
@@ -79290,7 +79284,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %71
 
 .critedge:                                        ; preds = %82, %85, %Abc_Base10Log.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.30)
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %161
 
 105:                                              ; preds = %70
@@ -79530,7 +79524,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Slice(ptr noundef captures(n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoPart(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -79701,7 +79695,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %32, %Vec_VecFree.ex
 
 56:                                               ; preds = %.loopexit, %Abc_FrameReplacePoEquivs.exit, %28
   %.029 = phi i32 [ 1, %.loopexit ], [ 1, %28 ], [ 0, %Abc_FrameReplacePoEquivs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.029
 }
 
@@ -79821,7 +79815,7 @@ Vec_IntFree.exit:                                 ; preds = %32, %36
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9MultiProve(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_MulPar_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -80130,7 +80124,7 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %126, %Vec_PtrFreeDa
 
 Abc_FrameReplaceCexVec.exit:                      ; preds = %131, %127, %.loopexit, %95, %91
   %.0 = phi i32 [ 1, %.loopexit ], [ 1, %91 ], [ 1, %95 ], [ 0, %127 ], [ 0, %131 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -80867,7 +80861,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr readnone captur
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_AndPar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
@@ -81218,14 +81212,14 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %135, %Vec_PtrFreeDa
 
 Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exit.i, %118, %144, %107
   %.0 = phi i32 [ 1, %144 ], [ 0, %107 ], [ 0, %118 ], [ 0, %Vec_PtrFreeFree.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_AndPar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -81585,14 +81579,14 @@ Vec_PtrFreeFree.exit.i:                           ; preds = %141, %Vec_PtrFreeDa
 
 Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exit.i, %124, %150, %108, %105
   %.0 = phi i32 [ 1, %150 ], [ 0, %105 ], [ 0, %108 ], [ 0, %124 ], [ 0, %Vec_PtrFreeFree.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -81760,14 +81754,14 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 
 58:                                               ; preds = %39, %Vec_PtrFreeFree.exit, %.loopexit, %38, %35
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %35 ], [ 0, %38 ], [ 0, %Vec_PtrFreeFree.exit ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_BCorePar_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -81980,7 +81974,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly c
 
 88:                                               ; preds = %.thread68, %.thread, %.loopexit, %82, %65, %61
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %61 ], [ 0, %65 ], [ 0, %82 ], [ 0, %.thread ], [ 0, %.thread68 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -82246,8 +82240,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatTest(ptr noundef readonly
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_ParFf_t_, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !897
   call void @Gia_ParFfSetDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
@@ -82804,8 +82798,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
 
 .critedge:                                        ; preds = %.thread208, %.thread207, %188, %193, %204, %212, %215, %218, %220, %.loopexit209, %183, %177, %160, %158
   %.1 = phi i32 [ 1, %.loopexit209 ], [ 0, %158 ], [ 0, %160 ], [ 0, %177 ], [ 0, %183 ], [ 0, %220 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %204 ], [ 0, %193 ], [ 0, %188 ], [ 0, %.thread207 ], [ 0, %.thread208 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
@@ -84481,12 +84475,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr noundef captures
   br i1 %33, label %34, label %65
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1000) %4, ptr noundef nonnull align 16 dereferenceable(1000) @__const.Abc_CommandAbc9Demiter.pName0, i64 1000, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1000) %5, ptr noundef nonnull align 16 dereferenceable(1000) @__const.Abc_CommandAbc9Demiter.pName1, i64 1000, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = getelementptr i8, ptr %25, i64 16
   %.val59 = load i32, ptr %35, align 8, !tbaa !47
   %36 = getelementptr i8, ptr %25, i64 72
@@ -84551,10 +84545,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr noundef captures
   br label %64
 
 64:                                               ; preds = %60, %62, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
 65:                                               ; preds = %31
@@ -85182,7 +85176,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   %.sroa.0 = alloca ptr, align 16
   %.sroa.6 = alloca ptr, align 8
   %7 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Acec_ManCecSetDefaultParams(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -85282,8 +85276,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   br i1 %.not121, label %116, label %55
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %56 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not126 = icmp eq i32 %1, %56
   br i1 %.not126, label %58, label %57
@@ -85414,8 +85408,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
 
 115:                                              ; preds = %106, %88, %71, %62, %57
   %.0105 = phi i32 [ 1, %57 ], [ 1, %62 ], [ 1, %71 ], [ 0, %106 ], [ 1, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 116:                                              ; preds = %53
@@ -85513,11 +85507,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   br i1 %159, label %160, label %190
 
 160:                                              ; preds = %158
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   store ptr null, ptr %.sroa.0, align 16
   store ptr null, ptr %.sroa.6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %161 = load ptr, ptr %119, align 8, !tbaa !91
   store ptr %161, ptr %7, align 16, !tbaa !91
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -85595,16 +85589,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
   call void @Abc_FrameReplaceCex(ptr noundef %0, ptr noundef nonnull %188)
   call void @Gia_ManStop(ptr noundef %.sroa.0.0..sroa.0.0.) #32
   call void @Gia_ManStop(ptr noundef %.sroa.6.0..sroa.6.8.) #32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %.thread
 
 189:                                              ; preds = %185, %180
   %.3 = phi i32 [ 1, %180 ], [ 0, %185 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   br label %.thread
 
 190:                                              ; preds = %158
@@ -85650,7 +85644,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(no
 
 .thread:                                          ; preds = %151, %.thread146, %189, %144, %150, %130, %.loopexit, %190, %115
   %.1 = phi i32 [ 1, %.loopexit ], [ %.0105, %115 ], [ %.3, %189 ], [ 1, %190 ], [ 1, %144 ], [ 0, %150 ], [ 1, %130 ], [ 0, %.thread146 ], [ 0, %151 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1
 }
 
@@ -85821,7 +85815,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Esop(ptr noundef captures(no
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !1313
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -86040,14 +86034,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr noundef readonl
 
 .thread132:                                       ; preds = %75, %76, %.thread, %.loopexit, %74, %66, %61
   %.056 = phi i32 [ 1, %.loopexit ], [ 0, %61 ], [ 1, %66 ], [ 1, %74 ], [ 0, %.thread ], [ 0, %76 ], [ 0, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.056
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sfm_Par_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Sfm_ParSetDefault(ptr noundef nonnull %4) #32
   store i32 5, ptr %4, align 4, !tbaa !177
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -86377,14 +86371,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr noundef captures(non
 
 163:                                              ; preds = %.loopexit, %141, %131, %127, %124, %121
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %121 ], [ 1, %124 ], [ 0, %131 ], [ 0, %141 ], [ 0, %127 ]
-  call void @llvm.lifetime.end.p0(i64 124, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sbd_Par_t_, align 4
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Sbd_ParSetDefault(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -86695,7 +86689,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr noundef captures(no
 
 160:                                              ; preds = %.loopexit, %137, %133, %130
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %130 ], [ 1, %133 ], [ 0, %137 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -88077,7 +88071,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla(ptr noundef captures(non
   %4 = alloca %struct.Abs_Par_t_, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Abs_ParSetDefaults(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 116
@@ -88537,10 +88531,10 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla(ptr noundef captures(non
   br label %365
 
 249:                                              ; preds = %226
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %250 = call fastcc ptr @Vec_PtrStart(i32 noundef %230)
   store ptr %250, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %251 = load ptr, ptr %214, align 8, !tbaa !60
   %252 = getelementptr i8, ptr %251, i64 16
   %.val205 = load i32, ptr %252, align 8, !tbaa !47
@@ -88701,8 +88695,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   call void @Abc_FrameReplacePoStatuses(ptr noundef nonnull %0, ptr noundef nonnull %6)
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i32 -1, ptr %325, align 4, !tbaa !117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %365
 
 .loopexit.sink.split:                             ; preds = %162, %155, %144, %133, %122, %111, %100, %89, %78, %67, %56, %45, %34
@@ -88799,14 +88793,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 365:                                              ; preds = %.critedge, %244, %237, %.loopexit, %225, %221, %217
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %217 ], [ 0, %221 ], [ 0, %225 ], [ 0, %237 ], [ 0, %244 ], [ 0, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Abs_Par_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Abs_ParSetDefaults(ptr noundef nonnull %4) #32
   call void (...) @Extra_UtilGetoptReset() #32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -89173,7 +89167,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr noundef captures(non
 
 192:                                              ; preds = %.loopexit, %165, %164, %160, %156, %150, %146
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %146 ], [ 0, %150 ], [ 0, %156 ], [ 0, %160 ], [ 0, %164 ], [ 0, %165 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -89656,15 +89650,15 @@ Vec_IntFreeP.exit18:                              ; preds = %42, %Vec_IntFreeP.e
   ret i32 %.012
 }
 
-declare i32 @Abc_CommandAbcLivenessToSafety(ptr noundef, i32 noundef, ptr noundef) #8
+declare i32 @Abc_CommandAbcLivenessToSafety(ptr noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @Abc_CommandAbcLivenessToSafetySim(ptr noundef, i32 noundef, ptr noundef) #8
+declare i32 @Abc_CommandAbcLivenessToSafetySim(ptr noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef, i32 noundef, ptr noundef) #8
+declare i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @Abc_CommandCS_kLiveness(ptr noundef, i32 noundef, ptr noundef) #8
+declare i32 @Abc_CommandCS_kLiveness(ptr noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @Abc_CommandNChooseK(ptr noundef, i32 noundef, ptr noundef) #8
+declare i32 @Abc_CommandNChooseK(ptr noundef, i32 noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -90505,9 +90499,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PutOnTop(ptr noundef capture
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %5 = alloca %struct.Cec_ParFra_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Cec4_ManSetParams(ptr noundef nonnull %5) #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 1, ptr %6, align 4, !tbaa !1050
@@ -90850,8 +90844,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr noundef capture
 
 115:                                              ; preds = %.loopexit, %108, %64, %60, %55, %43, %39
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %39 ], [ 0, %43 ], [ 1, %55 ], [ 0, %60 ], [ 0, %64 ], [ 0, %108 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -90859,9 +90853,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr noundef capture
 define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %5 = alloca %struct.Cec_ParFra_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #32
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @Cec4_ManSetParams(ptr noundef nonnull %5) #32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 1, ptr %6, align 4, !tbaa !1050
@@ -91005,8 +90999,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr noundef captures(
 
 54:                                               ; preds = %50, %.critedge, %51, %38, %33, %21, %17
   %.0 = phi i32 [ 1, %51 ], [ 0, %17 ], [ 0, %21 ], [ 1, %33 ], [ 0, %38 ], [ 0, %.critedge ], [ 0, %50 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #32
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -92927,7 +92921,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FunTrace(ptr noundef readonl
   br i1 %65, label %66, label %91
 
 66:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #32
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %Abc_Clock.exit, label %69
@@ -92943,7 +92937,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FunTrace(ptr noundef readonl
 
 Abc_Clock.exit:                                   ; preds = %66, %69
   %.0.i.neg = phi i64 [ %.neg153, %69 ], [ 1, %66 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = call i32 @Gia_FileSize(ptr noundef %.0105.ph325) #32
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %76
@@ -93371,7 +93365,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr noundef readonly ca
   ret i32 %.0
 }
 
-declare void @Dar_LibStart(...) local_unnamed_addr #8
+declare void @Dar_LibStart(...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_End(ptr noundef %0) local_unnamed_addr #0 {
@@ -93404,25 +93398,25 @@ define void @Abc_End(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @Cnf_ManFree(...) local_unnamed_addr #8
+declare void @Cnf_ManFree(...) local_unnamed_addr #7
 
-declare i32 @Abc_NtkCompareAndSaveBest(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkCompareAndSaveBest(ptr noundef) local_unnamed_addr #7
 
-declare void @Dar_LibStop(...) local_unnamed_addr #8
+declare void @Dar_LibStop(...) local_unnamed_addr #7
 
-declare void @Aig_RManQuit(...) local_unnamed_addr #8
+declare void @Aig_RManQuit(...) local_unnamed_addr #7
 
-declare void @Npn_ManClean(...) local_unnamed_addr #8
+declare void @Npn_ManClean(...) local_unnamed_addr #7
 
-declare void @Sdm_ManQuit(...) local_unnamed_addr #8
+declare void @Sdm_ManQuit(...) local_unnamed_addr #7
 
-declare void @Abc_NtkFraigStoreClean(...) local_unnamed_addr #8
+declare void @Abc_NtkFraigStoreClean(...) local_unnamed_addr #7
 
-declare void @Gia_ManStopP(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManStopP(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRecIsRunning3(...) local_unnamed_addr #8
+declare i32 @Abc_NtkRecIsRunning3(...) local_unnamed_addr #7
 
-declare void @Abc_NtkRecStop3(...) local_unnamed_addr #8
+declare void @Abc_NtkRecStop3(...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -93595,28 +93589,28 @@ define range(i32 0, 2) i32 @Abc_CommandCexMin(ptr noundef %0, i32 noundef %1, pt
   ret i32 %.0
 }
 
-declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #8
+declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #7
 
-declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkToDar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFromAigSimple(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFromAigSimple(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManFindFailedPoCex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManFindFailedPoCex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Saig_ManCexMinPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Saig_ManCexMinPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #8
+declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_CexFree(ptr noundef) local_unnamed_addr #8
+declare void @Abc_CexFree(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   tail call void (...) @Extra_UtilGetoptReset() #32
   br label %.outer
@@ -93853,14 +93847,14 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %59, %Vec_VecFree.ex
 
 82:                                               ; preds = %.loopexit, %Abc_FrameReplacePoEquivs.exit, %55
   %.048 = phi i32 [ 1, %.loopexit ], [ 1, %55 ], [ 0, %Abc_FrameReplacePoEquivs.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.048
 }
 
-declare ptr @Gia_ManFindPoPartition2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFindPoPartition2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Abc_CommandAbc9CexCut(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
+define noundef i32 @Abc_CommandAbc9CexCut(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #6 {
   ret i32 -1
 }
 
@@ -94011,7 +94005,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr noundef captures(none) %
   ret i32 %.033
 }
 
-declare ptr @Abc_CexMerge(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexMerge(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -94226,106 +94220,106 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
   ret i32 %.028
 }
 
-declare ptr @Gia_ManCexMin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCexMin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #8
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #14
+declare void @llvm.va_start.p0(ptr) #13
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #14
+declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
-declare void @Abc_NtkPrintStats(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintStats(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare double @Abc_NtkSpacePercentage(ptr noundef) local_unnamed_addr #8
+declare double @Abc_NtkSpacePercentage(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFindNode(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFindNode(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NodePrintFanio(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NodePrintFanio(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintIo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintIo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintLatch(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintLatch(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintSccs(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintSccs(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintFanioNew(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintFanioNew(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintFanio(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintFanio(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintMffc(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintMffc(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NodePrintSop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NodePrintSop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NodePrintFactor(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NodePrintFactor(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintSop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintSop(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintFactor(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintFactor(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NodePrintLevel(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NodePrintLevel(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintLevel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintLevel(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintStrSupports(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintStrSupports(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Sim_ComputeFunSupp(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Sim_ComputeFunSupp(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkSymmetries(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkSymmetries(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintUnate(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintUnate(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkAutoPrint(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkAutoPrint(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkShow6VarFunc(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkShow6VarFunc(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkToBdd(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkToBdd(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NodePrintKMap(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NodePrintKMap(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintGates(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintGates(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintSharing(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintSharing(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkCrossCut(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkCrossCut(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkToAig(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkToAig(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Hop_ManConvertAigToTruth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Hop_ManConvertAigToTruth(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i64 @Abc_Tt6Stretch(i64 noundef %0, i32 noundef %1) unnamed_addr #16 {
+define internal fastcc i64 @Abc_Tt6Stretch(i64 noundef %0, i32 noundef %1) unnamed_addr #15 {
   %3 = icmp eq i32 %1, 0
   %4 = trunc i64 %0 to i1
   %5 = select i1 %4, i64 3, i64 0
@@ -94353,111 +94347,111 @@ define internal fastcc i64 @Abc_Tt6Stretch(i64 noundef %0, i32 noundef %1) unnam
   ret i64 %.5
 }
 
-declare void @Dau_DecTrySets(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Dau_DecTrySets(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Kit_TruthPrintProfile(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Kit_TruthPrintProfile(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Kit_DsdPrintCofactors(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Kit_DsdPrintCofactors(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Kit_DsdTest(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Kit_DsdTest(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarPrintCone(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarPrintCone(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintMiter(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintMiter(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPrintPoEquivs(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPrintPoEquivs(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_CexPrintStats(ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare void @Abc_CexPrintStats(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
-
-declare void @Abc_NtkDumpOneCexSpecial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
-declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDumpOneCexSpecial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare float @Abc_NtkDelayTrace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare void @Abc_NtkShowFlopDependency(ptr noundef) local_unnamed_addr #8
+declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkShow(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare float @Abc_NtkDelayTrace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkShowBdd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkShowFlopDependency(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkBddDecExplore(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkShow(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NodeShowBdd(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkShowBdd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NodeShowCut(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkBddDecExplore(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollapse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NodeShowBdd(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_FrameReplaceCurrentNetwork(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NodeShowCut(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkWriteLogFile(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollapse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollapseSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_FrameReplaceCurrentNetwork(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkBalanceExor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkWriteLogFile(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollapseSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkMulti(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkBalanceExor(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkRenode(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkMulti(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarCleanupAig(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkRenode(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkCleanup(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkSweepBufsInvs(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarCleanupAig(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkSweep(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkCleanup(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkSetDefaultFxParams(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkSweepBufsInvs(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkGetCubePairNum(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkSweep(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkFxPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkSetDefaultFxParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkFastExtract(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkGetCubePairNum(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkFxuFreeInfo(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkFxPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkFxchPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkFastExtract(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkEliminateSpecial(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkFxuFreeInfo(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkEliminate(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkFxchPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkEliminate1(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkEliminateSpecial(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDsdGlobal(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkEliminate(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDsdLocal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkEliminate1(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSparsify(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDsdGlobal(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+
+declare i32 @Abc_NtkDsdLocal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+
+declare ptr @Abc_NtkSparsify(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-declare i32 @Lpk_Resynthesize(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Lpk_Resynthesize(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkLutmin(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkLutmin(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkMfsParsDefault(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkMfsParsDefault(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkMfs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkMfs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Sfm_ParSetDefault(ptr noundef) local_unnamed_addr #8
+declare void @Sfm_ParSetDefault(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_IntFreeP(ptr noundef captures(none) %0) unnamed_addr #3 {
@@ -94488,52 +94482,52 @@ define internal fastcc void @Vec_IntFreeP(ptr noundef captures(none) %0) unnamed
   ret void
 }
 
-declare i32 @Abc_NtkMfsAfterICheck(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkMfsAfterICheck(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkPerformMfs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkPerformMfs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Sfm_ParSetDefault3(ptr noundef) local_unnamed_addr #8
+declare void @Sfm_ParSetDefault3(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPerformMfs3(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPerformMfs3(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Acb_ParSetDefault(ptr noundef) local_unnamed_addr #8
+declare void @Acb_ParSetDefault(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkGetFaninMax(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkGetFaninMax(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkToSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkToSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkOptMfse(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkOptMfse(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkOptPush(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkOptPush(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDelayTracePrint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDelayTracePrint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare float @Abc_NtkMfsTotalGlitching(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare float @Abc_NtkMfsTotalGlitching(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSpeedup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSpeedup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkPowerdown(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkPowerdown(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkAddBuffs(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkAddBuffs(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkLutMerge(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkLutMerge(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_DecTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_DecTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NpnTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NpnTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_RpoTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_RpoTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Kit_TruthTest(ptr noundef) local_unnamed_addr #8
+declare ptr @Kit_TruthTest(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #18
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #6 {
+define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #5 {
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1157, ptr noundef nonnull @.str.1151)
   %2 = sitofp i64 %0 to double
   %3 = fdiv double %2, 1.000000e+06
@@ -94542,9 +94536,9 @@ define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #6 {
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @Abc_Clock() unnamed_addr #6 {
+define internal fastcc i64 @Abc_Clock() unnamed_addr #5 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #32
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %11, label %4
@@ -94560,64 +94554,64 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #6 {
 
 11:                                               ; preds = %0, %4
   %.0 = phi i64 [ %10, %4 ], [ -1, %0 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #19
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #18
 
-declare void @Acb_NtkRunEco(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Acb_NtkRunEco(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Acb_NtkRunGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Acb_NtkRunGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Acb_NtkRunTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Acb_NtkRunTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Rwr_Precompute(...) local_unnamed_addr #8
+declare void @Rwr_Precompute(...) local_unnamed_addr #7
 
-declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkGetChoiceNum(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkOrchLocal(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkOrchLocal(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkOrchRand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkOrchRand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRewrite(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkRewrite(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRefactor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkRefactor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkResubstitute(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkResubstitute(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManResubUnateOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManResubUnateOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFromAigPhase(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFromAigPhase(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Supp_ManSolveOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Supp_ManSolveOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
-declare void @Res6_ManResubCheckPla(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Res6_ManResubCheckPla(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Res6_ManResubCheck(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Res6_ManResubCheck(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCascade(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCascade(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkLutCascade(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkLutCascade(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare void @srand(i32 noundef) local_unnamed_addr #19
+declare void @srand(i32 noundef) local_unnamed_addr #18
 
-declare ptr @Abc_NtkLutCascadeMap(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkLutCascadeMap(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #20
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #19
 
-declare void @Abc_BSEvalBestGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_BSEvalBestGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #21 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @Abc_TtReadHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #20 {
   %3 = load i8, ptr %1, align 1, !tbaa !101
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -94800,762 +94794,762 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
   ret i32 %.037
 }
 
-declare void @Abc_BSEvalBestTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_BSEvalBestTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_BSEvalOneTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_BSEvalOneTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkShareXor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkShareXor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_SuppReadMinTest(ptr noundef) local_unnamed_addr #8
+declare void @Abc_SuppReadMinTest(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_SuppTest(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_SuppTest(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileNameGenericAppend(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkGenFaultList(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkGenFaultList(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDetectClassesTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDetectClassesTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_ExactTest(i32 noundef) local_unnamed_addr #8
+declare void @Abc_ExactTest(i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_ExactStoreTest(i32 noundef) local_unnamed_addr #8
+declare void @Abc_ExactStoreTest(i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFindExact(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFindExact(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFindExact(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFindExact(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_FrameClearVerifStatus(ptr noundef) local_unnamed_addr #8
+declare void @Abc_FrameClearVerifStatus(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_ExactIsRunning(...) local_unnamed_addr #8
+declare i32 @Abc_ExactIsRunning(...) local_unnamed_addr #7
 
-declare void @Abc_ExactStart(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_ExactStart(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_ExactStop(ptr noundef) local_unnamed_addr #8
+declare void @Abc_ExactStop(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_ExactStats(...) local_unnamed_addr #8
+declare void @Abc_ExactStats(...) local_unnamed_addr #7
 
-declare i32 @Maj_ManExactSynthesis(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Maj_ManExactSynthesis(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Maj_ManExactSynthesis2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Maj_ManExactSynthesis2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
-declare void @Exa_ManExactSynthesis6(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis6(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Exa_ManExactSynthesis7(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis7(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Exa_ManExactSynthesis4(ptr noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis4(ptr noundef) local_unnamed_addr #7
 
-declare void @Exa_ManExactSynthesis5(ptr noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis5(ptr noundef) local_unnamed_addr #7
 
-declare void @Exa_ManExactSynthesis(ptr noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis(ptr noundef) local_unnamed_addr #7
 
-declare void @Exa_ManExactSynthesis2(ptr noundef) local_unnamed_addr #8
+declare void @Exa_ManExactSynthesis2(ptr noundef) local_unnamed_addr #7
 
-declare void @Exa3_ManExactSynthesisRand(ptr noundef) local_unnamed_addr #8
+declare void @Exa3_ManExactSynthesisRand(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Exa3_ManExactSynthesis(ptr noundef) local_unnamed_addr #8
+declare i32 @Exa3_ManExactSynthesis(ptr noundef) local_unnamed_addr #7
 
-declare void @Exa3_ManExactSynthesis2(ptr noundef) local_unnamed_addr #8
+declare void @Exa3_ManExactSynthesis2(ptr noundef) local_unnamed_addr #7
 
-declare void @Zyx_ManExactSynthesis(ptr noundef) local_unnamed_addr #8
+declare void @Zyx_ManExactSynthesis(ptr noundef) local_unnamed_addr #7
 
-declare void @Zyx_TestExact(ptr noundef) local_unnamed_addr #8
+declare void @Zyx_TestExact(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gem_Enumerate(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gem_Enumerate(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkToLogic(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkToLogic(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkMakeSeq(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkMakeSeq(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkMakeComb(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkMakeComb(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDupTransformMiter(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDupTransformMiter(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkPrepareTwoNtks(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkPrepareTwoNtks(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkShortNames(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkShortNames(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #22
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #21
 
-declare ptr @Abc_NtkReadNodeNames(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkReadNodeNames(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSpecialMiter(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSpecialMiter(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarDemiterDual(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarDemiterDual(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarDemiter(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarDemiter(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkToDarBmc(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkToDarBmc(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkCombinePos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkCombinePos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDropOneOutput(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDropOneOutput(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkSwapOneOutput(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkSwapOneOutput(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRemovePo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkRemovePo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDropSatOutputs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDropSatOutputs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarLatchSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarLatchSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkOrderCisCos(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkAddLatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkAddLatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Io_Read(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Io_Read(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Io_ReadFileType(ptr noundef) local_unnamed_addr #8
+declare i32 @Io_ReadFileType(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkPutOnTop(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkPutOnTop(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarFrames(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkSortSops(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkSortSops(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkBddToSop(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkBddToSop(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkFaninSort(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkFaninSort(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkSopToBdd(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkSopToBdd(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkBddReorder(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkBddReorder(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkBidecResyn(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkBidecResyn(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkImplementCiOrder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkImplementCiOrder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkFindCiOrder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkFindCiOrder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkBddToMuxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkBddToMuxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSopToCubes(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSopToCubes(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkClpGia(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkClpGia(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkExpandCubes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkExpandCubes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSplitSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSplitSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkExtractSequentialDcs(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkExtractSequentialDcs(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Bbr_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Bbr_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarReach(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarReach(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCreateMffc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCreateMffc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCreateCone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCreateCone(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkMakeOnePo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkMakeOnePo(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCreateFromNode(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCreateFromNode(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCreateFromRange(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCreateFromRange(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFindCi(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFindCi(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_ObjReplaceByConstant(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_ObjReplaceByConstant(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkTopmost(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkTopmost(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkBottommost(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkBottommost(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkTopAnd(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkTopAnd(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupTrimmed(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupTrimmed(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManToAigSimple(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManToAigSimple(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCleanNames(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkCleanNames(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkMoveNames(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkMoveNames(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCuts(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCuts(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cut_OracleStart(ptr noundef) local_unnamed_addr #8
+declare ptr @Cut_OracleStart(ptr noundef) local_unnamed_addr #7
 
-declare void @Cut_ManStop(ptr noundef) local_unnamed_addr #8
+declare void @Cut_ManStop(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCutsOracle(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkCutsOracle(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cut_OracleStop(ptr noundef) local_unnamed_addr #8
+declare void @Cut_OracleStop(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_GenAdder(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenAdder(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenSorter(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenSorter(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenMesh(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenMesh(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenMulti(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenMulti(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenBooth(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenBooth(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenFpga(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenFpga(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenOneHot(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenOneHot(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenRandom(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenRandom(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenGraph(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenGraph(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_GenAdderTree(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenAdderTree(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Cmd_CommandExecute(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Cmd_CommandExecute(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_GenThresh(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_GenThresh(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_GenATDual(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_GenATDual(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_GenAT(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_GenAT(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_GenFsm(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_GenFsm(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSopEsopCover(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSopEsopCover(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkInter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkInter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDouble(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDouble(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkConvertBb2Wb(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkConvertBb2Wb(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarOutdec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarOutdec(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkNodeDup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkNodeDup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-declare void @Abc_ColorTest(...) local_unnamed_addr #8
+declare void @Abc_ColorTest(...) local_unnamed_addr #7
 
-declare i32 @Abc_NtkQuantify(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkQuantify(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCleanData(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkCleanData(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkTransRel(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkTransRel(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkReachability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkReachability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSensitivity(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSensitivity(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvyStrash(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvyStrash(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkIvyCuts(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkIvyCuts(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvyRewrite(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvyRewrite(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Dar_ManDefaultRwrParams(ptr noundef) local_unnamed_addr #8
+declare void @Dar_ManDefaultRwrParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDRewrite(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDRewrite(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Dar_ManDefaultRefParams(ptr noundef) local_unnamed_addr #8
+declare void @Dar_ManDefaultRefParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDRefactor(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDRefactor(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDC2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDC2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDChoice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDChoice(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Dch_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Dch_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDch(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDch(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDrwsat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDrwsat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvyRewriteSeq(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvyRewriteSeq(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvyResyn(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvyResyn(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvySat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvySat(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarFraigPart(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarFraigPart(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIvyFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIvyFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Prove_ParamsSetDefault(ptr noundef) local_unnamed_addr #8
+declare void @Prove_ParamsSetDefault(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkIvyProve(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkIvyProve(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkVerifySimulatePattern(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkVerifySimulatePattern(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexDeriveFromCombModel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexDeriveFromCombModel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkQbf(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkQbf(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Npn_ManLoad(ptr noundef) local_unnamed_addr #8
+declare void @Npn_ManLoad(ptr noundef) local_unnamed_addr #7
 
-declare void @Npn_ManSave(ptr noundef) local_unnamed_addr #8
+declare void @Npn_ManSave(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManToBridgeAbsNetlist(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManToBridgeAbsNetlist(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFromAig(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManToBridgeResult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManToBridgeResult(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkFraigPartitionedTime(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkFraigPartitionedTime(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkMiterReport(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkMiterReport(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFraigTrust(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFraigTrust(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkFraigStore(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkFraigStore(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFraigRestore(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFraigRestore(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkFraigSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkFraigSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDress2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDress2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDumpEquiv(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDumpEquiv(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_AigerRead(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_AigerRead(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRecStart3(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkRecStart3(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRecPs3(i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkRecPs3(i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRecAdd3(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkRecAdd3(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRecDumpTt3(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkRecDumpTt3(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkRecGetGia3(...) local_unnamed_addr #8
+declare ptr @Abc_NtkRecGetGia3(...) local_unnamed_addr #7
 
-declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRecLibMerge3(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkRecLibMerge3(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkMap(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, float noundef, float noundef, float noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkMap(ptr noundef, ptr noundef, double noundef, double noundef, double noundef, float noundef, float noundef, float noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDupDfs(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDupDfs(ptr noundef) local_unnamed_addr #7
 
-declare void @Amap_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Amap_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarAmap(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarAmap(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkChangePerform(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkChangePerform(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkMapToSop(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkMapToSop(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkAttach(ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkAttach(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkSuperChoice(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkSuperChoice(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkSuperChoiceLut(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkSuperChoiceLut(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeScale(ptr noundef, float noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeScale(ptr noundef, float noundef) local_unnamed_addr #7
 
-declare void @If_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @If_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #8
+declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #7
 
-declare i32 @If_CutPerformCheck07(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_CutPerformCheck07(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare ptr @Abc_FrameReadManDsd(...) local_unnamed_addr #8
+declare ptr @Abc_FrameReadManDsd(...) local_unnamed_addr #7
 
-declare i32 @If_DsdManVarNum(ptr noundef) local_unnamed_addr #8
+declare i32 @If_DsdManVarNum(ptr noundef) local_unnamed_addr #7
 
-declare ptr @If_DsdManGetCellStr(ptr noundef) local_unnamed_addr #8
+declare ptr @If_DsdManGetCellStr(ptr noundef) local_unnamed_addr #7
 
-declare void @If_DsdManSetNewAsUseless(ptr noundef) local_unnamed_addr #8
+declare void @If_DsdManSetNewAsUseless(ptr noundef) local_unnamed_addr #7
 
-declare i32 @If_CutPerformCheckXX(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_CutPerformCheckXX(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @If_CutPerformCheck16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_CutPerformCheck16(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @If_DsdManLutSize(ptr noundef) local_unnamed_addr #8
+declare i32 @If_DsdManLutSize(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_FrameSetManDsd(ptr noundef) local_unnamed_addr #8
+declare void @Abc_FrameSetManDsd(ptr noundef) local_unnamed_addr #7
 
-declare ptr @If_DsdManAlloc(i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @If_DsdManAlloc(i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRecInputNum3(...) local_unnamed_addr #8
+declare i32 @Abc_NtkRecInputNum3(...) local_unnamed_addr #7
 
-declare i32 @Abc_ExactInputNum(...) local_unnamed_addr #8
+declare i32 @Abc_ExactInputNum(...) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadFlag(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_FrameReadFlag(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkIf(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkIf(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPerformIfif(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPerformIfif(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadManDsd2(...) local_unnamed_addr #8
+declare ptr @Abc_FrameReadManDsd2(...) local_unnamed_addr #7
 
-declare void @If_DsdManSave(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @If_DsdManSave(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_FrameSetManDsd2(ptr noundef) local_unnamed_addr #8
+declare void @Abc_FrameSetManDsd2(ptr noundef) local_unnamed_addr #7
 
-declare ptr @If_DsdManLoad(ptr noundef) local_unnamed_addr #8
+declare ptr @If_DsdManLoad(ptr noundef) local_unnamed_addr #7
 
-declare void @If_DsdManPrint(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManPrint(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Id_DsdManTuneStr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Id_DsdManTuneStr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManTune(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManTune(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManMerge(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @If_DsdManMerge(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @If_DsdManFree(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManFree(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @If_DsdManFilter(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @If_DsdManFilter(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManSetLutSize(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManSetLutSize(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManCleanOccur(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManCleanOccur(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManCleanMarks(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManCleanMarks(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @If_DsdManInvertMarks(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @If_DsdManInvertMarks(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Id_DsdManTuneThresh(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Id_DsdManTuneThresh(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #19
+declare i64 @time(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #19
+declare i32 @rand() local_unnamed_addr #18
 
-declare ptr @Saig_ManReturnFailingState(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Saig_ManReturnFailingState(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkRestrashZero(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkRestrashZero(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollectLatchValuesStr(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollectLatchValuesStr(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexTransformUndc(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_CexTransformUndc(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkConvertDcLatches(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkConvertDcLatches(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkConvertOnehot(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkConvertOnehot(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkLatchPipe(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkLatchPipe(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRetime(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkRetime(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarRetimeMinArea(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarRetimeMinArea(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarRetime(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarRetime(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarRetimeMostFwd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarRetimeMostFwd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FlowRetime_MinReg(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_FlowRetime_MinReg(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCRetime(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCRetime(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarSeqSweep(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarSeqSweep(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Ssw_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Ssw_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarSeqSweep2(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarSeqSweep2(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Fra_FraigInductionTest(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Fra_FraigInductionTest(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkTestScorr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkTestScorr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarLcorrNew(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarLcorrNew(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarLcorr(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarLcorr(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCycleInitState(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCycleInitState(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCycleInitStateSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCycleInitStateSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkXValueSimulate(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkXValueSimulate(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarSeqSim(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarSeqSim(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Ssw_RarSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Ssw_RarSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarSeqSim3(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarSeqSim3(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexTransformPhase(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexTransformPhase(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManSetFailedPoCex(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManSetFailedPoCex(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkPhaseAbstract(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkPhaseAbstract(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarSynchOne(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarSynchOne(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarSynch(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarSynch(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cgt_SetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cgt_SetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarClockGate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarClockGate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarExtWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarExtWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarInsWin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarInsWin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Ntk_SymFunGenerate(i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Ntk_SymFunGenerate(i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
-declare void @Extra_PrintHexadecimalString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Extra_PrintHexadecimalString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPermutePiUsingFanout(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPermutePiUsingFanout(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkRestrashRandom(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkRestrashRandom(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkPermute(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkPermute(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkUnpermute(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkUnpermute(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_EnumerateCubeStatesZdd(...) local_unnamed_addr #8
+declare void @Abc_EnumerateCubeStatesZdd(...) local_unnamed_addr #7
 
-declare void @Abc_EnumerateCubeStates(...) local_unnamed_addr #8
+declare void @Abc_EnumerateCubeStates(...) local_unnamed_addr #7
 
-declare void @Abc_EnumerateFrontierTest(i32 noundef) local_unnamed_addr #8
+declare void @Abc_EnumerateFrontierTest(i32 noundef) local_unnamed_addr #7
 
-declare void @Dtt_EnumerateLf(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Dtt_EnumerateLf(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Dau_ConstructAigFromFile(ptr noundef) local_unnamed_addr #8
+declare ptr @Dau_ConstructAigFromFile(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_DumpAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_DumpAiger(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Dau_FunctionEnum(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Dau_FunctionEnum(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCecFraigPartAuto(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCecFraigPartAuto(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCecFraigPart(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCecFraigPart(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCecSat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCecSat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkCecFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkCecFraig(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarCec(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarCec(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Fra_SecSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Fra_SecSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarProve(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarProve(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarAbSec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarAbSec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarSimSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarSimSec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarMatch(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarMatch(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkMiterSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkMiterSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cnf_DataSolveFromFile(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Cnf_DataSolveFromFile(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexCreate(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexCreate(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @xSAT_SolverParseDimacs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @xSAT_SolverParseDimacs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @xSAT_SolverSolve(ptr noundef) local_unnamed_addr #8
+declare i32 @xSAT_SolverSolve(ptr noundef) local_unnamed_addr #7
 
-declare void @xSAT_SolverPrintStats(ptr noundef) local_unnamed_addr #8
+declare void @xSAT_SolverPrintStats(ptr noundef) local_unnamed_addr #7
 
-declare void @xSAT_SolverDestroy(ptr noundef) local_unnamed_addr #8
+declare void @xSAT_SolverDestroy(ptr noundef) local_unnamed_addr #7
 
-declare void @satoko_default_opts(ptr noundef) local_unnamed_addr #8
+declare void @satoko_default_opts(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cmd_DeriveOptionFromSettings(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cmd_DeriveOptionFromSettings(i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @satoko_parse_dimacs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @satoko_parse_dimacs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @satoko_configure(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @satoko_configure(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @satoko_solve(ptr noundef) local_unnamed_addr #8
+declare i32 @satoko_solve(ptr noundef) local_unnamed_addr #7
 
-declare void @satoko_destroy(ptr noundef) local_unnamed_addr #8
+declare void @satoko_destroy(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSatokoDimacs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSatokoDimacs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSatokoCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManSatokoCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSat3Call(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManSat3Call(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManKissatCall(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManKissatCall(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Mf_ManDumpCnf(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Mf_ManDumpCnf(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #13
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
-declare i32 @Abc_NtkPartitionedSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkPartitionedSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkMiterProve(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkMiterProve(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkAutoDebug(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkAutoDebug(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkRetimeDebug(ptr noundef) #8
+declare i32 @Abc_NtkRetimeDebug(ptr noundef) #7
 
-declare void @Abc_NtkEco(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkEco(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarBmc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarBmc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Saig_ParBmcSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Saig_ParBmcSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarBmc3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarBmc3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Inter_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Inter_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarBmcInter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarBmcInter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Saig_ManFindFailedPoCex(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Saig_ManFindFailedPoCex(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarClau(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarClau(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarEnlarge(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarEnlarge(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexTransformTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexTransformTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarTempor(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarInduction(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarInduction(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkInvertConstraints(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkInvertConstraints(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDarConstrProfile(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDarConstrProfile(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkDarConstr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkDarConstr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWithConstr(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithConstr(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarUnfold(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarUnfold(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarFold(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarFold(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #7
 
-declare void @bmGateWay(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @bmGateWay(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_ObjNamePrefix(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_ObjNamePrefix(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Nm_ManDeleteIdName(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Nm_ManDeleteIdName(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @saucyGateWay(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @saucyGateWay(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkOrderObjsByName(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkOrderObjsByName(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkVerifyCex(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkVerifyCex(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Pdr_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Pdr_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_NtkDarPdr(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Abc_NtkDarPdr(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Llb4_Nonlin4NormalizeCex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Llb4_Nonlin4NormalizeCex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexDup(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexDup(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Bmc_AigTargetStates(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Bmc_AigTargetStates(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #19
 
-declare ptr @Abc_NtkFindDcLatches(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFindDcLatches(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Saig_ManDupDual(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Saig_ManDupDual(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Saig_ManBlockPo(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Saig_ManBlockPo(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Saig_ManIsoReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Saig_ManIsoReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare double @Abc_NtkGetMappedArea(ptr noundef) local_unnamed_addr #8
+declare double @Abc_NtkGetMappedArea(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_FileSimpleRead(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_FileSimpleRead(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManReadMiniAig(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManReadMiniAig(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_MiniAigSuperDerive(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_MiniAigSuperDerive(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManReadMiniLut(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManReadMiniLut(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCreateXors(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCreateXors(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkHieCecTest(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkHieCecTest(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkHieCecTest2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkHieCecTest2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManStgRead(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManStgRead(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Io_ReadNetlist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Io_ReadNetlist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFlattenHierarchyGia(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFlattenHierarchyGia(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkAigToGia(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkAigToGia(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupZeroUndc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupZeroUndc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkToDarChoices(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkToDarChoices(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollectCiNames(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollectCiNames(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollectCoNames(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollectCoNames(ptr noundef) local_unnamed_addr #7
 
-declare float @Abc_NtkReadDefaultArrivalWorst(ptr noundef) local_unnamed_addr #8
+declare float @Abc_NtkReadDefaultArrivalWorst(ptr noundef) local_unnamed_addr #7
 
-declare float @Abc_NtkReadDefaultRequiredWorst(ptr noundef) local_unnamed_addr #8
+declare float @Abc_NtkReadDefaultRequiredWorst(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkGetCiArrivalFloats(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkGetCiArrivalFloats(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkGetCoRequiredFloats(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkGetCoRequiredFloats(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFromMappedGia(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFromMappedGia(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFromCellMappedGia(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFromCellMappedGia(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManHasDangling(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManHasDangling(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManEquivCountClasses(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManEquivCountClasses(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkFromDarChoices(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkFromDarChoices(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkRedirectCiCo(ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkRedirectCiCo(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeInitialize(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeInitialize(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeSetDefaultArrival(ptr noundef, float noundef, float noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeSetDefaultArrival(ptr noundef, float noundef, float noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeSetDefaultRequired(ptr noundef, float noundef, float noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeSetDefaultRequired(ptr noundef, float noundef, float noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkTimeSetRequired(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #8
+declare void @Abc_NtkTimeSetRequired(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #5 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #32
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @Gia_ManLutParams(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #32
   %10 = icmp eq ptr %0, null
   br i1 %10, label %55, label %11
@@ -95654,118 +95648,118 @@ define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef r
 
 59:                                               ; preds = %34, %36, %49, %51, %55
   %.0 = phi i32 [ 1, %55 ], [ 0, %51 ], [ 0, %49 ], [ 0, %36 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare ptr @Gia_ManDupWithAttributes(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithAttributes(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManLutParams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManLutParams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #7
 
-declare void @Abc_NtkInsertHierarchyGia(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_NtkInsertHierarchyGia(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Io_WriteVerilog(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Io_WriteVerilog(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIsoCanonicize(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIsoCanonicize(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_AigerWriteSimple(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_AigerWriteSimple(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManDumpVerilogNand(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManDumpVerilogNand(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManDumpVerilog(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManDumpVerilog(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManWriteMiniAig(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManWriteMiniAig(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManWriteMiniLut(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManWriteMiniLut(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_AigerWriteS(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_AigerWriteS(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_AigerWriteLut(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_AigerWriteLut(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintStats(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintStats(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintFanio(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintFanio(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManDetectSeqSignals(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManDetectSeqSignals(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintMiterStatus(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintMiterStatus(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManLutSizeMax(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManLutSizeMax(ptr noundef) local_unnamed_addr #7
 
-declare void @Acec_StatsCollect(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Acec_StatsCollect(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManMuxProfiling(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManMuxProfiling(ptr noundef) local_unnamed_addr #7
 
-declare void @Acec_ManProfile(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Acec_ManProfile(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManProfileStructures(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManProfileStructures(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWithMuxPos(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithMuxPos(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCofStructure(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCofStructure(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformMuxDec(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformMuxDec(ptr noundef) local_unnamed_addr #7
 
-declare i64 @Gia_LutComputeTruth6Simple(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @Gia_LutComputeTruth6Simple(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Extra_PrintHex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManCheckUnateTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManCheckUnateTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManRex2Gia(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManRex2Gia(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManAutomWalk(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManAutomWalk(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManShow(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManShow(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupAddBufs(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupAddBufs(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupAddPis(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupAddPis(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupMuxRestructure(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupMuxRestructure(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupHashMapping(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupHashMapping(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTransferPacking(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManTransferPacking(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTransferTiming(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManTransferTiming(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @If_ManDeriveGiaFromCells(ptr noundef) local_unnamed_addr #8
+declare ptr @If_ManDeriveGiaFromCells(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Dsm_ManDeriveGia(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Dsm_ManDeriveGia(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupMuxes(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupMuxes(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManIsSeqWithBoxes(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManIsSeqWithBoxes(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManRegBoxNum(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManRegBoxNum(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupUnshuffleInputs(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupUnshuffleInputs(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCollapse(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCollapse(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupNoMuxes(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupNoMuxes(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManRehash(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManRehash(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupTopAnd(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupTopAnd(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupOneHot(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupOneHot(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCofactorVar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCofactorVar(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManComputeCofs(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManComputeCofs(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCofAll(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCofAll(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCof(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCof(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_IntStartNatural(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #24 {
+define internal fastcc noalias noundef ptr @Vec_IntStartNatural(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #23 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = add nsw i32 %0, -1
   %or.cond.i = icmp ult i32 %3, 15
@@ -95806,31 +95800,31 @@ Vec_IntAlloc.exit:                                ; preds = %1, %5
   ret ptr %2
 }
 
-declare ptr @Gia_ManDupCofs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCofs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupTrimmed2(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupTrimmed2(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupTrimmed3(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupTrimmed3(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupLevelized(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupLevelized(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupOrderAiger(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupOrderAiger(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupOrderDfsReverse(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupOrderDfsReverse(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSimSimulatePattern(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSimSimulatePattern(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManSimSimulate(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManSimSimulate(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManSimTwo(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManSimTwo(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Ssw_RarSimulateGia(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Ssw_RarSimulateGia(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_WrdFreeP(ptr noundef captures(none) %0) unnamed_addr #3 {
@@ -95861,16 +95855,16 @@ define internal fastcc void @Vec_WrdFreeP(ptr noundef captures(none) %0) unnamed
   ret void
 }
 
-declare void @Gia_ManDumpFiles(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManDumpFiles(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManDumpPlaFiles(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManDumpPlaFiles(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTestOneFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManTestOneFile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTestWordFile(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManTestWordFile(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdStartTruthTablesRev(i32 noundef %0) unnamed_addr #24 {
+define internal fastcc noalias noundef ptr @Vec_WrdStartTruthTablesRev(i32 noundef %0) unnamed_addr #23 {
   %2 = icmp slt i32 %0, 7
   %3 = add nsw i32 %0, -6
   %4 = shl nuw i32 1, %3
@@ -95966,7 +95960,7 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
 }
 
 ; Function Attrs: inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdStartTruthTables(i32 noundef %0) unnamed_addr #24 {
+define internal fastcc noalias noundef ptr @Vec_WrdStartTruthTables(i32 noundef %0) unnamed_addr #23 {
   %2 = icmp slt i32 %0, 7
   %3 = add nsw i32 %0, -6
   %4 = shl nuw i32 1, %3
@@ -96059,10 +96053,10 @@ Vec_WrdStart.exit:                                ; preds = %1, %10
   ret ptr %8
 }
 
-declare ptr @Gia_ManSimPatSimOut(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSimPatSimOut(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdReadHex(ptr noundef %0) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @Vec_WrdReadHex(ptr noundef %0) unnamed_addr #5 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.1145)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
@@ -96299,7 +96293,7 @@ Vec_WrdPush.exit49:                               ; preds = %Vec_WrdPush.exit49.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdStart(i32 noundef %0) unnamed_addr #25 {
+define internal fastcc noalias noundef ptr @Vec_WrdStart(i32 noundef %0) unnamed_addr #24 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = add i32 %0, -1
   %or.cond.i = icmp ult i32 %3, 15
@@ -96327,7 +96321,7 @@ Vec_WrdAlloc.exit:                                ; preds = %1, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_WrdFillExtra(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #3 {
@@ -96423,10 +96417,10 @@ Vec_WrdGrow.exit:                                 ; preds = %Vec_WrdGrow.exit.si
   ret void
 }
 
-declare void @Extra_BitMatrixTransposeP(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Extra_BitMatrixTransposeP(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #26 {
+define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #25 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val20 = load i32, ptr %5, align 4, !tbaa !913
   %6 = sdiv i32 %.val20, %2
@@ -96500,7 +96494,7 @@ Vec_WrdDumpBoolOne.exit:                          ; preds = %.lr.ph, %Vec_WrdDum
 }
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #26 {
+define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #25 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val19 = load i32, ptr %4, align 4, !tbaa !913
   %5 = sdiv i32 %.val19, %2
@@ -96604,18 +96598,18 @@ define internal fastcc void @Vec_WrdFree(ptr noundef captures(none) %0) unnamed_
   ret void
 }
 
-declare void @Gia_ManSimProfile(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSimProfile(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPatSatImprove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPatSatImprove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPatDistImprove(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPatDistImprove(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPatRareImprove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPatRareImprove(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Abc_Random(i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_Random(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdStartRandom(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc noalias noundef ptr @Vec_WrdStartRandom(i32 noundef %0) unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = add i32 %0, -1
   %or.cond.i.i = icmp ult i32 %3, 15
@@ -96659,212 +96653,212 @@ Vec_WrdStart.exit:                                ; preds = %1, %4
   ret ptr %2
 }
 
-declare i64 @Abc_RandomW(i32 noundef) local_unnamed_addr #8
+declare i64 @Abc_RandomW(i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManSimRsb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManSimRsb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cec_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManSimSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cec_ManSeqResimulateCounter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Cec_ManSeqResimulateCounter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_CommandSpecI(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_CommandSpecI(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cec_ManSimulation(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManSimulation(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Ssw_SignalFilterGia(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Ssw_SignalFilterGia(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Ssw_RarSignalFilterGia(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Ssw_RarSignalFilterGia(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cec_ManSmfSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManSmfSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cec_ManSeqSemiformal(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Cec_ManSeqSemiformal(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupTimes(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupTimes(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManFraSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManFraSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFramesInitSpecial(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFramesInitSpecial(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManUnrollAndCofactor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManUnrollAndCofactor(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFrames2(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFrames2(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFrames(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFrames(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManRetimeForward(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManRetimeForward(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManRemoveEnables(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManRemoveEnables(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupSelf(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupSelf(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCompress2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCompress2(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCollapseTest(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCollapseTest(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformBidec(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformBidec(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManMapShrink4(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMapShrink4(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManMapShrink6(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMapShrink6(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformFx(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformFx(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkShareXorGia(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkShareXorGia(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManAreaBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManAreaBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManBalanceLut(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManBalanceLut(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManLutBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManLutBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManResub1(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManResub1(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManResub2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManResub2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManReshape1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManReshape1(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManReshape2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManReshape2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManAigSyn2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManAigSyn2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManAigSynch2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManAigSynch2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManAigSyn3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManAigSyn3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManAigSyn4(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManAigSyn4(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCheckFalse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCheckFalse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPairWiseMiter(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPairWiseMiter(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransformMiter(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransformMiter(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransformMiter2(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransformMiter2(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransformDualOutput(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransformDualOutput(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransformTwoWord2DualOutput(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransformTwoWord2DualOutput(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWithCare(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithCare(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileReadContents(ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileReadContents(ptr noundef) local_unnamed_addr #7
 
-declare void @Extra_StringClean(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Extra_StringClean(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManMiter2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMiter2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManDupAppend(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManDupAppend(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManBoxNum(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManBoxNum(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSweepWithBoxes(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSweepWithBoxes(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSeqStructSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSeqStructSweep(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cec_ManCorSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManCorSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec_ManLSCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec_ManLSCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFindStopFlops(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFindStopFlops(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupStopsAdd(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupStopsAdd(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_SignalCorrespondencePart(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_SignalCorrespondencePart(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec_ManScorrCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec_ManScorrCorrespondence(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManScorrDivideTest(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManScorrDivideTest(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTransferEquivs2(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManTransferEquivs2(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupStopsRem(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupStopsRem(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cec_ManChcSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManChcSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec_ManChoiceComputation(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec_ManChoiceComputation(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cec_ManSatSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManSatSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cbs2_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cbs2_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cbs3_ManSolveMiterNc(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cbs3_ManSolveMiterNc(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Tas_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Tas_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cbs_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cbs_ManSolveMiterNc(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cbs_ManSolveMiter(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cbs_ManSolveMiter(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cec_ManSatSolving(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cec_ManSatSolving(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManSatEnum(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManSatEnum(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cec_SimGenSetParDefault(ptr noundef) local_unnamed_addr #8
+declare void @Cec_SimGenSetParDefault(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec_SimGenRun(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec_SimGenRun(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cec4_ManSetParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec4_ManSetParams(ptr noundef) local_unnamed_addr #7
 
-declare void @Cec4_ManSimulateTest5(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Cec4_ManSimulateTest5(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIvyFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIvyFraig(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cec2_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec2_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec3_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec3_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec4_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Cec4_ManSimulateTest(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Cec5_ManSimulateTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cec5_ManSimulateTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cec_ManSatSweeping(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cec_ManSatSweeping(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Ssc_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Ssc_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Ssc_PerformSweepingConstr(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Ssc_PerformSweepingConstr(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cec4_ManSimulateOnlyTest(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Cec4_ManSimulateOnlyTest(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCombSpecReduce(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCombSpecReduce(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSpecReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSpecReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintStatsShort(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintStatsShort(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManEquivReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManEquivReduce(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManFilterEquivsForSpeculation(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManFilterEquivsForSpeculation(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManFilterEquivsUsingLatches(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManFilterEquivsUsingLatches(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManFilterEquivsUsingParts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManFilterEquivsUsingParts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManEquivReduceAndRemap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManEquivReduceAndRemap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManEquivMark(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManEquivMark(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManEquivFilter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManEquivFilter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cec_ManCecSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Cec_ManCecSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cec_ManVerify(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Cec_ManVerify(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManCheckSimEquiv(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManCheckSimEquiv(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDemiterToDual(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDemiterToDual(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc void @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -97115,7 +97109,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #27 {
+define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #26 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !913
@@ -97142,209 +97136,209 @@ define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr noundef nonnull reado
   ret ptr %2
 }
 
-declare ptr @Cec4_ManSimulateTest3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cec4_ManSimulateTest3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Cec5_ManSimulateTest3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Cec5_ManSimulateTest3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #28
+declare void @exit(i32 noundef) local_unnamed_addr #27
 
-declare ptr @Gia_ManMiterInverse(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMiterInverse(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Extra_FileNameCorrectPath(ptr noundef) local_unnamed_addr #8
+declare void @Extra_FileNameCorrectPath(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManVerifyWithBoxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManVerifyWithBoxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFraigSweepSimple(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFraigSweepSimple(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @For_ManExperiment(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @For_ManExperiment(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSolveProblem(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSolveProblem(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformSopBalanceWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformSopBalanceWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformSopBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformSopBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformDsdBalanceWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformDsdBalanceWin(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformDsdBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformDsdBalance(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPerformFlow(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPerformFlow(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPerformFlow2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPerformFlow2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPerformFlow3(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPerformFlow3(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSetIfParsDefault(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManSetIfParsDefault(ptr noundef) local_unnamed_addr #7
 
-declare ptr @If_LibLutSetSimple(i32 noundef) local_unnamed_addr #8
+declare ptr @If_LibLutSetSimple(i32 noundef) local_unnamed_addr #7
 
-declare i32 @If_MatchCheck2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_MatchCheck2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @If_MatchCheck1(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_MatchCheck1(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare i32 @If_CutPerformCheck75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #8
+declare i32 @If_CutPerformCheck75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #7
 
-declare ptr @Gia_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManIffTest(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManIffTest(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIiffTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIiffTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Mpm_ManSetParsDefault(ptr noundef) local_unnamed_addr #8
+declare void @Mpm_ManSetParsDefault(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #8
+declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #7
 
-declare ptr @Mpm_LibLutSetSimple(i32 noundef) local_unnamed_addr #8
+declare ptr @Mpm_LibLutSetSimple(i32 noundef) local_unnamed_addr #7
 
-declare ptr @Mpm_ManCellMapping(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Mpm_ManCellMapping(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Mpm_LibLutFree(ptr noundef) local_unnamed_addr #8
+declare void @Mpm_LibLutFree(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Mpm_ManLutMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Mpm_ManLutMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSifPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSifPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Jf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Jf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Sdm_ManCanRead(...) local_unnamed_addr #8
+declare i32 @Sdm_ManCanRead(...) local_unnamed_addr #7
 
-declare ptr @Jf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Jf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Kf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Kf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Kf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Kf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Lf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Lf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Lf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Lf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Mf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Mf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Mf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Mf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #8
+declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #7
 
-declare void @Nf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Nf_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Nf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Nf_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Of_ManSetDefaultPars(ptr noundef) local_unnamed_addr #8
+declare void @Of_ManSetDefaultPars(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Of_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Of_ManPerformMapping(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManLutPacking(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManLutPacking(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Sle_ManExplore(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Sle_ManExplore(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManConvertPackingToEdges(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManConvertPackingToEdges(ptr noundef) local_unnamed_addr #7
 
-declare void @Seg_ManComputeDelay(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Seg_ManComputeDelay(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManComputeEdgeDelay2(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManComputeEdgeDelay2(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManComputeEdgeDelay(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManComputeEdgeDelay(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManLutSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManLutSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManReadSimInfoInputs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManReadSimInfoInputs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Vec_WrdReadTest(ptr noundef) local_unnamed_addr #8
+declare ptr @Vec_WrdReadTest(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSimInfoPassTest(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManSimInfoPassTest(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSimInfoEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManSimInfoEval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformLNetOptNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformLNetOptNew(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTtoptCare(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTtoptCare(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTtopt(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTtopt(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransductionTt(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransductionTt(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTransductionBdd(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTransductionBdd(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManTranStoch(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManTranStoch(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformLNetMap(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformLNetMap(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManTestStruct(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManTestStruct(ptr noundef) local_unnamed_addr #7
 
-declare float @Gia_ManDelayTraceLutPrint(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare float @Gia_ManDelayTraceLutPrint(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSpeedup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSpeedup(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManArePerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManArePerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManCollectReachable(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManCollectReachable(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Dch_ComputeEquivalences(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Dch_ComputeEquivalences(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManReprFromAigRepr(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManReprFromAigRepr(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPerformDch(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformDch(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManEquivReduce2(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManEquivReduce2(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupReplaceCut(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupReplaceCut(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abs_RpmPerformOld(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abs_RpmPerformOld(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abs_RpmPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abs_RpmPerform(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCofTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCofTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Aig_ManSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Aig_ManSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupRandPerm(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupRandPerm(ptr noundef) local_unnamed_addr #7
 
-declare void @Llb_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Llb_ManSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Llb_ManModelCheckGia(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Llb_ManModelCheckGia(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Llb_ManReachMinCut(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Llb_ManReachMinCut(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Llb_NonlinCoreReach(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Llb_NonlinCoreReach(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Llb_Nonlin4CoreReach(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Llb_Nonlin4CoreReach(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Bmc_MeshTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Bmc_MeshTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Bmc_MeshTest2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Bmc_MeshTest2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIsoReduce2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIsoReduce2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIsoReduce(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIsoReduce(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIsoNpnReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIsoNpnReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManIsoStrashReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManIsoStrashReduce(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManComparePrint(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManComparePrint(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_Iso4TestTwo(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_Iso4TestTwo(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManCompareSims(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManCompareSims(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupUif(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupUif(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupBlackBox(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupBlackBox(ptr noundef) local_unnamed_addr #7
 
-declare void @Bmc_CexTest(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Bmc_CexTest(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCycled(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCycled(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupDfsCone(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupDfsCone(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManExtractWindow(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManExtractWindow(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupCones(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupCones(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_IntStartRange(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #24 {
+define internal fastcc noalias noundef ptr @Vec_IntStartRange(i32 noundef range(i32 0, -2147483648) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #23 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %4 = add nsw i32 %1, -1
   %or.cond.i = icmp ult i32 %4, 15
@@ -97386,110 +97380,110 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   ret ptr %3
 }
 
-declare ptr @Gia_ManDupSliced(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupSliced(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManFindPoPartition(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManFindPoPartition(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManGroupProve(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManGroupProve(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManMultiProve(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManMultiProve(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Cec_GiaSplitTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Cec_GiaSplitTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Cec_GiaProveTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Cec_GiaProveTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Cnf_SplitSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Cnf_SplitSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManBmcPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManBmcPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Bmcg_ManPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Bmcg_ManPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Bmcs_ManPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Bmcs_ManPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Bmc_ChainTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Bmc_ChainTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Bmc_ManBCorePerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Bmc_ManBCorePerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Bmc_PerformISearch(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Bmc_PerformISearch(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Bmc_PerformICheck(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Bmc_PerformICheck(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Bmc_LoadTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Bmc_LoadTest(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ParFfSetDefault(ptr noundef) local_unnamed_addr #8
+declare void @Gia_ParFfSetDefault(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkCollectCioNames(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkCollectCioNames(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_DeriveFormula(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_DeriveFormula(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_FileRead(ptr noundef) local_unnamed_addr #8
+declare ptr @Extra_FileRead(ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManFaultTest(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManFaultTest(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_QbfDumpFile(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_QbfDumpFile(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_QbfDumpFileInv(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_QbfDumpFileInv(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_QbfSolve(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_QbfSolve(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_QbfQuantifyAll(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_QbfQuantifyAll(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_GenQbfMiter(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_GenQbfMiter(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_Gen2CreateMiter(i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_Gen2CreateMiter(i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Bmc_FxComputeOne(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Bmc_FxComputeOne(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Bmc_FxCompute(ptr noundef) local_unnamed_addr #8
+declare i32 @Bmc_FxCompute(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Bmc_CollapseOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Bmc_CollapseOne(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManInseTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManInseTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManMaxiTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManMaxiTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManBmciTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManBmciTest(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManPoXSim(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPoXSim(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManDemiterTwoWords(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManDemiterTwoWords(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManDemiterDual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManDemiterDual(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupDemiter(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupDemiter(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintStatsMiter(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintStatsMiter(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWithNaturalBoxes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithNaturalBoxes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWithArtificialBoxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWithArtificialBoxes(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_PolynCoreDetectTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_PolynCoreDetectTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_PolynReorder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_PolynReorder(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_PolynBuild(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_PolynBuild(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_PolynBuild2Test(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_PolynBuild2Test(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Acec_ManCecSetDefaultParams(ptr noundef) local_unnamed_addr #8
+declare void @Acec_ManCecSetDefaultParams(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Acec_Solve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Acec_Solve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Acec_Normalize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Acec_Normalize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Acec_ManDecla(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Acec_ManDecla(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Eso_ManCompute(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Eso_ManCompute(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Io_ReadPla(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Io_ReadPla(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_ExorcismNtk2Esop(ptr noundef) local_unnamed_addr #8
+declare ptr @Abc_ExorcismNtk2Esop(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Abc_ExorcismMain(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Abc_ExorcismMain(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Vec_WecFree(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc void @Vec_WecFree(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8, !tbaa !1444
   %3 = icmp sgt i32 %2, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -97535,39 +97529,39 @@ define internal fastcc void @Vec_WecFree(ptr noundef captures(none) %0) unnamed_
   ret void
 }
 
-declare ptr @Gia_ManPerformMfs(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManPerformMfs(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Sbd_ParSetDefault(ptr noundef) local_unnamed_addr #8
+declare void @Sbd_ParSetDefault(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Sbd_NtkPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Sbd_NtkPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDeepSyn(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDeepSyn(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManSyn(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManSyn(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManStochSyn(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManStochSyn(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #20
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #19
 
-declare ptr @Gia_ManDupAbsFlops(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupAbsFlops(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManCexAbstractionRefine(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManCexAbstractionRefine(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupAbsGates(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupAbsGates(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManNewRefine(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManNewRefine(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManShrinkGla(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManShrinkGla(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abs_ParSetDefaults(ptr noundef) local_unnamed_addr #8
+declare void @Abs_ParSetDefaults(ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManPerformGla(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_ManPerformGla(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Gia_ManPerformGlaOld(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Gia_ManPerformGlaOld(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc noalias noundef ptr @Vec_PtrStart(i32 noundef %0) unnamed_addr #25 {
+define internal fastcc noalias noundef ptr @Vec_PtrStart(i32 noundef %0) unnamed_addr #24 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %3 = add i32 %0, -1
   %or.cond.i = icmp ult i32 %3, 7
@@ -97594,68 +97588,68 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %4
   ret ptr %2
 }
 
-declare ptr @Gia_ManDupDfsOnePo(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupDfsOnePo(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_VtaPerform(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_VtaPerform(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_VtaConvertToGla(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_VtaConvertToGla(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_VtaConvertFromGla(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_VtaConvertFromGla(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_FlaConvertToGla(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_FlaConvertToGla(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_GlaConvertToFla(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_GlaConvertToFla(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Extra_CommandGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Extra_CommandGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Extra_CommandCfs(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #8
+declare void @Extra_CommandCfs(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, float noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManProdAdderGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManProdAdderGen(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupAddFlop(ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupAddFlop(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManBoundaryMiter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManBoundaryMiter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_GenSandwich(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_GenSandwich(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_GenPutOnTop(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_GenPutOnTop(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Bnd_ManStart(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManStart(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Bnd_ManCheckBound(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @Bnd_ManCheckBound(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Bnd_ManStackGias(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManStackGias(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @Bnd_ManCheckCoMerged(ptr noundef) local_unnamed_addr #8
+declare i32 @Bnd_ManCheckCoMerged(ptr noundef) local_unnamed_addr #7
 
-declare void @Bnd_ManFindBound(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Bnd_ManFindBound(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Bnd_ManGenSpecOut(ptr noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManGenSpecOut(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Bnd_ManGenImplOut(ptr noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManGenImplOut(ptr noundef) local_unnamed_addr #7
 
-declare void @Bnd_ManSetEqOut(i32 noundef) local_unnamed_addr #8
+declare void @Bnd_ManSetEqOut(i32 noundef) local_unnamed_addr #7
 
-declare ptr @Bnd_ManGenPatched1(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManGenPatched1(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Bnd_ManSetEqRes(i32 noundef) local_unnamed_addr #8
+declare void @Bnd_ManSetEqRes(i32 noundef) local_unnamed_addr #7
 
-declare void @Bnd_ManPrintStats(...) local_unnamed_addr #8
+declare void @Bnd_ManPrintStats(...) local_unnamed_addr #7
 
-declare i32 @Bnd_ManGetNInternal(...) local_unnamed_addr #8
+declare i32 @Bnd_ManGetNInternal(...) local_unnamed_addr #7
 
-declare i32 @Bnd_ManGetNExtra(...) local_unnamed_addr #8
+declare i32 @Bnd_ManGetNExtra(...) local_unnamed_addr #7
 
-declare void @Bnd_ManStop(...) local_unnamed_addr #8
+declare void @Bnd_ManStop(...) local_unnamed_addr #7
 
-declare ptr @Bnd_ManGenPatched2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Bnd_ManGenPatched2(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_GenerateCexes(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_GenerateCexes(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupOdc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupOdc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc void @Vec_IntPrint(ptr noundef readonly captures(none) %0) unnamed_addr #26 {
+define internal fastcc void @Vec_IntPrint(ptr noundef readonly captures(none) %0) unnamed_addr #25 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val6 = load i32, ptr %2, align 4, !tbaa !42
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4959, i32 noundef %.val6)
@@ -97684,41 +97678,41 @@ define internal fastcc void @Vec_IntPrint(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @Gia_ManGenRel(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManGenRel(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Wlc_NtkMuxTreeString(i32 noundef) local_unnamed_addr #8
+declare ptr @Wlc_NtkMuxTreeString(i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManGenMux(i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManGenMux(i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupGenComp(i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupGenComp(i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManGenSorter(i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManGenSorter(i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManGenNeuron(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManGenNeuron(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManExploreCutsTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManExploreCutsTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupWindow(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupWindow(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @Gia_ManCofClassRand(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManCofClassRand(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManCofClassEnum(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManCofClassEnum(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManCofClassPattern(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManCofClassPattern(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Gia_ManDupEncode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Gia_ManDupEncode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManRecurDsd(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManRecurDsd(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManCheckDsd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManCheckDsd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManPrintDsdMatrix(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManPrintDsdMatrix(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare i32 @Gia_FileSize(ptr noundef) local_unnamed_addr #8
+declare i32 @Gia_FileSize(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_TruthDecRead(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_TruthDecRead(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManMatchCuts(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManMatchCuts(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_MemHashFree(ptr noundef captures(address_is_null) %0) unnamed_addr #3 {
@@ -97780,7 +97774,7 @@ Vec_IntFreeP.exit5:                               ; preds = %22, %Vec_IntFreeP.e
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Vec_MemFree(ptr noundef captures(none) %0) unnamed_addr #6 {
+define internal fastcc void @Vec_MemFree(ptr noundef captures(none) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !1450
   %.not19 = icmp slt i32 %3, 0
@@ -97827,21 +97821,27 @@ define internal fastcc void @Vec_MemFree(ptr noundef captures(none) %0) unnamed_
   ret void
 }
 
-declare void @Gia_ManMatchConesOutput(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManMatchConesOutput(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManMatchCones(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManMatchCones(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Dau_CollectNpnFunctions(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Dau_CollectNpnFunctions(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Abc_TtStoreDump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare void @Abc_TtStoreDump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManMulFind(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare void @Gia_ManMulFind(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @Gia_ManUpdateCoPhase(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @Gia_ManUpdateCoPhase(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarUnfold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarUnfold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @Abc_NtkDarFold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @Abc_NtkDarFold2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #29
@@ -97877,31 +97877,31 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { inlinehint mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { inlinehint mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { inlinehint nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { inlinehint mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { inlinehint mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nofree nounwind }
 attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: read) }

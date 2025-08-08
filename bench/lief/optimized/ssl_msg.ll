@@ -308,7 +308,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call fastcc i32 @ssl_parse_record_header(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %11
@@ -334,7 +334,7 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
 
 18:                                               ; preds = %12, %15, %17, %11
   %.1 = phi i32 [ %10, %11 ], [ %16, %17 ], [ 0, %15 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 19:                                               ; preds = %18, %3
@@ -347,9 +347,6 @@ define hidden i32 @mbedtls_ssl_check_record(ptr noundef %0, ptr noundef %1, i64 
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @.str.7) #19
   ret i32 %spec.store.select
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @mbedtls_debug_print_buf(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -549,10 +546,10 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %8 = alloca [48 x i8], align 16
   %9 = alloca [48 x i8], align 16
   %10 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 -1) #19, !srcloc !44
-  call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1510, ptr noundef nonnull @.str.31) #19
   %12 = icmp eq ptr %2, null
   br i1 %12, label %28, label %13
@@ -605,7 +602,7 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %41, label %42, label %89
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %43, align 8, !tbaa !52
   %44 = getelementptr i8, ptr %1, i64 16
@@ -700,11 +697,11 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread:                                          ; preds = %47, %58, %88, %83
   %.1.ph = phi i32 [ %., %83 ], [ -27648, %88 ], [ -29056, %58 ], [ -29056, %47 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ssl_parse_inner_plaintext.exit
 
 .thread338:                                       ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %224
 
 89:                                               ; preds = %40
@@ -737,7 +734,7 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not352, label %102, label %135
 
 102:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1726, ptr noundef nonnull @.str.27) #19
   %103 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
   %104 = load i64, ptr %25, align 8, !tbaa !40
@@ -804,13 +801,13 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
 
 133:                                              ; preds = %.thread326, %130, %132
   %.0241.ph329 = phi i32 [ -29056, %.thread326 ], [ -29056, %130 ], [ %.0241.ph, %132 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ssl_parse_inner_plaintext.exit
 
 .critedge:                                        ; preds = %120
   %134 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %134) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i64, ptr %25, align 8, !tbaa !40
   %.pre366 = load i64, ptr %92, align 8, !tbaa !52
   br label %135
@@ -928,9 +925,9 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not352, label %224, label %201
 
 201:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   %202 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
   %203 = sub i64 %200, %202
@@ -972,8 +969,8 @@ define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef %222) #19
   %223 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !57
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef %223) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not305, label %224, label %ssl_parse_inner_plaintext.exit
 
 224:                                              ; preds = %.thread338, %221, %._crit_edge
@@ -1057,14 +1054,11 @@ ssl_parse_inner_plaintext.exit314.thread:         ; preds = %252
 
 ssl_parse_inner_plaintext.exit:                   ; preds = %236, %250, %133, %153, %149, %139, %._crit_edge367, %.thread, %224, %29, %36, %221, %259, %228, %190, %28
   %.0 = phi i32 [ -27648, %28 ], [ -27648, %228 ], [ 0, %259 ], [ %212, %221 ], [ -27648, %190 ], [ -24576, %36 ], [ -24576, %29 ], [ -29056, %224 ], [ %.1.ph, %.thread ], [ %.0241.ph329, %133 ], [ -27648, %153 ], [ %148, %149 ], [ -29056, %139 ], [ -29056, %._crit_edge367 ], [ -29184, %250 ], [ -29184, %236 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1076,8 +1070,8 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %9 = alloca [12 x i8], align 1
   %10 = alloca i64, align 8
   %11 = alloca [48 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 55, ptr nonnull %6) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 935, ptr noundef nonnull @.str.8) #19
   %12 = icmp eq ptr %1, null
   br i1 %12, label %13, label %14
@@ -1227,7 +1221,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br label %.critedge
 
 97:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %98 = load i32, ptr %48, align 4, !tbaa !55
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %100 = load i64, ptr %99, align 8, !tbaa !54
@@ -1269,7 +1263,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   store i64 %119, ptr %28, align 8, !tbaa !40
   %120 = sub i64 %91, %117
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %117) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %169
 
 121:                                              ; preds = %109, %107, %104, %97
@@ -1277,7 +1271,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %122 = load i64, ptr %93, align 8, !tbaa !57
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef %122) #19
   call void @mbedtls_debug_print_ret(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1115, ptr noundef nonnull @.str.16, i32 noundef %.0258.ph) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 123:                                              ; preds = %86
@@ -1285,7 +1279,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %124, label %125, label %169
 
 125:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %127 = load i64, ptr %126, align 8, !tbaa !54
   %128 = icmp ult i64 %91, %127
@@ -1368,11 +1362,11 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread341:                                       ; preds = %129, %150, %160
   %.7.ph = phi i32 [ -27136, %160 ], [ %149, %150 ], [ -27136, %129 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 168:                                              ; preds = %151, %161
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %253
 
 169:                                              ; preds = %.thread335, %123
@@ -1382,7 +1376,7 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond8, label %171, label %252
 
 171:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %173 = load i64, ptr %172, align 8, !tbaa !52
   %174 = load i64, ptr %28, align 8, !tbaa !40
@@ -1483,11 +1477,11 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %224, label %.thread357
 
 .thread357:                                       ; preds = %217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %253
 
 224:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %226 = load i64, ptr %225, align 8, !tbaa !57
   %227 = icmp ult i64 %191, %226
@@ -1535,13 +1529,13 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread353:                                       ; preds = %182, %193, %198, %212, %216, %199
   %.8.ph = phi i32 [ %201, %199 ], [ -27648, %216 ], [ %211, %212 ], [ -27136, %198 ], [ -27648, %193 ], [ -27136, %182 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 .thread362:                                       ; preds = %228, %243
   %.10.ph = phi i32 [ %.0248.ph, %243 ], [ -27136, %228 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 245:                                              ; preds = %241
@@ -1554,8 +1548,8 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
   %251 = add i64 %250, %249
   store i64 %251, ptr %28, align 8, !tbaa !40
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef %249) #19
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %253
 
 252:                                              ; preds = %169
@@ -1568,18 +1562,18 @@ define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr n
 
 .critedge:                                        ; preds = %77, %72, %56, %51, %.thread362, %.thread353, %.thread341, %121, %253, %252, %96, %46, %34, %13
   %.0249 = phi i32 [ -27648, %13 ], [ -27648, %34 ], [ -28928, %46 ], [ -27136, %96 ], [ 0, %253 ], [ -27648, %252 ], [ %.0258.ph, %121 ], [ %.7.ph, %.thread341 ], [ %.8.ph, %.thread353 ], [ %.10.ph, %.thread362 ], [ -27136, %51 ], [ -27136, %56 ], [ -27136, %72 ], [ -27136, %77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 55, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0249
 }
 
 declare i32 @mbedtls_ssl_get_mode_from_transform(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ssl_extract_add_data_from_record(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @ssl_extract_add_data_from_record(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !40
   %8 = icmp eq i32 %3, 772
@@ -1673,14 +1667,14 @@ declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 nound
 declare i32 @mbedtls_cipher_crypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mbedtls_ct_hmac(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
@@ -1696,8 +1690,8 @@ define internal fastcc i32 @mbedtls_ct_hmac(ptr noundef %0, ptr noundef nonnull 
   %18 = load ptr, ptr %0, align 8, !tbaa !65
   %19 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %18) #19
   %20 = zext i8 %19 to i64
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @mbedtls_md_init(ptr noundef nonnull %10) #19
   %21 = load ptr, ptr %0, align 8, !tbaa !65
   %22 = call i32 @mbedtls_md_setup(ptr noundef nonnull %10, ptr noundef %21, i32 noundef 0) #19
@@ -1783,8 +1777,8 @@ define internal fastcc i32 @mbedtls_ct_hmac(ptr noundef %0, ptr noundef nonnull 
 .loopexit:                                        ; preds = %38, %29, %.lr.ph, %52, %50, %48, %46, %44, %._crit_edge, %25, %23, %8
   %.0 = phi i32 [ %22, %8 ], [ %24, %23 ], [ %26, %25 ], [ %43, %._crit_edge ], [ %45, %44 ], [ %47, %46 ], [ %49, %48 ], [ %51, %50 ], [ %53, %52 ], [ %40, %38 ], [ %30, %29 ], [ %28, %.lr.ph ]
   call void @mbedtls_md_free(ptr noundef nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #19
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -2112,7 +2106,7 @@ mbedtls_ssl_check_timer.exit140:                  ; preds = %128
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @ssl_double_retransmit_timeout(ptr noundef %0) unnamed_addr #0 {
@@ -2328,7 +2322,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %67, %70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_update_out_pointers(ptr noundef captures(none) initializes((360, 392)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_update_out_pointers(ptr noundef captures(none) initializes((360, 392)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1, !tbaa !19
@@ -2413,7 +2407,7 @@ define hidden void @mbedtls_ssl_flight_free(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_flight_transmit(ptr noundef %0) local_unnamed_addr #0 {
@@ -2953,7 +2947,7 @@ define hidden i32 @mbedtls_ssl_write_record(ptr noundef %0, i32 noundef %1) loca
   br i1 %.not, label %81, label %30
 
 30:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %32 = load ptr, ptr %31, align 8, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3017,7 +3011,7 @@ define hidden i32 @mbedtls_ssl_write_record(ptr noundef %0, i32 noundef %1) loca
 
 .thread:                                          ; preds = %65, %68
   %.2.ph = phi i32 [ -27648, %68 ], [ %64, %65 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread122
 
 69:                                               ; preds = %66
@@ -3036,7 +3030,7 @@ define hidden i32 @mbedtls_ssl_write_record(ptr noundef %0, i32 noundef %1) loca
   %79 = trunc i64 %77 to i16
   %80 = call i16 @llvm.bswap.i16(i16 %79)
   store i16 %80, ptr %78, align 1
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %69, %2
@@ -3466,7 +3460,7 @@ mbedtls_ssl_set_timer.exit:                       ; preds = %1, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @mbedtls_ssl_start_handshake_msg(ptr noundef captures(none) initializes((392, 396)) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #9 {
+define hidden noundef i32 @mbedtls_ssl_start_handshake_msg(ptr noundef captures(none) initializes((392, 396)) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = load ptr, ptr %5, align 8, !tbaa !105
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -3743,7 +3737,7 @@ ssl_flight_append.exit:                           ; preds = %130, %133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #10
+declare i16 @llvm.bswap.i16(i16) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_finish_handshake_msg(ptr noundef initializes((400, 408)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -3755,7 +3749,7 @@ define hidden i32 @mbedtls_ssl_finish_handshake_msg(ptr noundef initializes((400
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_write_version(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define hidden void @mbedtls_ssl_write_version(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = icmp eq i32 %1, 1
   %5 = icmp eq i32 %2, 770
   %6 = select i1 %5, i32 513, i32 512
@@ -4046,14 +4040,14 @@ ssl_buffering_free_slot.exit:                     ; preds = %23, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_dtls_replay_reset(ptr noundef writeonly captures(none) initializes((288, 304)) %0) local_unnamed_addr #11 {
+define hidden void @mbedtls_ssl_dtls_replay_reset(ptr noundef writeonly captures(none) initializes((288, 304)) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @mbedtls_ssl_dtls_replay_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+define hidden range(i32 -1, 1) i32 @mbedtls_ssl_dtls_replay_check(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -4116,7 +4110,7 @@ define hidden range(i32 -1, 1) i32 @mbedtls_ssl_dtls_replay_check(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_dtls_replay_update(ptr noundef captures(none) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_dtls_replay_update(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -4415,7 +4409,7 @@ ssl_load_buffered_message.exit:                   ; preds = %67, %106
   br label %398
 
 .critedge:                                        ; preds = %57, %105, %ssl_load_buffered_message.exit, %56, %51
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %109 = load ptr, ptr %13, align 8, !tbaa !75
   %110 = load ptr, ptr %0, align 8, !tbaa !18
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 9
@@ -5009,21 +5003,21 @@ ssl_get_next_record.exit.thread76:                ; preds = %mbedtls_ssl_dtls_re
   %396 = trunc i64 %394 to i16
   %397 = call i16 @llvm.bswap.i16(i16 %396)
   store i16 %397, ptr %395, align 1
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %398
 
 ssl_get_next_record.exit.thread:                  ; preds = %370, %378, %ssl_load_buffered_record.exit.i, %.thread117.i
   %.078.i.ph = phi i32 [ -29056, %.thread117.i ], [ -27648, %ssl_load_buffered_record.exit.i ], [ -29056, %378 ], [ -29056, %370 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread83
 
 ssl_get_next_record.exit.thread74:                ; preds = %379, %226, %224
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge.backedge
 
 ssl_get_next_record.exit:                         ; preds = %150, %159, %ssl_check_client_reconnect.exit.i, %235, %367, %380
   %.078.i = phi i32 [ %149, %150 ], [ %234, %235 ], [ %223, %ssl_check_client_reconnect.exit.i ], [ %154, %159 ], [ %.3.i.ph.i, %367 ], [ %.3.i.ph.i, %380 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %cond = icmp eq i32 %.078.i, -25984
   br i1 %cond, label %.backedge.backedge, label %.thread83
 
@@ -5705,7 +5699,7 @@ define hidden i32 @mbedtls_ssl_parse_change_cipher_spec(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_update_in_pointers(ptr noundef captures(none) initializes((192, 200), (208, 240)) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_update_in_pointers(ptr noundef captures(none) initializes((192, 200), (208, 240)) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %4 = load i8, ptr %3, align 1, !tbaa !19
@@ -5732,7 +5726,7 @@ define hidden void @mbedtls_ssl_update_in_pointers(ptr noundef captures(none) in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_reset_in_out_pointers(ptr noundef captures(none) initializes((192, 240), (344, 392)) %0) local_unnamed_addr #7 {
+define hidden void @mbedtls_ssl_reset_in_out_pointers(ptr noundef captures(none) initializes((192, 240), (344, 392)) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %4 = load i8, ptr %3, align 1, !tbaa !19
@@ -5795,7 +5789,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %8, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mbedtls_ssl_get_bytes_avail(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define hidden i64 @mbedtls_ssl_get_bytes_avail(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8, !tbaa !148
   %4 = icmp eq ptr %3, null
@@ -6633,7 +6627,7 @@ declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #1
 declare void @mbedtls_md_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_set_inbound_transform(ptr noundef captures(none) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #9 {
+define hidden void @mbedtls_ssl_set_inbound_transform(ptr noundef captures(none) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -6643,7 +6637,7 @@ define hidden void @mbedtls_ssl_set_inbound_transform(ptr noundef captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_set_outbound_transform(ptr noundef writeonly captures(none) initializes((128, 136), (416, 424)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define hidden void @mbedtls_ssl_set_outbound_transform(ptr noundef writeonly captures(none) initializes((128, 136), (416, 424)) %0, ptr noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8, !tbaa !101
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -6652,7 +6646,7 @@ define hidden void @mbedtls_ssl_set_outbound_transform(ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i16 @mbedtls_ssl_read_version(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
+define hidden zeroext i16 @mbedtls_ssl_read_version(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.0.copyload.i = load i16, ptr %0, align 1
   %3 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
   %4 = icmp eq i32 %1, 1
@@ -6693,7 +6687,7 @@ define hidden i32 @mbedtls_ssl_handle_pending_alert(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_pend_fatal_alert(ptr noundef writeonly captures(none) initializes((320, 322), (324, 328)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #11 {
+define hidden void @mbedtls_ssl_pend_fatal_alert(ptr noundef writeonly captures(none) initializes((320, 322), (324, 328)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i8 1, ptr %4, align 8, !tbaa !169
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 321
@@ -6724,12 +6718,12 @@ declare i32 @mbedtls_md_starts(ptr noundef) local_unnamed_addr #1
 declare i64 @mbedtls_ssl_get_output_max_frag_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 declare i64 @mbedtls_ssl_get_current_mtu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 1) i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 1) i32 @mbedtls_ssl_dtls_record_replay_check(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8, !tbaa !38
   store ptr %1, ptr %3, align 8, !tbaa !38
@@ -6882,7 +6876,7 @@ ssl_buffering_free_slot.exit:                     ; preds = %.preheader, %26, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 noundef range(i64 0, 16777216) %1, i64 noundef range(i64 0, 16777216) %2) unnamed_addr #15 {
+define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 noundef range(i64 0, 16777216) %1, i64 noundef range(i64 0, 16777216) %2) unnamed_addr #14 {
   %4 = trunc nuw nsw i64 %1 to i32
   %5 = and i32 %4, 7
   %6 = sub nuw nsw i32 8, %5
@@ -6983,7 +6977,7 @@ define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 1) i32 @ssl_bitmask_check(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #16 {
+define internal fastcc range(i32 -1, 1) i32 @ssl_bitmask_check(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #15 {
   %3 = lshr i64 %1, 3
   %.not21 = icmp ult i64 %1, 8
   br i1 %.not21, label %.preheader, label %.lr.ph
@@ -7060,7 +7054,7 @@ define internal fastcc i32 @ssl_handle_possible_reconnect(ptr noundef %0) unname
   %20 = load i64, ptr %19, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %22 = load ptr, ptr %21, align 8, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = trunc i64 %20 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3508, ptr noundef nonnull @.str.213, i32 noundef %23) #19
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3509, ptr noundef nonnull @.str.214, ptr noundef %14, i64 noundef %16) #19
@@ -7171,7 +7165,7 @@ define internal fastcc i32 @ssl_handle_possible_reconnect(ptr noundef %0) unname
 
 mbedtls_ssl_check_dtls_clihlo_cookie.exit.thread: ; preds = %25, %45, %56, %67, %81
   %.0.i.ph = phi i32 [ -27648, %81 ], [ -29440, %67 ], [ -29440, %56 ], [ -29440, %45 ], [ -29440, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3647, ptr noundef nonnull @.str.209, i32 noundef %.0.i.ph) #19
   br label %128
 
@@ -7208,7 +7202,7 @@ mbedtls_ssl_check_dtls_clihlo_cookie.exit.thread: ; preds = %25, %45, %56, %67, 
   %116 = add i16 %115, -13
   %117 = call i16 @llvm.bswap.i16(i16 %116)
   store i16 %117, ptr %114, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3647, ptr noundef nonnull @.str.209, i32 noundef -27264) #19
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 3651, ptr noundef nonnull @.str.210) #19
   %118 = load ptr, ptr %21, align 8, !tbaa !100
@@ -7224,7 +7218,7 @@ mbedtls_ssl_check_dtls_clihlo_cookie.exit.thread: ; preds = %25, %45, %56, %67, 
 
 125:                                              ; preds = %72
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3550, ptr noundef nonnull @.str.222) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 3647, ptr noundef nonnull @.str.209, i32 noundef 0) #19
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 3665, ptr noundef nonnull @.str.211) #19
   %126 = tail call i32 @mbedtls_ssl_session_reset_int(ptr noundef nonnull %0, i32 noundef 1) #19
@@ -7250,6 +7244,12 @@ declare i32 @mbedtls_ssl_get_max_out_record_payload(ptr noundef) local_unnamed_a
 
 declare void @mbedtls_zeroize_and_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
@@ -7267,21 +7267,21 @@ declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }

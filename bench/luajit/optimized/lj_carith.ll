@@ -26,7 +26,7 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %15, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -42,7 +42,7 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %23
 
 22:                                               ; preds = %2
-  tail call void @lj_err_argt(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 10) #8
+  tail call void @lj_err_argt(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 10) #7
   unreachable
 
 23:                                               ; preds = %.backedge, %.preheader116.i
@@ -131,7 +131,7 @@ cdata_getptr.exit.i:                              ; preds = %50, %46
   %69 = phi i64 [ %67, %61 ], [ 0, %60 ]
   %70 = load ptr, ptr %40, align 8, !tbaa !47
   %71 = or disjoint i32 %39, 537067520
-  %72 = call i32 @lj_ctype_intern(ptr noundef nonnull %14, i32 noundef %71, i32 noundef 8) #7
+  %72 = call i32 @lj_ctype_intern(ptr noundef nonnull %14, i32 noundef %71, i32 noundef 8) #8
   %73 = load ptr, ptr %14, align 8, !tbaa !40
   %74 = zext i32 %72 to i64
   %75 = getelementptr inbounds nuw %struct.CType, ptr %73, i64 %74
@@ -209,8 +209,8 @@ ctype_raw.exit103.i:                              ; preds = %105
   br i1 %114, label %115, label %.thread111.i
 
 115:                                              ; preds = %ctype_raw.exit103.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
-  %116 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %14, ptr noundef nonnull %.0.i102.i, ptr noundef %112, ptr noundef nonnull %7, ptr noundef null) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %116 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %14, ptr noundef nonnull %.0.i102.i, ptr noundef %112, ptr noundef nonnull %7, ptr noundef null) #8
   %.not98.i = icmp eq ptr %116, null
   br i1 %.not98.i, label %carith_checkarg.exit.thread, label %117
 
@@ -226,7 +226,7 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   store ptr %.0.i102.i, ptr %121, align 8, !tbaa !49
   %122 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %120
   store ptr null, ptr %122, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %390
 
 .thread111.i.sink.split:                          ; preds = %94, %ctype_rawchild.exit.i, %86, %91
@@ -255,7 +255,7 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   store ptr %127, ptr %110, align 8, !tbaa !49
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store ptr %128, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not100.i, label %.backedge, label %switch.early.test
 
 carith_checkarg.exit:                             ; preds = %.thread111.i
@@ -315,16 +315,16 @@ switch.early.test:                                ; preds = %.thread111.i.thread
   %156 = load ptr, ptr %14, align 8, !tbaa !40
   %157 = zext nneg i32 %155 to i64
   %158 = getelementptr inbounds nuw %struct.CType, ptr %156, i64 %157
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %159 = load ptr, ptr %8, align 8, !tbaa !50
-  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %158, ptr noundef nonnull %130, ptr noundef nonnull %5, ptr noundef %159, i32 noundef 0) #7
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %158, ptr noundef nonnull %130, ptr noundef nonnull %5, ptr noundef %159, i32 noundef 0) #8
   %cond.i = icmp eq i32 %1, 16
   br i1 %cond.i, label %.thread.i, label %170
 
 .thread.i:                                        ; preds = %154
   %160 = load ptr, ptr %15, align 8, !tbaa !25
-  %161 = call ptr @lj_mem_newgco(ptr noundef %160, i64 noundef 24) #7
+  %161 = call ptr @lj_mem_newgco(ptr noundef %160, i64 noundef 24) #8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 9
   store i8 10, ptr %162, align 1, !tbaa !52
   %163 = trunc nuw nsw i32 %155 to i16
@@ -340,7 +340,7 @@ switch.early.test:                                ; preds = %.thread111.i.thread
 
 170:                                              ; preds = %154
   %171 = load ptr, ptr %indvars.iv.i.sroa.gep36, align 8, !tbaa !50
-  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %158, ptr noundef nonnull %139, ptr noundef nonnull %6, ptr noundef %171, i32 noundef 0) #7
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %158, ptr noundef nonnull %139, ptr noundef nonnull %6, ptr noundef %171, i32 noundef 0) #8
   switch i32 %1, label %197 [
     i32 4, label %172
     i32 6, label %179
@@ -385,7 +385,7 @@ switch.early.test:                                ; preds = %.thread111.i.thread
 
 197:                                              ; preds = %170
   %198 = load ptr, ptr %15, align 8, !tbaa !25
-  %199 = call ptr @lj_mem_newgco(ptr noundef %198, i64 noundef 24) #7
+  %199 = call ptr @lj_mem_newgco(ptr noundef %198, i64 noundef 24) #8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 9
   store i8 10, ptr %200, align 1, !tbaa !52
   %201 = trunc nuw nsw i32 %155 to i16
@@ -542,17 +542,17 @@ lj_carith_modu64.exit.i:                          ; preds = %251, %248
   br i1 %.not51.i, label %carith_int64.exit, label %273, !prof !56
 
 273:                                              ; preds = %266
-  %274 = call i32 @lj_gc_step(ptr noundef nonnull %0) #7
+  %274 = call i32 @lj_gc_step(ptr noundef nonnull %0) #8
   br label %carith_int64.exit
 
 carith_int64.exit:                                ; preds = %172, %179, %188, %266, %273
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %383
 
 275:                                              ; preds = %142, %137, %133, %129
   %276 = load ptr, ptr %8, align 8, !tbaa !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.mask.i24 = and i32 %131, -268435456
   %277 = icmp eq i32 %.mask.i24, 536870912
   %278 = and i32 %131, -67108864
@@ -595,7 +595,7 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   br label %carith_ptr.exit
 
 298:                                              ; preds = %291
-  %299 = call i32 @lj_cconv_compatptr(ptr noundef %14, ptr noundef nonnull %130, ptr noundef nonnull %286, i32 noundef 8) #7
+  %299 = call i32 @lj_cconv_compatptr(ptr noundef %14, ptr noundef nonnull %130, ptr noundef nonnull %286, i32 noundef 8) #8
   %.not86.i = icmp eq i32 %299, 0
   br i1 %.not86.i, label %carith_ptr.exit.thread, label %300
 
@@ -605,7 +605,7 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
 301:                                              ; preds = %300
   %302 = load i32, ptr %130, align 8, !tbaa !41
   %303 = and i32 %302, 65535
-  %304 = call i32 @lj_ctype_size(ptr noundef %14, i32 noundef %303) #7
+  %304 = call i32 @lj_ctype_size(ptr noundef %14, i32 noundef %303) #8
   %305 = add i32 %304, 1
   %or.cond7.i = icmp ult i32 %305, 2
   br i1 %or.cond7.i, label %carith_ptr.exit.thread, label %306
@@ -657,7 +657,7 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   %332 = load ptr, ptr %14, align 8, !tbaa !40
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 264
   %334 = load ptr, ptr %indvars.iv.i.sroa.gep36, align 8, !tbaa !50
-  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %333, ptr noundef nonnull %328, ptr noundef nonnull %4, ptr noundef %334, i32 noundef 0) #7
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %333, ptr noundef nonnull %328, ptr noundef nonnull %4, ptr noundef %334, i32 noundef 0) #8
   br i1 %281, label %335, label %351
 
 335:                                              ; preds = %331
@@ -686,7 +686,7 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   %348 = load ptr, ptr %indvars.iv.i.sroa.gep36, align 8, !tbaa !50
   %349 = load ptr, ptr %14, align 8, !tbaa !40
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 264
-  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %350, ptr noundef nonnull %130, ptr noundef nonnull %4, ptr noundef %276, i32 noundef 0) #7
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %14, ptr noundef nonnull %350, ptr noundef nonnull %130, ptr noundef nonnull %4, ptr noundef %276, i32 noundef 0) #8
   br label %351
 
 351:                                              ; preds = %347, %335, %331
@@ -694,7 +694,7 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   %.079.i = phi ptr [ %130, %335 ], [ %130, %331 ], [ %342, %347 ]
   %352 = load i32, ptr %.079.i, align 8, !tbaa !41
   %353 = and i32 %352, 65535
-  %354 = call i32 @lj_ctype_size(ptr noundef nonnull %14, i32 noundef %353) #7
+  %354 = call i32 @lj_ctype_size(ptr noundef nonnull %14, i32 noundef %353) #8
   %355 = icmp eq i32 %354, -1
   br i1 %355, label %carith_ptr.exit.thread, label %356
 
@@ -706,9 +706,9 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   %361 = load i32, ptr %.079.i, align 8, !tbaa !41
   %362 = and i32 %361, 65535
   %363 = or disjoint i32 %362, 537067520
-  %364 = call i32 @lj_ctype_intern(ptr noundef nonnull %14, i32 noundef %363, i32 noundef 8) #7
+  %364 = call i32 @lj_ctype_intern(ptr noundef nonnull %14, i32 noundef %363, i32 noundef 8) #8
   %365 = load ptr, ptr %15, align 8, !tbaa !25
-  %366 = call ptr @lj_mem_newgco(ptr noundef %365, i64 noundef 24) #7
+  %366 = call ptr @lj_mem_newgco(ptr noundef %365, i64 noundef 24) #8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 9
   store i8 10, ptr %367, align 1, !tbaa !52
   %368 = trunc i32 %364 to i16
@@ -731,15 +731,15 @@ carith_int64.exit:                                ; preds = %172, %179, %188, %2
   br i1 %.not.i26, label %carith_ptr.exit, label %381, !prof !56
 
 381:                                              ; preds = %356
-  %382 = call i32 @lj_gc_step(ptr noundef nonnull %0) #7
+  %382 = call i32 @lj_gc_step(ptr noundef nonnull %0) #8
   br label %carith_ptr.exit
 
 carith_ptr.exit.thread:                           ; preds = %298, %301, %324, %326, %340, %338, %351
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %390
 
 carith_ptr.exit:                                  ; preds = %293, %306, %319, %322, %356, %381
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %383
 
 383:                                              ; preds = %carith_ptr.exit, %carith_int64.exit
@@ -782,7 +782,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %.mask75.i = and i32 %402, -268435456
   %408 = icmp eq i32 %.mask75.i, 536870912
   %spec.select.i = select i1 %408, i32 %404, i32 %407
-  %409 = call ptr @lj_ctype_meta(ptr noundef nonnull %14, i32 noundef %spec.select.i, i32 noundef %1) #7
+  %409 = call ptr @lj_ctype_meta(ptr noundef nonnull %14, i32 noundef %spec.select.i, i32 noundef %1) #8
   %.not.i35 = icmp eq ptr %409, null
   br i1 %.not.i35, label %..thread_crit_edge.i, label %.thread93.i
 
@@ -826,12 +826,12 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %.mask77.i = and i32 %425, -268435456
   %431 = icmp eq i32 %.mask77.i, 536870912
   %spec.select83.i = select i1 %431, i32 %427, i32 %430
-  %432 = call ptr @lj_ctype_meta(ptr noundef nonnull %14, i32 noundef %spec.select83.i, i32 noundef %1) #7
+  %432 = call ptr @lj_ctype_meta(ptr noundef nonnull %14, i32 noundef %spec.select83.i, i32 noundef %1) #8
   %.not78.i = icmp eq ptr %432, null
   br i1 %.not78.i, label %.thread90.i, label %.thread93.i
 
 .thread90.i:                                      ; preds = %429, %414, %.thread.i28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %433 = icmp eq i32 %1, 4
   br i1 %433, label %434, label %.preheader.i29
 
@@ -847,7 +847,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %442 = inttoptr i64 %441 to ptr
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 240
   store i64 %438, ptr %443, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %lj_carith_meta.exit
 
 .preheader.i29:                                   ; preds = %.thread90.i, %467
@@ -879,7 +879,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %455 = sub i64 %453, %454
   %456 = sdiv exact i64 %455, 24
   %457 = trunc i64 %456 to i32
-  %458 = call ptr @lj_ctype_repr(ptr noundef nonnull %0, i32 noundef %457, ptr noundef null) #7
+  %458 = call ptr @lj_ctype_repr(ptr noundef nonnull %0, i32 noundef %457, ptr noundef null) #8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   br label %467
 
@@ -913,7 +913,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %475 = sext i32 %.265.i to i64
   %476 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %475
   %477 = load ptr, ptr %476, align 8, !tbaa !50
-  call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3239, ptr noundef %474, ptr noundef %477) #8
+  call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3239, ptr noundef %474, ptr noundef %477) #7
   unreachable
 
 478:                                              ; preds = %468
@@ -925,28 +925,22 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
   %484 = select i1 %479, i32 3267, i32 %483
   %485 = load ptr, ptr %3, align 16, !tbaa !50
   %486 = load ptr, ptr %indvars.iv.i30.sroa.gep49, align 8, !tbaa !50
-  call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef %484, ptr noundef %485, ptr noundef %486) #8
+  call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef %484, ptr noundef %485, ptr noundef %486) #7
   unreachable
 
 .thread93.i:                                      ; preds = %429, %406
   %.16896.i = phi ptr [ %432, %429 ], [ %409, %406 ]
-  %487 = call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %.16896.i) #7
+  %487 = call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %.16896.i) #8
   br label %lj_carith_meta.exit
 
 lj_carith_meta.exit:                              ; preds = %.thread93.i, %434, %383
   %.0 = phi i32 [ 1, %383 ], [ %487, %.thread93.i ], [ 1, %434 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i64 @lj_carith_shift64(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden i64 @lj_carith_shift64(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   switch i32 %2, label %22 [
     i32 0, label %4
     i32 1, label %8
@@ -1002,7 +996,7 @@ define hidden i64 @lj_carith_check64(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %18, %66, %3
-  tail call void @lj_err_argt(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 3) #8
+  tail call void @lj_err_argt(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 3) #7
   unreachable
 
 13:                                               ; preds = %3
@@ -1037,7 +1031,7 @@ define hidden i64 @lj_carith_check64(ptr noundef %0, i32 noundef %1, ptr noundef
   %34 = load ptr, ptr %25, align 8, !tbaa !40
   %35 = zext i16 %32 to i64
   %36 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load i32, ptr %36, align 8, !tbaa !41
   %38 = and i32 %37, -260046848
   %39 = icmp eq i32 %38, 545259520
@@ -1094,15 +1088,15 @@ ctype_raw.exit:                                   ; preds = %44
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %62
   %64 = shl i32 %1, 8
-  call void @lj_cconv_ct_ct(ptr noundef nonnull %25, ptr noundef nonnull %63, ptr noundef nonnull %.0, ptr noundef nonnull %4, ptr noundef %.037, i32 noundef %64) #7
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %25, ptr noundef nonnull %63, ptr noundef nonnull %.0, ptr noundef nonnull %4, ptr noundef %.037, i32 noundef %64) #8
   %65 = load i64, ptr %4, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 66:                                               ; preds = %18
   %67 = and i64 %14, 140737488355327
   %68 = inttoptr i64 %67 to ptr
-  %69 = tail call i32 @lj_strscan_num(ptr noundef %68, ptr noundef nonnull %9) #7
+  %69 = tail call i32 @lj_strscan_num(ptr noundef %68, ptr noundef nonnull %9) #8
   %.not41 = icmp eq i32 %69, 0
   br i1 %.not41, label %12, label %._crit_edge
 
@@ -1123,14 +1117,14 @@ ctype_raw.exit:                                   ; preds = %44
 }
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_err_argt(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden void @lj_cconv_ct_ct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden void @lj_cconv_ct_ct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @lj_carith_divu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden noundef i64 @lj_carith_divu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %6, label %4
 
@@ -1144,7 +1138,7 @@ define hidden noundef i64 @lj_carith_divu64(i64 noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @lj_carith_divi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden noundef i64 @lj_carith_divi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %9, label %4
 
@@ -1164,7 +1158,7 @@ define hidden noundef i64 @lj_carith_divi64(i64 noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i64 0, -1) i64 @lj_carith_modu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden range(i64 0, -1) i64 @lj_carith_modu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %6, label %4
 
@@ -1178,7 +1172,7 @@ define hidden range(i64 0, -1) i64 @lj_carith_modu64(i64 noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @lj_carith_modi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden noundef i64 @lj_carith_modi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %9, label %4
 
@@ -1198,7 +1192,7 @@ define hidden noundef i64 @lj_carith_modi64(i64 noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i64 @lj_carith_powu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden i64 @lj_carith_powu64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %18, label %.preheader26
 
@@ -1254,7 +1248,7 @@ define hidden i64 @lj_carith_powu64(i64 noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden i64 @lj_carith_powi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden i64 @lj_carith_powi64(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %lj_carith_powu64.exit, label %4
 
@@ -1332,26 +1326,32 @@ lj_carith_powu64.exit:                            ; preds = %._crit_edge35.i, %.
   ret i64 %.0
 }
 
-declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #4
+declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #3
 
-declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare hidden i32 @lj_cconv_compatptr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden i32 @lj_cconv_compatptr(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden i32 @lj_ctype_size(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare hidden i32 @lj_ctype_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden ptr @lj_ctype_meta(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare hidden ptr @lj_ctype_meta(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare hidden ptr @lj_ctype_repr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare hidden ptr @lj_ctype_repr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare hidden i32 @lj_meta_tailcall(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare hidden i32 @lj_meta_tailcall(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
@@ -1363,14 +1363,14 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #6
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

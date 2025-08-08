@@ -125,26 +125,20 @@ define hidden i64 @_glfwGetWindowPropertyX11(i64 noundef %0, i64 noundef %1, i64
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %11 = call i32 %9(ptr noundef %10, i64 noundef %0, i64 noundef %1, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #17
   %12 = load i64, ptr %7, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %12
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwIsVisualTransparentX11(ptr noundef %0) local_unnamed_addr #0 {
@@ -187,7 +181,7 @@ define hidden void @_glfwPushSelectionToManagerX11() local_unnamed_addr #0 {
   br label %12
 
 12:                                               ; preds = %35, %0
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141384), align 8, !tbaa !105
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %15 = call i32 %13(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull @isSelectionEvent, ptr noundef null) #17
@@ -212,7 +206,7 @@ define hidden void @_glfwPushSelectionToManagerX11() local_unnamed_addr #0 {
   br i1 %21, label %.thread, label %22
 
 .thread:                                          ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 22:                                               ; preds = %18, %17, %.lr.ph
@@ -223,7 +217,7 @@ define hidden void @_glfwPushSelectionToManagerX11() local_unnamed_addr #0 {
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %22, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !107
@@ -245,13 +239,13 @@ define hidden void @_glfwPushSelectionToManagerX11() local_unnamed_addr #0 {
   br i1 %.not1.i, label %35, label %29
 
 35:                                               ; preds = %33, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @isSelectionEvent(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
+define internal range(i32 0, 2) i32 @isSelectionEvent(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !106
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !104
@@ -283,7 +277,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   %6 = alloca [4 x i64], align 16
   %7 = alloca ptr, align 8
   %8 = alloca %union._XEvent, align 8
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %8, i8 0, i64 192, i1 false)
   store i32 31, ptr %8, align 8
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !117
@@ -307,7 +301,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %19, ptr %6, align 16, !tbaa !94
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141240), align 8, !tbaa !124
@@ -322,7 +316,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   %30 = load i64, ptr %29, align 8, !tbaa !126
   %31 = call i32 %27(ptr noundef %28, i64 noundef %30, i64 noundef %15, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 4) #17
   %32 = load i64, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %writeTargetToProperty.exit
 
 33:                                               ; preds = %17
@@ -331,22 +325,22 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   br i1 %35, label %36, label %76
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i64, ptr %37, align 8, !tbaa !126
   %39 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141312), align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %42 = call i32 %40(ptr noundef %41, i64 noundef %38, i64 noundef %15, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %39, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7) #17
   %43 = load i64, ptr %4, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not58.i = icmp eq i64 %43, 0
   br i1 %.not58.i, label %._crit_edge.i, label %.preheader.i
 
@@ -370,7 +364,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
   %56 = load ptr, ptr %7, align 8, !tbaa !128
   %57 = call i32 %55(ptr noundef %56) #17
   %58 = load i64, ptr %14, align 8, !tbaa !121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %writeTargetToProperty.exit
 
 59:                                               ; preds = %60
@@ -464,7 +458,7 @@ writeTargetToProperty.exit:                       ; preds = %87, %1, %22, %._cri
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141840), align 8, !tbaa !134
   %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %115 = call i32 %113(ptr noundef %114, i64 noundef %103, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -473,7 +467,7 @@ define hidden void @_glfwCreateInputContextX11(ptr noundef %0) local_unnamed_add
   %2 = alloca %struct.XIMCallback, align 8
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @inputContextDestroyCallback, ptr %5, align 8, !tbaa !135
   store ptr %0, ptr %2, align 8, !tbaa !137
@@ -488,12 +482,12 @@ define hidden void @_glfwCreateInputContextX11(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %15 = load i64, ptr %8, align 8, !tbaa !140
   %16 = call i32 %13(ptr noundef %14, i64 noundef %15, ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !94
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141600), align 8, !tbaa !176
   %18 = load ptr, ptr %11, align 8, !tbaa !174
@@ -513,17 +507,17 @@ define hidden void @_glfwCreateInputContextX11(ptr noundef %0) local_unnamed_add
   br label %30
 
 30:                                               ; preds = %21, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %30, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @inputContextDestroyCallback(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((1264, 1272)) %1, ptr readnone captures(none) %2) #3 {
+define internal void @inputContextDestroyCallback(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((1264, 1272)) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   store ptr null, ptr %4, align 8, !tbaa !174
   ret void
@@ -549,9 +543,9 @@ define hidden range(i32 0, 2) i32 @_glfwCreateWindowX11(ptr noundef %0, ptr noun
   %20 = alloca i64, align 8
   %21 = alloca ptr, align 8
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8, !tbaa !180
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %23 = load i32, ptr %2, align 8, !tbaa !181
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.thread, label %24
@@ -682,7 +676,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %.0.i.i = phi i32 [ 0, %70 ], [ 0, %77 ], [ %85, %81 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 %.0.i.i, ptr %86, align 4, !tbaa !200
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %15, i8 0, i64 112, i1 false)
   %87 = load i64, ptr %75, align 8, !tbaa !199
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 96
@@ -718,7 +712,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br i1 %.not123.i, label %105, label %112
 
 105:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 32, i1 false)
   store i64 2, ptr %14, align 8, !tbaa !209
@@ -727,7 +721,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %109 = load i64, ptr %95, align 8, !tbaa !140
   %110 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !211
   %111 = call i32 %107(ptr noundef %108, i64 noundef %109, i64 noundef %110, i64 noundef %110, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %14, i32 noundef 5) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %112
 
 112:                                              ; preds = %105, %98
@@ -742,7 +736,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br i1 %.not125.i, label %117, label %146
 
 117:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %119 = load i32, ptr %118, align 4, !tbaa !214
   %120 = icmp eq i32 %119, 0
@@ -795,11 +789,11 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br label %145
 
 145:                                              ; preds = %140, %139
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %146
 
 146:                                              ; preds = %145, %114, %112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140960), align 8, !tbaa !218
   store i64 %147, ptr %17, align 16, !tbaa !94
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -809,8 +803,8 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %152 = load i64, ptr %95, align 8, !tbaa !140
   %153 = call i32 %150(ptr noundef %151, i64 noundef %152, ptr noundef nonnull %17, i32 noundef 2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %154 = call i32 @getpid() #17
   %155 = sext i32 %154 to i64
   store i64 %155, ptr %18, align 8, !tbaa !94
@@ -819,7 +813,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %158 = load i64, ptr %95, align 8, !tbaa !140
   %159 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140992), align 8, !tbaa !221
   %160 = call i32 %156(ptr noundef %157, i64 noundef %158, i64 noundef %159, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %18, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %161 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141008), align 8, !tbaa !222
   %162 = icmp ne i64 %161, 0
   %163 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141016), align 8
@@ -828,13 +822,13 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br i1 %or.cond4.i, label %165, label %170
 
 165:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 %163, ptr %19, align 8, !tbaa !94
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %168 = load i64, ptr %95, align 8, !tbaa !140
   %169 = call i32 %166(ptr noundef %167, i64 noundef %168, i64 noundef %161, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %19, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %170
 
 170:                                              ; preds = %165, %146
@@ -994,20 +988,20 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   %236 = call i32 %233(ptr noundef %234, i64 noundef %235, ptr noundef nonnull %212) #17
   %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
   %238 = call i32 %237(ptr noundef nonnull %212) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 5, ptr %20, align 8, !tbaa !94
   %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %241 = load i64, ptr %95, align 8, !tbaa !140
   %242 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141152), align 8, !tbaa !246
   %243 = call i32 %239(ptr noundef %240, i64 noundef %241, i64 noundef %242, i64 noundef 4, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %20, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137896), align 8, !tbaa !139
   %.not143.i = icmp eq ptr %244, null
   br i1 %.not143.i, label %270, label %245
 
 245:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %246 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @inputContextDestroyCallback, ptr %246, align 8, !tbaa !135
   store ptr %0, ptr %11, align 8, !tbaa !137
@@ -1020,12 +1014,12 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br i1 %.not.i145.i, label %_glfwCreateInputContextX11.exit.i, label %251
 
 251:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %252 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %253 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %254 = load i64, ptr %95, align 8, !tbaa !140
   %255 = call i32 %252(ptr noundef %253, i64 noundef %254, ptr noundef nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !94
   %256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141600), align 8, !tbaa !176
   %257 = load ptr, ptr %250, align 8, !tbaa !174
@@ -1045,16 +1039,16 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %81, %77, %70
   br label %269
 
 269:                                              ; preds = %260, %251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_glfwCreateInputContextX11.exit.i
 
 _glfwCreateInputContextX11.exit.i:                ; preds = %269, %245
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %270
 
 createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, %.thread152.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %363
 
 270:                                              ; preds = %_glfwCreateInputContextX11.exit.i, %232
@@ -1063,9 +1057,9 @@ createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, 
   call void @_glfwSetWindowTitleX11(ptr noundef nonnull %0, ptr noundef %272)
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 1300
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %275 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141952), align 8, !tbaa !247
   %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %277 = load i64, ptr %95, align 8, !tbaa !140
@@ -1075,12 +1069,12 @@ createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, 
   store i32 %280, ptr %273, align 4, !tbaa !183
   %281 = load i32, ptr %10, align 4, !tbaa !183
   store i32 %281, ptr %274, align 4, !tbaa !183
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 1292
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %286 = load i64, ptr %95, align 8, !tbaa !140
@@ -1091,8 +1085,8 @@ createNativeWindow.exit.thread:                   ; preds = %97, %.thread151.i, 
   %290 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %291 = load i32, ptr %290, align 4, !tbaa !249
   store i32 %291, ptr %283, align 4, !tbaa !183
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %292 = load i32, ptr %2, align 8, !tbaa !181
   %.not48 = icmp eq i32 %292, 0
   br i1 %.not48, label %304, label %293
@@ -1185,7 +1179,7 @@ _glfwSetWindowMousePassthroughX11.exit:           ; preds = %308, %304
 
 330:                                              ; preds = %328
   %.val.i = load i64, ptr %95, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   store i32 33, ptr %6, align 8
   %331 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1202,11 +1196,11 @@ _glfwSetWindowMousePassthroughX11.exit:           ; preds = %308, %304
   %337 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %338 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %339 = call i32 %336(ptr noundef %337, i64 noundef %338, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_glfwFocusWindowX11.exit
 
 340:                                              ; preds = %328
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %341 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %343 = load i64, ptr %95, align 8, !tbaa !140
@@ -1214,7 +1208,7 @@ _glfwSetWindowMousePassthroughX11.exit:           ; preds = %308, %304
   %345 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %346 = load i32, ptr %345, align 4, !tbaa !258
   %.not5.i = icmp eq i32 %346, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not5.i, label %347, label %_glfwFocusWindowX11.exit
 
 347:                                              ; preds = %340
@@ -1242,28 +1236,28 @@ _glfwFocusWindowX11.exit:                         ; preds = %330, %340, %347
 
 363:                                              ; preds = %createNativeWindow.exit.thread, %302, %300, %298, %296, %35, %33, %31, %29, %27, %359
   %.0 = phi i32 [ 1, %359 ], [ 0, %27 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 0, %296 ], [ 0, %298 ], [ 0, %300 ], [ 0, %302 ], [ 0, %createNativeWindow.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   ret i32 %.0
 }
 
-declare i32 @_glfwInitGLX() local_unnamed_addr #4
+declare i32 @_glfwInitGLX() local_unnamed_addr #3
 
-declare i32 @_glfwChooseVisualGLX(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwChooseVisualGLX(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwInitEGL() local_unnamed_addr #4
+declare i32 @_glfwInitEGL() local_unnamed_addr #3
 
-declare i32 @_glfwChooseVisualEGL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwChooseVisualEGL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwInitOSMesa() local_unnamed_addr #4
+declare i32 @_glfwInitOSMesa() local_unnamed_addr #3
 
-declare i32 @_glfwCreateContextGLX(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwCreateContextGLX(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwCreateContextEGL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwCreateContextEGL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwCreateContextOSMesa(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwCreateContextOSMesa(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwRefreshContextAttribs(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwRefreshContextAttribs(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowMousePassthroughX11(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1305,7 +1299,7 @@ define hidden void @_glfwShowWindowX11(ptr noundef readonly captures(none) %0) l
   %3 = alloca %union._XEvent, align 8
   %4 = alloca double, align 8
   %5 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -1314,7 +1308,7 @@ define hidden void @_glfwShowWindowX11(ptr noundef readonly captures(none) %0) l
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %12 = load i32, ptr %11, align 4, !tbaa !258
   %.not = icmp eq i32 %12, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not, label %38, label %13
 
 13:                                               ; preds = %1
@@ -1322,8 +1316,8 @@ define hidden void @_glfwShowWindowX11(ptr noundef readonly captures(none) %0) l
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %16 = load i64, ptr %8, align 8, !tbaa !140
   %17 = call i32 %14(ptr noundef %15, i64 noundef %16) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 1.000000e-01, ptr %4, align 8, !tbaa !265
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -1338,7 +1332,7 @@ define hidden void @_glfwShowWindowX11(ptr noundef readonly captures(none) %0) l
   br label %24
 
 24:                                               ; preds = %waitForX11Event.exit.i, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !107
@@ -1360,11 +1354,11 @@ define hidden void @_glfwShowWindowX11(ptr noundef readonly captures(none) %0) l
   br i1 %.not1.i.i, label %waitForX11Event.exit.thread.i, label %28
 
 waitForX11Event.exit.thread.i:                    ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %waitForVisibilityNotify.exit
 
 waitForX11Event.exit.i:                           ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %36 = load i64, ptr %8, align 8, !tbaa !140
@@ -1373,8 +1367,8 @@ waitForX11Event.exit.i:                           ; preds = %28
   br i1 %.not.i, label %24, label %waitForVisibilityNotify.exit
 
 waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exit.i, %13, %waitForX11Event.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
 
 38:                                               ; preds = %1, %waitForVisibilityNotify.exit
@@ -1408,7 +1402,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %0, i64 1248
   %.val = load i64, ptr %19, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, i8 0, i64 192, i1 false)
   store i32 33, ptr %4, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1429,7 +1423,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %30 = call i32 %27(ptr noundef %28, i64 noundef %29, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %15, %14
@@ -1443,7 +1437,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
 36:                                               ; preds = %31
   %37 = getelementptr i8, ptr %0, i64 1248
   %.val32 = load i64, ptr %37, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false)
   store i32 33, ptr %3, align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1462,11 +1456,11 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %47 = call i32 %44(ptr noundef %45, i64 noundef %46, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 48:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 1, ptr %49, align 8, !tbaa !277
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141376), align 8, !tbaa !278
@@ -1476,7 +1470,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %54 = call i32 %50(ptr noundef %51, i64 noundef %53, i64 noundef 512, ptr noundef nonnull %5) #17
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   store i32 1, ptr %55, align 8, !tbaa !279
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %48, %36
@@ -1486,7 +1480,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   br i1 %.not31, label %59, label %107
 
 59:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1, ptr %6, align 8, !tbaa !94
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -1494,7 +1488,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %63 = load i64, ptr %62, align 8, !tbaa !140
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141072), align 8, !tbaa !280
   %65 = call i32 %60(ptr noundef %61, i64 noundef %63, i64 noundef %64, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %107
 
 66:                                               ; preds = %1
@@ -1519,7 +1513,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
 78:                                               ; preds = %73
   %79 = getelementptr i8, ptr %0, i64 1248
   %.val33 = load i64, ptr %79, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   store i32 33, ptr %2, align 8
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1536,11 +1530,11 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %88 = call i32 %85(ptr noundef %86, i64 noundef %87, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %97
 
 89:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %90, align 8, !tbaa !277
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141376), align 8, !tbaa !278
@@ -1550,7 +1544,7 @@ define internal fastcc void @updateWindowMode(ptr noundef captures(none) %0) unn
   %95 = call i32 %91(ptr noundef %92, i64 noundef %94, i64 noundef 512, ptr noundef nonnull %7) #17
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   store i32 0, ptr %96, align 8, !tbaa !279
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 97:                                               ; preds = %89, %78
@@ -1613,9 +1607,9 @@ define internal fastcc void @acquireMonitor(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not9, label %40, label %26
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %15, align 8, !tbaa !213
   call void @_glfwGetMonitorPosX11(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
   %28 = load ptr, ptr %15, align 8, !tbaa !213
@@ -1630,9 +1624,9 @@ define internal fastcc void @acquireMonitor(ptr noundef %0) unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !288
   %39 = call i32 %30(ptr noundef %31, i64 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %38) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %40
 
 40:                                               ; preds = %26, %22
@@ -1641,7 +1635,7 @@ define internal fastcc void @acquireMonitor(ptr noundef %0) unnamed_addr #0 {
   ret void
 }
 
-declare void @_glfwCenterCursorInContentArea(ptr noundef) local_unnamed_addr #4
+declare void @_glfwCenterCursorInContentArea(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwFocusWindowX11(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1654,7 +1648,7 @@ define hidden void @_glfwFocusWindowX11(ptr noundef readonly captures(none) %0) 
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 1248
   %.val = load i64, ptr %6, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %3, i8 0, i64 192, i1 false)
   store i32 33, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1671,11 +1665,11 @@ define hidden void @_glfwFocusWindowX11(ptr noundef readonly captures(none) %0) 
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %15 = call i32 %12(ptr noundef %13, i64 noundef %14, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 16:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -1684,7 +1678,7 @@ define hidden void @_glfwFocusWindowX11(ptr noundef readonly captures(none) %0) 
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %23 = load i32, ptr %22, align 4, !tbaa !258
   %.not5 = icmp eq i32 %23, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not5, label %24, label %33
 
 24:                                               ; preds = %16
@@ -1821,8 +1815,8 @@ define internal fastcc void @enableCursor(ptr noundef captures(none) initializes
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   store i32 1, ptr %2, align 8, !tbaa !301
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1833,8 +1827,8 @@ define internal fastcc void @enableCursor(ptr noundef captures(none) initializes
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %12 = call i32 %9(ptr noundef %10, i64 noundef %11, ptr noundef nonnull %2, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %13
 
 13:                                               ; preds = %6, %1
@@ -1969,7 +1963,7 @@ define hidden void @_glfwSetWindowTitleX11(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -2093,18 +2087,18 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #4
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwGetWindowPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141952), align 8, !tbaa !247
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2129,9 +2123,9 @@ define hidden void @_glfwGetWindowPosX11(ptr noundef readonly captures(none) %0,
   br label %18
 
 18:                                               ; preds = %16, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2139,7 +2133,7 @@ define hidden void @_glfwGetWindowPosX11(ptr noundef readonly captures(none) %0,
 define hidden void @_glfwSetWindowPosX11(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2148,11 +2142,11 @@ define hidden void @_glfwSetWindowPosX11(ptr noundef readonly captures(none) %0,
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %12 = load i32, ptr %11, align 4, !tbaa !258
   %.not = icmp eq i32 %12, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not, label %31, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141352), align 8, !tbaa !228
   %15 = call ptr %14() #17
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141656), align 8, !tbaa !331
@@ -2179,7 +2173,7 @@ define hidden void @_glfwSetWindowPosX11(ptr noundef readonly captures(none) %0,
 28:                                               ; preds = %20, %13
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
   %30 = call i32 %29(ptr noundef %15) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %31
 
 31:                                               ; preds = %28, %3
@@ -2196,7 +2190,7 @@ define hidden void @_glfwSetWindowPosX11(ptr noundef readonly captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwWindowVisibleX11(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2206,14 +2200,14 @@ define hidden range(i32 0, 2) i32 @_glfwWindowVisibleX11(ptr noundef readonly ca
   %9 = load i32, ptr %8, align 4, !tbaa !258
   %10 = icmp eq i32 %9, 2
   %11 = zext i1 %10 to i32
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwGetWindowSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2239,7 +2233,7 @@ define hidden void @_glfwGetWindowSizeX11(ptr noundef readonly captures(none) %0
   br label %17
 
 17:                                               ; preds = %14, %13
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2290,7 +2284,7 @@ define internal fastcc void @updateNormalHints(ptr noundef readonly captures(non
   %4 = alloca i64, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141352), align 8, !tbaa !228
   %6 = tail call ptr %5() #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141656), align 8, !tbaa !331
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2400,14 +2394,14 @@ define internal fastcc void @updateNormalHints(ptr noundef readonly captures(non
   call void %56(ptr noundef %57, i64 noundef %58, ptr noundef nonnull %6) #17
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
   %60 = call i32 %59(ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowSizeLimitsX11(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2417,7 +2411,7 @@ define hidden void @_glfwSetWindowSizeLimitsX11(ptr noundef readonly captures(no
   %13 = load i32, ptr %12, align 8, !tbaa !248
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @updateNormalHints(ptr noundef %0, i32 noundef %13, i32 noundef %15)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -2428,7 +2422,7 @@ define hidden void @_glfwSetWindowSizeLimitsX11(ptr noundef readonly captures(no
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowAspectRatioX11(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2438,7 +2432,7 @@ define hidden void @_glfwSetWindowAspectRatioX11(ptr noundef readonly captures(n
   %11 = load i32, ptr %10, align 8, !tbaa !248
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @updateNormalHints(ptr noundef %0, i32 noundef %11, i32 noundef %13)
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -2449,7 +2443,7 @@ define hidden void @_glfwSetWindowAspectRatioX11(ptr noundef readonly captures(n
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwGetFramebufferSizeX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2475,7 +2469,7 @@ define hidden void @_glfwGetFramebufferSizeX11(ptr noundef readonly captures(non
   br label %_glfwGetWindowSizeX11.exit
 
 _glfwGetWindowSizeX11.exit:                       ; preds = %13, %14
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2491,7 +2485,7 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   %13 = alloca ptr, align 8
   %14 = alloca %union._XEvent, align 8
   %15 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !128
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !213
@@ -2508,7 +2502,7 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   br i1 %or.cond29, label %93, label %23
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2517,18 +2511,18 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 92
   %30 = load i32, ptr %29, align 4, !tbaa !258
   %31 = icmp ne i32 %30, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141136), align 8
   %33 = icmp ne i64 %32, 0
   %or.cond = select i1 %31, i1 %33, i1 false
   br i1 %or.cond, label %34, label %62
 
 34:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store double 5.000000e-01, ptr %15, align 8, !tbaa !265
   %.val = load i64, ptr %26, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %11, i8 0, i64 192, i1 false)
   store i32 33, ptr %11, align 8
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -2543,7 +2537,7 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %42 = call i32 %39(ptr noundef %40, i64 noundef %41, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141384), align 8, !tbaa !105
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %45 = call i32 %43(ptr noundef %44, ptr noundef nonnull %14, ptr noundef nonnull @isFrameExtentsEvent, ptr noundef nonnull %0) #17
@@ -2556,7 +2550,7 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   br label %48
 
 48:                                               ; preds = %.lr.ph, %waitForX11Event.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !107
@@ -2578,7 +2572,7 @@ define hidden void @_glfwGetWindowFrameSizeX11(ptr noundef %0, ptr noundef write
   br i1 %.not1.i, label %61, label %52
 
 waitForX11Event.exit:                             ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141384), align 8, !tbaa !105
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %60 = call i32 %58(ptr noundef %59, ptr noundef nonnull %14, ptr noundef nonnull @isFrameExtentsEvent, ptr noundef nonnull %0) #17
@@ -2586,32 +2580,32 @@ waitForX11Event.exit:                             ; preds = %52
   br i1 %.not21.not, label %48, label %.critedge
 
 61:                                               ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %93
 
 .critedge:                                        ; preds = %waitForX11Event.exit, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %62
 
 62:                                               ; preds = %.critedge, %23
   %63 = load i64, ptr %26, align 8, !tbaa !140
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141128), align 8, !tbaa !342
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %67 = call i32 %65(ptr noundef %66, i64 noundef %63, i64 noundef %64, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef 6, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %13) #17
   %68 = load i64, ptr %8, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %69 = icmp eq i64 %68, 4
   br i1 %69, label %70, label %._crit_edge
 
@@ -2675,12 +2669,12 @@ waitForX11Event.exit:                             ; preds = %52
   br label %93
 
 93:                                               ; preds = %61, %88, %89, %5, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @isFrameExtentsEvent(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
+define internal range(i32 0, 2) i32 @isFrameExtentsEvent(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !106
   %5 = icmp eq i32 %4, 28
   br i1 %5, label %6, label %22
@@ -2712,10 +2706,10 @@ define internal range(i32 0, 2) i32 @isFrameExtentsEvent(ptr readnone captures(n
   ret i32 %23
 }
 
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetWindowContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define hidden void @_glfwGetWindowContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -2788,21 +2782,21 @@ define hidden void @_glfwRestoreWindowX11(ptr noundef readonly captures(none) %0
 15:                                               ; preds = %1
   %16 = getelementptr i8, ptr %0, i64 1248
   %.val.i = load i64, ptr %16, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !180
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !345
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %20 = call i32 %18(ptr noundef %19, i64 noundef %.val.i, i64 noundef %17, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #17
   %21 = load i64, ptr %9, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %22 = icmp ugt i64 %21, 1
   %23 = load ptr, ptr %11, align 8, !tbaa !180
   br i1 %22, label %_glfwWindowIconifiedX11.exit, label %24
@@ -2821,7 +2815,7 @@ _glfwWindowIconifiedX11.exit:                     ; preds = %15
   %.not19 = icmp eq i32 %27, 3
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
   %29 = call i32 %28(ptr noundef nonnull %23) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not19, label %30, label %55
 
 30:                                               ; preds = %_glfwWindowIconifiedX11.exit
@@ -2829,8 +2823,8 @@ _glfwWindowIconifiedX11.exit:                     ; preds = %15
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %33 = load i64, ptr %16, align 8, !tbaa !140
   %34 = call i32 %31(ptr noundef %32, i64 noundef %33) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double 1.000000e-01, ptr %6, align 8, !tbaa !265
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -2845,7 +2839,7 @@ _glfwWindowIconifiedX11.exit:                     ; preds = %15
   br label %41
 
 41:                                               ; preds = %waitForX11Event.exit.i, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8, !tbaa !107
@@ -2867,11 +2861,11 @@ _glfwWindowIconifiedX11.exit:                     ; preds = %15
   br i1 %.not1.i.i, label %waitForX11Event.exit.thread.i, label %45
 
 waitForX11Event.exit.thread.i:                    ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %waitForVisibilityNotify.exit
 
 waitForX11Event.exit.i:                           ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %53 = load i64, ptr %16, align 8, !tbaa !140
@@ -2880,16 +2874,16 @@ waitForX11Event.exit.i:                           ; preds = %45
   br i1 %.not.i, label %41, label %waitForVisibilityNotify.exit
 
 waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exit.i, %30, %waitForX11Event.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %80
 
 .sink.split:                                      ; preds = %24, %_glfwWindowIconifiedX11.exit.thread16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %55
 
 55:                                               ; preds = %.sink.split, %_glfwWindowIconifiedX11.exit
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %58 = load i64, ptr %16, align 8, !tbaa !140
@@ -2897,7 +2891,7 @@ waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exi
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %61 = load i32, ptr %60, align 4, !tbaa !258
   %.not20 = icmp eq i32 %61, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not20, label %62, label %80
 
 62:                                               ; preds = %55
@@ -2913,7 +2907,7 @@ waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exi
 
 69:                                               ; preds = %62
   %.val = load i64, ptr %16, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   store i32 33, ptr %2, align 8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2932,7 +2926,7 @@ waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exi
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %78 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %79 = call i32 %76(ptr noundef %77, i64 noundef %78, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %80
 
 80:                                               ; preds = %55, %69, %62, %waitForVisibilityNotify.exit
@@ -2954,21 +2948,21 @@ define hidden range(i32 0, 2) i32 @_glfwWindowIconifiedX11(ptr noundef readonly 
   %6 = alloca ptr, align 8
   %7 = getelementptr i8, ptr %0, i64 1248
   %.val = load i64, ptr %7, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !180
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !345
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %11 = call i32 %9(ptr noundef %10, i64 noundef %.val, i64 noundef %8, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %12 = load i64, ptr %4, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = icmp ugt i64 %12, 1
   %14 = load ptr, ptr %6, align 8, !tbaa !180
   br i1 %13, label %.thread.i, label %18
@@ -2991,7 +2985,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowIconifiedX11(ptr noundef readonly 
 
 getWindowState.exit:                              ; preds = %18, %19
   %.04.i = phi i32 [ %.03.i, %19 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.04.i
 }
 
@@ -3016,7 +3010,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   br i1 %or.cond3, label %16, label %77
 
 16:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -3025,7 +3019,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %23 = load i32, ptr %22, align 4, !tbaa !258
   %.not = icmp eq i32 %23, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not, label %24, label %39
 
 24:                                               ; preds = %16
@@ -3033,7 +3027,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !216
   %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !348
   %.val = load i64, ptr %19, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   store i32 33, ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -3054,27 +3048,27 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %38 = call i32 %35(ptr noundef %36, i64 noundef %37, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %73
 
 39:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !128
   %40 = load i64, ptr %19, align 8, !tbaa !140
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %44 = call i32 %42(ptr noundef %43, i64 noundef %40, i64 noundef %41, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef 4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %8) #17
   %45 = load i64, ptr %4, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8, !tbaa !216
   store i64 %46, ptr %9, align 16, !tbaa !94
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3143,13 +3137,13 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
   %70 = trunc nuw nsw i64 %.022.lcssa to i32
   %71 = call i32 %66(ptr noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef 4, i32 noundef 32, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %70) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %73
 
 72:                                               ; preds = %65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %77
 
 73:                                               ; preds = %.thread, %24
@@ -3188,7 +3182,7 @@ define hidden void @_glfwRequestWindowAttentionX11(ptr noundef readonly captures
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 1248
   %.val = load i64, ptr %8, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   store i32 33, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3207,7 +3201,7 @@ define hidden void @_glfwRequestWindowAttentionX11(ptr noundef readonly captures
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %18 = call i32 %15(ptr noundef %16, i64 noundef %17, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %19
 
 19:                                               ; preds = %1, %7
@@ -3271,7 +3265,7 @@ define hidden void @_glfwSetWindowMonitorX11(ptr noundef %0, ptr noundef %1, i32
 37:                                               ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !341
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   store i64 2, ptr %12, align 8, !tbaa !209
@@ -3285,7 +3279,7 @@ define hidden void @_glfwSetWindowMonitorX11(ptr noundef %0, ptr noundef %1, i32
   %46 = load i64, ptr %45, align 8, !tbaa !140
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !211
   %48 = call i32 %43(ptr noundef %44, i64 noundef %46, i64 noundef %47, i64 noundef %47, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %12, i32 noundef 5) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %50 = load i32, ptr %49, align 4, !tbaa !350
   call void @_glfwSetWindowFloatingX11(ptr noundef nonnull %0, i32 noundef %50)
@@ -3324,7 +3318,7 @@ releaseMonitor.exit:                              ; preds = %59, %54, %37, %36
   br i1 %.not39, label %102, label %69
 
 69:                                               ; preds = %releaseMonitor.exit
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %72 = load i64, ptr %68, align 8, !tbaa !140
@@ -3332,7 +3326,7 @@ releaseMonitor.exit:                              ; preds = %59, %54, %37, %36
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 92
   %75 = load i32, ptr %74, align 4, !tbaa !258
   %.not45 = icmp eq i32 %75, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not45, label %101, label %76
 
 76:                                               ; preds = %69
@@ -3340,8 +3334,8 @@ releaseMonitor.exit:                              ; preds = %59, %54, %37, %36
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %79 = load i64, ptr %68, align 8, !tbaa !140
   %80 = call i32 %77(ptr noundef %78, i64 noundef %79) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 1.000000e-01, ptr %10, align 8, !tbaa !265
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -3356,7 +3350,7 @@ releaseMonitor.exit:                              ; preds = %59, %54, %37, %36
   br label %87
 
 87:                                               ; preds = %waitForX11Event.exit.i, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i32, ptr %89, align 8, !tbaa !107
@@ -3378,11 +3372,11 @@ releaseMonitor.exit:                              ; preds = %59, %54, %37, %36
   br i1 %.not1.i.i, label %waitForX11Event.exit.thread.i, label %91
 
 waitForX11Event.exit.thread.i:                    ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %waitForVisibilityNotify.exit
 
 waitForX11Event.exit.i:                           ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %99 = load i64, ptr %68, align 8, !tbaa !140
@@ -3391,8 +3385,8 @@ waitForX11Event.exit.i:                           ; preds = %91
   br i1 %.not.i44, label %87, label %waitForVisibilityNotify.exit
 
 waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exit.i, %76, %waitForX11Event.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %101
 
 101:                                              ; preds = %waitForVisibilityNotify.exit, %69
@@ -3421,7 +3415,7 @@ waitForVisibilityNotify.exit:                     ; preds = %waitForX11Event.exi
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowDecoratedX11(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.anon.41, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i64 2, ptr %3, align 8, !tbaa !209
@@ -3435,7 +3429,7 @@ define hidden void @_glfwSetWindowDecoratedX11(ptr noundef readonly captures(non
   %10 = load i64, ptr %9, align 8, !tbaa !140
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141144), align 8, !tbaa !211
   %12 = call i32 %7(ptr noundef %8, i64 noundef %10, i64 noundef %11, i64 noundef %11, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 5) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3456,7 +3450,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   br i1 %or.cond, label %14, label %83
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -3465,7 +3459,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %21 = load i32, ptr %20, align 4, !tbaa !258
   %.not = icmp eq i32 %21, 2
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not, label %22, label %36
 
 22:                                               ; preds = %14
@@ -3474,7 +3468,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141032), align 8, !tbaa !352
   %.val = load i64, ptr %17, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %7, i8 0, i64 192, i1 false)
   store i32 33, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -3493,26 +3487,26 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %34 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %35 = call i32 %32(ptr noundef %33, i64 noundef %34, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %79
 
 36:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !128
   %37 = load i64, ptr %17, align 8, !tbaa !140
   %38 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %41 = call i32 %39(ptr noundef %40, i64 noundef %37, i64 noundef %38, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef 4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9) #17
   %42 = load i64, ptr %5, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not24 = icmp eq i32 %1, 0
   br i1 %.not24, label %57, label %.preheader29
 
@@ -3600,7 +3594,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit.thread, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %79
 
 79:                                               ; preds = %.thread, %22
@@ -3613,14 +3607,14 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   ret void
 }
 
-declare void @_glfwInputWindowMonitor(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowMonitor(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwWindowFocusedX11(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141616), align 8, !tbaa !353
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %6 = call i32 %4(ptr noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
@@ -3629,8 +3623,8 @@ define hidden range(i32 0, 2) i32 @_glfwWindowFocusedX11(ptr noundef readonly ca
   %9 = load i64, ptr %2, align 8, !tbaa !94
   %10 = icmp eq i64 %8, %9
   %11 = zext i1 %10 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %11
 }
 
@@ -3641,21 +3635,21 @@ define internal fastcc i32 @getWindowState(i64 %.1248.val) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !180
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140952), align 8, !tbaa !345
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %9 = call i32 %7(ptr noundef %8, i64 noundef %.1248.val, i64 noundef %6, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %6, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
   %10 = load i64, ptr %3, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %11 = icmp ugt i64 %10, 1
   %12 = load ptr, ptr %5, align 8, !tbaa !180
   br i1 %11, label %.thread, label %14
@@ -3676,7 +3670,7 @@ define internal fastcc i32 @getWindowState(i64 %.1248.val) unnamed_addr #0 {
 
 18:                                               ; preds = %15, %14
   %.04 = phi i32 [ %.03, %15 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.04
 }
 
@@ -3687,7 +3681,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowMaximizedX11(ptr noundef readonly 
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
   %8 = icmp ne i64 %7, 0
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141048), align 8
@@ -3701,18 +3695,18 @@ define hidden range(i32 0, 2) i32 @_glfwWindowMaximizedX11(ptr noundef readonly 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %15 = load i64, ptr %14, align 8, !tbaa !140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %18 = call i32 %16(ptr noundef %17, i64 noundef %15, i64 noundef %7, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef 4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %19 = load i64, ptr %4, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not21 = icmp eq i64 %19, 0
   %.pre = load ptr, ptr %6, align 8, !tbaa !128
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -3748,7 +3742,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowMaximizedX11(ptr noundef readonly 
 
 31:                                               ; preds = %._crit_edge, %._crit_edge.thread, %1
   %.011 = phi i32 [ 0, %1 ], [ %.01224, %._crit_edge.thread ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.011
 }
 
@@ -3761,7 +3755,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowHoveredX11(ptr noundef readonly ca
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   store i64 %9, ptr %2, align 8, !tbaa !94
   %.not7 = icmp eq i64 %9, 0
@@ -3773,22 +3767,22 @@ define hidden range(i32 0, 2) i32 @_glfwWindowHoveredX11(ptr noundef readonly ca
 
 thread-pre-split:                                 ; preds = %21, %18
   %.pr = phi i64 [ %22, %21 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i64 %.pr, 0
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph, %thread-pre-split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_glfwGrabErrorHandlerX11() #17
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141784), align 8, !tbaa !354
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -3816,23 +3810,23 @@ thread-pre-split:                                 ; preds = %21, %18
 
 .thread:                                          ; preds = %20, %21
   %.1.ph = phi i32 [ 1, %21 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %thread-pre-split, %1, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ 0, %1 ], [ 0, %thread-pre-split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.2
 }
 
-declare void @_glfwGrabErrorHandlerX11() local_unnamed_addr #4
+declare void @_glfwGrabErrorHandlerX11() local_unnamed_addr #3
 
-declare void @_glfwReleaseErrorHandlerX11() local_unnamed_addr #4
+declare void @_glfwReleaseErrorHandlerX11() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwFramebufferTransparentX11(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3858,7 +3852,7 @@ define hidden range(i32 0, 2) i32 @_glfwFramebufferTransparentX11(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowResizableX11(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XWindowAttributes, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -3868,13 +3862,13 @@ define hidden void @_glfwSetWindowResizableX11(ptr noundef readonly captures(non
   %10 = load i32, ptr %9, align 8, !tbaa !248
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call fastcc void @updateNormalHints(ptr noundef %0, i32 noundef %10, i32 noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden float @_glfwGetWindowOpacityX11(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3891,23 +3885,23 @@ define hidden float @_glfwGetWindowOpacityX11(ptr noundef readonly captures(none
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !358
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %13 = load i64, ptr %12, align 8, !tbaa !140
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !360
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %17 = call i32 %15(ptr noundef %16, i64 noundef %13, i64 noundef %14, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef 6, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %18 = load i64, ptr %4, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not3 = icmp eq i64 %18, 0
   %.pr = load ptr, ptr %6, align 8, !tbaa !358
   br i1 %.not3, label %23, label %.thread
@@ -3931,7 +3925,7 @@ define hidden float @_glfwGetWindowOpacityX11(ptr noundef readonly captures(none
 
 27:                                               ; preds = %24, %23
   %.18 = phi float [ %.17, %24 ], [ 1.000000e+00, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
 
 28:                                               ; preds = %27, %1
@@ -3942,7 +3936,7 @@ define hidden float @_glfwGetWindowOpacityX11(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetWindowOpacityX11(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = fpext float %1 to double
   %5 = fmul double %4, 0x41EFFFFFFFE00000
   %6 = fptoui double %5 to i32
@@ -3953,7 +3947,7 @@ define hidden void @_glfwSetWindowOpacityX11(ptr noundef readonly captures(none)
   %10 = load i64, ptr %9, align 8, !tbaa !140
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141088), align 8, !tbaa !360
   %12 = call i32 %7(ptr noundef %8, i64 noundef %10, i64 noundef %11, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3975,8 +3969,8 @@ define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone captures(addr
   br i1 %.not4, label %18, label %10
 
 10:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   store i32 1, ptr %5, align 8, !tbaa !301
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3989,13 +3983,13 @@ define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone captures(addr
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %17 = call i32 %14(ptr noundef %15, i64 noundef %16, ptr noundef nonnull %5, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %25
 
 18:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   store i32 1, ptr %3, align 8, !tbaa !301
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4006,8 +4000,8 @@ define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone captures(addr
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %24 = call i32 %21(ptr noundef %22, i64 noundef %23, ptr noundef nonnull %3, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %25
 
 25:                                               ; preds = %2, %18, %10
@@ -4015,7 +4009,7 @@ define hidden void @_glfwSetRawMouseMotionX11(ptr noundef readnone captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden i32 @_glfwRawMouseMotionSupportedX11() local_unnamed_addr #8 {
+define hidden i32 @_glfwRawMouseMotionSupportedX11() local_unnamed_addr #7 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142568), align 8, !tbaa !361
   ret i32 %1
 }
@@ -4050,7 +4044,7 @@ define hidden void @_glfwPollEventsX11() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %33, %0
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140920), align 8, !tbaa !183
   %28 = call i64 @read(i32 noundef %27, ptr noundef nonnull %24, i64 noundef 64) #17
   %29 = icmp eq i64 %28, -1
@@ -4063,11 +4057,11 @@ define hidden void @_glfwPollEventsX11() local_unnamed_addr #0 {
   br i1 %.not.i, label %33, label %drainEmptyEvents.exit
 
 33:                                               ; preds = %30, %26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %26
 
 drainEmptyEvents.exit:                            ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1932), align 4, !tbaa !362
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %36, label %35
@@ -4126,7 +4120,7 @@ drainEmptyEvents.exit:                            ; preds = %30
 
 78:                                               ; preds = %.lr.ph, %processEvent.exit
   %79 = phi ptr [ %40, %.lr.ph ], [ %705, %processEvent.exit ]
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141744), align 8, !tbaa !364
   %81 = call i32 %80(ptr noundef nonnull %79, ptr noundef nonnull %25) #17
   %82 = load i32, ptr %25, align 8, !tbaa !106
@@ -4270,7 +4264,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split
   br label %processEvent.exit
 
 152:                                              ; preds = %thread-pre-split.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !382
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141536), align 8, !tbaa !383
   %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -4381,8 +4375,8 @@ translateKey.exit.i:                              ; preds = %165, %164
   br i1 %.not277.i, label %206, label %.critedge291.i
 
 206:                                              ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142016), align 8, !tbaa !385
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 1264
   %209 = load ptr, ptr %208, align 8, !tbaa !174
@@ -4460,12 +4454,12 @@ decodeUTF8.exit.i:                                ; preds = %230
   br label %248
 
 248:                                              ; preds = %247, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge291.i
 
 249:                                              ; preds = %translateKey.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141704), align 8, !tbaa !386
   %251 = call i32 %250(ptr noundef nonnull %25, ptr noundef null, i32 noundef 0, ptr noundef nonnull %9, ptr noundef null) #17
   %252 = load ptr, ptr %6, align 8, !tbaa !382
@@ -4482,7 +4476,7 @@ decodeUTF8.exit.i:                                ; preds = %230
   br label %258
 
 258:                                              ; preds = %256, %249
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge291.i
 
 259:                                              ; preds = %158
@@ -4524,7 +4518,7 @@ translateKey.exit308.i:                           ; preds = %260, %259
   br i1 %.not272.i, label %298, label %280
 
 280:                                              ; preds = %276
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %281 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141760), align 8, !tbaa !389
   %282 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %283 = call i32 %281(ptr noundef %282, ptr noundef nonnull %10) #17
@@ -4549,11 +4543,11 @@ translateKey.exit308.i:                           ; preds = %260, %259
   br i1 %296, label %297, label %.critedge.i
 
 .critedge.i:                                      ; preds = %292, %286, %280
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %298
 
 297:                                              ; preds = %292
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge291.i
 
 298:                                              ; preds = %.critedge.i, %276, %translateKey.exit308.i
@@ -4799,10 +4793,10 @@ updateCursorImage.exit:                           ; preds = %345
 
 421:                                              ; preds = %416, %413
   %.pre342.i = phi ptr [ %.pre342.pre.i, %416 ], [ %410, %413 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %422 = load i32, ptr %46, align 8, !tbaa !106
   store i32 %422, ptr %11, align 4, !tbaa !183
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %423 = load i32, ptr %71, align 4, !tbaa !106
   store i32 %423, ptr %12, align 4, !tbaa !183
   %424 = load i32, ptr %72, align 8, !tbaa !106
@@ -4818,7 +4812,7 @@ updateCursorImage.exit:                           ; preds = %345
 
 429:                                              ; preds = %425
   call void @_glfwGrabErrorHandlerX11() #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %430 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141952), align 8, !tbaa !247
   %431 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %432 = load ptr, ptr %6, align 8, !tbaa !382
@@ -4829,7 +4823,7 @@ updateCursorImage.exit:                           ; preds = %345
   call void @_glfwReleaseErrorHandlerX11() #17
   %437 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137912), align 8, !tbaa !355
   %.not264.i = icmp eq i32 %437, 3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not264.i, label %448, label %._crit_edge339.i
 
 ._crit_edge339.i:                                 ; preds = %429
@@ -4861,8 +4855,8 @@ updateCursorImage.exit:                           ; preds = %345
   br label %448
 
 448:                                              ; preds = %446, %443, %429
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge291.i
 
 449:                                              ; preds = %158
@@ -4900,14 +4894,14 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %465, label %466, label %.critedge291.i
 
 466:                                              ; preds = %463
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %14, ptr noundef nonnull align 8 dereferenceable(192) %25, i64 192, i1 false), !tbaa.struct !397
   %467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   store i64 %467, ptr %69, align 8, !tbaa !106
   %468 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141840), align 8, !tbaa !134
   %469 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %470 = call i32 %468(ptr noundef %469, i64 noundef %467, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge291.i
 
 471:                                              ; preds = %453
@@ -4916,7 +4910,7 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %473, label %474, label %502
 
 474:                                              ; preds = %471
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !128
   %475 = load i64, ptr %68, align 8, !tbaa !106
   %476 = load i64, ptr %47, align 8, !tbaa !106
@@ -4980,7 +4974,7 @@ updateCursorImage.exit:                           ; preds = %345
   br label %501
 
 501:                                              ; preds = %498, %.loopexit323.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge291.i
 
 502:                                              ; preds = %471
@@ -5016,7 +5010,7 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %521, label %522, label %.critedge291.i
 
 522:                                              ; preds = %520
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %16, i8 0, i64 192, i1 false)
   store i32 33, ptr %16, align 8
   %523 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142376), align 8, !tbaa !399
@@ -5035,7 +5029,7 @@ updateCursorImage.exit:                           ; preds = %345
   %531 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
   %532 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %533 = call i32 %531(ptr noundef %532) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge291.i
 
 534:                                              ; preds = %502
@@ -5045,9 +5039,9 @@ updateCursorImage.exit:                           ; preds = %345
 
 537:                                              ; preds = %534
   %538 = load i64, ptr %55, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %539 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142368), align 8, !tbaa !400
   %540 = icmp slt i32 %539, 6
   br i1 %540, label %541, label %.critedge297.i
@@ -5069,7 +5063,7 @@ updateCursorImage.exit:                           ; preds = %345
   %555 = load i32, ptr %19, align 4, !tbaa !183
   %556 = sitofp i32 %555 to double
   call void @_glfwInputCursorPos(ptr noundef %552, double noundef %554, double noundef %556) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %20, i8 0, i64 192, i1 false)
   store i32 33, ptr %20, align 8
   %557 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142376), align 8, !tbaa !399
@@ -5104,10 +5098,10 @@ updateCursorImage.exit:                           ; preds = %345
   %572 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
   %573 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %574 = call i32 %572(ptr noundef %573) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge291.i
 
 575:                                              ; preds = %158
@@ -5117,26 +5111,26 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %578, label %579, label %.critedge291.i
 
 579:                                              ; preds = %575
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %580 = load i64, ptr %44, align 8, !tbaa !106
   %581 = load i64, ptr %46, align 8, !tbaa !106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %582 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141672), align 8, !tbaa !3
   %583 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %584 = call i32 %582(ptr noundef %583, i64 noundef %580, i64 noundef %576, i64 noundef 0, i64 noundef 9223372036854775807, i32 noundef 0, i64 noundef %581, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %21) #17
   %585 = load i64, ptr %3, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not254.i = icmp eq i64 %585, 0
   br i1 %.not254.i, label %598, label %586
 
 586:                                              ; preds = %579
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %587 = load ptr, ptr %21, align 8, !tbaa !410
   %588 = call ptr @_glfwParseUriList(ptr noundef %587, ptr noundef nonnull %22) #17
   %589 = load ptr, ptr %6, align 8, !tbaa !382
@@ -5148,7 +5142,7 @@ updateCursorImage.exit:                           ; preds = %345
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %586
   call void @_glfw_free(ptr noundef %588) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %598
 
 .lr.ph.i:                                         ; preds = %586, %.lr.ph.i
@@ -5178,7 +5172,7 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %605, label %606, label %619
 
 606:                                              ; preds = %603
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %23, i8 0, i64 192, i1 false)
   store i32 33, ptr %23, align 8
   %607 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142376), align 8, !tbaa !399
@@ -5199,11 +5193,11 @@ updateCursorImage.exit:                           ; preds = %345
   %616 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
   %617 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %618 = call i32 %616(ptr noundef %617) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %619
 
 619:                                              ; preds = %606, %603
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge291.i
 
 620:                                              ; preds = %158
@@ -5390,21 +5384,21 @@ updateCursorImage.exit:                           ; preds = %345
   br label %.critedge291.i
 
 .critedge293.i:                                   ; preds = %474
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge291.i
 
 .critedge297.i:                                   ; preds = %537
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge291.i
 
 .critedge291.i:                                   ; preds = %.critedge297.i, %.critedge293.i, %704, %698, %695, %692, %680, %675, %669, %667, %665, %640, %638, %620, %619, %575, %568, %534, %522, %520, %510, %505, %501, %466, %463, %461, %456, %450, %449, %448, %404, %383, %381, %366, %358, %342, %340, %338, %336, %334, %320, %319, %318, %317, %316, %315, %314, %313, %298, %297, %258, %248, %204, %160, %158, %152
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %processEvent.exit
 
 processEvent.exit:                                ; preds = %92, %98, %101, %104, %106, %148, %151, %.critedge291.i
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %705 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 136
   %707 = load i32, ptr %706, align 8, !tbaa !363
@@ -5418,7 +5412,7 @@ processEvent.exit:                                ; preds = %92, %98, %101, %104
   br i1 %.not6, label %735, label %709
 
 709:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %710 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141664), align 8, !tbaa !175
   %711 = getelementptr inbounds nuw i8, ptr %708, i64 1248
   %712 = load i64, ptr %711, align 8, !tbaa !140
@@ -5427,7 +5421,7 @@ processEvent.exit:                                ; preds = %92, %98, %101, %104
   %715 = load i32, ptr %714, align 8, !tbaa !248
   %716 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %717 = load i32, ptr %716, align 4, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %718 = getelementptr inbounds nuw i8, ptr %708, i64 1304
   %719 = load i32, ptr %718, align 8, !tbaa !390
   %720 = sdiv i32 %715, 2
@@ -5467,7 +5461,7 @@ processEvent.exit:                                ; preds = %92, %98, %101, %104
   ret void
 }
 
-declare void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #4
+declare void @_glfwDetectJoystickConnectionLinux() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwSetCursorPosX11(ptr noundef captures(none) initializes((1312, 1320)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -5491,7 +5485,7 @@ define hidden void @_glfwSetCursorPosX11(ptr noundef captures(none) initializes(
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwWaitEventsX11() local_unnamed_addr #0 {
   %1 = alloca [3 x %struct.pollfd], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !107
@@ -5554,7 +5548,7 @@ define hidden void @_glfwWaitEventsX11() local_unnamed_addr #0 {
   br i1 %.not10.i, label %24, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_glfwPollEventsX11()
   ret void
 }
@@ -5564,7 +5558,7 @@ define hidden void @_glfwWaitEventsTimeoutX11(double noundef %0) local_unnamed_a
   %2 = alloca [3 x %struct.pollfd], align 16
   %3 = alloca double, align 8
   store double %0, ptr %3, align 8, !tbaa !265
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !107
@@ -5627,18 +5621,18 @@ define hidden void @_glfwWaitEventsTimeoutX11(double noundef %0) local_unnamed_a
   br i1 %.not10.i, label %26, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_glfwPollEventsX11()
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @_glfwPostEmptyEventX11() local_unnamed_addr #9 {
+define hidden void @_glfwPostEmptyEventX11() local_unnamed_addr #8 {
   %1 = alloca i8, align 1
   br label %2
 
 2:                                                ; preds = %8, %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i8 0, ptr %1, align 1, !tbaa !106
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140924), align 4, !tbaa !183
   %4 = call i64 @write(i32 noundef %3, ptr noundef nonnull %1, i64 noundef 1) #17
@@ -5654,11 +5648,11 @@ define hidden void @_glfwPostEmptyEventX11() local_unnamed_addr #9 {
   br i1 %.not.i, label %8, label %writeEmptyEvent.exit
 
 8:                                                ; preds = %5, %2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %2
 
 writeEmptyEvent.exit:                             ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -5671,13 +5665,13 @@ define hidden void @_glfwGetCursorPosX11(ptr noundef readonly captures(none) %0,
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141784), align 8, !tbaa !354
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -5703,13 +5697,13 @@ define hidden void @_glfwGetCursorPosX11(ptr noundef readonly captures(none) %0,
   br label %23
 
 23:                                               ; preds = %20, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5728,8 +5722,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   %13 = alloca i32, align 4
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141616), align 8, !tbaa !353
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %18 = call i32 %16(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15) #17
@@ -5737,8 +5731,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   %20 = load i64, ptr %19, align 8, !tbaa !140
   %21 = load i64, ptr %14, align 8, !tbaa !94
   %.not = icmp eq i64 %20, %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.not, label %22, label %81
 
 22:                                               ; preds = %2
@@ -5746,13 +5740,13 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   br i1 %23, label %24, label %42
 
 24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141784), align 8, !tbaa !354
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %27 = call i32 %25(ptr noundef %26, i64 noundef %20, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13) #17
@@ -5762,13 +5756,13 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   %30 = load i32, ptr %12, align 4, !tbaa !183
   %31 = sitofp i32 %30 to double
   store double %31, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140904), align 8, !tbaa !265
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_glfwCenterCursorInContentArea(ptr noundef nonnull %0) #17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %33 = load i32, ptr %32, align 8, !tbaa !300
@@ -5776,8 +5770,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not18, label %.thread, label %34
 
 34:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   store i32 1, ptr %5, align 8, !tbaa !301
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5790,8 +5784,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %41 = call i32 %38(ptr noundef %39, i64 noundef %40, ptr noundef nonnull %5, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 42:                                               ; preds = %22
@@ -5806,8 +5800,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not17, label %55, label %48
 
 48:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
   store i32 1, ptr %3, align 8, !tbaa !301
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5818,8 +5812,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %54 = call i32 %51(ptr noundef %52, i64 noundef %53, ptr noundef nonnull %3, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %55
 
 55:                                               ; preds = %42, %48, %45
@@ -5964,12 +5958,12 @@ define hidden noundef ptr @_glfwGetScancodeNameX11(i32 noundef %0) local_unnamed
   ret ptr %.0
 }
 
-declare i32 @_glfwKeySym2Unicode(i32 noundef) local_unnamed_addr #4
+declare i32 @_glfwKeySym2Unicode(i32 noundef) local_unnamed_addr #3
 
-declare i64 @_glfwEncodeUTF8(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @_glfwEncodeUTF8(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 -32768, 32768) i32 @_glfwGetKeyScancodeX11(i32 noundef %0) local_unnamed_addr #8 {
+define hidden range(i32 -32768, 32768) i32 @_glfwGetKeyScancodeX11(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [349 x i16], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 0, i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !384
@@ -5987,7 +5981,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateCursorX11(ptr noundef writeonly ca
   ret i32 %.
 }
 
-declare i64 @_glfwCreateNativeCursorX11(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @_glfwCreateNativeCursorX11(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_glfwCreateStandardCursorX11(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -6156,7 +6150,7 @@ define hidden void @_glfwSetClipboardStringX11(ptr noundef %0) local_unnamed_add
   ret void
 }
 
-declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #4
+declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_glfwGetClipboardStringX11() local_unnamed_addr #0 {
@@ -6178,8 +6172,8 @@ define internal fastcc ptr @getSelectionString(i64 noundef %0) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca %union._XEvent, align 8
   %10 = alloca %union._XEvent, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141296), align 8, !tbaa !117
   store i64 %11, ptr %.sroa.0, align 16, !tbaa !94
   store i64 31, ptr %.sroa.4, align 8, !tbaa !94
@@ -6208,13 +6202,13 @@ define internal fastcc ptr @getSelectionString(i64 noundef %0) unnamed_addr #0 {
 26:                                               ; preds = %19, %select.unfold
   %27 = phi i1 [ true, %19 ], [ false, %select.unfold ]
   %.03283.sroa.phi = phi ptr [ %.sroa.0, %19 ], [ %.sroa.4, %select.unfold ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141416), align 8, !tbaa !101
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %30 = load i64, ptr %.03283.sroa.phi, align 8, !tbaa !94
@@ -6229,7 +6223,7 @@ define internal fastcc ptr @getSelectionString(i64 noundef %0) unnamed_addr #0 {
   br i1 %.not78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %waitForX11Event.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !107
@@ -6251,7 +6245,7 @@ define internal fastcc ptr @getSelectionString(i64 noundef %0) unnamed_addr #0 {
   br i1 %.not1.i, label %waitForX11Event.exit, label %41
 
 waitForX11Event.exit:                             ; preds = %41, %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141392), align 8, !tbaa !266
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137872), align 8, !tbaa !104
@@ -6288,7 +6282,7 @@ waitForX11Event.exit:                             ; preds = %41, %45
   br i1 %.not3979, label %.lr.ph81, label %._crit_edge82
 
 .lr.ph81:                                         ; preds = %.preheader, %waitForX11Event.exit49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8, !tbaa !107
@@ -6310,7 +6304,7 @@ waitForX11Event.exit:                             ; preds = %41, %45
   br i1 %.not1.i48, label %waitForX11Event.exit49, label %71
 
 waitForX11Event.exit49:                           ; preds = %71, %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141384), align 8, !tbaa !105
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %79 = call i32 %77(ptr noundef %78, ptr noundef nonnull %10, ptr noundef nonnull @isSelPropNewValueNotify, ptr noundef nonnull %9) #17
@@ -6461,23 +6455,23 @@ convertLatin1toUTF8.exit64:                       ; preds = %.lr.ph26.i60, %._cr
   br i1 %.not43, label %select.unfold, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %144
 
 select.unfold:                                    ; preds = %138, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %27, label %26, label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold
@@ -6492,8 +6486,8 @@ select.unfold:                                    ; preds = %138, %._crit_edge
 
 144:                                              ; preds = %.loopexit.thread, %.loopexit, %143, %1
   %.034 = phi ptr [ %.pre, %.loopexit ], [ %.034.pre, %143 ], [ %.034.pre87, %1 ], [ %142, %.loopexit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   ret ptr %.034
 }
 
@@ -6547,13 +6541,13 @@ define hidden range(i32 0, 12803) i32 @_glfwGetEGLPlatformX11(ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @_glfwGetEGLNativeDisplayX11() local_unnamed_addr #8 {
+define hidden ptr @_glfwGetEGLNativeDisplayX11() local_unnamed_addr #7 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @_glfwGetEGLNativeWindowX11(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define hidden ptr @_glfwGetEGLNativeWindowX11(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133496), align 8, !tbaa !435
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -6570,7 +6564,7 @@ define hidden ptr @_glfwGetEGLNativeWindowX11(ptr noundef readonly captures(ret:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetRequiredInstanceExtensionsX11(ptr noundef writeonly captures(none) %0) local_unnamed_addr #6 {
+define hidden void @_glfwGetRequiredInstanceExtensionsX11(ptr noundef writeonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133840), align 8, !tbaa !436
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %13, label %3
@@ -6674,7 +6668,7 @@ define hidden i32 @_glfwCreateWindowSurfaceX11(ptr noundef %0, ptr noundef reado
   br i1 %or.cond, label %11, label %29
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142504), align 8, !tbaa !440
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %14 = tail call ptr %12(ptr noundef %13) #17
@@ -6715,11 +6709,11 @@ define hidden i32 @_glfwCreateWindowSurfaceX11(ptr noundef %0, ptr noundef reado
 
 28:                                               ; preds = %20, %26, %19, %15
   %.0 = phi i32 [ -7, %19 ], [ -7, %15 ], [ %25, %26 ], [ 0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 29:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133832), align 8, !tbaa !439
   %31 = tail call ptr %30(ptr noundef %0, ptr noundef nonnull @.str.31) #17
   %.not = icmp eq ptr %31, null
@@ -6750,7 +6744,7 @@ define hidden i32 @_glfwCreateWindowSurfaceX11(ptr noundef %0, ptr noundef reado
 
 42:                                               ; preds = %33, %40, %32
   %.2 = phi i32 [ -7, %32 ], [ %39, %40 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 43:                                               ; preds = %42, %28
@@ -6758,7 +6752,7 @@ define hidden i32 @_glfwCreateWindowSurfaceX11(ptr noundef %0, ptr noundef reado
   ret i32 %.1
 }
 
-declare ptr @_glfwGetVulkanResultString(i32 noundef) local_unnamed_addr #4
+declare ptr @_glfwGetVulkanResultString(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetX11Display() local_unnamed_addr #0 {
@@ -6891,60 +6885,60 @@ define ptr @glfwGetX11SelectionString() local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare i32 @_glfwPollPOSIX(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwPollPOSIX(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwInputErrorX11(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputErrorX11(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #10
+declare i32 @getpid() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare void @_glfwSetVideoModeX11(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwSetVideoModeX11(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwGetMonitorPosX11(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwGetMonitorPosX11(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @_glfwGetVideoModeX11(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @_glfwGetVideoModeX11(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwInputMonitorWindow(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputMonitorWindow(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwRestoreVideoModeX11(ptr noundef) local_unnamed_addr #4
+declare void @_glfwRestoreVideoModeX11(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #12
 
-declare void @_glfwPollMonitorsX11() local_unnamed_addr #4
+declare void @_glfwPollMonitorsX11() local_unnamed_addr #3
 
-declare void @_glfwInputCursorPos(ptr noundef, double noundef, double noundef) local_unnamed_addr #4
+declare void @_glfwInputCursorPos(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
 
-declare void @_glfwInputKey(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputKey(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputChar(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputChar(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputMouseClick(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputMouseClick(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputScroll(ptr noundef, double noundef, double noundef) local_unnamed_addr #4
+declare void @_glfwInputScroll(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
 
-declare void @_glfwInputCursorEnter(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputCursorEnter(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputFramebufferSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputFramebufferSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowPos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowPos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowCloseRequest(ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowCloseRequest(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
-declare ptr @_glfwParseUriList(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_glfwParseUriList(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwInputDrop(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputDrop(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @disableCursor(ptr noundef %0) unnamed_addr #0 {
@@ -6963,8 +6957,8 @@ define internal fastcc void @disableCursor(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   store i32 1, ptr %9, align 8, !tbaa !301
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -6977,19 +6971,19 @@ define internal fastcc void @disableCursor(ptr noundef %0) unnamed_addr #0 {
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %20 = call i32 %17(ptr noundef %18, i64 noundef %19, ptr noundef nonnull %9, i32 noundef 1) #17
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %21
 
 21:                                               ; preds = %13, %1
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140912), align 8, !tbaa !289
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141784), align 8, !tbaa !354
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -7001,13 +6995,13 @@ define internal fastcc void @disableCursor(ptr noundef %0) unnamed_addr #0 {
   %29 = load i32, ptr %7, align 4, !tbaa !183
   %30 = sitofp i32 %29 to double
   store double %30, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140904), align 8, !tbaa !265
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %32 = load i32, ptr %31, align 4, !tbaa !312
   switch i32 %32, label %46 [
@@ -7052,19 +7046,19 @@ updateCursorImage.exit:                           ; preds = %38, %43, %46
   ret void
 }
 
-declare void @_glfwInputWindowFocus(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowFocus(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowDamage(ptr noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowDamage(ptr noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowIconify(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowIconify(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_glfwInputWindowMaximize(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_glfwInputWindowMaximize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @isSelPropNewValueNotify(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #15 {
+define internal range(i32 0, 2) i32 @isSelPropNewValueNotify(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #14 {
   %4 = load i32, ptr %1, align 8, !tbaa !106
   %5 = icmp eq i32 %4, 28
   br i1 %5, label %6, label %23
@@ -7097,28 +7091,34 @@ define internal range(i32 0, 2) i32 @isSelPropNewValueNotify(ptr readnone captur
   ret i32 %24
 }
 
-declare ptr @_glfw_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_glfw_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { nounwind willreturn memory(none) }

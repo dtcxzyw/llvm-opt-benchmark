@@ -270,9 +270,9 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 60:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %7, align 1
   %61 = load ptr, ptr @gdata, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 17
@@ -974,7 +974,7 @@ sub_0340.i:                                       ; preds = %.tail335.thread.i
   br i1 %363, label %364, label %377
 
 364:                                              ; preds = %362
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %367, %364
@@ -1014,15 +1014,15 @@ get_tok.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   ]
 
 .thread.i:                                        ; preds = %375
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %508
 
 get_boolean.exit.thread.i:                        ; preds = %375, %get_tok.exit.i.i, %367
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %get_tok.exit.thread.i
 
 376:                                              ; preds = %375
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @do_pause() #17
   br label %508
 
@@ -1032,7 +1032,7 @@ get_boolean.exit.thread.i:                        ; preds = %375, %get_tok.exit.
   br i1 %378, label %379, label %392
 
 379:                                              ; preds = %377
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr @docoredump, align 1
   br label %.lr.ph.i.i259.i
 
@@ -1076,13 +1076,13 @@ get_tok.exit.i261.i:                              ; preds = %.lr.ph.i.i259.i, %.
   br label %get_boolean.exit270.i
 
 get_boolean.exit270.thread.i:                     ; preds = %390, %get_tok.exit.i261.i, %382
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %get_tok.exit.thread.i
 
 get_boolean.exit270.i:                            ; preds = %391, %390
   %.sink.i266.i = phi i8 [ 0, %391 ], [ 1, %390 ]
   store i8 %.sink.i266.i, ptr @docoredump, align 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %508
 
 392:                                              ; preds = %377
@@ -1484,9 +1484,9 @@ get_tok.exit.thread.i:                            ; preds = %506, %504, %502, %4
   br label %566
 
 parseOptions.exit:                                ; preds = %536, %542
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %562 = load ptr, ptr @gdata, align 8
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 528
   %564 = load i32, ptr %563, align 8
@@ -1495,9 +1495,9 @@ parseOptions.exit:                                ; preds = %536, %542
   br i1 %.not51, label %568, label %567
 
 566:                                              ; preds = %548, %554, %561
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   tail call void @transport_close() #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
@@ -2523,8 +2523,8 @@ define hidden void @debugInit_exit(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 33:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %3, align 8
   %34 = load ptr, ptr @gdata, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -3153,10 +3153,10 @@ declare void @bagDestroyBag(ptr noundef) local_unnamed_addr #1
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

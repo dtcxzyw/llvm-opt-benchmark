@@ -30,11 +30,8 @@ define noundef ptr @lv_freetype_create_draw_data_image(i32 noundef %0) local_unn
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal signext range(i8 -1, 2) i8 @freetype_image_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal signext range(i8 -1, 2) i8 @freetype_image_compare_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = load i32, ptr %1, align 8, !tbaa !3
   %.not = icmp eq i32 %3, %4
@@ -105,7 +102,7 @@ define internal noundef zeroext i1 @freetype_image_create_cb(ptr noundef capture
   br i1 %.not46, label %25, label %61
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = load ptr, ptr %22, align 8, !tbaa !41
   %27 = call i32 @FT_Get_Glyph(ptr noundef %26, ptr noundef nonnull %3) #5
   %.not47 = icmp eq i32 %27, 0
@@ -162,7 +159,7 @@ define internal noundef zeroext i1 @freetype_image_create_cb(ptr noundef capture
   br i1 %exitcond.not, label %._crit_edge, label %47, !llvm.loop !60
 
 60:                                               ; preds = %25, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
 61:                                               ; preds = %21, %18, %17, %60
@@ -178,15 +175,12 @@ define internal void @freetype_image_free_cb(ptr noundef readonly captures(none)
   ret void
 }
 
-declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #3
+declare ptr @lv_cache_create(ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%struct._lv_cache_ops_t) align 8) local_unnamed_addr #2
 
-declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_freetype_set_cbs_image_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @lv_freetype_set_cbs_image_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -236,7 +230,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %12, ptr %3, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -250,7 +244,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
   %23 = call ptr @lv_cache_entry_get_data(ptr noundef %21) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !54
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %25
 }
 
@@ -276,37 +270,43 @@ define internal void @freetype_image_release_cb(ptr noundef readonly captures(ad
   ret void
 }
 
-declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lv_cache_acquire_or_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @lv_cache_entry_get_data(ptr noundef) local_unnamed_addr #3
+declare ptr @lv_cache_entry_get_data(ptr noundef) local_unnamed_addr #2
 
-declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @lv_cache_release(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @FT_Select_Size(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @FT_Select_Size(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @FT_Render_Glyph(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @FT_Render_Glyph(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @FT_Get_Glyph(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @FT_Get_Glyph(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @lv_draw_buf_width_to_stride(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @lv_draw_buf_create_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @lv_draw_buf_create_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #3
+declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #2
 
-declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #3
+declare void @lv_draw_buf_destroy(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

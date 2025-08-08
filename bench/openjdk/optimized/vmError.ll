@@ -423,8 +423,8 @@ $_ZN5frameC2EPlS0_S0_Ph = comdat any
 define hidden noundef zeroext i1 @_ZN7VMError18can_reattempt_stepERPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %2, align 8
   store ptr null, ptr %3, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %3, ptr noundef nonnull %2) #21
@@ -439,8 +439,8 @@ define hidden noundef zeroext i1 @_ZN7VMError18can_reattempt_stepERPKc(ptr nound
   br i1 %11, label %_ZL18stack_has_headroomm.exit.thread, label %_ZL18stack_has_headroomm.exit
 
 _ZL18stack_has_headroomm.exit.thread:             ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split
 
 _ZL18stack_has_headroomm.exit:                    ; preds = %1
@@ -450,8 +450,8 @@ _ZL18stack_has_headroomm.exit:                    ; preds = %1
   %15 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 65536
   %.not = icmp ult ptr %15, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %.sink.split, label %17
 
 17:                                               ; preds = %_ZL18stack_has_headroomm.exit
@@ -630,7 +630,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %26
   store i8 %35, ptr %11, align 8
   call void @_ZNK5frame14print_on_errorEP12outputStreamPcib(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %0, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load i8, ptr %11, align 8
   %37 = trunc i8 %36 to i1
   br i1 %37, label %_ZN16StackFrameStream4nextEv.exit, label %38
@@ -663,7 +663,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %34, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %46 = phi i8 [ %36, %34 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = trunc i8 %46 to i1
   br i1 %47, label %_ZN16StackFrameStream7is_doneEv.exit.thread, label %20, !llvm.loop !9
 
@@ -1824,8 +1824,8 @@ switch.early.test:                                ; preds = %167
   br i1 %1, label %295, label %.critedge404
 
 295:                                              ; preds = %294
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %12, align 8
   store ptr null, ptr %13, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %13, ptr noundef nonnull %12) #21
@@ -1840,8 +1840,8 @@ switch.early.test:                                ; preds = %167
   br i1 %303, label %_ZL18stack_has_headroomm.exit.thread.i, label %_ZL18stack_has_headroomm.exit.i
 
 _ZL18stack_has_headroomm.exit.thread.i:           ; preds = %295
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.sink.split.i423
 
 _ZL18stack_has_headroomm.exit.i:                  ; preds = %295
@@ -1851,8 +1851,8 @@ _ZL18stack_has_headroomm.exit.i:                  ; preds = %295
   %307 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 65536
   %.not.i421 = icmp ult ptr %307, %308
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not.i421, label %.sink.split.i423, label %309
 
 309:                                              ; preds = %_ZL18stack_has_headroomm.exit.i
@@ -2203,8 +2203,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %440, %438, %415
   br i1 %or.cond533, label %454, label %.critedge406
 
 454:                                              ; preds = %447
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %10, align 8
   store ptr null, ptr %11, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %11, ptr noundef nonnull %10) #21
@@ -2219,8 +2219,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %440, %438, %415
   br i1 %462, label %_ZL18stack_has_headroomm.exit.thread.i429, label %_ZL18stack_has_headroomm.exit.i424
 
 _ZL18stack_has_headroomm.exit.thread.i429:        ; preds = %454
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.sink.split.i427
 
 _ZL18stack_has_headroomm.exit.i424:               ; preds = %454
@@ -2230,8 +2230,8 @@ _ZL18stack_has_headroomm.exit.i424:               ; preds = %454
   %466 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %467 = getelementptr inbounds nuw i8, ptr %465, i64 65536
   %.not.i425 = icmp ult ptr %466, %467
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not.i425, label %.sink.split.i427, label %468
 
 468:                                              ; preds = %_ZL18stack_has_headroomm.exit.i424
@@ -2302,8 +2302,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit430:     ; preds = %468
   br i1 %or.cond535, label %499, label %.critedge408
 
 499:                                              ; preds = %493
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %8, align 8
   store ptr null, ptr %9, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %9, ptr noundef nonnull %8) #21
@@ -2318,8 +2318,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit430:     ; preds = %468
   br i1 %507, label %_ZL18stack_has_headroomm.exit.thread.i436, label %_ZL18stack_has_headroomm.exit.i431
 
 _ZL18stack_has_headroomm.exit.thread.i436:        ; preds = %499
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.sink.split.i434
 
 _ZL18stack_has_headroomm.exit.i431:               ; preds = %499
@@ -2329,8 +2329,8 @@ _ZL18stack_has_headroomm.exit.i431:               ; preds = %499
   %511 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %512 = getelementptr inbounds nuw i8, ptr %510, i64 65536
   %.not.i432 = icmp ult ptr %511, %512
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not.i432, label %.sink.split.i434, label %513
 
 513:                                              ; preds = %_ZL18stack_has_headroomm.exit.i431
@@ -2500,8 +2500,8 @@ _ZN12ResourceMarkD2Ev.exit440:                    ; preds = %570, %568, %545
   br i1 %or.cond539, label %584, label %.critedge410
 
 584:                                              ; preds = %577
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %6, align 8
   store ptr null, ptr %7, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %7, ptr noundef nonnull %6) #21
@@ -2516,8 +2516,8 @@ _ZN12ResourceMarkD2Ev.exit440:                    ; preds = %570, %568, %545
   br i1 %592, label %_ZL18stack_has_headroomm.exit.thread.i446, label %_ZL18stack_has_headroomm.exit.i441
 
 _ZL18stack_has_headroomm.exit.thread.i446:        ; preds = %584
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split.i444
 
 _ZL18stack_has_headroomm.exit.i441:               ; preds = %584
@@ -2527,8 +2527,8 @@ _ZL18stack_has_headroomm.exit.i441:               ; preds = %584
   %596 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %597 = getelementptr inbounds nuw i8, ptr %595, i64 65536
   %.not.i442 = icmp ult ptr %596, %597
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i442, label %.sink.split.i444, label %598
 
 598:                                              ; preds = %_ZL18stack_has_headroomm.exit.i441
@@ -2599,8 +2599,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %598
   br i1 %or.cond541, label %629, label %.critedge412
 
 629:                                              ; preds = %623
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %4, align 8
   store ptr null, ptr %5, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %5, ptr noundef nonnull %4) #21
@@ -2615,8 +2615,8 @@ _ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %598
   br i1 %637, label %_ZL18stack_has_headroomm.exit.thread.i453, label %_ZL18stack_has_headroomm.exit.i448
 
 _ZL18stack_has_headroomm.exit.thread.i453:        ; preds = %629
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split.i451
 
 _ZL18stack_has_headroomm.exit.i448:               ; preds = %629
@@ -2626,8 +2626,8 @@ _ZL18stack_has_headroomm.exit.i448:               ; preds = %629
   %641 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
   %642 = getelementptr inbounds nuw i8, ptr %640, i64 65536
   %.not.i449 = icmp ult ptr %641, %642
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i449, label %.sink.split.i451, label %643
 
 643:                                              ; preds = %_ZL18stack_has_headroomm.exit.i448
@@ -2863,7 +2863,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %738
   %752 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %749, ptr noundef %748, i1 noundef zeroext %751, ptr noundef %24)
   %753 = zext i1 %752 to i32
   %spec.select415 = add nsw i32 %.4574, %753
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %754 = load i8, ptr %722, align 8
   %755 = trunc i8 %754 to i1
   br i1 %755, label %_ZN16StackFrameStream4nextEv.exit, label %756
@@ -2894,7 +2894,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
   br label %_ZN16StackFrameStream4nextEv.exit
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6senderEP11RegisterMap.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %764 = icmp slt i32 %spec.select415, %687
   br i1 %764, label %729, label %.critedge51, !llvm.loop !21
 
@@ -6119,10 +6119,10 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 declare i64 @llvm.smax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20

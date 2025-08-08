@@ -141,9 +141,6 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
@@ -161,7 +158,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = icmp eq i32 %8, %10
   %12 = icmp eq i32 %10, 2276
   %or.cond = or i1 %11, %12
@@ -257,12 +254,12 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   br i1 %44, label %45, label %.critedge
 
 .critedge:                                        ; preds = %29, %typeIsOfTypedTable.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 45:                                               ; preds = %is_complex_array.exit.thread, %typeIsOfTypedTable.exit, %is_complex_array.exit, %23, %20, %16, %14, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %.lr.ph
   %.162 = phi i1 [ %.06176, %.lr.ph ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ true, %13 ], [ %.06176, %14 ], [ %.06176, %16 ], [ %.06176, %20 ], [ %.06176, %23 ], [ %.06176, %is_complex_array.exit ], [ %.06176, %typeIsOfTypedTable.exit ], [ %.06176, %is_complex_array.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -288,7 +285,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %10 = alloca i32, align 4
   %11 = alloca %struct.ParseCallbackState, align 8
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = icmp eq i32 %3, %2
   %14 = icmp eq ptr %1, null
   %or.cond = or i1 %14, %13
@@ -342,8 +339,8 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 33:                                               ; preds = %30
   %34 = tail call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 7, ptr %34, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %4, ptr %10, align 4
   %35 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %10) #5
   %36 = icmp eq i32 %35, 1186
@@ -418,8 +415,8 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 77:                                               ; preds = %74, %73
   %.0203 = phi ptr [ %76, %74 ], [ %34, %73 ]
   call void @ReleaseSysCache(ptr noundef %38) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %151
 
 78:                                               ; preds = %30
@@ -476,7 +473,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br i1 %.not220, label %120, label %103
 
 103:                                              ; preds = %thread-pre-split.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %4, ptr %12, align 4
   %104 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %12) #5
   %.not224 = icmp eq i32 %102, 2
@@ -508,7 +505,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
 
 119:                                              ; preds = %112, %116, %105, %109
   %.2 = phi ptr [ %111, %109 ], [ %108, %105 ], [ %117, %116 ], [ %114, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %151
 
 120:                                              ; preds = %thread-pre-split.thread
@@ -583,7 +580,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
 
 151:                                              ; preds = %129, %127, %88, %93, %84, %27, %25, %15, %15, %15, %15, %15, %8, %141, %124, %119, %77
   %.0 = phi ptr [ %.0203, %77 ], [ %.2, %119 ], [ %125, %124 ], [ %137, %141 ], [ %1, %8 ], [ %1, %15 ], [ %1, %15 ], [ %1, %15 ], [ %1, %15 ], [ %1, %15 ], [ %28, %27 ], [ %1, %25 ], [ %85, %84 ], [ %94, %93 ], [ %91, %88 ], [ %1, %127 ], [ %1, %129 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
 
@@ -662,32 +659,29 @@ find_typmod_coercion_function.exit.thread:        ; preds = %find_typmod_coercio
   ret ptr %.022
 }
 
-declare zeroext i1 @type_is_collatable(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_collatable(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @getBaseType(i32 noundef) local_unnamed_addr #1
 
-declare i32 @getBaseType(i32 noundef) local_unnamed_addr #2
+declare ptr @makeRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @makeRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @typeidType(i32 noundef) local_unnamed_addr #1
 
-declare ptr @typeidType(i32 noundef) local_unnamed_addr #2
+declare i32 @typeTypeCollation(ptr noundef) local_unnamed_addr #1
 
-declare i32 @typeTypeCollation(ptr noundef) local_unnamed_addr #2
+declare signext i16 @typeLen(ptr noundef) local_unnamed_addr #1
 
-declare signext i16 @typeLen(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @typeByVal(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @typeByVal(ptr noundef) local_unnamed_addr #2
+declare void @setup_parser_errposition_callback(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @setup_parser_errposition_callback(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @stringTypeDatum(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @stringTypeDatum(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
-
-declare void @cancel_parser_errposition_callback(ptr noundef) local_unnamed_addr #2
+declare void @cancel_parser_errposition_callback(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @coerce_to_domain(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
@@ -784,7 +778,7 @@ coerce_type_typmod.exit:                          ; preds = %12, %40, %find_typm
   ret ptr %.0
 }
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
@@ -902,10 +896,10 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br i1 %.not53, label %select.unfold, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %55 = call i32 @find_coercion_pathway(i32 noundef %51, i32 noundef %53, i32 noundef %2, ptr noundef nonnull %9)
   %.not54 = icmp eq i32 %55, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not54, label %select.unfold, label %.thread62
 
 select.unfold:                                    ; preds = %54, %48, %52, %50
@@ -913,12 +907,12 @@ select.unfold:                                    ; preds = %54, %48, %52, %50
   br i1 %.not55, label %.thread62, label %56
 
 56:                                               ; preds = %select.unfold
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @get_type_category_preferred(i32 noundef %.039, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %57 = load i8, ptr %7, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %58 = icmp eq i8 %57, 83
   br i1 %58, label %.thread62, label %59
 
@@ -927,12 +921,12 @@ select.unfold:                                    ; preds = %54, %48, %52, %50
   br i1 %60, label %61, label %.thread62
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @get_type_category_preferred(i32 noundef %.040, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %62 = load i8, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = icmp eq i8 %62, 83
   %spec.select57 = select i1 %63, i32 4, i32 0
   br label %.thread62
@@ -1021,7 +1015,7 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   store i32 29, ptr %42, align 4
   %43 = tail call noundef ptr @palloc0(i64 noundef 16) #5
   store i32 34, ptr %43, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = tail call i32 @exprTypmod(ptr noundef %0) #5
   store i32 %44, ptr %9, align 4
   %45 = tail call i32 @exprType(ptr noundef %0) #5
@@ -1061,7 +1055,7 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   store i32 %6, ptr %65, align 4
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 %7, ptr %66, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %76
 
 67:                                               ; preds = %25
@@ -1089,12 +1083,12 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   ret ptr %.0
 }
 
-declare i32 @typeOrDomainTypeRelid(i32 noundef) local_unnamed_addr #2
+declare i32 @typeOrDomainTypeRelid(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @coerce_record_to_complex(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 2277, 2276) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 4
   %8 = load i32, ptr %1, align 4
   switch i32 %8, label %25 [
@@ -1309,7 +1303,7 @@ coerce_to_domain.exit:                            ; preds = %112
 
 127:                                              ; preds = %112, %coerce_to_domain.exit
   %.0 = phi ptr [ %121, %coerce_to_domain.exit ], [ %113, %112 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
@@ -1329,7 +1323,7 @@ define internal fastcc zeroext i1 @is_complex_array(i32 noundef %0) unnamed_addr
   ret i1 %7
 }
 
-declare zeroext i1 @typeInheritsFrom(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @typeInheritsFrom(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @typeIsOfTypedTable(i32 noundef %0, i32 noundef range(i32 2277, 2276) %1) unnamed_addr #0 {
@@ -1369,19 +1363,19 @@ define internal fastcc zeroext i1 @typeIsOfTypedTable(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not236354 = icmp sgt i32 %2, 0
   br i1 %.not236354, label %.lr.ph.preheader, label %.critedge
 
@@ -1666,7 +1660,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not254, label %.critedge, label %85
 
 85:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %84, ptr %4, align 4
   %wide.trip.count383 = zext nneg i32 %.5170 to i64
   br label %87
@@ -1683,11 +1677,11 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %89, label %86, label %verify_common_type_from_oids.exit
 
 verify_common_type_from_oids.exit:                ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 90:                                               ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.2173308, label %91, label %93
 
 91:                                               ; preds = %90
@@ -1703,7 +1697,7 @@ verify_common_type_from_oids.exit:                ; preds = %87
 
 .critedge:                                        ; preds = %46, %45, %39, %38, %24, %20, %16, %13, %31, %3, %61, %59, %56, %52, %verify_common_type_from_oids.exit, %93, %81, %83, %91, %75, %74, %70, %67, %65, %.thread335, %55
   %.5 = phi i1 [ false, %55 ], [ false, %.thread335 ], [ false, %65 ], [ false, %67 ], [ false, %70 ], [ false, %74 ], [ false, %75 ], [ false, %91 ], [ false, %verify_common_type_from_oids.exit ], [ false, %83 ], [ true, %81 ], [ %or.cond261, %93 ], [ false, %52 ], [ false, %56 ], [ false, %59 ], [ false, %61 ], [ true, %3 ], [ false, %31 ], [ false, %13 ], [ false, %16 ], [ false, %20 ], [ false, %24 ], [ false, %38 ], [ false, %39 ], [ false, %45 ], [ false, %46 ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.5
 }
 
@@ -1808,17 +1802,17 @@ define dso_local noundef ptr @coerce_to_boolean(ptr noundef %0, ptr noundef %1, 
   ret ptr %.0
 }
 
-declare i32 @exprType(ptr noundef) local_unnamed_addr #2
+declare i32 @exprType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @parser_errposition(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @exprLocation(ptr noundef) local_unnamed_addr #2
+declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @coerce_to_specific_type_typmod(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1871,7 +1865,7 @@ define dso_local noundef ptr @coerce_to_specific_type(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @coerce_null_to_domain(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4
   %7 = call i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef nonnull %6) #5
   %8 = load i32, ptr %6, align 4
@@ -1886,11 +1880,11 @@ define dso_local ptr @coerce_null_to_domain(i32 noundef %0, i32 noundef %1, i32 
 
 13:                                               ; preds = %10, %5
   %.0 = phi ptr [ %12, %10 ], [ %9, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1916,9 +1910,9 @@ list_second_cell.exit:
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 8
   %11 = load ptr, ptr %.val, align 8
@@ -2009,7 +2003,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   %44 = load ptr, ptr %10, align 8
   %45 = getelementptr inbounds %union.ListCell, ptr %44, i64 %indvars.iv124
   %46 = load ptr, ptr %45, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = call i32 @exprType(ptr noundef %46) #5
   %48 = call i32 @getBaseType(i32 noundef %47) #5
   store i32 %48, ptr %7, align 4
@@ -2019,8 +2013,8 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   br i1 %or.cond, label %.thread88, label %49
 
 49:                                               ; preds = %.lr.ph109
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @get_type_category_preferred(i32 noundef %48, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %50 = icmp eq i32 %43, 705
   br i1 %50, label %.thread92.sink.split, label %51
@@ -2071,14 +2065,14 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
 .thread92:                                        ; preds = %.thread92.sink.split, %69, %67, %64
   %.ph = phi i32 [ %43, %64 ], [ %43, %67 ], [ %43, %69 ], [ %48, %.thread92.sink.split ]
   %.447.ph = phi ptr [ %.043108, %64 ], [ %.043108, %67 ], [ %.043108, %69 ], [ %46, %.thread92.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread88
 
 .thread88:                                        ; preds = %.lr.ph109, %.thread92
   %.54891 = phi ptr [ %.447.ph, %.thread92 ], [ %.043108, %.lr.ph109 ]
   %73 = phi i32 [ %.ph, %.thread92 ], [ %43, %.lr.ph109 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
   %74 = load i32, ptr %12, align 4
   %75 = sext i32 %74 to i64
@@ -2086,9 +2080,9 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   br i1 %76, label %.lr.ph109, label %._crit_edge110, !llvm.loop !13
 
 77:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %80
 
 ._crit_edge110:                                   ; preds = %.thread88, %.loopexit, %for_each_cell_setup.exit78
@@ -2105,20 +2099,20 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
 
 80:                                               ; preds = %._crit_edge110, %79, %77, %._crit_edge, %33
   %.0 = phi i32 [ 0, %77 ], [ %16, %33 ], [ %16, %._crit_edge ], [ %spec.select138, %79 ], [ %spec.select138, %._crit_edge110 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @get_type_category_preferred(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @get_type_category_preferred(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @exprType(ptr noundef %1) #5
   store i32 %7, ptr %6, align 4
   %8 = icmp eq i32 %7, %2
@@ -2146,7 +2140,7 @@ define dso_local ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %1, i32 
 
 21:                                               ; preds = %4, %11
   %.0 = phi ptr [ %12, %11 ], [ %1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -2177,11 +2171,11 @@ define dso_local noundef zeroext i1 @verify_common_type(i32 noundef %0, ptr noun
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = tail call i32 @exprType(ptr noundef %15) #5
   store i32 %16, ptr %4, align 4
   %17 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %17, label %9, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph26, %9, %.lr.ph, %2
@@ -2233,17 +2227,17 @@ define dso_local i32 @select_common_typmod(ptr noundef readnone captures(none) %
   ret i32 %18
 }
 
-declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #2
+declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 
-declare i32 @get_element_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_element_type(i32 noundef) local_unnamed_addr #1
 
-declare i32 @get_range_subtype(i32 noundef) local_unnamed_addr #2
+declare i32 @get_range_subtype(i32 noundef) local_unnamed_addr #1
 
-declare i32 @get_multirange_range(i32 noundef) local_unnamed_addr #2
+declare i32 @get_multirange_range(i32 noundef) local_unnamed_addr #1
 
-declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @type_is_enum(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_enum(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1, -2147483648) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -2253,9 +2247,9 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %10, 705
   br i1 %.not, label %17, label %.preheader
@@ -2305,7 +2299,7 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %48
   %21 = phi i32 [ %18, %.lr.ph34.preheader ], [ %49, %48 ]
   %indvars.iv37 = phi i64 [ %20, %.lr.ph34.preheader ], [ %indvars.iv.next38, %48 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv37
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @getBaseType(i32 noundef %23) #5
@@ -2316,8 +2310,8 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
   br i1 %or.cond, label %48, label %25
 
 25:                                               ; preds = %.lr.ph34
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @get_type_category_preferred(i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %26 = icmp eq i32 %21, 705
   br i1 %26, label %.sink.split, label %27
@@ -2364,19 +2358,19 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 
 46:                                               ; preds = %.sink.split, %37, %40, %42
   %47 = phi i32 [ %24, %.sink.split ], [ %21, %37 ], [ %21, %40 ], [ %21, %42 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %48
 
 .critedge:                                        ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge.thread
 
 48:                                               ; preds = %.lr.ph34, %46
   %49 = phi i32 [ %21, %.lr.ph34 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
   br i1 %exitcond41.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !15
@@ -2389,9 +2383,9 @@ define internal fastcc i32 @select_common_type_from_oids(i32 noundef range(i32 1
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge35, %._crit_edge, %.critedge
   %.019 = phi i32 [ 0, %.critedge ], [ %10, %._crit_edge ], [ %spec.select, %._crit_edge35 ], [ %10, %14 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }
 
@@ -2407,7 +2401,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %13 = icmp eq i32 %3, 5080
   %14 = zext i1 %13 to i8
   %15 = icmp eq i32 %3, 4538
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = icmp sgt i32 %2, 0
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3035,7 +3029,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
 
 250:                                              ; preds = %248
   %251 = call fastcc i32 @select_common_type_from_oids(i32 noundef %.4379, ptr noundef %7, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %251, ptr %6, align 4
   %wide.trip.count.i = zext nneg i32 %.4379 to i64
   br label %252
@@ -3050,7 +3044,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond.not.i, label %252, label %verify_common_type_from_oids.exit, !llvm.loop !11
 
 verify_common_type_from_oids.exit:                ; preds = %252
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %254, label %259, label %255
 
 255:                                              ; preds = %verify_common_type_from_oids.exit
@@ -3433,15 +3427,15 @@ verify_common_type_from_oids.exit:                ; preds = %252
 
 390:                                              ; preds = %384, %385, %379, %373, %367, %361, %355, %.loopexit, %.loopexit, %.loopexit, %347, %348, %._crit_edge
   %.0 = phi i32 [ %3, %._crit_edge ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.5355, %347 ], [ %349, %348 ], [ %.3363, %355 ], [ %.3370, %361 ], [ %.0430885, %367 ], [ %.0427886, %373 ], [ %.3424887, %379 ], [ %.3414888, %385 ], [ %3, %384 ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @get_range_multirange(i32 noundef) local_unnamed_addr #2
+declare i32 @get_range_multirange(i32 noundef) local_unnamed_addr #1
 
-declare i32 @get_array_type(i32 noundef) local_unnamed_addr #2
+declare i32 @get_array_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -3567,7 +3561,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
   ret ptr %.191
 }
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -3603,18 +3597,18 @@ define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef
   ret ptr %.1
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @TypeCategory(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @get_type_category_preferred(i32 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %4 = load i8, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i8 %4
 }
 
@@ -3622,8 +3616,8 @@ define dso_local signext i8 @TypeCategory(i32 noundef %0) local_unnamed_addr #0 
 define dso_local zeroext i1 @IsPreferredType(i8 noundef signext %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @get_type_category_preferred(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %5 = load i8, ptr %3, align 1
   %6 = icmp eq i8 %0, %5
@@ -3638,17 +3632,17 @@ define dso_local zeroext i1 @IsPreferredType(i8 noundef signext %0, i32 noundef 
 
 11:                                               ; preds = %2, %8
   %.0 = phi i1 [ %10, %8 ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @IsBinaryCoercible(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -3788,11 +3782,11 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   ret i1 %.0
 }
 
-declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_range(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
 
-declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
@@ -3846,37 +3840,43 @@ define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef 
   ret i32 %spec.select21
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @applyRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @applyRelabelType(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @exprCollation(ptr noundef) local_unnamed_addr #2
+declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetNSItemByRangeTablePosn(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetNSItemByRangeTablePosn(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @expandNSItemVars(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expandNSItemVars(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lookup_rowtype_tupdesc(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @makeNullConst(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #2
+declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }

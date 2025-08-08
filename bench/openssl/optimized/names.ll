@@ -29,17 +29,11 @@ define i32 @EVP_add_cipher(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @OBJ_NAME_add(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_NAME_add(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
-
-declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_add_digest(ptr noundef %0) local_unnamed_addr #0 {
@@ -93,7 +87,7 @@ define ptr @EVP_get_cipherbyname(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @evp_get_cipherbyname_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -129,27 +123,27 @@ define ptr @evp_get_cipherbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
   %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_init_crypto(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_NAME_get(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OBJ_NAME_get(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ossl_namemap_stored(ptr noundef) local_unnamed_addr #2
+declare ptr @ossl_namemap_stored(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ossl_namemap_name2num(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_namemap_name2num(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ERR_set_mark() local_unnamed_addr #2
+declare i32 @ERR_set_mark() local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
+declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
-declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_namemap_doall_names(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @cipher_from_name(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -175,7 +169,7 @@ define ptr @EVP_get_digestbyname(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -211,13 +205,13 @@ define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
 
 .critedge:                                        ; preds = %.lr.ph, %._crit_edge, %5, %2
   %.0 = phi ptr [ null, %2 ], [ %6, %5 ], [ %spec.select, %._crit_edge ], [ null, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @digest_from_name(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -246,28 +240,28 @@ define void @evp_cleanup_int() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @OBJ_NAME_cleanup(i32 noundef) local_unnamed_addr #2
+declare void @OBJ_NAME_cleanup(i32 noundef) local_unnamed_addr #1
 
-declare void @EVP_PBE_cleanup() local_unnamed_addr #2
+declare void @EVP_PBE_cleanup() local_unnamed_addr #1
 
-declare void @OBJ_sigid_free() local_unnamed_addr #2
+declare void @OBJ_sigid_free() local_unnamed_addr #1
 
-declare void @evp_app_cleanup_int() local_unnamed_addr #2
+declare void @evp_app_cleanup_int() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EVP_CIPHER_do_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.doall_cipher, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !20
   store ptr %1, ptr %3, align 8, !tbaa !22
   call void @OBJ_NAME_do_all(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_cipher_fn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -302,28 +296,28 @@ define internal void @do_all_cipher_fn(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define void @EVP_CIPHER_do_all_sorted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.doall_cipher, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !20
   store ptr %1, ptr %3, align 8, !tbaa !22
   call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @EVP_MD_do_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.doall_md, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !27
   store ptr %1, ptr %3, align 8, !tbaa !29
   call void @OBJ_NAME_do_all(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -360,19 +354,25 @@ define internal void @do_all_md_fn(ptr noundef readonly captures(none) %0, ptr n
 ; Function Attrs: nounwind uwtable
 define void @EVP_MD_do_all_sorted(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.doall_md, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8, !tbaa !27
   store ptr %1, ptr %3, align 8, !tbaa !29
   call void @OBJ_NAME_do_all_sorted(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -121,7 +121,7 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
   %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %13, ptr %1, align 8, !tbaa !13
   %14 = load atomic i32, ptr %13 monotonic, align 4
@@ -138,7 +138,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl1
   br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #15
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -178,26 +178,26 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit, label %39
 
 39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #15
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit unwind label %40
 
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #17
+  tail call void @__clang_call_terminate(ptr %42) #16
   unreachable
 
 43:                                               ; preds = %30, %29
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %44
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIhEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
   %45 = trunc i32 %34 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i8 %45
 }
 
@@ -231,13 +231,10 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4FillEPhm(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.absl::base_internal::SpinLockHolder", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %5, ptr %4, align 8, !tbaa !13
   %6 = load atomic i32, ptr %5 monotonic, align 8
@@ -254,7 +251,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i: ; preds = %3
   br i1 %11, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %3
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #16
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #15
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i
@@ -310,8 +307,8 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit: ; 
 34:                                               ; preds = %23, %22
   %35 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %35
 
 ._crit_edge:                                      ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
@@ -323,23 +320,20 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit: ; 
   br i1 %.not4.i.i, label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit, label %40
 
 40:                                               ; preds = %._crit_edge
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #15
           to label %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit unwind label %41
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #17
+  tail call void @__clang_call_terminate(ptr %43) #16
   unreachable
 
 _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %._crit_edge, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal10RandenPoolItE3minEv() local_unnamed_addr #0 comdat align 2 {
@@ -389,7 +383,7 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
   %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %13, ptr %1, align 8, !tbaa !13
   %14 = load atomic i32, ptr %13 monotonic, align 4
@@ -406,7 +400,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl1
   br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #15
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -446,26 +440,26 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit, label %39
 
 39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #15
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit unwind label %40
 
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #17
+  tail call void @__clang_call_terminate(ptr %42) #16
   unreachable
 
 43:                                               ; preds = %30, %29
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %44
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateItEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
   %45 = trunc i32 %34 to i16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i16 %45
 }
 
@@ -548,7 +542,7 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
   %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %13, ptr %1, align 8, !tbaa !13
   %14 = load atomic i32, ptr %13 monotonic, align 4
@@ -565,7 +559,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl1
   br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #15
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -605,25 +599,25 @@ _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i: 
   br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit, label %39
 
 39:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %35, i32 noundef %38) #15
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit unwind label %40
 
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #17
+  tail call void @__clang_call_terminate(ptr %42) #16
   unreachable
 
 43:                                               ; preds = %30, %29
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %44
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateIjEET_v.exit: ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry11MaybeRefillEv.exit.i, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %34
 }
 
@@ -706,7 +700,7 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
   %10 = phi i64 [ %9, %7 ], [ %5, %_ZN4absl9call_onceIRFvvEJEEEvRNS_9once_flagEOT_DpOT0_.exit.i ]
   %11 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %13, ptr %1, align 8, !tbaa !13
   %14 = load atomic i32, ptr %13 monotonic, align 4
@@ -723,7 +717,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %_ZN4absl1
   br i1 %19, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %_ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit
-  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  tail call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #15
   br label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -752,8 +746,8 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i: ; preds = %_ZN
 31:                                               ; preds = %30, %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %32
 
 _ZNK4absl15random_internal6Randen8GenerateEPv.exit.i: ; preds = %30, %29, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.i
@@ -770,18 +764,18 @@ _ZNK4absl15random_internal6Randen8GenerateEPv.exit.i: ; preds = %30, %29, %_ZN4a
   br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit, label %40
 
 40:                                               ; preds = %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %36, i32 noundef %39) #15
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit unwind label %41
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #17
+  tail call void @__clang_call_terminate(ptr %43) #16
   unreachable
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry8GenerateImEET_v.exit: ; preds = %_ZNK4absl15random_internal6Randen8GenerateEPv.exit.i, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0.copyload.i
 }
 
@@ -819,7 +813,7 @@ _ZN4absl15random_internal12_GLOBAL__N_123GetPoolForCurrentThreadEv.exit: ; preds
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN4absl13base_internal14SpinLockHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %4 = and i32 %3, 2
@@ -828,7 +822,7 @@ define linkonce_odr dso_local void @_ZN4absl13base_internal14SpinLockHolderD2Ev(
   br i1 %.not4.i, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit, label %6
 
 6:                                                ; preds = %1
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %5) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %5) #15
           to label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit unwind label %7
 
 _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %6
@@ -838,39 +832,39 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %1, %6
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #17
+  tail call void @__clang_call_terminate(ptr %9) #16
   unreachable
 }
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
-declare void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #7
 
-declare void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #5
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv() #2 personality ptr @__gxx_personality_v0 {
   %1 = alloca [512 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr nonnull %1, i64 512)
   br i1 %2, label %.preheader, label %3
 
@@ -879,7 +873,7 @@ define internal void @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv() 
   unreachable
 
 4:                                                ; preds = %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 .preheader:                                       ; preds = %0, %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit
@@ -915,7 +909,7 @@ _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i: ; preds = %.preheade
   br i1 %23, label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i, %.preheader
-  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #16
+  call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #15
   br label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i
 
 _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i.i, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i.i
@@ -929,14 +923,14 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %_ZN4absl13base_inte
   br i1 %.not4.i.i.i, label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit, label %28
 
 28:                                               ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i
-  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef %27) #16
+  invoke void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef %27) #15
           to label %_ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit unwind label %29
 
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #17
+  call void @__clang_call_terminate(ptr %31) #16
   unreachable
 
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit: ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, %28
@@ -970,28 +964,34 @@ _ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit: ; preds = %10, %_ZNSt
   ret void
 }
 
-declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #8
+declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #7
 
-declare noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr, i64) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN4absl15random_internal29ReadSeedMaterialFromOSEntropyENS_4SpanIjEE(ptr, i64) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() local_unnamed_addr #10
+declare void @_ZN4absl15random_internal21ThrowSeedGenExceptionEv() local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
-declare void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #8
+declare void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #13
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
@@ -999,21 +999,21 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold }
-attributes #17 = { noreturn nounwind }
+attributes #15 = { cold }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind }
 attributes #18 = { noreturn }
 attributes #19 = { builtin allocsize(0) }
 

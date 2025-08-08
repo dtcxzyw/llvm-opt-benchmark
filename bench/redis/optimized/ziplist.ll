@@ -61,9 +61,6 @@ define dso_local range(i32 0, 2) i32 @ziplistSafeToAdd(ptr noundef readonly capt
   ret i32 %.
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 4294967296) i64 @ziplistBlobLen(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !tbaa !5
@@ -71,13 +68,10 @@ define dso_local range(i64 0, 4294967296) i64 @ziplistBlobLen(ptr noundef readon
   ret i64 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp ugt i8 %1, -65
   br i1 %.not, label %27, label %5
 
@@ -151,15 +145,15 @@ define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonl
 
 32:                                               ; preds = %27, %18, %12, %7, %29
   %.025 = phi i32 [ %31, %29 ], [ 1, %7 ], [ 2, %12 ], [ 5, %18 ], [ 1, %27 ]
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -174,7 +168,7 @@ define dso_local noundef i32 @zipStorePrevEntryLengthLarge(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 1, 6) i32 @zipStorePrevEntryLength(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 1, 6) i32 @zipStorePrevEntryLength(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ult i32 %1, 254
   br i1 %3, label %5, label %7
@@ -214,9 +208,9 @@ define dso_local range(i32 -4, 5) i32 @zipPrevLenByteDiff(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = add i32 %1, -32
   %or.cond = icmp ult i32 %6, -31
   br i1 %or.cond, label %24, label %7
@@ -266,14 +260,14 @@ define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %0, i32 noundef
 
 24:                                               ; preds = %7, %4, %23
   %.0 = phi i32 [ 1, %23 ], [ 0, %4 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zipSaveInteger(ptr noundef writeonly captures(none) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
+define dso_local void @zipSaveInteger(ptr noundef writeonly captures(none) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 {
   switch i8 %2, label %12 [
     i8 -2, label %4
     i8 -64, label %6
@@ -320,13 +314,13 @@ define dso_local void @zipSaveInteger(ptr noundef writeonly captures(none) %0, i
   ret void
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @zipLoadInteger(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #5 {
+define dso_local i64 @zipLoadInteger(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   switch i8 %1, label %13 [
     i8 -2, label %3
     i8 -64, label %6
@@ -381,7 +375,7 @@ define dso_local i64 @zipLoadInteger(ptr noundef readonly captures(none) %0, i8 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @ziplistNew() local_unnamed_addr #5 {
+define dso_local noalias noundef ptr @ziplistNew() local_unnamed_addr #4 {
   %1 = tail call noalias dereferenceable_or_null(11) ptr @zmalloc(i64 noundef 11) #19
   store i32 11, ptr %1, align 4, !tbaa !5
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -394,10 +388,10 @@ define dso_local noalias noundef ptr @ziplistNew() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistResize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistResize(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp ult i64 %1, 4294967295
   br i1 %3, label %5, label %4, !prof !14
 
@@ -417,12 +411,12 @@ define dso_local noundef ptr @ziplistResize(ptr noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @__ziplistCascadeUpdate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @__ziplistCascadeUpdate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.zlentry, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 4, !tbaa !5
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -874,12 +868,12 @@ zipStorePrevEntryLength.exit108:                  ; preds = %zipStorePrevEntryLe
 
 zipStorePrevEntryLength.exit.thread:              ; preds = %zipStorePrevEntryLength.exit108, %ziplistResize.exit, %zipEntry.exit, %zipStorePrevEntryLength.exit, %2
   %.0 = phi ptr [ %0, %2 ], [ %0, %zipStorePrevEntryLength.exit ], [ %0, %zipEntry.exit ], [ %134, %ziplistResize.exit ], [ %134, %zipStorePrevEntryLength.exit108 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone captures(address) %0, i64 noundef range(i64 -2, 8589934605) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone captures(address) %0, i64 noundef range(i64 -2, 8589934605) %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
@@ -1309,13 +1303,13 @@ zipEncodingLenSize.exit:                          ; preds = %118
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @__ziplistDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef ptr @__ziplistDelete(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca %struct.zlentry, align 8
   %5 = alloca %struct.zlentry, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %0, align 4, !tbaa !5
   %7 = zext i32 %6 to i64
   %8 = load i8, ptr %1, align 1, !tbaa !9
@@ -1372,7 +1366,7 @@ zipEntry.exit:                                    ; preds = %15, %20, %20, %20, 
 29:                                               ; preds = %.lr.ph, %zipRawEntryLengthSafe.exit
   %.05992 = phi ptr [ %1, %.lr.ph ], [ %36, %zipRawEntryLengthSafe.exit ]
   %.06190 = phi i32 [ 0, %.lr.ph ], [ %37, %zipRawEntryLengthSafe.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %7, ptr noundef nonnull %.05992, ptr noundef %4, i32 noundef 0)
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %31, label %zipRawEntryLengthSafe.exit, !prof !24
@@ -1386,7 +1380,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   %32 = load i32, ptr %27, align 8, !tbaa !22
   %33 = load i32, ptr %28, align 4, !tbaa !21
   %34 = add i32 %33, %32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %.05992, i64 %35
   %37 = add nuw i32 %.06190, 1
@@ -1554,19 +1548,19 @@ ziplistResize.exit:                               ; preds = %89
 
 114:                                              ; preds = %110, %112, %._crit_edge.thread
   %.0 = phi ptr [ %0, %._crit_edge.thread ], [ %113, %112 ], [ %97, %110 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @__ziplistInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local noundef ptr @__ziplistInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca i64, align 8
   %7 = alloca %struct.zlentry, align 8
   %8 = alloca %struct.zlentry, align 8
   %9 = load i32, ptr %0, align 4, !tbaa !5
   %10 = zext i32 %9 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = load i8, ptr %1, align 1, !tbaa !9
   switch i8 %11, label %12 [
     i8 -1, label %17
@@ -1592,7 +1586,7 @@ define dso_local noundef ptr @__ziplistInsert(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not96, label %31, label %23
 
 23:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %21, ptr noundef %7, i32 noundef 0)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %zipRawEntryLengthSafe.exit, !prof !24
@@ -1608,12 +1602,12 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !21
   %30 = add i32 %29, %27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %31
 
 31:                                               ; preds = %17, %zipRawEntryLengthSafe.exit, %12, %14
   %.090 = phi i32 [ %13, %12 ], [ %16, %14 ], [ %30, %zipRawEntryLengthSafe.exit ], [ 0, %17 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = add i32 %3, -32
   %or.cond.i = icmp ult i32 %32, -31
   br i1 %or.cond.i, label %53, label %33
@@ -1625,7 +1619,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br i1 %.not.i109, label %.thread164, label %39
 
 .thread164:                                       ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = icmp ult i32 %.090, 254
   %37 = select i1 %36, i32 1, i32 5
   %narrow = add nuw nsw i32 %37, %3
@@ -1643,7 +1637,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br i1 %or.cond5.i, label %.thread, label %43
 
 .thread:                                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 43:                                               ; preds = %41
@@ -1652,7 +1646,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br i1 %or.cond7.i, label %.thread141, label %45
 
 .thread141:                                       ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 45:                                               ; preds = %43
@@ -1661,13 +1655,13 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br i1 %or.cond9.i, label %.thread144, label %47
 
 .thread144:                                       ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 47:                                               ; preds = %45
   %48 = add i64 %40, 2147483648
   %or.cond11.i = icmp ult i64 %48, 4294967296
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %. = select i1 %or.cond11.i, i8 -48, i8 -32
   %49 = select i1 %or.cond11.i, i64 4, i64 8
   br label %61
@@ -1675,11 +1669,11 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
 50:                                               ; preds = %39
   %51 = trunc nuw nsw i64 %40 to i8
   %52 = add nuw nsw i8 %51, -15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 53:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.093 = zext i32 %3 to i64
   %54 = icmp ult i32 %.090, 254
   %55 = select i1 %54, i32 1, i32 5
@@ -1860,7 +1854,7 @@ zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStor
   %.0.i118 = phi i32 [ 1, %136 ], [ 5, %zipStorePrevEntryLengthLarge.exit.i117 ], [ %67, %131 ]
   %139 = zext nneg i32 %.0.i118 to i64
   %140 = getelementptr inbounds nuw i8, ptr %.092174, i64 %139
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %.not.i113162, label %163, label %141
 
 141:                                              ; preds = %zipStorePrevEntryLength.exit119
@@ -1908,7 +1902,7 @@ zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStor
 160:                                              ; preds = %143, %147, %152
   %.0.i121.ph = phi i64 [ 5, %152 ], [ 2, %147 ], [ 1, %143 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %140, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.0.i121.ph, i1 false)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %161 = getelementptr inbounds nuw i8, ptr %140, i64 %.0.i121.ph
   %162 = zext i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr align 1 %2, i64 %162, i1 false)
@@ -1916,7 +1910,7 @@ zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStor
 
 163:                                              ; preds = %zipStorePrevEntryLength.exit119
   store i8 %.0130136160, ptr %140, align 1
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = getelementptr inbounds nuw i8, ptr %140, i64 1
   switch i8 %.0130136160, label %173 [
     i8 -2, label %165
@@ -1972,12 +1966,12 @@ zipSaveInteger.exit:                              ; preds = %173, %172, %170, %1
   br label %180
 
 180:                                              ; preds = %178, %zipSaveInteger.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.088176
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %53, label %4
 
@@ -2069,10 +2063,10 @@ define dso_local noundef ptr @ziplistMerge(ptr noundef captures(address_is_null)
   ret ptr %.0
 }
 
-declare void @zfree(ptr noundef) local_unnamed_addr #6
+declare void @zfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistPush(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistPush(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -2094,7 +2088,7 @@ define dso_local noundef ptr @ziplistPush(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.zlentry, align 8
   %4 = alloca %struct.zlentry, align 8
   %5 = load i32, ptr %0, align 4, !tbaa !5
@@ -2201,7 +2195,7 @@ define dso_local noundef ptr @ziplistIndex(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %.critedge, label %50
 
 50:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.254, ptr noundef %4, i32 noundef 0)
   %.not.i = icmp eq i32 %51, 0
   br i1 %.not.i, label %52, label %zipRawEntryLengthSafe.exit, !prof !24
@@ -2215,7 +2209,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %50
   %53 = load i32, ptr %46, align 8, !tbaa !22
   %54 = load i32, ptr %47, align 4, !tbaa !21
   %55 = add i32 %54, %53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %.254, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !9
@@ -2238,7 +2232,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %50
   br i1 %or.cond, label %66, label %63
 
 63:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %64 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %6, ptr noundef nonnull %.153, ptr noundef %3, i32 noundef 1)
   %.not.i68 = icmp eq i32 %64, 0
   br i1 %.not.i68, label %65, label %zipAssertValidEntry.exit, !prof !24
@@ -2249,7 +2243,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %50
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 66:                                               ; preds = %.critedge, %zipAssertValidEntry.exit
@@ -2258,7 +2252,7 @@ zipAssertValidEntry.exit:                         ; preds = %63
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistNext(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistNext(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i32, ptr %0, align 4, !tbaa !5
   %5 = zext i32 %4 to i64
@@ -2367,7 +2361,7 @@ zipRawEntryLength.exit:                           ; preds = %16, %19, %27, %46, 
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %zipRawEntryLength.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %5, ptr noundef nonnull %57, ptr noundef %3, i32 noundef 1)
   %.not.i = icmp eq i32 %61, 0
   br i1 %.not.i, label %62, label %zipAssertValidEntry.exit, !prof !24
@@ -2378,7 +2372,7 @@ zipRawEntryLength.exit:                           ; preds = %16, %19, %27, %46, 
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
 63:                                               ; preds = %zipRawEntryLength.exit, %2, %zipAssertValidEntry.exit
@@ -2387,7 +2381,7 @@ zipAssertValidEntry.exit:                         ; preds = %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ziplistPrev(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @ziplistPrev(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.zlentry, align 8
   %4 = load i8, ptr %1, align 1, !tbaa !9
   %5 = icmp eq i8 %4, -1
@@ -2437,7 +2431,7 @@ define dso_local ptr @ziplistPrev(ptr noundef readonly captures(address, ret: ad
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = load i32, ptr %0, align 4, !tbaa !5
   %30 = zext i32 %29 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %30, ptr noundef nonnull %28, ptr noundef %3, i32 noundef 1)
   %.not.i = icmp eq i32 %31, 0
   br i1 %.not.i, label %32, label %zipAssertValidEntry.exit, !prof !24
@@ -2448,7 +2442,7 @@ define dso_local ptr @ziplistPrev(ptr noundef readonly captures(address, ret: ad
   unreachable
 
 zipAssertValidEntry.exit:                         ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %14, %zipAssertValidEntry.exit, %6
@@ -2457,7 +2451,7 @@ zipAssertValidEntry.exit:                         ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ziplistGet(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %86, label %6
 
@@ -2650,13 +2644,13 @@ zipLoadInteger.exit:                              ; preds = %69, %72, %74, %76, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call ptr @__ziplistInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistDelete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !tbaa !32
   %4 = ptrtoint ptr %3 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -2668,7 +2662,7 @@ define dso_local noundef ptr @ziplistDelete(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistDeleteRange(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistDeleteRange(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = tail call ptr @ziplistIndex(ptr noundef %0, i32 noundef %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -2683,7 +2677,7 @@ define dso_local noundef ptr @ziplistDeleteRange(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistReplace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca [5 x i8], align 1
   %6 = alloca i64, align 8
   %7 = load i8, ptr %1, align 1, !tbaa !9
@@ -2777,7 +2771,7 @@ default.unreachable:                              ; preds = %12
 zipEntry.exit:                                    ; preds = %15, %18, %26, %45, %46, %47, %48, %49, %50
   %.sroa.5.1 = phi i32 [ 1, %50 ], [ 1, %15 ], [ 2, %18 ], [ 5, %26 ], [ 1, %45 ], [ 1, %46 ], [ 1, %47 ], [ 1, %48 ], [ 1, %49 ]
   %.sroa.12.0 = phi i32 [ 0, %50 ], [ %17, %15 ], [ %25, %18 ], [ %44, %26 ], [ 1, %45 ], [ 2, %46 ], [ 3, %47 ], [ 4, %48 ], [ 8, %49 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = add i32 %3, -32
   %or.cond.i15 = icmp ult i32 %53, -31
   br i1 %or.cond.i15, label %70, label %54
@@ -2789,7 +2783,7 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   br i1 %.not.i, label %.thread72, label %57
 
 .thread72:                                        ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipStoreEntryEncoding.exit
 
 57:                                               ; preds = %54
@@ -2803,7 +2797,7 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   br i1 %or.cond5.i, label %.thread, label %61
 
 .thread:                                          ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipStoreEntryEncoding.exit
 
 61:                                               ; preds = %59
@@ -2812,7 +2806,7 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   br i1 %or.cond7.i, label %.thread48, label %63
 
 .thread48:                                        ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipStoreEntryEncoding.exit
 
 63:                                               ; preds = %61
@@ -2821,13 +2815,13 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   br i1 %or.cond9.i, label %.thread51, label %65
 
 .thread51:                                        ; preds = %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipStoreEntryEncoding.exit
 
 65:                                               ; preds = %63
   %66 = add i64 %58, 2147483648
   %or.cond11.i = icmp ult i64 %66, 4294967296
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %. = select i1 %or.cond11.i, i32 4, i32 8
   %.79 = select i1 %or.cond11.i, i8 -48, i8 -32
   br label %zipStoreEntryEncoding.exit
@@ -2835,11 +2829,11 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
 67:                                               ; preds = %57
   %68 = trunc nuw nsw i64 %58 to i8
   %69 = add nuw nsw i8 %68, -15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipStoreEntryEncoding.exit
 
 70:                                               ; preds = %zipEntry.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %71 = icmp ult i32 %3, 64
   br i1 %71, label %zipStoreEntryEncoding.exit, label %72
 
@@ -2860,7 +2854,7 @@ zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51
   br i1 %76, label %77, label %113
 
 77:                                               ; preds = %zipStoreEntryEncoding.exit
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %.not.i2070, label %100, label %78
 
 78:                                               ; preds = %77
@@ -2908,7 +2902,7 @@ zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51
 97:                                               ; preds = %80, %84, %89
   %.0.i22.ph = phi i64 [ 5, %89 ], [ 2, %84 ], [ 1, %80 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %5, i64 %.0.i22.ph, i1 false)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i22.ph
   %99 = zext i32 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr align 1 %2, i64 %99, i1 false)
@@ -2916,7 +2910,7 @@ zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51
 
 100:                                              ; preds = %77
   store i8 %.0364266, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 1
   switch i8 %.0364266, label %110 [
     i8 -2, label %102
@@ -2975,7 +2969,7 @@ zipSaveInteger.exit:                              ; preds = %110, %109, %107, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistCompare(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ziplistCompare(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr %0, align 1, !tbaa !9
   %6 = icmp eq i8 %5, -1
@@ -3092,7 +3086,7 @@ zipEntry.exit:                                    ; preds = %16, %19, %27, %46, 
   br label %89
 
 62:                                               ; preds = %zipEntry.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = add i32 %2, -32
   %or.cond.i12 = icmp ult i32 %63, -31
   br i1 %or.cond.i12, label %zipTryEncoding.exit, label %64
@@ -3105,7 +3099,7 @@ zipEntry.exit:                                    ; preds = %16, %19, %27, %46, 
 
 67:                                               ; preds = %64
   %68 = load i64, ptr %4, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = zext nneg i32 %54 to i64
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 %69
   switch i8 %spec.select.i, label %81 [
@@ -3117,7 +3111,7 @@ zipEntry.exit:                                    ; preds = %16, %19, %27, %46, 
   ]
 
 zipTryEncoding.exit:                              ; preds = %62, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 71:                                               ; preds = %67
@@ -3172,7 +3166,7 @@ zipLoadInteger.exit:                              ; preds = %71, %74, %76, %78, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.zlentry, align 8
   %8 = load i32, ptr %0, align 4, !tbaa !5
@@ -3195,7 +3189,7 @@ define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address)
   %.02778 = phi i32 [ 0, %.lr.ph ], [ %.229, %71 ]
   %.04277 = phi i64 [ 0, %.lr.ph ], [ %.3, %71 ]
   %.04576 = phi i8 [ 0, %.lr.ph ], [ %.449, %71 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %9, ptr noundef nonnull %.02579, ptr noundef %7, i32 noundef 1)
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %18, label %19, !prof !24
@@ -3237,7 +3231,7 @@ define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address)
   ]
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %or.cond.i, label %.thread, label %36
 
 36:                                               ; preds = %35
@@ -3278,11 +3272,11 @@ define dso_local noundef ptr @ziplistFind(ptr noundef readonly captures(address)
 
 .thread59:                                        ; preds = %40, %43, %45, %47, %49
   %.550.ph = phi i8 [ %..i, %49 ], [ -16, %47 ], [ -64, %45 ], [ -2, %43 ], [ %42, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 .thread:                                          ; preds = %35, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 51:                                               ; preds = %34, %.thread59
@@ -3346,7 +3340,7 @@ zipLoadInteger.exit:                              ; preds = %52, %55, %57, %59, 
   br label %71
 
 .thread65:                                        ; preds = %zipLoadInteger.exit, %32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 71:                                               ; preds = %34, %69, %zipLoadInteger.exit, %29, %32, %.thread
@@ -3356,7 +3350,7 @@ zipLoadInteger.exit:                              ; preds = %52, %55, %57, %59, 
   %72 = load i32, ptr %13, align 4, !tbaa !21
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %25, i64 %73
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %75 = load i8, ptr %74, align 1, !tbaa !9
   %.not = icmp eq i8 %75, -1
   br i1 %.not, label %.loopexit, label %16, !llvm.loop !35
@@ -3367,7 +3361,7 @@ zipLoadInteger.exit:                              ; preds = %52, %55, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ziplistLen(ptr noundef %0) local_unnamed_addr #5 {
+define dso_local i32 @ziplistLen(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca %struct.zlentry, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 2, !tbaa !12
@@ -3394,7 +3388,7 @@ define dso_local i32 @ziplistLen(ptr noundef %0) local_unnamed_addr #5 {
 14:                                               ; preds = %.lr.ph, %zipRawEntryLengthSafe.exit
   %.119 = phi i32 [ 0, %.lr.ph ], [ %22, %zipRawEntryLengthSafe.exit ]
   %.01318 = phi ptr [ %8, %.lr.ph ], [ %21, %zipRawEntryLengthSafe.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %10, ptr noundef nonnull %.01318, ptr noundef %2, i32 noundef 0)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %zipRawEntryLengthSafe.exit, !prof !24
@@ -3408,7 +3402,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %14
   %17 = load i32, ptr %12, align 8, !tbaa !22
   %18 = load i32, ptr %13, align 4, !tbaa !21
   %19 = add i32 %18, %17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %.01318, i64 %20
   %22 = add i32 %.119, 1
@@ -3432,9 +3426,9 @@ zipRawEntryLengthSafe.exit:                       ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #5 {
+define dso_local void @ziplistRepr(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca %struct.zlentry, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr %0, align 4, !tbaa !5
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3602,21 +3596,21 @@ zipLoadInteger.exit:                              ; preds = %56, %59, %61, %63, 
 
 ._crit_edge35:                                    ; preds = %74, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca %struct.zlentry, align 8
   %7 = icmp ult i64 %1, 11
   br i1 %7, label %60, label %8
@@ -3665,7 +3659,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %.069.us = phi i64 [ %37, %33 ], [ 0, %.lr.ph ]
   %.03768.us = phi ptr [ %38, %33 ], [ %25, %.lr.ph ]
   %.04167.us = phi i32 [ %39, %33 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03768.us, ptr noundef %6, i32 noundef 1)
   %.not56.us = icmp ne i32 %30, 0
   %31 = load i32, ptr %27, align 4
@@ -3681,7 +3675,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.03768.us, i64 %37
   %39 = add i32 %.04167.us, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %40 = load i8, ptr %38, align 1, !tbaa !9
   %.not50.us = icmp eq i8 %40, -1
   br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
@@ -3690,7 +3684,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %.069 = phi i64 [ %50, %46 ], [ 0, %.lr.ph ]
   %.03768 = phi ptr [ %51, %46 ], [ %25, %.lr.ph ]
   %.04167 = phi i32 [ %52, %46 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %41 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %.03768, ptr noundef %6, i32 noundef 1)
   %.not56 = icmp ne i32 %41, 0
   %42 = load i32, ptr %27, align 4
@@ -3711,7 +3705,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr %.03768, i64 %50
   %52 = add i32 %.04167, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %53 = load i8, ptr %51, align 1, !tbaa !9
   %.not50 = icmp eq i8 %53, -1
   br i1 %.not50, label %._crit_edge, label %.lr.ph.split, !llvm.loop !43
@@ -3745,7 +3739,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
   br label %60
 
 .critedge:                                        ; preds = %.lr.ph.split, %44, %.lr.ph.split.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
 
 60:                                               ; preds = %._crit_edge.thread, %.thread, %8, %11, %15, %20, %56, %._crit_edge, %.critedge, %5
@@ -3754,7 +3748,7 @@ define dso_local range(i32 0, 2) i32 @ziplistValidateIntegrity(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %5, label %6, !prof !24
 
@@ -3803,7 +3797,7 @@ define dso_local void @ziplistRandomPair(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind
-declare i32 @rand() local_unnamed_addr #12
+declare i32 @rand() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @uintCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
@@ -3814,7 +3808,7 @@ define dso_local i32 @uintCompare(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.zlentry, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3822,15 +3816,15 @@ define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr no
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !10
   %12 = zext i32 %1 to i64
   %13 = shl nuw nsw i64 %12, 3
@@ -3860,7 +3854,7 @@ define dso_local void @ziplistRandomPairs(ptr noundef %0, i32 noundef %1, ptr no
 26:                                               ; preds = %zipRawEntryLengthSafe.exit.i, %.lr.ph.i
   %.119.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %zipRawEntryLengthSafe.exit.i ]
   %.01318.i = phi ptr [ %20, %.lr.ph.i ], [ %33, %zipRawEntryLengthSafe.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %22, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %28, label %zipRawEntryLengthSafe.exit.i, !prof !24
@@ -3874,7 +3868,7 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %26
   %29 = load i32, ptr %24, align 8, !tbaa !22
   %30 = load i32, ptr %25, align 4, !tbaa !21
   %31 = add i32 %30, %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = zext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 %32
   %34 = add i32 %.119.i, 1
@@ -4062,28 +4056,28 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.th
 
 ._crit_edge60:                                    ; preds = %.critedge, %.critedge.us, %._crit_edge
   call void @zfree(ptr noundef nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.zlentry, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i16, ptr %9, align 2, !tbaa !12
@@ -4110,7 +4104,7 @@ define dso_local i32 @ziplistRandomPairsUnique(ptr noundef %0, i32 noundef %1, p
 20:                                               ; preds = %zipRawEntryLengthSafe.exit.i, %.lr.ph.i
   %.119.i = phi i32 [ 0, %.lr.ph.i ], [ %28, %zipRawEntryLengthSafe.exit.i ]
   %.01318.i = phi ptr [ %14, %.lr.ph.i ], [ %27, %zipRawEntryLengthSafe.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call fastcc i32 @zipEntrySafe(ptr noundef nonnull readnone %0, i64 noundef range(i64 0, 4294967296) %16, ptr noundef nonnull %.01318.i, ptr noundef %5, i32 noundef 0)
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %22, label %zipRawEntryLengthSafe.exit.i, !prof !24
@@ -4124,7 +4118,7 @@ zipRawEntryLengthSafe.exit.i:                     ; preds = %20
   %23 = load i32, ptr %18, align 8, !tbaa !22
   %24 = load i32, ptr %19, align 4, !tbaa !21
   %25 = add i32 %24, %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 %26
   %28 = add i32 %.119.i, 1
@@ -4304,11 +4298,17 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
 
 ._crit_edge:                                      ; preds = %100, %61, %ziplistLen.exit
   %.035.lcssa = phi i32 [ 0, %ziplistLen.exit ], [ %.136.us, %61 ], [ %.136, %100 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.035.lcssa
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
@@ -4326,19 +4326,19 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #16 = { nofree nounwind }

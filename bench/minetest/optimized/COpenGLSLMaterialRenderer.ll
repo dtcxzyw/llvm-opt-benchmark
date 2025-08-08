@@ -656,8 +656,8 @@ if.end:                                           ; preds = %delete.notnull.i, %
   br i1 %tobool9.not, label %if.end21, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %shaders) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %shaders)
+  call void @llvm.lifetime.start.p0(ptr nonnull %count)
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %Driver, align 8, !tbaa !6
   store i32 0, ptr %count, align 4, !tbaa !29
@@ -702,8 +702,8 @@ if.then.i:                                        ; preds = %for.cond.cleanup
 
 _ZN3irr5video23COpenGLExtensionHandler17extGlDeleteObjectEj.exit: ; preds = %if.then.i, %for.cond.cleanup
   store i32 0, ptr %Program, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %shaders) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %count)
+  call void @llvm.lifetime.end.p0(ptr nonnull %shaders)
   br label %if.end21
 
 for.body:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlDeleteObjectEj.exit60, %for.body.preheader
@@ -732,8 +732,8 @@ if.end21:                                         ; preds = %_ZN3irr5video23COpe
   br i1 %tobool22.not, label %if.end50, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %shaders24) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %count25) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %shaders24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %count25)
   %Driver26 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %19 = load ptr, ptr %Driver26, align 8, !tbaa !6
   store i32 0, ptr %count25, align 4, !tbaa !29
@@ -778,8 +778,8 @@ if.then.i67:                                      ; preds = %for.cond.cleanup37
 
 _ZN3irr5video23COpenGLExtensionHandler18extGlDeleteProgramEj.exit: ; preds = %if.then.i67, %for.cond.cleanup37
   store i32 0, ptr %Program2, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count25) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %shaders24) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %count25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %shaders24)
   br label %if.end50
 
 for.body38:                                       ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlDeleteShaderEj.exit, %for.body38.preheader
@@ -889,12 +889,6 @@ _ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEED2Ev.exit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video25COpenGLSLMaterialRendererD1Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(84) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
@@ -903,7 +897,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video25COpenGLSLMaterialRendererD1Ev(ptr noundef captures(none) initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr5video25COpenGLSLMaterialRendererD1Ev(ptr noundef captures(none) initializes((-8, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video25COpenGLSLMaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull @_ZTTN3irr5video25COpenGLSLMaterialRendererE) #20
@@ -911,7 +905,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr5video25COpenGLSLMaterialRendererD1Ev(ptr noundef captures(none) %this) unnamed_addr #3 align 2 {
+define void @_ZTv0_n24_N3irr5video25COpenGLSLMaterialRendererD1Ev(ptr noundef captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -930,10 +924,10 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video25COpenGLSLMaterialRendererD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr5video25COpenGLSLMaterialRendererD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video25COpenGLSLMaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull @_ZTTN3irr5video25COpenGLSLMaterialRendererE) #20
@@ -942,7 +936,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr5video25COpenGLSLMaterialRendererD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
+define void @_ZTv0_n24_N3irr5video25COpenGLSLMaterialRendererD0Ev(ptr noundef %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -1059,7 +1053,7 @@ if.then.i92:                                      ; preds = %_ZN3irr5video23COpe
 
 _ZN3irr5video23COpenGLExtensionHandler18extGlCompileShaderEj.exit: ; preds = %if.then.i92, %_ZN3irr5video23COpenGLExtensionHandler17extGlShaderSourceEjiPPKcPKi.exit
   %7 = phi ptr [ %5, %_ZN3irr5video23COpenGLExtensionHandler17extGlShaderSourceEjiPPKcPKi.exit ], [ %.pre162, %if.then.i92 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %status)
   store i32 0, ptr %status, align 4, !tbaa !29
   %pGlGetShaderiv.i = getelementptr inbounds nuw i8, ptr %7, i64 2016
   %8 = load ptr, ptr %pGlGetShaderiv.i, align 8, !tbaa !62
@@ -1073,7 +1067,7 @@ _ZN3irr5video23COpenGLExtensionHandler16extGlGetShaderivEjjPi.exit: ; preds = %_
   br i1 %9, label %if.end19, label %if.then8
 
 if.then8:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler16extGlGetShaderivEjjPi.exit, %_ZN3irr5video23COpenGLExtensionHandler18extGlCompileShaderEj.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %typeInfo) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeInfo)
   %10 = getelementptr inbounds nuw i8, ptr %typeInfo, i64 16
   store ptr %10, ptr %typeInfo, align 8, !tbaa !63
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %typeInfo, i64 8
@@ -1106,7 +1100,7 @@ if.then8:                                         ; preds = %_ZN3irr5video23COpe
   %19 = load ptr, ptr %typeInfo, align 8, !tbaa !52
   %arrayidx.i.i.i.8 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store <4 x i8> <i8 112, i8 101, i8 58, i8 32>, ptr %arrayidx.i.i.i.8, align 1, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %conv = zext i32 %shaderType to i64
   call void @_ZN3irr4core6stringIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %conv)
   %_M_string_length.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -1139,12 +1133,12 @@ if.then.i.i.i:                                    ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %26 = load ptr, ptr %typeInfo, align 8, !tbaa !52
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.1, ptr noundef %26, i32 noundef 3) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxLength)
   store i32 0, ptr %maxLength, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %length)
   %27 = load ptr, ptr %Driver25, align 8, !tbaa !6
   %pGlGetShaderiv.i97 = getelementptr inbounds nuw i8, ptr %27, i64 2016
   %28 = load ptr, ptr %pGlGetShaderiv.i97, align 8, !tbaa !62
@@ -1177,8 +1171,8 @@ _ZN3irr5video23COpenGLExtensionHandler21extGlGetShaderInfoLogEjiPiPc.exit: ; pre
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3irr5video23COpenGLExtensionHandler21extGlGetShaderInfoLogEjiPiPc.exit, %_ZN3irr5video23COpenGLExtensionHandler16extGlGetShaderivEjjPi.exit100, %_ZN3irr4core6stringIcED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %length)
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxLength)
   %31 = load ptr, ptr %typeInfo, align 8, !tbaa !52
   %cmp.i.i.i.i102 = icmp eq ptr %31, %10
   br i1 %cmp.i.i.i.i102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104, label %if.then.i.i.i103
@@ -1206,12 +1200,12 @@ if.then.i109:                                     ; preds = %if.end19
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then.i109, %if.end19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 cleanup:                                          ; preds = %if.then.i.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i104
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %typeInfo) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeInfo)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1252,7 +1246,7 @@ if.then.i117:                                     ; preds = %_ZN3irr5video23COpe
 
 _ZN3irr5video23COpenGLExtensionHandler21extGlCompileShaderARBEj.exit: ; preds = %if.then.i117, %_ZN3irr5video23COpenGLExtensionHandler20extGlShaderSourceARBEjiPPKcPKi.exit
   %41 = phi ptr [ %39, %_ZN3irr5video23COpenGLExtensionHandler20extGlShaderSourceARBEjiPPKcPKi.exit ], [ %.pre167, %if.then.i117 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status32) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %status32)
   store i32 0, ptr %status32, align 4, !tbaa !29
   %pGlGetObjectParameterivARB.i = getelementptr inbounds nuw i8, ptr %41, i64 2008
   %42 = load ptr, ptr %pGlGetObjectParameterivARB.i, align 8, !tbaa !70
@@ -1266,7 +1260,7 @@ _ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit: ; p
   br i1 %43, label %if.then36, label %if.end61
 
 if.then36:                                        ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit, %_ZN3irr5video23COpenGLExtensionHandler21extGlCompileShaderARBEj.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %typeInfo37) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %typeInfo37)
   %44 = getelementptr inbounds nuw i8, ptr %typeInfo37, i64 16
   store ptr %44, ptr %typeInfo37, align 8, !tbaa !63
   %_M_string_length.i.i.i.i120 = getelementptr inbounds nuw i8, ptr %typeInfo37, i64 8
@@ -1299,7 +1293,7 @@ if.then36:                                        ; preds = %_ZN3irr5video23COpe
   %53 = load ptr, ptr %typeInfo37, align 8, !tbaa !52
   %arrayidx.i.i.i127.8 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store <4 x i8> <i8 112, i8 101, i8 58, i8 32>, ptr %arrayidx.i.i.i127.8, align 1, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp38) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp38)
   %conv39 = zext i32 %shaderType to i64
   call void @_ZN3irr4core6stringIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, i64 noundef %conv39)
   %_M_string_length.i.i.i.i131 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
@@ -1332,12 +1326,12 @@ if.then.i.i.i139:                                 ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit143
 
 _ZN3irr4core6stringIcED2Ev.exit143:               ; preds = %if.then.i.i.i139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i140
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp38) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp38)
   %60 = load ptr, ptr %typeInfo37, align 8, !tbaa !52
   call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, ptr noundef %60, i32 noundef 3) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength42) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxLength42)
   store i32 0, ptr %maxLength42, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length43) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %length43)
   %61 = load ptr, ptr %Driver25, align 8, !tbaa !6
   %pGlGetObjectParameterivARB.i144 = getelementptr inbounds nuw i8, ptr %61, i64 2008
   %62 = load ptr, ptr %pGlGetObjectParameterivARB.i144, align 8, !tbaa !70
@@ -1370,8 +1364,8 @@ _ZN3irr5video23COpenGLExtensionHandler15extGlGetInfoLogEjiPiPc.exit: ; preds = %
   br label %if.end56
 
 if.end56:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler15extGlGetInfoLogEjiPiPc.exit, %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit147, %_ZN3irr4core6stringIcED2Ev.exit143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length43) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength42) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %length43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxLength42)
   %65 = load ptr, ptr %typeInfo37, align 8, !tbaa !52
   %cmp.i.i.i.i151 = icmp eq ptr %65, %44
   br i1 %cmp.i.i.i.i151, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i153, label %if.then.i.i.i152
@@ -1400,12 +1394,12 @@ if.then.i158:                                     ; preds = %if.end61
   br label %cleanup64.thread
 
 cleanup64.thread:                                 ; preds = %if.then.i158, %if.end61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status32) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %status32)
   br label %return
 
 cleanup64:                                        ; preds = %if.then.i.i.i152, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i153
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %typeInfo37) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status32) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %typeInfo37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status32)
   br label %return
 
 return:                                           ; preds = %cleanup64, %cleanup64.thread, %cleanup, %cleanup.thread
@@ -1414,7 +1408,7 @@ return:                                           ; preds = %cleanup64, %cleanup
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video23COpenGLExtensionHandler22extGlProgramParameteriEjji(ptr noundef nonnull align 8 dereferenceable(1872) %this, i32 noundef %program, i32 noundef %pname, i32 noundef %value) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video23COpenGLExtensionHandler22extGlProgramParameteriEjji(ptr noundef nonnull align 8 dereferenceable(1872) %this, i32 noundef %program, i32 noundef %pname, i32 noundef %value) local_unnamed_addr #4 comdat align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK3irr5video23COpenGLExtensionHandler12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(1872) %this, i32 noundef 30) #20
   br i1 %call, label %if.then, label %if.end8
@@ -1440,7 +1434,7 @@ if.end8:                                          ; preds = %if.end8.sink.split,
   ret void
 }
 
-declare noundef i32 @_ZNK3irr5video13COpenGLDriver17primitiveTypeToGLENS_5scene16E_PRIMITIVE_TYPEE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #6
+declare noundef i32 @_ZNK3irr5video13COpenGLDriver17primitiveTypeToGLENS_5scene16E_PRIMITIVE_TYPEE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN3irr5video25COpenGLSLMaterialRenderer11linkProgramEv(ptr noundef nonnull align 8 dereferenceable(84) %this) local_unnamed_addr #0 align 2 {
@@ -1479,7 +1473,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN3irr5video23COpenGLExtensionHandler16extGlLinkProgramEj.exit: ; preds = %if.then.i, %if.then
   %3 = phi ptr [ %1, %if.then ], [ %.pre, %if.then.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %status)
   store i32 0, ptr %status, align 4, !tbaa !29
   %pGlGetProgramiv.i = getelementptr inbounds nuw i8, ptr %3, i64 2024
   %4 = load ptr, ptr %pGlGetProgramiv.i, align 8, !tbaa !74
@@ -1495,9 +1489,9 @@ _ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit: ; preds = %
 
 if.then7:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit, %_ZN3irr5video23COpenGLExtensionHandler16extGlLinkProgramEj.exit
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 3) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxLength)
   store i32 0, ptr %maxLength, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %length)
   %6 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetProgramiv.i153 = getelementptr inbounds nuw i8, ptr %6, i64 2024
   %7 = load ptr, ptr %pGlGetProgramiv.i153, align 8, !tbaa !74
@@ -1532,13 +1526,13 @@ _ZN3irr5video23COpenGLExtensionHandler22extGlGetProgramInfoLogEjiPiPc.exit: ; pr
   br label %cleanup47.thread
 
 cleanup47.thread:                                 ; preds = %_ZN3irr5video23COpenGLExtensionHandler22extGlGetProgramInfoLogEjiPiPc.exit, %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit156, %if.then7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %length)
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxLength)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 if.end16:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %num)
   store i32 0, ptr %num, align 4, !tbaa !29
   %12 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetProgramiv.i158 = getelementptr inbounds nuw i8, ptr %12, i64 2024
@@ -1554,12 +1548,12 @@ _ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit161: ; preds 
   br i1 %15, label %cleanup47.thread289, label %if.end21
 
 cleanup47.thread289:                              ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit161, %if.end16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %num)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 if.end21:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit161
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxlen) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxlen)
   store i32 0, ptr %maxlen, align 4, !tbaa !29
   %16 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetProgramiv.i162 = getelementptr inbounds nuw i8, ptr %16, i64 2024
@@ -1700,14 +1694,14 @@ for.body.lr.ph:                                   ; preds = %_ZN3irr4core5arrayI
 
 for.body:                                         ; preds = %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit, %for.body.lr.ph
   %i.0305 = phi i32 [ 0, %for.body.lr.ph ], [ %inc42, %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ui) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ui)
   store ptr %32, ptr %ui, align 8, !tbaa !63
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !56
   store i8 0, ptr %32, align 8, !tbaa !64
   %33 = load i32, ptr %maxlen, align 4, !tbaa !29
   %conv32 = sext i32 %33 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call29, i8 0, i64 %conv32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %size)
   %34 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetActiveUniform.i = getelementptr inbounds nuw i8, ptr %34, i64 2224
   %35 = load ptr, ptr %pGlGetActiveUniform.i, align 8, !tbaa !77
@@ -1830,7 +1824,7 @@ if.else.i.i175:                                   ; preds = %_ZN3irr5video23COpe
 
 _ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE9push_backERKS4_.exit: ; preds = %if.else.i.i175, %_ZNSt16allocator_traitsISaIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %size)
   %56 = load ptr, ptr %ui, align 8, !tbaa !52
   %cmp.i.i.i.i.i = icmp eq ptr %56, %32
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i176
@@ -1846,7 +1840,7 @@ if.then.i.i.i.i176:                               ; preds = %_ZN3irr4core5arrayI
   br label %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit
 
 _ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit: ; preds = %if.then.i.i.i.i176, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ui) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ui)
   %inc42 = add nuw nsw i32 %i.0305, 1
   %58 = load i32, ptr %num, align 4, !tbaa !29
   %cmp31 = icmp slt i32 %inc42, %58
@@ -1854,16 +1848,16 @@ _ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit: ; preds = %if.t
 
 cleanup47.thread292:                              ; preds = %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit, %_ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE10reallocateEjb.exit
   call void @_ZdaPv(ptr noundef nonnull %call29) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxlen)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 cleanup47:                                        ; preds = %_ZN3irr5video23COpenGLExtensionHandler17extGlGetProgramivEjjPi.exit165, %if.end21
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.4, i32 noundef 3) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxlen)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1881,7 +1875,7 @@ if.then.i179:                                     ; preds = %if.else
 
 _ZN3irr5video23COpenGLExtensionHandler19extGlLinkProgramARBEj.exit: ; preds = %if.then.i179, %if.else
   %61 = phi ptr [ %1, %if.else ], [ %.pre312, %if.then.i179 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status50) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %status50)
   store i32 0, ptr %status50, align 4, !tbaa !29
   %pGlGetObjectParameterivARB.i = getelementptr inbounds nuw i8, ptr %61, i64 2008
   %62 = load ptr, ptr %pGlGetObjectParameterivARB.i, align 8, !tbaa !70
@@ -1897,9 +1891,9 @@ _ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit: ; p
 
 if.then55:                                        ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit, %_ZN3irr5video23COpenGLExtensionHandler19extGlLinkProgramARBEj.exit
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.5, i32 noundef 3) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxLength56) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxLength56)
   store i32 0, ptr %maxLength56, align 4, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length57) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %length57)
   %64 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetObjectParameterivARB.i182 = getelementptr inbounds nuw i8, ptr %64, i64 2008
   %65 = load ptr, ptr %pGlGetObjectParameterivARB.i182, align 8, !tbaa !70
@@ -1934,13 +1928,13 @@ _ZN3irr5video23COpenGLExtensionHandler15extGlGetInfoLogEjiPiPc.exit: ; preds = %
   br label %cleanup125.thread
 
 cleanup125.thread:                                ; preds = %_ZN3irr5video23COpenGLExtensionHandler15extGlGetInfoLogEjiPiPc.exit, %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit185, %if.then55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length57) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxLength56) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status50) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %length57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxLength56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status50)
   br label %return
 
 if.end75:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %num76) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %num76)
   store i32 0, ptr %num76, align 4, !tbaa !29
   %70 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetObjectParameterivARB.i189 = getelementptr inbounds nuw i8, ptr %70, i64 2008
@@ -1956,12 +1950,12 @@ _ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit192: 
   br i1 %73, label %cleanup125.thread298, label %if.end82
 
 cleanup125.thread298:                             ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit192, %if.end75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num76) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status50) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %num76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status50)
   br label %return
 
 if.end82:                                         ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit192
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %maxlen83) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %maxlen83)
   store i32 0, ptr %maxlen83, align 4, !tbaa !29
   %74 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetObjectParameterivARB.i193 = getelementptr inbounds nuw i8, ptr %74, i64 2008
@@ -2102,14 +2096,14 @@ for.body100.lr.ph:                                ; preds = %_ZN3irr4core5arrayI
 
 for.body100:                                      ; preds = %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285, %for.body100.lr.ph
   %i96.0307 = phi i32 [ 0, %for.body100.lr.ph ], [ %inc117, %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ui101) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ui101)
   store ptr %90, ptr %ui101, align 8, !tbaa !63
   store i64 0, ptr %_M_string_length.i.i.i.i.i247, align 8, !tbaa !56
   store i8 0, ptr %90, align 8, !tbaa !64
   %91 = load i32, ptr %maxlen83, align 4, !tbaa !29
   %conv102 = sext i32 %91 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %call93, i8 0, i64 %conv102, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size103) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %size103)
   %92 = load ptr, ptr %Driver48, align 8, !tbaa !6
   %pGlGetActiveUniformARB.i = getelementptr inbounds nuw i8, ptr %92, i64 2216
   %93 = load ptr, ptr %pGlGetActiveUniformARB.i, align 8, !tbaa !87
@@ -2232,7 +2226,7 @@ if.else.i.i278:                                   ; preds = %_ZN3irr5video23COpe
 
 _ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE9push_backERKS4_.exit279: ; preds = %if.else.i.i278, %_ZNSt16allocator_traitsISaIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i273
   store i8 0, ptr %is_sorted.i209, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size103) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %size103)
   %114 = load ptr, ptr %ui101, align 8, !tbaa !52
   %cmp.i.i.i.i.i280 = icmp eq ptr %114, %90
   br i1 %cmp.i.i.i.i.i280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i282, label %if.then.i.i.i.i281
@@ -2248,7 +2242,7 @@ if.then.i.i.i.i281:                               ; preds = %_ZN3irr4core5arrayI
   br label %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285
 
 _ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285: ; preds = %if.then.i.i.i.i281, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i282
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ui101) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ui101)
   %inc117 = add nuw nsw i32 %i96.0307, 1
   %116 = load i32, ptr %num76, align 4, !tbaa !29
   %cmp98 = icmp slt i32 %inc117, %116
@@ -2256,16 +2250,16 @@ _ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285: ; preds = %i
 
 cleanup125.thread301:                             ; preds = %_ZN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoD2Ev.exit285, %_ZN3irr4core5arrayINS_5video25COpenGLSLMaterialRenderer12SUniformInfoEE10reallocateEjb.exit246
   call void @_ZdaPv(ptr noundef nonnull %call93) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen83) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num76) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status50) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxlen83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status50)
   br label %return
 
 cleanup125:                                       ; preds = %_ZN3irr5video23COpenGLExtensionHandler25extGlGetObjectParameterivEjjPi.exit196, %if.end82
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.6, i32 noundef 3) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %maxlen83) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %num76) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status50) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %maxlen83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %num76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %status50)
   br label %return
 
 return:                                           ; preds = %cleanup125, %cleanup125.thread301, %cleanup125.thread298, %cleanup125.thread, %cleanup47, %cleanup47.thread292, %cleanup47.thread289, %cleanup47.thread
@@ -2641,15 +2635,15 @@ if.end59:                                         ; preds = %if.then55, %if.end5
   ret void
 }
 
-declare noundef i32 @_ZNK3irr5video13COpenGLDriver21getFixedPipelineStateEv(ptr noundef nonnull align 8 dereferenceable(4344)) local_unnamed_addr #6
+declare noundef i32 @_ZNK3irr5video13COpenGLDriver21getFixedPipelineStateEv(ptr noundef nonnull align 8 dereferenceable(4344)) local_unnamed_addr #5
 
-declare void @_ZN3irr5video13COpenGLDriver21setFixedPipelineStateENS1_29E_OPENGL_FIXED_PIPELINE_STATEE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #6
+declare void @_ZN3irr5video13COpenGLDriver21setFixedPipelineStateENS1_29E_OPENGL_FIXED_PIPELINE_STATEE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #5
 
-declare noundef ptr @_ZNK3irr5video13COpenGLDriver15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(4344)) local_unnamed_addr #6
+declare noundef ptr @_ZNK3irr5video13COpenGLDriver15getCacheHandlerEv(ptr noundef nonnull align 8 dereferenceable(4344)) local_unnamed_addr #5
 
-declare void @_ZN3irr5video19COpenGLCacheHandler12setAlphaTestEb(ptr noundef nonnull align 8 dereferenceable(216), i1 noundef zeroext) local_unnamed_addr #6
+declare void @_ZN3irr5video19COpenGLCacheHandler12setAlphaTestEb(ptr noundef nonnull align 8 dereferenceable(216), i1 noundef zeroext) local_unnamed_addr #5
 
-declare void @_ZN3irr5video19COpenGLCacheHandler12setAlphaFuncEjf(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, float noundef) local_unnamed_addr #6
+declare void @_ZN3irr5video19COpenGLCacheHandler12setAlphaFuncEjf(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE20setBlendFuncSeparateEjjjj(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %sourceRGB, i32 noundef %destinationRGB, i32 noundef %sourceAlpha, i32 noundef %destinationAlpha) local_unnamed_addr #0 comdat align 2 {
@@ -2813,7 +2807,7 @@ if.end28:                                         ; preds = %if.end28.sink.split
   ret void
 }
 
-declare noundef i32 @_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #6
+declare noundef i32 @_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE(ptr noundef nonnull align 8 dereferenceable(4344), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video25COpenGLSLMaterialRenderer15OnUnsetMaterialEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #0 align 2 {
@@ -2914,7 +2908,7 @@ if.end17:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr5video25COpenGLSLMaterialRenderer13isTransparentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video25COpenGLSLMaterialRenderer13isTransparentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
   %Alpha = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %Alpha, align 8, !tbaa !20, !range !99, !noundef !100
@@ -2935,7 +2929,7 @@ entry:
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !56
   store i8 0, ptr %0, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %cmp39.i.i = icmp ult i64 %number, 10
   br i1 %cmp39.i.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i, label %if.end.i.i
@@ -3129,22 +3123,22 @@ if.then.i.i6:                                     ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   ret void
 }
 
-declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
 
-declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video25COpenGLSLMaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates) unnamed_addr #0 align 2 {
@@ -3159,7 +3153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, ptr noundef nonnull align 8 dereferenceable(178) %lastMaterial, i1 noundef zeroext %resetAllRenderstates) unnamed_addr #2 align 2 {
 entry:
   %Driver.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !6
@@ -3181,7 +3175,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer25getVertexShaderConstantIDEPKc(ptr noundef %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer25getVertexShaderConstantIDEPKc(ptr noundef %this, ptr noundef %name) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -3192,7 +3186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #9 align 2 {
 entry:
   %UniformInfo = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -3231,7 +3225,7 @@ cleanup:                                          ; preds = %for.inc, %cleanup.l
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef readonly captures(none) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #11 align 2 {
+define noundef i32 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer24getPixelShaderConstantIDEPKc(ptr noundef readonly captures(none) %this, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #10 align 2 {
 entry:
   %UniformInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3280,7 +3274,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKfi(ptr noundef %this, i32 noundef %index, ptr noundef %floats, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKfi(ptr noundef %this, i32 noundef %index, ptr noundef %floats, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -3301,7 +3295,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKii(ptr noundef %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKii(ptr noundef %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -3322,7 +3316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKji(ptr noundef %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer23setVertexShaderConstantEiPKji(ptr noundef %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !3
@@ -3571,7 +3565,7 @@ sw.bb91:                                          ; preds = %if.end, %if.end, %i
   br i1 %tobool.not, label %return, label %if.then92
 
 if.then92:                                        ; preds = %sw.bb91
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %id)
   %29 = load float, ptr %floats, align 4, !tbaa !146
   %conv = fptosi float %29 to i32
   store i32 %conv, ptr %id, align 4, !tbaa !29
@@ -3587,7 +3581,7 @@ if.then.i202:                                     ; preds = %if.then92
   br label %_ZN3irr5video23COpenGLExtensionHandler15extGlUniform1ivEiiPKi.exit
 
 _ZN3irr5video23COpenGLExtensionHandler15extGlUniform1ivEiiPKi.exit: ; preds = %if.then.i202, %if.then92
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %id)
   br label %return
 
 return:                                           ; preds = %_ZN3irr5video23COpenGLExtensionHandler15extGlUniform1ivEiiPKi.exit, %sw.bb91, %if.then.i198, %sw.bb84, %if.else.i194, %if.then.i193, %if.else.i189, %if.then.i188, %if.else.i184, %if.then.i183, %if.then.i179, %sw.bb56, %if.else.i175, %if.then.i174, %if.else.i170, %if.then.i169, %if.else.i, %if.then.i165, %if.then.i161, %sw.bb28, %if.then.i157, %sw.bb21, %if.then.i153, %sw.bb14, %if.then.i149, %sw.bb8, %if.then.i, %sw.bb, %if.end, %lor.lhs.false, %entry
@@ -3596,7 +3590,7 @@ return:                                           ; preds = %_ZN3irr5video23COpe
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKfi(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %floats, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKfi(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %floats, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %call = tail call noundef zeroext i1 @_ZN3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKfi(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef %index, ptr noundef %floats, i32 noundef %count)
@@ -3708,7 +3702,7 @@ return:                                           ; preds = %if.then.i68, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKii(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKii(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %call = tail call noundef zeroext i1 @_ZN3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKii(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef %index, ptr noundef %ints, i32 noundef %count)
@@ -3798,7 +3792,7 @@ return:                                           ; preds = %if.then.i55, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKji(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKji(ptr noundef readonly captures(none) %this, i32 noundef %index, ptr noundef %ints, i32 noundef %count) unnamed_addr #2 align 2 {
 entry:
   %cmp.i = icmp slt i32 %index, 0
   br i1 %cmp.i, label %_ZN3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKji.exit, label %lor.lhs.false.i
@@ -3880,7 +3874,7 @@ _ZN3irr5video25COpenGLSLMaterialRenderer22setPixelShaderConstantEiPKji.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr5video25COpenGLSLMaterialRenderer14getVideoDriverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3irr5video25COpenGLSLMaterialRenderer14getVideoDriverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(84) %this) unnamed_addr #6 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Driver, align 8, !tbaa !6
@@ -3888,7 +3882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer14getVideoDriverEv(ptr noundef readonly captures(none) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZThn8_N3irr5video25COpenGLSLMaterialRenderer14getVideoDriverEv(ptr noundef readonly captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   %Driver.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !6
@@ -3932,26 +3926,26 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video17IMaterialRendererD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video17IMaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video17IMaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD1Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD0Ev(ptr noundef %this) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5video17IMaterialRendererD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -3985,24 +3979,24 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #13
+declare void @llvm.trap() #12
 
-declare noundef zeroext i1 @_ZNK3irr5video23COpenGLExtensionHandler12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(1872), i32 noundef) local_unnamed_addr #6
+declare noundef zeroext i1 @_ZNK3irr5video23COpenGLExtensionHandler12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(1872), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 {
@@ -4352,9 +4346,9 @@ if.end43:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__args) local_unnamed_addr #0 comdat align 2 {
@@ -4508,46 +4502,52 @@ _ZNSt12_Vector_baseIN3irr5video25COpenGLSLMaterialRenderer12SUniformInfoESaIS3_E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #19
+declare i32 @llvm.smin.i32(i32, i32) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nounwind }
 attributes #21 = { builtin nounwind }
 attributes #22 = { noreturn nounwind }

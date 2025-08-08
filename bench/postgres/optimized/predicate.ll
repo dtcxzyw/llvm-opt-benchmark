@@ -174,9 +174,6 @@ SerialPagePrecedesLogically.exit.thread:          ; preds = %13, %SerialPagePrec
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
@@ -202,9 +199,6 @@ define internal zeroext i1 @SerialPagePrecedesLogically(i64 noundef %0, i64 noun
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @SimpleLruWriteAll(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -214,8 +208,8 @@ define dso_local void @PredicateLockShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
   %2 = alloca %struct.HASHCTL, align 8
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @max_predicate_locks_per_xact, align 4
   %5 = sext i32 %4 to i64
   %6 = load i32, ptr @MaxBackends, align 4
@@ -505,7 +499,7 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
   br label %160
 
 160:                                              ; preds = %158, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @SerialPagePrecedesLogically, ptr getelementptr inbounds nuw (i8, ptr @SerialSlruCtlData, i64 16), align 8
   %161 = load i32, ptr @serializable_buffers, align 4
   call void @SimpleLruInit(ptr noundef nonnull @SerialSlruCtlData, ptr noundef nonnull @.str.22, i32 noundef %161, i32 noundef 0, ptr noundef nonnull @.str.23, i32 noundef 59, i32 noundef 88, i32 noundef 5, i1 noundef zeroext false) #12
@@ -531,9 +525,9 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
   br label %SerialInit.exit
 
 SerialInit.exit:                                  ; preds = %160, %165
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -566,7 +560,7 @@ declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @ShmemAlloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -616,7 +610,7 @@ declare i64 @SimpleLruShmemSize(i32 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @palloc(i64 noundef 24) #12
   br label %3
 
@@ -689,7 +683,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   br i1 %.not29, label %41, label %37, !llvm.loop !11
 
 41:                                               ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %2
 }
 
@@ -702,7 +696,7 @@ declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -901,7 +895,7 @@ GetSafeSnapshot.exit:                             ; preds = %59, %9, %53
 declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1528,7 +1522,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %307, %317, %319, %3
   %332 = load ptr, ptr @MainLWLockArray, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 3584
   tail call void @LWLockRelease(ptr noundef nonnull %333) #12
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %334 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 16, ptr %334, align 8
   %335 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1537,7 +1531,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %307, %317, %319, %3
   %337 = sext i32 %336 to i64
   %338 = call ptr @hash_create(ptr noundef nonnull @.str.36, i64 noundef %337, ptr noundef nonnull %4, i32 noundef 40) #12
   store ptr %338, ptr @LocalPredicateLockHash, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %339
 
 339:                                              ; preds = %.thread, %331, %ReleasePredXact.exit
@@ -1578,8 +1572,8 @@ define dso_local void @SetSerializableTransactionSnapshot(ptr noundef %0, ptr no
 define dso_local void @RegisterPredicateLockingXid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SERIALIZABLEXIDTAG, align 4
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @MySerializableXact, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %18, label %6
@@ -1603,15 +1597,15 @@ define dso_local void @RegisterPredicateLockingXid(i32 noundef %0) local_unnamed
   br label %18
 
 18:                                               ; preds = %1, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @PageIsPredicateLocked(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
@@ -1635,7 +1629,7 @@ define dso_local zeroext i1 @PageIsPredicateLocked(ptr noundef readonly captures
   %20 = call ptr @hash_search_with_hash_value(ptr noundef %19, ptr noundef nonnull %3, i32 noundef %12, i32 noundef 0, ptr noundef null) #12
   call void @LWLockRelease(ptr noundef nonnull %17) #12
   %21 = icmp ne ptr %20, null
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %21
 }
 
@@ -1644,7 +1638,7 @@ declare ptr @hash_search_with_hash_value(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockRelation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @MySerializableXact, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %SerializationNeededForRead.exit.thread, label %6
@@ -1695,7 +1689,7 @@ SerializationNeededForRead.exit:                  ; preds = %13
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %13, %6, %2, %12, %SerializationNeededForRead.exit, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -1708,7 +1702,7 @@ define internal fastcc void @PredicateLockAcquire(ptr noundef nonnull %0) unname
   %6 = alloca i8, align 1
   %7 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr @LocalPredicateLockHash, align 8
   %10 = tail call ptr @hash_search(ptr noundef %9, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #12
   %.not.i = icmp eq ptr %10, null
@@ -1721,7 +1715,7 @@ PredicateLockExists.exit:                         ; preds = %1
   br i1 %13, label %164, label %PredicateLockExists.exit.thread
 
 PredicateLockExists.exit.thread:                  ; preds = %1, %PredicateLockExists.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -1768,11 +1762,11 @@ PredicateLockExists.exit.i.backedge:              ; preds = %27, %24
   br label %PredicateLockExists.exit.i, !llvm.loop !17
 
 CoarserLockCovers.exit.thread:                    ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %164
 
 31:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %32 = load ptr, ptr @PredicateLockTargetHash, align 8
   %33 = call i32 @get_hash_value(ptr noundef %32, ptr noundef nonnull %0) #12
   %34 = load ptr, ptr @LocalPredicateLockHash, align 8
@@ -1791,9 +1785,9 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
 41:                                               ; preds = %39, %31
   %42 = load ptr, ptr @MySerializableXact, align 8
   call fastcc void @CreatePredicateLock(ptr noundef nonnull %0, i32 noundef %33, ptr noundef %42)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1892,15 +1886,15 @@ GetParentPredicateLockTag.exit:                   ; preds = %48
 
 CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateLockTag.exit
   call fastcc void @PredicateLockAcquire(ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %164
 
 81:                                               ; preds = %GetParentPredicateLockTag.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %83 = load i32, ptr %82, align 4
   %.not.not = icmp eq i32 %83, 0
@@ -1941,8 +1935,8 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %.sroa.0.030.i = phi ptr [ %96, %.lr.ph.i ], [ %.sroa.8.032.i, %158 ]
   %.sroa.8.0.in31.i = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
   %.sroa.8.032.i = load ptr, ptr %.sroa.8.0.in31.i, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %104 = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
   %105 = load ptr, ptr %2, align 8
@@ -2029,8 +2023,8 @@ RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %155, %124
   br label %158
 
 158:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit.i, %120, %117, %109, %103
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not25.i = icmp eq ptr %.sroa.8.032.i, %94
   br i1 %.not25.i, label %._crit_edge.i, label %103, !llvm.loop !19
 
@@ -2050,14 +2044,14 @@ DeleteChildTargetLocks.exit:                      ; preds = %._crit_edge.i, %160
   br label %164
 
 164:                                              ; preds = %CheckAndPromotePredicateLockRequest.exit.thread, %CoarserLockCovers.exit.thread, %DeleteChildTargetLocks.exit, %81, %PredicateLockExists.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %SerializationNeededForRead.exit.thread, label %7
@@ -2108,14 +2102,14 @@ SerializationNeededForRead.exit:                  ; preds = %14
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %SerializationNeededForRead.exit, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockTID(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @MySerializableXact, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %SerializationNeededForRead.exit.thread, label %8
@@ -2209,7 +2203,7 @@ PredicateLockExists.exit.thread:                  ; preds = %29, %PredicateLockE
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %15, %8, %4, %14, %PredicateLockExists.exit, %27, %SerializationNeededForRead.exit, %PredicateLockExists.exit.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2223,8 +2217,8 @@ define dso_local void @TransferPredicateLocksToHeapRelation(ptr noundef readonly
   %5 = alloca i8, align 1
   %6 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %7 = alloca %struct.PREDICATELOCKTAG, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr @PredXact, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
@@ -2279,11 +2273,11 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %37 = load ptr, ptr @MainLWLockArray, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 3584
   %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %38, i32 noundef 0) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load ptr, ptr @PredicateLockTargetHash, align 8
   %41 = load i32, ptr @ScratchTargetTagHash, align 4
   %42 = call ptr @hash_search_with_hash_value(ptr noundef %40, ptr noundef nonnull @ScratchTargetTag, i32 noundef %41, i32 noundef 2, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = load ptr, ptr @PredicateLockTargetHash, align 8
   call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %43) #12
   %44 = call ptr @hash_seq_search(ptr noundef nonnull %4) #12
@@ -2331,7 +2325,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %62, label %63, label %74
 
 63:                                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %21, ptr %6, align 4
   store i32 %.055.i, ptr %45, align 4
   store i32 -1, ptr %46, align 4
@@ -2352,7 +2346,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br label %73
 
 73:                                               ; preds = %70, %63
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 74:                                               ; preds = %73, %.critedge.i
@@ -2390,7 +2384,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   store ptr %91, ptr %88, align 8
   %92 = load ptr, ptr @PredicateLockHash, align 8
   %93 = call ptr @hash_search(ptr noundef %92, ptr noundef nonnull %81, i32 noundef 2, ptr noundef nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.2.i, ptr %7, align 8
   store ptr %85, ptr %48, align 8
   %94 = load ptr, ptr @PredicateLockHash, align 8
@@ -2458,7 +2452,7 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   br label %126
 
 126:                                              ; preds = %125, %121, %dlist_push_tail.exit75.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not74.i = icmp eq ptr %.sroa.8.082.i, %75
   br i1 %.not74.i, label %._crit_edge.i, label %80, !llvm.loop !22
 
@@ -2475,11 +2469,11 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   br i1 %.not67.i, label %._crit_edge88.i, label %49
 
 ._crit_edge88.i:                                  ; preds = %129, %36
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %131 = load ptr, ptr @PredicateLockTargetHash, align 8
   %132 = load i32, ptr @ScratchTargetTagHash, align 4
   %133 = call ptr @hash_search_with_hash_value(ptr noundef %131, ptr noundef nonnull @ScratchTargetTag, i32 noundef %132, i32 noundef 1, ptr noundef nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %134 = load ptr, ptr @MainLWLockArray, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 3584
   call void @LWLockRelease(ptr noundef nonnull %135) #12
@@ -2502,8 +2496,8 @@ dlist_push_tail.exit75.i:                         ; preds = %116, %dlist_push_ta
   br label %DropAllPredicateLocksFromTable.exit
 
 DropAllPredicateLocksFromTable.exit:              ; preds = %1, %11, %PredicateLockingNeededForRelation.exit.i, %140
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2575,7 +2569,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   store i64 %2, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %3, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %15 = load ptr, ptr @PredicateLockTargetHash, align 8
   %16 = call i32 @get_hash_value(ptr noundef %15, ptr noundef nonnull %9) #12
   %17 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -2592,7 +2586,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br i1 %4, label %28, label %35
 
 28:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load ptr, ptr @ScratchPartitionLock, align 8
   %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #12
   %31 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -2600,7 +2594,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %33 = call ptr @hash_search_with_hash_value(ptr noundef %31, ptr noundef nonnull @ScratchTargetTag, i32 noundef %32, i32 noundef 2, ptr noundef nonnull %8) #12
   %34 = load ptr, ptr @ScratchPartitionLock, align 8
   call void @LWLockRelease(ptr noundef %34) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %35
 
 35:                                               ; preds = %28, %5
@@ -2632,7 +2626,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br i1 %.not, label %172, label %50
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %51 = load ptr, ptr @PredicateLockTargetHash, align 8
   %52 = call ptr @hash_search_with_hash_value(ptr noundef %51, ptr noundef nonnull %10, i32 noundef %18, i32 noundef 3, ptr noundef nonnull %11) #12
   %.not79 = icmp eq ptr %52, null
@@ -2735,7 +2729,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %.sroa.8.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.sroa.8.0.i = load ptr, ptr %.sroa.8.0.in.i, align 8
   %108 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 -16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 24
   %111 = load ptr, ptr %110, align 8
@@ -2758,7 +2752,7 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %124 = shl i32 %123, 4
   %125 = xor i32 %124, %18
   %126 = call ptr @hash_search_with_hash_value(ptr noundef %119, ptr noundef nonnull %108, i32 noundef %125, i32 noundef 2, ptr noundef nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not13.i = icmp eq ptr %.sroa.8.0.i, %67
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
@@ -2860,7 +2854,7 @@ DeleteLockTarget.exit:                            ; preds = %dlist_push_tail.exi
 
 RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132, %168, %164, %._crit_edge, %50
   %171 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %164 ], [ true, %168 ], [ false, %132 ], [ false, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %172
 
 172:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit, %47
@@ -2883,7 +2877,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132
   br i1 %4, label %176, label %183
 
 176:                                              ; preds = %175
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %177 = load ptr, ptr @ScratchPartitionLock, align 8
   %178 = call zeroext i1 @LWLockAcquire(ptr noundef %177, i32 noundef 0) #12
   %179 = load ptr, ptr @PredicateLockTargetHash, align 8
@@ -2891,11 +2885,11 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132
   %181 = call ptr @hash_search_with_hash_value(ptr noundef %179, ptr noundef nonnull @ScratchTargetTag, i32 noundef %180, i32 noundef 1, ptr noundef nonnull %6) #12
   %182 = load ptr, ptr @ScratchPartitionLock, align 8
   call void @LWLockRelease(ptr noundef %182) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %183
 
 183:                                              ; preds = %175, %176
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.3
 }
 
@@ -3885,8 +3879,8 @@ dlist_push_tail.exit:                             ; preds = %346, %353
 
 440:                                              ; preds = %429
   %441 = getelementptr inbounds i8, ptr %.sroa.0.162.i, i64 -32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %441, i64 16, i1 false)
   %442 = load ptr, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %442, i64 16, i1 false)
@@ -3934,8 +3928,8 @@ dlist_push_tail.exit:                             ; preds = %346, %353
 
 RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %473, %440
   call void @LWLockRelease(ptr noundef nonnull %449) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %476
 
 476:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit.i, %429
@@ -3980,7 +3974,7 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   %5 = alloca %struct.PREDICATELOCKTAG, align 8
   %6 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 3840
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #12
@@ -4012,8 +4006,8 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   %.sroa.20.080.us = phi ptr [ %.sroa.20.0.us, %RemoveTargetIfNoLongerUsed.exit.us ], [ %.sroa.20.077, %.lr.ph ]
   %.sroa.0.079.us = phi ptr [ %.sroa.20.080.us, %RemoveTargetIfNoLongerUsed.exit.us ], [ %18, %.lr.ph ]
   %21 = getelementptr inbounds i8, ptr %.sroa.0.079.us, i64 -32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %22 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
@@ -4040,7 +4034,7 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   %41 = shl i32 %40, 4
   %42 = xor i32 %41, %24
   %43 = call ptr @hash_search_with_hash_value(ptr noundef %37, ptr noundef nonnull %5, i32 noundef %42, i32 noundef 2, ptr noundef null) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = load ptr, ptr @OldCommittedSxact, align 8
   store ptr %44, ptr %19, align 8
   %45 = load ptr, ptr @PredicateLockHash, align 8
@@ -4116,10 +4110,10 @@ dlist_push_tail.exit74.us:                        ; preds = %70, %dlist_push_tai
   br label %RemoveTargetIfNoLongerUsed.exit.us
 
 RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_push_tail.exit74.us
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @LWLockRelease(ptr noundef nonnull %29) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.20.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.20.080.us, i64 8
   %.sroa.20.0.us = load ptr, ptr %.sroa.20.0.in.us, align 8
   %.not65.us = icmp eq ptr %.sroa.20.080.us, %16
@@ -4129,8 +4123,8 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
   %.sroa.20.080 = phi ptr [ %.sroa.20.0, %RemoveTargetIfNoLongerUsed.exit ], [ %.sroa.20.077, %.lr.ph ]
   %.sroa.0.079 = phi ptr [ %.sroa.20.080, %RemoveTargetIfNoLongerUsed.exit ], [ %18, %.lr.ph ]
   %82 = getelementptr inbounds i8, ptr %.sroa.0.079, i64 -32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   %83 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false)
@@ -4181,8 +4175,8 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
 
 RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   call void @LWLockRelease(ptr noundef nonnull %90) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.20.0.in = getelementptr inbounds nuw i8, ptr %.sroa.20.080, i64 8
   %.sroa.20.0 = load ptr, ptr %.sroa.20.0.in, align 8
   %.not65 = icmp eq ptr %.sroa.20.080, %16
@@ -4377,7 +4371,7 @@ ReleasePredXact.exit:                             ; preds = %187, %198
   %202 = load ptr, ptr @MainLWLockArray, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 3584
   call void @LWLockRelease(ptr noundef nonnull %203) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4444,7 +4438,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckForSerializableConflictOut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SERIALIZABLEXIDTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %SerializationNeededForRead.exit.thread, label %7
@@ -4740,14 +4734,14 @@ SerialGetMinConflictCommitSeqNo.exit.thread:      ; preds = %50, %52, %39, %Seri
   br label %SerializationNeededForRead.exit.thread
 
 SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %30, %SerializationNeededForRead.exit, %164, %161, %155, %150, %125, %118, %SerialGetMinConflictCommitSeqNo.exit.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr #5 {
   %2 = tail call ptr @GetTransactionSnapshot() #12
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4853,7 +4847,7 @@ pg_lfind32.exit:                                  ; preds = %.preheader.i, %.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -5231,7 +5225,7 @@ SetRWConflict.exit:                               ; preds = %dlist_push_tail.exi
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckForSerializableConflictIn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %SerializationNeededForWrite.exit.thread, label %7
@@ -5330,14 +5324,14 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   br label %SerializationNeededForWrite.exit.thread
 
 SerializationNeededForWrite.exit.thread:          ; preds = %7, %3, %SerializationNeededForWrite.exit, %46
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTAG, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @PredicateLockTargetHash, align 8
   %4 = tail call i32 @get_hash_value(ptr noundef %3, ptr noundef nonnull %0) #12
   %5 = load ptr, ptr @MainLWLockArray, align 8
@@ -5661,14 +5655,14 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %142, %160
   br label %177
 
 177:                                              ; preds = %._crit_edge, %174, %171, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckTableForSerializableConflictIn(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @PredXact, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
@@ -5839,7 +5833,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %.loopexi
   br label %SerializationNeededForWrite.exit.thread
 
 SerializationNeededForWrite.exit.thread:          ; preds = %8, %SerializationNeededForWrite.exit, %1, %78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5973,7 +5967,7 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %1 = alloca %struct.TwoPhasePredicateRecord, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @MySerializableXact, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = icmp eq ptr %2, null
@@ -6019,7 +6013,7 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %0, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -6052,7 +6046,7 @@ declare void @hash_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockTwoPhaseFinish(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SERIALIZABLEXIDTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3584
@@ -6074,7 +6068,7 @@ define dso_local void @PredicateLockTwoPhaseFinish(i32 noundef %0, i1 noundef ze
   br label %15
 
 15:                                               ; preds = %2, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6090,8 +6084,8 @@ define dso_local void @predicatelock_twophase_recover(i32 noundef %0, i16 nounde
   ]
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load ptr, ptr @MainLWLockArray, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 3584
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 0) #12
@@ -6289,12 +6283,12 @@ SerialSetActiveSerXmin.exit:                      ; preds = %86, %96, %98, %101
   %114 = load ptr, ptr @MainLWLockArray, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 3584
   call void @LWLockRelease(ptr noundef nonnull %115) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 116:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %118 = load ptr, ptr @PredicateLockTargetHash, align 8
   %119 = tail call i32 @get_hash_value(ptr noundef %118, ptr noundef nonnull %117) #12
@@ -6310,7 +6304,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %86, %96, %98, %101
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %128 = load ptr, ptr %127, align 8
   call fastcc void @CreatePredicateLock(ptr noundef nonnull %117, i32 noundef %119, ptr noundef %128)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %129
 
 129:                                              ; preds = %4, %116, %113
@@ -6323,8 +6317,8 @@ declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed
 define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTAG, align 8
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = and i32 %1, 15
   %8 = zext nneg i32 %7 to i64
@@ -6454,13 +6448,13 @@ dlist_push_tail.exit19:                           ; preds = %dlist_push_tail.exi
   %73 = load ptr, ptr @MainLWLockArray, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 3840
   call void @LWLockRelease(ptr noundef nonnull %74) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local ptr @ShareSerializableXact() local_unnamed_addr #8 {
+define dso_local ptr @ShareSerializableXact() local_unnamed_addr #7 {
   %1 = load ptr, ptr @MySerializableXact, align 8
   ret ptr %1
 }
@@ -6473,7 +6467,7 @@ define dso_local void @AttachSerializableXact(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 16, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -6482,7 +6476,7 @@ define dso_local void @AttachSerializableXact(ptr noundef %0) local_unnamed_addr
   %7 = sext i32 %6 to i64
   %8 = call ptr @hash_create(ptr noundef nonnull @.str.36, i64 noundef %7, ptr noundef nonnull %2, i32 noundef 40) #12
   store ptr %8, ptr @LocalPredicateLockHash, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %9
 
 9:                                                ; preds = %3, %1
@@ -6502,7 +6496,7 @@ declare ptr @GetSnapshotData(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ReleasePredXact(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc void @ReleasePredXact(ptr noundef %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -6539,7 +6533,7 @@ declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -6602,7 +6596,7 @@ define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly c
   br label %.backedge
 
 GetParentPredicateLockTag.exit:                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -6618,6 +6612,12 @@ declare zeroext i1 @IsSubTransaction() local_unnamed_addr #1
 
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
@@ -6626,14 +6626,14 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

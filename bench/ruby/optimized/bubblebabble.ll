@@ -45,7 +45,7 @@ declare extern_weak void @rb_define_module_function(i64 noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_digest_s_bubblebabble(i64 %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !6
   %4 = call i64 @rb_string_value(ptr noundef nonnull %3) #4
   %5 = load i64, ptr %3, align 8, !tbaa !6
@@ -188,7 +188,7 @@ bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.149.ph.i = phi i64 [ %35, %._crit_edge.i ], [ %61, %.lr.ph.i ]
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i59.i, i64 %.149.ph.i
   store i8 120, ptr %87, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %20
 }
 
@@ -199,7 +199,7 @@ define internal i64 @rb_digest_class_s_bubblebabble(i32 noundef %0, ptr noundef 
   %4 = alloca i64, align 8
   %5 = load i64, ptr @id_digest, align 8, !tbaa !6
   %6 = tail call i64 @rb_funcallv(i64 noundef %2, i64 noundef %5, i32 noundef %0, ptr noundef %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %6, ptr %4, align 8, !tbaa !6
   %7 = call i64 @rb_string_value(ptr noundef nonnull %4) #4
   %8 = load i64, ptr %4, align 8, !tbaa !6
@@ -342,7 +342,7 @@ bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.149.ph.i = phi i64 [ %38, %._crit_edge.i ], [ %64, %.lr.ph.i ]
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i59.i, i64 %.149.ph.i
   store i8 120, ptr %90, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %23
 }
 
@@ -353,7 +353,7 @@ define internal i64 @rb_digest_instance_bubblebabble(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = load i64, ptr @id_digest, align 8, !tbaa !6
   %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %3, i32 noundef 0) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %4, ptr %2, align 8, !tbaa !6
   %5 = call i64 @rb_string_value(ptr noundef nonnull %2) #4
   %6 = load i64, ptr %2, align 8, !tbaa !6
@@ -496,7 +496,7 @@ bubblebabble_str_new.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %.149.ph.i = phi i64 [ %36, %._crit_edge.i ], [ %62, %.lr.ph.i ]
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i59.i, i64 %.149.ph.i
   store i8 120, ptr %88, align 1, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %21
 }
 
@@ -518,10 +518,10 @@ declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) loc
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -126,18 +126,18 @@ define noundef ptr @_ZN6icu_7721getAstronomerTimeZoneER10UErrorCode(ptr noundef 
   br i1 %.not12.i, label %140, label %16
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -4431330874815938560, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 -4431395460543938560, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -4433057288139309056, ptr %4, align 8
   %17 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #6
   %.not221.i = icmp eq ptr %17, null
   br i1 %.not221.i, label %23, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 2, ptr %19, align 8, !tbaa !9
@@ -165,7 +165,7 @@ _ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit.i:  ; preds = %18
 
 _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i: ; preds = %_ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_.exit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i, %26, %23
@@ -174,7 +174,7 @@ _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i: 
   br i1 %.not222.i, label %32, label %_ZN6icu_778internal23toU16StringViewNullableIA12_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i
 
 _ZN6icu_778internal23toU16StringViewNullableIA12_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i: ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 2, ptr %28, align 8, !tbaa !9
@@ -202,7 +202,7 @@ _ZN6icu_7713UnicodeStringC2IA12_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i: ; preds = %_ZN6icu_7713UnicodeStringC2IA12_DsvEERKT_.exit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge125.i
 
 .critedge125.i:                                   ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i, %35, %32
@@ -211,7 +211,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit.i: ; preds
   br i1 %.not223.i, label %41, label %_ZN6icu_778internal23toU16StringViewNullableIA17_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i
 
 _ZN6icu_778internal23toU16StringViewNullableIA17_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i: ; preds = %.critedge125.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 2, ptr %37, align 8, !tbaa !9
@@ -239,7 +239,7 @@ _ZN6icu_7713UnicodeStringC2IA17_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit140.i: ; preds = %_ZN6icu_7713UnicodeStringC2IA17_DsvEERKT_.exit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge127.i
 
 .critedge127.i:                                   ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit140.i, %44, %41
@@ -248,7 +248,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit140.i: ; pr
   br i1 %.not224.i, label %50, label %_ZN6icu_778internal23toU16StringViewNullableIA13_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i
 
 _ZN6icu_778internal23toU16StringViewNullableIA13_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i: ; preds = %.critedge127.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 2, ptr %46, align 8, !tbaa !9
@@ -276,7 +276,7 @@ _ZN6icu_7713UnicodeStringC2IA13_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit145.i: ; preds = %_ZN6icu_7713UnicodeStringC2IA13_DsvEERKT_.exit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge129.i
 
 .critedge129.i:                                   ; preds = %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit145.i, %53, %50
@@ -285,7 +285,7 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEEC2EPS1_R10UErrorCode.exit145.i: ; pr
   br i1 %.not225.i, label %59, label %_ZN6icu_778internal23toU16StringViewNullableIA11_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i
 
 _ZN6icu_778internal23toU16StringViewNullableIA11_DsvEESt17basic_string_viewIDsSt11char_traitsIDsEERKT_.exit.i.i: ; preds = %.critedge129.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 2, ptr %55, align 8, !tbaa !9
@@ -313,7 +313,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 .critedge131.i:                                   ; preds = %_ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre.i = load i32, ptr %0, align 4, !tbaa !6
   %63 = icmp slt i32 %.pre.i, 1
   br i1 %63, label %85, label %.thread238.i
@@ -326,7 +326,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 66:                                               ; preds = %64, %21
   %.pn.i = phi { ptr, i32 } [ %65, %64 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %17) #6
   br label %_ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit156.i
 
@@ -338,7 +338,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 69:                                               ; preds = %67, %30
   %.pn109.i = phi { ptr, i32 } [ %68, %67 ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i
 
@@ -350,7 +350,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 72:                                               ; preds = %70, %39
   %.pn111.i = phi { ptr, i32 } [ %71, %70 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %36) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit154.i
 
@@ -362,7 +362,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 
 75:                                               ; preds = %73, %48
   %.pn113.i = phi { ptr, i32 } [ %74, %73 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %45) #6
   br label %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit153.i
 
@@ -375,7 +375,7 @@ _ZN6icu_7713UnicodeStringC2IA11_DsvEERKT_.exit.i: ; preds = %_ZN6icu_778internal
 78:                                               ; preds = %76, %57
   %.sroa.0172.4.i = phi ptr [ null, %76 ], [ %17, %57 ]
   %.pn115.i = phi { ptr, i32 } [ %77, %76 ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %54) #6
   br label %_ZN6icu_7712LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit.i
 
@@ -556,15 +556,15 @@ _ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i: ; preds = %130, %_ZN
 
 _ZN6icu_7712LocalPointerINS_19InitialTimeZoneRuleEED2Ev.exit156.i: ; preds = %135, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i, %79, %66
   %.pn118.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %66 ], [ %.pn118.pn.pn.pn.i, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit155.i ], [ %.pn118.pn.pn.pn.i, %135 ], [ %lpad.thr_comm.split-lp.i, %79 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn118.pn.pn.pn.pn.i
 
 _ZN6icu_77L22initAstronomerTimeZoneER10UErrorCode.exit: ; preds = %94, %_ZN6icu_7712LocalPointerINS_12TimeZoneRuleEED2Ev.exit152.i, %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %139 = load i32, ptr %0, align 4, !tbaa !6
   store i32 %139, ptr getelementptr inbounds nuw (i8, ptr @_ZL27gAstronomerTimeZoneInitOnce, i64 4), align 4, !tbaa !13
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL27gAstronomerTimeZoneInitOnce)
@@ -587,7 +587,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7713DangiCalendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %1)
   store i32 %4, ptr %3, align 4, !tbaa !18
   %5 = load i32, ptr %1, align 4, !tbaa !6
@@ -609,19 +609,13 @@ define noundef i32 @_ZNK6icu_7713DangiCalendar14getRelatedYearER10UErrorCode(ptr
 
 12:                                               ; preds = %2, %10, %9
   %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 declare signext i8 @uprv_add32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7713DangiCalendar14setRelatedYearEi(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1) unnamed_addr #0 align 2 {
@@ -826,6 +820,12 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStri
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

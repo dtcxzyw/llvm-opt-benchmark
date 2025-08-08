@@ -105,16 +105,16 @@ define internal range(i32 0, 2) i32 @test_record_overflow(i32 noundef %0) #1 {
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   %16 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = tail call ptr @TLS_server_method() #6
   %18 = tail call ptr @TLS_client_method() #6
   %19 = load ptr, ptr @cert, align 8, !tbaa !4
@@ -163,9 +163,9 @@ define internal range(i32 0, 2) i32 @test_record_overflow(i32 noundef %0) #1 {
   br i1 %42, label %.split, label %.split29
 
 .split29:                                         ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %10, i8 0, i64 256, i1 false)
   store i8 22, ptr %8, align 1, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -200,15 +200,15 @@ define internal range(i32 0, 2) i32 @test_record_overflow(i32 noundef %0) #1 {
 
 write_record.exit:                                ; preds = %.preheader.i, %51, %.split29
   %.017.i = phi i32 [ 0, %.split29 ], [ 0, %51 ], [ 1, %.preheader.i ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %67
 
 .split:                                           ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   store i8 22, ptr %5, align 1, !tbaa !13
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -243,9 +243,9 @@ write_record.exit:                                ; preds = %.preheader.i, %51, 
 
 write_record.exit49:                              ; preds = %.preheader.i41, %63, %.split
   %.017.i48 = phi i32 [ 0, %.split ], [ 0, %63 ], [ 1, %.preheader.i41 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 67:                                               ; preds = %write_record.exit, %write_record.exit49
@@ -295,9 +295,9 @@ fail_due_to_record_overflow.exit:                 ; preds = %71
 88:                                               ; preds = %85, %86
   %.028 = phi i32 [ 1, %86 ], [ 0, %85 ]
   %.2 = phi i64 [ %87, %86 ], [ %.027, %85 ]
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   store i8 23, ptr %2, align 1, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -335,9 +335,9 @@ fail_due_to_record_overflow.exit:                 ; preds = %71
 
 write_record.exit59:                              ; preds = %.preheader.i51, %100, %88
   %104 = phi i32 [ 0, %88 ], [ 0, %100 ], [ 1, %.preheader.i51 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %105 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 164, ptr noundef nonnull @.str.27, i32 noundef %104) #6
   %.not34 = icmp eq i32 %105, 0
   br i1 %.not34, label %116, label %106
@@ -373,12 +373,12 @@ fail_due_to_record_overflow.exit64:               ; preds = %106
   call void @SSL_CTX_free(ptr noundef %119) #6
   %120 = load ptr, ptr %11, align 8, !tbaa !9
   call void @SSL_CTX_free(ptr noundef %120) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0
 }
 
@@ -389,9 +389,6 @@ define dso_local void @cleanup_tests() local_unnamed_addr #1 {
 }
 
 declare void @bio_s_mempacket_test_free() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -423,15 +420,18 @@ declare void @SSL_free(ptr noundef) local_unnamed_addr #2
 
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i64 @ERR_peek_error() local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
@@ -439,8 +439,8 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

@@ -61,18 +61,12 @@ define hidden i32 @mbedtls_chachapoly_setkey(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @mbedtls_chacha20_setkey(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_chachapoly_starts(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @mbedtls_chacha20_starts(ptr noundef %0, ptr noundef %1, i32 noundef 0) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %16
@@ -101,14 +95,14 @@ define hidden i32 @mbedtls_chachapoly_starts(ptr noundef %0, ptr noundef %1, i32
 16:                                               ; preds = %8, %12, %6, %3
   %.0 = phi i32 [ %5, %3 ], [ %7, %6 ], [ 0, %12 ], [ %10, %8 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 declare i32 @mbedtls_chacha20_starts(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @mbedtls_chacha20_update(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -158,12 +152,12 @@ define hidden i32 @mbedtls_chachapoly_update(ptr noundef %0, i64 noundef %1, ptr
   %12 = load i64, ptr %11, align 8, !tbaa !12
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 15
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %chachapoly_pad_aad.exit.thread, label %chachapoly_pad_aad.exit
 
 chachapoly_pad_aad.exit.thread:                   ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %20
 
 chachapoly_pad_aad.exit:                          ; preds = %10
@@ -172,7 +166,7 @@ chachapoly_pad_aad.exit:                          ; preds = %10
   %17 = sub nuw nsw i32 16, %14
   %18 = zext nneg i32 %17 to i64
   %19 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %16, ptr noundef nonnull %5, i64 noundef %18) #7
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not39 = icmp eq i32 %19, 0
   br i1 %.not39, label %20, label %38
 
@@ -221,7 +215,7 @@ define hidden i32 @mbedtls_chachapoly_finish(ptr noundef %0, ptr noundef %1) loc
   %3 = alloca [15 x i8], align 1
   %4 = alloca [15 x i8], align 1
   %5 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i32, ptr %6, align 8, !tbaa !3
   switch i32 %7, label %28 [
@@ -235,12 +229,12 @@ define hidden i32 @mbedtls_chachapoly_finish(ptr noundef %0, ptr noundef %1) loc
   %10 = load i64, ptr %9, align 8, !tbaa !12
   %11 = trunc i64 %10 to i32
   %12 = and i32 %11, 15
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %chachapoly_pad_aad.exit.thread, label %chachapoly_pad_aad.exit
 
 chachapoly_pad_aad.exit.thread:                   ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 chachapoly_pad_aad.exit:                          ; preds = %8
@@ -249,7 +243,7 @@ chachapoly_pad_aad.exit:                          ; preds = %8
   %15 = sub nuw nsw i32 16, %12
   %16 = zext nneg i32 %15 to i64
   %17 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %14, ptr noundef nonnull %4, i64 noundef %16) #7
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not22 = icmp eq i32 %17, 0
   br i1 %.not22, label %28, label %38
 
@@ -258,12 +252,12 @@ chachapoly_pad_aad.exit:                          ; preds = %8
   %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 15
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %chachapoly_pad_ciphertext.exit.thread, label %chachapoly_pad_ciphertext.exit
 
 chachapoly_pad_ciphertext.exit.thread:            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 chachapoly_pad_ciphertext.exit:                   ; preds = %18
@@ -272,7 +266,7 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
   %25 = sub nuw nsw i32 16, %22
   %26 = zext nneg i32 %25 to i64
   %27 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %24, ptr noundef nonnull %3, i64 noundef %26) #7
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %38
 
@@ -296,7 +290,7 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
 
 38:                                               ; preds = %28, %chachapoly_pad_ciphertext.exit, %2, %chachapoly_pad_aad.exit, %36
   %.0 = phi i32 [ %37, %36 ], [ -84, %2 ], [ %17, %chachapoly_pad_aad.exit ], [ %27, %chachapoly_pad_ciphertext.exit ], [ %35, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -311,7 +305,7 @@ define hidden i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef %0, i64 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call i32 @mbedtls_chacha20_starts(ptr noundef %0, ptr noundef %3, i32 noundef 0) #7
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %12, label %mbedtls_chachapoly_starts.exit.thread
@@ -331,7 +325,7 @@ define internal fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef
 mbedtls_chachapoly_starts.exit.thread:            ; preds = %9, %12, %14
   %.0.i.ph = phi i32 [ %16, %14 ], [ %13, %12 ], [ %11, %9 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %mbedtls_chachapoly_update_aad.exit.thread
 
 18:                                               ; preds = %14
@@ -342,7 +336,7 @@ mbedtls_chachapoly_starts.exit.thread:            ; preds = %9, %12, %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %1, ptr %21, align 4, !tbaa !11
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 64) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %22 = load i32, ptr %20, align 8, !tbaa !3
   %.not.i20 = icmp eq i32 %22, 1
   br i1 %.not.i20, label %mbedtls_chachapoly_update_aad.exit, label %mbedtls_chachapoly_update_aad.exit.thread
@@ -372,7 +366,7 @@ mbedtls_chachapoly_update_aad.exit.thread:        ; preds = %18, %mbedtls_chacha
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef 1, i64 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %9)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
@@ -388,7 +382,7 @@ define hidden i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %0, i64 noundef %
 
 14:                                               ; preds = %11, %8, %13
   %.0 = phi i32 [ -86, %13 ], [ %10, %8 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -400,9 +394,9 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0)
   %1 = alloca %struct.mbedtls_chachapoly_context, align 8
   %2 = alloca [200 x i8], align 16
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %1) #7
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not27 = icmp eq i32 %0, 0
   br i1 %.not27, label %6, label %4
 
@@ -476,14 +470,20 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0)
 
 .thread:                                          ; preds = %28, %29, %26, %27, %22, %23, %17, %18, %11, %12
   %.024 = phi i32 [ -1, %12 ], [ -1, %11 ], [ -1, %18 ], [ -1, %17 ], [ -1, %23 ], [ -1, %22 ], [ -1, %27 ], [ -1, %26 ], [ 0, %29 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.024
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #5
@@ -496,9 +496,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #7 = { nounwind }

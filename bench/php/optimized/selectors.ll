@@ -128,15 +128,9 @@ define hidden i32 @lxb_selectors_init(ptr noundef writeonly captures(none) initi
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lexbor_dobject_create() local_unnamed_addr #1
 
-declare ptr @lexbor_dobject_create() local_unnamed_addr #2
-
-declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_selectors_clean(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -149,7 +143,7 @@ define hidden void @lxb_selectors_clean(ptr noundef readonly captures(none) %0) 
   ret void
 }
 
-declare void @lexbor_dobject_clean(ptr noundef) local_unnamed_addr #2
+declare void @lexbor_dobject_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_selectors_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -164,15 +158,15 @@ define hidden void @lxb_selectors_destroy(ptr noundef captures(none) %0) local_u
   ret void
 }
 
-declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes((24, 32), (44, 48)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lxb_selectors_entry, align 8
   %7 = alloca %struct.lxb_selectors_nested, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -290,19 +284,19 @@ lxb_selectors_state_tree.exit:                    ; preds = %49, %lxb_selectors_
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !12
   call void @lexbor_dobject_clean(ptr noundef %55) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.020.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lxb_selectors_match_node(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lxb_selectors_nested, align 8
   %7 = alloca %struct.lxb_selectors_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !40
   %10 = and i32 %9, 255
@@ -310,7 +304,7 @@ define hidden i32 @lxb_selectors_match_node(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %11, label %12, label %40
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %13, align 8, !tbaa !14
@@ -371,12 +365,12 @@ lxb_selectors_state_run.exit:                     ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !12
   call void @lexbor_dobject_clean(ptr noundef %39) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %40
 
 40:                                               ; preds = %5, %lxb_selectors_state_run.exit
   %.0 = phi i32 [ %.pre.i, %lxb_selectors_state_run.exit ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -581,7 +575,7 @@ lxb_selectors_descendant.exit:                    ; preds = %88, %86, %71, %51, 
   ret ptr %.0
 }
 
-declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #2
+declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) #0 {
@@ -1147,7 +1141,7 @@ define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lxb_selectors_cb_ok(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #4 {
+define internal noundef i32 @lxb_selectors_cb_ok(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #3 {
   store i8 1, ptr %2, align 1, !tbaa !74
   ret i32 0
 }
@@ -1240,7 +1234,7 @@ define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lxb_selectors_cb_not(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #4 {
+define internal noundef i32 @lxb_selectors_cb_not(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) #3 {
   store i8 0, ptr %2, align 1, !tbaa !74
   ret i32 0
 }
@@ -1372,7 +1366,7 @@ lxb_selectors_anb_calc.exit:                      ; preds = %59, %50, %45, %63, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.trunc.f64(double) #5
+declare double @llvm.trunc.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @lxb_selectors_match(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -1469,7 +1463,7 @@ lxb_selectors_adapted_set_entry_id.exit.i:        ; preds = %13, %10
   br i1 %.not18.i.i, label %lxb_selectors_adapted_attr.exit.i, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_attr.exit.i:                ; preds = %.thread18.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %47 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i21.i, ptr noundef nonnull %46) #8
   store ptr %47, ptr %7, align 8, !tbaa !86, !alias.scope !88
@@ -1507,7 +1501,7 @@ lxb_selectors_adapted_attr.exit.i:                ; preds = %.thread18.i
   br label %dom_lxb_str_wrapper_release.exit.i
 
 dom_lxb_str_wrapper_release.exit.i:               ; preds = %62, %60
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %lxb_selectors_match_element.exit
 
 64:                                               ; preds = %4
@@ -1550,7 +1544,7 @@ dom_lxb_str_wrapper_release.exit.i:               ; preds = %62, %60
   br i1 %.not18.i, label %lxb_selectors_adapted_attr.exit, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_attr.exit:                  ; preds = %.thread60
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %81 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i63, ptr noundef nonnull %80) #8
   store ptr %81, ptr %8, align 8, !tbaa !86, !alias.scope !96
@@ -1589,7 +1583,7 @@ dom_lxb_str_wrapper_release.exit.sink.split:      ; preds = %85, %95
 
 dom_lxb_str_wrapper_release.exit:                 ; preds = %dom_lxb_str_wrapper_release.exit.sink.split, %87, %85
   %.2 = phi i1 [ false, %85 ], [ %93, %87 ], [ %.2.ph, %dom_lxb_str_wrapper_release.exit.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %lxb_selectors_match_element.exit
 
 97:                                               ; preds = %4
@@ -1652,7 +1646,7 @@ lxb_selectors_adapted_attr.exit.i34:              ; preds = %.thread25.i
   br i1 %122, label %lxb_selectors_match_element.exit, label %123
 
 123:                                              ; preds = %lxb_selectors_adapted_attr.exit.i34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %125 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i28.i, ptr noundef nonnull %124) #8
   store ptr %125, ptr %6, align 8, !tbaa !86, !alias.scope !99
@@ -1843,7 +1837,7 @@ lxb_selectors_match_attribute_value.exit.i:       ; preds = %219, %217, %209, %2
   br label %dom_lxb_str_wrapper_release.exit.i35
 
 dom_lxb_str_wrapper_release.exit.i35:             ; preds = %223, %lxb_selectors_match_attribute_value.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lxb_selectors_match_element.exit
 
 225:                                              ; preds = %4
@@ -1994,7 +1988,7 @@ sub_0.i:                                          ; preds = %227
   br i1 %.not18.i.i43, label %lxb_selectors_adapted_attr.exit.i44, label %lxb_selectors_match_element.exit
 
 lxb_selectors_adapted_attr.exit.i44:              ; preds = %.thread12.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %282 = call ptr @php_libxml_attr_value(ptr noundef nonnull %.1.i15.i, ptr noundef nonnull %281) #8
   store ptr %282, ptr %5, align 8, !tbaa !86, !alias.scope !140
@@ -2096,7 +2090,7 @@ lxb_selectors_adapted_has_attr.exit71.i:          ; preds = %311, %296, %lxb_sel
   br label %dom_lxb_str_wrapper_release.exit.i46
 
 dom_lxb_str_wrapper_release.exit.i46:             ; preds = %318, %lxb_selectors_adapted_has_attr.exit71.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lxb_selectors_match_element.exit
 
 320:                                              ; preds = %260
@@ -3803,36 +3797,36 @@ lxb_selectors_is_lowercased_html_attrib_name.exit: ; preds = %lxb_selectors_attr
   ret void
 }
 
-declare ptr @xmlDictExists(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @xmlDictExists(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lexbor_str_data_ncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @lexbor_str_data_ncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
-declare zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_ns_is_html_and_document_is_html(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xmlHasProp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @php_libxml_attr_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @php_libxml_attr_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lexbor_str_data_ncmp_contain(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @lexbor_str_data_ncmp_contain(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @php_dom_ns_is_fast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @lxb_selectors_pseudo_class_disabled(ptr noundef %0) unnamed_addr #0 {
@@ -4179,18 +4173,24 @@ lxb_selectors_adapted_has_attr.exit17:            ; preds = %52, %36, %47, %31, 
   ret i1 %.0
 }
 
-declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @dom_compare_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @dom_compare_value(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

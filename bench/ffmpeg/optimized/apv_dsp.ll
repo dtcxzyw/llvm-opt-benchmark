@@ -16,8 +16,8 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   %7 = alloca [8 x [8 x i16]], align 16
   %8 = alloca [8 x [8 x i32]], align 16
   %9 = alloca [8 x [8 x i32]], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = add nsw i32 %4, -2
   %11 = add nsw i32 %4, -3
   %12 = shl nuw i32 1, %11
@@ -31,7 +31,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   br label %18
 
 16:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.preheader121
 
 17:                                               ; preds = %18
@@ -126,7 +126,7 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   br label %.preheader115
 
 48:                                               ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %49 = icmp eq i32 %4, 8
   br i1 %49, label %.preheader, label %72
 
@@ -234,16 +234,16 @@ define internal void @apv_decode_transquant_c(ptr noundef writeonly captures(non
   br i1 %exitcond191.not, label %81, label %83, !llvm.loop !28
 
 .loopexit:                                        ; preds = %81, %61
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
@@ -255,7 +255,6 @@ attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize wil
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

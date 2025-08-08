@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @setcpuaffinity(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.cpu_set_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 
@@ -24,7 +24,7 @@ define dso_local void @setcpuaffinity(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %4, %.loopexit
   %.0111 = phi ptr [ %0, %4 ], [ %7, %.loopexit ]
-  %6 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %.0111, i32 noundef 44) #8
+  %6 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %.0111, i32 noundef 44) #7
   %.not7.i = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i8, ptr %.0111, align 1, !tbaa !12
@@ -32,7 +32,7 @@ define dso_local void @setcpuaffinity(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @__ctype_b_loc() #9
+  %11 = tail call ptr @__ctype_b_loc() #8
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = sext i8 %8 to i64
   %14 = getelementptr inbounds i16, ptr %12, i64 %13
@@ -42,7 +42,7 @@ define dso_local void @setcpuaffinity(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i44, label %.critedge, label %next_num.exit
 
 next_num.exit:                                    ; preds = %10
-  %17 = call i64 @strtoul(ptr noundef nonnull %.0111, ptr noundef nonnull %2, i32 noundef 10) #7
+  %17 = call i64 @strtoul(ptr noundef nonnull %.0111, ptr noundef nonnull %2, i32 noundef 10) #9
   %18 = trunc i64 %17 to i32
   %19 = load ptr, ptr %2, align 8, !tbaa !5
   %.not108 = icmp eq ptr %.0111, %19
@@ -53,10 +53,10 @@ next_num.exit:                                    ; preds = %10
   br i1 %.not.i46, label %.preheader.preheader, label %next_token.exit55
 
 next_token.exit55:                                ; preds = %20
-  %21 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %19, i32 noundef 45) #8
+  %21 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %19, i32 noundef 45) #7
   %.not7.i48 = icmp ne ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %23 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %19, i32 noundef 44) #8
+  %23 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %19, i32 noundef 44) #7
   %.not7.i53 = icmp eq ptr %23, null
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %spec.select.i54 = select i1 %.not7.i53, ptr null, ptr %24
@@ -80,7 +80,7 @@ next_token.exit55:                                ; preds = %20
   br i1 %.not.i56, label %.critedge, label %next_num.exit59
 
 next_num.exit59:                                  ; preds = %29
-  %35 = call i64 @strtoul(ptr noundef nonnull %22, ptr noundef nonnull %2, i32 noundef 10) #7
+  %35 = call i64 @strtoul(ptr noundef nonnull %22, ptr noundef nonnull %2, i32 noundef 10) #9
   %36 = trunc i64 %35 to i32
   %37 = load ptr, ptr %2, align 8, !tbaa !5
   %.not109 = icmp eq ptr %22, %37
@@ -96,7 +96,7 @@ next_num.exit59:                                  ; preds = %29
   br i1 %.not36, label %next_token.exit55.thread, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %37, i32 noundef 58) #8
+  %42 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %37, i32 noundef 58) #7
   %.not7.i62 = icmp ne ptr %42, null
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %spec.select.i63 = select i1 %.not7.i62, ptr %43, ptr null
@@ -120,7 +120,7 @@ next_num.exit59:                                  ; preds = %29
   br i1 %.not.i65, label %.critedge, label %next_num.exit68
 
 next_num.exit68:                                  ; preds = %48
-  %54 = call i64 @strtoul(ptr noundef nonnull %43, ptr noundef nonnull %2, i32 noundef 10) #7
+  %54 = call i64 @strtoul(ptr noundef nonnull %43, ptr noundef nonnull %2, i32 noundef 10) #9
   %55 = trunc i64 %54 to i32
   %56 = load ptr, ptr %2, align 8, !tbaa !5
   %57 = icmp eq ptr %43, %56
@@ -171,46 +171,46 @@ next_token.exit55.thread:                         ; preds = %38, %39, %next_num.
   br i1 %.not31, label %76, label %.critedge
 
 76:                                               ; preds = %74, %73
-  %77 = call i32 @sched_setaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %3) #7
+  %77 = call i32 @sched_setaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %3) #9
   br label %.critedge
 
 .critedge:                                        ; preds = %45, %48, %26, %29, %5, %10, %next_num.exit, %next_num.exit59, %next_num.exit68, %next_token.exit55.thread, %74, %1, %76
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
-declare i32 @sched_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sched_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #5
+declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

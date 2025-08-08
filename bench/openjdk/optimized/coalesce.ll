@@ -1449,7 +1449,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit222:           ; preds = %408, %426
   %504 = sub i32 %488, %503
   %505 = load ptr, ptr %5, align 8
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 224
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %507 = load i32, ptr %506, align 8
   store i32 %507, ptr %4, align 4
   %508 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %490, ptr noundef nonnull %451, i32 noundef %504, ptr noundef nonnull %411, ptr noundef %466, ptr noundef nonnull align 4 dereferenceable(4) %4) #9
@@ -1462,7 +1462,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit222:           ; preds = %408, %426
   br label %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit
 
 _ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit: ; preds = %465, %510
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %571
 
 512:                                              ; preds = %463, %456, %434
@@ -1839,7 +1839,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit236:           ; preds = %_ZN12LiveRangeMap4f
   store i32 %725, ptr %182, align 8
   %726 = load ptr, ptr %5, align 8
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 224
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %728 = load i32, ptr %727, align 8
   store i32 %728, ptr %3, align 4
   %729 = call noundef i32 @_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_Rj(ptr noundef nonnull align 8 dereferenceable(364) %726, ptr noundef nonnull %178, i32 noundef %723, ptr noundef nonnull %688, ptr noundef %722, ptr noundef nonnull align 4 dereferenceable(4) %3) #9
@@ -1852,7 +1852,7 @@ _ZN12LiveRangeMap4findEPK4Node.exit236:           ; preds = %_ZN12LiveRangeMap4f
   br label %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237
 
 _ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237: ; preds = %721, %731
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %733 = add i32 %729, %723
   br label %788
 
@@ -4550,10 +4550,10 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

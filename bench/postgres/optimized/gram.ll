@@ -331,14 +331,14 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %5 = alloca [200 x %union.YYSTYPE], align 16
   %6 = alloca [200 x i32], align 16
   %7 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -28731,63 +28731,57 @@ list_length.exit10201.thread:                     ; preds = %12855, %list_length
   br label %15628
 
 15628:                                            ; preds = %.thread10255, %15627
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.01002110245
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare i32 @base_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @base_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare ptr @makeString(ptr noundef) local_unnamed_addr #3
+declare ptr @makeString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @scanner_errposition(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @scanner_errposition(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeBoolean(i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @makeBoolean(i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @makeInteger(i32 noundef) local_unnamed_addr #3
+declare ptr @makeInteger(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
-declare ptr @makeStringConst(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeStringConst(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeAConst(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
@@ -28844,7 +28838,7 @@ define internal fastcc noundef ptr @makeStringConstCast(ptr noundef %0, i32 noun
   ret ptr %5
 }
 
-declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #3
+declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #0 {
@@ -29014,11 +29008,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   ret void
 }
 
-declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #3
+declare ptr @makeTypeNameFromNameList(ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeDefElemExtended(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeDefElemExtended(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @defGetInt32(ptr noundef) local_unnamed_addr #3
+declare i32 @defGetInt32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeRangeVarFromAnyName(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -29100,7 +29094,7 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
   ret ptr %4
 }
 
-declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @updatePreparableStmtEnd(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
@@ -29238,7 +29232,7 @@ define internal fastcc void @SplitColQualList(ptr noundef %0, ptr noundef writeo
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 104, 115) i32 @parsePartitionStrategy(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -29270,7 +29264,7 @@ define internal fastcc range(i32 104, 115) i32 @parsePartitionStrategy(ptr nound
   ret i32 %.0
 }
 
-declare ptr @makeFloat(ptr noundef) local_unnamed_addr #3
+declare ptr @makeFloat(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @doNegateFloat(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -29298,10 +29292,10 @@ define internal fastcc void @doNegateFloat(ptr noundef captures(none) %0) unname
   ret void
 }
 
-declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @scanner_yyerror(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @scanner_yyerror(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mergeTableFuncParameters(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -29755,7 +29749,7 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   ret void
 }
 
-declare ptr @makeRangeVar(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeRangeVar(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @makeRangeVarFromQualifiedName(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -29927,9 +29921,9 @@ define internal fastcc noundef ptr @makeRecursiveViewSelect(ptr noundef %0, ptr 
   ret ptr %4
 }
 
-declare ptr @makeVacuumRelation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @makeVacuumRelation(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @check_indirection(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
@@ -30165,7 +30159,7 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   ret void
 }
 
-declare ptr @makeSimpleA_Expr(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeSimpleA_Expr(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @doNegate(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -30223,13 +30217,13 @@ doNegateFloat.exit:                               ; preds = %20, %22
   ret ptr %.1
 }
 
-declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeGroupingSet(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeJsonTablePathSpec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeJsonTablePathSpec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeJsonFormat(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeJsonFormat(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeTypeName(ptr noundef) local_unnamed_addr #3
+declare ptr @makeTypeName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SystemTypeName(ptr noundef %0) local_unnamed_addr #0 {
@@ -30240,7 +30234,7 @@ define dso_local ptr @SystemTypeName(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %5
 }
 
-declare ptr @makeFuncCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeFuncCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SystemFuncName(ptr noundef %0) local_unnamed_addr #0 {
@@ -30250,7 +30244,7 @@ define dso_local ptr @SystemFuncName(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %4
 }
 
-declare ptr @makeA_Expr(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeA_Expr(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @makeAndExpr(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -30317,11 +30311,11 @@ define internal fastcc ptr @makeNotExpr(ptr noundef %0, i32 noundef %1) unnamed_
   ret ptr %4
 }
 
-declare ptr @makeJsonIsPredicate(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
+declare ptr @makeJsonIsPredicate(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
-declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #3
+declare ptr @list_make3_impl(i32 noundef, ptr, ptr, ptr) local_unnamed_addr #2
 
-declare ptr @list_make4_impl(i32 noundef, ptr, ptr, ptr, ptr) local_unnamed_addr #3
+declare ptr @list_make4_impl(i32 noundef, ptr, ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -30483,42 +30477,48 @@ check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i4
   ret ptr %.sink89
 }
 
-declare ptr @makeJsonBehavior(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeJsonBehavior(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @makeJsonValueExpr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @makeJsonValueExpr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeJsonKeyValue(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @makeJsonKeyValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @parser_init(ptr noundef writeonly captures(none) initializes((128, 136)) %0) local_unnamed_addr #7 {
+define dso_local void @parser_init(ptr noundef writeonly captures(none) initializes((128, 136)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %2, align 8
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @list_copy_tail(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @list_copy_tail(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @exprLocation(ptr noundef) local_unnamed_addr #3
+declare i32 @exprLocation(ptr noundef) local_unnamed_addr #2
 
-declare ptr @makeBoolExpr(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @makeBoolExpr(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
+declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
-declare ptr @NameListToString(ptr noundef) local_unnamed_addr #3
+declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -30533,13 +30533,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }

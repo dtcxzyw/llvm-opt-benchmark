@@ -2277,7 +2277,7 @@ define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %4 = alloca %class.ZStoreBarrierRuntimeStubCodeGenClosure, align 8
   %5 = alloca %class.ZLoadBarrierRuntimeStubCodeGenClosure, align 8
   %6 = alloca %class.ZLoadBarrierRuntimeStubCodeGenClosure, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ZLoadBarrierRuntimeStubCodeGenClosure, i64 16), ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 16384, ptr %7, align 8
@@ -2286,10 +2286,10 @@ define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV37ZLoadBarrierRuntimeStubCodeGenClosure, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 32768, ptr %14, align 8
@@ -2298,10 +2298,10 @@ define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV38ZStoreBarrierRuntimeStubCodeGenClosure, i64 16), ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %21, align 8
@@ -2310,10 +2310,10 @@ define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %22, i64 %25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %26, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV38ZStoreBarrierRuntimeStubCodeGenClosure, i64 16), ptr %3, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %28, align 8
@@ -2322,7 +2322,7 @@ define hidden void @_ZN13ZBarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %33, ptr %34, align 8
   ret void
@@ -3495,10 +3495,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

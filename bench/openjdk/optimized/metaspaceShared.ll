@@ -1527,7 +1527,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %23, %_ZN26GrowableA
   br i1 %51, label %52, label %118
 
 52:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   %53 = load i32, ptr %13, align 4
   %54 = load i32, ptr %14, align 8
@@ -1677,7 +1677,7 @@ _ZN14BytecodeStream4nextEv.exit:                  ; preds = %99, %102
 
 _ZL23rewrite_nofast_bytecodeRK12methodHandle.exit: ; preds = %115, %52
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %118
 
 118:                                              ; preds = %_ZL23rewrite_nofast_bytecodeRK12methodHandle.exit, %49, %_ZN12methodHandleC2EP6ThreadP6Method.exit
@@ -1814,8 +1814,8 @@ _ZN26VM_PopulateDumpSharedSpace24dump_shared_symbol_tableEP13GrowableArrayIP6Sym
 29:                                               ; preds = %_ZN26VM_PopulateDumpSharedSpace24dump_shared_symbol_tableEP13GrowableArrayIP6SymbolE.exit, %28
   %30 = load ptr, ptr %10, align 8
   tail call void @_ZN14ArchiveBuilder22make_klasses_shareableEv(ptr noundef nonnull align 8 dereferenceable(1080) %30) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 352
   %33 = load ptr, ptr %32, align 8
@@ -1832,8 +1832,8 @@ _ZN26VM_PopulateDumpSharedSpace24dump_shared_symbol_tableEP13GrowableArrayIP6Sym
   store ptr %35, ptr %38, align 8
   call void @_ZN15MetaspaceShared9serializeEP16SerializeClosure(ptr noundef nonnull %3)
   call void @_ZN14ArchiveBuilder16OtherROAllocMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN22SystemDictionaryShared36adjust_lambda_proxy_class_dictionaryEv() #15
   call void @_ZN10CppVtables21zero_archived_vtablesEv() #15
   %39 = load ptr, ptr @_ZN9CDSConfig20_static_archive_pathE, align 8
@@ -2774,10 +2774,10 @@ define hidden void @_ZN15MetaspaceShared29adjust_heap_sizes_for_dumpingEv() loca
   br label %14
 
 14:                                               ; preds = %10, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 4294967296, ptr %3, align 8
   %15 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1191, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -2796,10 +2796,10 @@ define hidden void @_ZN15MetaspaceShared29adjust_heap_sizes_for_dumpingEv() loca
   br label %23
 
 23:                                               ; preds = %19, %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 4294967296, ptr %2, align 8
   %24 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1192, i32 noundef 6, ptr noundef nonnull %2, i32 noundef 5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %23, %16
@@ -2818,10 +2818,10 @@ define hidden void @_ZN15MetaspaceShared29adjust_heap_sizes_for_dumpingEv() loca
   br label %32
 
 32:                                               ; preds = %28, %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 4294967296, ptr %1, align 8
   %33 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1193, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %34
 
 34:                                               ; preds = %0, %32, %25
@@ -2937,11 +2937,11 @@ define hidden void @_ZN15MetaspaceShared15preload_classesEP10JavaThread(ptr noun
   br label %11
 
 11:                                               ; preds = %1, %10
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN15ClassListParserC1EPKcNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(520) %4, ptr noundef nonnull %., i32 noundef 0) #15
   call void @_ZN15ClassListParser5parseEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) %4, ptr noundef %0) #15
   call void @_ZN15ClassListParserD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %4) #15
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not17 = icmp eq ptr %13, null
@@ -2953,11 +2953,11 @@ define hidden void @_ZN15MetaspaceShared15preload_classesEP10JavaThread(ptr noun
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN15ClassListParserC1EPKcNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(520) %3, ptr noundef nonnull %15, i32 noundef 0) #15
   call void @_ZN15ClassListParser5parseEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) %3, ptr noundef nonnull %0) #15
   call void @_ZN15ClassListParserD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %3) #15
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load ptr, ptr %12, align 8
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %18, label %30
@@ -2972,11 +2972,11 @@ define hidden void @_ZN15MetaspaceShared15preload_classesEP10JavaThread(ptr noun
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN15ClassListParserC1EPKcNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(520) %2, ptr noundef nonnull %5, i32 noundef 1) #15
   call void @_ZN15ClassListParser5parseEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) %2, ptr noundef nonnull %0) #15
   call void @_ZN15ClassListParserD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %2) #15
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = load ptr, ptr %12, align 8
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %24, label %30
@@ -3754,7 +3754,7 @@ define hidden noundef ptr @_ZN15MetaspaceShared34reserve_address_space_for_archi
   br i1 %.not, label %86, label %38
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %40 = icmp sgt i32 %39, 1
   br i1 %40, label %41, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
@@ -3768,7 +3768,7 @@ define hidden noundef ptr @_ZN15MetaspaceShared34reserve_address_space_for_archi
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   %42 = phi ptr [ %37, %38 ], [ %.pre, %41 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %86
 
 43:                                               ; preds = %20
@@ -3807,10 +3807,10 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   br label %64
 
 64:                                               ; preds = %59, %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %61, ptr %8, align 8
   %65 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 784, i32 noundef 6, ptr noundef nonnull %8, i32 noundef 5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre87 = add i64 %61, %51
   br label %66
 
@@ -3846,7 +3846,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   %76 = load ptr, ptr %3, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i64, ptr %77, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %79 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %80 = icmp sgt i32 %79, 1
   %81 = icmp ne ptr %76, null
@@ -3860,7 +3860,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %38, %41
   br label %84
 
 84:                                               ; preds = %82, %73
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %85 = load ptr, ptr %4, align 8
   br label %86
 
@@ -6438,10 +6438,10 @@ declare i32 @llvm.umin.i32(i32, i32) #13
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #13

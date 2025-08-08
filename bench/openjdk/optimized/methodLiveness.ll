@@ -80,7 +80,7 @@ _ZN14MethodLiveness13init_gen_killEv.exit.thread: ; preds = %1
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next.i
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %18, ptr %2, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -127,7 +127,7 @@ _ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit.i: ; preds = %
   %39 = getelementptr inbounds i8, ptr %37, i64 %38
   store ptr %39, ptr %12, align 8
   call void @_ZN14MethodLiveness10BasicBlock22compute_gen_kill_rangeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(169) %17, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %40, label %14, label %_ZN14MethodLiveness13init_gen_killEv.exit, !llvm.loop !6
 
@@ -1912,7 +1912,7 @@ define hidden void @_ZN14MethodLiveness13init_gen_killEv(ptr noundef nonnull rea
   %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %17, ptr %2, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
@@ -1959,7 +1959,7 @@ _ZN14MethodLiveness10BasicBlock16compute_gen_killEP8ciMethod.exit: ; preds = %19
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   store ptr %38, ptr %11, align 8
   call void @_ZN14MethodLiveness10BasicBlock22compute_gen_kill_rangeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(169) %16, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %39, label %13, label %._crit_edge, !llvm.loop !6
 
@@ -3450,10 +3450,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -73,23 +73,17 @@ define i32 @BIO_set_cipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   ret i32 %.029
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_get_callback_ex(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_get_callback_ex(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_get_callback(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_get_callback(ptr noundef) local_unnamed_addr #3
+declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BIO_set_init(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
+declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @enc_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
@@ -209,7 +203,7 @@ define internal i32 @enc_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   ret i32 %.0
 }
 
-declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
+declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
@@ -345,7 +339,7 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
 
 72:                                               ; preds = %70
   %73 = sub nsw i32 %.1119171, %spec.store.select
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = load ptr, ptr %30, align 8, !tbaa !3
   %75 = call i32 @llvm.smin.i32(i32 %.1124154, i32 %73)
   %76 = call i32 @EVP_CipherUpdate(ptr noundef %74, ptr noundef %.1114172, ptr noundef nonnull %4, ptr noundef %.pre, i32 noundef %75) #6
@@ -354,7 +348,7 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
 
 .thread155:                                       ; preds = %72
   call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
 77:                                               ; preds = %72
@@ -372,13 +366,13 @@ define internal i32 @enc_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1
   %86 = sext i32 %73 to i64
   %87 = getelementptr inbounds i8, ptr %85, i64 %86
   store ptr %87, ptr %38, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
 88:                                               ; preds = %77
   %89 = load ptr, ptr %39, align 8, !tbaa !20
   store ptr %89, ptr %38, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 90:                                               ; preds = %.thread161, %70
@@ -743,46 +737,52 @@ define internal i64 @enc_callback_ctrl(ptr noundef %0, i32 noundef %1, ptr nound
   ret i64 %.0
 }
 
-declare ptr @BIO_next(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_next(ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #3
+declare void @BIO_copy_next_retry(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_test_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #3
+declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
@@ -792,9 +792,9 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

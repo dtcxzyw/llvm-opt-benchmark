@@ -942,14 +942,11 @@ define hidden void @proto_register_wimaxmacphy() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1032,10 +1029,10 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
 .lr.ph.i.i:                                       ; preds = %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i ]
   %.02.i.i = phi i32 [ 16, %.lr.ph.preheader.i.i ], [ %.1.lcssa.i.i.i, %dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %54 = load i32, ptr @ett_wimaxmacphy_dl_zone_descriptor, align 4
   %55 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.02.i.i, i32 noundef 1, i32 noundef %54, ptr noundef nonnull %12, ptr noundef nonnull @.str.622, i32 noundef %indvars.iv.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %56 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02.i.i)
   %57 = load i32, ptr @hf_wimaxmacphy_dl_zone_type, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %57, ptr noundef %0, i32 noundef %.02.i.i, i32 noundef 1, i32 noundef 0)
@@ -1124,7 +1121,7 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %.12.i.i.i = phi i32 [ %121, %.lr.ph.preheader.i.i.i ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
   %122 = load i32, ptr @ett_wimaxmacphy_dl_burst_descriptor, align 4
   %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 1, i32 noundef %122, ptr noundef nonnull %11, ptr noundef nonnull @.str.625, i32 noundef %indvars.iv.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %124 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12.i.i.i)
   %125 = load i32, ptr @hf_wimaxmacphy_dl_burst_type, align 4
   %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef %0, i32 noundef %.12.i.i.i, i32 noundef 1, i32 noundef 0)
@@ -1329,7 +1326,7 @@ dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i: ; preds = %.sink.split
 dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i, %198
   %.1.lcssa.i.i.i.i = phi i32 [ %205, %198 ], [ %.0.i.i.i.i.i, %dissect_wimaxmacphy_dl_sub_burst_descriptor.exit.i.i.i.i ]
   %265 = sub i32 %.1.lcssa.i.i.i.i, %.12.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %266 = load ptr, ptr %11, align 8
   call void @proto_item_set_len(ptr noundef %266, i32 noundef %265)
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
@@ -1339,10 +1336,10 @@ dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacp
 dissect_wimaxmacphy_dl_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i, %114
   %.1.lcssa.i.i.i = phi i32 [ %121, %114 ], [ %.1.lcssa.i.i.i.i, %dissect_wimaxmacphy_dl_burst_descriptor.exit.i.i.i ]
   %267 = sub i32 %.1.lcssa.i.i.i, %.02.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %268 = load ptr, ptr %12, align 8
   call void @proto_item_set_len(ptr noundef %268, i32 noundef %267)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next.i.i = add nuw nsw i32 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
@@ -1466,10 +1463,10 @@ dissect_wimaxmacphy_phy_txstart_request.exit:     ; preds = %dissect_wimaxmacphy
 .lr.ph.i.i105:                                    ; preds = %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i, %.lr.ph.preheader.i.i103
   %indvars.iv.i.i106 = phi i32 [ 0, %.lr.ph.preheader.i.i103 ], [ %indvars.iv.next.i.i129, %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i ]
   %.02.i.i107 = phi i32 [ 16, %.lr.ph.preheader.i.i103 ], [ %.1.lcssa.i.i.i128, %dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %356 = load i32, ptr @ett_wimaxmacphy_ul_zone_descriptor, align 4
   %357 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.02.i.i107, i32 noundef 1, i32 noundef %356, ptr noundef nonnull %9, ptr noundef nonnull @.str.622, i32 noundef %indvars.iv.i.i106)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %358 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02.i.i107)
   %359 = load i32, ptr @hf_wimaxmacphy_ul_zone_type, align 4
   %360 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %359, ptr noundef %0, i32 noundef %.02.i.i107, i32 noundef 1, i32 noundef 0)
@@ -1538,7 +1535,7 @@ dissect_wimaxmacphy_phy_txstart_request.exit:     ; preds = %dissect_wimaxmacphy
   %.12.i.i.i114 = phi i32 [ %407, %.lr.ph.preheader.i.i.i110 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
   %408 = load i32, ptr @ett_wimaxmacphy_ul_burst_descriptor, align 4
   %409 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %357, ptr noundef %0, i32 noundef %.12.i.i.i114, i32 noundef 1, i32 noundef %408, ptr noundef nonnull %8, ptr noundef nonnull @.str.625, i32 noundef %indvars.iv.i.i.i113)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %410 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.12.i.i.i114)
   %411 = load i32, ptr @hf_wimaxmacphy_ul_burst_type, align 4
   %412 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %411, ptr noundef %0, i32 noundef %.12.i.i.i114, i32 noundef 1, i32 noundef 0)
@@ -1918,8 +1915,8 @@ dissect_wimaxmacphy_phy_txstart_request.exit:     ; preds = %dissect_wimaxmacphy
   br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 728:                                              ; preds = %.lr.ph.i.i.i.i119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %729 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_sub_allocation_specific, align 4
   %730 = call ptr @proto_tree_add_subtree(ptr noundef %622, ptr noundef %0, i32 noundef %638, i32 noundef 1, i32 noundef %729, ptr noundef nonnull %5, ptr noundef nonnull @.str.645)
   %731 = load i32, ptr @hf_wimaxmacphy_sub_burst_symbol_offset, align 4
@@ -1983,8 +1980,8 @@ dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i: ; 
   %770 = load ptr, ptr %5, align 8
   %771 = sub i32 %.0.i.i.i.i.i.i, %638
   call void @proto_item_set_len(ptr noundef %770, i32 noundef %771)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i
 
 dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part.exit.i.i.i.i.i, %695, %687, %651, %639
@@ -1999,7 +1996,7 @@ dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i: ; preds = %dissect_wim
 dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i, %613
   %.1.lcssa.i.i.i.i125 = phi i32 [ %620, %613 ], [ %.0.i.i.i.i.i122, %dissect_wimaxmacphy_ul_sub_burst_descriptor.exit.i.i.i.i ]
   %774 = sub i32 %.1.lcssa.i.i.i.i125, %.12.i.i.i114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %775 = load ptr, ptr %8, align 8
   call void @proto_item_set_len(ptr noundef %775, i32 noundef %774)
   %indvars.iv.next.i.i.i126 = add nuw nsw i32 %indvars.iv.i.i.i113, 1
@@ -2009,10 +2006,10 @@ dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i: ; preds = %dissect_wimaxmacp
 dissect_wimaxmacphy_ul_zone_descriptor.exit.i.i:  ; preds = %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i, %400
   %.1.lcssa.i.i.i128 = phi i32 [ %407, %400 ], [ %.1.lcssa.i.i.i.i125, %dissect_wimaxmacphy_ul_burst_descriptor.exit.i.i.i ]
   %776 = sub i32 %.1.lcssa.i.i.i128, %.02.i.i107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %777 = load ptr, ptr %9, align 8
   call void @proto_item_set_len(ptr noundef %777, i32 noundef %776)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next.i.i129 = add nuw nsw i32 %indvars.iv.i.i106, 1
   %exitcond.not.i.i130 = icmp eq i32 %indvars.iv.next.i.i129, %wide.trip.count.i.i104
   br i1 %exitcond.not.i.i130, label %._crit_edge.loopexit.i.i131, label %.lr.ph.i.i105, !llvm.loop !12
@@ -2240,19 +2237,16 @@ dissect_wimaxmacphy_phy_rxend_indication.exit:    ; preds = %900, %854, %839, %8
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_wimaxmacphy() local_unnamed_addr #0 {
@@ -2262,54 +2256,59 @@ define hidden void @proto_reg_handoff_wimaxmacphy() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

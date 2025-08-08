@@ -1150,7 +1150,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
           to label %445 unwind label %4021
 
 445:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   br i1 %444, label %448, label %446
 
 446:                                              ; preds = %445
@@ -1172,7 +1172,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
   unreachable
 
 448:                                              ; preds = %445
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %449 = load ptr, ptr %433, align 8
   %.not.i.i.i.i = icmp eq ptr %449, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit, label %450
@@ -1256,14 +1256,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit: ; preds = %448, %4
   br i1 %or.cond, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   br label %488
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 24
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 8
   %487 = fcmp oeq float %.sroa.22.0.copyload.i, 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   br i1 %487, label %490, label %488
 
 488:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit
@@ -1285,7 +1285,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxr
   unreachable
 
 490:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %491 = load ptr, ptr %434, align 8
   %.not.i.i.i.i.i207 = icmp eq ptr %491, null
   br i1 %.not.i.i.i.i.i207, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit, label %492
@@ -1437,7 +1437,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
           to label %555 unwind label %4026
 
 555:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   br i1 %554, label %558, label %556
 
 556:                                              ; preds = %555
@@ -1459,7 +1459,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
   unreachable
 
 558:                                              ; preds = %555
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %559 = load ptr, ptr %533, align 8
   %.not.i.i.i.i216 = icmp eq ptr %559, null
   br i1 %.not.i.i.i.i216, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222, label %560
@@ -1542,14 +1542,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222: ; preds = %558,
   br i1 %or.cond1792, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   br label %597
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222
   %.sroa.22.0..sroa_idx.i224 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %.sroa.22.0.copyload.i225 = load float, ptr %.sroa.22.0..sroa_idx.i224, align 8
   %596 = fcmp oeq float %.sroa.22.0.copyload.i225, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   br i1 %596, label %599, label %597
 
 597:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228
@@ -1571,7 +1571,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32
   unreachable
 
 599:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %600 = load ptr, ptr %530, align 8
   %.not.i.i.i.i.i231 = icmp eq ptr %600, null
   br i1 %.not.i.i.i.i.i231, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit237, label %601
@@ -1753,7 +1753,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
           to label %684 unwind label %4031
 
 684:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   br i1 %683, label %687, label %685
 
 685:                                              ; preds = %684
@@ -1775,7 +1775,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
   unreachable
 
 687:                                              ; preds = %684
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %688 = load ptr, ptr %672, align 8
   %.not.i.i.i.i250 = icmp eq ptr %688, null
   br i1 %.not.i.i.i.i250, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256, label %689
@@ -1859,14 +1859,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256: ; preds = %687,
   br i1 %or.cond1793, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   br label %727
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256
   %.sroa.22.0..sroa_idx.i258 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %.sroa.22.0.copyload.i259 = load float, ptr %.sroa.22.0..sroa_idx.i258, align 8
   %726 = fcmp oeq float %.sroa.22.0.copyload.i259, 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   br i1 %726, label %729, label %727
 
 727:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262
@@ -1888,7 +1888,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32
   unreachable
 
 729:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %730 = load ptr, ptr %673, align 8
   %.not.i.i.i.i.i265 = icmp eq ptr %730, null
   br i1 %.not.i.i.i.i.i265, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit271, label %731
@@ -2002,7 +2002,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
           to label %781 unwind label %4036
 
 781:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   br i1 %780, label %784, label %782
 
 782:                                              ; preds = %781
@@ -2024,7 +2024,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
   unreachable
 
 784:                                              ; preds = %781
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %785 = load ptr, ptr %769, align 8
   %.not.i.i.i.i277 = icmp eq ptr %785, null
   br i1 %.not.i.i.i.i277, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283, label %786
@@ -2108,14 +2108,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283: ; preds = %784,
   br i1 %or.cond1794, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   br label %824
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283
   %.sroa.22.0..sroa_idx.i285 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %.sroa.22.0.copyload.i286 = load float, ptr %.sroa.22.0..sroa_idx.i285, align 8
   %823 = fcmp oeq float %.sroa.22.0.copyload.i286, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   br i1 %823, label %826, label %824
 
 824:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289
@@ -2137,7 +2137,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32
   unreachable
 
 826:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %827 = load ptr, ptr %770, align 8
   %.not.i.i.i.i.i292 = icmp eq ptr %827, null
   br i1 %.not.i.i.i.i.i292, label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298, label %828
@@ -2236,7 +2236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   %872 = call noundef float @llvm.fmuladd.f32(float %868, float %868, float %871)
   %873 = fpext float %872 to double
   %874 = fcmp ugt double %873, 0x3D7197997FB06240
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   br i1 %874, label %875, label %877
 
 875:                                              ; preds = %863
@@ -2258,7 +2258,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   unreachable
 
 877:                                              ; preds = %863
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %91, ptr noundef nonnull align 8 dereferenceable(28) %90, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %878 unwind label %4041
 
@@ -2281,7 +2281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   %888 = call noundef float @llvm.fmuladd.f32(float %884, float %884, float %887)
   %889 = fpext float %888 to double
   %890 = fcmp ugt double %889, 0x3D06849B8F759720
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   br i1 %890, label %891, label %893
 
 891:                                              ; preds = %878
@@ -2303,7 +2303,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   unreachable
 
 893:                                              ; preds = %878
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %894 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %895 = load ptr, ptr %894, align 8
   %.not.i.i.i.i.i313 = icmp eq ptr %895, null
@@ -2550,7 +2550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
   %1012 = call noundef float @llvm.fmuladd.f32(float %1008, float %1008, float %1011)
   %1013 = fpext float %1012 to double
   %1014 = fcmp ugt double %1013, 0x3D06849B8F759720
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   br i1 %1014, label %1015, label %1017
 
 1015:                                             ; preds = %1003
@@ -2572,7 +2572,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
   unreachable
 
 1017:                                             ; preds = %1003
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %1018 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %1019 = load ptr, ptr %1018, align 8
   %.not.i.i.i.i.i346 = icmp eq ptr %1019, null
@@ -2762,11 +2762,11 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1099 = call noundef float @llvm.fmuladd.f32(float %1095, float %1095, float %1098)
   %1100 = fpext float %1099 to double
   %1101 = fcmp ugt double %1100, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   br i1 %1101, label %.invoke1805, label %1102
 
 1102:                                             ; preds = %1093
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %1103 = fsub <2 x float> %306, %1090
   %1104 = extractelement <2 x float> %1103, i64 0
   %1105 = fsub <2 x float> %306, %1090
@@ -2775,11 +2775,11 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1108 = call noundef float @llvm.fmuladd.f32(float %1104, float %1104, float %1107)
   %1109 = fpext float %1108 to double
   %1110 = fcmp ugt double %1109, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   br i1 %1110, label %.invoke1805, label %1111
 
 1111:                                             ; preds = %1102
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %1112 = fsub <2 x float> %1091, %1092
   %1113 = extractelement <2 x float> %1112, i64 0
   %.sroa.01692.4.vec.extract = extractelement <2 x float> %1092, i64 1
@@ -2789,11 +2789,11 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1116 = call noundef float @llvm.fmuladd.f32(float %1113, float %1113, float %1115)
   %1117 = fpext float %1116 to double
   %1118 = fcmp ugt double %1117, 0x3F3A36E2D7731900
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   br i1 %1118, label %.invoke1805, label %1119
 
 1119:                                             ; preds = %1111
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %1120 = fsub <2 x float> %306, %1091
   %1121 = extractelement <2 x float> %1120, i64 0
   %1122 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.0.4.vec.extract.i.i382
@@ -2801,11 +2801,11 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1124 = call noundef float @llvm.fmuladd.f32(float %1121, float %1121, float %1123)
   %1125 = fpext float %1124 to double
   %1126 = fcmp ugt double %1125, 0x3F647AE151EB8520
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   br i1 %1126, label %.invoke1805, label %1127
 
 1127:                                             ; preds = %1119
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1128 = fsub <2 x float> %306, %1092
   %1129 = extractelement <2 x float> %1128, i64 0
   %1130 = fsub float %.sroa.0.4.vec.extract.i.i, %.sroa.01692.4.vec.extract
@@ -2813,7 +2813,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1132 = call noundef float @llvm.fmuladd.f32(float %1129, float %1129, float %1131)
   %1133 = fpext float %1132 to double
   %1134 = fcmp ugt double %1133, 0x3F3A36E2D7731900
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   br i1 %1134, label %.invoke1805, label %1136
 
 .invoke1805:                                      ; preds = %1127, %1119, %1111, %1102, %1093
@@ -2838,7 +2838,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   unreachable
 
 1136:                                             ; preds = %1127
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %1137 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %1138 = load ptr, ptr %1137, align 8
   %.not.i.i.i.i.i.i393 = icmp eq ptr %1138, null
@@ -3230,7 +3230,7 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   %1326 = call noundef float @llvm.fmuladd.f32(float %1322, float %1322, float %1325)
   %1327 = fpext float %1326 to double
   %1328 = fcmp ugt double %1327, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   br i1 %1328, label %1329, label %1331
 
 1329:                                             ; preds = %1317
@@ -3252,7 +3252,7 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   unreachable
 
 1331:                                             ; preds = %1317
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %100, ptr noundef nonnull align 8 dereferenceable(28) %99, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %1332 unwind label %4066
 
@@ -3273,7 +3273,7 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   %1341 = call noundef float @llvm.fmuladd.f32(float %1337, float %1337, float %1340)
   %1342 = fpext float %1341 to double
   %1343 = fcmp ugt double %1342, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   br i1 %1343, label %1344, label %1346
 
 1344:                                             ; preds = %1332
@@ -3295,7 +3295,7 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
   unreachable
 
 1346:                                             ; preds = %1332
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %1347 = load ptr, ptr %99, align 8, !noalias !21
   store ptr %1347, ptr %101, align 8, !alias.scope !21
@@ -3327,7 +3327,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
           to label %1360 unwind label %4070
 
 1360:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   br i1 %1359, label %1363, label %1361
 
 1361:                                             ; preds = %1360
@@ -3349,7 +3349,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
   unreachable
 
 1363:                                             ; preds = %1360
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %1364 = load ptr, ptr %1348, align 8
   %.not.i.i.i.i461 = icmp eq ptr %1364, null
   br i1 %.not.i.i.i.i461, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit467, label %1365
@@ -3454,7 +3454,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
           to label %1412 unwind label %4072
 
 1412:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   br i1 %1411, label %1415, label %1413
 
 1413:                                             ; preds = %1412
@@ -3476,7 +3476,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
   unreachable
 
 1415:                                             ; preds = %1412
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %1416 = load ptr, ptr %1400, align 8
   %.not.i.i.i.i473 = icmp eq ptr %1416, null
   br i1 %.not.i.i.i.i473, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit479, label %1417
@@ -3570,7 +3570,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit483:     ; preds = %_ZN11GfColorTestC2E
   %1459 = call noundef float @llvm.fmuladd.f32(float %1455, float %1455, float %1458)
   %1460 = fpext float %1459 to double
   %1461 = fcmp ugt double %1460, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   br i1 %1461, label %1462, label %1464
 
 1462:                                             ; preds = %1453
@@ -3592,7 +3592,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit483:     ; preds = %_ZN11GfColorTestC2E
   unreachable
 
 1464:                                             ; preds = %1453
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %104, ptr noundef nonnull align 8 dereferenceable(28) %103, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit491 unwind label %4074
 
@@ -3609,7 +3609,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %1472 = call noundef float @llvm.fmuladd.f32(float %1468, float %1468, float %1471)
   %1473 = fpext float %1472 to double
   %1474 = fcmp ugt double %1473, 0x3F4D7DBF32617C20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   br i1 %1474, label %1475, label %1477
 
 1475:                                             ; preds = %1466
@@ -3631,7 +3631,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   unreachable
 
 1477:                                             ; preds = %1466
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %105, ptr noundef nonnull align 8 dereferenceable(28) %104, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit499 unwind label %4076
 
@@ -3648,7 +3648,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %1485 = call noundef float @llvm.fmuladd.f32(float %1481, float %1481, float %1484)
   %1486 = fpext float %1485 to double
   %1487 = fcmp ugt double %1486, 0x3F4D7DBF32617C20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   br i1 %1487, label %1488, label %1490
 
 1488:                                             ; preds = %1479
@@ -3670,7 +3670,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   unreachable
 
 1490:                                             ; preds = %1479
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef nonnull align 8 dereferenceable(28) %105, ptr noundef nonnull align 8 dereferenceable(16) %65)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColorSpaceE.exit507 unwind label %4078
 
@@ -3687,7 +3687,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %1498 = call noundef float @llvm.fmuladd.f32(float %1494, float %1494, float %1497)
   %1499 = fpext float %1498 to double
   %1500 = fcmp ugt double %1499, 0x3F4D7DBF32617C20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   br i1 %1500, label %1501, label %1503
 
 1501:                                             ; preds = %1492
@@ -3709,7 +3709,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   unreachable
 
 1503:                                             ; preds = %1492
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKS0_RKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %107, ptr noundef nonnull align 8 dereferenceable(28) %106, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %1504 unwind label %4080
 
@@ -3730,7 +3730,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %1513 = call noundef float @llvm.fmuladd.f32(float %1509, float %1509, float %1512)
   %1514 = fpext float %1513 to double
   %1515 = fcmp ugt double %1514, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   br i1 %1515, label %1516, label %1518
 
 1516:                                             ; preds = %1504
@@ -3752,7 +3752,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   unreachable
 
 1518:                                             ; preds = %1504
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %1519 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %1520 = load ptr, ptr %1519, align 8
   %.not.i.i.i.i.i.i528 = icmp eq ptr %1520, null
@@ -4319,7 +4319,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
           to label %1788 unwind label %4092
 
 1788:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br i1 %1787, label %1791, label %1789
 
 1789:                                             ; preds = %1788
@@ -4341,7 +4341,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
   unreachable
 
 1791:                                             ; preds = %1788
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %1792 = load ptr, ptr %1778, align 8
   %.not.i.i.i.i585 = icmp eq ptr %1792, null
   br i1 %.not.i.i.i.i585, label %1827, label %1793
@@ -4428,7 +4428,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1833 = call noundef float @llvm.fmuladd.f32(float %1830, float %1830, float %1832)
   %1834 = fpext float %1833 to double
   %1835 = fcmp ugt double %1834, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   br i1 %1835, label %1836, label %1838
 
 1836:                                             ; preds = %1827
@@ -4450,7 +4450,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 1838:                                             ; preds = %1827
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %1839 = load ptr, ptr %1777, align 8
   %.not.i.i.i.i601 = icmp eq ptr %1839, null
   br i1 %.not.i.i.i.i601, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit607, label %1840
@@ -4724,7 +4724,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrIn
   %1969 = call noundef float @llvm.fmuladd.f32(float %1965, float %1965, float %1968)
   %1970 = fpext float %1969 to double
   %1971 = fcmp ugt double %1970, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   br i1 %1971, label %1972, label %1974
 
 1972:                                             ; preds = %1959
@@ -4746,7 +4746,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrIn
   unreachable
 
 1974:                                             ; preds = %1959
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %1975 = load ptr, ptr %113, align 8, !noalias !30
   store ptr %1975, ptr %116, align 8, !alias.scope !30
@@ -4803,7 +4803,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
           to label %1998 unwind label %4097
 
 1998:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   br i1 %1997, label %2001, label %1999
 
 1999:                                             ; preds = %1998
@@ -4825,7 +4825,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
   unreachable
 
 2001:                                             ; preds = %1998
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %2002 = load ptr, ptr %1987, align 8
   %.not.i.i.i.i645 = icmp eq ptr %2002, null
   br i1 %.not.i.i.i.i645, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651, label %2003
@@ -5086,7 +5086,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %2125 = call noundef float @llvm.fmuladd.f32(float %2122, float %2122, float %2124)
   %2126 = fpext float %2125 to double
   %2127 = fcmp ugt double %2126, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   br i1 %2127, label %2128, label %2130
 
 2128:                                             ; preds = %2117
@@ -5108,7 +5108,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   unreachable
 
 2130:                                             ; preds = %2117
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %2131 = load ptr, ptr %118, align 8, !noalias !36
   store ptr %2131, ptr %122, align 8, !alias.scope !36
@@ -5139,7 +5139,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
           to label %2143 unwind label %4103
 
 2143:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br i1 %2142, label %2146, label %2144
 
 2144:                                             ; preds = %2143
@@ -5161,7 +5161,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
   unreachable
 
 2146:                                             ; preds = %2143
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2147 = load ptr, ptr %2132, align 8
   %.not.i.i.i.i682 = icmp eq ptr %2147, null
   br i1 %.not.i.i.i.i682, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit688, label %2148
@@ -5531,7 +5531,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit716: ; preds = %_ZN32pxrIn
           to label %2323 unwind label %.loopexit.split-lp
 
 2323:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit716
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br i1 %2322, label %.invoke, label %2325
 
 .invoke:                                          ; preds = %2323, %2339, %2336, %2333, %2330, %2327
@@ -5556,52 +5556,52 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit716: ; preds = %_ZN32pxrIn
   unreachable
 
 2325:                                             ; preds = %2323
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %2326 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpaceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %2327 unwind label %.loopexit.split-lp
 
 2327:                                             ; preds = %2325
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   br i1 %2326, label %.invoke, label %2328
 
 2328:                                             ; preds = %2327
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2329 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpaceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %63)
           to label %2330 unwind label %.loopexit.split-lp
 
 2330:                                             ; preds = %2328
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   br i1 %2329, label %.invoke, label %2331
 
 2331:                                             ; preds = %2330
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %2332 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpaceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %2333 unwind label %.loopexit.split-lp
 
 2333:                                             ; preds = %2331
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br i1 %2332, label %.invoke, label %2334
 
 2334:                                             ; preds = %2333
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %2335 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpaceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %65)
           to label %2336 unwind label %.loopexit.split-lp
 
 2336:                                             ; preds = %2334
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   br i1 %2335, label %.invoke, label %2337
 
 2337:                                             ; preds = %2336
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %2338 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpaceeqERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %2339 unwind label %.loopexit.split-lp
 
 2339:                                             ; preds = %2337
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br i1 %2338, label %.invoke, label %2340
 
 2340:                                             ; preds = %2339
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %123)
           to label %_ZN11GfColorTestC2Ev.exit unwind label %.loopexit.split-lp
 
@@ -5622,7 +5622,7 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
   %2349 = call noundef float @llvm.fmuladd.f32(float %2345, float %2345, float %2348)
   %2350 = fpext float %2349 to double
   %2351 = fcmp ugt double %2350, 0x3F1A36E2D7731900
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %2351, label %2352, label %2354
 
 2352:                                             ; preds = %2343
@@ -5644,7 +5644,7 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
   unreachable
 
 2354:                                             ; preds = %2343
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %2355 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %2356 = load ptr, ptr %2355, align 8
   %.not.i.i.i.i.i.i747 = icmp eq ptr %2356, null
@@ -5772,7 +5772,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2405 = call noundef float @llvm.fmuladd.f32(float %2401, float %2401, float %2404)
   %2406 = fpext float %2405 to double
   %2407 = fcmp ugt double %2406, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br i1 %2407, label %2408, label %2410
 
 2408:                                             ; preds = %2395
@@ -5794,7 +5794,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   unreachable
 
 2410:                                             ; preds = %2395
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %2411 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %2412 = load ptr, ptr %2411, align 8
   %.not.i.i.i.i.i.i778 = icmp eq ptr %2412, null
@@ -5896,7 +5896,7 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
   %2459 = call noundef float @llvm.fmuladd.f32(float %2455, float %2455, float %2458)
   %2460 = fpext float %2459 to double
   %2461 = fcmp ugt double %2460, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br i1 %2461, label %2462, label %2464
 
 2462:                                             ; preds = %2449
@@ -5918,7 +5918,7 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
   unreachable
 
 2464:                                             ; preds = %2449
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2465 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %2466 = load ptr, ptr %2465, align 8
   %.not.i.i.i.i.i.i799 = icmp eq ptr %2466, null
@@ -6020,7 +6020,7 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
   %2513 = call noundef float @llvm.fmuladd.f32(float %2509, float %2509, float %2512)
   %2514 = fpext float %2513 to double
   %2515 = fcmp ugt double %2514, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br i1 %2515, label %2516, label %2518
 
 2516:                                             ; preds = %2503
@@ -6042,7 +6042,7 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
   unreachable
 
 2518:                                             ; preds = %2503
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %2519 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %2520 = load ptr, ptr %2519, align 8
   %.not.i.i.i.i.i.i820 = icmp eq ptr %2520, null
@@ -6170,7 +6170,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2569 = call noundef float @llvm.fmuladd.f32(float %2565, float %2565, float %2568)
   %2570 = fpext float %2569 to double
   %2571 = fcmp ugt double %2570, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br i1 %2571, label %2572, label %2574
 
 2572:                                             ; preds = %2559
@@ -6192,7 +6192,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   unreachable
 
 2574:                                             ; preds = %2559
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %2575 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %2576 = load ptr, ptr %2575, align 8
   %.not.i.i.i.i.i.i853 = icmp eq ptr %2576, null
@@ -6294,7 +6294,7 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
   %2623 = call noundef float @llvm.fmuladd.f32(float %2619, float %2619, float %2622)
   %2624 = fpext float %2623 to double
   %2625 = fcmp ugt double %2624, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %2625, label %2626, label %2628
 
 2626:                                             ; preds = %2613
@@ -6316,7 +6316,7 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
   unreachable
 
 2628:                                             ; preds = %2613
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %2629 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %2630 = load ptr, ptr %2629, align 8
   %.not.i.i.i.i.i.i874 = icmp eq ptr %2630, null
@@ -6418,7 +6418,7 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
   %2677 = call noundef float @llvm.fmuladd.f32(float %2673, float %2673, float %2676)
   %2678 = fpext float %2677 to double
   %2679 = fcmp ugt double %2678, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %2679, label %2680, label %2682
 
 2680:                                             ; preds = %2667
@@ -6440,7 +6440,7 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
   unreachable
 
 2682:                                             ; preds = %2667
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %2683 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %2684 = load ptr, ptr %2683, align 8
   %.not.i.i.i.i.i.i895 = icmp eq ptr %2684, null
@@ -6568,7 +6568,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2733 = call noundef float @llvm.fmuladd.f32(float %2729, float %2729, float %2732)
   %2734 = fpext float %2733 to double
   %2735 = fcmp ugt double %2734, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %2735, label %2736, label %2738
 
 2736:                                             ; preds = %2723
@@ -6590,7 +6590,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   unreachable
 
 2738:                                             ; preds = %2723
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %2739 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %2740 = load ptr, ptr %2739, align 8
   %.not.i.i.i.i.i.i928 = icmp eq ptr %2740, null
@@ -6692,7 +6692,7 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
   %2787 = call noundef float @llvm.fmuladd.f32(float %2783, float %2783, float %2786)
   %2788 = fpext float %2787 to double
   %2789 = fcmp ugt double %2788, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %2789, label %2790, label %2792
 
 2790:                                             ; preds = %2777
@@ -6714,7 +6714,7 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
   unreachable
 
 2792:                                             ; preds = %2777
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %2793 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %2794 = load ptr, ptr %2793, align 8
   %.not.i.i.i.i.i.i949 = icmp eq ptr %2794, null
@@ -6816,7 +6816,7 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
   %2841 = call noundef float @llvm.fmuladd.f32(float %2837, float %2837, float %2840)
   %2842 = fpext float %2841 to double
   %2843 = fcmp ugt double %2842, 0x3DDB7CDFC28AE400
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %2843, label %2844, label %2846
 
 2844:                                             ; preds = %2831
@@ -6838,7 +6838,7 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
   unreachable
 
 2846:                                             ; preds = %2831
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %2847 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %2848 = load ptr, ptr %2847, align 8
   %.not.i.i.i.i.i.i970 = icmp eq ptr %2848, null
@@ -7716,17 +7716,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1065:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1065
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1065
   %3265 = fadd float %3258, %3262
   %3266 = fcmp ugt float %3265, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %3266, label %.invoke1807, label %3267
 
 3267:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %3268 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %153)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1071 unwind label %4171
 
@@ -7783,17 +7783,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1077:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1084, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1077
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1077
   %3308 = fadd float %3301, %3305
   %3309 = fcmp ugt float %3308, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %3309, label %.invoke1807, label %3310
 
 3310:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %3311 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %155)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1089 unwind label %4171
 
@@ -7850,17 +7850,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1095:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1102, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1095
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1095
   %3351 = fadd float %3344, %3348
   %3352 = fcmp ugt float %3351, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %3352, label %.invoke1807, label %3353
 
 3353:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %3354 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %151)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1107 unwind label %4171
 
@@ -7917,17 +7917,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1113:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1120, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1113
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1113
   %3394 = fadd float %3387, %3391
   %3395 = fcmp ugt float %3394, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %3395, label %.invoke1807, label %3396
 
 3396:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %3397 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %153)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1125 unwind label %4171
 
@@ -7984,17 +7984,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1131:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1138, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1131
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1131
   %3437 = fadd float %3430, %3434
   %3438 = fcmp ugt float %3437, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %3438, label %.invoke1807, label %3439
 
 3439:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3440 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %155)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1143 unwind label %4171
 
@@ -8051,17 +8051,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1149:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1156, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1149
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1149
   %3480 = fadd float %3473, %3477
   %3481 = fcmp ugt float %3480, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %3481, label %.invoke1807, label %3482
 
 3482:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %3483 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %157)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1161 unwind label %4171
 
@@ -8118,17 +8118,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1167:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1174, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1167
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1167
   %3523 = fadd float %3516, %3520
   %3524 = fcmp ugt float %3523, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %3524, label %.invoke1807, label %3525
 
 3525:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3526 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %159)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1179 unwind label %4171
 
@@ -8185,17 +8185,17 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1185:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1192, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1185
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1185
   %3566 = fadd float %3559, %3563
   %3567 = fcmp ugt float %3566, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %3567, label %.invoke1807, label %3568
 
 3568:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %3569 = invoke <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromaticityEv(ptr noundef nonnull align 8 dereferenceable(28) %161)
           to label %_ZNK11GfColorTest15GetChromaticityEv.exit1197 unwind label %4171
 
@@ -8252,13 +8252,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit1203:    ; preds = %_ZNK11GfColorTest15
   br i1 %or.cond.i1210, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211, label %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1203
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.invoke1807
 
 _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211: ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit1203
   %3609 = fadd float %3602, %3606
   %3610 = fcmp ugt float %3609, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %3610, label %.invoke1807, label %3612
 
 .invoke1807:                                      ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1193.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1175.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1157.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1139.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1121.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1103.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1085.thread, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit, %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit.thread
@@ -8283,7 +8283,7 @@ _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1
   unreachable
 
 3612:                                             ; preds = %_Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1211
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %3613 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %3614 = load ptr, ptr %3613, align 8
   %.not.i.i.i.i.i.i1214 = icmp eq ptr %3614, null
@@ -8984,7 +8984,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
   %3952 = call noundef float @llvm.fmuladd.f32(float %3949, float %3949, float %3951)
   %3953 = fpext float %3952 to double
   %3954 = fcmp ugt double %3953, 0x3EB0C6F7BB730840
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %3954, label %3955, label %3957
 
 3955:                                             ; preds = %3942
@@ -9006,7 +9006,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
   unreachable
 
 3957:                                             ; preds = %3942
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %3958 = load ptr, ptr %3937, align 8
   %.not.i.i.i.i.i.i1285 = icmp eq ptr %3958, null
   br i1 %.not.i.i.i.i.i.i1285, label %_ZN11GfColorTestD2Ev.exit1291, label %3959
@@ -10783,10 +10783,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

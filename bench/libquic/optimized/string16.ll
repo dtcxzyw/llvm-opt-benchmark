@@ -435,12 +435,6 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN4base9c16memchrEPKttm(ptr noundef readonly captures(ret: address, provenance) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not7 = icmp eq i64 %2, 0
@@ -465,27 +459,27 @@ define noundef ptr @_ZN4base9c16memchrEPKttm(ptr noundef readonly captures(ret: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @_ZN4base10c16memmoveEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = shl i64 %2, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %0, ptr align 2 %1, i64 %4, i1 false)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @_ZN4base9c16memcpyEPtPKtm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = shl i64 %2, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %0, ptr align 2 %1, i64 %4, i1 false)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly captures(ret: address, provenance) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly captures(ret: address, provenance) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not6 = icmp eq i64 %2, 0
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -503,9 +497,9 @@ define noundef ptr @_ZN4base9c16memsetEPttm(ptr noundef returned writeonly captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4baselsERSoRKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4baselsERSoRKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -529,11 +523,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
-  call void @_ZdlPv(ptr noundef %11) #18
+  call void @_ZdlPv(ptr noundef %11) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %10
 
 16:                                               ; preds = %2
@@ -551,22 +545,22 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %16
-  call void @_ZdlPv(ptr noundef %18) #18
+  call void @_ZdlPv(ptr noundef %18) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %17
 }
 
-declare void @_ZN4base11UTF16ToUTF8ENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #6
+declare void @_ZN4base11UTF16ToUTF8ENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4base7PrintToERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEPSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN4base7PrintToERKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEPSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -590,7 +584,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN4baselsERSoRKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit.i
-  call void @_ZdlPv(ptr noundef %11) #18
+  call void @_ZdlPv(ptr noundef %11) #17
   br label %_ZN4baselsERSoRKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE.exit
 
 16:                                               ; preds = %2
@@ -608,70 +602,70 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.i: ; preds = %16
-  call void @_ZdlPv(ptr noundef %18) #18
+  call void @_ZdlPv(ptr noundef %18) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %17
 
 _ZN4baselsERSoRKNSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC2EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC5EPtRKS3_) align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC2EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC5EPtRKS3_) align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC2EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC5EPtOS3_) align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC2EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC5EPtOS3_) align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_M_dataEPt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_M_dataEPt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8, !tbaa !25
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
@@ -681,7 +675,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -699,13 +693,13 @@ define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = load i64, ptr %1, align 8, !tbaa !26
   %5 = icmp ugt i64 %4, 2305843009213693951
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 7:                                                ; preds = %3
@@ -726,25 +720,25 @@ _ZNSt16allocator_traitsISaItEE8allocateERS0_m.exit: ; preds = %7, %9, %12
   %13 = phi i64 [ %spec.store.select, %12 ], [ %4, %9 ], [ %4, %7 ]
   %14 = shl nuw nsw i64 %13, 1
   %15 = add nuw nsw i64 %14, 2
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #20
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
   ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   ret i64 2305843009213693951
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -758,7 +752,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %8
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %2) #18
+  tail call void @_ZdlPv(ptr noundef %2) #17
   br label %8
 
 8:                                                ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit
@@ -766,14 +760,14 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_destroyEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
-  tail call void @_ZdlPv(ptr noundef %3) #18
+  tail call void @_ZdlPv(ptr noundef %3) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   %4 = icmp ugt i64 %1, 7
   br i1 %4, label %5, label %12
 
@@ -782,13 +776,13 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %6, label %7, label %._crit_edge.thread
 
 7:                                                ; preds = %5
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 ._crit_edge.thread:                               ; preds = %5
   %8 = shl nuw nsw i64 %1, 1
   %9 = add nuw nsw i64 %8, 2
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
   store ptr %10, ptr %0, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %11, align 8, !tbaa !25
@@ -828,13 +822,13 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.
 }
 
 ; Function Attrs: alwaysinline mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #9 comdat align 2 {
+define weak_odr noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17_M_use_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #8 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   switch i64 %1, label %.lr.ph.i.i [
     i64 1, label %4
     i64 0, label %_ZN4base20string16_char_traits6assignEPtmt.exit
@@ -858,19 +852,19 @@ _ZN4base20string16_char_traits6assignEPtmt.exit:  ; preds = %.lr.ph.i.i, %3, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16_M_get_allocatorEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef %2, i64 noundef %1, i64 noundef %5) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef %2, i64 noundef %1, i64 noundef %5) #18
   unreachable
 
 8:                                                ; preds = %3
@@ -878,17 +872,17 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #8
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %.neg = add i64 %1, 2305843009213693951
@@ -897,7 +891,7 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %3) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef %3) #18
   unreachable
 
 10:                                               ; preds = %4
@@ -905,7 +899,7 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_limitEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 %5, %1
@@ -914,7 +908,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_disjunctEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_disjunctEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = icmp ult ptr %1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -926,7 +920,7 @@ define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = icmp eq i64 %2, 1
   br i1 %4, label %5, label %7
 
@@ -945,7 +939,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = icmp eq i64 %2, 1
   br i1 %4, label %5, label %7
 
@@ -964,7 +958,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtN9__gnu_cxx17__normal_iteratorIS5_S4_EES8_(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtN9__gnu_cxx17__normal_iteratorIS5_S4_EES8_(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -985,7 +979,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -1006,7 +1000,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtN9__gnu_cxx17__normal_iteratorIPKtS4_EESA_(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtN9__gnu_cxx17__normal_iteratorIPKtS4_EESA_(ptr noundef %0, ptr %1, ptr %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -1027,7 +1021,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtPKtS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_S_copy_charsEPtPKtS7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
@@ -1048,8 +1042,8 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
   tail call void @_ZSt9terminatev() #21
   unreachable
 }
@@ -1057,10 +1051,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i32 @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_S_compareEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i32 @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_S_compareEmm(i64 noundef %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = sub i64 %0, %1
   %spec.select7 = tail call i64 @llvm.smax.i64(i64 %3, i64 -2147483648)
   %.08 = tail call i64 @llvm.smin.i64(i64 %spec.select7, i64 2147483647)
@@ -1069,7 +1063,7 @@ define weak_odr noundef i32 @_ZNSt7__cxx1112basic_stringItN4base20string16_char_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %39, label %3
 
@@ -1099,7 +1093,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %17, label %18, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit
 
 18:                                               ; preds = %16
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit: ; preds = %16
@@ -1109,7 +1103,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0 = select i1 %20, i64 %spec.store.select.i, i64 %5
   %21 = shl nuw nsw i64 %.0, 1
   %22 = add nuw nsw i64 %21, 2
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #20
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #19
   br i1 %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit
@@ -1120,7 +1114,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %.thread
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit
-  tail call void @_ZdlPv(ptr noundef %6) #18
+  tail call void @_ZdlPv(ptr noundef %6) #17
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i
@@ -1168,14 +1162,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -1195,7 +1189,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = add i64 %2, %1
@@ -1219,7 +1213,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 21:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit
@@ -1239,7 +1233,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0 = phi i64 [ %spec.store.select.i, %26 ], [ %11, %23 ], [ %11, %21 ]
   %27 = shl nuw nsw i64 %.0, 1
   %28 = add nuw nsw i64 %27, 2
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #20
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #19
   switch i64 %1, label %32 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
     i64 1, label %30
@@ -1307,7 +1301,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27
-  tail call void @_ZdlPv(ptr noundef %12) #18
+  tail call void @_ZdlPv(ptr noundef %12) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i
@@ -1317,7 +1311,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = add i64 %2, %1
@@ -1357,15 +1351,15 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5Ev) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.1", align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %4 unwind label %7
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !18
   %6 = load ptr, ptr %0, align 8, !tbaa !12
@@ -1381,7 +1375,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %1)
           to label %4 unwind label %7
@@ -1402,12 +1396,12 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.1", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load ptr, ptr %1, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
@@ -1420,12 +1414,12 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %10, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %9
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %9
   %11 = add nuw nsw i64 %.idx, 2
-  %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #20
+  %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
   store ptr %12, ptr %0, align 8, !tbaa !12
   store i64 %7, ptr %4, align 8, !tbaa !25
   br label %17
@@ -1456,7 +1450,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mRKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mRKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1465,7 +1459,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %8, label %.noexc, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 .noexc:                                           ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %2, i64 noundef %7) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %2, i64 noundef %7) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -1482,12 +1476,12 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %14, label %.noexc10, label %.thread
 
 .noexc10:                                         ; preds = %13
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %13
   %15 = add nuw nsw i64 %gepdiff, 2
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #20
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
   store ptr %16, ptr %0, align 8, !tbaa !12
   store i64 %11, ptr %5, align 8, !tbaa !25
   br label %21
@@ -1518,19 +1512,19 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mm) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mm) align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.1", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = icmp ugt i64 %2, %8
   br i1 %9, label %.noexc, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 .noexc:                                           ; preds = %4
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %2, i64 noundef %8) #19
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef %2, i64 noundef %8) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -1547,12 +1541,12 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %15, label %.noexc12, label %.thread
 
 .noexc12:                                         ; preds = %14
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %14
   %16 = add nuw nsw i64 %.idx, 2
-  %17 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
+  %17 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #19
   store ptr %17, ptr %0, align 8, !tbaa !12
   store i64 %spec.select.i, ptr %6, align 8, !tbaa !25
   br label %22
@@ -1583,7 +1577,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_mmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_mmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6, ptr noundef nonnull align 1 dereferenceable(1) %4)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1592,7 +1586,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %9, label %.noexc, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 .noexc:                                           ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i64 noundef %2, i64 noundef %8) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i64 noundef %2, i64 noundef %8) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
@@ -1609,12 +1603,12 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %15, label %.noexc11, label %.thread
 
 .noexc11:                                         ; preds = %14
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %14
   %16 = add nuw nsw i64 %.idx, 2
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #19
   store ptr %17, ptr %0, align 8, !tbaa !12
   store i64 %spec.select.i, ptr %6, align 8, !tbaa !25
   br label %22
@@ -1645,7 +1639,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EPKtmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EPKtmRKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %6 = icmp eq ptr %1, null
@@ -1654,7 +1648,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %or.cond, label %8, label %9
 
 8:                                                ; preds = %4
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #19
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #18
   unreachable
 
 9:                                                ; preds = %4
@@ -1667,12 +1661,12 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %12, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %11
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %11
   %13 = add nuw nsw i64 %.idx, 2
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #20
+  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #19
   store ptr %14, ptr %0, align 8, !tbaa !12
   store i64 %2, ptr %5, align 8, !tbaa !25
   br label %19
@@ -1703,17 +1697,17 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EPKtRKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EPKtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EPKtRKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %3
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #19
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #18
   unreachable
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -1740,12 +1734,12 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %.preheader
   br i1 %15, label %.noexc, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 .noexc:                                           ; preds = %14
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %14
   %16 = add nuw nsw i64 %11, 2
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #19
   store ptr %17, ptr %0, align 8, !tbaa !12
   store i64 %12, ptr %4, align 8, !tbaa !25
   br label %18
@@ -1775,7 +1769,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EmtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EmtRKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EmtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EmtRKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %6 = icmp ugt i64 %1, 7
@@ -1786,13 +1780,13 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %8, label %.noexc, label %._crit_edge.thread.i
 
 .noexc:                                           ; preds = %7
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 ._crit_edge.thread.i:                             ; preds = %7
   %9 = shl nuw nsw i64 %1, 1
   %10 = add nuw nsw i64 %9, 2
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #20
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #19
   store ptr %11, ptr %0, align 8, !tbaa !12
   store i64 %1, ptr %5, align 8, !tbaa !25
   br label %.lr.ph.i.i.i.preheader.i
@@ -1831,7 +1825,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_) align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtOS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %1)
           to label %4 unwind label %19
@@ -1877,7 +1871,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ESt16initializer_listItERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ESt16initializer_listItERKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ESt16initializer_listItERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ESt16initializer_listItERKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %.idx = shl nuw nsw i64 %2, 1
@@ -1889,12 +1883,12 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %8, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %7
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %7
   %9 = add nuw nsw i64 %.idx, 2
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #19
   store ptr %10, ptr %0, align 8, !tbaa !12
   store i64 %2, ptr %5, align 8, !tbaa !25
   br label %15
@@ -1925,7 +1919,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2ERKS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5ERKS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %5 = load ptr, ptr %1, align 8, !tbaa !12
@@ -1940,12 +1934,12 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %10, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %9
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 .thread:                                          ; preds = %9
   %11 = add nuw nsw i64 %.idx, 2
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #20
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #19
   store ptr %12, ptr %0, align 8, !tbaa !12
   store i64 %7, ptr %4, align 8, !tbaa !25
   br label %17
@@ -1976,13 +1970,13 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
@@ -1991,7 +1985,7 @@ define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC2EOS4_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEC5EOS4_RKS3_) align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
           to label %5 unwind label %23
@@ -2043,7 +2037,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat($_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -2057,7 +2051,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %2) #18
+  tail call void @_ZdlPv(ptr noundef %2) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i
@@ -2065,7 +2059,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_.exit, label %3
 
@@ -2095,7 +2089,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %17, label %18, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i
 
 18:                                               ; preds = %16
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i: ; preds = %16
@@ -2105,7 +2099,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i.i = select i1 %20, i64 %spec.store.select.i.i.i, i64 %5
   %21 = shl nuw nsw i64 %.0.i.i, 1
   %22 = add nuw nsw i64 %21, 2
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #20
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #19
   br i1 %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i
@@ -2116,7 +2110,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %.thread.i.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #18
+  tail call void @_ZdlPv(ptr noundef %6) #17
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i.i
@@ -2164,7 +2158,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_.exit, label %3
 
@@ -2194,7 +2188,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %17, label %18, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 18:                                               ; preds = %16
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %16
@@ -2204,7 +2198,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %20, i64 %spec.store.select.i.i, i64 %5
   %21 = shl nuw nsw i64 %.0.i, 1
   %22 = add nuw nsw i64 %21, 2
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #20
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #19
   br i1 %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
@@ -2215,7 +2209,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %.thread.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
-  tail call void @_ZdlPv(ptr noundef %6) #18
+  tail call void @_ZdlPv(ptr noundef %6) #17
   br label %.thread.i
 
 .thread.i:                                        ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i
@@ -2263,7 +2257,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_assignERKS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   br label %5
@@ -2285,7 +2279,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   br label %5
@@ -2307,7 +2301,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2326,8 +2320,8 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %.not.i4.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread.i, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.thread.i
-  %10 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #20
-  tail call void @_ZdlPv(ptr noundef %4) #18
+  %10 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #19
+  tail call void @_ZdlPv(ptr noundef %4) #17
   store ptr %10, ptr %0, align 8, !tbaa !12
   store i64 1, ptr %5, align 8, !tbaa !25
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit
@@ -2342,14 +2336,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ugt i64 %1, 2305843009213693951
   br i1 %6, label %7, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 7:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %3
@@ -2377,7 +2371,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   %.0.i = select i1 %15, i64 %spec.store.select.i.i, i64 %1
   %16 = shl nuw nsw i64 %.0.i, 1
   %17 = add nuw nsw i64 %16, 2
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #20
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #19
   br i1 %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i2
@@ -2386,7 +2380,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i2
-  tail call void @_ZdlPv(ptr noundef %8) #18
+  tail call void @_ZdlPv(ptr noundef %8) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_moveEPtPKtm.exit.i.thread: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i
@@ -2425,7 +2419,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
@@ -2529,7 +2523,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8, !tbaa !18
   %3 = load ptr, ptr %0, align 8, !tbaa !12
@@ -2538,7 +2532,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %5, ptr noundef %1, i64 noundef %2)
@@ -2546,7 +2540,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %5, ptr noundef %1, i64 noundef %2)
@@ -2554,13 +2548,13 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
@@ -2569,7 +2563,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
@@ -2579,7 +2573,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6rbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
@@ -2589,27 +2583,27 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   store ptr %3, ptr %0, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4rendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   store ptr %3, ptr %0, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
@@ -2618,7 +2612,7 @@ define weak_odr ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7crbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7crbeginEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
@@ -2628,14 +2622,14 @@ define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5crendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5crendEv(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   store ptr %3, ptr %0, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %5, %1
@@ -2662,7 +2656,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 2305843009213693951, %5
@@ -2670,7 +2664,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 8:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %3
@@ -2697,7 +2691,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %16, label %17, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 17:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i2
@@ -2707,7 +2701,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %19, i64 %spec.store.select.i.i, i64 %9
   %20 = shl nuw nsw i64 %.0.i, 1
   %21 = add nuw nsw i64 %20, 2
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #20
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
   switch i64 %5, label %25 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
     i64 1, label %23
@@ -2732,7 +2726,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
-  tail call void @_ZdlPv(ptr noundef %10) #18
+  tail call void @_ZdlPv(ptr noundef %10) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
@@ -2771,7 +2765,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = icmp ult i64 %4, %1
@@ -2798,7 +2792,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6resizeEmt.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %2 unwind label %3
 
@@ -2814,7 +2808,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
@@ -2842,7 +2836,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit: ; preds = %10, %12
-  tail call void @_ZdlPv(ptr noundef %2) #18
+  tail call void @_ZdlPv(ptr noundef %2) #17
   store ptr %3, ptr %0, align 8, !tbaa !12
   br label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread
 
@@ -2861,14 +2855,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #19
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %23
   unreachable
 
 24:                                               ; preds = %21
-  invoke void @_ZSt17__throw_bad_allocv() #19
+  invoke void @_ZSt17__throw_bad_allocv() #18
           to label %.noexc15 unwind label %27
 
 .noexc15:                                         ; preds = %24
@@ -2876,12 +2870,12 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 
 _ZNSt15__new_allocatorItE8allocateEmPKv.exit.i:   ; preds = %18
   %25 = shl nuw nsw i64 %19, 1
-  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #20
+  %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #19
           to label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit unwind label %27
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit: ; preds = %_ZNSt15__new_allocatorItE8allocateEmPKv.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %26, ptr noundef nonnull readonly align 2 dereferenceable(1) %2, i64 %25, i1 false)
-  tail call void @_ZdlPv(ptr noundef %2) #18
+  tail call void @_ZdlPv(ptr noundef %2) #17
   store ptr %26, ptr %0, align 8, !tbaa !12
   store i64 %6, ptr %3, align 8, !tbaa !25
   br label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread
@@ -2892,13 +2886,13 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.e
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = extractvalue { ptr, i32 } %28, 1
-  %31 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #17
+  %31 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #20
   %32 = icmp eq i32 %30, %31
-  %33 = tail call ptr @__cxa_begin_catch(ptr %29) #17
+  %33 = tail call ptr @__cxa_begin_catch(ptr %29) #20
   br i1 %32, label %34, label %35
 
 34:                                               ; preds = %27
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %42 unwind label %36
 
 35:                                               ; preds = %27
@@ -2929,7 +2923,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
@@ -2953,7 +2947,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit
 
 14:                                               ; preds = %12
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit: ; preds = %12
@@ -2963,7 +2957,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0 = select i1 %16, i64 %spec.store.select.i, i64 %1
   %17 = shl nuw nsw i64 %.0, 1
   %18 = add nuw nsw i64 %17, 2
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !18
   %22 = icmp eq i64 %21, 0
@@ -2989,7 +2983,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit
-  tail call void @_ZdlPv(ptr noundef %3) #18
+  tail call void @_ZdlPv(ptr noundef %3) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i
@@ -3002,14 +2996,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_disposeEv.e
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #12
+declare i32 @llvm.eh.typeid.for.p0(ptr) #11
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = icmp eq i64 %3, 0
@@ -3017,28 +3011,28 @@ define weak_odr noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringItN4base20string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i16, ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %.not = icmp ult i64 %1, %4
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %1, i64 noundef %4) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %1, i64 noundef %4) #18
   unreachable
 
 6:                                                ; preds = %2
@@ -3048,14 +3042,14 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE2atEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %.not = icmp ult i64 %1, %4
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %1, i64 noundef %4) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.5, i64 noundef %1, i64 noundef %4) #18
   unreachable
 
 6:                                                ; preds = %2
@@ -3065,19 +3059,19 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5frontEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
@@ -3087,7 +3081,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %4 = load ptr, ptr %0, align 8, !tbaa !12
@@ -3097,7 +3091,7 @@ define weak_odr noundef nonnull align 2 dereferenceable(2) ptr @_ZNKSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
@@ -3108,7 +3102,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i.i
 
 10:                                               ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %2
@@ -3161,7 +3155,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
@@ -3172,7 +3166,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 10:                                               ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %2
@@ -3225,7 +3219,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -3247,7 +3241,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit.i: ; preds = %3
   br i1 %13, label %14, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 14:                                               ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit.i
@@ -3299,7 +3293,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -3321,7 +3315,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %3
   br i1 %13, label %14, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit
 
 14:                                               ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit: ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
@@ -3373,7 +3367,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = add i64 %4, 1
@@ -3397,7 +3391,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i
 
 14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i.i
@@ -3407,7 +3401,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i.i = select i1 %16, i64 %spec.store.select.i.i.i, i64 %5
   %17 = shl nuw nsw i64 %.0.i.i, 1
   %18 = add nuw nsw i64 %17, 2
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #19
   switch i64 %4, label %22 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i.i
     i64 1, label %20
@@ -3432,7 +3426,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit.i
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i.i
-  tail call void @_ZdlPv(ptr noundef %6) #18
+  tail call void @_ZdlPv(ptr noundef %6) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit.i
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i.i
@@ -3451,7 +3445,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9push_backEt(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = add i64 %4, 1
@@ -3475,7 +3469,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -3485,7 +3479,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %16, i64 %spec.store.select.i.i, i64 %5
   %17 = shl nuw nsw i64 %.0.i, 1
   %18 = add nuw nsw i64 %17, 2
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #19
   switch i64 %4, label %22 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
     i64 1, label %20
@@ -3510,7 +3504,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
-  tail call void @_ZdlPv(ptr noundef %6) #18
+  tail call void @_ZdlPv(ptr noundef %6) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
@@ -3529,7 +3523,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKt
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEpLESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 2305843009213693951, %5
@@ -3537,7 +3531,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 8:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %3
@@ -3590,7 +3584,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 2305843009213693951, %5
@@ -3598,7 +3592,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit
 
 8:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit: ; preds = %3
@@ -3651,14 +3645,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i64 noundef %2, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i64 noundef %2, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -3673,7 +3667,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %15, label %16, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 16:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -3726,7 +3720,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_appendEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = add i64 %5, %2
@@ -3778,7 +3772,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_auxEmmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %.neg.i = add i64 %2, 2305843009213693951
@@ -3787,7 +3781,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit
 
 10:                                               ; preds = %5
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit: ; preds = %5
@@ -3869,7 +3863,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_S_assignEPtmt.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = sub i64 2305843009213693951, %5
@@ -3877,7 +3871,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 8:                                                ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %3
@@ -3930,7 +3924,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6appendEPKtm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
@@ -4030,14 +4024,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEaSEOS4_.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i64 noundef %2, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i64 noundef %2, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -4052,7 +4046,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %.neg.i = add i64 %2, 2305843009213693951
@@ -4061,7 +4055,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit
 
 10:                                               ; preds = %5
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.12) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit: ; preds = %5
@@ -4266,7 +4260,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6assignESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE10_M_replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %5, ptr noundef %1, i64 noundef %2)
@@ -4274,7 +4268,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EEmt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -4287,7 +4281,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
   br i1 %13, label %14, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i.i
 
 14:                                               ; preds = %4
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %4
@@ -4342,7 +4336,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %33, label %34, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 34:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i
@@ -4351,7 +4345,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %35, i64 %spec.store.select.i.i, i64 %15
   %36 = shl nuw nsw i64 %.0.i, 1
   %37 = add nuw nsw i64 %36, 2
-  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #20
+  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #19
   switch i64 %9, label %41 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
     i64 1, label %39
@@ -4396,7 +4390,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
-  tail call void @_ZdlPv(ptr noundef %5) #18
+  tail call void @_ZdlPv(ptr noundef %5) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
@@ -4438,7 +4432,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_mt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_mt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -4455,7 +4449,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %17, label %18, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 18:                                               ; preds = %5
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %5
@@ -4536,7 +4530,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, i64 %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EESt16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, i64 %3) local_unnamed_addr #4 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -4548,7 +4542,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
   br i1 %12, label %13, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertIPKtvEEN9__gnu_cxx17__normal_iteratorIPtS4_EENS9_IS7_S4_EET_SD_.exit
 
 13:                                               ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %9, i64 noundef %11) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %9, i64 noundef %11) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertIPKtvEEN9__gnu_cxx17__normal_iteratorIPtS4_EENS9_IS7_S4_EET_SD_.exit: ; preds = %4
@@ -4559,14 +4553,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertIPKtvEEN9
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %5) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %5) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %3
@@ -4578,14 +4572,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %7) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %7) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
@@ -4596,14 +4590,14 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ugt i64 %3, %7
   br i1 %8, label %9, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i64 noundef %3, i64 noundef %7) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i64 noundef %3, i64 noundef %7) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
@@ -4613,7 +4607,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %12, label %13, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 13:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %11) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %11) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -4626,14 +4620,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %6) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %4
@@ -4642,7 +4636,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -4659,7 +4653,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %4
   br i1 %9, label %10, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 10:                                               ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %8) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %8) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
@@ -4672,14 +4666,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i64 noundef %1, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8, i64 noundef %1, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -4688,7 +4682,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %10, label %11, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 11:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -4744,7 +4738,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %31, label %32, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 32:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i3
@@ -4753,7 +4747,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %33, i64 %spec.store.select.i.i, i64 %12
   %34 = shl nuw nsw i64 %.0.i, 1
   %35 = add nuw nsw i64 %34, 2
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #20
+  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #19
   switch i64 %1, label %39 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
     i64 1, label %37
@@ -4799,7 +4793,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
-  tail call void @_ZdlPv(ptr noundef %13) #18
+  tail call void @_ZdlPv(ptr noundef %13) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
@@ -4840,7 +4834,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EEt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i16 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6insertEN9__gnu_cxx17__normal_iteratorIPKtS4_EEt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i16 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -4852,7 +4846,7 @@ define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsES
   br i1 %11, label %12, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 12:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %3
@@ -4905,7 +4899,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exi
   br i1 %31, label %32, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i
 
 32:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8capacityEv.exit.i3
@@ -4914,7 +4908,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_createERmm.e
   %.0.i = select i1 %33, i64 %spec.store.select.i.i, i64 %13
   %34 = shl nuw nsw i64 %.0.i, 1
   %35 = add nuw nsw i64 %34, 2
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #20
+  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #19
   switch i64 %8, label %39 [
     i64 0, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit.i
     i64 1, label %37
@@ -4959,7 +4953,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.exit27.i
-  tail call void @_ZdlPv(ptr noundef %4) #18
+  tail call void @_ZdlPv(ptr noundef %4) #17
   br label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE9_M_mutateEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv.exit.i.i
@@ -4978,14 +4972,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 7:                                                ; preds = %3
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %5) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i64 noundef %1, i64 noundef %5) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %3
@@ -5044,7 +5038,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEN9__gnu_cxx17__normal_iteratorIPKtS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEN9__gnu_cxx17__normal_iteratorIPKtS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1) local_unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !12
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %3 to i64
@@ -5087,7 +5081,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2) local_unnamed_addr #5 comdat align 2 {
+define weak_odr ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5eraseEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2) local_unnamed_addr #4 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
@@ -5150,7 +5144,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_eraseEmm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !18
   %.pre12.i = load ptr, ptr %0, align 8, !tbaa !12
@@ -5162,14 +5156,14 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %6) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %4
@@ -5183,14 +5177,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 comdat align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = icmp ugt i64 %4, %8
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %4, i64 noundef %8) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %4, i64 noundef %8) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %6
@@ -5200,7 +5194,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -5215,7 +5209,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -5232,7 +5226,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %5
   br i1 %10, label %11, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 11:                                               ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %9) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %9) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
@@ -5247,14 +5241,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmmt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %7) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %1, i64 noundef %7) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
@@ -5266,7 +5260,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %12, label %13, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i
 
 13:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #19
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE15_M_check_lengthEmmPKc.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -5348,7 +5342,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE14_M_replace_aux
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_RKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_RKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !12
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -5360,7 +5354,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %12, label %13, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit
 
 13:                                               ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %9, i64 noundef %11) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %9, i64 noundef %11) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit: ; preds = %4
@@ -5377,7 +5371,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5389,7 +5383,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %5
@@ -5403,7 +5397,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   br label %5
 
 5:                                                ; preds = %5, %4
@@ -5425,7 +5419,7 @@ _ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %5
   br i1 %15, label %16, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit
 
 16:                                               ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %12, i64 noundef %14) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %12, i64 noundef %14) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit: ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
@@ -5443,7 +5437,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_PtSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_PtSA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5455,7 +5449,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %5
@@ -5473,7 +5467,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5485,7 +5479,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %5
@@ -5503,7 +5497,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_NS6_IPtS4_EESB_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_NS6_IPtS4_EESB_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5515,7 +5509,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %5
@@ -5533,7 +5527,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5545,7 +5539,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.exit: ; preds = %5
@@ -5563,7 +5557,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEmmPKtm.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_St16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, i64 %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_St16initializer_listItE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr %2, ptr %3, i64 %4) local_unnamed_addr #4 comdat align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !12
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -5575,7 +5569,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112
   br i1 %13, label %14, label %_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit
 
 14:                                               ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i64 noundef %10, i64 noundef %12) #18
   unreachable
 
 _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu_cxx17__normal_iteratorIPKtS4_EES9_S8_m.exit: ; preds = %5
@@ -5589,14 +5583,14 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7replaceEN9__gnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4copyEPtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4copyEPtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %3, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i64 noundef %3, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i64 noundef %3, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -5626,7 +5620,7 @@ _ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7_S_copyEPtPKtm.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [8 x i16], align 16
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %56, label %5
@@ -5660,7 +5654,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   br i1 %.not36, label %.thread, label %21
 
 21:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = shl nuw nsw i64 %18, 1
   %23 = add nuw nsw i64 %22, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %3, ptr noundef nonnull readonly align 8 dereferenceable(1) %14, i64 %23, i1 false)
@@ -5668,7 +5662,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsE
   %25 = add nuw nsw i64 %24, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull readonly align 8 dereferenceable(1) %7, i64 %25, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, ptr noundef nonnull readonly align 16 dereferenceable(1) %3, i64 %23, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 26:                                               ; preds = %16
@@ -5750,24 +5744,24 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE11_M_is_localEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #7 comdat align 2 {
+define weak_odr noundef ptr @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #6 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13get_allocatorEv(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.1") align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13get_allocatorEv(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.1") align 1 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #6 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp eq i64 %3, 0
@@ -5853,7 +5847,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread: ; preds = %_ZN4base20s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -5942,7 +5936,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6042,7 +6036,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEPKtmm.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %2, %5
@@ -6083,7 +6077,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit: ; preds = %.lr.ph.i.i, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -6131,7 +6125,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %.not = icmp ugt i64 %3, %6
@@ -6176,7 +6170,7 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit: ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6235,7 +6229,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEPKtmm.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp eq i64 %5, 0
@@ -6267,7 +6261,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -6312,7 +6306,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_of
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne i64 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -6354,7 +6348,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6410,7 +6404,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_of
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13find_first_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %2, %5
@@ -6451,7 +6445,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE4findEtm.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -6498,7 +6492,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ne i64 %6, 0
@@ -6542,7 +6536,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit: ; preds = %20, %.lr.ph.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6600,7 +6594,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12find_last_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not.i = icmp eq i64 %5, 0
@@ -6632,7 +6626,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5rfindEtm.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -6676,7 +6670,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ult i64 %2, %6
@@ -6717,7 +6711,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread: ; preds = %_ZN4base20s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6772,7 +6766,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE17find_first_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %2, %5
@@ -6800,7 +6794,7 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
@@ -6846,7 +6840,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEPKtmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %.not = icmp eq i64 %6, 0
@@ -6889,7 +6883,7 @@ _ZN4base20string16_char_traits4findEPKtmRS1_.exit.thread: ; preds = %_ZN4base20s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -6946,7 +6940,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE16find_last_not_ofEtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i16 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp eq i64 %5, 0
@@ -6976,14 +6970,14 @@ define weak_odr noundef i64 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6substrEmm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE6substrEmm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -6992,7 +6986,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7040,14 +7034,14 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %11, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
@@ -7099,14 +7093,14 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %17, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmRKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 comdat align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = icmp ugt i64 %1, %8
   br i1 %9, label %10, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 10:                                               ; preds = %6
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %8) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %8) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %6
@@ -7116,7 +7110,7 @@ _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.
   br i1 %13, label %14, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit13
 
 14:                                               ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %4, i64 noundef %12) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %4, i64 noundef %12) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -7169,7 +7163,7 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %23, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !18
   br label %5
@@ -7228,14 +7222,14 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %15, %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmPKt(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !18
   %7 = icmp ugt i64 %1, %6
   br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 8:                                                ; preds = %4
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %6) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %6) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
@@ -7295,14 +7289,14 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %20, %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 {
+define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7compareEmmPKtm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ugt i64 %1, %7
   br i1 %8, label %9, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %7) #19
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %7) #18
   unreachable
 
 _ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %5
@@ -7351,18 +7345,24 @@ _ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %15, %_ZNK
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
-
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -7377,26 +7377,26 @@ declare i64 @llvm.smax.i64(i64, i64) #16
 declare i64 @llvm.smin.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { nofree nosync nounwind memory(none) }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nofree nosync nounwind memory(none) }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { builtin nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { nounwind }
 attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

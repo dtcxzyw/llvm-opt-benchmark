@@ -172,9 +172,6 @@ define internal noundef i32 @webp_init(ptr noundef readonly captures(none) %0) #
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -185,7 +182,7 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   %9 = load ptr, ptr %8, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -453,14 +450,11 @@ define internal fastcc range(i32 0, 2) i32 @flush(ptr noundef readonly captures(
 
 166:                                              ; preds = %3, %149
   %.057 = phi i32 [ %165, %149 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.057
 }
 
 declare i32 @av_packet_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @av_packet_unref(ptr noundef) local_unnamed_addr #1
 
@@ -471,6 +465,12 @@ declare void @avio_wl16(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @avio_wl32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3

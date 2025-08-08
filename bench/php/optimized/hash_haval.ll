@@ -136,7 +136,7 @@ define dso_local void @PHP_HAVALUpdate(ptr noundef %0, ptr noundef %1, i64 nound
 define dso_local void @PHP_HAVAL128Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
 Encode.exit:
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8, !tbaa !8
   %5 = shl i8 %4, 3
@@ -329,7 +329,7 @@ PHP_HAVALUpdate.exit38:                           ; preds = %69, %62
 
 Encode.exit44:                                    ; preds = %119
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -339,16 +339,13 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal void @PHP_3HAVALTransform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
 Decode.exit.preheader:
   %2 = alloca [8 x i32], align 16
   %3 = alloca [32 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 1 dereferenceable(128) %1, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa !4
   br label %.preheader112
@@ -582,13 +579,10 @@ Decode.exit.preheader:
 
 203:                                              ; preds = %.preheader
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 128) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @PHP_3HAVAL160Init(ptr noundef writeonly captures(none) initializes((0, 40), (168, 169), (170, 172), (176, 184)) %0, ptr readnone captures(none) %1) #0 {
@@ -610,7 +604,7 @@ define dso_local void @PHP_3HAVAL160Init(ptr noundef writeonly captures(none) in
 define dso_local void @PHP_HAVAL160Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
 Encode.exit:
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8, !tbaa !8
   %5 = shl i8 %4, 3
@@ -808,7 +802,7 @@ PHP_HAVALUpdate.exit44:                           ; preds = %69, %62
 
 Encode.exit50:                                    ; preds = %123
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -832,7 +826,7 @@ define dso_local void @PHP_3HAVAL192Init(ptr noundef writeonly captures(none) in
 define dso_local void @PHP_HAVAL192Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
 Encode.exit:
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8, !tbaa !8
   %5 = shl i8 %4, 3
@@ -1026,7 +1020,7 @@ PHP_HAVALUpdate.exit38:                           ; preds = %69, %62
 
 Encode.exit44:                                    ; preds = %118
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1050,7 +1044,7 @@ define dso_local void @PHP_3HAVAL224Init(ptr noundef writeonly captures(none) in
 define dso_local void @PHP_HAVAL224Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
 Encode.exit:
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8, !tbaa !8
   %5 = shl i8 %4, 3
@@ -1235,7 +1229,7 @@ PHP_HAVALUpdate.exit32:                           ; preds = %69, %62
 
 Encode.exit38:                                    ; preds = %108
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1259,7 +1253,7 @@ define dso_local void @PHP_3HAVAL256Init(ptr noundef writeonly captures(none) in
 define dso_local void @PHP_HAVAL256Final(ptr noundef writeonly captures(none) %0, ptr noundef %1) #1 {
 Encode.exit:
   %2 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i8, ptr %3, align 8, !tbaa !8
   %5 = shl i8 %4, 3
@@ -1403,7 +1397,7 @@ PHP_HAVALUpdate.exit18:                           ; preds = %69, %62
 
 Encode.exit24:                                    ; preds = %74
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 184) #7
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1428,8 +1422,8 @@ define internal void @PHP_4HAVALTransform(ptr noundef captures(none) %0, ptr nou
 Decode.exit.preheader:
   %2 = alloca [8 x i32], align 16
   %3 = alloca [32 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 1 dereferenceable(128) %1, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa !4
   br label %.preheader172
@@ -1748,8 +1742,8 @@ Decode.exit.preheader:
 
 281:                                              ; preds = %.preheader
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 128) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1838,8 +1832,8 @@ define internal void @PHP_5HAVALTransform(ptr noundef captures(none) %0, ptr nou
 Decode.exit.preheader:
   %2 = alloca [8 x i32], align 16
   %3 = alloca [32 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 1 dereferenceable(128) %1, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(32) %0, i64 32, i1 false), !tbaa !4
   br label %.preheader206
@@ -2232,8 +2226,8 @@ Decode.exit.preheader:
 
 348:                                              ; preds = %.preheader
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 128) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2302,10 +2296,16 @@ define dso_local void @PHP_5HAVAL256Init(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
-declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
@@ -2313,9 +2313,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

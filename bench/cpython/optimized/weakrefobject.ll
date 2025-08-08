@@ -1018,12 +1018,6 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %11, %18
   ret i64 %.07
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @_PyWeakref_ClearRef(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1377,7 +1371,7 @@ weakref_hash_lock_held.exit:                      ; preds = %1, %_PyWeakref_GET_
   ret i64 %.0.i
 }
 
-declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @gc_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
@@ -1662,7 +1656,7 @@ Py_DECREF.exit37:                                 ; preds = %11, %8, %50, %47, %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @weakref___init__(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.split, label %6
 
@@ -1679,18 +1673,18 @@ define internal range(i32 -1, 1) i32 @weakref___init__(ptr readnone captures(non
 
 9:                                                ; preds = %.split, %6
   %.0 = phi i32 [ -1, %6 ], [ %., %.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #2
+declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @weakref___new__(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !45
   %6 = call i32 (ptr, ptr, i64, i64, ...) @PyArg_UnpackTuple(ptr noundef %1, ptr noundef nonnull @.str.18, i64 noundef 1, i64 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not = icmp eq i32 %6, 0
@@ -1704,12 +1698,12 @@ define internal ptr @weakref___new__(ptr noundef %0, ptr noundef %1, ptr readnon
 
 11:                                               ; preds = %3, %7
   %.0 = phi ptr [ %10, %7 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare void @PyObject_GC_Del(ptr noundef) #2
+declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @proxy_dealloc(ptr noundef %0) #0 {
@@ -2925,7 +2919,7 @@ define dso_local ptr @PyWeakref_NewProxy(ptr noundef %0, ptr noundef %1) local_u
   ret ptr %4
 }
 
-declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #2
+declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @PyWeakref_IsDead(ptr noundef %0) local_unnamed_addr #0 {
@@ -2976,9 +2970,9 @@ _PyWeakref_IS_DEAD.exit:                          ; preds = %13, %PyObject_TypeC
   ret i32 %.0
 }
 
-declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
@@ -3046,7 +3040,7 @@ _PyWeakref_GET_REF.exit:                          ; preds = %PyObject_TypeCheck.
   ret i32 %.0
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyWeakref_GetObject(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -3635,9 +3629,9 @@ _PyWeakref_GetWeakrefCount.exit.thread:           ; preds = %_PyObject_GET_WEAKR
   ret void
 }
 
-declare ptr @PyErr_GetRaisedException() local_unnamed_addr #2
+declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 
-declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #2
+declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyWeakref_ClearWeakRefsNoCallbacks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3738,9 +3732,9 @@ _PyWeakref_ClearRef.exit:                         ; preds = %8, %41
   ret void
 }
 
-declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #2
+declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PyUnstable_Object_ClearWeakRefsNoCallbacks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -3941,10 +3935,10 @@ _PyWeakref_ClearRef.exit:                         ; preds = %7, %40
   ret void
 }
 
-declare ptr @_PyStaticType_GetState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyStaticType_GetState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @_PyWeakref_IsDead(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @_PyWeakref_IsDead(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8, !tbaa !37
   %3 = icmp eq ptr %.val, @_Py_NoneStruct
@@ -3962,23 +3956,23 @@ _PyWeakref_IS_DEAD.exit:                          ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
-declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
+declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @_PyObject_LookupSpecial(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_PyObject_LookupSpecial(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #2
+declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #2
+declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
-declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_add(ptr noundef %0, ptr noundef %1) #0 {
@@ -7809,75 +7803,75 @@ Py_DECREF.exit:                                   ; preds = %37, %34, %Py_DECREF
   ret ptr %.0
 }
 
-declare ptr @PyNumber_Add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Multiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Remainder(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Remainder(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Divmod(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Divmod(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Power(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Power(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Negative(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Negative(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Positive(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Positive(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Absolute(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Absolute(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Invert(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Invert(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Lshift(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Lshift(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Rshift(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Rshift(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_And(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_And(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Xor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Xor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Or(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Or(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceAdd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceAdd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceSubtract(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceSubtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceMultiply(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceMultiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceRemainder(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceRemainder(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlacePower(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlacePower(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceLshift(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceLshift(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceRshift(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceRshift(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceAnd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceAnd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceXor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceXor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceOr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceOr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_FloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_FloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_TrueDivide(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_TrueDivide(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceFloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceFloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceTrueDivide(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceTrueDivide(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Index(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Index(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_MatrixMultiply(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_MatrixMultiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_InPlaceMatrixMultiply(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_InPlaceMatrixMultiply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @proxy_length(ptr noundef readonly captures(none) %0) #0 {
@@ -7973,9 +7967,9 @@ Py_DECREF.exit:                                   ; preds = %16, %13, %_PyWeakre
   ret i32 %.0
 }
 
-declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #2
+declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_getitem(ptr noundef %0, ptr noundef %1) #0 {
@@ -8155,23 +8149,23 @@ Py_DECREF.exit:                                   ; preds = %22, %19, %17, %prox
   ret i32 %.010
 }
 
-declare ptr @PyObject_GetItem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_GetItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_DelItem(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_GetAttr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyObject_SetAttr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_GetIter(ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_GetIter(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyIter_Check(ptr noundef) local_unnamed_addr #2
+declare i32 @PyIter_Check(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #2
+declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @proxy_bytes(ptr noundef %0, ptr readnone captures(none) %1) #0 {
@@ -8217,10 +8211,10 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
   %.09 = phi ptr [ %0, %12 ], [ %.val12, %9 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.09, ptr %3, align 8, !tbaa !45
   %16 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 37488), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %17, -1
   br i1 %.not.i, label %18, label %Py_DECREF.exit
@@ -8284,10 +8278,10 @@ Py_INCREF.exit.sink.split:                        ; preds = %12, %9
 
 Py_INCREF.exit:                                   ; preds = %Py_INCREF.exit.sink.split, %9, %12
   %.09 = phi ptr [ %0, %12 ], [ %.val12, %9 ], [ %.val12.sink, %Py_INCREF.exit.sink.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.09, ptr %3, align 8, !tbaa !45
   %16 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 43120), ptr noundef nonnull %3, i64 noundef -9223372036854775807, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load i32, ptr %.09, align 8, !tbaa !42
   %.not.i = icmp sgt i32 %17, -1
   br i1 %.not.i, label %18, label %Py_DECREF.exit
@@ -8307,9 +8301,9 @@ Py_DECREF.exit:                                   ; preds = %21, %18, %Py_INCREF
   ret ptr %.0
 }
 
-declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_VectorcallMethod(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @weakref_vectorcall(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef %3) #0 {
@@ -8362,24 +8356,30 @@ _PyWeakref_GET_REF.exit:                          ; preds = %13, %16, %17, %19
   ret ptr %.0
 }
 
-declare i32 @_PyArg_NoKwnames(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyArg_NoKwnames(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

@@ -1463,7 +1463,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4Luau7Compile9modelCostEPNS_7AstNodeEPKPNS_8AstLocalEmRKNS_12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS9_EEE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::Compile::CostVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 496) (i8, ptr @_ZTVN4Luau7Compile11CostVisitorE, i64 16), ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8, !tbaa !10
@@ -1512,7 +1512,7 @@ define dso_local noundef i64 @_ZN4Luau7Compile9modelCostEPNS_7AstNodeEPKPNS_8Ast
   br label %_ZN4Luau7Compile11CostVisitorD2Ev.exit
 
 _ZN4Luau7Compile11CostVisitorD2Ev.exit:           ; preds = %19, %22
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %20
 
 23:                                               ; preds = %._crit_edge
@@ -1532,12 +1532,9 @@ _ZN4Luau7Compile11CostVisitorD2Ev.exit:           ; preds = %19, %22
   br label %_ZN4Luau7Compile11CostVisitorD2Ev.exit14
 
 _ZN4Luau7Compile11CostVisitorD2Ev.exit14:         ; preds = %25, %27
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEmNS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 {
@@ -1647,9 +1644,6 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
 }
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7Compile11CostVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3142,7 +3136,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br i1 %41, label %276, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4, !tbaa !4
   %44 = icmp eq i32 %9, %43
   %..i96 = select i1 %44, ptr %1, ptr null
@@ -3359,7 +3353,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br i1 %.not86, label %195, label %184
 
 184:                                              ; preds = %181
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %186 = load ptr, ptr %185, align 8, !tbaa !85
   %187 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %186)
@@ -3368,15 +3362,15 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %190 = extractvalue { i64, i64 } %187, 1
   store i64 %190, ptr %189, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !39
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %191, align 8, !tbaa !40
   %192 = call { i64, i64 } @_ZN4Luau7Compile4Cost4foldERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %193 = extractvalue { i64, i64 } %192, 0
   %194 = extractvalue { i64, i64 } %192, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 195:                                              ; preds = %181
@@ -3386,7 +3380,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br i1 %.not87, label %214, label %198
 
 198:                                              ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %200 = load ptr, ptr %199, align 8, !tbaa !131
   %201 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %200)
@@ -3395,7 +3389,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %203 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %204 = extractvalue { i64, i64 } %201, 1
   store i64 %204, ptr %203, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %206 = load ptr, ptr %205, align 8, !tbaa !133
   %207 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %206)
@@ -3407,8 +3401,8 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %211 = call { i64, i64 } @_ZN4Luau7Compile4Cost4foldERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   %212 = extractvalue { i64, i64 } %211, 0
   %213 = extractvalue { i64, i64 } %211, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 214:                                              ; preds = %195
@@ -3499,7 +3493,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph184, %.thread, %50, %.preheader, %260, %257, %138, %103, %184, %217, %226, %198, %117
   %.sroa.0149.3 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
   %.sroa.29.3 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %276
 
 276:                                              ; preds = %39, %36, %34, %30, %18, %.loopexit, %12
@@ -3764,6 +3758,12 @@ _ZN4Luau6detail14DenseHashTableIPNS_8AstLocalESt4pairIS3_mES4_IKS3_mENS0_16ItemI
   store i64 %spec.select, ptr %2, align 8, !tbaa !13
   br label %15
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #9

@@ -128,8 +128,8 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %22 = alloca %struct.timeval, align 8
   %23 = alloca i8, align 1
   %24 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_filem_base_framework, i64 76), align 4, !tbaa !14
   %or.cond = icmp ult i32 %25, 64
   br i1 %or.cond, label %26, label %33
@@ -184,8 +184,8 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br label %48
 
 48:                                               ; preds = %46, %41, %39
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
-  call void @llvm.lifetime.start.p0(i64 260, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 1, ptr %16, align 4, !tbaa !28
   %49 = call i32 @PMIx_Data_unpack(ptr noundef nonnull @prte_process_info, ptr noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %16, i16 noundef zeroext 22) #7
   switch i32 %49, label %50 [
@@ -204,7 +204,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br i1 %54, label %55, label %73
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %56 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #7
   %57 = load i64, ptr %18, align 8, !tbaa !31
   %58 = sitofp i64 %57 to double
@@ -213,7 +213,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %61 = sitofp i64 %60 to double
   %62 = fdiv double %61, 1.000000e+06
   %63 = fadd double %62, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %64, 64
   br i1 %or.cond.i, label %65, label %73
@@ -249,7 +249,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   br i1 %81, label %82, label %100
 
 82:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %83 = call i32 @gettimeofday(ptr noundef nonnull %19, ptr noundef null) #7
   %84 = load i64, ptr %19, align 8, !tbaa !31
   %85 = sitofp i64 %84 to double
@@ -258,7 +258,7 @@ define void @prte_filem_base_recv(i32 %0, ptr noundef %1, ptr noundef %2, i32 %3
   %88 = sitofp i64 %87 to double
   %89 = fdiv double %88, 1.000000e+06
   %90 = fadd double %89, %85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond3.i = icmp ult i32 %91, 64
   br i1 %or.cond3.i, label %92, label %100
@@ -318,7 +318,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br i1 %123, label %124, label %142
 
 124:                                              ; preds = %pmix_pointer_array_get_item.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %125 = call i32 @gettimeofday(ptr noundef nonnull %20, ptr noundef null) #7
   %126 = load i64, ptr %20, align 8, !tbaa !31
   %127 = sitofp i64 %126 to double
@@ -327,7 +327,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %130 = sitofp i64 %129 to double
   %131 = fdiv double %130, 1.000000e+06
   %132 = fadd double %131, %127
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond5.i = icmp ult i32 %133, 64
   br i1 %or.cond5.i, label %134, label %142
@@ -371,7 +371,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br i1 %153, label %154, label %172
 
 154:                                              ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %155 = call i32 @gettimeofday(ptr noundef nonnull %21, ptr noundef null) #7
   %156 = load i64, ptr %21, align 8, !tbaa !31
   %157 = sitofp i64 %156 to double
@@ -380,7 +380,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %160 = sitofp i64 %159 to double
   %161 = fdiv double %160, 1.000000e+06
   %162 = fadd double %161, %157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond7.i = icmp ult i32 %163, 64
   br i1 %or.cond7.i, label %164, label %172
@@ -443,7 +443,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br i1 %193, label %194, label %212
 
 194:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %195 = call i32 @gettimeofday(ptr noundef nonnull %22, ptr noundef null) #7
   %196 = load i64, ptr %22, align 8, !tbaa !31
   %197 = sitofp i64 %196 to double
@@ -452,7 +452,7 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   %200 = sitofp i64 %199 to double
   %201 = fdiv double %200, 1.000000e+06
   %202 = fadd double %201, %197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond11.i = icmp ult i32 %203, 64
   br i1 %or.cond11.i, label %204, label %212
@@ -477,8 +477,8 @@ pmix_pointer_array_get_item.exit.thread.i:        ; preds = %117, %pmix_pointer_
   br label %filem_base_process_get_proc_node_name_cmd.exit
 
 filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %172, %185, %212
-  call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %384
 
 214:                                              ; preds = %37
@@ -499,15 +499,15 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %223
 
 223:                                              ; preds = %221, %216, %214
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !54
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 2, ptr %10, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %6, align 4, !tbaa !28
   %224 = call i32 @PMIx_Data_unpack(ptr noundef nonnull @prte_process_info, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %6, i16 noundef zeroext 3) #7
   switch i32 %224, label %225 [
@@ -526,7 +526,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br i1 %229, label %230, label %248
 
 230:                                              ; preds = %227
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %231 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #7
   %232 = load i64, ptr %12, align 8, !tbaa !31
   %233 = sitofp i64 %232 to double
@@ -535,7 +535,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %236 = sitofp i64 %235 to double
   %237 = fdiv double %236, 1.000000e+06
   %238 = fadd double %237, %233
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i16 = icmp ult i32 %239, 64
   br i1 %or.cond.i16, label %240, label %248
@@ -642,7 +642,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br i1 %288, label %289, label %307
 
 289:                                              ; preds = %286
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %290 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #7
   %291 = load i64, ptr %13, align 8, !tbaa !31
   %292 = sitofp i64 %291 to double
@@ -651,7 +651,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %295 = sitofp i64 %294 to double
   %296 = fdiv double %295, 1.000000e+06
   %297 = fadd double %296, %292
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %298 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond5.i18 = icmp ult i32 %298, 64
   br i1 %or.cond5.i18, label %299, label %307
@@ -693,7 +693,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br i1 %315, label %316, label %334
 
 316:                                              ; preds = %313
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %317 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #7
   %318 = load i64, ptr %14, align 8, !tbaa !31
   %319 = sitofp i64 %318 to double
@@ -702,7 +702,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %322 = sitofp i64 %321 to double
   %323 = fdiv double %322, 1.000000e+06
   %324 = fadd double %323, %319
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %325 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond7.i19 = icmp ult i32 %325, 64
   br i1 %or.cond7.i19, label %326, label %334
@@ -765,7 +765,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br i1 %355, label %356, label %374
 
 356:                                              ; preds = %353
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %357 = call i32 @gettimeofday(ptr noundef nonnull %15, ptr noundef null) #7
   %358 = load i64, ptr %15, align 8, !tbaa !31
   %359 = sitofp i64 %358 to double
@@ -774,7 +774,7 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   %362 = sitofp i64 %361 to double
   %363 = fdiv double %362, 1.000000e+06
   %364 = fadd double %363, %359
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %365 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base_framework, i64 76), align 4, !tbaa !14
   %or.cond11.i21 = icmp ult i32 %365, 64
   br i1 %or.cond11.i21, label %366, label %374
@@ -818,12 +818,12 @@ filem_base_process_get_proc_node_name_cmd.exit:   ; preds = %73, %100, %142, %17
   br label %filem_base_process_get_remote_path_cmd.exit
 
 filem_base_process_get_remote_path_cmd.exit:      ; preds = %253, %379, %381
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %384
 
 382:                                              ; preds = %37
@@ -832,8 +832,8 @@ filem_base_process_get_remote_path_cmd.exit:      ; preds = %253, %379, %381
   br label %384
 
 384:                                              ; preds = %filem_base_process_get_proc_node_name_cmd.exit, %filem_base_process_get_remote_path_cmd.exit, %382, %35, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void
 }
 
@@ -892,20 +892,14 @@ define noundef i32 @prte_filem_base_comm_stop() local_unnamed_addr #0 {
 
 declare void @prte_rml_recv_cancel(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PMIx_Data_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @prte_job_state_to_str(i32 noundef) local_unnamed_addr #1
 
@@ -922,26 +916,32 @@ declare ptr @pmix_util_print_rank(i32 noundef) local_unnamed_addr #1
 declare i32 @prte_rml_send_buffer_nb(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

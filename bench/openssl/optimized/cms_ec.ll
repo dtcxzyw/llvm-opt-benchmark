@@ -52,8 +52,8 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %.not.i, label %31, label %102
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %32 = call i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %.not13.i = icmp eq i32 %32, 0
   br i1 %.not13.i, label %.critedge.i, label %33
@@ -67,9 +67,9 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %or.cond.i, label %.critedge.i, label %38
 
 38:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @X509_ALGOR_get0(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %34) #3
   %39 = load ptr, ptr %21, align 8, !tbaa !8
   %40 = call i32 @OBJ_obj2nid(ptr noundef %39) #3
@@ -102,7 +102,7 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   %52 = load ptr, ptr %23, align 8, !tbaa !12
   %53 = call ptr @EVP_PKEY_CTX_get0_libctx(ptr noundef nonnull %27) #3
   %54 = call ptr @EVP_PKEY_CTX_get0_propq(ptr noundef nonnull %27) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !13
   switch i32 %42, label %85 [
     i32 16, label %55
@@ -110,11 +110,11 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   ]
 
 55:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !15
   store ptr %57, ptr %18, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %58 = load i32, ptr %52, align 8, !tbaa !20
   %59 = sext i32 %58 to i64
   store i64 %59, ptr %19, align 8, !tbaa !21
@@ -134,19 +134,19 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %64, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %86
 
 65:                                               ; preds = %62
   call void @OSSL_DECODER_CTX_free(ptr noundef nonnull %60) #3
   %66 = load ptr, ptr %17, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %pkey_type2param.exit.i.i
 
 67:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %68 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %53, ptr noundef nonnull @.str.2, ptr noundef %54) #3
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread35.i.i.i, label %70
@@ -178,13 +178,13 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %82, label %.thread35.i.i.i, label %83
 
 .thread35.i.i.i:                                  ; preds = %80, %79, %70, %67
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %86
 
 83:                                               ; preds = %80
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %68) #3
   %84 = load ptr, ptr %17, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %pkey_type2param.exit.i.i
 
 85:                                               ; preds = %51
@@ -203,12 +203,12 @@ define i32 @ossl_cms_ecdh_envelope(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %pkey_type2param.exit.thread.i.i
 
 pkey_type2param.exit.thread.i.i:                  ; preds = %86, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %ecdh_cms_set_peerkey.exit.thread.i
 
 pkey_type2param.exit.i.i:                         ; preds = %83, %65
   %.1.i.i.i = phi ptr [ %66, %65 ], [ %84, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %88 = icmp eq ptr %.1.i.i.i, null
   br i1 %88, label %ecdh_cms_set_peerkey.exit.thread.i, label %89
 
@@ -230,18 +230,18 @@ pkey_type2param.exit.i.i:                         ; preds = %83, %65
 ecdh_cms_set_peerkey.exit.thread.i:               ; preds = %94, %89, %pkey_type2param.exit.i.i, %pkey_type2param.exit.thread.i.i, %49, %46, %43, %38
   %.026.i.ph.i = phi ptr [ %47, %49 ], [ null, %43 ], [ null, %46 ], [ null, %pkey_type2param.exit.thread.i.i ], [ null, %pkey_type2param.exit.i.i ], [ %.2.i.i, %94 ], [ %.2.i.i, %89 ], [ null, %38 ]
   call void @EVP_PKEY_free(ptr noundef %.026.i.ph.i) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %100
 
 ecdh_cms_set_peerkey.exit.i:                      ; preds = %94
   %98 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef nonnull %27, ptr noundef nonnull %.2.i.i) #3
   %99 = icmp slt i32 %98, 1
   call void @EVP_PKEY_free(ptr noundef nonnull %.2.i.i) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %ecdh_cms_set_peerkey.exit.i, %ecdh_cms_set_peerkey.exit.thread.i
@@ -251,17 +251,17 @@ ecdh_cms_set_peerkey.exit.i:                      ; preds = %94
   br label %.critedge.i
 
 101:                                              ; preds = %ecdh_cms_set_peerkey.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %102
 
 102:                                              ; preds = %101, %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %103 = call i32 @CMS_RecipientInfo_kari_get0_alg(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #3
   %.not.i16.i = icmp eq i32 %103, 0
   br i1 %.not.i16.i, label %ecdh_cms_set_shared_info.exit.thread.i, label %104
@@ -270,8 +270,8 @@ ecdh_cms_set_peerkey.exit.i:                      ; preds = %94
   %105 = load ptr, ptr %12, align 8, !tbaa !3
   %106 = load ptr, ptr %105, align 8, !tbaa !22
   %107 = call i32 @OBJ_obj2nid(ptr noundef %106) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %ecdh_cms_set_kdf_param.exit.thread.i.i, label %109
 
@@ -309,15 +309,15 @@ ecdh_cms_set_peerkey.exit.i:                      ; preds = %94
   br i1 %.not12.i.i.i, label %ecdh_cms_set_kdf_param.exit.thread.i.i, label %ecdh_cms_set_kdf_param.exit.i.i
 
 ecdh_cms_set_kdf_param.exit.thread.i.i:           ; preds = %120, %117, %114, %111, %109, %104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %126
 
 ecdh_cms_set_kdf_param.exit.i.i:                  ; preds = %120
   %124 = call i32 @EVP_PKEY_CTX_set_ecdh_kdf_md(ptr noundef nonnull %27, ptr noundef nonnull %123) #3
   %125 = icmp slt i32 %124, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %125, label %126, label %127
 
 126:                                              ; preds = %ecdh_cms_set_kdf_param.exit.i.i, %ecdh_cms_set_kdf_param.exit.thread.i.i
@@ -403,11 +403,11 @@ ecdh_cms_set_shared_info.exit.i:                  ; preds = %170
   call void @X509_ALGOR_free(ptr noundef nonnull %139) #3
   %174 = load ptr, ptr %15, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %174, ptr noundef nonnull @.str, i32 noundef 216) #3
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %ecdh_cms_decrypt.exit
 
 .critedge25.i:                                    ; preds = %170, %166, %162, %157, %155, %153, %144, %141, %132
@@ -419,30 +419,30 @@ ecdh_cms_set_shared_info.exit.i:                  ; preds = %170
   br label %ecdh_cms_set_shared_info.exit.thread.i
 
 ecdh_cms_set_shared_info.exit.thread.i:           ; preds = %.critedge25.i, %127, %126, %102
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.ecdh_cms_decrypt) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 189, ptr noundef null) #3
   br label %ecdh_cms_decrypt.exit
 
 .critedge.i:                                      ; preds = %100, %33, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %ecdh_cms_decrypt.exit
 
 176:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %177 = tail call ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef %0) #3
   %178 = icmp eq ptr %177, null
   br i1 %178, label %ecdh_cms_encrypt.exit, label %179
@@ -620,13 +620,13 @@ ecdh_cms_set_shared_info.exit.thread.i:           ; preds = %.critedge25.i, %127
 
 ecdh_cms_encrypt.exit:                            ; preds = %176, %271
   %.0.i = phi i32 [ %.056.i, %271 ], [ 0, %176 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ecdh_cms_decrypt.exit
 
 273:                                              ; preds = %2
@@ -646,17 +646,11 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @CMS_RecipientInfo_get0_pkey_ctx(ptr noundef) local_unnamed_addr #1
 
 declare ptr @EVP_PKEY_CTX_get0_peerkey(ptr noundef) local_unnamed_addr #1
 
 declare i32 @CMS_RecipientInfo_kari_get0_orig_id(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -781,6 +775,12 @@ declare i32 @i2d_X509_ALGOR(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_STRING_new() local_unnamed_addr #1
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

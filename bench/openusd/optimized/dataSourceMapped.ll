@@ -1914,7 +1914,7 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16
   br i1 %128, label %129, label %136
 
 129:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 96
   store i8 -1, ptr %130, align 8
   store ptr %124, ptr %5, align 8
@@ -1930,7 +1930,7 @@ _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16
 _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %129
   %133 = load i8, ptr %118, align 8
   store i8 %133, ptr %130, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %134 = load ptr, ptr %123, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 104
   store ptr %135, ptr %123, align 8
@@ -1947,7 +1947,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
           to label %140 unwind label %148
 
 140:                                              ; preds = %_ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i, %136, %138
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %141 = load i8, ptr %118, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %141, -1
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit, label %142
@@ -1964,7 +1964,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   unreachable
 
 _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit: ; preds = %142, %140
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEC2ERKS3_.exit
 
 146:                                              ; preds = %.critedge
@@ -2127,7 +2127,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE16_Temporary_va
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i8, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq i8 %4, -1
@@ -2149,7 +2149,7 @@ define linkonce_odr void @_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26Us
   unreachable
 
 _ZNSt8__detail9__variant13_Variant_baseIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit: ; preds = %1, %.noexc.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2490,7 +2490,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReser
   br i1 %170, label %171, label %178
 
 171:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 96
   store i8 -1, ptr %172, align 8
   store ptr %166, ptr %5, align 8
@@ -2506,7 +2506,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReser
 _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i: ; preds = %171
   %175 = load i8, ptr %160, align 8
   store i8 %175, ptr %172, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %176 = load ptr, ptr %165, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 104
   store ptr %177, ptr %165, align 8
@@ -2523,7 +2523,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
           to label %182 unwind label %188
 
 182:                                              ; preds = %_ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit.i.i, %178, %180
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %183 = load i8, ptr %160, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %183, -1
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit, label %184
@@ -2540,7 +2540,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   unreachable
 
 _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit: ; preds = %184, %182
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEED2Ev.exit, %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit
@@ -3681,7 +3681,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i8, ptr %3, align 8
   %.not.i.i = icmp eq i8 %4, -1
@@ -3703,14 +3703,14 @@ define linkonce_odr void @_ZNSt8__detail9__variant15_Copy_ctor_baseILb0EJN32pxrI
   unreachable
 
 _ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev.exit: ; preds = %1, %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i8, ptr %3, align 8
   %.not.i = icmp eq i8 %4, -1
@@ -3725,7 +3725,7 @@ define linkonce_odr void @_ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxr
   br label %6
 
 6:                                                ; preds = %.noexc, %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 7:                                                ; preds = %5
@@ -4180,7 +4180,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataS
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %13, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i.i ], [ %4, %1 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %8 = load i8, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, -1
@@ -4202,7 +4202,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataS
   unreachable
 
 _ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 104
   %.not.i.i.i.i = icmp eq ptr %13, %6
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES8_EvT_SA_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !27
@@ -4281,7 +4281,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrRe
 
 .lr.ph.i.i:                                       ; preds = %3, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i
   %.05.i.i = phi ptr [ %11, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i ], [ %0, %3 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 96
   %6 = load i8, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, -1
@@ -4303,7 +4303,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrRe
   unreachable
 
 _ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 104
   %.not.i.i = icmp eq ptr %11, %1
   br i1 %.not.i.i, label %_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvT_SA_.exit, label %.lr.ph.i.i, !llvm.loop !27
@@ -4320,7 +4320,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrRe
 
 .lr.ph.i:                                         ; preds = %2, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i
   %.05.i = phi ptr [ %10, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i ], [ %0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %.05.i, i64 96
   %5 = load i8, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, -1
@@ -4342,7 +4342,7 @@ define linkonce_odr void @_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrRe
   unreachable
 
 _ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %.05.i, i64 104
   %.not.i = icmp eq ptr %10, %1
   br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS3_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEEvT_SC_.exit, label %.lr.ph.i, !llvm.loop !27
@@ -4471,7 +4471,7 @@ define linkonce_odr void @_ZNSt6vectorISt7variantIJN32pxrInternal_v0_24__pxrRese
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i8 -1, ptr %12, align 8
   store ptr %10, ptr %8, align 8
@@ -4488,7 +4488,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   %15 = getelementptr inbounds i8, ptr %10, i64 -8
   %16 = load i8, ptr %15, align 8
   store i8 %16, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %17 = load ptr, ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   store ptr %18, ptr %9, align 8
@@ -4509,7 +4509,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   %.079.i.i.i.i.i = phi ptr [ %25, %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i ], [ %19, %.lr.ph.preheader.i.i.i.i.i ]
   %25 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -104
   %26 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %26, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %.079.i.i.i.i.i, i64 -8
   %28 = load i8, ptr %27, align 8
@@ -4528,7 +4528,7 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i
 
 31:                                               ; preds = %.lr.ph.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr inbounds i8, ptr %.0610.i.i.i.i.i, i64 -8
   %33 = load i8, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %33, -1
@@ -4540,20 +4540,20 @@ _ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdI
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %34, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i
 
 35:                                               ; preds = %.lr.ph.i.i.i.i.i
   unreachable
 
 _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i.i.i.i.i.i, %30, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %36 = add nsw i64 %.011.i.i.i.i.i, -1
   %37 = icmp sgt i64 %.011.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit, !llvm.loop !40
 
 _ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit: ; preds = %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE9constructIS8_JS8_EEEvRS9_PT_DpOT0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %39 = load i8, ptr %38, align 8
@@ -4572,7 +4572,7 @@ _ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImaging
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit
 
 42:                                               ; preds = %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %44 = load i8, ptr %43, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %44, -1
@@ -4584,14 +4584,14 @@ _ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImaging
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i: ; preds = %45, %42
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit
 
 46:                                               ; preds = %_ZSt13move_backwardIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_ET0_T_SB_SA_.exit
   unreachable
 
 _ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOS7_.exit: ; preds = %40, %41, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZNS0_17_Move_assign_baseILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS5_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEaSEOSC_EUlOT_T0_E_RSt7variantIJS7_SB_EEEJEEESt16integer_sequenceImJLm18446744073709551615EEEE14__visit_invokeESI_SL_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4632,7 +4632,7 @@ _ZNKSt6vectorISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSou
 _ZNSt12_Vector_baseISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEESaIS8_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEESaIS8_EE12_M_check_lenEmPKc.exit, %21
   %24 = phi ptr [ %23, %21 ], [ null, %_ZNKSt6vectorISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEESaIS8_EE12_M_check_lenEmPKc.exit ]
   %25 = getelementptr inbounds i8, ptr %24, i64 %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 -1, ptr %26, align 8
   store ptr %25, ptr %5, align 8
@@ -4649,7 +4649,7 @@ _ZNSt12_Vector_baseISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingD
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %30 = load i8, ptr %29, align 8
   store i8 %30, ptr %26, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEPS8_ET0_T_SD_SC_(ptr noundef %8, ptr noundef %1, ptr noundef nonnull %24)
           to label %_ZSt34__uninitialized_move_if_noexcept_aIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit unwind label %48
 
@@ -4664,7 +4664,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt7variantIJN32pxrInternal_v0_24__pxrR
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit28, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %40, %_ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i ], [ %8, %_ZSt34__uninitialized_move_if_noexcept_aIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit28 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %35 = load i8, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %35, -1
@@ -4686,7 +4686,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt7variantIJN32pxrInternal_v0_24__pxrR
   unreachable
 
 _ZSt8_DestroyISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEvPT_.exit.i.i.i: ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %40, %7
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEES8_EvT_SA_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !27
@@ -4924,7 +4924,7 @@ define linkonce_odr void @_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJN32p
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i: ; preds = %17, %8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
@@ -4941,11 +4941,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i: ; pre
   br label %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i
 
 _ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i: ; preds = %35, %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %39 = load ptr, ptr %38, align 8
@@ -4970,7 +4970,7 @@ _ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDat
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingaSEOS1_.exit: ; preds = %_ZNSt8functionIFSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEERKNS1_12UsdAttributeERKNS1_32UsdImagingDataSourceStageGlobalsERKNS1_7SdfPathERKNS1_19HdDataSourceLocatorEEEC2EOSH_.exit.i.i, %42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS0_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEE7emplaceILm0EJS2_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS2_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit
 
 47:                                               ; preds = %2
@@ -5120,7 +5120,7 @@ _ZSt18uninitialized_copyIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenEPS1_ET0_T
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8__detail9__variant9__emplaceILm0ELb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEJS4_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i8, ptr %4, align 8
   %.not.i = icmp eq i8 %5, -1
@@ -5132,7 +5132,7 @@ define linkonce_odr void @_ZNSt8__detail9__variant9__emplaceILm0ELb0EJN32pxrInte
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEE8_M_resetEv.exit
 
 _ZNSt8__detail9__variant16_Variant_storageILb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEE8_M_resetEv.exit: ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = load i64, ptr %1, align 8
   store i64 %7, ptr %0, align 8
   store i64 0, ptr %1, align 8
@@ -5316,7 +5316,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEaSEOS3_.exit
 
 48:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i = icmp eq i8 %6, -1
   br i1 %.not.i.i, label %_ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit, label %49
 
@@ -5326,7 +5326,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit
 
 _ZNSt8__detail9__variant9__emplaceILm1ELb0EJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS2_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEJS8_EEEvRNS0_16_Variant_storageIXT0_EJDpT1_EEEDpOT2_.exit: ; preds = %48, %49
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %1, align 8
   store ptr %50, ptr %4, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5346,7 +5346,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31UsdImagingDataSourceMappe
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEEE7destroyIS8_EEvRS9_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load i8, ptr %4, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %5, -1
@@ -5368,7 +5368,7 @@ define linkonce_odr void @_ZNSt16allocator_traitsISaISt7variantIJN32pxrInternal_
   unreachable
 
 _ZNSt15__new_allocatorISt7variantIJN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSourceMapped16AttributeMappingESt10shared_ptrINS1_31UsdImagingDataSourceMapped_Impl18_ContainerMappingsEEEEE7destroyIS8_EEvPT_.exit: ; preds = %2, %.noexc.i.i.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6142,10 +6142,10 @@ _ZNSt15__new_allocatorIN32pxrInternal_v0_24__pxrReserved__26UsdImagingDataSource
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

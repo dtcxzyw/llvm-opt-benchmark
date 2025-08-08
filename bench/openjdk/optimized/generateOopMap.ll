@@ -3239,7 +3239,7 @@ _ZN14GenerateOopMap26make_context_uninitializedEv.exit: ; preds = %_ZN14Generate
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 8
   %28 = and i32 %.sroa.0.0.copyload.i.i, 8
   %.not = icmp eq i32 %28, 0
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %26, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 99, ptr %29, align 8
@@ -3258,7 +3258,7 @@ _ZN14GenerateOopMap26make_context_uninitializedEv.exit: ; preds = %_ZN14Generate
 
 _ZN14GenerateOopMap19methodsig_to_effectEP6SymbolbP13CellTypeState.exit: ; preds = %_ZN14GenerateOopMap26make_context_uninitializedEv.exit, %33
   call void @_ZN17SignatureIterator16do_parameters_onI17ComputeEntryStackEEvPT_(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(36) %2)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 4
@@ -9210,7 +9210,7 @@ _ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14Byteco
   br i1 %116, label %117, label %thread-pre-split.i
 
 117:                                              ; preds = %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %118 = load ptr, ptr %15, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
@@ -9303,9 +9303,9 @@ _ZN5Bytes11put_Java_u2EPht.exit.i26:              ; preds = %158, %157, %151, %1
 
 159:                                              ; preds = %_ZN5Bytes11put_Java_u2EPht.exit.i26
   %160 = load i32, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %161 = load ptr, ptr %25, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV13RelocCallback, i64 16), ptr %4, align 8
   store ptr %0, ptr %26, align 8
@@ -9333,13 +9333,13 @@ _ZN5Bytes11put_Java_u2EPht.exit.i26:              ; preds = %158, %157, %151, %1
 _ZN14GenerateOopMap20expand_current_instrEiiiPh.exit: ; preds = %167, %168
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit29
 
 _ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit29: ; preds = %_ZN5Bytes11put_Java_u2EPht.exit.i26, %_ZN14GenerateOopMap20expand_current_instrEiiiPh.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit
 
 thread-pre-split.i:                               ; preds = %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.i
@@ -9437,7 +9437,7 @@ _ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i: ; preds = %_ZNK14Bytec
   br i1 %212, label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit, label %208
 
 .loopexit.i:                                      ; preds = %208, %202
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %213 = load ptr, ptr %15, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %215 = load ptr, ptr %214, align 8
@@ -9534,7 +9534,7 @@ _ZN5Bytes11put_Java_u2EPht.exit.i:                ; preds = %253, %252, %246, %2
   br label %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit
 
 _ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit: ; preds = %_ZN5Bytes11put_Java_u2EPht.exit.i, %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit
 
 _ZN14GenerateOopMap28rewrite_refval_conflict_instEP14BytecodeStreamii.exit: ; preds = %209, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit29, %_ZN14GenerateOopMap8is_aloadEP14BytecodeStreamPi.exit.thread.i, %_ZN14GenerateOopMap9is_astoreEP14BytecodeStreamPi.exit.i, %_ZN14GenerateOopMap21rewrite_load_or_storeEP14BytecodeStreamN9Bytecodes4CodeES3_j.exit
@@ -11169,10 +11169,10 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

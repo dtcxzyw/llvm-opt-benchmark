@@ -674,7 +674,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h68a1e9323c619c49E
   br label %22
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.cf236878264d5029fec9174bd49d017b.10, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
@@ -692,7 +692,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h68a1e9323c619c49E
   br label %22
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.cf236878264d5029fec9174bd49d017b.14, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
@@ -738,7 +738,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h60f04a6283dbf73aE.llvm.
   br label %20
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.cf236878264d5029fec9174bd49d017b.17, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %10, align 8
@@ -752,7 +752,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h60f04a6283dbf73aE.llvm.
   unreachable
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.cf236878264d5029fec9174bd49d017b.20, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %15, align 8
@@ -1051,7 +1051,7 @@ define void @"_ZN87_$LT$wasmtime_jit_debug..perf_jitdump..JitDumpFile$u20$as$u20
 9:                                                ; preds = %1
   %10 = ptrtoint ptr %8 to i64
   %11 = trunc i64 %10 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 %11, ptr %2, align 2
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.cf236878264d5029fec9174bd49d017b.22, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf236878264d5029fec9174bd49d017b.23, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cf236878264d5029fec9174bd49d017b.26) #15
   unreachable
@@ -1087,11 +1087,11 @@ declare void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f87
 ; Function Attrs: nonlazybind uwtable
 declare noundef i64 @sysconf(i32 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN18wasmtime_jit_debug11gdb_jit_int24unregister_gdb_jit_image17h73eb32ee7f689efaE(ptr noundef) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

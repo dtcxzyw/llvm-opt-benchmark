@@ -26,17 +26,11 @@ define dso_local void @_ZN3CarC2Ev(ptr noundef nonnull writeonly align 4 capture
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) %0, i32 %1, <2 x float> %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) %0, i32 %1, <2 x float> %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef readnone captures(none) %7) local_unnamed_addr #2 align 2 {
   %9 = alloca [6 x %struct.b2Vec2], align 16
   %10 = alloca %struct.b2Hull, align 4
   %11 = alloca %struct.b2Polygon, align 4
@@ -44,32 +38,32 @@ define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull
   %13 = alloca %struct.b2Circle, align 4
   %14 = alloca %struct.b2BodyDef, align 8
   %15 = alloca %struct.b2WheelJointDef, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, ptr noundef nonnull align 16 dereferenceable(48) @__const._ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv.vertices, i64 48, i1 false)
   %16 = fmul float %3, 0x3FEB333340000000
   br label %74
 
 17:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %10, ptr noundef nonnull %9, i32 noundef 6)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %18 = fmul float %3, 0x3FC3333340000000
   call void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %11, ptr noundef nonnull %10, float noundef %18)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %12)
   %19 = fdiv float 1.000000e+00, %3
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store float %19, ptr %20, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float 0x3FC99999A0000000, ptr %21, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %22, align 4, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = fmul float %3, 0x3FD99999A0000000
   store float %24, ptr %23, align 4, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %14)
   store i32 2, ptr %14, align 8, !tbaa !20
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %2, i64 0
@@ -112,7 +106,7 @@ define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull
   %43 = call i64 @b2CreateCircleShape(i64 %41, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.sroa.024.0.copyload = load i64, ptr %37, align 4
   %44 = call <2 x float> @b2Body_GetPosition(i64 %.sroa.024.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @b2DefaultWheelJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2WheelJointDef) align 8 %15)
   %45 = load i64, ptr %0, align 4
   store i64 %45, ptr %15, align 8
@@ -176,13 +170,13 @@ define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull
   %72 = call i64 @b2CreateWheelJoint(i32 %1, ptr noundef nonnull %15)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %72, ptr %73, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 74:                                               ; preds = %8, %74
@@ -200,32 +194,32 @@ define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull
   br i1 %exitcond.not, label %17, label %74, !llvm.loop !38
 }
 
-declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #4
+declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #3
 
-declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #4
+declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #3
 
-declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #4
+declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #3
 
-declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #4
+declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #3
 
-declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i64 @b2CreateCircleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare <2 x float> @b2Body_GetPosition(i64) local_unnamed_addr #4
+declare <2 x float> @b2Body_GetPosition(i64) local_unnamed_addr #3
 
-declare void @b2DefaultWheelJointDef(ptr dead_on_unwind writable sret(%struct.b2WheelJointDef) align 8) local_unnamed_addr #4
+declare void @b2DefaultWheelJointDef(ptr dead_on_unwind writable sret(%struct.b2WheelJointDef) align 8) local_unnamed_addr #3
 
-declare <2 x float> @b2Body_GetLocalVector(i64, <2 x float>) local_unnamed_addr #4
+declare <2 x float> @b2Body_GetLocalVector(i64, <2 x float>) local_unnamed_addr #3
 
-declare <2 x float> @b2Body_GetLocalPoint(i64, <2 x float>) local_unnamed_addr #4
+declare <2 x float> @b2Body_GetLocalPoint(i64, <2 x float>) local_unnamed_addr #3
 
-declare i64 @b2CreateWheelJoint(i32, ptr noundef) local_unnamed_addr #4
+declare i64 @b2CreateWheelJoint(i32, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) initializes((40, 41)) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Car7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) initializes((40, 41)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.04.0.copyload = load i64, ptr %2, align 4
   tail call void @b2DestroyJoint(i64 %.sroa.04.0.copyload)
@@ -245,12 +239,12 @@ define dso_local void @_ZN3Car7DespawnEv(ptr noundef nonnull align 4 captures(no
   ret void
 }
 
-declare void @b2DestroyJoint(i64) local_unnamed_addr #4
+declare void @b2DestroyJoint(i64) local_unnamed_addr #3
 
-declare void @b2DestroyBody(i64) local_unnamed_addr #4
+declare void @b2DestroyBody(i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car8SetSpeedEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Car8SetSpeedEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.02.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetMotorSpeed(i64 %.sroa.02.0.copyload, float noundef %1)
@@ -262,12 +256,12 @@ define dso_local void @_ZN3Car8SetSpeedEf(ptr noundef nonnull readonly align 4 c
   ret void
 }
 
-declare void @b2WheelJoint_SetMotorSpeed(i64, float noundef) local_unnamed_addr #4
+declare void @b2WheelJoint_SetMotorSpeed(i64, float noundef) local_unnamed_addr #3
 
-declare void @b2Joint_WakeBodies(i64) local_unnamed_addr #4
+declare void @b2Joint_WakeBodies(i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car9SetTorqueEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Car9SetTorqueEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetMaxMotorTorque(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -277,10 +271,10 @@ define dso_local void @_ZN3Car9SetTorqueEf(ptr noundef nonnull readonly align 4 
   ret void
 }
 
-declare void @b2WheelJoint_SetMaxMotorTorque(i64, float noundef) local_unnamed_addr #4
+declare void @b2WheelJoint_SetMaxMotorTorque(i64, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car8SetHertzEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Car8SetHertzEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetSpringHertz(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -290,10 +284,10 @@ define dso_local void @_ZN3Car8SetHertzEf(ptr noundef nonnull readonly align 4 c
   ret void
 }
 
-declare void @b2WheelJoint_SetSpringHertz(i64, float noundef) local_unnamed_addr #4
+declare void @b2WheelJoint_SetSpringHertz(i64, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3Car15SetDampingRadioEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN3Car15SetDampingRadioEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetSpringDampingRatio(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -303,7 +297,7 @@ define dso_local void @_ZN3Car15SetDampingRadioEf(ptr noundef nonnull readonly a
   ret void
 }
 
-declare void @b2WheelJoint_SetSpringDampingRatio(i64, float noundef) local_unnamed_addr #4
+declare void @b2WheelJoint_SetSpringDampingRatio(i64, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN5TruckC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(41) initializes((0, 41)) %0) unnamed_addr #0 align 2 {
@@ -312,7 +306,7 @@ define dso_local void @_ZN5TruckC2Ev(ptr noundef nonnull writeonly align 4 captu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) %0, i32 %1, <2 x float> %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) %0, i32 %1, <2 x float> %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #2 align 2 {
   %10 = alloca [5 x %struct.b2Vec2], align 16
   %11 = alloca %struct.b2Hull, align 4
   %12 = alloca %struct.b2Polygon, align 4
@@ -322,18 +316,18 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %16 = alloca %struct.b2Polygon, align 4
   %17 = alloca %struct.b2Circle, align 4
   %18 = alloca %struct.b2WheelJointDef, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull align 16 dereferenceable(40) @__const._ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv.vertices, i64 40, i1 false)
   %19 = fmul float %3, 0x3FEB333340000000
   br label %87
 
 20:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %11, ptr noundef nonnull %10, i32 noundef 5)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %21 = fmul float %3, 0x3FC3333340000000
   call void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %12, ptr noundef nonnull %11, float noundef %21)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %13)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store float %7, ptr %22, align 4, !tbaa !4
@@ -341,7 +335,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   store float 0x3FC99999A0000000, ptr %23, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 16738740, ptr %24, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %14)
   store i32 2, ptr %14, align 8, !tbaa !20
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %2, i64 0
@@ -355,7 +349,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %28 = call i64 @b2CreateBody(i32 %1, ptr noundef nonnull %14)
   store i64 %28, ptr %0, align 4
   %29 = call i64 @b2CreatePolygonShape(i64 %28, ptr noundef nonnull %13, ptr noundef nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %30 = fmul float %3, 1.250000e+00
   %31 = fmul float %3, 0x3FB99999A0000000
   %32 = fmul float %3, 0xC000666660000000
@@ -367,7 +361,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   store float %31, ptr %34, align 4, !tbaa !44
   %.sroa.053.0.copyload = load i64, ptr %0, align 4
   %35 = call i64 @b2CreatePolygonShape(i64 %.sroa.053.0.copyload, ptr noundef nonnull %13, ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %36 = fmul float %3, 0x3FA99999A0000000
   %37 = fmul float %3, 0x3FD6666660000000
   %38 = fmul float %3, -3.250000e+00
@@ -376,7 +370,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %.sroa.050.4.vec.insert = insertelement <2 x float> %.sroa.050.0.vec.insert, float %39, i64 1
   call void @b2MakeOffsetBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %16, float noundef %36, float noundef %37, <2 x float> %.sroa.050.4.vec.insert, <2 x float> <float 1.000000e+00, float 0.000000e+00>)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %15, ptr noundef nonnull align 4 dereferenceable(144) %16, i64 144, i1 false), !tbaa.struct !46
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store float %31, ptr %34, align 4, !tbaa !44
   %.sroa.048.0.copyload = load i64, ptr %0, align 4
   %40 = call i64 @b2CreatePolygonShape(i64 %.sroa.048.0.copyload, ptr noundef nonnull %13, ptr noundef nonnull %15)
@@ -384,7 +378,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   store float %41, ptr %22, align 4, !tbaa !4
   store float 2.500000e+00, ptr %23, align 8, !tbaa !14
   store i32 12632256, ptr %24, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store float 0.000000e+00, ptr %42, align 4, !tbaa !17
@@ -413,7 +407,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %56 = call i64 @b2CreateCircleShape(i64 %54, ptr noundef nonnull %13, ptr noundef nonnull %17)
   %.sroa.024.0.copyload = load i64, ptr %50, align 4
   %57 = call <2 x float> @b2Body_GetPosition(i64 %.sroa.024.0.copyload)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @b2DefaultWheelJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2WheelJointDef) align 8 %18)
   %58 = load i64, ptr %0, align 4
   store i64 %58, ptr %18, align 8
@@ -477,14 +471,14 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   %85 = call i64 @b2CreateWheelJoint(i32 %1, ptr noundef nonnull %18)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %85, ptr %86, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
 87:                                               ; preds = %9, %87
@@ -502,10 +496,10 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
   br i1 %exitcond.not, label %20, label %87, !llvm.loop !50
 }
 
-declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef, <2 x float>, <2 x float>) local_unnamed_addr #4
+declare void @b2MakeOffsetBox(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, float noundef, float noundef, <2 x float>, <2 x float>) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) initializes((40, 41)) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Truck7DespawnEv(ptr noundef nonnull align 4 captures(none) dereferenceable(41) initializes((40, 41)) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.04.0.copyload = load i64, ptr %2, align 4
   tail call void @b2DestroyJoint(i64 %.sroa.04.0.copyload)
@@ -526,7 +520,7 @@ define dso_local void @_ZN5Truck7DespawnEv(ptr noundef nonnull align 4 captures(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck8SetSpeedEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Truck8SetSpeedEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.02.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetMotorSpeed(i64 %.sroa.02.0.copyload, float noundef %1)
@@ -539,7 +533,7 @@ define dso_local void @_ZN5Truck8SetSpeedEf(ptr noundef nonnull readonly align 4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck9SetTorqueEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Truck9SetTorqueEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetMaxMotorTorque(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -550,7 +544,7 @@ define dso_local void @_ZN5Truck9SetTorqueEf(ptr noundef nonnull readonly align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck8SetHertzEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Truck8SetHertzEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetSpringHertz(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -561,7 +555,7 @@ define dso_local void @_ZN5Truck8SetHertzEf(ptr noundef nonnull readonly align 4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Truck15SetDampingRadioEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Truck15SetDampingRadioEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(41) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.01.0.copyload = load i64, ptr %3, align 4
   tail call void @b2WheelJoint_SetSpringDampingRatio(i64 %.sroa.01.0.copyload, float noundef %1)
@@ -571,17 +565,22 @@ define dso_local void @_ZN5Truck15SetDampingRadioEf(ptr noundef nonnull readonly
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

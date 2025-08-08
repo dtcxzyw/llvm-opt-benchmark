@@ -474,10 +474,10 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void asm sideeffect "movq %rdi, $0;\0Amovq %rsi, $1;\0Amovq %rdx, $2;\0Amovq %rcx, $3;\0A", "=*m,=*m,=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !9
   %7 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix acquire, align 8
   %8 = icmp eq i8 %7, 0
@@ -504,12 +504,12 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit: ; preds = %0, %9, %12
   call void asm sideeffect "movq $0, %rdi;\0Amovq $1, %rsi;\0Amovq $2, %rdx;\0Amovq $3, %rcx;\0A", "*m,*m,*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call i32 @getpid() #18
   %16 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__19Arch_nonLockingForkE, align 8
   %.not.i.i = icmp eq ptr %16, null
@@ -585,8 +585,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
 
 _ZN32pxrInternal_v0_24__pxrReserved__L28Arch_DebuggerIsAttachedPosixEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i, %.critedge2.i, %48
   %.0.i = phi i1 [ %50, %48 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i ], [ false, %.critedge2.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0.i
 }
 
@@ -694,7 +694,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #14
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19InitPosixC2Ev() unnamed_addr #0 align 2 {
   %1 = alloca %struct.sigaction, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = call i32 @sigemptyset(ptr noundef nonnull %2) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -710,7 +710,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 
 _ZN32pxrInternal_v0_24__pxrReserved__L22Arch_DebuggerInitPosixEv.exit: ; preds = %0, %6
   store i1 %.not.i, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L20_archDebuggerEnabledE, align 1
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -748,10 +748,10 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

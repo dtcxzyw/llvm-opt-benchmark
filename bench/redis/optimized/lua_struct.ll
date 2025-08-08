@@ -42,10 +42,10 @@ define internal noundef i32 @b_pack(ptr noundef %0) #0 {
   %6 = alloca float, align 4
   %7 = alloca double, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8216, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %10, align 4, !tbaa !9
@@ -130,7 +130,7 @@ gettoalign.exit:                                  ; preds = %13
   %41 = add nsw i32 %.059, 1
   %42 = load i32, ptr %5, align 4, !tbaa !4
   %43 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %44 = fcmp olt double %43, 0.000000e+00
   %45 = fptosi double %43 to i64
   %46 = fptoui double %43 to i64
@@ -177,7 +177,7 @@ gettoalign.exit:                                  ; preds = %13
 
 putinteger.exit:                                  ; preds = %.lr.ph.i, %.lr.ph29.i, %.preheader23.i, %.preheader.i
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef %18) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %109
 
 57:                                               ; preds = %._crit_edge
@@ -198,7 +198,7 @@ putinteger.exit:                                  ; preds = %.lr.ph.i, %.lr.ph29
   br label %109
 
 65:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %66 = add nsw i32 %.059, 1
   %67 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
   %68 = fptrunc double %67 to float
@@ -230,11 +230,11 @@ putinteger.exit:                                  ; preds = %.lr.ph.i, %.lr.ph29
 
 correctbytes.exit:                                ; preds = %.lr.ph.i44, %65
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %6, i64 noundef %18) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %109
 
 78:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %79 = add nsw i32 %.059, 1
   %80 = call double @luaL_checknumber(ptr noundef %0, i32 noundef %.059) #7
   store double %80, ptr %7, align 8, !tbaa !24
@@ -265,11 +265,11 @@ correctbytes.exit:                                ; preds = %.lr.ph.i44, %65
 
 correctbytes.exit55:                              ; preds = %.lr.ph.i50, %78
   call void @luaL_addlstring(ptr noundef nonnull %3, ptr noundef nonnull %7, i64 noundef %18) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %109
 
 90:                                               ; preds = %._crit_edge, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %91 = add nsw i32 %.059, 1
   %92 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %.059, ptr noundef nonnull %8) #7
   %93 = load i64, ptr %8, align 8
@@ -306,7 +306,7 @@ correctbytes.exit55:                              ; preds = %.lr.ph.i50, %78
 
 107:                                              ; preds = %103, %96
   %.2 = phi i64 [ %106, %103 ], [ %spec.select, %96 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %109
 
 108:                                              ; preds = %._crit_edge
@@ -324,9 +324,9 @@ correctbytes.exit55:                              ; preds = %.lr.ph.i50, %78
 
 ._crit_edge62:                                    ; preds = %109, %1
   call void @luaL_pushresult(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
@@ -337,10 +337,10 @@ define internal range(i32 -2147483647, -2147483648) i32 @b_unpack(ptr noundef %0
   %4 = alloca i64, align 8
   %5 = alloca float, align 4
   %6 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %4) #7
   %9 = call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 3, i64 noundef 1) #7
   %.not = icmp eq i64 %9, 0
@@ -492,7 +492,7 @@ getinteger.exit:                                  ; preds = %58, %60
   br label %121
 
 69:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr align 1 %70, i64 %20, i1 false)
   %71 = load i32, ptr %2, align 4, !tbaa !4
@@ -518,11 +518,11 @@ correctbytes.exit:                                ; preds = %.lr.ph.i91, %69
   %77 = fpext float %76 to double
   call void @lua_pushnumber(ptr noundef %0, double noundef %77) #7
   %78 = add nsw i32 %.071107, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %121
 
 79:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr align 1 %80, i64 %20, i1 false)
   %81 = load i32, ptr %2, align 4, !tbaa !4
@@ -547,7 +547,7 @@ correctbytes.exit103:                             ; preds = %.lr.ph.i98, %79
   %86 = load double, ptr %6, align 8, !tbaa !24
   call void @lua_pushnumber(ptr noundef %0, double noundef %86) #7
   %87 = add nsw i32 %.071107, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %121
 
 88:                                               ; preds = %35
@@ -633,9 +633,9 @@ correctbytes.exit103:                             ; preds = %.lr.ph.i98, %79
   %.071.lcssa = phi i32 [ 1, %12 ], [ %126, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ %9, %12 ], [ %125, %._crit_edge.loopexit ]
   call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0.lcssa) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.071.lcssa
 }
 
@@ -643,8 +643,8 @@ correctbytes.exit103:                             ; preds = %.lr.ph.i98, %79
 define internal noundef i32 @b_size(ptr noundef %0) #0 {
   %2 = alloca %struct.Header, align 4
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %5, align 4, !tbaa !9
@@ -716,13 +716,10 @@ gettoalign.exit:                                  ; preds = %.lr.ph, %14
 ._crit_edge:                                      ; preds = %32, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %34, %32 ]
   tail call void @lua_pushinteger(ptr noundef %0, i64 noundef %.0.lcssa) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -888,9 +885,6 @@ declare double @luaL_checknumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @luaL_addlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @luaL_argerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -991,7 +985,7 @@ declare void @luaL_pushresult(ptr noundef) local_unnamed_addr #1
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #3
+declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1002,7 +996,7 @@ declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1013,9 +1007,15 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 declare void @lua_pushinteger(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #6
@@ -1025,10 +1025,10 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }

@@ -150,7 +150,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 10:                                               ; preds = %tailrecurse
   %11 = tail call noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr79)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %.tr79, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !43
   %14 = load ptr, ptr %13, align 8, !tbaa !4
@@ -181,11 +181,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %26 to i64
   %32 = sub i64 %30, %31
-  call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #16
+  call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 33:                                               ; preds = %22
-  %34 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %34 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   %.not53 = icmp eq ptr %34, null
   br i1 %.not53, label %.critedge, label %35
 
@@ -206,15 +206,15 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64
   %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #16
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit62
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit62:      ; preds = %38, %40
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %25
 
 46:                                               ; preds = %tailrecurse
@@ -228,7 +228,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %27, %24
   br i1 %.not, label %53, label %.critedge60
 
 53:                                               ; preds = %46
-  %54 = tail call ptr @__dynamic_cast(ptr nonnull %50, ptr nonnull @_ZTI18FunctionInvocation, ptr nonnull @_ZTI22FunctionInvocationUser, i64 0) #15
+  %54 = tail call ptr @__dynamic_cast(ptr nonnull %50, ptr nonnull @_ZTI18FunctionInvocation, ptr nonnull @_ZTI22FunctionInvocationUser, i64 0) #16
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8, !tbaa !57
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 208
@@ -236,14 +236,14 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %27, %24
   %59 = tail call noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef nonnull %54, ptr noundef %58, i32 noundef 2)
   %60 = icmp ne ptr %59, null
   tail call void @llvm.assume(i1 %60)
-  %61 = tail call ptr @__dynamic_cast(ptr nonnull %59, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %61 = tail call ptr @__dynamic_cast(ptr nonnull %59, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load i32, ptr %62, align 8, !tbaa !15
   tail call void @_ZN9FactUnion10make_factsERKSt6vectorIPK8VariableSaIS3_EEi(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %63)
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 64:                                               ; preds = %tailrecurse
-  %65 = tail call ptr @__dynamic_cast(ptr nonnull %.tr79, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI16ExpressionAssign, i64 0) #15
+  %65 = tail call ptr @__dynamic_cast(ptr nonnull %.tr79, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI16ExpressionAssign, i64 0) #16
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !74
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
@@ -255,7 +255,7 @@ tailrecurse.backedge:                             ; preds = %64, %69
   br label %tailrecurse
 
 69:                                               ; preds = %tailrecurse
-  %70 = tail call ptr @__dynamic_cast(ptr nonnull %.tr79, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI15ExpressionComma, i64 0) #15
+  %70 = tail call ptr @__dynamic_cast(ptr nonnull %.tr79, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI15ExpressionComma, i64 0) #16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   br label %tailrecurse.backedge
 
@@ -270,11 +270,11 @@ tailrecurse.backedge:                             ; preds = %64, %69
   %76 = ptrtoint ptr %75 to i64
   %77 = ptrtoint ptr %72 to i64
   %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #16
+  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64:      ; preds = %.critedge, %73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge60
 
 .critedge60:                                      ; preds = %tailrecurse, %46, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64
@@ -284,12 +284,6 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64:      ; preds = %.critedge, %73
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %53, %9, %.critedge60, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit62
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9FactUnion10make_factsERKSt6vectorIPK8VariableSaIS3_EEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.7") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -370,7 +364,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds =
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %23) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %23) #15
   br label %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -413,7 +407,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIPK4Fac
   %52 = ptrtoint ptr %10 to i64
   %53 = ptrtoint ptr %13 to i64
   %54 = sub i64 %52, %53
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %54) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %54) #15
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %50, %51
@@ -432,7 +426,7 @@ declare noundef i32 @_ZNK18ExpressionVariable18get_indirect_levelEv(ptr noundef 
 declare void @_ZN11FactPointTo25merge_pointees_of_pointerEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr dead_on_unwind writable sret(%"class.std::vector.12") align 8, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #4
 
 declare noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -451,7 +445,7 @@ define dso_local noundef i32 @_ZN9FactUnion24abstract_fact_for_assignERKSt6vecto
   br label %_ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit:        ; preds = %5, %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !88
   %14 = load ptr, ptr %13, align 8, !tbaa !4
@@ -472,7 +466,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit:        ; preds = %5, %11
   br i1 %25, label %26, label %48
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN9FactUnion19rhs_to_lhs_transferERKSt6vectorIPK4FactSaIS3_EERKS0_IPK8VariableSaISA_EEPK10Expression(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %7, ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %3)
           to label %27 unwind label %46
 
@@ -495,14 +489,14 @@ _ZNSt6vectorIPK4FactSaIS2_EE5clearEv.exit:        ; preds = %5, %11
   %37 = ptrtoint ptr %30 to i64
   %38 = ptrtoint ptr %28 to i64
   %39 = sub i64 %37, %38
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %39) #16
+  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %39) #15
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %27, %36
   %.pre49 = load ptr, ptr %6, align 8, !tbaa !45
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %40 = ptrtoint ptr %.pre to i64
   %41 = ptrtoint ptr %.pre49 to i64
   %42 = sub i64 %40, %41
@@ -517,7 +511,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %27, %36
 46:                                               ; preds = %26
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %131
 
 48:                                               ; preds = %23
@@ -667,7 +661,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds =
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %114
 
 114:                                              ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef %100) #16
+  call void @_ZdlPvm(ptr noundef nonnull %97, i64 noundef %100) #15
   br label %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %114, %_ZNSt6vectorIPK4FactSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -710,12 +704,12 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4Fac
   %128 = ptrtoint ptr %127 to i64
   %129 = ptrtoint ptr %124 to i64
   %130 = sub i64 %128, %129
-  call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %130) #16
+  call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %130) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %thread-pre-split, %125
   %.025 = trunc i64 %.025.in to i32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.025
 
 131:                                              ; preds = %.loopexit, %.loopexit.split-lp, %71, %46, %44
@@ -730,11 +724,11 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %thread-pre-split, %
   %136 = ptrtoint ptr %135 to i64
   %137 = ptrtoint ptr %132 to i64
   %138 = sub i64 %136, %137
-  call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %138) #16
+  call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %138) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit37
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit37:      ; preds = %131, %133
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn31
 }
 
@@ -801,7 +795,7 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #15
   br label %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
@@ -817,7 +811,7 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %9, %_ZNSt6vectorIP4
 31:                                               ; preds = %2
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 32) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 32) #15
   resume { ptr, i32 } %32
 }
 
@@ -894,7 +888,7 @@ _ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %32
 
 32:                                               ; preds = %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #15
   br label %_ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP4FactSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIP4FactSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
@@ -910,15 +904,15 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %12, %_ZNSt6vectorIP
 34:                                               ; preds = %1
   %35 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #15
   resume { ptr, i32 } %35
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN9FactUnion20is_nonreadable_fieldEPK8VariableRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -955,7 +949,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   br i1 %15, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %.01325, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !113
   %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01325)
@@ -975,12 +969,12 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
 24:                                               ; preds = %44, %39, %34, %29, %.critedge
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %25
 
 26:                                               ; preds = %22
-  %27 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %27 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread.sink.split, label %29
 
@@ -1029,8 +1023,8 @@ _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %.noexc18, %.noexc16
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.thread.sink.split: ; preds = %.noexc, %.noexc18, %22, %.noexc17, %26, %_ZNK9FactUnion5implyERK4Fact.exit
   %.1.ph = phi i1 [ false, %_ZNK9FactUnion5implyERK4Fact.exit ], [ true, %26 ], [ true, %.noexc17 ], [ true, %22 ], [ true, %.noexc18 ], [ true, %.noexc ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.thread: ; preds = %tailrecurse.i, %_ZNK8Variable21is_inside_union_fieldEv.exit.thread.sink.split
@@ -1164,7 +1158,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   %11 = phi ptr [ %7, %.lr.ph ], [ %44, %.thread ]
   %.022 = phi ptr [ null, %.lr.ph ], [ %.1, %.thread ]
   %.01521 = phi i64 [ 0, %.lr.ph ], [ %42, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01521
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef 2)
@@ -1181,12 +1175,12 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 17:                                               ; preds = %36, %32, %24, %10
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %18
 
 19:                                               ; preds = %15
-  %20 = call ptr @__dynamic_cast(ptr nonnull %14, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %20 = call ptr @__dynamic_cast(ptr nonnull %14, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.thread, label %21
 
@@ -1206,7 +1200,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = call ptr @__dynamic_cast(ptr nonnull %27, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %31 = call ptr @__dynamic_cast(ptr nonnull %27, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   br label %.thread
 
 32:                                               ; preds = %21
@@ -1226,8 +1220,8 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 
 .thread:                                          ; preds = %15, %30, %28, %36, %19
   %.1 = phi ptr [ %.022, %36 ], [ %.022, %19 ], [ %31, %30 ], [ null, %28 ], [ %.022, %15 ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %42 = add nuw i64 %.01521, 1
   %43 = load ptr, ptr %5, align 8, !tbaa !78
   %44 = load ptr, ptr %2, align 8, !tbaa !45
@@ -1242,7 +1236,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.FactUnion, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %4, i32 noundef 2)
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV9FactUnion, i64 16), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1259,12 +1253,12 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
 10:                                               ; preds = %29, %24, %19, %14, %3
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %8
-  %13 = call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #15
+  %13 = call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %_ZNK9FactUnion5implyERK4Fact.exit, label %14
 
@@ -1313,8 +1307,8 @@ define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8Variabl
 
 _ZNK9FactUnion5implyERK4Fact.exit:                ; preds = %8, %34, %.noexc9, %.noexc8, %.noexc7, %12
   %35 = phi i1 [ false, %12 ], [ false, %34 ], [ true, %.noexc9 ], [ true, %.noexc7 ], [ false, %.noexc8 ], [ false, %8 ]
-  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %35
 }
 
@@ -1336,9 +1330,9 @@ define dso_local void @_ZNK9FactUnion6OutputERSo(ptr noundef nonnull readonly al
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9FactUnionD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #16
+define linkonce_odr dso_local void @_ZN9FactUnionD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
+  tail call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #15
   ret void
 }
 
@@ -1352,7 +1346,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4Fact11join_visitsERKS_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion6is_topEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion6is_topEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !15
   %4 = icmp eq i32 %3, -2
@@ -1360,7 +1354,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion6is_topEv(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion9is_bottomEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion9is_bottomEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !15
   %4 = icmp eq i32 %3, -1
@@ -1368,21 +1362,21 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion9is_bottomEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9FactUnion7set_topEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9FactUnion7set_topEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -2, ptr %2, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN9FactUnion10set_bottomEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9FactUnion10set_bottomEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %2, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion13is_assertableEPK9Statement(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNK9FactUnion13is_assertableEPK9Statement(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   ret i1 false
 }
 
@@ -1413,12 +1407,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4Fact10is_relatedERKS_(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZNK9FactUnion15OutputAssertionERSoPK9Statement(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local void @_ZNK9FactUnion15OutputAssertionERSoPK9Statement(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #7 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef ptr @_ZNK9FactUnion7get_varEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr dso_local noundef ptr @_ZNK9FactUnion7get_varEv(ptr noundef nonnull align 8 dereferenceable(28) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   ret ptr %3
@@ -1427,19 +1421,25 @@ define linkonce_odr dso_local noundef ptr @_ZNK9FactUnion7get_varEv(ptr noundef 
 declare void @_ZN4Fact24abstract_fact_for_returnERKSt6vectorIPKS_SaIS2_EEPK18ExpressionVariablePK8Function(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_FactUnion.cpp() #11 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_FactUnion.cpp() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -1457,19 +1457,19 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin allocsize(0) }
 

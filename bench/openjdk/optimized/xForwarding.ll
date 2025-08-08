@@ -162,7 +162,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %6, %16
 _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %_ZN10XStatTimerC2ERK10XStatPhase.exit
   %.not3.not8.lcssa = phi i1 [ %.not3.not89, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %.not3.not8, %.lr.ph ]
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %19) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = load i8, ptr %3, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %_ZN10XStatTimerD2Ev.exit
@@ -182,7 +182,7 @@ _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %_ZN10XStat
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN7XLockerI14XConditionLockED2Ev.exit, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not3.not8.lcssa, label %41, label %42
 
 41:                                               ; preds = %_ZN10XStatTimerD2Ev.exit, %1
@@ -719,10 +719,10 @@ define internal void @_GLOBAL__sub_I_xForwarding.cpp() #3 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

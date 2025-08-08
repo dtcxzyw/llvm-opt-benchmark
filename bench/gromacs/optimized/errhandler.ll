@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
 define void @_Z24tmpi_errors_are_fatal_fnPP10tmpi_comm_Pi(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %.not.i = icmp eq i32 %4, 2
   br i1 %.not.i, label %10, label %5
@@ -79,7 +79,7 @@ _Z17tMPI_Error_stringiPcPi.exit:                  ; preds = %5, %10
 ; Function Attrs: cold mustprogress nounwind uwtable
 define void @_Z21tmpi_errors_return_fnPP10tmpi_comm_Pi(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %.not.i = icmp eq i32 %4, 2
   br i1 %.not.i, label %10, label %5
@@ -104,7 +104,7 @@ _Z17tMPI_Error_stringiPcPi.exit:                  ; preds = %5, %10
   %15 = load ptr, ptr @stderr, align 8, !tbaa !10
   %.str.3..str.2 = select i1 %.not, ptr @.str.3, ptr @.str.2
   %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull %.str.3..str.2, ptr noundef nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -230,10 +230,10 @@ define noundef i32 @_Z24tMPI_Comm_get_errhandlerP10tmpi_comm_PP16tmpi_errhandler
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

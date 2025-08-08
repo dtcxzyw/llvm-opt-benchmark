@@ -376,12 +376,6 @@ raknet_get_session_state.exit:                    ; preds = %2, %7
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   br label %1
@@ -601,8 +595,8 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br label %raknet_dissect_connected_message.exit
 
 77:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1
   %78 = load i32, ptr @proto_raknet, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
@@ -629,9 +623,9 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 94:                                               ; preds = %254, %77
   %.191.i = phi i32 [ 4, %77 ], [ %251, %254 ]
   %95 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.191.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %96 = call ptr @proto_tree_get_parent(ptr noundef %81)
   %97 = load i32, ptr @hf_raknet_message, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %97, ptr noundef %95, i32 noundef 0, i32 noundef -1, i32 noundef 0)
@@ -702,9 +696,9 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br i1 %.not212.i.i, label %137, label %172
 
 137:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %138 = load i32, ptr @hf_raknet_split_packet_count, align 4
   %139 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %138, ptr noundef %95, i32 noundef %.2.i.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %140 = add nuw nsw i32 %.2.i.i, 4
@@ -756,9 +750,9 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   br label %171
 
 171:                                              ; preds = %165, %160
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %174
 
 172:                                              ; preds = %136
@@ -914,9 +908,9 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   br i1 %.not.i.i, label %250, label %.sink.split.i
 
 .thread.i:                                        ; preds = %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %259
 
 .sink.split.i:                                    ; preds = %247, %246, %183
@@ -927,9 +921,9 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   br label %250
 
 250:                                              ; preds = %.sink.split.i, %247, %246, %204, %183
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %251 = add i32 %182, %.191.i
   %252 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %251)
   %253 = icmp sgt i32 %252, 0
@@ -947,8 +941,8 @@ raknet_get_session_state.exit.i.i:                ; preds = %211, %206
   br label %259
 
 259:                                              ; preds = %257, %.thread.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %raknet_dissect_connected_message.exit
 
 raknet_dissect_connected_message.exit:            ; preds = %259, %75, %73, %61, %59, %40, %32, %4
@@ -1041,7 +1035,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -1088,7 +1082,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i8 %.0.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = trunc nuw i8 %.0.val to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1157,7 +1151,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr noundef read
 
 ._crit_edge:                                      ; preds = %42, %3
   %47 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1350,7 +1344,7 @@ raknet_get_session_state.exit:                    ; preds = %4, %24
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_open_connection_request_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @proto_raknet, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
@@ -1415,14 +1409,14 @@ raknet_get_session_state.exit:                    ; preds = %4, %23
   %45 = load i32, ptr @hf_raknet_client_guid, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 8, i32 noundef 0)
   %47 = add i32 %42, 10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %47
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_open_connection_reply_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @proto_raknet, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
@@ -1484,7 +1478,7 @@ raknet_get_session_state.exit:                    ; preds = %4, %30
 
 47:                                               ; preds = %43, %raknet_get_session_state.exit
   %48 = phi i32 [ %46, %43 ], [ %40, %raknet_get_session_state.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %48
 }
 
@@ -1537,7 +1531,7 @@ define internal noundef i32 @raknet_dissect_incompatible_protocol_version(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @raknet_dissect_unconnected_pong(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @proto_raknet, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
@@ -1564,7 +1558,7 @@ define internal i32 @raknet_dissect_unconnected_pong(ptr noundef %0, ptr noundef
   %27 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %25, ptr noundef %0, i32 noundef 35, i32 noundef %26, i32 noundef 0)
   %28 = load i32, ptr %5, align 4
   %29 = add i32 %28, 35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %29
 }
 
@@ -1575,8 +1569,8 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %4, align 4
   %9 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, ptr noundef nonnull @.str.174)
   %10 = load i32, ptr @ett_raknet_system_address, align 4
@@ -1655,8 +1649,8 @@ define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 n
   br label %59
 
 59:                                               ; preds = %57, %41, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1731,7 +1725,7 @@ define internal i32 @raknet_dissect_connection_request(ptr noundef %0, ptr readn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_client_address, align 4
   call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
@@ -1758,14 +1752,14 @@ define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noun
   %19 = load i32, ptr @hf_raknet_timestamp, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0)
   %21 = add i32 %16, 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_new_incoming_connection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_server_address, align 4
   call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
@@ -1787,7 +1781,7 @@ define internal noundef i32 @raknet_dissect_new_incoming_connection(ptr noundef 
   %15 = load i32, ptr @hf_raknet_timestamp, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0)
   %17 = add i32 %12, 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %17
 }
 
@@ -1797,12 +1791,17 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { allocsize(1) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

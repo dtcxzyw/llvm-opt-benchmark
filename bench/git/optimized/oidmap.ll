@@ -52,12 +52,12 @@ define dso_local ptr @oidmap_get(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 6:                                                ; preds = %2
   %.val = load i32, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.val, ptr %7, align 8, !tbaa !12
   store ptr null, ptr %3, align 8, !tbaa !15
   %8 = call ptr @hashmap_get(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -68,7 +68,7 @@ define dso_local ptr @oidmap_get(ptr noundef %0, ptr noundef %1) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @oidmap_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.hashmap_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %.not = icmp eq ptr %5, null
@@ -84,17 +84,11 @@ define dso_local ptr @oidmap_remove(ptr noundef %0, ptr noundef %1) local_unname
   store i32 %.val, ptr %8, align 8, !tbaa !12
   store ptr null, ptr %3, align 8, !tbaa !15
   %9 = call ptr @hashmap_remove(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %1) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @oidmap_put(ptr noundef %0, ptr noundef initializes((0, 12)) %1) local_unnamed_addr #0 {
@@ -120,6 +114,12 @@ define dso_local ptr @oidmap_put(ptr noundef %0, ptr noundef initializes((0, 12)
 declare ptr @hashmap_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @hashmap_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4

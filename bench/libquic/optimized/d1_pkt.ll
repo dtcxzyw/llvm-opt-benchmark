@@ -64,10 +64,10 @@ define hidden range(i32 -2147483648, 65536) i32 @dtls1_read_bytes(ptr noundef %0
   br i1 %31, label %32, label %73
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %32
@@ -145,18 +145,18 @@ dtls1_get_record.exit:                            ; preds = %53
   store i16 %68, ptr %69, align 2, !tbaa !35
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 128
   store ptr %46, ptr %70, align 8, !tbaa !40
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %73
 
 .loopexit:                                        ; preds = %35, %64, %57, %60
   %.3.i.ph = phi i32 [ -1, %60 ], [ -1, %57 ], [ -1, %64 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %71 = call i32 @dtls1_read_failed(ptr noundef %0, i32 noundef %.3.i.ph) #6
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %.thread126, label %.backedge.backedge
@@ -316,7 +316,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %.thread126
 
 145:                                              ; preds = %137
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %146 = zext i8 %126 to i32
   %147 = add nuw nsw i32 %146, 1000
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef %147, ptr noundef nonnull @.str, i32 noundef 364) #6
@@ -329,7 +329,7 @@ dtls1_get_record.exit:                            ; preds = %53
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %153 = load ptr, ptr %152, align 8, !tbaa !67
   %154 = call i32 @SSL_CTX_remove_session(ptr noundef %151, ptr noundef %153) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread126
 
 .thread129:                                       ; preds = %137
@@ -374,7 +374,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br label %185
 
 171:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %172 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %173 = load ptr, ptr %172, align 8, !tbaa !40
   call void @dtls1_get_message_header(ptr noundef %173, ptr noundef nonnull %11) #6
@@ -383,7 +383,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br i1 %175, label %176, label %.thread138
 
 .thread138:                                       ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread134
 
 176:                                              ; preds = %171
@@ -397,7 +397,7 @@ dtls1_get_record.exit:                            ; preds = %53
   br i1 %181, label %.thread135, label %182
 
 .thread135:                                       ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread126
 
 182:                                              ; preds = %179
@@ -406,7 +406,7 @@ dtls1_get_record.exit:                            ; preds = %53
 
 184:                                              ; preds = %176, %182
   store i16 0, ptr %29, align 2, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge.backedge
 
 .thread134:                                       ; preds = %108, %155, %159, %.thread138
@@ -426,7 +426,7 @@ dtls1_get_record.exit:                            ; preds = %53
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @dtls1_read_change_cipher_spec(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @dtls1_read_bytes(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 0)
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %22, label %5
@@ -462,22 +462,16 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_read_change_cipher_spec(ptr n
 
 22:                                               ; preds = %15, %18, %1, %13
   %.0 = phi i32 [ -1, %13 ], [ %3, %1 ], [ 1, %18 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ssl3_send_alert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @dtls1_read_close_notify(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define hidden void @dtls1_read_close_notify(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !41
   %4 = or i32 %3, 2
@@ -485,28 +479,28 @@ define hidden void @dtls1_read_close_notify(ptr noundef captures(none) %0) local
   ret void
 }
 
-declare i32 @DTLSv1_handle_timeout(ptr noundef) local_unnamed_addr #2
+declare i32 @DTLSv1_handle_timeout(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dtls1_read_failed(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dtls1_read_failed(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @ssl_read_buffer_discard(ptr noundef) local_unnamed_addr #2
+declare void @ssl_read_buffer_discard(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #2
+declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 
-declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dtls1_get_message_header(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dtls1_get_message_header(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dtls1_check_timeout_num(ptr noundef) local_unnamed_addr #2
+declare i32 @dtls1_check_timeout_num(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr #2
+declare i32 @dtls1_retransmit_buffered_messages(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dtls1_write_app_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -568,8 +562,8 @@ define internal fastcc i32 @do_dtls1_write(ptr noundef %0, i32 noundef %1, ptr n
   %25 = zext nneg i32 %3 to i64
   %26 = tail call i64 @ssl_max_seal_overhead(ptr noundef nonnull %0) #6
   %27 = add i64 %26, %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = call i32 @ssl_write_buffer_init(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %27) #6
   %.not26 = icmp eq i32 %28, 0
   br i1 %.not26, label %33, label %29
@@ -595,8 +589,8 @@ define internal fastcc i32 @do_dtls1_write(ptr noundef %0, i32 noundef %1, ptr n
 
 38:                                               ; preds = %34, %33
   %.2 = phi i32 [ %., %34 ], [ -1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %12, %22, %38, %21
@@ -681,42 +675,48 @@ define hidden range(i32 -2147483648, 2) i32 @dtls1_dispatch_alert(ptr noundef %0
   ret i32 %.0
 }
 
-declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_flush(ptr noundef) local_unnamed_addr #1
 
-declare i64 @ssl_read_buffer_len(ptr noundef) local_unnamed_addr #2
+declare i64 @ssl_read_buffer_len(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_read_buffer_extend_to(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_read_buffer_extend_to(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @ssl_record_prefix_len(ptr noundef) local_unnamed_addr #2
+declare i64 @ssl_record_prefix_len(ptr noundef) local_unnamed_addr #1
 
-declare void @ssl_read_buffer_clear(ptr noundef) local_unnamed_addr #2
+declare void @ssl_read_buffer_clear(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ssl_read_buffer(ptr noundef) local_unnamed_addr #2
+declare ptr @ssl_read_buffer(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dtls_open_record(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @dtls_open_record(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ssl_read_buffer_consume(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ssl_read_buffer_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @ssl_max_seal_overhead(ptr noundef) local_unnamed_addr #2
+declare i64 @ssl_max_seal_overhead(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ssl_write_buffer_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ssl_write_buffer_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @dtls_seal_record(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dtls_seal_record(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ssl_write_buffer_clear(ptr noundef) local_unnamed_addr #2
+declare void @ssl_write_buffer_clear(ptr noundef) local_unnamed_addr #1
 
-declare void @ssl_write_buffer_set_len(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ssl_write_buffer_set_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ssl_write_buffer_flush(ptr noundef) local_unnamed_addr #2
+declare i32 @ssl_write_buffer_flush(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

@@ -444,11 +444,11 @@ define linkonce_odr hidden void @_ZN31ClassLoaderHierarchyVMOperation4doitEv(ptr
   %41 = trunc i8 %40 to i1
   %42 = load i8, ptr %23, align 1
   %43 = trunc i8 %42 to i1
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %44, align 4
   call void @_ZNK14LoaderTreeNode22print_with_child_nodesEP12outputStreamR13BranchTrackerbb(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef %38, ptr noundef nonnull align 4 dereferenceable(68) %2, i1 noundef zeroext %41, i1 noundef zeroext %43)
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %47, label %46
@@ -558,7 +558,7 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %5, %9
   br label %19
 
 19:                                               ; preds = %17, %_ZNK15ClassLoaderData12class_loaderEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25LoadedClassCollectClosure, i64 16), ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %20, align 8
@@ -595,7 +595,7 @@ _ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i: ; preds = %29
   br label %_ZN21LoaderInfoScanClosure15fill_in_classesEP14LoaderTreeNodePK15ClassLoaderData.exit
 
 _ZN21LoaderInfoScanClosure15fill_in_classesEP14LoaderTreeNodePK15ClassLoaderData.exit: ; preds = %19, %_ZN14LoaderTreeNode11add_classesEP15LoadedClassInfoib.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %2, %_ZN21LoaderInfoScanClosure15fill_in_classesEP14LoaderTreeNodePK15ClassLoaderData.exit
@@ -1918,10 +1918,10 @@ declare void @_ZNK15GenDCmdArgument9to_stringEbPcm(ptr noundef nonnull align 8 d
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

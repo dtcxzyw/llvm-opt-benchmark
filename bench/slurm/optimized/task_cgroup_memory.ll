@@ -147,7 +147,7 @@ declare i32 @cgroup_g_step_destroy(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @cgroup_g_step_create(i32 noundef 2, ptr noundef %0) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %19
@@ -183,12 +183,9 @@ define dso_local i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_ad
 
 19:                                               ; preds = %8, %4, %1, %16
   %.0 = phi i32 [ %18, %16 ], [ -1, %1 ], [ -1, %4 ], [ -1, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -242,7 +239,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %31 = load i64, ptr @max_swap, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %29, i64 %31)
   %.0.i31 = select i1 %30, i64 %23, i64 %..i
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = icmp ugt i64 %.0.i2912, %.0.i410
   br i1 %32, label %33, label %38
 
@@ -319,7 +316,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
 
 68:                                               ; preds = %65, %63, %67
   %.0 = phi i32 [ 0, %67 ], [ -1, %63 ], [ -1, %65 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -330,13 +327,10 @@ declare i32 @getpid() local_unnamed_addr #2
 
 declare i32 @cgroup_g_step_addto(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.b13 = load i1, ptr @oom_mgr_started, align 1
   br i1 %.b13, label %3, label %49
 
@@ -432,7 +426,7 @@ define dso_local range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef
 
 49:                                               ; preds = %3, %1, %48
   %.010 = phi i32 [ %.0, %48 ], [ 0, %1 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.010
 }
 
@@ -461,6 +455,12 @@ define dso_local i32 @task_cgroup_memory_add_extern_pid(i32 noundef %0) local_un
 declare void @cgroup_init_limits(ptr noundef) local_unnamed_addr #1
 
 declare i32 @cgroup_g_constrain_set(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

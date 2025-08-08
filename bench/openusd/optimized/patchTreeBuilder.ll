@@ -1432,7 +1432,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   ]
 
 102:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %104, align 8
@@ -1570,16 +1570,16 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i.i: ; pred
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i.i, %102
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %168 = getelementptr i8, ptr %88, i64 4
   %.val27.val.i = load i32, ptr %168, align 1
   %.val27.val28.i = load ptr, ptr %103, align 8
   %.val27.val28.val.i = load ptr, ptr %.val27.val28.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %169 = getelementptr inbounds nuw i8, ptr %.val27.val28.val.i, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.val27.val28.val.i, i64 16
@@ -1885,19 +1885,19 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i43.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i.i
   %351 = phi ptr [ %.pre.i44.i, %._crit_edge.loopexit.i43.i ], [ %183, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i.i ]
   call void @_ZdlPv(ptr noundef %351) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %.val29.val.i = load i32, ptr %168, align 1
   %.val29.val30.i = load ptr, ptr %103, align 8
   %.val29.val30.val.i = load ptr, ptr %.val29.val30.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %352 = getelementptr inbounds nuw i8, ptr %.val29.val30.val.i, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %.val29.val30.val.i, i64 16
@@ -2149,15 +2149,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i63.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i.i
   %499 = phi ptr [ %.pre40.i64.i, %._crit_edge.loopexit.i63.i ], [ %368, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i.i ]
   call void @_ZdlPv(ptr noundef %499) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIdEEEEviRKT_RT0_.exit
 
 500:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %501 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %502 = load ptr, ptr %501, align 8
   %503 = load ptr, ptr %502, align 8
@@ -2295,16 +2295,16 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i86.i: ; pr
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i79.i, %500
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %566 = getelementptr i8, ptr %88, i64 4
   %.val32.val.i = load i32, ptr %566, align 1
   %.val32.val33.i = load ptr, ptr %501, align 8
   %.val32.val33.val.i = load ptr, ptr %.val32.val33.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %567 = getelementptr inbounds nuw i8, ptr %.val32.val33.val.i, i64 8
   %568 = load ptr, ptr %567, align 8
   %569 = getelementptr inbounds nuw i8, ptr %.val32.val33.val.i, i64 16
@@ -2604,19 +2604,19 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i122.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i107.i
   %749 = phi ptr [ %.pre.i123.i, %._crit_edge.loopexit.i122.i ], [ %581, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i107.i ]
   call void @_ZdlPv(ptr noundef %749) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %.val34.val.i = load i32, ptr %566, align 1
   %.val34.val35.i = load ptr, ptr %501, align 8
   %.val34.val35.val.i = load ptr, ptr %.val34.val35.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %750 = getelementptr inbounds nuw i8, ptr %.val34.val35.val.i, i64 8
   %751 = load ptr, ptr %750, align 8
   %752 = getelementptr inbounds nuw i8, ptr %.val34.val35.val.i, i64 16
@@ -2868,15 +2868,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i168.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i152.i
   %897 = phi ptr [ %.pre40.i169.i, %._crit_edge.loopexit.i168.i ], [ %766, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i152.i ]
   call void @_ZdlPv(ptr noundef %897) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIdEEEEviRKT_RT0_.exit
 
 898:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %899 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %900 = load ptr, ptr %899, align 8
   %901 = load ptr, ptr %900, align 8
@@ -3014,10 +3014,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.i206.i: ; p
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i199.i, %898
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.val37.val38.i = load ptr, ptr %899, align 8
   %.val37.val38.val.i = load ptr, ptr %.val37.val38.i, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %964 = getelementptr inbounds nuw i8, ptr %.val37.val38.val.i, i64 8
   %965 = load ptr, ptr %964, align 8
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 16
@@ -3111,10 +3111,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i: ; p
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i241.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i
   %1012 = phi ptr [ %.pre35.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i227.i ]
   call void @_ZdlPv(ptr noundef %1012) #19
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.val39.val40.i = load ptr, ptr %899, align 8
   %.val39.val40.val.i = load ptr, ptr %.val39.val40.i, align 8
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1013 = getelementptr inbounds nuw i8, ptr %.val39.val40.val.i, i64 8
   %1014 = load ptr, ptr %1013, align 8
   %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 20
@@ -3196,7 +3196,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i: ; 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i258.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i
   %1051 = phi ptr [ %.pre35.i259.i, %._crit_edge.loopexit.i258.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i246.i ]
   call void @_ZdlPv(ptr noundef %1051) #19
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIdEEEEviRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIdEEEEviRKT_RT0_.exit: ; preds = %99, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIdEEEEviRKT0_RT1_.exit.i
@@ -3305,7 +3305,7 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBA
   ]
 
 1140:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1141 = load ptr, ptr %1052, align 8
   %1142 = getelementptr ptr, ptr %1141, i64 %indvars.iv
   %1143 = getelementptr i8, ptr %1142, i64 -8
@@ -3450,14 +3450,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i.i60, %1140
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.val27.val.i63 = load i32, ptr %1072, align 1
   %.val27.val28.i64 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1204 = getelementptr ptr, ptr %.val27.val28.i64, i64 %indvars.iv
   %1205 = getelementptr i8, ptr %1204, i64 -8
   %1206 = load ptr, ptr %1205, align 8
@@ -3728,18 +3728,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i43.i76, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i.i65
   %1350 = phi ptr [ %.pre.i44.i77, %._crit_edge.loopexit.i43.i76 ], [ %1217, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i.i65 ]
   call void @_ZdlPv(ptr noundef %1350) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.val29.val.i67 = load i32, ptr %1072, align 1
   %.val29.val30.i68 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1351 = getelementptr ptr, ptr %.val29.val30.i68, i64 %indvars.iv
   %1352 = getelementptr i8, ptr %1351, i64 -8
   %1353 = load ptr, ptr %1352, align 8
@@ -4013,15 +4013,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i61.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i.i69
   %1496 = phi ptr [ %.pre.i62.i72, %._crit_edge.loopexit.i61.i ], [ %1365, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i.i69 ]
   call void @_ZdlPv(ptr noundef %1496) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIdEES8_EEviRKT_RT0_.exit
 
 1497:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1498 = load ptr, ptr %1052, align 8
   %1499 = getelementptr ptr, ptr %1498, i64 %indvars.iv
   %1500 = getelementptr i8, ptr %1499, i64 -8
@@ -4166,14 +4166,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i77.i, %1497
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.val32.val.i50 = load i32, ptr %1072, align 1
   %.val32.val33.i51 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1561 = getelementptr ptr, ptr %.val32.val33.i51, i64 %indvars.iv
   %1562 = getelementptr i8, ptr %1561, i64 -8
   %1563 = load ptr, ptr %1562, align 8
@@ -4438,18 +4438,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i134.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i117.i
   %1707 = phi ptr [ %.pre.i135.i, %._crit_edge.loopexit.i134.i ], [ %1574, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i117.i ]
   call void @_ZdlPv(ptr noundef %1707) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val34.val.i53 = load i32, ptr %1072, align 1
   %.val34.val35.i54 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1708 = getelementptr ptr, ptr %.val34.val35.i54, i64 %indvars.iv
   %1709 = getelementptr i8, ptr %1708, i64 -8
   %1710 = load ptr, ptr %1709, align 8
@@ -4723,15 +4723,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i208.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i191.i
   %1853 = phi ptr [ %.pre.i209.i, %._crit_edge.loopexit.i208.i ], [ %1722, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i191.i ]
   call void @_ZdlPv(ptr noundef %1853) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIdEES8_EEviRKT_RT0_.exit
 
 1854:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1855 = load ptr, ptr %1052, align 8
   %1856 = getelementptr ptr, ptr %1855, i64 %indvars.iv
   %1857 = getelementptr i8, ptr %1856, i64 -8
@@ -4876,9 +4876,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i254.i, %1854
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val37.val38.i44 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1918 = getelementptr ptr, ptr %.val37.val38.i44, i64 %indvars.iv
   %1919 = getelementptr i8, ptr %1918, i64 -8
   %1920 = load ptr, ptr %1919, align 8
@@ -4982,9 +4982,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit167.i301.us.i, %.lr.ph.i296.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj8ELb0EEC2Ej.exit.i294.i
   call void @_ZdlPv(ptr noundef %.pre.i304.i) #19
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val39.val40.i46 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1965 = getelementptr ptr, ptr %.val39.val40.i46, i64 %indvars.iv
   %1966 = getelementptr i8, ptr %1965, i64 -8
   %1967 = load ptr, ptr %1966, align 8
@@ -5065,7 +5065,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.ex
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE13AddWithWeightERKS4_d.exit155.i334.i, %.lr.ph.i330.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj32ELb0EEC2Ej.exit.i328.i
   call void @_ZdlPv(ptr noundef %.pre.i337.i) #19
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIdEES8_EEviRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIdEES8_EEviRKT_RT0_.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIdE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIdEESA_EEviRKT0_RT1_.exit.i, %1127
@@ -5355,7 +5355,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   ]
 
 102:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %104, align 8
@@ -5493,16 +5493,16 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i.i: ; pred
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i.i, %102
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %168 = getelementptr i8, ptr %88, i64 4
   %.val27.val.i = load i32, ptr %168, align 1
   %.val27.val28.i = load ptr, ptr %103, align 8
   %.val27.val28.val.i = load ptr, ptr %.val27.val28.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %169 = getelementptr inbounds nuw i8, ptr %.val27.val28.val.i, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %.val27.val28.val.i, i64 16
@@ -5808,19 +5808,19 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i43.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i.i
   %351 = phi ptr [ %.pre.i44.i, %._crit_edge.loopexit.i43.i ], [ %183, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i.i ]
   call void @_ZdlPv(ptr noundef %351) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %.val29.val.i = load i32, ptr %168, align 1
   %.val29.val30.i = load ptr, ptr %103, align 8
   %.val29.val30.val.i = load ptr, ptr %.val29.val30.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %352 = getelementptr inbounds nuw i8, ptr %.val29.val30.val.i, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %.val29.val30.val.i, i64 16
@@ -6072,15 +6072,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i63.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i.i
   %499 = phi ptr [ %.pre40.i64.i, %._crit_edge.loopexit.i63.i ], [ %368, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i.i ]
   call void @_ZdlPv(ptr noundef %499) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIfEEEEviRKT_RT0_.exit
 
 500:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %501 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %502 = load ptr, ptr %501, align 8
   %503 = load ptr, ptr %502, align 8
@@ -6218,16 +6218,16 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i86.i: ; pr
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i79.i, %500
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %566 = getelementptr i8, ptr %88, i64 4
   %.val32.val.i = load i32, ptr %566, align 1
   %.val32.val33.i = load ptr, ptr %501, align 8
   %.val32.val33.val.i = load ptr, ptr %.val32.val33.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %567 = getelementptr inbounds nuw i8, ptr %.val32.val33.val.i, i64 8
   %568 = load ptr, ptr %567, align 8
   %569 = getelementptr inbounds nuw i8, ptr %.val32.val33.val.i, i64 16
@@ -6527,19 +6527,19 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i122.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i107.i
   %749 = phi ptr [ %.pre.i123.i, %._crit_edge.loopexit.i122.i ], [ %581, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i107.i ]
   call void @_ZdlPv(ptr noundef %749) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %.val34.val.i = load i32, ptr %566, align 1
   %.val34.val35.i = load ptr, ptr %501, align 8
   %.val34.val35.val.i = load ptr, ptr %.val34.val35.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %750 = getelementptr inbounds nuw i8, ptr %.val34.val35.val.i, i64 8
   %751 = load ptr, ptr %750, align 8
   %752 = getelementptr inbounds nuw i8, ptr %.val34.val35.val.i, i64 16
@@ -6791,15 +6791,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i168.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i152.i
   %897 = phi ptr [ %.pre40.i169.i, %._crit_edge.loopexit.i168.i ], [ %766, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i152.i ]
   call void @_ZdlPv(ptr noundef %897) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIfEEEEviRKT_RT0_.exit
 
 898:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %899 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %900 = load ptr, ptr %899, align 8
   %901 = load ptr, ptr %900, align 8
@@ -6937,10 +6937,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.i206.i: ; p
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i199.i, %898
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.val37.val38.i = load ptr, ptr %899, align 8
   %.val37.val38.val.i = load ptr, ptr %.val37.val38.i, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %964 = getelementptr inbounds nuw i8, ptr %.val37.val38.val.i, i64 8
   %965 = load ptr, ptr %964, align 8
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 16
@@ -7034,10 +7034,10 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i: ; p
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i241.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i
   %1012 = phi ptr [ %.pre35.i.i, %._crit_edge.loopexit.i241.i ], [ %976, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i227.i ]
   call void @_ZdlPv(ptr noundef %1012) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.val39.val40.i = load ptr, ptr %899, align 8
   %.val39.val40.val.i = load ptr, ptr %.val39.val40.i, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %1013 = getelementptr inbounds nuw i8, ptr %.val39.val40.val.i, i64 8
   %1014 = load ptr, ptr %1013, align 8
   %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 20
@@ -7119,7 +7119,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i: ; 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i258.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i
   %1051 = phi ptr [ %.pre35.i259.i, %._crit_edge.loopexit.i258.i ], [ %1026, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i246.i ]
   call void @_ZdlPv(ptr noundef %1051) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIfEEEEviRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110ControlRowENS6_10StencilRowIfEEEEviRKT_RT0_.exit: ; preds = %99, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110ControlRowENS8_10StencilRowIfEEEEviRKT0_RT1_.exit.i
@@ -7228,7 +7228,7 @@ _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBA
   ]
 
 1140:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %1141 = load ptr, ptr %1052, align 8
   %1142 = getelementptr ptr, ptr %1141, i64 %indvars.iv
   %1143 = getelementptr i8, ptr %1142, i64 -8
@@ -7373,14 +7373,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i.i60, %1140
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.val27.val.i63 = load i32, ptr %1072, align 1
   %.val27.val28.i64 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %1204 = getelementptr ptr, ptr %.val27.val28.i64, i64 %indvars.iv
   %1205 = getelementptr i8, ptr %1204, i64 -8
   %1206 = load ptr, ptr %1205, align 8
@@ -7651,18 +7651,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i43.i76, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i.i65
   %1350 = phi ptr [ %.pre.i44.i77, %._crit_edge.loopexit.i43.i76 ], [ %1217, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i.i65 ]
   call void @_ZdlPv(ptr noundef %1350) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.val29.val.i67 = load i32, ptr %1072, align 1
   %.val29.val30.i68 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %1351 = getelementptr ptr, ptr %.val29.val30.i68, i64 %indvars.iv
   %1352 = getelementptr i8, ptr %1351, i64 -8
   %1353 = load ptr, ptr %1352, align 8
@@ -7936,15 +7936,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i61.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i.i69
   %1496 = phi ptr [ %.pre.i62.i72, %._crit_edge.loopexit.i61.i ], [ %1365, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i.i69 ]
   call void @_ZdlPv(ptr noundef %1496) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIfEES8_EEviRKT_RT0_.exit
 
 1497:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1498 = load ptr, ptr %1052, align 8
   %1499 = getelementptr ptr, ptr %1498, i64 %indvars.iv
   %1500 = getelementptr i8, ptr %1499, i64 -8
@@ -8089,14 +8089,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i77.i, %1497
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.val32.val.i50 = load i32, ptr %1072, align 1
   %.val32.val33.i51 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1561 = getelementptr ptr, ptr %.val32.val33.i51, i64 %indvars.iv
   %1562 = getelementptr i8, ptr %1561, i64 -8
   %1563 = load ptr, ptr %1562, align 8
@@ -8361,18 +8361,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i134.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i117.i
   %1707 = phi ptr [ %.pre.i135.i, %._crit_edge.loopexit.i134.i ], [ %1574, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i117.i ]
   call void @_ZdlPv(ptr noundef %1707) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.val34.val.i53 = load i32, ptr %1072, align 1
   %.val34.val35.i54 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1708 = getelementptr ptr, ptr %.val34.val35.i54, i64 %indvars.iv
   %1709 = getelementptr i8, ptr %1708, i64 -8
   %1710 = load ptr, ptr %1709, align 8
@@ -8646,15 +8646,15 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.loopexit.i208.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i191.i
   %1853 = phi ptr [ %.pre.i209.i, %._crit_edge.loopexit.i208.i ], [ %1722, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i191.i ]
   call void @_ZdlPv(ptr noundef %1853) #19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIfEES8_EEviRKT_RT0_.exit
 
 1854:                                             ; preds = %1127
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1855 = load ptr, ptr %1052, align 8
   %1856 = getelementptr ptr, ptr %1855, i64 %indvars.iv
   %1857 = getelementptr i8, ptr %1856, i64 -8
@@ -8799,9 +8799,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromFacesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %._crit_edge.i254.i, %1854
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val37.val38.i44 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1918 = getelementptr ptr, ptr %.val37.val38.i44, i64 %indvars.iv
   %1919 = getelementptr i8, ptr %1918, i64 -8
   %1920 = load ptr, ptr %1919, align 8
@@ -8905,9 +8905,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromEdgesILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit167.i301.us.i, %.lr.ph.i296.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj8ELb0EEC2Ej.exit.i294.i
   call void @_ZdlPv(ptr noundef %.pre.i304.i) #19
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val39.val40.i46 = load ptr, ptr %1052, align 8
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %1965 = getelementptr ptr, ptr %.val39.val40.i46, i64 %indvars.iv
   %1966 = getelementptr i8, ptr %1965, i64 -8
   %1967 = load ptr, ptr %1966, align 8
@@ -8988,7 +8988,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.ex
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE13AddWithWeightERKS4_f.exit155.i334.i, %.lr.ph.i330.i, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj32ELb0EEC2Ej.exit.i328.i
   call void @_ZdlPv(ptr noundef %.pre.i337.i) #19
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIfEES8_EEviRKT_RT0_.exit
 
 _ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE11InterpolateINS0_3Bfr12_GLOBAL__N_110StencilRowIfEES8_EEviRKT_RT0_.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE0ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE2ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i, %_ZNK10OpenSubdiv6v3_6_03Far18PrimvarRefinerRealIfE15interpFromVertsILNS0_3Sdc10SchemeTypeE1ENS0_3Bfr12_GLOBAL__N_110StencilRowIfEESA_EEviRKT0_RT1_.exit.i, %1127
@@ -13572,10 +13572,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

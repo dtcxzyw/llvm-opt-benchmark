@@ -174,21 +174,21 @@ define internal ptr @fcntl_fcntl(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %29, label %.thread, label %30
 
 .thread:                                          ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %33
 
 30:                                               ; preds = %28
   %31 = getelementptr i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %.thread.i
 
@@ -299,10 +299,10 @@ define internal ptr @fcntl_fcntl(ptr readnone captures(none) %0, ptr noundef rea
 
 fcntl_fcntl_impl.exit:                            ; preds = %55, %74, %33, %.thread.i, %43, %.thread8.i, %60, %63, %.thread20.i, %79
   %.0.i = phi ptr [ %81, %79 ], [ null, %63 ], [ null, %33 ], [ %78, %.thread20.i ], [ null, %.thread.i ], [ %59, %.thread8.i ], [ %62, %60 ], [ null, %43 ], [ null, %74 ], [ null, %55 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 82:                                               ; preds = %26, %17, %fcntl_fcntl_impl.exit, %14, %9
@@ -361,10 +361,10 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %33, label %.thread, label %34
 
 .thread:                                          ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %43
 
 34:                                               ; preds = %30
@@ -382,10 +382,10 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 
 42:                                               ; preds = %37, %34
   %.0 = phi i32 [ 1, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %43, label %.thread.i
 
@@ -548,9 +548,9 @@ define internal ptr @fcntl_ioctl(ptr readnone captures(none) %0, ptr noundef rea
 
 fcntl_ioctl_impl.exit:                            ; preds = %43, %.thread.i, %59, %72, %76, %79, %87, %95, %98, %100, %107, %110
   %.0.i = phi ptr [ null, %87 ], [ null, %95 ], [ %99, %98 ], [ null, %107 ], [ %112, %110 ], [ null, %43 ], [ null, %72 ], [ %78, %76 ], [ %80, %79 ], [ null, %59 ], [ null, %100 ], [ null, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %113
 
 113:                                              ; preds = %37, %16, %fcntl_ioctl_impl.exit, %26, %13, %8
@@ -697,7 +697,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %50, label %fcntl_lockf_impl.exit, label %51
 
 51:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = icmp eq i32 %21, 8
   br i1 %52, label %59, label %53
 
@@ -764,7 +764,7 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %81, label %82, label %.critedge.thread.thread.i
 
 .critedge.thread.thread.i:                        ; preds = %78
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
 82:                                               ; preds = %78
@@ -773,12 +773,12 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br i1 %.not36.i, label %74, label %.critedge.thread.i, !llvm.loop !31
 
 .critedge.thread.i:                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fcntl_lockf_impl.exit
 
 .critedge.i:                                      ; preds = %74
   %84 = icmp slt i32 %76, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %.critedge.i, %.critedge.thread.thread.i
@@ -791,16 +791,13 @@ define internal ptr @fcntl_lockf(ptr readnone captures(none) %0, ptr noundef rea
   br label %fcntl_lockf_impl.exit
 
 .critedge39.i:                                    ; preds = %66, %62, %57
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %fcntl_lockf_impl.exit
 
 fcntl_lockf_impl.exit:                            ; preds = %.critedge39.i, %88, %85, %.critedge.thread.i, %47, %39, %23, %14, %11, %6
   %.023 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %14 ], [ null, %23 ], [ null, %39 ], [ %89, %88 ], [ null, %47 ], [ null, %.critedge39.i ], [ %87, %85 ], [ null, %.critedge.thread.i ]
   ret ptr %.023
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -809,9 +806,6 @@ declare i32 @PyObject_AsFileDescriptor(ptr noundef) local_unnamed_addr #1
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -822,7 +816,7 @@ declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -831,7 +825,7 @@ declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 declare i32 @PyErr_CheckSignals() local_unnamed_addr #1
 
@@ -852,7 +846,7 @@ declare i64 @PyType_GetFlags(ptr noundef) local_unnamed_addr #1
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fcntl_flock_impl(i32 noundef range(i32 0, -2147483648) %0, i32 noundef %1) unnamed_addr #0 {
@@ -897,7 +891,7 @@ define internal fastcc ptr @fcntl_flock_impl(i32 noundef range(i32 0, -214748364
 }
 
 ; Function Attrs: nounwind
-declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
@@ -1263,15 +1257,21 @@ all_ins.exit.thread:                              ; preds = %137, %135, %133, %1
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }

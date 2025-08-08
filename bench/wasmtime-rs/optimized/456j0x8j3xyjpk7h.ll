@@ -141,7 +141,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
 32:                                               ; preds = %28
   %33 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %29
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = load i64, ptr %34, align 8, !range !3, !noundef !4
   %36 = icmp eq i64 %35, -9223372036854775808
   br i1 %36, label %44, label %37
@@ -172,7 +172,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
 44:                                               ; preds = %32
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 9
   %46 = load i8, ptr %45, align 1, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = load i64, ptr %21, align 8, !noundef !4
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %49 = load i8, ptr %48, align 8, !noundef !4
@@ -474,7 +474,7 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 
 14:                                               ; preds = %8
   %15 = zext i1 %7 to i8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -491,7 +491,7 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %15, ptr %.sroa.2.0..sroa_idx, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr nonnull align 8 %0, ptr nonnull align 8 %9)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !4
   %24 = add i64 %23, -1
@@ -514,7 +514,7 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder8add_enum17hac317170d992bc22E(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr align 1 %5, i64 %6, ptr readonly align 8 captures(none) %7) unnamed_addr #2 {
   %9 = alloca { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %10, align 8
@@ -529,14 +529,14 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %6, ptr %15, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr align 8 %0, ptr nonnull align 8 %9)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder7add_num17h87704957558fd37bE(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr align 1 %5, i64 %6, i8 %7) unnamed_addr #2 {
   %9 = alloca { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -553,7 +553,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %7, ptr %.sroa.2.0..sroa_idx, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr align 8 %0, ptr nonnull align 8 %9)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -1332,10 +1332,10 @@ declare zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePar
 declare zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h4cfb4526400f47cfE"(ptr align 8, ptr align 8) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

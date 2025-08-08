@@ -1125,7 +1125,7 @@ _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %134, %132, %222
 269:                                              ; preds = %262
   %270 = load ptr, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 1.000000e+00, ptr %9, align 4, !alias.scope !11
   store float -1.000000e+00, ptr %49, align 4, !alias.scope !11
   store float 1.000000e+00, ptr %50, align 4, !alias.scope !11
@@ -1179,7 +1179,7 @@ _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %134, %132, %222
   %290 = phi float [ %.pre177, %.loopexit141.loopexit ], [ 1.000000e+00, %269 ]
   %291 = phi float [ %.pre176, %.loopexit141.loopexit ], [ 1.000000e+00, %269 ]
   %292 = phi float [ %.pre, %.loopexit141.loopexit ], [ 1.000000e+00, %269 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store float %292, ptr %8, align 4
   store float %291, ptr %45, align 4
   store float %290, ptr %47, align 4
@@ -1218,7 +1218,7 @@ _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %134, %132, %222
 311:                                              ; preds = %294
   %312 = load ptr, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 1.000000e+00, ptr %10, align 4, !alias.scope !14
   store float -1.000000e+00, ptr %55, align 4, !alias.scope !14
   store float 1.000000e+00, ptr %56, align 4, !alias.scope !14
@@ -1272,7 +1272,7 @@ _ZN15MLRenderingDataD2Ev.exit:                    ; preds = %134, %132, %222
   %332 = phi float [ %329, %.loopexit138.loopexit ], [ 2.000000e+00, %311 ]
   %333 = phi float [ %330, %.loopexit138.loopexit ], [ 2.000000e+00, %311 ]
   %334 = phi float [ %331, %.loopexit138.loopexit ], [ 2.000000e+00, %311 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %335 = fmul float %333, %333
   %336 = call float @llvm.fmuladd.f32(float %332, float %332, float %335)
   %337 = call float @llvm.fmuladd.f32(float %334, float %334, float %336)
@@ -3189,7 +3189,7 @@ define void @_ZN15AlignPairWidget16drawPickedPointsEP8QPainterRSt6vectorIN3vcg6P
           to label %_ZNK7QString3argEjii5QChar.exit unwind label %41
 
 _ZNK7QString3argEjii5QChar.exit:                  ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13)
           to label %.noexc unwind label %43
 
@@ -3218,7 +3218,7 @@ _ZN3vcg7glLabel4ModeC2Ev.exit.i:                  ; preds = %.noexc
 
 23:                                               ; preds = %_ZN3vcg7glLabel4ModeC2Ev.exit.i
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load ptr, ptr %8, align 8
   %25 = load atomic i32, ptr %24 monotonic, align 4
   switch i32 %25, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -3603,7 +3603,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
 
 92:                                               ; preds = %88, %81
   %.sroa.0.0 = phi double [ %89, %88 ], [ 0.000000e+00, %81 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double %.sroa.0.0, ptr %5, align 8
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = sitofp i32 %82 to double
@@ -3612,7 +3612,7 @@ _ZN3vcg7glLabel7enter2DEP8QPainter.exit:          ; preds = %.noexc26
           to label %95 unwind label %90
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc34 unwind label %90
 
@@ -4519,9 +4519,9 @@ define internal void @_GLOBAL__sub_I_AlignPairWidget.cpp() #15 section ".text.st
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #21
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -6041,9 +6041,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #20
   call void @_ZdlPv(ptr noundef nonnull %8) #20
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #21
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6054,10 +6054,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare float @llvm.sqrt.f32(float) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

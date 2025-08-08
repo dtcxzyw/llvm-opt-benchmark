@@ -149,7 +149,7 @@ define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unname
   %4 = alloca %struct.stat, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #4
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %file_fchstat.exit.thread, label %8
@@ -204,7 +204,7 @@ file_fchstat.exit.thread:                         ; preds = %19, %22, %8, %file_
 
 fchstat.exit:                                     ; preds = %file_fchstat.exit, %file_fchstat.exit.thread
   %.06.i = phi i32 [ -1, %file_fchstat.exit.thread ], [ 0, %file_fchstat.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06.i
 }
 
@@ -216,7 +216,7 @@ define range(i32 -1, 1) i32 @fchown(i32 noundef %0, i32 noundef %1, i32 noundef 
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %2, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %14, label %10
@@ -236,7 +236,7 @@ define range(i32 -1, 1) i32 @fchown(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 fchstat.exit:                                     ; preds = %10, %14
   %.06.i = phi i32 [ -1, %14 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.06.i
 }
 
@@ -263,7 +263,7 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly captu
   br label %12
 
 12:                                               ; preds = %9, %5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #4
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %file_fchstat.exit.thread, label %15
@@ -354,7 +354,7 @@ file_fchstat.exit.thread:                         ; preds = %41, %44, %34, %25, 
 
 fchstat.exit:                                     ; preds = %file_fchstat.exit, %file_fchstat.exit.thread
   %.06.i = phi i32 [ -1, %file_fchstat.exit.thread ], [ 0, %file_fchstat.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.06.i
 }
 
@@ -363,10 +363,10 @@ declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @__errno() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -24,13 +24,7 @@ define hidden ptr @lj_cdata_newref(ptr noundef %0, ptr noundef %1, i32 noundef %
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare hidden i32 @lj_ctype_intern(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_cdata_newv(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -80,7 +74,7 @@ define hidden noundef ptr @lj_cdata_newv(ptr noundef %0, i32 noundef %1, i32 nou
   ret ptr %20
 }
 
-declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_cdata_newx(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -271,7 +265,7 @@ define hidden void @lj_cdata_setfin(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %41, label %14
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = ptrtoint ptr %1 to i64
   %16 = or i64 %15, -1548112371908608
   store i64 %16, ptr %5, align 8, !tbaa !47
@@ -317,14 +311,14 @@ define hidden void @lj_cdata_setfin(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %40
 
 40:                                               ; preds = %32, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 41:                                               ; preds = %40, %4
   ret void
 }
 
-declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -337,7 +331,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   %12 = load ptr, ptr %0, align 8, !tbaa !50
   %13 = zext i16 %11 to i64
   %14 = getelementptr inbounds nuw %struct.CType, ptr %12, i64 %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = and i32 %15, -260046848
   %17 = icmp eq i32 %16, 545259520
@@ -529,13 +523,13 @@ ctype_raw.exit133:                                ; preds = %94
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %113 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %0, ptr noundef nonnull %.2105.lcssa, ptr noundef %110, ptr noundef nonnull %7, ptr noundef %4) #4
   %.not123 = icmp eq ptr %113, null
   br i1 %.not123, label %.thread142, label %114
 
 .thread142:                                       ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 114:                                              ; preds = %112
@@ -543,7 +537,7 @@ ctype_raw.exit133:                                ; preds = %94
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %.1101, i64 %116
   store ptr %117, ptr %3, align 8, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %197
 
 118:                                              ; preds = %108
@@ -633,7 +627,7 @@ ctype_rawchild.exit:                              ; preds = %.preheader162, %cty
   br i1 %162, label %163, label %.thread
 
 163:                                              ; preds = %ctype_rawchild.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %164 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %0, ptr noundef nonnull %.099, ptr noundef %110, ptr noundef nonnull %8, ptr noundef null) #4
   %.not = icmp eq ptr %164, null
   br i1 %.not, label %168, label %165
@@ -645,11 +639,11 @@ ctype_rawchild.exit:                              ; preds = %.preheader162, %cty
   br i1 %167, label %169, label %168
 
 168:                                              ; preds = %163, %165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 169:                                              ; preds = %165
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %197
 
 .thread:                                          ; preds = %125, %168, %ctype_rawchild.exit, %130, %145, %121, %135, %.thread142, %102, %87, %50
@@ -708,18 +702,18 @@ cdata_getptr.exit136:                             ; preds = %185, %189
 
 197:                                              ; preds = %134, %139, %114, %169, %194, %cdata_getptr.exit
   %.1 = phi ptr [ %.2105.lcssa, %cdata_getptr.exit ], [ %.3106, %194 ], [ %113, %114 ], [ %.2105.lcssa, %134 ], [ %.2105.lcssa, %139 ], [ %164, %169 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.1
 }
 
-declare hidden i32 @lj_ctype_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden i32 @lj_ctype_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden void @lj_cconv_ct_ct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_cconv_ct_ct(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_cdata_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -797,9 +791,9 @@ define hidden i32 @lj_cdata_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %.026
 }
 
-declare hidden i32 @lj_cconv_tv_bf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cconv_tv_bf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden i32 @lj_cconv_tv_ct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @lj_cconv_tv_ct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_cdata_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -891,16 +885,22 @@ define hidden void @lj_cdata_set(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ret void
 }
 
-declare hidden void @lj_cconv_bf_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @lj_cconv_bf_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @lj_cconv_ct_tv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

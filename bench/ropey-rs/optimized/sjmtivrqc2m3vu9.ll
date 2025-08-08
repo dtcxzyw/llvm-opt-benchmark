@@ -295,10 +295,10 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
   br label %10
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17h701896bbac10915fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.066e256b88afcb17f824fe9d079f94fa.4, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.066e256b88afcb17f824fe9d079f94fa.5, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.066e256b88afcb17f824fe9d079f94fa.6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -705,7 +705,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %18, %1, %_ZN8small
   br i1 %15, label %16, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !93
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !93
   store i64 0, ptr %2, align 8, !noalias !93
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %14, ptr %17, align 8, !noalias !93
@@ -1224,7 +1224,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
   br i1 %or.cond.not.i.i, label %_ZN8smallvec10deallocate17h84c60ef2dbb46db3E.exit, label %40
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !136
   store i64 0, ptr %3, align 8, !noalias !136
   call void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr noalias noundef nonnull readonly align 1 @anon.066e256b88afcb17f824fe9d079f94fa.1, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.066e256b88afcb17f824fe9d079f94fa.2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.066e256b88afcb17f824fe9d079f94fa.8) #17, !noalias !136
   unreachable
@@ -1333,7 +1333,7 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   br i1 %35, label %36, label %_ZN8smallvec10deallocate17h8331b8735a47b8c8E.exit
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !144
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !144
   store i64 0, ptr %3, align 8, !noalias !144
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sink.i, ptr %37, align 8, !noalias !144
@@ -1427,10 +1427,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare noalias noundef ptr @__rust_realloc(ptr allocptr noundef, i64 noundef, i64 allocalign noundef, i64 noundef) unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

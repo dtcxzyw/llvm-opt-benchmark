@@ -329,7 +329,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_mod_exp(i32 %0) #0 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @BN_CTX_new() #3
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 164, ptr noundef nonnull @.str.33, ptr noundef %3) #3
   %.not = icmp eq i32 %4, 0
@@ -554,7 +554,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 %0) #0 {
   call void @BN_free(ptr noundef %.058) #3
   call void @BN_free(ptr noundef %.0) #3
   call void @BN_CTX_free(ptr noundef %3) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.064
 }
 
@@ -768,9 +768,6 @@ define internal range(i32 0, 2) i32 @test_mod_exp_x2(i32 noundef %0) #0 {
   ret i32 %.089
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @BN_CTX_new() local_unnamed_addr #1
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -836,9 +833,6 @@ declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -854,6 +848,12 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @BN_mod_exp_mont_consttime_x2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

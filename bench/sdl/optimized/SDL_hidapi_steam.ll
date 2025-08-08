@@ -97,7 +97,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   br i1 %10, label %11, label %.thread72
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 16
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 -76, ptr %12, align 1
@@ -111,7 +111,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   br label %24
 
 .lr.ph.i:                                         ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -122,7 +122,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   store i8 %20, ptr %18, align 2
   %21 = load ptr, ptr %19, align 8
   %22 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %21, ptr noundef nonnull %2, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %.critedge.preheader, label %.thread70
 
@@ -149,17 +149,17 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
 
 .thread70:                                        ; preds = %.lr.ph.i
   %35 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #9
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 36:                                               ; preds = %33
   %37 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.3) #9
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %66
 
 38:                                               ; preds = %.critedge.preheader, %.critedge
   %.071 = phi i32 [ 0, %.critedge.preheader ], [ %60, %.critedge ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %29, i8 0, i64 127, i1 false)
   store i8 3, ptr %4, align 16
@@ -206,11 +206,11 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %43, %.thread.sink.split
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .critedge:                                        ; preds = %42, %57
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = add nuw nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %60, 5
   br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !7
@@ -222,7 +222,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_InitDevice(ptr noundef %0) #0 {
 
 .loopexit:                                        ; preds = %.critedge, %.thread
   %62 = call zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @SDL_PairingEnabledHintChanged, ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !3
   %63 = trunc nuw i8 %.pre to i1
@@ -256,7 +256,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_UpdateDevice(ptr noundef 
   %6 = alloca [3 x float], align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4
@@ -286,7 +286,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_UpdateDevice(ptr noundef 
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %3, i8 0, i64 65, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 -83, ptr %26, align 1
@@ -306,7 +306,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_UpdateDevice(ptr noundef 
   br label %40
 
 .lr.ph.i.i.i:                                     ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 128
@@ -317,7 +317,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_UpdateDevice(ptr noundef 
   store i32 %37, ptr %35, align 2
   %38 = load ptr, ptr %36, align 8
   %39 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %38, ptr noundef nonnull %2, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SetPairingState.exit.i
 
 40:                                               ; preds = %44, %.preheader.i.i.i
@@ -334,14 +334,14 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_UpdateDevice(ptr noundef 
   br i1 %exitcond.not.i.i.i, label %SetPairingState.exit.i, label %40, !llvm.loop !5
 
 SetPairingState.exit.i:                           ; preds = %44, %40, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %21, ptr %18, align 8
   br label %HIDAPI_DriverSteam_RenewPairingState.exit
 
 HIDAPI_DriverSteam_RenewPairingState.exit:        ; preds = %SetPairingState.exit.i, %20, %17
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = load ptr, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %47, i8 0, i64 127, i1 false)
   store i8 3, ptr %5, align 16
@@ -905,7 +905,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   br i1 %381, label %382, label %418
 
 382:                                              ; preds = %367
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %383 = load i32, ptr %101, align 4
   %384 = zext i32 %383 to i64
   %385 = mul nuw nsw i64 %384, 1000
@@ -950,7 +950,7 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   store float %416, ptr %104, align 4
   %417 = load i64, ptr %102, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %309, ptr noundef nonnull %314, i32 noundef 1, i64 noundef %417, ptr noundef nonnull %6, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %418
 
 418:                                              ; preds = %367, %382
@@ -1038,8 +1038,8 @@ ControllerDisconnected.exit127:                   ; preds = %442, %445
   br label %.thread
 
 .thread:                                          ; preds = %.thread149, %136, %129, %126, %119, %125, %425, %.thread148, %428, %430, %313, %433, %.thread152, %437, %439, %ControllerDisconnected.exit127, %432, %418
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %448 = load ptr, ptr %46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %47, i8 0, i64 127, i1 false)
   store i8 3, ptr %5, align 16
@@ -1049,8 +1049,8 @@ ControllerDisconnected.exit127:                   ; preds = %442, %445
 
 ._crit_edge:                                      ; preds = %.thread, %HIDAPI_DriverSteam_RenewPairingState.exit, %.thread139
   %451 = phi i1 [ false, %.thread139 ], [ true, %HIDAPI_DriverSteam_RenewPairingState.exit ], [ true, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %451
 }
 
@@ -1073,7 +1073,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_OpenJoystick(ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %14, i8 0, i64 176, i1 false)
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 16
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 -125, ptr %16, align 1
@@ -1087,7 +1087,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_OpenJoystick(ptr noundef 
   br label %27
 
 .lr.ph.i.i:                                       ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1097,7 +1097,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteam_OpenJoystick(ptr noundef 
   store i8 -125, ptr %22, align 2
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %24, ptr noundef nonnull %8, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.loopexit27, label %SetFeatureReport.exit.thread99.i
 
@@ -1129,8 +1129,8 @@ SetFeatureReport.exit.thread99.i:                 ; preds = %27, %.lr.ph.i.i
   br i1 %40, label %41, label %75
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 156, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %34, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(145) %7, i8 0, i64 145, i1 false)
   store i32 0, ptr %35, align 4
@@ -1227,8 +1227,8 @@ WriteSegmentToSteamControllerPacketAssembler.exit.i.i.i: ; preds = %71, %67
 
 GetFeatureReport.exit.thread19.i.i:               ; preds = %.thread.i.i.i
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull @.str.14, i32 noundef %.133.i.i.i) #9
-  call void @llvm.lifetime.end.p0(i64 156, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread.i.i
 
 75:                                               ; preds = %38
@@ -1252,8 +1252,8 @@ GetFeatureReport.exit.i.i:                        ; preds = %WriteSegmentToSteam
   store i8 0, ptr %9, align 16
   %82 = zext nneg i32 %.1.i.i.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 4 %7, i64 %82, i1 false)
-  call void @llvm.lifetime.end.p0(i64 156, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %GetFeatureReport.exit.thread16.i.i
 
 GetFeatureReport.exit.thread16.i.i:               ; preds = %76, %GetFeatureReport.exit.i.i
@@ -1313,7 +1313,7 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
   br i1 %99, label %.lr.ph.i66.i, label %.preheader.i62.i
 
 .lr.ph.i66.i:                                     ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
@@ -1322,7 +1322,7 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
   store i8 -127, ptr %101, align 2
   %102 = load ptr, ptr %33, align 8
   %103 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %102, ptr noundef nonnull %5, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.loopexit27, label %SetFeatureReport.exit73.thread104.i
 
@@ -1347,7 +1347,7 @@ SetFeatureReport.exit73.thread104.i:              ; preds = %.preheader.i62.i, %
   br i1 %111, label %.lr.ph.i78.i, label %.preheader.i74.i
 
 .lr.ph.i78.i:                                     ; preds = %SetFeatureReport.exit73.thread104.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
@@ -1357,7 +1357,7 @@ SetFeatureReport.exit73.thread104.i:              ; preds = %.preheader.i62.i, %
   store i16 %114, ptr %113, align 2
   %115 = load ptr, ptr %33, align 8
   %116 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %115, ptr noundef nonnull %4, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %.loopexit27, label %SetFeatureReport.exit85.thread107.i
 
@@ -1397,7 +1397,7 @@ SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %
   br i1 %131, label %.lr.ph.i90.i, label %.preheader.i86.i
 
 .lr.ph.i90.i:                                     ; preds = %SetFeatureReport.exit85.thread107.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1407,7 +1407,7 @@ SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %133, ptr noundef nonnull align 1 dereferenceable(14) %16, i64 14, i1 false)
   %135 = load ptr, ptr %33, align 8
   %136 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %135, ptr noundef nonnull %3, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %.loopexit27, label %.loopexit
 
@@ -1427,12 +1427,12 @@ SetFeatureReport.exit85.thread107.i:              ; preds = %.preheader.i74.i, %
 .loopexit27:                                      ; preds = %31, %.thread.i.i, %108, %121, %141, %.lr.ph.i90.i, %.lr.ph.i78.i, %.lr.ph.i66.i, %ReadResponse.exit.i, %.lr.ph.i.i
   %.str.13.sink.i = phi ptr [ @.str.9, %.lr.ph.i.i ], [ @.str.10, %ReadResponse.exit.i ], [ @.str.11, %.lr.ph.i66.i ], [ @.str.12, %.lr.ph.i78.i ], [ @.str.13, %.lr.ph.i90.i ], [ @.str.13, %141 ], [ @.str.12, %121 ], [ @.str.11, %108 ], [ @.str.10, %.thread.i.i ], [ @.str.9, %31 ]
   call void (ptr, ...) @SDL_Log_REAL(ptr noundef nonnull %.str.13.sink.i, ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %143 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.7) #9
   br label %160
 
 .loopexit:                                        ; preds = %.preheader.i86.i, %.lr.ph.i90.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %144 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %144, 0
   %145 = uitofp i32 %144 to float
@@ -1511,7 +1511,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SendJoystickEffect(ptr noundef re
   br label %26
 
 .lr.ph.i:                                         ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -1553,7 +1553,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SendJoystickEffect(ptr noundef re
   br i1 %exitcond.not.i, label %SetFeatureReport.exit.thread, label %26, !llvm.loop !5
 
 SetFeatureReport.exit:                            ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %24, 0
   br i1 %32, label %SetFeatureReport.exit.thread, label %SetFeatureReport.exit.thread6
 
@@ -1577,7 +1577,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SetSensorsEnabled(ptr noundef rea
   %6 = zext i1 %2 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %5, i8 0, i64 65, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 -121, ptr %9, align 1
@@ -1598,7 +1598,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SetSensorsEnabled(ptr noundef rea
   br label %23
 
 .lr.ph.i:                                         ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1608,7 +1608,7 @@ define internal zeroext i1 @HIDAPI_DriverSteam_SetSensorsEnabled(ptr noundef rea
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %18, ptr noundef nonnull align 1 dereferenceable(5) %9, i64 5, i1 false)
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %20, ptr noundef nonnull %4, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %SetFeatureReport.exit.thread, label %SetFeatureReport.exit.thread17
 
@@ -1636,7 +1636,7 @@ SetFeatureReport.exit.thread17:                   ; preds = %23, %.lr.ph.i
 
 31:                                               ; preds = %SetFeatureReport.exit.thread17, %SetFeatureReport.exit.thread
   %.015 = phi i1 [ %29, %SetFeatureReport.exit.thread ], [ true, %SetFeatureReport.exit.thread17 ]
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.015
 }
 
@@ -1649,7 +1649,7 @@ define internal void @HIDAPI_DriverSteam_CloseJoystick(ptr noundef readonly capt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   tail call void @SDL_RemoveHintCallback_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @SDL_HomeLEDHintChanged, ptr noundef %8) #9
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %6, i8 0, i64 65, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 -123, ptr %9, align 1
@@ -1663,7 +1663,7 @@ define internal void @HIDAPI_DriverSteam_CloseJoystick(ptr noundef readonly capt
   br label %19
 
 .lr.ph.i.i:                                       ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1673,7 +1673,7 @@ define internal void @HIDAPI_DriverSteam_CloseJoystick(ptr noundef readonly capt
   store i8 -123, ptr %15, align 2
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %17, ptr noundef nonnull %5, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SetFeatureReport.exit.i
 
 19:                                               ; preds = %23, %.preheader.i.i
@@ -1702,7 +1702,7 @@ SetFeatureReport.exit.i:                          ; preds = %23, %19, %.lr.ph.i.
   br label %35
 
 .lr.ph.i12.i:                                     ; preds = %SetFeatureReport.exit.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1713,7 +1713,7 @@ SetFeatureReport.exit.i:                          ; preds = %23, %19, %.lr.ph.i.
   store i16 %32, ptr %30, align 2
   %33 = load ptr, ptr %31, align 8
   %34 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %33, ptr noundef nonnull %4, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SetFeatureReport.exit19.i
 
 35:                                               ; preds = %39, %.preheader.i8.i
@@ -1744,7 +1744,7 @@ SetFeatureReport.exit19.i:                        ; preds = %39, %35, %.lr.ph.i1
   br label %50
 
 .lr.ph.i24.i:                                     ; preds = %SetFeatureReport.exit19.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1754,7 +1754,7 @@ SetFeatureReport.exit19.i:                        ; preds = %39, %35, %.lr.ph.i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %46, ptr noundef nonnull align 1 dereferenceable(5) %9, i64 5, i1 false)
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %48, ptr noundef nonnull %3, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %CloseSteamController.exit
 
 50:                                               ; preds = %54, %.preheader.i20.i
@@ -1771,7 +1771,7 @@ SetFeatureReport.exit19.i:                        ; preds = %39, %35, %.lr.ph.i1
   br i1 %exitcond.not.i22.i, label %CloseSteamController.exit, label %50, !llvm.loop !5
 
 CloseSteamController.exit:                        ; preds = %50, %54, %.lr.ph.i24.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1800,7 +1800,7 @@ define internal void @HIDAPI_DriverSteam_FreeDevice(ptr noundef readonly capture
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %3, i8 0, i64 65, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 -83, ptr %17, align 1
@@ -1818,7 +1818,7 @@ define internal void @HIDAPI_DriverSteam_FreeDevice(ptr noundef readonly capture
   br label %30
 
 .lr.ph.i.i.i:                                     ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 128
@@ -1829,7 +1829,7 @@ define internal void @HIDAPI_DriverSteam_FreeDevice(ptr noundef readonly capture
   store i32 %27, ptr %25, align 2
   %28 = load ptr, ptr %26, align 8
   %29 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %28, ptr noundef nonnull %2, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SetPairingState.exit.i
 
 30:                                               ; preds = %34, %.preheader.i.i.i
@@ -1846,7 +1846,7 @@ define internal void @HIDAPI_DriverSteam_FreeDevice(ptr noundef readonly capture
   br i1 %exitcond.not.i.i.i, label %SetPairingState.exit.i, label %30, !llvm.loop !5
 
 SetPairingState.exit.i:                           ; preds = %34, %30, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %36, align 8
   store ptr null, ptr @HIDAPI_DriverSteam_SetPairingState.s_PairingContext, align 8
@@ -1864,20 +1864,14 @@ declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) loc
 
 declare zeroext i1 @SDL_IsJoystickSteamController(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @HIDAPI_SetDeviceName(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_PairingEnabledHintChanged(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
@@ -1889,10 +1883,10 @@ define internal void @SDL_PairingEnabledHintChanged(ptr noundef %0, ptr readnone
 declare zeroext i1 @HIDAPI_JoystickConnected(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @SDL_hid_send_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1919,7 +1913,7 @@ define internal fastcc void @HIDAPI_DriverSteam_SetPairingState(ptr noundef %0, 
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %4, i8 0, i64 65, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 -83, ptr %12, align 1
@@ -1941,7 +1935,7 @@ define internal fastcc void @HIDAPI_DriverSteam_SetPairingState(ptr noundef %0, 
   br label %28
 
 .lr.ph.i.i:                                       ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 128
@@ -1952,7 +1946,7 @@ define internal fastcc void @HIDAPI_DriverSteam_SetPairingState(ptr noundef %0, 
   store i32 %25, ptr %23, align 2
   %26 = load ptr, ptr %24, align 8
   %27 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %26, ptr noundef nonnull %3, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SetPairingState.exit
 
 28:                                               ; preds = %32, %.preheader.i.i
@@ -1969,7 +1963,7 @@ define internal fastcc void @HIDAPI_DriverSteam_SetPairingState(ptr noundef %0, 
   br i1 %exitcond.not.i.i, label %SetPairingState.exit, label %28, !llvm.loop !5
 
 SetPairingState.exit:                             ; preds = %28, %32, %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %1, label %34, label %.sink.split
 
 34:                                               ; preds = %SetPairingState.exit
@@ -2005,7 +1999,7 @@ define internal fastcc void @ControllerConnected(ptr noundef %0, ptr noundef non
 
 8:                                                ; preds = %2
   %.val = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %4, i8 0, i64 65, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 -77, ptr %9, align 1
@@ -2019,7 +2013,7 @@ define internal fastcc void @ControllerConnected(ptr noundef %0, ptr noundef non
   br label %19
 
 .lr.ph.i.i.i:                                     ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 128
@@ -2029,7 +2023,7 @@ define internal fastcc void @ControllerConnected(ptr noundef %0, ptr noundef non
   store i8 -77, ptr %15, align 2
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %17, ptr noundef nonnull %3, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %HIDAPI_DriverSteam_CommitPairing.exit
 
 19:                                               ; preds = %23, %.preheader.i.i.i
@@ -2046,7 +2040,7 @@ define internal fastcc void @ControllerConnected(ptr noundef %0, ptr noundef non
   br i1 %exitcond.not.i.i.i, label %HIDAPI_DriverSteam_CommitPairing.exit, label %19, !llvm.loop !5
 
 HIDAPI_DriverSteam_CommitPairing.exit:            ; preds = %19, %23, %.lr.ph.i.i.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 4
@@ -2274,7 +2268,7 @@ RemapValClamped.exit:                             ; preds = %58, %52
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
 declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #2
 
@@ -2317,7 +2311,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef readonly captures(none)
 18:                                               ; preds = %16, %11
   %.0 = phi i8 [ %15, %11 ], [ %., %16 ]
   %19 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %6, i8 0, i64 65, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 -121, ptr %20, align 1
@@ -2337,7 +2331,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef readonly captures(none)
   br label %34
 
 .lr.ph.i.i:                                       ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 128
@@ -2347,7 +2341,7 @@ define internal void @SDL_HomeLEDHintChanged(ptr noundef readonly captures(none)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %29, ptr noundef nonnull align 1 dereferenceable(5) %20, i64 5, i1 false)
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @SDL_hid_send_feature_report_REAL(ptr noundef %31, ptr noundef nonnull %5, i64 noundef 20) #9
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %SetFeatureReport.exit.thread.i, label %SetHomeLED.exit
 
@@ -2369,7 +2363,7 @@ SetFeatureReport.exit.thread.i:                   ; preds = %38, %.lr.ph.i.i
   br label %SetHomeLED.exit
 
 SetHomeLED.exit:                                  ; preds = %34, %.lr.ph.i.i, %SetFeatureReport.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %41
 
 41:                                               ; preds = %SetHomeLED.exit, %7, %4
@@ -2381,6 +2375,12 @@ declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 nound
 declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare double @SDL_atof_REAL(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -2394,11 +2394,11 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

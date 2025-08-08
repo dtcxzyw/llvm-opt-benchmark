@@ -79,33 +79,27 @@ define hidden noundef ptr @RSA_new_method(ptr noundef %0) local_unnamed_addr #0 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ENGINE_get_RSA_method(ptr noundef) local_unnamed_addr #3
+declare ptr @ENGINE_get_RSA_method(ptr noundef) local_unnamed_addr #2
 
-declare void @METHOD_ref(ptr noundef) local_unnamed_addr #3
+declare void @METHOD_ref(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_MUTEX_init(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_new_ex_data(ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_new_ex_data(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free_ex_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_free_ex_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_MUTEX_cleanup(ptr noundef) local_unnamed_addr #2
 
-declare void @METHOD_unref(ptr noundef) local_unnamed_addr #3
+declare void @METHOD_unref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @RSA_additional_prime_free(ptr noundef captures(address_is_null) %0) #0 {
@@ -134,9 +128,9 @@ define hidden void @RSA_additional_prime_free(ptr noundef captures(address_is_nu
   ret void
 }
 
-declare void @BN_clear_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_clear_free(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @RSA_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -246,11 +240,11 @@ define hidden void @RSA_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_BLINDING_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_BLINDING_free(ptr noundef) local_unnamed_addr #2
 
-declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @RSA_up_ref(ptr noundef %0) local_unnamed_addr #0 {
@@ -259,7 +253,7 @@ define hidden noundef i32 @RSA_up_ref(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
-declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #3
+declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_generate_key_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -282,7 +276,7 @@ define hidden i32 @RSA_generate_key_ex(ptr noundef %0, i32 noundef %1, ptr nound
   ret i32 %.0
 }
 
-declare i32 @rsa_default_keygen(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @rsa_default_keygen(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_generate_multi_prime_key(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -305,7 +299,7 @@ define hidden i32 @RSA_generate_multi_prime_key(ptr noundef %0, i32 noundef %1, 
   ret i32 %.0
 }
 
-declare i32 @rsa_default_multi_prime_keygen(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @rsa_default_multi_prime_keygen(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -328,12 +322,12 @@ define hidden i32 @RSA_encrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   ret i32 %.0
 }
 
-declare i32 @rsa_default_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @rsa_default_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @RSA_public_encrypt(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !55
@@ -385,7 +379,7 @@ RSA_encrypt.exit:                                 ; preds = %18, %20
 
 28:                                               ; preds = %RSA_encrypt.exit, %26, %25
   %.0 = phi i32 [ -1, %25 ], [ %27, %26 ], [ -1, %RSA_encrypt.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -432,12 +426,12 @@ define hidden i32 @RSA_sign_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 %.0
 }
 
-declare i32 @rsa_default_sign_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @rsa_default_sign_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @RSA_private_encrypt(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !55
@@ -489,7 +483,7 @@ RSA_sign_raw.exit:                                ; preds = %18, %20
 
 28:                                               ; preds = %RSA_sign_raw.exit, %26, %25
   %.0 = phi i32 [ -1, %25 ], [ %27, %26 ], [ -1, %RSA_sign_raw.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -514,12 +508,12 @@ define hidden i32 @RSA_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   ret i32 %.0
 }
 
-declare i32 @rsa_default_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @rsa_default_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @RSA_private_decrypt(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !55
@@ -571,14 +565,14 @@ RSA_decrypt.exit:                                 ; preds = %18, %20
 
 28:                                               ; preds = %RSA_decrypt.exit, %26, %25
   %.0 = phi i32 [ -1, %25 ], [ %27, %26 ], [ -1, %RSA_decrypt.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @RSA_public_decrypt(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %3, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !55
@@ -615,16 +609,16 @@ RSA_size.exit:                                    ; preds = %10, %12
 
 22:                                               ; preds = %RSA_size.exit, %20, %19
   %.0 = phi i32 [ -1, %19 ], [ %21, %20 ], [ -1, %RSA_size.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @RSA_verify_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RSA_verify_raw(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @rsa_default_size(ptr noundef) local_unnamed_addr #3
+declare i64 @rsa_default_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @RSA_is_opaque(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @RSA_is_opaque(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -664,16 +658,16 @@ define hidden i32 @RSA_supports_digest(ptr noundef %0, ptr noundef %1) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_get_ex_new_index(i64 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @CRYPTO_get_ex_new_index(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %6, i64 noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4) #10
   %.not = icmp eq i32 %7, 0
   %8 = load i32, ptr %6, align 4
   %.0 = select i1 %.not, i32 -1, i32 %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -682,7 +676,7 @@ define hidden i32 @RSA_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %
   ret i32 %5
 }
 
-declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -691,7 +685,7 @@ define hidden ptr @RSA_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed
   ret ptr %4
 }
 
-declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
@@ -771,7 +765,7 @@ define hidden range(i32 0, 2) i32 @RSA_add_pkcs1_prefix(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_sign(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -796,11 +790,11 @@ define hidden i32 @RSA_sign(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 RSA_size.exit:                                    ; preds = %14, %16
   %.0.in.i = phi i64 [ %15, %14 ], [ %17, %16 ]
   %.0.i = trunc i64 %.0.in.i to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %18 = load ptr, ptr %5, align 8, !tbaa !6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !67
@@ -873,10 +867,10 @@ RSA_sign_raw.exit:                                ; preds = %40, %42
 
 51:                                               ; preds = %47, %49, %23, %21
   %.019 = phi i32 [ %22, %21 ], [ 0, %23 ], [ %.0, %49 ], [ %.0, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.019
 }
 
@@ -919,11 +913,11 @@ define hidden range(i32 0, 2) i32 @RSA_verify(i32 noundef %0, ptr noundef %1, i6
 RSA_size.exit:                                    ; preds = %23, %25
   %.0.in.i = phi i64 [ %24, %23 ], [ %26, %25 ]
   %27 = and i64 %.0.in.i, 4294967295
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !62
   %28 = icmp eq i32 %0, 114
   %29 = icmp ne i64 %2, 36
@@ -983,10 +977,10 @@ RSA_size.exit:                                    ; preds = %23, %25
 
 48:                                               ; preds = %44, %46, %33, %30
   %.1 = phi i32 [ 0, %30 ], [ 0, %33 ], [ %.0, %46 ], [ %.0, %44 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
 49:                                               ; preds = %48, %18
@@ -1005,15 +999,15 @@ define hidden range(i32 0, 2) i32 @RSA_check_key(ptr noundef readonly captures(n
   %8 = alloca %struct.bignum_st, align 8
   %9 = alloca %struct.bignum_st, align 8
   %10 = alloca %struct.bignum_st, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load ptr, ptr %0, align 8, !tbaa !6
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %RSA_is_opaque.exit.thread, label %RSA_is_opaque.exit
@@ -1288,47 +1282,47 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
 
 123:                                              ; preds = %29, %RSA_is_opaque.exit, %122, %35, %28, %21
   %.0 = phi i32 [ 0, %21 ], [ 0, %35 ], [ %.057, %122 ], [ 0, %28 ], [ 1, %RSA_is_opaque.exit ], [ 1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare ptr @BN_CTX_new() local_unnamed_addr #3
+declare ptr @BN_CTX_new() local_unnamed_addr #2
 
-declare void @BN_init(ptr noundef) local_unnamed_addr #3
+declare void @BN_init(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_value_one() local_unnamed_addr #3
+declare ptr @BN_value_one() local_unnamed_addr #2
 
-declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #3
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -1648,27 +1642,27 @@ define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr noundef captures(n
   ret i32 %.0109
 }
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_new() local_unnamed_addr #3
+declare ptr @BN_new() local_unnamed_addr #2
 
-declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sqr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_sqrt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sqrt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_private_transform(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -1691,12 +1685,18 @@ define hidden i32 @RSA_private_transform(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %.0
 }
 
-declare i32 @rsa_default_private_transform(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @rsa_default_private_transform(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @RSA_blinding_on(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #7 {
+define hidden noundef i32 @RSA_blinding_on(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   ret i32 1
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -1705,13 +1705,13 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #10 = { nounwind }

@@ -82,7 +82,7 @@ define hidden void @_ZN22SerialBlockOffsetTableC2E9MemRegionm(ptr noundef nonnul
 
 14:                                               ; preds = %13, %4
   %15 = phi ptr [ %.pre, %13 ], [ %12, %4 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %17 = icmp sgt i32 %16, 1
   %18 = icmp ne ptr %15, null
@@ -96,7 +96,7 @@ define hidden void @_ZN22SerialBlockOffsetTableC2E9MemRegionm(ptr noundef nonnul
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %14, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = call noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %6, i64 noundef 0) #11
   br i1 %20, label %22, label %21
 
@@ -456,10 +456,10 @@ declare void @llvm.va_end.p0(ptr) #9
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

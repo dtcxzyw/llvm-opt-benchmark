@@ -75,11 +75,11 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
   %7 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp slt i32 %0, 2
   br i1 %8, label %9, label %12
 
@@ -88,18 +88,18 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %10)
   %puts.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %puts1.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  tail call void @exit(i32 noundef 0) #16
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !4
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.42) #17
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.42) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %ProcessArgs.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.43) #17
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(7) @.str.43) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.thread38.i, label %20
 
@@ -112,7 +112,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %21)
   %puts.i25.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %puts1.i26.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  tail call void @exit(i32 noundef 0) #16
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 23:                                               ; preds = %.thread38.i
@@ -120,23 +120,23 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %24)
   %puts.i28.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %puts1.i29.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  tail call void @exit(i32 noundef 0) #16
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 26:                                               ; preds = %.thread38.i
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !4
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(4) @.str.44) #17
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(4) @.str.44) #16
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %sub_0.i, label %31
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(4) @.str.45) #17
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(4) @.str.45) #16
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %sub_0.i, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(5) @.str.46) #17
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(5) @.str.46) #16
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %sub_0.i, label %37
 
@@ -145,7 +145,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %38)
   %puts.i31.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %puts1.i32.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  tail call void @exit(i32 noundef 0) #16
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 sub_0.i:                                          ; preds = %34, %31, %26
@@ -175,20 +175,20 @@ sub_0.i:                                          ; preds = %34, %31, %26
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, ptr noundef %49)
   %puts.i34.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %puts1.i35.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  tail call void @exit(i32 noundef 0) #16
+  tail call void @exit(i32 noundef 0) #15
   unreachable
 
 ProcessArgs.exit:                                 ; preds = %.tail40.i, %.tail.i, %12
   %.not65 = phi i1 [ true, %12 ], [ false, %.tail.i ], [ true, %.tail40.i ]
   %.0144 = phi i32 [ 0, %12 ], [ 1, %.tail.i ], [ 0, %.tail40.i ]
   %.0143 = phi i32 [ -1, %12 ], [ %.sink.i, %.tail.i ], [ %.sink.i, %.tail40.i ]
-  %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #18
+  %51 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
   %52 = icmp eq ptr %51, null
   br i1 %52, label %check_retval.exit, label %55
 
 check_retval.exit:                                ; preds = %ProcessArgs.exit
   %53 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #19
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #18
   br label %196
 
 55:                                               ; preds = %ProcessArgs.exit
@@ -197,24 +197,24 @@ check_retval.exit:                                ; preds = %ProcessArgs.exit
   store double 1.000000e+04, ptr %56, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store double 3.000000e+07, ptr %57, align 8, !tbaa !11
-  %58 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %3) #15
+  %58 = call i32 @SUNContext_Create(i32 noundef 0, ptr noundef nonnull %3) #19
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %check_retval.exit89, label %62
 
 check_retval.exit89:                              ; preds = %55
   %60 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef %58) #19
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef %58) #18
   br label %196
 
 62:                                               ; preds = %55
   %63 = load ptr, ptr %3, align 8, !tbaa !13
-  %64 = call ptr @N_VNew_Serial(i64 noundef 3, ptr noundef %63) #15
+  %64 = call ptr @N_VNew_Serial(i64 noundef 3, ptr noundef %63) #19
   %65 = icmp eq ptr %64, null
   br i1 %65, label %check_retval.exit91, label %68
 
 check_retval.exit91:                              ; preds = %62
   %66 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.2) #19
+  %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.2) #18
   br label %196
 
 68:                                               ; preds = %62
@@ -225,86 +225,86 @@ check_retval.exit91:                              ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   %73 = load ptr, ptr %3, align 8, !tbaa !13
-  %74 = call ptr @CVodeCreate(i32 noundef 2, ptr noundef %73) #15
+  %74 = call ptr @CVodeCreate(i32 noundef 2, ptr noundef %73) #19
   store ptr %74, ptr %5, align 8, !tbaa !23
   %75 = icmp eq ptr %74, null
   br i1 %75, label %check_retval.exit93, label %78
 
 check_retval.exit93:                              ; preds = %68
   %76 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.3) #19
+  %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %76, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.3) #18
   br label %196
 
 78:                                               ; preds = %68
-  %79 = call i32 @CVodeInit(ptr noundef nonnull %74, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %64) #15
+  %79 = call i32 @CVodeInit(ptr noundef nonnull %74, ptr noundef nonnull @f, double noundef 0.000000e+00, ptr noundef nonnull %64) #19
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %check_retval.exit95, label %83
 
 check_retval.exit95:                              ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %79) #19
+  %82 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.4, i32 noundef %79) #18
   br label %196
 
 83:                                               ; preds = %78
-  %84 = call i32 @CVodeWFtolerances(ptr noundef nonnull %74, ptr noundef nonnull @ewt) #15
+  %84 = call i32 @CVodeWFtolerances(ptr noundef nonnull %74, ptr noundef nonnull @ewt) #19
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %check_retval.exit97, label %88
 
 check_retval.exit97:                              ; preds = %83
   %86 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.5, i32 noundef %84) #19
+  %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.5, i32 noundef %84) #18
   br label %196
 
 88:                                               ; preds = %83
-  %89 = call i32 @CVodeSetUserData(ptr noundef nonnull %74, ptr noundef nonnull %51) #15
+  %89 = call i32 @CVodeSetUserData(ptr noundef nonnull %74, ptr noundef nonnull %51) #19
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %check_retval.exit99, label %93
 
 check_retval.exit99:                              ; preds = %88
   %91 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.6, i32 noundef %89) #19
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.6, i32 noundef %89) #18
   br label %196
 
 93:                                               ; preds = %88
   %94 = load ptr, ptr %3, align 8, !tbaa !13
-  %95 = call ptr @SUNDenseMatrix(i64 noundef 3, i64 noundef 3, ptr noundef %94) #15
+  %95 = call ptr @SUNDenseMatrix(i64 noundef 3, i64 noundef 3, ptr noundef %94) #19
   %96 = icmp eq ptr %95, null
   br i1 %96, label %check_retval.exit101, label %99
 
 check_retval.exit101:                             ; preds = %93
   %97 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.7) #19
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %97, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.7) #18
   br label %196
 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %3, align 8, !tbaa !13
-  %101 = call ptr @SUNLinSol_Dense(ptr noundef nonnull %64, ptr noundef nonnull %95, ptr noundef %100) #15
+  %101 = call ptr @SUNLinSol_Dense(ptr noundef nonnull %64, ptr noundef nonnull %95, ptr noundef %100) #19
   %102 = icmp eq ptr %101, null
   br i1 %102, label %check_retval.exit103, label %105
 
 check_retval.exit103:                             ; preds = %99
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.8) #19
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.8) #18
   br label %196
 
 105:                                              ; preds = %99
-  %106 = call i32 @CVodeSetLinearSolver(ptr noundef nonnull %74, ptr noundef nonnull %101, ptr noundef nonnull %95) #15
+  %106 = call i32 @CVodeSetLinearSolver(ptr noundef nonnull %74, ptr noundef nonnull %101, ptr noundef nonnull %95) #19
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %check_retval.exit105, label %110
 
 check_retval.exit105:                             ; preds = %105
   %108 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.9, i32 noundef %106) #19
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %108, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.9, i32 noundef %106) #18
   br label %196
 
 110:                                              ; preds = %105
-  %111 = call i32 @CVodeSetJacFn(ptr noundef nonnull %74, ptr noundef nonnull @Jac) #15
+  %111 = call i32 @CVodeSetJacFn(ptr noundef nonnull %74, ptr noundef nonnull @Jac) #19
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %check_retval.exit107, label %115
 
 check_retval.exit107:                             ; preds = %110
   %113 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.10, i32 noundef %111) #19
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.10, i32 noundef %111) #18
   br label %196
 
 115:                                              ; preds = %110
@@ -320,62 +320,62 @@ check_retval.exit107:                             ; preds = %110
   %120 = load double, ptr %57, align 8, !tbaa !11
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %120, ptr %121, align 16, !tbaa !11
-  %122 = call ptr @N_VCloneVectorArray(i32 noundef 3, ptr noundef nonnull %64) #15
+  %122 = call ptr @N_VCloneVectorArray(i32 noundef 3, ptr noundef nonnull %64) #19
   %123 = icmp eq ptr %122, null
   br i1 %123, label %check_retval.exit109.thread, label %check_retval.exit109
 
 check_retval.exit109.thread:                      ; preds = %116
   %124 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.12) #19
+  %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.12) #18
   br label %196
 
 check_retval.exit109:                             ; preds = %116, %check_retval.exit109
   %indvars.iv = phi i64 [ %indvars.iv.next, %check_retval.exit109 ], [ 0, %116 ]
   %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !24
-  call void @N_VConst(double noundef 0.000000e+00, ptr noundef %127) #15
+  call void @N_VConst(double noundef 0.000000e+00, ptr noundef %127) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %128, label %check_retval.exit109
 
 128:                                              ; preds = %check_retval.exit109
-  %129 = call i32 @CVodeSensInit1(ptr noundef nonnull %74, i32 noundef 3, i32 noundef %.0143, ptr noundef nonnull @fS, ptr noundef nonnull %122) #15
+  %129 = call i32 @CVodeSensInit1(ptr noundef nonnull %74, i32 noundef 3, i32 noundef %.0143, ptr noundef nonnull @fS, ptr noundef nonnull %122) #19
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %check_retval.exit111, label %133
 
 check_retval.exit111:                             ; preds = %128
   %131 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef %129) #19
+  %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.13, i32 noundef %129) #18
   br label %196
 
 133:                                              ; preds = %128
-  %134 = call i32 @CVodeSensEEtolerances(ptr noundef nonnull %74) #15
+  %134 = call i32 @CVodeSensEEtolerances(ptr noundef nonnull %74) #19
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %check_retval.exit113, label %138
 
 check_retval.exit113:                             ; preds = %133
   %136 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.14, i32 noundef %134) #19
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.14, i32 noundef %134) #18
   br label %196
 
 138:                                              ; preds = %133
-  %139 = call i32 @CVodeSetSensErrCon(ptr noundef nonnull %74, i32 noundef %.0144) #15
+  %139 = call i32 @CVodeSetSensErrCon(ptr noundef nonnull %74, i32 noundef %.0144) #19
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %check_retval.exit115, label %143
 
 check_retval.exit115:                             ; preds = %138
   %141 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.15, i32 noundef %139) #19
+  %142 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %141, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.15, i32 noundef %139) #18
   br label %196
 
 143:                                              ; preds = %138
-  %144 = call i32 @CVodeSetSensParams(ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #15
+  %144 = call i32 @CVodeSetSensParams(ptr noundef nonnull %74, ptr noundef null, ptr noundef nonnull %7, ptr noundef null) #19
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %check_retval.exit117, label %148
 
 check_retval.exit117:                             ; preds = %143
   %146 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.16, i32 noundef %144) #19
+  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.16, i32 noundef %144) #18
   br label %196
 
 148:                                              ; preds = %143
@@ -404,7 +404,7 @@ check_retval.exit117:                             ; preds = %143
 .split.us:                                        ; preds = %151, %158
   %.045186.us = phi i32 [ %161, %158 ], [ 1, %151 ]
   %.046185.us = phi double [ %162, %158 ], [ 4.000000e-01, %151 ]
-  %156 = call i32 @CVode(ptr noundef nonnull %74, double noundef %.046185.us, ptr noundef nonnull %64, ptr noundef nonnull %4, i32 noundef 1) #15
+  %156 = call i32 @CVode(ptr noundef nonnull %74, double noundef %.046185.us, ptr noundef nonnull %64, ptr noundef nonnull %4, i32 noundef 1) #19
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %check_retval.exit119, label %158
 
@@ -421,26 +421,26 @@ check_retval.exit117:                             ; preds = %143
 .split:                                           ; preds = %151, %173
   %.045186 = phi i32 [ %175, %173 ], [ 1, %151 ]
   %.046185 = phi double [ %176, %173 ], [ 4.000000e-01, %151 ]
-  %163 = call i32 @CVode(ptr noundef nonnull %74, double noundef %.046185, ptr noundef nonnull %64, ptr noundef nonnull %4, i32 noundef 1) #15
+  %163 = call i32 @CVode(ptr noundef nonnull %74, double noundef %.046185, ptr noundef nonnull %64, ptr noundef nonnull %4, i32 noundef 1) #19
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %check_retval.exit119, label %167
 
 check_retval.exit119:                             ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %156, %.split.us ], [ %163, %.split ]
   %165 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.29, i32 noundef %.us-phi) #19
+  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %165, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.29, i32 noundef %.us-phi) #18
   br label %.loopexit
 
 167:                                              ; preds = %.split
   %168 = load double, ptr %4, align 8, !tbaa !11
   call fastcc void @PrintOutput(ptr noundef nonnull %74, double noundef %168, ptr noundef nonnull %64)
-  %169 = call i32 @CVodeGetSens(ptr noundef nonnull %74, ptr noundef nonnull %4, ptr noundef %.0) #15
+  %169 = call i32 @CVodeGetSens(ptr noundef nonnull %74, ptr noundef nonnull %4, ptr noundef %.0) #19
   %170 = icmp slt i32 %169, 0
   br i1 %170, label %check_retval.exit121, label %173
 
 check_retval.exit121:                             ; preds = %167
   %171 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.30, i32 noundef %169) #19
+  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %171, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.30, i32 noundef %169) #18
   br label %.loopexit
 
 173:                                              ; preds = %167
@@ -455,8 +455,8 @@ check_retval.exit121:                             ; preds = %167
 .loopexit:                                        ; preds = %173, %158, %check_retval.exit121, %check_retval.exit119
   %puts74 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   %177 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %178 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %177, i32 noundef 0) #15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %6, ptr noundef nonnull align 1 dereferenceable(25) @.str.34, i64 25, i1 false) #15
+  %178 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %177, i32 noundef 0) #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %6, ptr noundef nonnull align 1 dereferenceable(25) @.str.34, i64 25, i1 false) #19
   %strlen85.c = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6)
   %endptr86.c = getelementptr inbounds i8, ptr %6, i64 %strlen85.c
   br i1 %16, label %.critedge, label %179
@@ -497,54 +497,51 @@ check_retval.exit121:                             ; preds = %167
   %endptr86 = getelementptr inbounds i8, ptr %6, i64 %strlen85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr86, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, i64 5, i1 false)
   %187 = call noalias ptr @fopen(ptr noundef nonnull %6, ptr noundef nonnull @.str.41)
-  %188 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %187, i32 noundef 1) #15
+  %188 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %187, i32 noundef 1) #19
   %189 = call i32 @fclose(ptr noundef %187)
-  call void @N_VDestroy(ptr noundef nonnull %64) #15
-  call void @N_VDestroyVectorArray(ptr noundef %.0, i32 noundef 3) #15
+  call void @N_VDestroy(ptr noundef nonnull %64) #19
+  call void @N_VDestroyVectorArray(ptr noundef %.0, i32 noundef 3) #19
   br label %193
 
 .critedge:                                        ; preds = %.loopexit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr86.c, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, i64 5, i1 false)
   %190 = call noalias ptr @fopen(ptr noundef nonnull %6, ptr noundef nonnull @.str.41)
-  %191 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %190, i32 noundef 1) #15
+  %191 = call i32 @CVodePrintAllStats(ptr noundef nonnull %74, ptr noundef %190, i32 noundef 1) #19
   %192 = call i32 @fclose(ptr noundef %190)
-  call void @N_VDestroy(ptr noundef nonnull %64) #15
+  call void @N_VDestroy(ptr noundef nonnull %64) #19
   br label %193
 
 193:                                              ; preds = %.critedge, %186
-  call void @free(ptr noundef %51) #15
-  call void @CVodeFree(ptr noundef nonnull %5) #15
-  %194 = call i32 @SUNLinSolFree(ptr noundef nonnull %101) #15
-  call void @SUNMatDestroy(ptr noundef nonnull %95) #15
-  %195 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #15
+  call void @free(ptr noundef %51) #19
+  call void @CVodeFree(ptr noundef nonnull %5) #19
+  %194 = call i32 @SUNLinSolFree(ptr noundef nonnull %101) #19
+  call void @SUNMatDestroy(ptr noundef nonnull %95) #19
+  %195 = call i32 @SUNContext_Free(ptr noundef nonnull %3) #19
   br label %196
 
 196:                                              ; preds = %check_retval.exit117, %check_retval.exit115, %check_retval.exit113, %check_retval.exit111, %check_retval.exit109.thread, %check_retval.exit107, %check_retval.exit105, %check_retval.exit103, %check_retval.exit101, %check_retval.exit99, %check_retval.exit97, %check_retval.exit95, %check_retval.exit93, %check_retval.exit91, %check_retval.exit89, %check_retval.exit, %193
   %.044 = phi i32 [ 0, %193 ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit89 ], [ 1, %check_retval.exit91 ], [ 1, %check_retval.exit93 ], [ 1, %check_retval.exit95 ], [ 1, %check_retval.exit97 ], [ 1, %check_retval.exit99 ], [ 1, %check_retval.exit101 ], [ 1, %check_retval.exit103 ], [ 1, %check_retval.exit105 ], [ 1, %check_retval.exit107 ], [ 1, %check_retval.exit111 ], [ 1, %check_retval.exit113 ], [ 1, %check_retval.exit115 ], [ 1, %check_retval.exit117 ], [ 1, %check_retval.exit109.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.044
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
-declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @SUNContext_Create(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @CVodeCreate(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @CVodeCreate(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeInit(ptr noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeInit(ptr noundef, ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @f(double %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #4 {
+define internal noundef i32 @f(double %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #3 {
   %5 = load ptr, ptr %1, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !18
@@ -577,12 +574,12 @@ define internal noundef i32 @f(double %0, ptr noundef readonly captures(none) %1
   ret i32 0
 }
 
-declare i32 @CVodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
+define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #4 {
   %4 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 1.000000e-08, ptr %4, align 16, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0x3D06849B86A12B9B, ptr %5, align 8, !tbaa !11
@@ -618,22 +615,22 @@ define internal range(i32 -1, 1) i32 @ewt(ptr noundef readonly captures(none) %0
 
 25:                                               ; preds = %19, %10
   %.0 = phi i32 [ -1, %10 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @CVodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SUNDenseMatrix(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SUNDenseMatrix(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SUNLinSol_Dense(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SUNLinSol_Dense(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) #4 {
+define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) #3 {
   %9 = load ptr, ptr %1, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !18
@@ -678,16 +675,16 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
-declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #3
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeSensInit1(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSensInit1(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fS(i32 %0, double %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #4 {
+define internal noundef i32 @fS(i32 %0, double %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #3 {
   %11 = load double, ptr %7, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load double, ptr %12, align 8, !tbaa !11
@@ -758,50 +755,50 @@ define internal noundef i32 @fS(i32 %0, double %1, ptr noundef readonly captures
   ret i32 0
 }
 
-declare i32 @CVodeSensEEtolerances(ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSensEEtolerances(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeSetSensErrCon(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @CVodeSetSensErrCon(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @CVodeSetSensParams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeSetSensParams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVode(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @CVode(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PrintOutput(ptr noundef %0, double noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #15
-  %8 = call i32 @CVodeGetNumSteps(ptr noundef %0, ptr noundef nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %7 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #19
+  %8 = call i32 @CVodeGetNumSteps(ptr noundef %0, ptr noundef nonnull %4) #19
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %check_retval.exit
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, i32 noundef %8) #19
+  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.52, i32 noundef %8) #18
   br label %check_retval.exit
 
 check_retval.exit:                                ; preds = %3, %10
-  %13 = call i32 @CVodeGetLastOrder(ptr noundef %0, ptr noundef nonnull %5) #15
+  %13 = call i32 @CVodeGetLastOrder(ptr noundef %0, ptr noundef nonnull %5) #19
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %check_retval.exit9
 
 15:                                               ; preds = %check_retval.exit
   %16 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.53, i32 noundef %13) #19
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.53, i32 noundef %13) #18
   br label %check_retval.exit9
 
 check_retval.exit9:                               ; preds = %check_retval.exit, %15
-  %18 = call i32 @CVodeGetLastStep(ptr noundef %0, ptr noundef nonnull %6) #15
+  %18 = call i32 @CVodeGetLastStep(ptr noundef %0, ptr noundef nonnull %6) #19
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %check_retval.exit11
 
 20:                                               ; preds = %check_retval.exit9
   %21 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.54, i32 noundef %18) #19
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.54, i32 noundef %18) #18
   br label %check_retval.exit11
 
 check_retval.exit11:                              ; preds = %check_retval.exit9, %20
@@ -816,18 +813,18 @@ check_retval.exit11:                              ; preds = %check_retval.exit9,
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %32 = load double, ptr %31, align 8, !tbaa !11
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, double noundef %28, double noundef %30, double noundef %32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @CVodeGetSens(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeGetSens(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PrintOutputS(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !24
-  %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #15
+  %3 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #19
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58)
   %5 = load double, ptr %3, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -837,7 +834,7 @@ define internal fastcc void @PrintOutputS(ptr noundef readonly captures(none) %0
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, double noundef %5, double noundef %7, double noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !24
-  %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %12) #15
+  %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %12) #19
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59)
   %15 = load double, ptr %13, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -847,7 +844,7 @@ define internal fastcc void @PrintOutputS(ptr noundef readonly captures(none) %0
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.57, double noundef %15, double noundef %17, double noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !24
-  %23 = tail call ptr @N_VGetArrayPointer(ptr noundef %22) #15
+  %23 = tail call ptr @N_VGetArrayPointer(ptr noundef %22) #19
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60)
   %25 = load double, ptr %23, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -858,54 +855,57 @@ define internal fastcc void @PrintOutputS(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare i32 @CVodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @CVodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @N_VDestroy(ptr noundef) local_unnamed_addr #3
+declare void @N_VDestroy(ptr noundef) local_unnamed_addr #2
 
-declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare void @CVodeFree(ptr noundef) local_unnamed_addr #3
+declare void @CVodeFree(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #3
+declare i32 @SUNLinSolFree(ptr noundef) local_unnamed_addr #2
 
-declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #3
+declare void @SUNMatDestroy(ptr noundef) local_unnamed_addr #2
 
-declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SUNContext_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #8
+declare double @llvm.fabs.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+declare void @exit(i32 noundef) local_unnamed_addr #9
 
-declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #3
+declare ptr @N_VGetArrayPointer(ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeGetLastOrder(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeGetLastOrder(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @CVodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @CVodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
@@ -920,25 +920,25 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { cold nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind allocsize(0) }
+attributes #18 = { cold nounwind }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

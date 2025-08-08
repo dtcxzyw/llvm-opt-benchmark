@@ -94,17 +94,11 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @InvalidateCatalogSnapshot() local_unnamed_addr #1
 
-declare void @InvalidateCatalogSnapshot() local_unnamed_addr #2
+declare void @ResetCatalogCachesExt(i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ResetCatalogCachesExt(i1 noundef zeroext) local_unnamed_addr #2
-
-declare void @RelationCacheInvalidate(i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @RelationCacheInvalidate(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly captures(none) %0) #0 {
@@ -302,7 +296,7 @@ CallSyscacheCallbacks.exit:                       ; preds = %.lr.ph, %.lr.ph.i, 
   ret void
 }
 
-declare void @SysCacheInvalidate(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SysCacheInvalidate(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -343,25 +337,25 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   ret void
 }
 
-declare void @CatalogCacheFlushCatalog(i32 noundef) local_unnamed_addr #2
+declare void @CatalogCacheFlushCatalog(i32 noundef) local_unnamed_addr #1
 
-declare void @RelationCacheInvalidateEntry(i32 noundef) local_unnamed_addr #2
+declare void @RelationCacheInvalidateEntry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @smgrreleaserellocator(i64, i64) local_unnamed_addr #2
+declare void @smgrreleaserellocator(i64, i64) local_unnamed_addr #1
 
-declare void @RelationMapInvalidate(i1 noundef zeroext) local_unnamed_addr #2
+declare void @RelationMapInvalidate(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InvalidateSystemCaches() #0 {
@@ -416,7 +410,7 @@ define dso_local void @AcceptInvalidationMessages() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ReceiveSharedInvalidMessages(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReceiveSharedInvalidMessages(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
@@ -733,7 +727,7 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef writeonly
   ret i32 %.0
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -1) i32 @inplaceGetInvalidationMessages(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
@@ -808,7 +802,7 @@ define dso_local range(i32 0, -1) i32 @inplaceGetInvalidationMessages(ptr nounde
   ret i32 %.0
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -867,15 +861,15 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   ret void
 }
 
-declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @GetDatabasePath(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @RelationCacheInitFilePreInvalidate() local_unnamed_addr #2
+declare void @RelationCacheInitFilePreInvalidate() local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @SendSharedInvalidMessages(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @SendSharedInvalidMessages(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @RelationCacheInitFilePostInvalidate() local_unnamed_addr #2
+declare void @RelationCacheInitFilePostInvalidate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PreInplace_Inval() local_unnamed_addr #0 {
@@ -954,7 +948,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %13, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @ForgetInplace_Inval() local_unnamed_addr #5 {
+define dso_local void @ForgetInplace_Inval() local_unnamed_addr #4 {
   store ptr null, ptr @inplaceInvalInfo, align 8
   ret void
 }
@@ -1175,7 +1169,7 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
   ret void
 }
 
-declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #2
+declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
@@ -1257,7 +1251,7 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
   %1 = alloca %struct.xl_xact_invals, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @transInvalInfo, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %38, label %4
@@ -1314,7 +1308,7 @@ define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %4, %36, %0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1678,7 +1672,7 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
   ret void
 }
 
-declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsSharedRelation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelcache(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1850,14 +1844,14 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unna
   ret void
 }
 
-declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
+declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) local_unnamed_addr #0 {
   %3 = alloca %union.SharedInvalidationMessage, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 -3, ptr %3, align 4
   %.sroa.2.12.extract.shift = lshr i64 %1, 32
   %.sroa.2.12.extract.trunc = trunc i64 %.sroa.2.12.extract.shift to i16
@@ -1873,19 +1867,19 @@ define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) local_unnamed_addr #0
   %.sroa.2.0.extract.trunc = trunc i64 %1 to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 4
   call void @SendSharedInvalidMessages(ptr noundef nonnull %3, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelmap(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.SharedInvalidationMessage, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 -4, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4
   call void @SendSharedInvalidMessages(ptr noundef nonnull %2, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1985,19 +1979,19 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   ret void
 }
 
-declare void @XLogBeginInsert() local_unnamed_addr #2
+declare void @XLogBeginInsert() local_unnamed_addr #1
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsToastRelation(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef) local_unnamed_addr #1
 
-declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PrepareToInvalidateCacheTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
@@ -2047,25 +2041,31 @@ AddCatcacheInvalidationMessage.exit:              ; preds = %4, %.sink.split.i.i
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @RelationIdIsInInitFile(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @RelationIdIsInInitFile(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nounwind }
 attributes #8 = { cold nounwind }

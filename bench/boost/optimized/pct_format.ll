@@ -55,14 +55,8 @@ $_ZZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_E11loc__LINE___3 = comd
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_charsERNS1_20format_parse_contextERNS1_15measure_contextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_charsERNS1_20format_parse_contextERNS1_15measure_contextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::urls::detail::ignore_format", align 1
   %5 = alloca %"struct.boost::urls::detail::ignore_format", align 1
   %6 = alloca %"struct.boost::urls::detail::ignore_format", align 1
@@ -180,11 +174,11 @@ define noundef i64 @_ZN5boost4urls6detail12pct_vmeasureERKNS0_7grammar9lut_chars
   %.2 = phi ptr [ %.158.lcssa, %.critedge70 ], [ %spec.select, %43 ]
   %.fr6.i = freeze i64 %.sroa.791.0
   store ptr %.2, ptr %1, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4, !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !19
   store ptr %38, ptr %7, align 8, !tbaa !22, !noalias !19
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 %.fr6.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #4, !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !19
   call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %52) #4, !noalias !19
   %53 = load i32, ptr %15, align 8, !tbaa !23, !noalias !19
   %54 = icmp ne i32 %53, 1
@@ -207,16 +201,16 @@ _ZN5boost6system6resultImNS0_10error_codeEEC2INS_4urls7grammar5errorEvTnNSt9enab
   br label %_ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit.thread
 
 _ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit.thread: ; preds = %_ZN5boost6system6resultImNS0_10error_codeEEC2INS_4urls7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S2_EE5valuentsr3std14is_convertibleIS9_mEE5valueEiE4typeELi0EEEOS9_.exit.i, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #4, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %70
 
 _ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit: ; preds = %51
   %.sroa.086.0.copyload = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #4, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4, !noalias !19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %63 = icmp eq i32 %53, 1
   br i1 %63, label %64, label %70
 
@@ -319,7 +313,7 @@ _ZNK5boost4urls6detail15measure_context3argEm.exit72: ; preds = %80, %85
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN5boost4urls6detail11pct_vformatERKNS0_7grammar9lut_charsERNS1_20format_parse_contextERNS1_14format_contextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost4urls6detail11pct_vformatERKNS0_7grammar9lut_charsERNS1_20format_parse_contextERNS1_14format_contextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::urls::detail::ignore_format", align 1
   %5 = alloca %"struct.boost::urls::detail::ignore_format", align 1
   %6 = alloca %"struct.boost::urls::detail::ignore_format", align 1
@@ -458,11 +452,11 @@ _ZN5boost4urls6detail10encode_oneERPccRKNS0_7grammar9lut_charsE.exit: ; preds = 
   %.2 = phi ptr [ %.158.lcssa, %.critedge70 ], [ %spec.select, %53 ]
   %.fr6.i = freeze i64 %.sroa.791.0
   store ptr %.2, ptr %1, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !60
   store ptr %48, ptr %7, align 8, !tbaa !22, !noalias !60
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 %.fr6.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #4, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !60
   call void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result") align 8 %8, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %62) #4, !noalias !60
   %63 = load i32, ptr %15, align 8, !tbaa !23, !noalias !60
   %64 = icmp ne i32 %63, 1
@@ -485,16 +479,16 @@ _ZN5boost6system6resultImNS0_10error_codeEEC2INS_4urls7grammar5errorEvTnNSt9enab
   br label %_ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit.thread
 
 _ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit.thread: ; preds = %_ZN5boost6system6resultImNS0_10error_codeEEC2INS_4urls7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S2_EE5valuentsr3std14is_convertibleIS9_mEE5valueEiE4typeELi0EEEOS9_.exit.i, %66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #4, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %80
 
 _ZN5boost4urls7grammar5parseINS1_13unsigned_ruleImEEEENS_6system6resultINT_10value_typeENS5_10error_codeEEENS_4core17basic_string_viewIcEERKS7_.exit: ; preds = %61
   %.sroa.086.0.copyload = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #4, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %73 = icmp eq i32 %63, 1
   br i1 %73, label %74, label %80
 
@@ -597,17 +591,17 @@ _ZNK5boost4urls6detail14format_context3argEm.exit72: ; preds = %90, %95
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost4urls6detail10format_arg12measure_implINS1_13ignore_formatEEEvRNS1_20format_parse_contextERNS1_15measure_contextERKNS0_7grammar9lut_charsEPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost4urls6detail10format_arg12measure_implINS1_13ignore_formatEEEvRNS1_20format_parse_contextERNS1_15measure_contextERKNS0_7grammar9lut_charsEPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN5boost4urls6detail10format_arg11format_implINS1_13ignore_formatEEEvRNS1_20format_parse_contextERNS1_14format_contextERKNS0_7grammar9lut_charsEPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 {
+define linkonce_odr hidden void @_ZN5boost4urls6detail10format_arg11format_implINS1_13ignore_formatEEEvRNS1_20format_parse_contextERNS1_14format_contextERKNS0_7grammar9lut_charsEPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls7grammar13unsigned_ruleImE5parseERPKcS5_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !22
   %6 = icmp eq ptr %5, %3
   br i1 %6, label %7, label %16
@@ -859,12 +853,18 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66: ; preds = %_
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #4 = { nounwind }
 

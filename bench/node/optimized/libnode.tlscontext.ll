@@ -939,7 +939,7 @@ for.body.i:                                       ; preds = %if.end52.i, %for.in
   %call62.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin3.sroa.0.081.i) #19, !noalias !8
   %22 = extractvalue { ptr, i64 } %call62.i, 0
   %23 = extractvalue { ptr, i64 } %call62.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i.i), !noalias !8
   call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i.i, ptr noundef %22, i64 noundef %23, ptr noundef null) #19, !noalias !8
   %24 = load ptr, ptr %bio.i.i, align 8, !noalias !8
   %cmp.i.i39.not.i = icmp eq ptr %24, null
@@ -957,13 +957,13 @@ if.then.i.i40.i:                                  ; preds = %cleanup.i.i
 
 if.then64.i:                                      ; preds = %for.body.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i.i), !noalias !8
   br label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
 for.inc.i:                                        ; preds = %if.then.i.i40.i, %cleanup.i.i
   store ptr null, ptr %bio.i.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i.i), !noalias !8
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.081.i, i64 40
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %21
   br i1 %cmp.i.not.i, label %if.end67.i, label %for.body.i
@@ -986,7 +986,7 @@ for.body74.i:                                     ; preds = %if.end67.i, %for.in
   %call77.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2.sroa.0.083.i) #19, !noalias !8
   %27 = extractvalue { ptr, i64 } %call77.i, 0
   %28 = extractvalue { ptr, i64 } %call77.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i43.i), !noalias !8
   call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i43.i, ptr noundef %27, i64 noundef %28, ptr noundef null) #19, !noalias !8
   %29 = load ptr, ptr %bio.i43.i, align 8, !noalias !8
   %cmp.i.not.i.i = icmp eq ptr %29, null
@@ -994,7 +994,7 @@ for.body74.i:                                     ; preds = %if.end67.i, %for.in
 
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.thread.i": ; preds = %for.body74.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i43.i), !noalias !8
   br label %for.inc82.i
 
 cleanup.i44.i:                                    ; preds = %for.body74.i
@@ -1010,7 +1010,7 @@ if.then.i.i47.i:                                  ; preds = %cleanup.i44.i
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_3clE8uv_buf_t.exit.i": ; preds = %if.then.i.i47.i, %cleanup.i44.i
   store ptr null, ptr %bio.i43.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i43.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i43.i), !noalias !8
   %tobool.i133.i = trunc i16 %call3.i.i to i1
   br i1 %tobool.i133.i, label %for.inc82.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
@@ -1041,7 +1041,7 @@ for.body94.i:                                     ; preds = %for.cond92.i, %for.
   %call95.val.i = load ptr, ptr %__begin286.sroa.0.085.i, align 8, !noalias !8
   %32 = getelementptr i8, ptr %__begin286.sroa.0.085.i, i64 8
   %call95.val34.i = load ptr, ptr %32, align 8, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i), !noalias !8
   store ptr %call95.val.i, ptr %agg.tmp.i.i, align 8, !noalias !8
   store ptr %call95.val34.i, ptr %_M_refcount.i.i.i.i, align 8, !noalias !8
   %cmp.not.i.i.i.i.i = icmp eq ptr %call95.val34.i, null
@@ -1139,7 +1139,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_0clIKSt10shared_ptrINS_6crypto13KeyObjectDataEEEEDaRT_.exit.i": ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit.i.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i), !noalias !8
   %tobool.i130.i = trunc i16 %call.i.i to i1
   br i1 %tobool.i130.i, label %for.cond92.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
@@ -1156,7 +1156,7 @@ for.body114.i:                                    ; preds = %for.end104.i, %for.
   %call119.i = call { ptr, i64 } @_ZNK4node4quic5Storecv8uv_buf_tEv(ptr noundef nonnull align 8 dereferenceable(40) %__begin2106.sroa.0.087.i) #19, !noalias !8
   %49 = extractvalue { ptr, i64 } %call119.i, 0
   %50 = extractvalue { ptr, i64 } %call119.i, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %bio.i54.i), !noalias !8
   call void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr.11") align 8 %bio.i54.i, ptr noundef %49, i64 noundef %50, ptr noundef null) #19, !noalias !8
   %51 = load ptr, ptr %bio.i54.i, align 8, !noalias !8
   %cmp.i.not.i55.i = icmp eq ptr %51, null
@@ -1164,7 +1164,7 @@ for.body114.i:                                    ; preds = %for.end104.i, %for.
 
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.thread.i": ; preds = %for.body114.i
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i54.i), !noalias !8
   br label %for.inc125.i
 
 cleanup.i56.i:                                    ; preds = %for.body114.i
@@ -1180,7 +1180,7 @@ if.then.i.i60.i:                                  ; preds = %cleanup.i56.i
 "_ZZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsEENK3$_4clE8uv_buf_t.exit.i": ; preds = %if.then.i.i60.i, %cleanup.i56.i
   store ptr null, ptr %bio.i54.i, align 8, !noalias !8
   call void @ERR_clear_error() #19, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bio.i54.i), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %bio.i54.i), !noalias !8
   %tobool.i.i = trunc i16 %call3.i57.i to i1
   br i1 %tobool.i.i, label %for.inc125.i, label %_ZN4node4quic12_GLOBAL__N_123InitializeSecureContextENS0_4SideEPNS_11EnvironmentERKNS0_10TLSContext7OptionsE.exit.thread.sink.split
 
@@ -5069,7 +5069,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -5095,7 +5095,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -6176,7 +6176,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4node13MemoryTracker8PushNodeEPKcm
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.442", align 8
   %n = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -6250,7 +6250,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i: ; preds = %_ZNK4node13MemoryTr
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit:     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i
   %14 = phi ptr [ %4, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i ], [ %4, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i ], [ %4, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i ], [ %.pre2, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i, ptr %n, align 8
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %15 = load ptr, ptr %_M_last.i.i, align 8
@@ -6825,10 +6825,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

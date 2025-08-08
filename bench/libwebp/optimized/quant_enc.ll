@@ -234,7 +234,7 @@ SetupFilterStrength.exit:                         ; preds = %88
   br i1 %121, label %122, label %179
 
 122:                                              ; preds = %SetupFilterStrength.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) @__const.SimplifySegments.map, i64 16, i1 false)
   %123 = load i32, ptr %4, align 8, !tbaa !3
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %123, i32 4)
@@ -370,7 +370,7 @@ SegmentsAreEquivalent.exit.thread.i:              ; preds = %SegmentsAreEquivale
   br i1 %exitcond86.not.i, label %SimplifySegments.exit, label %177, !llvm.loop !65
 
 SimplifySegments.exit:                            ; preds = %177, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %179
 
 179:                                              ; preds = %SimplifySegments.exit, %SetupFilterStrength.exit
@@ -789,17 +789,11 @@ SetupMatrices.exit:                               ; preds = %CheckLambdaValue.ex
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8MakeLuma16Preds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -962,8 +956,8 @@ VP8MakeChroma8Preds.exit:                         ; preds = %38, %41
   %63 = load i32, ptr %62, align 4, !tbaa !79, !noalias !106
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !107, !alias.scope !100, !noalias !103
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %12) #11, !noalias !106
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11, !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !106
   %66 = load i8, ptr %65, align 1, !tbaa !58, !noalias !106
   %67 = zext i8 %66 to i32
   %68 = mul nuw i32 %67, 16843009
@@ -1003,7 +997,7 @@ VP8MakeChroma8Preds.exit:                         ; preds = %38, %41
 
 IsFlatSource16.exit.i:                            ; preds = %76, %74, %72, %70, %69
   %.09.i.i = phi i32 [ 0, %74 ], [ 0, %72 ], [ 0, %70 ], [ 0, %69 ], [ 1, %76 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11, !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !106
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 840
   store i32 -1, ptr %79, align 8, !tbaa !109, !alias.scope !103, !noalias !100
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1194,7 +1188,7 @@ IsFlat_C.exit.thread.i:                           ; preds = %113, %IsFlat_C.exit
   br label %PickBestIntra16.exit
 
 PickBestIntra16.exit:                             ; preds = %147, %167, %173, %189
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %12) #11, !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !106
   %190 = icmp sgt i32 %16, 1
   %.pre99 = load ptr, ptr %13, align 8, !tbaa !95, !alias.scope !119, !noalias !122
   %.pre101 = load ptr, ptr %53, align 8, !tbaa !105, !alias.scope !119, !noalias !122
@@ -1215,7 +1209,7 @@ PickBestIntra16.exit:                             ; preds = %147, %167, %173, %1
   %199 = load i32, ptr %198, align 4, !tbaa !72, !noalias !129
   %200 = getelementptr inbounds nuw i8, ptr %197, i64 716
   %201 = load i32, ptr %200, align 4, !tbaa !79, !noalias !129
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %9) #11, !noalias !129
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !129
   %202 = getelementptr inbounds nuw i8, ptr %.pre99, i64 23624
   %203 = load i32, ptr %202, align 8, !tbaa !130, !noalias !129
   %204 = icmp eq i32 %203, 0
@@ -1317,7 +1311,7 @@ GetCostModeI4.exit.i:                             ; preds = %247, %242
   %.sroa.14106.1129.i = phi i64 [ 0, %GetCostModeI4.exit.i ], [ %.sroa.14106.2.i, %335 ]
   %.0116128.i = phi ptr [ %256, %GetCostModeI4.exit.i ], [ %.1.i36, %335 ]
   %.0117127.i = phi ptr [ %254, %GetCostModeI4.exit.i ], [ %.1118.i, %335 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11, !noalias !129
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !129
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %259 = load ptr, ptr %13, align 8, !tbaa !95, !alias.scope !143, !noalias !144
   %260 = load ptr, ptr %32, align 8, !tbaa !92, !alias.scope !143, !noalias !144
@@ -1332,7 +1326,7 @@ GetCostModeI4.exit.i:                             ; preds = %247, %242
   %269 = and i8 %268, 3
   %270 = zext nneg i8 %269 to i64
   %271 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %265, i64 0, i64 %270
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #11, !noalias !147
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !147
   %272 = load ptr, ptr @VP8FTransform, align 8, !tbaa !91, !noalias !147
   call void %272(ptr noundef %229, ptr noundef %264, ptr noundef nonnull %8) #11, !noalias !149
   %273 = load i32, ptr %50, align 8, !tbaa !99, !alias.scope !143, !noalias !144
@@ -1364,7 +1358,7 @@ ReconstructIntra4.exit.i:                         ; preds = %288, %274
   %.0.i.i = phi i32 [ %287, %274 ], [ %290, %288 ]
   %291 = load ptr, ptr @VP8ITransform, align 8, !tbaa !91, !noalias !147
   call void %291(ptr noundef %264, ptr noundef nonnull %8, ptr noundef %.0116128.i, i32 noundef 0) #11, !noalias !150
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #11, !noalias !147
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !147
   %292 = load i32, ptr %215, align 8, !tbaa !131, !alias.scope !124, !noalias !127
   %293 = shl i32 %.0.i.i, %292
   %294 = load ptr, ptr @VP8SSE4x4, align 8, !tbaa !91, !noalias !129
@@ -1446,7 +1440,7 @@ IsFlat_C.exit.i35:                                ; preds = %.preheader.i.prehea
   %.sroa.7.2.i = phi i64 [ %305, %330 ], [ %.sroa.7.1133.i, %IsFlat_C.exit.i35 ], [ %.sroa.7.1133.i, %322 ]
   %.sroa.0100.2.i = phi i64 [ %296, %330 ], [ %.sroa.0100.1134.i, %IsFlat_C.exit.i35 ], [ %.sroa.0100.1134.i, %322 ]
   %.165.i = phi i32 [ %334, %330 ], [ %.064136.i, %IsFlat_C.exit.i35 ], [ %.064136.i, %322 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11, !noalias !129
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !129
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 10
   br i1 %exitcond.not.i38, label %336, label %258, !llvm.loop !151
@@ -1556,7 +1550,7 @@ PickBestIntra4.exit.loopexit:                     ; preds = %357, %336
 
 PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit.loopexit, %191, %384
   %.pre104 = phi ptr [ %.pre104.pre, %PickBestIntra4.exit.loopexit ], [ %.pre105, %191 ], [ %391, %384 ]
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %9) #11, !noalias !129
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !129
   %.pre = load ptr, ptr %13, align 8, !tbaa !95, !alias.scope !119, !noalias !122
   %.pre100 = load ptr, ptr %53, align 8, !tbaa !105, !alias.scope !119, !noalias !122
   %.pre102 = load ptr, ptr %64, align 8, !tbaa !107, !alias.scope !119, !noalias !122
@@ -1605,7 +1599,7 @@ PickBestIntra4.exit:                              ; preds = %PickBestIntra4.exit
   %.sroa.7.051.i = phi i64 [ 0, %394 ], [ %.sroa.7.1.i, %459 ]
   %.sroa.5.050.i = phi i64 [ 0, %394 ], [ %.sroa.5.1.i, %459 ]
   %.sroa.0.049.i = phi i64 [ 0, %394 ], [ %.sroa.0.1.i, %459 ]
-  call void @llvm.lifetime.start.p0(i64 880, ptr nonnull %7) #11, !noalias !166
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !166
   %422 = trunc nuw nsw i64 %indvars.iv.i40 to i32
   %423 = call fastcc i32 @ReconstructUV(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %.04354.i, i32 noundef %422), !noalias !122
   store i32 %423, ptr %411, align 8, !tbaa !96, !noalias !166
@@ -1691,7 +1685,7 @@ IsFlat_C.exit.thread.i50:                         ; preds = %434, %IsFlat_C.exit
   %.1.i52 = phi ptr [ %.04452.i, %458 ], [ %.04452.i, %455 ], [ %.04354.i, %IsFlat_C.exit.thread.i50 ]
   %.sroa.11.1.i = phi i64 [ %453, %458 ], [ %453, %455 ], [ %.sroa.11.055.i, %IsFlat_C.exit.thread.i50 ]
   %.sroa.9.1.i = phi i64 [ %445, %458 ], [ %445, %455 ], [ %.sroa.9.056.i, %IsFlat_C.exit.thread.i50 ]
-  call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %7) #11, !noalias !166
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !166
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 4
   br i1 %exitcond.not.i54, label %461, label %420, !llvm.loop !175
@@ -1842,7 +1836,7 @@ PickBestUV.exit._crit_edge:                       ; preds = %PickBestUV.exit
   %555 = and i8 %554, 3
   %556 = zext nneg i8 %555 to i64
   %557 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %551, i64 0, i64 %556
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11, !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !203
   %558 = load ptr, ptr @VP8FTransform, align 8, !tbaa !91, !noalias !203
   call void %558(ptr noundef %537, ptr noundef %550, ptr noundef nonnull %6) #11, !noalias !205
   %559 = load i32, ptr %50, align 8, !tbaa !99, !alias.scope !199, !noalias !200
@@ -1873,7 +1867,7 @@ ReconstructIntra4.exit.i58:                       ; preds = %573, %560
   %.0.i.i59 = phi i32 [ %572, %560 ], [ %575, %573 ]
   %576 = load ptr, ptr @VP8ITransform, align 8, !tbaa !91, !noalias !203
   call void %576(ptr noundef %550, ptr noundef nonnull %6, ptr noundef %539, i32 noundef 0) #11, !noalias !196
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11, !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !203
   %577 = load i32, ptr %515, align 8, !tbaa !131, !alias.scope !190, !noalias !193
   %578 = shl i32 %.0.i.i59, %577
   %579 = or i32 %578, %.1.i56
@@ -1982,7 +1976,7 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   br i1 %645, label %646, label %661
 
 646:                                              ; preds = %643, %640
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11, !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !212
   %647 = load i8, ptr %621, align 1, !tbaa !58, !noalias !212
   %648 = zext i8 %647 to i32
   %649 = mul nuw i32 %648, 16843009
@@ -2021,11 +2015,11 @@ SimpleQuantize.exit:                              ; preds = %ReconstructIntra4.e
   br i1 %exitcond.not.i.i86, label %.thread210.i, label %650, !llvm.loop !108
 
 IsFlatSource16.exit.thread.i:                     ; preds = %655, %653, %651, %650
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11, !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !212
   br label %661
 
 .thread210.i:                                     ; preds = %657
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11, !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !212
   %660 = select i1 %642, i32 0, i32 2
   tail call void @VP8SetIntra16Mode(ptr noundef nonnull %0, i32 noundef %660) #11, !noalias !210
   br label %.thread176.i
@@ -2175,7 +2169,7 @@ GetCostModeI4.exit.i71:                           ; preds = %699, %694
   %753 = and i8 %752, 3
   %754 = zext nneg i8 %753 to i64
   %755 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %749, i64 0, i64 %754
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11, !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !227
   %756 = load ptr, ptr @VP8FTransform, align 8, !tbaa !91, !noalias !227
   call void %756(ptr noundef %681, ptr noundef %748, ptr noundef nonnull %4) #11, !noalias !229
   %757 = load i32, ptr %671, align 8, !tbaa !99, !alias.scope !223, !noalias !224
@@ -2206,7 +2200,7 @@ GetCostModeI4.exit.i71:                           ; preds = %699, %694
   %.0.i.i75 = phi i32 [ %770, %758 ], [ %773, %771 ]
   %775 = load ptr, ptr @VP8ITransform, align 8, !tbaa !91, !noalias !227
   call void %775(ptr noundef %748, ptr noundef nonnull %4, ptr noundef %741, i32 noundef 0) #11, !noalias !220
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11, !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !227
   %776 = load i32, ptr %665, align 8, !tbaa !131, !alias.scope !207, !noalias !210
   %777 = shl i32 %.0.i.i75, %776
   %778 = or i32 %777, %.1110.i
@@ -2299,12 +2293,12 @@ RefineUsingDistortion.exit:                       ; preds = %791, %813
   ret i32 %827
 }
 
-declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @VP8SetSkip(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @VP8FilterStrengthFromDelta(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @VP8FilterStrengthFromDelta(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 256) %3) unnamed_addr #0 {
@@ -2324,8 +2318,8 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !105
   %20 = load i8, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %21
 
 21:                                               ; preds = %4, %21
@@ -2448,19 +2442,19 @@ define internal fastcc i32 @ReconstructIntra16(ptr noalias noundef %0, ptr noali
   br i1 %84, label %76, label %85, !llvm.loop !236
 
 85:                                               ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.2
 }
 
-declare i32 @VP8GetCostLuma16(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8GetCostLuma16(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @VP8SetIntra16Mode(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #4
+declare void @VP8IteratorNzToBytes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noalias noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noalias noundef readonly captures(none) %5, i32 noundef %6) unnamed_addr #5 {
   %8 = alloca [16 x [2 x %struct.Node]], align 16
   %9 = alloca [2 x [2 x %struct.ScoreState]], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3620
@@ -2470,8 +2464,8 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %14 = getelementptr inbounds nuw [4 x [16 x [3 x ptr]]], ptr %13, i64 0, i64 %11
   %15 = icmp eq i32 %4, 0
   %16 = zext i1 %15 to i32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !46
@@ -2794,21 +2788,21 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
 
 ._crit_edge238:                                   ; preds = %174, %._crit_edge238.loopexit, %172
   %.0 = phi i32 [ 0, %172 ], [ 0, %174 ], [ %203, %._crit_edge238.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @VP8IteratorStartI4(ptr noundef) local_unnamed_addr #4
+declare void @VP8IteratorStartI4(ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8GetCostLuma4(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8GetCostLuma4(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @VP8IteratorRotateI4(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8IteratorRotateI4(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @VP8SetIntra4Mode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef %1, ptr noalias noundef %2, i32 noundef range(i32 -2147483648, 4) %3) unnamed_addr #0 {
@@ -2828,7 +2822,7 @@ define internal fastcc range(i32 0, -65535) i32 @ReconstructUV(ptr noalias nound
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !105
   %20 = load i8, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %4, %21
@@ -3086,13 +3080,19 @@ CorrectDCValues.exit:                             ; preds = %QuantizeSingle.exit
 
 192:                                              ; preds = %.preheader
   %193 = shl i32 %182, 16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %193
 }
 
-declare i32 @VP8GetCostUV(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @VP8GetCostUV(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @VP8SetIntraUVMode(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @VP8SetIntraUVMode(ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -3119,13 +3119,13 @@ declare i64 @llvm.smin.i64(i64, i64) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -45,19 +45,13 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set_octetstring(ptr noundef %0, ptr nounde
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 
-declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #2
+declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
-
-declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_TYPE_get_octetstring(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -97,18 +91,18 @@ define i32 @ASN1_TYPE_get_octetstring(ptr noundef readonly captures(none) %0, pt
   ret i32 %.0
 }
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -116,8 +110,8 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %0, i64 no
   %6 = alloca %struct.asn1_int_oct, align 8
   %7 = alloca %struct.asn1_string_st, align 8
   store ptr %0, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = trunc i64 %1 to i32
   store i32 %8, ptr %6, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -132,12 +126,12 @@ define range(i32 0, 2) i32 @ASN1_TYPE_set_int_octetstring(ptr noundef %0, i64 no
   %13 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @asn1_int_oct_it.local_it, ptr noundef nonnull %6, ptr noundef nonnull %5) #5
   %.not = icmp ne ptr %13, null
   %. = zext i1 %.not to i32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
 
-declare ptr @ASN1_TYPE_pack_sequence(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_TYPE_pack_sequence(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_TYPE_get_int_octetstring(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -198,9 +192,9 @@ asn1_type_get_int_oct.exit:                       ; preds = %20, %21
   ret i32 %.1
 }
 
-declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_TYPE_unpack_sequence(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -208,8 +202,8 @@ define range(i32 0, 2) i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %0, i
   %6 = alloca %struct.asn1_oct_int, align 8
   %7 = alloca %struct.asn1_string_st, align 8
   store ptr %0, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = trunc i64 %1 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %8, ptr %9, align 8, !tbaa !24
@@ -224,8 +218,8 @@ define range(i32 0, 2) i32 @ossl_asn1_type_set_octetstring_int(ptr noundef %0, i
   %13 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @asn1_oct_int_it.local_it, ptr noundef nonnull %6, ptr noundef nonnull %5) #5
   %.not = icmp ne ptr %13, null
   %. = zext i1 %.not to i32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
 
@@ -288,17 +282,23 @@ asn1_type_get_int_oct.exit:                       ; preds = %20, %21
   ret i32 %.1
 }
 
-declare ptr @INT32_it() #2
+declare ptr @INT32_it() #1
 
-declare ptr @ASN1_OCTET_STRING_it() #2
+declare ptr @ASN1_OCTET_STRING_it() #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

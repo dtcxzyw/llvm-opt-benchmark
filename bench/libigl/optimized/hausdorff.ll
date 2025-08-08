@@ -288,13 +288,7 @@ declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
@@ -302,7 +296,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl8copyleft4cgal9hausdorffIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEN4CGAL16Simple_cartesianIdEEdEEvRKNS3_10MatrixBaseIT_EERKNS6_9AABB_treeINS6_13AABB_traits_3IT0_NS6_25AABB_triangle_primitive_3ISG_NSt6vectorINS6_10Triangle_3ISG_EESaISK_EE8iteratorESt17integral_constantIbLb0EEEENS6_7DefaultEEEEERKSM_RT1_SZ_(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(107) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -327,11 +321,11 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal9hausdorffIN5Eigen6MatrixId
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #26
+  call void @__clang_call_terminate(ptr %17) #25
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %11, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 18:                                               ; preds = %5
@@ -349,11 +343,11 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %11, %13
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #26
+  call void @__clang_call_terminate(ptr %25) #25
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %18, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %19
 }
 
@@ -372,15 +366,15 @@ define internal void @__cxx_global_var_init.26() #5 section ".text.startup" comd
   br i1 %5, label %6, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, !prof !13
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #25
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #26
   %.not.i.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i.i, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #25, !tbaa !14
+  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #26, !tbaa !14
   store double %9, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !16
   %10 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #25
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #26
   br label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit
 
 _ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit: ; preds = %3, %6, %8
@@ -406,8 +400,8 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
@@ -453,8 +447,8 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !21
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc, label %._crit_edge.i
@@ -489,7 +483,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %20 = load ptr, ptr %0, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -509,8 +503,8 @@ _ZN4CGAL6Random7get_intEii.exit:
   store i32 0, ptr %2, align 4, !tbaa !27
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 78606, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #25
-  %4 = call i64 @time(ptr noundef nonnull %1) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %4 = call i64 @time(ptr noundef nonnull %1) #26
   %5 = load i64, ptr %1, align 8, !tbaa !21
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -522,7 +516,7 @@ _ZN4CGAL6Random7get_intEii.exit:
   %11 = trunc nuw nsw i64 %sum.shift to i32
   store i64 %10, ptr %3, align 8, !tbaa !31
   store i32 %11, ptr %0, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -534,7 +528,7 @@ define linkonce_odr dso_local noundef double @_ZNSt17_Function_handlerIFdRKdS1_S
   %5 = alloca %"class.CGAL::internal::AABB_tree::Projection_traits", align 8
   %6 = alloca %"struct.std::pair", align 8
   %7 = alloca %"class.CGAL::Point_3", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load double, ptr %1, align 8, !tbaa !16, !noalias !34
   %9 = load double, ptr %2, align 8, !tbaa !16, !noalias !34
   %10 = load double, ptr %3, align 8, !tbaa !16, !noalias !34
@@ -544,9 +538,9 @@ define linkonce_odr dso_local noundef double @_ZNSt17_Function_handlerIFdRKdS1_S
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %10, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
   %11 = load ptr, ptr %0, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25, !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !41
   call void @_ZNK4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE9best_hintERKNS_7Point_3IS3_EE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %6, ptr noundef nonnull align 8 dereferenceable(107) %11, ptr noundef nonnull align 8 dereferenceable(24) %7), !noalias !41
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #25, !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !44
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 24, i1 false), !noalias !44
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -560,8 +554,8 @@ define linkonce_odr dso_local noundef double @_ZNSt17_Function_handlerIFdRKdS1_S
   %.sroa.45.0.copyload.i.i.i = load double, ptr %.sroa.45.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.5.0.copyload.i.i.i = load double, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25, !noalias !44
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25, !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !41
   %16 = load double, ptr %7, align 8, !tbaa !16, !noalias !51
   %17 = fsub double %16, %.sroa.04.0.copyload.i.i.i
   %18 = load double, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !16, !noalias !51
@@ -574,7 +568,7 @@ define linkonce_odr dso_local noundef double @_ZNSt17_Function_handlerIFdRKdS1_S
   %25 = fmul double %21, %21
   %26 = fadd double %24, %25
   %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %26)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret double %sqrt.i.i.i
 }
 
@@ -619,7 +613,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL9AABB_treeINS_13AABB_traits_3INS_16
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #25
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #26
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %15
 
@@ -633,7 +627,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %12
   br i1 %17, label %_ZNSt11unique_lockISt5mutexED2Ev.exit8.thread, label %19
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit8.thread:    ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #25
+  %18 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #26
   br label %25
 
 19:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -643,11 +637,11 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit8.thread:    ; preds = %_ZNSt11unique_lockI
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #25
+  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #26
   resume { ptr, i32 } %21
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %19
-  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #25
+  %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #26
   br i1 %20, label %25, label %44
 
 24:                                               ; preds = %3
@@ -656,10 +650,10 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %19
 25:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit8.thread, %_ZNSt11unique_lockISt5mutexED2Ev.exit8, %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = load ptr, ptr %26, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #25, !noalias !90
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #25, !noalias !90
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !90
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !90
   call void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Distance_adapterISG_SI_NS_18Euclidean_distanceISP_EEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEENS_7Kd_treeISQ_SY_SL_IbLb1EESM_EEEC2ERKS11_RKS6_jdbRKSU_b(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(336) %27, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(2) %5, i1 noundef zeroext true), !noalias !90
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #25, !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !90
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !93, !noalias !90
   %30 = load ptr, ptr %29, align 8, !tbaa !95, !noalias !98
@@ -691,7 +685,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.thread.i:         ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNK4CGAL16AABB_search_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE13closest_pointINS_7Point_3IS3_EEEESt4pairISM_SD_ERKT_.exit
 
 _ZNK4CGAL16AABB_search_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE13closest_pointINS_7Point_3IS3_EEEESt4pairISM_SD_ERKT_.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.thread.i
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #25, !noalias !90
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !90
   br label %49
 
 44:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit8, %24
@@ -738,7 +732,7 @@ define linkonce_odr dso_local void @_ZNK4CGAL9AABB_treeINS_13AABB_traits_3INS_16
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %20) #25
+  %21 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %20) #26
   %.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i, label %22
 
@@ -752,26 +746,26 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %19
   br i1 %24, label %25, label %_ZNSt11unique_lockISt5mutexED2Ev.exit5.i
 
 25:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   invoke void @_ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE12custom_buildINSI_12Compute_bboxENSI_16Split_primitivesEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(107) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE5buildEv.exit.i unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i
 
 _ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE5buildEv.exit.i: ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit5.i
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i:          ; preds = %25
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #25
+  %27 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #26
   resume { ptr, i32 } %26
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit5.i:         ; preds = %_ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE5buildEv.exit.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i
-  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #25
+  %28 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %20) #26
   br label %_ZNK4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE9root_nodeEv.exit
 
 _ZNK4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE9root_nodeEv.exit: ; preds = %15, %_ZNSt11unique_lockISt5mutexED2Ev.exit5.i
@@ -796,13 +790,13 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %5 = alloca %"class.CGAL::CommonKernelFunctors::Construct_projected_point_3", align 1
   %6 = alloca %"struct.CGAL::Simple_cartesian", align 1
   %7 = alloca %"class.CGAL::Point_3", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25, !noalias !122
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !122
   %8 = load ptr, ptr %2, align 8, !tbaa !125, !noalias !122
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25, !noalias !127
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25, !noalias !127
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !127
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !127
   call void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_10Triangle_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Point_3") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !122
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25, !noalias !127
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25, !noalias !127
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !127
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !127
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -838,8 +832,8 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %.sroa.05.0.copyload6 = select i1 %40, double %29, double %16
   %.sroa.5.0.copyload8 = select i1 %40, double %32, double %20
   %.sroa.6.0.copyload10 = select i1 %40, double %36, double %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #25, !noalias !122
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !122
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = fcmp oeq double %.sroa.05.0.copyload6, %29
   %.sroa.45.0.insert.ext.i = zext i1 %41 to i16
   %.sroa.45.0.insert.shift.i = select i1 %41, i16 256, i16 0
@@ -876,7 +870,7 @@ _ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point
   %.sroa.06.0.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i ], [ 0, %3 ]
   store i16 %.sroa.06.0.i.i, ptr %4, align 2
   %50 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
@@ -1411,27 +1405,27 @@ define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_pr
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #25
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !165
   %.sroa.0.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind writable sret(%"class.CGAL::Point_3") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 68:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i56)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i56, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !169
   %.sroa.0.24..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %.sroa.0.i56, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i57, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i56, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i56)
   call void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind writable sret(%"class.CGAL::Point_3") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 69:                                               ; preds = %48
@@ -1439,27 +1433,27 @@ define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_pr
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i58)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i58, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !noalias !172
   %.sroa.0.24..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %.sroa.0.i58, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i59, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i58, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i58)
   call void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind writable sret(%"class.CGAL::Point_3") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %97
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #25
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i60)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i60, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !175
   %.sroa.0.24..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %.sroa.0.i60, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i61, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i60, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i60)
   call void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind writable sret(%"class.CGAL::Point_3") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %97
 
 _ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_7Plane_3IS3_EE.exit.thread: ; preds = %5
@@ -1469,7 +1463,7 @@ _ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERK
   %76 = fmul double %41, %75
   %77 = tail call double @llvm.fmuladd.f64(double %74, double %22, double %76)
   %78 = tail call double @llvm.fmuladd.f64(double %73, double %28, double %77)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1494,19 +1488,19 @@ _ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERK
   store double %94, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !187
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   store double %95, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !187
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store double %38, ptr %12, align 8, !alias.scope !188
   %.sroa.4.0..sroa_idx.i.i62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %41, ptr %.sroa.4.0..sroa_idx.i.i62, align 8, !alias.scope !188
   %.sroa.5.0..sroa_idx.i.i63 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %44, ptr %.sroa.5.0..sroa_idx.i.i63, align 8, !tbaa !25, !alias.scope !188
   %96 = call noundef zeroext i1 @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEE20is_inside_triangle_3ERKNS_7Point_3IS3_EERKNS_10Triangle_3IS3_EERKNS_8Vector_3IS3_EERS6_RKS3_(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %. = select i1 %96, ptr %10, ptr %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %., i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %97
 
 97:                                               ; preds = %67, %68, %71, %72, %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_7Plane_3IS3_EE.exit.thread
@@ -1517,7 +1511,7 @@ _ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERK
 define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_projected_point_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EERKNS_7Point_3IS3_EERKS3_(ptr dead_on_unwind noalias writable sret(%"class.CGAL::Point_3") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 {
   %6 = alloca %"class.CGAL::Uncertain", align 2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load double, ptr %2, align 8, !tbaa !16
   %9 = load double, ptr %7, align 8, !tbaa !16
   %10 = fcmp oeq double %8, %9
@@ -1564,7 +1558,7 @@ _ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERK
   %.sroa.06.0.i.i.i.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i ], [ 0, %5 ]
   store i16 %.sroa.06.0.i.i.i.i.i, ptr %6, align 2
   %27 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %6)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
@@ -1887,9 +1881,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_c
   ret i1 %9
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
+  %11 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.127, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %12 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
@@ -1905,8 +1899,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_c
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %10
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 15:                                               ; preds = %12, %13
@@ -1923,21 +1917,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %21 = load i64, ptr %20, align 8, !tbaa !26
   %22 = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %22)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0, label %25, label %26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   %23 = load i64, ptr %18, align 8, !tbaa !25
   %24 = add i64 %23, 1
   call void @_ZdlPvm(ptr noundef %17, i64 noundef %24) #28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0, label %25, label %26
 
 25:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn9 = phi { ptr, i32 } [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %11) #25
+  call void @__cxa_free_exception(ptr %11) #26
   br label %26
 
 26:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %25
@@ -1955,7 +1949,7 @@ declare void @_ZNSt11range_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4CGAL30Uncertain_conversion_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #18 comdat align 2 {
-  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #28
   ret void
 }
@@ -2096,10 +2090,10 @@ _ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangl
 define linkonce_odr dso_local void @_ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS3_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS3_EESt6vectorIS8_SaIS8_EEEESt17integral_constantIbLb0EEEENS_7DefaultEEEE6expandINS6_IPSG_SA_ISG_SaISG_EEEENSI_12Compute_bboxENSI_16Split_primitivesEEEvRNS_9AABB_nodeISI_EET_SU_mRKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(107) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, ptr %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) local_unnamed_addr #3 comdat align 2 {
   %8 = alloca %"class.CGAL::Bbox_3", align 8
   %9 = alloca %"class.CGAL::Bbox_3", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK4CGAL13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS2_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS2_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEENS_7DefaultEE12Compute_bboxclINS5_IPSF_S9_ISF_SaISF_EEEEEENS_6Bbox_3ET_SP_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Bbox_3") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %2, ptr %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNK4CGAL13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS2_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS2_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEENS_7DefaultEE16Split_primitivesclINS5_IPSF_S9_ISF_SaISF_EEEEEEvT_SO_RKNS_6Bbox_3E(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   switch i64 %4, label %38 [
     i64 2, label %10
@@ -2155,10 +2149,10 @@ _ZN4CGAL9AABB_treeINS_13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangl
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %31, ptr %33, align 8, !tbaa !134
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK4CGAL13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS2_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS2_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEENS_7DefaultEE12Compute_bboxclINS5_IPSF_S9_ISF_SaISF_EEEEEENS_6Bbox_3ET_SP_(ptr dead_on_unwind nonnull writable sret(%"class.CGAL::Bbox_3") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %34, ptr %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false), !tbaa.struct !168
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNK4CGAL13AABB_traits_3INS_16Simple_cartesianIdEENS_25AABB_triangle_primitive_3IS2_N9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS2_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEENS_7DefaultEE16Split_primitivesclINS5_IPSF_S9_ISF_SaISF_EEEEEEvT_SO_RKNS_6Bbox_3E(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nonnull %34, ptr %3, ptr noundef nonnull align 8 dereferenceable(64) %31)
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %36 = getelementptr inbounds i8, ptr %30, i64 -16
@@ -2489,11 +2483,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_T0_(ptr %.sroa.019.025, ptr nonnull %23, ptr %.sroa.016.024, ptr %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %1, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 8 dereferenceable(10) %14, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_T0_.exit
 
 24:                                               ; preds = %.lr.ph
@@ -2516,11 +2510,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 37:                                               ; preds = %34
@@ -2528,19 +2522,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %12, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %11, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 41:                                               ; preds = %24
@@ -2548,11 +2542,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %10, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 44:                                               ; preds = %41
@@ -2560,19 +2554,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %9, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 47:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %8, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i.preheader: ; preds = %47, %46, %43, %40, %39, %36
@@ -2606,11 +2600,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triang
   br i1 %56, label %57, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEESR_SR_SR_T0_.exit
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.1.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %7, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEEvSR_SR_SR_SR_T0_.exit.i, !llvm.loop !294
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E_EEESR_SR_SR_T0_.exit: ; preds = %55
@@ -2645,7 +2639,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
   br i1 %66, label %67, label %80
 
 67:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i, i64 16, i1 false)
   %68 = ptrtoint ptr %.sroa.0.021.i to i64
   %69 = sub i64 %68, %.lcssa20
@@ -2671,7 +2665,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEESJ_ET0_T_SL_SK_.exit.i: ; preds = %78, %76, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.0.lcssa, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
 80:                                               ; preds = %.lr.ph.i
@@ -2992,11 +2986,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_T0_(ptr %.sroa.019.025, ptr nonnull %23, ptr %.sroa.016.024, ptr %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %1, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 8 dereferenceable(10) %14, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_T0_.exit
 
 24:                                               ; preds = %.lr.ph
@@ -3022,11 +3016,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 40:                                               ; preds = %37
@@ -3034,19 +3028,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %12, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 43:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %11, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 44:                                               ; preds = %24
@@ -3054,11 +3048,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %10, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 47:                                               ; preds = %44
@@ -3066,19 +3060,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %9, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %8, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i.preheader: ; preds = %50, %49, %46, %43, %42, %39
@@ -3115,11 +3109,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triang
   br i1 %62, label %63, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEESR_SR_SR_T0_.exit
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.1.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %7, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEEvSR_SR_SR_SR_T0_.exit.i, !llvm.loop !308
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E0_EEESR_SR_SR_T0_.exit: ; preds = %61
@@ -3156,7 +3150,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
   br i1 %74, label %75, label %88
 
 75:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i, i64 16, i1 false)
   %76 = ptrtoint ptr %.sroa.0.021.i to i64
   %77 = sub i64 %76, %.lcssa20
@@ -3182,7 +3176,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEESJ_ET0_T_SL_SK_.exit.i: ; preds = %86, %84, %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.0.lcssa, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
 88:                                               ; preds = %.lr.ph.i
@@ -3522,11 +3516,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_T0_(ptr %.sroa.019.025, ptr nonnull %23, ptr %.sroa.016.024, ptr %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %1, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1, ptr noundef nonnull align 8 dereferenceable(10) %14, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_T0_.exit
 
 24:                                               ; preds = %.lr.ph
@@ -3552,11 +3546,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 40:                                               ; preds = %37
@@ -3564,19 +3558,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %12, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 43:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %11, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 44:                                               ; preds = %24
@@ -3584,11 +3578,11 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %28, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %28, ptr noundef nonnull align 8 dereferenceable(10) %10, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 47:                                               ; preds = %44
@@ -3596,19 +3590,19 @@ define linkonce_odr dso_local void @_ZSt13__introselectIN9__gnu_cxx17__normal_it
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %29, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %29, ptr noundef nonnull align 8 dereferenceable(10) %9, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.025, ptr noundef nonnull align 8 dereferenceable(10) %27, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %27, ptr noundef nonnull align 8 dereferenceable(10) %8, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i.preheader: ; preds = %50, %49, %46, %43, %42, %39
@@ -3645,11 +3639,11 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triang
   br i1 %62, label %63, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEESR_SR_SR_T0_.exit
 
 63:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.1.i.i, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.013.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, i64 10, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.010.1.i.i, ptr noundef nonnull align 8 dereferenceable(10) %7, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEEvSR_SR_SR_SR_T0_.exit.i, !llvm.loop !320
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_13AABB_traits_3IS5_SF_NS2_7DefaultEE16Split_primitivesclISJ_EEvT_SR_RKNS2_6Bbox_3EEUlRKSF_SW_E1_EEESR_SR_SR_T0_.exit: ; preds = %61
@@ -3686,7 +3680,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
   br i1 %74, label %75, label %88
 
 75:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.021.i, i64 16, i1 false)
   %76 = ptrtoint ptr %.sroa.0.021.i to i64
   %77 = sub i64 %76, %.lcssa20
@@ -3712,7 +3706,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_t
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4CGAL25AABB_triangle_primitive_3INS2_16Simple_cartesianIdEENS1_IPNS2_10Triangle_3IS5_EESt6vectorIS7_SaIS7_EEEESt17integral_constantIbLb0EEEES9_ISF_SaISF_EEEESJ_ET0_T_SL_SK_.exit.i: ; preds = %86, %84, %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.019.0.lcssa, ptr noundef nonnull align 8 dereferenceable(10) %6, i64 10, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %96
 
 88:                                               ; preds = %.lr.ph.i
@@ -4173,7 +4167,7 @@ _ZNSt12_Vector_baseISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_c
   %.sroa.11.047 = phi ptr [ %.sroa.11.2, %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EE9push_backEOSE_.exit ], [ %14, %.lr.ph.preheader ]
   %.sroa.18.146 = phi ptr [ %.sroa.18.4, %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EE9push_backEOSE_.exit ], [ %15, %.lr.ph.preheader ]
   %.sroa.021.045 = phi ptr [ %39, %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EE9push_backEOSE_.exit ], [ %5, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.017)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.017)
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.sroa.021.045, align 8, !tbaa !47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.017, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i, i64 24, i1 false)
   %19 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -4248,7 +4242,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
   %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EE17_M_realloc_insertIJSE_EEEvNS7_IPSE_SG_EEDpOT_.exit.i.i ], [ %.sroa.11.047, %20 ]
   %.sroa.024.4 = phi ptr [ %33, %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EE17_M_realloc_insertIJSE_EEEvNS7_IPSE_SG_EEDpOT_.exit.i.i ], [ %.sroa.024.148, %20 ]
   %.sroa.11.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.017)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.017)
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.021.045, i64 16
   %.not35 = icmp eq ptr %39, %4
   br i1 %.not35, label %._crit_edge, label %.lr.ph
@@ -4265,7 +4259,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
 
 40:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.017)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.017)
   br label %46
 
 41:                                               ; preds = %._crit_edge
@@ -4315,7 +4309,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4CGAL9AABB_treeINS_13AABB_t
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEESt14default_deleteISL_EE5resetEPSL_.exit.i, label %_ZNKSt14default_deleteIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEEEclEPSL_.exit.i.i.i
 
 _ZNKSt14default_deleteIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEEEclEPSL_.exit.i.i.i: ; preds = %7
-  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #25
+  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %9) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 336) #28
   br label %_ZNSt10unique_ptrIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEESt14default_deleteISL_EE5resetEPSL_.exit.i
 
@@ -4342,7 +4336,7 @@ _ZSt11make_uniqueIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_car
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEESt14default_deleteISL_EED2Ev.exit, label %_ZNKSt14default_deleteIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEEEclEPSL_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEEEclEPSL_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEEJRNS7_IPSt4pairINS0_7Point_3IS4_EESE_ESB_ISP_SaISP_EEEESU_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %14) #25
+  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %14) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 336) #28
   br label %_ZNSt10unique_ptrIKN4CGAL16AABB_search_treeINS0_13AABB_traits_3INS0_16Simple_cartesianIdEENS0_25AABB_triangle_primitive_3IS4_N9__gnu_cxx17__normal_iteratorIPNS0_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEESt17integral_constantIbLb0EEEENS0_7DefaultEEEEESt14default_deleteISL_EED2Ev.exit
 
@@ -4431,7 +4425,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
 .lr.ph.i.i:                                       ; preds = %37, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %39, %37 ]
   %44 = load ptr, ptr %.06.i.i, align 8, !tbaa !390
-  tail call void @_ZdlPvm(ptr noundef %44, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %44, i64 noundef 512) #26
   %45 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %46 = icmp ult ptr %.06.i.i, %41
   br i1 %46, label %.lr.ph.i.i, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.loopexit.i, !llvm.loop !391
@@ -4445,7 +4439,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %49 = load i64, ptr %48, align 8, !tbaa !392
   %50 = shl i64 %49, 3
-  tail call void @_ZdlPvm(ptr noundef %47, i64 noundef %50) #25
+  tail call void @_ZdlPvm(ptr noundef %47, i64 noundef %50) #26
   br label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvED2Ev.exit
 
 _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit, %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
@@ -4466,7 +4460,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
 .lr.ph.i.i4:                                      ; preds = %53, %.lr.ph.i.i4
   %.06.i.i5 = phi ptr [ %61, %.lr.ph.i.i4 ], [ %55, %53 ]
   %60 = load ptr, ptr %.06.i.i5, align 8, !tbaa !396
-  tail call void @_ZdlPvm(ptr noundef %60, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %60, i64 noundef 512) #26
   %61 = getelementptr inbounds nuw i8, ptr %.06.i.i5, i64 8
   %62 = icmp ult ptr %.06.i.i5, %57
   br i1 %62, label %.lr.ph.i.i4, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.loopexit.i, !llvm.loop !397
@@ -4480,7 +4474,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load i64, ptr %64, align 8, !tbaa !398
   %66 = shl i64 %65, 3
-  tail call void @_ZdlPvm(ptr noundef %63, i64 noundef %66) #25
+  tail call void @_ZdlPvm(ptr noundef %63, i64 noundef %66) #26
   br label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvED2Ev.exit
 
 _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvED2Ev.exit: ; preds = %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvED2Ev.exit, %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
@@ -4646,7 +4640,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
   br label %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit11
 
 _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit11: ; preds = %42, %43
-  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #25
+  tail call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_ED2Ev(ptr noundef nonnull align 8 dereferenceable(336) %0) #26
   resume { ptr, i32 } %.pn
 }
 
@@ -4659,7 +4653,7 @@ define linkonce_odr dso_local void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterI
   br i1 %.not, label %39, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load i8, ptr %6, align 8, !tbaa !349, !range !61, !noundef !62
@@ -4706,7 +4700,7 @@ define linkonce_odr dso_local void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterI
   br label %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit: ; preds = %14, %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %39
 
 30:                                               ; preds = %9, %10
@@ -4726,7 +4720,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
   br label %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit4
 
 _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit4: ; preds = %30, %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %31
 
 39:                                               ; preds = %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit, %1
@@ -4765,7 +4759,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
   %.09.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.08.i, %48 ]
   %55 = load ptr, ptr %.09.i, align 8, !tbaa !396
-  call void @_ZdlPvm(ptr noundef %55, i64 noundef 512) #25
+  call void @_ZdlPvm(ptr noundef %55, i64 noundef 512) #26
   %.0.i = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %56 = load ptr, ptr %51, align 8, !tbaa !395
   %57 = icmp ult ptr %.0.i, %56
@@ -4774,7 +4768,7 @@ _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__n
 58:                                               ; preds = %._crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8, !tbaa !410
-  call void @_ZdlPvm(ptr noundef %60, i64 noundef 512) #25
+  call void @_ZdlPvm(ptr noundef %60, i64 noundef 512) #26
   %.pre11.i = load ptr, ptr %49, align 8, !tbaa !411
   br label %61
 
@@ -4823,7 +4817,7 @@ _ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adap
 .lr.ph.i11:                                       ; preds = %74, %.lr.ph.i11
   %.09.i12 = phi ptr [ %.0.i13, %.lr.ph.i11 ], [ %.08.i6, %74 ]
   %81 = load ptr, ptr %.09.i12, align 8, !tbaa !390
-  call void @_ZdlPvm(ptr noundef %81, i64 noundef 512) #25
+  call void @_ZdlPvm(ptr noundef %81, i64 noundef 512) #26
   %.0.i13 = getelementptr inbounds nuw i8, ptr %.09.i12, i64 8
   %82 = load ptr, ptr %77, align 8, !tbaa !389
   %83 = icmp ult ptr %.0.i13, %82
@@ -4832,7 +4826,7 @@ _ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adap
 84:                                               ; preds = %._crit_edge.i7
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %86 = load ptr, ptr %85, align 8, !tbaa !416
-  call void @_ZdlPvm(ptr noundef %86, i64 noundef 512) #25
+  call void @_ZdlPvm(ptr noundef %86, i64 noundef 512) #26
   %.pre11.i10 = load ptr, ptr %75, align 8, !tbaa !417
   br label %87
 
@@ -5318,7 +5312,7 @@ _ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17_
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE7reserveEm.exit, %._crit_edge.loopexit
   %40 = phi ptr [ %136, %._crit_edge.loopexit ], [ %.pre85, %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE7reserveEm.exit ]
   %41 = phi ptr [ %.pre84, %._crit_edge.loopexit ], [ %36, %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE7reserveEm.exit ]
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %43 = load i16, ptr %0, align 8
   store i16 %43, ptr %2, align 8
@@ -5595,9 +5589,9 @@ _ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cart
   %storemerge.i.i = phi ptr [ %184, %178 ], [ %170, %169 ]
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %storemerge.i.i, ptr %185, align 8, !tbaa !406
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E20create_internal_nodeINS_14Sequential_tagEEEvPNS_12Kd_tree_nodeISQ_SU_SV_SM_EERNS_15Point_containerISQ_EERKT_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %storemerge.i.i, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %186
 
 186:                                              ; preds = %_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E17new_internal_nodeEv.exit, %145
@@ -5732,7 +5726,7 @@ _ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17_
   br i1 %253, label %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE13shrink_to_fitEv.exit, label %254
 
 254:                                              ; preds = %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE5clearEv.exit
-  %255 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPKSt4pairIN4CGAL7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS5_EES0_ISA_SaISA_EEEEESaISH_EELb1EE8_S_do_itERSJ_(ptr noundef nonnull align 8 dereferenceable(24) %8) #25
+  %255 = call noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPKSt4pairIN4CGAL7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS5_EES0_ISA_SaISA_EEEEESaISH_EELb1EE8_S_do_itERSJ_(ptr noundef nonnull align 8 dereferenceable(24) %8) #26
   br label %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE13shrink_to_fitEv.exit
 
 256:                                              ; preds = %_ZNK5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EELb0EEmiERKS12_.exit
@@ -5844,7 +5838,7 @@ _ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17_
   br label %_ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit28
 
 _ZNSt6vectorISt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISE_EED2Ev.exit28: ; preds = %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EE13shrink_to_fitEv.exit, %317
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -5904,7 +5898,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4CGAL7Kd_treeINS_21Search_traits_a
   br label %_ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJRSZ_EEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit.i
 
 _ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJRSZ_EEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit.i: ; preds = %34, %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #25, !noalias !480
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !480
   call void @_ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE29priv_reserve_elements_at_backEm(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::dtl::deque_iterator.122") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %21, i64 noundef 1), !noalias !480
   %35 = load ptr, ptr %23, align 8, !tbaa !414, !noalias !480
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -5925,7 +5919,7 @@ _ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterI
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !417, !noalias !480
   store ptr %44, ptr %37, align 8, !tbaa !417, !noalias !480
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #25, !noalias !480
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !480
   br label %_ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE12emplace_backIJRSZ_EEES12_DpOT_.exit
 
 _ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE12emplace_backIJRSZ_EEES12_DpOT_.exit: ; preds = %30, %_ZN5boost9container5dequeIN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJRSZ_EEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit.i
@@ -5981,9 +5975,9 @@ _ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_
 define linkonce_odr dso_local void @_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E20create_internal_nodeINS_14Sequential_tagEEEvPNS_12Kd_tree_nodeISQ_SU_SV_SM_EERNS_15Point_containerISQ_EERKT_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.CGAL::Plane_separator", align 8
   %6 = alloca %"class.CGAL::Point_container", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load i16, ptr %0, align 8
   store i16 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -6281,8 +6275,8 @@ _ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cart
   br label %200
 
 200:                                              ; preds = %_ZN4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E17new_internal_nodeEv.exit25, %197
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6321,14 +6315,14 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #25
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #26
   %20 = icmp ult ptr %11, %.011.i
   br i1 %20, label %.lr.ph.i.i, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %11, %16 ]
   %21 = load ptr, ptr %.06.i.i, align 8, !tbaa !390
-  tail call void @_ZdlPvm(ptr noundef %21, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %21, i64 noundef 512) #26
   %22 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %23 = icmp ult ptr %22, %.011.i
   br i1 %23, label %.lr.ph.i.i, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i, !llvm.loop !391
@@ -6347,7 +6341,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #26
+  tail call void @__clang_call_terminate(ptr %28) #25
   unreachable
 
 29:                                               ; preds = %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
@@ -6355,11 +6349,11 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
 
 .body:                                            ; preds = %24
   %30 = extractvalue { ptr, i32 } %25, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #25
+  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #26
   %32 = load ptr, ptr %0, align 8, !tbaa !387
   %33 = load i64, ptr %5, align 8, !tbaa !392
   %34 = shl i64 %33, 3
-  tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #25
+  tail call void @_ZdlPvm(ptr noundef %32, i64 noundef %34) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke void @__cxa_rethrow() #27
           to label %56 unwind label %35
@@ -6403,7 +6397,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #26
+  tail call void @__clang_call_terminate(ptr %55) #25
   unreachable
 
 56:                                               ; preds = %.body
@@ -6479,7 +6473,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #25
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #26
   %45 = icmp samesign ugt i64 %.02030, 1
   br i1 %45, label %.lr.ph32, label %._crit_edge
 
@@ -6492,7 +6486,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL17Kd_tree_leaf_nodeINS
   %46 = load ptr, ptr %20, align 8, !tbaa !389
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.031
   %48 = load ptr, ptr %47, align 8, !tbaa !390
-  tail call void @_ZdlPvm(ptr noundef %48, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %48, i64 noundef 512) #26
   %49 = add nuw nsw i64 %.031, 1
   %exitcond36.not = icmp eq i64 %49, %.02030
   br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !514
@@ -6581,7 +6575,7 @@ _ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  tail call void @__clang_call_terminate(ptr %97) #26
+  tail call void @__clang_call_terminate(ptr %97) #25
   unreachable
 
 98:                                               ; preds = %._crit_edge
@@ -6590,7 +6584,7 @@ _ZN5boost9container3dtl14deque_iteratorIPN4CGAL17Kd_tree_leaf_nodeINS3_21Search_
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr dso_local void @_ZN5boost9container15throw_bad_allocEv() local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
-  %1 = tail call ptr @__cxa_allocate_exception(i64 16) #25
+  %1 = tail call ptr @__cxa_allocate_exception(i64 16) #26
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.131, ptr %2, align 8, !tbaa !517
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !234
@@ -6603,7 +6597,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5boost9container9bad_allocD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #18 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #28
   ret void
 }
@@ -6710,7 +6704,7 @@ _ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapter
   %62 = load ptr, ptr %0, align 8, !tbaa !387
   %63 = load i64, ptr %14, align 8, !tbaa !392
   %64 = shl i64 %63, 3
-  tail call void @_ZdlPvm(ptr noundef %62, i64 noundef %64) #25
+  tail call void @_ZdlPvm(ptr noundef %62, i64 noundef %64) #26
   store ptr %47, ptr %0, align 8, !tbaa !387
   store i64 %43, ptr %14, align 8, !tbaa !392
   br label %_ZN5boost9container4moveIPPN4CGAL17Kd_tree_leaf_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit
@@ -6768,7 +6762,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
   br label %18
 
 18:                                               ; preds = %17, %16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25, !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !522
   call void @_ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE29priv_reserve_elements_at_backEm(ptr dead_on_unwind nonnull writable sret(%"class.boost::container::dtl::deque_iterator") align 8 %2, ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1), !noalias !522
   %19 = load ptr, ptr %4, align 8, !tbaa !408, !noalias !522
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6830,7 +6824,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_
 
 _ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJEEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit: ; preds = %41, %50
   %.sroa.010.0.i = phi ptr [ %56, %50 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25, !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !522
   br label %57
 
 57:                                               ; preds = %_ZN5boost9container5dequeIN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EEvvE25priv_insert_back_aux_implINS0_3dtl31insert_nonmovable_emplace_proxyINS0_13new_allocatorISZ_EEJEEEEENS12_14deque_iteratorIPSZ_Lb0EEEmT_.exit, %11
@@ -6880,14 +6874,14 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #25
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #26
   %23 = icmp ult ptr %14, %.011.i
   br i1 %23, label %.lr.ph.i.i, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %.06.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %14, %19 ]
   %24 = load ptr, ptr %.06.i.i, align 8, !tbaa !396
-  tail call void @_ZdlPvm(ptr noundef %24, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %24, i64 noundef 512) #26
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %26 = icmp ult ptr %25, %.011.i
   br i1 %26, label %.lr.ph.i.i, label %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i, !llvm.loop !397
@@ -6906,7 +6900,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #26
+  tail call void @__clang_call_terminate(ptr %31) #25
   unreachable
 
 32:                                               ; preds = %_ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nodeINS3_21Search_traits_adapterISt4pairINS3_7Point_3INS3_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS3_10Triangle_3IS9_EESt6vectorISE_SaISE_EEEEENS3_26First_of_pair_property_mapISK_EENS3_13AABB_traits_3IS9_NS3_25AABB_triangle_primitive_3IS9_SJ_St17integral_constantIbLb0EEEENS3_7DefaultEEEEENS3_16Sliding_midpointISU_NS3_15Plane_separatorIdEEEESP_IbLb1EESQ_EEEEvE18priv_destroy_nodesEPPS10_S14_.exit.i
@@ -6914,11 +6908,11 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
 
 .body:                                            ; preds = %27
   %33 = extractvalue { ptr, i32 } %28, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #25
+  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #26
   %35 = load ptr, ptr %0, align 8, !tbaa !393
   %36 = load i64, ptr %5, align 8, !tbaa !398
   %37 = shl i64 %36, 3
-  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %37) #25
+  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef %37) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke void @__cxa_rethrow() #27
           to label %59 unwind label %38
@@ -6962,7 +6956,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  tail call void @__clang_call_terminate(ptr %58) #26
+  tail call void @__clang_call_terminate(ptr %58) #25
   unreachable
 
 59:                                               ; preds = %.body
@@ -7038,7 +7032,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #25
+  %44 = tail call ptr @__cxa_begin_catch(ptr %43) #26
   %45 = icmp samesign ugt i64 %.02030, 1
   br i1 %45, label %.lr.ph32, label %._crit_edge
 
@@ -7051,7 +7045,7 @@ _ZN5boost9container10deque_baseINS0_13new_allocatorIN4CGAL21Kd_tree_internal_nod
   %46 = load ptr, ptr %20, align 8, !tbaa !395
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.031
   %48 = load ptr, ptr %47, align 8, !tbaa !396
-  tail call void @_ZdlPvm(ptr noundef %48, i64 noundef 512) #25
+  tail call void @_ZdlPvm(ptr noundef %48, i64 noundef 512) #26
   %49 = add nuw nsw i64 %.031, 1
   %exitcond36.not = icmp eq i64 %49, %.02030
   br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph32, !llvm.loop !535
@@ -7140,7 +7134,7 @@ _ZN5boost9container3dtl14deque_iteratorIPN4CGAL21Kd_tree_internal_nodeINS3_21Sea
   %96 = landingpad { ptr, i32 }
           catch ptr null
   %97 = extractvalue { ptr, i32 } %96, 0
-  tail call void @__clang_call_terminate(ptr %97) #26
+  tail call void @__clang_call_terminate(ptr %97) #25
   unreachable
 
 98:                                               ; preds = %._crit_edge
@@ -7240,7 +7234,7 @@ _ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_ada
   %62 = load ptr, ptr %0, align 8, !tbaa !393
   %63 = load i64, ptr %14, align 8, !tbaa !398
   %64 = shl i64 %63, 3
-  tail call void @_ZdlPvm(ptr noundef %62, i64 noundef %64) #25
+  tail call void @_ZdlPvm(ptr noundef %62, i64 noundef %64) #26
   store ptr %47, ptr %0, align 8, !tbaa !393
   store i64 %43, ptr %14, align 8, !tbaa !398
   br label %_ZN5boost9container4moveIPPN4CGAL21Kd_tree_internal_nodeINS2_21Search_traits_adapterISt4pairINS2_7Point_3INS2_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10Triangle_3IS8_EESt6vectorISD_SaISD_EEEEENS2_26First_of_pair_property_mapISJ_EENS2_13AABB_traits_3IS8_NS2_25AABB_triangle_primitive_3IS8_SI_St17integral_constantIbLb0EEEENS2_7DefaultEEEEENS2_16Sliding_midpointIST_NS2_15Plane_separatorIdEEEESO_IbLb1EESP_EES11_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S15_E4typeES14_S14_S15_.exit
@@ -7854,7 +7848,7 @@ _ZNSt12_Vector_baseIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %.09 = extractvalue { ptr, i32 } %20, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %.09) #25
+  %21 = tail call ptr @__cxa_begin_catch(ptr %.09) #26
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS1_10Triangle_3IS4_EES_IS9_SaIS9_EEEEESaISG_EED2Ev.exit unwind label %28
 
@@ -7884,7 +7878,7 @@ _ZNSt6vectorIPKSt4pairIN4CGAL7Point_3INS1_16Simple_cartesianIdEEEEN9__gnu_cxx17_
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #26
+  tail call void @__clang_call_terminate(ptr %30) #25
   unreachable
 }
 
@@ -7999,7 +7993,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %41
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %58 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %57) #25
+  %58 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %57) #26
   %.not.i.i.i.i.i = icmp eq i32 %58, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i, label %.invoke
 
@@ -8015,11 +8009,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i:     ; preds = %56
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i:        ; preds = %61
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %57) #25
+  %63 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %57) #26
   br label %.body
 
 _ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i: ; preds = %61, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i
-  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %57) #25
+  %64 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %57) #26
   br label %65
 
 65:                                               ; preds = %_ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i, %55
@@ -8074,7 +8068,7 @@ _ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__g
 
 90:                                               ; preds = %_ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEEENS_26First_of_pair_property_mapISF_EENS_18Euclidean_distanceINS_13AABB_traits_3IS4_NS_25AABB_triangle_primitive_3IS4_SE_St17integral_constantIbLb0EEEENS_7DefaultEEEEEE25min_distance_to_rectangleIdNS_13Dimension_tagILi3EEEEET_RKS5_RKNS_17Kd_tree_rectangleISV_T0_EERSB_ISV_SaISV_EE.exit
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %92 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %91) #25
+  %92 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %91) #26
   %.not.i.i.i.i.i30 = icmp eq i32 %92, 0
   br i1 %.not.i.i.i.i.i30, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i31, label %.invoke
 
@@ -8090,11 +8084,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i31:   ; preds = %90
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i32:      ; preds = %95
   %96 = landingpad { ptr, i32 }
           cleanup
-  %97 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %91) #25
+  %97 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %91) #26
   br label %.body
 
 _ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i33: ; preds = %95, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i31
-  %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %91) #25
+  %98 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %91) #26
   br label %99
 
 99:                                               ; preds = %_ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i33, %_ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEEENS_26First_of_pair_property_mapISF_EENS_18Euclidean_distanceINS_13AABB_traits_3IS4_NS_25AABB_triangle_primitive_3IS4_SE_St17integral_constantIbLb0EEEENS_7DefaultEEEEEE25min_distance_to_rectangleIdNS_13Dimension_tagILi3EEEEET_RKS5_RKNS_17Kd_tree_rectangleISV_T0_EERSB_ISV_SaISV_EE.exit
@@ -8113,7 +8107,7 @@ _ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_car
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %107 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %106) #25
+  %107 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %106) #26
   %.not.i.i.i.i.i37 = icmp eq i32 %107, 0
   br i1 %.not.i.i.i.i.i37, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i38, label %.invoke
 
@@ -8129,11 +8123,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i38:   ; preds = %105
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i39:      ; preds = %110
   %111 = landingpad { ptr, i32 }
           cleanup
-  %112 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %106) #25
+  %112 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %106) #26
   br label %.body
 
 _ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i40: ; preds = %110, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i38
-  %113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %106) #25
+  %113 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %106) #26
   br label %114
 
 114:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i40, %104
@@ -8185,7 +8179,7 @@ _ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__g
 
 138:                                              ; preds = %_ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEEENS_26First_of_pair_property_mapISF_EENS_18Euclidean_distanceINS_13AABB_traits_3IS4_NS_25AABB_triangle_primitive_3IS4_SE_St17integral_constantIbLb0EEEENS_7DefaultEEEEEE25max_distance_to_rectangleIdNS_13Dimension_tagILi3EEEEET_RKS5_RKNS_17Kd_tree_rectangleISV_T0_EERSB_ISV_SaISV_EE.exit
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %140 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %139) #25
+  %140 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %139) #26
   %.not.i.i.i.i.i49 = icmp eq i32 %140, 0
   br i1 %.not.i.i.i.i.i49, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i50, label %.invoke
 
@@ -8209,11 +8203,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i50:   ; preds = %138
 _ZNSt11unique_lockISt5mutexED2Ev.exit.i.i51:      ; preds = %144
   %145 = landingpad { ptr, i32 }
           cleanup
-  %146 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %139) #25
+  %146 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %139) #26
   br label %.body
 
 _ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i52: ; preds = %144, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i50
-  %147 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %139) #25
+  %147 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %139) #26
   br label %148
 
 148:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEESL_IbLb1EESM_E11const_buildEv.exit.i52, %_ZNK4CGAL16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS4_EESt6vectorIS9_SaIS9_EEEEENS_26First_of_pair_property_mapISF_EENS_18Euclidean_distanceINS_13AABB_traits_3IS4_NS_25AABB_triangle_primitive_3IS4_SE_St17integral_constantIbLb0EEEENS_7DefaultEEEEEE25max_distance_to_rectangleIdNS_13Dimension_tagILi3EEEEET_RKS5_RKNS_17Kd_tree_rectangleISV_T0_EERSB_ISV_SaISV_EE.exit
@@ -8410,11 +8404,11 @@ define linkonce_odr dso_local void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_21
   %38 = fsub double %36, %37
   %39 = fmul double %38, %38
   %40 = fadd double %34, %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.04.09.i, ptr %4, align 8
   store double %40, ptr %21, align 8
   call void @_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKS2_INS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEEdENS0_17K_neighbor_searchINS_21Search_traits_adapterISG_NS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Distance_adapterISG_SN_NS_18Euclidean_distanceISU_EEEENS_16Sliding_midpointISV_NS_15Plane_separatorIdEEEENS_7Kd_treeISV_S13_SQ_IbLb1EESR_EEE15Distance_largerEE6insertERKSJ_(ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 32
   %.not.i = icmp eq ptr %41, %15
   br i1 %.not.i, label %_ZN4CGAL28Orthogonal_k_neighbor_searchINS_21Search_traits_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEENS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Distance_adapterISG_SI_NS_18Euclidean_distanceISP_EEEENS_16Sliding_midpointISQ_NS_15Plane_separatorIdEEEENS_7Kd_treeISQ_SY_SL_IbLb1EESM_EEE23search_furthest_in_leafEPKNS_17Kd_tree_leaf_nodeISQ_SY_S10_SM_EESM_.exit, label %22, !llvm.loop !586
@@ -8772,11 +8766,11 @@ define linkonce_odr dso_local void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_21
   %44 = fsub double %42, %43
   %45 = fmul double %44, %44
   %46 = fadd double %40, %45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sroa.011.023, ptr %3, align 8
   store double %46, ptr %27, align 8
   call void @_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKS2_INS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEEdENS0_17K_neighbor_searchINS_21Search_traits_adapterISG_NS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Distance_adapterISG_SN_NS_18Euclidean_distanceISU_EEEENS_16Sliding_midpointISV_NS_15Plane_separatorIdEEEENS_7Kd_treeISV_S13_SQ_IbLb1EESR_EEE15Distance_largerEE6insertERKSJ_(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.011.023, i64 32
   %48 = load i32, ptr %10, align 8, !tbaa !567
   %49 = zext i32 %48 to i64
@@ -8832,11 +8826,11 @@ _ZN4CGAL8internal15Distance_helperINS_16Distance_adapterISt4pairINS_7Point_3INS_
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %_ZN4CGAL8internal15Distance_helperINS_16Distance_adapterISt4pairINS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS6_EESt6vectorISB_SaISB_EEEEENS_26First_of_pair_property_mapISH_EENS_18Euclidean_distanceINS_13AABB_traits_3IS6_NS_25AABB_triangle_primitive_3IS6_SG_St17integral_constantIbLb0EEEENS_7DefaultEEEEEEENS_21Search_traits_adapterISH_SJ_SR_EEE34interruptible_transformed_distanceERKS7_RKSH_d.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.011.127, ptr %4, align 8
   store double %70, ptr %62, align 8
   call void @_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKS2_INS_7Point_3INS_16Simple_cartesianIdEEEEN9__gnu_cxx17__normal_iteratorIPNS_10Triangle_3IS5_EESt6vectorISA_SaISA_EEEEEdENS0_17K_neighbor_searchINS_21Search_traits_adapterISG_NS_26First_of_pair_property_mapISG_EENS_13AABB_traits_3IS5_NS_25AABB_triangle_primitive_3IS5_SF_St17integral_constantIbLb0EEEENS_7DefaultEEEEENS_16Distance_adapterISG_SN_NS_18Euclidean_distanceISU_EEEENS_16Sliding_midpointISV_NS_15Plane_separatorIdEEEENS_7Kd_treeISV_S13_SQ_IbLb1EESR_EEE15Distance_largerEE6insertERKSJ_(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = load ptr, ptr %11, align 8, !tbaa !113
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load double, ptr %75, align 8, !tbaa !585
@@ -9679,7 +9673,7 @@ define internal void @_GLOBAL__sub_I_hausdorff.cpp() #21 section ".text.startup"
   %1 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL4lastE)
   %2 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN5EigenL6lastp1E)
   %3 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
-  %4 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef -52) #25, !tbaa !14
+  %4 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef -52) #26, !tbaa !14
   %5 = fadd double %4, 1.000000e+00
   store double %5, ptr @_ZN4COREL6relEpsE, align 8, !tbaa !16
   %6 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4COREL6relEpsE)
@@ -9735,6 +9729,12 @@ __cxx_global_var_init.24.exit:                    ; preds = %0, %23
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
 
@@ -9775,8 +9775,8 @@ attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #25 = { nounwind }
-attributes #26 = { noreturn nounwind }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind }
 attributes #27 = { noreturn }
 attributes #28 = { builtin nounwind }
 attributes #29 = { builtin allocsize(0) }

@@ -17,10 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef zeroext i1 @_ZN18ruff_python_trivia7pragmas17is_pragma_comment17h9f015530ea18f0f4E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 35, ptr %4, align 4
   %5 = call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h9bb86f40cfe8878eE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %5, label %6, label %"_ZN18ruff_python_trivia7pragmas17is_pragma_comment28_$u7b$$u7b$closure$u7d$$u7d$17h23a237327e2e87a5E.exit"
 
 6:                                                ; preds = %2
@@ -68,7 +68,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia7pragmas17is_pragma_comment17h
   ]
 
 26:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4
   store ptr %10, ptr %3, align 8, !alias.scope !8, !noalias !11
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %11, ptr %27, align 8, !alias.scope !8, !noalias !11
@@ -175,11 +175,11 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   br label %60
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread": ; preds = %.preheader.i.i.i, %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i, %60, %48
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br label %"_ZN18ruff_python_trivia7pragmas17is_pragma_comment28_$u7b$$u7b$closure$u7d$$u7d$17h23a237327e2e87a5E.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   %70 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %59, ptr noalias noundef nonnull readonly align 1 @anon.7c989ada8a02de65e6608ba81f6b26ab.15, i64 noundef 5)
   br i1 %70, label %"_ZN18ruff_python_trivia7pragmas17is_pragma_comment28_$u7b$$u7b$closure$u7d$$u7d$17h23a237327e2e87a5E.exit", label %71
 
@@ -227,10 +227,10 @@ declare hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice
 declare hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_matches17h1a1ca8485fb6ec57E"(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

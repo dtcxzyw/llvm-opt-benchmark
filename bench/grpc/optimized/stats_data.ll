@@ -220,14 +220,8 @@ define void @_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogra
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_100000_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_100000_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false), !tbaa !3
   br label %5
 
@@ -269,7 +263,7 @@ define void @_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_65536_26") align 8 captures(none) initializes((0, 208)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_65536_26") align 8 captures(none) initializes((0, 208)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, i8 0, i64 208, i1 false), !tbaa !3
   br label %5
 
@@ -311,7 +305,7 @@ define void @_ZNK9grpc_core25HistogramCollector_100_207CollectEPNS_16Histogram_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_100_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_16Histogram_100_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_100_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false), !tbaa !3
   br label %5
 
@@ -353,7 +347,7 @@ define void @_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_16777216_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_16777216_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false), !tbaa !3
   br label %5
 
@@ -395,7 +389,7 @@ define void @_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_80_10") align 8 captures(none) initializes((0, 80)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_80_10") align 8 captures(none) initializes((0, 80)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false), !tbaa !3
   br label %5
 
@@ -437,7 +431,7 @@ define void @_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_10000_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_10000_20") align 8 captures(none) initializes((0, 160)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false), !tbaa !3
   br label %5
 
@@ -479,7 +473,7 @@ define void @_ZNK9grpc_core29HistogramCollector_1800000_407CollectEPNS_20Histogr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_1800000_40") align 8 captures(none) initializes((0, 320)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %2) local_unnamed_addr #2 {
+define void @_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.grpc_core::Histogram_1800000_40") align 8 captures(none) initializes((0, 320)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, i8 0, i64 320, i1 false), !tbaa !3
   br label %5
 
@@ -501,7 +495,7 @@ define void @_ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core19Histogram_100000_209BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 3
   br i1 %2, label %3, label %4
 
@@ -535,7 +529,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core19Histogram_100000_209Bucket
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_65536_269BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_65536_269BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 3
   br i1 %2, label %3, label %4
 
@@ -569,7 +563,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_65536_269BucketF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core16Histogram_100_209BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core16Histogram_100_209BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 6
   br i1 %2, label %3, label %4
 
@@ -608,7 +602,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core16Histogram_100_209BucketFor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 2
   br i1 %2, label %3, label %4
 
@@ -642,7 +636,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core21Histogram_16777216_209Buck
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 3
   br i1 %2, label %3, label %4
 
@@ -681,7 +675,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core15Histogram_80_109BucketForE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_10000_209BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_10000_209BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 3
   br i1 %2, label %3, label %4
 
@@ -720,7 +714,7 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core18Histogram_10000_209BucketF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN9grpc_core20Histogram_1800000_409BucketForEi(i32 noundef %0) #3 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN9grpc_core20Histogram_1800000_409BucketForEi(i32 noundef %0) #2 align 2 {
   %2 = icmp slt i32 %0, 4
   br i1 %2, label %3, label %4
 
@@ -759,13 +753,13 @@ define noundef range(i32 -1, 256) i32 @_ZN9grpc_core20Histogram_1800000_409Bucke
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core11GlobalStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(6632) initializes((0, 6632)) %0) unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core11GlobalStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(6632) initializes((0, 6632)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6632) %0, i8 0, i64 6632, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.grpc_core::HistogramView") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6632) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.grpc_core::HistogramView") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6632) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp ult i32 %2, 39
   br i1 %4, label %switch.lookup, label %5
 
@@ -798,10 +792,10 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: noreturn
-declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core20GlobalStatsCollector7CollectEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core20GlobalStatsCollector7CollectEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %3 = tail call noalias noundef nonnull dereferenceable(6632) ptr @_Znwm(i64 noundef 6632) #14, !noalias !33
   invoke void @_ZN9grpc_core11GlobalStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(6632) %3)
@@ -1722,7 +1716,7 @@ _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core11GlobalStats4DiffERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(6632) %1, ptr noundef nonnull readonly align 8 dereferenceable(6632) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core11GlobalStats4DiffERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(6632) %1, ptr noundef nonnull readonly align 8 dereferenceable(6632) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::Histogram_65536_26", align 8
   %5 = alloca %"class.grpc_core::Histogram_16777216_20", align 8
   %6 = alloca %"class.grpc_core::Histogram_80_10", align 8
@@ -2031,7 +2025,7 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
   %263 = sub i64 %260, %262
   %264 = getelementptr inbounds nuw i8, ptr %43, i64 288
   store i64 %263, ptr %264, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 296
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -2054,8 +2048,8 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %267
   %274 = getelementptr inbounds nuw i8, ptr %43, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %274, ptr noundef nonnull align 8 dereferenceable(208) %4, i64 208, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %276 = getelementptr inbounds nuw i8, ptr %2, i64 504
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
@@ -2078,8 +2072,8 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %267
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %277
   %284 = getelementptr inbounds nuw i8, ptr %43, i64 504
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %284, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %286 = getelementptr inbounds nuw i8, ptr %2, i64 664
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -2102,8 +2096,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %277
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %287
   %294 = getelementptr inbounds nuw i8, ptr %43, i64 664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %294, ptr noundef nonnull align 8 dereferenceable(80) %6, i64 80, i1 false), !tbaa.struct !63
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %296 = getelementptr inbounds nuw i8, ptr %2, i64 744
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
@@ -2126,8 +2120,8 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %287
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit87: ; preds = %297
   %304 = getelementptr inbounds nuw i8, ptr %43, i64 744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %304, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 904
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
@@ -2150,8 +2144,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit87: ; preds = %297
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit91: ; preds = %307
   %314 = getelementptr inbounds nuw i8, ptr %43, i64 904
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %314, ptr noundef nonnull align 8 dereferenceable(160) %8, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %316 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -2174,8 +2168,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit91: ; preds = %307
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit95: ; preds = %317
   %324 = getelementptr inbounds nuw i8, ptr %43, i64 1064
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %324, ptr noundef nonnull align 8 dereferenceable(80) %9, i64 80, i1 false), !tbaa.struct !63
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %326 = getelementptr inbounds nuw i8, ptr %2, i64 1144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
@@ -2198,8 +2192,8 @@ _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit95: ; preds = %317
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit99: ; preds = %327
   %334 = getelementptr inbounds nuw i8, ptr %43, i64 1144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %334, ptr noundef nonnull align 8 dereferenceable(160) %10, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %335 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 1304
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
@@ -2222,8 +2216,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit99: ; preds = %327
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit103: ; preds = %337
   %344 = getelementptr inbounds nuw i8, ptr %43, i64 1304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %344, ptr noundef nonnull align 8 dereferenceable(208) %11, i64 208, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 1512
   %346 = getelementptr inbounds nuw i8, ptr %2, i64 1512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
@@ -2246,8 +2240,8 @@ _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit103: ; preds = %337
 _ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_.exit: ; preds = %347
   %354 = getelementptr inbounds nuw i8, ptr %43, i64 1512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %354, ptr noundef nonnull align 8 dereferenceable(320) %12, i64 320, i1 false), !tbaa.struct !82
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 1832
   %356 = getelementptr inbounds nuw i8, ptr %2, i64 1832
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
@@ -2270,8 +2264,8 @@ _ZN9grpc_coremiERKNS_20Histogram_1800000_40ES2_.exit: ; preds = %347
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit110: ; preds = %357
   %364 = getelementptr inbounds nuw i8, ptr %43, i64 1832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %364, ptr noundef nonnull align 8 dereferenceable(160) %13, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %365 = getelementptr inbounds nuw i8, ptr %1, i64 1992
   %366 = getelementptr inbounds nuw i8, ptr %2, i64 1992
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
@@ -2295,8 +2289,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit114: ; preds = %367
   %374 = load ptr, ptr %0, align 8, !tbaa !36
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 1992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %375, ptr noundef nonnull align 8 dereferenceable(160) %14, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %377 = getelementptr inbounds nuw i8, ptr %2, i64 2152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
@@ -2319,8 +2313,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit114: ; preds = %367
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit118: ; preds = %378
   %385 = getelementptr inbounds nuw i8, ptr %374, i64 2152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %385, ptr noundef nonnull align 8 dereferenceable(160) %15, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %16) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 2312
   %387 = getelementptr inbounds nuw i8, ptr %2, i64 2312
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
@@ -2343,8 +2337,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit118: ; preds = %378
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit122: ; preds = %388
   %395 = getelementptr inbounds nuw i8, ptr %374, i64 2312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %395, ptr noundef nonnull align 8 dereferenceable(160) %16, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %17) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 2472
   %397 = getelementptr inbounds nuw i8, ptr %2, i64 2472
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
@@ -2367,8 +2361,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit122: ; preds = %388
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit126: ; preds = %398
   %405 = getelementptr inbounds nuw i8, ptr %374, i64 2472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %405, ptr noundef nonnull align 8 dereferenceable(160) %17, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %17) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %18) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 2632
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 2632
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
@@ -2391,8 +2385,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit126: ; preds = %398
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit130: ; preds = %408
   %415 = getelementptr inbounds nuw i8, ptr %374, i64 2632
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %415, ptr noundef nonnull align 8 dereferenceable(160) %18, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 2792
   %417 = getelementptr inbounds nuw i8, ptr %2, i64 2792
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
@@ -2415,8 +2409,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit130: ; preds = %408
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit134: ; preds = %418
   %425 = getelementptr inbounds nuw i8, ptr %374, i64 2792
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %425, ptr noundef nonnull align 8 dereferenceable(160) %19, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %19) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 2952
   %427 = getelementptr inbounds nuw i8, ptr %2, i64 2952
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
@@ -2439,8 +2433,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit134: ; preds = %418
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit138: ; preds = %428
   %435 = getelementptr inbounds nuw i8, ptr %374, i64 2952
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %435, ptr noundef nonnull align 8 dereferenceable(160) %20, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %21) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 3112
   %437 = getelementptr inbounds nuw i8, ptr %2, i64 3112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
@@ -2463,8 +2457,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit138: ; preds = %428
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %438
   %445 = getelementptr inbounds nuw i8, ptr %374, i64 3112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %445, ptr noundef nonnull align 8 dereferenceable(160) %21, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %21) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %22) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 3272
   %447 = getelementptr inbounds nuw i8, ptr %2, i64 3272
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
@@ -2487,8 +2481,8 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %438
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit145: ; preds = %448
   %455 = getelementptr inbounds nuw i8, ptr %374, i64 3272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %455, ptr noundef nonnull align 8 dereferenceable(160) %22, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %22) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %23) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 3432
   %457 = getelementptr inbounds nuw i8, ptr %2, i64 3432
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
@@ -2511,8 +2505,8 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit145: ; preds = %448
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %458
   %465 = getelementptr inbounds nuw i8, ptr %374, i64 3432
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %465, ptr noundef nonnull align 8 dereferenceable(160) %23, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %23) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %24) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 3592
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 3592
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -2535,8 +2529,8 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %458
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit152: ; preds = %468
   %475 = getelementptr inbounds nuw i8, ptr %374, i64 3592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %475, ptr noundef nonnull align 8 dereferenceable(160) %24, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %24) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %25) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 3752
   %477 = getelementptr inbounds nuw i8, ptr %2, i64 3752
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
@@ -2559,8 +2553,8 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit152: ; preds = %468
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit156: ; preds = %478
   %485 = getelementptr inbounds nuw i8, ptr %374, i64 3752
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %485, ptr noundef nonnull align 8 dereferenceable(160) %25, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %25) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %26) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %486 = getelementptr inbounds nuw i8, ptr %1, i64 3912
   %487 = getelementptr inbounds nuw i8, ptr %2, i64 3912
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
@@ -2583,8 +2577,8 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit156: ; preds = %478
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit160: ; preds = %488
   %495 = getelementptr inbounds nuw i8, ptr %374, i64 3912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %495, ptr noundef nonnull align 8 dereferenceable(160) %26, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %26) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %27) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %496 = getelementptr inbounds nuw i8, ptr %1, i64 4072
   %497 = getelementptr inbounds nuw i8, ptr %2, i64 4072
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
@@ -2607,8 +2601,8 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit160: ; preds = %488
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit164: ; preds = %498
   %505 = getelementptr inbounds nuw i8, ptr %374, i64 4072
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %505, ptr noundef nonnull align 8 dereferenceable(160) %27, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %27) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %28) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 4232
   %507 = getelementptr inbounds nuw i8, ptr %2, i64 4232
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
@@ -2631,8 +2625,8 @@ _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit164: ; preds = %498
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit168: ; preds = %508
   %515 = getelementptr inbounds nuw i8, ptr %374, i64 4232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %515, ptr noundef nonnull align 8 dereferenceable(160) %28, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %28) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %29) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %516 = getelementptr inbounds nuw i8, ptr %1, i64 4392
   %517 = getelementptr inbounds nuw i8, ptr %2, i64 4392
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
@@ -2655,8 +2649,8 @@ _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit168: ; preds = %508
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit: ; preds = %518
   %525 = getelementptr inbounds nuw i8, ptr %374, i64 4392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %525, ptr noundef nonnull align 8 dereferenceable(160) %29, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %29) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %30) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 4552
   %527 = getelementptr inbounds nuw i8, ptr %2, i64 4552
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
@@ -2679,8 +2673,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit: ; preds = %518
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit175: ; preds = %528
   %535 = getelementptr inbounds nuw i8, ptr %374, i64 4552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %535, ptr noundef nonnull align 8 dereferenceable(160) %30, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %30) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %31) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %536 = getelementptr inbounds nuw i8, ptr %1, i64 4712
   %537 = getelementptr inbounds nuw i8, ptr %2, i64 4712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
@@ -2703,8 +2697,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit175: ; preds = %528
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit179: ; preds = %538
   %545 = getelementptr inbounds nuw i8, ptr %374, i64 4712
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %545, ptr noundef nonnull align 8 dereferenceable(160) %31, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %31) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %32) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %546 = getelementptr inbounds nuw i8, ptr %1, i64 4872
   %547 = getelementptr inbounds nuw i8, ptr %2, i64 4872
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
@@ -2727,8 +2721,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit179: ; preds = %538
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit183: ; preds = %548
   %555 = getelementptr inbounds nuw i8, ptr %374, i64 4872
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %555, ptr noundef nonnull align 8 dereferenceable(160) %32, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %32) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %33) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %556 = getelementptr inbounds nuw i8, ptr %1, i64 5032
   %557 = getelementptr inbounds nuw i8, ptr %2, i64 5032
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
@@ -2751,8 +2745,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit183: ; preds = %548
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit187: ; preds = %558
   %565 = getelementptr inbounds nuw i8, ptr %374, i64 5032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %565, ptr noundef nonnull align 8 dereferenceable(160) %33, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %33) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %34) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %566 = getelementptr inbounds nuw i8, ptr %1, i64 5192
   %567 = getelementptr inbounds nuw i8, ptr %2, i64 5192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
@@ -2775,8 +2769,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit187: ; preds = %558
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit191: ; preds = %568
   %575 = getelementptr inbounds nuw i8, ptr %374, i64 5192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %575, ptr noundef nonnull align 8 dereferenceable(160) %34, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %34) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %35) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 5352
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 5352
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -2799,8 +2793,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit191: ; preds = %568
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit195: ; preds = %578
   %585 = getelementptr inbounds nuw i8, ptr %374, i64 5352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %585, ptr noundef nonnull align 8 dereferenceable(160) %35, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %35) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %36) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %586 = getelementptr inbounds nuw i8, ptr %1, i64 5512
   %587 = getelementptr inbounds nuw i8, ptr %2, i64 5512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
@@ -2823,8 +2817,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit195: ; preds = %578
 _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit199: ; preds = %588
   %595 = getelementptr inbounds nuw i8, ptr %374, i64 5512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %595, ptr noundef nonnull align 8 dereferenceable(160) %36, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %36) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %37) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %596 = getelementptr inbounds nuw i8, ptr %1, i64 5672
   %597 = getelementptr inbounds nuw i8, ptr %2, i64 5672
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -2847,8 +2841,8 @@ _ZN9grpc_coremiERKNS_16Histogram_100_20ES2_.exit199: ; preds = %588
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit203: ; preds = %598
   %605 = getelementptr inbounds nuw i8, ptr %374, i64 5672
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %605, ptr noundef nonnull align 8 dereferenceable(160) %37, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %37) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %38) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %606 = getelementptr inbounds nuw i8, ptr %1, i64 5832
   %607 = getelementptr inbounds nuw i8, ptr %2, i64 5832
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
@@ -2871,8 +2865,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit203: ; preds = %598
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit207: ; preds = %608
   %615 = getelementptr inbounds nuw i8, ptr %374, i64 5832
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %615, ptr noundef nonnull align 8 dereferenceable(160) %38, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %38) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %39) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %616 = getelementptr inbounds nuw i8, ptr %1, i64 5992
   %617 = getelementptr inbounds nuw i8, ptr %2, i64 5992
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
@@ -2895,8 +2889,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit207: ; preds = %608
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit211: ; preds = %618
   %625 = getelementptr inbounds nuw i8, ptr %374, i64 5992
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %625, ptr noundef nonnull align 8 dereferenceable(160) %39, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %39) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %40) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %626 = getelementptr inbounds nuw i8, ptr %1, i64 6152
   %627 = getelementptr inbounds nuw i8, ptr %2, i64 6152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
@@ -2919,8 +2913,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit211: ; preds = %618
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit215: ; preds = %628
   %635 = getelementptr inbounds nuw i8, ptr %374, i64 6152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %635, ptr noundef nonnull align 8 dereferenceable(160) %40, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %40) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %41) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %636 = getelementptr inbounds nuw i8, ptr %1, i64 6312
   %637 = getelementptr inbounds nuw i8, ptr %2, i64 6312
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
@@ -2943,8 +2937,8 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit215: ; preds = %628
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit219: ; preds = %638
   %645 = getelementptr inbounds nuw i8, ptr %374, i64 6312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %645, ptr noundef nonnull align 8 dereferenceable(160) %41, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %41) #16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %42) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %646 = getelementptr inbounds nuw i8, ptr %1, i64 6472
   %647 = getelementptr inbounds nuw i8, ptr %2, i64 6472
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
@@ -2967,18 +2961,24 @@ _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit219: ; preds = %638
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit223: ; preds = %648
   %655 = getelementptr inbounds nuw i8, ptr %374, i64 6472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %655, ptr noundef nonnull align 8 dereferenceable(160) %42, i64 160, i1 false), !tbaa.struct !59
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %42) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -2990,22 +2990,21 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { noreturn }
 attributes #14 = { builtin allocsize(0) }
 attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

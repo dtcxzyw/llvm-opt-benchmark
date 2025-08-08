@@ -43,13 +43,13 @@ entry:
   %0 = load ptr, ptr %type, align 8
   %call2 = tail call i64 @_ZN8facebook5velox24getDecimalPrecisionScaleERKNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %.sroa.1.0.extract.shift = lshr i64 %call2, 32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i50.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fractionString.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fraction.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i50.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %fractionString.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %fraction.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp28.i)
   %unscaledValue.sroa.2.0.insert.ext.i = zext i64 %value.coerce1 to i128
   %unscaledValue.sroa.2.0.insert.shift.i = shl nuw i128 %unscaledValue.sroa.2.0.insert.ext.i, 64
   %unscaledValue.sroa.0.0.insert.ext.i = zext i64 %value.coerce0 to i128
@@ -80,7 +80,7 @@ call.i21.noexc.i:                                 ; preds = %if.end.i
           to label %.noexc23.i unwind label %lpad.i
 
 .noexc23.i:                                       ; preds = %call.i21.noexc.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__guard.i)
   %call.i.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %if.end.i1 unwind label %terminate.lpad.i.i
 
@@ -110,7 +110,7 @@ lpad.i2:                                          ; preds = %invoke.cont.i3, %if
   br label %lpad.body.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__guard.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #15
   br label %_ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit
 
@@ -255,13 +255,13 @@ eh.resume.i:                                      ; preds = %ehcleanup43.i, %lpa
   resume { ptr, i32 } %.pn18.i
 
 _ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit: ; preds = %if.then3.i, %invoke.cont.i, %invoke.cont42.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i50.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp4.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fractionString.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %fraction.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp19.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp28.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i50.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fractionString.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %fraction.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp28.i)
   ret void
 }
 
@@ -577,10 +577,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i128 @llvm.abs.i128(i128, i1 immarg) #13

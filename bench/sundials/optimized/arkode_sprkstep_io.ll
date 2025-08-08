@@ -27,9 +27,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @SPRKStepSetUseCompensatedSums(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.SPRKStepSetUseCompensatedSums, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -72,34 +72,28 @@ define i32 @SPRKStepSetUseCompensatedSums(ptr noundef %0, i32 noundef %1) local_
 
 23:                                               ; preds = %22, %18, %10, %14, %2
   %.0 = phi i32 [ %5, %2 ], [ -20, %14 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @sprkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sprkStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sprkStep_TakeStep_Compensated(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @sprkStep_TakeStep_Compensated(ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkAllocVec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @sprkStep_TakeStep(ptr noundef, ptr noundef, ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @sprkStep_TakeStep(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetMethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.SPRKStepSetMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -124,22 +118,22 @@ define i32 @SPRKStepSetMethod(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %14
 
 14:                                               ; preds = %2, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
-declare void @ARKodeSPRKTable_Free(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeSPRKTable_Free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ARKodeSPRKTable_Copy(ptr noundef) local_unnamed_addr #2
+declare ptr @ARKodeSPRKTable_Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetMethodName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.SPRKStepSetMethodName, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -167,20 +161,20 @@ define i32 @SPRKStepSetMethodName(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 15:                                               ; preds = %2, %11
   %.0 = phi i32 [ %14, %11 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @ARKodeSPRKTable_LoadByName(ptr noundef) local_unnamed_addr #2
+declare ptr @ARKodeSPRKTable_LoadByName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetCurrentMethod(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.SPRKStepGetCurrentMethod, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -193,15 +187,15 @@ define i32 @SPRKStepGetCurrentMethod(ptr noundef %0, ptr noundef writeonly captu
   br label %9
 
 9:                                                ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.sprkStep_GetNumRhsEvals, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -253,13 +247,13 @@ define i32 @sprkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
   %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @sprkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sprkStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -276,12 +270,12 @@ define i32 @SPRKStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %.0
 }
 
-declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !8
   %3 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.sprkStep_SetOrder, ptr noundef nonnull %2) #5
   %.not.i = icmp eq i32 %3, 0
@@ -302,14 +296,14 @@ define i32 @sprkStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   br label %sprkStep_SetOrder.exit
 
 sprkStep_SetOrder.exit:                           ; preds = %1, %4, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !8
   %4 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.sprkStep_SetOrder, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
@@ -338,14 +332,14 @@ define i32 @sprkStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %15
 
 15:                                               ; preds = %5, %13, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.sprkStep_PrintAllStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -385,17 +379,17 @@ define i32 @sprkStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1
 
 26:                                               ; preds = %7, %16, %3, %25
   %.0 = phi i32 [ -22, %25 ], [ %5, %3 ], [ 0, %16 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @sprkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !8
   %4 = call i32 @sprkStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.sprkStep_WriteParameters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
@@ -415,7 +409,7 @@ define i32 @sprkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) 
   br label %16
 
 16:                                               ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -425,7 +419,7 @@ define i32 @SPRKStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) loc
   ret i32 %4
 }
 
-declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -433,7 +427,7 @@ define i32 @SPRKStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   ret i32 %4
 }
 
-declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -441,7 +435,7 @@ define i32 @SPRKStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
@@ -449,7 +443,7 @@ define i32 @SPRKStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -457,7 +451,7 @@ define i32 @SPRKStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -465,7 +459,7 @@ define i32 @SPRKStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   ret i32 %3
 }
 
-declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -473,7 +467,7 @@ define i32 @SPRKStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -481,7 +475,7 @@ define i32 @SPRKStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -489,7 +483,7 @@ define i32 @SPRKStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -497,7 +491,7 @@ define i32 @SPRKStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -505,7 +499,7 @@ define i32 @SPRKStepSetFixedStep(ptr noundef %0, double noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -513,7 +507,7 @@ define i32 @SPRKStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -521,7 +515,7 @@ define i32 @SPRKStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -529,7 +523,7 @@ define i32 @SPRKStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -537,7 +531,7 @@ define i32 @SPRKStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, pt
   ret i32 %6
 }
 
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -545,7 +539,7 @@ define i32 @SPRKStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, pt
   ret i32 %5
 }
 
-declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @SPRKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -553,7 +547,7 @@ define ptr @SPRKStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -561,7 +555,7 @@ define i32 @SPRKStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -569,7 +563,7 @@ define i32 @SPRKStepGetCurrentStep(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -577,7 +571,7 @@ define i32 @SPRKStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -585,7 +579,7 @@ define i32 @SPRKStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -593,7 +587,7 @@ define i32 @SPRKStepGetNumStepAttempts(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepAttempts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -601,7 +595,7 @@ define i32 @SPRKStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -609,7 +603,7 @@ define i32 @SPRKStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -617,7 +611,7 @@ define i32 @SPRKStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -625,7 +619,7 @@ define i32 @SPRKStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ret i32 %4
 }
 
-declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -633,7 +627,7 @@ define i32 @SPRKStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SPRKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -641,7 +635,7 @@ define i32 @SPRKStepGetStepStats(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ret i32 %7
 }
 
-declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetStepStats(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @SPRKStepFree(ptr noundef %0) local_unnamed_addr #0 {
@@ -649,15 +643,21 @@ define void @SPRKStepFree(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 

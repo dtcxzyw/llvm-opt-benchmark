@@ -116,35 +116,29 @@ case_insensitive_match.exit36.thread:             ; preds = %.lr.ph.i31, %case_i
   ret double %.017
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
+define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  %5 = tail call ptr @__errno_location() #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = tail call ptr @__errno_location() #12
   store i32 0, ptr %5, align 4, !tbaa !12
-  %6 = tail call zeroext i16 @_Py_get_387controlword() #12
+  %6 = tail call zeroext i16 @_Py_get_387controlword() #13
   %7 = and i16 %6, -3841
   %8 = or disjoint i16 %7, 512
   %.not.i = icmp eq i16 %8, %6
   br i1 %.not.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %3
-  %9 = call double @_Py_dg_strtod(ptr noundef %0, ptr noundef nonnull %4) #12
+  %9 = call double @_Py_dg_strtod(ptr noundef %0, ptr noundef nonnull %4) #13
   br label %12
 
 10:                                               ; preds = %3
-  tail call void @_Py_set_387controlword(i16 noundef zeroext %8) #12
-  %11 = call double @_Py_dg_strtod(ptr noundef %0, ptr noundef nonnull %4) #12
-  call void @_Py_set_387controlword(i16 noundef zeroext %6) #12
+  tail call void @_Py_set_387controlword(i16 noundef zeroext %8) #13
+  %11 = call double @_Py_dg_strtod(ptr noundef %0, ptr noundef nonnull %4) #13
+  call void @_Py_set_387controlword(i16 noundef zeroext %6) #13
   br label %12
 
 12:                                               ; preds = %10, %.thread.i
@@ -254,7 +248,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %_PyOS_ascii_strtod.exit
-  %65 = call ptr @PyErr_NoMemory() #12
+  %65 = call ptr @PyErr_NoMemory() #13
   store ptr %0, ptr %4, align 8, !tbaa !9
   br label %86
 
@@ -273,7 +267,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
 
 .thread:                                          ; preds = %67, %69
   %71 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
-  %72 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %71, ptr noundef nonnull @.str.3, ptr noundef %0) #12
+  %72 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %71, ptr noundef nonnull @.str.3, ptr noundef %0) #13
   br label %89
 
 73:                                               ; preds = %69, %66
@@ -282,7 +276,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
-  %77 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %76, ptr noundef nonnull @.str.3, ptr noundef %0) #12
+  %77 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %76, ptr noundef nonnull @.str.3, ptr noundef %0) #13
   br label %86
 
 78:                                               ; preds = %73
@@ -297,7 +291,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br i1 %or.cond, label %84, label %86
 
 84:                                               ; preds = %80
-  %85 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, ptr noundef %0) #12
+  %85 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, ptr noundef %0) #13
   br label %86
 
 86:                                               ; preds = %78, %80, %84, %75, %64
@@ -312,35 +306,35 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
 
 89:                                               ; preds = %.thread, %87, %86
   %.024 = phi double [ -1.000000e+00, %.thread ], [ %.0, %87 ], [ %.0, %86 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %.024
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare ptr @PyErr_NoMemory() local_unnamed_addr #5
+declare ptr @PyErr_NoMemory() local_unnamed_addr #4
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #3 {
+define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 95) #14
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #12
+  %10 = tail call ptr %5(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #13
   br label %39
 
 11:                                               ; preds = %6
   %12 = add i64 %1, 1
-  %13 = tail call ptr @PyMem_Malloc(i64 noundef %12) #12
+  %13 = tail call ptr @PyMem_Malloc(i64 noundef %12) #13
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @PyErr_NoMemory() #12
+  %16 = tail call ptr @PyErr_NoMemory() #13
   br label %39
 
 17:                                               ; preds = %11
@@ -389,14 +383,14 @@ define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 nou
   %33 = ptrtoint ptr %.038 to i64
   %34 = ptrtoint ptr %13 to i64
   %35 = sub i64 %33, %34
-  %36 = tail call ptr %5(ptr noundef nonnull %13, i64 noundef %35, ptr noundef %4) #12
-  tail call void @PyMem_Free(ptr noundef nonnull %13) #12
+  %36 = tail call ptr %5(ptr noundef nonnull %13, i64 noundef %35, ptr noundef %4) #13
+  tail call void @PyMem_Free(ptr noundef nonnull %13) #13
   br label %39
 
 .loopexit:                                        ; preds = %21, %23, %30
-  tail call void @PyMem_Free(ptr noundef nonnull %13) #12
+  tail call void @PyMem_Free(ptr noundef nonnull %13) #13
   %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
-  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #12
+  %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #13
   br label %39
 
 39:                                               ; preds = %.loopexit, %32, %15, %9
@@ -405,14 +399,14 @@ define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #5
+declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #4
 
-declare void @PyMem_Free(ptr noundef) local_unnamed_addr #5
+declare void @PyMem_Free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -450,11 +444,11 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %15
-  tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1269) #12
+  tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1269) #13
   br label %172
 
 17:                                               ; preds = %5
-  tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1275) #12
+  tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1275) #13
   br label %172
 
 18:                                               ; preds = %5, %12, %15, %14, %10
@@ -466,23 +460,23 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   %20 = and i32 %3, 2
   %21 = and i32 %3, 4
   %22 = and i32 %3, 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  %23 = tail call zeroext i16 @_Py_get_387controlword() #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %23 = tail call zeroext i16 @_Py_get_387controlword() #13
   %24 = and i16 %23, -3841
   %25 = or disjoint i16 %24, 512
   %.not.i = icmp eq i16 %25, %23
   br i1 %.not.i, label %.thread.i, label %27
 
 .thread.i:                                        ; preds = %18
-  %26 = call ptr @_Py_dg_dtoa(double noundef %0, i32 noundef range(i32 0, 4) %.0, i32 noundef %.020, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #12
+  %26 = call ptr @_Py_dg_dtoa(double noundef %0, i32 noundef range(i32 0, 4) %.0, i32 noundef %.020, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #13
   br label %29
 
 27:                                               ; preds = %18
-  tail call void @_Py_set_387controlword(i16 noundef zeroext %25) #12
-  %28 = call ptr @_Py_dg_dtoa(double noundef %0, i32 noundef range(i32 0, 4) %.0, i32 noundef %.020, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #12
-  call void @_Py_set_387controlword(i16 noundef zeroext %23) #12
+  tail call void @_Py_set_387controlword(i16 noundef zeroext %25) #13
+  %28 = call ptr @_Py_dg_dtoa(double noundef %0, i32 noundef range(i32 0, 4) %.0, i32 noundef %.020, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #13
+  call void @_Py_set_387controlword(i16 noundef zeroext %23) #13
   br label %29
 
 29:                                               ; preds = %27, %.thread.i
@@ -547,12 +541,12 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %55
 
 55:                                               ; preds = %54, %53
-  %56 = call ptr @PyMem_Malloc(i64 noundef 5) #12
+  %56 = call ptr @PyMem_Malloc(i64 noundef 5) #13
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = call ptr @PyErr_NoMemory() #12
+  %59 = call ptr @PyErr_NoMemory() #13
   br label %171
 
 60:                                               ; preds = %55
@@ -581,7 +575,7 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 67:                                               ; preds = %65, %65
   %68 = load ptr, ptr %.3, align 8, !tbaa !9
-  %69 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 3) #12
+  %69 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 3) #13
   %70 = getelementptr i8, ptr %.1.i, i64 3
   %.not186.i = icmp eq ptr %4, null
   br i1 %.not186.i, label %168, label %71
@@ -598,7 +592,7 @@ thread-pre-split.i:                               ; preds = %47, %42
 74:                                               ; preds = %72, %65
   %75 = getelementptr i8, ptr %.3, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !9
-  %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef 3) #12
+  %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef 3) #13
   %78 = getelementptr i8, ptr %.1.i, i64 3
   %.not185.i = icmp eq ptr %4, null
   br i1 %.not185.i, label %168, label %79
@@ -656,7 +650,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %.thread28
 
 95:                                               ; preds = %82
-  call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1103) #12
+  call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str.6, i32 noundef 1103) #13
   br label %171
 
 96:                                               ; preds = %82
@@ -703,12 +697,12 @@ thread-pre-split.i:                               ; preds = %47, %42
   %reass.sub = sub nsw i64 %114, %112
   %116 = add nuw nsw i64 %reass.sub, 1
   %117 = add i64 %116, %.1161.i26
-  %118 = call ptr @PyMem_Malloc(i64 noundef %117) #12
+  %118 = call ptr @PyMem_Malloc(i64 noundef %117) #13
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %109
-  %121 = call ptr @PyErr_NoMemory() #12
+  %121 = call ptr @PyErr_NoMemory() #13
   br label %171
 
 122:                                              ; preds = %109
@@ -740,7 +734,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   call void @llvm.memset.p0.i64(ptr align 1 %130, i8 48, i64 %131, i1 false)
   %132 = getelementptr i8, ptr %130, i64 %131
   %.not192204.i = icmp sgt i64 %110, %38
-  %133 = call ptr @strncpy(ptr noundef %132, ptr noundef nonnull %30, i64 noundef %38) #12
+  %133 = call ptr @strncpy(ptr noundef %132, ptr noundef nonnull %30, i64 noundef %38) #13
   %134 = getelementptr i8, ptr %132, i64 %38
   br i1 %.not192204.i, label %149, label %153
 
@@ -752,18 +746,18 @@ thread-pre-split.i:                               ; preds = %47, %42
   br i1 %.not192.i, label %146, label %138
 
 138:                                              ; preds = %135
-  %139 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %110) #12
+  %139 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %110) #13
   %140 = getelementptr i8, ptr %137, i64 %110
   %141 = getelementptr i8, ptr %140, i64 1
   store i8 46, ptr %140, align 1, !tbaa !4
   %142 = getelementptr i8, ptr %30, i64 %110
   %143 = sub nsw i64 %38, %110
-  %144 = call ptr @strncpy(ptr noundef %141, ptr noundef %142, i64 noundef %143) #12
+  %144 = call ptr @strncpy(ptr noundef %141, ptr noundef %142, i64 noundef %143) #13
   %145 = getelementptr i8, ptr %141, i64 %143
   br label %153
 
 146:                                              ; preds = %135
-  %147 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %38) #12
+  %147 = call ptr @strncpy(ptr noundef %137, ptr noundef nonnull %30, i64 noundef %38) #13
   %148 = getelementptr i8, ptr %137, i64 %38
   br label %149
 
@@ -796,7 +790,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   %163 = load i8, ptr %162, align 1, !tbaa !4
   %164 = getelementptr i8, ptr %spec.select199.i, i64 1
   store i8 %163, ptr %spec.select199.i, align 1, !tbaa !4
-  %165 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %115) #12
+  %165 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %164, ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %115) #13
   %166 = sext i32 %165 to i64
   %167 = getelementptr i8, ptr %164, i64 %166
   br label %168
@@ -808,19 +802,19 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %171
 
 169:                                              ; preds = %29
-  %170 = call ptr @PyErr_NoMemory() #12
+  %170 = call ptr @PyErr_NoMemory() #13
   br label %format_float_short.exit
 
 171:                                              ; preds = %168, %120, %95, %58
   %.0217.ph.i = phi ptr [ null, %58 ], [ null, %120 ], [ null, %95 ], [ %.0.ph.i, %168 ]
-  call void @_Py_dg_freedtoa(ptr noundef nonnull %30) #12
+  call void @_Py_dg_freedtoa(ptr noundef nonnull %30) #13
   br label %format_float_short.exit
 
 format_float_short.exit:                          ; preds = %169, %171
   %.0217222.i = phi ptr [ %.0217.ph.i, %171 ], [ null, %169 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %172
 
 172:                                              ; preds = %format_float_short.exit, %17, %16
@@ -828,26 +822,32 @@ format_float_short.exit:                          ; preds = %169, %171
   ret ptr %.015
 }
 
-declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare zeroext i16 @_Py_get_387controlword() local_unnamed_addr #5
+declare zeroext i16 @_Py_get_387controlword() local_unnamed_addr #4
 
-declare void @_Py_set_387controlword(i16 noundef zeroext) local_unnamed_addr #5
+declare void @_Py_set_387controlword(i16 noundef zeroext) local_unnamed_addr #4
 
-declare double @_Py_dg_strtod(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare double @_Py_dg_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @_Py_dg_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @_Py_dg_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
-declare void @_Py_dg_freedtoa(ptr noundef) local_unnamed_addr #5
+declare void @_Py_dg_freedtoa(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -862,19 +862,19 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i64 @llvm.smax.i64(i64, i64) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @If_Init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.If_LibLut_t_, align 8
-  call void @llvm.lifetime.start.p0(i64 4504, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4504) %2, ptr noundef nonnull align 8 dereferenceable(4504) @__const.If_Init.s_LutLib, i64 4504, i1 false)
   %3 = call ptr @If_LibLutDup(ptr noundef nonnull %2) #6
   call void @Abc_FrameSetLibLut(ptr noundef %3) #6
@@ -61,21 +61,18 @@ define void @If_Init(ptr noundef %0) local_unnamed_addr #0 {
   call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @If_CommandPrintLut, i32 noundef 0) #6
   call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, ptr noundef nonnull @If_CommandReadBox, i32 noundef 0) #6
   call void @Cmd_CommandAdd(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, ptr noundef nonnull @If_CommandPrintBox, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 4504, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare void @Abc_FrameSetLibLut(ptr noundef) local_unnamed_addr #3
+declare void @Abc_FrameSetLibLut(ptr noundef) local_unnamed_addr #2
 
-declare ptr @If_LibLutDup(ptr noundef) local_unnamed_addr #3
+declare ptr @If_LibLutDup(ptr noundef) local_unnamed_addr #2
 
-declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @If_CommandReadLut(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
@@ -359,9 +356,6 @@ define internal range(i32 0, 2) i32 @If_CommandPrintBox(ptr noundef %0, i32 noun
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define void @If_End(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Abc_FrameReadLibLut() #6
@@ -371,46 +365,52 @@ define void @If_End(ptr noundef readnone captures(none) %0) local_unnamed_addr #
   ret void
 }
 
-declare void @If_LibLutFree(ptr noundef) local_unnamed_addr #3
+declare void @If_LibLutFree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #3
+declare ptr @Abc_FrameReadLibLut(...) local_unnamed_addr #2
 
-declare void @If_LibBoxFree(ptr noundef) local_unnamed_addr #3
+declare void @If_LibBoxFree(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #3
+declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #2
 
-declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_FrameReadOut(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #3
+declare ptr @Abc_FrameReadErr(ptr noundef) local_unnamed_addr #2
 
-declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #3
+declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #2
 
-declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
-
-declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare ptr @If_LibLutRead(ptr noundef) local_unnamed_addr #3
+declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @If_LibLutPrint(ptr noundef) local_unnamed_addr #3
+; Function Attrs: nofree nounwind
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @If_LibBoxRead2(ptr noundef) local_unnamed_addr #3
+declare ptr @If_LibLutRead(ptr noundef) local_unnamed_addr #2
 
-declare ptr @If_LibBoxRead(ptr noundef) local_unnamed_addr #3
+declare void @If_LibLutPrint(ptr noundef) local_unnamed_addr #2
 
-declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #3
+declare ptr @If_LibBoxRead2(ptr noundef) local_unnamed_addr #2
 
-declare void @If_LibBoxPrint(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @If_LibBoxRead(ptr noundef) local_unnamed_addr #2
+
+declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #2
+
+declare void @If_LibBoxPrint(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
@@ -419,10 +419,10 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nofree nounwind }
 attributes #6 = { nounwind }
 

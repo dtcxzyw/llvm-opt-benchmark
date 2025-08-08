@@ -162,14 +162,11 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit:       ; preds = %4
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL11pool_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #4 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL11pool_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %0, align 8, !tbaa !14
   %.not = icmp ult i64 %1, %4
@@ -248,7 +245,7 @@ define internal noundef ptr @_ZN13duckdb_yyjsonL11pool_mallocEPvm(ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL12pool_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #4 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL12pool_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = load i64, ptr %0, align 8, !tbaa !14
   %.not = icmp ult i64 %3, %6
@@ -471,7 +468,7 @@ _ZN13duckdb_yyjsonL9pool_freeEPvS0_.exit:         ; preds = %.lr.ph, %46, %45, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN13duckdb_yyjsonL9pool_freeEPvS0_(ptr noundef captures(none) %0, ptr noundef %1) #4 {
+define internal void @_ZN13duckdb_yyjsonL9pool_freeEPvS0_(ptr noundef captures(none) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
@@ -540,11 +537,8 @@ define internal void @_ZN13duckdb_yyjsonL9pool_freeEPvS0_(ptr noundef captures(n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_addr #5 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_addr #4 {
   %1 = tail call noalias noundef dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #29
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %2, !prof !3
@@ -566,25 +560,25 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_alc_dyn_newEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZN13duckdb_yyjsonL14default_mallocEPvm(ptr readnone captures(none) %0, i64 noundef %1) #6 {
+define internal noalias noundef ptr @_ZN13duckdb_yyjsonL14default_mallocEPvm(ptr readnone captures(none) %0, i64 noundef %1) #5 {
   %3 = tail call noalias ptr @malloc(i64 noundef %1) #29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_ZN13duckdb_yyjsonL15default_reallocEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #7 {
+define internal noalias noundef ptr @_ZN13duckdb_yyjsonL15default_reallocEPvS0_mm(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 %2, i64 noundef %3) #6 {
   %5 = tail call ptr @realloc(ptr noundef %1, i64 noundef %3) #30
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN13duckdb_yyjsonL12default_freeEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #7 {
+define internal void @_ZN13duckdb_yyjsonL12default_freeEPvS0_(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
   tail call void @free(ptr noundef %1) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #8 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL10dyn_mallocEPvm(ptr noundef captures(none) %0, i64 noundef %1) #7 {
   %3 = add i64 %1, 4111
   %4 = and i64 %3, -4096
   %.not44 = icmp ult i64 %4, %1
@@ -659,7 +653,7 @@ _ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit:      ; preds = %2, %27, %8, %29, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3) #8 {
+define internal noundef ptr @_ZN13duckdb_yyjsonL11dyn_reallocEPvS0_mm(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3) #7 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -16
   %6 = add i64 %3, 4111
   %7 = and i64 %6, -4096
@@ -720,7 +714,7 @@ _ZN13duckdb_yyjsonL14dyn_size_alignEPm.exit:      ; preds = %4, %8, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN13duckdb_yyjsonL8dyn_freeEPvS0_(ptr noundef captures(address) %0, ptr noundef %1) #4 {
+define internal void @_ZN13duckdb_yyjsonL8dyn_freeEPvS0_(ptr noundef captures(address) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
@@ -776,10 +770,10 @@ _ZN13duckdb_yyjsonL21dyn_chunk_list_removeEPNS_9dyn_chunkES1_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2, !prof !3
 
@@ -820,7 +814,7 @@ define void @_ZN13duckdb_yyjson19yyjson_alc_dyn_freeEPNS_10yyjson_alcE(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_15yyjson_str_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ugt i64 %2, -17
   br i1 %4, label %25, label %5, !prof !3
 
@@ -864,7 +858,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_str_pool_growEPNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_15yyjson_val_poolEPKNS_10yyjson_alcEm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = icmp ugt i64 %2, 768614336404564649
   br i1 %4, label %26, label %5, !prof !3
 
@@ -909,7 +903,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson27unsafe_yyjson_val_pool_growEPNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, -17
@@ -927,7 +921,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_str_pool_sizeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeEPNS_14yyjson_mut_docEm(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #10 {
   %3 = icmp ne ptr %0, null
   %4 = add i64 %1, -1
   %5 = icmp ult i64 %4, 768614336404564649
@@ -946,7 +940,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson32yyjson_mut_doc_set_val_pool_sizeE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13duckdb_yyjson19yyjson_mut_doc_freeEPNS_14yyjson_mut_docE(ptr noundef %0) local_unnamed_addr #10 {
+define void @_ZN13duckdb_yyjson19yyjson_mut_doc_freeEPNS_14yyjson_mut_docE(ptr noundef %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -991,7 +985,7 @@ _ZN13duckdb_yyjsonL30unsafe_yyjson_val_pool_releaseEPNS_15yyjson_val_poolEPNS_10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %0
   %2 = load ptr, ptr %spec.store.select, align 8, !tbaa !17
@@ -1020,7 +1014,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson19yyjson_doc_mut_copyEPNS_10yyjson_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson19yyjson_doc_mut_copyEPNS_10yyjson_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit.thread, label %3
 
@@ -1101,7 +1095,7 @@ _ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_docEPNS_10yyjson_valE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_docEPNS_10yyjson_valE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1317,7 +1311,7 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_doc_mut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_doc_mut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit, label %3
 
@@ -1429,7 +1423,7 @@ _ZN13duckdb_yyjson18yyjson_mut_doc_newEPKNS_10yyjson_alcE.exit: ; preds = %16, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1445,7 +1439,7 @@ define noundef ptr @_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL30unsafe_yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL30unsafe_yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !60
@@ -1583,7 +1577,7 @@ _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mut_docEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1598,17 +1592,17 @@ define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_doc_imut_copyEPNS_14yyjson_mu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_val_imut_copyEPNS_14yyjson_mut_valEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson24yyjson_mut_val_imut_copyEPNS_14yyjson_mut_valEPKNS_10yyjson_alcE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8, !tbaa !86
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %_ZN13duckdb_yyjsonL13size_align_upEmm.exit
@@ -1668,15 +1662,15 @@ _ZN13duckdb_yyjsonL13size_align_upEmm.exit:       ; preds = %2
 
 34:                                               ; preds = %_ZN13duckdb_yyjsonL13size_align_upEmm.exit, %2, %28, %24
   %.0 = phi ptr [ %13, %28 ], [ null, %24 ], [ null, %2 ], [ null, %_ZN13duckdb_yyjsonL13size_align_upEmm.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_mut_valEPmS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #12 {
+define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_mut_valEPmS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #11 {
   %4 = load i64, ptr %0, align 8, !tbaa !73
   %5 = trunc i64 %4 to i8
   %6 = load i64, ptr %1, align 8, !tbaa !85
@@ -1759,7 +1753,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL15yyjson_mut_statEPNS_14yyjson_m
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_10yyjson_valEPPcPNS_14yyjson_mut_valE(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #12 {
+define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_10yyjson_valEPPcPNS_14yyjson_mut_valE(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #11 {
   %4 = load ptr, ptr %0, align 8, !tbaa !87
   %5 = load i64, ptr %2, align 8, !tbaa !73
   %6 = trunc i64 %5 to i8
@@ -1876,7 +1870,7 @@ define internal fastcc noundef i64 @_ZN13duckdb_yyjsonL16yyjson_imut_copyEPPNS_1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson_valES1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #13 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson20unsafe_yyjson_equalsEPNS_10yyjson_valES1_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2140,7 +2134,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yyjson_mut_valES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson24unsafe_yyjson_mut_equalsEPNS_14yyjson_mut_valES1_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = load i64, ptr %0, align 8, !tbaa !73
   %4 = trunc i64 %3 to i8
   %5 = and i8 %4, 7
@@ -2340,7 +2334,7 @@ default.unreachable:                              ; preds = %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson22unsafe_yyjson_ptr_getxEPNS_10yyjson_valEPKcmPNS_14yyjson_ptr_errE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #14 {
+define noundef ptr @_ZN13duckdb_yyjson22unsafe_yyjson_ptr_getxEPNS_10yyjson_valEPKcmPNS_14yyjson_ptr_errE(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %6
 
@@ -2633,7 +2627,7 @@ _ZN13duckdb_yyjsonL11ptr_obj_getEPNS_10yyjson_valEPKcmm.exit: ; preds = %.lr.ph1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
+define noundef ptr @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %.not40 = icmp ne ptr %3, null
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2978,7 +2972,7 @@ _ZN13duckdb_yyjsonL15ptr_mut_obj_getEPNS_14yyjson_mut_valEPKcmmPS1_.exit.thread:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson26unsafe_yyjson_mut_ptr_putxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #9 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %11
 
@@ -4506,9 +4500,9 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit303: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #15 {
+define noundef ptr @_ZN13duckdb_yyjson30unsafe_yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #14 {
   %7 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr %7, ptr %4
@@ -4774,14 +4768,14 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
   br label %129
 
 129:                                              ; preds = %6, %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #15 {
+define noundef ptr @_ZN13duckdb_yyjson29unsafe_yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #14 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_ptr_ctx", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %3, null
   %spec.store.select = select i1 %.not, ptr %6, ptr %3
@@ -4941,14 +4935,14 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
   br label %76
 
 76:                                               ; preds = %_ZN13duckdb_yyjsonL18yyjson_mut_obj_putEPNS_14yyjson_mut_valES1_S1_.exit, %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson12yyjson_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson12yyjson_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_patch_err", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   %.0252.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.0252.sroa.gep264 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5867,12 +5861,12 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; p
 
 .critedge:                                        ; preds = %279, %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i, %_ZN13duckdb_yyjsonL20yyjson_arr_iter_initEPNS_10yyjson_valEPNS_15yyjson_arr_iterE.exit, %52, %51, %73, %72, %82, %81, %102, %101, %111, %110, %131, %130, %139, %138, %157, %156, %166, %165, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %182, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %193, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %206, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread, %221, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread, %231, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %242, %248, %247, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread, %257, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread, %268, %273, %272, %278, %277, %29, %30, %22, %23, %14, %15
   %.0251 = phi ptr [ null, %15 ], [ null, %14 ], [ null, %23 ], [ null, %22 ], [ null, %30 ], [ null, %29 ], [ null, %277 ], [ null, %278 ], [ null, %272 ], [ null, %273 ], [ null, %268 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit846.thread.thread ], [ null, %257 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit828.thread.thread ], [ null, %247 ], [ null, %248 ], [ null, %242 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %231 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit821.thread.thread ], [ null, %221 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit836.thread.thread ], [ null, %206 ], [ null, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %193 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %182 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %165 ], [ null, %166 ], [ null, %156 ], [ null, %157 ], [ null, %138 ], [ null, %139 ], [ null, %130 ], [ null, %131 ], [ null, %110 ], [ null, %111 ], [ null, %101 ], [ null, %102 ], [ null, %81 ], [ null, %82 ], [ null, %72 ], [ null, %73 ], [ null, %51 ], [ null, %52 ], [ %25, %_ZN13duckdb_yyjsonL20yyjson_arr_iter_initEPNS_10yyjson_valEPNS_15yyjson_arr_iterE.exit ], [ %25, %_ZN13duckdb_yyjsonL13yyjson_is_arrEPNS_10yyjson_valE.exit.i ], [ %.1255, %279 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0251
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_op_getEPNS_10yyjson_valE(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #16 {
+define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_op_getEPNS_10yyjson_valE(i64 %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #15 {
   %1 = lshr i64 %.0.val, 8
   switch i64 %1, label %8 [
     i64 3, label %2
@@ -5921,9 +5915,9 @@ define internal fastcc noundef range(i32 0, 7) i32 @_ZN13duckdb_yyjsonL12patch_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_mut_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_mut_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_PNS_16yyjson_patch_errE(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_patch_err", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   %.0252.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.0252.sroa.gep264 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6849,14 +6843,14 @@ _ZN13duckdb_yyjsonL17yyjson_mut_equalsEPNS_14yyjson_mut_valES1_.exit.thread: ; p
 
 .critedge:                                        ; preds = %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit, %249, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i, %48, %47, %64, %63, %72, %71, %87, %86, %95, %94, %110, %109, %115, %114, %128, %127, %136, %135, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread, %152, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread, %163, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %176, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %191, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread, %201, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread, %212, %218, %217, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %227, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread, %238, %243, %242, %248, %247, %27, %28, %22, %23, %14, %15
   %.0251 = phi ptr [ null, %15 ], [ null, %14 ], [ null, %23 ], [ null, %22 ], [ null, %28 ], [ null, %27 ], [ null, %247 ], [ null, %248 ], [ null, %242 ], [ null, %243 ], [ null, %238 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %227 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %217 ], [ null, %218 ], [ null, %212 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_getxEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit832.thread.thread ], [ null, %201 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit813.thread.thread ], [ null, %191 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %176 ], [ null, %_ZN13duckdb_yyjsonL23yyjson_mut_ptr_replacexEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit.thread.thread ], [ null, %163 ], [ null, %_ZN13duckdb_yyjsonL22yyjson_mut_ptr_removexEPNS_14yyjson_mut_valEPKcmPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit825.thread.thread ], [ null, %152 ], [ null, %_ZN13duckdb_yyjsonL19yyjson_mut_ptr_addxEPNS_14yyjson_mut_valEPKcmS1_PNS_14yyjson_mut_docEbPNS_14yyjson_ptr_ctxEPNS_14yyjson_ptr_errE.exit819.thread.thread ], [ null, %135 ], [ null, %136 ], [ null, %127 ], [ null, %128 ], [ null, %114 ], [ null, %115 ], [ null, %109 ], [ null, %110 ], [ null, %94 ], [ null, %95 ], [ null, %86 ], [ null, %87 ], [ null, %71 ], [ null, %72 ], [ null, %63 ], [ null, %64 ], [ null, %47 ], [ null, %48 ], [ %24, %_ZN13duckdb_yyjsonL17yyjson_mut_is_arrEPNS_14yyjson_mut_valE.exit.i ], [ %.02541205, %_ZN13duckdb_yyjsonL24yyjson_mut_arr_iter_nextEPNS_19yyjson_mut_arr_iterE.exit ], [ %.1255, %249 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0251
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_merge_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_merge_patchEPNS_14yyjson_mut_docEPNS_10yyjson_valES3_(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #9 {
   %4 = alloca %"struct.duckdb_yyjson::yyjson_val", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i75 = icmp eq ptr %2, null
   %.053.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.053.sroa.gep97 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7182,16 +7176,16 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
 
 _ZN13duckdb_yyjsonL14yyjson_mut_objEPNS_14yyjson_mut_docE.exit.thread: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, %61, %146, %128, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit80, %16, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i, %9, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread
   %.0 = phi ptr [ %8, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.thread ], [ null, %9 ], [ null, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i ], [ null, %16 ], [ %19, %_ZN13duckdb_yyjsonL15yyjson_obj_sizeEPNS_10yyjson_valE.exit80 ], [ %19, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit.i79 ], [ %19, %146 ], [ null, %128 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit71 ], [ null, %61 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson22yyjson_mut_merge_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson22yyjson_mut_merge_patchEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valES3_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %.sroa.0 = alloca i64, align 8
   %.sroa.5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %.not.i80 = icmp eq ptr %2, null
   %.055.sroa.gep115 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %.not.i80, label %_ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit, label %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit81, !prof !141
@@ -7555,13 +7549,13 @@ _ZN13duckdb_yyjsonL18yyjson_mut_obj_addEPNS_14yyjson_mut_valES1_S1_.exit: ; pred
 
 _ZN13duckdb_yyjson23yyjson_mut_val_mut_copyEPNS_14yyjson_mut_docEPNS_14yyjson_mut_valE.exit: ; preds = %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit, %69, %161, %143, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit87, %17, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i, %10, %3, %8, %7
   %.0 = phi ptr [ %9, %8 ], [ null, %7 ], [ null, %3 ], [ null, %10 ], [ null, %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.i ], [ null, %17 ], [ %20, %_ZN13duckdb_yyjsonL19yyjson_mut_obj_sizeEPNS_14yyjson_mut_valE.exit87 ], [ %20, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit.i86 ], [ %20, %161 ], [ null, %143 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit77 ], [ null, %69 ], [ null, %_ZN13duckdb_yyjsonL17yyjson_mut_is_objEPNS_14yyjson_mut_valE.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #9 {
   %6 = alloca i32, align 4
   %7 = alloca %"struct.duckdb_yyjson::bigint", align 8
   %8 = alloca %"struct.duckdb_yyjson::bigint", align 8
@@ -7583,8 +7577,8 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %24 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
   %25 = alloca ptr, align 8
   %26 = alloca %"struct.duckdb_yyjson::yyjson_alc", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %.not = icmp eq ptr %4, null
   %spec.store.select = select i1 %.not, ptr %24, ptr %4
   %.not152 = icmp eq ptr %3, null
@@ -7789,10 +7783,10 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   br i1 %.not3545, label %5187, label %92
 
 92:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %76, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %93 = and i32 %2, 2
   %.not3783 = icmp eq i32 %93, 0
   %94 = ptrtoint ptr %.0 to i64
@@ -8158,7 +8152,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %.7456.i = phi ptr [ %.1450.i.ph, %221 ], [ %228, %.thread3264 ]
   %.5.i = phi i64 [ %.1.i.ph, %221 ], [ %225, %.thread3264 ]
   %240 = add i64 %.1442.i.ph, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !155
   %241 = and i32 %2, 128
   %.not3962 = icmp eq i32 %241, 0
@@ -8167,7 +8161,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 
 242:                                              ; preds = %238
   %243 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %21, ptr noundef nonnull %23, i32 noundef %2, ptr noundef %.7499.i, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %243, label %.preheader4174, label %5136, !prof !117
 
 .critedge689.i359:                                ; preds = %238
@@ -8345,7 +8339,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
 312:                                              ; preds = %284, %291, %309, %306
   %.343177.ph = phi ptr [ %302, %306 ], [ %302, %309 ], [ %.037.i1181, %284 ], [ %.037.i1181, %291 ]
   store ptr %.343177.ph, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds = %255, %298, %295, %294, %254
@@ -8369,7 +8363,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %322 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 0, ptr %322, align 8, !tbaa !75
   store ptr %314, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 323:                                              ; preds = %313
@@ -9678,7 +9672,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %1064 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 %1063, ptr %1064, align 8, !tbaa !75
   store ptr %.103153.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1065:                                             ; preds = %1061
@@ -9703,7 +9697,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   store ptr %239, ptr %1074, align 8, !tbaa !75
   store ptr %.103153.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.103153.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1075:                                             ; preds = %1065
@@ -9715,7 +9709,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %1078 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 %1077, ptr %1078, align 8, !tbaa !75
   store ptr %.103153.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1079:                                             ; preds = %1075
@@ -9744,7 +9738,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %1088 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 %1087, ptr %1088, align 8, !tbaa !75
   store ptr %.113154, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1089:                                             ; preds = %1084
@@ -9774,7 +9768,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   store ptr %239, ptr %1101, align 8, !tbaa !75
   store ptr %.113154, ptr %23, align 8, !tbaa !86
   store ptr %.113154, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1102:                                             ; preds = %1091
@@ -9786,7 +9780,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %1105 = getelementptr inbounds nuw i8, ptr %.7499.i, i64 8
   store i64 %1104, ptr %1105, align 8, !tbaa !75
   store ptr %.113154, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1106:                                             ; preds = %1102
@@ -9929,8 +9923,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881: ; preds =
   %.pre-phi6841 = phi i32 [ %.pre6840, %..critedge691.i400_crit_edge ], [ %1155, %1154 ]
   %.pre-phi6839 = phi i32 [ %.pre6838, %..critedge691.i400_crit_edge ], [ %1138, %1154 ]
   %.pre-phi6833 = phi i64 [ %.pre6832, %..critedge691.i400_crit_edge ], [ %1142, %1154 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %10) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %11) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1187 = select i1 %1130, i64 0, i64 4
   %1188 = shl i64 %1187, %.pre-phi6833
   %1189 = sext i32 %.pre-phi6839 to i64
@@ -10697,16 +10691,16 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1321.thread: ; preds = %1517
   br label %1540
 
 .thread3507:                                      ; preds = %1274, %1535
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %11) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %10) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %5136
 
 1540:                                             ; preds = %1536, %1532, %1524, %1277, %1271, %1263
   store ptr %.73150, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %11) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %10) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 .preheader4174:                                   ; preds = %2268, %2275, %2291, %2289, %2198, %2196, %2343, %5085, %242, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit464, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit764, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit850, %_ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit853, %_ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit856, %312, %320, %1062, %1069, %1076, %1086, %1095, %1103, %1540
@@ -10727,13 +10721,13 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1321.thread: ; preds = %1517
   br label %2299
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit464.thread: ; preds = %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit881, %332, %1038, %1079, %1106, %987, %1009, %347, %365, %950
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %5136
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit464: ; preds = %.loopexit4153, %532, %534, %538, %547, %558, %569, %580, %591, %602, %613, %624, %635, %646, %657, %668, %679, %690, %701, %712, %723, %734, %931, %933, %937, %971, %1019, %1125, %1170
   %.23145.sink = phi ptr [ %.23145, %.loopexit4153 ], [ %520, %532 ], [ %520, %534 ], [ %520, %538 ], [ %376, %547 ], [ %384, %558 ], [ %392, %569 ], [ %400, %580 ], [ %408, %591 ], [ %416, %602 ], [ %424, %613 ], [ %432, %624 ], [ %440, %635 ], [ %448, %646 ], [ %456, %657 ], [ %464, %668 ], [ %472, %679 ], [ %480, %690 ], [ %488, %701 ], [ %496, %712 ], [ %504, %723 ], [ %512, %734 ], [ %912, %931 ], [ %912, %933 ], [ %912, %937 ], [ %954, %971 ], [ %.63149, %1019 ], [ %.73150, %1125 ], [ %.73150, %1170 ]
   store ptr %.23145.sink, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader4174
 
 1544:                                             ; preds = %216
@@ -14948,7 +14942,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit806: ; preds =
 3626:                                             ; preds = %3619
   %3627 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 16
   %3628 = add i64 %.0441.i.ph, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !155
   %3629 = and i32 %2, 128
   %.not3831 = icmp eq i32 %3629, 0
@@ -14957,7 +14951,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit806: ; preds =
 
 3630:                                             ; preds = %3626
   %3631 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %21, ptr noundef nonnull %23, i32 noundef %2, ptr noundef nonnull %3627, ptr noundef nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %3631, label %.preheader4179, label %5136, !prof !117
 
 .critedge689.i466:                                ; preds = %3626
@@ -15134,7 +15128,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit806: ; preds =
 3699:                                             ; preds = %3671, %3678, %3696, %3693
   %.34.ph = phi ptr [ %3689, %3693 ], [ %3689, %3696 ], [ %.037.i1187, %3671 ], [ %.037.i1187, %3678 ]
   store ptr %.34.ph, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3642, %3685, %3682, %3681, %3641
@@ -15158,7 +15152,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %3709 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 0, ptr %3709, align 8, !tbaa !75
   store ptr %3701, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 3710:                                             ; preds = %3700
@@ -16467,7 +16461,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4451 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 %4450, ptr %4451, align 8, !tbaa !75
   store ptr %.10.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4452:                                             ; preds = %4448
@@ -16492,7 +16486,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store ptr %3621, ptr %4461, align 8, !tbaa !75
   store ptr %.10.lcssa, ptr %23, align 8, !tbaa !86
   store ptr %.10.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4462:                                             ; preds = %4452
@@ -16504,7 +16498,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4465 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 %4464, ptr %4465, align 8, !tbaa !75
   store ptr %.10.lcssa, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4466:                                             ; preds = %4462
@@ -16533,7 +16527,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4475 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 %4474, ptr %4475, align 8, !tbaa !75
   store ptr %.11, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4476:                                             ; preds = %4471
@@ -16563,7 +16557,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   store ptr %3621, ptr %4488, align 8, !tbaa !75
   store ptr %.11, ptr %23, align 8, !tbaa !86
   store ptr %.11, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4489:                                             ; preds = %4478
@@ -16575,7 +16569,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4492 = getelementptr inbounds nuw i8, ptr %.25517.i, i64 24
   store i64 %4491, ptr %4492, align 8, !tbaa !75
   store ptr %.11, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4493:                                             ; preds = %4489
@@ -16718,8 +16712,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %.pre-phi6865 = phi i32 [ %.pre6864, %..critedge691.i507_crit_edge ], [ %4542, %4541 ]
   %.pre-phi6863 = phi i32 [ %.pre6862, %..critedge691.i507_crit_edge ], [ %4525, %4541 ]
   %.pre-phi6857 = phi i64 [ %.pre6856, %..critedge691.i507_crit_edge ], [ %4529, %4541 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %7) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %8) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %4574 = select i1 %4517, i64 0, i64 4
   %4575 = shl i64 %4574, %.pre-phi6857
   %4576 = sext i32 %.pre-phi6863 to i64
@@ -17486,16 +17480,16 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %4904, %4
   br label %4927
 
 .thread3510:                                      ; preds = %4661, %4922
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %5136
 
 4927:                                             ; preds = %4923, %4919, %4911, %4664, %4658, %4650
   store ptr %.7, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 .preheader4179:                                   ; preds = %5007, %5014, %5030, %5028, %4964, %4962, %2343, %5085, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit806, %3630, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit571, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit851, %_ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit854, %_ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit857, %3699, %3707, %4449, %4456, %4463, %4473, %4482, %4490, %4927
@@ -17516,13 +17510,13 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %4904, %4
   br label %5041
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit571.thread: ; preds = %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit, %3719, %4425, %4466, %4493, %4374, %4396, %3734, %3752, %4337
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %5136
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit571: ; preds = %.loopexit4193, %3919, %3921, %3925, %3934, %3945, %3956, %3967, %3978, %3989, %4000, %4011, %4022, %4033, %4044, %4055, %4066, %4077, %4088, %4099, %4110, %4121, %4318, %4320, %4324, %4358, %4406, %4512, %4557
   %.2.sink = phi ptr [ %.2, %.loopexit4193 ], [ %3907, %3919 ], [ %3907, %3921 ], [ %3907, %3925 ], [ %3763, %3934 ], [ %3771, %3945 ], [ %3779, %3956 ], [ %3787, %3967 ], [ %3795, %3978 ], [ %3803, %3989 ], [ %3811, %4000 ], [ %3819, %4011 ], [ %3827, %4022 ], [ %3835, %4033 ], [ %3843, %4044 ], [ %3851, %4055 ], [ %3859, %4066 ], [ %3867, %4077 ], [ %3875, %4088 ], [ %3883, %4099 ], [ %3891, %4110 ], [ %3899, %4121 ], [ %4299, %4318 ], [ %4299, %4320 ], [ %4299, %4324 ], [ %4341, %4358 ], [ %.6, %4406 ], [ %.7, %4512 ], [ %.7, %4557 ]
   store ptr %.2.sink, ptr %21, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.preheader4179
 
 4931:                                             ; preds = %3619
@@ -18227,16 +18221,16 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit918.thread: ; 
 
 _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit: ; preds = %5116, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit764.thread, %5135, %5147, %5148, %5149, %5155, %.loopexit4151, %5161, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit850.thread, %5167, %5168, %5174, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit918.thread, %5180, %5181, %5186
   %.0.i = phi ptr [ %.20.i, %5116 ], [ null, %5135 ], [ null, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit764.thread ], [ null, %5148 ], [ null, %5147 ], [ null, %5155 ], [ null, %5149 ], [ null, %5161 ], [ null, %.loopexit4151 ], [ null, %5167 ], [ null, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit850.thread ], [ null, %5174 ], [ null, %5168 ], [ null, %5180 ], [ null, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit918.thread ], [ null, %5186 ], [ null, %5181 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %10126
 
 5187:                                             ; preds = %85, %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %76, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %5188 = and i32 %2, 2
   %.not3546 = icmp eq i32 %5188, 0
   %5189 = ptrtoint ptr %.0 to i64
@@ -18397,7 +18391,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   %.7455.i = phi ptr [ %.1449.i.ph, %5244 ], [ %5251, %.thread3386 ]
   %.5.i225 = phi i64 [ %.1.i162.ph, %5244 ], [ %5248, %.thread3386 ]
   %5263 = add i64 %.1441.i.ph, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !155
   %5264 = and i32 %2, 128
   %.not3719 = icmp eq i32 %5264, 0
@@ -18406,7 +18400,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
 
 5265:                                             ; preds = %5261
   %5266 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, ptr noundef %.7498.i, ptr noundef nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %5266, label %.preheader4079, label %10073, !prof !117
 
 .critedge689.i:                                   ; preds = %5261
@@ -18584,7 +18578,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
 5335:                                             ; preds = %5307, %5314, %5332, %5329
   %.343215.ph = phi ptr [ %5325, %5329 ], [ %5325, %5332 ], [ %.037.i1169, %5307 ], [ %.037.i1169, %5314 ]
   store ptr %.343215.ph, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds = %5278, %5321, %5318, %5317, %5277
@@ -18608,7 +18602,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %5345 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 0, ptr %5345, align 8, !tbaa !75
   store ptr %5337, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 5346:                                             ; preds = %5336
@@ -19917,7 +19911,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %6087 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 %6086, ptr %6087, align 8, !tbaa !75
   store ptr %.103191.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6088:                                             ; preds = %6084
@@ -19942,7 +19936,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   store ptr %5262, ptr %6097, align 8, !tbaa !75
   store ptr %.103191.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.103191.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6098:                                             ; preds = %6088
@@ -19954,7 +19948,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %6101 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 %6100, ptr %6101, align 8, !tbaa !75
   store ptr %.103191.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6102:                                             ; preds = %6098
@@ -19983,7 +19977,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %6111 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 %6110, ptr %6111, align 8, !tbaa !75
   store ptr %.113192, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6112:                                             ; preds = %6107
@@ -20013,7 +20007,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   store ptr %5262, ptr %6124, align 8, !tbaa !75
   store ptr %.113192, ptr %20, align 8, !tbaa !86
   store ptr %.113192, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6125:                                             ; preds = %6114
@@ -20025,7 +20019,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %6128 = getelementptr inbounds nuw i8, ptr %.7498.i, i64 8
   store i64 %6127, ptr %6128, align 8, !tbaa !75
   store ptr %.113192, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6129:                                             ; preds = %6125
@@ -20168,8 +20162,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897: ; preds =
   %.pre-phi6793 = phi i32 [ %.pre6792, %..critedge691.i_crit_edge ], [ %6178, %6177 ]
   %.pre-phi6791 = phi i32 [ %.pre6790, %..critedge691.i_crit_edge ], [ %6161, %6177 ]
   %.pre-phi6785 = phi i64 [ %.pre6784, %..critedge691.i_crit_edge ], [ %6165, %6177 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %16) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %17) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %6210 = select i1 %6153, i64 0, i64 4
   %6211 = shl i64 %6210, %.pre-phi6785
   %6212 = sext i32 %.pre-phi6791 to i64
@@ -20936,16 +20930,16 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1339.thread: ; preds = %6540
   br label %6563
 
 .thread3513:                                      ; preds = %6297, %6558
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %17) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %16) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %10073
 
 6563:                                             ; preds = %6559, %6555, %6547, %6300, %6294, %6286
   store ptr %.73188, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %17) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %16) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 .preheader4079:                                   ; preds = %7289, %7296, %7312, %7310, %7219, %7217, %7354, %10018, %5265, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit, %_ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit, %_ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit, %5335, %5343, %6085, %6092, %6099, %6109, %6118, %6126, %6563
@@ -20960,13 +20954,13 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1339.thread: ; preds = %6540
   br label %.backedge4081
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread: ; preds = %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit897, %5355, %6061, %6102, %6129, %6010, %6032, %5370, %5388, %5973
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %10073
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %.loopexit4058, %5555, %5557, %5561, %5570, %5581, %5592, %5603, %5614, %5625, %5636, %5647, %5658, %5669, %5680, %5691, %5702, %5713, %5724, %5735, %5746, %5757, %5954, %5956, %5960, %5994, %6042, %6148, %6193
   %.23183.sink = phi ptr [ %.23183, %.loopexit4058 ], [ %5543, %5555 ], [ %5543, %5557 ], [ %5543, %5561 ], [ %5399, %5570 ], [ %5407, %5581 ], [ %5415, %5592 ], [ %5423, %5603 ], [ %5431, %5614 ], [ %5439, %5625 ], [ %5447, %5636 ], [ %5455, %5647 ], [ %5463, %5658 ], [ %5471, %5669 ], [ %5479, %5680 ], [ %5487, %5691 ], [ %5495, %5702 ], [ %5503, %5713 ], [ %5511, %5724 ], [ %5519, %5735 ], [ %5527, %5746 ], [ %5535, %5757 ], [ %5935, %5954 ], [ %5935, %5956 ], [ %5935, %5960 ], [ %5977, %5994 ], [ %.63187, %6042 ], [ %.73188, %6148 ], [ %.73188, %6193 ]
   store ptr %.23183.sink, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.preheader4079
 
 6565:                                             ; preds = %5239
@@ -24949,7 +24943,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit680: ; preds =
 8572:                                             ; preds = %8565
   %8573 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 16
   %8574 = add i64 %.0440.i178.ph, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !155
   %8575 = and i32 %2, 128
   %.not3591 = icmp eq i32 %8575, 0
@@ -24958,7 +24952,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit680: ; preds =
 
 8576:                                             ; preds = %8572
   %8577 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %2, ptr noundef nonnull %8573, ptr noundef nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %8577, label %.preheader4084, label %10073, !prof !117
 
 .critedge689.i252:                                ; preds = %8572
@@ -25135,7 +25129,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit680: ; preds =
 8645:                                             ; preds = %8617, %8624, %8642, %8639
   %.343253.ph = phi ptr [ %8635, %8639 ], [ %8635, %8642 ], [ %.037.i1175, %8617 ], [ %.037.i1175, %8624 ]
   store ptr %.343253.ph, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds = %8588, %8631, %8628, %8627, %8587
@@ -25159,7 +25153,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %8655 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 0, ptr %8655, align 8, !tbaa !75
   store ptr %8647, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 8656:                                             ; preds = %8646
@@ -26468,7 +26462,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %9397 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 %9396, ptr %9397, align 8, !tbaa !75
   store ptr %.103229.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9398:                                             ; preds = %9394
@@ -26493,7 +26487,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   store ptr %8567, ptr %9407, align 8, !tbaa !75
   store ptr %.103229.lcssa, ptr %20, align 8, !tbaa !86
   store ptr %.103229.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9408:                                             ; preds = %9398
@@ -26505,7 +26499,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %9411 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 %9410, ptr %9411, align 8, !tbaa !75
   store ptr %.103229.lcssa, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9412:                                             ; preds = %9408
@@ -26534,7 +26528,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %9421 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 %9420, ptr %9421, align 8, !tbaa !75
   store ptr %.113230, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9422:                                             ; preds = %9417
@@ -26564,7 +26558,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   store ptr %8567, ptr %9434, align 8, !tbaa !75
   store ptr %.113230, ptr %20, align 8, !tbaa !86
   store ptr %.113230, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9435:                                             ; preds = %9424
@@ -26576,7 +26570,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %9438 = getelementptr inbounds nuw i8, ptr %.25516.i, i64 24
   store i64 %9437, ptr %9438, align 8, !tbaa !75
   store ptr %.113230, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9439:                                             ; preds = %9435
@@ -26719,8 +26713,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889: ; preds =
   %.pre-phi6817 = phi i32 [ %.pre6816, %..critedge691.i293_crit_edge ], [ %9488, %9487 ]
   %.pre-phi6815 = phi i32 [ %.pre6814, %..critedge691.i293_crit_edge ], [ %9471, %9487 ]
   %.pre-phi6809 = phi i64 [ %.pre6808, %..critedge691.i293_crit_edge ], [ %9475, %9487 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %13) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %14) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %9520 = select i1 %9463, i64 0, i64 4
   %9521 = shl i64 %9520, %.pre-phi6809
   %9522 = sext i32 %.pre-phi6815 to i64
@@ -27487,16 +27481,16 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1330.thread: ; preds = %9850
   br label %9873
 
 .thread3516:                                      ; preds = %9607, %9868
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %14) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %13) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %10073
 
 9873:                                             ; preds = %9869, %9865, %9857, %9610, %9604, %9596
   store ptr %.73226, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %14) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %13) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 .preheader4084:                                   ; preds = %9951, %9958, %9974, %9972, %9908, %9906, %7354, %10018, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit680, %8576, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit357, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit849, %_ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit852, %_ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855, %8645, %8653, %9395, %9402, %9409, %9419, %9428, %9436, %9873
@@ -27511,13 +27505,13 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1330.thread: ; preds = %9850
   br label %.backedge4086
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit357.thread: ; preds = %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit889, %8665, %9371, %9412, %9439, %9320, %9342, %8680, %8698, %9283
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %10073
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit357: ; preds = %.loopexit4098, %8865, %8867, %8871, %8880, %8891, %8902, %8913, %8924, %8935, %8946, %8957, %8968, %8979, %8990, %9001, %9012, %9023, %9034, %9045, %9056, %9067, %9264, %9266, %9270, %9304, %9352, %9458, %9503
   %.23221.sink = phi ptr [ %.23221, %.loopexit4098 ], [ %8853, %8865 ], [ %8853, %8867 ], [ %8853, %8871 ], [ %8709, %8880 ], [ %8717, %8891 ], [ %8725, %8902 ], [ %8733, %8913 ], [ %8741, %8924 ], [ %8749, %8935 ], [ %8757, %8946 ], [ %8765, %8957 ], [ %8773, %8968 ], [ %8781, %8979 ], [ %8789, %8990 ], [ %8797, %9001 ], [ %8805, %9012 ], [ %8813, %9023 ], [ %8821, %9034 ], [ %8829, %9045 ], [ %8837, %9056 ], [ %8845, %9067 ], [ %9245, %9264 ], [ %9245, %9266 ], [ %9245, %9270 ], [ %9287, %9304 ], [ %.63225, %9352 ], [ %.73226, %9458 ], [ %.73226, %9503 ]
   store ptr %.23221.sink, ptr %18, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.preheader4084
 
 9875:                                             ; preds = %8565
@@ -28203,9 +28197,9 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit904.thread: ; 
 
 _ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE.exit: ; preds = %10053, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread, %10072, %10084, %10085, %10086, %10092, %.loopexit4056, %10098, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit.thread, %10104, %10105, %10111, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit904.thread, %10117, %10118, %10123
   %.0.i171 = phi ptr [ %.20.i192, %10053 ], [ null, %10072 ], [ null, %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit.thread ], [ null, %10085 ], [ null, %10084 ], [ null, %10092 ], [ null, %10086 ], [ null, %10098 ], [ null, %.loopexit4056 ], [ null, %10104 ], [ null, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit.thread ], [ null, %10111 ], [ null, %10105 ], [ null, %10117 ], [ null, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit904.thread ], [ null, %10123 ], [ null, %10118 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %10126
 
 10124:                                            ; preds = %74
@@ -28345,13 +28339,13 @@ _ZN13duckdb_yyjsonL16read_root_minifyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
 
 10178:                                            ; preds = %10127, %10177, %.thread3505, %72, %73, %56, %60, %42, %38, %31, %29
   %.0150 = phi ptr [ null, %29 ], [ null, %31 ], [ null, %38 ], [ null, %42 ], [ null, %60 ], [ null, %56 ], [ null, %73 ], [ null, %72 ], [ null, %.thread3505 ], [ null, %10177 ], [ %.0149, %10127 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   ret ptr %.0150
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_commentsEPPh(ptr noundef nonnull captures(none) %0) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_commentsEPPh(ptr noundef nonnull captures(none) %0) unnamed_addr #16 {
   %2 = load ptr, ptr %0, align 8, !tbaa !86
   br label %.outer
 
@@ -28446,7 +28440,7 @@ define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL24skip_spaces_and_
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%"struct.duckdb_yyjson::yyjson_alc") align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #18 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly byval(%"struct.duckdb_yyjson::yyjson_alc") align 8 captures(none) %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) unnamed_addr #17 {
   %7 = alloca i32, align 4
   %8 = alloca %"struct.duckdb_yyjson::bigint", align 8
   %9 = alloca %"struct.duckdb_yyjson::bigint", align 8
@@ -28454,8 +28448,8 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   store ptr %1, ptr %10, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load ptr, ptr %3, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !21
@@ -28481,7 +28475,7 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
   br i1 %.not591, label %1329, label %26
 
 26:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !155
   %27 = and i32 %4, 128
   %.not626 = icmp eq i32 %27, 0
@@ -28490,7 +28484,7 @@ define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL16read_root_singleEPhS0_S
 
 28:                                               ; preds = %26
   %29 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef %4, ptr noundef nonnull %17, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre1119 = load ptr, ptr %10, align 8, !tbaa !86
   br i1 %29, label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit, label %._crit_edge1109, !prof !117
 
@@ -30238,8 +30232,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %4
   %.pre-phi1130 = phi i32 [ %.pre1129, %..critedge691.i_crit_edge ], [ %942, %941 ]
   %.pre-phi1128 = phi i32 [ %.pre1127, %..critedge691.i_crit_edge ], [ %925, %941 ]
   %.pre-phi1122 = phi i64 [ %.pre1121, %..critedge691.i_crit_edge ], [ %929, %941 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %9) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %974 = select i1 %917, i64 0, i64 4
   %975 = shl i64 %974, %.pre-phi1122
   %976 = sext i32 %.pre-phi1128 to i64
@@ -31012,19 +31006,19 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %1305, %1
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread: ; preds = %92, %95, %77, %70, %105, %847, %854, %862, %872, %881, %890, %957, %912, %756, %804, %.loopexit697, %716, %718, %722, %317, %319, %323, %519, %508, %497, %486, %475, %464, %453, %442, %431, %420, %409, %398, %387, %376, %365, %354, %343, %332
   %.34.ph.sink = phi ptr [ %99, %105 ], [ %.10.lcssa, %847 ], [ %.10.lcssa, %854 ], [ %.10.lcssa, %862 ], [ %.11, %872 ], [ %.11, %881 ], [ %.11, %890 ], [ %.7, %957 ], [ %.7, %912 ], [ %739, %756 ], [ %.6, %804 ], [ %.2, %.loopexit697 ], [ %697, %716 ], [ %697, %718 ], [ %697, %722 ], [ %305, %317 ], [ %305, %319 ], [ %305, %323 ], [ %297, %519 ], [ %289, %508 ], [ %281, %497 ], [ %273, %486 ], [ %265, %475 ], [ %257, %464 ], [ %249, %453 ], [ %241, %442 ], [ %233, %431 ], [ %225, %420 ], [ %217, %409 ], [ %209, %398 ], [ %201, %387 ], [ %193, %376 ], [ %185, %365 ], [ %177, %354 ], [ %169, %343 ], [ %161, %332 ], [ %88, %92 ], [ %88, %95 ], [ %.037.i213, %70 ], [ %.037.i213, %77 ]
   store ptr %.34.ph.sink, ptr %10, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread579: ; preds = %1050, %1059, %1065, %1312, %1321, %1325
   store ptr %.7, ptr %10, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %9) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1062, %1324
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %9) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %._crit_edge1109.sink.split
 
 1329:                                             ; preds = %.thread
@@ -32441,7 +32435,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %1
 
 ._crit_edge1109.sink.split:                       ; preds = %735, %150, %132, %794, %772, %893, %865, %823, %117, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit
   %.ph = phi ptr [ %1, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit ], [ %32, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit ], [ %111, %117 ], [ %817, %823 ], [ %1, %865 ], [ %1, %893 ], [ %766, %772 ], [ %.6, %794 ], [ %133, %132 ], [ %144, %150 ], [ %729, %735 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge1109
 
 ._crit_edge1109:                                  ; preds = %._crit_edge1109.sink.split, %28
@@ -32567,15 +32561,15 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173: ; preds =
 
 2081:                                             ; preds = %2042, %2039, %2071, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173, %2053, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit, %._crit_edge1109, %.loopexit1321, %1999
   %.0 = phi ptr [ %16, %1999 ], [ null, %2071 ], [ null, %2053 ], [ null, %._crit_edge1109 ], [ null, %.loopexit1321 ], [ null, %_ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit ], [ null, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit173 ], [ null, %2039 ], [ null, %2042 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   %spec.store.select = select i1 %.not, ptr %5, ptr %3
   %.not16 = icmp eq ptr %0, null
@@ -32613,16 +32607,16 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_fileEPKcjPKNS_10yyjson_alcEP
 
 13:                                               ; preds = %10, %9, %6
   %.0 = phi ptr [ null, %6 ], [ null, %9 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #9 {
   %5 = alloca %"struct.duckdb_yyjson::yyjson_read_err", align 8
   %6 = alloca %"struct.duckdb_yyjson::yyjson_alc", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
   %7 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !4
@@ -32810,22 +32804,22 @@ define noundef ptr @_ZN13duckdb_yyjson14yyjson_read_fpEP8_IO_FILEjPKNS_10yyjson_
 
 .critedge:                                        ; preds = %49, %46, %39, %68, %66, %36, %33, %8
   %.0 = phi ptr [ null, %8 ], [ null, %33 ], [ null, %36 ], [ %65, %66 ], [ null, %68 ], [ null, %39 ], [ null, %46 ], [ null, %49 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #19
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_15yyjson_read_errE(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca %"struct.duckdb_yyjson::bigint", align 8
   %8 = alloca %"struct.duckdb_yyjson::bigint", align 8
@@ -32833,10 +32827,10 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = ptrtoint ptr %0 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not = icmp eq ptr %4, null
   %.not25 = icmp eq ptr %0, null
   br i1 %.not25, label %13, label %14, !prof !3
@@ -32871,7 +32865,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   %17 = and i32 %2, 160
   %.not27 = icmp ne i32 %17, 0
   store ptr null, ptr %10, align 8, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !155
   %18 = and i32 %2, 128
   %.not303 = icmp eq i32 %18, 0
@@ -32880,7 +32874,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 19:                                               ; preds = %16
   %20 = call fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %20, label %._crit_edge554, label %1290
 
 ._crit_edge554:                                   ; preds = %19
@@ -34550,8 +34544,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %.pre-phi564 = phi i32 [ %.pre563, %..critedge691.i_crit_edge ], [ %909, %908 ]
   %.pre-phi562 = phi i32 [ %.pre561, %..critedge691.i_crit_edge ], [ %892, %908 ]
   %.pre-phi556 = phi i64 [ %.pre555, %..critedge691.i_crit_edge ], [ %896, %908 ]
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %7) #31
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %8) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %941 = select i1 %884, i64 0, i64 4
   %942 = shl i64 %941, %.pre-phi556
   %943 = sext i32 %.pre-phi562 to i64
@@ -35300,7 +35294,7 @@ _ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread: ; preds = %1267, %1
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread: ; preds = %79, %81, %66, %59, %90, %822, %826, %833, %843, %849, %857, %924, %879, %732, %779, %.loopexit, %695, %697, %701, %299, %301, %305, %501, %490, %479, %468, %457, %446, %435, %424, %413, %402, %391, %380, %369, %358, %347, %336, %325, %314
   %1289 = phi ptr [ %84, %90 ], [ %.10.lcssa, %822 ], [ %.10.lcssa, %826 ], [ %.10.lcssa, %833 ], [ %.11, %843 ], [ %.11, %849 ], [ %.11, %857 ], [ %.7, %924 ], [ %.7, %879 ], [ %718, %732 ], [ %.6, %779 ], [ %.2, %.loopexit ], [ %679, %695 ], [ %679, %697 ], [ %679, %701 ], [ %290, %299 ], [ %290, %301 ], [ %290, %305 ], [ %282, %501 ], [ %274, %490 ], [ %266, %479 ], [ %258, %468 ], [ %250, %457 ], [ %242, %446 ], [ %234, %435 ], [ %226, %424 ], [ %218, %413 ], [ %210, %402 ], [ %202, %391 ], [ %194, %380 ], [ %186, %369 ], [ %178, %358 ], [ %170, %347 ], [ %162, %336 ], [ %154, %325 ], [ %146, %314 ], [ %77, %79 ], [ %77, %81 ], [ %.037.i, %59 ], [ %.037.i, %66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.cont.cont.cont
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread295: ; preds = %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit, %102, %798, %836, %860, %747, %769, %117, %135, %714
@@ -35309,20 +35303,20 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread295: ; 
   br label %.sink.split
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread298: ; preds = %1014, %1022, %1027, %1274, %1282, %1285
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.cont.cont.cont
 
 _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1280, %1020
   store ptr @.str.82, ptr %11, align 8, !tbaa !86
   store ptr %0, ptr %9, align 8, !tbaa !86
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %8) #31
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread295, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %1290
 
 1290:                                             ; preds = %.sink.split, %19
@@ -35344,16 +35338,16 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
 
 .cont.cont.cont:                                  ; preds = %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread298, %._crit_edge554, %.cont93.cont.else, %1290, %.cont90.cont.else, %15, %.cont.cont.else, %13
   %.0 = phi ptr [ null, %13 ], [ null, %.cont.cont.else ], [ null, %15 ], [ null, %.cont90.cont.else ], [ null, %1290 ], [ null, %.cont93.cont.else ], [ %.pre, %._crit_edge554 ], [ %.7, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread298 ], [ %1289, %_ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson21yyjson_val_write_optsEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
   %7 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %2
   %.sroa.01384.0.copyload = load ptr, ptr %7, align 8, !tbaa !5
@@ -47729,12 +47723,12 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.thread1890: ; preds 
 
 _ZN13duckdb_yyjsonL19yyjson_write_singleEPNS_10yyjson_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7620, %.cont1285, %7619, %.cont1288, %7618, %.cont, %7616, %.cont1291, %.cont1294, %5040, %.cont1300, %5039, %.cont1303, %5038, %.cont1297, %5036, %.cont1306, %.cont1309, %.cont1312, %.cont1315, %.cont1324, %.cont1318, %.cont1321, %.cont1327
   %.0 = phi ptr [ null, %.cont1327 ], [ null, %.cont1324 ], [ %.080.i, %.cont1321 ], [ null, %.cont1318 ], [ null, %.cont1312 ], [ null, %.cont1315 ], [ %.11.i, %.cont1309 ], [ null, %5036 ], [ null, %.cont1306 ], [ null, %5038 ], [ null, %.cont1297 ], [ null, %5039 ], [ null, %.cont1303 ], [ null, %5040 ], [ null, %.cont1300 ], [ %.8.i37, %.cont1294 ], [ null, %7616 ], [ null, %.cont1291 ], [ null, %7618 ], [ null, %.cont ], [ null, %7619 ], [ null, %.cont1288 ], [ null, %7620 ], [ null, %.cont1285 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %6
 
@@ -47749,11 +47743,11 @@ define noundef ptr @_ZN13duckdb_yyjson17yyjson_write_optsEPKNS_10yyjson_docEjPKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -47828,17 +47822,17 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 
 30:                                               ; preds = %12, %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit, %.critedge
   %.0 = phi i1 [ false, %.critedge ], [ %.0.i, %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -47882,13 +47876,13 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 
 21:                                               ; preds = %11, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit, %10
   %.0 = phi i1 [ false, %10 ], [ %.not.i, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit ], [ false, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -47903,7 +47897,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson17yyjson_write_fileEPKcPKNS_10yyjso
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10yyjson_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -47915,8 +47909,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10
 
 10:                                               ; preds = %5, %8
   %11 = phi ptr [ %9, %8 ], [ null, %5 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not.i = icmp eq ptr %3, null
   %12 = select i1 %.not.i, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -47960,21 +47954,21 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
 
 _ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKNS_10yyjson_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit: ; preds = %14, %15, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
   %.0.i = phi i1 [ false, %14 ], [ %.not.i.i, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i ], [ false, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson25yyjson_mut_val_write_optsEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = tail call fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef 0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #10 {
+define internal fastcc noundef ptr @_ZN13duckdb_yyjsonL26yyjson_mut_write_opts_implEPKNS_14yyjson_mut_valEmjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #9 {
   %7 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
   %.sroa.0515.0.copyload = load ptr, ptr %8, align 8, !tbaa !5
@@ -60410,12 +60404,12 @@ _ZN13duckdb_yyjsonL12write_numberEPhPNS_10yyjson_valEj.exit.i221.thread1033: ; p
 
 _ZN13duckdb_yyjsonL23yyjson_mut_write_singleEPNS_14yyjson_mut_valEjNS_10yyjson_alcEPmPNS_16yyjson_write_errE.exit: ; preds = %7660, %.cont404, %7659, %.cont407, %7658, %.cont, %7656, %.cont410, %.cont413, %5066, %.cont419, %5065, %.cont422, %5064, %.cont416, %5062, %.cont425, %.cont428, %.cont431, %.cont434, %.cont443, %.cont437, %.cont440, %.cont446
   %.0 = phi ptr [ null, %.cont446 ], [ null, %.cont443 ], [ %.080.i.i, %.cont440 ], [ null, %.cont437 ], [ null, %.cont431 ], [ null, %.cont434 ], [ %.11.i, %.cont428 ], [ null, %5062 ], [ null, %.cont425 ], [ null, %5064 ], [ null, %.cont416 ], [ null, %5065 ], [ null, %.cont422 ], [ null, %5066 ], [ null, %.cont419 ], [ %.8.i223, %.cont413 ], [ null, %7656 ], [ null, %.cont410 ], [ null, %7658 ], [ null, %.cont ], [ null, %7659 ], [ null, %.cont407 ], [ null, %7660 ], [ null, %.cont404 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef ptr @_ZN13duckdb_yyjson21yyjson_mut_write_optsEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPmPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exit, label %6, !prof !3
 
@@ -60466,11 +60460,11 @@ _ZN13duckdb_yyjsonL32yyjson_mut_doc_estimated_val_numEPKNS_14yyjson_mut_docE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -60545,17 +60539,17 @@ _ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit: ; pre
 
 30:                                               ; preds = %12, %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit, %.critedge
   %.0 = phi i1 [ false, %.critedge ], [ %.0.i, %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not = icmp eq ptr %3, null
   %8 = select i1 %.not, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -60599,13 +60593,13 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit: 
 
 21:                                               ; preds = %11, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit, %10
   %.0 = phi i1 [ false, %10 ], [ %.not.i, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit ], [ false, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -60620,7 +60614,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_mut_write_fileEPKcPKNS_14y
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKNS_14yyjson_mut_docEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #9 {
   %6 = alloca %"struct.duckdb_yyjson::yyjson_write_err", align 8
   %7 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
@@ -60632,8 +60626,8 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKN
 
 10:                                               ; preds = %5, %8
   %11 = phi ptr [ %9, %8 ], [ null, %5 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #31
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !85
   %.not.i = icmp eq ptr %3, null
   %12 = select i1 %.not.i, ptr @_ZN13duckdb_yyjsonL18YYJSON_DEFAULT_ALCE, ptr %3
@@ -60677,8 +60671,8 @@ _ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
 
 _ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FILEPKNS_14yyjson_mut_valEjPKNS_10yyjson_alcEPNS_16yyjson_write_errE.exit: ; preds = %14, %15, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i
   %.0.i = phi i1 [ false, %14 ], [ %.not.i.i, %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i ], [ false, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #31
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0.i
 }
 
@@ -60698,16 +60692,16 @@ define internal void @_ZN13duckdb_yyjsonL9null_freeEPvS0_(ptr readnone captures(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL16is_truncated_endEPhS0_S0_jj(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #23 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL16is_truncated_endEPhS0_S0_jj(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 12) %3, i32 noundef %4) unnamed_addr #22 {
   %6 = ptrtoint ptr %2 to i64
   %.not = icmp ult ptr %1, %2
   br i1 %.not, label %7, label %_ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118
@@ -60987,13 +60981,13 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118: ; preds = %30, %40, %.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #24 {
+define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #23 {
   %6 = load ptr, ptr %0, align 8, !tbaa !86
   %7 = load ptr, ptr %1, align 8, !tbaa !86
   %.not = icmp eq ptr %7, null
@@ -61300,7 +61294,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #25 {
+define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPiPhS3_S3_(ptr noundef nonnull captures(none) initializes((0, 4), (8, 16)) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #24 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %9, !prof !3
 
@@ -61658,16 +61652,22 @@ _ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit: ; preds = %._crit_edge14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #26
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
@@ -61683,31 +61683,31 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #28
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree noinline norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { nounwind allocsize(0) }

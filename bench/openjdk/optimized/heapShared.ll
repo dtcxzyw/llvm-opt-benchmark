@@ -1793,7 +1793,7 @@ _ZN7oopDesc4sizeEv.exit10:                        ; preds = %159, %162, %169, %1
 
 _ZN10HeapShared16count_allocationEm.exit:         ; preds = %198, %201
   tail call void @_ZN17ArchiveHeapWriter14add_source_objEP7oopDesc(ptr noundef %0) #20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %208 = load ptr, ptr @_ZN24WalkOopAndArchiveClosure8_currentE, align 8, !noalias !14
   %209 = icmp eq ptr %208, null
   br i1 %209, label %213, label %210
@@ -1839,7 +1839,7 @@ _ZN10HeapShared20make_cached_oop_infoEP7oopDesc.exit: ; preds = %219, %229
   %235 = load ptr, ptr %234, align 8, !noalias !14
   call void %235(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i) #20, !noalias !14
   %236 = load i8, ptr %216, align 8, !noalias !14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %237 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %238 = load i32, ptr %237, align 8
   %239 = urem i32 %8, %238
@@ -2093,7 +2093,7 @@ _ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %349, %359
   br i1 %364, label %365, label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
 
 365:                                              ; preds = %363
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %366 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %367 = icmp eq ptr %366, null
@@ -2114,7 +2114,7 @@ _ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %349, %359
 _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %365, %368
   %373 = phi ptr [ %369, %368 ], [ %366, %365 ]
   %374 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN7Modules30update_oops_in_archived_moduleEP7oopDesci(ptr noundef nonnull %0, i32 noundef %374) #20
   br label %_ZN10HeapShared17has_been_archivedEP7oopDesc.exit
 
@@ -2808,7 +2808,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %_Z17is_reference_ty
   br label %20
 
 20:                                               ; preds = %_ZNK9OopHandle7resolveEv.exit, %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %13, ptr %3, align 8
   %21 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %22 = icmp eq ptr %21, null
@@ -2829,7 +2829,7 @@ _ZNK9OopHandle7resolveEv.exit:                    ; preds = %_Z17is_reference_ty
 _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %20, %23
   %28 = phi ptr [ %24, %23 ], [ %21, %20 ]
   %29 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN8Universe36set_archived_basic_type_mirror_indexE9BasicTypei(i8 noundef zeroext %5, i32 noundef %29) #20
   br label %_Z17is_reference_type9BasicTypeb.exit.thread
 
@@ -2932,7 +2932,7 @@ _ZN10HeapShared19scratch_java_mirrorEP5Klass.exit: ; preds = %_ZNK9OopHandle7res
   unreachable
 
 78:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %.0.i.i, ptr %2, align 8
   %79 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %80 = icmp eq ptr %79, null
@@ -2953,7 +2953,7 @@ _ZN10HeapShared19scratch_java_mirrorEP5Klass.exit: ; preds = %_ZNK9OopHandle7res
 _ZN10HeapShared11append_rootEP7oopDesc.exit36:    ; preds = %78, %81
   %86 = phi ptr [ %82, %81 ], [ %79, %78 ]
   %87 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN5Klass24set_archived_java_mirrorEi(ptr noundef nonnull align 8 dereferenceable(196) %73, i32 noundef %87) #20
   %88 = load ptr, ptr %37, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 800
@@ -2996,7 +2996,7 @@ _ZN10HeapShared11append_rootEP7oopDesc.exit36:    ; preds = %78, %81
 113:                                              ; preds = %111
   %114 = load ptr, ptr @_ZN10HeapShared22_default_subgraph_infoE, align 8
   %115 = call noundef zeroext i1 @_ZN10HeapShared30archive_reachable_objects_fromEiP17KlassSubGraphInfoP7oopDesc(i32 noundef 1, ptr noundef %114, ptr noundef nonnull %110)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %110, ptr %1, align 8
   %116 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %117 = icmp eq ptr %116, null
@@ -3017,7 +3017,7 @@ _ZN10HeapShared11append_rootEP7oopDesc.exit36:    ; preds = %78, %81
 _ZN10HeapShared11append_rootEP7oopDesc.exit37:    ; preds = %113, %118
   %123 = phi ptr [ %119, %118 ], [ %116, %113 ]
   %124 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %125 = load ptr, ptr %108, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8
@@ -3522,7 +3522,7 @@ define hidden void @_ZN10HeapShared15archive_stringsEv() local_unnamed_addr #2 a
   %3 = tail call noundef ptr @_ZN11StringTable17init_shared_tableEPK21DumpedInternedStrings(ptr noundef %2) #20
   %4 = load ptr, ptr @_ZN10HeapShared22_default_subgraph_infoE, align 8
   %5 = tail call noundef zeroext i1 @_ZN10HeapShared30archive_reachable_objects_fromEiP17KlassSubGraphInfoP7oopDesc(i32 noundef 1, ptr noundef %4, ptr noundef %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %3, ptr %1, align 8
   %6 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %7 = icmp eq ptr %6, null
@@ -3543,7 +3543,7 @@ define hidden void @_ZN10HeapShared15archive_stringsEv() local_unnamed_addr #2 a
 _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %0, %8
   %13 = phi ptr [ %9, %8 ], [ %6, %0 ]
   %14 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN11StringTable30set_shared_strings_array_indexEi(i32 noundef %14) #20
   ret void
 }
@@ -3557,7 +3557,7 @@ define hidden noundef i32 @_ZN10HeapShared26archive_exception_instanceEP7oopDesc
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr @_ZN10HeapShared22_default_subgraph_infoE, align 8
   %4 = tail call noundef zeroext i1 @_ZN10HeapShared30archive_reachable_objects_fromEiP17KlassSubGraphInfoP7oopDesc(i32 noundef 1, ptr noundef %3, ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %6 = icmp eq ptr %5, null
@@ -3578,7 +3578,7 @@ define hidden noundef i32 @_ZN10HeapShared26archive_exception_instanceEP7oopDesc
 _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %1, %7
   %12 = phi ptr [ %8, %7 ], [ %5, %1 ]
   %13 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %13
 }
 
@@ -4506,7 +4506,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   store i32 %1, ptr %36, align 4
   %37 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   %38 = load ptr, ptr @_ZN10HeapShared14_pending_rootsE, align 8
   %39 = icmp eq ptr %38, null
@@ -4527,7 +4527,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 _ZN10HeapShared11append_rootEP7oopDesc.exit:      ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit, %40
   %45 = phi ptr [ %41, %40 ], [ %38, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ]
   %46 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = load i32, ptr %37, align 8
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %49 = load i32, ptr %48, align 4
@@ -12661,9 +12661,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI19PointsToOopsChecke
   br i1 %39, label %20, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop19PointsToOopsCheckerEEvP7oopDescPT0_.exit, !llvm.loop !68
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop19PointsToOopsCheckerEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop19PointsToOopsChecker14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12726,9 +12726,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI19PointsToOopsChecke
   br i1 %39, label %20, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc19PointsToOopsCheckerEEvS2_PT0_.exit, !llvm.loop !70
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc19PointsToOopsCheckerEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc19PointsToOopsChecker14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -14977,9 +14977,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI24WalkOopAndArchiveC
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop24WalkOopAndArchiveClosureEEvP7oopDescPT0_.exit, !llvm.loop !92
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop24WalkOopAndArchiveClosureEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop24WalkOopAndArchiveClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15034,9 +15034,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI24WalkOopAndArchiveC
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc24WalkOopAndArchiveClosureEEvS2_PT0_.exit, !llvm.loop !94
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc24WalkOopAndArchiveClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc24WalkOopAndArchiveClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16086,10 +16086,10 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

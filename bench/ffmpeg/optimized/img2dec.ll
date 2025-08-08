@@ -453,7 +453,7 @@ thread-pre-split:                                 ; preds = %103, %61
   %115 = load i32, ptr %114, align 8, !tbaa !74
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 1188
   %117 = load i32, ptr %116, align 4, !tbaa !75
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %118 = add nsw i32 %117, %115
   %119 = icmp sgt i32 %117, 0
   br i1 %119, label %.lr.ph.i204, label %._crit_edge.i
@@ -511,19 +511,19 @@ thread-pre-split:                                 ; preds = %103, %61
   br i1 %.not.i, label %find_image_range.exit.thread229, label %.preheader.i
 
 find_image_range.exit.thread:                     ; preds = %138, %130, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %144
 
 find_image_range.exit.thread229:                  ; preds = %140, %122
   %.2211.ph = phi i32 [ 1, %122 ], [ %.0.lcssa.i, %140 ]
   %.2.ph = phi i32 [ 1, %122 ], [ %.029.i, %140 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread222
 
 find_image_range.exit:                            ; preds = %122
   %142 = call i32 @avio_check(ptr noundef nonnull %2, i32 noundef 1) #14
   %143 = icmp slt i32 %142, 1
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %143, label %144, label %.thread222
 
 144:                                              ; preds = %find_image_range.exit.thread, %find_image_range.exit
@@ -642,12 +642,12 @@ find_image_range.exit:                            ; preds = %122
   br i1 %.not190, label %246, label %201
 
 201:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %202 = call ptr @av_realloc(ptr noundef null, i64 noundef 2080) #14
   store ptr %202, ptr %3, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %203 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, i8 0, i64 16, i1 false)
   %.not191 = icmp eq ptr %202, null
@@ -739,9 +739,9 @@ find_image_range.exit:                            ; preds = %122
   br label %.thread238
 
 .thread238:                                       ; preds = %244, %242
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %197, align 8, !tbaa !61
   br label %246
 
@@ -778,9 +778,9 @@ find_image_range.exit:                            ; preds = %122
 
 260:                                              ; preds = %208, %201
   %.7 = phi i32 [ %206, %208 ], [ -12, %201 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .thread243:                                       ; preds = %255, %.thread241, %259, %176, %184, %169
@@ -801,53 +801,47 @@ find_image_range.exit:                            ; preds = %122
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @avformat_new_stream(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_get_pix_fmt(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_get_pix_fmt(ptr noundef) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @av_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @av_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @avpriv_set_pts_info(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare void @av_free(ptr noundef) local_unnamed_addr #2
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @glob64(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @glob64(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @avio_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_demuxer_iterate(ptr noundef) local_unnamed_addr #2
+declare ptr @av_demuxer_iterate(ptr noundef) local_unnamed_addr #1
 
-declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @avio_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffio_rewind_with_probe_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ffio_rewind_with_probe_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_guess_image2_codec(ptr noundef) local_unnamed_addr #2
+declare i32 @ff_guess_image2_codec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
@@ -864,12 +858,12 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %13 = alloca %struct.stat, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !98
@@ -1022,10 +1016,10 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %92, label %93, label %117
 
 93:                                               ; preds = %.loopexit198
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2080, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !105
   %94 = load ptr, ptr %9, align 16, !tbaa !103
   %95 = call i32 @avio_read(ptr noundef %94, ptr noundef nonnull %11, i32 noundef 2048) #14
@@ -1067,9 +1061,9 @@ define i32 @ff_img_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %116
 
 116:                                              ; preds = %97, %108, %112, %115
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 2080, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr = load i32, ptr %90, align 4, !tbaa !83
   br label %117
 
@@ -1196,7 +1190,7 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
   br i1 %.not173, label %195, label %178
 
 178:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %179 = load i32, ptr %21, align 4, !tbaa !55
   %.not175 = icmp eq i32 %179, 0
   br i1 %.not175, label %181, label %180
@@ -1229,7 +1223,7 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
   br label %200
 
 194:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %300
 
 195:                                              ; preds = %171
@@ -1252,7 +1246,7 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
   %205 = load i32, ptr %204, align 8, !tbaa !31
   %206 = sext i32 %205 to i64
   %207 = call i32 @av_add_index_entry(ptr noundef %203, i64 noundef %206, i64 noundef %201, i32 noundef 0, i32 noundef 0, i32 noundef 1) #14
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.pr189.pre = load i32, ptr %21, align 4, !tbaa !55
   %208 = icmp eq i32 %.pr189.pre, 0
   br i1 %208, label %.thread193, label %.thread190
@@ -1273,10 +1267,10 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
   br i1 %214, label %215, label %226
 
 215:                                              ; preds = %.thread193
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %216 = call i32 @av_dict_set(ptr noundef nonnull %3, ptr noundef nonnull @.str.120, ptr noundef %.1135, i32 noundef 0) #14
   %217 = call ptr @av_basename(ptr noundef %.1135) #14
   %218 = call i32 @av_dict_set(ptr noundef nonnull %3, ptr noundef nonnull @.str.121, ptr noundef %217, i32 noundef 0) #14
@@ -1299,15 +1293,15 @@ infer_size.exit:                                  ; preds = %125, %.infer_size.e
 
 add_filename_as_pkt_side_data.exit.thread:        ; preds = %225, %215
   %.0.i.ph = phi i32 [ -12, %215 ], [ %223, %225 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %300
 
 add_filename_as_pkt_side_data.exit:               ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %226
 
 226:                                              ; preds = %add_filename_as_pkt_side_data.exit, %.thread193, %.thread190
@@ -1470,47 +1464,47 @@ thread-pre-split196:                              ; preds = %235, %252, %248
   br i1 %exitcond218.not, label %.loopexit, label %303, !llvm.loop !126
 
 .critedge:                                        ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 2080, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %309, %300, %145, %.critedge, %53, %._crit_edge, %286, %77
   %.0 = phi i32 [ 0, %286 ], [ -5, %77 ], [ -541478725, %._crit_edge ], [ -5, %53 ], [ %95, %.critedge ], [ -541478725, %145 ], [ %.0141, %300 ], [ %.0141, %309 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @av_get_frame_filename(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_get_frame_filename(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i64 @avio_size(ptr noundef) local_unnamed_addr #2
+declare i64 @avio_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i64 @avio_skip(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @avio_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_probe_input_format3(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_probe_input_format3(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @avio_feof(ptr noundef) local_unnamed_addr #2
+declare i32 @avio_feof(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_new_packet(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_new_packet(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @av_add_index_entry(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_add_index_entry(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_format_io_close(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_format_io_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 101) i32 @img_read_probe(ptr noundef readonly captures(none) %0) #0 {
@@ -1672,7 +1666,7 @@ define internal range(i32 -1, 1) i32 @img_read_seek(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @bmp_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @bmp_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i16, ptr %3, align 1, !tbaa !68
@@ -1699,7 +1693,7 @@ define internal range(i32 0, 52) i32 @bmp_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @cri_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @cri_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -1727,7 +1721,7 @@ define internal range(i32 0, 100) i32 @cri_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @dds_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @dds_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i64, ptr %3, align 1, !tbaa !68
@@ -1755,7 +1749,7 @@ define internal range(i32 0, 100) i32 @dds_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @dpx_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @dpx_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -1800,7 +1794,7 @@ define internal range(i32 0, 52) i32 @dpx_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @exr_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @exr_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -1810,7 +1804,7 @@ define internal range(i32 0, 52) i32 @exr_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @gem_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @gem_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i16, ptr %3, align 1, !tbaa !68
@@ -1888,7 +1882,7 @@ define internal range(i32 0, 52) i32 @gem_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @gif_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 100) i32 @gif_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @gif87a_sig, i64 6)
@@ -1919,7 +1913,7 @@ define internal range(i32 0, 100) i32 @gif_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 101) i32 @hdr_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 101) i32 @hdr_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %3, ptr noundef nonnull dereferenceable(11) @.str.138, i64 11)
@@ -1929,7 +1923,7 @@ define internal range(i32 0, 101) i32 @hdr_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @j2k_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @j2k_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i64, ptr %3, align 1
@@ -1942,7 +1936,7 @@ define internal range(i32 0, 52) i32 @j2k_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i16, ptr %3, align 1, !tbaa !68
@@ -2088,7 +2082,7 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @jpegls_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @jpegls_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2124,7 +2118,7 @@ define internal range(i32 0, 99) i32 @jpegxl_probe(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 53) i32 @pam_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 53) i32 @pam_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !90
   %3 = load i8, ptr %.val, align 1, !tbaa !68
@@ -2168,7 +2162,7 @@ pnm_probe.exit:                                   ; preds = %1, %.loopexit.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 53) i32 @pbm_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 53) i32 @pbm_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !90
   %3 = load i8, ptr %.val, align 1, !tbaa !68
@@ -2217,7 +2211,7 @@ pnm_probe.exit:                                   ; preds = %pnm_magic_check.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @pcx_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 52) i32 @pcx_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2306,7 +2300,7 @@ define internal range(i32 0, 52) i32 @pcx_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 53) i32 @pfm_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 53) i32 @pfm_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !90
   %3 = load i8, ptr %.val, align 1, !tbaa !68
@@ -2461,7 +2455,7 @@ pgmx_probe.exit.thread:                           ; preds = %7, %12, %pnm_magic_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @pgx_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 52) i32 @pgx_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) @.str.140, i64 6)
@@ -2471,7 +2465,7 @@ define internal range(i32 0, 52) i32 @pgx_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 53) i32 @phm_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 53) i32 @phm_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !90
   %3 = load i8, ptr %.val, align 1, !tbaa !68
@@ -2520,7 +2514,7 @@ pnm_probe.exit:                                   ; preds = %pnm_magic_check.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @photocd_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 100) i32 @photocd_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %3, ptr noundef nonnull dereferenceable(7) @.str.141, i64 7)
@@ -2546,7 +2540,7 @@ define internal range(i32 0, 100) i32 @photocd_probe(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 13) i32 @pictor_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 13) i32 @pictor_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i16, ptr %3, align 1, !tbaa !68
@@ -2556,7 +2550,7 @@ define internal range(i32 0, 13) i32 @pictor_probe(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @png_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @png_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i64, ptr %3, align 1, !tbaa !68
@@ -2566,7 +2560,7 @@ define internal range(i32 0, 100) i32 @png_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 53) i32 @ppm_probe(ptr noundef readonly captures(none) %0) #10 {
+define internal range(i32 0, 53) i32 @ppm_probe(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !90
   %3 = load i8, ptr %.val, align 1, !tbaa !68
@@ -2615,7 +2609,7 @@ pnm_probe.exit:                                   ; preds = %pnm_magic_check.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 55) i32 @psd_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 55) i32 @psd_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2666,7 +2660,7 @@ define internal range(i32 0, 55) i32 @psd_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 76) i32 @qdraw_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 76) i32 @qdraw_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2715,7 +2709,7 @@ define internal range(i32 0, 76) i32 @qdraw_probe(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @qoi_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 100) i32 @qoi_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %3, ptr noundef nonnull dereferenceable(4) @.str.143, i64 4)
@@ -2754,7 +2748,7 @@ define internal range(i32 0, 100) i32 @qoi_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @sgi_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @sgi_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i16, ptr %3, align 1, !tbaa !68
@@ -2792,7 +2786,7 @@ define internal range(i32 0, 52) i32 @sgi_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @sunrast_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @sunrast_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2802,7 +2796,7 @@ define internal range(i32 0, 52) i32 @sunrast_probe(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @svg_probe(ptr noundef readonly captures(none) %0) #11 {
+define internal range(i32 0, 52) i32 @svg_probe(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2910,7 +2904,7 @@ ff_subtitles_next_line.exit:                      ; preds = %27, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @tiff_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @tiff_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2922,7 +2916,7 @@ define internal range(i32 0, 52) i32 @tiff_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @vbn_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @vbn_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2950,7 +2944,7 @@ define internal range(i32 0, 100) i32 @vbn_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @webp_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @webp_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i32, ptr %3, align 1, !tbaa !68
@@ -2972,7 +2966,7 @@ define internal range(i32 0, 100) i32 @webp_probe(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 101) i32 @xbm_probe(ptr noundef readonly captures(none) %0) #9 {
+define internal range(i32 0, 101) i32 @xbm_probe(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) @.str.148, i64 20)
@@ -2991,7 +2985,7 @@ define internal range(i32 0, 101) i32 @xbm_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 100) i32 @xpm_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 100) i32 @xpm_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = load i64, ptr %3, align 1, !tbaa !68
@@ -3013,7 +3007,7 @@ define internal range(i32 0, 100) i32 @xpm_probe(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 52) i32 @xwd_probe(ptr noundef readonly captures(none) %0) #8 {
+define internal range(i32 0, 52) i32 @xwd_probe(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3165,35 +3159,41 @@ define internal range(i32 0, 52) i32 @xwd_probe(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @avio_check(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @avio_check(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_basename(ptr noundef) local_unnamed_addr #2
+declare ptr @av_basename(ptr noundef) local_unnamed_addr #1
 
-declare ptr @av_packet_pack_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_packet_pack_dictionary(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #2
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_packet_add_side_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_packet_add_side_data(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @av_default_item_name(ptr noundef) #2
+declare ptr @av_default_item_name(ptr noundef) #1
 
-declare i32 @av_filename_number_test(ptr noundef) local_unnamed_addr #2
+declare i32 @av_filename_number_test(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare i32 @av_match_ext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_match_ext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @globfree64(ptr noundef) local_unnamed_addr #4
+declare void @globfree64(ptr noundef) local_unnamed_addr #3
 
-declare i32 @av_index_search_timestamp(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_index_search_timestamp(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ff_jpegxl_parse_codestream_header(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_jpegxl_parse_codestream_header(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
@@ -3205,17 +3205,17 @@ declare i16 @llvm.bswap.i16(i16) #13
 declare i32 @llvm.bswap.i32(i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

@@ -32,31 +32,28 @@ define hidden void @NEWHOPE_keygen(ptr noundef %0, ptr noundef %1) local_unnamed
   %6 = alloca %struct.newhope_poly_st, align 32
   tail call void @newhope_poly_getnoise(ptr noundef %1) #8
   tail call void @newhope_poly_ntt(ptr noundef %1) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %8 = tail call i32 @RAND_bytes(ptr noundef nonnull %7, i64 noundef 32) #8
   call void @newhope_poly_uniform(ptr noundef nonnull %3, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @newhope_poly_getnoise(ptr noundef nonnull %4) #8
   call void @newhope_poly_ntt(ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @newhope_poly_pointwise(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @newhope_poly_add(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   call void @newhope_poly_tobytes(ptr noundef %0, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 declare void @newhope_poly_getnoise(ptr noundef) local_unnamed_addr #5
 
 declare void @newhope_poly_ntt(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -67,9 +64,6 @@ declare void @newhope_poly_pointwise(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @newhope_poly_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 declare void @newhope_poly_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 {
@@ -87,33 +81,33 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %0, pt
   br i1 %.not, label %15, label %48
 
 15:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @newhope_poly_getnoise(ptr noundef nonnull %5) #8
   call void @newhope_poly_ntt(ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @newhope_poly_getnoise(ptr noundef nonnull %6) #8
   call void @newhope_poly_ntt(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1792
   call void @newhope_poly_uniform(ptr noundef nonnull %7, ptr noundef nonnull %16) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @newhope_poly_pointwise(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   call void @newhope_poly_add(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef nonnull %6) #8
   call void @newhope_poly_tobytes(ptr noundef %1, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @newhope_poly_frombytes(ptr noundef nonnull %10, ptr noundef %2) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @newhope_poly_getnoise(ptr noundef nonnull %11) #8
   call void @newhope_poly_pointwise(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5) #8
   call void @newhope_poly_invntt(ptr noundef nonnull %9) #8
   call void @newhope_poly_add(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 1792
   call void @newhope_helprec(ptr noundef nonnull %12, ptr noundef nonnull %9) #8
   br label %18
@@ -149,9 +143,9 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_client_compute_key(ptr noundef %0, pt
   br i1 %exitcond.not.i, label %encode_rec.exit, label %18, !llvm.loop !11
 
 encode_rec.exit:                                  ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @newhope_reconcile(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %42 = call i32 @SHA256_Init(ptr noundef nonnull %14) #8
   %.not8 = icmp eq i32 %42, 0
   br i1 %.not8, label %47, label %43
@@ -169,11 +163,11 @@ encode_rec.exit:                                  ; preds = %18
 
 47:                                               ; preds = %45, %encode_rec.exit, %43
   %.1 = phi i32 [ 0, %43 ], [ 0, %encode_rec.exit ], [ %spec.select, %45 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %4, %47
@@ -206,12 +200,12 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %0, pt
   br i1 %.not, label %10, label %39
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @newhope_poly_frombytes(ptr noundef nonnull %5, ptr noundef %2) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @newhope_poly_pointwise(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %5) #8
   call void @newhope_poly_invntt(ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 1792
   br label %12
 
@@ -246,9 +240,9 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %0, pt
   br i1 %exitcond.not.i, label %decode_rec.exit, label %12, !llvm.loop !13
 
 decode_rec.exit:                                  ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @newhope_reconcile(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %33 = call i32 @SHA256_Init(ptr noundef nonnull %9) #8
   %.not6 = icmp eq i32 %33, 0
   br i1 %.not6, label %38, label %34
@@ -266,17 +260,23 @@ decode_rec.exit:                                  ; preds = %12
 
 38:                                               ; preds = %36, %decode_rec.exit, %34
   %.1 = phi i32 [ 0, %34 ], [ 0, %decode_rec.exit ], [ %spec.select, %36 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %4, %38
   %.0 = phi i32 [ %.1, %38 ], [ 0, %4 ]
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

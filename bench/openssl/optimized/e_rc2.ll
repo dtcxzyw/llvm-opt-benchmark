@@ -105,7 +105,7 @@ define internal i32 @rc2_set_asn1_type_and_iv(ptr noundef %0, ptr noundef %1) #1
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #6
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %rc2_meth_to_magic.exit, label %7
@@ -129,7 +129,7 @@ define internal i32 @rc2_set_asn1_type_and_iv(ptr noundef %0, ptr noundef %1) #1
 
 rc2_meth_to_magic.exit:                           ; preds = %4, %7, %9, %10, %11
   %.0.i = phi i64 [ 120, %9 ], [ 160, %10 ], [ 0, %11 ], [ 0, %4 ], [ 58, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %0) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = call i32 @ASN1_TYPE_set_int_octetstring(ptr noundef nonnull %1, i64 noundef %.0.i, ptr noundef nonnull %13, i32 noundef %12) #6
@@ -144,9 +144,9 @@ rc2_meth_to_magic.exit:                           ; preds = %4, %7, %9, %10, %11
 define internal range(i32 -1, 17) i32 @rc2_get_asn1_type_and_iv(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca i64, align 8
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %5
 
@@ -209,8 +209,8 @@ rc2_magic_to_meth.exit:                           ; preds = %11
 
 26:                                               ; preds = %rc2_magic_to_meth.exit, %22, %2, %19, %17, %9
   %.0 = phi i32 [ -1, %9 ], [ -1, %rc2_magic_to_meth.exit ], [ -1, %17 ], [ -1, %19 ], [ 0, %2 ], [ %spec.select, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -259,20 +259,14 @@ declare void @RC2_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 
 declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
 
 declare i32 @ASN1_TYPE_set_int_octetstring(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @EVP_CIPHER_CTX_ctrl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @ASN1_TYPE_get_int_octetstring(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -302,7 +296,7 @@ define internal noundef i32 @rc2_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   %.02230 = phi i64 [ %3, %.lr.ph ], [ %14, %7 ]
   %.02329 = phi ptr [ %2, %.lr.ph ], [ %15, %7 ]
   %.02428 = phi ptr [ %1, %.lr.ph ], [ %16, %7 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #6
   store i32 %8, ptr %5, align 4, !tbaa !11
   %9 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #6
@@ -315,7 +309,7 @@ define internal noundef i32 @rc2_cfb64_cipher(ptr noundef %0, ptr noundef %1, pt
   %15 = getelementptr inbounds nuw i8, ptr %.02329, i64 %.131
   %16 = getelementptr inbounds nuw i8, ptr %.02428, i64 %.131
   %spec.select27 = call i64 @llvm.umin.i64(i64 %14, i64 %.131)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not32 = icmp eq i64 %14, 0
   br i1 %.not32, label %._crit_edge, label %7, !llvm.loop !14
 
@@ -344,7 +338,7 @@ define internal noundef i32 @rc2_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %.021 = phi i64 [ %3, %.lr.ph ], [ %15, %9 ]
   %.01720 = phi ptr [ %2, %.lr.ph ], [ %16, %9 ]
   %.01819 = phi ptr [ %1, %.lr.ph ], [ %17, %9 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #6
   store i32 %10, ptr %5, align 4, !tbaa !11
   %11 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #6
@@ -355,7 +349,7 @@ define internal noundef i32 @rc2_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   %15 = add i64 %.021, -1073741824
   %16 = getelementptr inbounds nuw i8, ptr %.01720, i64 1073741824
   %17 = getelementptr inbounds nuw i8, ptr %.01819, i64 1073741824
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = icmp ugt i64 %15, 1073741823
   br i1 %18, label %9, label %._crit_edge, !llvm.loop !15
 
@@ -367,7 +361,7 @@ define internal noundef i32 @rc2_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #6
   store i32 %20, ptr %6, align 4, !tbaa !11
   %21 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #6
@@ -376,7 +370,7 @@ define internal noundef i32 @rc2_ofb_cipher(ptr noundef %0, ptr noundef %1, ptr 
   call void @RC2_ofb64_encrypt(ptr noundef %.017.lcssa, ptr noundef %.018.lcssa, i64 noundef %.0.lcssa, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %6) #6
   %24 = load i32, ptr %6, align 4, !tbaa !11
   %25 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %24) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %19, %._crit_edge
@@ -418,14 +412,20 @@ declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
 
 declare void @RC2_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }

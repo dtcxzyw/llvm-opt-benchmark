@@ -172,23 +172,20 @@ worker_get_identifier.exit:                       ; preds = %39, %41
   ret ptr %13
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare void @pg_rusage_init(ptr noundef) local_unnamed_addr #3
+declare void @pg_rusage_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tuplesort_begin_batch(ptr noundef captures(none) initializes((64, 72), (112, 118), (136, 144), (176, 184), (192, 196), (200, 202)) %0) unnamed_addr #0 {
@@ -292,11 +289,8 @@ thread-pre-split31:                               ; preds = %31, %.thread
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplesort_set_bound(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @tuplesort_set_bound(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -350,7 +344,7 @@ define dso_local void @tuplesort_set_bound(ptr noundef captures(none) %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @tuplesort_used_bound(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local zeroext i1 @tuplesort_used_bound(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 117
   %3 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -461,7 +455,7 @@ define internal fastcc void @tuplesort_free(ptr noundef %0) unnamed_addr #0 {
   ret void
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_reset(ptr noundef %0) local_unnamed_addr #0 {
@@ -816,7 +810,7 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
   br i1 %168, label %169, label %190
 
 169:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %170 = load ptr, ptr %115, align 8
   %171 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %171, i64 24, i1 false)
@@ -859,7 +853,7 @@ tuplesort_heap_insert.exit.i:                     ; preds = %185, %.lr.ph.i22.i,
   %188 = sext i32 %.017.lcssa.i.i to i64
   %189 = getelementptr inbounds %struct.SortTuple, ptr %170, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %235
 
 190:                                              ; preds = %165
@@ -1117,9 +1111,9 @@ tuplesort_heap_replace_top.exit:                  ; preds = %294, %288, %273
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #3
+declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @inittapes(ptr noundef initializes((152, 156)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
@@ -1409,10 +1403,10 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   store i64 0, ptr %105, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %111 = load ptr, ptr %110, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call void @LogicalTapeWrite(ptr noundef %111, ptr noundef nonnull %3, i64 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %112 = load i8, ptr @trace_sort, align 1, !range !4, !noundef !5
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %128
@@ -1440,7 +1434,7 @@ selectnewtape.exit:                               ; preds = %.thread45, %55, %40
   ret void
 }
 
-declare void @ProcessInterrupts() local_unnamed_addr #3
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr #0 {
@@ -1501,7 +1495,7 @@ define dso_local void @tuplesort_performsort(ptr noundef %0) local_unnamed_addr 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %30, ptr %31, align 8
   %32 = load ptr, ptr %21, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load ptr, ptr %33, align 8
   tail call void @pfree(ptr noundef %34) #13
@@ -1531,7 +1525,7 @@ worker_nomergeruns.exit:                          ; preds = %28, %38
   store i32 %47, ptr %45, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %32, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 4, ptr %18, align 8
   br label %93
 
@@ -1645,7 +1639,7 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
 
 102:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %.lr.ph.i38
   %103 = phi i32 [ %99, %.lr.ph.i38 ], [ %.pr.i, %tuplesort_heap_delete_top.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %104 = load ptr, ptr %101, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
   %105 = add nsw i32 %103, -1
@@ -1712,7 +1706,7 @@ tuplesort_heap_delete_top.exit.i:                 ; preds = %130, %124, %110
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds %struct.SortTuple, ptr %135, i64 %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pr.i = load i32, ptr %98, align 8
   %139 = icmp sgt i32 %.pr.i, 1
   br i1 %139, label %102, label %._crit_edge.i, !llvm.loop !16
@@ -2219,7 +2213,7 @@ selectnewtape.exit:                               ; preds = %164, %174
   br i1 %182, label %.lr.ph.i95, label %mergeonerun.exit
 
 .lr.ph.i95:                                       ; preds = %selectnewtape.exit, %274
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %183 = load ptr, ptr %23, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 20
   %185 = load i32, ptr %184, align 4
@@ -2256,7 +2250,7 @@ selectnewtape.exit:                               ; preds = %164, %174
   br label %202
 
 202:                                              ; preds = %201, %199, %.lr.ph.i95
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %203 = call i64 @LogicalTapeRead(ptr noundef %189, ptr noundef nonnull %4, i64 noundef 4) #13
   %.not.i.i.i = icmp eq i64 %203, 4
   br i1 %.not.i.i.i, label %getlen.exit.i.i, label %204
@@ -2270,7 +2264,7 @@ selectnewtape.exit:                               ; preds = %164, %174
 
 getlen.exit.i.i:                                  ; preds = %202
   %207 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not28.i = icmp eq i32 %207, 0
   br i1 %.not28.i, label %mergereadnext.exit.i, label %208
 
@@ -2410,17 +2404,17 @@ tuplesort_heap_delete_top.exit.i:                 ; preds = %tuplesort_heap_repl
   br label %274
 
 274:                                              ; preds = %tuplesort_heap_delete_top.exit.i, %tuplesort_heap_replace_top.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %275 = load i32, ptr %91, align 8
   %276 = icmp sgt i32 %275, 0
   br i1 %276, label %.lr.ph.i95, label %mergeonerun.exit, !llvm.loop !20
 
 mergeonerun.exit:                                 ; preds = %274, %selectnewtape.exit
   %277 = load ptr, ptr %89, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   call void @LogicalTapeWrite(ptr noundef %277, ptr noundef nonnull %3, i64 noundef 4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %278 = load i32, ptr %79, align 4
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %.backedge
@@ -2452,7 +2446,7 @@ mergeonerun.exit:                                 ; preds = %274, %selectnewtape
   br label %305
 
 291:                                              ; preds = %288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %292 = load ptr, ptr %23, align 8
   call void @pfree(ptr noundef %292) #13
   store ptr null, ptr %23, align 8
@@ -2480,7 +2474,7 @@ worker_freeze_result_tape.exit:                   ; preds = %291, %295
   store i32 %304, ptr %302, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %287, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %305
 
 305:                                              ; preds = %worker_freeze_result_tape.exit, %290
@@ -2636,7 +2630,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %72 = load ptr, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %73 = call i64 @LogicalTapeRead(ptr noundef %72, ptr noundef nonnull %5, i64 noundef 4) #13
   %.not.i = icmp eq i64 %73, 4
   br i1 %.not.i, label %getlen.exit, label %74
@@ -2650,7 +2644,7 @@ define dso_local noundef zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i
 
 getlen.exit:                                      ; preds = %70
   %77 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not111 = icmp eq i32 %77, 0
   br i1 %.not111, label %83, label %78
 
@@ -2801,11 +2795,11 @@ getlen.exit:                                      ; preds = %70
   %152 = sext i32 %149 to i64
   %153 = getelementptr inbounds ptr, ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %147, i64 24, i1 false)
   %155 = load ptr, ptr %2, align 8
   store ptr %155, ptr %127, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %156 = call i64 @LogicalTapeRead(ptr noundef %154, ptr noundef nonnull %4, i64 noundef 4) #13
   %.not.i.i = icmp eq i64 %156, 4
   br i1 %.not.i.i, label %getlen.exit.i, label %157
@@ -2819,7 +2813,7 @@ getlen.exit:                                      ; preds = %70
 
 getlen.exit.i:                                    ; preds = %145
   %160 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not115 = icmp eq i32 %160, 0
   br i1 %.not115, label %mergereadnext.exit, label %198
 
@@ -2963,7 +2957,7 @@ tuplesort_heap_replace_top.exit:                  ; preds = %225, %219, %205
   br label %230
 
 230:                                              ; preds = %tuplesort_heap_replace_top.exit, %tuplesort_heap_delete_top.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %234
 
 231:                                              ; preds = %3
@@ -2978,12 +2972,12 @@ tuplesort_heap_replace_top.exit:                  ; preds = %225, %219, %205
   ret i1 %.0
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @getlen(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i64 @LogicalTapeRead(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 4) #13
   %.not = icmp eq i64 %4, 4
   br i1 %.not, label %8, label %5
@@ -3009,13 +3003,13 @@ define internal fastcc i32 @getlen(ptr noundef %0, i1 noundef zeroext %1) unname
   unreachable
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %9
 }
 
-declare i64 @LogicalTapeBackspace(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @LogicalTapeBackspace(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @LogicalTapeClose(ptr noundef) local_unnamed_addr #3
+declare void @LogicalTapeClose(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -3077,13 +3071,13 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
 .lr.ph:                                           ; preds = %28, %38
   %.in = phi i64 [ %33, %38 ], [ %1, %28 ]
   %33 = add nsw i64 %.in, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = call zeroext i1 @tuplesort_gettuple_common(ptr noundef %0, i1 noundef zeroext %2, ptr noundef nonnull %4)
   br i1 %34, label %35, label %.thread
 
 .thread:                                          ; preds = %.lr.ph
   store ptr %31, ptr @CurrentMemoryContext, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %43
 
 35:                                               ; preds = %.lr.ph
@@ -3096,7 +3090,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
   br label %38
 
 38:                                               ; preds = %35, %37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp samesign ugt i64 %.in, 1
   br i1 %39, label %.lr.ph, label %._crit_edge
 
@@ -3117,7 +3111,7 @@ define dso_local noundef zeroext i1 @tuplesort_skiptuples(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 6, 501) i32 @tuplesort_merge_order(i64 noundef %0) local_unnamed_addr #7 {
+define dso_local range(i32 6, 501) i32 @tuplesort_merge_order(i64 noundef %0) local_unnamed_addr #6 {
   %2 = sdiv i64 %0, 278528
   %3 = trunc i64 %2 to i32
   %4 = tail call i32 @llvm.smax.i32(i32 %3, i32 6)
@@ -3171,7 +3165,7 @@ define dso_local void @tuplesort_rescan(ptr noundef captures(none) %0) local_unn
   ret void
 }
 
-declare void @LogicalTapeRewindForRead(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @LogicalTapeRewindForRead(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
@@ -3217,7 +3211,7 @@ define dso_local void @tuplesort_markpos(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @LogicalTapeTell(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @LogicalTapeTell(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_restorepos(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -3265,7 +3259,7 @@ define dso_local void @tuplesort_restorepos(ptr noundef captures(none) %0) local
   ret void
 }
 
-declare void @LogicalTapeSeek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare void @LogicalTapeSeek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_get_stats(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #0 {
@@ -3359,7 +3353,7 @@ tuplesort_updatemax.exit:                         ; preds = %17, %21, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @tuplesort_method_name(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef nonnull ptr @tuplesort_method_name(i32 noundef %0) local_unnamed_addr #6 {
   %2 = icmp ult i32 %0, 9
   br i1 %2, label %switch.lookup, label %4
 
@@ -3375,7 +3369,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @tuplesort_space_type_name(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local noundef nonnull ptr @tuplesort_space_type_name(i32 noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq i32 %0, 0
   %3 = select i1 %2, ptr @.str.18, ptr @.str.19
   ret ptr %3
@@ -3408,7 +3402,7 @@ define dso_local ptr @tuplesort_readtup_alloc(ptr noundef captures(none) %0, i64
   ret ptr %.0
 }
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -7) i64 @tuplesort_estimate_shared(i32 noundef %0) local_unnamed_addr #0 {
@@ -3420,9 +3414,9 @@ define dso_local range(i64 0, -7) i64 @tuplesort_estimate_shared(i32 noundef %0)
   ret i64 %6
 }
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_initialize_shared(ptr noundef initializes((0, 1), (4, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3450,7 +3444,7 @@ define dso_local void @tuplesort_initialize_shared(ptr noundef initializes((0, 1
   ret void
 }
 
-declare void @SharedFileSetInit(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SharedFileSetInit(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tuplesort_attach_shared(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3459,51 +3453,51 @@ define dso_local void @tuplesort_attach_shared(ptr noundef %0, ptr noundef %1) l
   ret void
 }
 
-declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #7 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #7 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %0, i64 %1)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #7 {
+define dso_local range(i32 -1, 2) i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %4 = trunc i64 %0 to i32
   %5 = trunc i64 %1 to i32
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %5)
   ret i32 %.0
 }
 
-declare ptr @BumpContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @BumpContextCreate(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare i64 @GetMemoryChunkSpace(ptr noundef) local_unnamed_addr #3
+declare i64 @GetMemoryChunkSpace(ptr noundef) local_unnamed_addr #2
 
-declare i64 @LogicalTapeSetBlocks(ptr noundef) local_unnamed_addr #3
+declare i64 @LogicalTapeSetBlocks(ptr noundef) local_unnamed_addr #2
 
-declare void @LogicalTapeSetClose(ptr noundef) local_unnamed_addr #3
+declare void @LogicalTapeSetClose(ptr noundef) local_unnamed_addr #2
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
-declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc_huge(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @LogicalTapeSetCreate(i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @LogicalTapeSetCreate(i1 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PrepareTempTablespaces() local_unnamed_addr #3
+declare void @PrepareTempTablespaces() local_unnamed_addr #2
 
-declare ptr @LogicalTapeCreate(ptr noundef) local_unnamed_addr #3
+declare ptr @LogicalTapeCreate(ptr noundef) local_unnamed_addr #2
 
-declare void @MemoryContextResetOnly(ptr noundef) local_unnamed_addr #3
+declare void @MemoryContextResetOnly(ptr noundef) local_unnamed_addr #2
 
-declare void @LogicalTapeSetForgetFreeSpace(ptr noundef) local_unnamed_addr #3
+declare void @LogicalTapeSetForgetFreeSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @beginmerge(ptr noundef %0) unnamed_addr #0 {
@@ -3528,11 +3522,11 @@ define internal fastcc void @beginmerge(ptr noundef %0) unnamed_addr #0 {
 
 14:                                               ; preds = %.lr.ph, %mergereadnext.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %mergereadnext.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call i64 @LogicalTapeRead(ptr noundef %17, ptr noundef nonnull %2, i64 noundef 4) #13
   %.not.i.i = icmp eq i64 %18, 4
   br i1 %.not.i.i, label %getlen.exit.i, label %19
@@ -3546,7 +3540,7 @@ define internal fastcc void @beginmerge(ptr noundef %0) unnamed_addr #0 {
 
 getlen.exit.i:                                    ; preds = %14
   %22 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %mergereadnext.exit, label %23
 
@@ -3597,7 +3591,7 @@ tuplesort_heap_insert.exit:                       ; preds = %.lr.ph.i, %40, %29
   br label %mergereadnext.exit
 
 mergereadnext.exit:                               ; preds = %getlen.exit.i, %tuplesort_heap_insert.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !23
@@ -3606,15 +3600,15 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i, %tup
   ret void
 }
 
-declare void @LogicalTapeFreeze(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @LogicalTapeFreeze(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @LogicalTapeWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @LogicalTapeWrite(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef %2) unnamed_addr #0 {
@@ -3731,11 +3725,11 @@ qsort_tuple_unsigned_compare.exit:                ; preds = %ApplyUnsignedSortCo
   br i1 %60, label %qsort_tuple_unsigned_compare.exit.thread236, label %.critedge
 
 qsort_tuple_unsigned_compare.exit.thread236:      ; preds = %44, %53, %39, %qsort_tuple_unsigned_compare.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140315, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140315, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = icmp ugt ptr %26, %.0137.ph
   br i1 %61, label %.lr.ph316, label %.critedge, !llvm.loop !24
 
@@ -3860,11 +3854,11 @@ qsort_tuple_unsigned_compare.exit174.thread243:   ; preds = %84, %93, %79, %qsor
 
 124:                                              ; preds = %122, %qsort_tuple_unsigned_compare.exit174.thread243
   %.2 = phi ptr [ %123, %122 ], [ %104, %qsort_tuple_unsigned_compare.exit174.thread243 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %125 = getelementptr i8, ptr %23, i64 -24
   br label %126
 
@@ -3945,11 +3939,11 @@ qsort_tuple_unsigned_compare.exit178:             ; preds = %ApplyUnsignedSortCo
   br i1 %160, label %.thread, label %.thread255
 
 .thread:                                          ; preds = %ApplyUnsignedSortComparator.exit191.thread218, %159
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150288, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150288, ptr noundef nonnull align 8 dereferenceable(24) %.1148289, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148289, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %161 = getelementptr inbounds nuw i8, ptr %.1150288, i64 24
   br label %.thread255
 
@@ -4043,11 +4037,11 @@ qsort_tuple_unsigned_compare.exit182:             ; preds = %ApplyUnsignedSortCo
   br i1 %199, label %.thread232, label %.thread264
 
 .thread232:                                       ; preds = %ApplyUnsignedSortComparator.exit195.thread227, %198
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %.1143305, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143305, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %200 = getelementptr inbounds i8, ptr %.1143305, i64 -24
   br label %.thread264
 
@@ -4067,11 +4061,11 @@ qsort_tuple_unsigned_compare.exit182:             ; preds = %ApplyUnsignedSortCo
   br i1 %.not165, label %.critedge2._crit_edge, label %.lr.ph306, !llvm.loop !28
 
 .critedge4:                                       ; preds = %176, %181, %qsort_tuple_unsigned_compare.exit182
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %205 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 24
   %206 = getelementptr inbounds i8, ptr %.1146304, i64 -24
   br label %126
@@ -4095,11 +4089,11 @@ qsort_tuple_unsigned_compare.exit182:             ; preds = %ApplyUnsignedSortCo
   %.06.i = phi i64 [ %217, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
   %215 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
   %216 = getelementptr inbounds nuw %struct.SortTuple, ptr %214, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %215, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %217 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %217, %.
   br i1 %exitcond.not.i, label %qsort_tuple_unsigned_swapn.exit, label %.lr.ph.i, !llvm.loop !29
@@ -4123,11 +4117,11 @@ qsort_tuple_unsigned_swapn.exit:                  ; preds = %.lr.ph.i, %.critedg
   %.06.i199 = phi i64 [ %231, %.lr.ph.i198 ], [ 0, %qsort_tuple_unsigned_swapn.exit ]
   %229 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
   %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %228, i64 %.06.i199
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %229, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %231 = add nuw i64 %.06.i199, 1
   %exitcond.not.i200 = icmp eq i64 %231, %226
   br i1 %exitcond.not.i200, label %qsort_tuple_unsigned_swapn.exit201, label %.lr.ph.i198, !llvm.loop !29
@@ -4286,11 +4280,11 @@ qsort_tuple_signed_compare.exit:                  ; preds = %ApplySignedSortComp
   br i1 %60, label %qsort_tuple_signed_compare.exit.thread236, label %.critedge
 
 qsort_tuple_signed_compare.exit.thread236:        ; preds = %44, %53, %39, %qsort_tuple_signed_compare.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140315, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140315, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %61 = icmp ugt ptr %26, %.0137.ph
   br i1 %61, label %.lr.ph316, label %.critedge, !llvm.loop !30
 
@@ -4415,11 +4409,11 @@ qsort_tuple_signed_compare.exit174.thread243:     ; preds = %84, %93, %79, %qsor
 
 124:                                              ; preds = %122, %qsort_tuple_signed_compare.exit174.thread243
   %.2 = phi ptr [ %123, %122 ], [ %104, %qsort_tuple_signed_compare.exit174.thread243 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %125 = getelementptr i8, ptr %23, i64 -24
   br label %126
 
@@ -4500,11 +4494,11 @@ qsort_tuple_signed_compare.exit178:               ; preds = %ApplySignedSortComp
   br i1 %160, label %.thread, label %.thread255
 
 .thread:                                          ; preds = %ApplySignedSortComparator.exit191.thread218, %159
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150288, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150288, ptr noundef nonnull align 8 dereferenceable(24) %.1148289, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148289, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %161 = getelementptr inbounds nuw i8, ptr %.1150288, i64 24
   br label %.thread255
 
@@ -4598,11 +4592,11 @@ qsort_tuple_signed_compare.exit182:               ; preds = %ApplySignedSortComp
   br i1 %199, label %.thread232, label %.thread264
 
 .thread232:                                       ; preds = %ApplySignedSortComparator.exit195.thread227, %198
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %.1143305, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143305, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %200 = getelementptr inbounds i8, ptr %.1143305, i64 -24
   br label %.thread264
 
@@ -4622,11 +4616,11 @@ qsort_tuple_signed_compare.exit182:               ; preds = %ApplySignedSortComp
   br i1 %.not165, label %.critedge2._crit_edge, label %.lr.ph306, !llvm.loop !34
 
 .critedge4:                                       ; preds = %176, %181, %qsort_tuple_signed_compare.exit182
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %205 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 24
   %206 = getelementptr inbounds i8, ptr %.1146304, i64 -24
   br label %126
@@ -4650,11 +4644,11 @@ qsort_tuple_signed_compare.exit182:               ; preds = %ApplySignedSortComp
   %.06.i = phi i64 [ %217, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
   %215 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
   %216 = getelementptr inbounds nuw %struct.SortTuple, ptr %214, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %215, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %215, ptr noundef nonnull align 8 dereferenceable(24) %216, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %216, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %217 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %217, %.
   br i1 %exitcond.not.i, label %qsort_tuple_signed_swapn.exit, label %.lr.ph.i, !llvm.loop !35
@@ -4678,11 +4672,11 @@ qsort_tuple_signed_swapn.exit:                    ; preds = %.lr.ph.i, %.critedg
   %.06.i199 = phi i64 [ %231, %.lr.ph.i198 ], [ 0, %qsort_tuple_signed_swapn.exit ]
   %229 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
   %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %228, i64 %.06.i199
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %229, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %229, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %230, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %231 = add nuw i64 %.06.i199, 1
   %exitcond.not.i200 = icmp eq i64 %231, %226
   br i1 %exitcond.not.i200, label %qsort_tuple_signed_swapn.exit201, label %.lr.ph.i198, !llvm.loop !35
@@ -4843,11 +4837,11 @@ qsort_tuple_int32_compare.exit:                   ; preds = %ApplyInt32SortCompa
   br i1 %62, label %qsort_tuple_int32_compare.exit.thread236, label %.critedge
 
 qsort_tuple_int32_compare.exit.thread236:         ; preds = %44, %55, %39, %qsort_tuple_int32_compare.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0140315, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0140315, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %63 = icmp ugt ptr %26, %.0137.ph
   br i1 %63, label %.lr.ph316, label %.critedge, !llvm.loop !36
 
@@ -4974,11 +4968,11 @@ qsort_tuple_int32_compare.exit174.thread243:      ; preds = %86, %97, %81, %qsor
 
 128:                                              ; preds = %126, %qsort_tuple_int32_compare.exit174.thread243
   %.2 = phi ptr [ %127, %126 ], [ %108, %qsort_tuple_int32_compare.exit174.thread243 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0137.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %129 = getelementptr i8, ptr %23, i64 -24
   br label %130
 
@@ -5061,11 +5055,11 @@ qsort_tuple_int32_compare.exit178:                ; preds = %ApplyInt32SortCompa
   br i1 %166, label %.thread, label %.thread255
 
 .thread:                                          ; preds = %ApplyInt32SortComparator.exit191.thread218, %165
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1150288, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1150288, ptr noundef nonnull align 8 dereferenceable(24) %.1148289, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148289, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %167 = getelementptr inbounds nuw i8, ptr %.1150288, i64 24
   br label %.thread255
 
@@ -5161,11 +5155,11 @@ qsort_tuple_int32_compare.exit182:                ; preds = %ApplyInt32SortCompa
   br i1 %207, label %.thread232, label %.thread264
 
 .thread232:                                       ; preds = %ApplyInt32SortComparator.exit195.thread227, %206
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %.1143305, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1143305, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %208 = getelementptr inbounds i8, ptr %.1143305, i64 -24
   br label %.thread264
 
@@ -5185,11 +5179,11 @@ qsort_tuple_int32_compare.exit182:                ; preds = %ApplyInt32SortCompa
   br i1 %.not165, label %.critedge2._crit_edge, label %.lr.ph306, !llvm.loop !40
 
 .critedge4:                                       ; preds = %182, %187, %qsort_tuple_int32_compare.exit182
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1148.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1146304, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1146304, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %213 = getelementptr inbounds nuw i8, ptr %.1148.lcssa, i64 24
   %214 = getelementptr inbounds i8, ptr %.1146304, i64 -24
   br label %130
@@ -5213,11 +5207,11 @@ qsort_tuple_int32_compare.exit182:                ; preds = %ApplyInt32SortCompa
   %.06.i = phi i64 [ %225, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
   %223 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0137.ph, i64 %.06.i
   %224 = getelementptr inbounds nuw %struct.SortTuple, ptr %222, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %223, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(24) %224, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %225 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %225, %.
   br i1 %exitcond.not.i, label %qsort_tuple_int32_swapn.exit, label %.lr.ph.i, !llvm.loop !41
@@ -5241,11 +5235,11 @@ qsort_tuple_int32_swapn.exit:                     ; preds = %.lr.ph.i, %.critedg
   %.06.i199 = phi i64 [ %239, %.lr.ph.i198 ], [ 0, %qsort_tuple_int32_swapn.exit ]
   %237 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1148.lcssa, i64 %.06.i199
   %238 = getelementptr inbounds nuw %struct.SortTuple, ptr %236, i64 %.06.i199
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %237, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr noundef nonnull align 8 dereferenceable(24) %238, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %238, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %239 = add nuw i64 %.06.i199, 1
   %exitcond.not.i200 = icmp eq i64 %239, %234
   br i1 %exitcond.not.i200, label %qsort_tuple_int32_swapn.exit201, label %.lr.ph.i198, !llvm.loop !41
@@ -5386,11 +5380,11 @@ ApplySortComparator.exit:                         ; preds = %49, %44
 
 ApplySortComparator.exit.thread:                  ; preds = %41, %49, %37, %ApplySortComparator.exit
   %53 = getelementptr inbounds i8, ptr %.0148278, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0148278, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0148278, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %54 = icmp ugt ptr %53, %.0145.ph
   br i1 %54, label %.lr.ph279, label %.critedge, !llvm.loop !42
 
@@ -5496,11 +5490,11 @@ ApplySortComparator.exit182.thread:               ; preds = %74, %82, %70, %Appl
 
 109:                                              ; preds = %107, %ApplySortComparator.exit182.thread
   %.2 = phi ptr [ %108, %107 ], [ %89, %ApplySortComparator.exit182.thread ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0145.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %110 = getelementptr i8, ptr %23, i64 -24
   br label %111
 
@@ -5563,11 +5557,11 @@ ApplySortComparator.exit186.thread:               ; preds = %ApplySortComparator
   br i1 %137, label %ApplySortComparator.exit186.thread.thread226, label %ApplySortComparator.exit186.thread.thread
 
 ApplySortComparator.exit186.thread.thread226:     ; preds = %120, %ApplySortComparator.exit186.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1158251, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158251, ptr noundef nonnull align 8 dereferenceable(24) %.1156252, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156252, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %138 = getelementptr inbounds nuw i8, ptr %.1158251, i64 24
   br label %ApplySortComparator.exit186.thread.thread
 
@@ -5643,11 +5637,11 @@ ApplySortComparator.exit190.thread:               ; preds = %ApplySortComparator
   br i1 %168, label %ApplySortComparator.exit190.thread.thread229, label %ApplySortComparator.exit190.thread.thread
 
 ApplySortComparator.exit190.thread.thread229:     ; preds = %151, %ApplySortComparator.exit190.thread
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1154267, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154267, ptr noundef nonnull align 8 dereferenceable(24) %.1151268, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1151268, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %169 = getelementptr inbounds i8, ptr %.1151268, i64 -24
   br label %ApplySortComparator.exit190.thread.thread
 
@@ -5667,11 +5661,11 @@ ApplySortComparator.exit190.thread.thread:        ; preds = %156, %164, %152, %A
   br i1 %.not173, label %.critedge4, label %.lr.ph269, !llvm.loop !46
 
 ApplySortComparator.exit190.thread223:            ; preds = %152, %156, %ApplySortComparator.exit190
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.1156.lcssa, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1154267, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1154267, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %174 = getelementptr inbounds nuw i8, ptr %.1156.lcssa, i64 24
   %175 = getelementptr inbounds i8, ptr %.1154267, i64 -24
   br label %111
@@ -5695,11 +5689,11 @@ ApplySortComparator.exit190.thread223:            ; preds = %152, %156, %ApplySo
   %.06.i = phi i64 [ %186, %.lr.ph.i ], [ 0, %.critedge4 ]
   %184 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0145.ph, i64 %.06.i
   %185 = getelementptr inbounds nuw %struct.SortTuple, ptr %183, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %184, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %185, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %186 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %186, %.
   br i1 %exitcond.not.i, label %qsort_ssup_swapn.exit, label %.lr.ph.i, !llvm.loop !47
@@ -5723,11 +5717,11 @@ qsort_ssup_swapn.exit:                            ; preds = %.lr.ph.i, %.critedg
   %.06.i193 = phi i64 [ %200, %.lr.ph.i192 ], [ 0, %qsort_ssup_swapn.exit ]
   %198 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1156.lcssa, i64 %.06.i193
   %199 = getelementptr inbounds nuw %struct.SortTuple, ptr %197, i64 %.06.i193
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %198, ptr noundef nonnull align 8 dereferenceable(24) %199, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %200 = add nuw i64 %.06.i193, 1
   %exitcond.not.i194 = icmp eq i64 %200, %195
   br i1 %exitcond.not.i194, label %qsort_ssup_swapn.exit195, label %.lr.ph.i192, !llvm.loop !47
@@ -5822,11 +5816,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %.lr.ph226
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %.0150225, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0150225, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %26 = icmp ugt ptr %22, %.0147.ph
   br i1 %26, label %.lr.ph226, label %.critedge, !llvm.loop !48
 
@@ -5892,11 +5886,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
 
 59:                                               ; preds = %57, %37
   %.2 = phi ptr [ %58, %57 ], [ %39, %37 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0147.ph, ptr noundef nonnull align 8 dereferenceable(24) %.2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.2, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %60 = getelementptr i8, ptr %19, i64 -24
   br label %61
 
@@ -5920,11 +5914,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.1160206, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1160206, ptr noundef nonnull align 8 dereferenceable(24) %.1158207, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158207, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i8, ptr %.1160206, i64 24
   br label %68
 
@@ -5961,11 +5955,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %.1156214, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156214, ptr noundef nonnull align 8 dereferenceable(24) %.1153215, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1153215, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %78 = getelementptr inbounds i8, ptr %.1153215, i64 -24
   br label %79
 
@@ -5985,11 +5979,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   br i1 %.not175, label %.critedge2._crit_edge, label %.lr.ph216, !llvm.loop !52
 
 .critedge4:                                       ; preds = %.lr.ph216
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %.1158.lcssa, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1158.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %.1156214, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1156214, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %84 = getelementptr inbounds nuw i8, ptr %.1158.lcssa, i64 24
   %85 = getelementptr inbounds i8, ptr %.1156214, i64 -24
   br label %61
@@ -6013,11 +6007,11 @@ define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -
   %.06.i = phi i64 [ %96, %.lr.ph.i ], [ 0, %.critedge2._crit_edge ]
   %94 = getelementptr inbounds nuw %struct.SortTuple, ptr %.0147.ph, i64 %.06.i
   %95 = getelementptr inbounds nuw %struct.SortTuple, ptr %93, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %96 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %96, %.
   br i1 %exitcond.not.i, label %qsort_tuple_swapn.exit, label %.lr.ph.i, !llvm.loop !53
@@ -6041,11 +6035,11 @@ qsort_tuple_swapn.exit:                           ; preds = %.lr.ph.i, %.critedg
   %.06.i183 = phi i64 [ %110, %.lr.ph.i182 ], [ 0, %qsort_tuple_swapn.exit ]
   %108 = getelementptr inbounds nuw %struct.SortTuple, ptr %.1158.lcssa, i64 %.06.i183
   %109 = getelementptr inbounds nuw %struct.SortTuple, ptr %107, i64 %.06.i183
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %110 = add nuw i64 %.06.i183, 1
   %exitcond.not.i184 = icmp eq i64 %110, %105
   br i1 %exitcond.not.i184, label %qsort_tuple_swapn.exit185, label %.lr.ph.i182, !llvm.loop !53
@@ -6090,7 +6084,7 @@ qsort_tuple_swapn.exit185:                        ; preds = %.lr.ph.i182, %qsort
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc noundef ptr @qsort_tuple_unsigned_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6497,7 +6491,7 @@ qsort_tuple_unsigned_compare.exit28.thread:       ; preds = %199, %208, %194, %1
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc noundef ptr @qsort_tuple_signed_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6904,7 +6898,7 @@ qsort_tuple_signed_compare.exit28.thread:         ; preds = %199, %208, %194, %1
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 {
+define internal fastcc noundef ptr @qsort_tuple_int32_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7321,7 +7315,7 @@ qsort_tuple_int32_compare.exit28.thread:          ; preds = %207, %218, %202, %1
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef nonnull %3) unnamed_addr #8 {
+define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2, ptr noundef nonnull %3) unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7631,7 +7625,7 @@ ApplySortComparator.exit34.thread58:              ; preds = %161, %173, %.thread
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @qsort_tuple_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #8 {
+define internal fastcc ptr @qsort_tuple_med3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #7 {
   %6 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %4) #13
   %7 = icmp slt i32 %6, 0
   %8 = tail call i32 %3(ptr noundef %1, ptr noundef %2, ptr noundef %4) #13
@@ -7662,9 +7656,15 @@ define internal fastcc ptr @qsort_tuple_med3(ptr noundef %0, ptr noundef %1, ptr
   ret ptr %22
 }
 
-declare i64 @LogicalTapeRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @LogicalTapeRead(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @LogicalTapeImport(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @LogicalTapeImport(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -7697,14 +7697,14 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #10
 declare i64 @llvm.smax.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }

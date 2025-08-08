@@ -299,10 +299,10 @@ declare double @stream_encodeDouble(double noundef) local_unnamed_addr #2
 define hidden zeroext i16 @outStream_writeObjectTag(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = tail call signext i8 @specificTypeKey(ptr noundef %0, ptr noundef %2) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %5, ptr %4, align 1
   %6 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %6
 }
 
@@ -311,7 +311,7 @@ declare signext i8 @specificTypeKey(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
@@ -359,7 +359,7 @@ define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr noundef 
 
 outStream_writeObjectRef.exit:                    ; preds = %7, %14, %20, %23
   %.0.i = phi i16 [ %8, %7 ], [ %24, %23 ], [ 110, %14 ], [ 110, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i16 %.0.i
 }
 
@@ -425,11 +425,11 @@ declare void @commonRef_release(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @outStream_writeFrameID(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @llvm.bswap.i64(i64 %1)
   store i64 %4, ptr %3, align 8
   %5 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i16 %5
 }
 
@@ -437,11 +437,11 @@ define hidden zeroext i16 @outStream_writeFrameID(ptr noundef captures(none) %0,
 define hidden zeroext i16 @outStream_writeMethodID(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i16 %6
 }
 
@@ -449,33 +449,33 @@ define hidden zeroext i16 @outStream_writeMethodID(ptr noundef captures(none) %0
 define hidden zeroext i16 @outStream_writeFieldID(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = ptrtoint ptr %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call i64 @llvm.bswap.i64(i64 %4)
   store i64 %5, ptr %3, align 8
   %6 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i16 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @outStream_writeLocation(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @llvm.bswap.i64(i64 %1)
   store i64 %4, ptr %3, align 8
   %5 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i16 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @outStream_writeByteArray(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @llvm.bswap.i32(i32 %1)
   store i32 %5, ptr %4, align 4
   %6 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %7 = tail call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef %2, i32 noundef %1)
   ret i16 %7
 }
@@ -502,11 +502,11 @@ define hidden zeroext i16 @outStream_writeString(ptr noundef captures(none) %0, 
   br i1 %.not30, label %18, label %14
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = tail call i32 @llvm.bswap.i32(i32 %10)
   store i32 %15, ptr %5, align 4
   %16 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = tail call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef %1, i32 noundef %10)
   br label %31
 
@@ -516,11 +516,11 @@ define hidden zeroext i16 @outStream_writeString(ptr noundef captures(none) %0, 
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call i32 @llvm.bswap.i32(i32 %10)
   store i32 %22, ptr %4, align 4
   %23 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = tail call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef %1, i32 noundef %10)
   br label %31
 
@@ -528,11 +528,11 @@ define hidden zeroext i16 @outStream_writeString(ptr noundef captures(none) %0, 
   %26 = add nsw i32 %19, 1
   %27 = tail call ptr @jvmtiAllocate(i32 noundef %26) #7
   tail call void @utf8mToUtf8s(ptr noundef %1, i32 noundef %10, ptr noundef %27, i32 noundef %19) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = tail call i32 @llvm.bswap.i32(i32 %19)
   store i32 %28, ptr %3, align 4
   %29 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = tail call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef %27, i32 noundef %19)
   tail call void @jvmtiDeallocate(ptr noundef %27) #7
   br label %31
@@ -575,17 +575,17 @@ define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr noundef capt
 17:                                               ; preds = %4
   %18 = inttoptr i64 %3 to ptr
   %19 = tail call signext i8 @specificTypeKey(ptr noundef %0, ptr noundef %18) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 %19, ptr %15, align 1
   %20 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %15, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %23
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 %2, ptr %14, align 1
   %22 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %14, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %23
 
 23:                                               ; preds = %21, %17
@@ -595,7 +595,7 @@ define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr noundef capt
 
 25:                                               ; preds = %23
   %26 = inttoptr i64 %3 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
@@ -638,7 +638,7 @@ define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr noundef capt
   br label %outStream_writeObjectRef.exit
 
 outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %82
 
 45:                                               ; preds = %23
@@ -655,10 +655,10 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   ]
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, ptr %12, align 1
   %47 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %12, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %82
 
 48:                                               ; preds = %45
@@ -667,11 +667,11 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   %50 = trunc i64 %3 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext = and i16 %50, 255
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert)
   store i16 %rev.i, ptr %11, align 2
   %51 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %82
 
 52:                                               ; preds = %45
@@ -685,20 +685,20 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   %.sroa.0.sroa.0.sroa.0.0.insert.ext = or disjoint i32 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext84, %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext106.masked
   %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.0.0.insert.ext, %.sroa.0.sroa.0.sroa.11.0.insert.ext
   %56 = bitcast i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to float
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %57 = tail call float @stream_encodeFloat(float noundef %56) #7
   store float %57, ptr %10, align 4
   %58 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %10, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %82
 
 59:                                               ; preds = %45
   %60 = bitcast i64 %3 to double
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = tail call double @stream_encodeDouble(double noundef %60) #7
   store double %61, ptr %9, align 8
   %62 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %82
 
 63:                                               ; preds = %45
@@ -711,19 +711,19 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext110.masked = and i32 %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext110, 65280
   %.sroa.0.sroa.0.sroa.0.0.insert.ext46 = or disjoint i32 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext87, %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext110.masked
   %.sroa.0.sroa.0.sroa.0.0.insert.insert48 = or disjoint i32 %.sroa.0.sroa.0.sroa.0.0.insert.ext46, %.sroa.0.sroa.0.sroa.11.0.insert.ext61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %67 = tail call i32 @llvm.bswap.i32(i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert48)
   store i32 %67, ptr %8, align 4
   %68 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 69:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %70 = tail call i64 @llvm.bswap.i64(i64 %3)
   store i64 %70, ptr %7, align 8
   %71 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 72:                                               ; preds = %45
@@ -732,20 +732,20 @@ outStream_writeObjectRef.exit:                    ; preds = %25, %34, %40, %43
   %74 = trunc i64 %3 to i16
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext81 = and i16 %74, 255
   %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert83 = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0.insert.ext102, %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.ext81
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %rev.i133 = tail call i16 @llvm.bswap.i16(i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert83)
   store i16 %rev.i133, ptr %6, align 2
   %75 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 76:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i134 = icmp ne i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, 0
   %77 = zext i1 %.not.i134 to i8
   store i8 %77, ptr %5, align 1
   %78 = call fastcc zeroext i16 @writeBytes(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %82
 
 79:                                               ; preds = %45
@@ -776,10 +776,10 @@ define hidden zeroext i16 @outStream_skipBytes(ptr noundef captures(none) %0, i3
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.04 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   %5 = call fastcc zeroext i16 @writeBytes(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %6, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -1081,10 +1081,10 @@ declare i64 @llvm.bswap.i64(i64) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

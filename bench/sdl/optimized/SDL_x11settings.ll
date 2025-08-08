@@ -19,10 +19,7 @@ define hidden void @X11_InitXsettings(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @xsettings_client_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @xsettings_client_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @X11_XsettingsNotify(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 {
@@ -89,9 +86,6 @@ define internal void @X11_XsettingsNotify(ptr noundef %0, i32 noundef %1, ptr no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_QuitXsettings(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
@@ -110,7 +104,7 @@ define hidden void @X11_QuitXsettings(ptr noundef readonly captures(none) %0) lo
   ret void
 }
 
-declare void @xsettings_client_destroy(ptr noundef) local_unnamed_addr #2
+declare void @xsettings_client_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X11_HandleXsettings(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -136,7 +130,7 @@ define hidden void @X11_HandleXsettings(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-declare i32 @xsettings_client_process_event(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @xsettings_client_process_event(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X11_GetXsettingsIntKey(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -144,7 +138,7 @@ define hidden i32 @X11_GetXsettingsIntKey(ptr noundef readonly captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
@@ -178,21 +172,27 @@ define hidden i32 @X11_GetXsettingsIntKey(ptr noundef readonly captures(none) %0
 
 .thread:                                          ; preds = %3, %.thread14, %16
   %.013 = phi i32 [ %.017, %.thread14 ], [ %2, %16 ], [ %2, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.013
 }
 
-declare i32 @xsettings_client_get_setting(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @xsettings_client_get_setting(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @xsettings_setting_free(ptr noundef) local_unnamed_addr #2
+declare void @xsettings_setting_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_SetDisplayContentScale(ptr noundef, float noundef) local_unnamed_addr #2
+declare void @SDL_SetDisplayContentScale(ptr noundef, float noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -660,12 +660,12 @@ define hidden void @_ZN5XHeap10mark_startEv(ptr noundef nonnull align 64 derefer
   br label %10
 
 10:                                               ; preds = %7, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %11) #12
   call void @_ZN8XAddress14flip_to_markedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @_ZN16XObjectAllocator12retire_pagesEv(ptr noundef nonnull align 8 dereferenceable(56) %12) #12
   call void @_ZN14XPageAllocator16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(609) %11) #12
@@ -1261,7 +1261,7 @@ define linkonce_odr hidden void @_ZN22XRelocationSetSelector18register_live_page
   ]
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %11 = load i64, ptr %8, align 8
   %12 = load i64, ptr %7, align 8
@@ -1291,11 +1291,11 @@ _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit: ; preds = %10
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %14
   store i64 %30, ptr %28, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 31:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %32 = load i64, ptr %8, align 8
   %33 = load i64, ptr %7, align 8
@@ -1325,11 +1325,11 @@ _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6: ; preds = %3
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %35
   store i64 %51, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %73
 
 52:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %53 = load i64, ptr %8, align 8
   %54 = load i64, ptr %7, align 8
@@ -1359,7 +1359,7 @@ _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7: ; preds = %5
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, %56
   store i64 %72, ptr %70, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %73
 
 73:                                               ; preds = %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7, %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit
@@ -1434,12 +1434,12 @@ define hidden void @_ZN5XHeap14relocate_startEv(ptr noundef nonnull align 64 der
   %3 = alloca %class.XPageAllocatorStats, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   tail call void @_ZN7XUnload6finishEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5) #12
   call void @_ZN8XAddress16flip_to_remappedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 2, ptr @XGlobalPhase, align 4
   call void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XPageAllocatorStats) align 8 %3, ptr noundef nonnull align 8 dereferenceable(609) %5) #12
   call void @_ZN9XStatHeap21set_at_relocate_startERK19XPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
@@ -1987,10 +1987,10 @@ declare i64 @llvm.ctpop.i64(i64) #10
 declare i32 @llvm.ctpop.i32(i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

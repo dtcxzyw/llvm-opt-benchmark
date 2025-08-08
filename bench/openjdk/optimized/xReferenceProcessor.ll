@@ -1598,7 +1598,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   %21 = sdiv i64 %20, 1000000
   call void @_ZN27java_lang_ref_SoftReference9set_clockEl(i64 noundef %21) #12
   call void @_ZN19XReferenceProcessor18collect_statisticsEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %22 = load i8, ptr %3, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %_ZN10XStatTimerD2Ev.exit
@@ -1618,7 +1618,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %1, %14
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1687,7 +1687,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %21, %23
   br label %32
 
 32:                                               ; preds = %_ZN10XStatTimerC2ERK10XStatPhase.exit, %_ZN13MonitorLockerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %33 = load i8, ptr %3, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %_ZN10XStatTimerD2Ev.exit
@@ -1707,7 +1707,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %21, %23
   br label %_ZN10XStatTimerD2Ev.exit
 
 _ZN10XStatTimerD2Ev.exit:                         ; preds = %32, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1895,10 +1895,10 @@ define internal void @_GLOBAL__sub_I_xReferenceProcessor.cpp() #6 section ".text
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

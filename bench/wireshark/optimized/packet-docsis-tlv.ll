@@ -1631,9 +1631,6 @@ define internal void @fourth_db(ptr noundef %0, i32 noundef %1) #2 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1816,7 +1813,7 @@ define internal i32 @dissect_docsis_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   br label %dissect_snmpv3_kickstart.exit
 
 82:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %83 = zext i8 %74 to i32
   %84 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %85 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %83, i32 noundef %84, ptr noundef nonnull %62, ptr noundef nonnull @.str.1028, i32 noundef %83)
@@ -1878,7 +1875,7 @@ define internal i32 @dissect_docsis_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %116, label %.lr.ph.i, label %dissect_doc10cos.exit, !llvm.loop !6
 
 dissect_doc10cos.exit:                            ; preds = %113, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %dissect_snmpv3_kickstart.exit
 
 117:                                              ; preds = %70
@@ -1910,7 +1907,7 @@ dissect_doc10cos.exit:                            ; preds = %113, %82
   br label %dissect_snmpv3_kickstart.exit
 
 133:                                              ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %134 = zext i8 %74 to i32
   %135 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %136 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %134, i32 noundef %135, ptr noundef nonnull %61, ptr noundef nonnull @.str.1029, i32 noundef %134)
@@ -2052,13 +2049,13 @@ dissect_doc10cos.exit:                            ; preds = %113, %82
   br i1 %212, label %.lr.ph.i464, label %dissect_cos.exit, !llvm.loop !8
 
 dissect_cos.exit:                                 ; preds = %209, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %dissect_snmpv3_kickstart.exit
 
 213:                                              ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %214 = zext i8 %74 to i32
   %215 = load i32, ptr @ett_docsis_tlv_mcap, align 4
   %216 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %214, i32 noundef %215, ptr noundef nonnull %58, ptr noundef nonnull @.str.1030, i32 noundef %214)
@@ -2726,14 +2723,14 @@ dissect_cos.exit:                                 ; preds = %209, %133
   br i1 %580, label %581, label %587
 
 581:                                              ; preds = %579
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %582 = load i32, ptr @hf_docsis_tlv_mcap_ext_us_trans_power, align 4
   %583 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %216, i32 noundef %582, ptr noundef %0, i32 noundef %221, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %60)
   %584 = load i32, ptr %60, align 4
   %585 = uitofp i32 %584 to double
   %586 = fmul double %585, 2.500000e-01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %583, ptr noundef nonnull @.str.1031, double noundef %586)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.loopexit.i
 
 587:                                              ; preds = %579
@@ -3248,9 +3245,9 @@ dissect_cos.exit:                                 ; preds = %209, %133
   br i1 %901, label %.lr.ph.i465, label %dissect_modemcap.exit, !llvm.loop !12
 
 dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %dissect_snmpv3_kickstart.exit
 
 902:                                              ; preds = %70
@@ -3428,7 +3425,7 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   br label %dissect_snmpv3_kickstart.exit
 
 1008:                                             ; preds = %70, %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %switch = icmp eq i8 %72, 22
   %spec.select = select i1 %switch, ptr @.str.1041, ptr @.str.1042
   %1009 = zext i8 %74 to i32
@@ -3566,7 +3563,7 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   br label %1410
 
 1081:                                             ; preds = %.lr.ph.i467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %1082 = zext i8 %1017 to i32
   %1083 = load i32, ptr @ett_docsis_tlv_clsfr_err, align 4
   %1084 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1082, i32 noundef %1083, ptr noundef nonnull %55, ptr noundef nonnull @.str.1043, i32 noundef %1082)
@@ -3645,11 +3642,11 @@ dissect_modemcap.exit:                            ; preds = %.loopexit.i, %213
   br i1 %1124, label %.lr.ph.i.i, label %dissect_clsfr_err.exit.i, !llvm.loop !13
 
 dissect_clsfr_err.exit.i:                         ; preds = %1121, %1081
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %1410
 
 1125:                                             ; preds = %.lr.ph.i467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %1126 = zext i8 %1017 to i32
   %1127 = load i32, ptr @ett_docsis_tlv_clsfr_ip, align 4
   %1128 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1126, i32 noundef %1127, ptr noundef nonnull %54, ptr noundef nonnull @.str.1044, i32 noundef %1126)
@@ -3839,11 +3836,11 @@ dissect_clsfr_err.exit.i:                         ; preds = %1121, %1081
   br i1 %1231, label %.lr.ph.i120.i, label %dissect_ip_classifier.exit.i, !llvm.loop !14
 
 dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1410
 
 1232:                                             ; preds = %.lr.ph.i467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %1233 = zext i8 %1017 to i32
   %1234 = load i32, ptr @ett_docsis_tlv_clsfr_ip6, align 4
   %1235 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1233, i32 noundef %1234, ptr noundef nonnull %53, ptr noundef nonnull @.str.1045, i32 noundef %1233)
@@ -3872,7 +3869,7 @@ dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   br i1 %1243, label %1244, label %1255
 
 1244:                                             ; preds = %1242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %1245 = load i32, ptr @ett_docsis_tlv_clsfr_ip6_tc, align 4
   %1246 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1235, ptr noundef %0, i32 noundef %1240, i32 noundef 3, i32 noundef %1245, ptr noundef nonnull %52, ptr noundef nonnull @.str.1046)
   %1247 = load i32, ptr @hf_docsis_tlv_ip6clsfr_tc_low, align 4
@@ -3883,7 +3880,7 @@ dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   %1252 = load i32, ptr @hf_docsis_tlv_ip6clsfr_tc_mask, align 4
   %1253 = add i32 %.081.i.i, 4
   %1254 = call ptr @proto_tree_add_item(ptr noundef %1246, i32 noundef %1252, ptr noundef %0, i32 noundef %1253, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %1316
 
 1255:                                             ; preds = %1242
@@ -3995,11 +3992,11 @@ dissect_ip_classifier.exit.i:                     ; preds = %1228, %1125
   br i1 %1319, label %.lr.ph.i121.i, label %dissect_ip6_classifier.exit.i, !llvm.loop !15
 
 dissect_ip6_classifier.exit.i:                    ; preds = %1316, %1232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %1410
 
 1320:                                             ; preds = %.lr.ph.i467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %1321 = zext i8 %1017 to i32
   %1322 = load i32, ptr @ett_docsis_tlv_clsfr_eth, align 4
   %1323 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1321, i32 noundef %1322, ptr noundef nonnull %51, ptr noundef nonnull @.str.1047, i32 noundef %1321)
@@ -4077,11 +4074,11 @@ dissect_ip6_classifier.exit.i:                    ; preds = %1316, %1232
   br i1 %1363, label %.lr.ph.i122.i, label %dissect_eth_clsfr.exit.i, !llvm.loop !16
 
 dissect_eth_clsfr.exit.i:                         ; preds = %1360, %1320
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %1410
 
 1364:                                             ; preds = %.lr.ph.i467
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %1365 = zext i8 %1017 to i32
   %1366 = load i32, ptr @ett_docsis_tlv_cos, align 4
   %1367 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1011, ptr noundef %0, i32 noundef %1016, i32 noundef %1365, i32 noundef %1366, ptr noundef nonnull %50, ptr noundef nonnull @.str.1048, i32 noundef %1365)
@@ -4150,7 +4147,7 @@ dissect_eth_clsfr.exit.i:                         ; preds = %1360, %1320
   br i1 %1402, label %.lr.ph.i123.i, label %dissect_dot1q_clsfr.exit.i, !llvm.loop !17
 
 dissect_dot1q_clsfr.exit.i:                       ; preds = %1399, %1364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %1410
 
 1403:                                             ; preds = %.lr.ph.i467
@@ -4172,11 +4169,11 @@ dissect_dot1q_clsfr.exit.i:                       ; preds = %1399, %1364
   br i1 %1413, label %.lr.ph.i467, label %dissect_classifiers.exit, !llvm.loop !18
 
 dissect_classifiers.exit:                         ; preds = %1410, %1008
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %dissect_snmpv3_kickstart.exit
 
 1414:                                             ; preds = %70, %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %1415 = icmp eq i8 %72, 24
   %spec.select517 = select i1 %1415, ptr @.str.1049, ptr @.str.1050
   %1416 = zext i8 %74 to i32
@@ -4266,7 +4263,7 @@ dissect_classifiers.exit:                         ; preds = %1410, %1008
   br label %dissect_upstream_sflow.exit.i
 
 1456:                                             ; preds = %.lr.ph.i469
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1457 = zext i8 %1424 to i32
   %1458 = load i32, ptr @ett_docsis_tlv_sflow_err, align 4
   %1459 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1418, ptr noundef %0, i32 noundef %1423, i32 noundef %1457, i32 noundef %1458, ptr noundef nonnull %48, ptr noundef nonnull @.str.1051, i32 noundef %1457)
@@ -4335,7 +4332,7 @@ dissect_classifiers.exit:                         ; preds = %1410, %1008
   br i1 %1494, label %.lr.ph.i.i470, label %dissect_sflow_err.exit.i, !llvm.loop !19
 
 dissect_sflow_err.exit.i:                         ; preds = %1491, %1456
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %dissect_upstream_sflow.exit.i
 
 1495:                                             ; preds = %.lr.ph.i469
@@ -4815,7 +4812,7 @@ dissect_upstream_sflow.exit.i:                    ; preds = %1753, %1725, %1729,
   br i1 %1759, label %.lr.ph.i469, label %dissect_sflow.exit, !llvm.loop !22
 
 dissect_sflow.exit:                               ; preds = %dissect_upstream_sflow.exit.i, %1414
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %dissect_snmpv3_kickstart.exit
 
 1760:                                             ; preds = %70
@@ -5015,7 +5012,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   br label %dissect_snmpv3_kickstart.exit
 
 1875:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %1876 = zext i8 %74 to i32
   %1877 = load i32, ptr @ett_docsis_tlv_ds_ch_list, align 4
   %1878 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %1876, i32 noundef %1877, ptr noundef nonnull %47, ptr noundef nonnull @.str.1054, i32 noundef %1876)
@@ -5036,7 +5033,7 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   ]
 
 1885:                                             ; preds = %.lr.ph.i473
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1886 = zext i8 %1884 to i32
   %1887 = load i32, ptr @ett_docsis_tlv_ds_ch_list_single, align 4
   %1888 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1878, ptr noundef %0, i32 noundef %1883, i32 noundef %1886, i32 noundef %1887, ptr noundef nonnull %46, ptr noundef nonnull @.str.1055, i32 noundef %1886)
@@ -5098,11 +5095,11 @@ dissect_sflow.exit:                               ; preds = %dissect_upstream_sf
   br i1 %1919, label %.lr.ph.i.i474, label %dissect_ds_ch_list_single.exit.i, !llvm.loop !25
 
 dissect_ds_ch_list_single.exit.i:                 ; preds = %1916, %1885
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %1985
 
 1920:                                             ; preds = %.lr.ph.i473
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1921 = zext i8 %1884 to i32
   %1922 = load i32, ptr @ett_docsis_tlv_ds_ch_list_range, align 4
   %1923 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1878, ptr noundef %0, i32 noundef %1883, i32 noundef %1921, i32 noundef %1922, ptr noundef nonnull %45, ptr noundef nonnull @.str.1056, i32 noundef %1921)
@@ -5196,7 +5193,7 @@ dissect_ds_ch_list_single.exit.i:                 ; preds = %1916, %1885
   br i1 %1972, label %.lr.ph.i38.i, label %dissect_ds_ch_list_range.exit.i, !llvm.loop !26
 
 dissect_ds_ch_list_range.exit.i:                  ; preds = %1969, %1920
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %1985
 
 1973:                                             ; preds = %.lr.ph.i473
@@ -5227,7 +5224,7 @@ dissect_ds_ch_list_range.exit.i:                  ; preds = %1969, %1920
   br i1 %1988, label %.lr.ph.i473, label %dissect_ds_ch_list.exit, !llvm.loop !27
 
 dissect_ds_ch_list.exit:                          ; preds = %1985, %1875
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %dissect_snmpv3_kickstart.exit
 
 1989:                                             ; preds = %70
@@ -5245,29 +5242,29 @@ dissect_ds_ch_list.exit:                          ; preds = %1985, %1875
   br label %dissect_snmpv3_kickstart.exit
 
 1997:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1998 = zext i8 %74 to i32
   %1999 = load i32, ptr @ett_docsis_tlv_ext_field, align 4
   %2000 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %1998, i32 noundef %1999, ptr noundef nonnull %44, ptr noundef nonnull @.str.1057, i32 noundef %1998)
   %2001 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %73, i32 noundef %1998)
   %2002 = load ptr, ptr @docsis_vsif_handle, align 8
   %2003 = call i32 @call_dissector(ptr noundef %2002, ptr noundef %2001, ptr noundef %1, ptr noundef %2000)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %dissect_snmpv3_kickstart.exit
 
 2004:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %2005 = zext i8 %74 to i32
   %2006 = load i32, ptr @ett_docsis_tlv_vendor_specific_cap, align 4
   %2007 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2005, i32 noundef %2006, ptr noundef nonnull %43, ptr noundef nonnull @.str.1058, i32 noundef %2005)
   %2008 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %73, i32 noundef %2005)
   %2009 = load ptr, ptr @docsis_vsif_handle, align 8
   %2010 = call i32 @call_dissector(ptr noundef %2009, ptr noundef %2008, ptr noundef %1, ptr noundef %2007)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %dissect_snmpv3_kickstart.exit
 
 2011:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %2012 = zext i8 %74 to i32
   %2013 = load i32, ptr @ett_docsis_tlv_dut_filter, align 4
   %2014 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2012, i32 noundef %2013, ptr noundef nonnull %42, ptr noundef nonnull @.str.1059, i32 noundef %2012)
@@ -5320,12 +5317,12 @@ dissect_ds_ch_list.exit:                          ; preds = %1985, %1875
   br i1 %2040, label %.lr.ph.i475, label %dissect_dut_filter.exit, !llvm.loop !28
 
 dissect_dut_filter.exit:                          ; preds = %2037, %2011
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %dissect_snmpv3_kickstart.exit
 
 2041:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i32 -1, ptr %41, align 4
   %2042 = zext i8 %74 to i32
   %2043 = load i32, ptr @ett_docsis_tlv_tcc, align 4
@@ -5508,7 +5505,7 @@ dissect_dut_filter.exit:                          ; preds = %2037, %2011
   br label %2290
 
 2137:                                             ; preds = %2048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %2138 = zext i8 %2052 to i32
   %2139 = load i32, ptr @ett_docsis_tlv_tcc_rng_parms, align 4
   %2140 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2044, ptr noundef %0, i32 noundef %2051, i32 noundef %2138, i32 noundef %2139, ptr noundef nonnull %39, ptr noundef nonnull @.str.1062, i32 noundef %2138)
@@ -5618,7 +5615,7 @@ dissect_dut_filter.exit:                          ; preds = %2037, %2011
   br i1 %2198, label %.lr.ph.i.i477, label %dissect_tcc_rng_parms.exit.i, !llvm.loop !31
 
 dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %2290
 
 2199:                                             ; preds = %2048
@@ -5652,7 +5649,7 @@ dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
   br label %2290
 
 2217:                                             ; preds = %2048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %2218 = zext i8 %2052 to i32
   %2219 = load i32, ptr @ett_docsis_tlv_tcc_oudp, align 4
   %2220 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2044, ptr noundef %0, i32 noundef %2051, i32 noundef %2218, i32 noundef %2219, ptr noundef nonnull %38, ptr noundef nonnull @.str.1063, i32 noundef %2218)
@@ -5669,7 +5666,7 @@ dissect_tcc_rng_parms.exit.i:                     ; preds = %2195, %2137
   br i1 %exitcond.not.i.i, label %dissect_tcc_oudp.exit.i, label %.lr.ph.i168.i, !llvm.loop !32
 
 dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i168.i, %2217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2290
 
 2226:                                             ; preds = %2048
@@ -5718,7 +5715,7 @@ dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i168.i, %221
   br label %2290
 
 2253:                                             ; preds = %2048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %2254 = zext i8 %2052 to i32
   %2255 = load i32, ptr @ett_docsis_tlv_tcc_err, align 4
   %2256 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2044, ptr noundef %0, i32 noundef %2051, i32 noundef %2254, i32 noundef %2255, ptr noundef nonnull %37, ptr noundef nonnull @.str.1064, i32 noundef %2254)
@@ -5778,7 +5775,7 @@ dissect_tcc_oudp.exit.i:                          ; preds = %.lr.ph.i168.i, %221
   br i1 %2286, label %.lr.ph.i169.i, label %dissect_tcc_err.exit.i, !llvm.loop !33
 
 dissect_tcc_err.exit.i:                           ; preds = %2283, %2253
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %2290
 
 2287:                                             ; preds = %2048
@@ -5796,12 +5793,12 @@ dissect_tcc_err.exit.i:                           ; preds = %2283, %2253
 
 dissect_tcc.exit:                                 ; preds = %2290, %2041
   %.4 = phi i32 [ %.0516522, %2041 ], [ %.3, %2290 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %dissect_snmpv3_kickstart.exit
 
 2294:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %2295 = zext i8 %74 to i32
   %2296 = load i32, ptr @ett_docsis_tlv_sid_cl, align 4
   %2297 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2295, i32 noundef %2296, ptr noundef nonnull %36, ptr noundef nonnull @.str.1065, i32 noundef %2295)
@@ -5837,7 +5834,7 @@ dissect_tcc.exit:                                 ; preds = %2290, %2041
   br label %2460
 
 2313:                                             ; preds = %.lr.ph.i479
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %2314 = zext i8 %2303 to i32
   %2315 = load i32, ptr @ett_docsis_tlv_sid_cl_enc, align 4
   %2316 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2297, ptr noundef %0, i32 noundef %2302, i32 noundef %2314, i32 noundef %2315, ptr noundef nonnull %35, ptr noundef nonnull @.str.1066, i32 noundef %2314)
@@ -5876,7 +5873,7 @@ dissect_tcc.exit:                                 ; preds = %2290, %2041
   br i1 %2333, label %2334, label %2393
 
 2334:                                             ; preds = %2332
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %2335 = load i32, ptr @ett_docsis_tlv_sid_cl_enc_map, align 4
   %2336 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2316, ptr noundef %0, i32 noundef %2321, i32 noundef 10, i32 noundef %2335, ptr noundef nonnull %34, ptr noundef nonnull @.str.1067, i32 noundef 10)
   %2337 = add i32 %.037.i.i484, 12
@@ -5943,8 +5940,8 @@ dissect_tcc.exit:                                 ; preds = %2290, %2041
 2370:                                             ; preds = %.lr.ph.i.i.i
   %2371 = zext i8 %2342 to i32
   %2372 = add nuw nsw i32 %2371, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %2373 = load i32, ptr @hf_docsis_tlv_unknown, align 4
   %2374 = call ptr @proto_tree_add_item(ptr noundef %2336, i32 noundef %2373, ptr noundef %0, i32 noundef %.046.i.i.i, i32 noundef %2372, i32 noundef 0)
   %2375 = load i32, ptr @ett_docsis_tlv_unknown, align 4
@@ -5970,8 +5967,8 @@ dissect_tcc.exit:                                 ; preds = %2290, %2041
   br label %dissect_unknown_tlv.exit.i
 
 dissect_unknown_tlv.exit.i:                       ; preds = %2386, %2384
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %2389
 
 2389:                                             ; preds = %dissect_unknown_tlv.exit.i, %2366, %2363, %2357, %2354, %2348, %2345
@@ -5981,7 +5978,7 @@ dissect_unknown_tlv.exit.i:                       ; preds = %2386, %2384
   br i1 %2392, label %.lr.ph.i.i.i, label %dissect_sid_cl_enc_map.exit.i.i, !llvm.loop !35
 
 dissect_sid_cl_enc_map.exit.i.i:                  ; preds = %2389, %2334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %2400
 
 2393:                                             ; preds = %2332
@@ -6003,11 +6000,11 @@ dissect_sid_cl_enc_map.exit.i.i:                  ; preds = %2389, %2334
   br i1 %2403, label %.lr.ph.i.i483, label %dissect_sid_cl_enc.exit.i, !llvm.loop !36
 
 dissect_sid_cl_enc.exit.i:                        ; preds = %2400, %2313
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %2460
 
 2404:                                             ; preds = %.lr.ph.i479
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %2405 = zext i8 %2303 to i32
   %2406 = load i32, ptr @ett_docsis_tlv_sid_cl_so, align 4
   %2407 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2297, ptr noundef %0, i32 noundef %2302, i32 noundef %2405, i32 noundef %2406, ptr noundef nonnull %33, ptr noundef nonnull @.str.1068, i32 noundef %2405)
@@ -6101,7 +6098,7 @@ dissect_sid_cl_enc.exit.i:                        ; preds = %2400, %2313
   br i1 %2456, label %.lr.ph.i38.i481, label %dissect_sid_cl_so_crit.exit.i, !llvm.loop !37
 
 dissect_sid_cl_so_crit.exit.i:                    ; preds = %2453, %2404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %2460
 
 2457:                                             ; preds = %.lr.ph.i479
@@ -6117,11 +6114,11 @@ dissect_sid_cl_so_crit.exit.i:                    ; preds = %2453, %2404
   br i1 %2463, label %.lr.ph.i479, label %dissect_sid_cl.exit, !llvm.loop !38
 
 dissect_sid_cl.exit:                              ; preds = %2460, %2294
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %dissect_snmpv3_kickstart.exit
 
 2464:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %2465 = zext i8 %74 to i32
   %2466 = load i32, ptr @ett_docsis_tlv_rcp, align 4
   %2467 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2465, i32 noundef %2466, ptr noundef nonnull %30, ptr noundef nonnull @.str.1069, i32 noundef %2465)
@@ -6190,7 +6187,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   br label %2648
 
 2501:                                             ; preds = %.lr.ph.i485
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %2502 = zext i8 %2473 to i32
   %2503 = load i32, ptr @ett_docsis_tlv_rcp_rcv_mod_enc, align 4
   %2504 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2467, ptr noundef %0, i32 noundef %2472, i32 noundef %2502, i32 noundef %2503, ptr noundef nonnull %29, ptr noundef nonnull @.str.1070, i32 noundef %2502)
@@ -6245,7 +6242,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   br label %2588
 
 2529:                                             ; preds = %.lr.ph.i.i486
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2530 = zext i8 %2510 to i32
   %2531 = load i32, ptr @ett_docsis_tlv_rcp_ch_bl_rng, align 4
   %2532 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2504, ptr noundef %0, i32 noundef %2509, i32 noundef %2530, i32 noundef %2531, ptr noundef nonnull %28, ptr noundef nonnull @.str.1071, i32 noundef %2530)
@@ -6307,7 +6304,7 @@ dissect_sid_cl.exit:                              ; preds = %2460, %2294
   br i1 %2563, label %.lr.ph.i.i.i487, label %dissect_ch_bl_rng.exit.i.i, !llvm.loop !39
 
 dissect_ch_bl_rng.exit.i.i:                       ; preds = %2560, %2529
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %2588
 
 2564:                                             ; preds = %.lr.ph.i.i486
@@ -6356,11 +6353,11 @@ dissect_ch_bl_rng.exit.i.i:                       ; preds = %2560, %2529
   br i1 %2591, label %.lr.ph.i.i486, label %dissect_rcp_rcv_mod.exit.i, !llvm.loop !40
 
 dissect_rcp_rcv_mod.exit.i:                       ; preds = %2588, %2501
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %2648
 
 2592:                                             ; preds = %.lr.ph.i485
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %2593 = zext i8 %2473 to i32
   %2594 = load i32, ptr @ett_docsis_tlv_rcp_rcv_ch, align 4
   %2595 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2467, ptr noundef %0, i32 noundef %2472, i32 noundef %2593, i32 noundef %2594, ptr noundef nonnull %27, ptr noundef nonnull @.str.1072, i32 noundef %2593)
@@ -6445,7 +6442,7 @@ dissect_rcp_rcv_mod.exit.i:                       ; preds = %2588, %2501
   br i1 %2639, label %.lr.ph.i62.i, label %dissect_rcp_rcv_ch.exit.i, !llvm.loop !41
 
 dissect_rcp_rcv_ch.exit.i:                        ; preds = %2636, %2592
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %2648
 
 2640:                                             ; preds = %.lr.ph.i485
@@ -6468,11 +6465,11 @@ dissect_rcp_rcv_ch.exit.i:                        ; preds = %2636, %2592
   br i1 %2651, label %.lr.ph.i485, label %dissect_rcp.exit, !llvm.loop !42
 
 dissect_rcp.exit:                                 ; preds = %2648, %2464
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %dissect_snmpv3_kickstart.exit
 
 2652:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %2653 = zext i8 %74 to i32
   %2654 = load i32, ptr @ett_docsis_tlv_rcc, align 4
   %2655 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2653, i32 noundef %2654, ptr noundef nonnull %26, ptr noundef nonnull @.str.1073, i32 noundef %2653)
@@ -6513,7 +6510,7 @@ dissect_rcp.exit:                                 ; preds = %2648, %2464
   br label %2921
 
 2671:                                             ; preds = %.lr.ph.i488
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2672 = zext i8 %2661 to i32
   %2673 = load i32, ptr @ett_docsis_tlv_rcc_rcv_mod_enc, align 4
   %2674 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2672, i32 noundef %2673, ptr noundef nonnull %25, ptr noundef nonnull @.str.1074, i32 noundef %2672)
@@ -6582,11 +6579,11 @@ dissect_rcp.exit:                                 ; preds = %2648, %2464
   br i1 %2709, label %.lr.ph.i.i496, label %dissect_rcc_rcv_mod.exit.i, !llvm.loop !43
 
 dissect_rcc_rcv_mod.exit.i:                       ; preds = %2706, %2671
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2921
 
 2710:                                             ; preds = %.lr.ph.i488
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %2711 = zext i8 %2661 to i32
   %2712 = load i32, ptr @ett_docsis_tlv_rcc_rcv_ch, align 4
   %2713 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2711, i32 noundef %2712, ptr noundef nonnull %24, ptr noundef nonnull @.str.1072, i32 noundef %2711)
@@ -6671,7 +6668,7 @@ dissect_rcc_rcv_mod.exit.i:                       ; preds = %2706, %2671
   br i1 %2757, label %.lr.ph.i67.i, label %dissect_rcc_rcv_ch.exit.i, !llvm.loop !44
 
 dissect_rcc_rcv_ch.exit.i:                        ; preds = %2754, %2710
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2921
 
 2758:                                             ; preds = %.lr.ph.i488
@@ -6682,7 +6679,7 @@ dissect_rcc_rcv_ch.exit.i:                        ; preds = %2754, %2710
   br label %2921
 
 2763:                                             ; preds = %.lr.ph.i488
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %2764 = zext i8 %2661 to i32
   %2765 = load i32, ptr @ett_docsis_tlv_rcc_partial_serv_down_chan, align 4
   %2766 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2764, i32 noundef %2765, ptr noundef nonnull %23, ptr noundef nonnull @.str.1075, i32 noundef %2764)
@@ -6699,11 +6696,11 @@ dissect_rcc_rcv_ch.exit.i:                        ; preds = %2754, %2710
   br i1 %exitcond.not.i.i494, label %dissect_rcc_partial_serv_down_chan.exit.i, label %.lr.ph.i68.i, !llvm.loop !45
 
 dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %2921
 
 2771:                                             ; preds = %.lr.ph.i488
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %2772 = zext i8 %2661 to i32
   %2773 = load i32, ptr @ett_docsis_tlv_rcc_srcc, align 4
   %2774 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2772, i32 noundef %2773, ptr noundef nonnull %22, ptr noundef nonnull @.str.1076, i32 noundef %2772)
@@ -6724,7 +6721,7 @@ dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
   ]
 
 2781:                                             ; preds = %.lr.ph.i69.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %2782 = zext i8 %2780 to i32
   %2783 = load i32, ptr @ett_docsis_tlv_rcc_srcc_prim_ds_assign, align 4
   %2784 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2774, ptr noundef %0, i32 noundef %2779, i32 noundef %2782, i32 noundef %2783, ptr noundef nonnull %21, ptr noundef nonnull @.str.1077, i32 noundef %2782)
@@ -6741,11 +6738,11 @@ dissect_rcc_partial_serv_down_chan.exit.i:        ; preds = %.lr.ph.i68.i, %2763
   br i1 %exitcond.not.i.i.i, label %dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i, label %.lr.ph.i.i.i491, !llvm.loop !46
 
 dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i:      ; preds = %.lr.ph.i.i.i491, %2781
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %2849
 
 2789:                                             ; preds = %.lr.ph.i69.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %2790 = zext i8 %2780 to i32
   %2791 = load i32, ptr @ett_docsis_tlv_rcc_srcc_ds_assign, align 4
   %2792 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2774, ptr noundef %0, i32 noundef %2779, i32 noundef %2790, i32 noundef %2791, ptr noundef nonnull %20, ptr noundef nonnull @.str.1078, i32 noundef %2790)
@@ -6762,11 +6759,11 @@ dissect_rcc_srcc_prim_ds_ch_assign.exit.i.i:      ; preds = %.lr.ph.i.i.i491, %2
   br i1 %exitcond.not.i36.i.i, label %dissect_rcc_srcc_ds_ch_assign.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !47
 
 dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %2789
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2849
 
 2797:                                             ; preds = %.lr.ph.i69.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %2798 = zext i8 %2780 to i32
   %2799 = load i32, ptr @ett_docsis_tlv_rcc_srcc_ds_prof_assign, align 4
   %2800 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2774, ptr noundef %0, i32 noundef %2779, i32 noundef %2798, i32 noundef %2799, ptr noundef nonnull %19, ptr noundef nonnull @.str.1079, i32 noundef %2798)
@@ -6801,7 +6798,7 @@ dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %27
   br label %2843
 
 2816:                                             ; preds = %.lr.ph.i37.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %2817 = zext i8 %2806 to i32
   %2818 = load i32, ptr @ett_docsis_tlv_rcc_srcc_ds_prof_assign_prof_list, align 4
   %2819 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2800, ptr noundef %0, i32 noundef %2805, i32 noundef %2817, i32 noundef %2818, ptr noundef nonnull %18, ptr noundef nonnull @.str.1080, i32 noundef %2817)
@@ -6818,14 +6815,14 @@ dissect_rcc_srcc_ds_ch_assign.exit.i.i:           ; preds = %.lr.ph.i34.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !48
 
 dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i, %2816
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %2843
 
 2824:                                             ; preds = %.lr.ph.i37.i.i
   %2825 = zext i8 %2806 to i32
   %2826 = add nuw nsw i32 %2825, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %2827 = load i32, ptr @hf_docsis_tlv_unknown, align 4
   %2828 = call ptr @proto_tree_add_item(ptr noundef %2800, i32 noundef %2827, ptr noundef %0, i32 noundef %.032.i.i.i, i32 noundef %2826, i32 noundef 0)
   %2829 = load i32, ptr @ett_docsis_tlv_unknown, align 4
@@ -6851,8 +6848,8 @@ dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i,
   br label %dissect_unknown_tlv.exit.i490
 
 dissect_unknown_tlv.exit.i490:                    ; preds = %2840, %2838
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %2843
 
 2843:                                             ; preds = %dissect_unknown_tlv.exit.i490, %dissect_rcc_srcc_ds_prof_assign_prof_list.exit.i.i.i, %2812, %2809
@@ -6862,7 +6859,7 @@ dissect_unknown_tlv.exit.i490:                    ; preds = %2840, %2838
   br i1 %2845, label %.lr.ph.i37.i.i, label %dissect_rcc_srcc_ds_prof_assign.exit.i.i, !llvm.loop !49
 
 dissect_rcc_srcc_ds_prof_assign.exit.i.i:         ; preds = %2843, %2797
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2849
 
 2846:                                             ; preds = %.lr.ph.i69.i
@@ -6879,7 +6876,7 @@ dissect_rcc_srcc_ds_prof_assign.exit.i.i:         ; preds = %2843, %2797
   br i1 %2851, label %.lr.ph.i69.i, label %dissect_rcc_srcc.exit.i, !llvm.loop !50
 
 dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %2921
 
 2852:                                             ; preds = %.lr.ph.i488
@@ -6898,7 +6895,7 @@ dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
   br label %2921
 
 2861:                                             ; preds = %.lr.ph.i488
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %2862 = zext i8 %2661 to i32
   %2863 = load i32, ptr @ett_docsis_tlv_rcc_rcv_ch, align 4
   %2864 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2655, ptr noundef %0, i32 noundef %2660, i32 noundef %2862, i32 noundef %2863, ptr noundef nonnull %17, ptr noundef nonnull @.str.1081, i32 noundef %2862)
@@ -6999,7 +6996,7 @@ dissect_rcc_srcc.exit.i:                          ; preds = %2849, %2771
   br i1 %2917, label %.lr.ph.i70.i, label %dissect_rcc_err.exit.i, !llvm.loop !51
 
 dissect_rcc_err.exit.i:                           ; preds = %2914, %2861
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2921
 
 2918:                                             ; preds = %.lr.ph.i488
@@ -7015,11 +7012,11 @@ dissect_rcc_err.exit.i:                           ; preds = %2914, %2861
   br i1 %2924, label %.lr.ph.i488, label %dissect_rcc.exit, !llvm.loop !52
 
 dissect_rcc.exit:                                 ; preds = %2921, %2652
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %dissect_snmpv3_kickstart.exit
 
 2925:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %2926 = zext i8 %74 to i32
   %2927 = load i32, ptr @ett_docsis_tlv_dsid, align 4
   %2928 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %2926, i32 noundef %2927, ptr noundef nonnull %14, ptr noundef nonnull @.str.1082, i32 noundef %2926)
@@ -7071,7 +7068,7 @@ dissect_rcc.exit:                                 ; preds = %2921, %2652
   br label %dissect_dsid_mc.exit.i
 
 2953:                                             ; preds = %.lr.ph.i498
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %2954 = zext i8 %2934 to i32
   %2955 = load i32, ptr @ett_docsis_tlv_dsid_ds_reseq, align 4
   %2956 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2928, ptr noundef %0, i32 noundef %2933, i32 noundef %2954, i32 noundef %2955, ptr noundef nonnull %13, ptr noundef nonnull @.str.1083, i32 noundef %2954)
@@ -7172,7 +7169,7 @@ dissect_rcc.exit:                                 ; preds = %2921, %2652
   br i1 %3009, label %.lr.ph.i.i504, label %dissect_dsid_ds_reseq.exit.i, !llvm.loop !53
 
 dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %dissect_dsid_mc.exit.i
 
 3010:                                             ; preds = %.lr.ph.i498
@@ -7197,7 +7194,7 @@ dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
   ]
 
 3020:                                             ; preds = %.lr.ph.i47.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %3021 = zext i8 %3019 to i32
   %3022 = load i32, ptr @ett_docsis_tlv_dsid_mc_addr, align 4
   %3023 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3013, ptr noundef %0, i32 noundef %3018, i32 noundef %3021, i32 noundef %3022, ptr noundef nonnull %12, ptr noundef nonnull @.str.1085, i32 noundef %3021)
@@ -7249,8 +7246,8 @@ dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
 3048:                                             ; preds = %.lr.ph.i.i.i500
   %3049 = zext i8 %3029 to i32
   %3050 = add nuw nsw i32 %3049, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %3051 = load i32, ptr @hf_docsis_tlv_unknown, align 4
   %3052 = call ptr @proto_tree_add_item(ptr noundef %3023, i32 noundef %3051, ptr noundef %0, i32 noundef %.037.i.i.i501, i32 noundef %3050, i32 noundef 0)
   %3053 = load i32, ptr @ett_docsis_tlv_unknown, align 4
@@ -7276,8 +7273,8 @@ dissect_dsid_ds_reseq.exit.i:                     ; preds = %3006, %2953
   br label %dissect_unknown_tlv.exit.i503
 
 dissect_unknown_tlv.exit.i503:                    ; preds = %3064, %3062
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %3067
 
 3067:                                             ; preds = %dissect_unknown_tlv.exit.i503, %3044, %3041, %3035, %3032
@@ -7287,7 +7284,7 @@ dissect_unknown_tlv.exit.i503:                    ; preds = %3064, %3062
   br i1 %3070, label %.lr.ph.i.i.i500, label %dissect_dsid_mc_addr.exit.i.i, !llvm.loop !54
 
 dissect_dsid_mc_addr.exit.i.i:                    ; preds = %3067, %3020
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %3084
 
 3071:                                             ; preds = %.lr.ph.i47.i
@@ -7332,11 +7329,11 @@ dissect_dsid_mc.exit.i:                           ; preds = %3084, %3088, %3010,
   br i1 %3093, label %.lr.ph.i498, label %dissect_dsid.exit, !llvm.loop !56
 
 dissect_dsid.exit:                                ; preds = %dissect_dsid_mc.exit.i, %2925
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dissect_snmpv3_kickstart.exit
 
 3094:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %3095 = zext i8 %74 to i32
   %3096 = load i32, ptr @ett_docsis_tlv_dsid, align 4
   %3097 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3095, i32 noundef %3096, ptr noundef nonnull %9, ptr noundef nonnull @.str.1086, i32 noundef %3095)
@@ -7398,7 +7395,7 @@ dissect_dsid.exit:                                ; preds = %dissect_dsid_mc.exi
   br i1 %3128, label %.lr.ph.i506, label %dissect_sec_assoc.exit, !llvm.loop !57
 
 dissect_sec_assoc.exit:                           ; preds = %3125, %3094
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_snmpv3_kickstart.exit
 
 3129:                                             ; preds = %70
@@ -7416,7 +7413,7 @@ dissect_sec_assoc.exit:                           ; preds = %3125, %3094
   br label %dissect_snmpv3_kickstart.exit
 
 3137:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %3138 = zext i8 %74 to i32
   %3139 = load i32, ptr @ett_docsis_tlv_ch_asgn, align 4
   %3140 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3138, i32 noundef %3139, ptr noundef nonnull %8, ptr noundef nonnull @.str.1087, i32 noundef %3138)
@@ -7478,7 +7475,7 @@ dissect_sec_assoc.exit:                           ; preds = %3125, %3094
   br i1 %3171, label %.lr.ph.i508, label %dissect_ch_asgn.exit, !llvm.loop !58
 
 dissect_ch_asgn.exit:                             ; preds = %3168, %3137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_snmpv3_kickstart.exit
 
 3172:                                             ; preds = %70
@@ -7556,7 +7553,7 @@ dissect_ch_asgn.exit:                             ; preds = %3168, %3137
   br label %dissect_snmpv3_kickstart.exit
 
 3216:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %3217 = zext i8 %74 to i32
   %3218 = load i32, ptr @ett_docsis_cmts_mc_sess_enc, align 4
   %3219 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3217, i32 noundef %3218, ptr noundef nonnull %7, ptr noundef nonnull @.str.1088, i32 noundef %3217)
@@ -7630,7 +7627,7 @@ dissect_ch_asgn.exit:                             ; preds = %3168, %3137
   br i1 %3251, label %.lr.ph.i510, label %dissect_cmts_mc_sess_enc.exit, !llvm.loop !59
 
 dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_snmpv3_kickstart.exit
 
 3252:                                             ; preds = %70
@@ -7648,7 +7645,7 @@ dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
   br label %dissect_snmpv3_kickstart.exit
 
 3260:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %3261 = zext i8 %74 to i32
   %3262 = load i32, ptr @ett_docsis_em_id_list_for_cm, align 4
   %3263 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3261, i32 noundef %3262, ptr noundef nonnull %6, ptr noundef nonnull @.str.1089, i32 noundef %3261)
@@ -7665,11 +7662,11 @@ dissect_cmts_mc_sess_enc.exit:                    ; preds = %3249, %3216
   br i1 %3269, label %.lr.ph.i513, label %dissect_em_id_list_for_cm.exit, !llvm.loop !60
 
 dissect_em_id_list_for_cm.exit:                   ; preds = %.lr.ph.i513, %3260
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_snmpv3_kickstart.exit
 
 3270:                                             ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %3271 = zext i8 %74 to i32
   %3272 = load i32, ptr @ett_docsis_tlv_tg_assignment, align 4
   %3273 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %67, ptr noundef %0, i32 noundef %73, i32 noundef %3271, i32 noundef %3272, ptr noundef nonnull %5, ptr noundef nonnull @.str.1090, i32 noundef %3271)
@@ -7739,7 +7736,7 @@ dissect_em_id_list_for_cm.exit:                   ; preds = %.lr.ph.i513, %3260
   br i1 %3309, label %.lr.ph.i514, label %dissect_fdx_tg_assignment.exit, !llvm.loop !61
 
 dissect_fdx_tg_assignment.exit:                   ; preds = %3306, %3270
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_snmpv3_kickstart.exit
 
 3310:                                             ; preds = %70
@@ -7774,9 +7771,6 @@ dissect_snmpv3_kickstart.exit:                    ; preds = %.lr.ph, %1829, %184
   ret i32 %3324
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_docsis_tlv() local_unnamed_addr #1 {
   %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.875)
@@ -7796,7 +7790,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #0
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -7820,7 +7814,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext range(i16 0, 256) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext nneg i16 %4 to i32
   %9 = load i32, ptr @ett_docsis_tlv_phs, align 4
   %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.1053, i32 noundef %8)
@@ -7926,7 +7920,7 @@ define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr nou
   br label %152
 
 62:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %63 = zext i8 %16 to i32
   %64 = load i32, ptr @ett_docsis_tlv_sflow_err, align 4
   %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %15, i32 noundef %63, i32 noundef %64, ptr noundef nonnull %6, ptr noundef nonnull @.str.1051, i32 noundef %63)
@@ -7995,7 +7989,7 @@ define internal fastcc void @dissect_phs(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %100, label %.lr.ph.i, label %dissect_phs_err.exit, !llvm.loop !63
 
 dissect_phs_err.exit:                             ; preds = %97, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %152
 
 101:                                              ; preds = %.lr.ph
@@ -8089,7 +8083,7 @@ dissect_phs_err.exit:                             ; preds = %97, %62
   br i1 %155, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %152, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -8097,8 +8091,8 @@ dissect_phs_err.exit:                             ; preds = %97, %62
 define internal fastcc void @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext range(i16 2, 258) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_docsis_tlv_unknown, align 4
   %9 = zext nneg i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0)
@@ -8129,8 +8123,8 @@ define internal fastcc void @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1,
   br label %29
 
 29:                                               ; preds = %24, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -8170,12 +8164,17 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

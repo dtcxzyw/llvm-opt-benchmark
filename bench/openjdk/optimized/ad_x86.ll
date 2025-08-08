@@ -4761,24 +4761,24 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
 124:                                              ; preds = %117
   %125 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %57) #23
   %126 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %66) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %.not.i472 = icmp eq ptr %1, null
   br i1 %.not.i472, label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit, label %127
 
@@ -5075,13 +5075,13 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   store ptr null, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 0, ptr %254, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 21, i1 false)
   %255 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %256 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(40) %252, ptr noundef nonnull align 8 dereferenceable(40) %255) #23
   call void @_ZN9Assembler9evmovdquqE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %8, i32 0, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 4, ptr %24, align 8
   %257 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -1, ptr %257, align 4
@@ -5099,12 +5099,12 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   store ptr null, ptr %263, align 8
   %264 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 0, ptr %264, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %24, i64 21, i1 false)
   %265 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void %256(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull align 8 dereferenceable(40) %265) #23
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %7, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 4, ptr %25, align 8
   %266 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 -1, ptr %266, align 4
@@ -5122,12 +5122,12 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   store ptr null, ptr %272, align 8
   %273 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 0, ptr %273, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 21, i1 false)
   %274 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void %256(ptr noundef nonnull align 8 dereferenceable(40) %271, ptr noundef nonnull align 8 dereferenceable(40) %274) #23
   call void @_ZN9Assembler9evmovdquqE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %6, i32 0, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 4, ptr %26, align 8
   %275 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 -1, ptr %275, align 4
@@ -5145,12 +5145,12 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   store ptr null, ptr %281, align 8
   %282 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 0, ptr %282, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %26, i64 21, i1 false)
   %283 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void %256(ptr noundef nonnull align 8 dereferenceable(40) %280, ptr noundef nonnull align 8 dereferenceable(40) %283) #23
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 0, ptr noundef nonnull %5, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit
 
 284:                                              ; preds = %127
@@ -5160,24 +5160,24 @@ _ZL8rc_classi.exit470:                            ; preds = %_ZL8rc_classi.exit4
   unreachable
 
 _ZL25vec_stack_to_stack_helperP17C2_MacroAssembleriijP12outputStream.exit: ; preds = %124, %128, %161, %178, %213, %246
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZL14vec_mov_helperP17C2_MacroAssembleriiiijP12outputStream.exit
 
 286:                                              ; preds = %117
@@ -6383,13 +6383,13 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   store ptr null, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 0, ptr %127, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 21, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %129 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %129(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %128) #23
   call void @_ZN9Assembler9evmovdquqE11XMMRegister7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %119, ptr noundef nonnull %8, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %240
 
 130:                                              ; preds = %24
@@ -6601,13 +6601,13 @@ define hidden void @_Z16vec_spill_helperP17C2_MacroAssemblerbiijP12outputStream(
   %233 = getelementptr inbounds [0 x i8], ptr @_ZN7Matcher10_regEncodeE, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 21, i1 false)
   %236 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %237 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %237(ptr noundef nonnull align 8 dereferenceable(40) %229, ptr noundef nonnull align 8 dereferenceable(40) %236) #23
   call void @_ZN9Assembler9evmovdquqE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %7, i32 %235, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %240
 
 238:                                              ; preds = %132
@@ -6650,7 +6650,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegister7Addres
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %12) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %12, align 8
@@ -6658,7 +6658,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegister7Addres
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %16) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
 20:                                               ; preds = %3
@@ -6668,7 +6668,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegister7Addres
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %21) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %26 = load ptr, ptr %21, align 8
@@ -6676,7 +6676,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE11XMMRegister7Addres
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %25) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 29:                                               ; preds = %20, %11
@@ -6694,7 +6694,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movfltE11XMMRegister7Addres
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %6, align 8
@@ -6702,7 +6702,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movfltE11XMMRegister7Addres
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %11) #23
   call void @_ZN9Assembler5movssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6732,7 +6732,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE7Address11XMMRegiste
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %6, align 8
@@ -6740,7 +6740,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movdblE7Address11XMMRegiste
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %11) #23
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6755,7 +6755,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movfltE7Address11XMMRegiste
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %6, align 8
@@ -6763,7 +6763,7 @@ define linkonce_odr hidden void @_ZN14MacroAssembler6movfltE7Address11XMMRegiste
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %11) #23
   call void @_ZN9Assembler5movssE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %4, i32 %2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6915,13 +6915,13 @@ _ZNK7RegMask15find_first_elemEv.exit:             ; preds = %22, %3, %17
   store ptr null, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %35, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7320,13 +7320,13 @@ define hidden noundef i32 @_ZN11HandlerImpl18emit_deopt_handlerEP17C2_MacroAssem
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
   %43 = sub nsw i32 %42, %23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler4subqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %2, i32 noundef %43) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %46 = load ptr, ptr @_ZN13SharedRuntime11_deopt_blobE, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %48 = load i32, ptr %47, align 4
@@ -9279,8 +9279,8 @@ define hidden noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStac
   br i1 %8, label %9, label %42
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = icmp ne ptr %1, null
   %11 = icmp ne ptr %2, null
   %or.cond.i = and i1 %10, %11
@@ -9308,8 +9308,8 @@ define hidden noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStac
 
 23:                                               ; preds = %21
   %24 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI7TypeIntE5matchEiiiii(ptr noundef nonnull align 8 dereferenceable(20) %5, i32 noundef 353, i32 noundef -1, i32 noundef 23, i32 noundef -1, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %24, label %37, label %42
 
 25:                                               ; preds = %12
@@ -9333,19 +9333,19 @@ define hidden noundef zeroext i1 @_ZN7Matcher13pd_clone_nodeEP4NodeS1_RNS_6MStac
   br i1 %35, label %_ZL14is_bmi_patternP4NodeS0_.exit.thread, label %_ZL14is_bmi_patternP4NodeS0_.exit
 
 _ZL14is_bmi_patternP4NodeS0_.exit.thread:         ; preds = %21, %17, %34, %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %37
 
 _ZL14is_bmi_patternP4NodeS0_.exit.thread15:       ; preds = %25, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %42
 
 _ZL14is_bmi_patternP4NodeS0_.exit:                ; preds = %34
   %36 = call noundef zeroext i1 @_ZN19FusedPatternMatcherI8TypeLongE5matchEiiiil(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef 354, i32 noundef -1, i32 noundef 24, i32 noundef -1, i64 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %23, %_ZL14is_bmi_patternP4NodeS0_.exit.thread, %_ZL14is_bmi_patternP4NodeS0_.exit
@@ -25140,7 +25140,7 @@ define hidden void @_ZNK9loadFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, i32 noundef %18, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -25148,7 +25148,7 @@ define hidden void @_ZNK9loadFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load ptr, ptr %39, align 8
@@ -25156,8 +25156,8 @@ define hidden void @_ZNK9loadFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5movssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -25203,8 +25203,8 @@ define hidden void @_ZNK17loadD_partialNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %8, i32 noundef %20, i32 noundef %25, i32 noundef %30, i32 noundef %35, i32 noundef %40) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -25217,7 +25217,7 @@ define hidden void @_ZNK17loadD_partialNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = load ptr, ptr %45, align 8
@@ -25225,7 +25225,7 @@ define hidden void @_ZNK17loadD_partialNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %49) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 53:                                               ; preds = %3
@@ -25235,7 +25235,7 @@ define hidden void @_ZNK17loadD_partialNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %59 = load ptr, ptr %54, align 8
@@ -25243,12 +25243,12 @@ define hidden void @_ZNK17loadD_partialNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %58) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %44, %53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -25294,8 +25294,8 @@ define hidden void @_ZNK9loadDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %8, i32 noundef %20, i32 noundef %25, i32 noundef %30, i32 noundef %35, i32 noundef %40) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -25308,7 +25308,7 @@ define hidden void @_ZNK9loadDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %50 = load ptr, ptr %45, align 8
@@ -25316,7 +25316,7 @@ define hidden void @_ZNK9loadDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %49) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 53:                                               ; preds = %3
@@ -25326,7 +25326,7 @@ define hidden void @_ZNK9loadDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %59 = load ptr, ptr %54, align 8
@@ -25334,12 +25334,12 @@ define hidden void @_ZNK9loadDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(ptr
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %58) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %44, %53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -27429,12 +27429,12 @@ define hidden void @_ZNK11loadSSFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -27442,8 +27442,8 @@ define hidden void @_ZNK11loadSSFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -27485,8 +27485,8 @@ define hidden void @_ZNK11loadSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %38
@@ -27496,7 +27496,7 @@ define hidden void @_ZNK11loadSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %32) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %32, align 8
@@ -27504,7 +27504,7 @@ define hidden void @_ZNK11loadSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %34) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 38:                                               ; preds = %3
@@ -27512,7 +27512,7 @@ define hidden void @_ZNK11loadSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %40 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %39) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %42 = load ptr, ptr %39, align 8
@@ -27520,12 +27520,12 @@ define hidden void @_ZNK11loadSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %41) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %31, %38
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -28730,7 +28730,7 @@ define hidden void @_ZNK10storeFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %44 = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %13) #23
   %or.cond.i.i = icmp ult i32 %44, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %44, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -28738,7 +28738,7 @@ define hidden void @_ZNK10storeFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = load ptr, ptr %45, align 8
@@ -28746,8 +28746,8 @@ define hidden void @_ZNK10storeFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler5movssE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -28882,7 +28882,7 @@ define hidden void @_ZNK10storeDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %44 = call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %13) #23
   %or.cond.i.i = icmp ult i32 %44, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %44, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -28890,7 +28890,7 @@ define hidden void @_ZNK10storeDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = load ptr, ptr %45, align 8
@@ -28898,8 +28898,8 @@ define hidden void @_ZNK10storeDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -29150,12 +29150,12 @@ define hidden void @_ZNK12storeSSFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
   %or.cond.i.i = icmp ult i32 %26, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %26, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -29163,8 +29163,8 @@ define hidden void @_ZNK12storeSSFNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movssE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -29204,12 +29204,12 @@ define hidden void @_ZNK12storeSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
   %or.cond.i.i = icmp ult i32 %26, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %26, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -29217,8 +29217,8 @@ define hidden void @_ZNK12storeSSDNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -44834,8 +44834,8 @@ define hidden void @_ZNK15cmpF_cc_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %or.cond.i.i8 = icmp ult i32 %23, 32
   %spec.select.i.i9 = select i1 %or.cond.i.i8, i32 %23, i32 -1
   tail call void @_ZN9Assembler7ucomissE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i9) #23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %24, align 4
@@ -44865,8 +44865,8 @@ define hidden void @_ZNK15cmpF_cc_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   call void @_ZN9Assembler4andqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef -213) #23
   call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -44943,7 +44943,7 @@ define hidden void @_ZNK17cmpF_cc_memCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -44952,7 +44952,7 @@ define hidden void @_ZNK17cmpF_cc_memCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler7ucomissE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45037,8 +45037,8 @@ define hidden void @_ZNK15cmpD_cc_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   %or.cond.i.i8 = icmp ult i32 %23, 32
   %spec.select.i.i9 = select i1 %or.cond.i.i8, i32 %23, i32 -1
   tail call void @_ZN9Assembler7ucomisdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i9) #23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %4, align 8
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %24, align 4
@@ -45068,8 +45068,8 @@ define hidden void @_ZNK15cmpD_cc_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAl
   call void @_ZN9Assembler4andqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %5, i32 noundef -213) #23
   call void @_ZN9Assembler4popfEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -45146,7 +45146,7 @@ define hidden void @_ZNK17cmpD_cc_memCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -45155,7 +45155,7 @@ define hidden void @_ZNK17cmpD_cc_memCFNode4emitEP17C2_MacroAssemblerP13PhaseReg
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler7ucomisdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45247,7 +45247,7 @@ define hidden void @_ZNK12cmpF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i12 = icmp ult i32 %28, 32
   %spec.select.i.i13 = select i1 %or.cond.i.i12, i32 %28, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %29, align 4
@@ -45261,7 +45261,7 @@ define hidden void @_ZNK12cmpF_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i13) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i13, i32 %spec.select.i.i13) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45312,7 +45312,7 @@ define hidden void @_ZNK12cmpF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, i32 noundef %25, i32 noundef %30, i32 noundef %35, i32 noundef %40, i32 noundef %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -45321,7 +45321,7 @@ define hidden void @_ZNK12cmpF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %46) #23
   call void @_ZN9Assembler7ucomissE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load ptr, ptr %7, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -45329,7 +45329,7 @@ define hidden void @_ZNK12cmpF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %55 = call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i13 = icmp ult i32 %55, 32
   %spec.select.i.i14 = select i1 %or.cond.i.i13, i32 %55, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %56, align 4
@@ -45343,7 +45343,7 @@ define hidden void @_ZNK12cmpF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i14) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i14, i32 %spec.select.i.i14) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45391,7 +45391,7 @@ define hidden void @_ZNK12cmpF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i9 = icmp ult i32 %37, 32
   %spec.select.i.i10 = select i1 %or.cond.i.i9, i32 %37, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %38, align 4
@@ -45405,7 +45405,7 @@ define hidden void @_ZNK12cmpF_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i10) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i10, i32 %spec.select.i.i10) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45457,7 +45457,7 @@ define hidden void @_ZNK12cmpD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i12 = icmp ult i32 %28, 32
   %spec.select.i.i13 = select i1 %or.cond.i.i12, i32 %28, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %29, align 4
@@ -45471,7 +45471,7 @@ define hidden void @_ZNK12cmpD_regNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i13) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i13, i32 %spec.select.i.i13) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45522,7 +45522,7 @@ define hidden void @_ZNK12cmpD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, i32 noundef %25, i32 noundef %30, i32 noundef %35, i32 noundef %40, i32 noundef %45) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -45531,7 +45531,7 @@ define hidden void @_ZNK12cmpD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %46) #23
   call void @_ZN9Assembler7ucomisdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load ptr, ptr %7, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -45539,7 +45539,7 @@ define hidden void @_ZNK12cmpD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %55 = call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i13 = icmp ult i32 %55, 32
   %spec.select.i.i14 = select i1 %or.cond.i.i13, i32 %55, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %56, align 4
@@ -45553,7 +45553,7 @@ define hidden void @_ZNK12cmpD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i14) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i14, i32 %spec.select.i.i14) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -45601,7 +45601,7 @@ define hidden void @_ZNK12cmpD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %2, ptr noundef nonnull %0) #23
   %or.cond.i.i9 = icmp ult i32 %37, 32
   %spec.select.i.i10 = select i1 %or.cond.i.i9, i32 %37, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %38, align 4
@@ -45615,7 +45615,7 @@ define hidden void @_ZNK12cmpD_immNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   call void @_ZN9Assembler4setbENS_9ConditionE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, i32 %spec.select.i.i10) #23
   call void @_ZN9Assembler6movzblE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i10, i32 %spec.select.i.i10) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -46661,12 +46661,12 @@ define hidden void @_ZNK21MoveI2F_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -46674,8 +46674,8 @@ define hidden void @_ZNK21MoveI2F_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -46755,8 +46755,8 @@ define hidden void @_ZNK29MoveL2D_stack_reg_partialNode4emitEP17C2_MacroAssemble
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %38
@@ -46766,7 +46766,7 @@ define hidden void @_ZNK29MoveL2D_stack_reg_partialNode4emitEP17C2_MacroAssemble
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %32) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %32, align 8
@@ -46774,7 +46774,7 @@ define hidden void @_ZNK29MoveL2D_stack_reg_partialNode4emitEP17C2_MacroAssemble
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %34) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 38:                                               ; preds = %3
@@ -46782,7 +46782,7 @@ define hidden void @_ZNK29MoveL2D_stack_reg_partialNode4emitEP17C2_MacroAssemble
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %40 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %39) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %42 = load ptr, ptr %39, align 8
@@ -46790,12 +46790,12 @@ define hidden void @_ZNK29MoveL2D_stack_reg_partialNode4emitEP17C2_MacroAssemble
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %41) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %31, %38
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -46837,8 +46837,8 @@ define hidden void @_ZNK21MoveL2D_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = load i8, ptr @UseXmmLoadAndClearUpper, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %38
@@ -46848,7 +46848,7 @@ define hidden void @_ZNK21MoveL2D_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %32) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %32, align 8
@@ -46856,7 +46856,7 @@ define hidden void @_ZNK21MoveL2D_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %34) #23
   call void @_ZN9Assembler5movsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 38:                                               ; preds = %3
@@ -46864,7 +46864,7 @@ define hidden void @_ZNK21MoveL2D_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %40 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %39) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %42 = load ptr, ptr %39, align 8
@@ -46872,12 +46872,12 @@ define hidden void @_ZNK21MoveL2D_stack_regNode4emitEP17C2_MacroAssemblerP13Phas
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %41) #23
   call void @_ZN9Assembler6movlpdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit
 
 _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %31, %38
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -46917,12 +46917,12 @@ define hidden void @_ZNK21MoveF2I_reg_stackNode4emitEP17C2_MacroAssemblerP13Phas
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
   %or.cond.i.i = icmp ult i32 %26, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %26, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -46930,8 +46930,8 @@ define hidden void @_ZNK21MoveF2I_reg_stackNode4emitEP17C2_MacroAssemblerP13Phas
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movssE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -47009,12 +47009,12 @@ define hidden void @_ZNK21MoveD2L_reg_stackNode4emitEP17C2_MacroAssemblerP13Phas
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %2, ptr noundef nonnull %0, i32 noundef 1) #23
   %or.cond.i.i = icmp ult i32 %26, 32
   %spec.select.i.i = select i1 %or.cond.i.i, i32 %26, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %27) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %27, align 8
@@ -47022,8 +47022,8 @@ define hidden void @_ZNK21MoveD2L_reg_stackNode4emitEP17C2_MacroAssemblerP13Phas
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %29) #23
   call void @_ZN9Assembler5movsdE7Address11XMMRegister(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -54651,7 +54651,7 @@ define hidden void @_ZNK12addF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -54660,7 +54660,7 @@ define hidden void @_ZNK12addF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5addssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -54709,7 +54709,7 @@ define hidden void @_ZNK14addF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -54718,7 +54718,7 @@ define hidden void @_ZNK14addF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5addssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -54865,7 +54865,7 @@ define hidden void @_ZNK16addF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -54874,7 +54874,7 @@ define hidden void @_ZNK16addF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vaddssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -54931,7 +54931,7 @@ define hidden void @_ZNK18addF_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -54940,7 +54940,7 @@ define hidden void @_ZNK18addF_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vaddssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55079,7 +55079,7 @@ define hidden void @_ZNK12addD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55088,7 +55088,7 @@ define hidden void @_ZNK12addD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55137,7 +55137,7 @@ define hidden void @_ZNK14addD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55146,7 +55146,7 @@ define hidden void @_ZNK14addD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5addsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55293,7 +55293,7 @@ define hidden void @_ZNK16addD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55302,7 +55302,7 @@ define hidden void @_ZNK16addD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vaddsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55359,7 +55359,7 @@ define hidden void @_ZNK18addD_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55368,7 +55368,7 @@ define hidden void @_ZNK18addD_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vaddsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55507,7 +55507,7 @@ define hidden void @_ZNK12subF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55516,7 +55516,7 @@ define hidden void @_ZNK12subF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5subssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55663,7 +55663,7 @@ define hidden void @_ZNK16subF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55672,7 +55672,7 @@ define hidden void @_ZNK16subF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vsubssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55811,7 +55811,7 @@ define hidden void @_ZNK12subD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55820,7 +55820,7 @@ define hidden void @_ZNK12subD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5subsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -55967,7 +55967,7 @@ define hidden void @_ZNK16subD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -55976,7 +55976,7 @@ define hidden void @_ZNK16subD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vsubsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56115,7 +56115,7 @@ define hidden void @_ZNK12mulF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56124,7 +56124,7 @@ define hidden void @_ZNK12mulF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5mulssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56173,7 +56173,7 @@ define hidden void @_ZNK14mulF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56182,7 +56182,7 @@ define hidden void @_ZNK14mulF_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5mulssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56329,7 +56329,7 @@ define hidden void @_ZNK16mulF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56338,7 +56338,7 @@ define hidden void @_ZNK16mulF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vmulssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56395,7 +56395,7 @@ define hidden void @_ZNK18mulF_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56404,7 +56404,7 @@ define hidden void @_ZNK18mulF_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vmulssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56543,7 +56543,7 @@ define hidden void @_ZNK12mulD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56552,7 +56552,7 @@ define hidden void @_ZNK12mulD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5mulsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56601,7 +56601,7 @@ define hidden void @_ZNK14mulD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56610,7 +56610,7 @@ define hidden void @_ZNK14mulD_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRegAll
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5mulsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56757,7 +56757,7 @@ define hidden void @_ZNK16mulD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56766,7 +56766,7 @@ define hidden void @_ZNK16mulD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vmulsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56823,7 +56823,7 @@ define hidden void @_ZNK18mulD_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56832,7 +56832,7 @@ define hidden void @_ZNK18mulD_reg_mem_0Node4emitEP17C2_MacroAssemblerP13PhaseRe
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vmulsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -56971,7 +56971,7 @@ define hidden void @_ZNK12divF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -56980,7 +56980,7 @@ define hidden void @_ZNK12divF_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5divssE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -57127,7 +57127,7 @@ define hidden void @_ZNK16divF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -57136,7 +57136,7 @@ define hidden void @_ZNK16divF_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vdivssE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -57275,7 +57275,7 @@ define hidden void @_ZNK12divD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %23, i32 noundef %28, i32 noundef %33, i32 noundef %38, i32 noundef %43) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -57284,7 +57284,7 @@ define hidden void @_ZNK12divD_memNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %44) #23
   call void @_ZN9Assembler5divsdE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -57431,7 +57431,7 @@ define hidden void @_ZNK16divD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -57440,7 +57440,7 @@ define hidden void @_ZNK16divD_reg_memNode4emitEP17C2_MacroAssemblerP13PhaseRegA
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50) #23
   call void @_ZN9Assembler6vdivsdE11XMMRegisterS0_7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i13, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -59502,7 +59502,7 @@ define hidden void @_ZNK10storeVNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %174 = call noundef i32 %173(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %16) #23
   %or.cond.i.i56 = icmp ult i32 %174, 32
   %spec.select.i.i57 = select i1 %or.cond.i.i56, i32 %174, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %175 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -59511,7 +59511,7 @@ define hidden void @_ZNK10storeVNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %179 = load ptr, ptr %178, align 8
   call void %179(ptr noundef nonnull align 8 dereferenceable(40) %176, ptr noundef nonnull align 8 dereferenceable(40) %175) #23
   call void @_ZN9Assembler9evmovdqulE7Address11XMMRegisteri(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %4, i32 %spec.select.i.i57, i32 noundef 2) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %182
 
 180:                                              ; preds = %3
@@ -59636,7 +59636,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(8) %81) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %65, i32 noundef %70, i32 noundef %75, i32 noundef %80, i32 noundef %85) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -59645,7 +59645,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %86) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i44, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load ptr, ptr %18, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
@@ -59796,7 +59796,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef i32 %84(ptr noundef nonnull align 8 dereferenceable(8) %81) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %65, i32 noundef %70, i32 noundef %75, i32 noundef %80, i32 noundef %85) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -59805,7 +59805,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %86) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i43, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load ptr, ptr %18, align 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
@@ -59990,7 +59990,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %74, %75
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef i32 %106(ptr noundef nonnull align 8 dereferenceable(8) %103) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %87, i32 noundef %92, i32 noundef %97, i32 noundef %102, i32 noundef %107) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -59999,7 +59999,7 @@ _ZN14MacroAssembler5vpxorE11XMMRegisterS0_S0_i.exit: ; preds = %74, %75
   %112 = load ptr, ptr %111, align 8
   call void %112(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(40) %108) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i56, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = load ptr, ptr %27, align 8
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
@@ -60122,7 +60122,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %66) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %50, i32 noundef %55, i32 noundef %60, i32 noundef %65, i32 noundef %70) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -60131,7 +60131,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %71) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = load ptr, ptr %39, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
@@ -60299,7 +60299,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(8) %108) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %92, i32 noundef %97, i32 noundef %102, i32 noundef %107, i32 noundef %112) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -60308,7 +60308,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(40) %113) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = load ptr, ptr %36, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
@@ -60477,7 +60477,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %69 = load ptr, ptr %68, align 8
   %70 = tail call noundef i32 %69(ptr noundef nonnull align 8 dereferenceable(8) %66) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %50, i32 noundef %55, i32 noundef %60, i32 noundef %65, i32 noundef %70) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -60486,7 +60486,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %31, %32
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %71) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %76 = load ptr, ptr %39, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
@@ -60659,7 +60659,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(8) %108) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %92, i32 noundef %97, i32 noundef %102, i32 noundef %107, i32 noundef %112) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -60668,7 +60668,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %67, %68
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(40) %114, ptr noundef nonnull align 8 dereferenceable(40) %113) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = load ptr, ptr %36, align 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
@@ -60878,7 +60878,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(8) %97) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %81, i32 noundef %86, i32 noundef %91, i32 noundef %96, i32 noundef %101) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -60887,7 +60887,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
   %106 = load ptr, ptr %105, align 8
   call void %106(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %102) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i54, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -61120,7 +61120,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef i32 %142(ptr noundef nonnull align 8 dereferenceable(8) %139) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %123, i32 noundef %128, i32 noundef %133, i32 noundef %138, i32 noundef %143) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -61129,7 +61129,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(40) %144) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i81, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %149 = load ptr, ptr %42, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
@@ -61361,7 +61361,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(8) %97) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %81, i32 noundef %86, i32 noundef %91, i32 noundef %96, i32 noundef %101) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -61370,7 +61370,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %49, %50
   %106 = load ptr, ptr %105, align 8
   call void %106(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(40) %102) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i56, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
@@ -61608,7 +61608,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef i32 %142(ptr noundef nonnull align 8 dereferenceable(8) %139) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %123, i32 noundef %128, i32 noundef %133, i32 noundef %138, i32 noundef %143) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %144 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -61617,7 +61617,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %85, %86
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(40) %145, ptr noundef nonnull align 8 dereferenceable(40) %144) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i83, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %149 = load ptr, ptr %42, align 8
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
@@ -61840,7 +61840,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %70, i32 noundef %75, i32 noundef %80, i32 noundef %85, i32 noundef %90) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -61849,7 +61849,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull align 8 dereferenceable(40) %91) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
@@ -62121,7 +62121,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noundef i32 %131(ptr noundef nonnull align 8 dereferenceable(8) %128) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %112, i32 noundef %117, i32 noundef %122, i32 noundef %127, i32 noundef %132) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -62130,7 +62130,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(40) %134, ptr noundef nonnull align 8 dereferenceable(40) %133) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = load ptr, ptr %48, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
@@ -62399,7 +62399,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef i32 %89(ptr noundef nonnull align 8 dereferenceable(8) %86) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %70, i32 noundef %75, i32 noundef %80, i32 noundef %85, i32 noundef %90) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -62408,7 +62408,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %56, %57
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull align 8 dereferenceable(40) %92, ptr noundef nonnull align 8 dereferenceable(40) %91) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
@@ -62698,7 +62698,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
   %141 = load ptr, ptr %140, align 8
   %142 = tail call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(8) %138) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %122, i32 noundef %127, i32 noundef %132, i32 noundef %137, i32 noundef %142) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -62707,7 +62707,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %97, %98
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr noundef nonnull align 8 dereferenceable(40) %144, ptr noundef nonnull align 8 dereferenceable(40) %143) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i106, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %148 = load ptr, ptr %48, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
@@ -62992,7 +62992,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %40
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(8) %88) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %7, i32 noundef %72, i32 noundef %77, i32 noundef %82, i32 noundef %87, i32 noundef %92) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 21, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -63001,7 +63001,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %40
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(40) %94, ptr noundef nonnull align 8 dereferenceable(40) %93) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i34, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %98 = load ptr, ptr %26, align 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
@@ -63160,7 +63160,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44
   %94 = load ptr, ptr %93, align 8
   %95 = tail call noundef i32 %94(ptr noundef nonnull align 8 dereferenceable(8) %91) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %75, i32 noundef %80, i32 noundef %85, i32 noundef %90, i32 noundef %95) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -63169,7 +63169,7 @@ _ZL22vector_length_encodingPK8MachNodeP8MachOper.exit: ; preds = %3, %3, %3, %44
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef nonnull align 8 dereferenceable(40) %96) #23
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i39, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %101 = load ptr, ptr %65, align 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
@@ -72649,7 +72649,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -72658,7 +72658,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -72738,7 +72738,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -72747,7 +72747,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler6vpadddE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -75418,7 +75418,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -75427,7 +75427,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler7vpmulldE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -75507,7 +75507,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -75516,7 +75516,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler7vpmulldE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -89139,7 +89139,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -89148,7 +89148,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler5vpandE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -89228,7 +89228,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(8) %50) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %5, i32 noundef %34, i32 noundef %39, i32 noundef %44, i32 noundef %49, i32 noundef %54) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -89237,7 +89237,7 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %13, %14
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(40) %56, ptr noundef nonnull align 8 dereferenceable(40) %55) #23
   call void @_ZN9Assembler5vpandE11XMMRegisterS0_7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, i32 %spec.select.i.i14, ptr noundef nonnull %4, i32 noundef %.0.i.i) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -89667,8 +89667,8 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, i32 noundef %36, i32 noundef %41, i32 noundef %46, i32 noundef %51, i32 noundef %56) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = load i32, ptr @UseAVX, align 4
   %58 = icmp sgt i32 %57, 1
   %or.cond.i = or i1 %20, %58
@@ -89696,8 +89696,8 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
   br label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_7Addressi.exit
 
 _ZN14MacroAssembler5vpxorE11XMMRegisterS0_7Addressi.exit: ; preds = %60, %65
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -89779,8 +89779,8 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #23
   call void @_ZN7Address8make_rawEiiiiN9relocInfo9relocTypeE(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %6, i32 noundef %36, i32 noundef %41, i32 noundef %46, i32 noundef %51, i32 noundef %56) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = load i32, ptr @UseAVX, align 4
   %58 = icmp sgt i32 %57, 1
   %or.cond.i = or i1 %20, %58
@@ -89808,8 +89808,8 @@ _ZL22vector_length_encodingPK4Node.exit:          ; preds = %3, %3, %3, %16, %17
   br label %_ZN14MacroAssembler5vpxorE11XMMRegisterS0_7Addressi.exit
 
 _ZN14MacroAssembler5vpxorE11XMMRegisterS0_7Addressi.exit: ; preds = %60, %65
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -113582,13 +113582,13 @@ define internal fastcc void @_ZL14x_load_barrierP14MacroAssemblerPK8MachNode7Add
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %26) #23
   call void @_ZN9Assembler5testqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %3, ptr noundef nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = call noundef ptr @_ZN18XLoadBarrierStubC25entryEv(ptr noundef nonnull align 8 dereferenceable(168) %17) #23
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %28, i1 noundef zeroext true) #23
   call void @_ZN24IntelJccErratumAlignmentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
@@ -113712,10 +113712,10 @@ define internal fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8R
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %35) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 21, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %40 = load ptr, ptr %35, align 8
@@ -113741,12 +113741,12 @@ define internal fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8R
   store ptr null, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 0, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 21, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void %29(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %52) #23
   call void @_ZN9Assembler5testqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, ptr noundef nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %13, i1 noundef zeroext true) #23
   call void @_ZN24IntelJccErratumAlignmentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   call void @_ZN24IntelJccErratumAlignmentC1EP14MacroAssembleri(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %0, i32 noundef 5) #23
@@ -113755,10 +113755,10 @@ define internal fastcc void @_ZL16x_cmpxchg_commonP14MacroAssemblerPK8MachNode8R
   call void @_ZN24IntelJccErratumAlignmentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   %54 = call noundef ptr @_ZN18XLoadBarrierStubC212continuationEv(ptr noundef nonnull align 8 dereferenceable(168) %43) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %54) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0, i32 %4) #23
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 21, i1 false)
@@ -113999,13 +113999,13 @@ define hidden void @_ZNK10xXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 21, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %33) #23
   call void @_ZN9Assembler5xchgqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i, ptr noundef nonnull %4) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 -1, i64 16, i1 false)
   store i32 0, ptr %35, align 8
@@ -114116,9 +114116,9 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %80 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %19) #23
   %or.cond.i.i20 = icmp ult i32 %80, 32
   %spec.select.i.i21 = select i1 %or.cond.i.i20, i32 %80, i32 -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
@@ -114137,8 +114137,8 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(40) %89, ptr noundef nonnull align 8 dereferenceable(40) %88) #23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN9Assembler5testlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i21, i32 noundef 0) #23
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %93, align 8, !alias.scope !13
@@ -114159,7 +114159,7 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = call noundef ptr @_ZN13BarrierStubC25entryEv(ptr noundef nonnull align 8 dereferenceable(184) %103) #23
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(33) %104, i1 noundef zeroext true) #23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %105, align 8, !alias.scope !18
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -114170,15 +114170,15 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %109 = load ptr, ptr %108, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %107, ptr noundef %109, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 0) #23
   call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i21, i32 noundef 0) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %110 = call noundef ptr @_ZN13BarrierStubC212continuationEv(ptr noundef nonnull align 8 dereferenceable(184) %103) #23
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(33) %110) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL14z_load_barrierP14MacroAssemblerPK8MachNode7Address8Register.exit
 
 111:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %112, align 8, !alias.scope !23
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -114186,7 +114186,7 @@ define hidden void @_ZNK10zLoadPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV18barrier_Relocation, i64 16), ptr %4, align 8, !alias.scope !23
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %82, ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #23
   call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i21, i32 noundef 0) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %114 = load i8, ptr %85, align 4
   %115 = icmp eq i8 %114, 32
   br i1 %115, label %_ZL14z_load_barrierP14MacroAssemblerPK8MachNode7Address8Register.exit, label %116
@@ -114221,9 +114221,9 @@ _ZL14z_load_barrierP14MacroAssemblerPK8MachNode7Address8Register.exit: ; preds =
   %134 = load i32, ptr %133, align 4
   %135 = add nsw i32 %134, %132
   store i32 %135, ptr %133, align 4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
@@ -114384,8 +114384,8 @@ define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Ad
 
 19:                                               ; preds = %18
   tail call void @_ZN14MacroAssembler6movptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 %3) #23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %20, align 8, !alias.scope !28
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -114406,8 +114406,8 @@ define internal fastcc void @_ZL15z_store_barrierP14MacroAssemblerPK8MachNode7Ad
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 5) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %47
 
 30:                                               ; preds = %6
@@ -114646,8 +114646,8 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %81 = call noundef i32 %80(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %16) #23
   %or.cond.i.i49 = icmp ult i32 %81, 32
   %spec.select.i.i50 = select i1 %or.cond.i.i49, i32 %81, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %82, align 8, !alias.scope !43
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -114669,8 +114669,8 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %90, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 5) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %93 = load ptr, ptr %71, align 8
   %94 = load ptr, ptr %93, align 8
@@ -114693,7 +114693,7 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %106 = call noundef i32 %105(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %16) #23
   %or.cond.i.i53 = icmp ult i32 %106, 32
   %spec.select.i.i54 = select i1 %or.cond.i.i53, i32 %106, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %107, align 8, !alias.scope !53
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -114704,7 +114704,7 @@ define hidden void @_ZNK24zCompareAndExchangePNode4emitEP17C2_MacroAssemblerP13P
   %111 = load ptr, ptr %110, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %109, ptr noundef %111, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #23
   call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i54, i32 noundef 0) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -114800,8 +114800,8 @@ define hidden void @_ZNK20zCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   %71 = call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %16) #23
   %or.cond.i.i43 = icmp ult i32 %71, 32
   %spec.select.i.i44 = select i1 %or.cond.i.i43, i32 %71, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %72, align 8, !alias.scope !58
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -114823,8 +114823,8 @@ define hidden void @_ZNK20zCompareAndSwapPNode4emitEP17C2_MacroAssemblerP13Phase
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %80, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 5) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %83 = load ptr, ptr %61, align 8
   %84 = load ptr, ptr %83, align 8
@@ -114956,8 +114956,8 @@ define hidden void @_ZNK22zCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   %71 = call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %16) #23
   %or.cond.i.i43 = icmp ult i32 %71, 32
   %spec.select.i.i44 = select i1 %or.cond.i.i43, i32 %71, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %72, align 8, !alias.scope !68
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -114979,8 +114979,8 @@ define hidden void @_ZNK22zCompareAndSwapP_0Node4emitEP17C2_MacroAssemblerP13Pha
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %80, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 5) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN9Assembler4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %83 = load ptr, ptr %61, align 8
   %84 = load ptr, ptr %83, align 8
@@ -115125,7 +115125,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %74) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %79 = load ptr, ptr %74, align 8
@@ -115133,7 +115133,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %78) #23
   call void @_ZN9Assembler5xchgqE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i45, ptr noundef nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %82 = load ptr, ptr %16, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -115141,7 +115141,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %86 = call noundef i32 %85(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %2, ptr noundef nonnull %0, i32 noundef %15) #23
   %or.cond.i.i46 = icmp ult i32 %86, 32
   %spec.select.i.i47 = select i1 %or.cond.i.i46, i32 %86, i32 -1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %87, align 8, !alias.scope !78
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -115153,7 +115153,7 @@ define hidden void @_ZNK10zXChgPNode4emitEP17C2_MacroAssemblerP13PhaseRegAlloc(p
   %92 = load ptr, ptr %91, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %90, ptr noundef %92, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #23
   call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %spec.select.i.i47, i32 noundef 0) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -122910,10 +122910,10 @@ declare void @llvm.assume(i1 noundef) #21
 declare i32 @llvm.ctpop.i32(i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #20

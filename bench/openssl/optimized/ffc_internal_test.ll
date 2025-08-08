@@ -109,9 +109,9 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @ffc_params_validate_pq_test() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_ffc_params_init(ptr noundef nonnull %2) #3
   %3 = call ptr @BN_bin2bn(ptr noundef nonnull @dsa_2048_224_sha224_p, i32 noundef 256, ptr noundef null) #3
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 253, ptr noundef nonnull @.str.10, ptr noundef %3) #3
@@ -211,8 +211,8 @@ define internal range(i32 0, 2) i32 @ffc_params_validate_pq_test() #0 {
   call void @ossl_ffc_params_cleanup(ptr noundef nonnull %2) #3
   call void @BN_free(ptr noundef %.06) #3
   call void @BN_free(ptr noundef %.0) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.07
 }
 
@@ -220,8 +220,8 @@ define internal range(i32 0, 2) i32 @ffc_params_validate_pq_test() #0 {
 define internal range(i32 0, 2) i32 @ffc_params_validate_g_unverified_test() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_ffc_params_init(ptr noundef nonnull %2) #3
   %3 = call ptr @BN_bin2bn(ptr noundef nonnull @dsa_2048_224_sha256_p, i32 noundef 256, ptr noundef null) #3
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 184, ptr noundef nonnull @.str.18, ptr noundef %3) #3
@@ -297,8 +297,8 @@ define internal range(i32 0, 2) i32 @ffc_params_validate_g_unverified_test() #0 
   call void @BN_free(ptr noundef %.015) #3
   call void @BN_free(ptr noundef %.014) #3
   call void @BN_free(ptr noundef %.0) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.016
 }
 
@@ -306,9 +306,9 @@ define internal range(i32 0, 2) i32 @ffc_params_validate_g_unverified_test() #0 
 define internal range(i32 0, 2) i32 @ffc_params_gen_test() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_ffc_params_init(ptr noundef nonnull %2) #3
   %3 = call i32 @ossl_ffc_params_FIPS186_4_generate(ptr noundef null, ptr noundef nonnull %2, i32 noundef 1, i64 noundef 2048, i64 noundef 256, ptr noundef nonnull %1, ptr noundef null) #3
   %4 = icmp ne i32 %3, 0
@@ -329,8 +329,8 @@ define internal range(i32 0, 2) i32 @ffc_params_gen_test() #0 {
 12:                                               ; preds = %7, %0
   %.0 = phi i32 [ 0, %0 ], [ %spec.select, %7 ]
   call void @ossl_ffc_params_cleanup(ptr noundef nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -338,9 +338,9 @@ define internal range(i32 0, 2) i32 @ffc_params_gen_test() #0 {
 define internal range(i32 0, 2) i32 @ffc_params_gen_canonicalg_test() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_ffc_params_init(ptr noundef nonnull %2) #3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 1, ptr %3, align 8, !tbaa !8
@@ -372,8 +372,8 @@ define internal range(i32 0, 2) i32 @ffc_params_gen_canonicalg_test() #0 {
 19:                                               ; preds = %13, %8, %0
   %.0 = phi i32 [ 0, %8 ], [ 0, %0 ], [ %spec.select, %13 ]
   call void @ossl_ffc_params_cleanup(ptr noundef nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -381,9 +381,9 @@ define internal range(i32 0, 2) i32 @ffc_params_gen_canonicalg_test() #0 {
 define internal range(i32 0, 2) i32 @ffc_params_fips186_2_gen_validate_test() #0 {
   %1 = alloca i32, align 4
   %2 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ossl_ffc_params_init(ptr noundef nonnull %2) #3
   %3 = call ptr @BN_new() #3
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 399, ptr noundef nonnull @.str.24, ptr noundef %3) #3
@@ -445,15 +445,15 @@ define internal range(i32 0, 2) i32 @ffc_params_fips186_2_gen_validate_test() #0
   %.0 = phi i32 [ 0, %27 ], [ 0, %20 ], [ 0, %15 ], [ 0, %10 ], [ 0, %5 ], [ 0, %0 ], [ %spec.select, %30 ]
   call void @BN_free(ptr noundef %3) #3
   call void @ossl_ffc_params_cleanup(ptr noundef nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ffc_public_validate_test() #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
   %2 = tail call ptr @BN_new() #3
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 448, ptr noundef nonnull @.str.29, ptr noundef %2) #3
@@ -677,14 +677,14 @@ define internal range(i32 0, 2) i32 @ffc_public_validate_test() #0 {
   %.0 = phi ptr [ %5, %117 ], [ %5, %114 ], [ %5, %109 ], [ %5, %106 ], [ %5, %101 ], [ %5, %96 ], [ %5, %91 ], [ %5, %88 ], [ %5, %83 ], [ %5, %78 ], [ %5, %75 ], [ %5, %70 ], [ %5, %65 ], [ %5, %62 ], [ %5, %57 ], [ %5, %53 ], [ %5, %48 ], [ %5, %43 ], [ %5, %40 ], [ %5, %34 ], [ %5, %31 ], [ %5, %26 ], [ %5, %21 ], [ %5, %18 ], [ %5, %13 ], [ %5, %7 ], [ %5, %4 ], [ null, %0 ], [ %5, %123 ]
   call void @DH_free(ptr noundef %.0) #3
   call void @BN_free(ptr noundef %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ffc_private_validate_test() #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 -1, ptr %1, align 4, !tbaa !4
   %2 = tail call ptr @BN_new() #3
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 546, ptr noundef nonnull @.str.46, ptr noundef %2) #3
@@ -831,7 +831,7 @@ define internal range(i32 0, 2) i32 @ffc_private_validate_test() #0 {
   %.0 = phi ptr [ %5, %76 ], [ %5, %73 ], [ %5, %68 ], [ %5, %62 ], [ %5, %57 ], [ %5, %54 ], [ %5, %48 ], [ %5, %44 ], [ %5, %37 ], [ %5, %34 ], [ %5, %28 ], [ %5, %23 ], [ %5, %20 ], [ %5, %13 ], [ %5, %7 ], [ %5, %4 ], [ null, %0 ], [ %5, %82 ]
   call void @DH_free(ptr noundef %.0) #3
   call void @BN_free(ptr noundef %2) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.020
 }
 
@@ -840,7 +840,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ffc_private_gen_test(i32 %0) #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !4
   %3 = tail call ptr @BN_CTX_new_ex(ptr noundef null) #3
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 614, ptr noundef nonnull @.str.57, ptr noundef %3) #3
@@ -958,14 +958,14 @@ define internal range(i32 0, 2) i32 @ffc_private_gen_test(i32 %0) #0 {
   call void @DH_free(ptr noundef %.0) #3
   call void @BN_free(ptr noundef %.035) #3
   call void @BN_CTX_free(ptr noundef %3) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ffc_params_copy_test() #0 {
   %1 = alloca %struct.ffc_params_st, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @ossl_ffc_params_init(ptr noundef nonnull %1) #3
   %2 = call ptr @DH_new_by_nid(i32 noundef 1127) #3
   %3 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 671, ptr noundef nonnull @.str.66, ptr noundef %2) #3
@@ -1008,12 +1008,9 @@ define internal range(i32 0, 2) i32 @ffc_params_copy_test() #0 {
   %.0 = phi i32 [ 0, %14 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %18 ]
   call void @ossl_ffc_params_cleanup(ptr noundef nonnull %1) #3
   call void @DH_free(ptr noundef %2) #3
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @ossl_ffc_params_init(ptr noundef) local_unnamed_addr #1
 
@@ -1038,9 +1035,6 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare void @ossl_ffc_params_cleanup(ptr noundef) local_unnamed_addr #1
 
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1091,6 +1085,12 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ffc_params_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ossl_ffc_params_cmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -19,13 +19,13 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [6 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   store ptr %6, ptr %3, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %10 = load i32, ptr %9, align 4, !tbaa !16
   %11 = and i32 %10, 1040
@@ -64,23 +64,20 @@ define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr noundef rea
 
 28:                                               ; preds = %23, %18, %17, %13, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %13 ], [ 1, %17 ], [ %., %18 ], [ %.14, %23 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @json_parse(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @json_parse(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8, !tbaa !13
   %9 = icmp ult ptr %8, %1
   br i1 %9, label %.lr.ph.preheader.i, label %json_skip_space.exit
@@ -134,7 +131,7 @@ json_skip_space.exit:                             ; preds = %.lr.ph.i, %json_iss
   br label %json_parse_const.exit
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %20, ptr %6, align 8, !tbaa !13
   %25 = icmp ult ptr %20, %1
   br i1 %25, label %.lr.ph.preheader.i84.lr.ph, label %json_parse_array.exit
@@ -211,11 +208,11 @@ json_parse_array.exit:                            ; preds = %39, %36, %json_skip
   %storemerge15.i = phi ptr [ %49, %44 ], [ %20, %24 ], [ %42, %41 ], [ %.0.lcssa.i83, %json_skip_space.exit90 ], [ %.pre.pre, %36 ], [ %.pre.pre, %39 ]
   %.0.i = phi i32 [ 1, %44 ], [ 0, %24 ], [ 0, %41 ], [ 0, %json_skip_space.exit90 ], [ 0, %36 ], [ 0, %39 ]
   store ptr %storemerge15.i, ptr %7, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %json_parse_const.exit
 
 50:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %20, ptr %5, align 8, !tbaa !13
   %51 = ptrtoint ptr %1 to i64
   %52 = add nuw nsw i64 %3, 2
@@ -341,7 +338,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   %storemerge.i49 = phi ptr [ %83, %85 ], [ %86, %json_parse_object.exit.loopexit.split.loop.exit172 ], [ %87, %json_parse_object.exit.loopexit.split.loop.exit181 ], [ %83, %82 ], [ %storemerge.i49.pre.pre, %79 ], [ %.0.lcssa.i91, %json_skip_space.exit98 ], [ %storemerge.i49.pre.pre158, %67 ], [ %.0.lcssa.i99, %json_skip_space.exit106 ], [ %54, %53 ], [ %64, %61 ]
   %.0.i48 = phi i32 [ 0, %85 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit172 ], [ 0, %json_parse_object.exit.loopexit.split.loop.exit181 ], [ 1, %82 ], [ 0, %79 ], [ 0, %json_skip_space.exit98 ], [ 0, %67 ], [ 0, %json_skip_space.exit106 ], [ 0, %53 ], [ 1, %61 ]
   store ptr %storemerge.i49, ptr %7, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %json_parse_const.exit
 
 88:                                               ; preds = %19
@@ -659,17 +656,14 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
 
 .thread120:                                       ; preds = %.loopexit, %.thread, %195, %199, %201, %204, %187, %190, %17
   %.037 = phi i32 [ 0, %17 ], [ 1, %187 ], [ %194, %190 ], [ 2, %201 ], [ %207, %204 ], [ 0, %199 ], [ 0, %195 ], [ %.036111.mux, %.loopexit ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.037
 }
 
-declare hidden i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare hidden i32 @file_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %4 = icmp ult ptr %3, %1
   br i1 %4, label %.lr.ph, label %json_isxdigit.exit
@@ -762,12 +756,18 @@ json_isxdigit.exit:                               ; preds = %15, %9, %11, %.back
   ret i32 %.018
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

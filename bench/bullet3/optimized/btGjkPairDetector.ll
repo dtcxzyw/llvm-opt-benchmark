@@ -85,16 +85,10 @@ define dso_local void @_ZN17btGjkPairDetectorC2EPK13btConvexShapeS2_P22btVoronoi
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17btGjkPairDetectorC2EPK13btConvexShapeS2_iiffP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100) initializes((0, 73), (80, 84), (92, 100)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17btGjkPairDetectorC2EPK13btConvexShapeS2_iiffP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(100) initializes((0, 73), (80, 84), (92, 100)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV17btGjkPairDetector, i64 16), ptr %0, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %10, align 8, !tbaa !7
@@ -138,7 +132,7 @@ define dso_local void @_ZN17btGjkPairDetector16getClosestPointsERKN36btDiscreteC
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(100) initializes((8, 24), (76, 92)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36btDiscreteCollisionDetectorInterface17ClosestPointInputERNS0_6ResultEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(100) initializes((8, 24), (76, 92)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(132) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %class.btVector3, align 8
   %6 = alloca %class.btVector3, align 8
   %7 = alloca %class.btVector3, align 8
@@ -167,14 +161,14 @@ define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36b
   %30 = alloca %class.btVector3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 0.000000e+00, ptr %31, align 4, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 16, i1 false), !tbaa.struct !34
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -185,7 +179,7 @@ define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36b
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !34
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %41, i64 16, i1 false), !tbaa.struct !34
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -271,17 +265,17 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1, ptr %96, align 8, !tbaa !30
   %97 = fadd float %.0519, %.0520
-  call void @llvm.lifetime.start.p0(i64 196, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store i32 -1, ptr %98, align 4, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 1.000000e+00, ptr %15, align 8, !tbaa !7
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %99, align 4, !tbaa !7
   store float 0.000000e+00, ptr %.sink.i.i.sroa.gep469, align 8, !tbaa !7
   store float 0.000000e+00, ptr %.sink.i.i.sroa.gep, align 4, !tbaa !7
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %101 = load float, ptr %12, align 4, !tbaa !7
   %102 = load float, ptr %36, align 4, !tbaa !7
   %103 = fmul float %102, 0.000000e+00
@@ -312,7 +306,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %7, align 8
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %125, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %126 = load float, ptr %13, align 4, !tbaa !7
   %127 = load float, ptr %43, align 4, !tbaa !7
   %128 = fmul float %127, -0.000000e+00
@@ -421,8 +415,8 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %.sroa.0.0.vec.insert.i38.i = insertelement <2 x float> poison, float %208, i64 0
   %.sroa.0.4.vec.insert.i39.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i38.i, float %209, i64 1
   %.sroa.3.12.vec.insert.i40.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %210, i64 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %211 = load i32, ptr %98, align 4, !tbaa !40
   %212 = add nsw i32 %211, 1
   store i32 %212, ptr %98, align 4, !tbaa !40
@@ -476,7 +470,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %.0112573 = phi i32 [ 0, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit ], [ %231, %228 ]
   %235 = load ptr, ptr %70, align 8, !tbaa !21
   %236 = load ptr, ptr %100, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %237 = load float, ptr %12, align 4, !tbaa !7
   %238 = load float, ptr %36, align 4, !tbaa !7
   %239 = fmul float %238, %233
@@ -500,7 +494,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %.sroa.3.12.vec.insert.i.i154 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %254, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i153, ptr %5, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i154, ptr %218, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %255 = fneg float %234
   %256 = fneg float %233
   %257 = fneg float %232
@@ -595,8 +589,8 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   %332 = fsub float %303, %327
   %.sroa.10441.8.vec.extract445 = extractelement <2 x float> %.sroa.10441.1, i64 0
   %333 = fsub float %.sroa.10441.8.vec.extract445, %330
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %334 = load float, ptr %15, align 8, !tbaa !7
   %335 = load float, ptr %99, align 4, !tbaa !7
   %336 = fmul float %332, %335
@@ -912,7 +906,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 532:                                              ; preds = %685, %.thread
   %.0108 = phi float [ 0x43ABC16D60000000, %.thread ], [ %669, %685 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %533 = load float, ptr %91, align 8, !tbaa !7
   %534 = fneg float %533
   %535 = load float, ptr %92, align 4, !tbaa !7
@@ -942,7 +936,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %.sroa.3.12.vec.insert.i187 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %556, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i186, ptr %16, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i187, ptr %524, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %557 = load float, ptr %13, align 4, !tbaa !7
   %558 = load float, ptr %43, align 4, !tbaa !7
   %559 = fmul float %535, %558
@@ -974,7 +968,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %580 = call { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32) %579, ptr noundef nonnull align 4 dereferenceable(16) %17)
   %581 = extractvalue { <2 x float>, <2 x float> } %580, 0
   %582 = extractvalue { <2 x float>, <2 x float> } %580, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.0413.0.vec.extract = extractelement <2 x float> %577, i64 0
   %583 = load float, ptr %12, align 4, !tbaa !7
   %.sroa.0413.4.vec.extract = extractelement <2 x float> %577, i64 1
@@ -1007,7 +1001,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %606, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i, ptr %18, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i, ptr %526, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.sroa.0411.0.vec.extract = extractelement <2 x float> %581, i64 0
   %607 = load float, ptr %13, align 4, !tbaa !7
   %.sroa.0411.4.vec.extract = extractelement <2 x float> %581, i64 1
@@ -1050,7 +1044,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 632:                                              ; preds = %631, %532
   %633 = phi float [ 0.000000e+00, %631 ], [ %630, %532 ]
   %634 = phi float [ 0.000000e+00, %631 ], [ %606, %532 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %635 = fsub float %602, %626
   %636 = fsub float %604, %628
   %637 = fsub float %634, %633
@@ -1094,7 +1088,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 659:                                              ; preds = %653
   %660 = load ptr, ptr %522, align 8, !tbaa !20
   call void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr noundef nonnull align 4 dereferenceable(357) %660, ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %661 = load ptr, ptr %522, align 8, !tbaa !20
   %662 = call noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357) %661, ptr noundef nonnull align 4 dereferenceable(16) %21)
   br i1 %662, label %663, label %.thread547
@@ -1143,37 +1137,37 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   br label %686
 
 685:                                              ; preds = %680
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %532
 
 .thread547:                                       ; preds = %672, %659, %671
   %.sink = phi i32 [ 6, %671 ], [ 3, %659 ], [ 12, %672 ]
   %.3111.ph.ph = phi float [ %.0108, %671 ], [ %.0108, %659 ], [ %669, %672 ]
   store i32 %.sink, ptr %95, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %686
 
 .loopexit:                                        ; preds = %676, %684
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %734
 
 686:                                              ; preds = %.thread547, %.thread542
   %.1109534545 = phi float [ %.0108, %.thread542 ], [ %.3111.ph.ph, %.thread547 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %687 = load ptr, ptr %522, align 8, !tbaa !20
   call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %687, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !34
@@ -1283,8 +1277,8 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   br i1 %.not127, label %861, label %747
 
 747:                                              ; preds = %746
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
   %748 = load ptr, ptr %522, align 8, !tbaa !20
   %749 = load ptr, ptr %70, align 8, !tbaa !21
@@ -1467,26 +1461,26 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 .thread604:                                       ; preds = %859, %798, %803
   %.6.ph = phi float [ %.0, %803 ], [ %796, %798 ], [ %.5, %859 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.sink.split
 
 860:                                              ; preds = %804, %747, %805
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.090, label %862, label %1213
 
 861:                                              ; preds = %746
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %.090, label %862, label %1213
 
 .sink.split:                                      ; preds = %744, %.thread604
   %.2553.ph = phi float [ %.6.ph, %.thread604 ], [ %.0, %744 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #15
-  call void @llvm.lifetime.end.p0(i64 196, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %862
 
 862:                                              ; preds = %.sink.split, %860, %861
@@ -1503,7 +1497,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 868:                                              ; preds = %864, %862
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !34
   store float %.2553, ptr %31, align 4, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %869 = fneg float %.sroa.0473.0
   %870 = fneg float %.sroa.9.0
   %871 = fneg float %.sroa.14.0
@@ -1531,7 +1525,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   store <2 x float> %.sroa.0.4.vec.insert.i247, ptr %24, align 8
   %890 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i248, ptr %890, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %891 = load float, ptr %13, align 4, !tbaa !7
   %892 = load float, ptr %43, align 4, !tbaa !7
   %893 = fmul float %.sroa.9.0, %892
@@ -1625,9 +1619,9 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %970 = call float @llvm.fmuladd.f32(float %.sroa.0473.0, float %966, float %969)
   %971 = call noundef float @llvm.fmuladd.f32(float %.sroa.14.0, float %968, float %970)
   %972 = fsub float %971, %97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %973 = load float, ptr %9, align 8, !tbaa !7
   %974 = load float, ptr %32, align 4, !tbaa !7
   %975 = fmul float %924, %974
@@ -1646,7 +1640,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   store <2 x float> %.sroa.0.4.vec.insert.i272, ptr %26, align 8
   %985 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i273, ptr %985, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %986 = fneg float %973
   %987 = fneg float %974
   %988 = fneg float %977
@@ -1740,9 +1734,9 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %1065 = call float @llvm.fmuladd.f32(float %1059, float %1055, float %1064)
   %1066 = call noundef float @llvm.fmuladd.f32(float %1063, float %1057, float %1065)
   %1067 = fsub float %1066, %97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1068 = load float, ptr %1, align 4, !tbaa !7
   %1069 = load float, ptr %35, align 4, !tbaa !7
   %1070 = fmul float %1069, %1061
@@ -1773,7 +1767,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   store <2 x float> %.sroa.0.4.vec.insert.i312, ptr %28, align 8
   %1092 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i313, ptr %1092, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1093 = load float, ptr %41, align 4, !tbaa !7
   %1094 = load float, ptr %42, align 4, !tbaa !7
   %1095 = fmul float %1060, %1094
@@ -1876,8 +1870,8 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %1181 = load float, ptr %33, align 8, !tbaa !7
   %1182 = call noundef float @llvm.fmuladd.f32(float %1181, float %1176, float %1180)
   %1183 = fsub float %1182, %97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1184 = fcmp ogt float %1067, %1183
   br i1 %1184, label %1185, label %1189
 
@@ -1913,7 +1907,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 1200:                                             ; preds = %1199, %1189
   %.7 = phi float [ %972, %1199 ], [ %.2553, %1189 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1201 = load float, ptr %11, align 4, !tbaa !7
   %1202 = fadd float %61, %1201
   %1203 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1932,40 +1926,40 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %1211 = getelementptr inbounds nuw i8, ptr %1210, i64 32
   %1212 = load ptr, ptr %1211, align 8
   call void %1212(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %30, float noundef %.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1213
 
 1213:                                             ; preds = %860, %861, %864, %1200
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #15
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z8ccdVec3XPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef float @_Z8ccdVec3XPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4, !tbaa !7
   ret float %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z8ccdVec3YPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef float @_Z8ccdVec3YPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load float, ptr %2, align 4, !tbaa !7
   ret float %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_Z8ccdVec3ZPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef float @_Z8ccdVec3ZPK9btVector3(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load float, ptr %2, align 4, !tbaa !7
   ret float %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = load float, ptr %2, align 4, !tbaa !7
   %7 = load float, ptr %1, align 4, !tbaa !7
   %8 = fsub float %6, %7
@@ -2365,10 +2359,10 @@ _Z23btVec3PointSegmentDist2PK9btVector3S1_S1_PS_.exit116: ; preds = %238, %_Z5cc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef float @_Z23btVec3PointSegmentDist2PK9btVector3S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 comdat {
+define linkonce_odr dso_local noundef float @_Z23btVec3PointSegmentDist2PK9btVector3S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat {
   %5 = load float, ptr %2, align 4, !tbaa !7
   %6 = load float, ptr %1, align 4, !tbaa !7
   %7 = fsub float %5, %6
@@ -2501,46 +2495,46 @@ _Z5ccdEqff.exit.thread:                           ; preds = %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357)) local_unnamed_addr #8
+declare void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357)) local_unnamed_addr #7
 
-declare { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #8
+declare { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupportVertexWithoutMarginNonVirtualERK9btVector3(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
-declare noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9btVector3(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9btVector3(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
-declare void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #8
+declare void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
-declare noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #8
+declare noundef zeroext i1 @_ZN22btVoronoiSimplexSolver7closestER9btVector3(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
-declare void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #8
+declare void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN36btDiscreteCollisionDetectorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btGjkPairDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btGjkPairDetectorD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #8 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #5
+declare float @llvm.fabs.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca %class.btVector3, align 4
   %4 = alloca %class.btVector3, align 8
   %5 = alloca %class.btVector3, align 8
   %6 = alloca %struct.btSupportVector, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = sext i32 %8 to i64
@@ -2844,7 +2838,7 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 190:                                              ; preds = %182
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !44
@@ -2853,19 +2847,19 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   store float %164, ptr %1, align 4, !tbaa !7
   store float %158, ptr %.sroa.1094.0..sroa_idx95, align 4, !tbaa !7
   store float %161, ptr %.sroa.16.0..sroa_idx101, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 _Z8btVec3EqPK9btVector3S1_.exit.thread110:        ; preds = %_Z5ccdEqff.exit9.thread.i76, %_Z5ccdEqff.exit9.thread.i, %155, %156, %147, %189, %190, %180, %181, %_Z8btVec3EqPK9btVector3S1_.exit, %_Z8btVec3EqPK9btVector3S1_.exit80, %2
   %.0 = phi i32 [ 1, %2 ], [ -1, %_Z8btVec3EqPK9btVector3S1_.exit80 ], [ -1, %_Z8btVec3EqPK9btVector3S1_.exit ], [ 0, %181 ], [ 0, %180 ], [ 0, %190 ], [ 0, %189 ], [ 0, %147 ], [ 0, %156 ], [ 0, %155 ], [ -1, %_Z5ccdEqff.exit9.thread.i ], [ -1, %_Z5ccdEqff.exit9.thread.i76 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 comdat {
+define linkonce_odr dso_local void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 comdat {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load float, ptr %5, align 4, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2911,10 +2905,16 @@ define linkonce_odr dso_local void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #11
+declare float @sqrtf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
@@ -2923,18 +2923,18 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare float @llvm.sqrt.f32(float) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nounwind }

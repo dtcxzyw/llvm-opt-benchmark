@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 52) i32 @shn_probe(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.GetBitContext, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load i32, ptr %4, align 1, !tbaa !11
@@ -620,7 +620,7 @@ get_ur_golomb_shorten.exit62:                     ; preds = %.lr.ph.i.i58, %126,
 
 .critedge:                                        ; preds = %.lr.ph.i.i84, %210, %281, %316, %245, %174, %324, %get_ur_golomb_shorten.exit88, %get_ur_golomb_shorten.exit114, %get_ur_golomb_shorten.exit140, %get_ur_golomb_shorten.exit62, %6, %1
   %.031 = phi i32 [ 0, %1 ], [ 0, %6 ], [ 0, %get_ur_golomb_shorten.exit62 ], [ 0, %get_ur_golomb_shorten.exit140 ], [ 0, %get_ur_golomb_shorten.exit114 ], [ 0, %get_ur_golomb_shorten.exit88 ], [ %spec.select, %324 ], [ 0, %174 ], [ 0, %245 ], [ 0, %316 ], [ 0, %281 ], [ 0, %210 ], [ 0, %.lr.ph.i.i84 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.031
 }
 
@@ -628,11 +628,8 @@ declare i32 @ff_raw_audio_read_header(ptr noundef) #1
 
 declare i32 @ff_raw_read_partial_packet(ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 32) %1) unnamed_addr #3 {
+define internal fastcc i32 @get_ur_golomb_shorten(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 32) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -795,7 +792,10 @@ get_ur_golomb_jpegls.exit:                        ; preds = %39, %28, %95, %98
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
@@ -808,10 +808,9 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

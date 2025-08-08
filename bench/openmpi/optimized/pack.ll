@@ -146,10 +146,7 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %52, %pmix_pointer_a
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @pmix20_bfrop_store_data_type(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @pmix20_bfrop_store_data_type(ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int32(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -268,10 +265,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %21, %pmix_pointer_a
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_bool(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -330,7 +324,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_bool(ptr noundef readnone captur
   ret i32 %.0
 }
 
-declare ptr @pmix_bfrop_buffer_extend(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @pmix_bfrop_buffer_extend(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_pack_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -544,7 +538,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_byte(ptr noundef readnone captur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int16(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -813,12 +807,12 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %55, %21, %35, %51, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix20_bfrop_pack_float(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
 
@@ -849,20 +843,20 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_float(ptr noundef readnone captu
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %13, %5
   %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %16 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix20_bfrop_pack_double(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %.loopexit
 
@@ -892,14 +886,14 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_double(ptr noundef readnone capt
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %12, %5
   %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %15 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph, label %pmix20_bfrop_pack_int64.exit
 
@@ -964,7 +958,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr noundef readnone cap
 
 pmix20_bfrop_pack_int64.exit:                     ; preds = %29, %23, %5
   %.0 = phi i32 [ 0, %5 ], [ -29, %23 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2622,7 +2616,7 @@ pmix20_bfrop_pack_buffer.exit.thread:             ; preds = %744, %pmix_pointer_
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %pmix20_bfrop_pack_infodirs.exit
@@ -2735,7 +2729,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
 
 pmix20_bfrop_pack_infodirs.exit:                  ; preds = %12, %pmix20_bfrop_pack_int.exit, %57, %11, %24, %.lr.ph.i.i.preheader, %46, %pmix_pointer_array_get_item.exit.i.i, %48, %5
   %.024 = phi i32 [ 0, %5 ], [ -21, %48 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %47, %46 ], [ %34, %.lr.ph.i.i.preheader ], [ -29, %24 ], [ 0, %11 ], [ %58, %57 ], [ %56, %pmix20_bfrop_pack_int.exit ], [ %14, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.024
 }
 
@@ -2803,7 +2797,7 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %13, %._crit_edge.i
 define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph, label %pmix20_bfrop_pack_int.exit.thread
 
@@ -2822,7 +2816,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %14 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %2, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %14, ptr %6, align 8, !tbaa !45
   %15 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %15, 0
@@ -2860,7 +2854,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
   %32 = load i64, ptr %10, align 8, !tbaa !24
   %33 = add i64 %32, 4
   store i64 %33, ptr %10, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 260
   store ptr %34, ptr %7, align 8, !tbaa !45
   %35 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1, i16 zeroext poison)
@@ -2869,7 +2863,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 pmix20_bfrop_pack_proc.exit:                      ; preds = %13, %25
   %.2.ph.i = phi i32 [ %15, %13 ], [ -29, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %pmix20_bfrop_pack_int.exit.thread
 
 36:                                               ; preds = %.lr.ph.i.i.preheader.i
@@ -2930,7 +2924,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
 
 pmix20_bfrop_pack_int.exit.thread:                ; preds = %.lr.ph.i.i.preheader.i, %pmix20_bfrop_pack_int.exit, %61, %12, %36, %50, %pmix_pointer_array_get_item.exit.i.i, %52, %5, %pmix20_bfrop_pack_proc.exit
   %.024 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ %35, %.lr.ph.i.i.preheader.i ], [ %60, %pmix20_bfrop_pack_int.exit ], [ %62, %61 ], [ 0, %12 ], [ %38, %36 ], [ %51, %50 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.024
 }
 
@@ -2948,7 +2942,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_proc(ptr noundef readnone captur
 
 10:                                               ; preds = %.lr.ph, %.lr.ph.i.i.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw %struct.pmix_proc, ptr %2, i64 %indvars.iv
   store ptr %11, ptr %6, align 8, !tbaa !45
   %12 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
@@ -2987,14 +2981,14 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_proc(ptr noundef readnone captur
   %29 = load i64, ptr %9, align 8, !tbaa !24
   %30 = add i64 %29, 4
   store i64 %30, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !65
 
 .loopexit.sink.split:                             ; preds = %22, %10
   %.2.ph = phi i32 [ %12, %10 ], [ -29, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.preheader, %.loopexit.sink.split, %5
@@ -3181,7 +3175,7 @@ pmix20_bfrop_pack_int32.exit:                     ; preds = %13, %._crit_edge.i
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_pack_app(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph110, label %pmix20_bfrop_pack_int.exit.thread
 
@@ -3455,16 +3449,16 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 
 pmix20_bfrop_pack_int.exit.thread:                ; preds = %11, %pmix20_bfrop_pack_int.exit, %._crit_edge107, %pmix20_bfrop_pack_int.exit86, %pmix20_bfrop_pack_sizet.exit, %132, %137, %14, %30, %pmix_pointer_array_get_item.exit.i.i, %32, %60, %80, %94, %pmix_pointer_array_get_item.exit.i.i84, %96, %105, %119, %pmix_pointer_array_get_item.exit.i.i91, %121, %.lr.ph, %.lr.ph106, %5
   %.060 = phi i32 [ 0, %5 ], [ %77, %.lr.ph106 ], [ %49, %.lr.ph ], [ %13, %11 ], [ %40, %pmix20_bfrop_pack_int.exit ], [ %79, %._crit_edge107 ], [ %104, %pmix20_bfrop_pack_int.exit86 ], [ %129, %pmix20_bfrop_pack_sizet.exit ], [ %136, %132 ], [ 0, %137 ], [ %18, %14 ], [ %31, %30 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %32 ], [ -29, %60 ], [ %82, %80 ], [ %95, %94 ], [ -21, %pmix_pointer_array_get_item.exit.i.i84 ], [ -21, %96 ], [ %107, %105 ], [ %120, %119 ], [ -21, %pmix_pointer_array_get_item.exit.i.i91 ], [ -21, %121 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.060
 }
 
-declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #2
+declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix20_bfrop_pack_kval(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %pmix20_bfrop_pack_value.exit.thread
 
@@ -3502,7 +3496,7 @@ pmix20_bfrop_pack_value.exit:                     ; preds = %16
 
 pmix20_bfrop_pack_value.exit.thread:              ; preds = %.lr.ph, %pmix20_bfrop_pack_value.exit, %.lr.ph.i, %16, %5
   %.014 = phi i32 [ 0, %5 ], [ %11, %.lr.ph ], [ 0, %pmix20_bfrop_pack_value.exit ], [ %17, %16 ], [ %15, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.014
 }
 
@@ -3992,7 +3986,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
 11:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %12 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %2, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8, !tbaa !45
   %13 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %13, 0
@@ -4030,7 +4024,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %30 = load i64, ptr %9, align 8, !tbaa !24
   %31 = add i64 %30, 4
   store i64 %31, ptr %9, align 8, !tbaa !24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %33 = tail call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef nonnull %32, i32 noundef 1, i16 zeroext poison)
   %.not35 = icmp eq i32 %33, 0
@@ -4038,7 +4032,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 pmix20_bfrop_pack_proc.exit:                      ; preds = %11, %23
   %.2.ph.i = phi i32 [ %13, %11 ], [ -29, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %pmix20_bfrop_pack_pstate.exit
 
 34:                                               ; preds = %.lr.ph.i.i.preheader.i
@@ -4505,9 +4499,15 @@ define i32 @pmix20_bfrop_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret i32 %.018
 }
 
-declare i32 @pmix_bfrops_base_pack_sizet(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @pmix_bfrops_base_pack_sizet(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @pmix_bfrops_base_pack_info(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @pmix_bfrops_base_pack_info(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7
@@ -4519,12 +4519,12 @@ declare i32 @llvm.bswap.i32(i32) #7
 declare i64 @llvm.bswap.i64(i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

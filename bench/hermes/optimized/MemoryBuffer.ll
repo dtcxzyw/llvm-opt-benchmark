@@ -110,7 +110,7 @@ entry:
   %RHSKind.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %BufferName, ptr %ref.tmp1, align 8
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 8
@@ -142,7 +142,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
   br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 16), ptr %call3.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %InputData.coerce0, i64 %InputData.coerce1
   %BufferStart.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 8
@@ -170,8 +170,8 @@ entry:
   %retval.sroa.2.0.Identifier.sroa_idx.i = getelementptr inbounds nuw i8, ptr %Ref, i64 24
   %retval.sroa.2.0.copyload.i2 = load i64, ptr %retval.sroa.2.0.Identifier.sroa_idx.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %BufferName.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %BufferName.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   store ptr %retval.sroa.0.0.copyload.i1, ptr %BufferName.i, align 8, !noalias !4
   %0 = getelementptr inbounds nuw i8, ptr %BufferName.i, i64 8
   store i64 %retval.sroa.2.0.copyload.i2, ptr %0, align 8, !noalias !4
@@ -180,7 +180,7 @@ entry:
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1, !noalias !4
   store ptr %BufferName.i, ptr %ref.tmp1.i, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i.i), !noalias !4
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !4
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 8
@@ -212,7 +212,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefP
   br label %_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit
 
 _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i.i), !noalias !4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 16), ptr %call3.i.i, align 8, !noalias !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
   %BufferStart.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 8
@@ -220,8 +220,8 @@ _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13Co
   %BufferEnd.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 16
   store ptr %add.ptr.i.i.i, ptr %BufferEnd.i.i.i, align 8, !noalias !4
   store ptr %call3.i.i, ptr %agg.result, align 8, !alias.scope !4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %BufferName.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %BufferName.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
   ret void
 }
 
@@ -229,7 +229,7 @@ _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13Co
 define hidden void @_ZN4llvh12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readonly captures(none) %InputData.coerce0, i64 %InputData.coerce1, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i.i = alloca %"class.llvh::SmallString", align 8
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i.i), !noalias !7
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !10
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 8
@@ -279,7 +279,7 @@ if.then.i.i.i.i.i:                                ; preds = %cleanup.i.i
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; preds = %if.then.i.i.i.i.i, %cleanup.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i.i), !noalias !7
   br i1 %tobool.not.i.i, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_20WritableMemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
@@ -319,8 +319,8 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
   %call.i = call { i32, ptr } @_ZN4llvh3sys19ChangeStdinToBinaryEv() #22, !noalias !13
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 16
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1.i, i64 17
@@ -354,14 +354,14 @@ if.then.i.i:                                      ; preds = %if.then
 _ZN4llvh12MemoryBuffer8getSTDINEv.exit:           ; preds = %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit.thread.i, %if.then.i.i
   %bf.clear4.i.i.sink.i = phi i8 [ %bf.set9.i.i.i, %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEEC2IS1_INS_20WritableMemoryBufferES3_IS8_EEEEONS0_IT_EEPNSt9enable_ifIXsr3std14is_convertibleISB_S5_EE5valueEvE4typeE.exit.thread.i ], [ %bf.clear4.i.i.i, %if.then.i.i ]
   store i8 %bf.clear4.i.i.sink.i, ptr %HasError6.i.i.i, align 8, !alias.scope !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
   br label %cleanup
 
 if.end:                                           ; preds = %entry, %if.end.i
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %FD.i.i), !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %FD.i.i), !noalias !16
   %call.i.i = call { i32, ptr } @_ZN4llvh3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 4 dereferenceable(4) %FD.i.i, i32 noundef 0, ptr noundef null) #22, !noalias !22
   %5 = extractvalue { i32, ptr } %call.i.i, 0
   %cmp.i.not.i.i = icmp eq i32 %5, 0
@@ -386,7 +386,7 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb.exit
 
 _ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb.exit: ; preds = %if.then.i.i6, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %FD.i.i), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %FD.i.i), !noalias !16
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb.exit, %_ZN4llvh12MemoryBuffer8getSTDINEv.exit
@@ -513,7 +513,7 @@ define hidden void @_ZN4llvh12MemoryBuffer7getFileERKNS_5TwineElbb(ptr noalias s
 entry:
   %FD.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %FD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %FD.i)
   %call.i = call { i32, ptr } @_ZN4llvh3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 4 dereferenceable(4) %FD.i, i32 noundef 0, ptr noundef null) #22, !noalias !23
   %0 = extractvalue { i32, ptr } %call.i, 0
   %cmp.i.not.i = icmp eq i32 %0, 0
@@ -538,7 +538,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.exit
 
 _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.exit: ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %FD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %FD.i)
   ret void
 }
 
@@ -547,7 +547,7 @@ define hidden void @_ZN4llvh12MemoryBuffer12getFileSliceERKNS_5TwineEmmb(ptr noa
 entry:
   %FD.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %FD.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %FD.i)
   %call.i = call { i32, ptr } @_ZN4llvh3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %FilePath, ptr noundef nonnull align 4 dereferenceable(4) %FD.i, i32 noundef 0, ptr noundef null) #22, !noalias !26
   %0 = extractvalue { i32, ptr } %call.i, 0
   %cmp.i.not.i = icmp eq i32 %0, 0
@@ -572,7 +572,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.exit
 
 _ZL10getFileAuxIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEERKNS0_5TwineElmmbb.exit: ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %FD.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %FD.i)
   ret void
 }
 
@@ -610,8 +610,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %FD, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %Status.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %EC19.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Status.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %EC19.i)
   %3 = load atomic i8, ptr @_ZGVZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbE8PageSize acquire, align 8, !noalias !29
   %guard.uninitialized.i = icmp eq i8 %3, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %init.end.i, !prof !32
@@ -691,7 +691,7 @@ if.then18.i:                                      ; preds = %_ZL13shouldUseMmapi
   %_M_cat.i.i = getelementptr inbounds nuw i8, ptr %EC19.i, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #24
   store ptr %call.i.i, ptr %_M_cat.i.i, align 8, !noalias !29
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i.i), !noalias !29
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !29
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 8
@@ -723,7 +723,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefP
   br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i.i), !noalias !29
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 16), ptr %call3.i.i, align 8, !noalias !29
   %MFR.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 24
   %call.i.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
@@ -773,7 +773,7 @@ _ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 if.end25.i:                                       ; preds = %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread.i, %_ZL13shouldUseMmapimmlbib.exit.i, %if.end14.i
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i26.i), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i26.i), !noalias !29
   %add.ptr.i.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %NameBuf.i26.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i27.i, ptr %NameBuf.i26.i, align 8, !noalias !33
   %Size.i.i.i.i.i.i.i28.i = getelementptr inbounds nuw i8, ptr %NameBuf.i26.i, i64 8
@@ -823,7 +823,7 @@ if.then.i.i.i.i38.i:                              ; preds = %cleanup.i.i
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; preds = %if.then.i.i.i.i38.i, %cleanup.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i26.i), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i26.i), !noalias !29
   br i1 %tobool.not.i.i, label %if.then27.i, label %if.end30.i
 
 if.then27.i:                                      ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
@@ -902,8 +902,8 @@ cleanup47.i:                                      ; preds = %land.rhs.i.i
   br label %_ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit
 
 _ZL15getOpenFileImplIN4llvh20WritableMemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbb.exit: ; preds = %if.then6.i, %if.then10.i, %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit.i, %if.then27.i, %while.end.i, %cleanup47.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %EC19.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %EC19.i)
   %25 = load i32, ptr %FD, align 4
   %call4 = call i32 @close(i32 noundef %25) #22
   br label %return
@@ -983,7 +983,7 @@ declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 define hidden void @_ZN4llvh20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr noalias writeonly sret(%"class.std::unique_ptr.4") align 8 captures(none) initializes((0, 8)) %agg.result, i64 noundef %Size, ptr noundef nonnull align 8 dereferenceable(18) %BufferName) local_unnamed_addr #4 align 2 {
 entry:
   %NameBuf.i = alloca %"class.llvh::SmallString", align 8
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8, !noalias !39
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 8
@@ -1033,7 +1033,7 @@ if.then.i.i.i.i:                                  ; preds = %cleanup.i
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i)
   br i1 %tobool.not.i, label %_ZNSt10unique_ptrIN4llvh20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit, label %if.end
 
 if.end:                                           ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
@@ -1140,7 +1140,7 @@ if.end17:                                         ; preds = %if.end10, %if.end10
 
 if.end20:                                         ; preds = %if.then2, %if.end17, %if.end
   %MapSize.addr.0 = phi i64 [ %MapSize, %if.end ], [ %7, %if.end17 ], [ %FileSize, %if.then2 ]
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 8
@@ -1172,7 +1172,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
   br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i)
   %11 = load i32, ptr %FD, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 16), ptr %call3.i, align 8
   %MFR.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 24
@@ -1347,7 +1347,7 @@ if.end14:                                         ; preds = %if.then, %if.end11,
   %MapSize.addr.0 = phi i64 [ %MapSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
   %FileSize.addr.0 = phi i64 [ %FileSize, %init.end ], [ %7, %if.end11 ], [ %FileSize, %if.then ]
   %8 = load i32, ptr @_ZZL15getOpenFileImplIN4llvh12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbE8PageSize, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %Status.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Status.i)
   br i1 %IsVolatile, label %_ZL13shouldUseMmapimmlbib.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end14
@@ -1389,15 +1389,15 @@ if.end17.i:                                       ; preds = %if.end14.i
   %conv18.i = sext i32 %sub.i to i64
   %and.i = and i64 %FileSize.addr.0.i, %conv18.i
   %cmp19.i.not = icmp eq i64 %and.i, 0
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
   br i1 %cmp19.i.not, label %if.end26, label %if.then18
 
 _ZL13shouldUseMmapimmlbib.exit.thread:            ; preds = %if.end14, %if.then9.i, %if.end14.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
   br label %if.end26
 
 _ZL13shouldUseMmapimmlbib.exit:                   ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Status.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Status.i)
   br i1 %or.cond.not6.i, label %if.then18, label %if.end26
 
 if.then18:                                        ; preds = %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit
@@ -1405,7 +1405,7 @@ if.then18:                                        ; preds = %if.end17.i, %_ZL13s
   %_M_cat.i = getelementptr inbounds nuw i8, ptr %EC19, i64 8
   %call.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #24
   store ptr %call.i21, ptr %_M_cat.i, align 8
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %NameBuf.i, align 8
   %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i, i64 8
@@ -1437,7 +1437,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
   br label %_ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 16), ptr %call3.i, align 8
   %MFR.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 24
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
@@ -1487,7 +1487,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
   br label %return
 
 if.end26:                                         ; preds = %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.thread, %if.end17.i, %_ZL13shouldUseMmapimmlbib.exit.thread, %_ZL13shouldUseMmapimmlbib.exit
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i32)
   %add.ptr.i.i.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %NameBuf.i32, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i33, ptr %NameBuf.i32, align 8, !noalias !42
   %Size.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %NameBuf.i32, i64 8
@@ -1537,7 +1537,7 @@ if.then.i.i.i.i44:                                ; preds = %cleanup.i
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit: ; preds = %cleanup.i, %if.then.i.i.i.i44
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i32)
   br i1 %tobool.not.i, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit
@@ -1696,7 +1696,7 @@ do.end:                                           ; preds = %if.end
   %6 = load ptr, ptr %Buffer, align 8
   %conv.i.i.i = zext i32 %conv.i9 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %NameBuf.i.i), !noalias !48
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %NameBuf.i.i, align 8, !noalias !51
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %NameBuf.i.i, i64 8
@@ -1746,7 +1746,7 @@ if.then.i.i.i.i.i:                                ; preds = %cleanup.i.i
   br label %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
 
 _ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i: ; preds = %if.then.i.i.i.i.i, %cleanup.i.i
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !48
+  call void @llvm.lifetime.end.p0(ptr nonnull %NameBuf.i.i), !noalias !48
   br i1 %tobool.not.i.i, label %if.then.i10, label %if.end.i
 
 if.then.i10:                                      ; preds = %_ZN4llvh20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineE.exit.i
@@ -2162,10 +2162,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

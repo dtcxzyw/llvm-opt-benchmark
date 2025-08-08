@@ -221,8 +221,8 @@ define hidden void @_ZN8JfrChunk18update_start_ticksEv(ptr noundef nonnull write
 define hidden void @_ZN8JfrChunk18update_start_nanosEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(66) initializes((24, 32), (40, 48)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2os17javaTimeSystemUTCERlS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   %4 = load i64, ptr %2, align 8
   %5 = mul nsw i64 %4, 1000000000
@@ -238,8 +238,8 @@ define hidden void @_ZN8JfrChunk18update_start_nanosEv(ptr noundef nonnull write
 
 _ZN8JfrChunk9nanos_nowEv.exit:                    ; preds = %1, %10
   %11 = phi i64 [ %7, %10 ], [ %8, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -251,8 +251,8 @@ _ZN8JfrChunk9nanos_nowEv.exit:                    ; preds = %1, %10
 define hidden void @_ZN8JfrChunk20update_current_nanosEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(66) initializes((40, 48)) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2os17javaTimeSystemUTCERlS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   %4 = load i64, ptr %2, align 8
   %5 = mul nsw i64 %4, 1000000000
@@ -268,8 +268,8 @@ define hidden void @_ZN8JfrChunk20update_current_nanosEv(ptr noundef nonnull wri
 
 _ZN8JfrChunk9nanos_nowEv.exit:                    ; preds = %1, %10
   %11 = phi i64 [ %7, %10 ], [ %8, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   ret void
@@ -294,8 +294,8 @@ define hidden void @_ZN8JfrChunk35save_current_and_update_start_nanosEv(ptr noun
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %5, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2os17javaTimeSystemUTCERlS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   %7 = load i64, ptr %2, align 8
   %8 = mul nsw i64 %7, 1000000000
@@ -311,8 +311,8 @@ define hidden void @_ZN8JfrChunk35save_current_and_update_start_nanosEv(ptr noun
 
 _ZN8JfrChunk18update_start_nanosEv.exit:          ; preds = %1, %13
   %14 = phi i64 [ %10, %13 ], [ %11, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %14, ptr %15, align 8
   store i64 %14, ptr %4, align 8
@@ -327,8 +327,8 @@ define hidden void @_ZN8JfrChunk14set_time_stampEv(ptr noundef nonnull align 8 c
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %5, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2os17javaTimeSystemUTCERlS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #11
   %7 = load i64, ptr %2, align 8
   %8 = mul nsw i64 %7, 1000000000
@@ -344,8 +344,8 @@ define hidden void @_ZN8JfrChunk14set_time_stampEv(ptr noundef nonnull align 8 c
 
 _ZN8JfrChunk35save_current_and_update_start_nanosEv.exit: ; preds = %1, %13
   %14 = phi i64 [ %10, %13 ], [ %11, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %14, ptr %15, align 8
   store i64 %14, ptr %4, align 8
@@ -485,10 +485,10 @@ declare void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef, i64 nound
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

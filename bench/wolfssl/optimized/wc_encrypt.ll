@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @wc_AesCbcDecryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.Aes], align 16
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
@@ -40,28 +40,22 @@ define i32 @wc_AesCbcDecryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 21:                                               ; preds = %12, %20, %6
   %.018 = phi i32 [ -173, %6 ], [ %.1, %20 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.018
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesInit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesSetKey(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_AesCbcDecrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @wc_AesFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_AesCbcEncryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.Aes], align 16
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @wc_AesInit(ptr noundef nonnull %7, ptr noundef null, i32 noundef -2) #3
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %16
@@ -82,18 +76,18 @@ define i32 @wc_AesCbcEncryptWithKey(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 16:                                               ; preds = %15, %6
   %.0 = phi i32 [ %.1, %15 ], [ %8, %6 ]
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_AesCbcEncrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca [64 x i8], align 16
   %14 = alloca [256 x i8], align 16
   %15 = alloca [1 x %struct.Aes], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = icmp slt i32 %7, 0
   br i1 %16, label %ForceZero.exit100, label %17
 
@@ -125,7 +119,7 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   br label %46
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %25 = icmp sgt i32 %1, 127
   br i1 %25, label %45, label %.preheader
 
@@ -179,7 +173,7 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
 
 45:                                               ; preds = %41, %._crit_edge, %24
   %.2 = phi i32 [ -175, %24 ], [ %39, %._crit_edge ], [ %spec.select, %41 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %46
 
 46:                                               ; preds = %20, %22, %45
@@ -188,7 +182,7 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   br i1 %47, label %48, label %.lr.ph29.preheader.i89
 
 48:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 848, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %49 = call i32 @wc_AesInit(ptr noundef nonnull %15, ptr noundef null, i32 noundef -2) #3
   %.not82 = icmp eq i32 %49, 0
   br i1 %.not82, label %50, label %.lr.ph29.preheader.i
@@ -234,7 +228,7 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   br i1 %.not122, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !10
 
 ForceZero.exit:                                   ; preds = %.lr.ph29.i
-  call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.lr.ph29.preheader.i89
 
 .lr.ph29.preheader.i89:                           ; preds = %46, %ForceZero.exit, %19, %17
@@ -252,19 +246,25 @@ ForceZero.exit:                                   ; preds = %.lr.ph29.i
 
 ForceZero.exit100:                                ; preds = %.lr.ph29.i91, %12
   %.072 = phi i32 [ -279, %12 ], [ %.4, %.lr.ph29.i91 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.072
 }
 
-declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_PBKDF2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_PBKDF1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_PBKDF1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @wc_PKCS12_PBKDF(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @wc_PKCS12_PBKDF(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

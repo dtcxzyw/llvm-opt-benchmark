@@ -26,7 +26,7 @@ declare void @sequence_analysis_table_iterate_tables(ptr noundef, ptr noundef) l
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @flow_register(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %struct._stat_tap_ui, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @g_string_new(ptr noundef nonnull @.str)
   %6 = tail call ptr @sequence_analysis_get_name(ptr noundef %1)
   %7 = tail call ptr @g_string_append(ptr noundef %5, ptr noundef %6)
@@ -42,12 +42,9 @@ define internal noundef zeroext i1 @flow_register(ptr readnone captures(none) %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1)
   call void @g_free(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
@@ -63,22 +60,22 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @flow_init(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = tail call noalias dereferenceable_or_null(1040) ptr @g_malloc0(i64 noundef 1040) #9
+  %3 = tail call noalias dereferenceable_or_null(1040) ptr @g_malloc0(i64 noundef 1040) #8
   %4 = getelementptr i8, ptr %0, i64 5
   %5 = tail call ptr @sequence_analysis_get_name(ptr noundef %1)
-  %6 = tail call i64 @strlen(ptr noundef %5) #10
+  %6 = tail call i64 @strlen(ptr noundef %5) #9
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(10) @.str.2, i64 noundef 9) #10
+  %8 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(10) @.str.2, i64 noundef 9) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %flow_arg_mode.exit, label %flow_arg_strncmp.exit.i
 
 flow_arg_strncmp.exit.i:                          ; preds = %2
-  %10 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #10
+  %10 = tail call i32 @strncmp(ptr noundef %7, ptr noundef nonnull dereferenceable(9) @.str.3, i64 noundef 8) #9
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %flow_arg_mode.exit, label %flow_arg_strncmp.exit4.i
 
 flow_arg_strncmp.exit4.i:                         ; preds = %flow_arg_strncmp.exit.i
-  tail call fastcc void @flow_exit(ptr noundef nonnull @.str.4) #11
+  tail call fastcc void @flow_exit(ptr noundef nonnull @.str.4) #10
   unreachable
 
 flow_arg_mode.exit:                               ; preds = %2, %flow_arg_strncmp.exit.i
@@ -103,7 +100,7 @@ flow_arg_mode.exit:                               ; preds = %2, %flow_arg_strncm
   tail call void @sequence_analysis_list_free(ptr noundef %3)
   tail call void @sequence_analysis_info_free(ptr noundef %3)
   %22 = tail call ptr @g_string_free(ptr noundef nonnull %20, i32 noundef 1)
-  tail call fastcc void @flow_exit(ptr noundef nonnull @.str.1) #11
+  tail call fastcc void @flow_exit(ptr noundef nonnull @.str.1) #10
   unreachable
 
 23:                                               ; preds = %flow_arg_mode.exit
@@ -116,14 +113,11 @@ declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @sequence_analysis_list_free(ptr noundef) local_unnamed_addr #1
@@ -154,15 +148,15 @@ define internal void @flow_draw(ptr noundef %0) #0 {
 declare void @sequence_analysis_info_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @flow_exit(ptr noundef %0) unnamed_addr #5 {
+define internal fastcc void @flow_exit(ptr noundef %0) unnamed_addr #4 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef %0)
-  tail call void @exit(i32 noundef 1) #12
+  tail call void @exit(i32 noundef 1) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @sequence_analysis_get_nodes(ptr noundef) local_unnamed_addr #1
@@ -174,24 +168,29 @@ declare void @sequence_analysis_dump_to_file(ptr noundef, ptr noundef, i32 nound
 declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { allocsize(0) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { noreturn }
-attributes #12 = { cold noreturn nounwind }
+attributes #8 = { allocsize(0) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { noreturn }
+attributes #11 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

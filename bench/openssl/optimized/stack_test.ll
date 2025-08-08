@@ -463,7 +463,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %1 = alloca [10 x ptr], align 16
   %2 = tail call ptr @OPENSSL_sk_new_null() #5
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %3
 
 3:                                                ; preds = %0, %15
@@ -601,7 +601,7 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
   %.0 = phi i32 [ 0, %14 ], [ 0, %20 ], [ 0, %43 ], [ 0, %36 ], [ 0, %31 ], [ 0, %62 ], [ 0, %50 ], [ 0, %45 ], [ 0, %23 ], [ 0, %17 ], [ 1, %.preheader ], [ 0, %3 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %.047, ptr noundef nonnull @SS_free) #5
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @SS_free) #5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -609,7 +609,7 @@ define internal range(i32 0, 2) i32 @test_SS_stack() #0 {
 define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
   %1 = alloca [10 x %union.SU], align 16
   %2 = tail call ptr @OPENSSL_sk_new_null() #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %3
 
 3:                                                ; preds = %0, %17
@@ -675,12 +675,9 @@ define internal range(i32 0, 2) i32 @test_SU_stack() #0 {
 .loopexit:                                        ; preds = %28, %20, %27, %16
   %.0 = phi i32 [ 0, %16 ], [ 0, %27 ], [ 0, %20 ], [ 1, %28 ]
   call void @OPENSSL_sk_free(ptr noundef %2) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -692,13 +689,10 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 
 declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @int_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 -1, 2) i32 @int_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !36
   %4 = load i32, ptr %3, align 4, !tbaa !38
   %5 = load ptr, ptr %1, align 8, !tbaa !36
@@ -732,7 +726,7 @@ declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -255, 256) i32 @uchar_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
+define internal range(i32 -255, 256) i32 @uchar_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = load i8, ptr %3, align 1, !tbaa !33
   %5 = zext i8 %4 to i32
@@ -796,13 +790,19 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 
 declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -172,7 +172,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr11AddDelegat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
@@ -235,7 +235,7 @@ _ZN3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiag
   br label %4, !llvm.loop !7
 
 38:                                               ; preds = %_ZNK3tbb6detail2d216concurrent_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE5emptyEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = load ptr, ptr %3, align 8
   br label %40
 
@@ -698,7 +698,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
@@ -731,7 +731,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   br label %.body
 
 24:                                               ; preds = %18, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
@@ -743,7 +743,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
   %34 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %31, i64 0, i64 %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
@@ -758,7 +758,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   store atomic i64 %43, ptr %40 monotonic, align 8
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %45 = atomicrmw add ptr %44, i64 8 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 46:                                               ; preds = %2
@@ -798,7 +798,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
 12:                                               ; preds = %.noexc
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr %14, align 8
@@ -831,7 +831,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   br label %.body
 
 24:                                               ; preds = %18, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, ptr noundef nonnull align 8 dereferenceable(9) %26, i64 9, i1 false)
@@ -843,7 +843,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   %32 = mul i64 %30, 3
   %33 = and i64 %32, 7
   %34 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %31, i64 0, i64 %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %35 = call noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS5_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS5_S8_EENS7_INS9_11padded_pageEEERPSD_(ptr noundef nonnull align 8 dereferenceable(33) %34, i64 noundef %30, ptr noundef nonnull align 128 dereferenceable(648) %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %36 = load ptr, ptr %3, align 8
@@ -858,7 +858,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
   store atomic i64 %43, ptr %40 monotonic, align 8
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %45 = atomicrmw add ptr %44, i64 8 seq_cst, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 46:                                               ; preds = %2
@@ -1057,7 +1057,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiagnosticDelegateSharedItemEmNS0_12_GLOBAL__N_118_CoalescedItemHashENS2_21_CoalescedItemEqualToESaISt4pairIKS1_mEEE4findERS6_.exit.thread, label %.lr.ph, !llvm.loop !18
 
 105:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %106 = load i64, ptr %8, align 8
   store i8 1, ptr %24, align 8
   store i64 %106, ptr %4, align 8
@@ -1076,7 +1076,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %111 = load i64, ptr %4, align 8
   %112 = mul i64 %111, -7046029254386353067
   %113 = call noundef i64 @llvm.bswap.i64(i64 %112)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val7.i.i = load i64, ptr %14, align 8
   %114 = urem i64 %113, %.val7.i.i
   %115 = load ptr, ptr %5, align 8
@@ -1181,7 +1181,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiag
   br label %.body22
 
 .loopexit.i.i.i:                                  ; preds = %.preheader, %.noexc21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %147 = load i64, ptr %135, align 8
   store i8 1, ptr %28, align 8
   store i64 %147, ptr %3, align 8
@@ -1200,7 +1200,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__46UsdUtilsCoalescingDiag
   %153 = load i64, ptr %3, align 8
   %154 = mul i64 %153, -7046029254386353067
   %155 = call noundef i64 @llvm.bswap.i64(i64 %154)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val16.i.i.i = load i64, ptr %14, align 8
   %156 = urem i64 %155, %.val16.i.i.i
   %.val.i.i.i = load i64, ptr %23, align 8
@@ -2515,7 +2515,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2534,7 +2534,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2d211micro_queueIPN32pxrInternal_
 
 _ZN3tbb6detail2d014try_call_proxyIZNS0_2d211micro_queueIPN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseENS0_2d123cache_aligned_allocatorIS7_EEE12prepare_pageEmRNS3_20concurrent_queue_repIS7_SA_EENS9_INSB_11padded_pageEEERPSF_EUlvE_E12on_exceptionIZNSB_12prepare_pageEmSE_SG_SI_EUlvE0_EEvT_.exit: ; preds = %10
   store ptr %12, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %12, i8 0, i64 16, i1 false)
   %.pre = load i64, ptr %6, align 8
   br label %15
@@ -3557,10 +3557,10 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__48UsdUtilsCoalescingDiagn
 declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

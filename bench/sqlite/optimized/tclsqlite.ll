@@ -277,10 +277,7 @@ define i32 @Sqlite3_Init(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Tcl_InitStubs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Tcl_InitStubs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
@@ -294,9 +291,9 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 1, ptr %7, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i32 %2, label %55 [
     i32 1, label %15
     i32 2, label %19
@@ -438,7 +435,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %95, label %96, label %110
 
 96:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %97 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 272
   %99 = load ptr, ptr %98, align 8, !tbaa !20
@@ -457,11 +454,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %107 = and i32 %.0129230, -4
   %108 = or disjoint i32 %107, 2
   %.3132 = select i1 %.not165, i32 %108, i32 %106
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %200
 
 109:                                              ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 110:                                              ; preds = %93
@@ -470,7 +467,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %112, label %113, label %126
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %114 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 272
   %116 = load ptr, ptr %115, align 8, !tbaa !20
@@ -490,11 +487,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %124 = and i32 %.0129230, -5
   %masksel187 = select i1 %or.cond, i32 4, i32 0
   %.5134 = or disjoint i32 %masksel187, %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %200
 
 125:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 126:                                              ; preds = %110
@@ -503,7 +500,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %128, label %129, label %140
 
 129:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %130 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 272
   %132 = load ptr, ptr %131, align 8, !tbaa !20
@@ -520,11 +517,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %138 = and i32 %.0129230, -16777217
   %masksel186 = select i1 %.not161, i32 0, i32 16777216
   %.7136 = or disjoint i32 %masksel186, %138
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %200
 
 139:                                              ; preds = %129
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 140:                                              ; preds = %126
@@ -533,7 +530,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %142, label %143, label %156
 
 143:                                              ; preds = %140
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %144 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 272
   %146 = load ptr, ptr %145, align 8, !tbaa !20
@@ -551,11 +548,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %153 = or disjoint i32 %152, 32768
   %154 = and i32 %.0129230, -32769
   %.9 = select i1 %.not159, i32 %154, i32 %153
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %200
 
 155:                                              ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 156:                                              ; preds = %140
@@ -564,7 +561,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %158, label %159, label %172
 
 159:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %160 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 272
   %162 = load ptr, ptr %161, align 8, !tbaa !20
@@ -582,11 +579,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %169 = or disjoint i32 %168, 65536
   %170 = and i32 %.0129230, -65537
   %.11 = select i1 %.not157, i32 %170, i32 %169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %200
 
 171:                                              ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 172:                                              ; preds = %156
@@ -595,7 +592,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   br i1 %174, label %175, label %186
 
 175:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %176 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 272
   %178 = load ptr, ptr %177, align 8, !tbaa !20
@@ -612,11 +609,11 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %184 = and i32 %.0129230, -65
   %masksel = select i1 %.not155, i32 0, i32 64
   %.13 = or disjoint i32 %masksel, %184
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %200
 
 185:                                              ; preds = %175
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 186:                                              ; preds = %172
@@ -743,8 +740,8 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %250 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !15
   %252 = call ptr %249(ptr noundef %251, ptr noundef null) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %253 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 2248
   %255 = load ptr, ptr %254, align 8, !tbaa !40
@@ -756,8 +753,8 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %or.cond.i.not185 = select i1 %257, i1 true, i1 %259
   %260 = icmp slt i32 %256, 9
   %narrow.i.not = and i1 %260, %or.cond.i.not185
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %261 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %narrow.i.not, label %266, label %262
 
@@ -780,13 +777,10 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
 
 .loopexit:                                        ; preds = %190, %185, %171, %155, %139, %125, %109, %270, %235, %197, %74, %68, %51, %44, %36, %28, %15
   %.0123 = phi i32 [ 1, %15 ], [ 0, %28 ], [ 0, %36 ], [ 0, %44 ], [ 1, %51 ], [ 1, %68 ], [ 1, %74 ], [ 1, %109 ], [ 1, %125 ], [ 1, %139 ], [ 1, %155 ], [ 1, %171 ], [ 1, %185 ], [ 1, %197 ], [ 1, %235 ], [ 0, %270 ], [ 1, %190 ]
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0123
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @Tclsqlite3_Init(ptr noundef %0) local_unnamed_addr #0 {
@@ -815,22 +809,22 @@ Sqlite3_Init.exit:                                ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite3_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Sqlite3_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Tclsqlite3_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Tclsqlite3_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite3_SafeInit(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
+define noundef i32 @Sqlite3_SafeInit(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite3_SafeUnload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Sqlite3_SafeUnload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 1
 }
 
@@ -887,22 +881,22 @@ Sqlite3_Init.exit:                                ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Sqlite_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Tclsqlite_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Tclsqlite_Unload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite_SafeInit(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
+define noundef i32 @Sqlite_SafeInit(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Sqlite_SafeUnload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @Sqlite_SafeUnload(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 1
 }
 
@@ -959,35 +953,35 @@ Sqlite3_Init.exit:                                ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @sqlite3_libversion() local_unnamed_addr #2
+declare ptr @sqlite3_libversion() local_unnamed_addr #1
 
-declare ptr @sqlite3_sourceid() local_unnamed_addr #2
+declare ptr @sqlite3_sourceid() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_errstr(i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errstr(i32 noundef) local_unnamed_addr #1
 
-declare void @sqlite3_free(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @DbUseNre() unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2248
   %5 = load ptr, ptr %4, align 8, !tbaa !40
@@ -1000,8 +994,8 @@ define internal fastcc range(i32 0, 2) i32 @DbUseNre() unnamed_addr #0 {
   %10 = icmp sgt i32 %6, 8
   %narrow = or i1 %10, %or.cond
   %11 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %11
 }
 
@@ -1058,7 +1052,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %44 = alloca i64, align 8
   %45 = alloca i32, align 4
   store ptr %0, ptr %6, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = icmp slt i32 %2, 2
   %47 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %46, label %48, label %51
@@ -1168,7 +1162,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 81:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %83 = load ptr, ptr %82, align 8, !tbaa !46
   %.not1164 = icmp eq ptr %83, null
@@ -1226,11 +1220,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %114
 
 114:                                              ; preds = %111, %107
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge1174
 
 115:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %116 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   switch i32 %2, label %124 [
     i32 3, label %127
@@ -1317,14 +1311,14 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %169
 
 .thread1222:                                      ; preds = %137, %150, %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge1174
 
 169:                                              ; preds = %163, %160
   %.2901 = phi i32 [ 1, %163 ], [ 0, %160 ]
   %170 = load ptr, ptr %9, align 8, !tbaa !47
   %171 = call i32 @sqlite3_close(ptr noundef %170) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge1174
 
 172:                                              ; preds = %57
@@ -1356,7 +1350,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 187:                                              ; preds = %178
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %189 = load ptr, ptr %188, align 8, !tbaa !49
   %.not1161 = icmp eq ptr %189, null
@@ -1400,7 +1394,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %214
 
 214:                                              ; preds = %213, %204
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1174
 
 215:                                              ; preds = %57
@@ -1432,7 +1426,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 230:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %232 = load ptr, ptr %231, align 8, !tbaa !50
   %.not1158 = icmp eq ptr %232, null
@@ -1490,11 +1484,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %263
 
 263:                                              ; preds = %260, %256
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.critedge1174
 
 264:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %265 = icmp eq i32 %2, 2
   %266 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %265, label %267, label %270
@@ -1604,7 +1598,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1168
 
 324:                                              ; preds = %285, %314
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge1174
 
 325:                                              ; preds = %57
@@ -1642,7 +1636,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 347:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not1153 = icmp eq i32 %2, 4
   %348 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %.not1153, label %352, label %349
@@ -1703,7 +1697,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1170
 
 388:                                              ; preds = %371
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge1174
 
 389:                                              ; preds = %57
@@ -1781,7 +1775,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 431:                                              ; preds = %422
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %433 = load ptr, ptr %432, align 8, !tbaa !66
   %.not1148 = icmp eq ptr %433, null
@@ -1839,7 +1833,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %464
 
 464:                                              ; preds = %461, %457
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge1174
 
 465:                                              ; preds = %57
@@ -1896,7 +1890,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 498:                                              ; preds = %494, %498
   %indvars.iv1466 = phi i64 [ 0, %494 ], [ %indvars.iv.next1467, %498 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !12
   %499 = load ptr, ptr %0, align 8, !tbaa !26
   %500 = getelementptr inbounds nuw [16 x %struct.DbConfigChoices], ptr @DbObjCmd.aDbConfig, i64 0, i64 %indvars.iv1466
@@ -1919,7 +1913,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %517 = load i32, ptr %15, align 4, !tbaa !12
   %518 = call ptr %516(i32 noundef %517) #14
   %519 = call i32 %514(ptr noundef %1, ptr noundef %497, ptr noundef %518) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next1467 = add nuw nsw i64 %indvars.iv1466, 1
   %exitcond1469.not = icmp eq i64 %indvars.iv.next1467, 16
   br i1 %exitcond1469.not, label %.loopexit, label %498, !llvm.loop !75
@@ -1930,9 +1924,9 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %523 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %524 = load ptr, ptr %523, align 8, !tbaa !15
   %525 = call ptr %522(ptr noundef %524) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 -1, ptr %16, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !12
   %526 = load i8, ptr %525, align 1, !tbaa !18
   %527 = icmp eq i8 %526, 45
@@ -1989,8 +1983,8 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %555 = load ptr, ptr %554, align 8, !tbaa !74
   %556 = load i32, ptr %17, align 4, !tbaa !12
   %557 = call ptr %555(i32 noundef %556) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %498, %547
@@ -2002,13 +1996,13 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 .critedge1172:                                    ; preds = %540, %534
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge1174
 
 561:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %562 = add nsw i32 %2, -8
   %or.cond37 = icmp ult i32 %562, -3
   br i1 %or.cond37, label %563, label %567
@@ -2421,21 +2415,21 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %783
 
 .thread1246:                                      ; preds = %563, %603, %617, %624, %653, %670, %681, %693, %640, %.thread1238
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge1174
 
 783:                                              ; preds = %770, %778
   %.3902 = phi i32 [ 0, %770 ], [ 1, %778 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.critedge1174
 
 784:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 0, ptr %21, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4, !tbaa !12
   %785 = icmp eq i32 %2, 2
   br i1 %785, label %789, label %.preheader1322
@@ -2473,7 +2467,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %or.cond1176, label %804, label %815
 
 804:                                              ; preds = %793
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %805 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 3912
   %807 = load ptr, ptr %806, align 8, !tbaa !86
@@ -2488,11 +2482,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 .thread1486:                                      ; preds = %804
   %813 = load i64, ptr %23, align 8, !tbaa !84
   store i64 %813, ptr %21, align 8, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread1249
 
 814:                                              ; preds = %804
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit1323
 
 815:                                              ; preds = %793
@@ -2603,13 +2597,13 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .loopexit1323:                                    ; preds = %826, %814, %.thread1259, %850, %870, %867, %789
   %.5904 = phi i32 [ 1, %789 ], [ 1, %850 ], [ %.9908, %870 ], [ %.9908, %867 ], [ 1, %.thread1259 ], [ %812, %814 ], [ %834, %826 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge1174
 
 873:                                              ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.not1126 = icmp eq i32 %2, 3
   %874 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %.not1126, label %878, label %875
@@ -2633,7 +2627,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %885 = load ptr, ptr %0, align 8, !tbaa !26
   %886 = load i32, ptr %24, align 4, !tbaa !12
   %887 = call i32 @sqlite3_enable_load_extension(ptr noundef %885, i32 noundef %886) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.critedge1174
 
 888:                                              ; preds = %57
@@ -2661,7 +2655,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.critedge1174
 
 906:                                              ; preds = %57, %57
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %.not1124 = icmp eq i32 %2, 3
   br i1 %.not1124, label %907, label %947
 
@@ -2745,7 +2739,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 .thread1270:                                      ; preds = %941, %942, %.thread1267
   %946 = icmp eq i32 %923, 3
   %spec.store.select = select i1 %946, i32 0, i32 %923
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.critedge1174
 
 947:                                              ; preds = %906
@@ -2753,7 +2747,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 2128
   %950 = load ptr, ptr %949, align 8, !tbaa !13
   call void %950(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull @.str.81) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %.critedge1174
 
 .lr.ph1385:                                       ; preds = %964
@@ -2814,7 +2808,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .thread1481:                                      ; preds = %964, %976
   %.0898.lcssa14791485 = phi ptr [ %.0898.lcssa, %976 ], [ %965, %964 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %978 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %979 = getelementptr inbounds nuw i8, ptr %978, i64 456
   %980 = load ptr, ptr %979, align 8, !tbaa !98
@@ -2849,7 +2843,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %1000, label %.lr.ph1402, label %._crit_edge1403
 
 .lr.ph1402:                                       ; preds = %.thread1481, %._crit_edge1400
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call fastcc void @dbEvalRowInfo(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef null)
   %1001 = load i32, ptr %27, align 4, !tbaa !12
   %1002 = icmp sgt i32 %1001, 0
@@ -2867,7 +2861,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %exitcond.not, label %._crit_edge1400, label %.lr.ph1399, !llvm.loop !99
 
 ._crit_edge1400:                                  ; preds = %.lr.ph1399, %.lr.ph1402
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %1009 = call fastcc i32 @dbEvalStep(ptr noundef nonnull %26)
   %1010 = icmp eq i32 %1009, 0
   br i1 %1010, label %.lr.ph1402, label %._crit_edge1403, !llvm.loop !100
@@ -2901,11 +2895,11 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %1024
 
 1024:                                             ; preds = %1020, %1016
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.critedge1174
 
 1025:                                             ; preds = %976
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %1026 = icmp samesign ugt i32 %.0891.lcssa, 4
   br i1 %1026, label %1027, label %1037
 
@@ -2944,13 +2938,13 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1050 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %1041, ptr %1050, align 8, !tbaa !44
   %1051 = call i32 @DbEvalNextCmd(ptr noundef nonnull %28, ptr noundef %1, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.critedge1174
 
 1052:                                             ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 -1, ptr %29, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 5, ptr %30, align 4, !tbaa !12
   %1053 = icmp samesign ult i32 %2, 4
   br i1 %1053, label %1056, label %.preheader1325
@@ -3059,7 +3053,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %1108, label %1109, label %.critedge1191
 
 1109:                                             ; preds = %.critedge1190
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %31, ptr noundef nonnull align 16 dereferenceable(48) @__const.DbObjCmd.azType, i64 48, i1 false)
   %1110 = icmp eq i32 %.09961378, %1055
   br i1 %1110, label %1111, label %1115
@@ -3087,7 +3081,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1125 = load i32, ptr %30, align 4, !tbaa !12
   %1126 = add nsw i32 %1125, 1
   store i32 %1126, ptr %30, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1130
 
 .critedge1191:                                    ; preds = %1060, %.critedge1190
@@ -3144,7 +3138,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1156 = load i32, ptr %1135, align 8, !tbaa !61
   %1157 = add nsw i32 %1156, 1
   store i32 %1157, ptr %1135, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1158 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 344
   %1160 = load ptr, ptr %1159, align 8, !tbaa !14
@@ -3171,7 +3165,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166, %1166
   %.2.i = phi i32 [ 0, %1166 ], [ 1, %1162 ], [ 0, %1166 ], [ 0, %1166 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1169 = getelementptr inbounds nuw i8, ptr %1142, i64 24
   store i32 %.2.i, ptr %1169, align 8, !tbaa !104
   %1170 = load i32, ptr %30, align 4, !tbaa !12
@@ -3193,22 +3187,22 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1193
 
 .critedge1193.critedge:                           ; preds = %1115, %1111
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %.critedge1193.thread
 
 .critedge1193.thread:                             ; preds = %1079, %1056, %._crit_edge, %.critedge1191, %1090, %1076, %.critedge1193.critedge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.critedge1174
 
 .critedge1193:                                    ; preds = %safeToUseEvalObjv.exit, %1175
   %.14913 = phi i32 [ 1, %1175 ], [ 0, %safeToUseEvalObjv.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %.critedge1174
 
 1181:                                             ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1182 = icmp samesign ugt i32 %2, 3
   br i1 %1182, label %1183, label %1192
 
@@ -3279,7 +3273,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
 
 .thread1279:                                      ; preds = %1227, %1205
   %.16915.ph = phi i32 [ %1225, %1205 ], [ %1229, %1227 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.critedge1174
 
 1230:                                             ; preds = %1192
@@ -3287,7 +3281,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 2128
   %1233 = load ptr, ptr %1232, align 8, !tbaa !13
   call void %1233(ptr noundef %1, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull @.str.147) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %.critedge1174
 
 1234:                                             ; preds = %57
@@ -3312,7 +3306,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br i1 %1243, label %1244, label %1275
 
 1244:                                             ; preds = %1242
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1245 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 344
   %1247 = load ptr, ptr %1246, align 8, !tbaa !14
@@ -3360,7 +3354,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %1274
 
 1274:                                             ; preds = %1273, %1261
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1275
 
 1275:                                             ; preds = %1274, %1242
@@ -3424,8 +3418,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1308:                                             ; preds = %1298
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %1309 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 320
   %1311 = load ptr, ptr %1310, align 8, !tbaa !51
@@ -3494,8 +3488,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %1347
 
 1347:                                             ; preds = %1341, %1345
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.critedge1174
 
 1348:                                             ; preds = %1298
@@ -3534,7 +3528,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1367:                                             ; preds = %1358
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1369 = load ptr, ptr %1368, align 8, !tbaa !108
   %.not1107 = icmp eq ptr %1369, null
@@ -3592,7 +3586,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %1400
 
 1400:                                             ; preds = %1397, %1393
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %.critedge1174
 
 1401:                                             ; preds = %57
@@ -3607,7 +3601,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1406:                                             ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %1407 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   switch i32 %2, label %1415 [
     i32 3, label %1418
@@ -3725,14 +3719,14 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %1471
 
 .thread1293:                                      ; preds = %1428, %1441, %1415
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.critedge1174
 
 1471:                                             ; preds = %1465, %1461, %1456
   %.19918 = phi i32 [ 1, %1461 ], [ 1, %1465 ], [ 0, %1456 ]
   %1472 = load ptr, ptr %37, align 8, !tbaa !47
   %1473 = call i32 @sqlite3_close(ptr noundef %1472) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %.critedge1174
 
 1474:                                             ; preds = %57
@@ -3740,7 +3734,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br i1 %.not1102, label %.thread1296, label %1475
 
 .thread1296:                                      ; preds = %1474
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 0, ptr %38, align 8, !tbaa !84
   br label %1487
 
@@ -3751,7 +3745,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   %1479 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1480 = load ptr, ptr %1479, align 8, !tbaa !15
   %1481 = call ptr %1478(ptr noundef %1480) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 0, ptr %38, align 8, !tbaa !84
   %1482 = add nsw i32 %2, -4
   %or.cond55 = icmp ult i32 %1482, -2
@@ -3800,7 +3794,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
 
 1510:                                             ; preds = %1491, %.critedge1199, %1483
   %.20919 = phi i32 [ 1, %1483 ], [ 0, %.critedge1199 ], [ 0, %1491 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %.critedge1174
 
 1511:                                             ; preds = %57
@@ -3860,7 +3854,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1545:                                             ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %.not1099 = icmp eq i32 %2, 3
   %1546 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   br i1 %.not1099, label %1550, label %1547
@@ -3884,7 +3878,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   %1557 = load ptr, ptr %0, align 8, !tbaa !26
   %1558 = load i32, ptr %39, align 4, !tbaa !12
   %1559 = call i32 @sqlite3_busy_timeout(ptr noundef %1557, i32 noundef %1558) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.critedge1174
 
 1560:                                             ; preds = %57
@@ -3939,7 +3933,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1588:                                             ; preds = %1579
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %1589 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1590 = load ptr, ptr %1589, align 8, !tbaa !111
   %.not1095 = icmp eq ptr %1590, null
@@ -3997,7 +3991,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %1621
 
 1621:                                             ; preds = %1618, %1614
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %.critedge1174
 
 1622:                                             ; preds = %57
@@ -4029,7 +4023,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 1637:                                             ; preds = %1628
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %1638 = icmp eq i32 %2, 4
   br i1 %1638, label %1639, label %.loopexit1328
 
@@ -4051,8 +4045,8 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
 .lr.ph:                                           ; preds = %.preheader1327, %.thread1303
   %.09551376 = phi i32 [ %1707, %.thread1303 ], [ 0, %.preheader1327 ]
   %.19571375 = phi i64 [ %.29581306, %.thread1303 ], [ 0, %.preheader1327 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1648 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1649 = getelementptr inbounds nuw i8, ptr %1648, i64 384
   %1650 = load ptr, ptr %1649, align 8, !tbaa !114
@@ -4071,7 +4065,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br i1 %.not1091, label %1694, label %1659
 
 1659:                                             ; preds = %1653
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1660 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 248
   %1662 = load ptr, ptr %1661, align 8, !tbaa !65
@@ -4148,19 +4142,19 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.thread1303
 
 .thread1308:                                      ; preds = %1690, %1683
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.critedge1205.sink.split
 
 1704:                                             ; preds = %1675, %1679
   %1705 = load i64, ptr %44, align 8, !tbaa !84
   %1706 = or i64 %1705, %.19571375
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %.thread1303
 
 .thread1303:                                      ; preds = %1702, %1700, %1698, %1696, %1694, %1704
   %.29581306 = phi i64 [ %1706, %1704 ], [ %1703, %1702 ], [ %1701, %1700 ], [ %1699, %1698 ], [ %1697, %1696 ], [ %.19571375, %1694 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1707 = add nuw nsw i32 %.09551376, 1
   %1708 = load i32, ptr %41, align 4, !tbaa !12
   %1709 = icmp slt i32 %1707, %1708
@@ -4229,12 +4223,12 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1206
 
 .critedge1205.sink.split:                         ; preds = %.lr.ph, %.thread1308
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %.critedge1205
 
 .critedge1205:                                    ; preds = %.critedge1205.sink.split, %1639
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.critedge1174
 
 1743:                                             ; preds = %57
@@ -4258,7 +4252,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br i1 %or.cond63, label %1754, label %1763
 
 1754:                                             ; preds = %1749
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1755 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1756 = getelementptr inbounds nuw i8, ptr %1755, i64 2448
   %1757 = load ptr, ptr %1756, align 8, !tbaa !45
@@ -4274,7 +4268,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   %switch.select = select i1 %switch.selectcmp, ptr @.str.173, ptr @.str.166
   %switch.selectcmp1207 = icmp eq i32 %1762, 2
   %switch.select1208 = select i1 %switch.selectcmp1207, ptr @.str.174, ptr %switch.select
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %1763
 
 1763:                                             ; preds = %1761, %1749
@@ -4335,7 +4329,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 .critedge1210:                                    ; preds = %1754
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.critedge1174
 
 1801:                                             ; preds = %57
@@ -4411,33 +4405,33 @@ safeToUseEvalObjv.exit:                           ; preds = %1162, %1166, %1166,
   br label %.critedge1174
 
 .critedge1206:                                    ; preds = %1736, %1740
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.critedge1174
 
 .critedge1168:                                    ; preds = %.thread1228, %301, %291, %281, %267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge1174
 
 .critedge1170:                                    ; preds = %352, %382, %349
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge1174
 
 .critedge1186:                                    ; preds = %878, %875
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.critedge1174
 
 .critedge1197:                                    ; preds = %1308
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.critedge1174
 
 .critedge1203:                                    ; preds = %1550, %1547
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.critedge1174
 
 .critedge1174:                                    ; preds = %.critedge1210, %1775, %1745, %1024, %1037, %57, %338, %405, %.loopexit1323, %888, %897, %1234, %1275, %1510, %1801, %1805, %114, %77, %74, %214, %183, %180, %263, %226, %223, %464, %427, %424, %1306, %1400, %1363, %1360, %1401, %1621, %1584, %1581, %1633, %1630, %324, %388, %.loopexit, %884, %1537, %1556, %.critedge1206, %169, %.thread1229, %.thread1233, %783, %.thread1270, %.critedge1193, %.thread1279, %.thread1282, %1347, %1471, %.thread1298, %1789, %1796, %.thread1317, %.thread1318, %1832, %1823, %1570, %.thread1293, %1294, %1230, %.critedge1193.thread, %967, %972, %947, %.thread1246, %482, %335, %.thread1222, %1513, %1533, %487, %.critedge1172, %.critedge1205, %.critedge1203, %.critedge1197, %.critedge1186, %.critedge1170, %.critedge1168, %51, %1624, %1575, %1402, %1354, %1348, %1238, %418, %390, %217, %174, %68, %48
   %.0 = phi i32 [ 1, %48 ], [ 1, %68 ], [ 1, %174 ], [ 1, %217 ], [ 1, %335 ], [ 1, %390 ], [ 1, %418 ], [ 1, %482 ], [ 1, %947 ], [ 1, %1230 ], [ 1, %1238 ], [ 1, %1294 ], [ 1, %1348 ], [ 1, %1354 ], [ 1, %1402 ], [ 1, %1570 ], [ 1, %1575 ], [ 1, %1624 ], [ 1, %.critedge1205 ], [ 1, %1823 ], [ 1, %1832 ], [ 1, %51 ], [ 1, %.critedge1168 ], [ 1, %.critedge1170 ], [ 1, %.critedge1186 ], [ 1, %.critedge1197 ], [ 1, %.critedge1203 ], [ 1, %.critedge1172 ], [ 1, %487 ], [ 1, %1533 ], [ 1, %1513 ], [ 1, %.thread1222 ], [ 1, %.thread1246 ], [ 1, %972 ], [ 1, %967 ], [ 1, %.critedge1193.thread ], [ 1, %.thread1293 ], [ 0, %57 ], [ 0, %77 ], [ 0, %74 ], [ 0, %114 ], [ %.2901, %169 ], [ 0, %183 ], [ 0, %180 ], [ 0, %214 ], [ 0, %226 ], [ 0, %223 ], [ 0, %263 ], [ 0, %324 ], [ 0, %338 ], [ 0, %388 ], [ 0, %405 ], [ 0, %427 ], [ 0, %424 ], [ 0, %464 ], [ 0, %.loopexit ], [ %.3902, %783 ], [ %.5904, %.loopexit1323 ], [ 0, %884 ], [ 0, %888 ], [ 0, %897 ], [ %.14913, %.critedge1193 ], [ 0, %1234 ], [ 0, %1275 ], [ 0, %1306 ], [ 0, %1347 ], [ 0, %1363 ], [ 0, %1360 ], [ 0, %1400 ], [ 0, %1401 ], [ %.19918, %1471 ], [ %.20919, %1510 ], [ 0, %1537 ], [ 0, %1556 ], [ 0, %1584 ], [ 0, %1581 ], [ 0, %1621 ], [ 0, %1633 ], [ 0, %1630 ], [ 1, %1801 ], [ 1, %1805 ], [ 0, %.critedge1206 ], [ 0, %.thread1229 ], [ 0, %.thread1233 ], [ %spec.store.select, %.thread1270 ], [ %.16915.ph, %.thread1279 ], [ 0, %.thread1282 ], [ 0, %.thread1298 ], [ 0, %1789 ], [ %1800, %1796 ], [ 0, %.thread1317 ], [ 0, %.thread1318 ], [ %1051, %1037 ], [ %.12911, %1024 ], [ 1, %1745 ], [ 1, %1775 ], [ 1, %.critedge1210 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -4448,14 +4442,14 @@ define internal void @DbDeleteCmd(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 1000) i32 @auth_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.Tcl_DString, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8, !tbaa !117
   %.not = icmp eq i32 %9, 0
@@ -4552,22 +4546,22 @@ switch.lookup:                                    ; preds = %10
 
 74:                                               ; preds = %64, %68, %71, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %64 ], [ 1, %68 ], [ %., %71 ]
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_busy_handler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_busy_handler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @DbBusyHandler(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca [30 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %3, ptr noundef nonnull @.str.122, i32 noundef %1) #14
   %5 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2096
@@ -4594,7 +4588,7 @@ define internal range(i32 0, 2) i32 @DbBusyHandler(ptr noundef readonly captures
 
 21:                                               ; preds = %13, %2
   %.0 = phi i32 [ 0, %2 ], [ %spec.select, %13 ]
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -4625,9 +4619,9 @@ define internal fastcc void @flushStmtCache(ptr noundef captures(none) %0) unnam
   ret void
 }
 
-declare i64 @sqlite3_changes64(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_changes64(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @tclSqlCollate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -4685,7 +4679,7 @@ define internal i32 @tclSqlCollate(ptr noundef readonly captures(none) %0, i32 n
   ret i32 %49
 }
 
-declare i32 @sqlite3_collation_needed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_collation_needed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @tclCollateNeeded(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr noundef %3) #0 {
@@ -4728,7 +4722,7 @@ define internal void @tclCollateNeeded(ptr noundef readonly captures(none) %0, p
   ret void
 }
 
-declare ptr @sqlite3_commit_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_commit_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @DbCommitHandler(ptr noundef readonly captures(none) %0) #0 {
@@ -4760,31 +4754,31 @@ define internal range(i32 0, 2) i32 @DbCommitHandler(ptr noundef readonly captur
   ret i32 %.0
 }
 
-declare i32 @sqlite3_complete(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_complete(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i32 @sqlite3_prepare(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_prepare(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @local_getline(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -4866,25 +4860,25 @@ define internal fastcc noalias noundef ptr @local_getline(ptr noundef nonnull ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
-declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_malloc64(i64 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_malloc64(i64 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_file_control(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_file_control(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dbEvalInit(ptr noundef captures(none) initializes((0, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
@@ -4954,7 +4948,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %0, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !39
@@ -5237,7 +5231,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
 .thread237.i:                                     ; preds = %158, %118
   %.0159242.i = phi ptr [ %162, %158 ], [ %123, %118 ]
   %.3176241.i = phi i32 [ 1, %158 ], [ %.0173277.i, %118 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %163 = getelementptr inbounds nuw i8, ptr %.0159242.i, i64 24
   %164 = load ptr, ptr %163, align 8, !tbaa !148
   %.not207.i = icmp eq ptr %164, null
@@ -5305,7 +5299,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br i1 %200, label %201, label %.critedge210.thread.i
 
 201:                                              ; preds = %198, %195
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %202 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 272
   %204 = load ptr, ptr %203, align 8, !tbaa !20
@@ -5313,7 +5307,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %206 = load ptr, ptr %2, align 8, !tbaa !78
   %207 = load i32, ptr %4, align 4, !tbaa !12
   %208 = call i32 @sqlite3_bind_int(ptr noundef %206, i32 noundef %.0172278.i, i32 noundef %207) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %248
 
 209:                                              ; preds = %171
@@ -5322,7 +5316,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br i1 %211, label %212, label %.critedge210.thread.i
 
 212:                                              ; preds = %209
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %213 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 296
   %215 = load ptr, ptr %214, align 8, !tbaa !152
@@ -5330,7 +5324,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %217 = load ptr, ptr %2, align 8, !tbaa !78
   %218 = load double, ptr %5, align 8, !tbaa !153
   %219 = call i32 @sqlite3_bind_double(ptr noundef %217, i32 noundef %.0172278.i, double noundef %218) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %248
 
 220:                                              ; preds = %171
@@ -5344,7 +5338,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br i1 %225, label %226, label %.critedge210.thread.i
 
 226:                                              ; preds = %223, %220
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %227 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 3912
   %229 = load ptr, ptr %228, align 8, !tbaa !86
@@ -5352,7 +5346,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %231 = load ptr, ptr %2, align 8, !tbaa !78
   %232 = load i64, ptr %6, align 8, !tbaa !84
   %233 = call i32 @sqlite3_bind_int64(ptr noundef %231, i32 noundef %.0172278.i, i64 noundef %232) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %248
 
 .critedge210.thread.i:                            ; preds = %223, %220, %209, %198, %194, %179, %171
@@ -5376,7 +5370,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
 
 248:                                              ; preds = %.critedge210.thread.i, %226, %212, %201, %180
   %.4166.i = phi i32 [ %191, %180 ], [ %.0162281.i, %201 ], [ %.0162281.i, %212 ], [ %.0162281.i, %226 ], [ %245, %.critedge210.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %251
 
 .thread231.i:                                     ; preds = %158, %157, %125
@@ -5443,14 +5437,14 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   br label %dbPrepareAndBind.exit.thread
 
 dbPrepareAndBind.exit.thread:                     ; preds = %261, %._crit_edge284.i, %76, %._crit_edge284.thread.i, %._crit_edge284.thread296.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge
 
 .backedge:                                        ; preds = %dbPrepareAndBind.exit.thread, %343
   br label %12, !llvm.loop !156
 
 dbPrepareAndBind.exit:                            ; preds = %64, %79, %.thread264.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread66
 
 .critedge.thread:                                 ; preds = %15, %.critedge
@@ -5968,16 +5962,16 @@ define internal i32 @DbEvalNextCmd(ptr noundef readonly captures(none) %0, ptr n
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %.lr.ph70.split.us
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @dbEvalRowInfo(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %20 = load i32, ptr %6, align 4, !tbaa !12
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %dbEvalColumnValue.exit.us.us, %19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2248
   %24 = load ptr, ptr %23, align 8, !tbaa !40
@@ -5989,8 +5983,8 @@ define internal i32 @DbEvalNextCmd(ptr noundef readonly captures(none) %0, ptr n
   %or.cond.i60.not65.us = select i1 %26, i1 true, i1 %28
   %29 = icmp slt i32 %25, 9
   %narrow.i.not.us = and i1 %29, %or.cond.i60.not65.us
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %narrow.i.not.us, label %30, label %.thread
 
 30:                                               ; preds = %._crit_edge.split.us.us
@@ -5998,8 +5992,8 @@ define internal i32 @DbEvalNextCmd(ptr noundef readonly captures(none) %0, ptr n
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2360
   %33 = load ptr, ptr %32, align 8, !tbaa !120
   %34 = call i32 %33(ptr noundef %1, ptr noundef %10, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %35 = and i32 %34, -5
   %or.cond.us = icmp eq i32 %35, 0
   br i1 %or.cond.us, label %.lr.ph70.split.us, label %.critedge, !llvm.loop !171
@@ -6098,8 +6092,8 @@ dbEvalColumnValue.exit.us.us:                     ; preds = %82, %75, %70, %66, 
   br i1 %90, label %91, label %.critedge
 
 91:                                               ; preds = %.lr.ph70.split
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call fastcc void @dbEvalRowInfo(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %92 = load i32, ptr %6, align 4, !tbaa !12
   %93 = icmp sgt i32 %92, 0
@@ -6232,8 +6226,8 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   br i1 %exitcond.not, label %._crit_edge.split, label %95, !llvm.loop !175
 
 ._crit_edge.split:                                ; preds = %170, %91
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %171 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 2248
   %173 = load ptr, ptr %172, align 8, !tbaa !40
@@ -6245,8 +6239,8 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   %or.cond.i60.not65 = select i1 %175, i1 true, i1 %177
   %178 = icmp slt i32 %174, 9
   %narrow.i.not = and i1 %178, %or.cond.i60.not65
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %narrow.i.not, label %186, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.split, %._crit_edge.split.us.us
@@ -6258,8 +6252,8 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4688
   %184 = load ptr, ptr %183, align 8, !tbaa !119
   %185 = call i32 %184(ptr noundef %1, ptr noundef %10, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %207
 
 186:                                              ; preds = %._crit_edge.split
@@ -6267,8 +6261,8 @@ dbEvalColumnValue.exit59:                         ; preds = %129, %140, %145, %1
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 2360
   %189 = load ptr, ptr %188, align 8, !tbaa !120
   %190 = call i32 %189(ptr noundef %1, ptr noundef %10, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %191 = and i32 %190, -5
   %or.cond = icmp eq i32 %191, 0
   br i1 %or.cond, label %.lr.ph70.split, label %.critedge, !llvm.loop !176
@@ -6375,7 +6369,7 @@ define internal fastcc ptr @findSqlFunc(ptr noundef %0, ptr noundef readonly cap
   ret ptr %.0
 }
 
-declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -6413,8 +6407,8 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %129
 
 28:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 376
   %31 = load ptr, ptr %30, align 8, !tbaa !184
@@ -6577,8 +6571,8 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %128
 
 128:                                              ; preds = %115, %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %129
 
 129:                                              ; preds = %128, %11, %24
@@ -6600,7 +6594,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 1344
   %139 = load ptr, ptr %138, align 8, !tbaa !52
   %140 = call ptr %139(ptr noundef %132) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8, !tbaa !148
   %.not105 = icmp eq ptr %142, null
@@ -6679,7 +6673,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %199
 
 .thread:                                          ; preds = %145, %159, %162, %165, %168
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %179 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 3912
   %181 = load ptr, ptr %180, align 8, !tbaa !86
@@ -6688,17 +6682,17 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br i1 %183, label %184, label %.thread120
 
 .thread120:                                       ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread118
 
 184:                                              ; preds = %.thread
   %185 = load i64, ptr %7, align 8, !tbaa !84
   call void @sqlite3_result_int64(ptr noundef %0, i64 noundef %185) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %199
 
 .thread118:                                       ; preds = %145, %171, %.thread120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %186 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 296
   %188 = load ptr, ptr %187, align 8, !tbaa !152
@@ -6707,13 +6701,13 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br i1 %190, label %191, label %.thread123
 
 .thread123:                                       ; preds = %.thread118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread114
 
 191:                                              ; preds = %.thread118
   %192 = load double, ptr %8, align 8, !tbaa !153
   call void @sqlite3_result_double(ptr noundef %0, double noundef %192) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %199
 
 .thread114:                                       ; preds = %157, %145, %149, %162, %158, %168, %165, %171, %.thread123
@@ -6727,7 +6721,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   br label %199
 
 199:                                              ; preds = %191, %184, %.thread114, %.thread116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %204
 
 .critedge107:                                     ; preds = %28, %106
@@ -6737,8 +6731,8 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %202 = load ptr, ptr %9, align 8, !tbaa !181
   %203 = call ptr %201(ptr noundef %202) #14
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef %203, i32 noundef -1) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %204
 
 204:                                              ; preds = %133, %199, %.critedge107
@@ -6750,10 +6744,10 @@ define internal fastcc range(i32 0, 2) i32 @createIncrblobChannel(ptr noundef %0
   %8 = alloca ptr, align 8
   %9 = alloca [64 x i8], align 16
   %10 = load ptr, ptr %1, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i32 %6, 0
   %11 = select i1 %.not, i32 6, i32 2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %12 = xor i32 %6, 1
   %13 = call i32 @sqlite3_blob_open(ptr noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %12, ptr noundef nonnull %8) #14
   %.not33 = icmp eq i32 %13, 0
@@ -6828,16 +6822,16 @@ define internal fastcc range(i32 0, 2) i32 @createIncrblobChannel(ptr noundef %0
 
 55:                                               ; preds = %46, %15
   %.0 = phi i32 [ 1, %15 ], [ 0, %46 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare void @sqlite3_interrupt(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_interrupt(ptr noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_progress_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_progress_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @DbProgressHandler(ptr noundef readonly captures(none) %0) #0 {
@@ -6869,14 +6863,14 @@ define internal range(i32 0, 2) i32 @DbProgressHandler(ptr noundef readonly capt
   ret i32 %.0
 }
 
-declare ptr @sqlite3_profile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_profile(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @DbProfileHandler(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.Tcl_DString, align 8
   %5 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 99, ptr noundef nonnull %5, ptr noundef nonnull @.str.226, i64 noundef %2) #14
   %7 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 992
@@ -6912,25 +6906,25 @@ define internal void @DbProfileHandler(ptr noundef readonly captures(none) %0, p
   %36 = load ptr, ptr %35, align 8, !tbaa !96
   %37 = load ptr, ptr %27, align 8, !tbaa !39
   call void %36(ptr noundef %37) #14
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @sqlite3_sleep(i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_sleep(i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_serialize(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_serialize(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_total_changes64(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_total_changes64(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_trace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_trace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @DbTraceHandler(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Tcl_DString, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 992
   %6 = load ptr, ptr %5, align 8, !tbaa !121
@@ -6961,11 +6955,11 @@ define internal void @DbTraceHandler(ptr noundef readonly captures(none) %0, ptr
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %30 = load ptr, ptr %20, align 8, !tbaa !39
   call void %29(ptr noundef %30) #14
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @DbTraceV2Handler(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -7304,15 +7298,15 @@ define internal fastcc void @DbHookCmd(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-declare i32 @sqlite3_stmt_status(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_stmt_status(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dbReleaseStmt(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -7429,35 +7423,35 @@ define internal fastcc void @dbReleaseStmt(ptr noundef captures(none) %0, ptr no
   ret void
 }
 
-declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_text64(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @sqlite3_bind_text64(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @sqlite3_prepare_v3(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_prepare_v3(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @delDatabaseRef(ptr noundef %0) unnamed_addr #0 {
@@ -7772,35 +7766,35 @@ closeIncrblobChannels.exit:                       ; preds = %20, %flushStmtCache
   ret void
 }
 
-declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_stricmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_stricmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #1
 
-declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #2
+declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #2
+declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_text64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @sqlite3_result_text64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @incrblobClose(ptr noundef %0, ptr noundef %1) #0 {
@@ -7984,12 +7978,12 @@ incrblobWideSeek.exit:                            ; preds = %._crit_edge.i, %5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @incrblobWatch(ptr readnone captures(none) %0, i32 %1) #3 {
+define internal void @incrblobWatch(ptr readnone captures(none) %0, i32 %1) #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @incrblobHandle(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #3 {
+define internal noundef i32 @incrblobHandle(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #2 {
   ret i32 1
 }
 
@@ -8104,15 +8098,15 @@ define internal i64 @incrblobWideSeek(ptr noundef captures(none) %0, i64 noundef
   ret i64 %18
 }
 
-declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_update_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_update_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @DbUpdateHandler(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #0 {
@@ -8181,7 +8175,7 @@ define internal void @DbUpdateHandler(ptr noundef readonly captures(none) %0, i3
   ret void
 }
 
-declare ptr @sqlite3_rollback_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_rollback_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @DbRollbackHandler(ptr noundef readonly captures(none) %0) #0 {
@@ -8208,12 +8202,12 @@ define internal void @DbRollbackHandler(ptr noundef readonly captures(none) %0) 
   ret void
 }
 
-declare ptr @sqlite3_wal_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_wal_hook(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @DbWalHandler(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !39
@@ -8281,9 +8275,15 @@ define internal i32 @DbWalHandler(ptr noundef readonly captures(none) %0, ptr re
 
 54:                                               ; preds = %50, %46
   %55 = load i32, ptr %5, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %55
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
@@ -8295,17 +8295,17 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #12
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

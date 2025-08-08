@@ -1610,7 +1610,7 @@ define hidden void @cmsSetProfileVersion(ptr noundef writeonly captures(none) %0
   %4 = tail call double @llvm.fmuladd.f64(double %1, double 1.000000e+02, double 5.000000e-01)
   %5 = tail call double @llvm.floor.f64(double %4)
   %6 = fptoui double %5 to i32
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %BaseToBase.exit, label %.lr.ph.i
 
@@ -1646,7 +1646,7 @@ BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
 
 BaseToBase.exit:                                  ; preds = %BaseToBase.exit.loopexit, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %20, %BaseToBase.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %.0.lcssa.i, ptr %21, align 4
   ret void
@@ -1663,7 +1663,7 @@ define hidden double @cmsGetProfileVersion(ptr noundef readonly captures(none) %
   %2 = alloca [100 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp ult i32 %4, 65536
   br i1 %.not.i, label %BaseToBase.exit, label %.lr.ph.i.preheader
 
@@ -1701,7 +1701,7 @@ BaseToBase.exit.loopexit:                         ; preds = %.lr.ph22.i
 
 BaseToBase.exit:                                  ; preds = %BaseToBase.exit.loopexit, %1
   %.0.lcssa.i = phi double [ 0.000000e+00, %1 ], [ %17, %BaseToBase.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = fdiv double %.0.lcssa.i, 1.000000e+02
   ret double %18
 }
@@ -1810,7 +1810,7 @@ cmsSaveProfileToFile.exit:                        ; preds = %20, %12, %cmsGetPro
 
 31:                                               ; preds = %.lr.ph, %freeOneTag.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %freeOneTag.exit ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw [100 x ptr], ptr %24, i64 0, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %.not.i26 = icmp eq ptr %33, null
@@ -1838,7 +1838,7 @@ cmsSaveProfileToFile.exit:                        ; preds = %20, %12, %cmsGetPro
   br label %freeOneTag.exit
 
 freeOneTag.exit:                                  ; preds = %31, %37, %41
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %22, align 4
   %44 = zext i32 %43 to i64
@@ -2326,7 +2326,7 @@ define internal fastcc range(i32 0, 2) i32 @SaveTags(ptr noundef captures(none) 
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i = icmp ult i32 %8, 65536
   br i1 %.not.i.i, label %cmsGetProfileVersion.exit, label %.lr.ph.i.preheader.i
 
@@ -2364,7 +2364,7 @@ BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i
 
 cmsGetProfileVersion.exit:                        ; preds = %2, %BaseToBase.exit.loopexit.i
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %2 ], [ %21, %BaseToBase.exit.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = fdiv double %.0.lcssa.i.i, 1.000000e+02
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %24 = load i32, ptr %23, align 4
@@ -2936,7 +2936,7 @@ IsTypeSupported.exit101:                          ; preds = %.lr.ph.i96
   br label %140
 
 IsTypeSupported.exit.thread:                      ; preds = %48, %89, %85, %44, %IsTypeSupported.exit101, %82, %72, %59, %IsTypeSupported.exit, %40, %37, %32, %115, %109, %80, %70
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %123 = load ptr, ptr %30, align 8
   %.not.i102 = icmp eq ptr %123, null
   br i1 %.not.i102, label %freeOneTag.exit, label %124
@@ -2968,7 +2968,7 @@ IsTypeSupported.exit.thread:                      ; preds = %48, %89, %85, %44, 
   br label %freeOneTag.exit
 
 freeOneTag.exit:                                  ; preds = %IsTypeSupported.exit.thread, %128, %136
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr null, ptr %30, align 8
   %138 = load ptr, ptr %9, align 8
   %139 = load ptr, ptr %11, align 8
@@ -3075,7 +3075,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteTag(ptr noundef captures(none) %0, i3
   br i1 %exitcond.not.i.us.i, label %.sink.split, label %.lr.ph.i.us.i, !llvm.loop !8
 
 _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %27 = and i64 %indvars.iv.i.us.i, 4294967295
   %28 = getelementptr inbounds nuw [100 x ptr], ptr %26, i64 0, i64 %27
@@ -3118,7 +3118,7 @@ _cmsSearchTag.exit:                               ; preds = %.lr.ph.i.us.i
   br label %_cmsDeleteTagByPos.exit
 
 _cmsDeleteTagByPos.exit:                          ; preds = %_cmsSearchTag.exit, %34, %36, %40
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr inbounds nuw [100 x i32], ptr %17, i64 0, i64 %27
   store i32 0, ptr %48, align 4
   br label %.sink.split
@@ -3140,7 +3140,7 @@ _cmsDeleteTagByPos.exit:                          ; preds = %_cmsSearchTag.exit,
 
 _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   %54 = trunc nuw nsw i64 %indvars.iv.i.us.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %56 = and i64 %indvars.iv.i.us.i.i, 4294967295
   %57 = getelementptr inbounds nuw [100 x ptr], ptr %55, i64 0, i64 %56
@@ -3183,7 +3183,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   br label %_cmsDeleteTagByPos.exit.i
 
 _cmsDeleteTagByPos.exit.i:                        ; preds = %69, %65, %63, %_cmsSearchTag.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %81
 
 _cmsSearchTag.exit.thread.i:                      ; preds = %53, %49
@@ -3222,7 +3222,7 @@ _cmsNewTag.exit:                                  ; preds = %_cmsSearchTag.exit.
 92:                                               ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %94 = load i32, ptr %93, align 4
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i66 = icmp ult i32 %94, 65536
   br i1 %.not.i.i66, label %cmsGetProfileVersion.exit, label %.lr.ph.i.preheader.i
 
@@ -3260,7 +3260,7 @@ BaseToBase.exit.loopexit.i:                       ; preds = %.lr.ph22.i.i
 
 cmsGetProfileVersion.exit:                        ; preds = %92, %BaseToBase.exit.loopexit.i
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %92 ], [ %107, %BaseToBase.exit.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %108 = getelementptr inbounds nuw i8, ptr %88, i64 88
   %109 = load ptr, ptr %108, align 8
   %.not63 = icmp eq ptr %109, null
@@ -3639,7 +3639,7 @@ define hidden range(i32 0, 2) i32 @cmsWriteRawTag(ptr noundef captures(none) %0,
 
 _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   %20 = trunc nuw nsw i64 %indvars.iv.i.us.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %22 = and i64 %indvars.iv.i.us.i.i, 4294967295
   %23 = getelementptr inbounds nuw [100 x ptr], ptr %21, i64 0, i64 %22
@@ -3682,7 +3682,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   br label %_cmsDeleteTagByPos.exit.i
 
 _cmsDeleteTagByPos.exit.i:                        ; preds = %35, %31, %29, %_cmsSearchTag.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %50
 
 _cmsSearchTag.exit.thread.i:                      ; preds = %19, %11
@@ -3772,7 +3772,7 @@ define hidden range(i32 0, 2) i32 @cmsLinkTag(ptr noundef captures(none) %0, i32
 
 _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   %19 = trunc nuw nsw i64 %indvars.iv.i.us.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %21 = and i64 %indvars.iv.i.us.i.i, 4294967295
   %22 = getelementptr inbounds nuw [100 x ptr], ptr %20, i64 0, i64 %21
@@ -3815,7 +3815,7 @@ _cmsSearchTag.exit.i:                             ; preds = %.lr.ph.i.us.i.i
   br label %_cmsDeleteTagByPos.exit.i
 
 _cmsDeleteTagByPos.exit.i:                        ; preds = %34, %30, %28, %_cmsSearchTag.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 _cmsSearchTag.exit.thread.i:                      ; preds = %18, %10
@@ -3916,10 +3916,10 @@ declare i32 @_cmsWriteAlignment(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

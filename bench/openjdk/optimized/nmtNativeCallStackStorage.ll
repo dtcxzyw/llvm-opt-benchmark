@@ -74,7 +74,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %4
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %15
   %36 = load i32, ptr %35, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   %.not.i = icmp eq i32 %38, -1
@@ -102,7 +102,7 @@ _ZN17ArrayWithFreeListIN22NativeCallStackStorage10TableEntryEL8MEMFLAGS12EE8allo
   store i32 %36, ptr %.05.i, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   store i32 %33, ptr %49, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %13, align 8
   %51 = getelementptr inbounds i32, ptr %50, i64 %15
   store i32 %.0.i16, ptr %51, align 4
@@ -428,10 +428,10 @@ declare i32 @llvm.ctpop.i32(i32) #5
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

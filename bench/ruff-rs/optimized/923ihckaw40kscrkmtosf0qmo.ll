@@ -39,11 +39,11 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   store ptr %3, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %4, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %15, ptr %14, align 8
   invoke void @_ZN21ruff_options_metadata9OptionSet6record17h0881c082f441e37cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.920cfe69ca175b6bae45c105b01aa2e7.3)
           to label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdd998691e3c416b6E.exit" unwind label %39
@@ -57,7 +57,7 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   %.sroa.6.0 = select i1 %.not.i, i64 %.sroa.412.0.copyload, i64 undef
   %.sink22.i = zext i1 %.not.i to i64
   %.sroa.7.0.copyload.sink.i = select i1 %.not.i, i64 %.sroa.513.0.copyload, i64 0
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %.sink22.i, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
@@ -87,7 +87,7 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   br label %24
 
 24:                                               ; preds = %36, %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdd998691e3c416b6E.exit"
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc8173a6b4b842d41E"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %12, ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
           to label %28 unwind label %26
 
@@ -107,16 +107,16 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   br i1 %.not, label %31, label %30
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef nonnull align 8 dereferenceable(120) %21, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %17, ptr %7, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h825a72c6a505f5cbE", ptr %.sroa.43.0..sroa_idx, align 8
   store ptr %11, ptr %23, align 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h805b4ba903810fd7E", ptr %.sroa.47.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6
   store ptr @anon.920cfe69ca175b6bae45c105b01aa2e7.5, ptr %6, align 8, !noalias !13
   store i64 2, ptr %.sroa.415.0..sroa_idx, align 8, !noalias !13
   store ptr %7, ptr %.sroa.516.0..sroa_idx, align 8, !noalias !13
@@ -126,11 +126,11 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
           to label %34 unwind label %32
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @"_ZN4core3ptr127drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$ruff_options_metadata..OptionField$GT$$GT$17he90654a310f3c900E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
 32:                                               ; preds = %30, %34
@@ -140,19 +140,19 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
           to label %25 unwind label %37
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0e1f4677a9067381E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %10)
           to label %35 unwind label %32
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hfdddc29f2ef8ebccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
           to label %36 unwind label %26
 
 36:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %24
 
 37:                                               ; preds = %39, %32, %25
@@ -177,10 +177,10 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [120 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !14
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hcfc993422fcd203bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !14
   %9 = load i64, ptr %5, align 8, !range !18, !noalias !14, !noundef !3
   %10 = trunc nuw i64 %9 to i1
@@ -198,7 +198,7 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   %16 = load ptr, ptr %13, align 8, !noalias !14, !nonnull !3, !noundef !3
   %17 = icmp ule i64 %2, %12
   tail call void @llvm.assume(i1 %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !21
   store i64 %12, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -206,8 +206,8 @@ define void @"_ZN95_$LT$ruff_options_metadata..serde..SerializeVisitor$u20$as$u2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h0e1f4677a9067381E"(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -257,10 +257,10 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() unnamed
 declare hidden void @"_ZN4core3ptr127drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$ruff_options_metadata..OptionField$GT$$GT$17h3ebed39bd1614ab7E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

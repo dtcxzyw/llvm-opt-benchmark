@@ -1148,7 +1148,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   br i1 %or.cond.i, label %readObjectComponents.exit, label %.lr.ph.i, !llvm.loop !16
 
 53:                                               ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not13.i58 = icmp eq i32 %5, 0
   br i1 %.not13.i58, label %readByteComponents.exit, label %.lr.ph.i59
 
@@ -1185,11 +1185,11 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
 
 readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %53
   %68 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %readObjectComponents.exit
 
 69:                                               ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not13.i62 = icmp eq i32 %5, 0
   br i1 %.not13.i62, label %readCharComponents.exit, label %.lr.ph.i63
 
@@ -1226,11 +1226,11 @@ readByteComponents.exit:                          ; preds = %.lr.ph.i59, %62, %5
 
 readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %69
   %84 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %readObjectComponents.exit
 
 85:                                               ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not13.i68 = icmp eq i32 %5, 0
   br i1 %.not13.i68, label %readFloatComponents.exit, label %.lr.ph.i69
 
@@ -1267,11 +1267,11 @@ readCharComponents.exit:                          ; preds = %.lr.ph.i63, %78, %6
 
 readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %85
   %100 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %readObjectComponents.exit
 
 101:                                              ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not13.i74 = icmp eq i32 %5, 0
   br i1 %.not13.i74, label %readDoubleComponents.exit, label %.lr.ph.i75
 
@@ -1308,11 +1308,11 @@ readFloatComponents.exit:                         ; preds = %.lr.ph.i69, %94, %8
 
 readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %101
   %116 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %readObjectComponents.exit
 
 117:                                              ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not13.i80 = icmp eq i32 %5, 0
   br i1 %.not13.i80, label %readIntComponents.exit, label %.lr.ph.i81
 
@@ -1349,11 +1349,11 @@ readDoubleComponents.exit:                        ; preds = %.lr.ph.i75, %110, %
 
 readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %117
   %132 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %readObjectComponents.exit
 
 133:                                              ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not13.i86 = icmp eq i32 %5, 0
   br i1 %.not13.i86, label %readLongComponents.exit, label %.lr.ph.i87
 
@@ -1390,11 +1390,11 @@ readIntComponents.exit:                           ; preds = %.lr.ph.i81, %126, %
 
 readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %133
   %148 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %readObjectComponents.exit
 
 149:                                              ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not13.i92 = icmp eq i32 %5, 0
   br i1 %.not13.i92, label %readShortComponents.exit, label %.lr.ph.i93
 
@@ -1431,11 +1431,11 @@ readLongComponents.exit:                          ; preds = %.lr.ph.i87, %142, %
 
 readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %149
   %164 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %readObjectComponents.exit
 
 165:                                              ; preds = %isReferenceTag.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not13.i98 = icmp eq i32 %5, 0
   br i1 %.not13.i98, label %readBooleanComponents.exit, label %.lr.ph.i99
 
@@ -1472,7 +1472,7 @@ readShortComponents.exit:                         ; preds = %.lr.ph.i93, %158, %
 
 readBooleanComponents.exit:                       ; preds = %.lr.ph.i99, %174, %165
   %180 = call zeroext i16 @inStream_error(ptr noundef %1) #4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %readObjectComponents.exit
 
 181:                                              ; preds = %isReferenceTag.exit
@@ -1526,10 +1526,10 @@ declare signext i16 @inStream_readShort(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @inStream_readBoolean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

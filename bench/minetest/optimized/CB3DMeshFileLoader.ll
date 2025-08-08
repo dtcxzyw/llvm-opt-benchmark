@@ -196,7 +196,7 @@ entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %ref.tmp2 = alloca %"class.irr::core::string", align 8
   %ref.tmp3 = alloca %"class.irr::core::string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %0 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !46
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -211,14 +211,14 @@ entry:
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
   %arrayidx.i.i.i.2 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 100, ptr %arrayidx.i.i.i.2, align 1, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2)
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store ptr %4, ptr %ref.tmp2, align 8, !tbaa !46
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !48
   store i8 0, ptr %4, align 8, !tbaa !51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i8 noundef signext 0) #21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3)
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store ptr %5, ptr %ref.tmp3, align 8, !tbaa !46
   %_M_string_length.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
@@ -241,7 +241,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3)
   %8 = load ptr, ptr %ref.tmp2, align 8, !tbaa !52
   %cmp.i.i.i.i27 = icmp eq ptr %8, %4
   br i1 %cmp.i.i.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29, label %if.then.i.i.i28
@@ -257,7 +257,7 @@ if.then.i.i.i28:                                  ; preds = %_ZN3irr4core6string
   br label %_ZN3irr4core6stringIcED2Ev.exit32
 
 _ZN3irr4core6stringIcED2Ev.exit32:                ; preds = %if.then.i.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2)
   %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
   %cmp.i.i.i.i33 = icmp eq ptr %10, %0
   br i1 %cmp.i.i.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35, label %if.then.i.i.i34
@@ -274,15 +274,9 @@ if.then.i.i.i34:                                  ; preds = %_ZN3irr4core6string
 
 _ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35
   %cmp.i = icmp sgt i32 %call.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   ret i1 %cmp.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN3irr5scene18CB3DMeshFileLoader10createMeshEPNS_2io9IReadFileE(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr noundef %file) unnamed_addr #2 align 2 {
@@ -341,9 +335,9 @@ return:                                           ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
-declare void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186)) unnamed_addr #5
+declare void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader4loadEv(ptr noundef nonnull align 8 dereferenceable(223) initializes((16, 33), (220, 222)) %this) local_unnamed_addr #2 align 2 {
@@ -367,7 +361,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5clearEv.exit: ; preds = %if.then.i.i.i.
   store i8 0, ptr %NormalsInFile, align 4, !tbaa !57
   %HasVertexColors = getelementptr inbounds nuw i8, ptr %this, i64 221
   store i8 0, ptr %HasVertexColors, align 1, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %header)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %1 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %1, align 8, !tbaa !3
@@ -492,7 +486,7 @@ _ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
 
 _ZN3irr4core5arrayINS_5scene9SB3dChunkEE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %fileVersion) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %fileVersion)
   %17 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable13 = load ptr, ptr %17, align 8, !tbaa !3
   %18 = load ptr, ptr %vtable13, align 8
@@ -795,16 +789,16 @@ _ZN3irr4core5arrayINS_5scene11SB3dTextureEE5clearEv.exit: ; preds = %if.then.i.i
 
 cleanup:                                          ; preds = %if.else67, %if.then63, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE5clearEv.exit
   %cmp24202 = phi i1 [ true, %_ZN3irr4core5arrayINS_5scene11SB3dTextureEE5clearEv.exit ], [ false, %if.then63 ], [ false, %if.else67 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %fileVersion) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %fileVersion)
   br label %cleanup90
 
 cleanup90:                                        ; preds = %cleanup, %if.then
   %retval.1 = phi i1 [ false, %if.then ], [ %cmp24202, %cleanup ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %header)
   ret i1 %retval.1
 }
 
-declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #5
+declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkTEXSEv(ptr noundef nonnull align 8 dereferenceable(223) %this) local_unnamed_addr #2 align 2 {
@@ -842,7 +836,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 48, i1 false)
   store ptr %5, ptr %ref.tmp, align 8, !tbaa !46
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !48
@@ -905,15 +899,15 @@ if.then.i.i.i42:                                  ; preds = %_ZN3irr4core5arrayI
   br label %_ZN3irr5scene11SB3dTextureD2Ev.exit
 
 _ZN3irr5scene11SB3dTextureD2Ev.exit:              ; preds = %if.then.i.i.i42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %15 = load ptr, ptr %_M_finish.i.i.i41, align 8, !tbaa !61
   %add.ptr.i.i.i45 = getelementptr inbounds i8, ptr %15, i64 -64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   store ptr %6, ptr %ref.tmp7, align 8, !tbaa !46, !alias.scope !89
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !89
   store i8 0, ptr %6, align 8, !tbaa !51, !alias.scope !89
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %16 = load ptr, ptr %B3DFile, align 8, !tbaa !53, !noalias !89
   %vtable8.i = load ptr, ptr %16, align 8, !tbaa !3
   %17 = load ptr, ptr %vtable8.i, align 8
@@ -957,8 +951,8 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   %23 = load ptr, ptr %ref.tmp7, align 8, !tbaa !52, !alias.scope !89
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %23, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !89
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %24 = load ptr, ptr %B3DFile, align 8, !tbaa !53, !noalias !89
   %vtable.i = load ptr, ptr %24, align 8, !tbaa !3
   %25 = load ptr, ptr %vtable.i, align 8
@@ -967,7 +961,7 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   br i1 %cmp.i, label %_ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit, label %if.end.i
 
 _ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit: ; preds = %cleanup.i, %if.end.i, %_ZN3irr5scene11SB3dTextureD2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
   %26 = load ptr, ptr %add.ptr.i.i.i45, align 8, !tbaa !52
   %27 = getelementptr inbounds i8, ptr %15, i64 -48
   %cmp.i.i48 = icmp eq ptr %26, %27
@@ -1066,7 +1060,7 @@ if.then.i.i52:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7)
   %43 = load ptr, ptr %add.ptr.i.i.i45, align 8, !tbaa !52
   %_M_string_length.i.i53 = getelementptr inbounds i8, ptr %15, i64 -56
   %44 = load i64, ptr %_M_string_length.i.i53, align 8, !tbaa !48
@@ -1591,7 +1585,7 @@ entry:
   %ref.tmp = alloca %"struct.irr::scene::SB3dMaterial", align 8
   %texture_id = alloca i32, align 4
   %texture_id37 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n_texs) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %n_texs)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -1690,12 +1684,12 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %name)
   call void @llvm.experimental.noalias.scope.decl(metadata !99)
   store ptr %9, ptr %name, align 8, !tbaa !46, !alias.scope !99
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !99
   store i8 0, ptr %9, align 8, !tbaa !51, !alias.scope !99
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !99
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %11 = load ptr, ptr %B3DFile, align 8, !tbaa !53, !noalias !99
   %vtable8.i = load ptr, ptr %11, align 8, !tbaa !3
   %12 = load ptr, ptr %vtable8.i, align 8
@@ -1739,8 +1733,8 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   %18 = load ptr, ptr %name, align 8, !tbaa !52, !alias.scope !99
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %18, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !99
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !99
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %19 = load ptr, ptr %B3DFile, align 8, !tbaa !53, !noalias !99
   %vtable.i = load ptr, ptr %19, align 8, !tbaa !3
   %20 = load ptr, ptr %vtable.i, align 8
@@ -1749,8 +1743,8 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   br i1 %cmp.i331, label %_ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit, label %if.end.i
 
 _ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit: ; preds = %cleanup.i, %if.end.i, %while.body
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !99
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   store ptr null, ptr %ref.tmp, align 8, !tbaa !102
   %bf.load.i.i.i = load i16, ptr %TextureWrapU.i.i.i, align 8
   %bf.clear6.i.i.i = and i16 %bf.load.i.i.i, -4096
@@ -1861,7 +1855,7 @@ delete.notnull.i.3.i.i:                           ; preds = %_ZN3irr5video14SMat
   br label %_ZN3irr5scene12SB3dMaterialD2Ev.exit
 
 _ZN3irr5scene12SB3dMaterialD2Ev.exit:             ; preds = %delete.notnull.i.3.i.i, %_ZN3irr5video14SMaterialLayerD2Ev.exit.2.i.i
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %28 = load ptr, ptr %_M_finish.i.i.i332, align 8, !tbaa !61
   %red = getelementptr inbounds i8, ptr %28, i64 -64
   %29 = load ptr, ptr %B3DFile, align 8, !tbaa !53
@@ -1909,7 +1903,7 @@ for.cond34.preheader:                             ; preds = %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %texture_id) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %texture_id)
   store i32 -1, ptr %texture_id, align 4, !tbaa !64
   %43 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable23 = load ptr, ptr %43, align 8, !tbaa !3
@@ -1929,14 +1923,14 @@ for.body:                                         ; preds = %for.body, %for.body
   %.sink390 = select i1 %cmp27, ptr %add.ptr.i.i, ptr null
   %arrayidx33 = getelementptr inbounds nuw [4 x ptr], ptr %Textures31, i64 0, i64 %indvars.iv
   store ptr %.sink390, ptr %arrayidx33, align 8, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %texture_id) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %texture_id)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond34.preheader, label %for.body, !llvm.loop !129
 
 for.body36:                                       ; preds = %for.cond34.preheader, %if.end51
   %i.1369 = phi i32 [ %inc53, %if.end51 ], [ 0, %for.cond34.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %texture_id37) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %texture_id37)
   store i32 -1, ptr %texture_id37, align 4, !tbaa !64
   %48 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable39 = load ptr, ptr %48, align 8, !tbaa !3
@@ -1963,7 +1957,7 @@ if.then45:                                        ; preds = %for.body36
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then45, %for.body36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %texture_id37) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %texture_id37)
   %inc53 = add nuw i32 %i.1369, 1
   %exitcond383.not = icmp eq i32 %inc53, %cond
   br i1 %exitcond383.not, label %for.end54, label %for.body36, !llvm.loop !132
@@ -2289,7 +2283,7 @@ if.then.i.i355:                                   ; preds = %if.end242
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i355, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %name) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %name)
   %91 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %91, i64 -8
   %92 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -2330,7 +2324,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   %98 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %96, %while.end ]
   %incdec.ptr.i.i.i365 = getelementptr inbounds i8, ptr %98, i64 -16
   store ptr %incdec.ptr.i.i.i365, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n_texs) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %n_texs)
   ret i1 true
 }
 
@@ -2349,7 +2343,7 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(186) %0, ptr noundef %inJoint) #21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %2, ptr %ref.tmp, align 8, !tbaa !46, !alias.scope !141
@@ -2357,7 +2351,7 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !141
   store i8 0, ptr %2, align 8, !tbaa !51, !alias.scope !141
   %B3DFile.i = getelementptr inbounds nuw i8, ptr %this, i64 208
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !141
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %3 = load ptr, ptr %B3DFile.i, align 8, !tbaa !53, !noalias !141
   %vtable8.i = load ptr, ptr %3, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable8.i, align 8
@@ -2401,8 +2395,8 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !52, !alias.scope !141
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !141
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character.i) #21, !noalias !141
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %character.i)
   %11 = load ptr, ptr %B3DFile.i, align 8, !tbaa !53, !noalias !141
   %vtable.i = load ptr, ptr %11, align 8, !tbaa !3
   %12 = load ptr, ptr %vtable.i, align 8
@@ -2411,7 +2405,7 @@ cleanup.i:                                        ; preds = %if.then.i.i, %_ZNKS
   br i1 %cmp.i, label %_ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit, label %if.end.i
 
 _ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit: ; preds = %cleanup.i, %if.end.i, %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character.i) #21, !noalias !141
+  call void @llvm.lifetime.end.p0(ptr nonnull %character.i)
   %call2 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   %13 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
   %cmp.i.i.i = icmp eq ptr %13, %2
@@ -2428,10 +2422,10 @@ if.then.i.i164:                                   ; preds = %_ZN3irr5scene18CB3D
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i164, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %position) #21
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %scale) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rotation) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
+  call void @llvm.lifetime.start.p0(ptr nonnull %position)
+  call void @llvm.lifetime.start.p0(ptr nonnull %scale)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rotation)
   %15 = load ptr, ptr %B3DFile.i, align 8, !tbaa !53
   %vtable.i166 = load ptr, ptr %15, align 8, !tbaa !3
   %16 = load ptr, ptr %vtable.i166, align 8
@@ -2740,7 +2734,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.end122, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %header)
   %212 = load ptr, ptr %B3DFile.i, align 8, !tbaa !53
   %vtable36 = load ptr, ptr %212, align 8, !tbaa !3
   %213 = load ptr, ptr %vtable36, align 8
@@ -2927,7 +2921,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   br label %if.end122
 
 if.end122:                                        ; preds = %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, %if.then95, %if.then84, %if.then73, %if.then61, %if.then50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %header)
   %238 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %238, i64 -8
   %239 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -2944,7 +2938,7 @@ if.end122:                                        ; preds = %_ZN3irr4core5arrayI
   br i1 %cmp.not, label %while.body, label %while.end
 
 cleanup:                                          ; preds = %if.else99, %if.then73, %if.then61, %if.then50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %header)
   br label %cleanup127, !llvm.loop !158
 
 while.end:                                        ; preds = %if.end122, %if.end
@@ -2975,13 +2969,13 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit373: ; preds = %_ZSt4moveIN
 
 cleanup127:                                       ; preds = %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit373, %cleanup
   %cmp382 = phi i1 [ false, %cleanup ], [ true, %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit373 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rotation) #21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %scale) #21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %position) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %rotation)
+  call void @llvm.lifetime.end.p0(ptr nonnull %scale)
+  call void @llvm.lifetime.end.p0(ptr nonnull %position)
   ret i1 %cmp382
 }
 
-declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr4core5arrayINS_5scene12SB3dMaterialEE5clearEv(ptr noundef nonnull align 8 dereferenceable(25) %this) local_unnamed_addr #2 comdat align 2 {
@@ -3063,7 +3057,7 @@ entry:
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !48
   store i8 0, ptr %0, align 8, !tbaa !51
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %character)
   %1 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable8 = load ptr, ptr %1, align 8, !tbaa !3
   %2 = load ptr, ptr %vtable8, align 8
@@ -3107,8 +3101,8 @@ cleanup:                                          ; preds = %if.then.i, %_ZNKSt7
   %8 = load ptr, ptr %agg.result, align 8, !tbaa !52
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 %add.i
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character) #21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %character) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %character)
+  call void @llvm.lifetime.start.p0(ptr nonnull %character)
   %9 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %9, align 8, !tbaa !3
   %10 = load ptr, ptr %vtable, align 8
@@ -3117,7 +3111,7 @@ cleanup:                                          ; preds = %if.then.i, %_ZNKSt7
   br i1 %cmp, label %nrvo.skipdtor, label %if.end
 
 nrvo.skipdtor:                                    ; preds = %cleanup, %if.end, %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %character) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %character)
   ret void
 }
 
@@ -3275,14 +3269,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkMESHEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 dereferenceable(223) initializes((220, 222)) %this, ptr noundef readonly captures(none) %inJoint) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkMESHEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 dereferenceable(223) initializes((220, 222)) %this, ptr noundef readonly captures(none) %inJoint) local_unnamed_addr #6 align 2 {
 entry:
   %brushID = alloca i32, align 4
   %header = alloca %"struct.irr::scene::SB3dChunkHeader", align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %brushID) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %brushID)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -3324,7 +3318,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %if.end162, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %header)
   %7 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable10 = load ptr, ptr %7, align 8, !tbaa !3
   %8 = load ptr, ptr %vtable10, align 8
@@ -3769,7 +3763,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   br label %if.end162
 
 if.end162:                                        ; preds = %_ZN3irr4core8vector3dIfE9normalizeEv.exit, %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, %for.cond120.preheader, %if.end62, %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %header)
   %129 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %129, i64 -8
   %130 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -3786,7 +3780,7 @@ if.end162:                                        ; preds = %_ZN3irr4core8vector
   br i1 %cmp.not, label %while.body, label %while.end
 
 cleanup163:                                       ; preds = %if.else142, %if.end51, %if.then, %if.then40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %header) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %header)
   br label %cleanup170, !llvm.loop !182
 
 while.end:                                        ; preds = %if.end162, %entry
@@ -3817,7 +3811,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit296: ; preds = %_ZSt4moveIN
 
 cleanup170:                                       ; preds = %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit296, %cleanup163
   %cmp322 = phi i1 [ false, %cleanup163 ], [ true, %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit296 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %brushID) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %brushID)
   ret i1 %cmp322
 }
 
@@ -3857,8 +3851,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br label %while.body
 
 while.body:                                       ; preds = %cleanup, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %globalVertexID) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strength) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %globalVertexID)
+  call void @llvm.lifetime.start.p0(ptr nonnull %strength)
   %5 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable10 = load ptr, ptr %5, align 8, !tbaa !3
   %6 = load ptr, ptr %vtable10, align 8
@@ -3888,8 +3882,8 @@ cleanup.thread:                                   ; preds = %while.body
   %14 = load ptr, ptr %vfn23, align 8
   %call24 = call noundef nonnull align 8 dereferenceable(32) ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #21
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %call24, i32 noundef 3) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %strength) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %globalVertexID) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %strength)
+  call void @llvm.lifetime.end.p0(ptr nonnull %globalVertexID)
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -3932,8 +3926,8 @@ if.then30:                                        ; preds = %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then30, %if.else, %if.then28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %strength) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %globalVertexID) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %strength)
+  call void @llvm.lifetime.end.p0(ptr nonnull %globalVertexID)
   %25 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %25, i64 -8
   %26 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -3986,7 +3980,7 @@ entry:
   %flags = alloca i32, align 4
   %frame = alloca i32, align 4
   %data = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %flags)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -4034,12 +4028,12 @@ while.body:                                       ; preds = %if.end261, %while.b
   %10 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %134, %if.end261 ]
   %11 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %42, %if.end261 ]
   %12 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %43, %if.end261 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %frame) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %frame)
   %13 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable24 = load ptr, ptr %13, align 8, !tbaa !3
   %14 = load ptr, ptr %vtable24, align 8
   %call26 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %frame, i64 noundef 4) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %data)
   %15 = load i32, ptr %flags, align 4, !tbaa !64
   %and = and i32 %15, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -4405,8 +4399,8 @@ if.end261:                                        ; preds = %if.end241, %if.then
   %isFirst.sroa.7.1 = phi i8 [ %isFirst.sroa.7.0487, %if.end171 ], [ %isFirst.sroa.7.0487, %if.end241 ], [ 0, %if.then217 ], [ %isFirst.sroa.7.0487, %if.then188 ], [ %isFirst.sroa.7.0487, %if.else192 ]
   %133 = phi <4 x float> [ %9, %if.end171 ], [ %132, %if.end241 ], [ %9, %if.then217 ], [ %9, %if.then188 ], [ %99, %if.else192 ]
   %134 = phi <4 x float> [ %10, %if.end171 ], [ %116, %if.end241 ], [ %115, %if.then217 ], [ %10, %if.then188 ], [ %9, %if.else192 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %frame) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %data)
+  call void @llvm.lifetime.end.p0(ptr nonnull %frame)
   %135 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %135, i64 -8
   %136 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -4447,7 +4441,7 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   %142 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %140, %while.end ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %142, i64 -16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %flags)
   ret i1 true
 }
 
@@ -4459,9 +4453,9 @@ entry:
   %animFrames = alloca i32, align 4
   %animFPS = alloca float, align 4
   %ref.tmp = alloca %"class.irr::core::string", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %animFlags) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %animFrames) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %animFPS) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %animFlags)
+  call void @llvm.lifetime.start.p0(ptr nonnull %animFrames)
+  call void @llvm.lifetime.start.p0(ptr nonnull %animFPS)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -4491,19 +4485,19 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %9 = phi float [ %.pre, %if.then ], [ %6, %entry ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %conv = fpext float %9 to double
   %10 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %10, ptr %ref.tmp, align 8, !tbaa !46
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !48
   store i8 0, ptr %10, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmpbuf.i) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmpbuf.i)
   %call.i10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmpbuf.i, i64 noundef 32, ptr noundef nonnull @.str.27, double noundef %conv) #21
   %11 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !48
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmpbuf.i) #21
   %call3.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 0, i64 noundef %11, ptr noundef nonnull %tmpbuf.i, i64 noundef %call.i.i.i.i) #21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmpbuf.i) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmpbuf.i)
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.22, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 noundef 0) #21
   %12 = load ptr, ptr %ref.tmp, align 8, !tbaa !52
   %cmp.i.i.i.i = icmp eq ptr %12, %10
@@ -4520,7 +4514,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
 _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %B3dStack = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %14 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !61
@@ -4546,9 +4540,9 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   %16 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN3irr5scene9SB3dChunkESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i.i ], [ %14, %_ZN3irr4core6stringIcED2Ev.exit ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %animFPS) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %animFrames) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %animFlags) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %animFPS)
+  call void @llvm.lifetime.end.p0(ptr nonnull %animFrames)
+  call void @llvm.lifetime.end.p0(ptr nonnull %animFlags)
   ret i1 true
 }
 
@@ -4562,9 +4556,9 @@ entry:
   %normal = alloca [3 x float], align 4
   %color = alloca [4 x float], align 16
   %tex_coords = alloca [3 x [4 x float]], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %flags) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tex_coord_sets) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tex_coord_set_size) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %flags)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tex_coord_sets)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tex_coord_set_size)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -4820,12 +4814,12 @@ while.body.lr.ph:                                 ; preds = %_ZN3irr4core5arrayI
   br label %while.body
 
 while.body:                                       ; preds = %_ZN3irr4core5arrayIiE9push_backEOi.exit218, %while.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %position) #21
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %normal) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %position)
+  call void @llvm.lifetime.start.p0(ptr nonnull %normal)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %normal, i8 0, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %color) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %color)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %color, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN3irr5scene18CB3DMeshFileLoader13readChunkVRTSEPNS0_12ISkinnedMesh6SJointE.color, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %tex_coords) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %tex_coords)
   %26 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable.i = load ptr, ptr %26, align 8, !tbaa !3
   %27 = load ptr, ptr %vtable.i, align 8
@@ -5155,10 +5149,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZN3irr4core5arrayIiE9push_backEOi.exit218:       ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i214, %if.then.i.i.i187
   store i8 0, ptr %is_sorted.i189, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %tex_coords) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %color) #21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %normal) #21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %position) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %tex_coords)
+  call void @llvm.lifetime.end.p0(ptr nonnull %color)
+  call void @llvm.lifetime.end.p0(ptr nonnull %normal)
+  call void @llvm.lifetime.end.p0(ptr nonnull %position)
   %105 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %105, i64 -8
   %106 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -5217,14 +5211,14 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit: ; preds = %_ZSt4moveIN9__
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, %if.then
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tex_coord_set_size) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tex_coord_sets) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flags) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %tex_coord_set_size)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tex_coord_sets)
+  call void @llvm.lifetime.end.p0(ptr nonnull %flags)
   ret i1 %or.cond104.not
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #8 comdat align 2 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #7 comdat align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %0
   br i1 %cmp.i, label %for.cond.cleanup, label %for.body.preheader
@@ -5514,7 +5508,7 @@ define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkTRISEPNS0
 entry:
   %triangle_brush_id = alloca i32, align 4
   %vertex_id = alloca [3 x i32], align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %triangle_brush_id) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %triangle_brush_id)
   %B3DFile = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
@@ -5682,7 +5676,7 @@ while.body.lr.ph:                                 ; preds = %_ZN3irr4core5arrayI
 
 while.body:                                       ; preds = %_ZN3irr4core5arrayItE9push_backEOt.exit378, %while.body.lr.ph
   %showVertexWarning.0414 = phi i8 [ 0, %while.body.lr.ph ], [ %showVertexWarning.2429, %_ZN3irr4core5arrayItE9push_backEOt.exit378 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %vertex_id) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %vertex_id)
   %19 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable34 = load ptr, ptr %19, align 8, !tbaa !3
   %20 = load ptr, ptr %vtable34, align 8
@@ -6184,7 +6178,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
 
 _ZN3irr4core5arrayItE9push_backEOt.exit378:       ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i374, %if.then.i.i.i347
   store i8 0, ptr %is_sorted.i304, align 8, !tbaa !249
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %vertex_id) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %vertex_id)
   %84 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61
   %startposition = getelementptr inbounds i8, ptr %84, i64 -8
   %85 = load i64, ptr %startposition, align 8, !tbaa !75
@@ -6242,17 +6236,17 @@ cleanup168.critedge:                              ; preds = %for.body
   %94 = load ptr, ptr %vfn49, align 8
   %call50 = call noundef nonnull align 8 dereferenceable(32) ptr %94(ptr noundef nonnull align 8 dereferenceable(8) %93) #21
   call void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef nonnull @.str.19, ptr noundef nonnull align 8 dereferenceable(32) %call50, i32 noundef 3) #21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %vertex_id) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %vertex_id)
   br label %cleanup169
 
 cleanup169:                                       ; preds = %cleanup168.critedge, %if.then166, %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit, %if.then5
   %retval.3 = phi i1 [ false, %if.then5 ], [ true, %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE5eraseEj.exit ], [ true, %if.then166 ], [ false, %cleanup168.critedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %triangle_brush_id) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %triangle_brush_id)
   ret i1 %retval.3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene15SSkinMeshBuffer17convertTo2TCoordsEv(ptr noundef nonnull align 8 dereferenceable(441) %this) local_unnamed_addr #2 comdat align 2 {
@@ -6305,7 +6299,7 @@ for.body:                                         ; preds = %_ZN3irr4core5arrayI
   %4 = phi ptr [ %.pre, %for.body.lr.ph ], [ %12, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   %5 = phi ptr [ %2, %for.body.lr.ph ], [ %14, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %Vertex.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Vertex.sroa.0)
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %5, i64 %indvars.iv
   %Color = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   %6 = load i32, ptr %Color, align 4, !tbaa !64
@@ -6394,7 +6388,7 @@ _ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EE
 _ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i
   %12 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   store i8 0, ptr %is_sorted.i30, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %Vertex.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Vertex.sroa.0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !236
   %14 = load ptr, ptr %Vertices_Standard, align 8, !tbaa !242
@@ -6427,28 +6421,28 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene11IMeshLoaderD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene11IMeshLoaderD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene11IMeshLoaderD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene11IMeshLoaderD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(223) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(223) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN3irr5scene18CB3DMeshFileLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr noundef nonnull @_ZTTN3irr5scene18CB3DMeshFileLoaderE) #21
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(223) %this) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(223) %this) unnamed_addr #7 comdat align 2 {
 entry:
   tail call void @_ZN3irr5scene18CB3DMeshFileLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr noundef nonnull @_ZTTN3irr5scene18CB3DMeshFileLoaderE) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -6456,7 +6450,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene18CB3DMeshFileLoaderD1Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene18CB3DMeshFileLoaderD1Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -6467,7 +6461,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3irr5scene18CB3DMeshFileLoaderD0Ev(ptr noundef %this) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3irr5scene18CB3DMeshFileLoaderD0Ev(ptr noundef %this) unnamed_addr #10 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -6479,10 +6473,10 @@ entry:
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ext0, ptr noundef nonnull align 8 dereferenceable(32) %ext1, ptr noundef nonnull align 8 dereferenceable(32) %ext2) local_unnamed_addr #8 comdat {
+define linkonce_odr noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ext0, ptr noundef nonnull align 8 dereferenceable(32) %ext1, ptr noundef nonnull align 8 dereferenceable(32) %ext2) local_unnamed_addr #7 comdat {
 entry:
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 46, i64 noundef -1) #21
   %conv.i4.i = trunc i64 %call2.i to i32
@@ -6652,19 +6646,19 @@ cleanup:                                          ; preds = %for.body.i69, %land
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #14
+declare float @llvm.fmuladd.f32(float, float, float) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #14
+declare float @llvm.floor.f32(float) #13
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #15
+declare void @llvm.trap() #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr noundef %vtt) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5scene18CB3DMeshFileLoaderD2Ev(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr noundef %vtt) unnamed_addr #7 comdat align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -6829,15 +6823,15 @@ _ZN3irr4core5arrayINS_5scene9SB3dChunkEED2Ev.exit: ; preds = %if.then.i.i.i.i20,
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #2 comdat align 2 {
@@ -7224,9 +7218,9 @@ if.end41:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #18
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #17
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3irr5scene11SB3dTextureESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(60) %__args) local_unnamed_addr #2 comdat align 2 {
@@ -7552,7 +7546,7 @@ _ZNSt12_Vector_baseIN3irr5scene12SB3dMaterialESaIS2_EE13_M_deallocateEPS2_m.exit
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video9SMaterialC2EOS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video9SMaterialC2EOS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #7 comdat align 2 {
 entry:
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !110
@@ -7771,7 +7765,7 @@ _ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMat
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3irr5video9SMaterialC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN3irr5video9SMaterialC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %this, ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #7 comdat align 2 {
 entry:
   %TextureMatrix.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %TextureMatrix.i, align 8, !tbaa !110
@@ -7989,62 +7983,68 @@ _ZN3irr5video14SMaterialLayerC2ERKS1_.exit.3:     ; preds = %_ZN3irr5video14SMat
   ret void
 }
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
+declare i32 @llvm.usub.sat.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #20
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #14
+declare double @llvm.sqrt.f64(double) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.floor.v2f32(<2 x float>) #14
+declare <2 x float> @llvm.floor.v2f32(<2 x float>) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #14
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #14
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind }
 attributes #22 = { builtin nounwind }
 attributes #23 = { builtin nounwind allocsize(0) }

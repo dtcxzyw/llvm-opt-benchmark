@@ -395,7 +395,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2E
   br label %_ZN11MutexLockerD2Ev.exit5
 
 _ZN11MutexLockerD2Ev.exit5:                       ; preds = %_ZN11MutexLockerD2Ev.exit, %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = load ptr, ptr @_ZL12_delete_list, align 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 9
@@ -461,7 +461,7 @@ _ZN17GrowableArrayViewIP21ProtectionDomainEntryE9remove_atEi.exit.i: ; preds = %
   br i1 %53, label %.lr.ph.i, label %_ZL21purge_deleted_entriesv.exit, !llvm.loop !8
 
 _ZL21purge_deleted_entriesv.exit:                 ; preds = %51, %_ZN11MutexLockerD2Ev.exit5, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = load ptr, ptr @SystemDictionary_lock, align 8
   %.not.i.i6 = icmp eq ptr %54, null
   br i1 %.not.i.i6, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit7, label %55
@@ -491,7 +491,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit7: ; preds = %_ZL21purge
   %63 = phi ptr [ %85, %84 ], [ %62, %60 ]
   %.01417.i = phi ptr [ %.1.i, %84 ], [ %61, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %67 = call noundef ptr %66(ptr noundef %65) #12
@@ -521,7 +521,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit7: ; preds = %_ZL21purge
 76:                                               ; preds = %75, %72
   %77 = call noundef ptr @_ZN8Universe7vm_weakEv() #12
   call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %77) #12
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %78 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %.01417.i, align 8
@@ -532,7 +532,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit7: ; preds = %_ZL21purge
   br label %84
 
 82:                                               ; preds = %.lr.ph.i9
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %83 = getelementptr inbounds nuw i8, ptr %63, i64 24
   br label %84
 
@@ -864,8 +864,8 @@ define hidden void @_ZN26ProtectionDomainCacheTable22print_table_statisticsEP12o
   %3 = alloca %class.NumberSeq, align 8
   %4 = alloca %class.TableStatistics, align 8
   %5 = load ptr, ptr @_ZL15_pd_cache_table, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %2, double noundef 3.000000e-01) #12, !noalias !16
   br label %.preheader.i
 
@@ -909,8 +909,8 @@ define hidden void @_ZN26ProtectionDomainCacheTable22print_table_statisticsEP12o
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !noalias !16
   call void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull %3, i64 noundef %.1.lcssa.i, i64 noundef 8, i64 noundef 32) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef %0, ptr noundef nonnull @.str.5) #12
   call void @_ZN15TableStatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
   ret void
@@ -2882,10 +2882,10 @@ declare void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72
 declare void @_ZN15TableStatisticsC1E9NumberSeqmmm(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

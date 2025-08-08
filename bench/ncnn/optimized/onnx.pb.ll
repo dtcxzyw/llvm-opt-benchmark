@@ -1842,14 +1842,8 @@ define dso_local void @_ZN4onnx14AttributeProto9ArenaDtorEPv(ptr noundef readnon
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx14AttributeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx14AttributeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -2552,7 +2546,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINS0_15UnknownFieldSetEEEvv.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4onnx14AttributeProto14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -7121,7 +7115,7 @@ define dso_local void @_ZN4onnx14ValueInfoProto9ArenaDtorEPv(ptr noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx14ValueInfoProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx14ValueInfoProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -9124,7 +9118,7 @@ define dso_local void @_ZN4onnx9NodeProto9ArenaDtorEPv(ptr noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx9NodeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx9NodeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -11959,7 +11953,7 @@ define dso_local void @_ZN4onnx10ModelProto9ArenaDtorEPv(ptr noundef readnone ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx10ModelProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx10ModelProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -14804,7 +14798,7 @@ define dso_local void @_ZN4onnx22StringStringEntryProto9ArenaDtorEPv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx22StringStringEntryProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx22StringStringEntryProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -16000,7 +15994,7 @@ define dso_local void @_ZN4onnx16TensorAnnotation9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx16TensorAnnotation13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx16TensorAnnotation13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -18401,7 +18395,7 @@ define dso_local void @_ZN4onnx10GraphProto9ArenaDtorEPv(ptr noundef readnone ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx10GraphProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx10GraphProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(184) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -20549,7 +20543,7 @@ define dso_local void @_ZN4onnx19TensorProto_Segment21InitAsDefaultInstanceEv() 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !4
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN4onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8, !tbaa !9
@@ -20715,7 +20709,7 @@ define dso_local void @_ZN4onnx19TensorProto_Segment9ArenaDtorEPv(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx19TensorProto_Segment13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx19TensorProto_Segment13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -22696,7 +22690,7 @@ define dso_local void @_ZN4onnx11TensorProto9ArenaDtorEPv(ptr noundef readnone c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx11TensorProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx11TensorProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(248) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -25864,7 +25858,7 @@ define dso_local void @_ZN4onnx26TensorShapeProto_Dimension9ArenaDtorEPv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx26TensorShapeProto_Dimension13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx26TensorShapeProto_Dimension13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -27298,7 +27292,7 @@ define dso_local void @_ZN4onnx16TensorShapeProto9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx16TensorShapeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx16TensorShapeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -28406,7 +28400,7 @@ define dso_local void @_ZN4onnx16TypeProto_Tensor9ArenaDtorEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx16TypeProto_Tensor13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx16TypeProto_Tensor13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -29857,7 +29851,7 @@ define dso_local void @_ZN4onnx9TypeProto9ArenaDtorEPv(ptr noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx9TypeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx9TypeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -30932,7 +30926,7 @@ define dso_local void @_ZN4onnx18OperatorSetIdProto9ArenaDtorEPv(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4onnx18OperatorSetIdProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define dso_local void @_ZNK4onnx18OperatorSetIdProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -31761,7 +31755,7 @@ define dso_local { ptr, ptr } @_ZNK4onnx18OperatorSetIdProto11GetMetadataEv(ptr 
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14AttributeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14AttributeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -31797,7 +31791,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx14AttributeProtoEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -31863,7 +31857,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx14ValueInfoProtoEEEPT_PS1
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9NodeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9NodeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %13
 
@@ -31959,7 +31953,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx9NodeProtoEEEPT_PS1_.exit
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10ModelProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10ModelProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32050,7 +32044,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx10ModelProtoEEEPT_PS1_.ex
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32114,7 +32108,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx22StringStringEntryProtoE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorAnnotationEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorAnnotationEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -32190,7 +32184,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx16TensorAnnotationEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10GraphProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10GraphProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -32226,7 +32220,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx10GraphProtoEEEPT_PS1_.ex
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx19TensorProto_SegmentEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx19TensorProto_SegmentEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -32260,7 +32254,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx19TensorProto_SegmentEEEP
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -32296,7 +32290,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx11TensorProtoEEEPT_PS1_.e
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx26TensorShapeProto_DimensionEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx26TensorShapeProto_DimensionEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32360,7 +32354,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx26TensorShapeProto_Dimens
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorShapeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorShapeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %10
 
@@ -32429,7 +32423,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx16TensorShapeProtoEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TypeProto_TensorEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TypeProto_TensorEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32491,7 +32485,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx16TypeProto_TensorEEEPT_P
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9TypeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9TypeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32555,7 +32549,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4onnx9TypeProtoEEEPT_PS1_.exit
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx18OperatorSetIdProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx18OperatorSetIdProtoEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -32906,7 +32900,7 @@ declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef
 declare void @_ZN6google8protobuf8internal14DestroyMessageEPKv(ptr noundef) #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %1, null
@@ -32919,7 +32913,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   %10 = load ptr, ptr %2, align 8, !tbaa !92
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !129
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -32957,7 +32951,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %22 = load ptr, ptr %8, align 8, !tbaa !92
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 24:                                               ; preds = %.noexc.i
@@ -32983,7 +32977,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %26, %29
   %32 = load ptr, ptr %2, align 8, !tbaa !92
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %34, ptr %4, align 8, !tbaa !129
   %35 = icmp ugt i64 %34, 15
   br i1 %35, label %.noexc.i5, label %._crit_edge.i.i4
@@ -33018,7 +33012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6: ; preds = %
   %44 = load ptr, ptr %30, align 8, !tbaa !92
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store i8 0, ptr %45, align 1, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6
@@ -33060,7 +33054,7 @@ declare void @_ZNK6google8protobuf5Arena17OnArenaAllocationEPKSt9type_infom(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #18
 
 declare void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef) local_unnamed_addr #0
 
@@ -33083,10 +33077,10 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream30WriteStringMay
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFallbackEPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
 
 declare void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
@@ -33095,7 +33089,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr noundef nonnul
 declare void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 1
@@ -33273,13 +33267,13 @@ declare void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef n
 declare { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx11TensorProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx10GraphProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull align 8 dereferenceable(184) %0)
   ret void
 }
@@ -33287,37 +33281,37 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHan
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx14AttributeProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(192) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx18OperatorSetIdProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx22StringStringEntryProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx9NodeProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(128) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx14ValueInfoProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx16TensorAnnotation9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }
@@ -33325,7 +33319,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHan
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #18 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #17 comdat align 2 {
   tail call void @_ZN4onnx26TensorShapeProto_Dimension9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
@@ -33333,12 +33327,18 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHan
 declare noundef ptr @_ZN6google8protobuf8internal23GetOwnedMessageInternalEPNS0_5ArenaEPNS0_11MessageLiteES3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_onnx.pb.cc() #21 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_onnx.pb.cc() #20 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   tail call void @_ZN6google8protobuf8internal14AddDescriptorsEPKNS1_15DescriptorTableE(ptr noundef nonnull @descriptor_table_onnx_2eproto)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22
@@ -33357,14 +33357,14 @@ attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector
 attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold nofree noreturn }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nounwind }
 attributes #24 = { builtin nounwind }

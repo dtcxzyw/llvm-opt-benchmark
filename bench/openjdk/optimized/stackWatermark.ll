@@ -321,7 +321,7 @@ define hidden noundef nonnull align 8 dereferenceable(4983) ptr @_ZN28StackWater
 define hidden void @_ZN28StackWatermarkFramesIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(5081) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.frame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5064
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -359,7 +359,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %1, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %19 = phi i8 [ %5, %1 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = trunc i8 %19 to i1
   br i1 %20, label %_ZN16StackFrameStream7is_doneEv.exit, label %21
 
@@ -2195,10 +2195,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16

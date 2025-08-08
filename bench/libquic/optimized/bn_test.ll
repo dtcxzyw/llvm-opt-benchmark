@@ -265,7 +265,7 @@ _ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit: ; preds = %26, %30
 
 ._crit_edge:                                      ; preds = %39, %2
   %.sroa.0.0.lcssa = phi ptr [ null, %2 ], [ %29, %39 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %46 = invoke ptr @BN_CTX_new()
           to label %47 unwind label %48
 
@@ -293,19 +293,19 @@ _ZNSt10unique_ptrI8_IO_FILE10FileCloserE5resetEPS0_.exit: ; preds = %26, %30
   br label %_ZL7messageP8_IO_FILEPKc.exit
 
 _ZL7messageP8_IO_FILEPKc.exit:                    ; preds = %50, %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %58 = invoke ptr @BN_new()
           to label %.noexc unwind label %139
 
 .noexc:                                           ; preds = %_ZL7messageP8_IO_FILEPKc.exit
   store ptr %58, ptr %9, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = invoke ptr @BN_new()
           to label %60 unwind label %71
 
 60:                                               ; preds = %.noexc
   store ptr %59, ptr %10, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %61 = invoke ptr @BN_new()
           to label %62 unwind label %73
 
@@ -466,7 +466,7 @@ thread-pre-split.thread.i:                        ; preds = %77, %82, %117, %114
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ; preds = %thread-pre-split.thread.i, %thread-pre-split.i
   %.01846.i = phi i1 [ false, %thread-pre-split.i ], [ %.01845.i, %thread-pre-split.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i37.i = icmp eq ptr %59, null
   br i1 %.not.i37.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i, label %127
 
@@ -482,7 +482,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i: ; preds = %127, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not41.i, label %138, label %131
 
 131:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i
@@ -503,19 +503,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i:
 
 136:                                              ; preds = %135, %73
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %135 ], [ %74, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
   br label %137
 
 137:                                              ; preds = %136, %71
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %136 ], [ %72, %71 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.body
 
 138:                                              ; preds = %131, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.01846.i, label %141, label %459
 
 139:                                              ; preds = %_ZL7messageP8_IO_FILEPKc.exit57, %_ZL7messageP8_IO_FILEPKc.exit35, %_ZL7messageP8_IO_FILEPKc.exit
@@ -534,19 +534,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38.i:
   br label %_ZL7messageP8_IO_FILEPKc.exit35
 
 _ZL7messageP8_IO_FILEPKc.exit35:                  ; preds = %141, %142
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = invoke ptr @BN_new()
           to label %.noexc51 unwind label %139
 
 .noexc51:                                         ; preds = %_ZL7messageP8_IO_FILEPKc.exit35
   store ptr %147, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %148 = invoke ptr @BN_new()
           to label %149 unwind label %157
 
 149:                                              ; preds = %.noexc51
   store ptr %148, ptr %7, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %150 = invoke ptr @BN_new()
           to label %151 unwind label %159
 
@@ -728,7 +728,7 @@ thread-pre-split.thread.i40:                      ; preds = %161, %166, %169, %1
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41: ; preds = %thread-pre-split.thread.i40, %thread-pre-split.i39
   %.02049.i = phi i1 [ false, %thread-pre-split.i39 ], [ %.02048.i, %thread-pre-split.thread.i40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i39.i = icmp eq ptr %148, null
   br i1 %.not.i39.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i, label %223
 
@@ -744,7 +744,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41:
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i: ; preds = %223, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not43.i, label %233, label %227
 
 227:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i
@@ -760,19 +760,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i:
 
 231:                                              ; preds = %177, %159
   %.pn.i37 = phi { ptr, i32 } [ %178, %177 ], [ %160, %159 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   br label %232
 
 232:                                              ; preds = %231, %157
   %.pn.pn.i36 = phi { ptr, i32 } [ %.pn.i37, %231 ], [ %158, %157 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.body
 
 233:                                              ; preds = %227, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.02049.i, label %234, label %459
 
 234:                                              ; preds = %233
@@ -786,19 +786,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40.i:
   br label %_ZL7messageP8_IO_FILEPKc.exit57
 
 _ZL7messageP8_IO_FILEPKc.exit57:                  ; preds = %234, %235
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %240 = invoke ptr @BN_new()
           to label %.noexc72 unwind label %139
 
 .noexc72:                                         ; preds = %_ZL7messageP8_IO_FILEPKc.exit57
   store ptr %240, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %241 = invoke ptr @BN_new()
           to label %242 unwind label %251
 
 242:                                              ; preds = %.noexc72
   store ptr %241, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %243 = invoke ptr @BN_new()
           to label %244 unwind label %253
 
@@ -984,7 +984,7 @@ thread-pre-split.thread.i62:                      ; preds = %282, %285, %305, %2
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63: ; preds = %thread-pre-split.thread.i62, %thread-pre-split.i61
   %.01651.i = phi i1 [ false, %thread-pre-split.i61 ], [ %.01650.i, %thread-pre-split.thread.i62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i33.i = icmp eq ptr %241, null
   br i1 %.not.i33.i, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i, label %309
 
@@ -1000,7 +1000,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63:
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i: ; preds = %309, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not37.i, label %320, label %313
 
 313:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i
@@ -1021,19 +1021,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i:
 
 318:                                              ; preds = %317, %253
   %.pn.pn.i59 = phi { ptr, i32 } [ %.pn.i64, %317 ], [ %254, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %319
 
 319:                                              ; preds = %318, %251
   %.pn.pn.pn.i58 = phi { ptr, i32 } [ %.pn.pn.i59, %318 ], [ %252, %251 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.body
 
 320:                                              ; preds = %313, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.01651.i, label %321, label %459
 
 321:                                              ; preds = %320
@@ -1047,7 +1047,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit34.i:
   br label %_ZL7messageP8_IO_FILEPKc.exit78
 
 _ZL7messageP8_IO_FILEPKc.exit78:                  ; preds = %321, %322
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %327 = invoke ptr @BN_bin2bn(ptr noundef nonnull @_ZL7kSample, i64 noundef 25, ptr noundef null)
           to label %328 unwind label %329
 
@@ -1423,7 +1423,7 @@ _ZL8flush_fpP8_IO_FILE.exit113:                   ; preds = %434, %433
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit115: ; preds = %456, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %346, %355, %360, %365, %370, %375, %380, %385, %390, %395, %400, %408, %405, %416, %413, %421, %426, %432, %455, %452, %449, %446, %443, %440, %437, %328
   %.222195 = phi i32 [ 1, %328 ], [ 1, %437 ], [ 1, %440 ], [ 1, %443 ], [ 1, %446 ], [ 1, %449 ], [ 1, %452 ], [ 1, %455 ], [ 1, %432 ], [ 1, %426 ], [ 1, %421 ], [ 1, %413 ], [ 1, %416 ], [ 1, %405 ], [ 1, %408 ], [ 1, %400 ], [ 1, %395 ], [ 1, %390 ], [ 1, %385 ], [ 1, %380 ], [ 1, %375 ], [ 1, %370 ], [ 1, %365 ], [ 1, %360 ], [ 1, %355 ], [ 1, %346 ], [ 1, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ 0, %456 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %459
 
 457:                                              ; preds = %349, %347, %340
@@ -1433,7 +1433,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit115: 
 
 458:                                              ; preds = %457, %329
   %.pn.pn = phi { ptr, i32 } [ %.pn, %457 ], [ %330, %329 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.body
 
 459:                                              ; preds = %320, %233, %138, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit115
@@ -1455,7 +1455,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit115: 
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %47, %459, %460
   %.121201 = phi i32 [ %.121.ph, %459 ], [ %.121.ph, %460 ], [ 1, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %467
 
 .body:                                            ; preds = %137, %139, %319, %232, %458
@@ -1465,7 +1465,7 @@ _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.ex
 
 464:                                              ; preds = %.body, %48
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i117 = icmp eq ptr %.sroa.0.0.lcssa, null
   br i1 %.not.i117, label %_ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit, label %465
 
@@ -1492,32 +1492,29 @@ _ZNSt10unique_ptrI8_IO_FILE10FileCloserED2Ev.exit119: ; preds = %467, %468
 
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare ptr @BN_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
+define internal fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZL7puts_fpP8_IO_FILEPKc.exit7, label %3
 
@@ -1590,16 +1587,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.ex
   br label %27
 
 27:                                               ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = tail call ptr @BN_new()
   store ptr %28, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = invoke ptr @BN_new()
           to label %30 unwind label %57
 
 30:                                               ; preds = %27
   store ptr %29, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = invoke ptr @BN_new()
           to label %32 unwind label %59
 
@@ -1823,7 +1820,7 @@ thread-pre-split.thread:                          ; preds = %85, %82, %53, %50, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.12055 = phi i1 [ %.120, %thread-pre-split ], [ %.12054, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i38 = icmp eq ptr %29, null
   br i1 %.not.i38, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, label %116
 
@@ -1839,7 +1836,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not45, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, label %120
 
 120:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39
@@ -1854,7 +1851,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39, %120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %126
 
 .loopexit:                                        ; preds = %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %61
@@ -1864,15 +1861,15 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ;
 
 124:                                              ; preds = %.loopexit, %59
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit ], [ %60, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %125
 
 125:                                              ; preds = %124, %57
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %124 ], [ %58, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
 
 126:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit, %16, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41
@@ -1881,7 +1878,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI9bignum_stXadL_Z7BN_freeEEEclEPS0_.exit, label %3
@@ -1907,16 +1904,16 @@ define internal fastcc noundef zeroext i1 @_ZL12test_rshift1P8_IO_FILE(ptr nound
   %2 = alloca %"class.std::unique_ptr.10", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
   %4 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call ptr @BN_new()
   store ptr %5, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = invoke ptr @BN_new()
           to label %7 unwind label %16
 
 7:                                                ; preds = %1
   store ptr %6, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = invoke ptr @BN_new()
           to label %9 unwind label %18
 
@@ -2132,7 +2129,7 @@ thread-pre-split:                                 ; preds = %54, %59, %73, %68, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %85, %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i34 = icmp eq ptr %91, null
   br i1 %.not.i34, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35, label %92
@@ -2149,7 +2146,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not38, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37, label %96
 
 96:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35
@@ -2164,7 +2161,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit35, %96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.016
 
 100:                                              ; preds = %.split41, %.split41.us, %20
@@ -2174,15 +2171,15 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit37: ;
 
 101:                                              ; preds = %100, %18
   %.pn.pn = phi { ptr, i32 } [ %.pn, %100 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %102
 
 102:                                              ; preds = %101, %16
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -2193,28 +2190,28 @@ define internal fastcc noundef zeroext i1 @_ZL11test_rshiftP8_IO_FILEP10bignum_c
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %27
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %29
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %31
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %33
 
@@ -2428,7 +2425,7 @@ thread-pre-split.thread:                          ; preds = %82, %79, %57, %54, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.02165 = phi i1 [ %.021, %thread-pre-split ], [ %.02164, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i41 = icmp eq ptr %13, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %91
 
@@ -2444,7 +2441,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i43 = icmp eq ptr %11, null
   br i1 %.not.i43, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, label %95
 
@@ -2460,7 +2457,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i45 = icmp eq ptr %9, null
   br i1 %.not.i45, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, label %99
 
@@ -2476,7 +2473,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, %99
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not51, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48, label %103
 
 103:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46
@@ -2491,7 +2488,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.02165
 
 107:                                              ; preds = %.split54, %.split54.us, %35
@@ -2501,27 +2498,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ;
 
 108:                                              ; preds = %107, %33
   %.pn.pn = phi { ptr, i32 } [ %.pn, %107 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %109
 
 109:                                              ; preds = %108, %31
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %108 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %110
 
 110:                                              ; preds = %109, %29
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %109 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %111
 
 111:                                              ; preds = %110, %27
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %110 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -2532,22 +2529,22 @@ define internal fastcc noundef zeroext i1 @_ZL8test_sqrP8_IO_FILEP10bignum_ctx(p
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %20
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %22
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %24
 
@@ -2680,7 +2677,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit67:                  ; preds = %50
   br label %thread-pre-split.thread
 
 .critedge:                                        ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8, !tbaa !19
   %68 = invoke i32 @BN_hex2bn(ptr noundef nonnull %7, ptr noundef nonnull @.str.53)
           to label %69 unwind label %73
@@ -2700,7 +2697,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit67:                  ; preds = %50
 73:                                               ; preds = %108, %105, %102, %99, %97, %93, %90, %87, %84, %81, %78, %76, %70, %.critedge
   %74 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %129
 
 75:                                               ; preds = %72
@@ -2801,7 +2798,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit79:                  ; preds = %102
 
 113:                                              ; preds = %.sink.split, %110, %107, %92, %95, %86, %69, %72
   %.241 = phi i1 [ false, %72 ], [ false, %69 ], [ false, %86 ], [ false, %95 ], [ false, %92 ], [ false, %107 ], [ true, %110 ], [ false, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %32, %43, %15, %113, %14
@@ -2823,7 +2820,7 @@ thread-pre-split.thread:                          ; preds = %55, %58, %65, %thre
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.03996 = phi i1 [ %.039, %thread-pre-split ], [ %.03995, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i81 = icmp eq ptr %11, null
   br i1 %.not.i81, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit82, label %117
 
@@ -2839,7 +2836,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit82: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i83 = icmp eq ptr %9, null
   br i1 %.not.i83, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84, label %121
 
@@ -2855,7 +2852,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit82: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit82, %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not89, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit86, label %125
 
 125:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84
@@ -2870,7 +2867,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit86: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit84, %125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.03996
 
 129:                                              ; preds = %73, %33
@@ -2880,21 +2877,21 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit86: ;
 
 130:                                              ; preds = %129, %24
   %.pn.pn = phi { ptr, i32 } [ %.pn, %129 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %131
 
 131:                                              ; preds = %130, %22
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %130 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %132
 
 132:                                              ; preds = %131, %20
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %131 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -2906,34 +2903,34 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mulP8_IO_FILE(ptr noundef %0
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = tail call ptr @BN_CTX_new()
   store ptr %8, ptr %2, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %27
 
 10:                                               ; preds = %1
   store ptr %9, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %29
 
 12:                                               ; preds = %10
   store ptr %11, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %31
 
 14:                                               ; preds = %12
   store ptr %13, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %33
 
 16:                                               ; preds = %14
   store ptr %15, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = invoke ptr @BN_new()
           to label %18 unwind label %35
 
@@ -3174,7 +3171,7 @@ thread-pre-split.thread:                          ; preds = %78, %81, %88, %thre
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.02268 = phi i1 [ %.022, %thread-pre-split ], [ %.02267, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i48 = icmp eq ptr %15, null
   br i1 %.not.i48, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, label %112
 
@@ -3190,7 +3187,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i50 = icmp eq ptr %13, null
   br i1 %.not.i50, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51, label %116
 
@@ -3206,7 +3203,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit49, %116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i52 = icmp eq ptr %11, null
   br i1 %.not.i52, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53, label %120
 
@@ -3222,7 +3219,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit51, %120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i54 = icmp eq ptr %9, null
   br i1 %.not.i54, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, label %124
 
@@ -3238,7 +3235,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53, %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not63, label %_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit, label %128
 
 128:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55
@@ -3253,7 +3250,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ;
   unreachable
 
 _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.02268
 
 132:                                              ; preds = %93, %47
@@ -3263,33 +3260,33 @@ _ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev.ex
 
 133:                                              ; preds = %132, %35
   %.pn.pn = phi { ptr, i32 } [ %.pn, %132 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %134
 
 134:                                              ; preds = %133, %33
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %133 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %135
 
 135:                                              ; preds = %134, %31
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %134 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %136
 
 136:                                              ; preds = %135, %29
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %135 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %137
 
 137:                                              ; preds = %136, %27
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %136 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -3300,28 +3297,28 @@ define internal fastcc noundef zeroext i1 @_ZL8test_divP8_IO_FILEP10bignum_ctx(p
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %22
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %24
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %26
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %28
 
@@ -3654,7 +3651,7 @@ thread-pre-split.thread:                          ; preds = %102, %105, %108, %3
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.03493 = phi i1 [ %.034, %thread-pre-split ], [ %.03492, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i74 = icmp eq ptr %13, null
   br i1 %.not.i74, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, label %147
 
@@ -3670,7 +3667,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i76 = icmp eq ptr %11, null
   br i1 %.not.i76, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit77, label %151
 
@@ -3686,7 +3683,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit77: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit75, %151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i78 = icmp eq ptr %9, null
   br i1 %.not.i78, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79, label %155
 
@@ -3702,7 +3699,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit77: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit77, %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not86, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81, label %159
 
 159:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79
@@ -3717,7 +3714,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79, %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.03493
 
 163:                                              ; preds = %61, %33
@@ -3727,27 +3724,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ;
 
 164:                                              ; preds = %163, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %163 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %165
 
 165:                                              ; preds = %164, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %164 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %166
 
 166:                                              ; preds = %165, %24
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %165 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %167
 
 167:                                              ; preds = %166, %22
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %166 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -3755,10 +3752,10 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ;
 define internal fastcc noundef zeroext i1 @_ZL13test_div_wordP8_IO_FILE(ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.10", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call ptr @BN_new()
   store ptr %4, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = invoke ptr @BN_new()
           to label %6 unwind label %8
 
@@ -3776,7 +3773,7 @@ define internal fastcc noundef zeroext i1 @_ZL13test_div_wordP8_IO_FILE(ptr noun
   br label %.preheader
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.thread: ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 8:                                                ; preds = %1
@@ -3947,7 +3944,7 @@ _ZL7puts_fpP8_IO_FILEPKc.exit55:                  ; preds = %42
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge, %.critedge
   %.085 = phi i1 [ %.084, %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ false, %.critedge ]
   %.pr62 = phi ptr [ %.pr62.pre, %._ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit_crit_edge ], [ %4, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i57 = icmp eq ptr %.pr62, null
   br i1 %.not.i57, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit58, label %69
 
@@ -3966,14 +3963,14 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit58: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %69
   %.06166 = phi i1 [ %.085, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit ], [ %.06165, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.06166
 
 74:                                               ; preds = %63, %8
   %.pn.pn = phi { ptr, i32 } [ %.pn, %63 ], [ %9, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3984,28 +3981,28 @@ define internal fastcc noundef zeroext i1 @_ZL8test_modP8_IO_FILEP10bignum_ctx(p
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %27
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %29
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %31
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %33
 
@@ -4175,7 +4172,7 @@ thread-pre-split.thread:                          ; preds = %71, %74, %24, %78, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.02258 = phi i1 [ %.022, %thread-pre-split ], [ %.02257, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i41 = icmp eq ptr %13, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %84
 
@@ -4191,7 +4188,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i43 = icmp eq ptr %11, null
   br i1 %.not.i43, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, label %88
 
@@ -4207,7 +4204,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i45 = icmp eq ptr %9, null
   br i1 %.not.i45, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, label %92
 
@@ -4223,7 +4220,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not53, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48, label %96
 
 96:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46
@@ -4238,7 +4235,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, %96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.02258
 
 100:                                              ; preds = %44, %35
@@ -4248,27 +4245,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit48: ;
 
 101:                                              ; preds = %100, %33
   %.pn.pn = phi { ptr, i32 } [ %.pn, %100 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %102
 
 102:                                              ; preds = %101, %31
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %101 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %103
 
 103:                                              ; preds = %102, %29
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %102 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %104
 
 104:                                              ; preds = %103, %27
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %103 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -4279,28 +4276,28 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_mulP8_IO_FILEP10bignum_
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %22
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %24
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %26
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %28
 
@@ -4585,7 +4582,7 @@ thread-pre-split.thread:                          ; preds = %42, %35, %32, %thre
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.03696 = phi i1 [ %.036, %thread-pre-split ], [ %.03695, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %128 = load ptr, ptr %6, align 8, !tbaa !19
   %.not.i69 = icmp eq ptr %128, null
   br i1 %.not.i69, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit70, label %129
@@ -4602,7 +4599,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit70: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %133 = load ptr, ptr %5, align 8, !tbaa !19
   %.not.i71 = icmp eq ptr %133, null
   br i1 %.not.i71, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit72, label %134
@@ -4619,7 +4616,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit70: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit72: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit70, %134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = load ptr, ptr %4, align 8, !tbaa !19
   %.not.i73 = icmp eq ptr %138, null
   br i1 %.not.i73, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74, label %139
@@ -4636,7 +4633,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit72: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit72, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %143 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i75 = icmp eq ptr %143, null
   br i1 %.not.i75, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit76, label %144
@@ -4653,7 +4650,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit76: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit74, %144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.03696
 
 148:                                              ; preds = %.loopexit, %.loopexit.split-lp, %51, %36
@@ -4663,27 +4660,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit76: ;
 
 149:                                              ; preds = %148, %28
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %148 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %150
 
 150:                                              ; preds = %149, %26
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %149 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %151
 
 151:                                              ; preds = %150, %24
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %150 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %152
 
 152:                                              ; preds = %151, %22
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %151 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -4697,46 +4694,46 @@ define internal fastcc noundef zeroext i1 @_ZL9test_montP8_IO_FILEP10bignum_ctx(
   %8 = alloca %"class.std::unique_ptr.10", align 8
   %9 = alloca %"class.std::unique_ptr.10", align 8
   %10 = alloca %"class.std::unique_ptr.18", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call ptr @BN_new()
   store ptr %11, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = invoke ptr @BN_new()
           to label %13 unwind label %35
 
 13:                                               ; preds = %2
   store ptr %12, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = invoke ptr @BN_new()
           to label %15 unwind label %37
 
 15:                                               ; preds = %13
   store ptr %14, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = invoke ptr @BN_new()
           to label %17 unwind label %39
 
 17:                                               ; preds = %15
   store ptr %16, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = invoke ptr @BN_new()
           to label %19 unwind label %41
 
 19:                                               ; preds = %17
   store ptr %18, ptr %7, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = invoke ptr @BN_new()
           to label %21 unwind label %43
 
 21:                                               ; preds = %19
   store ptr %20, ptr %8, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = invoke ptr @BN_new()
           to label %23 unwind label %45
 
 23:                                               ; preds = %21
   store ptr %22, ptr %9, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %24 = invoke ptr @BN_MONT_CTX_new()
           to label %25 unwind label %47
 
@@ -5027,7 +5024,7 @@ thread-pre-split.thread:                          ; preds = %109, %106, %102, %9
 
 _ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.0105 = phi i1 [ %.0, %thread-pre-split ], [ %.0104, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %139 = load ptr, ptr %9, align 8, !tbaa !19
   %.not.i77 = icmp eq ptr %139, null
   br i1 %.not.i77, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, label %140
@@ -5044,7 +5041,7 @@ _ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEE
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev.exit, %140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %144 = load ptr, ptr %8, align 8, !tbaa !19
   %.not.i78 = icmp eq ptr %144, null
   br i1 %.not.i78, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79, label %145
@@ -5061,7 +5058,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %145
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %149 = load ptr, ptr %7, align 8, !tbaa !19
   %.not.i80 = icmp eq ptr %149, null
   br i1 %.not.i80, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81, label %150
@@ -5078,7 +5075,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit79, %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %154 = load ptr, ptr %6, align 8, !tbaa !19
   %.not.i82 = icmp eq ptr %154, null
   br i1 %.not.i82, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit83, label %155
@@ -5095,7 +5092,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit83: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit81, %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = load ptr, ptr %5, align 8, !tbaa !19
   %.not.i84 = icmp eq ptr %159, null
   br i1 %.not.i84, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit85, label %160
@@ -5112,7 +5109,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit83: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit85: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit83, %160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %164 = load ptr, ptr %4, align 8, !tbaa !19
   %.not.i86 = icmp eq ptr %164, null
   br i1 %.not.i86, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87, label %165
@@ -5129,7 +5126,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit85: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit85, %165
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %169 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i88 = icmp eq ptr %169, null
   br i1 %.not.i88, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit89, label %170
@@ -5146,7 +5143,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit89: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit87, %170
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0105
 
 174:                                              ; preds = %110, %56
@@ -5156,45 +5153,45 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit89: ;
 
 175:                                              ; preds = %174, %47
   %.pn.pn = phi { ptr, i32 } [ %.pn, %174 ], [ %48, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
   br label %176
 
 176:                                              ; preds = %175, %45
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %175 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   br label %177
 
 177:                                              ; preds = %176, %43
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %176 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   br label %178
 
 178:                                              ; preds = %177, %41
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %177 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %179
 
 179:                                              ; preds = %178, %39
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %178 ], [ %40, %39 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %180
 
 180:                                              ; preds = %179, %37
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %179 ], [ %38, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %181
 
 181:                                              ; preds = %180, %35
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %180 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -5205,28 +5202,28 @@ define internal fastcc noundef zeroext i1 @_ZL12test_mod_expP8_IO_FILEP10bignum_
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %22
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %24
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %26
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %28
 
@@ -5494,7 +5491,7 @@ thread-pre-split.thread:                          ; preds = %79, %82, %85, %42, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.02978 = phi i1 [ false, %thread-pre-split ], [ %.02977, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i61 = icmp eq ptr %13, null
   br i1 %.not.i61, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62, label %118
 
@@ -5510,7 +5507,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %122 = load ptr, ptr %5, align 8, !tbaa !19
   %.not.i63 = icmp eq ptr %122, null
   br i1 %.not.i63, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64, label %123
@@ -5527,7 +5524,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit62, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = load ptr, ptr %4, align 8, !tbaa !19
   %.not.i65 = icmp eq ptr %127, null
   br i1 %.not.i65, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66, label %128
@@ -5544,7 +5541,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64, %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %132 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i67 = icmp eq ptr %132, null
   br i1 %.not.i67, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit68, label %133
@@ -5561,7 +5558,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit68: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.02978
 
 137:                                              ; preds = %63, %36
@@ -5571,27 +5568,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit68: ;
 
 138:                                              ; preds = %137, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %137 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %139
 
 139:                                              ; preds = %138, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %138 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %140
 
 140:                                              ; preds = %139, %24
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %139 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %141
 
 141:                                              ; preds = %140, %22
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %140 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -5602,28 +5599,28 @@ define internal fastcc noundef zeroext i1 @_ZL27test_mod_exp_mont_consttimeP8_IO
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %22
 
 10:                                               ; preds = %2
   store ptr %9, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %24
 
 12:                                               ; preds = %10
   store ptr %11, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %26
 
 14:                                               ; preds = %12
   store ptr %13, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %28
 
@@ -5861,7 +5858,7 @@ thread-pre-split.thread:                          ; preds = %89, %92, %95, %42, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.02873 = phi i1 [ %.028, %thread-pre-split ], [ %.02872, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i56 = icmp eq ptr %13, null
   br i1 %.not.i56, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57, label %105
 
@@ -5877,7 +5874,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i58 = icmp eq ptr %11, null
   br i1 %.not.i58, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, label %109
 
@@ -5893,7 +5890,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57, %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i60 = icmp eq ptr %9, null
   br i1 %.not.i60, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61, label %113
 
@@ -5909,7 +5906,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59, %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not68, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63, label %117
 
 117:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61
@@ -5924,7 +5921,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit61, %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.02873
 
 121:                                              ; preds = %73, %36
@@ -5934,27 +5931,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit63: ;
 
 122:                                              ; preds = %121, %28
   %.pn.pn = phi { ptr, i32 } [ %.pn, %121 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %123
 
 123:                                              ; preds = %122, %26
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %122 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %124
 
 124:                                              ; preds = %123, %24
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %123 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %125
 
 125:                                              ; preds = %124, %22
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %124 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
@@ -5966,28 +5963,28 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
   %7 = alloca %"class.std::unique_ptr.18", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = tail call ptr @BN_new()
   store ptr %8, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = invoke ptr @BN_new()
           to label %10 unwind label %27
 
 10:                                               ; preds = %1
   store ptr %9, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = invoke ptr @BN_new()
           to label %12 unwind label %29
 
 12:                                               ; preds = %10
   store ptr %11, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = invoke ptr @BN_new()
           to label %14 unwind label %31
 
 14:                                               ; preds = %12
   store ptr %13, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = invoke ptr @BN_new()
           to label %16 unwind label %33
 
@@ -6106,7 +6103,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
   br label %thread-pre-split.thread
 
 60:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = invoke ptr @BN_MONT_CTX_new()
           to label %62 unwind label %80
 
@@ -6216,12 +6213,12 @@ define internal fastcc noundef zeroext i1 @_ZL18test_mod_exp_mont5P8_IO_FILEP10b
 101:                                              ; preds = %.sink.split, %98, %89, %92, %95, %62, %65, %69, %73, %76, %79
   %.117 = phi i1 [ false, %79 ], [ false, %76 ], [ false, %73 ], [ false, %69 ], [ false, %65 ], [ false, %62 ], [ false, %95 ], [ false, %92 ], [ false, %89 ], [ true, %98 ], [ false, %.sink.split ]
   call void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %thread-pre-split.thread
 
 102:                                              ; preds = %82, %80
   %.pn = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %122
 
 thread-pre-split:                                 ; preds = %17, %16
@@ -6242,7 +6239,7 @@ thread-pre-split.thread:                          ; preds = %44, %57, %101, %26,
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.0169 = phi i1 [ false, %thread-pre-split ], [ %.0168, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i40 = icmp eq ptr %13, null
   br i1 %.not.i40, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, label %106
 
@@ -6258,7 +6255,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i42 = icmp eq ptr %11, null
   br i1 %.not.i42, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43, label %110
 
@@ -6274,7 +6271,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit41, %110
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i44 = icmp eq ptr %9, null
   br i1 %.not.i44, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, label %114
 
@@ -6290,7 +6287,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43, %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not3, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47, label %118
 
 118:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45
@@ -6305,7 +6302,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit45, %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0169
 
 122:                                              ; preds = %102, %35
@@ -6315,27 +6312,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit47: ;
 
 123:                                              ; preds = %122, %33
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %122 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %124
 
 124:                                              ; preds = %123, %31
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %123 ], [ %32, %31 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %125
 
 125:                                              ; preds = %124, %29
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %124 ], [ %30, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %126
 
 126:                                              ; preds = %125, %27
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %125 ], [ %28, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -6345,22 +6342,22 @@ define internal fastcc noundef zeroext i1 @_ZL8test_expP8_IO_FILEP10bignum_ctx(p
   %4 = alloca %"class.std::unique_ptr.10", align 8
   %5 = alloca %"class.std::unique_ptr.10", align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call ptr @BN_new()
   store ptr %7, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = invoke ptr @BN_new()
           to label %9 unwind label %18
 
 9:                                                ; preds = %2
   store ptr %8, ptr %4, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = invoke ptr @BN_new()
           to label %11 unwind label %20
 
 11:                                               ; preds = %9
   store ptr %10, ptr %5, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = invoke ptr @BN_new()
           to label %13 unwind label %22
 
@@ -6550,7 +6547,7 @@ thread-pre-split:                                 ; preds = %65, %60, %72, %14, 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %80 = load ptr, ptr %5, align 8, !tbaa !19
   %.not.i41 = icmp eq ptr %80, null
   br i1 %.not.i41, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, label %81
@@ -6567,7 +6564,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %85 = load ptr, ptr %4, align 8, !tbaa !19
   %.not.i43 = icmp eq ptr %85, null
   br i1 %.not.i43, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, label %86
@@ -6584,7 +6581,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit42, %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %90 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i45 = icmp eq ptr %90, null
   br i1 %.not.i45, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46, label %91
@@ -6601,26 +6598,26 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit46: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.021
 
 95:                                               ; preds = %42, %22
   %.pn = phi { ptr, i32 } [ %lpad.phi, %42 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %96
 
 96:                                               ; preds = %95, %20
   %.pn.pn = phi { ptr, i32 } [ %.pn, %95 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %97
 
 97:                                               ; preds = %96, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %96 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
@@ -6629,16 +6626,16 @@ define internal fastcc noundef zeroext i1 @_ZL17test_exp_mod_zerov() unnamed_add
   %1 = alloca %"class.std::unique_ptr.10", align 8
   %2 = alloca %"class.std::unique_ptr.10", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = tail call ptr @BN_new()
   store ptr %4, ptr %1, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = invoke ptr @BN_new()
           to label %6 unwind label %15
 
 6:                                                ; preds = %0
   store ptr %5, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = invoke ptr @BN_new()
           to label %8 unwind label %17
 
@@ -6779,7 +6776,7 @@ thread-pre-split.thread:                          ; preds = %14, %50, %45, %42, 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.0423 = phi i1 [ false, %thread-pre-split ], [ %.0422, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i15 = icmp eq ptr %5, null
   br i1 %.not.i15, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16, label %57
 
@@ -6795,7 +6792,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not19, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit18, label %61
 
 61:                                               ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16
@@ -6810,20 +6807,20 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit18: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit16, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0423
 
 65:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
   br label %66
 
 66:                                               ; preds = %65, %15
   %.pn.pn = phi { ptr, i32 } [ %.pn, %65 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -6832,16 +6829,16 @@ define internal fastcc noundef zeroext i1 @_ZL13test_mod_sqrtP8_IO_FILEP10bignum
   %2 = alloca %"class.std::unique_ptr.10", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
   %4 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call ptr @BN_new()
   store ptr %5, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = invoke ptr @BN_new()
           to label %7 unwind label %13
 
 7:                                                ; preds = %1
   store ptr %6, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = invoke ptr @BN_new()
           to label %9 unwind label %15
 
@@ -7114,7 +7111,7 @@ thread-pre-split:                                 ; preds = %26, %.critedge, %39
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %121 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i52 = icmp eq ptr %121, null
   br i1 %.not.i52, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53, label %122
@@ -7131,7 +7128,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %126 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i54 = icmp eq ptr %126, null
   br i1 %.not.i54, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55, label %127
@@ -7148,27 +7145,27 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit55: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit53, %127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.030
 
 131:                                              ; preds = %115, %15
   %.pn.pn = phi { ptr, i32 } [ %.pn, %115 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %132
 
 132:                                              ; preds = %131, %13
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %131 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL16test_small_primeP8_IO_FILEP10bignum_ctx(ptr noundef captures(none) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @BN_new()
   store ptr %3, ptr %2, align 8, !tbaa !19
   %.not4 = icmp eq ptr %3, null
@@ -7186,7 +7183,7 @@ define internal fastcc noundef zeroext i1 @_ZL16test_small_primeP8_IO_FILEP10big
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %6
@@ -7219,7 +7216,7 @@ define internal fastcc noundef zeroext i1 @_ZL16test_small_primeP8_IO_FILEP10big
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %1, %16
   %.03 = phi i1 [ %.0.ph, %16 ], [ false, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.03
 }
 
@@ -7228,16 +7225,16 @@ define internal fastcc noundef zeroext i1 @_ZL9test_sqrtP8_IO_FILEP10bignum_ctx(
   %2 = alloca %"class.std::unique_ptr.10", align 8
   %3 = alloca %"class.std::unique_ptr.10", align 8
   %4 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = tail call ptr @BN_new()
   store ptr %5, ptr %2, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = invoke ptr @BN_new()
           to label %7 unwind label %13
 
 7:                                                ; preds = %1
   store ptr %6, ptr %3, align 8, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = invoke ptr @BN_new()
           to label %9 unwind label %15
 
@@ -7412,7 +7409,7 @@ thread-pre-split.thread:                          ; preds = %.critedge, %32, %th
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %thread-pre-split, %thread-pre-split.thread
   %.014 = phi i1 [ false, %thread-pre-split ], [ %.013, %thread-pre-split.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = load ptr, ptr %3, align 8, !tbaa !19
   %.not.i37 = icmp eq ptr %63, null
   br i1 %.not.i37, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38, label %64
@@ -7429,7 +7426,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i39 = icmp eq ptr %68, null
   br i1 %.not.i39, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40, label %69
@@ -7446,7 +7443,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit38, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.014
 
 73:                                               ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit2, %.loopexit.split-lp3, %57
@@ -7456,15 +7453,15 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit40: ;
 
 74:                                               ; preds = %73, %15
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %73 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %75
 
 75:                                               ; preds = %74, %13
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %74 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 
@@ -7474,11 +7471,11 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   %2 = alloca [256 x i8], align 16
   %3 = alloca [128 x i8], align 16
   %4 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1) #19
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @BN_new()
   store ptr %5, ptr %4, align 8, !tbaa !19
   %.not1 = icmp eq ptr %5, null
@@ -7695,19 +7692,19 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %.loopexit.thread6, %.loopexit.thread
   %.0195 = phi i1 [ %.0194, %.loopexit.thread ], [ false, %.loopexit.thread6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0195
 
 86:                                               ; preds = %.loopexit2, %.loopexit.split-lp, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.loopexit, %.loopexit2 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #19
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
 
@@ -7719,9 +7716,9 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !19
   %7 = invoke i32 @BN_dec2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.88)
           to label %8 unwind label %16
@@ -7729,7 +7726,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
 8:                                                ; preds = %0
   %9 = load ptr, ptr %5, align 8, !tbaa !19
   store ptr %9, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %10, label %.sink.split
 
@@ -7753,11 +7750,11 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !19
   %19 = invoke i32 @BN_dec2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.90)
           to label %.noexc22 unwind label %16
@@ -7780,7 +7777,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   unreachable
 
 25:                                               ; preds = %21, %.noexc22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9 = icmp eq i32 %19, 3
   br i1 %.not9, label %26, label %.sink.split
 
@@ -7801,7 +7798,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   br i1 %.not11, label %32, label %.sink.split
 
 32:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   %33 = invoke i32 @BN_dec2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.91)
           to label %.noexc25 unwind label %16
@@ -7824,7 +7821,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   unreachable
 
 39:                                               ; preds = %35, %.noexc25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not12 = icmp eq i32 %33, 3
   br i1 %.not12, label %40, label %.sink.split
 
@@ -7845,7 +7842,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   br i1 %.not14, label %.sink.split, label %46
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !19
   %47 = invoke i32 @BN_dec2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.92)
           to label %.noexc28 unwind label %16
@@ -7868,7 +7865,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   unreachable
 
 53:                                               ; preds = %49, %.noexc28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not15 = icmp eq i32 %47, 2
   br i1 %.not15, label %54, label %.sink.split
 
@@ -7889,7 +7886,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   br i1 %.not17, label %60, label %.sink.split
 
 60:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !19
   %61 = invoke i32 @BN_dec2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.93)
           to label %.noexc31 unwind label %16
@@ -7912,7 +7909,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   unreachable
 
 67:                                               ; preds = %63, %.noexc31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not18 = icmp eq i32 %61, 2
   br i1 %.not18, label %68, label %.sink.split
 
@@ -7956,7 +7953,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_dec2bnP10bignum_ctx() unnam
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %76, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -7968,9 +7965,9 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !19
   %7 = invoke i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.88)
           to label %8 unwind label %16
@@ -7978,7 +7975,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
 8:                                                ; preds = %0
   %9 = load ptr, ptr %5, align 8, !tbaa !19
   store ptr %9, ptr %6, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %10, label %.sink.split
 
@@ -8002,11 +7999,11 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !19
   %19 = invoke i32 @BN_hex2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.90)
           to label %.noexc22 unwind label %16
@@ -8029,7 +8026,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   unreachable
 
 25:                                               ; preds = %21, %.noexc22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not9 = icmp eq i32 %19, 3
   br i1 %.not9, label %26, label %.sink.split
 
@@ -8050,7 +8047,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   br i1 %.not11, label %32, label %.sink.split
 
 32:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   %33 = invoke i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.91)
           to label %.noexc25 unwind label %16
@@ -8073,7 +8070,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   unreachable
 
 39:                                               ; preds = %35, %.noexc25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not12 = icmp eq i32 %33, 3
   br i1 %.not12, label %40, label %.sink.split
 
@@ -8094,7 +8091,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   br i1 %.not14, label %.sink.split, label %46
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !19
   %47 = invoke i32 @BN_hex2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.92)
           to label %.noexc28 unwind label %16
@@ -8117,7 +8114,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   unreachable
 
 53:                                               ; preds = %49, %.noexc28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not15 = icmp eq i32 %47, 2
   br i1 %.not15, label %54, label %.sink.split
 
@@ -8138,7 +8135,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   br i1 %.not17, label %60, label %.sink.split
 
 60:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !19
   %61 = invoke i32 @BN_hex2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.95)
           to label %.noexc31 unwind label %16
@@ -8161,7 +8158,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   unreachable
 
 67:                                               ; preds = %63, %.noexc31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.not18 = icmp eq i32 %61, 3
   br i1 %.not18, label %68, label %.sink.split
 
@@ -8205,7 +8202,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_hex2bnP10bignum_ctx() unnam
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %76, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -8220,16 +8217,16 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !60
   store ptr null, ptr %8, align 8, !tbaa !19, !noalias !60
   %10 = call i32 @BN_asc2bn(ptr noundef nonnull %8, ptr noundef nonnull @.str.88), !noalias !60
   %.not.i = icmp eq i32 %10, 0
   %11 = load ptr, ptr %8, align 8, !noalias !60
   %storemerge.i = select i1 %.not.i, ptr null, ptr %11
   store ptr %storemerge.i, ptr %9, align 8, !tbaa !19, !alias.scope !60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !60
   %.not20 = icmp eq ptr %storemerge.i, null
   br i1 %.not20, label %125, label %12
 
@@ -8255,7 +8252,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   br label %133
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19, !noalias !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !63
   store ptr null, ptr %7, align 8, !tbaa !19, !noalias !63
   %21 = invoke i32 @BN_asc2bn(ptr noundef nonnull %7, ptr noundef nonnull @.str.90)
           to label %22 unwind label %33
@@ -8264,7 +8261,7 @@ define internal fastcc noundef zeroext i1 @_ZL11test_asc2bnP10bignum_ctx() unnam
   %.not.i20 = icmp eq i32 %21, 0
   %23 = load ptr, ptr %7, align 8, !noalias !63
   %storemerge.i21 = select i1 %.not.i20, ptr null, ptr %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19, !noalias !63
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !63
   store ptr %storemerge.i21, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit unwind label %24
@@ -8302,7 +8299,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   br label %133
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19, !noalias !66
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !66
   store ptr null, ptr %6, align 8, !tbaa !19, !noalias !66
   %36 = invoke i32 @BN_asc2bn(ptr noundef nonnull %6, ptr noundef nonnull @.str.91)
           to label %37 unwind label %48
@@ -8311,7 +8308,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   %.not.i23 = icmp eq i32 %36, 0
   %38 = load ptr, ptr %6, align 8, !noalias !66
   %storemerge.i24 = select i1 %.not.i23, ptr null, ptr %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19, !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !66
   store ptr %storemerge.i24, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %23)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29 unwind label %39
@@ -8349,7 +8346,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   br label %133
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19, !noalias !69
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !69
   store ptr null, ptr %5, align 8, !tbaa !19, !noalias !69
   %51 = invoke i32 @BN_asc2bn(ptr noundef nonnull %5, ptr noundef nonnull @.str.97)
           to label %52 unwind label %63
@@ -8358,7 +8355,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit29: ;
   %.not.i30 = icmp eq i32 %51, 0
   %53 = load ptr, ptr %5, align 8, !noalias !69
   %storemerge.i31 = select i1 %.not.i30, ptr null, ptr %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19, !noalias !69
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !69
   store ptr %storemerge.i31, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %38)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36 unwind label %54
@@ -8396,7 +8393,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   br label %133
 
 65:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19, !noalias !72
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !72
   store ptr null, ptr %4, align 8, !tbaa !19, !noalias !72
   %66 = invoke i32 @BN_asc2bn(ptr noundef nonnull %4, ptr noundef nonnull @.str.98)
           to label %67 unwind label %78
@@ -8405,7 +8402,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit36: ;
   %.not.i37 = icmp eq i32 %66, 0
   %68 = load ptr, ptr %4, align 8, !noalias !72
   %storemerge.i38 = select i1 %.not.i37, ptr null, ptr %68
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19, !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !72
   store ptr %storemerge.i38, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %53)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43 unwind label %69
@@ -8443,7 +8440,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   br label %133
 
 80:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !75
   store ptr null, ptr %3, align 8, !tbaa !19, !noalias !75
   %81 = invoke i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef nonnull @.str.99)
           to label %82 unwind label %93
@@ -8452,7 +8449,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit43: ;
   %.not.i44 = icmp eq i32 %81, 0
   %83 = load ptr, ptr %3, align 8, !noalias !75
   %storemerge.i45 = select i1 %.not.i44, ptr null, ptr %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !75
   store ptr %storemerge.i45, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %68)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 unwind label %84
@@ -8490,7 +8487,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   br label %133
 
 95:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !78
   store ptr null, ptr %2, align 8, !tbaa !19, !noalias !78
   %96 = invoke i32 @BN_asc2bn(ptr noundef nonnull %2, ptr noundef nonnull @.str.92)
           to label %97 unwind label %108
@@ -8499,7 +8496,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   %.not.i51 = icmp eq i32 %96, 0
   %98 = load ptr, ptr %2, align 8, !noalias !78
   %storemerge.i52 = select i1 %.not.i51, ptr null, ptr %98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !78
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !78
   store ptr %storemerge.i52, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %83)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57 unwind label %99
@@ -8537,7 +8534,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   br label %133
 
 110:                                              ; preds = %107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !81
   store ptr null, ptr %1, align 8, !tbaa !19, !noalias !81
   %111 = invoke i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.100)
           to label %112 unwind label %123
@@ -8546,7 +8543,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit57: ;
   %.not.i58 = icmp eq i32 %111, 0
   %113 = load ptr, ptr %1, align 8, !noalias !81
   %storemerge.i59 = select i1 %.not.i58, ptr null, ptr %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !81
   store ptr %storemerge.i59, ptr %9, align 8, !tbaa !19
   invoke void @BN_free(ptr noundef nonnull %98)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64 unwind label %114
@@ -8605,13 +8602,13 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit64: ;
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit66: ; preds = %125, %.thread
   %.0331 = phi i1 [ false, %125 ], [ %.0330, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0331
 
 133:                                              ; preds = %123, %108, %93, %78, %63, %48, %33, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %124, %123 ], [ %109, %108 ], [ %94, %93 ], [ %79, %78 ], [ %64, %63 ], [ %49, %48 ], [ %34, %33 ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %.pn
 }
 
@@ -8621,23 +8618,23 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
   %2 = alloca [8 x i8], align 1
   %3 = alloca %"class.std::unique_ptr.10", align 8
   %4 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %5
 
 5:                                                ; preds = %0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50
   %.031107 = phi i64 [ 0, %0 ], [ %55, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 ]
   %6 = getelementptr inbounds nuw [6 x %struct.MPITest], ptr @_ZL9kMPITests, i64 0, i64 %.031107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %6, align 8, !tbaa !84
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !86
   store ptr null, ptr %1, align 8, !tbaa !19, !noalias !86
   %8 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef %7), !noalias !86
   %.not.i = icmp eq i32 %8, 0
   %9 = load ptr, ptr %1, align 8, !noalias !86
   %storemerge.i = select i1 %.not.i, ptr null, ptr %9
   store ptr %storemerge.i, ptr %3, align 8, !tbaa !19, !alias.scope !86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !86
   %10 = invoke i64 @BN_bn2mpi(ptr noundef %storemerge.i, ptr noundef null)
           to label %11 unwind label %13
 
@@ -8698,7 +8695,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
           to label %.critedge unwind label %.loopexit.split-lp
 
 33:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = invoke ptr @BN_mpi2bn(ptr noundef nonnull %2, i64 noundef %10, ptr noundef null)
           to label %35 unwind label %40
 
@@ -8744,7 +8741,7 @@ define internal fastcc noundef zeroext i1 @_ZL8test_mpiv() unnamed_addr #0 perso
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i49 = icmp eq ptr %storemerge.i, null
   br i1 %.not.i49, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50, label %51
 
@@ -8760,21 +8757,21 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; p
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = add nuw nsw i64 %.031107, 1
   %exitcond = icmp eq i64 %55, 6
   br i1 %exitcond, label %.critedge45, label %5, !llvm.loop !91
 
 56:                                               ; preds = %45, %40
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
 
 57:                                               ; preds = %.loopexit, %.loopexit.split-lp, %56, %13
   %.pn41.pn = phi { ptr, i32 } [ %14, %13 ], [ %.pn, %56 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn41.pn
 
 .critedge.sink.split:                             ; preds = %17, %11
@@ -8814,7 +8811,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50: ;
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54: ; preds = %.critedge47.thread, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i55 = icmp eq ptr %storemerge.i, null
   br i1 %.not.i55, label %.critedge45.sink.split, label %72
 
@@ -8830,19 +8827,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54: ;
   unreachable
 
 .critedge45.sink.split:                           ; preds = %72, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit54, %61, %.critedge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge45
 
 .critedge45:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50, %.critedge45.sink.split
   %76 = phi i1 [ false, %.critedge45.sink.split ], [ true, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %76
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef zeroext i1 @_ZL9test_randv() unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr.10", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @BN_new()
   store ptr %2, ptr %1, align 8, !tbaa !19
   %.not16 = icmp eq ptr %2, null
@@ -8868,7 +8865,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_randv() unnamed_addr #0 pers
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %8
@@ -8970,7 +8967,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_randv() unnamed_addr #0 pers
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit: ; preds = %0, %43
   %.015 = phi i1 [ %.0.ph, %43 ], [ false, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.015
 }
 
@@ -8997,22 +8994,22 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 17:                                               ; preds = %0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132
   %.046.idx208 = phi i64 [ 0, %0 ], [ %.046.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ]
   %.046.ptr209 = getelementptr inbounds nuw i8, ptr @_ZL10kASN1Tests, i64 %.046.idx208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = load ptr, ptr %.046.ptr209, align 8, !tbaa !92
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !94
   store ptr null, ptr %3, align 8, !tbaa !19, !noalias !94
   %19 = call i32 @BN_asc2bn(ptr noundef nonnull %3, ptr noundef %18), !noalias !94
   %.not.i = icmp eq i32 %19, 0
   %20 = load ptr, ptr %3, align 8, !noalias !94
   %storemerge.i = select i1 %.not.i, ptr null, ptr %20
   store ptr %storemerge.i, ptr %4, align 8, !tbaa !19, !alias.scope !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
   %.not196 = icmp eq ptr %storemerge.i, null
   br i1 %.not196, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134, label %21
 
 21:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = invoke ptr @BN_new()
           to label %23 unwind label %24
 
@@ -9027,7 +9024,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br label %96
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !97
   %29 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 16
@@ -9075,9 +9072,9 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br label %101
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @CBB_zero(ptr noundef nonnull %7)
           to label %49 unwind label %.loopexit
 
@@ -9192,10 +9189,10 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   br label %87
 
 87:                                               ; preds = %86, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @BN_free(ptr noundef nonnull %22)
           to label %91 unwind label %88
 
@@ -9207,7 +9204,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   unreachable
 
 91:                                               ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 unwind label %92
 
@@ -9219,37 +9216,37 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132: ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.046.add = add nuw nsw i64 %.046.idx208, 24
   %.not = icmp eq i64 %.046.add, 168
   br i1 %.not, label %.preheader202, label %17
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %.loopexit, %.loopexit.split-lp, %78, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %77, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %95
 
 95:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, %40
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %96
 
 96:                                               ; preds = %95, %24
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %95 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %233
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134: ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 97:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138 unwind label %98
 
@@ -9261,11 +9258,11 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: ; preds = %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 101:                                              ; preds = %37, %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @BN_free(ptr noundef nonnull %22)
           to label %105 unwind label %102
 
@@ -9277,7 +9274,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: 
   unreachable
 
 105:                                              ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142 unwind label %106
 
@@ -9289,14 +9286,14 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: ; preds = %105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 109:                                              ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @BN_free(ptr noundef nonnull %22)
           to label %113 unwind label %110
 
@@ -9308,7 +9305,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: 
   unreachable
 
 113:                                              ; preds = %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146 unwind label %114
 
@@ -9320,7 +9317,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .critedge126:                                     ; preds = %82, %73, %63
@@ -9332,10 +9329,10 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
   br label %118
 
 118:                                              ; preds = %117, %.critedge126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @BN_free(ptr noundef nonnull %22)
           to label %122 unwind label %119
 
@@ -9347,7 +9344,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
   unreachable
 
 122:                                              ; preds = %118
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 unwind label %123
 
@@ -9359,12 +9356,12 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 .preheader202:                                    ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154
   %.073.idx210 = phi i64 [ %.073.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %126 = call ptr @BN_new()
   store ptr %126, ptr %10, align 8, !tbaa !19
   %.not198 = icmp eq ptr %126, null
@@ -9372,7 +9369,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
 
 127:                                              ; preds = %.preheader202
   %.073.ptr211 = getelementptr inbounds nuw i8, ptr @_ZL17kASN1InvalidTests, i64 %.073.idx210
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %128 = load ptr, ptr %.073.ptr211, align 16, !tbaa !99
   %129 = getelementptr inbounds nuw i8, ptr %.073.ptr211, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !101
@@ -9390,9 +9387,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
 134:                                              ; preds = %141, %138, %137, %136, %131, %127
   %135 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %233
 
 136:                                              ; preds = %133
@@ -9416,7 +9413,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
           to label %142 unwind label %134
 
 142:                                              ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @BN_free(ptr noundef nonnull %126)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 unwind label %143
 
@@ -9428,19 +9425,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154: ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.073.add = add nuw nsw i64 %.073.idx210, 16
   %.not90 = icmp eq i64 %.073.add, 32
   br i1 %.not90, label %.preheader, label %.preheader202
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: ; preds = %.preheader202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 146:                                              ; preds = %140, %133
   %147 = load ptr, ptr @stderr, align 8, !tbaa !11
   %148 = call i64 @fwrite(ptr nonnull @.str.122, i64 22, i64 1, ptr %147) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @BN_free(ptr noundef nonnull %126)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158 unwind label %149
 
@@ -9452,20 +9449,20 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 .preheader:                                       ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164
   %.047.idx212 = phi i64 [ %.047.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 ]
   %.047.ptr213 = getelementptr inbounds nuw i8, ptr @_ZL15kASN1BuggyTests, i64 %.047.idx212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %152 = call ptr @BN_new()
   store ptr %152, ptr %12, align 8, !tbaa !19
   %.not199 = icmp eq ptr %152, null
   br i1 %.not199, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, label %153
 
 153:                                              ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %154 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !97
   %156 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 16
@@ -9485,9 +9482,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 .critedge118:                                     ; preds = %161
   %162 = load ptr, ptr @stderr, align 8, !tbaa !11
   %163 = call i64 @fwrite(ptr nonnull @.str.122, i64 22, i64 1, ptr %162) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 164:                                              ; preds = %166, %158, %153
@@ -9500,10 +9497,10 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
           to label %167 unwind label %164
 
 167:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %168 = load ptr, ptr %.047.ptr213, align 8, !tbaa !92
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19, !noalias !102
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !102
   store ptr null, ptr %2, align 8, !tbaa !19, !noalias !102
   %169 = invoke i32 @BN_asc2bn(ptr noundef nonnull %2, ptr noundef %168)
           to label %170 unwind label %172
@@ -9513,7 +9510,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
   %171 = load ptr, ptr %2, align 8, !noalias !102
   %storemerge.i160 = select i1 %.not.i159, ptr null, ptr %171
   store ptr %storemerge.i160, ptr %14, align 8, !tbaa !19, !alias.scope !102
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #19, !noalias !102
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !102
   %.not200 = icmp eq ptr %storemerge.i160, null
   br i1 %.not200, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, label %174
 
@@ -9580,8 +9577,8 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162: ; preds = %194
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %198 = load ptr, ptr %12, align 8, !tbaa !19
   %.not.i163 = icmp eq ptr %198, null
   br i1 %.not.i163, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164, label %199
@@ -9598,25 +9595,25 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162, %199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.047.add = add nuw nsw i64 %.047.idx212, 24
   %.not93 = icmp eq i64 %.047.add, 72
   br i1 %.not93, label %213, label %.preheader
 
 203:                                              ; preds = %185, %172
   %.pn97 = phi { ptr, i32 } [ %186, %185 ], [ %173, %172 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %204
 
 204:                                              ; preds = %203, %164
   %.pn97.pn = phi { ptr, i32 } [ %.pn97, %203 ], [ %165, %164 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %233
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166: ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 .critedge122:                                     ; preds = %182, %191
@@ -9631,8 +9628,8 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168: ; preds = %170, %.critedge122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %208 = load ptr, ptr %12, align 8, !tbaa !19
   %.not.i169 = icmp eq ptr %208, null
   br i1 %.not.i169, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170, label %209
@@ -9649,25 +9646,25 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168: 
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, %209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
 213:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #19, !noalias !105
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !105
   store ptr null, ptr %1, align 8, !tbaa !19, !noalias !105
   %214 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.111), !noalias !105
   %.not.i171 = icmp eq i32 %214, 0
   %215 = load ptr, ptr %1, align 8, !noalias !105
   %storemerge.i172 = select i1 %.not.i171, ptr null, ptr %215
   store ptr %storemerge.i172, ptr %15, align 8, !tbaa !19, !alias.scope !105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19, !noalias !105
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !105
   %.not201 = icmp eq ptr %storemerge.i172, null
   br i1 %.not201, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174, label %216
 
 216:                                              ; preds = %213
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   invoke void @CBB_zero(ptr noundef nonnull %16)
           to label %217 unwind label %226
 
@@ -9696,9 +9693,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
 226:                                              ; preds = %228, %223, %220, %217, %216
   %227 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %233
 
 228:                                              ; preds = %222
@@ -9707,7 +9704,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
 
 229:                                              ; preds = %228, %223
   %.18 = phi i1 [ false, %223 ], [ true, %228 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @BN_free(ptr noundef nonnull %215)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174 unwind label %230
 
@@ -9720,7 +9717,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174: ; preds = %213, %229
   %.17195 = phi i1 [ %.18, %229 ], [ false, %213 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170, %.critedge118, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174
@@ -9732,11 +9729,8 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174: 
   resume { ptr, i32 } %.pn103
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI10bignum_ctx14OpenSSLDeleterIS0_XadL_Z11BN_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI10bignum_ctxXadL_Z11BN_CTX_freeEEEclEPS0_.exit, label %3
@@ -9758,10 +9752,10 @@ _ZN14OpenSSLDeleterI10bignum_ctxXadL_Z11BN_CTX_freeEEEclEPS0_.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #21
   unreachable
@@ -9770,13 +9764,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @BN_new() local_unnamed_addr #1
 
@@ -9849,7 +9843,7 @@ declare i32 @BN_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10unique_ptrI14bn_mont_ctx_st14OpenSSLDeleterIS0_XadL_Z16BN_MONT_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !48
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI14bn_mont_ctx_stXadL_Z16BN_MONT_CTX_freeEEEclEPS0_.exit, label %3
@@ -9879,7 +9873,7 @@ declare i32 @BN_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !19
   %4 = call i32 @BN_hex2bn(ptr noundef nonnull %3, ptr noundef %1)
   %5 = load ptr, ptr %3, align 8, !tbaa !19
@@ -9900,7 +9894,7 @@ define internal fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14
   unreachable
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEE5resetEPS0_.exit: ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -9927,7 +9921,7 @@ declare i32 @BN_sqrt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @BN_bn2dec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @BN_bn2bin_padded(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -9966,7 +9960,13 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_parse_asn1_unsigned_buggy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #13
@@ -9985,17 +9985,17 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 attributes #0 = { mustprogress norecurse uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nofree nounwind }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -166,7 +166,7 @@ define hidden i32 @invoker_requestInvoke(i8 noundef signext %0, i8 noundef signe
   br i1 %16, label %17, label %57
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %18 = load ptr, ptr @gdata, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 528
@@ -242,11 +242,11 @@ define hidden i32 @invoker_requestInvoke(i8 noundef signext %0, i8 noundef signe
   br i1 %.not13.i, label %check_methodClass.exit, label %check_methodClass.exit.thread
 
 check_methodClass.exit.thread:                    ; preds = %23, %36, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %57
 
 check_methodClass.exit:                           ; preds = %48, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %189
 
 57:                                               ; preds = %check_methodClass.exit.thread, %9
@@ -315,10 +315,10 @@ check_methodClass.exit:                           ; preds = %48, %54
   br i1 %.not41.i, label %88, label %fillInvokeRequest.exit.thread
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %10, align 8
   store i8 0, ptr %11, align 1
   %89 = load ptr, ptr %73, align 8
@@ -593,19 +593,19 @@ createGlobalRefs.exit.i:                          ; preds = %176, %.preheader.i.
   br label %createGlobalRefs.exit.thread3.i
 
 createGlobalRefs.exit.thread3.i:                  ; preds = %createGlobalRefs.exit.i, %169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %180 = load ptr, ptr %86, align 8
   call void @jvmtiDeallocate(ptr noundef %180) #5
   br label %fillInvokeRequest.exit.thread
 
 createGlobalRefs.exit.thread.i:                   ; preds = %createGlobalRefs.exit.thread7.i, %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i8 1, ptr %59, align 8
   store i8 0, ptr %61, align 2
   br label %182
@@ -2161,8 +2161,8 @@ isReferenceTag.exit:                              ; preds = %73, %75, %switch.ea
   %.041 = phi i32 [ 0, %.thread ], [ %62, %isReferenceTag.exit ], [ %62, %60 ]
   %.040 = phi i1 [ false, %.thread ], [ %82, %isReferenceTag.exit ], [ true, %60 ]
   %.0 = phi i8 [ 0, %.thread ], [ %.1, %isReferenceTag.exit ], [ %.1, %60 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %2, align 8
   store i8 0, ptr %3, align 1
   %87 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -2257,8 +2257,8 @@ isReferenceTag.exit.i:                            ; preds = %110, %106, %103
   br i1 %.not16.i, label %deleteGlobalArgumentRefs.exit, label %.lr.ph.i, !llvm.loop !11
 
 deleteGlobalArgumentRefs.exit:                    ; preds = %.lr.ph.i, %114, %98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %118 = load ptr, ptr @gdata, align 8
   %.not54 = icmp eq ptr %118, null
   br i1 %.not54, label %125, label %119
@@ -2427,10 +2427,10 @@ declare void @methodSignature_init(ptr noundef, ptr noundef) local_unnamed_addr 
 declare zeroext i8 @methodSignature_nextArgumentExists(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

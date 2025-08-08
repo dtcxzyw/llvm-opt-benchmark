@@ -75,7 +75,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr noundef readonly captu
 
 .preheader:                                       ; preds = %22
   %27 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load i64, ptr %28, align 8, !tbaa !23
   %or.cond44.not.i234 = icmp ugt i64 %29, 6
@@ -157,11 +157,11 @@ fmap_readn.exit35.i:                              ; preds = %54
 
 .loopexit:                                        ; preds = %.lr.ph, %158, %fmap_readn.exit.i, %.preheader, %48
   %.0109198 = phi ptr [ %.0109235, %48 ], [ null, %.preheader ], [ %.0109235, %.lr.ph ], [ %.1110, %158 ], [ %.0109235, %fmap_readn.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread169
 
 .loopexit183:                                     ; preds = %fmap_readn.exit35.i, %49, %54, %fmap_readn.exit30.i, %47, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.1) #7
   br label %.thread169
 
@@ -170,7 +170,7 @@ fmap_readn.exit35.i:                              ; preds = %54
   %.0..0..0..0..0.36.i = load i32, ptr %4, align 4, !tbaa !26
   %60 = and i32 %.0..0..0..0..0..i, 65535
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %60, i32 noundef %52, i32 noundef %.0..0..0..0..0.36.i) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = icmp eq i32 %.0..0..0..0..0.36.i, 0
   br i1 %61, label %158, label %62
 
@@ -314,7 +314,7 @@ fmap_readn.exit.i62:                              ; preds = %89
 111:                                              ; preds = %fmap_readn.exit78.i, %.lr.ph.i
   %.6 = phi i64 [ %59, %.lr.ph.i ], [ %119, %fmap_readn.exit78.i ]
   %.06287.i = phi i32 [ %.0..0..0..0..0.36.i, %.lr.ph.i ], [ %122, %fmap_readn.exit78.i ]
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = load i64, ptr %109, align 8, !tbaa !23
   %or.cond84.not.i = icmp ult i64 %.6, %112
   br i1 %or.cond84.not.i, label %113, label %.thread.i
@@ -335,12 +335,12 @@ fmap_readn.exit78.i:                              ; preds = %113
   %120 = call i32 @fileblobAddData(ptr noundef nonnull %.2111, ptr noundef nonnull %3, i64 noundef %spec.select.i75.i) #7
   %121 = trunc nuw nsw i64 %spec.select.i75.i to i32
   %122 = sub i32 %.06287.i, %121
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i60 = icmp eq i32 %122, 0
   br i1 %.not.i60, label %.loopexit.i, label %111
 
 .thread.i:                                        ; preds = %113, %111
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit.i
 
 123:                                              ; preds = %77
@@ -384,7 +384,7 @@ tnef_attachment.exit:                             ; preds = %125
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %134 = load ptr, ptr %133, align 8, !tbaa !28
   %135 = call ptr @cli_gentemp(ptr noundef %134) #7
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not47 = icmp eq ptr %135, null
   br i1 %.not47, label %.thread165, label %136
 
@@ -434,14 +434,14 @@ fmap_readn.exit67.thread:                         ; preds = %fmap_readn.exit67, 
 
 .thread165:                                       ; preds = %132, %fmap_readn.exit67.thread, %136
   call void @free(ptr noundef %135) #7
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread169
 
 158:                                              ; preds = %tnef_attachment.exit, %tnef_message.exit.thread, %58
   %.1110 = phi ptr [ %.0109235, %58 ], [ %.3112, %tnef_attachment.exit ], [ %69, %tnef_message.exit.thread ]
   %.1107 = phi i64 [ %59, %58 ], [ %128, %tnef_attachment.exit ], [ %75, %tnef_message.exit.thread ]
   %159 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 88
   %161 = load i64, ptr %160, align 8, !tbaa !23
   %or.cond44.not.i = icmp ult i64 %.1107, %161
@@ -477,44 +477,44 @@ fmap_readn.exit:                                  ; preds = %22, %18, %12, %16, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @fileblobDestroy(ptr noundef) local_unnamed_addr #1
 
-declare void @fileblobDestroy(ptr noundef) local_unnamed_addr #2
+declare ptr @fileblobCreate() local_unnamed_addr #1
 
-declare ptr @fileblobCreate() local_unnamed_addr #2
-
-declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #2
+declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
-declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @fileblobGetFilename(ptr noundef) local_unnamed_addr #2
+declare ptr @fileblobGetFilename(ptr noundef) local_unnamed_addr #1
 
-declare void @fileblobSetFilename(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fileblobSetFilename(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
+declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
-declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @fileblobAddData(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @fileblobAddData(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
@@ -523,11 +523,11 @@ declare i64 @llvm.umin.i64(i64, i64) #6
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

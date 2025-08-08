@@ -133,7 +133,7 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
   %indvar = phi i64 [ 0, %.lr.ph.preheader ], [ %indvar.next, %.preheader.preheader ]
   %11 = shl nuw nsw i64 %indvar, 5
   %scevgep = getelementptr i8, ptr %0, i64 %11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv25
   br label %12
 
@@ -153,7 +153,7 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
 
 .preheader.preheader:                             ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 8
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond28.not = icmp eq i64 %indvar.next, %wide.trip.count
@@ -161,10 +161,10 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
@@ -178,7 +178,6 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

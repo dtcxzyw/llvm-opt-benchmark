@@ -30,9 +30,9 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
   %11 = alloca [25 x i8], align 16
   %12 = alloca i64, align 8
   %13 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 3) #6
   %15 = tail call ptr @nodeToString(ptr noundef %2) #6
   %16 = tail call i32 @GetNewOidWithIndex(ptr noundef %14, i32 noundef 2657, i16 noundef signext 1) #6
@@ -96,15 +96,15 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
   br i1 %53, label %119, label %54
 
 54:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %9, i8 0, i64 200, i1 false)
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %10, i8 0, i64 25, i1 false)
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(25) %11, i8 0, i64 25, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 1, ptr %13, align 1
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i64 1, ptr %55, align 16
@@ -203,11 +203,11 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
   br label %118
 
 118:                                              ; preds = %115, %108
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %119
 
 119:                                              ; preds = %118, %43
@@ -236,75 +236,69 @@ define dso_local i32 @StoreAttrDefault(ptr noundef readonly captures(none) %0, i
   br label %129
 
 129:                                              ; preds = %127, %119
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @nodeToString(ptr noundef) local_unnamed_addr #1
 
-declare ptr @nodeToString(ptr noundef) local_unnamed_addr #2
+declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
-declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
-
-declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare ptr @expression_planner(ptr noundef) local_unnamed_addr #2
+declare ptr @expression_planner(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateExecutorState() local_unnamed_addr #2
+declare ptr @CreateExecutorState() local_unnamed_addr #1
 
-declare ptr @ExecPrepareExpr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecPrepareExpr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #2
+declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1
 
-declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #2
+declare void @FreeExecutorState(ptr noundef) local_unnamed_addr #1
 
-declare ptr @construct_array(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #2
+declare ptr @construct_array(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext) local_unnamed_addr #1
 
-declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @recordDependencyOn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @recordDependencyOn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @recordDependencyOnSingleRelExpr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @recordDependencyOnSingleRelExpr(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @RunObjectPostCreateHook(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.ScanKeyData], align 16
   %7 = alloca %struct.ObjectAddress, align 4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 3) #6
   %9 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %9) #6
@@ -324,7 +318,7 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
 
 17:                                               ; preds = %.lr.ph, %17
   %18 = phi ptr [ %13, %.lr.ph ], [ %25, %17 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %19 = getelementptr i8, ptr %18, i64 16
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -336,7 +330,7 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   store i32 %24, ptr %14, align 4
   store i32 0, ptr %15, align 4
   call void @performDeletion(ptr noundef nonnull %7, i32 noundef %2, i32 noundef %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = call ptr @systable_getnext(ptr noundef %12) #6
   %.not15 = icmp eq ptr %25, null
   br i1 %.not15, label %._crit_edge, label %17, !llvm.loop !6
@@ -356,24 +350,24 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   unreachable
 
 30:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #2
+declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
-declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @performDeletion(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
+declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RemoveAttrDefaultById(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 3) #6
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #6
@@ -433,20 +427,20 @@ define dso_local void @RemoveAttrDefaultById(i32 noundef %0) local_unnamed_addr 
   call void @CatalogTupleUpdate(ptr noundef %22, ptr noundef nonnull %37, ptr noundef nonnull %25) #6
   call void @table_close(ptr noundef %22, i32 noundef 3) #6
   call void @relation_close(ptr noundef %20, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetAttrDefaultOid(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 1) #6
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #6
@@ -472,7 +466,7 @@ define dso_local i32 @GetAttrDefaultOid(i32 noundef %0, i16 noundef signext %1) 
   %.0 = phi i32 [ %16, %10 ], [ 0, %2 ]
   call void @systable_endscan(ptr noundef %8) #6
   call void @table_close(ptr noundef %4, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -483,7 +477,7 @@ define dso_local { i64, i32 } @GetAttrDefaultColumnAddress(i32 noundef %0) local
   %.sroa.07.sroa.3.0.extract.shift = lshr i64 %.sroa.07.0.copyload, 32
   %.sroa.07.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.07.sroa.3.0.extract.shift to i32
   %.sroa.4.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 1) #6
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #6
@@ -512,7 +506,7 @@ define dso_local { i64, i32 } @GetAttrDefaultColumnAddress(i32 noundef %0) local
   %.sroa.07.sroa.3.0 = phi i32 [ %14, %7 ], [ %.sroa.07.sroa.3.0.extract.trunc, %1 ]
   call void @systable_endscan(ptr noundef %5) #6
   call void @table_close(ptr noundef %3, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.07.sroa.3.0.insert.ext = zext i32 %.sroa.07.sroa.3.0 to i64
   %.sroa.07.sroa.3.0.insert.shift = shl nuw i64 %.sroa.07.sroa.3.0.insert.ext, 32
   %.sroa.07.sroa.0.0.insert.ext = and i64 %.sroa.07.sroa.0.0, 4294967295
@@ -522,14 +516,20 @@ define dso_local { i64, i32 } @GetAttrDefaultColumnAddress(i32 noundef %0) local
   ret { i64, i32 } %.fca.1.insert
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

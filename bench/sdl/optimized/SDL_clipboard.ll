@@ -50,13 +50,7 @@ define hidden void @SDL_FreeClipboardMimeTypes(ptr noundef captures(none) %0) lo
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @SDL_free_REAL(ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @SDL_free_REAL(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_CancelClipboardData(i32 noundef %0) local_unnamed_addr #0 {
@@ -124,7 +118,7 @@ SDL_FreeClipboardMimeTypes.exit:                  ; preds = %12, %._crit_edge.i
   ret void
 }
 
-declare ptr @SDL_GetVideoDevice() local_unnamed_addr #2
+declare ptr @SDL_GetVideoDevice() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SaveClipboardMimeTypes(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -233,9 +227,9 @@ SDL_FreeClipboardMimeTypes.exit38.thread:         ; preds = %17, %._crit_edge.i3
   ret i1 %.126
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetClipboardData_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -356,7 +350,7 @@ tailrecurse:                                      ; preds = %SDL_CancelClipboard
   br i1 %.not79, label %79, label %55
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not151 = icmp eq i64 %.tr119145, 0
   br i1 %.not151, label %._crit_edge, label %.lr.ph150
 
@@ -408,11 +402,11 @@ tailrecurse:                                      ; preds = %SDL_CancelClipboard
   br i1 %77, label %.critedge, label %78
 
 .critedge:                                        ; preds = %67, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %79
 
 78:                                               ; preds = %67, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
 
 79:                                               ; preds = %.critedge, %52, %50
@@ -497,9 +491,9 @@ SDL_CopyClipboardMimeTypes.exit.thread:           ; preds = %._crit_edge.i, %._c
   ret i1 %current.ret.tr120
 }
 
-declare zeroext i1 @SDL_UninitializedVideo() local_unnamed_addr #2
+declare zeroext i1 @SDL_UninitializedVideo() local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ClearClipboardData_REAL() local_unnamed_addr #0 {
@@ -515,7 +509,7 @@ define hidden zeroext i1 @SDL_IsTextMimeType(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -593,7 +587,7 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
   ret ptr %.030
 }
 
-declare void @SDL_SendClipboardUpdate(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SDL_SendClipboardUpdate(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @SDL_GetInternalClipboardData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -629,13 +623,13 @@ define hidden noalias ptr @SDL_GetInternalClipboardData(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetClipboardData_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = tail call ptr @SDL_GetVideoDevice() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
 
@@ -724,11 +718,11 @@ define hidden ptr @SDL_GetClipboardData_REAL(ptr noundef %0, ptr noundef %1) loc
 
 SDL_GetInternalClipboardData.exit:                ; preds = %41, %37, %33, %30, %21, %28, %27, %13, %8, %5
   %.023 = phi ptr [ %14, %13 ], [ null, %8 ], [ null, %5 ], [ null, %27 ], [ %23, %28 ], [ null, %21 ], [ null, %30 ], [ %40, %41 ], [ null, %37 ], [ null, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.023
 }
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_HasInternalClipboardData(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -758,7 +752,7 @@ define hidden noundef zeroext i1 @SDL_HasInternalClipboardData(ptr noundef reado
   ret i1 %.lcssa
 }
 
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -831,7 +825,7 @@ SDL_HasInternalClipboardData.exit:                ; preds = %.lr.ph.i, %26, %22,
   ret i1 %.0
 }
 
-declare ptr @SDL_AllocateTemporaryMemory(i64 noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateTemporaryMemory(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -933,7 +927,7 @@ SDL_CopyClipboardMimeTypes.exit:                  ; preds = %._crit_edge40.i, %.
   ret ptr %.0
 }
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDL_ClipboardTextCallback(ptr noundef returned %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
@@ -954,7 +948,7 @@ define hidden noundef ptr @SDL_ClipboardTextCallback(ptr noundef returned %0, pt
 define hidden zeroext i1 @SDL_SetClipboardText_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = tail call ptr @SDL_GetVideoDevice() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
@@ -998,7 +992,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %12, %14
 
 20:                                               ; preds = %18, %SDL_GetTextMimeTypes.exit, %4
   %.0 = phi i1 [ %17, %SDL_GetTextMimeTypes.exit ], [ %19, %18 ], [ %5, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
@@ -1007,8 +1001,8 @@ define hidden ptr @SDL_GetClipboardText_REAL() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
   %3 = tail call ptr @SDL_GetVideoDevice() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
@@ -1057,8 +1051,8 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit, %4
   %.0 = phi ptr [ %6, %4 ], [ %19, %.loopexit ], [ %18, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
 
@@ -1066,7 +1060,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
 define hidden zeroext i1 @SDL_HasClipboardText_REAL() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = tail call ptr @SDL_GetVideoDevice() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
@@ -1109,7 +1103,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %5
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %SDL_GetTextMimeTypes.exit, %3
   %.0 = phi i1 [ %4, %3 ], [ false, %SDL_GetTextMimeTypes.exit ], [ %16, %10 ], [ %16, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }
 
@@ -1300,14 +1294,20 @@ define hidden zeroext i1 @SDL_HasPrimarySelectionText_REAL() local_unnamed_addr 
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

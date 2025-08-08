@@ -985,9 +985,6 @@ define hidden zeroext i16 @de_bssgp_cell_id(ptr noundef %0, ptr noundef %1, ptr 
   ret i16 %20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_gmm_rai(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1005,9 +1002,6 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef zeroext i16 @de_bssgp_list_of_setup_pfcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
@@ -2073,7 +2067,7 @@ define internal zeroext i16 @de_bssgp_ran_information_request_app_cont(ptr nound
   br label %37
 
 22:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 1, i1 noundef zeroext true, ptr noundef %2)
   %23 = shl i32 %3, 3
   %24 = load i32, ptr @hf_bssgp_Global_ENB_ID_PDU, align 4
@@ -2082,7 +2076,7 @@ define internal zeroext i16 @de_bssgp_ran_information_request_app_cont(ptr nound
   %27 = call i32 @dissect_s1ap_SONtransferRequestContainer(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %8, ptr noundef %1, i32 noundef %26)
   %28 = add i32 %3, 7
   %29 = ashr i32 %28, 3
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 30:                                               ; preds = %7
@@ -2149,12 +2143,12 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 30:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = zext nneg i8 %18 to i32
   %.not155 = icmp ult i8 %17, 2
   br i1 %.not155, label %._crit_edge, label %.lr.ph152
@@ -2191,10 +2185,10 @@ define internal zeroext i16 @de_bssgp_ran_information_app_cont_unit(ptr noundef 
 
 ._crit_edge:                                      ; preds = %46, %30
   %.1.lcssa = phi i32 [ %25, %30 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 48:                                               ; preds = %7
@@ -3313,7 +3307,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
   %1 = alloca [277 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 2216, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @ett_bssgp, ptr %1, align 16
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_bssgp_list_of_setup_pfcs, ptr %2, align 8
@@ -3377,7 +3371,7 @@ define hidden void @proto_register_bssgp() local_unnamed_addr #1 {
   call void @prefs_register_obsolete_preference(ptr noundef %25, ptr noundef nonnull @.str.277)
   %26 = load ptr, ptr @bssgp_module, align 8
   call void @prefs_register_obsolete_preference(ptr noundef %26, ptr noundef nonnull @.str.278)
-  call void @llvm.lifetime.end.p0(i64 2216, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -3418,7 +3412,7 @@ define internal i32 @dissect_bssgp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %13 = load i32, ptr @ett_bssgp, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i8, ptr @g_pdu_type, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = zext i8 %15 to i32
   %17 = call ptr @try_val_to_str_idx_ext(i32 noundef %16, ptr noundef nonnull @bssgp_msg_strings_ext, ptr noundef nonnull %5)
   %.not.i = icmp eq ptr %17, null
@@ -3430,7 +3424,7 @@ define internal i32 @dissect_bssgp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = sext i32 %20 to i64
   %22 = getelementptr [149 x ptr], ptr @bssgp_msg_fcn, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = load ptr, ptr %7, align 8
   call void @col_add_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull %17)
   %25 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
@@ -3438,7 +3432,7 @@ define internal i32 @dissect_bssgp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %26, label %31, label %35
 
 27:                                               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load i8, ptr @g_pdu_type, align 1
   %29 = zext i8 %28 to i32
   %30 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %12, ptr noundef nonnull @ei_bssgp_msg_type, ptr noundef nonnull @.str.740, i32 noundef %29)
@@ -3490,7 +3484,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #0
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @de_rr_chnl_needed(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -9768,11 +9762,16 @@ declare zeroext i16 @elem_v(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @elem_tlv(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not146 = icmp eq ptr %1, null
   br i1 %.not146, label %._crit_edge.thread, label %.lr.ph
 
@@ -86,7 +86,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.094.lcssa159 = phi i64 [ %.397, %._crit_edge ], [ 0, %2 ]
   %38 = add nuw i64 %.094.lcssa159, 5
-  %39 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %38) #6
+  %39 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %38) #5
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
 
@@ -112,12 +112,12 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %47 = getelementptr inbounds nuw i8, ptr %.1101150, i64 16
   %48 = load i64, ptr %47, align 8, !tbaa !11
-  %49 = call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %3, ptr noundef nonnull %39, ptr noundef %46, i64 noundef %48) #5
+  %49 = call i32 @mbedtls_asn1_write_raw_buffer(ptr noundef nonnull %3, ptr noundef nonnull %39, ptr noundef %46, i64 noundef %48) #6
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %.thread133, label %51
 
 51:                                               ; preds = %44
-  %52 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %48) #5
+  %52 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %48) #6
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %.thread133, label %54
 
@@ -125,7 +125,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %55 = load i32, ptr %.1101150, align 8, !tbaa !3
   %56 = trunc i32 %55 to i8
   %57 = or i8 %56, -128
-  %58 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext %57) #5
+  %58 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext %57) #6
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread133, label %60
 
@@ -135,18 +135,18 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 61:                                               ; preds = %.lr.ph153
   %62 = getelementptr inbounds nuw i8, ptr %.1101150, i64 8
-  %63 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %3, ptr noundef nonnull %39, ptr noundef nonnull %62) #5
+  %63 = call i32 @mbedtls_x509_write_names(ptr noundef nonnull %3, ptr noundef nonnull %39, ptr noundef nonnull %62) #6
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %.thread133, label %65
 
 65:                                               ; preds = %61
   %66 = zext nneg i32 %63 to i64
-  %67 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %66) #5
+  %67 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %66) #6
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %.thread133, label %69
 
 69:                                               ; preds = %65
-  %70 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext -92) #5
+  %70 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext -92) #6
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.thread133, label %72
 
@@ -173,12 +173,12 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 ._crit_edge154:                                   ; preds = %79, %41
   %.098.lcssa = phi i64 [ 0, %41 ], [ %82, %79 ]
-  %83 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %.098.lcssa) #5
+  %83 = call i32 @mbedtls_asn1_write_len(ptr noundef nonnull %3, ptr noundef nonnull %39, i64 noundef %.098.lcssa) #6
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %.thread133, label %85
 
 85:                                               ; preds = %._crit_edge154
-  %86 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext 48) #5
+  %86 = call i32 @mbedtls_asn1_write_tag(ptr noundef nonnull %3, ptr noundef nonnull %39, i8 noundef zeroext 48) #6
   %87 = icmp slt i32 %86, 0
   br i1 %87, label %.thread133, label %88
 
@@ -189,7 +189,7 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
   %92 = add i64 %90, %91
   %93 = sub i64 0, %92
   %94 = getelementptr inbounds i8, ptr %42, i64 %93
-  %95 = call i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 3, i32 noundef 0, ptr noundef nonnull %94, i64 noundef %92) #5
+  %95 = call i32 @mbedtls_x509_set_extension(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 3, i32 noundef 0, ptr noundef nonnull %94, i64 noundef %92) #6
   %96 = load ptr, ptr %3, align 8, !tbaa !24
   %97 = icmp ult ptr %96, %39
   %spec.store.select = select i1 %97, i32 -102, i32 %95
@@ -197,44 +197,44 @@ define hidden i32 @mbedtls_x509_write_set_san_common(ptr noundef %0, ptr noundef
 
 .thread133:                                       ; preds = %51, %54, %44, %73, %.lr.ph153, %69, %65, %61, %88, %85, %._crit_edge154
   %.387 = phi i32 [ %83, %._crit_edge154 ], [ %86, %85 ], [ %spec.store.select, %88 ], [ %52, %51 ], [ %49, %44 ], [ %58, %54 ], [ %63, %61 ], [ %67, %65 ], [ %70, %69 ], [ -8320, %.lr.ph153 ], [ -10240, %73 ]
-  call void @free(ptr noundef nonnull %39) #5
+  call void @free(ptr noundef nonnull %39) #6
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %.lr.ph, %5, %14, %16, %22, %._crit_edge.thread, %._crit_edge, %.thread133
   %.1 = phi i32 [ %.387, %.thread133 ], [ -10240, %._crit_edge ], [ -106, %._crit_edge.thread ], [ -10240, %22 ], [ -10240, %16 ], [ -10240, %14 ], [ -10240, %32 ], [ -8320, %.lr.ph ], [ -10240, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @mbedtls_asn1_write_raw_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_write_raw_buffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_write_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @mbedtls_asn1_write_tag(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_write_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_write_names(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @mbedtls_x509_set_extension(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mbedtls_x509_set_extension(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0,1) }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind allocsize(0,1) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

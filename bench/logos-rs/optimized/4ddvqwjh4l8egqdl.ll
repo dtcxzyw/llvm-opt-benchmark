@@ -122,7 +122,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
   %9 = alloca [32 x i8], align 8
   %10 = alloca [32 x i8], align 8
   %11 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
           to label %.noexc unwind label %12
 
@@ -137,7 +137,7 @@ define internal fastcc void @_ZN13logos_codegen6parser6nested15AttributeParser13
           to label %30 unwind label %27
 
 14:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN13logos_codegen4util12expect_punct17hbca54fff8b16d9cfE(ptr nonnull sret([32 x i8]) align 8 %11, ptr nonnull align 8 %10, i32 61)
           to label %15 unwind label %12
 
@@ -249,7 +249,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @"_ZN94_$LT$proc_macro2..token_stream..IntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c95c4201e5c5950E"(ptr nonnull sret([32 x i8]) align 8 %4, ptr align 8 %1)
           to label %.noexc unwind label %37
 
@@ -274,7 +274,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
           to label %98 unwind label %57
 
 39:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = load i32, ptr %21, align 8
   %41 = icmp eq i32 %40, 4
   br i1 %41, label %42, label %43
@@ -371,7 +371,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
 62:                                               ; preds = %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN13logos_codegen6parser6nested15AttributeParser12collect_tail17hc79792dce947e4aaE(ptr nonnull sret([32 x i8]) align 8 %3, ptr align 8 %1)
           to label %79 unwind label %63, !noalias !3
 
@@ -446,7 +446,7 @@ define void @"_ZN105_$LT$logos_codegen..parser..nested..AttributeParser$u20$as$u
   %.sroa.3.56..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.56..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.226, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 -9223372036854775807, ptr %0, align 8
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.226.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.226, i64 32, i1 false)
@@ -590,10 +590,10 @@ declare void @_ZN11proc_macro25Group6stream17h5bcb6dbd247bf26fE(ptr sret([32 x i
 declare void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Group$GT$17h572145524329a63dE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

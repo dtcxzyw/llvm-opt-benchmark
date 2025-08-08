@@ -13,19 +13,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 0, -2147483648) i32 @get_natural_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtoi32(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #6
+  %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 22
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 10:                                               ; preds = %5
@@ -35,12 +35,12 @@ define range(i32 0, -2147483648) i32 @get_natural_int(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %10
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 14:                                               ; preds = %10
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef %0, i32 noundef %11)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 15:                                               ; preds = %2
@@ -50,31 +50,25 @@ define range(i32 0, -2147483648) i32 @get_natural_int(ptr noundef %0, ptr nounde
 
 18:                                               ; preds = %15
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #2
+declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 1, -2147483648) i32 @get_positive_int(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -84,7 +78,7 @@ define range(i32 1, -2147483648) i32 @get_positive_int(ptr noundef %0, ptr nound
 
 5:                                                ; preds = %2
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef %1)
-  tail call void @exit(i32 noundef 1) #7
+  tail call void @exit(i32 noundef 1) #6
   unreachable
 
 6:                                                ; preds = %2
@@ -94,69 +88,69 @@ define range(i32 1, -2147483648) i32 @get_positive_int(ptr noundef %0, ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @get_uint32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtou32(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #6
+  %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 22
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %3, align 4
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef %0, i32 noundef %11)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 1, 0) i32 @get_nonzero_uint32(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtou32(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   br i1 %4, label %get_uint32.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #6
+  %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 22
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %3, align 4
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef %0, i32 noundef %11)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 get_uint32.exit:                                  ; preds = %2
   %12 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %get_uint32.exit
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef %1)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 15:                                               ; preds = %get_uint32.exit
@@ -166,69 +160,69 @@ get_uint32.exit:                                  ; preds = %2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i64 @get_uint64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtou64(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #6
+  %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 22
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %3, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %0, i64 noundef %11)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 12:                                               ; preds = %2
   %13 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i64 1, 0) i64 @get_nonzero_uint64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call zeroext i1 @ws_strtou64(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
   br i1 %4, label %get_uint64.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @__errno_location() #6
+  %6 = tail call ptr @__errno_location() #5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 22
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %0)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %3, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %0, i64 noundef %11)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 get_uint64.exit:                                  ; preds = %2
   %12 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %get_uint64.exit
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef %1)
-  call void @exit(i32 noundef 1) #7
+  call void @exit(i32 noundef 1) #6
   unreachable
 
 15:                                               ; preds = %get_uint64.exit
@@ -238,14 +232,14 @@ get_uint64.exit:                                  ; preds = %2
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define double @get_positive_double(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call double @g_ascii_strtod(ptr noundef %0, ptr noundef null)
-  %4 = tail call ptr @__errno_location() #6
+  %4 = tail call ptr @__errno_location() #5
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 22
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %2
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef %0)
-  tail call void @exit(i32 noundef 1) #7
+  tail call void @exit(i32 noundef 1) #6
   unreachable
 
 8:                                                ; preds = %2
@@ -254,7 +248,7 @@ define double @get_positive_double(ptr noundef %0, ptr noundef %1) local_unnamed
 
 10:                                               ; preds = %8
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0)
-  tail call void @exit(i32 noundef 1) #7
+  tail call void @exit(i32 noundef 1) #6
   unreachable
 
 11:                                               ; preds = %8
@@ -262,16 +256,21 @@ define double @get_positive_double(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(none) }
-attributes #7 = { cold noreturn nounwind }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(none) }
+attributes #6 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

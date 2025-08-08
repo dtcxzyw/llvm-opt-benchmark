@@ -156,7 +156,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__12ArchNormPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 zeroext %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::reverse_iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %6 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
@@ -526,7 +526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17
           to label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_NormPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_NormPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %130, %132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1170,7 +1170,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyEP8_IO_FI
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 16)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, label %6
 
@@ -1183,11 +1183,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFil
   br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread: ; preds = %3, %6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %13, label %15
 
@@ -1256,7 +1256,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteEP8_IO_F
 define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 16)) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, label %6
 
@@ -1269,11 +1269,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFil
   br i1 %9, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread: ; preds = %3, %6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
 _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %13, label %15
 
@@ -1336,7 +1336,7 @@ _ZNSt10unique_ptrIcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit
 define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.2") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23, !noalias !17
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %5, ptr noundef nonnull @.str.13), !noalias !17
   %.not13.i = icmp eq ptr %6, null
@@ -1373,7 +1373,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1381,7 +1381,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13A
 define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.10") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23, !noalias !20
   %6 = tail call noalias noundef ptr @fopen(ptr noundef readonly %5, ptr noundef nonnull @.str.13), !noalias !20
   %.not13.i = icmp eq ptr %6, null
@@ -1418,7 +1418,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit: ; preds = %.thread11.i, %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.i7.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1912,10 +1912,10 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -448,13 +448,13 @@ tailrecurse:                                      ; preds = %116, %6
   ret i32 %.sroa.021.0
 
 92:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = load i64, ptr %93, align 8
   %95 = tail call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %94)
   store i64 -9223372036854775804, ptr %8, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr align 8 %0, ptr nonnull align 8 %8)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %96
 
 96:                                               ; preds = %47, %92
@@ -464,13 +464,13 @@ tailrecurse:                                      ; preds = %116, %6
   br i1 %.not, label %107, label %97
 
 97:                                               ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %99)
   store i64 -9223372036854775804, ptr %7, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr align 8 %0, ptr nonnull align 8 %7)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 %100, ptr %38, align 4
   %101 = getelementptr inbounds nuw i8, ptr %.tr150, i64 8
   %102 = load ptr, ptr %101, align 8
@@ -1259,7 +1259,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %16)
@@ -1268,7 +1268,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit": ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 18:                                               ; preds = %14
@@ -1322,7 +1322,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit", %57, %60, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i64, ptr %25, align 8
   %39 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %38)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9" unwind label %40
@@ -1330,7 +1330,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9": ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 40:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
@@ -1451,7 +1451,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 
 15:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %17)
@@ -1460,7 +1460,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit": ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 19:                                               ; preds = %15
@@ -1514,7 +1514,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit", %58, %61, %34, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load i64, ptr %26, align 8
   %40 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %39)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9" unwind label %41
@@ -1522,7 +1522,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9": ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 41:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
@@ -1643,7 +1643,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %16)
@@ -1652,7 +1652,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit": ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 18:                                               ; preds = %14
@@ -1706,7 +1706,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 
 "_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread": ; preds = %"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit", %57, %60, %33, %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %38 = load i64, ptr %25, align 8
   %39 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %38)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9" unwind label %40
@@ -1714,7 +1714,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit9": ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 40:                                               ; preds = %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
@@ -1832,7 +1832,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %14, label %44, label %15
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = tail call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
   %17 = extractvalue { i32, i32 } %16, 0
   %18 = extractvalue { i32, i32 } %16, 1
@@ -1845,12 +1845,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %22, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit.thread", label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit"
 
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit.thread": ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit": ; preds = %15
   %23 = load i32, ptr %21, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %44
 
@@ -1913,12 +1913,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   unreachable
 
 51:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = load i64, ptr %27, align 8
   %53 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %52)
   store i64 -9223372036854775804, ptr %6, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %6)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %53, ptr %12, align 4
   %54 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %12)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1944,12 +1944,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br label %44
 
 .thread25:                                        ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18.thread", %46
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %71 = load i64, ptr %27, align 8
   %72 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %71)
   store i64 -9223372036854775804, ptr %5, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %5)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %72, ptr %10, align 4
   %73 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %10)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1984,12 +1984,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %or.cond, label %94, label %112
 
 94:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %95 = load i64, ptr %27, align 8
   %96 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %95)
   store i64 -9223372036854775804, ptr %4, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %96, ptr %8, align 4
   %97 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %8)
   %98 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
@@ -2237,7 +2237,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   store i32 %104, ptr %11, align 4
   %106 = load ptr, ptr %96, align 8
   %107 = load i64, ptr %97, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds i32, ptr %106, i64 %107
   store ptr %106, ptr %5, align 8
   store ptr %108, ptr %98, align 8
@@ -2269,7 +2269,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   br label %114
 
 115:                                              ; preds = %105
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %109, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31.thread", label %116
 
 116:                                              ; preds = %115
@@ -3440,10 +3440,10 @@ declare hidden void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

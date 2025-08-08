@@ -107,9 +107,6 @@ define range(i32 0, 2) i32 @X509_print_ex_fp(ptr noundef %0, ptr noundef %1, i64
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
 declare ptr @BIO_s_file() local_unnamed_addr #1
@@ -293,7 +290,7 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
 
 99:                                               ; preds = %97
   %100 = tail call ptr @X509_get_X509_PUBKEY(ptr noundef %1) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %101 = call i32 @X509_PUBKEY_get0_param(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %100) #4
   %102 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 33) #4
   %103 = icmp slt i32 %102, 1
@@ -330,11 +327,11 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   br label %121
 
 .thread133:                                       ; preds = %99, %104, %107, %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 121:                                              ; preds = %117, %119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %122
 
 122:                                              ; preds = %121, %97
@@ -343,8 +340,8 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not103, label %124, label %141
 
 124:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @X509_get0_uids(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %125 = load ptr, ptr %6, align 8, !tbaa !8
   %.not104 = icmp eq ptr %125, null
@@ -378,13 +375,13 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not107, label %.thread137, label %140
 
 .thread137:                                       ; preds = %126, %129, %134, %137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 140:                                              ; preds = %132, %137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %141
 
 141:                                              ; preds = %140, %122
@@ -404,15 +401,15 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not110, label %148, label %152
 
 148:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @X509_get0_signature(ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef %1) #4
   %149 = load ptr, ptr %8, align 8, !tbaa !10
   %150 = load ptr, ptr %9, align 8, !tbaa !8
   %151 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %149, ptr noundef %150)
   %.inv = icmp sgt i32 %151, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.inv, label %152, label %.thread
 
 152:                                              ; preds = %148, %146
@@ -431,9 +428,6 @@ define range(i32 0, 2) i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 no
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @X509_print_ex(ptr noundef %0, ptr noundef %1, i64 noundef 0, i64 noundef 0)
@@ -451,7 +445,7 @@ declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ossl_serial_number_print(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %1, align 8, !tbaa !12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
@@ -534,7 +528,7 @@ define range(i32 -1, 1) i32 @ossl_serial_number_print(ptr noundef %0, ptr nounde
 
 .loopexit:                                        ; preds = %29, %._crit_edge, %22, %17, %7, %49
   %.024 = phi i32 [ 0, %49 ], [ %., %7 ], [ -1, %17 ], [ -1, %22 ], [ -1, %._crit_edge ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.024
 }
 
@@ -572,8 +566,8 @@ define i32 @X509_signature_print(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.not28, label %29, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call i32 @OBJ_find_sigid_algs(i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %4) #4
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %.thread, label %21
@@ -591,14 +585,14 @@ define i32 @X509_signature_print(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %.not31, label %.thread, label %27
 
 .thread:                                          ; preds = %21, %24, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 27:                                               ; preds = %24
   %28 = call i32 %26(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 8, ptr noundef null) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %33
 
 29:                                               ; preds = %.thread, %16
@@ -712,9 +706,9 @@ define noundef i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef %
   %4 = alloca [80 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @X509_trusted(ptr noundef %1) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %67, label %9
@@ -834,9 +828,9 @@ define noundef i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %67
 
 67:                                               ; preds = %50, %._crit_edge60, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 1
 }
 
@@ -844,8 +838,8 @@ define noundef i32 @X509_aux_print(ptr noundef %0, ptr noundef %1, i32 noundef %
 define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %1, null
   %6 = icmp eq ptr %0, null
   %or.cond = or i1 %6, %5
@@ -949,8 +943,8 @@ define range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %0, ptr noundef %1) lo
 
 53:                                               ; preds = %.sink.split, %2
   %.034 = phi i32 [ 0, %2 ], [ %.034.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.034
 }
 
@@ -1307,6 +1301,12 @@ declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 declare ptr @X509_STORE_get1_all_certs(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

@@ -318,7 +318,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistryC2Ev.exit: ; preds = %.pr
   %49 = ptrtoint ptr %26 to i64
   %50 = atomicrmw xchg ptr %0, i64 %49 seq_cst, align 8
   %51 = icmp eq i64 %50, 0
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %51, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, label %52
 
 52:                                               ; preds = %48
@@ -340,7 +340,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistryC2Ev.exit: ; preds = %.pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %54
 
 54:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, %37, %36, %24
@@ -1801,7 +1801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashSetINS_7TfToken4_RepENS_16Tf_TokenRe
   br i1 %.not.i78, label %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit, label %168, !llvm.loop !29
 
 _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit: ; preds = %168
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %174 unwind label %192
 
@@ -1816,14 +1816,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc
   %179 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %177) #14
   store ptr %179, ptr %178, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %22, ptr %4, align 8
   %180 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfToken4_RepES2_SaIS2_ENSt8__detail9_IdentityENS0_16Tf_TokenRegistry3_EqENS6_5_HashILi5EEENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %181 unwind label %194
 
 181:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.extract = extractvalue { ptr, i8 } %180, 0
   %182 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %177) #14
@@ -2696,13 +2696,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc
           to label %167 unwind label %181
 
 167:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry19_ComputeCompareCodeEPKc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %17, ptr %4, align 8
   %168 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfToken4_RepES2_SaIS2_ENSt8__detail9_IdentityENS0_16Tf_TokenRegistry3_EqENS6_5_HashILi5EEENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %169 unwind label %183
 
 169:                                              ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.extract = extractvalue { ptr, i8 } %168, 0
   %170 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3795,10 +3795,10 @@ define internal void @_GLOBAL__sub_I_token.cpp() #17 section ".text.startup" {
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

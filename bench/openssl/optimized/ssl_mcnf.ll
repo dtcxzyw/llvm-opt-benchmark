@@ -27,8 +27,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = icmp eq ptr %0, null
   %11 = icmp eq ptr %1, null
   %or.cond = and i1 %10, %11
@@ -117,8 +117,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %36, %.lr.ph
   %.14968 = phi i32 [ %spec.select64, %.lr.ph ], [ 0, %36 ]
   %.05167 = phi i64 [ %53, %.lr.ph ], [ 0, %36 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @conf_ssl_get_cmd(ptr noundef %24, i64 noundef %.05167, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   %48 = load ptr, ptr %8, align 8, !tbaa !3
   %49 = load ptr, ptr %9, align 8, !tbaa !3
@@ -126,8 +126,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   %51 = icmp slt i32 %50, 1
   %52 = zext i1 %51 to i32
   %spec.select64 = add nuw nsw i32 %.14968, %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = add nuw i64 %.05167, 1
   %54 = load i64, ptr %7, align 8, !tbaa !8
   %55 = icmp ult i64 %53, %54
@@ -155,8 +155,8 @@ define internal fastcc range(i32 0, 2) i32 @ssl_do_config(ptr noundef %0, ptr no
   %63 = and i1 %.046, %62
   %narrow = or i1 %.048, %63
   %spec.select66 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %spec.select66
 }
 
@@ -172,48 +172,48 @@ define range(i32 0, 2) i32 @ssl_ctx_system_config(ptr noundef %0) local_unnamed_
   ret i32 %2
 }
 
+declare void @ERR_new() local_unnamed_addr #2
+
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i32 @conf_ssl_name_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @conf_ssl_get(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @SSL_CONF_CTX_new() local_unnamed_addr #2
+
+declare void @SSL_CONF_CTX_set_ssl(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @OSSL_LIB_CTX_get_conf_diagnostics(ptr noundef) local_unnamed_addr #2
+
+declare i32 @ssl_undefined_function(ptr noundef) #2
+
+declare i32 @SSL_CONF_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare ptr @OSSL_LIB_CTX_set0_default(ptr noundef) local_unnamed_addr #2
+
+declare void @conf_ssl_get_cmd(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @SSL_CONF_cmd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @SSL_CONF_CTX_finish(ptr noundef) local_unnamed_addr #2
+
+declare void @SSL_CONF_CTX_free(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @ERR_new() local_unnamed_addr #3
-
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i32 @conf_ssl_name_find(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @conf_ssl_get(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @SSL_CONF_CTX_new() local_unnamed_addr #3
-
-declare void @SSL_CONF_CTX_set_ssl(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @SSL_CONF_CTX_set_ssl_ctx(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @OSSL_LIB_CTX_get_conf_diagnostics(ptr noundef) local_unnamed_addr #3
-
-declare i32 @ssl_undefined_function(ptr noundef) #3
-
-declare i32 @SSL_CONF_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare ptr @OSSL_LIB_CTX_set0_default(ptr noundef) local_unnamed_addr #3
-
-declare void @conf_ssl_get_cmd(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @SSL_CONF_cmd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @SSL_CONF_CTX_finish(ptr noundef) local_unnamed_addr #3
-
-declare void @SSL_CONF_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -43,12 +43,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
   %.065 = phi i32 [ 0, %1 ], [ %54, %53 ]
   %8 = call noalias ptr @hwloc_bitmap_alloc() #3
   %9 = call i32 @hwloc_bitmap_set(ptr noundef %8, i32 noundef %.065) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !3
   %10 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6) #3
   %11 = load i32, ptr %6, align 4, !tbaa !3
   %.not62 = icmp eq i32 %11, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not62, label %27, label %12
 
 12:                                               ; preds = %7
@@ -75,12 +75,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
   br label %27
 
 27:                                               ; preds = %12, %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !3
   %28 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5) #3
   %29 = load i32, ptr %5, align 4, !tbaa !3
   %.not63 = icmp eq i32 %29, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not63, label %45, label %30
 
 30:                                               ; preds = %27
@@ -107,12 +107,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
   br label %45
 
 45:                                               ; preds = %30, %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !3
   %46 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4) #3
   %47 = load i32, ptr %4, align 4, !tbaa !3
   %.not64 = icmp eq i32 %47, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not64, label %52, label %48
 
 48:                                               ; preds = %45
@@ -134,12 +134,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
 55:                                               ; preds = %53
   %56 = call noalias ptr @hwloc_bitmap_alloc() #3
   %57 = call i32 @hwloc_bitmap_set_range(ptr noundef %56, i32 noundef 0, i32 noundef 7) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !3
   %58 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %3) #3
   %59 = load i32, ptr %3, align 4, !tbaa !3
   %.not61 = icmp eq i32 %59, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not61, label %75, label %60
 
 60:                                               ; preds = %55
@@ -166,12 +166,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
   br label %75
 
 75:                                               ; preds = %60, %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4, !tbaa !3
   %76 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #3
   %77 = load i32, ptr %2, align 4, !tbaa !3
   %.not = icmp eq i32 %77, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %85, label %78
 
 78:                                               ; preds = %75
@@ -198,29 +198,23 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_k(ptr noundef %0) local_
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #1
 
-declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
+declare i32 @hwloc_bitmap_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @hwloc_bitmap_set(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @hwloc__insert_object_by_cpuset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hwloc__insert_object_by_cpuset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #1
 
-declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #2
+declare i32 @hwloc_bitmap_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @hwloc_bitmap_set_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @hwloc_setup_pu_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @hwloc_setup_pu_level(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @hwloc__add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @hwloc__add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) local_unnamed_addr #0 {
@@ -235,12 +229,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
   %.065 = phi i32 [ 0, %1 ], [ %54, %53 ]
   %8 = call noalias ptr @hwloc_bitmap_alloc() #3
   %9 = call i32 @hwloc_bitmap_set(ptr noundef %8, i32 noundef %.065) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !3
   %10 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6) #3
   %11 = load i32, ptr %6, align 4, !tbaa !3
   %.not62 = icmp eq i32 %11, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not62, label %27, label %12
 
 12:                                               ; preds = %7
@@ -267,12 +261,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
   br label %27
 
 27:                                               ; preds = %12, %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !3
   %28 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5) #3
   %29 = load i32, ptr %5, align 4, !tbaa !3
   %.not63 = icmp eq i32 %29, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not63, label %45, label %30
 
 30:                                               ; preds = %27
@@ -299,12 +293,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
   br label %45
 
 45:                                               ; preds = %30, %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !3
   %46 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4) #3
   %47 = load i32, ptr %4, align 4, !tbaa !3
   %.not64 = icmp eq i32 %47, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not64, label %52, label %48
 
 48:                                               ; preds = %45
@@ -326,12 +320,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
 55:                                               ; preds = %53
   %56 = call noalias ptr @hwloc_bitmap_alloc() #3
   %57 = call i32 @hwloc_bitmap_set_range(ptr noundef %56, i32 noundef 0, i32 noundef 15) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !3
   %58 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %3) #3
   %59 = load i32, ptr %3, align 4, !tbaa !3
   %.not61 = icmp eq i32 %59, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not61, label %75, label %60
 
 60:                                               ; preds = %55
@@ -358,12 +352,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx10(ptr noundef %0) loc
   br label %75
 
 75:                                               ; preds = %60, %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4, !tbaa !3
   %76 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #3
   %77 = load i32, ptr %2, align 4, !tbaa !3
   %.not = icmp eq i32 %77, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %85, label %78
 
 78:                                               ; preds = %75
@@ -403,12 +397,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   %.075 = phi i32 [ 0, %1 ], [ %54, %53 ]
   %8 = call noalias ptr @hwloc_bitmap_alloc() #3
   %9 = call i32 @hwloc_bitmap_set(ptr noundef %8, i32 noundef %.075) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !3
   %10 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6) #3
   %11 = load i32, ptr %6, align 4, !tbaa !3
   %.not72 = icmp eq i32 %11, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not72, label %27, label %12
 
 12:                                               ; preds = %7
@@ -435,12 +429,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   br label %27
 
 27:                                               ; preds = %12, %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !3
   %28 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %5) #3
   %29 = load i32, ptr %5, align 4, !tbaa !3
   %.not73 = icmp eq i32 %29, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not73, label %45, label %30
 
 30:                                               ; preds = %27
@@ -467,12 +461,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   br label %45
 
 45:                                               ; preds = %30, %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !3
   %46 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4) #3
   %47 = load i32, ptr %4, align 4, !tbaa !3
   %.not74 = icmp eq i32 %47, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not74, label %52, label %48
 
 48:                                               ; preds = %45
@@ -492,12 +486,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   br i1 %exitcond.not, label %55, label %7, !llvm.loop !45
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 4, !tbaa !3
   %56 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %3) #3
   %57 = load i32, ptr %3, align 4, !tbaa !3
   %.not71 = icmp eq i32 %57, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not71, label %93, label %58
 
 58:                                               ; preds = %55
@@ -550,12 +544,12 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   br label %93
 
 93:                                               ; preds = %58, %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4, !tbaa !3
   %94 = call i32 @hwloc_topology_get_type_filter(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2) #3
   %95 = load i32, ptr %2, align 4, !tbaa !3
   %.not = icmp eq i32 %95, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not, label %105, label %96
 
 96:                                               ; preds = %93
@@ -580,13 +574,19 @@ define hidden noundef i32 @hwloc_look_hardwired_fujitsu_fx100(ptr noundef %0) lo
   ret i32 0
 }
 
-declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -65,14 +65,8 @@ define noundef i64 @_Z52alts_iovec_record_protocol_max_unprotected_data_sizePK26
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr writeonly captures(address_is_null) %3, i64 %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z49alts_iovec_record_protocol_integrity_only_protectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr writeonly captures(address_is_null) %3, i64 %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %13
@@ -202,7 +196,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
   store i32 %53, ptr %3, align 1
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 6, ptr %54, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !24
@@ -231,7 +225,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
 
 69:                                               ; preds = %.loopexit, %66, %65
   %.3 = phi i32 [ 13, %65 ], [ %68, %66 ], [ %61, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, %34, %33, %30, %29, %25, %24, %18, %17, %11, %10, %69
@@ -240,18 +234,18 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %39, %38, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #3 {
+define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
   br i1 %or.cond, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %7 = add i64 %6, 1
   %8 = tail call ptr @gpr_malloc(i64 noundef %7)
   store ptr %8, ptr %1, align 8, !tbaa !12
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %10 = add i64 %9, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %0, i64 %10, i1 false)
   br label %11
@@ -261,22 +255,22 @@ define internal fastcc void @_ZL20maybe_copy_error_msgPKcPPc(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef) local_unnamed_addr #5
+declare noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef) local_unnamed_addr #4
 
-declare noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef) local_unnamed_addr #5
+declare noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca i8, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !26
   %6 = call noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1)
   %.not = icmp eq i32 %6, 0
@@ -299,7 +293,7 @@ define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %11, %10, %7, %5
   %.1 = phi i32 [ %6, %5 ], [ 0, %7 ], [ 13, %10 ], [ 13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %2, %_ZL20maybe_copy_error_msgPKcPPc.exit
@@ -308,7 +302,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %11, %10, %7, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef byval(%struct.iovec) align 8 %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z51alts_iovec_record_protocol_integrity_only_unprotectP26alts_iovec_record_protocolPK5iovecmS1_S1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr readonly captures(address_is_null) %3, i64 %4, ptr noundef byval(%struct.iovec) align 8 %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca %struct.iovec, align 8
   %10 = icmp eq ptr %0, null
@@ -471,7 +465,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
 
 _ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !24
@@ -497,7 +491,7 @@ _ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
 
 79:                                               ; preds = %76, %75
   %.3 = phi i32 [ 13, %75 ], [ %78, %76 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %63, %62, %57, %56, %46, %45, %40, %39, %35, %34, %31, %30, %26, %25, %19, %18, %12, %11, %79
@@ -506,7 +500,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %63, %62, %57, %56, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL19verify_frame_headermPhPPc(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %8
 
@@ -559,12 +553,12 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %19, %18, %13, %12, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef byval(%struct.iovec) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #7 {
+define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #6 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -572,16 +566,16 @@ define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef reado
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8, !tbaa !12
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #12
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %sext = shl i64 %7, 32
   %8 = ashr exact i64 %sext, 32
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %10 = add i64 %9, 1
   %11 = add i64 %10, %8
-  %12 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %11) #13
+  %12 = tail call ptr @realloc(ptr noundef nonnull %6, i64 noundef %11) #12
   store ptr %12, ptr %1, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %12, i64 %8
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %15 = add i64 %14, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %0, i64 %15, i1 false)
   br label %16
@@ -591,7 +585,7 @@ define internal fastcc void @_ZL22maybe_append_error_msgPKcPPc(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #3 {
+define noundef i32 @_Z52alts_iovec_record_protocol_privacy_integrity_protectP26alts_iovec_record_protocolPK5iovecmS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr %3, i64 %4, ptr noundef %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.iovec, align 8
   %9 = icmp eq ptr %0, null
@@ -696,7 +690,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load i64, ptr %38, align 8, !tbaa !3
   %51 = add i64 %50, %.06.lcssa.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !24
@@ -729,7 +723,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
 
 67:                                               ; preds = %44, %64, %63
   %.3 = phi i32 [ 13, %63 ], [ %66, %64 ], [ %58, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, %25, %24, %18, %17, %11, %10, %67
@@ -738,7 +732,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %42, %41, %34, %33, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef i32 @_Z54alts_iovec_record_protocol_privacy_integrity_unprotectP26alts_iovec_record_protocol5iovecPKS1_mS1_PPc(ptr noundef readonly captures(address_is_null) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly byval(%struct.iovec) align 8 captures(none) %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %13
@@ -861,7 +855,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   br i1 %.not39, label %54, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !24
@@ -895,7 +889,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
 
 71:                                               ; preds = %68, %67, %62
   %.3 = phi i32 [ 13, %62 ], [ 13, %67 ], [ %70, %68 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %41, %40, %36, %35, %25, %24, %18, %17, %11, %10, %51, %52, %71
@@ -904,7 +898,7 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %45, %44, %41, %40, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #3 {
+define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gsec_aead_cryptermbbbPP26alts_iovec_record_protocolPPc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = zext i1 %3 to i8
   %10 = zext i1 %4 to i8
@@ -925,7 +919,7 @@ define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gse
 
 16:                                               ; preds = %7
   %17 = tail call ptr @gpr_zalloc(i64 noundef 32)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !19
   %18 = call noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %6)
   %.not = icmp eq i32 %18, 0
@@ -962,7 +956,7 @@ define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gse
 
 31:                                               ; preds = %29, %25
   %.1 = phi i32 [ 9, %29 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %31
@@ -970,20 +964,20 @@ _ZL20maybe_copy_error_msgPKcPPc.exit:             ; preds = %14, %13, %31
   ret i32 %.0
 }
 
-declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #5
+declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #4
 
-declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z30gsec_aead_crypter_nonce_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #5
+declare void @_Z20alts_counter_destroyP12alts_counter(ptr noundef) local_unnamed_addr #4
 
-declare void @gpr_free(ptr noundef) local_unnamed_addr #5
+declare void @gpr_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %0) local_unnamed_addr #3 {
+define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1000,35 +994,40 @@ define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol
   ret void
 }
 
-declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #5
+declare void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef) local_unnamed_addr #4
 
-declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #5
+declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
-declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind allocsize(1) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

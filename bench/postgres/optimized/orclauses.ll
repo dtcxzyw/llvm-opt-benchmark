@@ -87,7 +87,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   br i1 %46, label %47, label %consider_new_or_clause.exit
 
 47:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %48 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %23, align 8
@@ -100,7 +100,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   %56 = fcmp ogt double %54, 1.000000e+00
   %storemerge.i = select i1 %56, double 1.000000e+00, double %54
   store double %storemerge.i, ptr %55, align 8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %consider_new_or_clause.exit
 
 consider_new_or_clause.exit:                      ; preds = %47, %40, %34, %32, %30, %.lr.ph38
@@ -125,12 +125,9 @@ consider_new_or_clause.exit:                      ; preds = %47, %40, %34, %32, 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @restriction_is_or_clause(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @restriction_is_or_clause(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @extract_or_clause(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
@@ -309,35 +306,38 @@ is_orclause.exit.thread:                          ; preds = %66, %68, %is_orclau
   ret ptr %.3
 }
 
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #1
+
+declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @make_orclause(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
+
+declare ptr @make_restrictinfo(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare double @clause_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @init_dummy_sjinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @make_ands_explicit(ptr noundef) local_unnamed_addr #2
-
-declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @make_orclause(ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @bms_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #2
-
-declare ptr @make_restrictinfo(ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare double @clause_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @init_dummy_sjinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @bms_difference(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

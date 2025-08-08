@@ -33,7 +33,7 @@ define i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i32 noundef range(i32 -1, -2147483648) %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %10 = call i32 @nghttp2_nv_array_copy(ptr noundef nonnull %8, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %9) #8
   %11 = icmp slt i32 %10, 0
@@ -104,7 +104,7 @@ define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef
 
 submit_headers_shared.exit:                       ; preds = %36, %32, %7
   %.0 = phi i32 [ %10, %7 ], [ %.1.i, %36 ], [ %.035..i, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -216,7 +216,7 @@ declare i32 @nghttp2_session_add_settings(ptr noundef, i8 noundef zeroext, ptr n
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2344
   %9 = icmp slt i32 %2, 1
   br i1 %9, label %32, label %10
@@ -272,12 +272,9 @@ define i32 @nghttp2_submit_push_promise(ptr noundef %0, i8 noundef zeroext %1, i
 
 32:                                               ; preds = %.sink.split, %26, %19, %15, %12, %6, %10
   %.0 = phi i32 [ -501, %10 ], [ -501, %6 ], [ -505, %12 ], [ -509, %15 ], [ -901, %19 ], [ %27, %26 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @nghttp2_session_is_my_stream_id(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -294,9 +291,6 @@ declare void @nghttp2_frame_push_promise_init(ptr noundef, i8 noundef zeroext, i
 declare i32 @nghttp2_session_add_item(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @nghttp2_frame_push_promise_free(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_window_update(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -375,7 +369,7 @@ declare i32 @nghttp2_session_add_window_update(ptr noundef, i8 noundef zeroext, 
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %3, 0
   br i1 %6, label %52, label %7
 
@@ -462,7 +456,7 @@ define i32 @nghttp2_session_set_local_window_size(ptr noundef %0, i8 noundef zer
 
 52:                                               ; preds = %43, %32, %29, %20, %9, %4, %50, %48, %41, %27, %25, %18
   %.0 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %28, %27 ], [ %42, %41 ], [ %49, %48 ], [ %51, %50 ], [ -501, %4 ], [ 0, %9 ], [ %21, %20 ], [ 0, %29 ], [ 0, %32 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -563,7 +557,7 @@ declare void @nghttp2_frame_altsvc_init(ptr noundef, i32 noundef, ptr noundef, i
 declare void @nghttp2_frame_altsvc_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -667,7 +661,7 @@ define i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nou
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 declare void @nghttp2_frame_origin_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -748,7 +742,7 @@ declare void @nghttp2_frame_priority_update_free(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_request(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call ptr @nghttp2_data_provider_wrap_v1(ptr noundef nonnull %7, ptr noundef %4) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2675
   %10 = load i8, ptr %9, align 1, !tbaa !39
@@ -775,7 +769,7 @@ set_request_flags.exit.i:                         ; preds = %17, %13
 
 submit_request_shared.exit:                       ; preds = %6, %set_request_flags.exit.i
   %.0.i = phi i32 [ %18, %set_request_flags.exit.i ], [ -505, %6 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -784,7 +778,7 @@ declare ptr @nghttp2_data_provider_wrap_v1(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_request2(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call ptr @nghttp2_data_provider_wrap_v2(ptr noundef nonnull %7, ptr noundef %4) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2675
   %10 = load i8, ptr %9, align 1, !tbaa !39
@@ -811,7 +805,7 @@ set_request_flags.exit.i:                         ; preds = %17, %13
 
 submit_request_shared.exit:                       ; preds = %6, %set_request_flags.exit.i
   %.0.i = phi i32 [ %18, %set_request_flags.exit.i ], [ -505, %6 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -820,7 +814,7 @@ declare ptr @nghttp2_data_provider_wrap_v2(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call ptr @nghttp2_data_provider_wrap_v1(ptr noundef nonnull %6, ptr noundef %4) #8
   %8 = icmp slt i32 %1, 1
   br i1 %8, label %submit_response_shared.exit, label %9
@@ -851,14 +845,14 @@ set_response_flags.exit.i:                        ; preds = %18, %14
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i
   %.0.i = phi i32 [ %19, %set_response_flags.exit.i ], [ -501, %5 ], [ -505, %9 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_response2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call ptr @nghttp2_data_provider_wrap_v2(ptr noundef nonnull %6, ptr noundef %4) #8
   %8 = icmp slt i32 %1, 1
   br i1 %8, label %submit_response_shared.exit, label %9
@@ -889,7 +883,7 @@ set_response_flags.exit.i:                        ; preds = %18, %14
 
 submit_response_shared.exit:                      ; preds = %5, %9, %set_response_flags.exit.i
   %.0.i = phi i32 [ %19, %set_response_flags.exit.i ], [ -501, %5 ], [ -505, %9 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -929,7 +923,7 @@ define hidden i32 @nghttp2_submit_data_shared(ptr noundef %0, i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @nghttp2_frame_data_init(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -938,7 +932,7 @@ declare void @nghttp2_frame_data_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
 
@@ -978,14 +972,14 @@ define i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 nound
 
 nghttp2_submit_data_shared.exit:                  ; preds = %7, %12, %15, %20
   %.0.i = phi i32 [ %19, %20 ], [ -501, %7 ], [ -901, %12 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @nghttp2_submit_data2(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nghttp2_data_provider_wrap, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %7
 
@@ -1025,7 +1019,7 @@ define i32 @nghttp2_submit_data2(ptr noundef %0, i8 noundef zeroext %1, i32 noun
 
 nghttp2_submit_data_shared.exit:                  ; preds = %7, %12, %15, %20
   %.0.i = phi i32 [ %19, %20 ], [ -501, %7 ], [ -901, %12 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -1123,16 +1117,22 @@ declare void @nghttp2_frame_headers_free(ptr noundef, ptr noundef) local_unnamed
 
 declare void @nghttp2_nv_array_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }

@@ -694,8 +694,8 @@ define hidden void @_ZN7JfrDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef no
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %21 = load ptr, ptr %20, align 8
   store i8 12, ptr %4, align 8
@@ -709,8 +709,8 @@ define hidden void @_ZN7JfrDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef no
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load ptr, ptr %27, align 8
   call fastcc void @_ZL18handle_dcmd_resultP12outputStreamP7oopDesc10DCmdSourceP10JavaThread(ptr noundef %26, ptr noundef %28, i32 noundef 4, ptr noundef %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_Z7vm_exiti(i32 noundef 0) #14
   br label %29
 
@@ -1034,8 +1034,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %56
 define hidden void @_ZNK7JfrDCmd10print_helpEPKc(ptr noundef nonnull align 8 dereferenceable(37) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.JavaValue, align 8
   %4 = alloca %class.JfrJavaArguments, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store i8 12, ptr %3, align 8
@@ -1050,8 +1050,8 @@ define hidden void @_ZNK7JfrDCmd10print_helpEPKc(ptr noundef nonnull align 8 der
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   call fastcc void @_ZL18handle_dcmd_resultP12outputStreamP7oopDesc10DCmdSourceP10JavaThread(ptr noundef %12, ptr noundef %14, i32 noundef 4, ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3889,10 +3889,10 @@ declare i32 @llvm.ctpop.i32(i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

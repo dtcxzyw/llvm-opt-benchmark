@@ -30,7 +30,7 @@ ecdh_gen_public_restartable.exit:                 ; preds = %5, %7
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_compute_shared(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.mbedtls_ecp_point, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #7
   %8 = call i32 @mbedtls_ecp_mul_restartable(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef null) #7
   %.not.i = icmp eq i32 %8, 0
@@ -48,7 +48,7 @@ define hidden i32 @mbedtls_ecdh_compute_shared(ptr noundef %0, ptr noundef %1, p
 ecdh_compute_shared_restartable.exit:             ; preds = %6, %9, %11
   %.0.i = phi i32 [ %8, %6 ], [ %12, %11 ], [ -20352, %9 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -139,8 +139,8 @@ define hidden i32 @mbedtls_ecdh_make_params(ptr noundef %0, ptr noundef writeonl
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %0, align 8, !tbaa !8
   %14 = zext i8 %13 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = icmp eq i64 %16, 0
@@ -181,8 +181,8 @@ mbedtls_ecdh_gen_public.exit.i:                   ; preds = %18
 
 ecdh_make_params_internal.exit:                   ; preds = %11, %18, %mbedtls_ecdh_gen_public.exit.i, %24, %26, %31
   %.0.i = phi i32 [ 0, %31 ], [ -20352, %11 ], [ %23, %mbedtls_ecdh_gen_public.exit.i ], [ %25, %24 ], [ %30, %26 ], [ %21, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %35
 
 35:                                               ; preds = %6, %ecdh_make_params_internal.exit
@@ -190,16 +190,10 @@ ecdh_make_params_internal.exit:                   ; preds = %11, %18, %mbedtls_e
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_read_params(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !tbaa !21
   %6 = ptrtoint ptr %2 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -243,11 +237,11 @@ define hidden i32 @mbedtls_ecdh_read_params(ptr noundef %0, ptr noundef %1, ptr 
 
 27:                                               ; preds = %20, %10, %3, %22
   %.0 = phi i32 [ %26, %22 ], [ %9, %3 ], [ -20096, %10 ], [ -20352, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_ecp_tls_read_group_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_tls_read_group_id(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -365,7 +359,7 @@ define hidden i32 @mbedtls_ecdh_read_public(ptr noundef %0, ptr noundef %1, i64 
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %10 = call i32 @mbedtls_ecp_tls_read_point(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %4, i64 noundef %2) #7
@@ -377,7 +371,7 @@ define hidden i32 @mbedtls_ecdh_read_public(ptr noundef %0, ptr noundef %1, i64 
   %.not8.i = icmp eq i64 %14, %2
   %..i = select i1 %.not8.i, i32 0, i32 -20352
   %.0.i = select i1 %.not.i, i32 %..i, i32 %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %3, %7
@@ -404,7 +398,7 @@ define hidden i32 @mbedtls_ecdh_calc_secret(ptr noundef %0, ptr noundef captures
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #7
   %19 = call i32 @mbedtls_ecp_mul_restartable(ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef null) #7
   %.not.i.i.i = icmp eq i32 %19, 0
@@ -418,13 +412,13 @@ define hidden i32 @mbedtls_ecdh_calc_secret(ptr noundef %0, ptr noundef captures
 mbedtls_ecdh_compute_shared.exit.thread.i:        ; preds = %20, %15
   %.0.i.i.ph.i = phi i32 [ -20352, %20 ], [ %19, %15 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ecdh_calc_secret_internal.exit
 
 mbedtls_ecdh_compute_shared.exit.i:               ; preds = %20
   %22 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %16, ptr noundef nonnull %7) #7
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %ecdh_calc_secret_internal.exit
 
@@ -459,51 +453,57 @@ ecdh_calc_secret_internal.exit:                   ; preds = %38, %36, %23, %mbed
   ret i32 %.0
 }
 
-declare i32 @mbedtls_ecp_gen_privkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_gen_privkey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_mul_restartable(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_mul_restartable(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_ecp_point_init(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_ecp_point_init(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_is_zero(ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_is_zero(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_mpi_copy(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_mpi_copy(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_ecp_point_free(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_ecp_point_free(ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_ecp_group_init(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_ecp_group_init(ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_group_load(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_group_load(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @mbedtls_ecp_group_free(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_ecp_group_free(ptr noundef) local_unnamed_addr #5
 
-declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #6
+declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_tls_write_group(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_tls_write_group(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_tls_write_point(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_tls_write_point(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_tls_read_point(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_tls_read_point(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_copy(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_copy(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @mbedtls_mpi_size(ptr noundef) local_unnamed_addr #6
+declare i64 @mbedtls_mpi_size(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_ecp_get_type(ptr noundef) local_unnamed_addr #6
+declare i32 @mbedtls_ecp_get_type(ptr noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_mpi_write_binary_le(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_mpi_write_binary_le(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

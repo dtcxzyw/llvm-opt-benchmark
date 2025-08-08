@@ -62,11 +62,8 @@ define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef %
   ret ptr %20
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL12allocate_newEPNS_19pg_parser_state_strEm(ptr noundef nonnull captures(none) %0, i64 noundef range(i64 0, -7) %1) unnamed_addr #0 {
@@ -126,13 +123,10 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL12allocate_newEPNS_19pg_pars
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17duckdb_libpgquery14pg_parser_initEv() local_unnamed_addr #0 {
@@ -162,15 +156,15 @@ define hidden void @_ZN17duckdb_libpgquery14pg_parser_initEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17duckdb_libpgquery15pg_parser_parseEPKcPNS_16parse_result_strE(ptr noundef %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -238,12 +232,12 @@ define hidden void @_ZN17duckdb_libpgquery15pg_parser_parseEPKcPNS_16parse_resul
   unreachable
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery10raw_parserEPKc(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZN17duckdb_libpgquery10raw_parserEPKc(ptr noundef) local_unnamed_addr #7
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #9
+declare i32 @llvm.eh.typeid.for.p0(ptr) #8
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
@@ -253,17 +247,17 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
   tail call void @_ZSt9terminatev() #27
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17duckdb_libpgquery17pg_parser_cleanupEv() local_unnamed_addr #12 {
+define hidden void @_ZN17duckdb_libpgquery17pg_parser_cleanupEv() local_unnamed_addr #11 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17duckdb_libpgqueryL15pg_parser_stateE)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8208
   %3 = load i64, ptr %2, align 8, !tbaa !12
@@ -303,10 +297,10 @@ define hidden void @_ZN17duckdb_libpgquery17pg_parser_cleanupEv() local_unnamed_
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef %0, ...) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef %0, ...) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17duckdb_libpgqueryL15pg_parser_stateE)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -324,15 +318,15 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef %0, ...
   resume { ptr, i32 } %7
 }
 
-declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #8
+declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #7
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef %0, ptr noundef readnone captures(none) %1, ...) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef %0, ptr noundef readnone captures(none) %1, ...) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
           to label %4 unwind label %5
@@ -349,36 +343,36 @@ define hidden void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef %0) local_unnamed_addr #15 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef %0) local_unnamed_addr #14 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17duckdb_libpgqueryL15pg_parser_stateE)
   store i32 %0, ptr %2, align 8, !tbaa !18
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #16 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #15 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17duckdb_libpgqueryL15pg_parser_stateE)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %2) #24
   call void @llvm.va_end.p0(ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #17
+declare void @llvm.va_start.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #18
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #17
+declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.1)
           to label %3 unwind label %4
@@ -395,7 +389,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef readno
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery15errmsg_internalEPKcz(ptr noundef readnone captures(none) %0, ...) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery15errmsg_internalEPKcz(ptr noundef readnone captures(none) %0, ...) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.2)
           to label %3 unwind label %4
@@ -412,7 +406,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery15errmsg_internalEPKcz(ptr noun
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery9errdetailEPKcz(ptr noundef readnone captures(none) %0, ...) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery9errdetailEPKcz(ptr noundef readnone captures(none) %0, ...) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.3)
           to label %3 unwind label %4
@@ -429,7 +423,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery9errdetailEPKcz(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %0) local_unnamed_addr #15 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %0) local_unnamed_addr #14 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN17duckdb_libpgqueryL15pg_parser_stateE)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4, !tbaa !27
@@ -440,8 +434,8 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery11errpositionEi(i32 noundef %0)
 define hidden noundef nonnull ptr @_ZN17duckdb_libpgquery8psprintfEPKcz(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #0 {
   %2 = alloca [8192 x i8], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %2) #24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8192, ptr noundef %0, ptr noundef nonnull %3) #24
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -520,8 +514,8 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %29, %35
 
 49:                                               ; preds = %_ZN17duckdb_libpgquery6pallocEm.exit, %_ZN17duckdb_libpgquery7pstrdupEPKc.exit
   %.0 = phi ptr [ %26, %_ZN17duckdb_libpgquery7pstrdupEPKc.exit ], [ %45, %_ZN17duckdb_libpgquery6pallocEm.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %2) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -565,10 +559,10 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %1, %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #20 {
+define hidden void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #19 {
   ret void
 }
 
@@ -646,7 +640,7 @@ _ZN17duckdb_libpgquery6pallocEm.exit:             ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery16NameListToStringEPNS_6PGListE(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery16NameListToStringEPNS_6PGListE(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.4)
           to label %3 unwind label %4
@@ -663,7 +657,7 @@ define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery16NameListToStr
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery10copyObjectEPKv(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery10copyObjectEPKv(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.5)
           to label %3 unwind label %4
@@ -680,7 +674,7 @@ define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery10copyObjectEPK
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery5equalEPKvS1_(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery5equalEPKvS1_(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.6)
           to label %4 unwind label %5
@@ -697,7 +691,7 @@ define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery5equalEPKvS1_(ptr nounde
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery12exprLocationEPKNS_6PGNodeE(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery12exprLocationEPKNS_6PGNodeE(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.7)
           to label %3 unwind label %4
@@ -714,7 +708,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery12exprLocationEPKNS_6PGNodeE(pt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr noundef readnone captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(ptr noundef readnone captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.8)
           to label %5 unwind label %6
@@ -731,12 +725,12 @@ define hidden noundef zeroext i1 @_ZN17duckdb_libpgquery14pg_verifymbstrEPKcib(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery31pg_database_encoding_max_lengthEv() local_unnamed_addr #20 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery31pg_database_encoding_max_lengthEv() local_unnamed_addr #19 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery20pg_mbstrlen_with_lenEPKci(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %.critedge
 
@@ -784,7 +778,7 @@ _ZN17duckdb_libpgqueryL12pg_utf_mblenEPKh.exit:   ; preds = %5, %8, %11, %14
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery12pg_mbcliplenEPKcii(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery12pg_mbcliplenEPKcii(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.9)
           to label %5 unwind label %6
@@ -801,7 +795,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery12pg_mbcliplenEPKcii(ptr nounde
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noundef i32 @_ZN17duckdb_libpgquery8pg_mblenEPKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN17duckdb_libpgquery8pg_mblenEPKc(ptr noundef readnone captures(none) %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.10)
           to label %3 unwind label %4
@@ -818,7 +812,7 @@ define hidden noundef i32 @_ZN17duckdb_libpgquery8pg_mblenEPKc(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery11defWithOidsEb(i1 noundef zeroext %0) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery11defWithOidsEb(i1 noundef zeroext %0) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.11)
           to label %3 unwind label %4
@@ -835,7 +829,7 @@ define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery11defWithOidsEb
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery15unicode_to_utf8EjPh(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef nonnull ptr @_ZN17duckdb_libpgquery15unicode_to_utf8EjPh(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #24
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.12)
           to label %4 unwind label %5
@@ -887,6 +881,12 @@ _ZN17duckdb_libpgquery11palloc0fastEm.exit:       ; preds = %2, %10
   ret ptr %20
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22
 
@@ -894,27 +894,27 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(none) }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nosync nounwind memory(none) }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #24 = { nounwind }

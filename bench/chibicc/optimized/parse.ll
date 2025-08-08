@@ -210,16 +210,10 @@ define dso_local noalias noundef ptr @new_cast(ptr noundef %0, ptr noundef %1) l
 
 declare void @add_type(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare ptr @copy_type(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @const_expr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -232,7 +226,7 @@ define dso_local i64 @const_expr(ptr noundef %0, ptr noundef %1) local_unnamed_a
 define internal fastcc ptr @conditional(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !25
   %5 = call fastcc ptr @logand(ptr noundef %3, ptr noundef %1)
   %6 = load ptr, ptr %3, align 8, !tbaa !25
@@ -261,7 +255,7 @@ logor.exit:                                       ; preds = %.lr.ph, %2
   %.0.i.lcssa = phi ptr [ %5, %2 ], [ %12, %.lr.ph ]
   %.lcssa = phi ptr [ %6, %2 ], [ %16, %.lr.ph ]
   store ptr %.lcssa, ptr %4, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = tail call zeroext i1 @equal(ptr noundef %.lcssa, ptr noundef nonnull @.str.2) #13
   br i1 %18, label %19, label %common.ret
 
@@ -417,7 +411,7 @@ define dso_local ptr @parse(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %40
   %24 = phi ptr [ %.sink, %40 ], [ %0, %1 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %25 = call fastcc ptr @declspec(ptr noundef %4, ptr noundef nonnull %24, ptr noundef nonnull %5)
   %26 = load i8, ptr %5, align 4, !tbaa !56, !range !58, !noundef !59
@@ -430,23 +424,23 @@ define dso_local ptr @parse(ptr noundef %0) local_unnamed_addr #0 {
   br label %40, !llvm.loop !60
 
 31:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %28, ptr %2, align 8, !tbaa !25
   %32 = call zeroext i1 @equal(ptr noundef %28, ptr noundef nonnull @.str.99) #13
   br i1 %32, label %is_function.exit.thread, label %is_function.exit
 
 is_function.exit.thread:                          ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %38
 
 is_function.exit:                                 ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 120, i1 false)
   %33 = call fastcc ptr @declarator(ptr noundef %2, ptr noundef %28, ptr noundef nonnull %3)
   %34 = load i32, ptr %33, align 8, !tbaa !61
   %35 = icmp eq i32 %34, 11
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %is_function.exit
@@ -460,18 +454,18 @@ is_function.exit:                                 ; preds = %31
 40:                                               ; preds = %38, %36, %29
   %.sink = phi ptr [ %39, %38 ], [ %37, %36 ], [ %30, %29 ]
   store ptr %.sink, ptr %4, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = load i32, ptr %.sink, align 16, !tbaa !55
   %.not = icmp eq i32 %41, 6
   br i1 %.not, label %.preheader, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %.preheader, %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   br label %scan_globals.exit
 
 ._crit_edge:                                      ; preds = %61
   %.01624.i.pre = load ptr, ptr @globals, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %.not25.i = icmp eq ptr %.01624.i.pre, null
   br i1 %.not25.i, label %scan_globals.exit, label %.lr.ph28.i
 
@@ -531,7 +525,7 @@ scan_globals.exit:                                ; preds = %.loopexit.i, %._cri
   store ptr null, ptr %.017.lcssa.i, align 8, !tbaa !47
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load ptr, ptr %.sroa.0.i, align 8, !tbaa !47
   store ptr %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i, ptr @globals, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   ret ptr %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i
 
 .lr.ph14:                                         ; preds = %.preheader, %61
@@ -552,7 +546,7 @@ scan_globals.exit:                                ; preds = %.loopexit.i, %._cri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @declspec(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
@@ -1750,7 +1744,7 @@ get_ident.exit:                                   ; preds = %.lr.ph41
   %57 = load ptr, ptr %56, align 8, !tbaa !26
   %58 = load ptr, ptr %34, align 8, !tbaa !37
   %59 = call fastcc ptr @initializer(ptr noundef nonnull %5, ptr noundef %57, ptr noundef %58, ptr noundef nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %60 = load ptr, ptr %34, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -1763,7 +1757,7 @@ get_ident.exit:                                   ; preds = %.lr.ph41
   %67 = load ptr, ptr %4, align 8, !tbaa !109
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store ptr %67, ptr %68, align 8, !tbaa !111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %77
 
 69:                                               ; preds = %51
@@ -2583,7 +2577,7 @@ common.ret11:                                     ; preds = %15, %13, %19
 }
 
 ; Function Attrs: noreturn
-declare void @error_tok(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @error_tok(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2811,7 +2805,7 @@ define internal fastcc ptr @logand(ptr noundef nonnull writeonly captures(none) 
   %186 = alloca ptr, align 8
   %187 = alloca ptr, align 8
   %188 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
   store ptr %1, ptr %188, align 8, !tbaa !25
   %189 = call fastcc ptr @bitxor(ptr noundef %188, ptr noundef %1)
   %190 = load ptr, ptr %188, align 8, !tbaa !25
@@ -2839,7 +2833,7 @@ define internal fastcc ptr @logand(ptr noundef nonnull writeonly captures(none) 
 bitor.exit:                                       ; preds = %.lr.ph, %2
   %.0.i.lcssa = phi ptr [ %189, %2 ], [ %196, %.lr.ph ]
   %.lcssa75 = phi ptr [ %190, %2 ], [ %200, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %188)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   %202 = tail call zeroext i1 @equal(ptr noundef %.lcssa75, ptr noundef nonnull @.str.6) #13
   br i1 %202, label %.lr.ph102, label %._crit_edge
 
@@ -2848,7 +2842,7 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   %.036100 = phi ptr [ %.037.lcssa93.lcssa, %bitor.exit5 ], [ %.lcssa75, %bitor.exit ]
   %203 = getelementptr inbounds nuw i8, ptr %.036100, i64 8
   %204 = load ptr, ptr %203, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %187)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   store ptr %204, ptr %187, align 8, !tbaa !25
   %205 = call fastcc ptr @bitxor(ptr noundef %187, ptr noundef %204)
   %.promoted = load ptr, ptr %187, align 8, !tbaa !25
@@ -2860,7 +2854,7 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   %.037.lcssa9394 = phi ptr [ %.037.lcssa, %bitxor.exit ], [ %.promoted, %.lr.ph102 ]
   %207 = getelementptr inbounds nuw i8, ptr %.037.lcssa9394, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   store ptr %208, ptr %167, align 8, !tbaa !25
   %209 = call fastcc ptr @mul(ptr noundef %167, ptr noundef %208)
   br label %210
@@ -2894,7 +2888,7 @@ bitor.exit:                                       ; preds = %.lr.ph, %2
   br label %210
 
 add.exit560:                                      ; preds = %218
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %225
 
 225:                                              ; preds = %add.exit.i218, %add.exit560
@@ -2911,7 +2905,7 @@ add.exit560:                                      ; preds = %218
   %.sink20.i216 = phi i32 [ 10, %225 ], [ 11, %227 ]
   %230 = getelementptr inbounds nuw i8, ptr %.02018, i64 8
   %231 = load ptr, ptr %230, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
   store ptr %231, ptr %168, align 8, !tbaa !25
   %232 = call fastcc ptr @cast(ptr noundef %168, ptr noundef %231)
   br label %233
@@ -2950,7 +2944,7 @@ add.exit560:                                      ; preds = %218
   br label %233
 
 mul.exit557:                                      ; preds = %240
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %251
 
 251:                                              ; preds = %.backedge3811, %mul.exit557
@@ -2962,7 +2956,7 @@ mul.exit557:                                      ; preds = %240
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %.02019, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store ptr %255, ptr %169, align 8, !tbaa !25
   %256 = call fastcc ptr @cast(ptr noundef %169, ptr noundef %255)
   br label %257
@@ -3001,7 +2995,7 @@ mul.exit557:                                      ; preds = %240
   br label %257
 
 mul.exit553:                                      ; preds = %264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
   call void @add_type(ptr noundef %.08.i.i217) #13
   call void @add_type(ptr noundef %.010.i550) #13
   %275 = getelementptr inbounds nuw i8, ptr %.08.i.i217, i64 16
@@ -3109,7 +3103,7 @@ new_add.exit549:                                  ; preds = %278, %.sink.split.i
 322:                                              ; preds = %320
   %323 = getelementptr inbounds nuw i8, ptr %.02019, i64 8
   %324 = load ptr, ptr %323, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   store ptr %324, ptr %170, align 8, !tbaa !25
   %325 = call fastcc ptr @cast(ptr noundef %170, ptr noundef %324)
   br label %326
@@ -3148,7 +3142,7 @@ new_add.exit549:                                  ; preds = %278, %.sink.split.i
   br label %326
 
 mul.exit534:                                      ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   %344 = call fastcc ptr @new_sub(ptr noundef %.08.i.i217, ptr noundef %.010.i531, ptr noundef %.02019)
   br label %.backedge3811
 
@@ -3177,7 +3171,7 @@ shift.exit220:                                    ; preds = %227, %shift.exit214
 350:                                              ; preds = %shift.exit220
   %351 = getelementptr inbounds nuw i8, ptr %.01991, i64 8
   %352 = load ptr, ptr %351, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   store ptr %352, ptr %171, align 8, !tbaa !25
   %353 = call fastcc ptr @mul(ptr noundef %171, ptr noundef %352)
   br label %354
@@ -3191,7 +3185,7 @@ shift.exit220:                                    ; preds = %227, %shift.exit214
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %359 = load ptr, ptr %358, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %359, ptr %21, align 8, !tbaa !25
   %360 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %359)
   br label %361
@@ -3231,7 +3225,7 @@ shift.exit220:                                    ; preds = %227, %shift.exit214
 
 mul.exit1702:                                     ; preds = %368
   store ptr %370, ptr %171, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @add_type(ptr noundef %.08.i528) #13
   call void @add_type(ptr noundef %.010.i1699) #13
   %379 = getelementptr inbounds nuw i8, ptr %.08.i528, i64 16
@@ -3339,7 +3333,7 @@ new_add.exit1698:                                 ; preds = %382, %.sink.split.i
 426:                                              ; preds = %424
   %427 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %428 = load ptr, ptr %427, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %428, ptr %22, align 8, !tbaa !25
   %429 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %428)
   br label %430
@@ -3379,7 +3373,7 @@ new_add.exit1698:                                 ; preds = %382, %.sink.split.i
 
 mul.exit1683:                                     ; preds = %437
   store ptr %439, ptr %171, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %448 = call fastcc ptr @new_sub(ptr noundef %.08.i528, ptr noundef %.010.i1680, ptr noundef %355)
   br label %.backedge3804
 
@@ -3388,7 +3382,7 @@ mul.exit1683:                                     ; preds = %437
   br label %354
 
 add.exit530:                                      ; preds = %424
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
   br label %449
 
 449:                                              ; preds = %add.exit.i212, %add.exit530
@@ -3405,7 +3399,7 @@ add.exit530:                                      ; preds = %424
   %.sink20.i210 = phi i32 [ 10, %449 ], [ 11, %451 ]
   %454 = getelementptr inbounds nuw i8, ptr %.02015, i64 8
   %455 = load ptr, ptr %454, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store ptr %455, ptr %172, align 8, !tbaa !25
   %456 = call fastcc ptr @cast(ptr noundef %172, ptr noundef %455)
   br label %457
@@ -3444,7 +3438,7 @@ add.exit530:                                      ; preds = %424
   br label %457
 
 mul.exit527:                                      ; preds = %464
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %475
 
 475:                                              ; preds = %.backedge3797, %mul.exit527
@@ -3456,7 +3450,7 @@ mul.exit527:                                      ; preds = %464
 477:                                              ; preds = %475
   %478 = getelementptr inbounds nuw i8, ptr %.02016, i64 8
   %479 = load ptr, ptr %478, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
   store ptr %479, ptr %173, align 8, !tbaa !25
   %480 = call fastcc ptr @cast(ptr noundef %173, ptr noundef %479)
   br label %481
@@ -3495,7 +3489,7 @@ mul.exit527:                                      ; preds = %464
   br label %481
 
 mul.exit523:                                      ; preds = %488
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   call void @add_type(ptr noundef %.08.i.i211) #13
   call void @add_type(ptr noundef %.010.i520) #13
   %499 = getelementptr inbounds nuw i8, ptr %.08.i.i211, i64 16
@@ -3603,7 +3597,7 @@ new_add.exit519:                                  ; preds = %502, %.sink.split.i
 546:                                              ; preds = %544
   %547 = getelementptr inbounds nuw i8, ptr %.02016, i64 8
   %548 = load ptr, ptr %547, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   store ptr %548, ptr %174, align 8, !tbaa !25
   %549 = call fastcc ptr @cast(ptr noundef %174, ptr noundef %548)
   br label %550
@@ -3642,7 +3636,7 @@ new_add.exit519:                                  ; preds = %502, %.sink.split.i
   br label %550
 
 mul.exit504:                                      ; preds = %557
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
   %568 = call fastcc ptr @new_sub(ptr noundef %.08.i.i211, ptr noundef %.010.i501, ptr noundef %.02016)
   br label %.backedge3797
 
@@ -3669,7 +3663,7 @@ add.exit.i212:                                    ; preds = %544
 575:                                              ; preds = %573
   %576 = getelementptr inbounds nuw i8, ptr %.01991, i64 8
   %577 = load ptr, ptr %576, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   store ptr %577, ptr %175, align 8, !tbaa !25
   %578 = call fastcc ptr @mul(ptr noundef %175, ptr noundef %577)
   br label %579
@@ -3683,7 +3677,7 @@ add.exit.i212:                                    ; preds = %544
 582:                                              ; preds = %579
   %583 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %584 = load ptr, ptr %583, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %584, ptr %23, align 8, !tbaa !25
   %585 = call fastcc ptr @cast(ptr noundef %23, ptr noundef %584)
   br label %586
@@ -3723,7 +3717,7 @@ add.exit.i212:                                    ; preds = %544
 
 mul.exit1679:                                     ; preds = %593
   store ptr %595, ptr %175, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @add_type(ptr noundef %.08.i498) #13
   call void @add_type(ptr noundef %.010.i1676) #13
   %604 = getelementptr inbounds nuw i8, ptr %.08.i498, i64 16
@@ -3831,7 +3825,7 @@ new_add.exit1675:                                 ; preds = %607, %.sink.split.i
 651:                                              ; preds = %649
   %652 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %653 = load ptr, ptr %652, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %653, ptr %24, align 8, !tbaa !25
   %654 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %653)
   br label %655
@@ -3871,7 +3865,7 @@ new_add.exit1675:                                 ; preds = %607, %.sink.split.i
 
 mul.exit1660:                                     ; preds = %662
   store ptr %664, ptr %175, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %673 = call fastcc ptr @new_sub(ptr noundef %.08.i498, ptr noundef %.010.i1657, ptr noundef %580)
   br label %.backedge3806
 
@@ -3880,7 +3874,7 @@ mul.exit1660:                                     ; preds = %662
   br label %579
 
 add.exit500:                                      ; preds = %649
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
   br label %674
 
 674:                                              ; preds = %add.exit.i206, %add.exit500
@@ -3897,7 +3891,7 @@ add.exit500:                                      ; preds = %649
   %.sink20.i204 = phi i32 [ 10, %674 ], [ 11, %676 ]
   %679 = getelementptr inbounds nuw i8, ptr %.02012, i64 8
   %680 = load ptr, ptr %679, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
   store ptr %680, ptr %176, align 8, !tbaa !25
   %681 = call fastcc ptr @cast(ptr noundef %176, ptr noundef %680)
   br label %682
@@ -3936,7 +3930,7 @@ add.exit500:                                      ; preds = %649
   br label %682
 
 mul.exit497:                                      ; preds = %689
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %176)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %700
 
 700:                                              ; preds = %.backedge3798, %mul.exit497
@@ -3948,7 +3942,7 @@ mul.exit497:                                      ; preds = %689
 702:                                              ; preds = %700
   %703 = getelementptr inbounds nuw i8, ptr %.02013, i64 8
   %704 = load ptr, ptr %703, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   store ptr %704, ptr %177, align 8, !tbaa !25
   %705 = call fastcc ptr @cast(ptr noundef %177, ptr noundef %704)
   br label %706
@@ -3987,7 +3981,7 @@ mul.exit497:                                      ; preds = %689
   br label %706
 
 mul.exit493:                                      ; preds = %713
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
   call void @add_type(ptr noundef %.08.i.i205) #13
   call void @add_type(ptr noundef %.010.i490) #13
   %724 = getelementptr inbounds nuw i8, ptr %.08.i.i205, i64 16
@@ -4095,7 +4089,7 @@ new_add.exit489:                                  ; preds = %727, %.sink.split.i
 771:                                              ; preds = %769
   %772 = getelementptr inbounds nuw i8, ptr %.02013, i64 8
   %773 = load ptr, ptr %772, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   store ptr %773, ptr %178, align 8, !tbaa !25
   %774 = call fastcc ptr @cast(ptr noundef %178, ptr noundef %773)
   br label %775
@@ -4134,7 +4128,7 @@ new_add.exit489:                                  ; preds = %727, %.sink.split.i
   br label %775
 
 mul.exit474:                                      ; preds = %782
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
   %793 = call fastcc ptr @new_sub(ptr noundef %.08.i.i205, ptr noundef %.010.i471, ptr noundef %.02013)
   br label %.backedge3798
 
@@ -4161,7 +4155,7 @@ add.exit.i206:                                    ; preds = %769
 800:                                              ; preds = %798
   %801 = getelementptr inbounds nuw i8, ptr %.01991, i64 8
   %802 = load ptr, ptr %801, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
   store ptr %802, ptr %179, align 8, !tbaa !25
   %803 = call fastcc ptr @mul(ptr noundef %179, ptr noundef %802)
   br label %804
@@ -4175,7 +4169,7 @@ add.exit.i206:                                    ; preds = %769
 807:                                              ; preds = %804
   %808 = getelementptr inbounds nuw i8, ptr %805, i64 8
   %809 = load ptr, ptr %808, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %809, ptr %25, align 8, !tbaa !25
   %810 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %809)
   br label %811
@@ -4215,7 +4209,7 @@ add.exit.i206:                                    ; preds = %769
 
 mul.exit1656:                                     ; preds = %818
   store ptr %820, ptr %179, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @add_type(ptr noundef %.08.i468) #13
   call void @add_type(ptr noundef %.010.i1653) #13
   %829 = getelementptr inbounds nuw i8, ptr %.08.i468, i64 16
@@ -4323,7 +4317,7 @@ new_add.exit1652:                                 ; preds = %832, %.sink.split.i
 876:                                              ; preds = %874
   %877 = getelementptr inbounds nuw i8, ptr %805, i64 8
   %878 = load ptr, ptr %877, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %878, ptr %26, align 8, !tbaa !25
   %879 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %878)
   br label %880
@@ -4363,7 +4357,7 @@ new_add.exit1652:                                 ; preds = %832, %.sink.split.i
 
 mul.exit1637:                                     ; preds = %887
   store ptr %889, ptr %179, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %898 = call fastcc ptr @new_sub(ptr noundef %.08.i468, ptr noundef %.010.i1634, ptr noundef %805)
   br label %.backedge3808
 
@@ -4372,7 +4366,7 @@ mul.exit1637:                                     ; preds = %887
   br label %804
 
 add.exit470:                                      ; preds = %874
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %179)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %899
 
 899:                                              ; preds = %add.exit.i200, %add.exit470
@@ -4389,7 +4383,7 @@ add.exit470:                                      ; preds = %874
   %.sink20.i198 = phi i32 [ 10, %899 ], [ 11, %901 ]
   %904 = getelementptr inbounds nuw i8, ptr %.02009, i64 8
   %905 = load ptr, ptr %904, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   store ptr %905, ptr %180, align 8, !tbaa !25
   %906 = call fastcc ptr @cast(ptr noundef %180, ptr noundef %905)
   br label %907
@@ -4428,7 +4422,7 @@ add.exit470:                                      ; preds = %874
   br label %907
 
 mul.exit467:                                      ; preds = %914
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %925
 
 925:                                              ; preds = %.backedge3799, %mul.exit467
@@ -4440,7 +4434,7 @@ mul.exit467:                                      ; preds = %914
 927:                                              ; preds = %925
   %928 = getelementptr inbounds nuw i8, ptr %.02010, i64 8
   %929 = load ptr, ptr %928, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   store ptr %929, ptr %181, align 8, !tbaa !25
   %930 = call fastcc ptr @cast(ptr noundef %181, ptr noundef %929)
   br label %931
@@ -4479,7 +4473,7 @@ mul.exit467:                                      ; preds = %914
   br label %931
 
 mul.exit463:                                      ; preds = %938
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
   call void @add_type(ptr noundef %.08.i.i199) #13
   call void @add_type(ptr noundef %.010.i460) #13
   %949 = getelementptr inbounds nuw i8, ptr %.08.i.i199, i64 16
@@ -4587,7 +4581,7 @@ new_add.exit459:                                  ; preds = %952, %.sink.split.i
 996:                                              ; preds = %994
   %997 = getelementptr inbounds nuw i8, ptr %.02010, i64 8
   %998 = load ptr, ptr %997, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
   store ptr %998, ptr %182, align 8, !tbaa !25
   %999 = call fastcc ptr @cast(ptr noundef %182, ptr noundef %998)
   br label %1000
@@ -4626,7 +4620,7 @@ new_add.exit459:                                  ; preds = %952, %.sink.split.i
   br label %1000
 
 mul.exit444:                                      ; preds = %1007
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %182)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   %1018 = call fastcc ptr @new_sub(ptr noundef %.08.i.i199, ptr noundef %.010.i441, ptr noundef %.02010)
   br label %.backedge3799
 
@@ -4653,7 +4647,7 @@ add.exit.i200:                                    ; preds = %994
 1025:                                             ; preds = %1023
   %1026 = getelementptr inbounds nuw i8, ptr %.01991, i64 8
   %1027 = load ptr, ptr %1026, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   store ptr %1027, ptr %183, align 8, !tbaa !25
   %1028 = call fastcc ptr @mul(ptr noundef %183, ptr noundef %1027)
   br label %1029
@@ -4667,7 +4661,7 @@ add.exit.i200:                                    ; preds = %994
 1032:                                             ; preds = %1029
   %1033 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   %1034 = load ptr, ptr %1033, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %1034, ptr %27, align 8, !tbaa !25
   %1035 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %1034)
   br label %1036
@@ -4707,7 +4701,7 @@ add.exit.i200:                                    ; preds = %994
 
 mul.exit1633:                                     ; preds = %1043
   store ptr %1045, ptr %183, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @add_type(ptr noundef %.08.i440) #13
   call void @add_type(ptr noundef %.010.i1630) #13
   %1054 = getelementptr inbounds nuw i8, ptr %.08.i440, i64 16
@@ -4815,7 +4809,7 @@ new_add.exit1629:                                 ; preds = %1057, %.sink.split.
 1101:                                             ; preds = %1099
   %1102 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   %1103 = load ptr, ptr %1102, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %1103, ptr %28, align 8, !tbaa !25
   %1104 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %1103)
   br label %1105
@@ -4855,7 +4849,7 @@ new_add.exit1629:                                 ; preds = %1057, %.sink.split.
 
 mul.exit1614:                                     ; preds = %1112
   store ptr %1114, ptr %183, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1123 = call fastcc ptr @new_sub(ptr noundef %.08.i440, ptr noundef %.010.i1611, ptr noundef %1030)
   br label %.backedge3810
 
@@ -4864,7 +4858,7 @@ mul.exit1614:                                     ; preds = %1112
   br label %1029
 
 add.exit:                                         ; preds = %1099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
   br label %1124
 
 1124:                                             ; preds = %add.exit.i, %add.exit
@@ -4881,7 +4875,7 @@ add.exit:                                         ; preds = %1099
   %.sink20.i = phi i32 [ 10, %1124 ], [ 11, %1126 ]
   %1129 = getelementptr inbounds nuw i8, ptr %.02006, i64 8
   %1130 = load ptr, ptr %1129, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   store ptr %1130, ptr %184, align 8, !tbaa !25
   %1131 = call fastcc ptr @cast(ptr noundef %184, ptr noundef %1130)
   br label %1132
@@ -4920,7 +4914,7 @@ add.exit:                                         ; preds = %1099
   br label %1132
 
 mul.exit439:                                      ; preds = %1139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %1150
 
 1150:                                             ; preds = %.backedge3800, %mul.exit439
@@ -4932,7 +4926,7 @@ mul.exit439:                                      ; preds = %1139
 1152:                                             ; preds = %1150
   %1153 = getelementptr inbounds nuw i8, ptr %.02007, i64 8
   %1154 = load ptr, ptr %1153, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
   store ptr %1154, ptr %185, align 8, !tbaa !25
   %1155 = call fastcc ptr @cast(ptr noundef %185, ptr noundef %1154)
   br label %1156
@@ -4971,7 +4965,7 @@ mul.exit439:                                      ; preds = %1139
   br label %1156
 
 mul.exit435:                                      ; preds = %1163
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %185)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @add_type(ptr noundef %.08.i.i) #13
   call void @add_type(ptr noundef %.010.i432) #13
   %1174 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
@@ -5079,7 +5073,7 @@ new_add.exit:                                     ; preds = %1177, %.sink.split.
 1221:                                             ; preds = %1219
   %1222 = getelementptr inbounds nuw i8, ptr %.02007, i64 8
   %1223 = load ptr, ptr %1222, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   store ptr %1223, ptr %186, align 8, !tbaa !25
   %1224 = call fastcc ptr @cast(ptr noundef %186, ptr noundef %1223)
   br label %1225
@@ -5118,7 +5112,7 @@ new_add.exit:                                     ; preds = %1177, %.sink.split.
   br label %1225
 
 mul.exit:                                         ; preds = %1232
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
   %1243 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.02007)
   br label %.backedge3800
 
@@ -5167,7 +5161,7 @@ relational.exit:                                  ; preds = %1023, %relational.e
   %.sink131 = phi i32 [ 12, %relational.exit ], [ 13, %1253 ]
   %1256 = getelementptr inbounds nuw i8, ptr %.01990, i64 8
   %1257 = load ptr, ptr %1256, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store ptr %1257, ptr %149, align 8, !tbaa !25
   %1258 = call fastcc ptr @mul(ptr noundef %149, ptr noundef %1257)
   br label %1259
@@ -5181,7 +5175,7 @@ relational.exit:                                  ; preds = %1023, %relational.e
 1262:                                             ; preds = %1259
   %1263 = getelementptr inbounds nuw i8, ptr %1260, i64 8
   %1264 = load ptr, ptr %1263, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1264, ptr %9, align 8, !tbaa !25
   %1265 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %1264)
   br label %1266
@@ -5221,7 +5215,7 @@ relational.exit:                                  ; preds = %1023, %relational.e
 
 mul.exit1825:                                     ; preds = %1273
   store ptr %1275, ptr %149, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @add_type(ptr noundef %.08.i708) #13
   call void @add_type(ptr noundef %.010.i1822) #13
   %1284 = getelementptr inbounds nuw i8, ptr %.08.i708, i64 16
@@ -5329,7 +5323,7 @@ new_add.exit1821:                                 ; preds = %1287, %.sink.split.
 1331:                                             ; preds = %1329
   %1332 = getelementptr inbounds nuw i8, ptr %1260, i64 8
   %1333 = load ptr, ptr %1332, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1333, ptr %10, align 8, !tbaa !25
   %1334 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %1333)
   br label %1335
@@ -5369,7 +5363,7 @@ new_add.exit1821:                                 ; preds = %1287, %.sink.split.
 
 mul.exit1806:                                     ; preds = %1342
   store ptr %1344, ptr %149, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1353 = call fastcc ptr @new_sub(ptr noundef %.08.i708, ptr noundef %.010.i1803, ptr noundef %1260)
   br label %.backedge3803
 
@@ -5378,7 +5372,7 @@ mul.exit1806:                                     ; preds = %1342
   br label %1259
 
 add.exit710:                                      ; preds = %1329
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %1354
 
 1354:                                             ; preds = %add.exit.i248, %add.exit710
@@ -5395,7 +5389,7 @@ add.exit710:                                      ; preds = %1329
   %.sink20.i246 = phi i32 [ 10, %1354 ], [ 11, %1356 ]
   %1359 = getelementptr inbounds nuw i8, ptr %.02033, i64 8
   %1360 = load ptr, ptr %1359, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store ptr %1360, ptr %150, align 8, !tbaa !25
   %1361 = call fastcc ptr @cast(ptr noundef %150, ptr noundef %1360)
   br label %1362
@@ -5434,7 +5428,7 @@ add.exit710:                                      ; preds = %1329
   br label %1362
 
 mul.exit707:                                      ; preds = %1369
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %1380
 
 1380:                                             ; preds = %.backedge3796, %mul.exit707
@@ -5446,7 +5440,7 @@ mul.exit707:                                      ; preds = %1369
 1382:                                             ; preds = %1380
   %1383 = getelementptr inbounds nuw i8, ptr %.02034, i64 8
   %1384 = load ptr, ptr %1383, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store ptr %1384, ptr %151, align 8, !tbaa !25
   %1385 = call fastcc ptr @cast(ptr noundef %151, ptr noundef %1384)
   br label %1386
@@ -5485,7 +5479,7 @@ mul.exit707:                                      ; preds = %1369
   br label %1386
 
 mul.exit703:                                      ; preds = %1393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   call void @add_type(ptr noundef %.08.i.i247) #13
   call void @add_type(ptr noundef %.010.i700) #13
   %1404 = getelementptr inbounds nuw i8, ptr %.08.i.i247, i64 16
@@ -5593,7 +5587,7 @@ new_add.exit699:                                  ; preds = %1407, %.sink.split.
 1451:                                             ; preds = %1449
   %1452 = getelementptr inbounds nuw i8, ptr %.02034, i64 8
   %1453 = load ptr, ptr %1452, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store ptr %1453, ptr %152, align 8, !tbaa !25
   %1454 = call fastcc ptr @cast(ptr noundef %152, ptr noundef %1453)
   br label %1455
@@ -5632,7 +5626,7 @@ new_add.exit699:                                  ; preds = %1407, %.sink.split.
   br label %1455
 
 mul.exit684:                                      ; preds = %1462
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %1473 = call fastcc ptr @new_sub(ptr noundef %.08.i.i247, ptr noundef %.010.i681, ptr noundef %.02034)
   br label %.backedge3796
 
@@ -5661,7 +5655,7 @@ shift.exit250:                                    ; preds = %1356, %shift.exit24
 1479:                                             ; preds = %shift.exit250
   %1480 = getelementptr inbounds nuw i8, ptr %.01992, i64 8
   %1481 = load ptr, ptr %1480, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1481, ptr %11, align 8, !tbaa !25
   %1482 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %1481)
   br label %1483
@@ -5700,7 +5694,7 @@ shift.exit250:                                    ; preds = %1356, %shift.exit24
   br label %1483
 
 mul.exit1802:                                     ; preds = %1490
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1501
 
 1501:                                             ; preds = %.backedge3789, %mul.exit1802
@@ -5712,7 +5706,7 @@ mul.exit1802:                                     ; preds = %1490
 1503:                                             ; preds = %1501
   %1504 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %1505 = load ptr, ptr %1504, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1505, ptr %12, align 8, !tbaa !25
   %1506 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %1505)
   br label %1507
@@ -5751,7 +5745,7 @@ mul.exit1802:                                     ; preds = %1490
   br label %1507
 
 mul.exit1798:                                     ; preds = %1514
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @add_type(ptr noundef %.08.i678) #13
   call void @add_type(ptr noundef %.010.i1795) #13
   %1525 = getelementptr inbounds nuw i8, ptr %.08.i678, i64 16
@@ -5859,7 +5853,7 @@ new_add.exit1794:                                 ; preds = %1528, %.sink.split.
 1572:                                             ; preds = %1570
   %1573 = getelementptr inbounds nuw i8, ptr %.02128, i64 8
   %1574 = load ptr, ptr %1573, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %1574, ptr %13, align 8, !tbaa !25
   %1575 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %1574)
   br label %1576
@@ -5898,7 +5892,7 @@ new_add.exit1794:                                 ; preds = %1528, %.sink.split.
   br label %1576
 
 mul.exit1779:                                     ; preds = %1583
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %1594 = call fastcc ptr @new_sub(ptr noundef %.08.i678, ptr noundef %.010.i1776, ptr noundef %.02128)
   br label %.backedge3789
 
@@ -5921,7 +5915,7 @@ add.exit680:                                      ; preds = %1570, %add.exit.i24
   %.sink20.i240 = phi i32 [ 10, %add.exit680 ], [ 11, %1596 ]
   %1599 = getelementptr inbounds nuw i8, ptr %.02030, i64 8
   %1600 = load ptr, ptr %1599, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   store ptr %1600, ptr %153, align 8, !tbaa !25
   %1601 = call fastcc ptr @cast(ptr noundef %153, ptr noundef %1600)
   br label %1602
@@ -5960,7 +5954,7 @@ add.exit680:                                      ; preds = %1570, %add.exit.i24
   br label %1602
 
 mul.exit677:                                      ; preds = %1609
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %1620
 
 1620:                                             ; preds = %.backedge3766, %mul.exit677
@@ -5972,7 +5966,7 @@ mul.exit677:                                      ; preds = %1609
 1622:                                             ; preds = %1620
   %1623 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
   %1624 = load ptr, ptr %1623, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   store ptr %1624, ptr %154, align 8, !tbaa !25
   %1625 = call fastcc ptr @cast(ptr noundef %154, ptr noundef %1624)
   br label %1626
@@ -6011,7 +6005,7 @@ mul.exit677:                                      ; preds = %1609
   br label %1626
 
 mul.exit673:                                      ; preds = %1633
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
   call void @add_type(ptr noundef %.08.i.i241) #13
   call void @add_type(ptr noundef %.010.i670) #13
   %1644 = getelementptr inbounds nuw i8, ptr %.08.i.i241, i64 16
@@ -6119,7 +6113,7 @@ new_add.exit669:                                  ; preds = %1647, %.sink.split.
 1691:                                             ; preds = %1689
   %1692 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
   %1693 = load ptr, ptr %1692, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   store ptr %1693, ptr %155, align 8, !tbaa !25
   %1694 = call fastcc ptr @cast(ptr noundef %155, ptr noundef %1693)
   br label %1695
@@ -6158,7 +6152,7 @@ new_add.exit669:                                  ; preds = %1647, %.sink.split.
   br label %1695
 
 mul.exit654:                                      ; preds = %1702
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %1713 = call fastcc ptr @new_sub(ptr noundef %.08.i.i241, ptr noundef %.010.i651, ptr noundef %.02031)
   br label %.backedge3766
 
@@ -6185,7 +6179,7 @@ add.exit.i242:                                    ; preds = %1689
 1720:                                             ; preds = %1718
   %1721 = getelementptr inbounds nuw i8, ptr %.01992, i64 8
   %1722 = load ptr, ptr %1721, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %1722, ptr %14, align 8, !tbaa !25
   %1723 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %1722)
   br label %1724
@@ -6224,7 +6218,7 @@ add.exit.i242:                                    ; preds = %1689
   br label %1724
 
 mul.exit1775:                                     ; preds = %1731
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1742
 
 1742:                                             ; preds = %.backedge3791, %mul.exit1775
@@ -6236,7 +6230,7 @@ mul.exit1775:                                     ; preds = %1731
 1744:                                             ; preds = %1742
   %1745 = getelementptr inbounds nuw i8, ptr %.02126, i64 8
   %1746 = load ptr, ptr %1745, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1746, ptr %15, align 8, !tbaa !25
   %1747 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %1746)
   br label %1748
@@ -6275,7 +6269,7 @@ mul.exit1775:                                     ; preds = %1731
   br label %1748
 
 mul.exit1771:                                     ; preds = %1755
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @add_type(ptr noundef %.08.i648) #13
   call void @add_type(ptr noundef %.010.i1768) #13
   %1766 = getelementptr inbounds nuw i8, ptr %.08.i648, i64 16
@@ -6383,7 +6377,7 @@ new_add.exit1767:                                 ; preds = %1769, %.sink.split.
 1813:                                             ; preds = %1811
   %1814 = getelementptr inbounds nuw i8, ptr %.02126, i64 8
   %1815 = load ptr, ptr %1814, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1815, ptr %16, align 8, !tbaa !25
   %1816 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %1815)
   br label %1817
@@ -6422,7 +6416,7 @@ new_add.exit1767:                                 ; preds = %1769, %.sink.split.
   br label %1817
 
 mul.exit1752:                                     ; preds = %1824
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1835 = call fastcc ptr @new_sub(ptr noundef %.08.i648, ptr noundef %.010.i1749, ptr noundef %.02126)
   br label %.backedge3791
 
@@ -6445,7 +6439,7 @@ add.exit650:                                      ; preds = %1811, %add.exit.i23
   %.sink20.i234 = phi i32 [ 10, %add.exit650 ], [ 11, %1837 ]
   %1840 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %1841 = load ptr, ptr %1840, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
   store ptr %1841, ptr %156, align 8, !tbaa !25
   %1842 = call fastcc ptr @cast(ptr noundef %156, ptr noundef %1841)
   br label %1843
@@ -6484,7 +6478,7 @@ add.exit650:                                      ; preds = %1811, %add.exit.i23
   br label %1843
 
 mul.exit647:                                      ; preds = %1850
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %1861
 
 1861:                                             ; preds = %.backedge3767, %mul.exit647
@@ -6496,7 +6490,7 @@ mul.exit647:                                      ; preds = %1850
 1863:                                             ; preds = %1861
   %1864 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %1865 = load ptr, ptr %1864, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   store ptr %1865, ptr %157, align 8, !tbaa !25
   %1866 = call fastcc ptr @cast(ptr noundef %157, ptr noundef %1865)
   br label %1867
@@ -6535,7 +6529,7 @@ mul.exit647:                                      ; preds = %1850
   br label %1867
 
 mul.exit643:                                      ; preds = %1874
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
   call void @add_type(ptr noundef %.08.i.i235) #13
   call void @add_type(ptr noundef %.010.i640) #13
   %1885 = getelementptr inbounds nuw i8, ptr %.08.i.i235, i64 16
@@ -6643,7 +6637,7 @@ new_add.exit639:                                  ; preds = %1888, %.sink.split.
 1932:                                             ; preds = %1930
   %1933 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %1934 = load ptr, ptr %1933, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   store ptr %1934, ptr %158, align 8, !tbaa !25
   %1935 = call fastcc ptr @cast(ptr noundef %158, ptr noundef %1934)
   br label %1936
@@ -6682,7 +6676,7 @@ new_add.exit639:                                  ; preds = %1888, %.sink.split.
   br label %1936
 
 mul.exit624:                                      ; preds = %1943
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %1954 = call fastcc ptr @new_sub(ptr noundef %.08.i.i235, ptr noundef %.010.i621, ptr noundef %.02028)
   br label %.backedge3767
 
@@ -6709,7 +6703,7 @@ add.exit.i236:                                    ; preds = %1930
 1961:                                             ; preds = %1959
   %1962 = getelementptr inbounds nuw i8, ptr %.01992, i64 8
   %1963 = load ptr, ptr %1962, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
   store ptr %1963, ptr %159, align 8, !tbaa !25
   %1964 = call fastcc ptr @mul(ptr noundef %159, ptr noundef %1963)
   br label %1965
@@ -6723,7 +6717,7 @@ add.exit.i236:                                    ; preds = %1930
 1968:                                             ; preds = %1965
   %1969 = getelementptr inbounds nuw i8, ptr %1966, i64 8
   %1970 = load ptr, ptr %1969, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %1970, ptr %17, align 8, !tbaa !25
   %1971 = call fastcc ptr @cast(ptr noundef %17, ptr noundef %1970)
   br label %1972
@@ -6763,7 +6757,7 @@ add.exit.i236:                                    ; preds = %1930
 
 mul.exit1748:                                     ; preds = %1979
   store ptr %1981, ptr %159, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @add_type(ptr noundef %.08.i618) #13
   call void @add_type(ptr noundef %.010.i1745) #13
   %1990 = getelementptr inbounds nuw i8, ptr %.08.i618, i64 16
@@ -6871,7 +6865,7 @@ new_add.exit1744:                                 ; preds = %1993, %.sink.split.
 2037:                                             ; preds = %2035
   %2038 = getelementptr inbounds nuw i8, ptr %1966, i64 8
   %2039 = load ptr, ptr %2038, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %2039, ptr %18, align 8, !tbaa !25
   %2040 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %2039)
   br label %2041
@@ -6911,7 +6905,7 @@ new_add.exit1744:                                 ; preds = %1993, %.sink.split.
 
 mul.exit1729:                                     ; preds = %2048
   store ptr %2050, ptr %159, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %2059 = call fastcc ptr @new_sub(ptr noundef %.08.i618, ptr noundef %.010.i1726, ptr noundef %1966)
   br label %.backedge3793
 
@@ -6920,7 +6914,7 @@ mul.exit1729:                                     ; preds = %2048
   br label %1965
 
 add.exit620:                                      ; preds = %2035
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   br label %2060
 
 2060:                                             ; preds = %add.exit.i230, %add.exit620
@@ -6937,7 +6931,7 @@ add.exit620:                                      ; preds = %2035
   %.sink20.i228 = phi i32 [ 10, %2060 ], [ 11, %2062 ]
   %2065 = getelementptr inbounds nuw i8, ptr %.02024, i64 8
   %2066 = load ptr, ptr %2065, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %160)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store ptr %2066, ptr %160, align 8, !tbaa !25
   %2067 = call fastcc ptr @cast(ptr noundef %160, ptr noundef %2066)
   br label %2068
@@ -6976,7 +6970,7 @@ add.exit620:                                      ; preds = %2035
   br label %2068
 
 mul.exit617:                                      ; preds = %2075
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %2086
 
 2086:                                             ; preds = %.backedge3768, %mul.exit617
@@ -6988,7 +6982,7 @@ mul.exit617:                                      ; preds = %2075
 2088:                                             ; preds = %2086
   %2089 = getelementptr inbounds nuw i8, ptr %.02025, i64 8
   %2090 = load ptr, ptr %2089, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   store ptr %2090, ptr %161, align 8, !tbaa !25
   %2091 = call fastcc ptr @cast(ptr noundef %161, ptr noundef %2090)
   br label %2092
@@ -7027,7 +7021,7 @@ mul.exit617:                                      ; preds = %2075
   br label %2092
 
 mul.exit613:                                      ; preds = %2099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   call void @add_type(ptr noundef %.08.i.i229) #13
   call void @add_type(ptr noundef %.010.i610) #13
   %2110 = getelementptr inbounds nuw i8, ptr %.08.i.i229, i64 16
@@ -7135,7 +7129,7 @@ new_add.exit609:                                  ; preds = %2113, %.sink.split.
 2157:                                             ; preds = %2155
   %2158 = getelementptr inbounds nuw i8, ptr %.02025, i64 8
   %2159 = load ptr, ptr %2158, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
   store ptr %2159, ptr %162, align 8, !tbaa !25
   %2160 = call fastcc ptr @cast(ptr noundef %162, ptr noundef %2159)
   br label %2161
@@ -7174,7 +7168,7 @@ new_add.exit609:                                  ; preds = %2113, %.sink.split.
   br label %2161
 
 mul.exit594:                                      ; preds = %2168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   %2179 = call fastcc ptr @new_sub(ptr noundef %.08.i.i229, ptr noundef %.010.i591, ptr noundef %.02025)
   br label %.backedge3768
 
@@ -7201,7 +7195,7 @@ add.exit.i230:                                    ; preds = %2155
 2186:                                             ; preds = %2184
   %2187 = getelementptr inbounds nuw i8, ptr %.01992, i64 8
   %2188 = load ptr, ptr %2187, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   store ptr %2188, ptr %163, align 8, !tbaa !25
   %2189 = call fastcc ptr @mul(ptr noundef %163, ptr noundef %2188)
   br label %2190
@@ -7215,7 +7209,7 @@ add.exit.i230:                                    ; preds = %2155
 2193:                                             ; preds = %2190
   %2194 = getelementptr inbounds nuw i8, ptr %2191, i64 8
   %2195 = load ptr, ptr %2194, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %2195, ptr %19, align 8, !tbaa !25
   %2196 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %2195)
   br label %2197
@@ -7255,7 +7249,7 @@ add.exit.i230:                                    ; preds = %2155
 
 mul.exit1725:                                     ; preds = %2204
   store ptr %2206, ptr %163, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @add_type(ptr noundef %.08.i588) #13
   call void @add_type(ptr noundef %.010.i1722) #13
   %2215 = getelementptr inbounds nuw i8, ptr %.08.i588, i64 16
@@ -7363,7 +7357,7 @@ new_add.exit1721:                                 ; preds = %2218, %.sink.split.
 2262:                                             ; preds = %2260
   %2263 = getelementptr inbounds nuw i8, ptr %2191, i64 8
   %2264 = load ptr, ptr %2263, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %2264, ptr %20, align 8, !tbaa !25
   %2265 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %2264)
   br label %2266
@@ -7403,7 +7397,7 @@ new_add.exit1721:                                 ; preds = %2218, %.sink.split.
 
 mul.exit1706:                                     ; preds = %2273
   store ptr %2275, ptr %163, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2284 = call fastcc ptr @new_sub(ptr noundef %.08.i588, ptr noundef %.010.i1703, ptr noundef %2191)
   br label %.backedge3795
 
@@ -7412,7 +7406,7 @@ mul.exit1706:                                     ; preds = %2273
   br label %2190
 
 add.exit590:                                      ; preds = %2260
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
   br label %2285
 
 2285:                                             ; preds = %add.exit.i224, %add.exit590
@@ -7429,7 +7423,7 @@ add.exit590:                                      ; preds = %2260
   %.sink20.i222 = phi i32 [ 10, %2285 ], [ 11, %2287 ]
   %2290 = getelementptr inbounds nuw i8, ptr %.02021, i64 8
   %2291 = load ptr, ptr %2290, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   store ptr %2291, ptr %164, align 8, !tbaa !25
   %2292 = call fastcc ptr @cast(ptr noundef %164, ptr noundef %2291)
   br label %2293
@@ -7468,7 +7462,7 @@ add.exit590:                                      ; preds = %2260
   br label %2293
 
 mul.exit587:                                      ; preds = %2300
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %2311
 
 2311:                                             ; preds = %.backedge3769, %mul.exit587
@@ -7480,7 +7474,7 @@ mul.exit587:                                      ; preds = %2300
 2313:                                             ; preds = %2311
   %2314 = getelementptr inbounds nuw i8, ptr %.02022, i64 8
   %2315 = load ptr, ptr %2314, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
   store ptr %2315, ptr %165, align 8, !tbaa !25
   %2316 = call fastcc ptr @cast(ptr noundef %165, ptr noundef %2315)
   br label %2317
@@ -7519,7 +7513,7 @@ mul.exit587:                                      ; preds = %2300
   br label %2317
 
 mul.exit583:                                      ; preds = %2324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   call void @add_type(ptr noundef %.08.i.i223) #13
   call void @add_type(ptr noundef %.010.i580) #13
   %2335 = getelementptr inbounds nuw i8, ptr %.08.i.i223, i64 16
@@ -7627,7 +7621,7 @@ new_add.exit579:                                  ; preds = %2338, %.sink.split.
 2382:                                             ; preds = %2380
   %2383 = getelementptr inbounds nuw i8, ptr %.02022, i64 8
   %2384 = load ptr, ptr %2383, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   store ptr %2384, ptr %166, align 8, !tbaa !25
   %2385 = call fastcc ptr @cast(ptr noundef %166, ptr noundef %2384)
   br label %2386
@@ -7666,7 +7660,7 @@ new_add.exit579:                                  ; preds = %2338, %.sink.split.
   br label %2386
 
 mul.exit564:                                      ; preds = %2393
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
   %2404 = call fastcc ptr @new_sub(ptr noundef %.08.i.i223, ptr noundef %.010.i561, ptr noundef %.02022)
   br label %.backedge3769
 
@@ -7727,7 +7721,7 @@ bitand.exit.i.preheader:                          ; preds = %equality.exit18, %e
   %.03878 = phi ptr [ %.01989, %equality.exit18 ], [ %.01990, %equality.exit24 ]
   %2419 = getelementptr inbounds nuw i8, ptr %.03878, i64 8
   %2420 = load ptr, ptr %2419, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store ptr %2420, ptr %129, align 8, !tbaa !25
   %2421 = call fastcc ptr @mul(ptr noundef %129, ptr noundef %2420)
   br label %2422
@@ -7761,7 +7755,7 @@ bitand.exit.i.preheader:                          ; preds = %equality.exit18, %e
   br label %2422
 
 add.exit860:                                      ; preds = %2430
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
   br label %2437
 
 2437:                                             ; preds = %add.exit.i278, %add.exit860
@@ -7778,7 +7772,7 @@ add.exit860:                                      ; preds = %2430
   %.sink20.i276 = phi i32 [ 10, %2437 ], [ 11, %2439 ]
   %2442 = getelementptr inbounds nuw i8, ptr %.02048, i64 8
   %2443 = load ptr, ptr %2442, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   store ptr %2443, ptr %130, align 8, !tbaa !25
   %2444 = call fastcc ptr @cast(ptr noundef %130, ptr noundef %2443)
   br label %2445
@@ -7817,7 +7811,7 @@ add.exit860:                                      ; preds = %2430
   br label %2445
 
 mul.exit857:                                      ; preds = %2452
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
   br label %2463
 
 2463:                                             ; preds = %.backedge3788, %mul.exit857
@@ -7829,7 +7823,7 @@ mul.exit857:                                      ; preds = %2452
 2465:                                             ; preds = %2463
   %2466 = getelementptr inbounds nuw i8, ptr %.02049, i64 8
   %2467 = load ptr, ptr %2466, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store ptr %2467, ptr %131, align 8, !tbaa !25
   %2468 = call fastcc ptr @cast(ptr noundef %131, ptr noundef %2467)
   br label %2469
@@ -7868,7 +7862,7 @@ mul.exit857:                                      ; preds = %2452
   br label %2469
 
 mul.exit853:                                      ; preds = %2476
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   call void @add_type(ptr noundef %.08.i.i277) #13
   call void @add_type(ptr noundef %.010.i850) #13
   %2487 = getelementptr inbounds nuw i8, ptr %.08.i.i277, i64 16
@@ -7976,7 +7970,7 @@ new_add.exit849:                                  ; preds = %2490, %.sink.split.
 2534:                                             ; preds = %2532
   %2535 = getelementptr inbounds nuw i8, ptr %.02049, i64 8
   %2536 = load ptr, ptr %2535, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store ptr %2536, ptr %132, align 8, !tbaa !25
   %2537 = call fastcc ptr @cast(ptr noundef %132, ptr noundef %2536)
   br label %2538
@@ -8015,7 +8009,7 @@ new_add.exit849:                                  ; preds = %2490, %.sink.split.
   br label %2538
 
 mul.exit834:                                      ; preds = %2545
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %2556 = call fastcc ptr @new_sub(ptr noundef %.08.i.i277, ptr noundef %.010.i831, ptr noundef %.02049)
   br label %.backedge3788
 
@@ -8044,7 +8038,7 @@ shift.exit280:                                    ; preds = %2439, %shift.exit27
 2562:                                             ; preds = %shift.exit280
   %2563 = getelementptr inbounds nuw i8, ptr %.01994, i64 8
   %2564 = load ptr, ptr %2563, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store ptr %2564, ptr %133, align 8, !tbaa !25
   %2565 = call fastcc ptr @mul(ptr noundef %133, ptr noundef %2564)
   br label %2566
@@ -8078,7 +8072,7 @@ shift.exit280:                                    ; preds = %2439, %shift.exit27
   br label %2566
 
 add.exit830:                                      ; preds = %2574
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   br label %2581
 
 2581:                                             ; preds = %add.exit.i272, %add.exit830
@@ -8095,7 +8089,7 @@ add.exit830:                                      ; preds = %2574
   %.sink20.i270 = phi i32 [ 10, %2581 ], [ 11, %2583 ]
   %2586 = getelementptr inbounds nuw i8, ptr %.02045, i64 8
   %2587 = load ptr, ptr %2586, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store ptr %2587, ptr %134, align 8, !tbaa !25
   %2588 = call fastcc ptr @cast(ptr noundef %134, ptr noundef %2587)
   br label %2589
@@ -8134,7 +8128,7 @@ add.exit830:                                      ; preds = %2574
   br label %2589
 
 mul.exit827:                                      ; preds = %2596
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %2607
 
 2607:                                             ; preds = %.backedge3762, %mul.exit827
@@ -8146,7 +8140,7 @@ mul.exit827:                                      ; preds = %2596
 2609:                                             ; preds = %2607
   %2610 = getelementptr inbounds nuw i8, ptr %.02046, i64 8
   %2611 = load ptr, ptr %2610, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store ptr %2611, ptr %135, align 8, !tbaa !25
   %2612 = call fastcc ptr @cast(ptr noundef %135, ptr noundef %2611)
   br label %2613
@@ -8185,7 +8179,7 @@ mul.exit827:                                      ; preds = %2596
   br label %2613
 
 mul.exit823:                                      ; preds = %2620
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @add_type(ptr noundef %.08.i.i271) #13
   call void @add_type(ptr noundef %.010.i820) #13
   %2631 = getelementptr inbounds nuw i8, ptr %.08.i.i271, i64 16
@@ -8293,7 +8287,7 @@ new_add.exit819:                                  ; preds = %2634, %.sink.split.
 2678:                                             ; preds = %2676
   %2679 = getelementptr inbounds nuw i8, ptr %.02046, i64 8
   %2680 = load ptr, ptr %2679, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store ptr %2680, ptr %136, align 8, !tbaa !25
   %2681 = call fastcc ptr @cast(ptr noundef %136, ptr noundef %2680)
   br label %2682
@@ -8332,7 +8326,7 @@ new_add.exit819:                                  ; preds = %2634, %.sink.split.
   br label %2682
 
 mul.exit804:                                      ; preds = %2689
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   %2700 = call fastcc ptr @new_sub(ptr noundef %.08.i.i271, ptr noundef %.010.i801, ptr noundef %.02046)
   br label %.backedge3762
 
@@ -8359,7 +8353,7 @@ add.exit.i272:                                    ; preds = %2676
 2707:                                             ; preds = %2705
   %2708 = getelementptr inbounds nuw i8, ptr %.01994, i64 8
   %2709 = load ptr, ptr %2708, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store ptr %2709, ptr %137, align 8, !tbaa !25
   %2710 = call fastcc ptr @mul(ptr noundef %137, ptr noundef %2709)
   br label %2711
@@ -8393,7 +8387,7 @@ add.exit.i272:                                    ; preds = %2676
   br label %2711
 
 add.exit800:                                      ; preds = %2719
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   br label %2726
 
 2726:                                             ; preds = %add.exit.i266, %add.exit800
@@ -8410,7 +8404,7 @@ add.exit800:                                      ; preds = %2719
   %.sink20.i264 = phi i32 [ 10, %2726 ], [ 11, %2728 ]
   %2731 = getelementptr inbounds nuw i8, ptr %.02042, i64 8
   %2732 = load ptr, ptr %2731, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store ptr %2732, ptr %138, align 8, !tbaa !25
   %2733 = call fastcc ptr @cast(ptr noundef %138, ptr noundef %2732)
   br label %2734
@@ -8449,7 +8443,7 @@ add.exit800:                                      ; preds = %2719
   br label %2734
 
 mul.exit797:                                      ; preds = %2741
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %2752
 
 2752:                                             ; preds = %.backedge3763, %mul.exit797
@@ -8461,7 +8455,7 @@ mul.exit797:                                      ; preds = %2741
 2754:                                             ; preds = %2752
   %2755 = getelementptr inbounds nuw i8, ptr %.02043, i64 8
   %2756 = load ptr, ptr %2755, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store ptr %2756, ptr %139, align 8, !tbaa !25
   %2757 = call fastcc ptr @cast(ptr noundef %139, ptr noundef %2756)
   br label %2758
@@ -8500,7 +8494,7 @@ mul.exit797:                                      ; preds = %2741
   br label %2758
 
 mul.exit793:                                      ; preds = %2765
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   call void @add_type(ptr noundef %.08.i.i265) #13
   call void @add_type(ptr noundef %.010.i790) #13
   %2776 = getelementptr inbounds nuw i8, ptr %.08.i.i265, i64 16
@@ -8608,7 +8602,7 @@ new_add.exit789:                                  ; preds = %2779, %.sink.split.
 2823:                                             ; preds = %2821
   %2824 = getelementptr inbounds nuw i8, ptr %.02043, i64 8
   %2825 = load ptr, ptr %2824, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store ptr %2825, ptr %140, align 8, !tbaa !25
   %2826 = call fastcc ptr @cast(ptr noundef %140, ptr noundef %2825)
   br label %2827
@@ -8647,7 +8641,7 @@ new_add.exit789:                                  ; preds = %2779, %.sink.split.
   br label %2827
 
 mul.exit774:                                      ; preds = %2834
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %2845 = call fastcc ptr @new_sub(ptr noundef %.08.i.i265, ptr noundef %.010.i771, ptr noundef %.02043)
   br label %.backedge3763
 
@@ -8674,7 +8668,7 @@ add.exit.i266:                                    ; preds = %2821
 2852:                                             ; preds = %2850
   %2853 = getelementptr inbounds nuw i8, ptr %.01994, i64 8
   %2854 = load ptr, ptr %2853, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store ptr %2854, ptr %141, align 8, !tbaa !25
   %2855 = call fastcc ptr @mul(ptr noundef %141, ptr noundef %2854)
   br label %2856
@@ -8708,7 +8702,7 @@ add.exit.i266:                                    ; preds = %2821
   br label %2856
 
 add.exit770:                                      ; preds = %2864
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   br label %2871
 
 2871:                                             ; preds = %add.exit.i260, %add.exit770
@@ -8725,7 +8719,7 @@ add.exit770:                                      ; preds = %2864
   %.sink20.i258 = phi i32 [ 10, %2871 ], [ 11, %2873 ]
   %2876 = getelementptr inbounds nuw i8, ptr %.02039, i64 8
   %2877 = load ptr, ptr %2876, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store ptr %2877, ptr %142, align 8, !tbaa !25
   %2878 = call fastcc ptr @cast(ptr noundef %142, ptr noundef %2877)
   br label %2879
@@ -8764,7 +8758,7 @@ add.exit770:                                      ; preds = %2864
   br label %2879
 
 mul.exit767:                                      ; preds = %2886
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %2897
 
 2897:                                             ; preds = %.backedge3764, %mul.exit767
@@ -8776,7 +8770,7 @@ mul.exit767:                                      ; preds = %2886
 2899:                                             ; preds = %2897
   %2900 = getelementptr inbounds nuw i8, ptr %.02040, i64 8
   %2901 = load ptr, ptr %2900, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store ptr %2901, ptr %143, align 8, !tbaa !25
   %2902 = call fastcc ptr @cast(ptr noundef %143, ptr noundef %2901)
   br label %2903
@@ -8815,7 +8809,7 @@ mul.exit767:                                      ; preds = %2886
   br label %2903
 
 mul.exit763:                                      ; preds = %2910
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   call void @add_type(ptr noundef %.08.i.i259) #13
   call void @add_type(ptr noundef %.010.i760) #13
   %2921 = getelementptr inbounds nuw i8, ptr %.08.i.i259, i64 16
@@ -8923,7 +8917,7 @@ new_add.exit759:                                  ; preds = %2924, %.sink.split.
 2968:                                             ; preds = %2966
   %2969 = getelementptr inbounds nuw i8, ptr %.02040, i64 8
   %2970 = load ptr, ptr %2969, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store ptr %2970, ptr %144, align 8, !tbaa !25
   %2971 = call fastcc ptr @cast(ptr noundef %144, ptr noundef %2970)
   br label %2972
@@ -8962,7 +8956,7 @@ new_add.exit759:                                  ; preds = %2924, %.sink.split.
   br label %2972
 
 mul.exit744:                                      ; preds = %2979
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   %2990 = call fastcc ptr @new_sub(ptr noundef %.08.i.i259, ptr noundef %.010.i741, ptr noundef %.02040)
   br label %.backedge3764
 
@@ -8989,7 +8983,7 @@ add.exit.i260:                                    ; preds = %2966
 2997:                                             ; preds = %2995
   %2998 = getelementptr inbounds nuw i8, ptr %.01994, i64 8
   %2999 = load ptr, ptr %2998, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store ptr %2999, ptr %145, align 8, !tbaa !25
   %3000 = call fastcc ptr @mul(ptr noundef %145, ptr noundef %2999)
   br label %3001
@@ -9023,7 +9017,7 @@ add.exit.i260:                                    ; preds = %2966
   br label %3001
 
 add.exit740:                                      ; preds = %3009
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
   br label %3016
 
 3016:                                             ; preds = %add.exit.i254, %add.exit740
@@ -9040,7 +9034,7 @@ add.exit740:                                      ; preds = %3009
   %.sink20.i252 = phi i32 [ 10, %3016 ], [ 11, %3018 ]
   %3021 = getelementptr inbounds nuw i8, ptr %.02036, i64 8
   %3022 = load ptr, ptr %3021, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store ptr %3022, ptr %146, align 8, !tbaa !25
   %3023 = call fastcc ptr @cast(ptr noundef %146, ptr noundef %3022)
   br label %3024
@@ -9079,7 +9073,7 @@ add.exit740:                                      ; preds = %3009
   br label %3024
 
 mul.exit737:                                      ; preds = %3031
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %3042
 
 3042:                                             ; preds = %.backedge3765, %mul.exit737
@@ -9091,7 +9085,7 @@ mul.exit737:                                      ; preds = %3031
 3044:                                             ; preds = %3042
   %3045 = getelementptr inbounds nuw i8, ptr %.02037, i64 8
   %3046 = load ptr, ptr %3045, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store ptr %3046, ptr %147, align 8, !tbaa !25
   %3047 = call fastcc ptr @cast(ptr noundef %147, ptr noundef %3046)
   br label %3048
@@ -9130,7 +9124,7 @@ mul.exit737:                                      ; preds = %3031
   br label %3048
 
 mul.exit733:                                      ; preds = %3055
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   call void @add_type(ptr noundef %.08.i.i253) #13
   call void @add_type(ptr noundef %.010.i730) #13
   %3066 = getelementptr inbounds nuw i8, ptr %.08.i.i253, i64 16
@@ -9238,7 +9232,7 @@ new_add.exit729:                                  ; preds = %3069, %.sink.split.
 3113:                                             ; preds = %3111
   %3114 = getelementptr inbounds nuw i8, ptr %.02037, i64 8
   %3115 = load ptr, ptr %3114, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store ptr %3115, ptr %148, align 8, !tbaa !25
   %3116 = call fastcc ptr @cast(ptr noundef %148, ptr noundef %3115)
   br label %3117
@@ -9277,7 +9271,7 @@ new_add.exit729:                                  ; preds = %3069, %.sink.split.
   br label %3117
 
 mul.exit714:                                      ; preds = %3124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %3135 = call fastcc ptr @new_sub(ptr noundef %.08.i.i253, ptr noundef %.010.i711, ptr noundef %.02037)
   br label %.backedge3765
 
@@ -9326,7 +9320,7 @@ relational.exit170:                               ; preds = %2995, %relational.e
   %.sink140 = phi i32 [ 12, %relational.exit170 ], [ 13, %3145 ]
   %3148 = getelementptr inbounds nuw i8, ptr %.01989, i64 8
   %3149 = load ptr, ptr %3148, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store ptr %3149, ptr %109, align 8, !tbaa !25
   %3150 = call fastcc ptr @mul(ptr noundef %109, ptr noundef %3149)
   br label %3151
@@ -9360,7 +9354,7 @@ relational.exit170:                               ; preds = %2995, %relational.e
   br label %3151
 
 add.exit1010:                                     ; preds = %3159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   br label %3166
 
 3166:                                             ; preds = %add.exit.i308, %add.exit1010
@@ -9377,7 +9371,7 @@ add.exit1010:                                     ; preds = %3159
   %.sink20.i306 = phi i32 [ 10, %3166 ], [ 11, %3168 ]
   %3171 = getelementptr inbounds nuw i8, ptr %.02063, i64 8
   %3172 = load ptr, ptr %3171, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store ptr %3172, ptr %110, align 8, !tbaa !25
   %3173 = call fastcc ptr @cast(ptr noundef %110, ptr noundef %3172)
   br label %3174
@@ -9416,7 +9410,7 @@ add.exit1010:                                     ; preds = %3159
   br label %3174
 
 mul.exit1007:                                     ; preds = %3181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %3192
 
 3192:                                             ; preds = %.backedge3761, %mul.exit1007
@@ -9428,7 +9422,7 @@ mul.exit1007:                                     ; preds = %3181
 3194:                                             ; preds = %3192
   %3195 = getelementptr inbounds nuw i8, ptr %.02064, i64 8
   %3196 = load ptr, ptr %3195, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store ptr %3196, ptr %111, align 8, !tbaa !25
   %3197 = call fastcc ptr @cast(ptr noundef %111, ptr noundef %3196)
   br label %3198
@@ -9467,7 +9461,7 @@ mul.exit1007:                                     ; preds = %3181
   br label %3198
 
 mul.exit1003:                                     ; preds = %3205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
   call void @add_type(ptr noundef %.08.i.i307) #13
   call void @add_type(ptr noundef %.010.i1000) #13
   %3216 = getelementptr inbounds nuw i8, ptr %.08.i.i307, i64 16
@@ -9575,7 +9569,7 @@ new_add.exit999:                                  ; preds = %3219, %.sink.split.
 3263:                                             ; preds = %3261
   %3264 = getelementptr inbounds nuw i8, ptr %.02064, i64 8
   %3265 = load ptr, ptr %3264, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store ptr %3265, ptr %112, align 8, !tbaa !25
   %3266 = call fastcc ptr @cast(ptr noundef %112, ptr noundef %3265)
   br label %3267
@@ -9614,7 +9608,7 @@ new_add.exit999:                                  ; preds = %3219, %.sink.split.
   br label %3267
 
 mul.exit984:                                      ; preds = %3274
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %3285 = call fastcc ptr @new_sub(ptr noundef %.08.i.i307, ptr noundef %.010.i981, ptr noundef %.02064)
   br label %.backedge3761
 
@@ -9643,7 +9637,7 @@ shift.exit310:                                    ; preds = %3168, %shift.exit30
 3291:                                             ; preds = %shift.exit310
   %3292 = getelementptr inbounds nuw i8, ptr %.01996, i64 8
   %3293 = load ptr, ptr %3292, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store ptr %3293, ptr %113, align 8, !tbaa !25
   %3294 = call fastcc ptr @mul(ptr noundef %113, ptr noundef %3293)
   br label %3295
@@ -9657,7 +9651,7 @@ shift.exit310:                                    ; preds = %3168, %shift.exit30
 3298:                                             ; preds = %3295
   %3299 = getelementptr inbounds nuw i8, ptr %3296, i64 8
   %3300 = load ptr, ptr %3299, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3300, ptr %5, align 8, !tbaa !25
   %3301 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %3300)
   br label %3302
@@ -9697,7 +9691,7 @@ shift.exit310:                                    ; preds = %3168, %shift.exit30
 
 mul.exit1871:                                     ; preds = %3309
   store ptr %3311, ptr %113, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @add_type(ptr noundef %.08.i978) #13
   call void @add_type(ptr noundef %.010.i1868) #13
   %3320 = getelementptr inbounds nuw i8, ptr %.08.i978, i64 16
@@ -9805,7 +9799,7 @@ new_add.exit1867:                                 ; preds = %3323, %.sink.split.
 3367:                                             ; preds = %3365
   %3368 = getelementptr inbounds nuw i8, ptr %3296, i64 8
   %3369 = load ptr, ptr %3368, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3369, ptr %6, align 8, !tbaa !25
   %3370 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %3369)
   br label %3371
@@ -9845,7 +9839,7 @@ new_add.exit1867:                                 ; preds = %3323, %.sink.split.
 
 mul.exit1852:                                     ; preds = %3378
   store ptr %3380, ptr %113, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %3389 = call fastcc ptr @new_sub(ptr noundef %.08.i978, ptr noundef %.010.i1849, ptr noundef %3296)
   br label %.backedge3754
 
@@ -9854,7 +9848,7 @@ mul.exit1852:                                     ; preds = %3378
   br label %3295
 
 add.exit980:                                      ; preds = %3365
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %3390
 
 3390:                                             ; preds = %add.exit.i302, %add.exit980
@@ -9871,7 +9865,7 @@ add.exit980:                                      ; preds = %3365
   %.sink20.i300 = phi i32 [ 10, %3390 ], [ 11, %3392 ]
   %3395 = getelementptr inbounds nuw i8, ptr %.02060, i64 8
   %3396 = load ptr, ptr %3395, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   store ptr %3396, ptr %114, align 8, !tbaa !25
   %3397 = call fastcc ptr @cast(ptr noundef %114, ptr noundef %3396)
   br label %3398
@@ -9910,7 +9904,7 @@ add.exit980:                                      ; preds = %3365
   br label %3398
 
 mul.exit977:                                      ; preds = %3405
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %3416
 
 3416:                                             ; preds = %.backedge3729, %mul.exit977
@@ -9922,7 +9916,7 @@ mul.exit977:                                      ; preds = %3405
 3418:                                             ; preds = %3416
   %3419 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
   %3420 = load ptr, ptr %3419, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store ptr %3420, ptr %115, align 8, !tbaa !25
   %3421 = call fastcc ptr @cast(ptr noundef %115, ptr noundef %3420)
   br label %3422
@@ -9961,7 +9955,7 @@ mul.exit977:                                      ; preds = %3405
   br label %3422
 
 mul.exit973:                                      ; preds = %3429
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
   call void @add_type(ptr noundef %.08.i.i301) #13
   call void @add_type(ptr noundef %.010.i970) #13
   %3440 = getelementptr inbounds nuw i8, ptr %.08.i.i301, i64 16
@@ -10069,7 +10063,7 @@ new_add.exit969:                                  ; preds = %3443, %.sink.split.
 3487:                                             ; preds = %3485
   %3488 = getelementptr inbounds nuw i8, ptr %.02061, i64 8
   %3489 = load ptr, ptr %3488, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store ptr %3489, ptr %116, align 8, !tbaa !25
   %3490 = call fastcc ptr @cast(ptr noundef %116, ptr noundef %3489)
   br label %3491
@@ -10108,7 +10102,7 @@ new_add.exit969:                                  ; preds = %3443, %.sink.split.
   br label %3491
 
 mul.exit954:                                      ; preds = %3498
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   %3509 = call fastcc ptr @new_sub(ptr noundef %.08.i.i301, ptr noundef %.010.i951, ptr noundef %.02061)
   br label %.backedge3729
 
@@ -10135,7 +10129,7 @@ add.exit.i302:                                    ; preds = %3485
 3516:                                             ; preds = %3514
   %3517 = getelementptr inbounds nuw i8, ptr %.01996, i64 8
   %3518 = load ptr, ptr %3517, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store ptr %3518, ptr %117, align 8, !tbaa !25
   %3519 = call fastcc ptr @mul(ptr noundef %117, ptr noundef %3518)
   br label %3520
@@ -10149,7 +10143,7 @@ add.exit.i302:                                    ; preds = %3485
 3523:                                             ; preds = %3520
   %3524 = getelementptr inbounds nuw i8, ptr %3521, i64 8
   %3525 = load ptr, ptr %3524, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3525, ptr %7, align 8, !tbaa !25
   %3526 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %3525)
   br label %3527
@@ -10189,7 +10183,7 @@ add.exit.i302:                                    ; preds = %3485
 
 mul.exit1848:                                     ; preds = %3534
   store ptr %3536, ptr %117, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @add_type(ptr noundef %.08.i948) #13
   call void @add_type(ptr noundef %.010.i1845) #13
   %3545 = getelementptr inbounds nuw i8, ptr %.08.i948, i64 16
@@ -10297,7 +10291,7 @@ new_add.exit1844:                                 ; preds = %3548, %.sink.split.
 3592:                                             ; preds = %3590
   %3593 = getelementptr inbounds nuw i8, ptr %3521, i64 8
   %3594 = load ptr, ptr %3593, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %3594, ptr %8, align 8, !tbaa !25
   %3595 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %3594)
   br label %3596
@@ -10337,7 +10331,7 @@ new_add.exit1844:                                 ; preds = %3548, %.sink.split.
 
 mul.exit1829:                                     ; preds = %3603
   store ptr %3605, ptr %117, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %3614 = call fastcc ptr @new_sub(ptr noundef %.08.i948, ptr noundef %.010.i1826, ptr noundef %3521)
   br label %.backedge3756
 
@@ -10346,7 +10340,7 @@ mul.exit1829:                                     ; preds = %3603
   br label %3520
 
 add.exit950:                                      ; preds = %3590
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   br label %3615
 
 3615:                                             ; preds = %add.exit.i296, %add.exit950
@@ -10363,7 +10357,7 @@ add.exit950:                                      ; preds = %3590
   %.sink20.i294 = phi i32 [ 10, %3615 ], [ 11, %3617 ]
   %3620 = getelementptr inbounds nuw i8, ptr %.02057, i64 8
   %3621 = load ptr, ptr %3620, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store ptr %3621, ptr %118, align 8, !tbaa !25
   %3622 = call fastcc ptr @cast(ptr noundef %118, ptr noundef %3621)
   br label %3623
@@ -10402,7 +10396,7 @@ add.exit950:                                      ; preds = %3590
   br label %3623
 
 mul.exit947:                                      ; preds = %3630
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %3641
 
 3641:                                             ; preds = %.backedge3730, %mul.exit947
@@ -10414,7 +10408,7 @@ mul.exit947:                                      ; preds = %3630
 3643:                                             ; preds = %3641
   %3644 = getelementptr inbounds nuw i8, ptr %.02058, i64 8
   %3645 = load ptr, ptr %3644, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store ptr %3645, ptr %119, align 8, !tbaa !25
   %3646 = call fastcc ptr @cast(ptr noundef %119, ptr noundef %3645)
   br label %3647
@@ -10453,7 +10447,7 @@ mul.exit947:                                      ; preds = %3630
   br label %3647
 
 mul.exit943:                                      ; preds = %3654
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   call void @add_type(ptr noundef %.08.i.i295) #13
   call void @add_type(ptr noundef %.010.i940) #13
   %3665 = getelementptr inbounds nuw i8, ptr %.08.i.i295, i64 16
@@ -10561,7 +10555,7 @@ new_add.exit939:                                  ; preds = %3668, %.sink.split.
 3712:                                             ; preds = %3710
   %3713 = getelementptr inbounds nuw i8, ptr %.02058, i64 8
   %3714 = load ptr, ptr %3713, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store ptr %3714, ptr %120, align 8, !tbaa !25
   %3715 = call fastcc ptr @cast(ptr noundef %120, ptr noundef %3714)
   br label %3716
@@ -10600,7 +10594,7 @@ new_add.exit939:                                  ; preds = %3668, %.sink.split.
   br label %3716
 
 mul.exit924:                                      ; preds = %3723
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %3734 = call fastcc ptr @new_sub(ptr noundef %.08.i.i295, ptr noundef %.010.i921, ptr noundef %.02058)
   br label %.backedge3730
 
@@ -10627,7 +10621,7 @@ add.exit.i296:                                    ; preds = %3710
 3741:                                             ; preds = %3739
   %3742 = getelementptr inbounds nuw i8, ptr %.01996, i64 8
   %3743 = load ptr, ptr %3742, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store ptr %3743, ptr %121, align 8, !tbaa !25
   %3744 = call fastcc ptr @mul(ptr noundef %121, ptr noundef %3743)
   br label %3745
@@ -10661,7 +10655,7 @@ add.exit.i296:                                    ; preds = %3710
   br label %3745
 
 add.exit920:                                      ; preds = %3753
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
   br label %3760
 
 3760:                                             ; preds = %add.exit.i290, %add.exit920
@@ -10678,7 +10672,7 @@ add.exit920:                                      ; preds = %3753
   %.sink20.i288 = phi i32 [ 10, %3760 ], [ 11, %3762 ]
   %3765 = getelementptr inbounds nuw i8, ptr %.02054, i64 8
   %3766 = load ptr, ptr %3765, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   store ptr %3766, ptr %122, align 8, !tbaa !25
   %3767 = call fastcc ptr @cast(ptr noundef %122, ptr noundef %3766)
   br label %3768
@@ -10717,7 +10711,7 @@ add.exit920:                                      ; preds = %3753
   br label %3768
 
 mul.exit917:                                      ; preds = %3775
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %3786
 
 3786:                                             ; preds = %.backedge3731, %mul.exit917
@@ -10729,7 +10723,7 @@ mul.exit917:                                      ; preds = %3775
 3788:                                             ; preds = %3786
   %3789 = getelementptr inbounds nuw i8, ptr %.02055, i64 8
   %3790 = load ptr, ptr %3789, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store ptr %3790, ptr %123, align 8, !tbaa !25
   %3791 = call fastcc ptr @cast(ptr noundef %123, ptr noundef %3790)
   br label %3792
@@ -10768,7 +10762,7 @@ mul.exit917:                                      ; preds = %3775
   br label %3792
 
 mul.exit913:                                      ; preds = %3799
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
   call void @add_type(ptr noundef %.08.i.i289) #13
   call void @add_type(ptr noundef %.010.i910) #13
   %3810 = getelementptr inbounds nuw i8, ptr %.08.i.i289, i64 16
@@ -10876,7 +10870,7 @@ new_add.exit909:                                  ; preds = %3813, %.sink.split.
 3857:                                             ; preds = %3855
   %3858 = getelementptr inbounds nuw i8, ptr %.02055, i64 8
   %3859 = load ptr, ptr %3858, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store ptr %3859, ptr %124, align 8, !tbaa !25
   %3860 = call fastcc ptr @cast(ptr noundef %124, ptr noundef %3859)
   br label %3861
@@ -10915,7 +10909,7 @@ new_add.exit909:                                  ; preds = %3813, %.sink.split.
   br label %3861
 
 mul.exit894:                                      ; preds = %3868
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %3879 = call fastcc ptr @new_sub(ptr noundef %.08.i.i289, ptr noundef %.010.i891, ptr noundef %.02055)
   br label %.backedge3731
 
@@ -10942,7 +10936,7 @@ add.exit.i290:                                    ; preds = %3855
 3886:                                             ; preds = %3884
   %3887 = getelementptr inbounds nuw i8, ptr %.01996, i64 8
   %3888 = load ptr, ptr %3887, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store ptr %3888, ptr %125, align 8, !tbaa !25
   %3889 = call fastcc ptr @mul(ptr noundef %125, ptr noundef %3888)
   br label %3890
@@ -10976,7 +10970,7 @@ add.exit.i290:                                    ; preds = %3855
   br label %3890
 
 add.exit890:                                      ; preds = %3898
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %3905
 
 3905:                                             ; preds = %add.exit.i284, %add.exit890
@@ -10993,7 +10987,7 @@ add.exit890:                                      ; preds = %3898
   %.sink20.i282 = phi i32 [ 10, %3905 ], [ 11, %3907 ]
   %3910 = getelementptr inbounds nuw i8, ptr %.02051, i64 8
   %3911 = load ptr, ptr %3910, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store ptr %3911, ptr %126, align 8, !tbaa !25
   %3912 = call fastcc ptr @cast(ptr noundef %126, ptr noundef %3911)
   br label %3913
@@ -11032,7 +11026,7 @@ add.exit890:                                      ; preds = %3898
   br label %3913
 
 mul.exit887:                                      ; preds = %3920
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %3931
 
 3931:                                             ; preds = %.backedge3732, %mul.exit887
@@ -11044,7 +11038,7 @@ mul.exit887:                                      ; preds = %3920
 3933:                                             ; preds = %3931
   %3934 = getelementptr inbounds nuw i8, ptr %.02052, i64 8
   %3935 = load ptr, ptr %3934, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store ptr %3935, ptr %127, align 8, !tbaa !25
   %3936 = call fastcc ptr @cast(ptr noundef %127, ptr noundef %3935)
   br label %3937
@@ -11083,7 +11077,7 @@ mul.exit887:                                      ; preds = %3920
   br label %3937
 
 mul.exit883:                                      ; preds = %3944
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   call void @add_type(ptr noundef %.08.i.i283) #13
   call void @add_type(ptr noundef %.010.i880) #13
   %3955 = getelementptr inbounds nuw i8, ptr %.08.i.i283, i64 16
@@ -11191,7 +11185,7 @@ new_add.exit879:                                  ; preds = %3958, %.sink.split.
 4002:                                             ; preds = %4000
   %4003 = getelementptr inbounds nuw i8, ptr %.02052, i64 8
   %4004 = load ptr, ptr %4003, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store ptr %4004, ptr %128, align 8, !tbaa !25
   %4005 = call fastcc ptr @cast(ptr noundef %128, ptr noundef %4004)
   br label %4006
@@ -11230,7 +11224,7 @@ new_add.exit879:                                  ; preds = %3958, %.sink.split.
   br label %4006
 
 mul.exit864:                                      ; preds = %4013
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %4024 = call fastcc ptr @new_sub(ptr noundef %.08.i.i283, ptr noundef %.010.i861, ptr noundef %.02052)
   br label %.backedge3732
 
@@ -11293,7 +11287,7 @@ equality.exit18:                                  ; preds = %3145
   %.03788 = phi ptr [ %.039.lcssa, %bitand.exit5.i ], [ %.038.lcssa, %bitand.exit.i.preheader ]
   %4042 = getelementptr inbounds nuw i8, ptr %.03788, i64 8
   %4043 = load ptr, ptr %4042, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store ptr %4043, ptr %89, align 8, !tbaa !25
   %4044 = call fastcc ptr @mul(ptr noundef %89, ptr noundef %4043)
   br label %4045
@@ -11327,7 +11321,7 @@ equality.exit18:                                  ; preds = %3145
   br label %4045
 
 add.exit1160:                                     ; preds = %4053
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %4060
 
 4060:                                             ; preds = %add.exit.i338, %add.exit1160
@@ -11344,7 +11338,7 @@ add.exit1160:                                     ; preds = %4053
   %.sink20.i336 = phi i32 [ 10, %4060 ], [ 11, %4062 ]
   %4065 = getelementptr inbounds nuw i8, ptr %.02078, i64 8
   %4066 = load ptr, ptr %4065, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   store ptr %4066, ptr %90, align 8, !tbaa !25
   %4067 = call fastcc ptr @cast(ptr noundef %90, ptr noundef %4066)
   br label %4068
@@ -11383,7 +11377,7 @@ add.exit1160:                                     ; preds = %4053
   br label %4068
 
 mul.exit1157:                                     ; preds = %4075
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   br label %4086
 
 4086:                                             ; preds = %.backedge3779, %mul.exit1157
@@ -11395,7 +11389,7 @@ mul.exit1157:                                     ; preds = %4075
 4088:                                             ; preds = %4086
   %4089 = getelementptr inbounds nuw i8, ptr %.02079, i64 8
   %4090 = load ptr, ptr %4089, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store ptr %4090, ptr %91, align 8, !tbaa !25
   %4091 = call fastcc ptr @cast(ptr noundef %91, ptr noundef %4090)
   br label %4092
@@ -11434,7 +11428,7 @@ mul.exit1157:                                     ; preds = %4075
   br label %4092
 
 mul.exit1153:                                     ; preds = %4099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
   call void @add_type(ptr noundef %.08.i.i337) #13
   call void @add_type(ptr noundef %.010.i1150) #13
   %4110 = getelementptr inbounds nuw i8, ptr %.08.i.i337, i64 16
@@ -11542,7 +11536,7 @@ new_add.exit1149:                                 ; preds = %4113, %.sink.split.
 4157:                                             ; preds = %4155
   %4158 = getelementptr inbounds nuw i8, ptr %.02079, i64 8
   %4159 = load ptr, ptr %4158, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store ptr %4159, ptr %92, align 8, !tbaa !25
   %4160 = call fastcc ptr @cast(ptr noundef %92, ptr noundef %4159)
   br label %4161
@@ -11581,7 +11575,7 @@ new_add.exit1149:                                 ; preds = %4113, %.sink.split.
   br label %4161
 
 mul.exit1134:                                     ; preds = %4168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %4179 = call fastcc ptr @new_sub(ptr noundef %.08.i.i337, ptr noundef %.010.i1131, ptr noundef %.02079)
   br label %.backedge3779
 
@@ -11610,7 +11604,7 @@ shift.exit340:                                    ; preds = %4062, %shift.exit33
 4185:                                             ; preds = %shift.exit340
   %4186 = getelementptr inbounds nuw i8, ptr %.01998, i64 8
   %4187 = load ptr, ptr %4186, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   store ptr %4187, ptr %93, align 8, !tbaa !25
   %4188 = call fastcc ptr @mul(ptr noundef %93, ptr noundef %4187)
   br label %4189
@@ -11644,7 +11638,7 @@ shift.exit340:                                    ; preds = %4062, %shift.exit33
   br label %4189
 
 add.exit1130:                                     ; preds = %4197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %4204
 
 4204:                                             ; preds = %add.exit.i332, %add.exit1130
@@ -11661,7 +11655,7 @@ add.exit1130:                                     ; preds = %4197
   %.sink20.i330 = phi i32 [ 10, %4204 ], [ 11, %4206 ]
   %4209 = getelementptr inbounds nuw i8, ptr %.02075, i64 8
   %4210 = load ptr, ptr %4209, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store ptr %4210, ptr %94, align 8, !tbaa !25
   %4211 = call fastcc ptr @cast(ptr noundef %94, ptr noundef %4210)
   br label %4212
@@ -11700,7 +11694,7 @@ add.exit1130:                                     ; preds = %4197
   br label %4212
 
 mul.exit1127:                                     ; preds = %4219
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %4230
 
 4230:                                             ; preds = %.backedge3750, %mul.exit1127
@@ -11712,7 +11706,7 @@ mul.exit1127:                                     ; preds = %4219
 4232:                                             ; preds = %4230
   %4233 = getelementptr inbounds nuw i8, ptr %.02076, i64 8
   %4234 = load ptr, ptr %4233, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store ptr %4234, ptr %95, align 8, !tbaa !25
   %4235 = call fastcc ptr @cast(ptr noundef %95, ptr noundef %4234)
   br label %4236
@@ -11751,7 +11745,7 @@ mul.exit1127:                                     ; preds = %4219
   br label %4236
 
 mul.exit1123:                                     ; preds = %4243
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @add_type(ptr noundef %.08.i.i331) #13
   call void @add_type(ptr noundef %.010.i1120) #13
   %4254 = getelementptr inbounds nuw i8, ptr %.08.i.i331, i64 16
@@ -11859,7 +11853,7 @@ new_add.exit1119:                                 ; preds = %4257, %.sink.split.
 4301:                                             ; preds = %4299
   %4302 = getelementptr inbounds nuw i8, ptr %.02076, i64 8
   %4303 = load ptr, ptr %4302, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store ptr %4303, ptr %96, align 8, !tbaa !25
   %4304 = call fastcc ptr @cast(ptr noundef %96, ptr noundef %4303)
   br label %4305
@@ -11898,7 +11892,7 @@ new_add.exit1119:                                 ; preds = %4257, %.sink.split.
   br label %4305
 
 mul.exit1104:                                     ; preds = %4312
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   %4323 = call fastcc ptr @new_sub(ptr noundef %.08.i.i331, ptr noundef %.010.i1101, ptr noundef %.02076)
   br label %.backedge3750
 
@@ -11925,7 +11919,7 @@ add.exit.i332:                                    ; preds = %4299
 4330:                                             ; preds = %4328
   %4331 = getelementptr inbounds nuw i8, ptr %.01998, i64 8
   %4332 = load ptr, ptr %4331, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store ptr %4332, ptr %97, align 8, !tbaa !25
   %4333 = call fastcc ptr @mul(ptr noundef %97, ptr noundef %4332)
   br label %4334
@@ -11959,7 +11953,7 @@ add.exit.i332:                                    ; preds = %4299
   br label %4334
 
 add.exit1100:                                     ; preds = %4342
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
   br label %4349
 
 4349:                                             ; preds = %add.exit.i326, %add.exit1100
@@ -11976,7 +11970,7 @@ add.exit1100:                                     ; preds = %4342
   %.sink20.i324 = phi i32 [ 10, %4349 ], [ 11, %4351 ]
   %4354 = getelementptr inbounds nuw i8, ptr %.02072, i64 8
   %4355 = load ptr, ptr %4354, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store ptr %4355, ptr %98, align 8, !tbaa !25
   %4356 = call fastcc ptr @cast(ptr noundef %98, ptr noundef %4355)
   br label %4357
@@ -12015,7 +12009,7 @@ add.exit1100:                                     ; preds = %4342
   br label %4357
 
 mul.exit1097:                                     ; preds = %4364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %4375
 
 4375:                                             ; preds = %.backedge3751, %mul.exit1097
@@ -12027,7 +12021,7 @@ mul.exit1097:                                     ; preds = %4364
 4377:                                             ; preds = %4375
   %4378 = getelementptr inbounds nuw i8, ptr %.02073, i64 8
   %4379 = load ptr, ptr %4378, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store ptr %4379, ptr %99, align 8, !tbaa !25
   %4380 = call fastcc ptr @cast(ptr noundef %99, ptr noundef %4379)
   br label %4381
@@ -12066,7 +12060,7 @@ mul.exit1097:                                     ; preds = %4364
   br label %4381
 
 mul.exit1093:                                     ; preds = %4388
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @add_type(ptr noundef %.08.i.i325) #13
   call void @add_type(ptr noundef %.010.i1090) #13
   %4399 = getelementptr inbounds nuw i8, ptr %.08.i.i325, i64 16
@@ -12174,7 +12168,7 @@ new_add.exit1089:                                 ; preds = %4402, %.sink.split.
 4446:                                             ; preds = %4444
   %4447 = getelementptr inbounds nuw i8, ptr %.02073, i64 8
   %4448 = load ptr, ptr %4447, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store ptr %4448, ptr %100, align 8, !tbaa !25
   %4449 = call fastcc ptr @cast(ptr noundef %100, ptr noundef %4448)
   br label %4450
@@ -12213,7 +12207,7 @@ new_add.exit1089:                                 ; preds = %4402, %.sink.split.
   br label %4450
 
 mul.exit1074:                                     ; preds = %4457
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
   %4468 = call fastcc ptr @new_sub(ptr noundef %.08.i.i325, ptr noundef %.010.i1071, ptr noundef %.02073)
   br label %.backedge3751
 
@@ -12240,7 +12234,7 @@ add.exit.i326:                                    ; preds = %4444
 4475:                                             ; preds = %4473
   %4476 = getelementptr inbounds nuw i8, ptr %.01998, i64 8
   %4477 = load ptr, ptr %4476, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store ptr %4477, ptr %101, align 8, !tbaa !25
   %4478 = call fastcc ptr @mul(ptr noundef %101, ptr noundef %4477)
   br label %4479
@@ -12274,7 +12268,7 @@ add.exit.i326:                                    ; preds = %4444
   br label %4479
 
 add.exit1070:                                     ; preds = %4487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %4494
 
 4494:                                             ; preds = %add.exit.i320, %add.exit1070
@@ -12291,7 +12285,7 @@ add.exit1070:                                     ; preds = %4487
   %.sink20.i318 = phi i32 [ 10, %4494 ], [ 11, %4496 ]
   %4499 = getelementptr inbounds nuw i8, ptr %.02069, i64 8
   %4500 = load ptr, ptr %4499, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store ptr %4500, ptr %102, align 8, !tbaa !25
   %4501 = call fastcc ptr @cast(ptr noundef %102, ptr noundef %4500)
   br label %4502
@@ -12330,7 +12324,7 @@ add.exit1070:                                     ; preds = %4487
   br label %4502
 
 mul.exit1067:                                     ; preds = %4509
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   br label %4520
 
 4520:                                             ; preds = %.backedge3752, %mul.exit1067
@@ -12342,7 +12336,7 @@ mul.exit1067:                                     ; preds = %4509
 4522:                                             ; preds = %4520
   %4523 = getelementptr inbounds nuw i8, ptr %.02070, i64 8
   %4524 = load ptr, ptr %4523, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store ptr %4524, ptr %103, align 8, !tbaa !25
   %4525 = call fastcc ptr @cast(ptr noundef %103, ptr noundef %4524)
   br label %4526
@@ -12381,7 +12375,7 @@ mul.exit1067:                                     ; preds = %4509
   br label %4526
 
 mul.exit1063:                                     ; preds = %4533
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @add_type(ptr noundef %.08.i.i319) #13
   call void @add_type(ptr noundef %.010.i1060) #13
   %4544 = getelementptr inbounds nuw i8, ptr %.08.i.i319, i64 16
@@ -12489,7 +12483,7 @@ new_add.exit1059:                                 ; preds = %4547, %.sink.split.
 4591:                                             ; preds = %4589
   %4592 = getelementptr inbounds nuw i8, ptr %.02070, i64 8
   %4593 = load ptr, ptr %4592, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store ptr %4593, ptr %104, align 8, !tbaa !25
   %4594 = call fastcc ptr @cast(ptr noundef %104, ptr noundef %4593)
   br label %4595
@@ -12528,7 +12522,7 @@ new_add.exit1059:                                 ; preds = %4547, %.sink.split.
   br label %4595
 
 mul.exit1044:                                     ; preds = %4602
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %4613 = call fastcc ptr @new_sub(ptr noundef %.08.i.i319, ptr noundef %.010.i1041, ptr noundef %.02070)
   br label %.backedge3752
 
@@ -12555,7 +12549,7 @@ add.exit.i320:                                    ; preds = %4589
 4620:                                             ; preds = %4618
   %4621 = getelementptr inbounds nuw i8, ptr %.01998, i64 8
   %4622 = load ptr, ptr %4621, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store ptr %4622, ptr %105, align 8, !tbaa !25
   %4623 = call fastcc ptr @mul(ptr noundef %105, ptr noundef %4622)
   br label %4624
@@ -12589,7 +12583,7 @@ add.exit.i320:                                    ; preds = %4589
   br label %4624
 
 add.exit1040:                                     ; preds = %4632
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   br label %4639
 
 4639:                                             ; preds = %add.exit.i314, %add.exit1040
@@ -12606,7 +12600,7 @@ add.exit1040:                                     ; preds = %4632
   %.sink20.i312 = phi i32 [ 10, %4639 ], [ 11, %4641 ]
   %4644 = getelementptr inbounds nuw i8, ptr %.02066, i64 8
   %4645 = load ptr, ptr %4644, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store ptr %4645, ptr %106, align 8, !tbaa !25
   %4646 = call fastcc ptr @cast(ptr noundef %106, ptr noundef %4645)
   br label %4647
@@ -12645,7 +12639,7 @@ add.exit1040:                                     ; preds = %4632
   br label %4647
 
 mul.exit1037:                                     ; preds = %4654
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %4665
 
 4665:                                             ; preds = %.backedge3753, %mul.exit1037
@@ -12657,7 +12651,7 @@ mul.exit1037:                                     ; preds = %4654
 4667:                                             ; preds = %4665
   %4668 = getelementptr inbounds nuw i8, ptr %.02067, i64 8
   %4669 = load ptr, ptr %4668, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store ptr %4669, ptr %107, align 8, !tbaa !25
   %4670 = call fastcc ptr @cast(ptr noundef %107, ptr noundef %4669)
   br label %4671
@@ -12696,7 +12690,7 @@ mul.exit1037:                                     ; preds = %4654
   br label %4671
 
 mul.exit1033:                                     ; preds = %4678
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   call void @add_type(ptr noundef %.08.i.i313) #13
   call void @add_type(ptr noundef %.010.i1030) #13
   %4689 = getelementptr inbounds nuw i8, ptr %.08.i.i313, i64 16
@@ -12804,7 +12798,7 @@ new_add.exit1029:                                 ; preds = %4692, %.sink.split.
 4736:                                             ; preds = %4734
   %4737 = getelementptr inbounds nuw i8, ptr %.02067, i64 8
   %4738 = load ptr, ptr %4737, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store ptr %4738, ptr %108, align 8, !tbaa !25
   %4739 = call fastcc ptr @cast(ptr noundef %108, ptr noundef %4738)
   br label %4740
@@ -12843,7 +12837,7 @@ new_add.exit1029:                                 ; preds = %4692, %.sink.split.
   br label %4740
 
 mul.exit1014:                                     ; preds = %4747
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %4758 = call fastcc ptr @new_sub(ptr noundef %.08.i.i313, ptr noundef %.010.i1011, ptr noundef %.02067)
   br label %.backedge3753
 
@@ -12892,7 +12886,7 @@ relational.exit180:                               ; preds = %4618, %relational.e
   %.sink149 = phi i32 [ 12, %relational.exit180 ], [ 13, %4768 ]
   %4771 = getelementptr inbounds nuw i8, ptr %.01988, i64 8
   %4772 = load ptr, ptr %4771, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store ptr %4772, ptr %69, align 8, !tbaa !25
   %4773 = call fastcc ptr @mul(ptr noundef %69, ptr noundef %4772)
   br label %4774
@@ -12926,7 +12920,7 @@ relational.exit180:                               ; preds = %4618, %relational.e
   br label %4774
 
 add.exit1310:                                     ; preds = %4782
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %4789
 
 4789:                                             ; preds = %add.exit.i368, %add.exit1310
@@ -12943,7 +12937,7 @@ add.exit1310:                                     ; preds = %4782
   %.sink20.i366 = phi i32 [ 10, %4789 ], [ 11, %4791 ]
   %4794 = getelementptr inbounds nuw i8, ptr %.02093, i64 8
   %4795 = load ptr, ptr %4794, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store ptr %4795, ptr %70, align 8, !tbaa !25
   %4796 = call fastcc ptr @cast(ptr noundef %70, ptr noundef %4795)
   br label %4797
@@ -12982,7 +12976,7 @@ add.exit1310:                                     ; preds = %4782
   br label %4797
 
 mul.exit1307:                                     ; preds = %4804
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
   br label %4815
 
 4815:                                             ; preds = %.backedge3749, %mul.exit1307
@@ -12994,7 +12988,7 @@ mul.exit1307:                                     ; preds = %4804
 4817:                                             ; preds = %4815
   %4818 = getelementptr inbounds nuw i8, ptr %.02094, i64 8
   %4819 = load ptr, ptr %4818, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store ptr %4819, ptr %71, align 8, !tbaa !25
   %4820 = call fastcc ptr @cast(ptr noundef %71, ptr noundef %4819)
   br label %4821
@@ -13033,7 +13027,7 @@ mul.exit1307:                                     ; preds = %4804
   br label %4821
 
 mul.exit1303:                                     ; preds = %4828
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @add_type(ptr noundef %.08.i.i367) #13
   call void @add_type(ptr noundef %.010.i1300) #13
   %4839 = getelementptr inbounds nuw i8, ptr %.08.i.i367, i64 16
@@ -13141,7 +13135,7 @@ new_add.exit1299:                                 ; preds = %4842, %.sink.split.
 4886:                                             ; preds = %4884
   %4887 = getelementptr inbounds nuw i8, ptr %.02094, i64 8
   %4888 = load ptr, ptr %4887, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store ptr %4888, ptr %72, align 8, !tbaa !25
   %4889 = call fastcc ptr @cast(ptr noundef %72, ptr noundef %4888)
   br label %4890
@@ -13180,7 +13174,7 @@ new_add.exit1299:                                 ; preds = %4842, %.sink.split.
   br label %4890
 
 mul.exit1284:                                     ; preds = %4897
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %4908 = call fastcc ptr @new_sub(ptr noundef %.08.i.i367, ptr noundef %.010.i1281, ptr noundef %.02094)
   br label %.backedge3749
 
@@ -13209,7 +13203,7 @@ shift.exit370:                                    ; preds = %4791, %shift.exit36
 4914:                                             ; preds = %shift.exit370
   %4915 = getelementptr inbounds nuw i8, ptr %.02000, i64 8
   %4916 = load ptr, ptr %4915, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store ptr %4916, ptr %73, align 8, !tbaa !25
   %4917 = call fastcc ptr @mul(ptr noundef %73, ptr noundef %4916)
   br label %4918
@@ -13223,7 +13217,7 @@ shift.exit370:                                    ; preds = %4791, %shift.exit36
 4921:                                             ; preds = %4918
   %4922 = getelementptr inbounds nuw i8, ptr %4919, i64 8
   %4923 = load ptr, ptr %4922, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4923, ptr %3, align 8, !tbaa !25
   %4924 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %4923)
   br label %4925
@@ -13263,7 +13257,7 @@ shift.exit370:                                    ; preds = %4791, %shift.exit36
 
 mul.exit1894:                                     ; preds = %4932
   store ptr %4934, ptr %73, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @add_type(ptr noundef %.08.i1278) #13
   call void @add_type(ptr noundef %.010.i1891) #13
   %4943 = getelementptr inbounds nuw i8, ptr %.08.i1278, i64 16
@@ -13371,7 +13365,7 @@ new_add.exit1890:                                 ; preds = %4946, %.sink.split.
 4990:                                             ; preds = %4988
   %4991 = getelementptr inbounds nuw i8, ptr %4919, i64 8
   %4992 = load ptr, ptr %4991, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %4992, ptr %4, align 8, !tbaa !25
   %4993 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %4992)
   br label %4994
@@ -13411,7 +13405,7 @@ new_add.exit1890:                                 ; preds = %4946, %.sink.split.
 
 mul.exit1875:                                     ; preds = %5001
   store ptr %5003, ptr %73, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %5012 = call fastcc ptr @new_sub(ptr noundef %.08.i1278, ptr noundef %.010.i1872, ptr noundef %4919)
   br label %.backedge3742
 
@@ -13420,7 +13414,7 @@ mul.exit1875:                                     ; preds = %5001
   br label %4918
 
 add.exit1280:                                     ; preds = %4988
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
   br label %5013
 
 5013:                                             ; preds = %add.exit.i362, %add.exit1280
@@ -13437,7 +13431,7 @@ add.exit1280:                                     ; preds = %4988
   %.sink20.i360 = phi i32 [ 10, %5013 ], [ 11, %5015 ]
   %5018 = getelementptr inbounds nuw i8, ptr %.02090, i64 8
   %5019 = load ptr, ptr %5018, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store ptr %5019, ptr %74, align 8, !tbaa !25
   %5020 = call fastcc ptr @cast(ptr noundef %74, ptr noundef %5019)
   br label %5021
@@ -13476,7 +13470,7 @@ add.exit1280:                                     ; preds = %4988
   br label %5021
 
 mul.exit1277:                                     ; preds = %5028
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br label %5039
 
 5039:                                             ; preds = %.backedge3725, %mul.exit1277
@@ -13488,7 +13482,7 @@ mul.exit1277:                                     ; preds = %5028
 5041:                                             ; preds = %5039
   %5042 = getelementptr inbounds nuw i8, ptr %.02091, i64 8
   %5043 = load ptr, ptr %5042, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store ptr %5043, ptr %75, align 8, !tbaa !25
   %5044 = call fastcc ptr @cast(ptr noundef %75, ptr noundef %5043)
   br label %5045
@@ -13527,7 +13521,7 @@ mul.exit1277:                                     ; preds = %5028
   br label %5045
 
 mul.exit1273:                                     ; preds = %5052
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @add_type(ptr noundef %.08.i.i361) #13
   call void @add_type(ptr noundef %.010.i1270) #13
   %5063 = getelementptr inbounds nuw i8, ptr %.08.i.i361, i64 16
@@ -13635,7 +13629,7 @@ new_add.exit1269:                                 ; preds = %5066, %.sink.split.
 5110:                                             ; preds = %5108
   %5111 = getelementptr inbounds nuw i8, ptr %.02091, i64 8
   %5112 = load ptr, ptr %5111, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store ptr %5112, ptr %76, align 8, !tbaa !25
   %5113 = call fastcc ptr @cast(ptr noundef %76, ptr noundef %5112)
   br label %5114
@@ -13674,7 +13668,7 @@ new_add.exit1269:                                 ; preds = %5066, %.sink.split.
   br label %5114
 
 mul.exit1254:                                     ; preds = %5121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   %5132 = call fastcc ptr @new_sub(ptr noundef %.08.i.i361, ptr noundef %.010.i1251, ptr noundef %.02091)
   br label %.backedge3725
 
@@ -13701,7 +13695,7 @@ add.exit.i362:                                    ; preds = %5108
 5139:                                             ; preds = %5137
   %5140 = getelementptr inbounds nuw i8, ptr %.02000, i64 8
   %5141 = load ptr, ptr %5140, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store ptr %5141, ptr %77, align 8, !tbaa !25
   %5142 = call fastcc ptr @mul(ptr noundef %77, ptr noundef %5141)
   br label %5143
@@ -13735,7 +13729,7 @@ add.exit.i362:                                    ; preds = %5108
   br label %5143
 
 add.exit1250:                                     ; preds = %5151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %5158
 
 5158:                                             ; preds = %add.exit.i356, %add.exit1250
@@ -13752,7 +13746,7 @@ add.exit1250:                                     ; preds = %5151
   %.sink20.i354 = phi i32 [ 10, %5158 ], [ 11, %5160 ]
   %5163 = getelementptr inbounds nuw i8, ptr %.02087, i64 8
   %5164 = load ptr, ptr %5163, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store ptr %5164, ptr %78, align 8, !tbaa !25
   %5165 = call fastcc ptr @cast(ptr noundef %78, ptr noundef %5164)
   br label %5166
@@ -13791,7 +13785,7 @@ add.exit1250:                                     ; preds = %5151
   br label %5166
 
 mul.exit1247:                                     ; preds = %5173
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   br label %5184
 
 5184:                                             ; preds = %.backedge3726, %mul.exit1247
@@ -13803,7 +13797,7 @@ mul.exit1247:                                     ; preds = %5173
 5186:                                             ; preds = %5184
   %5187 = getelementptr inbounds nuw i8, ptr %.02088, i64 8
   %5188 = load ptr, ptr %5187, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store ptr %5188, ptr %79, align 8, !tbaa !25
   %5189 = call fastcc ptr @cast(ptr noundef %79, ptr noundef %5188)
   br label %5190
@@ -13842,7 +13836,7 @@ mul.exit1247:                                     ; preds = %5173
   br label %5190
 
 mul.exit1243:                                     ; preds = %5197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   call void @add_type(ptr noundef %.08.i.i355) #13
   call void @add_type(ptr noundef %.010.i1240) #13
   %5208 = getelementptr inbounds nuw i8, ptr %.08.i.i355, i64 16
@@ -13950,7 +13944,7 @@ new_add.exit1239:                                 ; preds = %5211, %.sink.split.
 5255:                                             ; preds = %5253
   %5256 = getelementptr inbounds nuw i8, ptr %.02088, i64 8
   %5257 = load ptr, ptr %5256, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store ptr %5257, ptr %80, align 8, !tbaa !25
   %5258 = call fastcc ptr @cast(ptr noundef %80, ptr noundef %5257)
   br label %5259
@@ -13989,7 +13983,7 @@ new_add.exit1239:                                 ; preds = %5211, %.sink.split.
   br label %5259
 
 mul.exit1224:                                     ; preds = %5266
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   %5277 = call fastcc ptr @new_sub(ptr noundef %.08.i.i355, ptr noundef %.010.i1221, ptr noundef %.02088)
   br label %.backedge3726
 
@@ -14016,7 +14010,7 @@ add.exit.i356:                                    ; preds = %5253
 5284:                                             ; preds = %5282
   %5285 = getelementptr inbounds nuw i8, ptr %.02000, i64 8
   %5286 = load ptr, ptr %5285, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   store ptr %5286, ptr %81, align 8, !tbaa !25
   %5287 = call fastcc ptr @mul(ptr noundef %81, ptr noundef %5286)
   br label %5288
@@ -14050,7 +14044,7 @@ add.exit.i356:                                    ; preds = %5253
   br label %5288
 
 add.exit1220:                                     ; preds = %5296
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   br label %5303
 
 5303:                                             ; preds = %add.exit.i350, %add.exit1220
@@ -14067,7 +14061,7 @@ add.exit1220:                                     ; preds = %5296
   %.sink20.i348 = phi i32 [ 10, %5303 ], [ 11, %5305 ]
   %5308 = getelementptr inbounds nuw i8, ptr %.02084, i64 8
   %5309 = load ptr, ptr %5308, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store ptr %5309, ptr %82, align 8, !tbaa !25
   %5310 = call fastcc ptr @cast(ptr noundef %82, ptr noundef %5309)
   br label %5311
@@ -14106,7 +14100,7 @@ add.exit1220:                                     ; preds = %5296
   br label %5311
 
 mul.exit1217:                                     ; preds = %5318
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %5329
 
 5329:                                             ; preds = %.backedge3727, %mul.exit1217
@@ -14118,7 +14112,7 @@ mul.exit1217:                                     ; preds = %5318
 5331:                                             ; preds = %5329
   %5332 = getelementptr inbounds nuw i8, ptr %.02085, i64 8
   %5333 = load ptr, ptr %5332, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store ptr %5333, ptr %83, align 8, !tbaa !25
   %5334 = call fastcc ptr @cast(ptr noundef %83, ptr noundef %5333)
   br label %5335
@@ -14157,7 +14151,7 @@ mul.exit1217:                                     ; preds = %5318
   br label %5335
 
 mul.exit1213:                                     ; preds = %5342
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   call void @add_type(ptr noundef %.08.i.i349) #13
   call void @add_type(ptr noundef %.010.i1210) #13
   %5353 = getelementptr inbounds nuw i8, ptr %.08.i.i349, i64 16
@@ -14265,7 +14259,7 @@ new_add.exit1209:                                 ; preds = %5356, %.sink.split.
 5400:                                             ; preds = %5398
   %5401 = getelementptr inbounds nuw i8, ptr %.02085, i64 8
   %5402 = load ptr, ptr %5401, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store ptr %5402, ptr %84, align 8, !tbaa !25
   %5403 = call fastcc ptr @cast(ptr noundef %84, ptr noundef %5402)
   br label %5404
@@ -14304,7 +14298,7 @@ new_add.exit1209:                                 ; preds = %5356, %.sink.split.
   br label %5404
 
 mul.exit1194:                                     ; preds = %5411
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %5422 = call fastcc ptr @new_sub(ptr noundef %.08.i.i349, ptr noundef %.010.i1191, ptr noundef %.02085)
   br label %.backedge3727
 
@@ -14331,7 +14325,7 @@ add.exit.i350:                                    ; preds = %5398
 5429:                                             ; preds = %5427
   %5430 = getelementptr inbounds nuw i8, ptr %.02000, i64 8
   %5431 = load ptr, ptr %5430, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store ptr %5431, ptr %85, align 8, !tbaa !25
   %5432 = call fastcc ptr @mul(ptr noundef %85, ptr noundef %5431)
   br label %5433
@@ -14365,7 +14359,7 @@ add.exit.i350:                                    ; preds = %5398
   br label %5433
 
 add.exit1190:                                     ; preds = %5441
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %5448
 
 5448:                                             ; preds = %add.exit.i344, %add.exit1190
@@ -14382,7 +14376,7 @@ add.exit1190:                                     ; preds = %5441
   %.sink20.i342 = phi i32 [ 10, %5448 ], [ 11, %5450 ]
   %5453 = getelementptr inbounds nuw i8, ptr %.02081, i64 8
   %5454 = load ptr, ptr %5453, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store ptr %5454, ptr %86, align 8, !tbaa !25
   %5455 = call fastcc ptr @cast(ptr noundef %86, ptr noundef %5454)
   br label %5456
@@ -14421,7 +14415,7 @@ add.exit1190:                                     ; preds = %5441
   br label %5456
 
 mul.exit1187:                                     ; preds = %5463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %5474
 
 5474:                                             ; preds = %.backedge3728, %mul.exit1187
@@ -14433,7 +14427,7 @@ mul.exit1187:                                     ; preds = %5463
 5476:                                             ; preds = %5474
   %5477 = getelementptr inbounds nuw i8, ptr %.02082, i64 8
   %5478 = load ptr, ptr %5477, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   store ptr %5478, ptr %87, align 8, !tbaa !25
   %5479 = call fastcc ptr @cast(ptr noundef %87, ptr noundef %5478)
   br label %5480
@@ -14472,7 +14466,7 @@ mul.exit1187:                                     ; preds = %5463
   br label %5480
 
 mul.exit1183:                                     ; preds = %5487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @add_type(ptr noundef %.08.i.i343) #13
   call void @add_type(ptr noundef %.010.i1180) #13
   %5498 = getelementptr inbounds nuw i8, ptr %.08.i.i343, i64 16
@@ -14580,7 +14574,7 @@ new_add.exit1179:                                 ; preds = %5501, %.sink.split.
 5545:                                             ; preds = %5543
   %5546 = getelementptr inbounds nuw i8, ptr %.02082, i64 8
   %5547 = load ptr, ptr %5546, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store ptr %5547, ptr %88, align 8, !tbaa !25
   %5548 = call fastcc ptr @cast(ptr noundef %88, ptr noundef %5547)
   br label %5549
@@ -14619,7 +14613,7 @@ new_add.exit1179:                                 ; preds = %5501, %.sink.split.
   br label %5549
 
 mul.exit1164:                                     ; preds = %5556
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
   %5567 = call fastcc ptr @new_sub(ptr noundef %.08.i.i343, ptr noundef %.010.i1161, ptr noundef %.02082)
   br label %.backedge3728
 
@@ -14674,7 +14668,7 @@ equality.exit12:                                  ; preds = %4768
   %.03983 = phi ptr [ %.0, %equality.exit ], [ %.01988, %equality.exit12 ]
   %5581 = getelementptr inbounds nuw i8, ptr %.03983, i64 8
   %5582 = load ptr, ptr %5581, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr %5582, ptr %49, align 8, !tbaa !25
   %5583 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %5582)
   br label %5584
@@ -14708,7 +14702,7 @@ equality.exit12:                                  ; preds = %4768
   br label %5584
 
 add.exit1460:                                     ; preds = %5592
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %5599
 
 5599:                                             ; preds = %add.exit.i398, %add.exit1460
@@ -14725,7 +14719,7 @@ add.exit1460:                                     ; preds = %5592
   %.sink20.i396 = phi i32 [ 10, %5599 ], [ 11, %5601 ]
   %5604 = getelementptr inbounds nuw i8, ptr %.02108, i64 8
   %5605 = load ptr, ptr %5604, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr %5605, ptr %50, align 8, !tbaa !25
   %5606 = call fastcc ptr @cast(ptr noundef %50, ptr noundef %5605)
   br label %5607
@@ -14764,7 +14758,7 @@ add.exit1460:                                     ; preds = %5592
   br label %5607
 
 mul.exit1457:                                     ; preds = %5614
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %5625
 
 5625:                                             ; preds = %.backedge3741, %mul.exit1457
@@ -14776,7 +14770,7 @@ mul.exit1457:                                     ; preds = %5614
 5627:                                             ; preds = %5625
   %5628 = getelementptr inbounds nuw i8, ptr %.02109, i64 8
   %5629 = load ptr, ptr %5628, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %5629, ptr %51, align 8, !tbaa !25
   %5630 = call fastcc ptr @cast(ptr noundef %51, ptr noundef %5629)
   br label %5631
@@ -14815,7 +14809,7 @@ mul.exit1457:                                     ; preds = %5614
   br label %5631
 
 mul.exit1453:                                     ; preds = %5638
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @add_type(ptr noundef %.08.i.i397) #13
   call void @add_type(ptr noundef %.010.i1450) #13
   %5649 = getelementptr inbounds nuw i8, ptr %.08.i.i397, i64 16
@@ -14923,7 +14917,7 @@ new_add.exit1449:                                 ; preds = %5652, %.sink.split.
 5696:                                             ; preds = %5694
   %5697 = getelementptr inbounds nuw i8, ptr %.02109, i64 8
   %5698 = load ptr, ptr %5697, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr %5698, ptr %52, align 8, !tbaa !25
   %5699 = call fastcc ptr @cast(ptr noundef %52, ptr noundef %5698)
   br label %5700
@@ -14962,7 +14956,7 @@ new_add.exit1449:                                 ; preds = %5652, %.sink.split.
   br label %5700
 
 mul.exit1434:                                     ; preds = %5707
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %5718 = call fastcc ptr @new_sub(ptr noundef %.08.i.i397, ptr noundef %.010.i1431, ptr noundef %.02109)
   br label %.backedge3741
 
@@ -14991,7 +14985,7 @@ shift.exit400:                                    ; preds = %5601, %shift.exit39
 5724:                                             ; preds = %shift.exit400
   %5725 = getelementptr inbounds nuw i8, ptr %.02002, i64 8
   %5726 = load ptr, ptr %5725, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store ptr %5726, ptr %53, align 8, !tbaa !25
   %5727 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %5726)
   br label %5728
@@ -15025,7 +15019,7 @@ shift.exit400:                                    ; preds = %5601, %shift.exit39
   br label %5728
 
 add.exit1430:                                     ; preds = %5736
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %5743
 
 5743:                                             ; preds = %add.exit.i392, %add.exit1430
@@ -15042,7 +15036,7 @@ add.exit1430:                                     ; preds = %5736
   %.sink20.i390 = phi i32 [ 10, %5743 ], [ 11, %5745 ]
   %5748 = getelementptr inbounds nuw i8, ptr %.02105, i64 8
   %5749 = load ptr, ptr %5748, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr %5749, ptr %54, align 8, !tbaa !25
   %5750 = call fastcc ptr @cast(ptr noundef %54, ptr noundef %5749)
   br label %5751
@@ -15081,7 +15075,7 @@ add.exit1430:                                     ; preds = %5736
   br label %5751
 
 mul.exit1427:                                     ; preds = %5758
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %5769
 
 5769:                                             ; preds = %.backedge3721, %mul.exit1427
@@ -15093,7 +15087,7 @@ mul.exit1427:                                     ; preds = %5758
 5771:                                             ; preds = %5769
   %5772 = getelementptr inbounds nuw i8, ptr %.02106, i64 8
   %5773 = load ptr, ptr %5772, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr %5773, ptr %55, align 8, !tbaa !25
   %5774 = call fastcc ptr @cast(ptr noundef %55, ptr noundef %5773)
   br label %5775
@@ -15132,7 +15126,7 @@ mul.exit1427:                                     ; preds = %5758
   br label %5775
 
 mul.exit1423:                                     ; preds = %5782
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @add_type(ptr noundef %.08.i.i391) #13
   call void @add_type(ptr noundef %.010.i1420) #13
   %5793 = getelementptr inbounds nuw i8, ptr %.08.i.i391, i64 16
@@ -15240,7 +15234,7 @@ new_add.exit1419:                                 ; preds = %5796, %.sink.split.
 5840:                                             ; preds = %5838
   %5841 = getelementptr inbounds nuw i8, ptr %.02106, i64 8
   %5842 = load ptr, ptr %5841, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr %5842, ptr %56, align 8, !tbaa !25
   %5843 = call fastcc ptr @cast(ptr noundef %56, ptr noundef %5842)
   br label %5844
@@ -15279,7 +15273,7 @@ new_add.exit1419:                                 ; preds = %5796, %.sink.split.
   br label %5844
 
 mul.exit1404:                                     ; preds = %5851
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %5862 = call fastcc ptr @new_sub(ptr noundef %.08.i.i391, ptr noundef %.010.i1401, ptr noundef %.02106)
   br label %.backedge3721
 
@@ -15306,7 +15300,7 @@ add.exit.i392:                                    ; preds = %5838
 5869:                                             ; preds = %5867
   %5870 = getelementptr inbounds nuw i8, ptr %.02002, i64 8
   %5871 = load ptr, ptr %5870, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr %5871, ptr %57, align 8, !tbaa !25
   %5872 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %5871)
   br label %5873
@@ -15340,7 +15334,7 @@ add.exit.i392:                                    ; preds = %5838
   br label %5873
 
 add.exit1400:                                     ; preds = %5881
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %5888
 
 5888:                                             ; preds = %add.exit.i386, %add.exit1400
@@ -15357,7 +15351,7 @@ add.exit1400:                                     ; preds = %5881
   %.sink20.i384 = phi i32 [ 10, %5888 ], [ 11, %5890 ]
   %5893 = getelementptr inbounds nuw i8, ptr %.02102, i64 8
   %5894 = load ptr, ptr %5893, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr %5894, ptr %58, align 8, !tbaa !25
   %5895 = call fastcc ptr @cast(ptr noundef %58, ptr noundef %5894)
   br label %5896
@@ -15396,7 +15390,7 @@ add.exit1400:                                     ; preds = %5881
   br label %5896
 
 mul.exit1397:                                     ; preds = %5903
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %5914
 
 5914:                                             ; preds = %.backedge3722, %mul.exit1397
@@ -15408,7 +15402,7 @@ mul.exit1397:                                     ; preds = %5903
 5916:                                             ; preds = %5914
   %5917 = getelementptr inbounds nuw i8, ptr %.02103, i64 8
   %5918 = load ptr, ptr %5917, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store ptr %5918, ptr %59, align 8, !tbaa !25
   %5919 = call fastcc ptr @cast(ptr noundef %59, ptr noundef %5918)
   br label %5920
@@ -15447,7 +15441,7 @@ mul.exit1397:                                     ; preds = %5903
   br label %5920
 
 mul.exit1393:                                     ; preds = %5927
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @add_type(ptr noundef %.08.i.i385) #13
   call void @add_type(ptr noundef %.010.i1390) #13
   %5938 = getelementptr inbounds nuw i8, ptr %.08.i.i385, i64 16
@@ -15555,7 +15549,7 @@ new_add.exit1389:                                 ; preds = %5941, %.sink.split.
 5985:                                             ; preds = %5983
   %5986 = getelementptr inbounds nuw i8, ptr %.02103, i64 8
   %5987 = load ptr, ptr %5986, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store ptr %5987, ptr %60, align 8, !tbaa !25
   %5988 = call fastcc ptr @cast(ptr noundef %60, ptr noundef %5987)
   br label %5989
@@ -15594,7 +15588,7 @@ new_add.exit1389:                                 ; preds = %5941, %.sink.split.
   br label %5989
 
 mul.exit1374:                                     ; preds = %5996
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %6007 = call fastcc ptr @new_sub(ptr noundef %.08.i.i385, ptr noundef %.010.i1371, ptr noundef %.02103)
   br label %.backedge3722
 
@@ -15621,7 +15615,7 @@ add.exit.i386:                                    ; preds = %5983
 6014:                                             ; preds = %6012
   %6015 = getelementptr inbounds nuw i8, ptr %.02002, i64 8
   %6016 = load ptr, ptr %6015, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store ptr %6016, ptr %61, align 8, !tbaa !25
   %6017 = call fastcc ptr @mul(ptr noundef %61, ptr noundef %6016)
   br label %6018
@@ -15655,7 +15649,7 @@ add.exit.i386:                                    ; preds = %5983
   br label %6018
 
 add.exit1370:                                     ; preds = %6026
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %6033
 
 6033:                                             ; preds = %add.exit.i380, %add.exit1370
@@ -15672,7 +15666,7 @@ add.exit1370:                                     ; preds = %6026
   %.sink20.i378 = phi i32 [ 10, %6033 ], [ 11, %6035 ]
   %6038 = getelementptr inbounds nuw i8, ptr %.02099, i64 8
   %6039 = load ptr, ptr %6038, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store ptr %6039, ptr %62, align 8, !tbaa !25
   %6040 = call fastcc ptr @cast(ptr noundef %62, ptr noundef %6039)
   br label %6041
@@ -15711,7 +15705,7 @@ add.exit1370:                                     ; preds = %6026
   br label %6041
 
 mul.exit1367:                                     ; preds = %6048
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %6059
 
 6059:                                             ; preds = %.backedge3723, %mul.exit1367
@@ -15723,7 +15717,7 @@ mul.exit1367:                                     ; preds = %6048
 6061:                                             ; preds = %6059
   %6062 = getelementptr inbounds nuw i8, ptr %.02100, i64 8
   %6063 = load ptr, ptr %6062, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   store ptr %6063, ptr %63, align 8, !tbaa !25
   %6064 = call fastcc ptr @cast(ptr noundef %63, ptr noundef %6063)
   br label %6065
@@ -15762,7 +15756,7 @@ mul.exit1367:                                     ; preds = %6048
   br label %6065
 
 mul.exit1363:                                     ; preds = %6072
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @add_type(ptr noundef %.08.i.i379) #13
   call void @add_type(ptr noundef %.010.i1360) #13
   %6083 = getelementptr inbounds nuw i8, ptr %.08.i.i379, i64 16
@@ -15870,7 +15864,7 @@ new_add.exit1359:                                 ; preds = %6086, %.sink.split.
 6130:                                             ; preds = %6128
   %6131 = getelementptr inbounds nuw i8, ptr %.02100, i64 8
   %6132 = load ptr, ptr %6131, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store ptr %6132, ptr %64, align 8, !tbaa !25
   %6133 = call fastcc ptr @cast(ptr noundef %64, ptr noundef %6132)
   br label %6134
@@ -15909,7 +15903,7 @@ new_add.exit1359:                                 ; preds = %6086, %.sink.split.
   br label %6134
 
 mul.exit1344:                                     ; preds = %6141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
   %6152 = call fastcc ptr @new_sub(ptr noundef %.08.i.i379, ptr noundef %.010.i1341, ptr noundef %.02100)
   br label %.backedge3723
 
@@ -15936,7 +15930,7 @@ add.exit.i380:                                    ; preds = %6128
 6159:                                             ; preds = %6157
   %6160 = getelementptr inbounds nuw i8, ptr %.02002, i64 8
   %6161 = load ptr, ptr %6160, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store ptr %6161, ptr %65, align 8, !tbaa !25
   %6162 = call fastcc ptr @mul(ptr noundef %65, ptr noundef %6161)
   br label %6163
@@ -15970,7 +15964,7 @@ add.exit.i380:                                    ; preds = %6128
   br label %6163
 
 add.exit1340:                                     ; preds = %6171
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %6178
 
 6178:                                             ; preds = %add.exit.i374, %add.exit1340
@@ -15987,7 +15981,7 @@ add.exit1340:                                     ; preds = %6171
   %.sink20.i372 = phi i32 [ 10, %6178 ], [ 11, %6180 ]
   %6183 = getelementptr inbounds nuw i8, ptr %.02096, i64 8
   %6184 = load ptr, ptr %6183, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store ptr %6184, ptr %66, align 8, !tbaa !25
   %6185 = call fastcc ptr @cast(ptr noundef %66, ptr noundef %6184)
   br label %6186
@@ -16026,7 +16020,7 @@ add.exit1340:                                     ; preds = %6171
   br label %6186
 
 mul.exit1337:                                     ; preds = %6193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %6204
 
 6204:                                             ; preds = %.backedge3724, %mul.exit1337
@@ -16038,7 +16032,7 @@ mul.exit1337:                                     ; preds = %6193
 6206:                                             ; preds = %6204
   %6207 = getelementptr inbounds nuw i8, ptr %.02097, i64 8
   %6208 = load ptr, ptr %6207, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store ptr %6208, ptr %67, align 8, !tbaa !25
   %6209 = call fastcc ptr @cast(ptr noundef %67, ptr noundef %6208)
   br label %6210
@@ -16077,7 +16071,7 @@ mul.exit1337:                                     ; preds = %6193
   br label %6210
 
 mul.exit1333:                                     ; preds = %6217
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @add_type(ptr noundef %.08.i.i373) #13
   call void @add_type(ptr noundef %.010.i1330) #13
   %6228 = getelementptr inbounds nuw i8, ptr %.08.i.i373, i64 16
@@ -16185,7 +16179,7 @@ new_add.exit1329:                                 ; preds = %6231, %.sink.split.
 6275:                                             ; preds = %6273
   %6276 = getelementptr inbounds nuw i8, ptr %.02097, i64 8
   %6277 = load ptr, ptr %6276, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store ptr %6277, ptr %68, align 8, !tbaa !25
   %6278 = call fastcc ptr @cast(ptr noundef %68, ptr noundef %6277)
   br label %6279
@@ -16224,7 +16218,7 @@ new_add.exit1329:                                 ; preds = %6231, %.sink.split.
   br label %6279
 
 mul.exit1314:                                     ; preds = %6286
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %6297 = call fastcc ptr @new_sub(ptr noundef %.08.i.i373, ptr noundef %.010.i1311, ptr noundef %.02097)
   br label %.backedge3724
 
@@ -16273,7 +16267,7 @@ relational.exit190:                               ; preds = %6157, %relational.e
   %.sink158 = phi i32 [ 12, %relational.exit190 ], [ 13, %6307 ]
   %6310 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %6311 = load ptr, ptr %6310, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %6311, ptr %29, align 8, !tbaa !25
   %6312 = call fastcc ptr @mul(ptr noundef %29, ptr noundef %6311)
   br label %6313
@@ -16307,7 +16301,7 @@ relational.exit190:                               ; preds = %6157, %relational.e
   br label %6313
 
 add.exit1610:                                     ; preds = %6321
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %6328
 
 6328:                                             ; preds = %add.exit.i428, %add.exit1610
@@ -16324,7 +16318,7 @@ add.exit1610:                                     ; preds = %6321
   %.sink20.i426 = phi i32 [ 10, %6328 ], [ 11, %6330 ]
   %6333 = getelementptr inbounds nuw i8, ptr %.02123, i64 8
   %6334 = load ptr, ptr %6333, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %6334, ptr %30, align 8, !tbaa !25
   %6335 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %6334)
   br label %6336
@@ -16363,7 +16357,7 @@ add.exit1610:                                     ; preds = %6321
   br label %6336
 
 mul.exit1607:                                     ; preds = %6343
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %6354
 
 6354:                                             ; preds = %.backedge3720, %mul.exit1607
@@ -16375,7 +16369,7 @@ mul.exit1607:                                     ; preds = %6343
 6356:                                             ; preds = %6354
   %6357 = getelementptr inbounds nuw i8, ptr %.02124, i64 8
   %6358 = load ptr, ptr %6357, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %6358, ptr %31, align 8, !tbaa !25
   %6359 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %6358)
   br label %6360
@@ -16414,7 +16408,7 @@ mul.exit1607:                                     ; preds = %6343
   br label %6360
 
 mul.exit1603:                                     ; preds = %6367
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @add_type(ptr noundef %.08.i.i427) #13
   call void @add_type(ptr noundef %.010.i1600) #13
   %6378 = getelementptr inbounds nuw i8, ptr %.08.i.i427, i64 16
@@ -16522,7 +16516,7 @@ new_add.exit1599:                                 ; preds = %6381, %.sink.split.
 6425:                                             ; preds = %6423
   %6426 = getelementptr inbounds nuw i8, ptr %.02124, i64 8
   %6427 = load ptr, ptr %6426, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %6427, ptr %32, align 8, !tbaa !25
   %6428 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %6427)
   br label %6429
@@ -16561,7 +16555,7 @@ new_add.exit1599:                                 ; preds = %6381, %.sink.split.
   br label %6429
 
 mul.exit1584:                                     ; preds = %6436
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %6447 = call fastcc ptr @new_sub(ptr noundef %.08.i.i427, ptr noundef %.010.i1581, ptr noundef %.02124)
   br label %.backedge3720
 
@@ -16590,7 +16584,7 @@ shift.exit430:                                    ; preds = %6330, %shift.exit42
 6453:                                             ; preds = %shift.exit430
   %6454 = getelementptr inbounds nuw i8, ptr %.02004, i64 8
   %6455 = load ptr, ptr %6454, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %6455, ptr %33, align 8, !tbaa !25
   %6456 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %6455)
   br label %6457
@@ -16624,7 +16618,7 @@ shift.exit430:                                    ; preds = %6330, %shift.exit42
   br label %6457
 
 add.exit1580:                                     ; preds = %6465
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %6472
 
 6472:                                             ; preds = %add.exit.i422, %add.exit1580
@@ -16641,7 +16635,7 @@ add.exit1580:                                     ; preds = %6465
   %.sink20.i420 = phi i32 [ 10, %6472 ], [ 11, %6474 ]
   %6477 = getelementptr inbounds nuw i8, ptr %.02120, i64 8
   %6478 = load ptr, ptr %6477, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %6478, ptr %34, align 8, !tbaa !25
   %6479 = call fastcc ptr @cast(ptr noundef %34, ptr noundef %6478)
   br label %6480
@@ -16680,7 +16674,7 @@ add.exit1580:                                     ; preds = %6465
   br label %6480
 
 mul.exit1577:                                     ; preds = %6487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %6498
 
 6498:                                             ; preds = %.backedge, %mul.exit1577
@@ -16692,7 +16686,7 @@ mul.exit1577:                                     ; preds = %6487
 6500:                                             ; preds = %6498
   %6501 = getelementptr inbounds nuw i8, ptr %.02121, i64 8
   %6502 = load ptr, ptr %6501, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %6502, ptr %35, align 8, !tbaa !25
   %6503 = call fastcc ptr @cast(ptr noundef %35, ptr noundef %6502)
   br label %6504
@@ -16731,7 +16725,7 @@ mul.exit1577:                                     ; preds = %6487
   br label %6504
 
 mul.exit1573:                                     ; preds = %6511
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @add_type(ptr noundef %.08.i.i421) #13
   call void @add_type(ptr noundef %.010.i1570) #13
   %6522 = getelementptr inbounds nuw i8, ptr %.08.i.i421, i64 16
@@ -16839,7 +16833,7 @@ new_add.exit1569:                                 ; preds = %6525, %.sink.split.
 6569:                                             ; preds = %6567
   %6570 = getelementptr inbounds nuw i8, ptr %.02121, i64 8
   %6571 = load ptr, ptr %6570, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %6571, ptr %36, align 8, !tbaa !25
   %6572 = call fastcc ptr @cast(ptr noundef %36, ptr noundef %6571)
   br label %6573
@@ -16878,7 +16872,7 @@ new_add.exit1569:                                 ; preds = %6525, %.sink.split.
   br label %6573
 
 mul.exit1554:                                     ; preds = %6580
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %6591 = call fastcc ptr @new_sub(ptr noundef %.08.i.i421, ptr noundef %.010.i1551, ptr noundef %.02121)
   br label %.backedge
 
@@ -16905,7 +16899,7 @@ add.exit.i422:                                    ; preds = %6567
 6598:                                             ; preds = %6596
   %6599 = getelementptr inbounds nuw i8, ptr %.02004, i64 8
   %6600 = load ptr, ptr %6599, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %6600, ptr %37, align 8, !tbaa !25
   %6601 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %6600)
   br label %6602
@@ -16939,7 +16933,7 @@ add.exit.i422:                                    ; preds = %6567
   br label %6602
 
 add.exit1550:                                     ; preds = %6610
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %6617
 
 6617:                                             ; preds = %add.exit.i416, %add.exit1550
@@ -16956,7 +16950,7 @@ add.exit1550:                                     ; preds = %6610
   %.sink20.i414 = phi i32 [ 10, %6617 ], [ 11, %6619 ]
   %6622 = getelementptr inbounds nuw i8, ptr %.02117, i64 8
   %6623 = load ptr, ptr %6622, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %6623, ptr %38, align 8, !tbaa !25
   %6624 = call fastcc ptr @cast(ptr noundef %38, ptr noundef %6623)
   br label %6625
@@ -16995,7 +16989,7 @@ add.exit1550:                                     ; preds = %6610
   br label %6625
 
 mul.exit1547:                                     ; preds = %6632
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %6643
 
 6643:                                             ; preds = %.backedge3710, %mul.exit1547
@@ -17007,7 +17001,7 @@ mul.exit1547:                                     ; preds = %6632
 6645:                                             ; preds = %6643
   %6646 = getelementptr inbounds nuw i8, ptr %.02118, i64 8
   %6647 = load ptr, ptr %6646, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %6647, ptr %39, align 8, !tbaa !25
   %6648 = call fastcc ptr @cast(ptr noundef %39, ptr noundef %6647)
   br label %6649
@@ -17046,7 +17040,7 @@ mul.exit1547:                                     ; preds = %6632
   br label %6649
 
 mul.exit1543:                                     ; preds = %6656
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @add_type(ptr noundef %.08.i.i415) #13
   call void @add_type(ptr noundef %.010.i1540) #13
   %6667 = getelementptr inbounds nuw i8, ptr %.08.i.i415, i64 16
@@ -17154,7 +17148,7 @@ new_add.exit1539:                                 ; preds = %6670, %.sink.split.
 6714:                                             ; preds = %6712
   %6715 = getelementptr inbounds nuw i8, ptr %.02118, i64 8
   %6716 = load ptr, ptr %6715, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %6716, ptr %40, align 8, !tbaa !25
   %6717 = call fastcc ptr @cast(ptr noundef %40, ptr noundef %6716)
   br label %6718
@@ -17193,7 +17187,7 @@ new_add.exit1539:                                 ; preds = %6670, %.sink.split.
   br label %6718
 
 mul.exit1524:                                     ; preds = %6725
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %6736 = call fastcc ptr @new_sub(ptr noundef %.08.i.i415, ptr noundef %.010.i1521, ptr noundef %.02118)
   br label %.backedge3710
 
@@ -17220,7 +17214,7 @@ add.exit.i416:                                    ; preds = %6712
 6743:                                             ; preds = %6741
   %6744 = getelementptr inbounds nuw i8, ptr %.02004, i64 8
   %6745 = load ptr, ptr %6744, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %6745, ptr %41, align 8, !tbaa !25
   %6746 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %6745)
   br label %6747
@@ -17254,7 +17248,7 @@ add.exit.i416:                                    ; preds = %6712
   br label %6747
 
 add.exit1520:                                     ; preds = %6755
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %6762
 
 6762:                                             ; preds = %add.exit.i410, %add.exit1520
@@ -17271,7 +17265,7 @@ add.exit1520:                                     ; preds = %6755
   %.sink20.i408 = phi i32 [ 10, %6762 ], [ 11, %6764 ]
   %6767 = getelementptr inbounds nuw i8, ptr %.02114, i64 8
   %6768 = load ptr, ptr %6767, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr %6768, ptr %42, align 8, !tbaa !25
   %6769 = call fastcc ptr @cast(ptr noundef %42, ptr noundef %6768)
   br label %6770
@@ -17310,7 +17304,7 @@ add.exit1520:                                     ; preds = %6755
   br label %6770
 
 mul.exit1517:                                     ; preds = %6777
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %6788
 
 6788:                                             ; preds = %.backedge3711, %mul.exit1517
@@ -17322,7 +17316,7 @@ mul.exit1517:                                     ; preds = %6777
 6790:                                             ; preds = %6788
   %6791 = getelementptr inbounds nuw i8, ptr %.02115, i64 8
   %6792 = load ptr, ptr %6791, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %6792, ptr %43, align 8, !tbaa !25
   %6793 = call fastcc ptr @cast(ptr noundef %43, ptr noundef %6792)
   br label %6794
@@ -17361,7 +17355,7 @@ mul.exit1517:                                     ; preds = %6777
   br label %6794
 
 mul.exit1513:                                     ; preds = %6801
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @add_type(ptr noundef %.08.i.i409) #13
   call void @add_type(ptr noundef %.010.i1510) #13
   %6812 = getelementptr inbounds nuw i8, ptr %.08.i.i409, i64 16
@@ -17469,7 +17463,7 @@ new_add.exit1509:                                 ; preds = %6815, %.sink.split.
 6859:                                             ; preds = %6857
   %6860 = getelementptr inbounds nuw i8, ptr %.02115, i64 8
   %6861 = load ptr, ptr %6860, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %6861, ptr %44, align 8, !tbaa !25
   %6862 = call fastcc ptr @cast(ptr noundef %44, ptr noundef %6861)
   br label %6863
@@ -17508,7 +17502,7 @@ new_add.exit1509:                                 ; preds = %6815, %.sink.split.
   br label %6863
 
 mul.exit1494:                                     ; preds = %6870
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %6881 = call fastcc ptr @new_sub(ptr noundef %.08.i.i409, ptr noundef %.010.i1491, ptr noundef %.02115)
   br label %.backedge3711
 
@@ -17535,7 +17529,7 @@ add.exit.i410:                                    ; preds = %6857
 6888:                                             ; preds = %6886
   %6889 = getelementptr inbounds nuw i8, ptr %.02004, i64 8
   %6890 = load ptr, ptr %6889, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %6890, ptr %45, align 8, !tbaa !25
   %6891 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %6890)
   br label %6892
@@ -17569,7 +17563,7 @@ add.exit.i410:                                    ; preds = %6857
   br label %6892
 
 add.exit1490:                                     ; preds = %6900
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %6907
 
 6907:                                             ; preds = %add.exit.i404, %add.exit1490
@@ -17586,7 +17580,7 @@ add.exit1490:                                     ; preds = %6900
   %.sink20.i402 = phi i32 [ 10, %6907 ], [ 11, %6909 ]
   %6912 = getelementptr inbounds nuw i8, ptr %.02111, i64 8
   %6913 = load ptr, ptr %6912, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr %6913, ptr %46, align 8, !tbaa !25
   %6914 = call fastcc ptr @cast(ptr noundef %46, ptr noundef %6913)
   br label %6915
@@ -17625,7 +17619,7 @@ add.exit1490:                                     ; preds = %6900
   br label %6915
 
 mul.exit1487:                                     ; preds = %6922
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %6933
 
 6933:                                             ; preds = %.backedge3712, %mul.exit1487
@@ -17637,7 +17631,7 @@ mul.exit1487:                                     ; preds = %6922
 6935:                                             ; preds = %6933
   %6936 = getelementptr inbounds nuw i8, ptr %.02112, i64 8
   %6937 = load ptr, ptr %6936, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %6937, ptr %47, align 8, !tbaa !25
   %6938 = call fastcc ptr @cast(ptr noundef %47, ptr noundef %6937)
   br label %6939
@@ -17676,7 +17670,7 @@ mul.exit1487:                                     ; preds = %6922
   br label %6939
 
 mul.exit1483:                                     ; preds = %6946
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @add_type(ptr noundef %.08.i.i403) #13
   call void @add_type(ptr noundef %.010.i1480) #13
   %6957 = getelementptr inbounds nuw i8, ptr %.08.i.i403, i64 16
@@ -17784,7 +17778,7 @@ new_add.exit1479:                                 ; preds = %6960, %.sink.split.
 7004:                                             ; preds = %7002
   %7005 = getelementptr inbounds nuw i8, ptr %.02112, i64 8
   %7006 = load ptr, ptr %7005, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr %7006, ptr %48, align 8, !tbaa !25
   %7007 = call fastcc ptr @cast(ptr noundef %48, ptr noundef %7006)
   br label %7008
@@ -17823,7 +17817,7 @@ new_add.exit1479:                                 ; preds = %6960, %.sink.split.
   br label %7008
 
 mul.exit1464:                                     ; preds = %7015
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %7026 = call fastcc ptr @new_sub(ptr noundef %.08.i.i403, ptr noundef %.010.i1461, ptr noundef %.02112)
   br label %.backedge3712
 
@@ -17912,7 +17906,7 @@ bitxor.exit:                                      ; preds = %bitand.exit5.i, %bi
 bitor.exit5:                                      ; preds = %bitxor.exit, %.lr.ph102
   %.037.lcssa93.lcssa = phi ptr [ %.promoted, %.lr.ph102 ], [ %.037.lcssa, %bitxor.exit ]
   %.0.i4.lcssa = phi ptr [ %205, %.lr.ph102 ], [ %7049, %bitxor.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
   %7054 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 24, ptr %7054, align 16, !tbaa !7
   %7055 = getelementptr inbounds nuw i8, ptr %7054, i64 24
@@ -17993,7 +17987,7 @@ define internal fastcc ptr @bitxor(ptr noundef nonnull writeonly captures(none) 
   %60 = alloca ptr, align 8
   %61 = alloca ptr, align 8
   %62 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store ptr %1, ptr %62, align 8, !tbaa !25
   %63 = call fastcc ptr @equality(ptr noundef %62, ptr noundef %1)
   %64 = load ptr, ptr %62, align 8, !tbaa !25
@@ -18021,7 +18015,7 @@ define internal fastcc ptr @bitxor(ptr noundef nonnull writeonly captures(none) 
 bitand.exit:                                      ; preds = %.lr.ph, %2
   %.0.i.lcssa = phi ptr [ %63, %2 ], [ %70, %.lr.ph ]
   %.lcssa14 = phi ptr [ %64, %2 ], [ %74, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %76 = tail call zeroext i1 @equal(ptr noundef %.lcssa14, ptr noundef nonnull @.str.8) #13
   br i1 %76, label %.lr.ph26, label %._crit_edge
 
@@ -18030,7 +18024,7 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   %.0824 = phi ptr [ %.lcssa17.lcssa, %bitand.exit5 ], [ %.lcssa14, %bitand.exit ]
   %77 = getelementptr inbounds nuw i8, ptr %.0824, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store ptr %78, ptr %61, align 8, !tbaa !25
   %79 = call fastcc ptr @equality(ptr noundef %61, ptr noundef %78)
   %.promoted = load ptr, ptr %61, align 8, !tbaa !25
@@ -18042,7 +18036,7 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   %.lcssa1718 = phi ptr [ %.0, %equality.exit ], [ %.promoted, %.lr.ph26 ]
   %81 = getelementptr inbounds nuw i8, ptr %.lcssa1718, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %82, ptr %41, align 8, !tbaa !25
   %83 = call fastcc ptr @mul(ptr noundef %41, ptr noundef %82)
   br label %84
@@ -18076,7 +18070,7 @@ bitand.exit:                                      ; preds = %.lr.ph, %2
   br label %84
 
 add.exit235:                                      ; preds = %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %99
 
 99:                                               ; preds = %add.exit.i73, %add.exit235
@@ -18093,7 +18087,7 @@ add.exit235:                                      ; preds = %92
   %.sink20.i71 = phi i32 [ 10, %99 ], [ 11, %101 ]
   %104 = getelementptr inbounds nuw i8, ptr %.0640, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr %105, ptr %42, align 8, !tbaa !25
   %106 = call fastcc ptr @cast(ptr noundef %42, ptr noundef %105)
   br label %107
@@ -18132,7 +18126,7 @@ add.exit235:                                      ; preds = %92
   br label %107
 
 mul.exit232:                                      ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %125
 
 125:                                              ; preds = %.backedge1197, %mul.exit232
@@ -18144,7 +18138,7 @@ mul.exit232:                                      ; preds = %114
 127:                                              ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %.0641, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %129, ptr %43, align 8, !tbaa !25
   %130 = call fastcc ptr @cast(ptr noundef %43, ptr noundef %129)
   br label %131
@@ -18183,7 +18177,7 @@ mul.exit232:                                      ; preds = %114
   br label %131
 
 mul.exit228:                                      ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @add_type(ptr noundef %.08.i.i72) #13
   call void @add_type(ptr noundef %.010.i225) #13
   %149 = getelementptr inbounds nuw i8, ptr %.08.i.i72, i64 16
@@ -18291,7 +18285,7 @@ new_add.exit224:                                  ; preds = %152, %.sink.split.i
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %.0641, i64 8
   %198 = load ptr, ptr %197, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr %198, ptr %44, align 8, !tbaa !25
   %199 = call fastcc ptr @cast(ptr noundef %44, ptr noundef %198)
   br label %200
@@ -18330,7 +18324,7 @@ new_add.exit224:                                  ; preds = %152, %.sink.split.i
   br label %200
 
 mul.exit209:                                      ; preds = %207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %218 = call fastcc ptr @new_sub(ptr noundef %.08.i.i72, ptr noundef %.010.i206, ptr noundef %.0641)
   br label %.backedge1197
 
@@ -18359,7 +18353,7 @@ shift.exit75:                                     ; preds = %101, %shift.exit69
 224:                                              ; preds = %shift.exit75
   %225 = getelementptr inbounds nuw i8, ptr %.0625, i64 8
   %226 = load ptr, ptr %225, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %226, ptr %45, align 8, !tbaa !25
   %227 = call fastcc ptr @mul(ptr noundef %45, ptr noundef %226)
   br label %228
@@ -18373,7 +18367,7 @@ shift.exit75:                                     ; preds = %101, %shift.exit69
 231:                                              ; preds = %228
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %233, ptr %15, align 8, !tbaa !25
   %234 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %233)
   br label %235
@@ -18413,7 +18407,7 @@ shift.exit75:                                     ; preds = %101, %shift.exit69
 
 mul.exit477:                                      ; preds = %242
   store ptr %244, ptr %45, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @add_type(ptr noundef %.08.i203) #13
   call void @add_type(ptr noundef %.010.i474) #13
   %253 = getelementptr inbounds nuw i8, ptr %.08.i203, i64 16
@@ -18521,7 +18515,7 @@ new_add.exit473:                                  ; preds = %256, %.sink.split.i
 300:                                              ; preds = %298
   %301 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %302 = load ptr, ptr %301, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %302, ptr %16, align 8, !tbaa !25
   %303 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %302)
   br label %304
@@ -18561,7 +18555,7 @@ new_add.exit473:                                  ; preds = %256, %.sink.split.i
 
 mul.exit458:                                      ; preds = %311
   store ptr %313, ptr %45, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %322 = call fastcc ptr @new_sub(ptr noundef %.08.i203, ptr noundef %.010.i455, ptr noundef %229)
   br label %.backedge1190
 
@@ -18570,7 +18564,7 @@ mul.exit458:                                      ; preds = %311
   br label %228
 
 add.exit205:                                      ; preds = %298
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %323
 
 323:                                              ; preds = %add.exit.i67, %add.exit205
@@ -18587,7 +18581,7 @@ add.exit205:                                      ; preds = %298
   %.sink20.i65 = phi i32 [ 10, %323 ], [ 11, %325 ]
   %328 = getelementptr inbounds nuw i8, ptr %.0637, i64 8
   %329 = load ptr, ptr %328, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr %329, ptr %46, align 8, !tbaa !25
   %330 = call fastcc ptr @cast(ptr noundef %46, ptr noundef %329)
   br label %331
@@ -18626,7 +18620,7 @@ add.exit205:                                      ; preds = %298
   br label %331
 
 mul.exit202:                                      ; preds = %338
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %349
 
 349:                                              ; preds = %.backedge1185, %mul.exit202
@@ -18638,7 +18632,7 @@ mul.exit202:                                      ; preds = %338
 351:                                              ; preds = %349
   %352 = getelementptr inbounds nuw i8, ptr %.0638, i64 8
   %353 = load ptr, ptr %352, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %353, ptr %47, align 8, !tbaa !25
   %354 = call fastcc ptr @cast(ptr noundef %47, ptr noundef %353)
   br label %355
@@ -18677,7 +18671,7 @@ mul.exit202:                                      ; preds = %338
   br label %355
 
 mul.exit198:                                      ; preds = %362
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @add_type(ptr noundef %.08.i.i66) #13
   call void @add_type(ptr noundef %.010.i195) #13
   %373 = getelementptr inbounds nuw i8, ptr %.08.i.i66, i64 16
@@ -18785,7 +18779,7 @@ new_add.exit194:                                  ; preds = %376, %.sink.split.i
 420:                                              ; preds = %418
   %421 = getelementptr inbounds nuw i8, ptr %.0638, i64 8
   %422 = load ptr, ptr %421, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr %422, ptr %48, align 8, !tbaa !25
   %423 = call fastcc ptr @cast(ptr noundef %48, ptr noundef %422)
   br label %424
@@ -18824,7 +18818,7 @@ new_add.exit194:                                  ; preds = %376, %.sink.split.i
   br label %424
 
 mul.exit179:                                      ; preds = %431
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %442 = call fastcc ptr @new_sub(ptr noundef %.08.i.i66, ptr noundef %.010.i176, ptr noundef %.0638)
   br label %.backedge1185
 
@@ -18851,7 +18845,7 @@ add.exit.i67:                                     ; preds = %418
 449:                                              ; preds = %447
   %450 = getelementptr inbounds nuw i8, ptr %.0625, i64 8
   %451 = load ptr, ptr %450, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr %451, ptr %49, align 8, !tbaa !25
   %452 = call fastcc ptr @mul(ptr noundef %49, ptr noundef %451)
   br label %453
@@ -18865,7 +18859,7 @@ add.exit.i67:                                     ; preds = %418
 456:                                              ; preds = %453
   %457 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %458 = load ptr, ptr %457, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %458, ptr %17, align 8, !tbaa !25
   %459 = call fastcc ptr @cast(ptr noundef %17, ptr noundef %458)
   br label %460
@@ -18905,7 +18899,7 @@ add.exit.i67:                                     ; preds = %418
 
 mul.exit454:                                      ; preds = %467
   store ptr %469, ptr %49, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @add_type(ptr noundef %.08.i173) #13
   call void @add_type(ptr noundef %.010.i451) #13
   %478 = getelementptr inbounds nuw i8, ptr %.08.i173, i64 16
@@ -19013,7 +19007,7 @@ new_add.exit450:                                  ; preds = %481, %.sink.split.i
 525:                                              ; preds = %523
   %526 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %527 = load ptr, ptr %526, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %527, ptr %18, align 8, !tbaa !25
   %528 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %527)
   br label %529
@@ -19053,7 +19047,7 @@ new_add.exit450:                                  ; preds = %481, %.sink.split.i
 
 mul.exit435:                                      ; preds = %536
   store ptr %538, ptr %49, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %547 = call fastcc ptr @new_sub(ptr noundef %.08.i173, ptr noundef %.010.i432, ptr noundef %454)
   br label %.backedge1192
 
@@ -19062,7 +19056,7 @@ mul.exit435:                                      ; preds = %536
   br label %453
 
 add.exit175:                                      ; preds = %523
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %548
 
 548:                                              ; preds = %add.exit.i61, %add.exit175
@@ -19079,7 +19073,7 @@ add.exit175:                                      ; preds = %523
   %.sink20.i59 = phi i32 [ 10, %548 ], [ 11, %550 ]
   %553 = getelementptr inbounds nuw i8, ptr %.0634, i64 8
   %554 = load ptr, ptr %553, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr %554, ptr %50, align 8, !tbaa !25
   %555 = call fastcc ptr @cast(ptr noundef %50, ptr noundef %554)
   br label %556
@@ -19118,7 +19112,7 @@ add.exit175:                                      ; preds = %523
   br label %556
 
 mul.exit172:                                      ; preds = %563
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %574
 
 574:                                              ; preds = %.backedge1186, %mul.exit172
@@ -19130,7 +19124,7 @@ mul.exit172:                                      ; preds = %563
 576:                                              ; preds = %574
   %577 = getelementptr inbounds nuw i8, ptr %.0635, i64 8
   %578 = load ptr, ptr %577, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %578, ptr %51, align 8, !tbaa !25
   %579 = call fastcc ptr @cast(ptr noundef %51, ptr noundef %578)
   br label %580
@@ -19169,7 +19163,7 @@ mul.exit172:                                      ; preds = %563
   br label %580
 
 mul.exit168:                                      ; preds = %587
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @add_type(ptr noundef %.08.i.i60) #13
   call void @add_type(ptr noundef %.010.i165) #13
   %598 = getelementptr inbounds nuw i8, ptr %.08.i.i60, i64 16
@@ -19277,7 +19271,7 @@ new_add.exit164:                                  ; preds = %601, %.sink.split.i
 645:                                              ; preds = %643
   %646 = getelementptr inbounds nuw i8, ptr %.0635, i64 8
   %647 = load ptr, ptr %646, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr %647, ptr %52, align 8, !tbaa !25
   %648 = call fastcc ptr @cast(ptr noundef %52, ptr noundef %647)
   br label %649
@@ -19316,7 +19310,7 @@ new_add.exit164:                                  ; preds = %601, %.sink.split.i
   br label %649
 
 mul.exit149:                                      ; preds = %656
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %667 = call fastcc ptr @new_sub(ptr noundef %.08.i.i60, ptr noundef %.010.i146, ptr noundef %.0635)
   br label %.backedge1186
 
@@ -19343,7 +19337,7 @@ add.exit.i61:                                     ; preds = %643
 674:                                              ; preds = %672
   %675 = getelementptr inbounds nuw i8, ptr %.0625, i64 8
   %676 = load ptr, ptr %675, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store ptr %676, ptr %53, align 8, !tbaa !25
   %677 = call fastcc ptr @mul(ptr noundef %53, ptr noundef %676)
   br label %678
@@ -19357,7 +19351,7 @@ add.exit.i61:                                     ; preds = %643
 681:                                              ; preds = %678
   %682 = getelementptr inbounds nuw i8, ptr %679, i64 8
   %683 = load ptr, ptr %682, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %683, ptr %19, align 8, !tbaa !25
   %684 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %683)
   br label %685
@@ -19397,7 +19391,7 @@ add.exit.i61:                                     ; preds = %643
 
 mul.exit431:                                      ; preds = %692
   store ptr %694, ptr %53, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @add_type(ptr noundef %.08.i143) #13
   call void @add_type(ptr noundef %.010.i428) #13
   %703 = getelementptr inbounds nuw i8, ptr %.08.i143, i64 16
@@ -19505,7 +19499,7 @@ new_add.exit427:                                  ; preds = %706, %.sink.split.i
 750:                                              ; preds = %748
   %751 = getelementptr inbounds nuw i8, ptr %679, i64 8
   %752 = load ptr, ptr %751, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %752, ptr %20, align 8, !tbaa !25
   %753 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %752)
   br label %754
@@ -19545,7 +19539,7 @@ new_add.exit427:                                  ; preds = %706, %.sink.split.i
 
 mul.exit412:                                      ; preds = %761
   store ptr %763, ptr %53, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %772 = call fastcc ptr @new_sub(ptr noundef %.08.i143, ptr noundef %.010.i409, ptr noundef %679)
   br label %.backedge1194
 
@@ -19554,7 +19548,7 @@ mul.exit412:                                      ; preds = %761
   br label %678
 
 add.exit145:                                      ; preds = %748
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %773
 
 773:                                              ; preds = %add.exit.i55, %add.exit145
@@ -19571,7 +19565,7 @@ add.exit145:                                      ; preds = %748
   %.sink20.i53 = phi i32 [ 10, %773 ], [ 11, %775 ]
   %778 = getelementptr inbounds nuw i8, ptr %.0631, i64 8
   %779 = load ptr, ptr %778, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store ptr %779, ptr %54, align 8, !tbaa !25
   %780 = call fastcc ptr @cast(ptr noundef %54, ptr noundef %779)
   br label %781
@@ -19610,7 +19604,7 @@ add.exit145:                                      ; preds = %748
   br label %781
 
 mul.exit142:                                      ; preds = %788
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %799
 
 799:                                              ; preds = %.backedge1187, %mul.exit142
@@ -19622,7 +19616,7 @@ mul.exit142:                                      ; preds = %788
 801:                                              ; preds = %799
   %802 = getelementptr inbounds nuw i8, ptr %.0632, i64 8
   %803 = load ptr, ptr %802, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr %803, ptr %55, align 8, !tbaa !25
   %804 = call fastcc ptr @cast(ptr noundef %55, ptr noundef %803)
   br label %805
@@ -19661,7 +19655,7 @@ mul.exit142:                                      ; preds = %788
   br label %805
 
 mul.exit138:                                      ; preds = %812
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @add_type(ptr noundef %.08.i.i54) #13
   call void @add_type(ptr noundef %.010.i135) #13
   %823 = getelementptr inbounds nuw i8, ptr %.08.i.i54, i64 16
@@ -19769,7 +19763,7 @@ new_add.exit134:                                  ; preds = %826, %.sink.split.i
 870:                                              ; preds = %868
   %871 = getelementptr inbounds nuw i8, ptr %.0632, i64 8
   %872 = load ptr, ptr %871, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr %872, ptr %56, align 8, !tbaa !25
   %873 = call fastcc ptr @cast(ptr noundef %56, ptr noundef %872)
   br label %874
@@ -19808,7 +19802,7 @@ new_add.exit134:                                  ; preds = %826, %.sink.split.i
   br label %874
 
 mul.exit119:                                      ; preds = %881
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %892 = call fastcc ptr @new_sub(ptr noundef %.08.i.i54, ptr noundef %.010.i116, ptr noundef %.0632)
   br label %.backedge1187
 
@@ -19835,7 +19829,7 @@ add.exit.i55:                                     ; preds = %868
 899:                                              ; preds = %897
   %900 = getelementptr inbounds nuw i8, ptr %.0625, i64 8
   %901 = load ptr, ptr %900, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr %901, ptr %57, align 8, !tbaa !25
   %902 = call fastcc ptr @mul(ptr noundef %57, ptr noundef %901)
   br label %903
@@ -19849,7 +19843,7 @@ add.exit.i55:                                     ; preds = %868
 906:                                              ; preds = %903
   %907 = getelementptr inbounds nuw i8, ptr %904, i64 8
   %908 = load ptr, ptr %907, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %908, ptr %21, align 8, !tbaa !25
   %909 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %908)
   br label %910
@@ -19889,7 +19883,7 @@ add.exit.i55:                                     ; preds = %868
 
 mul.exit408:                                      ; preds = %917
   store ptr %919, ptr %57, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @add_type(ptr noundef %.08.i115) #13
   call void @add_type(ptr noundef %.010.i405) #13
   %928 = getelementptr inbounds nuw i8, ptr %.08.i115, i64 16
@@ -19997,7 +19991,7 @@ new_add.exit404:                                  ; preds = %931, %.sink.split.i
 975:                                              ; preds = %973
   %976 = getelementptr inbounds nuw i8, ptr %904, i64 8
   %977 = load ptr, ptr %976, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %977, ptr %22, align 8, !tbaa !25
   %978 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %977)
   br label %979
@@ -20037,7 +20031,7 @@ new_add.exit404:                                  ; preds = %931, %.sink.split.i
 
 mul.exit389:                                      ; preds = %986
   store ptr %988, ptr %57, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %997 = call fastcc ptr @new_sub(ptr noundef %.08.i115, ptr noundef %.010.i386, ptr noundef %904)
   br label %.backedge1196
 
@@ -20046,7 +20040,7 @@ mul.exit389:                                      ; preds = %986
   br label %903
 
 add.exit:                                         ; preds = %973
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %998
 
 998:                                              ; preds = %add.exit.i, %add.exit
@@ -20063,7 +20057,7 @@ add.exit:                                         ; preds = %973
   %.sink20.i = phi i32 [ 10, %998 ], [ 11, %1000 ]
   %1003 = getelementptr inbounds nuw i8, ptr %.0628, i64 8
   %1004 = load ptr, ptr %1003, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store ptr %1004, ptr %58, align 8, !tbaa !25
   %1005 = call fastcc ptr @cast(ptr noundef %58, ptr noundef %1004)
   br label %1006
@@ -20102,7 +20096,7 @@ add.exit:                                         ; preds = %973
   br label %1006
 
 mul.exit114:                                      ; preds = %1013
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %1024
 
 1024:                                             ; preds = %.backedge1188, %mul.exit114
@@ -20114,7 +20108,7 @@ mul.exit114:                                      ; preds = %1013
 1026:                                             ; preds = %1024
   %1027 = getelementptr inbounds nuw i8, ptr %.0629, i64 8
   %1028 = load ptr, ptr %1027, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store ptr %1028, ptr %59, align 8, !tbaa !25
   %1029 = call fastcc ptr @cast(ptr noundef %59, ptr noundef %1028)
   br label %1030
@@ -20153,7 +20147,7 @@ mul.exit114:                                      ; preds = %1013
   br label %1030
 
 mul.exit110:                                      ; preds = %1037
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @add_type(ptr noundef %.08.i.i) #13
   call void @add_type(ptr noundef %.010.i107) #13
   %1048 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
@@ -20261,7 +20255,7 @@ new_add.exit:                                     ; preds = %1051, %.sink.split.
 1095:                                             ; preds = %1093
   %1096 = getelementptr inbounds nuw i8, ptr %.0629, i64 8
   %1097 = load ptr, ptr %1096, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store ptr %1097, ptr %60, align 8, !tbaa !25
   %1098 = call fastcc ptr @cast(ptr noundef %60, ptr noundef %1097)
   br label %1099
@@ -20300,7 +20294,7 @@ new_add.exit:                                     ; preds = %1051, %.sink.split.
   br label %1099
 
 mul.exit:                                         ; preds = %1106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %1117 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.0629)
   br label %.backedge1188
 
@@ -20349,7 +20343,7 @@ relational.exit:                                  ; preds = %897, %relational.ex
   %.sink43 = phi i32 [ 12, %relational.exit ], [ 13, %1127 ]
   %1130 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %1131 = load ptr, ptr %1130, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %1131, ptr %23, align 8, !tbaa !25
   %1132 = call fastcc ptr @mul(ptr noundef %23, ptr noundef %1131)
   br label %1133
@@ -20363,7 +20357,7 @@ relational.exit:                                  ; preds = %897, %relational.ex
 1136:                                             ; preds = %1133
   %1137 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   %1138 = load ptr, ptr %1137, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1138, ptr %3, align 8, !tbaa !25
   %1139 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %1138)
   br label %1140
@@ -20403,7 +20397,7 @@ relational.exit:                                  ; preds = %897, %relational.ex
 
 mul.exit600:                                      ; preds = %1147
   store ptr %1149, ptr %23, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @add_type(ptr noundef %.08.i383) #13
   call void @add_type(ptr noundef %.010.i597) #13
   %1158 = getelementptr inbounds nuw i8, ptr %.08.i383, i64 16
@@ -20511,7 +20505,7 @@ new_add.exit596:                                  ; preds = %1161, %.sink.split.
 1205:                                             ; preds = %1203
   %1206 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   %1207 = load ptr, ptr %1206, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1207, ptr %4, align 8, !tbaa !25
   %1208 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %1207)
   br label %1209
@@ -20551,7 +20545,7 @@ new_add.exit596:                                  ; preds = %1161, %.sink.split.
 
 mul.exit581:                                      ; preds = %1216
   store ptr %1218, ptr %23, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1227 = call fastcc ptr @new_sub(ptr noundef %.08.i383, ptr noundef %.010.i578, ptr noundef %1134)
   br label %.backedge1189
 
@@ -20560,7 +20554,7 @@ mul.exit581:                                      ; preds = %1216
   br label %1133
 
 add.exit385:                                      ; preds = %1203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1228
 
 1228:                                             ; preds = %add.exit.i103, %add.exit385
@@ -20577,7 +20571,7 @@ add.exit385:                                      ; preds = %1203
   %.sink20.i101 = phi i32 [ 10, %1228 ], [ 11, %1230 ]
   %1233 = getelementptr inbounds nuw i8, ptr %.0655, i64 8
   %1234 = load ptr, ptr %1233, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %1234, ptr %24, align 8, !tbaa !25
   %1235 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %1234)
   br label %1236
@@ -20616,7 +20610,7 @@ add.exit385:                                      ; preds = %1203
   br label %1236
 
 mul.exit382:                                      ; preds = %1243
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1254
 
 1254:                                             ; preds = %.backedge1184, %mul.exit382
@@ -20628,7 +20622,7 @@ mul.exit382:                                      ; preds = %1243
 1256:                                             ; preds = %1254
   %1257 = getelementptr inbounds nuw i8, ptr %.0656, i64 8
   %1258 = load ptr, ptr %1257, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %1258, ptr %25, align 8, !tbaa !25
   %1259 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %1258)
   br label %1260
@@ -20667,7 +20661,7 @@ mul.exit382:                                      ; preds = %1243
   br label %1260
 
 mul.exit378:                                      ; preds = %1267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @add_type(ptr noundef %.08.i.i102) #13
   call void @add_type(ptr noundef %.010.i375) #13
   %1278 = getelementptr inbounds nuw i8, ptr %.08.i.i102, i64 16
@@ -20775,7 +20769,7 @@ new_add.exit374:                                  ; preds = %1281, %.sink.split.
 1325:                                             ; preds = %1323
   %1326 = getelementptr inbounds nuw i8, ptr %.0656, i64 8
   %1327 = load ptr, ptr %1326, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %1327, ptr %26, align 8, !tbaa !25
   %1328 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %1327)
   br label %1329
@@ -20814,7 +20808,7 @@ new_add.exit374:                                  ; preds = %1281, %.sink.split.
   br label %1329
 
 mul.exit359:                                      ; preds = %1336
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %1347 = call fastcc ptr @new_sub(ptr noundef %.08.i.i102, ptr noundef %.010.i356, ptr noundef %.0656)
   br label %.backedge1184
 
@@ -20843,7 +20837,7 @@ shift.exit105:                                    ; preds = %1230, %shift.exit99
 1353:                                             ; preds = %shift.exit105
   %1354 = getelementptr inbounds nuw i8, ptr %.0626, i64 8
   %1355 = load ptr, ptr %1354, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1355, ptr %5, align 8, !tbaa !25
   %1356 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %1355)
   br label %1357
@@ -20882,7 +20876,7 @@ shift.exit105:                                    ; preds = %1230, %shift.exit99
   br label %1357
 
 mul.exit577:                                      ; preds = %1364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %1375
 
 1375:                                             ; preds = %.backedge1177, %mul.exit577
@@ -20894,7 +20888,7 @@ mul.exit577:                                      ; preds = %1364
 1377:                                             ; preds = %1375
   %1378 = getelementptr inbounds nuw i8, ptr %.0660, i64 8
   %1379 = load ptr, ptr %1378, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1379, ptr %6, align 8, !tbaa !25
   %1380 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %1379)
   br label %1381
@@ -20933,7 +20927,7 @@ mul.exit577:                                      ; preds = %1364
   br label %1381
 
 mul.exit573:                                      ; preds = %1388
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @add_type(ptr noundef %.08.i353) #13
   call void @add_type(ptr noundef %.010.i570) #13
   %1399 = getelementptr inbounds nuw i8, ptr %.08.i353, i64 16
@@ -21041,7 +21035,7 @@ new_add.exit569:                                  ; preds = %1402, %.sink.split.
 1446:                                             ; preds = %1444
   %1447 = getelementptr inbounds nuw i8, ptr %.0660, i64 8
   %1448 = load ptr, ptr %1447, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1448, ptr %7, align 8, !tbaa !25
   %1449 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %1448)
   br label %1450
@@ -21080,7 +21074,7 @@ new_add.exit569:                                  ; preds = %1402, %.sink.split.
   br label %1450
 
 mul.exit554:                                      ; preds = %1457
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %1468 = call fastcc ptr @new_sub(ptr noundef %.08.i353, ptr noundef %.010.i551, ptr noundef %.0660)
   br label %.backedge1177
 
@@ -21103,7 +21097,7 @@ add.exit355:                                      ; preds = %1444, %add.exit.i97
   %.sink20.i95 = phi i32 [ 10, %add.exit355 ], [ 11, %1470 ]
   %1473 = getelementptr inbounds nuw i8, ptr %.0652, i64 8
   %1474 = load ptr, ptr %1473, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %1474, ptr %27, align 8, !tbaa !25
   %1475 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %1474)
   br label %1476
@@ -21142,7 +21136,7 @@ add.exit355:                                      ; preds = %1444, %add.exit.i97
   br label %1476
 
 mul.exit352:                                      ; preds = %1483
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1494
 
 1494:                                             ; preds = %.backedge, %mul.exit352
@@ -21154,7 +21148,7 @@ mul.exit352:                                      ; preds = %1483
 1496:                                             ; preds = %1494
   %1497 = getelementptr inbounds nuw i8, ptr %.0653, i64 8
   %1498 = load ptr, ptr %1497, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %1498, ptr %28, align 8, !tbaa !25
   %1499 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %1498)
   br label %1500
@@ -21193,7 +21187,7 @@ mul.exit352:                                      ; preds = %1483
   br label %1500
 
 mul.exit348:                                      ; preds = %1507
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @add_type(ptr noundef %.08.i.i96) #13
   call void @add_type(ptr noundef %.010.i345) #13
   %1518 = getelementptr inbounds nuw i8, ptr %.08.i.i96, i64 16
@@ -21301,7 +21295,7 @@ new_add.exit344:                                  ; preds = %1521, %.sink.split.
 1565:                                             ; preds = %1563
   %1566 = getelementptr inbounds nuw i8, ptr %.0653, i64 8
   %1567 = load ptr, ptr %1566, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %1567, ptr %29, align 8, !tbaa !25
   %1568 = call fastcc ptr @cast(ptr noundef %29, ptr noundef %1567)
   br label %1569
@@ -21340,7 +21334,7 @@ new_add.exit344:                                  ; preds = %1521, %.sink.split.
   br label %1569
 
 mul.exit329:                                      ; preds = %1576
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1587 = call fastcc ptr @new_sub(ptr noundef %.08.i.i96, ptr noundef %.010.i326, ptr noundef %.0653)
   br label %.backedge
 
@@ -21367,7 +21361,7 @@ add.exit.i97:                                     ; preds = %1563
 1594:                                             ; preds = %1592
   %1595 = getelementptr inbounds nuw i8, ptr %.0626, i64 8
   %1596 = load ptr, ptr %1595, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1596, ptr %8, align 8, !tbaa !25
   %1597 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %1596)
   br label %1598
@@ -21406,7 +21400,7 @@ add.exit.i97:                                     ; preds = %1563
   br label %1598
 
 mul.exit550:                                      ; preds = %1605
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %1616
 
 1616:                                             ; preds = %.backedge1179, %mul.exit550
@@ -21418,7 +21412,7 @@ mul.exit550:                                      ; preds = %1605
 1618:                                             ; preds = %1616
   %1619 = getelementptr inbounds nuw i8, ptr %.0658, i64 8
   %1620 = load ptr, ptr %1619, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1620, ptr %9, align 8, !tbaa !25
   %1621 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %1620)
   br label %1622
@@ -21457,7 +21451,7 @@ mul.exit550:                                      ; preds = %1605
   br label %1622
 
 mul.exit546:                                      ; preds = %1629
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @add_type(ptr noundef %.08.i323) #13
   call void @add_type(ptr noundef %.010.i543) #13
   %1640 = getelementptr inbounds nuw i8, ptr %.08.i323, i64 16
@@ -21565,7 +21559,7 @@ new_add.exit542:                                  ; preds = %1643, %.sink.split.
 1687:                                             ; preds = %1685
   %1688 = getelementptr inbounds nuw i8, ptr %.0658, i64 8
   %1689 = load ptr, ptr %1688, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1689, ptr %10, align 8, !tbaa !25
   %1690 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %1689)
   br label %1691
@@ -21604,7 +21598,7 @@ new_add.exit542:                                  ; preds = %1643, %.sink.split.
   br label %1691
 
 mul.exit527:                                      ; preds = %1698
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %1709 = call fastcc ptr @new_sub(ptr noundef %.08.i323, ptr noundef %.010.i524, ptr noundef %.0658)
   br label %.backedge1179
 
@@ -21627,7 +21621,7 @@ add.exit325:                                      ; preds = %1685, %add.exit.i91
   %.sink20.i89 = phi i32 [ 10, %add.exit325 ], [ 11, %1711 ]
   %1714 = getelementptr inbounds nuw i8, ptr %.0649, i64 8
   %1715 = load ptr, ptr %1714, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %1715, ptr %30, align 8, !tbaa !25
   %1716 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %1715)
   br label %1717
@@ -21666,7 +21660,7 @@ add.exit325:                                      ; preds = %1685, %add.exit.i91
   br label %1717
 
 mul.exit322:                                      ; preds = %1724
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1735
 
 1735:                                             ; preds = %.backedge1174, %mul.exit322
@@ -21678,7 +21672,7 @@ mul.exit322:                                      ; preds = %1724
 1737:                                             ; preds = %1735
   %1738 = getelementptr inbounds nuw i8, ptr %.0650, i64 8
   %1739 = load ptr, ptr %1738, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %1739, ptr %31, align 8, !tbaa !25
   %1740 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %1739)
   br label %1741
@@ -21717,7 +21711,7 @@ mul.exit322:                                      ; preds = %1724
   br label %1741
 
 mul.exit318:                                      ; preds = %1748
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @add_type(ptr noundef %.08.i.i90) #13
   call void @add_type(ptr noundef %.010.i315) #13
   %1759 = getelementptr inbounds nuw i8, ptr %.08.i.i90, i64 16
@@ -21825,7 +21819,7 @@ new_add.exit314:                                  ; preds = %1762, %.sink.split.
 1806:                                             ; preds = %1804
   %1807 = getelementptr inbounds nuw i8, ptr %.0650, i64 8
   %1808 = load ptr, ptr %1807, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %1808, ptr %32, align 8, !tbaa !25
   %1809 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %1808)
   br label %1810
@@ -21864,7 +21858,7 @@ new_add.exit314:                                  ; preds = %1762, %.sink.split.
   br label %1810
 
 mul.exit299:                                      ; preds = %1817
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1828 = call fastcc ptr @new_sub(ptr noundef %.08.i.i90, ptr noundef %.010.i296, ptr noundef %.0650)
   br label %.backedge1174
 
@@ -21891,7 +21885,7 @@ add.exit.i91:                                     ; preds = %1804
 1835:                                             ; preds = %1833
   %1836 = getelementptr inbounds nuw i8, ptr %.0626, i64 8
   %1837 = load ptr, ptr %1836, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %1837, ptr %33, align 8, !tbaa !25
   %1838 = call fastcc ptr @mul(ptr noundef %33, ptr noundef %1837)
   br label %1839
@@ -21905,7 +21899,7 @@ add.exit.i91:                                     ; preds = %1804
 1842:                                             ; preds = %1839
   %1843 = getelementptr inbounds nuw i8, ptr %1840, i64 8
   %1844 = load ptr, ptr %1843, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %1844, ptr %11, align 8, !tbaa !25
   %1845 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %1844)
   br label %1846
@@ -21945,7 +21939,7 @@ add.exit.i91:                                     ; preds = %1804
 
 mul.exit523:                                      ; preds = %1853
   store ptr %1855, ptr %33, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @add_type(ptr noundef %.08.i293) #13
   call void @add_type(ptr noundef %.010.i520) #13
   %1864 = getelementptr inbounds nuw i8, ptr %.08.i293, i64 16
@@ -22053,7 +22047,7 @@ new_add.exit519:                                  ; preds = %1867, %.sink.split.
 1911:                                             ; preds = %1909
   %1912 = getelementptr inbounds nuw i8, ptr %1840, i64 8
   %1913 = load ptr, ptr %1912, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %1913, ptr %12, align 8, !tbaa !25
   %1914 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %1913)
   br label %1915
@@ -22093,7 +22087,7 @@ new_add.exit519:                                  ; preds = %1867, %.sink.split.
 
 mul.exit504:                                      ; preds = %1922
   store ptr %1924, ptr %33, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %1933 = call fastcc ptr @new_sub(ptr noundef %.08.i293, ptr noundef %.010.i501, ptr noundef %1840)
   br label %.backedge1181
 
@@ -22102,7 +22096,7 @@ mul.exit504:                                      ; preds = %1922
   br label %1839
 
 add.exit295:                                      ; preds = %1909
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1934
 
 1934:                                             ; preds = %add.exit.i85, %add.exit295
@@ -22119,7 +22113,7 @@ add.exit295:                                      ; preds = %1909
   %.sink20.i83 = phi i32 [ 10, %1934 ], [ 11, %1936 ]
   %1939 = getelementptr inbounds nuw i8, ptr %.0646, i64 8
   %1940 = load ptr, ptr %1939, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %1940, ptr %34, align 8, !tbaa !25
   %1941 = call fastcc ptr @cast(ptr noundef %34, ptr noundef %1940)
   br label %1942
@@ -22158,7 +22152,7 @@ add.exit295:                                      ; preds = %1909
   br label %1942
 
 mul.exit292:                                      ; preds = %1949
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %1960
 
 1960:                                             ; preds = %.backedge1175, %mul.exit292
@@ -22170,7 +22164,7 @@ mul.exit292:                                      ; preds = %1949
 1962:                                             ; preds = %1960
   %1963 = getelementptr inbounds nuw i8, ptr %.0647, i64 8
   %1964 = load ptr, ptr %1963, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %1964, ptr %35, align 8, !tbaa !25
   %1965 = call fastcc ptr @cast(ptr noundef %35, ptr noundef %1964)
   br label %1966
@@ -22209,7 +22203,7 @@ mul.exit292:                                      ; preds = %1949
   br label %1966
 
 mul.exit288:                                      ; preds = %1973
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @add_type(ptr noundef %.08.i.i84) #13
   call void @add_type(ptr noundef %.010.i285) #13
   %1984 = getelementptr inbounds nuw i8, ptr %.08.i.i84, i64 16
@@ -22317,7 +22311,7 @@ new_add.exit284:                                  ; preds = %1987, %.sink.split.
 2031:                                             ; preds = %2029
   %2032 = getelementptr inbounds nuw i8, ptr %.0647, i64 8
   %2033 = load ptr, ptr %2032, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr %2033, ptr %36, align 8, !tbaa !25
   %2034 = call fastcc ptr @cast(ptr noundef %36, ptr noundef %2033)
   br label %2035
@@ -22356,7 +22350,7 @@ new_add.exit284:                                  ; preds = %1987, %.sink.split.
   br label %2035
 
 mul.exit269:                                      ; preds = %2042
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %2053 = call fastcc ptr @new_sub(ptr noundef %.08.i.i84, ptr noundef %.010.i266, ptr noundef %.0647)
   br label %.backedge1175
 
@@ -22383,7 +22377,7 @@ add.exit.i85:                                     ; preds = %2029
 2060:                                             ; preds = %2058
   %2061 = getelementptr inbounds nuw i8, ptr %.0626, i64 8
   %2062 = load ptr, ptr %2061, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %2062, ptr %37, align 8, !tbaa !25
   %2063 = call fastcc ptr @mul(ptr noundef %37, ptr noundef %2062)
   br label %2064
@@ -22397,7 +22391,7 @@ add.exit.i85:                                     ; preds = %2029
 2067:                                             ; preds = %2064
   %2068 = getelementptr inbounds nuw i8, ptr %2065, i64 8
   %2069 = load ptr, ptr %2068, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %2069, ptr %13, align 8, !tbaa !25
   %2070 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %2069)
   br label %2071
@@ -22437,7 +22431,7 @@ add.exit.i85:                                     ; preds = %2029
 
 mul.exit500:                                      ; preds = %2078
   store ptr %2080, ptr %37, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @add_type(ptr noundef %.08.i263) #13
   call void @add_type(ptr noundef %.010.i497) #13
   %2089 = getelementptr inbounds nuw i8, ptr %.08.i263, i64 16
@@ -22545,7 +22539,7 @@ new_add.exit496:                                  ; preds = %2092, %.sink.split.
 2136:                                             ; preds = %2134
   %2137 = getelementptr inbounds nuw i8, ptr %2065, i64 8
   %2138 = load ptr, ptr %2137, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %2138, ptr %14, align 8, !tbaa !25
   %2139 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %2138)
   br label %2140
@@ -22585,7 +22579,7 @@ new_add.exit496:                                  ; preds = %2092, %.sink.split.
 
 mul.exit481:                                      ; preds = %2147
   store ptr %2149, ptr %37, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %2158 = call fastcc ptr @new_sub(ptr noundef %.08.i263, ptr noundef %.010.i478, ptr noundef %2065)
   br label %.backedge1183
 
@@ -22594,7 +22588,7 @@ mul.exit481:                                      ; preds = %2147
   br label %2064
 
 add.exit265:                                      ; preds = %2134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %2159
 
 2159:                                             ; preds = %add.exit.i79, %add.exit265
@@ -22611,7 +22605,7 @@ add.exit265:                                      ; preds = %2134
   %.sink20.i77 = phi i32 [ 10, %2159 ], [ 11, %2161 ]
   %2164 = getelementptr inbounds nuw i8, ptr %.0643, i64 8
   %2165 = load ptr, ptr %2164, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr %2165, ptr %38, align 8, !tbaa !25
   %2166 = call fastcc ptr @cast(ptr noundef %38, ptr noundef %2165)
   br label %2167
@@ -22650,7 +22644,7 @@ add.exit265:                                      ; preds = %2134
   br label %2167
 
 mul.exit262:                                      ; preds = %2174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2185
 
 2185:                                             ; preds = %.backedge1176, %mul.exit262
@@ -22662,7 +22656,7 @@ mul.exit262:                                      ; preds = %2174
 2187:                                             ; preds = %2185
   %2188 = getelementptr inbounds nuw i8, ptr %.0644, i64 8
   %2189 = load ptr, ptr %2188, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %2189, ptr %39, align 8, !tbaa !25
   %2190 = call fastcc ptr @cast(ptr noundef %39, ptr noundef %2189)
   br label %2191
@@ -22701,7 +22695,7 @@ mul.exit262:                                      ; preds = %2174
   br label %2191
 
 mul.exit258:                                      ; preds = %2198
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @add_type(ptr noundef %.08.i.i78) #13
   call void @add_type(ptr noundef %.010.i255) #13
   %2209 = getelementptr inbounds nuw i8, ptr %.08.i.i78, i64 16
@@ -22809,7 +22803,7 @@ new_add.exit254:                                  ; preds = %2212, %.sink.split.
 2256:                                             ; preds = %2254
   %2257 = getelementptr inbounds nuw i8, ptr %.0644, i64 8
   %2258 = load ptr, ptr %2257, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %2258, ptr %40, align 8, !tbaa !25
   %2259 = call fastcc ptr @cast(ptr noundef %40, ptr noundef %2258)
   br label %2260
@@ -22848,7 +22842,7 @@ new_add.exit254:                                  ; preds = %2212, %.sink.split.
   br label %2260
 
 mul.exit239:                                      ; preds = %2267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %2278 = call fastcc ptr @new_sub(ptr noundef %.08.i.i78, ptr noundef %.010.i236, ptr noundef %.0644)
   br label %.backedge1176
 
@@ -22909,7 +22903,7 @@ equality.exit:                                    ; preds = %1127
 bitand.exit5:                                     ; preds = %equality.exit, %.lr.ph26
   %.lcssa17.lcssa = phi ptr [ %.promoted, %.lr.ph26 ], [ %.0, %equality.exit ]
   %.0.i4.lcssa = phi ptr [ %79, %.lr.ph26 ], [ %2291, %equality.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %2296 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 9, ptr %2296, align 16, !tbaa !7
   %2297 = getelementptr inbounds nuw i8, ptr %2296, i64 24
@@ -22980,7 +22974,7 @@ define internal fastcc ptr @equality(ptr noundef nonnull writeonly captures(none
   %.sink20 = phi i32 [ 12, %35 ], [ 13, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %42, ptr %17, align 8, !tbaa !25
   %43 = call fastcc ptr @mul(ptr noundef %17, ptr noundef %42)
   br label %44
@@ -22994,7 +22988,7 @@ define internal fastcc ptr @equality(ptr noundef nonnull writeonly captures(none
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %49, ptr %3, align 8, !tbaa !25
   %50 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %49)
   br label %51
@@ -23034,7 +23028,7 @@ define internal fastcc ptr @equality(ptr noundef nonnull writeonly captures(none
 
 mul.exit307:                                      ; preds = %58
   store ptr %60, ptr %17, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @add_type(ptr noundef %.08.i174) #13
   call void @add_type(ptr noundef %.010.i304) #13
   %69 = getelementptr inbounds nuw i8, ptr %.08.i174, i64 16
@@ -23142,7 +23136,7 @@ new_add.exit303:                                  ; preds = %72, %.sink.split.i2
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %118, ptr %4, align 8, !tbaa !25
   %119 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %118)
   br label %120
@@ -23182,7 +23176,7 @@ new_add.exit303:                                  ; preds = %72, %.sink.split.i2
 
 mul.exit288:                                      ; preds = %127
   store ptr %129, ptr %17, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = call fastcc ptr @new_sub(ptr noundef %.08.i174, ptr noundef %.010.i285, ptr noundef %45)
   br label %.backedge636
 
@@ -23191,7 +23185,7 @@ mul.exit288:                                      ; preds = %127
   br label %44
 
 add.exit176:                                      ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %139
 
 139:                                              ; preds = %add.exit.i44, %add.exit176
@@ -23208,7 +23202,7 @@ add.exit176:                                      ; preds = %114
   %.sink20.i42 = phi i32 [ 10, %139 ], [ 11, %141 ]
   %144 = getelementptr inbounds nuw i8, ptr %.0334, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %145, ptr %18, align 8, !tbaa !25
   %146 = call fastcc ptr @cast(ptr noundef %18, ptr noundef %145)
   br label %147
@@ -23247,7 +23241,7 @@ add.exit176:                                      ; preds = %114
   br label %147
 
 mul.exit173:                                      ; preds = %154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %165
 
 165:                                              ; preds = %.backedge635, %mul.exit173
@@ -23259,7 +23253,7 @@ mul.exit173:                                      ; preds = %154
 167:                                              ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %.0335, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %169, ptr %19, align 8, !tbaa !25
   %170 = call fastcc ptr @cast(ptr noundef %19, ptr noundef %169)
   br label %171
@@ -23298,7 +23292,7 @@ mul.exit173:                                      ; preds = %154
   br label %171
 
 mul.exit169:                                      ; preds = %178
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @add_type(ptr noundef %.08.i.i43) #13
   call void @add_type(ptr noundef %.010.i166) #13
   %189 = getelementptr inbounds nuw i8, ptr %.08.i.i43, i64 16
@@ -23406,7 +23400,7 @@ new_add.exit165:                                  ; preds = %192, %.sink.split.i
 236:                                              ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %.0335, i64 8
   %238 = load ptr, ptr %237, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %238, ptr %20, align 8, !tbaa !25
   %239 = call fastcc ptr @cast(ptr noundef %20, ptr noundef %238)
   br label %240
@@ -23445,7 +23439,7 @@ new_add.exit165:                                  ; preds = %192, %.sink.split.i
   br label %240
 
 mul.exit150:                                      ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %258 = call fastcc ptr @new_sub(ptr noundef %.08.i.i43, ptr noundef %.010.i147, ptr noundef %.0335)
   br label %.backedge635
 
@@ -23474,7 +23468,7 @@ shift.exit46:                                     ; preds = %141, %shift.exit40
 264:                                              ; preds = %shift.exit46
   %265 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %266, ptr %5, align 8, !tbaa !25
   %267 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %266)
   br label %268
@@ -23513,7 +23507,7 @@ shift.exit46:                                     ; preds = %141, %shift.exit40
   br label %268
 
 mul.exit284:                                      ; preds = %275
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %286
 
 286:                                              ; preds = %.backedge628, %mul.exit284
@@ -23525,7 +23519,7 @@ mul.exit284:                                      ; preds = %275
 288:                                              ; preds = %286
   %289 = getelementptr inbounds nuw i8, ptr %.0343, i64 8
   %290 = load ptr, ptr %289, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %290, ptr %6, align 8, !tbaa !25
   %291 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %290)
   br label %292
@@ -23564,7 +23558,7 @@ mul.exit284:                                      ; preds = %275
   br label %292
 
 mul.exit280:                                      ; preds = %299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @add_type(ptr noundef %.08.i144) #13
   call void @add_type(ptr noundef %.010.i277) #13
   %310 = getelementptr inbounds nuw i8, ptr %.08.i144, i64 16
@@ -23672,7 +23666,7 @@ new_add.exit276:                                  ; preds = %313, %.sink.split.i
 357:                                              ; preds = %355
   %358 = getelementptr inbounds nuw i8, ptr %.0343, i64 8
   %359 = load ptr, ptr %358, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %359, ptr %7, align 8, !tbaa !25
   %360 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %359)
   br label %361
@@ -23711,7 +23705,7 @@ new_add.exit276:                                  ; preds = %313, %.sink.split.i
   br label %361
 
 mul.exit261:                                      ; preds = %368
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %379 = call fastcc ptr @new_sub(ptr noundef %.08.i144, ptr noundef %.010.i258, ptr noundef %.0343)
   br label %.backedge628
 
@@ -23734,7 +23728,7 @@ add.exit146:                                      ; preds = %355, %add.exit.i38
   %.sink20.i36 = phi i32 [ 10, %add.exit146 ], [ 11, %381 ]
   %384 = getelementptr inbounds nuw i8, ptr %.0331, i64 8
   %385 = load ptr, ptr %384, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %385, ptr %21, align 8, !tbaa !25
   %386 = call fastcc ptr @cast(ptr noundef %21, ptr noundef %385)
   br label %387
@@ -23773,7 +23767,7 @@ add.exit146:                                      ; preds = %355, %add.exit.i38
   br label %387
 
 mul.exit143:                                      ; preds = %394
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %405
 
 405:                                              ; preds = %.backedge, %mul.exit143
@@ -23785,7 +23779,7 @@ mul.exit143:                                      ; preds = %394
 407:                                              ; preds = %405
   %408 = getelementptr inbounds nuw i8, ptr %.0332, i64 8
   %409 = load ptr, ptr %408, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %409, ptr %22, align 8, !tbaa !25
   %410 = call fastcc ptr @cast(ptr noundef %22, ptr noundef %409)
   br label %411
@@ -23824,7 +23818,7 @@ mul.exit143:                                      ; preds = %394
   br label %411
 
 mul.exit139:                                      ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @add_type(ptr noundef %.08.i.i37) #13
   call void @add_type(ptr noundef %.010.i136) #13
   %429 = getelementptr inbounds nuw i8, ptr %.08.i.i37, i64 16
@@ -23932,7 +23926,7 @@ new_add.exit135:                                  ; preds = %432, %.sink.split.i
 476:                                              ; preds = %474
   %477 = getelementptr inbounds nuw i8, ptr %.0332, i64 8
   %478 = load ptr, ptr %477, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %478, ptr %23, align 8, !tbaa !25
   %479 = call fastcc ptr @cast(ptr noundef %23, ptr noundef %478)
   br label %480
@@ -23971,7 +23965,7 @@ new_add.exit135:                                  ; preds = %432, %.sink.split.i
   br label %480
 
 mul.exit120:                                      ; preds = %487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %498 = call fastcc ptr @new_sub(ptr noundef %.08.i.i37, ptr noundef %.010.i117, ptr noundef %.0332)
   br label %.backedge
 
@@ -23998,7 +23992,7 @@ add.exit.i38:                                     ; preds = %474
 505:                                              ; preds = %503
   %506 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %507 = load ptr, ptr %506, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %507, ptr %8, align 8, !tbaa !25
   %508 = call fastcc ptr @cast(ptr noundef %8, ptr noundef %507)
   br label %509
@@ -24037,7 +24031,7 @@ add.exit.i38:                                     ; preds = %474
   br label %509
 
 mul.exit257:                                      ; preds = %516
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %527
 
 527:                                              ; preds = %.backedge630, %mul.exit257
@@ -24049,7 +24043,7 @@ mul.exit257:                                      ; preds = %516
 529:                                              ; preds = %527
   %530 = getelementptr inbounds nuw i8, ptr %.0341, i64 8
   %531 = load ptr, ptr %530, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %531, ptr %9, align 8, !tbaa !25
   %532 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %531)
   br label %533
@@ -24088,7 +24082,7 @@ mul.exit257:                                      ; preds = %516
   br label %533
 
 mul.exit253:                                      ; preds = %540
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @add_type(ptr noundef %.08.i114) #13
   call void @add_type(ptr noundef %.010.i250) #13
   %551 = getelementptr inbounds nuw i8, ptr %.08.i114, i64 16
@@ -24196,7 +24190,7 @@ new_add.exit249:                                  ; preds = %554, %.sink.split.i
 598:                                              ; preds = %596
   %599 = getelementptr inbounds nuw i8, ptr %.0341, i64 8
   %600 = load ptr, ptr %599, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %600, ptr %10, align 8, !tbaa !25
   %601 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %600)
   br label %602
@@ -24235,7 +24229,7 @@ new_add.exit249:                                  ; preds = %554, %.sink.split.i
   br label %602
 
 mul.exit234:                                      ; preds = %609
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %620 = call fastcc ptr @new_sub(ptr noundef %.08.i114, ptr noundef %.010.i231, ptr noundef %.0341)
   br label %.backedge630
 
@@ -24258,7 +24252,7 @@ add.exit116:                                      ; preds = %596, %add.exit.i32
   %.sink20.i30 = phi i32 [ 10, %add.exit116 ], [ 11, %622 ]
   %625 = getelementptr inbounds nuw i8, ptr %.0328, i64 8
   %626 = load ptr, ptr %625, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr %626, ptr %24, align 8, !tbaa !25
   %627 = call fastcc ptr @cast(ptr noundef %24, ptr noundef %626)
   br label %628
@@ -24297,7 +24291,7 @@ add.exit116:                                      ; preds = %596, %add.exit.i32
   br label %628
 
 mul.exit113:                                      ; preds = %635
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %646
 
 646:                                              ; preds = %.backedge625, %mul.exit113
@@ -24309,7 +24303,7 @@ mul.exit113:                                      ; preds = %635
 648:                                              ; preds = %646
   %649 = getelementptr inbounds nuw i8, ptr %.0329, i64 8
   %650 = load ptr, ptr %649, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %650, ptr %25, align 8, !tbaa !25
   %651 = call fastcc ptr @cast(ptr noundef %25, ptr noundef %650)
   br label %652
@@ -24348,7 +24342,7 @@ mul.exit113:                                      ; preds = %635
   br label %652
 
 mul.exit109:                                      ; preds = %659
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @add_type(ptr noundef %.08.i.i31) #13
   call void @add_type(ptr noundef %.010.i106) #13
   %670 = getelementptr inbounds nuw i8, ptr %.08.i.i31, i64 16
@@ -24456,7 +24450,7 @@ new_add.exit105:                                  ; preds = %673, %.sink.split.i
 717:                                              ; preds = %715
   %718 = getelementptr inbounds nuw i8, ptr %.0329, i64 8
   %719 = load ptr, ptr %718, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %719, ptr %26, align 8, !tbaa !25
   %720 = call fastcc ptr @cast(ptr noundef %26, ptr noundef %719)
   br label %721
@@ -24495,7 +24489,7 @@ new_add.exit105:                                  ; preds = %673, %.sink.split.i
   br label %721
 
 mul.exit90:                                       ; preds = %728
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %739 = call fastcc ptr @new_sub(ptr noundef %.08.i.i31, ptr noundef %.010.i87, ptr noundef %.0329)
   br label %.backedge625
 
@@ -24522,7 +24516,7 @@ add.exit.i32:                                     ; preds = %715
 746:                                              ; preds = %744
   %747 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %748 = load ptr, ptr %747, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %748, ptr %11, align 8, !tbaa !25
   %749 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %748)
   br label %750
@@ -24561,7 +24555,7 @@ add.exit.i32:                                     ; preds = %715
   br label %750
 
 mul.exit230:                                      ; preds = %757
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %768
 
 768:                                              ; preds = %.backedge632, %mul.exit230
@@ -24573,7 +24567,7 @@ mul.exit230:                                      ; preds = %757
 770:                                              ; preds = %768
   %771 = getelementptr inbounds nuw i8, ptr %.0339, i64 8
   %772 = load ptr, ptr %771, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %772, ptr %12, align 8, !tbaa !25
   %773 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %772)
   br label %774
@@ -24612,7 +24606,7 @@ mul.exit230:                                      ; preds = %757
   br label %774
 
 mul.exit226:                                      ; preds = %781
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @add_type(ptr noundef %.08.i84) #13
   call void @add_type(ptr noundef %.010.i223) #13
   %792 = getelementptr inbounds nuw i8, ptr %.08.i84, i64 16
@@ -24720,7 +24714,7 @@ new_add.exit222:                                  ; preds = %795, %.sink.split.i
 839:                                              ; preds = %837
   %840 = getelementptr inbounds nuw i8, ptr %.0339, i64 8
   %841 = load ptr, ptr %840, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %841, ptr %13, align 8, !tbaa !25
   %842 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %841)
   br label %843
@@ -24759,7 +24753,7 @@ new_add.exit222:                                  ; preds = %795, %.sink.split.i
   br label %843
 
 mul.exit207:                                      ; preds = %850
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %861 = call fastcc ptr @new_sub(ptr noundef %.08.i84, ptr noundef %.010.i204, ptr noundef %.0339)
   br label %.backedge632
 
@@ -24782,7 +24776,7 @@ add.exit86:                                       ; preds = %837, %add.exit.i26
   %.sink20.i24 = phi i32 [ 10, %add.exit86 ], [ 11, %863 ]
   %866 = getelementptr inbounds nuw i8, ptr %.0325, i64 8
   %867 = load ptr, ptr %866, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %867, ptr %27, align 8, !tbaa !25
   %868 = call fastcc ptr @cast(ptr noundef %27, ptr noundef %867)
   br label %869
@@ -24821,7 +24815,7 @@ add.exit86:                                       ; preds = %837, %add.exit.i26
   br label %869
 
 mul.exit83:                                       ; preds = %876
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %887
 
 887:                                              ; preds = %.backedge626, %mul.exit83
@@ -24833,7 +24827,7 @@ mul.exit83:                                       ; preds = %876
 889:                                              ; preds = %887
   %890 = getelementptr inbounds nuw i8, ptr %.0326, i64 8
   %891 = load ptr, ptr %890, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr %891, ptr %28, align 8, !tbaa !25
   %892 = call fastcc ptr @cast(ptr noundef %28, ptr noundef %891)
   br label %893
@@ -24872,7 +24866,7 @@ mul.exit83:                                       ; preds = %876
   br label %893
 
 mul.exit79:                                       ; preds = %900
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @add_type(ptr noundef %.08.i.i25) #13
   call void @add_type(ptr noundef %.010.i76) #13
   %911 = getelementptr inbounds nuw i8, ptr %.08.i.i25, i64 16
@@ -24980,7 +24974,7 @@ new_add.exit75:                                   ; preds = %914, %.sink.split.i
 958:                                              ; preds = %956
   %959 = getelementptr inbounds nuw i8, ptr %.0326, i64 8
   %960 = load ptr, ptr %959, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %960, ptr %29, align 8, !tbaa !25
   %961 = call fastcc ptr @cast(ptr noundef %29, ptr noundef %960)
   br label %962
@@ -25019,7 +25013,7 @@ new_add.exit75:                                   ; preds = %914, %.sink.split.i
   br label %962
 
 mul.exit60:                                       ; preds = %969
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %980 = call fastcc ptr @new_sub(ptr noundef %.08.i.i25, ptr noundef %.010.i57, ptr noundef %.0326)
   br label %.backedge626
 
@@ -25046,7 +25040,7 @@ add.exit.i26:                                     ; preds = %956
 987:                                              ; preds = %985
   %988 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %989 = load ptr, ptr %988, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %989, ptr %14, align 8, !tbaa !25
   %990 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %989)
   br label %991
@@ -25085,7 +25079,7 @@ add.exit.i26:                                     ; preds = %956
   br label %991
 
 mul.exit203:                                      ; preds = %998
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1009
 
 1009:                                             ; preds = %.backedge634, %mul.exit203
@@ -25097,7 +25091,7 @@ mul.exit203:                                      ; preds = %998
 1011:                                             ; preds = %1009
   %1012 = getelementptr inbounds nuw i8, ptr %.0337, i64 8
   %1013 = load ptr, ptr %1012, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %1013, ptr %15, align 8, !tbaa !25
   %1014 = call fastcc ptr @cast(ptr noundef %15, ptr noundef %1013)
   br label %1015
@@ -25136,7 +25130,7 @@ mul.exit203:                                      ; preds = %998
   br label %1015
 
 mul.exit199:                                      ; preds = %1022
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @add_type(ptr noundef %.08.i56) #13
   call void @add_type(ptr noundef %.010.i196) #13
   %1033 = getelementptr inbounds nuw i8, ptr %.08.i56, i64 16
@@ -25244,7 +25238,7 @@ new_add.exit195:                                  ; preds = %1036, %.sink.split.
 1080:                                             ; preds = %1078
   %1081 = getelementptr inbounds nuw i8, ptr %.0337, i64 8
   %1082 = load ptr, ptr %1081, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %1082, ptr %16, align 8, !tbaa !25
   %1083 = call fastcc ptr @cast(ptr noundef %16, ptr noundef %1082)
   br label %1084
@@ -25283,7 +25277,7 @@ new_add.exit195:                                  ; preds = %1036, %.sink.split.
   br label %1084
 
 mul.exit180:                                      ; preds = %1091
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %1102 = call fastcc ptr @new_sub(ptr noundef %.08.i56, ptr noundef %.010.i177, ptr noundef %.0337)
   br label %.backedge634
 
@@ -25306,7 +25300,7 @@ add.exit:                                         ; preds = %1078, %add.exit.i
   %.sink20.i = phi i32 [ 10, %add.exit ], [ 11, %1104 ]
   %1107 = getelementptr inbounds nuw i8, ptr %.0322, i64 8
   %1108 = load ptr, ptr %1107, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr %1108, ptr %30, align 8, !tbaa !25
   %1109 = call fastcc ptr @cast(ptr noundef %30, ptr noundef %1108)
   br label %1110
@@ -25345,7 +25339,7 @@ add.exit:                                         ; preds = %1078, %add.exit.i
   br label %1110
 
 mul.exit55:                                       ; preds = %1117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1128
 
 1128:                                             ; preds = %.backedge627, %mul.exit55
@@ -25357,7 +25351,7 @@ mul.exit55:                                       ; preds = %1117
 1130:                                             ; preds = %1128
   %1131 = getelementptr inbounds nuw i8, ptr %.0323, i64 8
   %1132 = load ptr, ptr %1131, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %1132, ptr %31, align 8, !tbaa !25
   %1133 = call fastcc ptr @cast(ptr noundef %31, ptr noundef %1132)
   br label %1134
@@ -25396,7 +25390,7 @@ mul.exit55:                                       ; preds = %1117
   br label %1134
 
 mul.exit51:                                       ; preds = %1141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @add_type(ptr noundef %.08.i.i) #13
   call void @add_type(ptr noundef %.010.i48) #13
   %1152 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
@@ -25504,7 +25498,7 @@ new_add.exit:                                     ; preds = %1155, %.sink.split.
 1199:                                             ; preds = %1197
   %1200 = getelementptr inbounds nuw i8, ptr %.0323, i64 8
   %1201 = load ptr, ptr %1200, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr %1201, ptr %32, align 8, !tbaa !25
   %1202 = call fastcc ptr @cast(ptr noundef %32, ptr noundef %1201)
   br label %1203
@@ -25543,7 +25537,7 @@ new_add.exit:                                     ; preds = %1155, %.sink.split.
   br label %1203
 
 mul.exit:                                         ; preds = %1210
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %1221 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.0323)
   br label %.backedge627
 
@@ -25623,7 +25617,7 @@ define internal fastcc ptr @relational(ptr noundef nonnull writeonly captures(no
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %22, ptr %5, align 8, !tbaa !25
   %23 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %22)
   br label %24
@@ -25662,7 +25656,7 @@ define internal fastcc ptr @relational(ptr noundef nonnull writeonly captures(no
   br label %24
 
 mul.exit96:                                       ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 42:                                               ; preds = %.backedge215, %mul.exit96
@@ -25674,7 +25668,7 @@ mul.exit96:                                       ; preds = %31
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %46, ptr %6, align 8, !tbaa !25
   %47 = call fastcc ptr @cast(ptr noundef %6, ptr noundef %46)
   br label %48
@@ -25713,7 +25707,7 @@ mul.exit96:                                       ; preds = %31
   br label %48
 
 mul.exit92:                                       ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @add_type(ptr noundef %.08.i39) #13
   call void @add_type(ptr noundef %.010.i89) #13
   %66 = getelementptr inbounds nuw i8, ptr %.08.i39, i64 16
@@ -25821,7 +25815,7 @@ new_add.exit88:                                   ; preds = %69, %.sink.split.i7
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %115, ptr %7, align 8, !tbaa !25
   %116 = call fastcc ptr @cast(ptr noundef %7, ptr noundef %115)
   br label %117
@@ -25860,7 +25854,7 @@ new_add.exit88:                                   ; preds = %69, %.sink.split.i7
   br label %117
 
 mul.exit73:                                       ; preds = %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %135 = call fastcc ptr @new_sub(ptr noundef %.08.i39, ptr noundef %.010.i70, ptr noundef %.0128)
   br label %.backedge215
 
@@ -25883,7 +25877,7 @@ add.exit:                                         ; preds = %111, %add.exit.i
   %.sink20.i = phi i32 [ 10, %add.exit ], [ 11, %137 ]
   %140 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %141, ptr %12, align 8, !tbaa !25
   %142 = call fastcc ptr @cast(ptr noundef %12, ptr noundef %141)
   br label %143
@@ -25922,7 +25916,7 @@ add.exit:                                         ; preds = %111, %add.exit.i
   br label %143
 
 mul.exit38:                                       ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %161
 
 161:                                              ; preds = %.backedge, %mul.exit38
@@ -25934,7 +25928,7 @@ mul.exit38:                                       ; preds = %150
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %.0124, i64 8
   %165 = load ptr, ptr %164, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %165, ptr %13, align 8, !tbaa !25
   %166 = call fastcc ptr @cast(ptr noundef %13, ptr noundef %165)
   br label %167
@@ -25973,7 +25967,7 @@ mul.exit38:                                       ; preds = %150
   br label %167
 
 mul.exit34:                                       ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @add_type(ptr noundef %.08.i.i) #13
   call void @add_type(ptr noundef %.010.i31) #13
   %185 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 16
@@ -26081,7 +26075,7 @@ new_add.exit:                                     ; preds = %188, %.sink.split.i
 232:                                              ; preds = %230
   %233 = getelementptr inbounds nuw i8, ptr %.0124, i64 8
   %234 = load ptr, ptr %233, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %234, ptr %14, align 8, !tbaa !25
   %235 = call fastcc ptr @cast(ptr noundef %14, ptr noundef %234)
   br label %236
@@ -26120,7 +26114,7 @@ new_add.exit:                                     ; preds = %188, %.sink.split.i
   br label %236
 
 mul.exit:                                         ; preds = %243
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %254 = call fastcc ptr @new_sub(ptr noundef %.08.i.i, ptr noundef %.010.i, ptr noundef %.0124)
   br label %.backedge
 
@@ -26151,7 +26145,7 @@ shift.exit:                                       ; preds = %137
 261:                                              ; preds = %259
   %262 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %263, ptr %8, align 8, !tbaa !25
   %264 = call fastcc ptr @mul(ptr noundef %8, ptr noundef %263)
   br label %265
@@ -26165,7 +26159,7 @@ shift.exit:                                       ; preds = %137
 268:                                              ; preds = %265
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %270 = load ptr, ptr %269, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %270, ptr %3, align 8, !tbaa !25
   %271 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %270)
   br label %272
@@ -26205,7 +26199,7 @@ shift.exit:                                       ; preds = %137
 
 mul.exit119:                                      ; preds = %279
   store ptr %281, ptr %8, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @add_type(ptr noundef %.08.i67) #13
   call void @add_type(ptr noundef %.010.i116) #13
   %290 = getelementptr inbounds nuw i8, ptr %.08.i67, i64 16
@@ -26313,7 +26307,7 @@ new_add.exit115:                                  ; preds = %293, %.sink.split.i
 337:                                              ; preds = %335
   %338 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %339, ptr %4, align 8, !tbaa !25
   %340 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %339)
   br label %341
@@ -26353,7 +26347,7 @@ new_add.exit115:                                  ; preds = %293, %.sink.split.i
 
 mul.exit100:                                      ; preds = %348
   store ptr %350, ptr %8, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %359 = call fastcc ptr @new_sub(ptr noundef %.08.i67, ptr noundef %.010.i97, ptr noundef %266)
   br label %.backedge216
 
@@ -26362,7 +26356,7 @@ mul.exit100:                                      ; preds = %348
   br label %265
 
 add.exit69:                                       ; preds = %335
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %360
 
 360:                                              ; preds = %add.exit.i28, %add.exit69
@@ -26379,7 +26373,7 @@ add.exit69:                                       ; preds = %335
   %.sink20.i26 = phi i32 [ 10, %360 ], [ 11, %362 ]
   %365 = getelementptr inbounds nuw i8, ptr %.0125, i64 8
   %366 = load ptr, ptr %365, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %366, ptr %9, align 8, !tbaa !25
   %367 = call fastcc ptr @cast(ptr noundef %9, ptr noundef %366)
   br label %368
@@ -26418,7 +26412,7 @@ add.exit69:                                       ; preds = %335
   br label %368
 
 mul.exit66:                                       ; preds = %375
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %386
 
 386:                                              ; preds = %.backedge214, %mul.exit66
@@ -26430,7 +26424,7 @@ mul.exit66:                                       ; preds = %375
 388:                                              ; preds = %386
   %389 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %390 = load ptr, ptr %389, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %390, ptr %10, align 8, !tbaa !25
   %391 = call fastcc ptr @cast(ptr noundef %10, ptr noundef %390)
   br label %392
@@ -26469,7 +26463,7 @@ mul.exit66:                                       ; preds = %375
   br label %392
 
 mul.exit62:                                       ; preds = %399
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @add_type(ptr noundef %.08.i.i27) #13
   call void @add_type(ptr noundef %.010.i59) #13
   %410 = getelementptr inbounds nuw i8, ptr %.08.i.i27, i64 16
@@ -26577,7 +26571,7 @@ new_add.exit58:                                   ; preds = %413, %.sink.split.i
 457:                                              ; preds = %455
   %458 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %459 = load ptr, ptr %458, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %459, ptr %11, align 8, !tbaa !25
   %460 = call fastcc ptr @cast(ptr noundef %11, ptr noundef %459)
   br label %461
@@ -26616,7 +26610,7 @@ new_add.exit58:                                   ; preds = %413, %.sink.split.i
   br label %461
 
 mul.exit43:                                       ; preds = %468
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %479 = call fastcc ptr @new_sub(ptr noundef %.08.i.i27, ptr noundef %.010.i40, ptr noundef %.0126)
   br label %.backedge214
 
@@ -26704,7 +26698,7 @@ define internal fastcc ptr @shift(ptr noundef nonnull writeonly captures(none) %
   %.sink20 = phi i32 [ 10, %8 ], [ 11, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %15, ptr %3, align 8, !tbaa !25
   %16 = call fastcc ptr @cast(ptr noundef %3, ptr noundef %15)
   br label %17
@@ -26743,7 +26737,7 @@ define internal fastcc ptr @shift(ptr noundef nonnull writeonly captures(none) %
   br label %17
 
 mul.exit30:                                       ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %.backedge, %mul.exit30
@@ -26755,7 +26749,7 @@ mul.exit30:                                       ; preds = %24
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %39, ptr %4, align 8, !tbaa !25
   %40 = call fastcc ptr @cast(ptr noundef %4, ptr noundef %39)
   br label %41
@@ -26794,7 +26788,7 @@ mul.exit30:                                       ; preds = %24
   br label %41
 
 mul.exit26:                                       ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @add_type(ptr noundef %.08.i) #13
   call void @add_type(ptr noundef %.010.i23) #13
   %59 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
@@ -26902,7 +26896,7 @@ new_add.exit:                                     ; preds = %62, %.sink.split.i
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %108, ptr %5, align 8, !tbaa !25
   %109 = call fastcc ptr @cast(ptr noundef %5, ptr noundef %108)
   br label %110
@@ -26941,7 +26935,7 @@ new_add.exit:                                     ; preds = %62, %.sink.split.i
   br label %110
 
 mul.exit:                                         ; preds = %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %128 = call fastcc ptr @new_sub(ptr noundef %.08.i, ptr noundef %.010.i, ptr noundef %.0)
   br label %.backedge
 
@@ -27375,12 +27369,12 @@ is_typename.exit:                                 ; preds = %21
 
 is_typename.exit.thread9:                         ; preds = %.loopexit.i, %is_typename.exit
   %28 = load ptr, ptr %7, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %28, ptr %3, align 8, !tbaa !25
   %29 = call fastcc ptr @declspec(ptr noundef %3, ptr noundef %28, ptr noundef null)
   %30 = load ptr, ptr %3, align 8, !tbaa !25
   %31 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %4, ptr noundef %30, ptr noundef %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load ptr, ptr %4, align 8, !tbaa !25
   %33 = call ptr @skip(ptr noundef %32, ptr noundef nonnull @.str.24) #13
   store ptr %33, ptr %4, align 8, !tbaa !25
@@ -27740,7 +27734,7 @@ define internal fastcc ptr @abstract_declarator(ptr noundef nonnull %0, ptr noun
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !26
@@ -27775,7 +27769,7 @@ type_suffix.exit:                                 ; preds = %16, %22, %26
   %.0.i = phi ptr [ %19, %16 ], [ %25, %22 ], [ %6, %26 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !26
   %28 = call fastcc ptr @abstract_declarator(ptr noundef %4, ptr noundef %27, ptr noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %type_suffix.exit10
 
 29:                                               ; preds = %3
@@ -27891,7 +27885,7 @@ define internal fastcc ptr @func_params(ptr noundef nonnull writeonly captures(n
   br label %55
 
 16:                                               ; preds = %7, %3
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
   %17 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.24) #13
   br i1 %17, label %.loopexit, label %.lr.ph
@@ -27970,7 +27964,7 @@ define internal fastcc ptr @func_params(ptr noundef nonnull writeonly captures(n
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !26
   store ptr %54, ptr %0, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %55
 
 55:                                               ; preds = %.loopexit, %11
@@ -28099,7 +28093,7 @@ define internal fastcc ptr @declarator(ptr noundef nonnull %0, ptr noundef %1, p
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !26
@@ -28134,7 +28128,7 @@ type_suffix.exit:                                 ; preds = %16, %22, %26
   %.0.i = phi ptr [ %19, %16 ], [ %25, %22 ], [ %6, %26 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !26
   %28 = call fastcc ptr @declarator(ptr noundef %4, ptr noundef %27, ptr noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 29:                                               ; preds = %3
@@ -28869,12 +28863,12 @@ is_typename.exit:                                 ; preds = %29
 
 is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_typename.exit
   %36 = load ptr, ptr %15, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %36, ptr %11, align 8, !tbaa !25
   %37 = call fastcc ptr @declspec(ptr noundef %11, ptr noundef %36, ptr noundef null)
   %38 = load ptr, ptr %11, align 8, !tbaa !25
   %39 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %12, ptr noundef %38, ptr noundef %37)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %40 = load ptr, ptr %12, align 8, !tbaa !25
   %41 = call ptr @skip(ptr noundef %40, ptr noundef nonnull @.str.24) #13
   store ptr %41, ptr %12, align 8, !tbaa !25
@@ -28911,7 +28905,7 @@ is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_ty
   store ptr %49, ptr @globals, align 8, !tbaa !46
   %61 = load ptr, ptr %12, align 8, !tbaa !25
   %62 = call fastcc ptr @initializer(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %39, ptr noundef nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %63 = load ptr, ptr %51, align 8, !tbaa !37
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -28924,7 +28918,7 @@ is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_ty
   %70 = load ptr, ptr %10, align 8, !tbaa !109
   %71 = getelementptr inbounds nuw i8, ptr %49, i64 64
   store ptr %70, ptr %71, align 8, !tbaa !111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %72 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 40, ptr %72, align 16, !tbaa !7
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -28954,7 +28948,7 @@ is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_ty
   store ptr %76, ptr @locals, align 8, !tbaa !46
   %86 = load ptr, ptr %12, align 8, !tbaa !25
   %87 = call fastcc ptr @initializer(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %39, ptr noundef nonnull %78)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %76, ptr %88, align 8, !tbaa !144
@@ -28974,7 +28968,7 @@ is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_ty
   store ptr %89, ptr %96, align 16, !tbaa !23
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store ptr %93, ptr %97, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %98 = load ptr, ptr %12, align 8, !tbaa !25
   %99 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 40, ptr %99, align 16, !tbaa !7
@@ -28993,7 +28987,7 @@ is_typename.exit.thread69:                        ; preds = %.loopexit.i, %is_ty
   br label %731
 
 is_typename.exit.thread:                          ; preds = %.preheader.i, %26, %is_typename.exit, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !25
   %106 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.23) #13
   br i1 %106, label %107, label %123
@@ -29100,12 +29094,12 @@ is_typename.exit68.thread70:                      ; preds = %.loopexit.i56, %is_
   %160 = load ptr, ptr %134, align 8, !tbaa !26
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %162, ptr %3, align 8, !tbaa !25
   %163 = call fastcc ptr @declspec(ptr noundef %3, ptr noundef %162, ptr noundef null)
   %164 = load ptr, ptr %3, align 8, !tbaa !25
   %165 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %8, ptr noundef %164, ptr noundef %163)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %166 = load ptr, ptr %8, align 8, !tbaa !25
   %167 = call ptr @skip(ptr noundef %166, ptr noundef nonnull @.str.24) #13
   store ptr %167, ptr %12, align 8, !tbaa !25
@@ -29324,7 +29318,7 @@ is_typename.exit55.thread:                        ; preds = %.preheader.i45, %24
 286:                                              ; preds = %284
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %288 = load ptr, ptr %287, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %289 = tail call ptr @skip(ptr noundef %288, ptr noundef nonnull @.str.23) #13
   store ptr %289, ptr %5, align 8, !tbaa !25
   %290 = call fastcc ptr @assign(ptr noundef %5, ptr noundef %289)
@@ -29379,12 +29373,12 @@ is_typename.exit55.thread:                        ; preds = %.preheader.i45, %24
   br i1 %311, label %._crit_edge, label %.lr.ph, !llvm.loop !147
 
 312:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %304, ptr %4, align 8, !tbaa !25
   %313 = call fastcc ptr @declspec(ptr noundef %4, ptr noundef %304, ptr noundef null)
   %314 = load ptr, ptr %4, align 8, !tbaa !25
   %315 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %5, ptr noundef %314, ptr noundef %313)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %316 = load ptr, ptr %5, align 8, !tbaa !25
   %317 = call ptr @skip(ptr noundef %316, ptr noundef nonnull @.str.3) #13
   store ptr %317, ptr %5, align 8, !tbaa !25
@@ -29402,7 +29396,7 @@ is_typename.exit55.thread:                        ; preds = %.preheader.i45, %24
   unreachable
 
 generic_selection.exit:                           ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %primary.exit
 
 320:                                              ; preds = %284
@@ -29691,7 +29685,7 @@ generic_selection.exit:                           ; preds = %._crit_edge
 
 primary.exit:                                     ; preds = %111, %125, %174, %178, %189, %207, %214, %is_typename.exit55.thread71, %269, %generic_selection.exit, %322, %350, %359, %360, %363, %383, %.thread145, %422, %433, %460
   %.064.i = phi ptr [ %112, %111 ], [ %128, %125 ], [ %263, %is_typename.exit55.thread71 ], [ %279, %269 ], [ %.015.i.be, %generic_selection.exit ], [ %334, %322 ], [ %364, %363 ], [ %384, %383 ], [ %441, %433 ], [ %.0.i, %460 ], [ %175, %174 ], [ %185, %178 ], [ %193, %189 ], [ %211, %207 ], [ %219, %214 ], [ %351, %350 ], [ %356, %359 ], [ %356, %360 ], [ %417, %.thread145 ], [ %426, %422 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %466 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.backedge
 
@@ -29705,7 +29699,7 @@ primary.exit:                                     ; preds = %111, %125, %174, %1
 470:                                              ; preds = %.backedge
   %471 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %472 = load ptr, ptr %471, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %472, ptr %6, align 8, !tbaa !25
   call void @add_type(ptr noundef %.025) #13
   %473 = getelementptr inbounds nuw i8, ptr %.025, i64 16
@@ -29733,7 +29727,7 @@ primary.exit:                                     ; preds = %111, %125, %174, %1
   %483 = phi ptr [ %474, %470 ], [ %478, %476 ]
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 96
   %485 = load ptr, ptr %484, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %7, i8 0, i64 288, i1 false)
   %486 = load ptr, ptr %6, align 8, !tbaa !25
   %487 = call zeroext i1 @equal(ptr noundef %486, ptr noundef nonnull @.str.24) #13
@@ -29890,8 +29884,8 @@ primary.exit:                                     ; preds = %111, %125, %174, %1
   br label %funcall.exit
 
 funcall.exit:                                     ; preds = %533, %547
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %funcall.exit, %new_add.exit, %struct_ref.exit, %struct_ref.exit39, %683, %708
@@ -30244,7 +30238,7 @@ struct_ref.exit39:                                ; preds = %.lr.ph.i34
 declare ptr @format(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @initializer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
@@ -30264,7 +30258,7 @@ define internal fastcc noundef ptr @initializer(ptr noundef nonnull %0, ptr noun
 
 12:                                               ; preds = %8
   %13 = tail call ptr @copy_type(ptr noundef nonnull %2) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store ptr null, ptr %.sroa.0.i, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %.011.i = load ptr, ptr %14, align 8, !tbaa !161
@@ -30288,7 +30282,7 @@ define internal fastcc noundef ptr @initializer(ptr noundef nonnull %0, ptr noun
 copy_struct_type.exit:                            ; preds = %12, %._crit_edge.loopexit.i
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i = phi ptr [ %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..pre.i, %._crit_edge.loopexit.i ], [ null, %12 ]
   store ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0..i, ptr %14, align 8, !tbaa !166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %16
 
 16:                                               ; preds = %16, %copy_struct_type.exit
@@ -30553,7 +30547,7 @@ write_buf.exit:                                   ; preds = %88, %86, %84, %82, 
   br label %.critedge
 
 123:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !118
   %124 = call fastcc i64 @eval2(ptr noundef nonnull %112, ptr noundef nonnull %6)
   %125 = load ptr, ptr %6, align 8, !tbaa !118
@@ -30581,7 +30575,7 @@ write_buf.exit:                                   ; preds = %88, %86, %84, %82, 
 
 136:                                              ; preds = %131, %126
   %.1 = phi ptr [ %132, %131 ], [ %0, %126 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 .critedge:                                        ; preds = %97, %44, %write_buf.exit, %17, %29, %8, %110, %136, %119, %114
@@ -30590,7 +30584,7 @@ write_buf.exit:                                   ; preds = %88, %86, %84, %82, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc noalias noundef ptr @new_initializer(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define internal fastcc noalias noundef ptr @new_initializer(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = tail call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8, !tbaa !174
@@ -30892,7 +30886,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   br i1 %93, label %94, label %165
 
 94:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = tail call ptr @skip(ptr noundef nonnull %1, ptr noundef nonnull @.str.25) #13
   store ptr %95, ptr %6, align 8, !tbaa !25
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -30965,12 +30959,12 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   br i1 %133, label %134, label %146
 
 134:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %135 = load ptr, ptr %6, align 8, !tbaa !25
   %136 = load ptr, ptr %11, align 8, !tbaa !174
   call fastcc void @array_designator(ptr noundef %6, ptr noundef %135, ptr noundef %136, ptr noundef %7, ptr noundef %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %137 = load i32, ptr %7, align 4, !tbaa !97
   %138 = load i32, ptr %8, align 4, !tbaa !97
   %.not.i47 = icmp sgt i32 %137, %138
@@ -30988,9 +30982,9 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %134
   %141 = phi ptr [ %.pre66, %._crit_edge.loopexit ], [ undef, %134 ]
   store ptr %141, ptr %6, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %159
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
@@ -31039,7 +31033,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread69, %1
   %163 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !26
   store ptr %164, ptr %0, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %282
 
 165:                                              ; preds = %.thread
@@ -31051,7 +31045,7 @@ array_initializer1.exit:                          ; preds = %159, %.thread69, %1
   br i1 %167, label %168, label %219
 
 168:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %169 = tail call ptr @skip(ptr noundef %1, ptr noundef nonnull @.str.25) #13
   store ptr %169, ptr %5, align 8, !tbaa !25
   %170 = load ptr, ptr %11, align 8, !tbaa !174
@@ -31143,7 +31137,7 @@ struct_initializer1.exit:                         ; preds = %.backedge, %168, %1
   %217 = getelementptr inbounds nuw i8, ptr %.sink.i32, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !26
   store ptr %218, ptr %0, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %282
 
 219:                                              ; preds = %166
@@ -31168,7 +31162,7 @@ struct_initializer1.exit:                         ; preds = %.backedge, %168, %1
   br label %282
 
 231:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !25
   %232 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.25) #13
   br i1 %232, label %233, label %252
@@ -31230,7 +31224,7 @@ struct_initializer1.exit:                         ; preds = %.backedge, %168, %1
   br label %union_initializer.exit
 
 union_initializer.exit:                           ; preds = %237, %258, %268
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %282
 
 272:                                              ; preds = %3
@@ -31651,10 +31645,10 @@ is_end.exit.thread12:                             ; preds = %10, %is_end.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: noreturn
-declare void @error(ptr noundef, ...) local_unnamed_addr #5
+declare void @error(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -2147483648) i32 @count_array_init_elements(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
@@ -31825,10 +31819,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   unreachable
 
 .lr.ph32:                                         ; preds = %tailrecurse._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @array_designator(ptr noundef %4, ptr noundef %9, ptr noundef nonnull %11, ptr noundef %5, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = load i32, ptr %5, align 4, !tbaa !97
   %15 = load i32, ptr %6, align 4, !tbaa !97
   %.not2430 = icmp sle i32 %14, %15
@@ -31843,9 +31837,9 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.pre37 = load ptr, ptr %7, align 8, !tbaa !25
   %19 = add nsw i32 %14, 1
   call fastcc void @array_initializer2(ptr noundef %0, ptr noundef %.pre37, ptr noundef nonnull %.tr26.lcssa, i32 noundef %19)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %72
 
 20:                                               ; preds = %.lr.ph32, %20
@@ -32042,7 +32036,7 @@ define internal fastcc ptr @struct_designator(ptr noundef nonnull writeonly capt
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @get_struct_member(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc ptr @get_struct_member(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.01624 = load ptr, ptr %3, align 8, !tbaa !161
   %.not25 = icmp eq ptr %.01624, null
@@ -32098,7 +32092,7 @@ define internal fastcc ptr @get_struct_member(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @write_buf(ptr noundef writeonly captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -32167,7 +32161,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
 19:                                               ; preds = %.lr.ph64, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %19 ]
   %.04863 = phi ptr [ %10, %.lr.ph64 ], [ %26, %19 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !212
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %20, ptr %15, align 8, !tbaa !213
@@ -32185,7 +32179,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   store ptr %.04863, ptr %28, align 16, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %25, ptr %29, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %12, align 8, !tbaa !175
   %31 = sext i32 %30 to i64
@@ -32218,7 +32212,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
 45:                                               ; preds = %.lr.ph, %45
   %.05061 = phi ptr [ %.05058, %.lr.ph ], [ %.050, %45 ]
   %.05160 = phi ptr [ %37, %.lr.ph ], [ %55, %45 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !tbaa !212
   store i32 0, ptr %40, align 8, !tbaa !213
   store i32 0, ptr %41, align 4
@@ -32241,7 +32235,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   store ptr %.05160, ptr %57, align 16, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 40
   store ptr %54, ptr %58, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.050 = load ptr, ptr %.05061, align 8, !tbaa !161
   %.not54 = icmp eq ptr %.050, null
   br i1 %.not54, label %.loopexit, label %45, !llvm.loop !216
@@ -32259,7 +32253,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
 
 65:                                               ; preds = %59, %62
   %66 = phi ptr [ %64, %62 ], [ %61, %59 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8, !tbaa !212
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %67, align 8, !tbaa !213
@@ -32279,7 +32273,7 @@ define internal fastcc ptr @create_lvar_init(ptr noundef readonly captures(none)
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !159
   %80 = call fastcc ptr @create_lvar_init(ptr noundef %77, ptr noundef %79, ptr noundef %7, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .thread:                                          ; preds = %4
@@ -32385,7 +32379,7 @@ define internal fastcc noundef ptr @compound_stmt(ptr noundef nonnull writeonly 
   store i32 32, ptr %8, align 16, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %1, ptr %9, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %6, i8 0, i64 288, i1 false)
   %10 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #14
   %11 = load ptr, ptr @scope, align 8, !tbaa !41
@@ -32459,7 +32453,7 @@ is_typename.exit.thread11:                        ; preds = %.loopexit.i, %is_ty
   br i1 %38, label %is_typename.exit.thread, label %39
 
 39:                                               ; preds = %is_typename.exit.thread11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   %40 = load ptr, ptr %5, align 8, !tbaa !25
   %41 = call fastcc ptr @declspec(ptr noundef %5, ptr noundef %40, ptr noundef nonnull %7)
@@ -32473,24 +32467,24 @@ is_typename.exit.thread11:                        ; preds = %.loopexit.i, %is_ty
   br label %64, !llvm.loop !217
 
 47:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %44, ptr %3, align 8, !tbaa !25
   %48 = call zeroext i1 @equal(ptr noundef %44, ptr noundef nonnull @.str.99) #13
   br i1 %48, label %is_function.exit.thread, label %is_function.exit
 
 is_function.exit.thread:                          ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %56
 
 is_function.exit:                                 ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
   %49 = load ptr, ptr %3, align 8, !tbaa !25
   %50 = call fastcc ptr @declarator(ptr noundef %3, ptr noundef %49, ptr noundef nonnull %4)
   %51 = load i32, ptr %50, align 8, !tbaa !61
   %52 = icmp eq i32 %51, 11
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %is_function.exit
@@ -32512,13 +32506,13 @@ is_function.exit:                                 ; preds = %47
   %62 = call fastcc ptr @declaration(ptr noundef %5, ptr noundef %59, ptr noundef %41, ptr noundef nonnull %7)
   %63 = getelementptr inbounds nuw i8, ptr %.010.ph18, i64 8
   store ptr %62, ptr %63, align 8, !tbaa !137
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.outer
 
 64:                                               ; preds = %60, %53, %45
   %.sink = phi ptr [ %61, %60 ], [ %55, %53 ], [ %46, %45 ]
   store ptr %.sink, ptr %5, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = call zeroext i1 @equal(ptr noundef %.sink, ptr noundef nonnull @.str.69) #13
   br i1 %65, label %.outer._crit_edge, label %14
 
@@ -32548,7 +32542,7 @@ is_typename.exit.thread:                          ; preds = %25, %is_typename.ex
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !26
   store ptr %78, ptr %0, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %8
 }
 
@@ -32715,7 +32709,7 @@ define internal fastcc noundef ptr @declaration(ptr noundef nonnull writeonly ca
   %7 = alloca ptr, align 8
   %8 = alloca %struct.Node, align 16
   store ptr %1, ptr %7, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %8, i8 0, i64 288, i1 false)
   %9 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.99) #13
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -32829,7 +32823,7 @@ get_ident.exit:                                   ; preds = %34
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %68 = load ptr, ptr %40, align 8, !tbaa !37
   %69 = call fastcc ptr @initializer(ptr noundef nonnull %7, ptr noundef %67, ptr noundef %68, ptr noundef nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %70 = load ptr, ptr %40, align 8, !tbaa !37
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -32842,7 +32836,7 @@ get_ident.exit:                                   ; preds = %34
   %77 = load ptr, ptr %6, align 8, !tbaa !109
   %78 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr %77, ptr %78, align 8, !tbaa !111
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %204
 
 79:                                               ; preds = %31, %30
@@ -33021,7 +33015,7 @@ get_ident.exit50:                                 ; preds = %145
   %175 = load ptr, ptr %174, align 8, !tbaa !26
   %176 = load ptr, ptr %157, align 8, !tbaa !37
   %177 = call fastcc ptr @initializer(ptr noundef nonnull %7, ptr noundef %175, ptr noundef %176, ptr noundef nonnull %157)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   store ptr %155, ptr %12, align 8, !tbaa !144
   %178 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
@@ -33040,7 +33034,7 @@ get_ident.exit50:                                 ; preds = %145
   store ptr %178, ptr %185, align 16, !tbaa !23
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 40
   store ptr %182, ptr %186, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %187 = load ptr, ptr %7, align 8, !tbaa !25
   %188 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 38, ptr %188, align 16, !tbaa !7
@@ -33099,7 +33093,7 @@ get_ident.exit50:                                 ; preds = %145
   %212 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !26
   store ptr %213, ptr %0, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %209
 }
 
@@ -34173,12 +34167,12 @@ is_typename.exit:                                 ; preds = %18
   br i1 %.not, label %is_typename.exit.thread, label %is_typename.exit.thread4
 
 is_typename.exit.thread4:                         ; preds = %.loopexit.i, %is_typename.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8, !tbaa !25
   %25 = call fastcc ptr @declspec(ptr noundef %3, ptr noundef nonnull %5, ptr noundef null)
   %26 = load ptr, ptr %3, align 8, !tbaa !25
   %27 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %4, ptr noundef %26, ptr noundef %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 is_typename.exit.thread:                          ; preds = %.preheader.i, %15, %is_typename.exit
@@ -34374,7 +34368,7 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   %5 = alloca %struct.Member, align 8
   %6 = alloca %struct.VarAttr, align 4
   store ptr %1, ptr %4, align 8, !tbaa !25
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %7 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.69) #13
   br i1 %7, label %._crit_edge.thread, label %.lr.ph46
@@ -34386,7 +34380,7 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
 9:                                                ; preds = %.lr.ph46, %.loopexit
   %.045 = phi ptr [ %5, %.lr.ph46 ], [ %.1, %.loopexit ]
   %.03044 = phi i32 [ 0, %.lr.ph46 ], [ %.131, %.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   %10 = load ptr, ptr %4, align 8, !tbaa !25
   %11 = call fastcc ptr @declspec(ptr noundef %4, ptr noundef %10, ptr noundef nonnull %6)
@@ -34535,7 +34529,7 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
 .loopexit:                                        ; preds = %82, %57, %29, %26
   %.131 = phi i32 [ %20, %26 ], [ %.03044, %29 ], [ %43, %57 ], [ %70, %82 ]
   %.1 = phi ptr [ %18, %26 ], [ %.045, %29 ], [ %37, %57 ], [ %64, %82 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = load ptr, ptr %4, align 8, !tbaa !25
   %86 = call zeroext i1 @equal(ptr noundef %85, ptr noundef nonnull @.str.69) #13
   br i1 %86, label %._crit_edge, label %9
@@ -34574,7 +34568,7 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   %104 = load ptr, ptr %5, align 8, !tbaa !162
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %104, ptr %105, align 8, !tbaa !166
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -34644,12 +34638,18 @@ get_ident.exit:                                   ; preds = %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @hashmap_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
@@ -34662,15 +34662,15 @@ declare void @llvm.assume(i1 noundef) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind }

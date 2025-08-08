@@ -265,17 +265,11 @@ define noalias noundef ptr @_Z21_gmx_sel_yypstate_newv() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z24_gmx_sel_yypstate_deleteP17_gmx_sel_yypstate(ptr noundef captures(address) %0) local_unnamed_addr #3 {
+define void @_Z24_gmx_sel_yypstate_deleteP17_gmx_sel_yypstate(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3696
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %.not = icmp eq i32 %3, 0
@@ -298,10 +292,10 @@ define void @_Z24_gmx_sel_yypstate_deleteP17_gmx_sel_yypstate(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstateiPK7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %union.YYSTYPE, align 8
   %7 = alloca %"struct.gmx::SelectionLocation", align 8
   %8 = alloca %union.YYSTYPE, align 8
@@ -456,12 +450,12 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   %157 = alloca %"class.gmx::SelectionParserValue", align 8
   %158 = alloca %"class.gmx::SelectionParserValue", align 8
   %159 = alloca %"class.gmx::SelectionParserValue", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 3696
   %161 = load i32, ptr %160, align 8, !tbaa !3
   %.not = icmp eq i32 %161, 0
@@ -1014,7 +1008,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit: ; preds =
 
 410:                                              ; preds = %404
   %411 = call ptr @__cxa_begin_catch(ptr %406) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %10) #28
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %412 unwind label %415
@@ -1029,7 +1023,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit: ; preds =
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %412, %414
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @__cxa_end_catch()
   br label %.loopexit
 
@@ -1045,7 +1039,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %412, %414
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke void @__cxa_end_catch()
           to label %419 unwind label %2815
 
@@ -1055,7 +1049,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
   br label %2812
 
 422:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %423 = load ptr, ptr %376, align 8, !tbaa !20
   %424 = load ptr, ptr %423, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %424)
@@ -1089,7 +1083,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %437 = invoke noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef %4)
           to label %438 unwind label %454
 
@@ -1143,7 +1137,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
 
 453:                                              ; preds = %452, %443
   %.pn1219.pn.pn = phi { ptr, i32 } [ %.pn1219.pn, %452 ], [ %444, %443 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %456
 
 454:                                              ; preds = %432
@@ -1162,7 +1156,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
 
 459:                                              ; preds = %456
   %460 = call ptr @__cxa_begin_catch(ptr %.4786) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %14) #28
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %461 unwind label %464
@@ -1177,7 +1171,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1396: ; preds = %415, %418
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1398
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1398: ; preds = %461, %463
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @__cxa_end_catch()
   br label %.loopexit
 
@@ -1193,7 +1187,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1398: ; preds = %461, %463
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1400
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1400: ; preds = %464, %467
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @__cxa_end_catch()
           to label %468 unwind label %2815
 
@@ -1238,7 +1232,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1400: ; preds = %464, %467
 
 487:                                              ; preds = %481
   %488 = call ptr @__cxa_begin_catch(ptr %483) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %15) #28
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %489 unwind label %494
@@ -1253,7 +1247,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1400: ; preds = %464, %467
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1402
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1402: ; preds = %489, %491
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @__cxa_end_catch()
   br label %.loopexit
 
@@ -1278,7 +1272,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1403: ; pre
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit1405
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit1405: ; preds = %494, %497
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   invoke void @__cxa_end_catch()
           to label %498 unwind label %2815
 
@@ -1327,14 +1321,14 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 518:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %519 = load ptr, ptr %376, align 8, !tbaa !20
   %520 = load i32, ptr %519, align 8, !tbaa !14
   invoke void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %16, i32 noundef %520, ptr noundef %4)
           to label %521 unwind label %524
 
 521:                                              ; preds = %518
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef null, ptr noundef %4)
           to label %522 unwind label %526
 
@@ -1375,9 +1369,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %530, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2584
 
 536:                                              ; preds = %528
@@ -1400,7 +1394,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
 
 541:                                              ; preds = %540, %526
   %.pn1214.pn = phi { ptr, i32 } [ %.pn1214, %540 ], [ %527, %526 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #28
   br label %542
 
@@ -1408,7 +1402,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1214.pn.pn = phi { ptr, i32 } [ %.pn1214.pn, %541 ], [ %525, %524 ]
   %.5787 = extractvalue { ptr, i32 } %.pn1214.pn.pn, 0
   %.5861 = extractvalue { ptr, i32 } %.pn1214.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %543 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %544 = icmp eq i32 %.5861, %543
   br i1 %544, label %545, label %2812
@@ -1434,16 +1428,16 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 554:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %555 = load ptr, ptr %376, align 8, !tbaa !20
   %556 = load ptr, ptr %555, align 8, !tbaa !14
   store ptr %556, ptr %19, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   invoke void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %20, ptr noundef %556, ptr noundef %4)
           to label %557 unwind label %560
 
 557:                                              ; preds = %554
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef null, ptr noundef %4)
           to label %558 unwind label %562
 
@@ -1484,11 +1478,11 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %566, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2584
 
 572:                                              ; preds = %564
@@ -1511,7 +1505,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
 
 577:                                              ; preds = %576, %562
   %.pn1210.pn = phi { ptr, i32 } [ %.pn1210, %576 ], [ %563, %562 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   br label %578
 
@@ -1519,9 +1513,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1210.pn.pn = phi { ptr, i32 } [ %.pn1210.pn, %577 ], [ %561, %560 ]
   %.8790 = extractvalue { ptr, i32 } %.pn1210.pn.pn, 0
   %.8864 = extractvalue { ptr, i32 } %.pn1210.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %579 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %580 = icmp eq i32 %.8864, %579
   br i1 %580, label %581, label %2812
@@ -1547,7 +1541,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 590:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %591 = load ptr, ptr %376, align 8, !tbaa !20
   %592 = load ptr, ptr %591, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %592)
@@ -1573,7 +1567,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %595, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2584
 
 601:                                              ; preds = %590
@@ -1604,7 +1598,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1207.pn = phi { ptr, i32 } [ %.pn1207, %607 ], [ %602, %601 ]
   %.11793 = extractvalue { ptr, i32 } %.pn1207.pn, 0
   %.11867 = extractvalue { ptr, i32 } %.pn1207.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %609 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %610 = icmp eq i32 %.11867, %609
   br i1 %610, label %611, label %2812
@@ -1630,12 +1624,12 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 620:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %621 = load ptr, ptr %376, align 8, !tbaa !20
   %622 = getelementptr inbounds i8, ptr %621, i64 -8
   %623 = load ptr, ptr %622, align 8, !tbaa !14
   store ptr %623, ptr %25, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %624 = load ptr, ptr %621, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %624)
           to label %625 unwind label %633
@@ -1660,9 +1654,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %627, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %2584
 
 633:                                              ; preds = %620
@@ -1693,9 +1687,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1204.pn = phi { ptr, i32 } [ %.pn1204, %639 ], [ %634, %633 ]
   %.13795 = extractvalue { ptr, i32 } %.pn1204.pn, 0
   %.13869 = extractvalue { ptr, i32 } %.pn1204.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %641 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %642 = icmp eq i32 %.13869, %641
   br i1 %642, label %643, label %2812
@@ -1721,12 +1715,12 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 652:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %653 = load ptr, ptr %376, align 8, !tbaa !20
   %654 = getelementptr inbounds i8, ptr %653, i64 -16
   %655 = load ptr, ptr %654, align 8, !tbaa !14
   store ptr %655, ptr %28, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %656 = load ptr, ptr %653, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %656)
           to label %657 unwind label %665
@@ -1751,9 +1745,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %659, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %2584
 
 665:                                              ; preds = %652
@@ -1784,9 +1778,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1201.pn = phi { ptr, i32 } [ %.pn1201, %671 ], [ %666, %665 ]
   %.15797 = extractvalue { ptr, i32 } %.pn1201.pn, 0
   %.15871 = extractvalue { ptr, i32 } %.pn1201.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %673 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %674 = icmp eq i32 %.15871, %673
   br i1 %674, label %675, label %2812
@@ -1812,12 +1806,12 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 684:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %685 = load ptr, ptr %376, align 8, !tbaa !20
   %686 = getelementptr inbounds i8, ptr %685, i64 -16
   %687 = load ptr, ptr %686, align 8, !tbaa !14
   store ptr %687, ptr %31, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %688 = load ptr, ptr %685, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %688)
           to label %689 unwind label %697
@@ -1842,9 +1836,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %691, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %2584
 
 697:                                              ; preds = %684
@@ -1875,9 +1869,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1198.pn = phi { ptr, i32 } [ %.pn1198, %703 ], [ %698, %697 ]
   %.17799 = extractvalue { ptr, i32 } %.pn1198.pn, 0
   %.17873 = extractvalue { ptr, i32 } %.pn1198.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %705 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %706 = icmp eq i32 %.17873, %705
   br i1 %706, label %707, label %2812
@@ -1903,12 +1897,12 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2812
 
 716:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %717 = load ptr, ptr %376, align 8, !tbaa !20
   %718 = getelementptr inbounds i8, ptr %717, i64 -16
   %719 = load ptr, ptr %718, align 8, !tbaa !14
   store ptr %719, ptr %34, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %720 = load ptr, ptr %717, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef %720)
           to label %721 unwind label %729
@@ -1933,9 +1927,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %723, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %2584
 
 729:                                              ; preds = %716
@@ -1966,9 +1960,9 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1195.pn = phi { ptr, i32 } [ %.pn1195, %735 ], [ %730, %729 ]
   %.19801 = extractvalue { ptr, i32 } %.pn1195.pn, 0
   %.19875 = extractvalue { ptr, i32 } %.pn1195.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %737 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %738 = icmp eq i32 %.19875, %737
   br i1 %738, label %739, label %2812
@@ -2000,7 +1994,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2584
 
 751:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %752 = load ptr, ptr %376, align 8, !tbaa !20
   %753 = load ptr, ptr %752, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %753)
@@ -2026,7 +2020,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %756, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %762 = load ptr, ptr %8, align 8, !tbaa !14
   %763 = load ptr, ptr %762, align 8, !tbaa !38
   %.not1549 = icmp eq ptr %763, null
@@ -2065,7 +2059,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   %.pn1192.pn = phi { ptr, i32 } [ %.pn1192, %771 ], [ %766, %765 ]
   %.21803 = extractvalue { ptr, i32 } %.pn1192.pn, 0
   %.21877 = extractvalue { ptr, i32 } %.pn1192.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %773 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %774 = icmp eq i32 %.21877, %773
   br i1 %774, label %775, label %2812
@@ -2106,7 +2100,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
           to label %793 unwind label %808
 
 793:                                              ; preds = %788
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %794 = load ptr, ptr %376, align 8, !tbaa !20
   %795 = getelementptr inbounds i8, ptr %794, i64 -16
   %796 = load ptr, ptr %795, align 8, !tbaa !14
@@ -2133,7 +2127,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   store ptr %799, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %39) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #28
   %805 = load ptr, ptr %8, align 8, !tbaa !14
   %806 = load ptr, ptr %805, align 8, !tbaa !38
@@ -2177,7 +2171,7 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
 
 817:                                              ; preds = %816, %810
   %.pn1188.pn = phi { ptr, i32 } [ %.pn1188, %816 ], [ %811, %810 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #28
   br label %818
 
@@ -2261,14 +2255,14 @@ _ZL9set_emptyISt10shared_ptrIN3gmx20SelectionTreeElementEEEvRPT_.exit1406: ; pre
   br label %2584
 
 857:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %858 = load ptr, ptr %376, align 8, !tbaa !20
   %859 = load ptr, ptr %858, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %859)
           to label %860 unwind label %885
 
 860:                                              ; preds = %857
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %861 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %862 unwind label %887
 
@@ -2327,9 +2321,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
   store ptr %880, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %43) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %2584
 
 885:                                              ; preds = %857
@@ -2361,7 +2355,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
 
 893:                                              ; preds = %891, %889, %887
   %.pn1185 = phi { ptr, i32 } [ %892, %891 ], [ %888, %887 ], [ %890, %889 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %42) #28
   br label %894
 
@@ -2369,7 +2363,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
   %.pn1185.pn = phi { ptr, i32 } [ %.pn1185, %893 ], [ %886, %885 ]
   %.26808 = extractvalue { ptr, i32 } %.pn1185.pn, 0
   %.26882 = extractvalue { ptr, i32 } %.pn1185.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %895 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %896 = icmp eq i32 %.26882, %895
   br i1 %896, label %897, label %2812
@@ -2395,7 +2389,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
   br label %2812
 
 906:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %907 = load ptr, ptr %376, align 8, !tbaa !20
   %908 = getelementptr inbounds i8, ptr %907, i64 -16
   %909 = load ptr, ptr %908, align 8, !tbaa !14
@@ -2403,14 +2397,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %_ZNSt10
           to label %910 unwind label %943
 
 910:                                              ; preds = %906
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %911 = load ptr, ptr %376, align 8, !tbaa !20
   %912 = load ptr, ptr %911, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %912)
           to label %913 unwind label %945
 
 913:                                              ; preds = %910
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %914 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %915 unwind label %947
 
@@ -2474,11 +2468,11 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1420: ; preds = %_ZN
   store ptr %938, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %2584
 
 943:                                              ; preds = %906
@@ -2516,13 +2510,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1420: ; preds = %_ZN
 
 953:                                              ; preds = %951, %949, %947
   %.pn1181 = phi { ptr, i32 } [ %952, %951 ], [ %948, %947 ], [ %950, %949 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #28
   br label %954
 
 954:                                              ; preds = %953, %945
   %.pn1181.pn = phi { ptr, i32 } [ %.pn1181, %953 ], [ %946, %945 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #28
   br label %955
 
@@ -2530,7 +2524,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1420: ; preds = %_ZN
   %.pn1181.pn.pn = phi { ptr, i32 } [ %.pn1181.pn, %954 ], [ %944, %943 ]
   %.28810 = extractvalue { ptr, i32 } %.pn1181.pn.pn, 0
   %.28884 = extractvalue { ptr, i32 } %.pn1181.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %956 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %957 = icmp eq i32 %.28884, %956
   br i1 %957, label %958, label %2812
@@ -2556,7 +2550,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1420: ; preds = %_ZN
   br label %2812
 
 967:                                              ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %968 = load ptr, ptr %376, align 8, !tbaa !20
   %969 = getelementptr inbounds i8, ptr %968, i64 -16
   %970 = load ptr, ptr %969, align 8, !tbaa !14
@@ -2564,14 +2558,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1420: ; preds = %_ZN
           to label %971 unwind label %1004
 
 971:                                              ; preds = %967
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %972 = load ptr, ptr %376, align 8, !tbaa !20
   %973 = load ptr, ptr %972, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef %973)
           to label %974 unwind label %1006
 
 974:                                              ; preds = %971
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %975 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %976 unwind label %1008
 
@@ -2635,11 +2629,11 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   store ptr %999, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %51) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %2584
 
 1004:                                             ; preds = %967
@@ -2677,13 +2671,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 1014:                                             ; preds = %1012, %1010, %1008
   %.pn1177 = phi { ptr, i32 } [ %1013, %1012 ], [ %1009, %1008 ], [ %1011, %1010 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %50) #28
   br label %1015
 
 1015:                                             ; preds = %1014, %1006
   %.pn1177.pn = phi { ptr, i32 } [ %.pn1177, %1014 ], [ %1007, %1006 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %49) #28
   br label %1016
 
@@ -2691,7 +2685,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.pn1177.pn.pn = phi { ptr, i32 } [ %.pn1177.pn, %1015 ], [ %1005, %1004 ]
   %.31813 = extractvalue { ptr, i32 } %.pn1177.pn.pn, 0
   %.31887 = extractvalue { ptr, i32 } %.pn1177.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %1017 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1018 = icmp eq i32 %.31887, %1017
   br i1 %1018, label %1019, label %2812
@@ -2724,19 +2718,19 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2584
 
 1032:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %1033 = load ptr, ptr %376, align 8, !tbaa !20
   %1034 = getelementptr inbounds i8, ptr %1033, i64 -8
   %1035 = load ptr, ptr %1034, align 8, !tbaa !14
   store ptr %1035, ptr %53, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %1036 = getelementptr inbounds i8, ptr %1033, i64 -16
   %1037 = load ptr, ptr %1036, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef %1037)
           to label %1038 unwind label %1054
 
 1038:                                             ; preds = %1032
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %1039 = load ptr, ptr %376, align 8, !tbaa !20
   %1040 = load ptr, ptr %1039, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef %1040)
@@ -2765,9 +2759,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   store ptr %1046, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %54) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %56) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %1052 = load ptr, ptr %8, align 8, !tbaa !14
   %1053 = load ptr, ptr %1052, align 8, !tbaa !38
   %.not1547 = icmp eq ptr %1053, null
@@ -2775,7 +2769,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1484:                                      ; preds = %1047
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %2584
 
 1054:                                             ; preds = %1032
@@ -2810,7 +2804,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 1063:                                             ; preds = %1062, %1056
   %.pn1173.pn = phi { ptr, i32 } [ %.pn1173, %1062 ], [ %1057, %1056 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %55) #28
   br label %1064
 
@@ -2818,9 +2812,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.pn1173.pn.pn = phi { ptr, i32 } [ %.pn1173.pn, %1063 ], [ %1055, %1054 ]
   %.34816 = extractvalue { ptr, i32 } %.pn1173.pn.pn, 0
   %.34890 = extractvalue { ptr, i32 } %.pn1173.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %1065 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1066 = icmp eq i32 %.34890, %1065
   br i1 %1066, label %1067, label %2812
@@ -2838,7 +2832,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1052) #28
   call void @_ZdlPvm(ptr noundef nonnull %1052, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %2672
 
 1072:                                             ; preds = %1067
@@ -2853,7 +2847,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1077:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %1078 = load ptr, ptr %376, align 8, !tbaa !20
   %1079 = load ptr, ptr %1078, align 8, !tbaa !14
   store ptr %1079, ptr %57, align 8, !tbaa !44
@@ -2876,7 +2870,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   store ptr %1081, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %58) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %2584
 
 1087:                                             ; preds = %1077
@@ -2897,7 +2891,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.37819 = extractvalue { ptr, i32 } %.pn1171, 0
   %.37893 = extractvalue { ptr, i32 } %.pn1171, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %1092 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1093 = icmp eq i32 %.37893, %1092
   br i1 %1093, label %1094, label %2812
@@ -3009,7 +3003,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2584
 
 1136:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %1137 = load ptr, ptr %376, align 8, !tbaa !20
   %1138 = getelementptr inbounds i8, ptr %1137, i64 -8
   %1139 = load ptr, ptr %1138, align 8, !tbaa !14
@@ -3043,7 +3037,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1487:                                      ; preds = %1144
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %2584
 
 1151:                                             ; preds = %1136
@@ -3065,7 +3059,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.39895 = extractvalue { ptr, i32 } %.pn1167, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %1156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1157 = icmp eq i32 %.39895, %1156
   br i1 %1157, label %1158, label %2812
@@ -3083,7 +3077,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1149) #28
   call void @_ZdlPvm(ptr noundef nonnull %1149, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %2672
 
 1163:                                             ; preds = %1158
@@ -3098,7 +3092,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1168:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %1169 = load ptr, ptr %376, align 8, !tbaa !20
   %1170 = getelementptr inbounds i8, ptr %1169, i64 -16
   %1171 = load ptr, ptr %1170, align 8, !tbaa !14
@@ -3139,7 +3133,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1490:                                      ; preds = %1181
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2584
 
 1188:                                             ; preds = %1168
@@ -3170,7 +3164,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1186) #28
   call void @_ZdlPvm(ptr noundef nonnull %1186, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   br label %2672
 
 1196:                                             ; preds = %1194, %1188
@@ -3178,7 +3172,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.40822 = extractvalue { ptr, i32 } %.pn1164.pn, 0
   %.40896 = extractvalue { ptr, i32 } %.pn1164.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
   %1197 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1198 = icmp eq i32 %.40896, %1197
   br i1 %1198, label %1199, label %2812
@@ -3204,7 +3198,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1208:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %1209 = load ptr, ptr %376, align 8, !tbaa !20
   %1210 = getelementptr inbounds i8, ptr %1209, i64 -24
   %1211 = load ptr, ptr %1210, align 8, !tbaa !14
@@ -3247,7 +3241,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1493:                                      ; preds = %1223
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %2584
 
 1230:                                             ; preds = %1208
@@ -3278,7 +3272,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1228) #28
   call void @_ZdlPvm(ptr noundef nonnull %1228, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   br label %2672
 
 1238:                                             ; preds = %1236, %1230
@@ -3286,7 +3280,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.42824 = extractvalue { ptr, i32 } %.pn1161.pn, 0
   %.42898 = extractvalue { ptr, i32 } %.pn1161.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   %1239 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1240 = icmp eq i32 %.42898, %1239
   br i1 %1240, label %1241, label %2812
@@ -3312,7 +3306,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1250:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %1251 = load ptr, ptr %376, align 8, !tbaa !20
   %1252 = getelementptr inbounds i8, ptr %1251, i64 -16
   %1253 = load ptr, ptr %1252, align 8, !tbaa !14
@@ -3353,7 +3347,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1496:                                      ; preds = %1263
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %2584
 
 1270:                                             ; preds = %1250
@@ -3384,7 +3378,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1268) #28
   call void @_ZdlPvm(ptr noundef nonnull %1268, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   br label %2672
 
 1278:                                             ; preds = %1276, %1270
@@ -3392,7 +3386,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.44826 = extractvalue { ptr, i32 } %.pn1158.pn, 0
   %.44900 = extractvalue { ptr, i32 } %.pn1158.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
   %1279 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1280 = icmp eq i32 %.44900, %1279
   br i1 %1280, label %1281, label %2812
@@ -3418,7 +3412,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1290:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %1291 = load ptr, ptr %376, align 8, !tbaa !20
   %1292 = getelementptr inbounds i8, ptr %1291, i64 -16
   %1293 = load ptr, ptr %1292, align 8, !tbaa !14
@@ -3459,7 +3453,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
 
 .thread1499:                                      ; preds = %1303
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %2584
 
 1310:                                             ; preds = %1290
@@ -3490,7 +3484,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1308) #28
   call void @_ZdlPvm(ptr noundef nonnull %1308, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %2672
 
 1318:                                             ; preds = %1316, %1310
@@ -3498,7 +3492,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   %.46828 = extractvalue { ptr, i32 } %.pn1155.pn, 0
   %.46902 = extractvalue { ptr, i32 } %.pn1155.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %72) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   %1319 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1320 = icmp eq i32 %.46902, %1319
   br i1 %1320, label %1321, label %2812
@@ -3524,7 +3518,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1425: ; preds = %_ZN
   br label %2812
 
 1330:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %1331 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %1332 unwind label %1359
 
@@ -3593,7 +3587,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1438: ; preds = %133
   store ptr %1354, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %76) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %75) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   br label %2584
 
 1359:                                             ; preds = %1333, %1330
@@ -3631,7 +3625,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1438: ; preds = %133
   %.pn1152.pn = phi { ptr, i32 } [ %.pn1152, %1367 ], [ %1360, %1359 ], [ %1362, %1361 ]
   %.48830 = extractvalue { ptr, i32 } %.pn1152.pn, 0
   %.48904 = extractvalue { ptr, i32 } %.pn1152.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   %1369 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1370 = icmp eq i32 %.48904, %1369
   br i1 %1370, label %1371, label %2812
@@ -3657,7 +3651,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1438: ; preds = %133
   br label %2812
 
 1380:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %1381 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %1382 unwind label %1409
 
@@ -3726,7 +3720,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1404, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %78) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %2584
 
 1409:                                             ; preds = %1383, %1380
@@ -3764,7 +3758,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1149.pn = phi { ptr, i32 } [ %.pn1149, %1417 ], [ %1410, %1409 ], [ %1412, %1411 ]
   %.50832 = extractvalue { ptr, i32 } %.pn1149.pn, 0
   %.50906 = extractvalue { ptr, i32 } %.pn1149.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %1419 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1420 = icmp eq i32 %.50906, %1419
   br i1 %1420, label %1421, label %2812
@@ -3790,7 +3784,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1430:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %1431 = load ptr, ptr %376, align 8, !tbaa !20
   %1432 = getelementptr inbounds i8, ptr %1431, i64 -8
   %1433 = load ptr, ptr %1432, align 8, !tbaa !14
@@ -3824,7 +3818,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 .thread1502:                                      ; preds = %1438
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %2584
 
 1445:                                             ; preds = %1430
@@ -3846,7 +3840,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.52908 = extractvalue { ptr, i32 } %.pn1147, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %1450 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1451 = icmp eq i32 %.52908, %1450
   br i1 %1451, label %1452, label %2812
@@ -3864,7 +3858,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1443) #28
   call void @_ZdlPvm(ptr noundef nonnull %1443, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %79) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   br label %2672
 
 1457:                                             ; preds = %1452
@@ -3879,14 +3873,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1462:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   %1463 = load ptr, ptr %376, align 8, !tbaa !20
   %1464 = getelementptr inbounds i8, ptr %1463, i64 -24
   %1465 = load ptr, ptr %1464, align 8, !tbaa !14
   store ptr %1465, ptr %82, align 8, !tbaa !44
   %1466 = getelementptr inbounds i8, ptr %1463, i64 -16
   %1467 = load ptr, ptr %1466, align 8, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %1468 = load ptr, ptr %1463, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %84, ptr noundef %1468)
           to label %1469 unwind label %1482
@@ -3914,7 +3908,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1474, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %83) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %84) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   %1480 = load ptr, ptr %8, align 8, !tbaa !14
   %1481 = load ptr, ptr %1480, align 8, !tbaa !38
   %.not1540 = icmp eq ptr %1481, null
@@ -3922,7 +3916,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 .thread1505:                                      ; preds = %1475
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %2584
 
 1482:                                             ; preds = %1462
@@ -3953,9 +3947,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1144.pn = phi { ptr, i32 } [ %.pn1144, %1488 ], [ %1483, %1482 ]
   %.53835 = extractvalue { ptr, i32 } %.pn1144.pn, 0
   %.53909 = extractvalue { ptr, i32 } %.pn1144.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %84) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   %1490 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1491 = icmp eq i32 %.53909, %1490
   br i1 %1491, label %1492, label %2812
@@ -3973,7 +3967,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1480) #28
   call void @_ZdlPvm(ptr noundef nonnull %1480, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %82) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
   br label %2672
 
 1497:                                             ; preds = %1492
@@ -3988,7 +3982,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1502:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %1503 = load ptr, ptr %376, align 8, !tbaa !20
   %1504 = getelementptr inbounds i8, ptr %1503, i64 -16
   %1505 = load ptr, ptr %1504, align 8, !tbaa !14
@@ -4029,7 +4023,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 .thread1508:                                      ; preds = %1515
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %2584
 
 1522:                                             ; preds = %1502
@@ -4060,7 +4054,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1520) #28
   call void @_ZdlPvm(ptr noundef nonnull %1520, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   br label %2672
 
 1530:                                             ; preds = %1528, %1522
@@ -4068,7 +4062,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.55837 = extractvalue { ptr, i32 } %.pn1141.pn, 0
   %.55911 = extractvalue { ptr, i32 } %.pn1141.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
   %1531 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1532 = icmp eq i32 %.55911, %1531
   br i1 %1532, label %1533, label %2812
@@ -4094,7 +4088,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1542:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %89) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %1543 = load ptr, ptr %376, align 8, !tbaa !20
   %1544 = getelementptr inbounds i8, ptr %1543, i64 -16
   %1545 = load ptr, ptr %1544, align 8, !tbaa !14
@@ -4102,7 +4096,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
           to label %1546 unwind label %1557
 
 1546:                                             ; preds = %1542
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %1547 = load ptr, ptr %376, align 8, !tbaa !20
   %1548 = load ptr, ptr %1547, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %90, ptr noundef %1548)
@@ -4128,9 +4122,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1551, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %88) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %90) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %89) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %2584
 
 1557:                                             ; preds = %1542
@@ -4165,7 +4159,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 1566:                                             ; preds = %1565, %1559
   %.pn1137.pn = phi { ptr, i32 } [ %.pn1137, %1565 ], [ %1560, %1559 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %90) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %89) #28
   br label %1567
 
@@ -4173,7 +4167,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1137.pn.pn = phi { ptr, i32 } [ %.pn1137.pn, %1566 ], [ %1558, %1557 ]
   %.57839 = extractvalue { ptr, i32 } %.pn1137.pn.pn, 0
   %.57913 = extractvalue { ptr, i32 } %.pn1137.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %89) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %1568 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1569 = icmp eq i32 %.57913, %1568
   br i1 %1569, label %1570, label %2812
@@ -4199,7 +4193,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1579:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   %1580 = load ptr, ptr %376, align 8, !tbaa !20
   %1581 = getelementptr inbounds i8, ptr %1580, i64 -16
   %1582 = load ptr, ptr %1581, align 8, !tbaa !14
@@ -4207,7 +4201,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
           to label %1583 unwind label %1594
 
 1583:                                             ; preds = %1579
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %1584 = load ptr, ptr %376, align 8, !tbaa !20
   %1585 = load ptr, ptr %1584, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef %1585)
@@ -4233,9 +4227,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1588, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %91) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %93) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %2584
 
 1594:                                             ; preds = %1579
@@ -4270,7 +4264,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 1603:                                             ; preds = %1602, %1596
   %.pn1133.pn = phi { ptr, i32 } [ %.pn1133, %1602 ], [ %1597, %1596 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %93) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %92) #28
   br label %1604
 
@@ -4278,7 +4272,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1133.pn.pn = phi { ptr, i32 } [ %.pn1133.pn, %1603 ], [ %1595, %1594 ]
   %.60842 = extractvalue { ptr, i32 } %.pn1133.pn.pn, 0
   %.60916 = extractvalue { ptr, i32 } %.pn1133.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %92) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   %1605 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1606 = icmp eq i32 %.60916, %1605
   br i1 %1606, label %1607, label %2812
@@ -4304,7 +4298,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1616:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %95) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   %1617 = load ptr, ptr %376, align 8, !tbaa !20
   %1618 = getelementptr inbounds i8, ptr %1617, i64 -16
   %1619 = load ptr, ptr %1618, align 8, !tbaa !14
@@ -4312,7 +4306,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
           to label %1620 unwind label %1631
 
 1620:                                             ; preds = %1616
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   %1621 = load ptr, ptr %376, align 8, !tbaa !20
   %1622 = load ptr, ptr %1621, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef %1622)
@@ -4338,9 +4332,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1625, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %94) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %96) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %2584
 
 1631:                                             ; preds = %1616
@@ -4375,7 +4369,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 1640:                                             ; preds = %1639, %1633
   %.pn1129.pn = phi { ptr, i32 } [ %.pn1129, %1639 ], [ %1634, %1633 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %96) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %95) #28
   br label %1641
 
@@ -4383,7 +4377,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1129.pn.pn = phi { ptr, i32 } [ %.pn1129.pn, %1640 ], [ %1632, %1631 ]
   %.63845 = extractvalue { ptr, i32 } %.pn1129.pn.pn, 0
   %.63919 = extractvalue { ptr, i32 } %.pn1129.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %95) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   %1642 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1643 = icmp eq i32 %.63919, %1642
   br i1 %1643, label %1644, label %2812
@@ -4409,7 +4403,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1653:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %1654 = load ptr, ptr %376, align 8, !tbaa !20
   %1655 = getelementptr inbounds i8, ptr %1654, i64 -16
   %1656 = load ptr, ptr %1655, align 8, !tbaa !14
@@ -4417,7 +4411,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
           to label %1657 unwind label %1668
 
 1657:                                             ; preds = %1653
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %99) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   %1658 = load ptr, ptr %376, align 8, !tbaa !20
   %1659 = load ptr, ptr %1658, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %99, ptr noundef %1659)
@@ -4443,9 +4437,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1662, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %97) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %99) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %2584
 
 1668:                                             ; preds = %1653
@@ -4480,7 +4474,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 1677:                                             ; preds = %1676, %1670
   %.pn1125.pn = phi { ptr, i32 } [ %.pn1125, %1676 ], [ %1671, %1670 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %99) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %98) #28
   br label %1678
 
@@ -4488,7 +4482,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1125.pn.pn = phi { ptr, i32 } [ %.pn1125.pn, %1677 ], [ %1669, %1668 ]
   %.66848 = extractvalue { ptr, i32 } %.pn1125.pn.pn, 0
   %.66922 = extractvalue { ptr, i32 } %.pn1125.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %98) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %1679 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1680 = icmp eq i32 %.66922, %1679
   br i1 %1680, label %1681, label %2812
@@ -4514,14 +4508,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1690:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %101) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %1691 = load ptr, ptr %376, align 8, !tbaa !20
   %1692 = load ptr, ptr %1691, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %101, ptr noundef %1692)
           to label %1693 unwind label %1701
 
 1693:                                             ; preds = %1690
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
   invoke void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %100, ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i8 noundef signext 45, ptr noundef %4)
           to label %1694 unwind label %1703
@@ -4542,9 +4536,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1695, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %100) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %2584
 
 1701:                                             ; preds = %1690
@@ -4569,7 +4563,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 1707:                                             ; preds = %1705, %1703
   %.pn1122 = phi { ptr, i32 } [ %1706, %1705 ], [ %1704, %1703 ]
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %102) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %101) #28
   br label %1708
 
@@ -4577,7 +4571,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1122.pn = phi { ptr, i32 } [ %.pn1122, %1707 ], [ %1702, %1701 ]
   %.69851 = extractvalue { ptr, i32 } %.pn1122.pn, 0
   %.69925 = extractvalue { ptr, i32 } %.pn1122.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %101) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   %1709 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1710 = icmp eq i32 %.69925, %1709
   br i1 %1710, label %1711, label %2812
@@ -4603,7 +4597,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2812
 
 1720:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   %1721 = load ptr, ptr %376, align 8, !tbaa !20
   %1722 = getelementptr inbounds i8, ptr %1721, i64 -16
   %1723 = load ptr, ptr %1722, align 8, !tbaa !14
@@ -4611,7 +4605,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
           to label %1724 unwind label %1735
 
 1724:                                             ; preds = %1720
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   %1725 = load ptr, ptr %376, align 8, !tbaa !20
   %1726 = load ptr, ptr %1725, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef %1726)
@@ -4637,9 +4631,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   store ptr %1729, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %103) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %105) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %2584
 
 1735:                                             ; preds = %1720
@@ -4674,7 +4668,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
 
 1744:                                             ; preds = %1743, %1737
   %.pn1118.pn = phi { ptr, i32 } [ %.pn1118, %1743 ], [ %1738, %1737 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #28
   br label %1745
 
@@ -4682,7 +4676,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   %.pn1118.pn.pn = phi { ptr, i32 } [ %.pn1118.pn, %1744 ], [ %1736, %1735 ]
   %.71853 = extractvalue { ptr, i32 } %.pn1118.pn.pn, 0
   %.71927 = extractvalue { ptr, i32 } %.pn1118.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   %1746 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1747 = icmp eq i32 %.71927, %1746
   br i1 %1747, label %1748, label %2812
@@ -4715,7 +4709,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1443: ; preds = %138
   br label %2584
 
 1761:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %1762 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #31
           to label %1763 unwind label %1790
 
@@ -4784,7 +4778,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %1785, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %107) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %106) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   br label %2584
 
 1790:                                             ; preds = %1764, %1761
@@ -4822,7 +4816,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1115.pn = phi { ptr, i32 } [ %.pn1115, %1798 ], [ %1791, %1790 ], [ %1793, %1792 ]
   %.74 = extractvalue { ptr, i32 } %.pn1115.pn, 0
   %.74930 = extractvalue { ptr, i32 } %.pn1115.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %106) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
   %1800 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1801 = icmp eq i32 %.74930, %1800
   br i1 %1801, label %1802, label %2812
@@ -4848,7 +4842,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 1811:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %1812 = load ptr, ptr %376, align 8, !tbaa !20
   %1813 = getelementptr inbounds i8, ptr %1812, i64 -8
   %1814 = load ptr, ptr %1813, align 8, !tbaa !14
@@ -4882,7 +4876,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 .thread1511:                                      ; preds = %1819
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %2584
 
 1826:                                             ; preds = %1811
@@ -4904,7 +4898,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.76932 = extractvalue { ptr, i32 } %.pn1113, 1
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %110) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   %1831 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1832 = icmp eq i32 %.76932, %1831
   br i1 %1832, label %1833, label %2812
@@ -4922,7 +4916,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1824) #28
   call void @_ZdlPvm(ptr noundef nonnull %1824, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %2672
 
 1838:                                             ; preds = %1833
@@ -5103,12 +5097,12 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 1913:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   %1914 = load ptr, ptr %376, align 8, !tbaa !20
   %1915 = getelementptr inbounds i8, ptr %1914, i64 -16
   %1916 = load ptr, ptr %1915, align 8, !tbaa !14
   store ptr %1916, ptr %114, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %116) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   %1917 = load ptr, ptr %1914, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef %1917)
           to label %1918 unwind label %1931
@@ -5136,7 +5130,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %1923, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %115) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %116) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   %1929 = load ptr, ptr %8, align 8, !tbaa !14
   %1930 = load ptr, ptr %1929, align 8, !tbaa !38
   %.not1536 = icmp eq ptr %1930, null
@@ -5144,7 +5138,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 .thread1514:                                      ; preds = %1924
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %2584
 
 1931:                                             ; preds = %1913
@@ -5175,9 +5169,9 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1105.pn = phi { ptr, i32 } [ %.pn1105, %1937 ], [ %1932, %1931 ]
   %.80 = extractvalue { ptr, i32 } %.pn1105.pn, 0
   %.80936 = extractvalue { ptr, i32 } %.pn1105.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %116) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   %1939 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1940 = icmp eq i32 %.80936, %1939
   br i1 %1940, label %1941, label %2812
@@ -5195,7 +5189,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1929) #28
   call void @_ZdlPvm(ptr noundef nonnull %1929, i64 noundef 16) #32
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %114) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   br label %2672
 
 1946:                                             ; preds = %1941
@@ -5210,7 +5204,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 1951:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %1952 = load ptr, ptr %376, align 8, !tbaa !20
   %1953 = load ptr, ptr %1952, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef %1953)
@@ -5236,7 +5230,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %1956, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %117) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %118) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   br label %2584
 
 1962:                                             ; preds = %1951
@@ -5267,7 +5261,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1102.pn = phi { ptr, i32 } [ %.pn1102, %1968 ], [ %1963, %1962 ]
   %.82 = extractvalue { ptr, i32 } %.pn1102.pn, 0
   %.82938 = extractvalue { ptr, i32 } %.pn1102.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %118) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
   %1970 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %1971 = icmp eq i32 %.82938, %1970
   br i1 %1971, label %1972, label %2812
@@ -5293,7 +5287,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 1981:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %1982 = load ptr, ptr %376, align 8, !tbaa !20
   %1983 = load ptr, ptr %1982, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef %1983)
@@ -5319,7 +5313,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %1986, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %119) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %2584
 
 1992:                                             ; preds = %1981
@@ -5350,7 +5344,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1099.pn = phi { ptr, i32 } [ %.pn1099, %1998 ], [ %1993, %1992 ]
   %.84 = extractvalue { ptr, i32 } %.pn1099.pn, 0
   %.84940 = extractvalue { ptr, i32 } %.pn1099.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %120) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
   %2000 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2001 = icmp eq i32 %.84940, %2000
   br i1 %2001, label %2002, label %2812
@@ -5376,7 +5370,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2011:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %122) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %2012 = load ptr, ptr %376, align 8, !tbaa !20
   %2013 = load ptr, ptr %2012, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %122, ptr noundef %2013)
@@ -5402,7 +5396,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2016, ptr %8, align 8, !tbaa !34
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %121) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %122) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %2584
 
 2022:                                             ; preds = %2011
@@ -5433,7 +5427,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1096.pn = phi { ptr, i32 } [ %.pn1096, %2028 ], [ %2023, %2022 ]
   %.86 = extractvalue { ptr, i32 } %.pn1096.pn, 0
   %.86942 = extractvalue { ptr, i32 } %.pn1096.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %122) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   %2030 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2031 = icmp eq i32 %.86942, %2030
   br i1 %2031, label %2032, label %2812
@@ -5537,7 +5531,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2072:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %2073 = load ptr, ptr %376, align 8, !tbaa !20
   %2074 = getelementptr inbounds i8, ptr %2073, i64 -8
   %2075 = load ptr, ptr %2074, align 8, !tbaa !14
@@ -5546,7 +5540,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2076:                                             ; preds = %2072
   %2077 = load ptr, ptr %124, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %125) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %2078 = load ptr, ptr %376, align 8, !tbaa !20
   %2079 = load ptr, ptr %2078, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias writable align 8 %125, ptr noundef %2079)
@@ -5558,7 +5552,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2081:                                             ; preds = %2080
   call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %125) #28
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %125) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   %2082 = load i64, ptr %124, align 8, !tbaa !63
   store i64 %2082, ptr %126, align 8, !tbaa !63
   store ptr null, ptr %124, align 8, !tbaa !63
@@ -5571,7 +5565,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2083, ptr %8, align 8, !tbaa !65
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %124) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %2584
 
 2085:                                             ; preds = %2072
@@ -5595,7 +5589,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2091:                                             ; preds = %2089, %2087
   %.pn1089 = phi { ptr, i32 } [ %2090, %2089 ], [ %2088, %2087 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %125) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %2094
 
 2092:                                             ; preds = %2081
@@ -5614,7 +5608,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1091.pn = phi { ptr, i32 } [ %.pn1091, %2094 ], [ %2086, %2085 ]
   %.89 = extractvalue { ptr, i32 } %.pn1091.pn, 0
   %.89945 = extractvalue { ptr, i32 } %.pn1091.pn, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
   %2096 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2097 = icmp eq i32 %.89945, %2096
   br i1 %2097, label %2098, label %2812
@@ -5640,7 +5634,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2107:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %2108 = load ptr, ptr %376, align 8, !tbaa !20
   %2109 = getelementptr inbounds i8, ptr %2108, i64 -8
   %2110 = load ptr, ptr %2109, align 8, !tbaa !14
@@ -5661,7 +5655,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   call void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %128) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %129) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %127) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   br label %2584
 
 2115:                                             ; preds = %2107
@@ -5693,7 +5687,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.92 = extractvalue { ptr, i32 } %.pn1086.pn, 0
   %.92948 = extractvalue { ptr, i32 } %.pn1086.pn, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %127) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
   %2123 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2124 = icmp eq i32 %.92948, %2123
   br i1 %2124, label %2125, label %2812
@@ -5797,7 +5791,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2165:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %2166 = load ptr, ptr %376, align 8, !tbaa !20
   %2167 = getelementptr inbounds i8, ptr %2166, i64 -8
   %2168 = load ptr, ptr %2167, align 8, !tbaa !14
@@ -5806,7 +5800,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2169:                                             ; preds = %2165
   %2170 = load ptr, ptr %131, align 8, !tbaa !74
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %132) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %2171 = load ptr, ptr %376, align 8, !tbaa !20
   %2172 = load ptr, ptr %2171, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %132, ptr noundef %2172)
@@ -5818,7 +5812,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2174:                                             ; preds = %2173
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %132) #28
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %132) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   %2175 = load i64, ptr %131, align 8, !tbaa !74
   store i64 %2175, ptr %133, align 8, !tbaa !74
   store ptr null, ptr %131, align 8, !tbaa !74
@@ -5831,7 +5825,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2176, ptr %8, align 8, !tbaa !75
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %133) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %131) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %2584
 
 2178:                                             ; preds = %2165
@@ -5855,7 +5849,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2184:                                             ; preds = %2182, %2180
   %.pn1079 = phi { ptr, i32 } [ %2183, %2182 ], [ %2181, %2180 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %132) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %2187
 
 2185:                                             ; preds = %2174
@@ -5874,7 +5868,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1081.pn = phi { ptr, i32 } [ %.pn1081, %2187 ], [ %2179, %2178 ]
   %.95 = extractvalue { ptr, i32 } %.pn1081.pn, 0
   %.95951 = extractvalue { ptr, i32 } %.pn1081.pn, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   %2189 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2190 = icmp eq i32 %.95951, %2189
   br i1 %2190, label %2191, label %2812
@@ -5900,7 +5894,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2200:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %2201 = load ptr, ptr %376, align 8, !tbaa !20
   %2202 = getelementptr inbounds i8, ptr %2201, i64 -16
   %2203 = load ptr, ptr %2202, align 8, !tbaa !14
@@ -5909,7 +5903,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2204:                                             ; preds = %2200
   %2205 = load ptr, ptr %134, align 8, !tbaa !74
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %135) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   %2206 = load ptr, ptr %376, align 8, !tbaa !20
   %2207 = load ptr, ptr %2206, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %135, ptr noundef %2207)
@@ -5921,7 +5915,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2209:                                             ; preds = %2208
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %135) #28
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %135) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   %2210 = load i64, ptr %134, align 8, !tbaa !74
   store i64 %2210, ptr %136, align 8, !tbaa !74
   store ptr null, ptr %134, align 8, !tbaa !74
@@ -5934,7 +5928,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2211, ptr %8, align 8, !tbaa !75
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %136) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %134) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %2584
 
 2213:                                             ; preds = %2200
@@ -5958,7 +5952,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2219:                                             ; preds = %2217, %2215
   %.pn1074 = phi { ptr, i32 } [ %2218, %2217 ], [ %2216, %2215 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %135) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   br label %2222
 
 2220:                                             ; preds = %2209
@@ -5977,7 +5971,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1076.pn = phi { ptr, i32 } [ %.pn1076, %2222 ], [ %2214, %2213 ]
   %.98 = extractvalue { ptr, i32 } %.pn1076.pn, 0
   %.98954 = extractvalue { ptr, i32 } %.pn1076.pn, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   %2224 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2225 = icmp eq i32 %.98954, %2224
   br i1 %2225, label %2226, label %2812
@@ -6016,7 +6010,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2584
 
 2242:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %138) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %2243 = load ptr, ptr %376, align 8, !tbaa !20
   %2244 = load ptr, ptr %2243, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %138, ptr noundef %2244)
@@ -6037,7 +6031,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2247, ptr %8, align 8, !tbaa !75
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %137) #28
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %138) #28
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %138) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   br label %2584
 
 2250:                                             ; preds = %2242
@@ -6068,7 +6062,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1071.pn = phi { ptr, i32 } [ %.pn1071, %2256 ], [ %2251, %2250 ]
   %.101 = extractvalue { ptr, i32 } %.pn1071.pn, 0
   %.101957 = extractvalue { ptr, i32 } %.pn1071.pn, 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %138) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   %2258 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2259 = icmp eq i32 %.101957, %2258
   br i1 %2259, label %2260, label %2812
@@ -6094,7 +6088,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2269:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %2270 = load ptr, ptr %376, align 8, !tbaa !20
   %2271 = getelementptr inbounds i8, ptr %2270, i64 -8
   %2272 = load ptr, ptr %2271, align 8, !tbaa !14
@@ -6103,7 +6097,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2273:                                             ; preds = %2269
   %2274 = load ptr, ptr %139, align 8, !tbaa !74
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %140) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   %2275 = load ptr, ptr %376, align 8, !tbaa !20
   %2276 = load ptr, ptr %2275, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %140, ptr noundef %2276)
@@ -6115,7 +6109,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2278:                                             ; preds = %2277
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %140) #28
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %140) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   %2279 = load i64, ptr %139, align 8, !tbaa !74
   store i64 %2279, ptr %141, align 8, !tbaa !74
   store ptr null, ptr %139, align 8, !tbaa !74
@@ -6128,7 +6122,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2280, ptr %8, align 8, !tbaa !75
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %139) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   br label %2584
 
 2282:                                             ; preds = %2269
@@ -6152,7 +6146,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2288:                                             ; preds = %2286, %2284
   %.pn1066 = phi { ptr, i32 } [ %2287, %2286 ], [ %2285, %2284 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %140) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %2291
 
 2289:                                             ; preds = %2278
@@ -6171,7 +6165,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1068.pn = phi { ptr, i32 } [ %.pn1068, %2291 ], [ %2283, %2282 ]
   %.103 = extractvalue { ptr, i32 } %.pn1068.pn, 0
   %.103959 = extractvalue { ptr, i32 } %.pn1068.pn, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
   %2293 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2294 = icmp eq i32 %.103959, %2293
   br i1 %2294, label %2295, label %2812
@@ -6197,7 +6191,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2304:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %2305 = load ptr, ptr %376, align 8, !tbaa !20
   %2306 = getelementptr inbounds i8, ptr %2305, i64 -16
   %2307 = load ptr, ptr %2306, align 8, !tbaa !14
@@ -6206,7 +6200,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2308:                                             ; preds = %2304
   %2309 = load ptr, ptr %142, align 8, !tbaa !74
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %143) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %2310 = load ptr, ptr %376, align 8, !tbaa !20
   %2311 = load ptr, ptr %2310, align 8, !tbaa !14
   invoke fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias writable align 8 %143, ptr noundef %2311)
@@ -6218,7 +6212,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2313:                                             ; preds = %2312
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %143) #28
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %143) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   %2314 = load i64, ptr %142, align 8, !tbaa !74
   store i64 %2314, ptr %144, align 8, !tbaa !74
   store ptr null, ptr %142, align 8, !tbaa !74
@@ -6231,7 +6225,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   store ptr %2315, ptr %8, align 8, !tbaa !75
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %144) #28
   call void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   br label %2584
 
 2317:                                             ; preds = %2304
@@ -6255,7 +6249,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
 
 2323:                                             ; preds = %2321, %2319
   %.pn1061 = phi { ptr, i32 } [ %2322, %2321 ], [ %2320, %2319 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %143) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %2326
 
 2324:                                             ; preds = %2313
@@ -6274,7 +6268,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   %.pn1063.pn = phi { ptr, i32 } [ %.pn1063, %2326 ], [ %2318, %2317 ]
   %.106 = extractvalue { ptr, i32 } %.pn1063.pn, 0
   %.106962 = extractvalue { ptr, i32 } %.pn1063.pn, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
   %2328 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2329 = icmp eq i32 %.106962, %2328
   br i1 %2329, label %2330, label %2812
@@ -6300,7 +6294,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1457: ; preds = %176
   br label %2812
 
 2339:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %146) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   %2340 = load ptr, ptr %376, align 8, !tbaa !20
   %2341 = load ptr, ptr %2340, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef %2341)
@@ -6317,7 +6311,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2343:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %145) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %146) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   br label %2584
 
 2344:                                             ; preds = %2339
@@ -6348,7 +6342,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.pn1058.pn = phi { ptr, i32 } [ %.pn1058, %2350 ], [ %2345, %2344 ]
   %.109 = extractvalue { ptr, i32 } %.pn1058.pn, 0
   %.109965 = extractvalue { ptr, i32 } %.pn1058.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %146) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   %2352 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2353 = icmp eq i32 %.109965, %2352
   br i1 %2353, label %2354, label %2812
@@ -6374,7 +6368,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br label %2812
 
 2363:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %148) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %2364 = load ptr, ptr %376, align 8, !tbaa !20
   %2365 = load ptr, ptr %2364, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %148, ptr noundef %2365)
@@ -6391,7 +6385,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2367:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1472
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %147) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %148) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %2584
 
 2368:                                             ; preds = %2363
@@ -6422,7 +6416,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.pn1055.pn = phi { ptr, i32 } [ %.pn1055, %2374 ], [ %2369, %2368 ]
   %.111 = extractvalue { ptr, i32 } %.pn1055.pn, 0
   %.111967 = extractvalue { ptr, i32 } %.pn1055.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %148) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
   %2376 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2377 = icmp eq i32 %.111967, %2376
   br i1 %2377, label %2378, label %2812
@@ -6448,7 +6442,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br label %2812
 
 2387:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %150) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   %2388 = load ptr, ptr %376, align 8, !tbaa !20
   %2389 = load ptr, ptr %2388, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %150, ptr noundef %2389)
@@ -6465,7 +6459,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2391:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1473
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %149) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %150) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   br label %2584
 
 2392:                                             ; preds = %2387
@@ -6496,7 +6490,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.pn1052.pn = phi { ptr, i32 } [ %.pn1052, %2398 ], [ %2393, %2392 ]
   %.113 = extractvalue { ptr, i32 } %.pn1052.pn, 0
   %.113969 = extractvalue { ptr, i32 } %.pn1052.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %150) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   %2400 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2401 = icmp eq i32 %.113969, %2400
   br i1 %2401, label %2402, label %2812
@@ -6522,7 +6516,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br label %2812
 
 2411:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %152) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   %2412 = load ptr, ptr %376, align 8, !tbaa !20
   %2413 = load ptr, ptr %2412, align 8, !tbaa !14
   invoke fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef %2413)
@@ -6539,7 +6533,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2415:                                             ; preds = %_ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeElementEE.exit1474
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %151) #28
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %152) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2584
 
 2416:                                             ; preds = %2411
@@ -6570,7 +6564,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.pn1049.pn = phi { ptr, i32 } [ %.pn1049, %2422 ], [ %2417, %2416 ]
   %.115 = extractvalue { ptr, i32 } %.pn1049.pn, 0
   %.115971 = extractvalue { ptr, i32 } %.pn1049.pn, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %152) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   %2424 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2425 = icmp eq i32 %.115971, %2424
   br i1 %2425, label %2426, label %2812
@@ -6720,7 +6714,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   br label %2812
 
 2484:                                             ; preds = %401
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   %2485 = load ptr, ptr %376, align 8, !tbaa !20
   %2486 = load ptr, ptr %2485, align 8, !tbaa !14
   store ptr %2486, ptr %155, align 8, !tbaa !44
@@ -6734,7 +6728,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 2488:                                             ; preds = %2487
   call void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %156) #28
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %2584
 
 2489:                                             ; preds = %2484
@@ -6755,7 +6749,7 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
   %.119 = extractvalue { ptr, i32 } %.pn1043, 0
   %.119975 = extractvalue { ptr, i32 } %.pn1043, 1
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %155) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   %2494 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %2495 = icmp eq i32 %.119975, %2494
   br i1 %2495, label %2496, label %2812
@@ -7119,18 +7113,18 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 .critedge:                                        ; preds = %522
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2672
 
 .critedge1553:                                    ; preds = %558
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %2672
 
 2672:                                             ; preds = %.critedge1553, %.critedge, %1945, %1837, %1529, %1496, %1456, %1317, %1277, %1237, %1195, %1162, %1071, %2578, %2553, %2527, %2499, %2478, %2455, %2429, %2405, %2381, %2357, %2333, %2298, %2263, %2229, %2194, %2159, %2128, %2101, %2066, %2035, %2005, %1975, %1944, %1907, %1868, %1836, %1805, %1751, %1714, %1684, %1647, %1610, %1573, %1536, %1495, %1455, %1424, %1374, %1324, %1284, %1244, %1202, %1161, %1123, %1097, %1070, %1022, %961, %900, %824, %778, %742, %710, %678, %646, %614, %584, %548, %512, %1893, %807, %764
@@ -7395,19 +7389,19 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 
 2811:                                             ; preds = %2810, %274, %272
   %.0 = phi i32 [ %.17611525, %2810 ], [ 4, %274 ], [ 4, %272 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 
 2812:                                             ; preds = %2581, %2572, %2556, %2547, %2530, %2521, %2502, %2493, %2481, %2472, %2458, %2449, %2432, %2423, %2408, %2399, %2384, %2375, %2360, %2351, %2336, %2327, %2301, %2292, %2266, %2257, %2232, %2223, %2197, %2188, %2162, %2153, %2131, %2122, %2104, %2095, %2069, %2060, %2038, %2029, %2008, %1999, %1978, %1969, %1948, %1938, %1910, %1901, %1871, %1862, %1840, %1830, %1808, %1799, %1754, %1745, %1717, %1708, %1687, %1678, %1650, %1641, %1613, %1604, %1576, %1567, %1539, %1530, %1499, %1489, %1459, %1449, %1427, %1418, %1377, %1368, %1327, %1318, %1287, %1278, %1247, %1238, %1205, %1196, %1165, %1155, %1126, %1117, %1100, %1091, %1074, %1064, %1025, %1016, %964, %955, %903, %894, %827, %818, %781, %772, %745, %736, %713, %704, %681, %672, %649, %640, %617, %608, %587, %578, %551, %542, %515, %503, %498, %481, %468, %456, %419, %404
   %.0856 = phi i32 [ %420, %419 ], [ %407, %404 ], [ %469, %468 ], [ %.4860, %456 ], [ %499, %498 ], [ %484, %481 ], [ %516, %515 ], [ %506, %503 ], [ %552, %551 ], [ %.5861, %542 ], [ %588, %587 ], [ %.8864, %578 ], [ %618, %617 ], [ %.11867, %608 ], [ %650, %649 ], [ %.13869, %640 ], [ %682, %681 ], [ %.15871, %672 ], [ %714, %713 ], [ %.17873, %704 ], [ %746, %745 ], [ %.19875, %736 ], [ %782, %781 ], [ %.21877, %772 ], [ %828, %827 ], [ %.23879, %818 ], [ %904, %903 ], [ %.26882, %894 ], [ %965, %964 ], [ %.28884, %955 ], [ %1026, %1025 ], [ %.31887, %1016 ], [ %1075, %1074 ], [ %.34890, %1064 ], [ %1101, %1100 ], [ %.37893, %1091 ], [ %1127, %1126 ], [ %.38894, %1117 ], [ %1166, %1165 ], [ %.39895, %1155 ], [ %1206, %1205 ], [ %.40896, %1196 ], [ %1248, %1247 ], [ %.42898, %1238 ], [ %1288, %1287 ], [ %.44900, %1278 ], [ %1328, %1327 ], [ %.46902, %1318 ], [ %1378, %1377 ], [ %.48904, %1368 ], [ %1428, %1427 ], [ %.50906, %1418 ], [ %1460, %1459 ], [ %.52908, %1449 ], [ %1500, %1499 ], [ %.53909, %1489 ], [ %1540, %1539 ], [ %.55911, %1530 ], [ %1577, %1576 ], [ %.57913, %1567 ], [ %1614, %1613 ], [ %.60916, %1604 ], [ %1651, %1650 ], [ %.63919, %1641 ], [ %1688, %1687 ], [ %.66922, %1678 ], [ %1718, %1717 ], [ %.69925, %1708 ], [ %1755, %1754 ], [ %.71927, %1745 ], [ %1809, %1808 ], [ %.74930, %1799 ], [ %1841, %1840 ], [ %.76932, %1830 ], [ %1872, %1871 ], [ %.77933, %1862 ], [ %1911, %1910 ], [ %.78934, %1901 ], [ %1949, %1948 ], [ %.80936, %1938 ], [ %1979, %1978 ], [ %.82938, %1969 ], [ %2009, %2008 ], [ %.84940, %1999 ], [ %2039, %2038 ], [ %.86942, %2029 ], [ %2070, %2069 ], [ %.88944, %2060 ], [ %2105, %2104 ], [ %.89945, %2095 ], [ %2132, %2131 ], [ %.92948, %2122 ], [ %2163, %2162 ], [ %.94950, %2153 ], [ %2198, %2197 ], [ %.95951, %2188 ], [ %2233, %2232 ], [ %.98954, %2223 ], [ %2267, %2266 ], [ %.101957, %2257 ], [ %2302, %2301 ], [ %.103959, %2292 ], [ %2337, %2336 ], [ %.106962, %2327 ], [ %2361, %2360 ], [ %.109965, %2351 ], [ %2385, %2384 ], [ %.111967, %2375 ], [ %2409, %2408 ], [ %.113969, %2399 ], [ %2433, %2432 ], [ %.115971, %2423 ], [ %2459, %2458 ], [ %.117973, %2449 ], [ %2482, %2481 ], [ %.118974, %2472 ], [ %2503, %2502 ], [ %.119975, %2493 ], [ %2531, %2530 ], [ %.120976, %2521 ], [ %2557, %2556 ], [ %.121977, %2547 ], [ %2582, %2581 ], [ %.122978, %2572 ]
   %.0782 = phi ptr [ %421, %419 ], [ %406, %404 ], [ %470, %468 ], [ %.4786, %456 ], [ %500, %498 ], [ %483, %481 ], [ %517, %515 ], [ %505, %503 ], [ %553, %551 ], [ %.5787, %542 ], [ %589, %587 ], [ %.8790, %578 ], [ %619, %617 ], [ %.11793, %608 ], [ %651, %649 ], [ %.13795, %640 ], [ %683, %681 ], [ %.15797, %672 ], [ %715, %713 ], [ %.17799, %704 ], [ %747, %745 ], [ %.19801, %736 ], [ %783, %781 ], [ %.21803, %772 ], [ %829, %827 ], [ %.23805, %818 ], [ %905, %903 ], [ %.26808, %894 ], [ %966, %964 ], [ %.28810, %955 ], [ %1027, %1025 ], [ %.31813, %1016 ], [ %1076, %1074 ], [ %.34816, %1064 ], [ %1102, %1100 ], [ %.37819, %1091 ], [ %1128, %1126 ], [ %.38820, %1117 ], [ %1167, %1165 ], [ %.39821, %1155 ], [ %1207, %1205 ], [ %.40822, %1196 ], [ %1249, %1247 ], [ %.42824, %1238 ], [ %1289, %1287 ], [ %.44826, %1278 ], [ %1329, %1327 ], [ %.46828, %1318 ], [ %1379, %1377 ], [ %.48830, %1368 ], [ %1429, %1427 ], [ %.50832, %1418 ], [ %1461, %1459 ], [ %.52834, %1449 ], [ %1501, %1499 ], [ %.53835, %1489 ], [ %1541, %1539 ], [ %.55837, %1530 ], [ %1578, %1576 ], [ %.57839, %1567 ], [ %1615, %1613 ], [ %.60842, %1604 ], [ %1652, %1650 ], [ %.63845, %1641 ], [ %1689, %1687 ], [ %.66848, %1678 ], [ %1719, %1717 ], [ %.69851, %1708 ], [ %1756, %1754 ], [ %.71853, %1745 ], [ %1810, %1808 ], [ %.74, %1799 ], [ %1842, %1840 ], [ %.76, %1830 ], [ %1873, %1871 ], [ %.77, %1862 ], [ %1912, %1910 ], [ %.78, %1901 ], [ %1950, %1948 ], [ %.80, %1938 ], [ %1980, %1978 ], [ %.82, %1969 ], [ %2010, %2008 ], [ %.84, %1999 ], [ %2040, %2038 ], [ %.86, %2029 ], [ %2071, %2069 ], [ %.88, %2060 ], [ %2106, %2104 ], [ %.89, %2095 ], [ %2133, %2131 ], [ %.92, %2122 ], [ %2164, %2162 ], [ %.94, %2153 ], [ %2199, %2197 ], [ %.95, %2188 ], [ %2234, %2232 ], [ %.98, %2223 ], [ %2268, %2266 ], [ %.101, %2257 ], [ %2303, %2301 ], [ %.103, %2292 ], [ %2338, %2336 ], [ %.106, %2327 ], [ %2362, %2360 ], [ %.109, %2351 ], [ %2386, %2384 ], [ %.111, %2375 ], [ %2410, %2408 ], [ %.113, %2399 ], [ %2434, %2432 ], [ %.115, %2423 ], [ %2460, %2458 ], [ %.117, %2449 ], [ %2483, %2481 ], [ %.118, %2472 ], [ %2504, %2502 ], [ %.119, %2493 ], [ %2532, %2530 ], [ %.120, %2521 ], [ %2558, %2556 ], [ %.121, %2547 ], [ %2583, %2581 ], [ %.122, %2572 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %2813 = insertvalue { ptr, i32 } poison, ptr %.0782, 0
   %2814 = insertvalue { ptr, i32 } %2813, i32 %.0856, 1
   resume { ptr, i32 } %2814
@@ -7421,13 +7415,13 @@ _ZN3gmx20SelectionParserValue10createExprERKSt10shared_ptrINS_20SelectionTreeEle
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr noundef captures(none) %0, i32 noundef range(i32 -2, 256) %1) unnamed_addr #8 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17SelectionLocationEPv(ptr noundef captures(none) %0, i32 noundef range(i32 -2, 256) %1) unnamed_addr #7 {
   %3 = icmp slt i32 %1, 49
   %.str.18..str.19 = select i1 %3, ptr @.str.18, ptr @.str.19
   %4 = sext i32 %1 to i64
@@ -7439,10 +7433,10 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILEiPK7YYSTYPEPKN3gmx17S
   ret void
 }
 
-declare void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #9
+declare void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #10 {
+define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLocationEiPv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #9 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr inbounds nuw [91 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !16
@@ -7493,31 +7487,31 @@ define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEPN3gmx17SelectionLoc
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #11
+declare i32 @llvm.eh.typeid.for.p0(ptr) #10
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
-declare void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
+declare void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #12
+declare void @_ZSt17current_exceptionv(ptr dead_on_unwind writable sret(%"class.std::__exception_ptr::exception_ptr") align 8) local_unnamed_addr #11
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #33
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #14
+declare void @_ZSt9terminatev() local_unnamed_addr #13
 
-declare void @_Z25_gmx_sel_append_selectionRKSt10shared_ptrIN3gmx20SelectionTreeElementEES2_Pv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z25_gmx_sel_append_selectionRKSt10shared_ptrIN3gmx20SelectionTreeElementEES2_Pv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10shared_ptrIN3gmx20SelectionTreeElementEEET_PS4_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrISt10shared_ptrIN3gmx20SelectionTreeElementEESt14default_deleteIS3_EED2Ev.exit
 
@@ -7537,7 +7531,7 @@ _ZNSt10unique_ptrISt10shared_ptrIN3gmx20SelectionTreeElementEESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   %.not.i = icmp eq ptr %3, null
@@ -7591,29 +7585,29 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
   ret void
 }
 
-declare noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef) local_unnamed_addr #9
+declare noundef zeroext i1 @_Z29_gmx_sel_parser_should_finishPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 
-declare void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef) local_unnamed_addr #9
+declare void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef) local_unnamed_addr #8
 
-declare noundef zeroext i1 @_Z27_gmx_selparser_handle_errorPv(ptr noundef) local_unnamed_addr #9
+declare noundef zeroext i1 @_Z27_gmx_selparser_handle_errorPv(ptr noundef) local_unnamed_addr #8
 
-declare void @_Z28_gmx_sel_lexer_clear_pselstrPv(ptr noundef) local_unnamed_addr #9
+declare void @_Z28_gmx_sel_lexer_clear_pselstrPv(ptr noundef) local_unnamed_addr #8
 
-declare noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef, ptr noundef) local_unnamed_addr #9
+declare noundef zeroext i1 @_Z31_gmx_selparser_handle_exceptionPvPSt9exception(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z25_gmx_sel_init_group_by_idiPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, i32 noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z22_gmx_sel_init_positionRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9
+declare void @_Z23_gmx_sel_init_selectionPKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #8
 
-declare void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z27_gmx_sel_init_group_by_namePKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !44
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN3gmx15functor_wrapperIvXadL_ZNS_13sfree_wrapperIvEEvPT_EEEclEPv.exit, label %3
@@ -7634,12 +7628,12 @@ _ZN3gmx15functor_wrapperIvXadL_ZNS_13sfree_wrapperIvEEvPT_EEEclEPv.exit: ; preds
   unreachable
 }
 
-declare void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9
+declare void @_Z24_gmx_sel_assign_variablePKcRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #8
 
-declare void @_Z22_gmx_sel_init_modifierP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EERKSt10shared_ptrINS4_20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9
+declare void @_Z22_gmx_sel_init_modifierP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EERKSt10shared_ptrINS4_20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrIS_INSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EES6_IS8_EED2Ev.exit
 
@@ -7657,7 +7651,7 @@ _ZNSt10unique_ptrIS_INSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !63
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %17, label %3
@@ -7716,12 +7710,12 @@ _ZNKSt14default_deleteINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS3_EE
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
-declare void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN3gmx20SelectionTreeElementC1E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !38
   store ptr %3, ptr %0, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7809,12 +7803,12 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EEaS
   ret ptr %0
 }
 
-declare void @_Z24_gmx_sel_init_comparisonRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_PKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z24_gmx_sel_init_comparisonRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_PKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %_ZNKSt14default_deleteINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEEEclEPS5_.exit
@@ -7829,10 +7823,10 @@ _ZNKSt14default_deleteINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEEEcl
   ret void
 }
 
-declare void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getISt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS4_EEESt14default_deleteIS6_EEET_PSA_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %_ZNSt10unique_ptrIS_INSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14default_deleteIS5_EES6_IS8_EED2Ev.exit
 
@@ -7847,22 +7841,22 @@ _ZNSt10unique_ptrIS_INSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14d
   ret void
 }
 
-declare void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z20_gmx_sel_init_methodP19gmx_ana_selmethod_tSt10unique_ptrINSt7__cxx114listIN3gmx24SelectionParserParameterESaIS5_EEESt14default_deleteIS7_EEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #9
+declare void @_Z22_gmx_selelem_set_vtypeRKSt10shared_ptrIN3gmx20SelectionTreeElementEE12e_selvalue_t(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #8
 
-declare void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef, i32 noundef) local_unnamed_addr #8
 
-declare void @_Z24_gmx_sel_init_keyword_ofP19gmx_ana_selmethod_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z24_gmx_sel_init_keyword_ofP19gmx_ana_selmethod_tRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPKcPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext, ptr noundef) local_unnamed_addr #9
+declare void @_Z24_gmx_sel_init_arithmeticRKSt10shared_ptrIN3gmx20SelectionTreeElementEES4_cPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef signext, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z28_gmx_sel_init_const_positionfffPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z28_gmx_sel_init_const_positionfffPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, float noundef, float noundef, float noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9
+declare void @_Z26_gmx_sel_init_variable_refRKSt10shared_ptrIN3gmx20SelectionTreeElementEEPv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -7915,7 +7909,7 @@ _ZNSt7__cxx114listIN3gmx24SelectionParserParameterESaIS2_EE9_M_insertIJS2_EEEvSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getIN3gmx24SelectionParserParameterEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split3
 
@@ -7969,7 +7963,7 @@ _ZNSt10unique_ptrIN3gmx24SelectionParserParameterESt14default_deleteIS1_EED2Ev.e
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx24SelectionParserParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !74
   %.not.i = icmp eq ptr %3, null
@@ -8005,7 +7999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3setIN3gmx24SelectionParserParameterEEvRPT_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %3, align 8, !tbaa !107
@@ -8053,7 +8047,7 @@ _ZN3gmx24SelectionParserParameterC2EOS0_.exit:    ; preds = %8, %_ZNKSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx24SelectionParserParameter6createEPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr dead_on_unwind noalias writable sret(%"class.gmx::SelectionParserParameter") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx24SelectionParserParameter6createEPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr dead_on_unwind noalias writable sret(%"class.gmx::SelectionParserParameter") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr.13", align 8
   %6 = load i64, ptr %2, align 8, !tbaa !74
   store i64 %6, ptr %5, align 8, !tbaa !74
@@ -8082,7 +8076,7 @@ _ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %1, align 8, !tbaa !113
@@ -8143,7 +8137,7 @@ _ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9_M_insertIJS2_EEEvSt14_L
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3getIN3gmx20SelectionParserValueEET_PS2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split3
 
@@ -8202,7 +8196,7 @@ _ZNSt10unique_ptrIN3gmx20SelectionParserValueESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx20SelectionParserValueD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !102
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8277,7 +8271,7 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx20SelectionParserValue10createListB5cxx11ERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx20SelectionParserValue10createListB5cxx11ERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.13") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8, !tbaa !56
@@ -8303,7 +8297,7 @@ define linkonce_odr void @_ZN3gmx20SelectionParserValue10createListB5cxx11ERKS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL3setIN3gmx20SelectionParserValueEEvRPT_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
   %4 = load i32, ptr %1, align 8, !tbaa !113
   store i32 %4, ptr %3, align 8, !tbaa !113
@@ -8359,7 +8353,7 @@ _ZN3gmx20SelectionParserValueC2EOS0_.exit:        ; preds = %17, %_ZNKSt7__cxx11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3gmx20SelectionParserValue12createStringEPKcRKNS_17SelectionLocationE(ptr dead_on_unwind noalias writable sret(%"class.gmx::SelectionParserValue") align 8 %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx20SelectionParserValue12createStringEPKcRKNS_17SelectionLocationE(ptr dead_on_unwind noalias writable sret(%"class.gmx::SelectionParserValue") align 8 %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8379,7 +8373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %3
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #10 {
+define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #9 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !25
   %4 = tail call i64 @fwrite(ptr nonnull @.str.98, i64 9, i64 1, ptr %3) #29
   %.not4 = icmp ugt ptr %0, %1
@@ -8402,7 +8396,7 @@ define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPKc(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.gmx::InvalidInputError", align 8
@@ -8411,13 +8405,13 @@ define internal fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPK
   %9 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %10 = alloca %"class.gmx::InvalidInputError", align 8
   %11 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(8) %0)
           to label %12 unwind label %97
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %7, align 8, !tbaa !107
   %14 = icmp eq ptr %2, null
@@ -8432,7 +8426,7 @@ define internal fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPK
 
 15:                                               ; preds = %12
   %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %16, ptr %4, align 8, !tbaa !123
   %17 = icmp ugt i64 %16, 15
   br i1 %17, label %.noexc.i.i, label %._crit_edge.i.i.i
@@ -8470,7 +8464,7 @@ define internal fastcc void @_ZL16_gmx_sel_yyerrorPN3gmx17SelectionLocationEPvPK
   %27 = load ptr, ptr %7, align 8, !tbaa !102
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
   store i8 0, ptr %28, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(56) %7)
@@ -8535,14 +8529,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN3gmx20ExceptionInitializerD2Ev.exit
 
 _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !105
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %108, label %53
 
 53:                                               ; preds = %_ZN3gmx20ExceptionInitializerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %54 = load ptr, ptr %5, align 8, !tbaa !102
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.100, ptr noundef %54)
           to label %55 unwind label %104
@@ -8650,7 +8644,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @_ZN3gmx16GromacsException14prependContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %108 unwind label %106
 
@@ -8675,14 +8669,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 103:                                              ; preds = %101, %99
   %.pn = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %196
 
 104:                                              ; preds = %53
   %105 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %195
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -8692,7 +8686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %195
 
 108:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN3gmx20ExceptionInitializerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %10, align 8, !tbaa !99
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -8818,7 +8812,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %158, %15
 
 _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %146, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %161
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %6, align 8, !tbaa !99
   %162 = load ptr, ptr %113, align 8, !tbaa !43
   %.not.i.i.i24 = icmp eq ptr %162, null
@@ -8870,7 +8864,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i26: ; preds = %180, %
 
 _ZN3gmx16GromacsExceptionD2Ev.exit28:             ; preds = %_ZN3gmx16GromacsExceptionD2Ev.exit, %168, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i26, %183
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %184 = load ptr, ptr %5, align 8, !tbaa !102
   %185 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %186 = icmp eq ptr %184, %185
@@ -8889,7 +8883,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %212
 
 191:                                              ; preds = %_ZSt18make_exception_ptrIN3gmx17InvalidInputErrorEENSt15__exception_ptr13exception_ptrET_.exit
@@ -8906,7 +8900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %_ZN
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit33: ; preds = %191, %194
   call void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %195
 
 195:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit33, %106, %104
@@ -8916,7 +8910,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit33: ; preds = %191, %194
 
 196:                                              ; preds = %195, %103
   %.pn14.pn = phi { ptr, i32 } [ %.pn14, %195 ], [ %.pn, %103 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %197 = load ptr, ptr %5, align 8, !tbaa !102
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %199 = icmp eq ptr %197, %198
@@ -8938,7 +8932,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35, %97
   %.pn14.pn.pn = phi { ptr, i32 } [ %98, %97 ], [ %.pn14.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i35 ], [ %.pn14.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ]
   %.08 = extractvalue { ptr, i32 } %.pn14.pn.pn, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %205 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %206 = icmp eq i32 %.08, %205
   br i1 %206, label %207, label %217
@@ -8946,7 +8940,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 207:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36
   %.0 = extractvalue { ptr, i32 } %.pn14.pn.pn, 0
   %208 = call ptr @__cxa_begin_catch(ptr %.0) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZSt17current_exceptionv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 %11) #28
   invoke void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %209 unwind label %213
@@ -8961,7 +8955,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit38
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit38: ; preds = %209, %211
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @__cxa_end_catch()
   br label %212
 
@@ -8980,7 +8974,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit38: ; preds = %209, %211
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit40
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit40: ; preds = %213, %216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @__cxa_end_catch()
           to label %217 unwind label %218
 
@@ -8997,7 +8991,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit40: ; preds = %213, %216
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr noundef readonly captures(none) %2) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10yydestructPKciP7YYSTYPEPN3gmx17SelectionLocationEPv(ptr noundef %0, i32 noundef range(i32 -2, 256) %1, ptr noundef readonly captures(none) %2) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr @_gmx_sel_yydebug, align 4, !tbaa !24
   %.not52 = icmp eq i32 %4, 0
   br i1 %.not52, label %16, label %5
@@ -9942,10 +9936,10 @@ _ZN3gmx20SelectionParserValueD2Ev.exit118:        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #12
+declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !99
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -9982,12 +9976,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
-declare void @_ZN3gmx24SelectionParserParameterC1EPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN3gmx24SelectionParserParameterC1EPKcSt10unique_ptrINSt7__cxx114listINS_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EERKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE14_M_create_nodeIJRKS2_EEEPSt10_List_nodeIS2_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef ptr @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE14_M_create_nodeIJRKS2_EEEPSt10_List_nodeIS2_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -10028,7 +10022,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i: ; preds = %1
   %24 = load ptr, ptr %22, align 8, !tbaa !102
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %26, ptr %3, align 8, !tbaa !123
   %27 = icmp ugt i64 %26, 15
   br i1 %27, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -10073,7 +10067,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exi
   %37 = load ptr, ptr %21, align 8, !tbaa !102
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   store i8 0, ptr %38, align 1, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %39, ptr noundef nonnull align 8 dereferenceable(20) %40, i64 20, i1 false)
@@ -10081,23 +10075,23 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exi
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #12
+declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #11
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #9
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 
-declare void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
+declare void @_ZN3gmx20SelectionParserValueC1ERKSt10shared_ptrINS_20SelectionTreeElementEE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
-declare void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #9
+declare void @_ZN3gmx20SelectionParserValueC1E12e_selvalue_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #8
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
-declare void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #9
+declare void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10161,12 +10155,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
-declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #9
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #8
 
-declare void @_ZN3gmx16GromacsException14prependContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
+declare void @_ZN3gmx16GromacsException14prependContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !99
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !43
@@ -10223,21 +10217,21 @@ _ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
-declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #9
-
-; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @__cxa_allocate_exception(i64 noundef) local_unnamed_addr #12
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare ptr @__cxa_init_primary_exception(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
+declare ptr @__cxa_allocate_exception(i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: nounwind
+declare ptr @__cxa_init_primary_exception(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__exception_ptr12__dest_thunkIN3gmx17InvalidInputErrorEEEvPv(ptr noundef %0) #18 comdat {
+define linkonce_odr void @_ZNSt15__exception_ptr12__dest_thunkIN3gmx17InvalidInputErrorEEEvPv(ptr noundef %0) #17 comdat {
   %2 = load ptr, ptr %0, align 8, !tbaa !99
   %3 = load ptr, ptr %2, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(24) %0) #28
@@ -10245,10 +10239,10 @@ define linkonce_odr void @_ZNSt15__exception_ptr12__dest_thunkIN3gmx17InvalidInp
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #12
+declare void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN3gmx20SelectionParserValueESaIS2_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN3gmx20SelectionParserValueESaIS2_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !60
   %.not8 = icmp eq ptr %2, %0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -10335,12 +10329,12 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3gmx20SelectionParserValueEEEE7destro
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #22
+declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #21
 
-declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN3gmx20SelectionTreeElementEEET_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8, !tbaa !43
   %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %4 unwind label %8
@@ -10394,23 +10388,23 @@ define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN3gmx20SelectionTreeElementD1Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #12
+declare void @_ZN3gmx20SelectionTreeElementD1Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #11
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #17 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #14 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !137
   %4 = icmp eq ptr %3, null
@@ -10426,15 +10420,21 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #14 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #15 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #14 comdat align 2 {
   ret ptr null
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
@@ -10452,28 +10452,28 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(none) }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { cold nofree noreturn }
-attributes #15 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { nofree nosync nounwind memory(none) }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { cold nofree noreturn }
+attributes #14 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nofree nounwind }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

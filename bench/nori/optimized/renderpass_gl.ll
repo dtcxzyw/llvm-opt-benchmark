@@ -161,8 +161,8 @@ _ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
 52:                                               ; preds = %64, %.noexc75
   %.013.i.i.i.i.i = phi ptr [ %48, %.noexc75 ], [ %66, %64 ]
   %.01012.i.i.i.i.i = phi i64 [ %43, %.noexc75 ], [ %65, %64 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br label %53
 
@@ -175,7 +175,7 @@ _ZNSt12_Vector_baseIN7nanogui5ColorESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i, label %53, !llvm.loop !5
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %56
 
 56:                                               ; preds = %56, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i
@@ -194,12 +194,12 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i.i.i.i.i.i.i.i: ; preds = %53
 64:                                               ; preds = %56
   %.fca.0.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %10, align 8
   %.fca.1.load.i.i.i.i.i.i.i.i.i = load <2 x float>, ptr %.fca.1.gep.i.i.i.i.i.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store <2 x float> %.fca.0.load.i.i.i.i.i.i.i.i.i, ptr %.013.i.i.i.i.i, align 4
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
   store <2 x float> %.fca.1.load.i.i.i.i.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %65 = add i64 %.01012.i.i.i.i.i, -1
   %66 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq i64 %65, 0
@@ -370,8 +370,8 @@ thread-pre-split.i90:                             ; preds = %113
   unreachable
 
 _ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93:       ; preds = %104, %117
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %121
 
@@ -384,7 +384,7 @@ _ZN7nanogui3refINS_6ObjectEEaSEPS1_.exit93:       ; preds = %104, %117
   br i1 %exitcond.not.i.i, label %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i, label %121, !llvm.loop !5
 
 _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %124
 
 124:                                              ; preds = %124, %_ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i
@@ -403,9 +403,9 @@ _ZN7nanogui5ArrayIfLm4EEC2Ef.exit.i:              ; preds = %121
 132:                                              ; preds = %124
   %.fca.0.load.i.i = load <2 x float>, ptr %7, align 8
   %.fca.1.load.i.i = load <2 x float>, ptr %.fca.1.gep.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %133 = load ptr, ptr %37, align 8
   %134 = getelementptr inbounds %"class.nanogui::Color", ptr %133, i64 %.046157
   store <2 x float> %.fca.0.load.i.i, ptr %134, align 4
@@ -1920,10 +1920,10 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

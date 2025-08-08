@@ -340,14 +340,8 @@ check_size_align.exit:                            ; preds = %4, %6
   ret i32 %29
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   switch i32 %2, label %9 [
     i32 8, label %7
     i32 16, label %7
@@ -409,14 +403,14 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
   ret void
 }
 
-declare ptr @tcg_constant_i32(i32 noundef) local_unnamed_addr #3
+declare ptr @tcg_constant_i32(i32 noundef) local_unnamed_addr #2
 
-declare ptr @tcg_temp_ebb_new_ptr() local_unnamed_addr #3
+declare ptr @tcg_temp_ebb_new_ptr() local_unnamed_addr #2
 
-declare void @tcg_temp_free_ptr(ptr noundef) local_unnamed_addr #3
+declare void @tcg_temp_free_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2i_ool(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2i_ool(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   switch i32 %3, label %10 [
     i32 8, label %8
     i32 16, label %8
@@ -479,7 +473,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_3_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   switch i32 %3, label %10 [
     i32 8, label %8
     i32 16, label %8
@@ -547,7 +541,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_4_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
   switch i32 %4, label %11 [
     i32 8, label %9
     i32 16, label %9
@@ -620,7 +614,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_5_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_5_ool(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #1 {
   switch i32 %5, label %12 [
     i32 8, label %10
     i32 16, label %10
@@ -698,7 +692,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2_ptr(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2_ptr(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   switch i32 %3, label %10 [
     i32 8, label %8
     i32 16, label %8
@@ -761,7 +755,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_3_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
   switch i32 %4, label %11 [
     i32 8, label %9
     i32 16, label %9
@@ -829,7 +823,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_4_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #1 {
   switch i32 %5, label %12 [
     i32 8, label %10
     i32 16, label %10
@@ -902,7 +896,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_5_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_5_ptr(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #1 {
   switch i32 %6, label %13 [
     i32 8, label %11
     i32 16, label %11
@@ -980,7 +974,7 @@ simd_desc.exit:                                   ; preds = %check_size_align.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @dup_const(i32 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local i64 @dup_const(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   switch i32 %0, label %12 [
     i32 0, label %3
     i32 1, label %6
@@ -1013,10 +1007,10 @@ define dso_local i64 @dup_const(i32 noundef %0, i64 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dup_i32(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_dup_i32(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   switch i32 %0, label %7 [
     i32 0, label %4
     i32 1, label %5
@@ -1044,16 +1038,16 @@ define dso_local void @tcg_gen_dup_i32(i32 noundef %0, ptr noundef %1, ptr nound
   ret void
 }
 
-declare void @tcg_gen_ext8u_i32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_ext8u_i32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_muli_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_muli_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_deposit_i32(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_deposit_i32(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_mov_i32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_mov_i32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   switch i32 %0, label %8 [
     i32 0, label %4
     i32 1, label %5
@@ -1087,18 +1081,18 @@ define dso_local void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %1, ptr nound
   ret void
 }
 
-declare void @tcg_gen_ext8u_i64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_ext8u_i64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_muli_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_muli_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_ext16u_i64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_ext16u_i64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_deposit_i64(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_deposit_i64(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_mov_i64(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_mov_i64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = or i32 %1, %0
   switch i32 %2, label %10 [
@@ -1362,7 +1356,7 @@ check_size_impl.exit89.thread:                    ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 6) i32 @choose_vector_type(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 6) i32 @choose_vector_type(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = load i32, ptr @cpuinfo, align 4
   %6 = and i32 %5, 1024
   %.not = icmp eq i32 %6, 0
@@ -1482,7 +1476,7 @@ check_size_impl.exit30.thread:                    ; preds = %57, %check_size_imp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, i1 noundef zeroext %6, ptr noundef readonly captures(none) %7) unnamed_addr #2 {
+define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, i1 noundef zeroext %6, ptr noundef readonly captures(none) %7) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1530,10 +1524,10 @@ define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %0, i32 
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = or i32 %1, %0
   switch i32 %2, label %11 [
@@ -1801,7 +1795,7 @@ check_size_impl.exit102.thread:                   ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #2 {
+define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1848,10 +1842,10 @@ define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %0, i32
   br i1 %30, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 }
 
-declare ptr @tcg_constant_i64(i64 noundef) local_unnamed_addr #3
+declare ptr @tcg_constant_i64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_2s(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_2s(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = or i32 %1, %0
   switch i32 %2, label %10 [
     i32 8, label %8
@@ -2079,12 +2073,12 @@ check_size_impl.exit108.thread:                   ; preds = %check_size_impl.exi
   ret void
 }
 
-declare ptr @tcg_temp_new_vec(i32 noundef) local_unnamed_addr #3
+declare ptr @tcg_temp_new_vec(i32 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_dup_i64_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_dup_i64_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #2 {
+define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 8, 33) %4, i32 noundef range(i32 3, 6) %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2129,12 +2123,12 @@ define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %0, i32
   br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 }
 
-declare void @tcg_temp_free_vec(ptr noundef) local_unnamed_addr #3
+declare void @tcg_temp_free_vec(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tcg_temp_new_i64() local_unnamed_addr #3
+declare ptr @tcg_temp_new_i64() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_new_i64() #10
   %8 = tail call ptr @tcg_temp_new_i64() #10
   %.not = icmp eq i32 %2, 0
@@ -2179,14 +2173,14 @@ define internal fastcc void @expand_2s_i64(i32 noundef %0, i32 noundef %1, i32 n
   ret void
 }
 
-declare void @tcg_temp_free_i64(ptr noundef) local_unnamed_addr #3
+declare void @tcg_temp_free_i64(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tcg_temp_new_i32() local_unnamed_addr #3
+declare ptr @tcg_temp_new_i32() local_unnamed_addr #2
 
-declare void @tcg_gen_extrl_i64_i32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_extrl_i64_i32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #2 {
+define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_new_i32() #10
   %8 = tail call ptr @tcg_temp_new_i32() #10
   %.not = icmp eq i32 %2, 0
@@ -2231,10 +2225,10 @@ define internal fastcc void @expand_2s_i32(i32 noundef %0, i32 noundef %1, i32 n
   ret void
 }
 
-declare void @tcg_temp_free_i32(ptr noundef) local_unnamed_addr #3
+declare void @tcg_temp_free_i32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_3(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = or i32 %1, %0
   %9 = or i32 %8, %2
@@ -2546,7 +2540,7 @@ check_size_impl.exit99.thread:                    ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #2 {
+define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -2604,7 +2598,7 @@ define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %0, i32 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_3i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_3i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = or i32 %1, %0
   %10 = or i32 %9, %2
@@ -2995,7 +2989,7 @@ check_size_impl.exit109.thread:                   ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i64 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef readonly captures(none) %10) unnamed_addr #2 {
+define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i64 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef readonly captures(none) %10) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3088,7 +3082,7 @@ define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %0, i32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_4(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = or i32 %1, %0
   %10 = or i32 %9, %2
@@ -3460,7 +3454,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 8, 33) %6, i32 noundef range(i32 3, 6) %7, i1 noundef zeroext %8, ptr noundef readonly captures(none) %9) unnamed_addr #2 {
+define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 8, 33) %6, i32 noundef range(i32 3, 6) %7, i1 noundef zeroext %8, ptr noundef readonly captures(none) %9) unnamed_addr #1 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3528,7 +3522,7 @@ define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %0, i32 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_4i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_4i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = or i32 %1, %0
   %11 = or i32 %10, %2
@@ -3835,7 +3829,7 @@ check_size_impl.exit110.thread:                   ; preds = %check_size_impl.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 8, 33) %6, i32 noundef range(i32 3, 6) %7, i64 noundef %8, ptr noundef readonly captures(none) %9) unnamed_addr #2 {
+define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 8, 33) %6, i32 noundef range(i32 3, 6) %7, i64 noundef %8, ptr noundef readonly captures(none) %9) unnamed_addr #1 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3871,7 +3865,7 @@ define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %0, i32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_mov(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_mov(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, %2
   br i1 %.not, label %7, label %6
 
@@ -3921,13 +3915,13 @@ check_size_align.exit:                            ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vec_mov2(i32 %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @vec_mov2(i32 %0, ptr noundef %1, ptr noundef %2) #1 {
   tail call void @tcg_gen_mov_vec(ptr noundef %1, ptr noundef %2) #10
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_mov(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_mov(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_mov, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -3942,7 +3936,7 @@ define internal void @gen_helper_gvec_mov(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_dup_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_dup_i32(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   switch i32 %2, label %8 [
     i32 8, label %6
     i32 16, label %6
@@ -3977,7 +3971,7 @@ check_size_align.exit:                            ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_dup(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #2 {
+define internal fastcc void @do_dup(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #1 {
   %.not264 = icmp eq ptr %4, null
   %8 = select i1 %.not264, i32 3, i32 2
   %.not168265 = icmp ugt i32 %0, %8
@@ -4380,7 +4374,7 @@ tailrecurse:                                      ; preds = %181
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_dup_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_dup_i64(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   switch i32 %2, label %8 [
     i32 8, label %6
     i32 16, label %6
@@ -4415,7 +4409,7 @@ check_size_align.exit:                            ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_dup_mem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_dup_mem(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [4 x ptr], align 16
   switch i32 %3, label %9 [
     i32 8, label %7
@@ -4644,7 +4638,7 @@ check_size_align.exit:                            ; preds = %7, %9
   br i1 %113, label %.lr.ph146, label %.loopexit142, !llvm.loop !55
 
 114:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !56
   br label %115
 
@@ -4706,7 +4700,7 @@ check_size_align.exit:                            ; preds = %7, %9
   br i1 %exitcond166.not, label %139, label %.preheader, !llvm.loop !60
 
 139:                                              ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit142
 
 .loopexit142:                                     ; preds = %.lr.ph, %.lr.ph146, %82, %96, %139
@@ -4727,10 +4721,10 @@ check_size_align.exit:                            ; preds = %7, %9
   ret void
 }
 
-declare void @tcg_gen_dup_mem_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_dup_mem_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = icmp ugt i32 %2, 7
   tail call void @llvm.assume(i1 %6)
   %7 = and i32 %1, 8
@@ -4816,29 +4810,29 @@ define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 no
   ret void
 }
 
-declare ptr @tcg_temp_ebb_new_i32() local_unnamed_addr #3
+declare ptr @tcg_temp_ebb_new_i32() local_unnamed_addr #2
 
-declare void @tcg_gen_ld8u_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ld8u_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_ld16u_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ld16u_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_ld_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ld_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @tcg_temp_ebb_new_i64() local_unnamed_addr #3
+declare ptr @tcg_temp_ebb_new_i64() local_unnamed_addr #2
 
-declare void @tcg_gen_ld_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ld_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_ld_vec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ld_vec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_st_vec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_st_vec(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_st_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_st_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_dup_imm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_dup_imm(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   switch i32 %2, label %8 [
     i32 8, label %6
     i32 16, label %6
@@ -4871,17 +4865,17 @@ check_size_align.exit:                            ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_not(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_not(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   tail call void @tcg_gen_gvec_2(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull @tcg_gen_gvec_not.g)
   ret void
 }
 
-declare void @tcg_gen_not_i64(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_not_i64(ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_not_vec(i32 noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_not_vec(i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_not(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_not(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_not, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -4896,14 +4890,14 @@ define internal void @gen_helper_gvec_not(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_add8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define dso_local void @tcg_gen_vec_add8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
   tail call fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %6 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
@@ -4920,7 +4914,7 @@ define internal fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_add8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_add8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #10
   %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
   %6 = tail call ptr @tcg_temp_ebb_new_i32() #10
@@ -4937,23 +4931,23 @@ define dso_local void @tcg_gen_vec_add8_i32(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_andc_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_andc_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_xor_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_xor_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_add_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_add_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_and_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_and_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_add16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define dso_local void @tcg_gen_vec_add16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
   tail call fastcc void @gen_addv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_add16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_add16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %1, i32 noundef -65536) #10
@@ -4965,10 +4959,10 @@ define dso_local void @tcg_gen_vec_add16_i32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_andi_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_andi_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_add32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_add32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %1, i64 noundef -4294967296) #10
@@ -4980,12 +4974,12 @@ define dso_local void @tcg_gen_vec_add32_i64(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_andi_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_andi_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_add_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_add_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_add(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_add(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -4994,10 +4988,10 @@ define dso_local void @tcg_gen_gvec_add(i32 noundef %0, i32 noundef %1, i32 noun
   ret void
 }
 
-declare void @tcg_gen_add_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_add_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_add8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_add8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_add8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5014,7 +5008,7 @@ define internal void @gen_helper_gvec_add8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_add16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_add16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_add16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5031,7 +5025,7 @@ define internal void @gen_helper_gvec_add16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_add32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_add32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_add32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5048,7 +5042,7 @@ define internal void @gen_helper_gvec_add32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_add64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_add64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_add64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5065,7 +5059,7 @@ define internal void @gen_helper_gvec_add64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_adds(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_adds(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5075,7 +5069,7 @@ define dso_local void @tcg_gen_gvec_adds(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_adds8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_adds8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_adds8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5092,7 +5086,7 @@ define internal void @gen_helper_gvec_adds8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_adds16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_adds16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_adds16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5109,7 +5103,7 @@ define internal void @gen_helper_gvec_adds16(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_adds32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_adds32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_adds32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5126,7 +5120,7 @@ define internal void @gen_helper_gvec_adds32(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_adds64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_adds64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_adds64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5143,7 +5137,7 @@ define internal void @gen_helper_gvec_adds64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_addi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_addi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #10
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
@@ -5154,7 +5148,7 @@ define dso_local void @tcg_gen_gvec_addi(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_subs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_subs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5164,16 +5158,16 @@ define dso_local void @tcg_gen_gvec_subs(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sub8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define dso_local void @tcg_gen_vec_sub8_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
   tail call fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
-declare void @tcg_gen_sub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_subs8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_subs8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_subs8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5190,14 +5184,14 @@ define internal void @gen_helper_gvec_subs8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sub16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define dso_local void @tcg_gen_vec_sub16_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
   tail call fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_subs16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_subs16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_subs16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5213,10 +5207,10 @@ define internal void @gen_helper_gvec_subs16(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_sub_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sub_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_subs32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_subs32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_subs32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5232,10 +5226,10 @@ define internal void @gen_helper_gvec_subs32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_sub_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sub_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_subs64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_subs64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_subs64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5252,7 +5246,7 @@ define internal void @gen_helper_gvec_subs64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %6 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
@@ -5269,7 +5263,7 @@ define internal fastcc void @gen_subv_mask(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sub8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_sub8_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_constant_i32(i32 noundef -2139062144) #10
   %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
   %6 = tail call ptr @tcg_temp_ebb_new_i32() #10
@@ -5286,12 +5280,12 @@ define dso_local void @tcg_gen_vec_sub8_i32(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_or_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_or_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_eqv_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_eqv_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sub16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_sub16_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef -65536) #10
@@ -5304,7 +5298,7 @@ define dso_local void @tcg_gen_vec_sub16_i32(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sub32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_sub32_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef -4294967296) #10
@@ -5317,7 +5311,7 @@ define dso_local void @tcg_gen_vec_sub32_i64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_sub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_sub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5327,7 +5321,7 @@ define dso_local void @tcg_gen_gvec_sub(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sub8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5344,7 +5338,7 @@ define internal void @gen_helper_gvec_sub8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sub16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5361,7 +5355,7 @@ define internal void @gen_helper_gvec_sub16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sub32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5378,7 +5372,7 @@ define internal void @gen_helper_gvec_sub32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sub64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5395,7 +5389,7 @@ define internal void @gen_helper_gvec_sub64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_mul(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_mul(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5404,10 +5398,10 @@ define dso_local void @tcg_gen_gvec_mul(i32 noundef %0, i32 noundef %1, i32 noun
   ret void
 }
 
-declare void @tcg_gen_mul_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_mul_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_mul8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_mul8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_mul8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5424,7 +5418,7 @@ define internal void @gen_helper_gvec_mul8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_mul16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_mul16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_mul16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5440,10 +5434,10 @@ define internal void @gen_helper_gvec_mul16(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_mul_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_mul_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_mul32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_mul32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_mul32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5459,10 +5453,10 @@ define internal void @gen_helper_gvec_mul32(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_mul_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_mul_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_mul64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_mul64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_mul64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5479,7 +5473,7 @@ define internal void @gen_helper_gvec_mul64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_muls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_muls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5489,7 +5483,7 @@ define dso_local void @tcg_gen_gvec_muls(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_muls8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_muls8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_muls8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5506,7 +5500,7 @@ define internal void @gen_helper_gvec_muls8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_muls16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_muls16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_muls16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5523,7 +5517,7 @@ define internal void @gen_helper_gvec_muls16(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_muls32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_muls32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_muls32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5540,7 +5534,7 @@ define internal void @gen_helper_gvec_muls32(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_muls64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_muls64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_muls64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5557,7 +5551,7 @@ define internal void @gen_helper_gvec_muls64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_muli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_muli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_constant_i64(i64 noundef %3) #10
   %8 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %8)
@@ -5568,7 +5562,7 @@ define dso_local void @tcg_gen_gvec_muli(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_ssadd(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_ssadd(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5577,10 +5571,10 @@ define dso_local void @tcg_gen_gvec_ssadd(i32 noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-declare void @tcg_gen_ssadd_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_ssadd_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ssadd8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ssadd8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ssadd8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5597,7 +5591,7 @@ define internal void @gen_helper_gvec_ssadd8(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ssadd16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ssadd16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ssadd16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5614,7 +5608,7 @@ define internal void @gen_helper_gvec_ssadd16(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ssadd32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ssadd32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ssadd32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5631,7 +5625,7 @@ define internal void @gen_helper_gvec_ssadd32(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ssadd64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ssadd64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ssadd64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5648,7 +5642,7 @@ define internal void @gen_helper_gvec_ssadd64(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_sssub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_sssub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5657,10 +5651,10 @@ define dso_local void @tcg_gen_gvec_sssub(i32 noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-declare void @tcg_gen_sssub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sssub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sssub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sssub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sssub8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5677,7 +5671,7 @@ define internal void @gen_helper_gvec_sssub8(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sssub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sssub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sssub16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5694,7 +5688,7 @@ define internal void @gen_helper_gvec_sssub16(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sssub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sssub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sssub32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5711,7 +5705,7 @@ define internal void @gen_helper_gvec_sssub32(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sssub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sssub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sssub64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5728,7 +5722,7 @@ define internal void @gen_helper_gvec_sssub64(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_usadd(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_usadd(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5737,10 +5731,10 @@ define dso_local void @tcg_gen_gvec_usadd(i32 noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-declare void @tcg_gen_usadd_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_usadd_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_usadd8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_usadd8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_usadd8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5757,7 +5751,7 @@ define internal void @gen_helper_gvec_usadd8(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_usadd16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_usadd16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_usadd16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5774,7 +5768,7 @@ define internal void @gen_helper_gvec_usadd16(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_usadd_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_usadd_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i32(i32 noundef -1) #10
   tail call void @tcg_gen_add_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #10
@@ -5782,7 +5776,7 @@ define internal void @tcg_gen_usadd_i32(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_usadd32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_usadd32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_usadd32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5799,7 +5793,7 @@ define internal void @gen_helper_gvec_usadd32(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_usadd_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_usadd_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef -1) #10
   tail call void @tcg_gen_add_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %0) #10
@@ -5807,7 +5801,7 @@ define internal void @tcg_gen_usadd_i64(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_usadd64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_usadd64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_usadd64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5824,7 +5818,7 @@ define internal void @gen_helper_gvec_usadd64(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_ussub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_ussub(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5833,10 +5827,10 @@ define dso_local void @tcg_gen_gvec_ussub(i32 noundef %0, i32 noundef %1, i32 no
   ret void
 }
 
-declare void @tcg_gen_ussub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_ussub_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ussub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ussub8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ussub8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5853,7 +5847,7 @@ define internal void @gen_helper_gvec_ussub8(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ussub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ussub16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ussub16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5870,7 +5864,7 @@ define internal void @gen_helper_gvec_ussub16(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_ussub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_ussub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i32(i32 noundef 0) #10
   tail call void @tcg_gen_sub_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   tail call void @tcg_gen_movcond_i32(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #10
@@ -5878,7 +5872,7 @@ define internal void @tcg_gen_ussub_i32(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ussub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ussub32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ussub32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5895,7 +5889,7 @@ define internal void @gen_helper_gvec_ussub32(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_ussub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_ussub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_constant_i64(i64 noundef 0) #10
   tail call void @tcg_gen_sub_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   tail call void @tcg_gen_movcond_i64(i32 noundef 10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %0) #10
@@ -5903,7 +5897,7 @@ define internal void @tcg_gen_ussub_i64(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ussub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ussub64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ussub64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5920,7 +5914,7 @@ define internal void @gen_helper_gvec_ussub64(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_smin(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_smin(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -5929,10 +5923,10 @@ define dso_local void @tcg_gen_gvec_smin(i32 noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @tcg_gen_smin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smin8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smin8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smin8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5949,7 +5943,7 @@ define internal void @gen_helper_gvec_smin8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smin16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smin16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smin16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5965,10 +5959,10 @@ define internal void @gen_helper_gvec_smin16(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_smin_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smin_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smin32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smin32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smin32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -5984,10 +5978,10 @@ define internal void @gen_helper_gvec_smin32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_smin_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smin_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smin64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smin64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smin64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6004,7 +5998,7 @@ define internal void @gen_helper_gvec_smin64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_umin(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_umin(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -6013,10 +6007,10 @@ define dso_local void @tcg_gen_gvec_umin(i32 noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @tcg_gen_umin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umin_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umin8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umin8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umin8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6033,7 +6027,7 @@ define internal void @gen_helper_gvec_umin8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umin16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umin16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umin16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6049,10 +6043,10 @@ define internal void @gen_helper_gvec_umin16(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_umin_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umin_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umin32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umin32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umin32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6068,10 +6062,10 @@ define internal void @gen_helper_gvec_umin32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_umin_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umin_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umin64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umin64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umin64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6088,7 +6082,7 @@ define internal void @gen_helper_gvec_umin64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_smax(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_smax(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -6097,10 +6091,10 @@ define dso_local void @tcg_gen_gvec_smax(i32 noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @tcg_gen_smax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smax8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smax8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smax8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6117,7 +6111,7 @@ define internal void @gen_helper_gvec_smax8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smax16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smax16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smax16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6133,10 +6127,10 @@ define internal void @gen_helper_gvec_smax16(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_smax_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smax_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smax32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smax32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smax32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6152,10 +6146,10 @@ define internal void @gen_helper_gvec_smax32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_smax_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_smax_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_smax64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_smax64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_smax64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6172,7 +6166,7 @@ define internal void @gen_helper_gvec_smax64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_umax(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_umax(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -6181,10 +6175,10 @@ define dso_local void @tcg_gen_gvec_umax(i32 noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @tcg_gen_umax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umax_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umax8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umax8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umax8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6201,7 +6195,7 @@ define internal void @gen_helper_gvec_umax8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umax16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umax16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umax16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6217,10 +6211,10 @@ define internal void @gen_helper_gvec_umax16(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_umax_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umax_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umax32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umax32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umax32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6236,10 +6230,10 @@ define internal void @gen_helper_gvec_umax32(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_umax_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_umax_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_umax64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_umax64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_umax64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6256,7 +6250,7 @@ define internal void @gen_helper_gvec_umax64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_neg8_i64(ptr noundef %0, ptr noundef %1) #2 {
+define dso_local void @tcg_gen_vec_neg8_i64(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @tcg_constant_i64(i64 noundef -9187201950435737472) #10
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
@@ -6270,7 +6264,7 @@ define dso_local void @tcg_gen_vec_neg8_i64(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_neg16_i64(ptr noundef %0, ptr noundef %1) #2 {
+define dso_local void @tcg_gen_vec_neg16_i64(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @tcg_constant_i64(i64 noundef -9223231297218904064) #10
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
@@ -6284,7 +6278,7 @@ define dso_local void @tcg_gen_vec_neg16_i64(ptr noundef %0, ptr noundef %1) #2 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_neg32_i64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_neg32_i64(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %1, i64 noundef -4294967296) #10
@@ -6296,10 +6290,10 @@ define dso_local void @tcg_gen_vec_neg32_i64(ptr noundef %0, ptr noundef %1) loc
   ret void
 }
 
-declare void @tcg_gen_neg_i64(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_neg_i64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_neg(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_neg(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %6)
   %7 = zext nneg i32 %0 to i64
@@ -6308,10 +6302,10 @@ define dso_local void @tcg_gen_gvec_neg(i32 noundef %0, i32 noundef %1, i32 noun
   ret void
 }
 
-declare void @tcg_gen_neg_vec(i32 noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_neg_vec(i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_neg8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_neg8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_neg8, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6326,7 +6320,7 @@ define internal void @gen_helper_gvec_neg8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_neg16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_neg16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_neg16, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6340,10 +6334,10 @@ define internal void @gen_helper_gvec_neg16(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_neg_i32(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_neg_i32(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_neg32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_neg32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_neg32, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6358,7 +6352,7 @@ define internal void @gen_helper_gvec_neg32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_neg64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_neg64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_neg64, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6373,7 +6367,7 @@ define internal void @gen_helper_gvec_neg64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_abs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_abs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %6)
   %7 = zext nneg i32 %0 to i64
@@ -6383,7 +6377,7 @@ define dso_local void @tcg_gen_gvec_abs(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_vec_abs8_i64(ptr noundef %0, ptr noundef %1) #2 {
+define internal void @tcg_gen_vec_abs8_i64(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 7) #10
   tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 72340172838076673) #10
@@ -6395,10 +6389,10 @@ define internal void @tcg_gen_vec_abs8_i64(ptr noundef %0, ptr noundef %1) #2 {
   ret void
 }
 
-declare void @tcg_gen_abs_vec(i32 noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_abs_vec(i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_abs8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_abs8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_abs8, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6413,7 +6407,7 @@ define internal void @gen_helper_gvec_abs8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_vec_abs16_i64(ptr noundef %0, ptr noundef %1) #2 {
+define internal void @tcg_gen_vec_abs16_i64(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_shri_i64(ptr noundef %3, ptr noundef %1, i64 noundef 15) #10
   tail call void @tcg_gen_andi_i64(ptr noundef %3, ptr noundef %3, i64 noundef 281479271743489) #10
@@ -6426,7 +6420,7 @@ define internal void @tcg_gen_vec_abs16_i64(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_abs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_abs16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_abs16, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6440,10 +6434,10 @@ define internal void @gen_helper_gvec_abs16(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_abs_i32(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_abs_i32(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_abs32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_abs32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_abs32, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6457,10 +6451,10 @@ define internal void @gen_helper_gvec_abs32(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_abs_i64(ptr noundef, ptr noundef) #3
+declare void @tcg_gen_abs_i64(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_abs64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_abs64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_abs64, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -6475,7 +6469,7 @@ define internal void @gen_helper_gvec_abs64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_and(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_and(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %26
 
@@ -6532,12 +6526,12 @@ tcg_gen_gvec_mov.exit:                            ; preds = %23, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_and_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_and_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_and_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_and_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_and(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_and(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_and, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6554,7 +6548,7 @@ define internal void @gen_helper_gvec_and(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_or(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_or(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %26
 
@@ -6611,12 +6605,12 @@ tcg_gen_gvec_mov.exit:                            ; preds = %23, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_or_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_or_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_or_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_or_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_or(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_or(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_or, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6633,7 +6627,7 @@ define internal void @gen_helper_gvec_or(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_xor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_xor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %20
 
@@ -6676,12 +6670,12 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %9, %11
   ret void
 }
 
-declare void @tcg_gen_xor_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_xor_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_xor_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_xor_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_xor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_xor, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6698,7 +6692,7 @@ define internal void @gen_helper_gvec_xor(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_andc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_andc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %20
 
@@ -6741,12 +6735,12 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %9, %11
   ret void
 }
 
-declare void @tcg_gen_andc_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_andc_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_andc_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_andc_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_andc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_andc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_andc, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6763,7 +6757,7 @@ define internal void @gen_helper_gvec_andc(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_orc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_orc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %20
 
@@ -6806,12 +6800,12 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %9, %11
   ret void
 }
 
-declare void @tcg_gen_orc_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_orc_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_orc_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_orc_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_orc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_orc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_orc, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6828,7 +6822,7 @@ define internal void @gen_helper_gvec_orc(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_nand(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_nand(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %9
 
@@ -6844,12 +6838,12 @@ define dso_local void @tcg_gen_gvec_nand(i32 noundef %0, i32 noundef %1, i32 nou
   ret void
 }
 
-declare void @tcg_gen_nand_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_nand_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_nand_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_nand_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_nand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_nand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_nand, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6866,7 +6860,7 @@ define internal void @gen_helper_gvec_nand(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_nor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_nor(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %9
 
@@ -6882,12 +6876,12 @@ define dso_local void @tcg_gen_gvec_nor(i32 noundef %0, i32 noundef %1, i32 noun
   ret void
 }
 
-declare void @tcg_gen_nor_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_nor_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_nor_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_nor_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_nor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_nor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_nor, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6904,7 +6898,7 @@ define internal void @gen_helper_gvec_nor(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_eqv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_eqv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %2, %3
   br i1 %7, label %8, label %20
 
@@ -6947,12 +6941,12 @@ tcg_gen_gvec_dup_imm.exit:                        ; preds = %9, %11
   ret void
 }
 
-declare void @tcg_gen_eqv_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_eqv_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_eqv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_eqv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eqv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eqv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eqv, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -6969,7 +6963,7 @@ define internal void @gen_helper_gvec_eqv(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_ands(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_ands(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_ands)
@@ -6978,7 +6972,7 @@ define dso_local void @tcg_gen_gvec_ands(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_andi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_andi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   switch i32 %0, label %16 [
     i32 0, label %7
     i32 1, label %10
@@ -7013,7 +7007,7 @@ dup_const.exit:                                   ; preds = %13, %10, %7, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_andcs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_andcs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @tcg_gen_gvec_andcs.g)
@@ -7022,7 +7016,7 @@ define dso_local void @tcg_gen_gvec_andcs(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_andcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_andcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_andcs, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -7039,7 +7033,7 @@ define internal void @gen_helper_gvec_andcs(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_xors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_xors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_xors)
@@ -7048,7 +7042,7 @@ define dso_local void @tcg_gen_gvec_xors(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_xori(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_xori(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   switch i32 %0, label %16 [
     i32 0, label %7
     i32 1, label %10
@@ -7083,7 +7077,7 @@ dup_const.exit:                                   ; preds = %13, %10, %7, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_ors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_ors(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_dup_i64(i32 noundef %0, ptr noundef %7, ptr noundef %3)
   tail call void @tcg_gen_gvec_2s(i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef %7, ptr noundef nonnull @gop_ors)
@@ -7092,7 +7086,7 @@ define dso_local void @tcg_gen_gvec_ors(i32 noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_ori(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_ori(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   switch i32 %0, label %16 [
     i32 0, label %7
     i32 1, label %10
@@ -7127,7 +7121,7 @@ dup_const.exit:                                   ; preds = %13, %10, %7, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shl8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_shl8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = shl i32 255, %4
   %6 = and i32 %5, 255
@@ -7138,10 +7132,10 @@ define dso_local void @tcg_gen_vec_shl8i_i64(ptr noundef %0, ptr noundef %1, i64
   ret void
 }
 
-declare void @tcg_gen_shli_i64(ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_shli_i64(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shl16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_shl16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = shl i32 65535, %4
   %6 = and i32 %5, 65535
@@ -7153,7 +7147,7 @@ define dso_local void @tcg_gen_vec_shl16i_i64(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shl8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_shl8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = shl i32 255, %2
   %5 = and i32 %4, 255
   %6 = mul nuw i32 %5, 16843009
@@ -7162,10 +7156,10 @@ define dso_local void @tcg_gen_vec_shl8i_i32(ptr noundef %0, ptr noundef %1, i32
   ret void
 }
 
-declare void @tcg_gen_shli_i32(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @tcg_gen_shli_i32(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shl16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_shl16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = shl i32 65535, %2
   %5 = and i32 %4, 65535
   %6 = mul nuw i32 %5, 65537
@@ -7175,7 +7169,7 @@ define dso_local void @tcg_gen_vec_shl16i_i32(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = icmp sgt i64 %3, -1
@@ -7242,10 +7236,10 @@ tcg_gen_gvec_mov.exit:                            ; preds = %28, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_shli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_shli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shl8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shl8i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7260,7 +7254,7 @@ define internal void @gen_helper_gvec_shl8i(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shl16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shl16i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7275,7 +7269,7 @@ define internal void @gen_helper_gvec_shl16i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shl32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shl32i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7290,7 +7284,7 @@ define internal void @gen_helper_gvec_shl32i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shl64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shl64i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7305,7 +7299,7 @@ define internal void @gen_helper_gvec_shl64i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shr8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_shr8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 255, %4
   %6 = zext nneg i32 %5 to i64
@@ -7315,10 +7309,10 @@ define dso_local void @tcg_gen_vec_shr8i_i64(ptr noundef %0, ptr noundef %1, i64
   ret void
 }
 
-declare void @tcg_gen_shri_i64(ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_shri_i64(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shr16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_shr16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 65535, %4
   %6 = zext nneg i32 %5 to i64
@@ -7329,7 +7323,7 @@ define dso_local void @tcg_gen_vec_shr16i_i64(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shr8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_shr8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 255, %2
   %5 = mul nuw i32 %4, 16843009
   tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
@@ -7337,10 +7331,10 @@ define dso_local void @tcg_gen_vec_shr8i_i32(ptr noundef %0, ptr noundef %1, i32
   ret void
 }
 
-declare void @tcg_gen_shri_i32(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @tcg_gen_shri_i32(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_shr16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_shr16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 65535, %2
   %5 = mul nuw i32 %4, 65537
   tail call void @tcg_gen_shri_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
@@ -7349,7 +7343,7 @@ define dso_local void @tcg_gen_vec_shr16i_i32(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shri(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shri(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = icmp sgt i64 %3, -1
@@ -7416,10 +7410,10 @@ tcg_gen_gvec_mov.exit:                            ; preds = %28, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_shri_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_shri_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shr8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shr8i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7434,7 +7428,7 @@ define internal void @gen_helper_gvec_shr8i(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shr16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shr16i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7449,7 +7443,7 @@ define internal void @gen_helper_gvec_shr16i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shr32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shr32i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7464,7 +7458,7 @@ define internal void @gen_helper_gvec_shr32i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_shr64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_shr64i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7479,7 +7473,7 @@ define internal void @gen_helper_gvec_shr64i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sar8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_sar8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 128, %4
   %6 = zext nneg i32 %5 to i64
@@ -7501,7 +7495,7 @@ define dso_local void @tcg_gen_vec_sar8i_i64(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sar16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_sar16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = lshr i32 32768, %4
   %6 = zext nneg i32 %5 to i64
@@ -7523,7 +7517,7 @@ define dso_local void @tcg_gen_vec_sar16i_i64(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sar8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_sar8i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 128, %2
   %5 = mul nuw i32 %4, 16843009
   %6 = lshr i32 255, %2
@@ -7541,7 +7535,7 @@ define dso_local void @tcg_gen_vec_sar8i_i32(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_sar16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_vec_sar16i_i32(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = lshr i32 32768, %2
   %5 = mul nuw i32 %4, 65537
   %6 = lshr i32 65535, %2
@@ -7559,7 +7553,7 @@ define dso_local void @tcg_gen_vec_sar16i_i32(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_sari(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_sari(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = icmp sgt i64 %3, -1
@@ -7626,10 +7620,10 @@ tcg_gen_gvec_mov.exit:                            ; preds = %28, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_sari_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_sari_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_sar8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_sar8i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7644,7 +7638,7 @@ define internal void @gen_helper_gvec_sar8i(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_sar16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_sar16i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7658,10 +7652,10 @@ define internal void @gen_helper_gvec_sar16i(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_sari_i32(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @tcg_gen_sari_i32(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_sar32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_sar32i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7675,10 +7669,10 @@ define internal void @gen_helper_gvec_sar32i(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_sari_i64(ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_sari_i64(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_sar64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_sar64i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7693,7 +7687,7 @@ define internal void @gen_helper_gvec_sar64i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_rotl8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_rotl8i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = shl i32 255, %4
   %6 = and i32 %5, 255
@@ -7710,7 +7704,7 @@ define dso_local void @tcg_gen_vec_rotl8i_i64(ptr noundef %0, ptr noundef %1, i6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_vec_rotl16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #2 {
+define dso_local void @tcg_gen_vec_rotl16i_i64(ptr noundef %0, ptr noundef %1, i64 noundef %2) #1 {
   %4 = trunc i64 %2 to i32
   %5 = shl i32 65535, %4
   %6 = and i32 %5, 65535
@@ -7727,7 +7721,7 @@ define dso_local void @tcg_gen_vec_rotl16i_i64(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotli(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = icmp sgt i64 %3, -1
@@ -7794,10 +7788,10 @@ tcg_gen_gvec_mov.exit:                            ; preds = %28, %check_size_ali
   ret void
 }
 
-declare void @tcg_gen_rotli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_rotli_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_rotl8i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_rotl8i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7812,7 +7806,7 @@ define internal void @gen_helper_gvec_rotl8i(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_rotl16i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_rotl16i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7826,10 +7820,10 @@ define internal void @gen_helper_gvec_rotl16i(ptr noundef %0, ptr noundef %1, pt
   ret void
 }
 
-declare void @tcg_gen_rotli_i32(ptr noundef, ptr noundef, i32 noundef) #3
+declare void @tcg_gen_rotli_i32(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_rotl32i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_rotl32i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7843,10 +7837,10 @@ define internal void @gen_helper_gvec_rotl32i(ptr noundef %0, ptr noundef %1, pt
   ret void
 }
 
-declare void @tcg_gen_rotli_i64(ptr noundef, ptr noundef, i64 noundef) #3
+declare void @tcg_gen_rotli_i64(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_rotl64i(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_rotl64i, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -7861,7 +7855,7 @@ define internal void @gen_helper_gvec_rotl64i(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotri(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotri(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp sgt i64 %3, -1
   tail call void @llvm.assume(i1 %7)
   %8 = shl nuw nsw i32 8, %0
@@ -7935,23 +7929,23 @@ tcg_gen_gvec_rotli.exit:                          ; preds = %19, %check_size_ali
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   tail call fastcc void @do_gvec_shifts(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @tcg_gen_gvec_shls.g)
   ret void
 }
 
-declare void @tcg_gen_shl_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shl_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shl_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shl_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_gvec_shifts(i32 noundef range(i32 0, 4) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc void @do_gvec_shifts(i32 noundef range(i32 0, 4) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = or i32 %2, %1
   switch i32 %4, label %11 [
     i32 8, label %9
@@ -8376,55 +8370,55 @@ expand_2sh_vec.exit159:                           ; preds = %.lr.ph.i161, %.lr.p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shrs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shrs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   tail call fastcc void @do_gvec_shifts(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @tcg_gen_gvec_shrs.g)
   ret void
 }
 
-declare void @tcg_gen_shr_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shr_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shr_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shr_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shrs_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shrs_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_shrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_shrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_sars(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_sars(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   tail call fastcc void @do_gvec_shifts(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @tcg_gen_gvec_sars.g)
   ret void
 }
 
-declare void @tcg_gen_sar_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sar_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_sar_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sar_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_sars_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sars_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_sarv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_sarv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotls(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   tail call fastcc void @do_gvec_shifts(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @tcg_gen_gvec_rotls.g)
   ret void
 }
 
-declare void @tcg_gen_rotl_i32(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_rotl_i32(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_rotl_i64(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_rotl_i64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_rotls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_rotls_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcg_gen_rotlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_rotlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotrs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotrs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_neg_i32(ptr noundef %7, ptr noundef %3) #10
   %8 = shl i32 8, %0
@@ -8438,7 +8432,7 @@ define dso_local void @tcg_gen_gvec_rotrs(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shlv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shlv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -8448,7 +8442,7 @@ define dso_local void @tcg_gen_gvec_shlv(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_shlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
@@ -8461,7 +8455,7 @@ define internal void @tcg_gen_shlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shl8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shl8v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8478,7 +8472,7 @@ define internal void @gen_helper_gvec_shl8v(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shl16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shl16v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8495,7 +8489,7 @@ define internal void @gen_helper_gvec_shl16v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_shl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
   tail call void @tcg_gen_shl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8504,7 +8498,7 @@ define internal void @tcg_gen_shl_mod_i32(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shl32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shl32v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8521,7 +8515,7 @@ define internal void @gen_helper_gvec_shl32v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_shl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
   tail call void @tcg_gen_shl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8530,7 +8524,7 @@ define internal void @tcg_gen_shl_mod_i64(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shl64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shl64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shl64v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8547,7 +8541,7 @@ define internal void @gen_helper_gvec_shl64v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_shrv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_shrv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -8557,7 +8551,7 @@ define dso_local void @tcg_gen_gvec_shrv(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_shrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
@@ -8570,7 +8564,7 @@ define internal void @tcg_gen_shrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shr8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shr8v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8587,7 +8581,7 @@ define internal void @gen_helper_gvec_shr8v(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shr16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shr16v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8604,7 +8598,7 @@ define internal void @gen_helper_gvec_shr16v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_shr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
   tail call void @tcg_gen_shr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8613,7 +8607,7 @@ define internal void @tcg_gen_shr_mod_i32(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shr32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shr32v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8630,7 +8624,7 @@ define internal void @gen_helper_gvec_shr32v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_shr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_shr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
   tail call void @tcg_gen_shr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8639,7 +8633,7 @@ define internal void @tcg_gen_shr_mod_i64(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_shr64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_shr64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_shr64v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8656,7 +8650,7 @@ define internal void @gen_helper_gvec_shr64v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_sarv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_sarv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -8666,7 +8660,7 @@ define dso_local void @tcg_gen_gvec_sarv(i32 noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_sarv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_sarv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
@@ -8679,7 +8673,7 @@ define internal void @tcg_gen_sarv_mod_vec(i32 noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sar8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sar8v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8696,7 +8690,7 @@ define internal void @gen_helper_gvec_sar8v(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sar16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sar16v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8713,7 +8707,7 @@ define internal void @gen_helper_gvec_sar16v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_sar_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_sar_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
   tail call void @tcg_gen_sar_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8722,7 +8716,7 @@ define internal void @tcg_gen_sar_mod_i32(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sar32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sar32v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8739,7 +8733,7 @@ define internal void @gen_helper_gvec_sar32v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_sar_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_sar_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
   tail call void @tcg_gen_sar_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8748,7 +8742,7 @@ define internal void @tcg_gen_sar_mod_i64(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_sar64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_sar64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_sar64v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8765,7 +8759,7 @@ define internal void @gen_helper_gvec_sar64v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotlv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotlv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -8775,7 +8769,7 @@ define dso_local void @tcg_gen_gvec_rotlv(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_rotlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
@@ -8788,7 +8782,7 @@ define internal void @tcg_gen_rotlv_mod_vec(i32 noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotl8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotl8v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8805,7 +8799,7 @@ define internal void @gen_helper_gvec_rotl8v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotl16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotl16v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8822,7 +8816,7 @@ define internal void @gen_helper_gvec_rotl16v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_rotl_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
   tail call void @tcg_gen_rotl_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8831,7 +8825,7 @@ define internal void @tcg_gen_rotl_mod_i32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotl32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotl32v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8848,7 +8842,7 @@ define internal void @gen_helper_gvec_rotl32v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_rotl_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
   tail call void @tcg_gen_rotl_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8857,7 +8851,7 @@ define internal void @tcg_gen_rotl_mod_i64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotl64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotl64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotl64v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8874,7 +8868,7 @@ define internal void @gen_helper_gvec_rotl64v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_rotrv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_rotrv(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ult i32 %0, 4
   tail call void @llvm.assume(i1 %7)
   %8 = zext nneg i32 %0 to i64
@@ -8884,7 +8878,7 @@ define dso_local void @tcg_gen_gvec_rotrv(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_rotrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_new_vec_matching(ptr noundef %1) #10
   %6 = shl i32 8, %0
   %7 = add i32 %6, -1
@@ -8897,7 +8891,7 @@ define internal void @tcg_gen_rotrv_mod_vec(i32 noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotr8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotr8v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotr8v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8914,7 +8908,7 @@ define internal void @gen_helper_gvec_rotr8v(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotr16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotr16v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotr16v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8931,7 +8925,7 @@ define internal void @gen_helper_gvec_rotr16v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_rotr_mod_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i32() #10
   tail call void @tcg_gen_andi_i32(ptr noundef %4, ptr noundef %2, i32 noundef 31) #10
   tail call void @tcg_gen_rotr_i32(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8940,7 +8934,7 @@ define internal void @tcg_gen_rotr_mod_i32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotr32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotr32v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotr32v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8957,7 +8951,7 @@ define internal void @gen_helper_gvec_rotr32v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_rotr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tcg_gen_rotr_mod_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_andi_i64(ptr noundef %4, ptr noundef %2, i64 noundef 63) #10
   tail call void @tcg_gen_rotr_i64(ptr noundef %0, ptr noundef %1, ptr noundef %4) #10
@@ -8966,7 +8960,7 @@ define internal void @tcg_gen_rotr_mod_i64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_rotr64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_rotr64v(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_rotr64v, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -8983,7 +8977,7 @@ define internal void @gen_helper_gvec_rotr64v(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_cmp(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_cmp(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = or i32 %3, %2
   %9 = or i32 %8, %4
   switch i32 %5, label %12 [
@@ -9237,7 +9231,7 @@ expand_cmp_i32.exit:                              ; preds = %.lr.ph.i108
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eq8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eq8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eq8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9254,7 +9248,7 @@ define internal void @gen_helper_gvec_eq8(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eq16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eq16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eq16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9271,7 +9265,7 @@ define internal void @gen_helper_gvec_eq16(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eq32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eq32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eq32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9288,7 +9282,7 @@ define internal void @gen_helper_gvec_eq32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eq64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eq64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eq64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9305,7 +9299,7 @@ define internal void @gen_helper_gvec_eq64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ne8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ne8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ne8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9322,7 +9316,7 @@ define internal void @gen_helper_gvec_ne8(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ne16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ne16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ne16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9339,7 +9333,7 @@ define internal void @gen_helper_gvec_ne16(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ne32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ne32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ne32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9356,7 +9350,7 @@ define internal void @gen_helper_gvec_ne32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ne64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ne64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ne64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9373,7 +9367,7 @@ define internal void @gen_helper_gvec_ne64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lt8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lt8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lt8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9390,7 +9384,7 @@ define internal void @gen_helper_gvec_lt8(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lt16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lt16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lt16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9407,7 +9401,7 @@ define internal void @gen_helper_gvec_lt16(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lt32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lt32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lt32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9424,7 +9418,7 @@ define internal void @gen_helper_gvec_lt32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lt64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lt64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lt64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9441,7 +9435,7 @@ define internal void @gen_helper_gvec_lt64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_le8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_le8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_le8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9458,7 +9452,7 @@ define internal void @gen_helper_gvec_le8(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_le16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_le16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_le16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9475,7 +9469,7 @@ define internal void @gen_helper_gvec_le16(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_le32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_le32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_le32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9492,7 +9486,7 @@ define internal void @gen_helper_gvec_le32(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_le64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_le64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_le64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9509,7 +9503,7 @@ define internal void @gen_helper_gvec_le64(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltu8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltu8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltu8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9526,7 +9520,7 @@ define internal void @gen_helper_gvec_ltu8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltu16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltu16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltu16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9543,7 +9537,7 @@ define internal void @gen_helper_gvec_ltu16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltu32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltu32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltu32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9560,7 +9554,7 @@ define internal void @gen_helper_gvec_ltu32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltu64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltu64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltu64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9577,7 +9571,7 @@ define internal void @gen_helper_gvec_ltu64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leu8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leu8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leu8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9594,7 +9588,7 @@ define internal void @gen_helper_gvec_leu8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leu16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leu16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leu16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9611,7 +9605,7 @@ define internal void @gen_helper_gvec_leu16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leu32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leu32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leu32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9628,7 +9622,7 @@ define internal void @gen_helper_gvec_leu32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leu64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leu64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leu64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9645,7 +9639,7 @@ define internal void @gen_helper_gvec_leu64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_cmp_vec(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i32 noundef range(i32 2, 0) %7) unnamed_addr #2 {
+define internal fastcc void @expand_cmp_vec(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 8, 33) %5, i32 noundef range(i32 3, 6) %6, i32 noundef range(i32 2, 0) %7) unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -9676,7 +9670,7 @@ define internal fastcc void @expand_cmp_vec(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_cmps(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_cmps(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = or i32 %3, %2
   switch i32 %5, label %11 [
     i32 8, label %9
@@ -9969,7 +9963,7 @@ check_size_impl.exit138:                          ; preds = %94
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eqs8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eqs8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eqs8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -9986,7 +9980,7 @@ define internal void @gen_helper_gvec_eqs8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eqs16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eqs16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eqs16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10003,7 +9997,7 @@ define internal void @gen_helper_gvec_eqs16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eqs32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eqs32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eqs32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10020,7 +10014,7 @@ define internal void @gen_helper_gvec_eqs32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_eqs64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_eqs64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_eqs64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10037,7 +10031,7 @@ define internal void @gen_helper_gvec_eqs64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lts8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lts8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lts8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10054,7 +10048,7 @@ define internal void @gen_helper_gvec_lts8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lts16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lts16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lts16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10071,7 +10065,7 @@ define internal void @gen_helper_gvec_lts16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lts32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lts32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lts32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10088,7 +10082,7 @@ define internal void @gen_helper_gvec_lts32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_lts64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_lts64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_lts64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10105,7 +10099,7 @@ define internal void @gen_helper_gvec_lts64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_les8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_les8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_les8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10122,7 +10116,7 @@ define internal void @gen_helper_gvec_les8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_les16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_les16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_les16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10139,7 +10133,7 @@ define internal void @gen_helper_gvec_les16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_les32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_les32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_les32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10156,7 +10150,7 @@ define internal void @gen_helper_gvec_les32(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_les64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_les64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_les64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10173,7 +10167,7 @@ define internal void @gen_helper_gvec_les64(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltus8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltus8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltus8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10190,7 +10184,7 @@ define internal void @gen_helper_gvec_ltus8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltus16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltus16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltus16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10207,7 +10201,7 @@ define internal void @gen_helper_gvec_ltus16(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltus32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltus32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltus32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10224,7 +10218,7 @@ define internal void @gen_helper_gvec_ltus32(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ltus64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ltus64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ltus64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10241,7 +10235,7 @@ define internal void @gen_helper_gvec_ltus64(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leus8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leus8(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leus8, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10258,7 +10252,7 @@ define internal void @gen_helper_gvec_leus8(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leus16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leus16(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leus16, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10275,7 +10269,7 @@ define internal void @gen_helper_gvec_leus16(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leus32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leus32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leus32, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10292,7 +10286,7 @@ define internal void @gen_helper_gvec_leus32(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_leus64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_leus64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_leus64, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10308,27 +10302,27 @@ define internal void @gen_helper_gvec_leus64(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_negsetcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_negsetcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_negsetcond_i32(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_negsetcond_i32(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_st_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_st_i32(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_cmpi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_cmpi(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @tcg_constant_i64(i64 noundef %4) #10
   tail call void @tcg_gen_gvec_cmps(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %8, i32 noundef %5, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_gen_gvec_bitsel(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define dso_local void @tcg_gen_gvec_bitsel(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   tail call void @tcg_gen_gvec_4(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @tcg_gen_gvec_bitsel.g)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tcg_gen_bitsel_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal void @tcg_gen_bitsel_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = tail call ptr @tcg_temp_ebb_new_i64() #10
   tail call void @tcg_gen_and_i64(ptr noundef %5, ptr noundef %2, ptr noundef %1) #10
   tail call void @tcg_gen_andc_i64(ptr noundef %0, ptr noundef %3, ptr noundef %1) #10
@@ -10337,10 +10331,10 @@ define internal void @tcg_gen_bitsel_i64(ptr noundef %0, ptr noundef %1, ptr nou
   ret void
 }
 
-declare void @tcg_gen_bitsel_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare void @tcg_gen_bitsel_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_bitsel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #6 {
+define internal void @gen_helper_gvec_bitsel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5 {
   %6 = load ptr, ptr @helper_info_gvec_bitsel, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %8 = load ptr, ptr %7, align 8
@@ -10358,30 +10352,30 @@ define internal void @gen_helper_gvec_bitsel(ptr noundef %0, ptr noundef %1, ptr
   ret void
 }
 
-declare void @tcg_gen_addi_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_addi_i64(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @tcg_can_emit_vecop_list(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #8
-
-declare void @tcg_gen_mov_vec(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare void @tcg_gen_call3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @tcg_can_emit_vecop_list(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare i32 @llvm.ctpop.i32(i32) #7
 
-declare void @tcg_gen_dup_i32_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_mov_vec(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_dupi_vec(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_call3(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
-declare ptr @tcg_constant_ptr_int(i64 noundef) local_unnamed_addr #3
+declare void @tcg_gen_dup_i32_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare void @tcg_gen_dupi_vec(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @tcg_gen_extu_i32_i64(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @tcg_constant_ptr_int(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_dup8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_dup8(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_dup8, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -10396,7 +10390,7 @@ define internal void @gen_helper_gvec_dup8(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_dup16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_dup16(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_dup16, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -10411,7 +10405,7 @@ define internal void @gen_helper_gvec_dup16(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_dup32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6 {
+define internal void @gen_helper_gvec_dup32(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = load ptr, ptr @helper_info_gvec_dup32, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %6 = load ptr, ptr %5, align 8
@@ -10425,16 +10419,16 @@ define internal void @gen_helper_gvec_dup32(ptr noundef %0, ptr noundef %1, ptr 
   ret void
 }
 
-declare void @tcg_gen_stl_vec(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_stl_vec(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_call4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_call4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_movcond_i32(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_movcond_i32(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_movcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_movcond_i64(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ands(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ands(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ands, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10451,7 +10445,7 @@ define internal void @gen_helper_gvec_ands(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_xors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_xors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_xors, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10468,7 +10462,7 @@ define internal void @gen_helper_gvec_xors(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal void @gen_helper_gvec_ors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 {
+define internal void @gen_helper_gvec_ors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5 {
   %5 = load ptr, ptr @helper_info_gvec_ors, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %7 = load ptr, ptr %6, align 8
@@ -10484,34 +10478,40 @@ define internal void @gen_helper_gvec_ors(ptr noundef %0, ptr noundef %1, ptr no
   ret void
 }
 
-declare void @tcg_gen_ori_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @tcg_gen_ori_i32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tcg_temp_new_vec_matching(ptr noundef) local_unnamed_addr #3
+declare ptr @tcg_temp_new_vec_matching(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tcg_constant_vec_matching(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @tcg_constant_vec_matching(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_rotrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_rotrv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_rotr_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_rotr_i32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_rotr_i64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_rotr_i64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_cmp_vec(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_cmp_vec(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tcg_gen_call5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @tcg_gen_call5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

@@ -275,10 +275,7 @@ dt_camctl_camera_set_property_int.exit14:         ; preds = %48, %51, %52
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
+declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_camera_set_property_int(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -329,7 +326,7 @@ define void @dt_camctl_camera_set_property_int(ptr noundef readonly captures(non
   ret void
 }
 
-declare i32 @dt_pthread_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_pthread_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef readonly captures(none) %0) #0 {
@@ -348,12 +345,12 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
   br label %9
 
 9:                                                ; preds = %8, %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
   %11 = load i64, ptr %3, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.39) #15
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32980
   %16 = load i32, ptr %15, align 4, !tbaa !60
@@ -379,7 +376,7 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
   %.018 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
   %.01317 = phi double [ %22, %.lr.ph ], [ %.114, %49 ]
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %23) #15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #15
   %33 = load i64, ptr %2, align 8, !tbaa !67
   %34 = add nsw i64 %33, -1290608000
@@ -388,7 +385,7 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
   %37 = sitofp i64 %36 to double
   %38 = fmul reassoc nsz arcp contract afn double %37, 0x3EB0C6F7A0B5ED8D
   %39 = fadd reassoc nsz arcp contract afn double %38, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = fsub reassoc nsz arcp contract afn double %39, %.01317
   %41 = fcmp reassoc nsz arcp contract afn ult double %40, 1.000000e+00
   br i1 %41, label %47, label %42
@@ -436,9 +433,6 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
 60:                                               ; preds = %59, %._crit_edge
   ret ptr null
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_camera_stop_live_view(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -556,7 +550,7 @@ dt_camctl_camera_set_property_int.exit12:         ; preds = %49, %48, %45, %10, 
   ret void
 }
 
-declare i32 @dt_pthread_join(i64 noundef) local_unnamed_addr #2
+declare i32 @dt_pthread_join(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @dt_camctl_new() local_unnamed_addr #0 {
@@ -607,11 +601,11 @@ define noundef ptr @dt_camctl_new() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 
-declare ptr @gp_context_new() local_unnamed_addr #2
+declare ptr @gp_context_new() local_unnamed_addr #1
 
-declare void @gp_context_set_status_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gp_context_set_status_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_status_func_dispatch25(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -628,7 +622,7 @@ define internal void @_status_func_dispatch25(ptr readnone captures(none) %0, pt
   ret void
 }
 
-declare void @gp_context_set_error_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gp_context_set_error_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_error_func_dispatch25(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
@@ -742,7 +736,7 @@ _dispatch_camera_disconnected.exit:               ; preds = %49, %_dispatch_came
   ret void
 }
 
-declare void @gp_context_set_message_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gp_context_set_message_func(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_message_func_dispatch25(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
@@ -759,11 +753,11 @@ define internal void @_message_func_dispatch25(ptr readnone captures(none) %0, p
   ret void
 }
 
-declare i32 @gp_abilities_list_new(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_load(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_load(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_count(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -842,7 +836,7 @@ dt_camctl_unused_camera_destroy.exit:             ; preds = %.lr.ph28, %27
   ret void
 }
 
-declare i32 @gp_context_cancel(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_context_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dt_camctl_camera_destroy(ptr noundef %0) unnamed_addr #0 {
@@ -894,18 +888,18 @@ define internal fastcc void @dt_camctl_camera_destroy(ptr noundef %0) unnamed_ad
   ret void
 }
 
-declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gp_context_unref(ptr noundef) local_unnamed_addr #2
+declare void @gp_context_unref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_free(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_port_info_list_free(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_free(ptr noundef) local_unnamed_addr #1
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @dt_camctl_have_cameras(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @dt_camctl_have_cameras(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !77
   %.not = icmp ne ptr %3, null
@@ -914,7 +908,7 @@ define range(i32 0, 2) i32 @dt_camctl_have_cameras(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @dt_camctl_have_unused_cameras(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @dt_camctl_have_unused_cameras(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !88
   %.not = icmp ne ptr %3, null
@@ -957,9 +951,9 @@ define void @dt_camctl_register_listener(ptr noundef %0, ptr noundef %1) local_u
   ret void
 }
 
-declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_unregister_listener(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -983,7 +977,7 @@ define void @dt_camctl_unregister_listener(ptr noundef %0, ptr noundef %1) local
   ret void
 }
 
-declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
@@ -1083,7 +1077,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   br label %53
 
 53:                                               ; preds = %52, %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !101
   %54 = call i32 @gp_list_new(ptr noundef nonnull %4) #15
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 128
@@ -1141,7 +1135,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
   %.0146221.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %_have_camera_on_port.exit.i ]
   %.0150220.i = phi i32 [ 0, %.lr.ph.i ], [ %138, %_have_camera_on_port.exit.i ]
   %82 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %83 = load ptr, ptr %4, align 8, !tbaa !101
   %84 = call i32 @gp_list_get_name(ptr noundef %83, i32 noundef %.0150220.i, ptr noundef nonnull %5) #15
   %85 = load ptr, ptr %5, align 8, !tbaa !103
@@ -1245,7 +1239,7 @@ define noalias noundef ptr @dt_update_cameras_thread(ptr noundef readnone captur
 _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.loopexit.i, %93
   %.1.i = phi i32 [ %.0146221.i, %93 ], [ 1, %135 ], [ 1, %.loopexit.i ], [ %.0146221.i, %117 ], [ %.0146221.i, %103 ]
   call void @g_free(ptr noundef nonnull %82) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %138 = add nuw nsw i32 %.0150220.i, 1
   %139 = load ptr, ptr %4, align 8, !tbaa !101
   %140 = call i32 @gp_list_count(ptr noundef %139) #15
@@ -1272,8 +1266,8 @@ _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.
 149:                                              ; preds = %163, %.lr.ph225.i
   %.0157223.i = phi i32 [ 1, %.lr.ph225.i ], [ %.1158.i, %163 ]
   %.0159222.i = phi i32 [ 0, %.lr.ph225.i ], [ %164, %163 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %150 = load ptr, ptr %4, align 8, !tbaa !101
   %151 = call i32 @gp_list_get_name(ptr noundef %150, i32 noundef %.0159222.i, ptr noundef nonnull %6) #15
   %152 = load ptr, ptr %4, align 8, !tbaa !101
@@ -1294,8 +1288,8 @@ _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.
 
 163:                                              ; preds = %158, %149
   %.1158.i = phi i32 [ %.0157223.i, %149 ], [ %spec.select.i, %158 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %164 = add nuw nsw i32 %.0159222.i, 1
   %165 = load ptr, ptr %4, align 8, !tbaa !101
   %166 = call i32 @gp_list_count(ptr noundef %165) #15
@@ -1348,8 +1342,8 @@ _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.
   %190 = call noalias ptr @g_strdup(ptr noundef %189) #15
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store ptr %190, ptr %191, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 2504, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 32952
   %193 = load ptr, ptr %192, align 8, !tbaa !94
   %194 = icmp eq ptr %193, null
@@ -1562,8 +1556,8 @@ _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.
   br label %314
 
 303:                                              ; preds = %268, %265, %233, %230, %224, %221, %213, %210, %205, %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %304 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
   %305 = and i32 %304, 32
   %.not177.i = icmp eq i32 %305, 0
@@ -1586,8 +1580,8 @@ _have_camera_on_port.exit.i:                      ; preds = %103, %117, %135, %.
   br label %dt_camctl_unused_camera_destroy.exit.i
 
 314:                                              ; preds = %300, %282, %185
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 2504, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %315 = getelementptr inbounds nuw i8, ptr %186, i64 32840
   %316 = load i32, ptr %315, align 8, !tbaa !112
   %317 = icmp eq i32 %316, 0
@@ -1738,8 +1732,8 @@ dt_camctl_unused_camera_destroy.exit.i:           ; preds = %_dispatch_camera_co
 378:                                              ; preds = %392, %.lr.ph231.i
   %.0147229.i = phi i32 [ 0, %.lr.ph231.i ], [ %393, %392 ]
   %.0148228.i = phi i32 [ 1, %.lr.ph231.i ], [ %.1149.i, %392 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %379 = load ptr, ptr %4, align 8, !tbaa !101
   %380 = call i32 @gp_list_get_name(ptr noundef %379, i32 noundef %.0147229.i, ptr noundef nonnull %8) #15
   %381 = load ptr, ptr %4, align 8, !tbaa !101
@@ -1760,8 +1754,8 @@ dt_camctl_unused_camera_destroy.exit.i:           ; preds = %_dispatch_camera_co
 
 392:                                              ; preds = %387, %378
   %.1149.i = phi i32 [ %.0148228.i, %378 ], [ %spec.select196.i, %387 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %393 = add nuw nsw i32 %.0147229.i, 1
   %394 = load ptr, ptr %4, align 8, !tbaa !101
   %395 = call i32 @gp_list_count(ptr noundef %394) #15
@@ -1879,7 +1873,7 @@ dt_camctl_unused_camera_destroy.exit.i:           ; preds = %_dispatch_camera_co
 
 dt_camctl_update_cameras.exit:                    ; preds = %.critedge2.i, %448
   %450 = phi i32 [ 31, %.critedge2.i ], [ 3, %448 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %450, ptr %31, align 8, !tbaa !75
   br label %453
 
@@ -1901,13 +1895,13 @@ dt_camctl_update_cameras.exit:                    ; preds = %.critedge2.i, %448
   ret ptr null
 }
 
-declare void @dt_pthread_setname(ptr noundef) local_unnamed_addr #2
+declare void @dt_pthread_setname(ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_control_running(...) local_unnamed_addr #2
+declare i32 @dt_control_running(...) local_unnamed_addr #1
 
-declare void @g_usleep(i64 noundef) local_unnamed_addr #2
+declare void @g_usleep(i64 noundef) local_unnamed_addr #1
 
-declare i32 @dt_view_get_current() local_unnamed_addr #2
+declare i32 @dt_view_get_current() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_import(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2003,9 +1997,9 @@ _dispatch_control_status.exit:                    ; preds = %36, %._crit_edge
   %.092 = phi ptr [ null, %.lr.ph ], [ %.1, %135 ]
   %.04791 = phi ptr [ null, %.lr.ph ], [ %.148, %135 ]
   %.05390 = phi ptr [ %10, %.lr.ph ], [ %137, %135 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %4, i8 0, i64 4096, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   %40 = load ptr, ptr %.05390, align 8, !tbaa !78
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #17
@@ -2031,10 +2025,10 @@ _dispatch_control_status.exit:                    ; preds = %36, %._crit_edge
   %52 = call i64 @g_strlcat(ptr noundef nonnull %4, ptr noundef %51, i64 noundef 4096) #15
   %53 = call i64 @g_strlcat(ptr noundef nonnull %5, ptr noundef nonnull %.055, i64 noundef 4096) #15
   call void @g_free(ptr noundef %51) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %8, i8 0, i64 152, i1 false)
   %54 = call i32 @gp_file_new(ptr noundef nonnull %6) #15
   %55 = load ptr, ptr %29, align 8, !tbaa !94
@@ -2060,7 +2054,7 @@ _dispatch_control_status.exit:                    ; preds = %36, %._crit_edge
   br label %135
 
 67:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !129
   %68 = load ptr, ptr %6, align 8, !tbaa !127
   %69 = call i32 @gp_file_get_data_and_size(ptr noundef %68, ptr noundef nonnull %7, ptr noundef nonnull %9) #15
@@ -2230,24 +2224,24 @@ _dispatch_camera_image_downloaded.exit:           ; preds = %128, %121
 134:                                              ; preds = %.thread, %84, %131, %76
   %.249 = phi ptr [ %.04791, %76 ], [ %.051, %131 ], [ %.04791, %84 ], [ %.04791, %.thread ]
   %.2 = phi ptr [ %.092, %76 ], [ %40, %131 ], [ %.092, %84 ], [ %.092, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %135
 
 135:                                              ; preds = %134, %64
   %.148 = phi ptr [ %.04791, %64 ], [ %.249, %134 ]
   %.1 = phi ptr [ %.092, %64 ], [ %.2, %134 ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %136 = getelementptr inbounds nuw i8, ptr %.05390, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !104
   %.not = icmp eq ptr %137, null
   br i1 %.not, label %._crit_edge, label %39
 }
 
-declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_sort_filename(ptr noundef %0, ptr noundef %1) #0 {
@@ -2256,34 +2250,34 @@ define internal i32 @_sort_filename(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @gp_file_new(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_file_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_file_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_file_get(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @gp_result_as_string(i32 noundef) local_unnamed_addr #2
+declare ptr @gp_result_as_string(i32 noundef) local_unnamed_addr #1
 
-declare i32 @gp_file_free(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_file_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_file_get_data_and_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_file_get_data_and_size(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_has_same_path_basename(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_has_same_path_basename(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dt_copy_filename_extension(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dt_copy_filename_extension(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dt_exif_get_basic_data(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dt_exif_get_basic_data(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @g_build_filename(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @g_file_set_contents(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_file_set_contents(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_camctl_unlock(ptr noundef %0) unnamed_addr #0 {
@@ -2403,7 +2397,7 @@ define i64 @dt_camctl_get_image_file_timestamp(ptr noundef readonly captures(non
   br i1 %or.cond, label %7, label %24
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32952
@@ -2431,7 +2425,7 @@ define i64 @dt_camctl_get_image_file_timestamp(ptr noundef readonly captures(non
 
 23:                                               ; preds = %16, %19, %20
   %.0 = phi i64 [ %22, %20 ], [ 0, %19 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %3, %23
@@ -2439,7 +2433,7 @@ define i64 @dt_camctl_get_image_file_timestamp(ptr noundef readonly captures(non
   ret i64 %.010
 }
 
-declare i32 @gp_camera_file_get_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_file_get_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_camctl_get_images_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2498,8 +2492,8 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call i32 @gp_list_new(ptr noundef nonnull %3) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !6
@@ -2528,7 +2522,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   %.02833 = phi i32 [ 0, %.lr.ph ], [ %51, %50 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !101
   %26 = call i32 @gp_list_get_name(ptr noundef %25, i32 noundef %.02833, ptr noundef nonnull %4) #15
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = load ptr, ptr %10, align 8, !tbaa !6
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32952
   %29 = load ptr, ptr %28, align 8, !tbaa !94
@@ -2571,7 +2565,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
 
 50:                                               ; preds = %34, %37, %46
   %.2 = phi ptr [ %49, %46 ], [ %.134, %37 ], [ %.134, %34 ]
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = add nuw nsw i32 %.02833, 1
   %52 = load ptr, ptr %3, align 8, !tbaa !101
   %53 = call i32 @gp_list_count(ptr noundef %52) #15
@@ -2582,7 +2576,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %.2, %50 ]
   %55 = load ptr, ptr %3, align 8, !tbaa !101
   %56 = call i32 @gp_list_free(ptr noundef %55) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = call i32 @gp_list_new(ptr noundef nonnull %6) #15
   %58 = load ptr, ptr %10, align 8, !tbaa !6
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32952
@@ -2594,7 +2588,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   br i1 %64, label %65, label %88
 
 65:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %66 = load ptr, ptr %6, align 8, !tbaa !101
   %67 = call i32 @gp_list_count(ptr noundef %66) #15
   %68 = icmp sgt i32 %67, 0
@@ -2606,13 +2600,13 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
 
 ._crit_edge:                                      ; preds = %83, %65
   %.4.lcssa = phi ptr [ %.0, %65 ], [ %.5, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %88
 
 70:                                               ; preds = %.lr.ph37, %83
   %.436 = phi ptr [ %.0, %.lr.ph37 ], [ %.5, %83 ]
   %.02735 = phi i32 [ 0, %.lr.ph37 ], [ %84, %83 ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %8, i8 0, i64 4096, i1 false)
   %71 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef %1, i64 noundef 4096) #15
   %72 = load i8, ptr %69, align 1, !tbaa !121
@@ -2638,7 +2632,7 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
 
 83:                                               ; preds = %81, %75
   %.5 = phi ptr [ %82, %81 ], [ %.436, %75 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %84 = add nuw nsw i32 %.02735, 1
   %85 = load ptr, ptr %6, align 8, !tbaa !101
   %86 = call i32 @gp_list_count(ptr noundef %85) #15
@@ -2649,9 +2643,9 @@ define internal fastcc ptr @_camctl_recursive_get_list(ptr noundef readonly capt
   %.3 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %.0, %.loopexit ]
   %89 = load ptr, ptr %6, align 8, !tbaa !101
   %90 = call i32 @gp_list_free(ptr noundef %89) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.3
 }
 
@@ -2716,9 +2710,9 @@ _camctl_lock.exit:                                ; preds = %24, %14
 
 31:                                               ; preds = %29, %_camctl_lock.exit
   %.045.i = phi ptr [ %30, %29 ], [ %27, %_camctl_lock.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = load ptr, ptr %15, align 8, !tbaa !6
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32952
   %34 = load ptr, ptr %33, align 8, !tbaa !94
@@ -2786,15 +2780,15 @@ _camctl_lock.exit:                                ; preds = %24, %14
   br i1 %.not53.i, label %92, label %71
 
 71:                                               ; preds = %.thread60.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = call i32 @gp_file_get_data_and_size(ptr noundef nonnull %70, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %73 = load i64, ptr %7, align 8, !tbaa !129
   %.not54.i = icmp eq i64 %73, 0
   br i1 %.not54.i, label %.thread62.i, label %74
 
 74:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !142
   %75 = load ptr, ptr %6, align 8, !tbaa !103
   %76 = call ptr @g_memory_input_stream_new_from_data(ptr noundef %75, i64 noundef %73, ptr noundef null) #15
@@ -2802,12 +2796,12 @@ _camctl_lock.exit:                                ; preds = %24, %14
   br i1 %.not55.i, label %.thread65.i, label %77
 
 .thread65.i:                                      ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread62.i
 
 77:                                               ; preds = %74
   %78 = call ptr @gdk_pixbuf_new_from_stream(ptr noundef nonnull %76, ptr noundef null, ptr noundef nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not56.i = icmp eq ptr %78, null
   br i1 %.not56.i, label %.thread62.i, label %79
 
@@ -2830,8 +2824,8 @@ _camctl_lock.exit:                                ; preds = %24, %14
   %90 = load ptr, ptr %4, align 8, !tbaa !127
   %91 = call ptr @g_list_append(ptr noundef %89, ptr noundef %90) #15
   store ptr %91, ptr %88, align 8, !tbaa !93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %92
 
 92:                                               ; preds = %.thread62.i, %.thread60.i
@@ -2841,14 +2835,14 @@ _camctl_lock.exit:                                ; preds = %24, %14
 
 _camctl_get_thumbnail.exit:                       ; preds = %39, %42, %.thread.i, %69, %92
   %.0.i = phi ptr [ null, %42 ], [ null, %39 ], [ %.043.i, %92 ], [ null, %69 ], [ null, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @_camctl_unlock(ptr noundef nonnull %0)
   ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @dt_camctl_can_enter_tether_mode(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @dt_camctl_can_enter_tether_mode(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.thread21
 
@@ -3094,8 +3088,8 @@ define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
   br i1 %48, label %49, label %._crit_edge
 
 49:                                               ; preds = %.lr.ph, %.loopexit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %50 = load ptr, ptr %31, align 8, !tbaa !94
   %51 = load ptr, ptr %32, align 8, !tbaa !73
   %52 = call i32 @gp_camera_wait_for_event(ptr noundef %50, i32 noundef 30, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %51) #15
@@ -3194,17 +3188,17 @@ define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
 
 92:                                               ; preds = %91, %.critedge.i, %72
   %93 = phi ptr [ %.pre81.i, %91 ], [ %68, %.critedge.i ], [ %68, %72 ]
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %20) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 13
   %95 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 4) #15
   store i8 0, ptr %35, align 1, !tbaa !121
   call fastcc void @_camera_configuration_single_update(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %20)
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %20) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_camera_poll_events.exit
 
 96:                                               ; preds = %70, %67
   %97 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %98 = load ptr, ptr %31, align 8, !tbaa !94
   %99 = load ptr, ptr %32, align 8, !tbaa !73
   %100 = call i32 @gp_camera_get_config(ptr noundef %98, ptr noundef nonnull %17, ptr noundef %99) #15
@@ -3216,7 +3210,7 @@ define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
   %105 = load ptr, ptr %17, align 8, !tbaa !146
   store ptr %105, ptr %37, align 8, !tbaa !96
   %106 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_camera_poll_events.exit
 
 107:                                              ; preds = %54
@@ -3236,7 +3230,7 @@ define internal noalias noundef ptr @_camera_event_thread(ptr noundef %0) #0 {
 
 113:                                              ; preds = %112, %109
   %114 = load ptr, ptr %19, align 8, !tbaa !145
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %115 = call i32 @pthread_mutex_lock(ptr noundef nonnull %33) #15
   %.01417.i.i = load ptr, ptr %34, align 8, !tbaa !83
   %.not18.i.i = icmp eq ptr %.01417.i.i, null
@@ -3369,12 +3363,12 @@ _dispatch_camera_image_downloaded.exit:           ; preds = %152, %145
 
 165:                                              ; preds = %164, %161, %159
   call void @g_free(ptr noundef %135) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_camera_poll_events.exit
 
 _camera_poll_events.exit:                         ; preds = %49, %54, %59, %61, %80, %86, %92, %96, %107, %165
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %166 = call i32 @pthread_mutex_lock(ptr noundef nonnull %38) #15
   %167 = load ptr, ptr %39, align 8, !tbaa !66
   %.not.i1347 = icmp eq ptr %167, null
@@ -3416,7 +3410,7 @@ _camera_get_job.exit:                             ; preds = %_camera_poll_events
   br label %179
 
 179:                                              ; preds = %178, %175
-  call void @llvm.lifetime.start.p0(i64 1152, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %180 = load ptr, ptr %31, align 8, !tbaa !94
   %181 = load ptr, ptr %32, align 8, !tbaa !73
   %182 = call i32 @gp_camera_capture(ptr noundef %180, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %181) #15
@@ -3424,7 +3418,7 @@ _camera_get_job.exit:                             ; preds = %_camera_poll_events
   br i1 %183, label %184, label %237
 
 184:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %185 = call i32 @pthread_mutex_lock(ptr noundef nonnull %33) #15
   %.01417.i.i15 = load ptr, ptr %34, align 8, !tbaa !83
   %.not18.i.i16 = icmp eq ptr %.01417.i.i15, null
@@ -3561,7 +3555,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 236:                                              ; preds = %235, %232, %230
   call void @g_free(ptr noundef %207) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %242
 
 237:                                              ; preds = %179
@@ -3576,19 +3570,19 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br label %242
 
 .critedge.i34:                                    ; preds = %_dispatch_request_image_filename.exit.i32, %_dispatch_request_image_filename.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %242
 
 242:                                              ; preds = %.critedge.i34, %240, %237, %236
-  call void @llvm.lifetime.end.p0(i64 1152, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_camera_process_job.exit
 
 243:                                              ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !127
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !129
   %244 = call i32 @gp_file_new(ptr noundef nonnull %4) #15
   %245 = load ptr, ptr %31, align 8, !tbaa !94
@@ -3635,7 +3629,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br i1 %or.cond.i, label %267, label %299
 
 267:                                              ; preds = %262
-  call void @llvm.lifetime.start.p0(i64 1352, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %268 = call i32 @dt_imageio_jpeg_decompress_header(ptr noundef nonnull %263, i64 noundef %265, ptr noundef nonnull %7) #15
   %.not142.i = icmp eq i32 %268, 0
   br i1 %.not142.i, label %273, label %269
@@ -3706,7 +3700,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br label %298
 
 298:                                              ; preds = %294, %289, %286, %283, %280, %272, %269
-  call void @llvm.lifetime.end.p0(i64 1352, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %299
 
 299:                                              ; preds = %298, %262, %260, %257, %252, %249
@@ -3721,9 +3715,9 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 303:                                              ; preds = %301, %299
   %304 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %45) #15
   call void (...) @dt_control_queue_redraw_center() #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_camera_process_job.exit
 
 305:                                              ; preds = %173
@@ -3742,7 +3736,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 313:                                              ; preds = %308, %305
   %314 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %315 = load ptr, ptr %37, align 8, !tbaa !96
   %316 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !186
@@ -3769,7 +3763,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   %333 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %334 = load ptr, ptr %333, align 8, !tbaa !188
   call void @g_free(ptr noundef %334) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_camera_process_job.exit
 
 335:                                              ; preds = %173
@@ -3788,7 +3782,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 343:                                              ; preds = %338, %335
   %344 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %345 = load ptr, ptr %37, align 8, !tbaa !96
   %346 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %347 = load ptr, ptr %346, align 8, !tbaa !189
@@ -3809,7 +3803,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br i1 %357, label %358, label %375
 
 358:                                              ; preds = %354
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %359 = load ptr, ptr %9, align 8, !tbaa !146
   %360 = load i32, ptr %351, align 8, !tbaa !191
   %361 = call i32 @gp_widget_get_choice(ptr noundef %359, i32 noundef %360, ptr noundef nonnull %10) #15
@@ -3832,7 +3826,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   %372 = load ptr, ptr %9, align 8, !tbaa !146
   %373 = load ptr, ptr %32, align 8, !tbaa !73
   %374 = call i32 @gp_camera_set_single_config(ptr noundef %370, ptr noundef %371, ptr noundef %372, ptr noundef %373) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %375
 
 375:                                              ; preds = %366, %354, %350, %343
@@ -3849,7 +3843,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 380:                                              ; preds = %379, %375
   %381 = load ptr, ptr %346, align 8, !tbaa !189
   call void @g_free(ptr noundef %381) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_camera_process_job.exit
 
 382:                                              ; preds = %173
@@ -3866,7 +3860,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 388:                                              ; preds = %385, %382
   %389 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %390 = load ptr, ptr %37, align 8, !tbaa !96
   %391 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %392 = load ptr, ptr %391, align 8, !tbaa !192
@@ -3875,7 +3869,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br i1 %394, label %395, label %403
 
 395:                                              ; preds = %388
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 4, !tbaa !100
   %396 = load ptr, ptr %11, align 8, !tbaa !146
   %397 = call i32 @gp_widget_set_value(ptr noundef %396, ptr noundef nonnull %12) #15
@@ -3884,14 +3878,14 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   %400 = load ptr, ptr %11, align 8, !tbaa !146
   %401 = load ptr, ptr %32, align 8, !tbaa !73
   %402 = call i32 @gp_camera_set_single_config(ptr noundef %398, ptr noundef %399, ptr noundef %400, ptr noundef %401) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %403
 
 403:                                              ; preds = %395, %388
   %404 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
   %405 = load ptr, ptr %391, align 8, !tbaa !192
   call void @g_free(ptr noundef %405) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_camera_process_job.exit
 
 406:                                              ; preds = %173
@@ -3910,7 +3904,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 414:                                              ; preds = %409, %406
   %415 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %416 = load ptr, ptr %37, align 8, !tbaa !96
   %417 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %418 = load ptr, ptr %417, align 8, !tbaa !64
@@ -3919,7 +3913,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br i1 %420, label %421, label %447
 
 421:                                              ; preds = %414
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %422 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %423 = load i32, ptr %422, align 8, !tbaa !65
   store i32 %423, ptr %14, align 4, !tbaa !100
@@ -3964,14 +3958,14 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br label %446
 
 446:                                              ; preds = %.critedge161.i, %440, %432
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %447
 
 447:                                              ; preds = %446, %414
   %448 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
   %449 = load ptr, ptr %417, align 8, !tbaa !64
   call void @g_free(ptr noundef %449) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_camera_process_job.exit
 
 450:                                              ; preds = %173
@@ -3991,7 +3985,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
 
 459:                                              ; preds = %453, %450
   %460 = call i32 @pthread_mutex_lock(ptr noundef nonnull %36) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %461 = load ptr, ptr %37, align 8, !tbaa !96
   %462 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %463 = load ptr, ptr %462, align 8, !tbaa !194
@@ -4000,7 +3994,7 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br i1 %465, label %466, label %493
 
 466:                                              ; preds = %459
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %467 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %468 = load float, ptr %467, align 8, !tbaa !197
   store float %468, ptr %16, align 4, !tbaa !198
@@ -4046,14 +4040,14 @@ _dispatch_camera_image_downloaded.exit44:         ; preds = %223, %216
   br label %492
 
 492:                                              ; preds = %.critedge163.i, %486, %478
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %493
 
 493:                                              ; preds = %492, %459
   %494 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #15
   %495 = load ptr, ptr %462, align 8, !tbaa !194
   call void @g_free(ptr noundef %495) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_camera_process_job.exit
 
 496:                                              ; preds = %173
@@ -4183,31 +4177,31 @@ define void @dt_camctl_camera_build_property_menu(ptr noundef readonly captures(
   ret void
 }
 
-declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @gtk_menu_new() local_unnamed_addr #2
+declare ptr @gtk_menu_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_menu_get_type() local_unnamed_addr #8
+declare i64 @gtk_menu_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_camera_build_property_menu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call i32 @gp_widget_count_children(ptr noundef %0) #15
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %57
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !146
   br label %12
 
 11:                                               ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %57
 
 12:                                               ; preds = %10, %55
@@ -4280,15 +4274,15 @@ define internal fastcc void @_camera_build_property_menu(ptr noundef %0, ptr nou
   br i1 %exitcond.not, label %11, label %12
 
 57:                                               ; preds = %11, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #2
+declare void @gtk_widget_show_all(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_widget_get_type() local_unnamed_addr #8
+declare i64 @gtk_widget_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_camera_set_property_string(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -4341,9 +4335,9 @@ define void @dt_camctl_camera_set_property_string(ptr noundef readonly captures(
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_camera_set_property_toggle(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4523,9 +4517,9 @@ define ptr @dt_camctl_camera_get_property(ptr noundef readonly captures(none) %0
   %.010 = phi ptr [ %1, %3 ], [ %12, %10 ], [ %8, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %.010, i64 32800
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %.010, i64 32784
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = call i32 @gp_widget_get_child_by_name(ptr noundef %22, ptr noundef %2, ptr noundef nonnull %5) #15
@@ -4540,8 +4534,8 @@ define ptr @dt_camctl_camera_get_property(ptr noundef readonly captures(none) %0
 28:                                               ; preds = %25, %18
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
   %30 = load ptr, ptr %4, align 8, !tbaa !103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %14, %17, %28
@@ -4549,9 +4543,9 @@ define ptr @dt_camctl_camera_get_property(ptr noundef readonly captures(none) %0
   ret ptr %.0
 }
 
-declare i32 @gp_widget_get_child_by_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_child_by_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_widget_get_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_camctl_camera_property_exists(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -4601,13 +4595,13 @@ define range(i32 0, 2) i32 @dt_camctl_camera_property_exists(ptr noundef readonl
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %.011, i64 32800
   %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %18, align 8, !tbaa !96
   %29 = call i32 @gp_widget_get_child_by_name(ptr noundef %28, ptr noundef %2, ptr noundef nonnull %4) #15
   %30 = icmp eq i32 %29, 0
   %spec.select = zext i1 %30 to i32
   %31 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %25, %24, %21, %13, %16
@@ -4647,7 +4641,7 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %.019 = phi ptr [ %1, %4 ], [ %12, %10 ], [ %8, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %.019, i64 32800
   %20 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %19) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %.019, i64 32784
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = call i32 @gp_widget_get_child_by_name(ptr noundef %22, ptr noundef %2, ptr noundef nonnull %5) #15
@@ -4685,7 +4679,7 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
   %39 = or i1 %24, %37
   %40 = zext i1 %39 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 41:                                               ; preds = %14, %17, %36
@@ -4693,12 +4687,12 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   ret i32 %.0
 }
 
-declare i32 @gp_widget_get_type(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_camctl_camera_property_get_first_choice(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !103
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %17
@@ -4760,16 +4754,16 @@ define ptr @dt_camctl_camera_property_get_first_choice(ptr noundef readonly capt
 
 36:                                               ; preds = %13, %16, %33
   %.0 = phi ptr [ %35, %33 ], [ null, %16 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare i32 @gp_widget_get_choice(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_choice(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @dt_camctl_camera_property_get_next_choice(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !103
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %17
@@ -4832,11 +4826,11 @@ define ptr @dt_camctl_camera_property_get_next_choice(ptr noundef readonly captu
 
 36:                                               ; preds = %13, %16, %33
   %.0 = phi ptr [ %35, %33 ], [ null, %16 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare i32 @gp_widget_count_choices(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_count_choices(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @dt_camctl_camera_capture(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4876,30 +4870,30 @@ define void @dt_camctl_camera_capture(ptr noundef readonly captures(none) %0, pt
   ret void
 }
 
-declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #2
+declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare i32 @gp_camera_exit(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind
+declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare i32 @gp_camera_unref(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_exit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_widget_unref(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_unref(ptr noundef) local_unnamed_addr #1
+
+declare i32 @gp_widget_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dt_camctl_camera_destroy_struct(ptr noundef %0) unnamed_addr #0 {
@@ -4939,60 +4933,60 @@ define internal fastcc void @dt_camctl_camera_destroy_struct(ptr noundef %0) unn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #10
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
 
-declare i32 @gp_port_info_list_new(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_port_info_list_load(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_load(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_port_info_list_count(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_new(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_detect(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_detect(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_count(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_get_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_get_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_get_summary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_get_summary(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_unref(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_unref(ptr noundef) local_unnamed_addr #1
 
-declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
+declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
-declare i32 @gp_camera_new(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_new(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_lookup_model(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_lookup_model(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_abilities_list_get_abilities(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_abilities_list_get_abilities(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_set_abilities(ptr noundef, ptr noundef byval(%struct.CameraAbilities) align 8) local_unnamed_addr #2
+declare i32 @gp_camera_set_abilities(ptr noundef, ptr noundef byval(%struct.CameraAbilities) align 8) local_unnamed_addr #1
 
-declare i32 @gp_port_info_list_lookup_path(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_lookup_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_port_info_list_get_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_port_info_list_get_info(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_set_port_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_set_port_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_get_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_get_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gp_camera_set_timeout_funcs(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gp_camera_set_timeout_funcs(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_camera_start_timeout_func(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -5030,7 +5024,7 @@ define internal void @_camera_stop_timeout_func(ptr readnone captures(none) %0, 
   ret void
 }
 
-declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_camera_timeout_job(ptr noundef %0) #0 {
@@ -5054,42 +5048,42 @@ define internal noundef i32 @_camera_timeout_job(ptr noundef %0) #0 {
   ret i32 1
 }
 
-declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #2
+declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_folder_list_files(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_folder_list_files(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_list_free(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_list_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_folder_list_folders(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_folder_list_folders(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_strrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @g_memory_input_stream_new_from_data(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_memory_input_stream_new_from_data(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @gdk_pixbuf_new_from_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gdk_pixbuf_new_from_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gdk_pixbuf_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @gdk_pixbuf_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gdk_pixbuf_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @gdk_pixbuf_get_height(ptr noundef) local_unnamed_addr #1
 
-declare ptr @gdk_pixbuf_scale_simple(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @gdk_pixbuf_scale_simple(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @g_object_unref(ptr noundef) local_unnamed_addr #2
+declare void @g_object_unref(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_wait_for_event(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_wait_for_event(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_camera_configuration_single_update(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -5097,7 +5091,7 @@ define internal fastcc void @_camera_configuration_single_update(ptr noundef %0,
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32800
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32952
   %9 = load ptr, ptr %8, align 8, !tbaa !94
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5125,7 +5119,7 @@ define internal fastcc void @_camera_configuration_single_update(ptr noundef %0,
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32784
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   call fastcc void @_camera_configuration_notify_change(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %20, ptr noundef %22)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !146
   %23 = load ptr, ptr %21, align 8, !tbaa !96
   %24 = call i32 @gp_widget_get_child_by_name(ptr noundef %23, ptr noundef nonnull %2, ptr noundef nonnull %5) #15
@@ -5141,22 +5135,22 @@ define internal fastcc void @_camera_configuration_single_update(ptr noundef %0,
 
 31:                                               ; preds = %26, %19
   %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 33:                                               ; preds = %31, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #12
 
-declare i32 @gp_file_new_from_fd(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @gp_file_new_from_fd(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @close(i32 noundef) local_unnamed_addr #2
+declare i32 @close(i32 noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_get_single_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_get_single_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -5169,7 +5163,7 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   %11 = alloca ptr, align 8
   %12 = alloca float, align 4
   %13 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !103
   %14 = call i32 @gp_widget_get_name(ptr noundef %2, ptr noundef nonnull %5) #15
   %.not = icmp eq i32 %14, 0
@@ -5181,12 +5175,12 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !146
   br label %20
 
 19:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %86
 
 20:                                               ; preds = %18, %25
@@ -5206,7 +5200,7 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br i1 %exitcond.not, label %19, label %20
 
 27:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !146
   %28 = load ptr, ptr %5, align 8, !tbaa !103
   %29 = call i32 @gp_widget_get_child_by_name(ptr noundef %3, ptr noundef %28, ptr noundef nonnull %7) #15
@@ -5214,8 +5208,8 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br i1 %.not30, label %30, label %.critedge
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = call i32 @gp_widget_get_type(ptr noundef %2, ptr noundef nonnull %8) #15
   %.not31 = icmp eq i32 %31, 0
   br i1 %.not31, label %32, label %85
@@ -5241,15 +5235,15 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br i1 %or.cond9, label %44, label %85
 
 44:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !103
   %45 = icmp eq i32 %36, 3
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %47 = call i32 @gp_widget_get_value(ptr noundef %2, ptr noundef nonnull %12) #15
   %.not34 = icmp eq i32 %47, 0
   br i1 %.not34, label %.thread, label %51
@@ -5259,11 +5253,11 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   %49 = fpext reassoc nsz arcp contract afn float %48 to double
   %50 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.94, double noundef %49) #15
   store ptr %50, ptr %10, align 8, !tbaa !103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %54
 
 51:                                               ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %74
 
 52:                                               ; preds = %44
@@ -5277,7 +5271,7 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br i1 %56, label %57, label %64
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %58 = load ptr, ptr %7, align 8, !tbaa !146
   %59 = call i32 @gp_widget_get_value(ptr noundef %58, ptr noundef nonnull %13) #15
   %.not36 = icmp eq i32 %59, 0
@@ -5288,11 +5282,11 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   %61 = fpext reassoc nsz arcp contract afn float %60 to double
   %62 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.94, double noundef %61) #15
   store ptr %62, ptr %11, align 8, !tbaa !103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %67
 
 63:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %74
 
 64:                                               ; preds = %54
@@ -5339,34 +5333,34 @@ define internal fastcc void @_camera_configuration_notify_change(ptr noundef %0,
   br label %84
 
 84:                                               ; preds = %82, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %85
 
 85:                                               ; preds = %84, %35, %32, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86
 
 .critedge:                                        ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86
 
 86:                                               ; preds = %85, %.critedge, %19, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @gp_widget_set_value(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_set_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_widget_get_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_widget_count_children(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_count_children(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_widget_get_child(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_get_child(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_dispatch_camera_property_value_changed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -5401,63 +5395,69 @@ define internal fastcc void @_dispatch_camera_property_value_changed(ptr noundef
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
-declare i32 @gp_widget_free(ptr noundef) local_unnamed_addr #2
+declare i32 @gp_widget_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_capture(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_capture(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @gp_camera_capture_preview(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_capture_preview(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_imageio_jpeg_decompress_header(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_imageio_jpeg_decompress_header(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dt_imageio_jpeg_decompress(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dt_imageio_jpeg_decompress(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #2
+declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #1
 
-declare i32 @gp_camera_set_single_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gp_camera_set_single_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #2
+declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
-declare ptr @gtk_menu_item_new_with_label(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_menu_item_get_type() local_unnamed_addr #8
-
-declare void @gtk_menu_item_set_submenu(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare ptr @gtk_menu_item_get_submenu(ptr noundef) local_unnamed_addr #2
-
-declare ptr @gtk_container_get_children(ptr noundef) local_unnamed_addr #2
+declare ptr @gtk_menu_item_new_with_label(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_container_get_type() local_unnamed_addr #8
+declare i64 @gtk_menu_item_get_type() local_unnamed_addr #7
 
-declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gtk_menu_item_set_submenu(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @gtk_menu_item_get_submenu(ptr noundef) local_unnamed_addr #1
+
+declare ptr @gtk_container_get_children(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #8
+declare i64 @gtk_container_get_type() local_unnamed_addr #7
 
-declare void @g_list_free(ptr noundef) local_unnamed_addr #2
+declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #7
+
+declare void @g_list_free(ptr noundef) local_unnamed_addr #1
+
+declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #3 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #13 = { nofree "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #8 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #12 = { nofree "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0) }
 attributes #17 = { nounwind willreturn memory(read) }

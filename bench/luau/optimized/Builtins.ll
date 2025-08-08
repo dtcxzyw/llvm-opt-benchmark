@@ -1768,24 +1768,18 @@ _ZNK4Luau12DenseHashMapIPNS_8AstLocalENS_7Compile8VariableENS_16DenseHashPointer
   ret { ptr, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7Compile15analyzeBuiltinsERNS_12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS3_EEERKNS1_INS_7AstNameENS0_6GlobalESt4hashIS9_ES5_IS9_EEERKNS1_IPNS_8AstLocalENS0_8VariableES4_S5_ISI_EEERKNS_14CompileOptionsEPNS_7AstNodeERKNS_12AstNameTableE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(56) %5) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::Compile::BuiltinVisitor", align 8
-  call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4Luau7Compile14BuiltinVisitorC2ERNS_12DenseHashMapIPNS_11AstExprCallEiNS_16DenseHashPointerESt8equal_toIS4_EEERKNS2_INS_7AstNameENS0_6GlobalESt4hashISA_ES6_ISA_EEERKNS2_IPNS_8AstLocalENS0_8VariableES5_S6_ISJ_EEERKNS_14CompileOptionsERKNS_12AstNameTableE(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(56) %5)
   %8 = load ptr, ptr %4, align 8, !tbaa !49
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 304, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -1829,7 +1823,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Compile14BuiltinVisitorC2ERNS_12Den
 25:                                               ; preds = %.lr.ph, %103
   %26 = phi ptr [ %17, %.lr.ph ], [ %105, %103 ]
   %.04271 = phi ptr [ %16, %.lr.ph ], [ %104, %103 ]
-  %27 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 46) #14
+  %27 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 46) #13
   %.not51 = icmp eq ptr %27, null
   br i1 %.not51, label %69, label %28
 
@@ -1892,7 +1886,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br i1 %62, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread, label %103
 
 _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread: ; preds = %55, %57, %40, %37, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.fca.0.extract, ptr %7, align 8, !tbaa !48
   store ptr %34, ptr %21, align 8, !tbaa !48
   %.val = load ptr, ptr %22, align 8
@@ -1908,7 +1902,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br label %68
 
 68:                                               ; preds = %65, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %103
 
 69:                                               ; preds = %25
@@ -1962,7 +1956,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br i1 %96, label %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66.thread, label %103
 
 _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66.thread: ; preds = %89, %91, %74, %71, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !42
   store ptr %70, ptr %24, align 8, !tbaa !48
   %.val60 = load ptr, ptr %22, align 8
@@ -1978,7 +1972,7 @@ _ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4
   br label %102
 
 102:                                              ; preds = %99, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %103
 
 103:                                              ; preds = %69, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit66, %102, %28, %_ZN4Luau7Compile14getGlobalStateERKNS_12DenseHashMapINS_7AstNameENS0_6GlobalESt4hashIS2_ESt8equal_toIS2_EEES2_.exit, %68
@@ -2036,72 +2030,72 @@ define internal fastcc noundef range(i32 -1, 90) i32 @_ZN4Luau7CompileL20getBuil
   br i1 %.not.i.i, label %_ZNK4Luau7AstNameeqEPKc.exit275.thread, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit:      ; preds = %4
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.57) #14
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.57) #13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.58) #14
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.58) #13
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit109
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.59) #14
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.59) #13
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit113
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit113:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit111
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.60) #14
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.60) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit115
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit115:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit113
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.61) #14
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.61) #13
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit117
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit117:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit115
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.62) #14
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.62) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit119
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit119:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit117
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.63) #14
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.63) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit121
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit121:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit119
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.64) #14
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.64) #13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit123
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit123:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit121
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.65) #14
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.65) #13
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit125
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit125:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit123
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(13) @.str.66) #14
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(13) @.str.66) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit127
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit127:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit125
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(13) @.str.67) #14
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(13) @.str.67) #13
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit129
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit129:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit127
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.68) #14
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.68) #13
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit131
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit131:   ; preds = %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit129
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.69) #14
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(9) @.str.69) #13
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit275.thread
 
 _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %1
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.70) #14
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(5) @.str.70) #13
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %_ZNK4Luau7AstNameeqEPKc.exit193
 
@@ -2112,147 +2106,147 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %1
   br i1 %.not.i132, label %_ZNK4Luau7AstNameeqEPKc.exit193, label %_ZNK4Luau7AstNameeqEPKc.exit133
 
 _ZNK4Luau7AstNameeqEPKc.exit133:                  ; preds = %35
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.71) #14
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.71) #13
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit135
 
 _ZNK4Luau7AstNameeqEPKc.exit135:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit133
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.72) #14
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.72) #13
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit137
 
 _ZNK4Luau7AstNameeqEPKc.exit137:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit135
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.73) #14
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.73) #13
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit139
 
 _ZNK4Luau7AstNameeqEPKc.exit139:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit137
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.74) #14
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.74) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit141
 
 _ZNK4Luau7AstNameeqEPKc.exit141:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit139
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.75) #14
+  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.75) #13
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit143
 
 _ZNK4Luau7AstNameeqEPKc.exit143:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit141
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.76) #14
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.76) #13
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit145
 
 _ZNK4Luau7AstNameeqEPKc.exit145:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit143
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.77) #14
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.77) #13
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit147
 
 _ZNK4Luau7AstNameeqEPKc.exit147:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit145
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.78) #14
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.78) #13
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit149
 
 _ZNK4Luau7AstNameeqEPKc.exit149:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit147
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.79) #14
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.79) #13
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit151
 
 _ZNK4Luau7AstNameeqEPKc.exit151:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit149
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.80) #14
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.80) #13
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit153
 
 _ZNK4Luau7AstNameeqEPKc.exit153:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit151
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.81) #14
+  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.81) #13
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit155
 
 _ZNK4Luau7AstNameeqEPKc.exit155:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit153
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.82) #14
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.82) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit157
 
 _ZNK4Luau7AstNameeqEPKc.exit157:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit155
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.83) #14
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.83) #13
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit159
 
 _ZNK4Luau7AstNameeqEPKc.exit159:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit157
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.84) #14
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.84) #13
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit161
 
 _ZNK4Luau7AstNameeqEPKc.exit161:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit159
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.85) #14
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.85) #13
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit163
 
 _ZNK4Luau7AstNameeqEPKc.exit163:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit161
-  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.86) #14
+  %68 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.86) #13
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit165
 
 _ZNK4Luau7AstNameeqEPKc.exit165:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit163
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.87) #14
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.87) #13
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit167
 
 _ZNK4Luau7AstNameeqEPKc.exit167:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit165
-  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.88) #14
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.88) #13
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit169
 
 _ZNK4Luau7AstNameeqEPKc.exit169:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit167
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.89) #14
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.89) #13
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit171
 
 _ZNK4Luau7AstNameeqEPKc.exit171:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit169
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.90) #14
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.90) #13
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit173
 
 _ZNK4Luau7AstNameeqEPKc.exit173:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit171
-  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.91) #14
+  %78 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.91) #13
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit175
 
 _ZNK4Luau7AstNameeqEPKc.exit175:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit173
-  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.92) #14
+  %80 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.92) #13
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit177
 
 _ZNK4Luau7AstNameeqEPKc.exit177:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit175
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.93) #14
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.93) #13
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit179
 
 _ZNK4Luau7AstNameeqEPKc.exit179:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit177
-  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.94) #14
+  %84 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.94) #13
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit181
 
 _ZNK4Luau7AstNameeqEPKc.exit181:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit179
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.95) #14
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.95) #13
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit183
 
 _ZNK4Luau7AstNameeqEPKc.exit183:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit181
-  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.96) #14
+  %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(4) @.str.96) #13
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit185
 
 _ZNK4Luau7AstNameeqEPKc.exit185:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit183
-  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.97) #14
+  %90 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.97) #13
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit187
 
 _ZNK4Luau7AstNameeqEPKc.exit187:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit185
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.98) #14
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.98) #13
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit189
 
 _ZNK4Luau7AstNameeqEPKc.exit189:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit187
-  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.99) #14
+  %94 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(6) @.str.99) #13
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %232, label %.thread54
 
@@ -2262,12 +2256,12 @@ _ZNK4Luau7AstNameeqEPKc.exit189:                  ; preds = %_ZNK4Luau7AstNameeq
   br i1 %97, label %_ZNK4Luau7AstNameeqEPKc.exit191, label %_ZNK4Luau7AstNameeqEPKc.exit193
 
 _ZNK4Luau7AstNameeqEPKc.exit191:                  ; preds = %.thread54
-  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.100) #14
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(5) @.str.100) #13
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit193
 
 _ZNK4Luau7AstNameeqEPKc.exit193:                  ; preds = %35, %_ZNK4Luau7AstNameeqEPKc.exit, %_ZNK4Luau7AstNameeqEPKc.exit191, %.thread54
-  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.101) #14
+  %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.101) #13
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %_ZNK4Luau7AstNameeqEPKc.exit225
 
@@ -2278,82 +2272,82 @@ _ZNK4Luau7AstNameeqEPKc.exit193:                  ; preds = %35, %_ZNK4Luau7AstN
   br i1 %.not.i194, label %_ZNK4Luau7AstNameeqEPKc.exit225, label %_ZNK4Luau7AstNameeqEPKc.exit195
 
 _ZNK4Luau7AstNameeqEPKc.exit195:                  ; preds = %102
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.102) #14
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.102) #13
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit197
 
 _ZNK4Luau7AstNameeqEPKc.exit197:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit195
-  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.103) #14
+  %107 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.103) #13
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit199
 
 _ZNK4Luau7AstNameeqEPKc.exit199:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit197
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.104) #14
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.104) #13
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit201
 
 _ZNK4Luau7AstNameeqEPKc.exit201:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit199
-  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(4) @.str.105) #14
+  %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(4) @.str.105) #13
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit203
 
 _ZNK4Luau7AstNameeqEPKc.exit203:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit201
-  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.106) #14
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(5) @.str.106) #13
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit205
 
 _ZNK4Luau7AstNameeqEPKc.exit205:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit203
-  %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(6) @.str.107) #14
+  %115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(6) @.str.107) #13
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit207
 
 _ZNK4Luau7AstNameeqEPKc.exit207:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit205
-  %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.108) #14
+  %117 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.108) #13
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit209
 
 _ZNK4Luau7AstNameeqEPKc.exit209:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit207
-  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.109) #14
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.109) #13
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit211
 
 _ZNK4Luau7AstNameeqEPKc.exit211:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit209
-  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(7) @.str.110) #14
+  %121 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(7) @.str.110) #13
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit213
 
 _ZNK4Luau7AstNameeqEPKc.exit213:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit211
-  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.111) #14
+  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.111) #13
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit215
 
 _ZNK4Luau7AstNameeqEPKc.exit215:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit213
-  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.112) #14
+  %125 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.112) #13
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit217
 
 _ZNK4Luau7AstNameeqEPKc.exit217:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit215
-  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(7) @.str.113) #14
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(7) @.str.113) #13
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit219
 
 _ZNK4Luau7AstNameeqEPKc.exit219:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit217
-  %129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.114) #14
+  %129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.114) #13
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit221
 
 _ZNK4Luau7AstNameeqEPKc.exit221:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit219
-  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.115) #14
+  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(8) @.str.115) #13
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit223
 
 _ZNK4Luau7AstNameeqEPKc.exit223:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit221
-  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(9) @.str.116) #14
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(9) @.str.116) #13
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit225
 
 _ZNK4Luau7AstNameeqEPKc.exit225:                  ; preds = %102, %_ZNK4Luau7AstNameeqEPKc.exit193, %_ZNK4Luau7AstNameeqEPKc.exit223
-  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.117) #14
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.117) #13
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %_ZNK4Luau7AstNameeqEPKc.exit235
 
@@ -2364,27 +2358,27 @@ _ZNK4Luau7AstNameeqEPKc.exit225:                  ; preds = %102, %_ZNK4Luau7Ast
   br i1 %.not.i226, label %_ZNK4Luau7AstNameeqEPKc.exit235, label %_ZNK4Luau7AstNameeqEPKc.exit227
 
 _ZNK4Luau7AstNameeqEPKc.exit227:                  ; preds = %137
-  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(5) @.str.118) #14
+  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(5) @.str.118) #13
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit229
 
 _ZNK4Luau7AstNameeqEPKc.exit229:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit227
-  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(5) @.str.119) #14
+  %142 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(5) @.str.119) #13
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit231
 
 _ZNK4Luau7AstNameeqEPKc.exit231:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit229
-  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(4) @.str.120) #14
+  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(4) @.str.120) #13
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit233
 
 _ZNK4Luau7AstNameeqEPKc.exit233:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit231
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(4) @.str.121) #14
+  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(4) @.str.121) #13
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit235
 
 _ZNK4Luau7AstNameeqEPKc.exit235:                  ; preds = %137, %_ZNK4Luau7AstNameeqEPKc.exit225, %_ZNK4Luau7AstNameeqEPKc.exit233
-  %148 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.122) #14
+  %148 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(6) @.str.122) #13
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %_ZNK4Luau7AstNameeqEPKc.exit241
 
@@ -2395,17 +2389,17 @@ _ZNK4Luau7AstNameeqEPKc.exit235:                  ; preds = %137, %_ZNK4Luau7Ast
   br i1 %.not.i236, label %_ZNK4Luau7AstNameeqEPKc.exit241, label %_ZNK4Luau7AstNameeqEPKc.exit237
 
 _ZNK4Luau7AstNameeqEPKc.exit237:                  ; preds = %150
-  %153 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(7) @.str.123) #14
+  %153 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(7) @.str.123) #13
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit239
 
 _ZNK4Luau7AstNameeqEPKc.exit239:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit237
-  %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(7) @.str.64) #14
+  %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(7) @.str.64) #13
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit241
 
 _ZNK4Luau7AstNameeqEPKc.exit241:                  ; preds = %150, %_ZNK4Luau7AstNameeqEPKc.exit235, %_ZNK4Luau7AstNameeqEPKc.exit239
-  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.124) #14
+  %157 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.124) #13
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %_ZNK4Luau7AstNameeqEPKc.exit275
 
@@ -2416,87 +2410,87 @@ _ZNK4Luau7AstNameeqEPKc.exit241:                  ; preds = %150, %_ZNK4Luau7Ast
   br i1 %.not.i242, label %_ZNK4Luau7AstNameeqEPKc.exit275, label %_ZNK4Luau7AstNameeqEPKc.exit243
 
 _ZNK4Luau7AstNameeqEPKc.exit243:                  ; preds = %159
-  %162 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(7) @.str.125) #14
+  %162 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(7) @.str.125) #13
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit245
 
 _ZNK4Luau7AstNameeqEPKc.exit245:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit243
-  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(7) @.str.126) #14
+  %164 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(7) @.str.126) #13
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit247
 
 _ZNK4Luau7AstNameeqEPKc.exit247:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit245
-  %166 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.127) #14
+  %166 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.127) #13
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit249
 
 _ZNK4Luau7AstNameeqEPKc.exit249:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit247
-  %168 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.128) #14
+  %168 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.128) #13
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit251
 
 _ZNK4Luau7AstNameeqEPKc.exit251:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit249
-  %170 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.129) #14
+  %170 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.129) #13
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit253
 
 _ZNK4Luau7AstNameeqEPKc.exit253:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit251
-  %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.130) #14
+  %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.130) #13
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit255
 
 _ZNK4Luau7AstNameeqEPKc.exit255:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit253
-  %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.131) #14
+  %174 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.131) #13
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit257
 
 _ZNK4Luau7AstNameeqEPKc.exit257:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit255
-  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.132) #14
+  %176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.132) #13
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit259
 
 _ZNK4Luau7AstNameeqEPKc.exit259:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit257
-  %178 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.133) #14
+  %178 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.133) #13
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit261
 
 _ZNK4Luau7AstNameeqEPKc.exit261:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit259
-  %180 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.134) #14
+  %180 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.134) #13
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit263
 
 _ZNK4Luau7AstNameeqEPKc.exit263:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit261
-  %182 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.135) #14
+  %182 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.135) #13
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit265
 
 _ZNK4Luau7AstNameeqEPKc.exit265:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit263
-  %184 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.136) #14
+  %184 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.136) #13
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit267
 
 _ZNK4Luau7AstNameeqEPKc.exit267:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit265
-  %186 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.137) #14
+  %186 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.137) #13
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit269
 
 _ZNK4Luau7AstNameeqEPKc.exit269:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit267
-  %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.138) #14
+  %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.138) #13
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit271
 
 _ZNK4Luau7AstNameeqEPKc.exit271:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit269
-  %190 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.139) #14
+  %190 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(8) @.str.139) #13
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit273
 
 _ZNK4Luau7AstNameeqEPKc.exit273:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit271
-  %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.140) #14
+  %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %161, ptr noundef nonnull dereferenceable(9) @.str.140) #13
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit275
 
 _ZNK4Luau7AstNameeqEPKc.exit275:                  ; preds = %159, %_ZNK4Luau7AstNameeqEPKc.exit241, %_ZNK4Luau7AstNameeqEPKc.exit273
-  %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.141) #14
+  %194 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.141) #13
   %195 = icmp eq i32 %194, 0
   br i1 %195, label %196, label %_ZNK4Luau7AstNameeqEPKc.exit275.thread
 
@@ -2507,62 +2501,62 @@ _ZNK4Luau7AstNameeqEPKc.exit275:                  ; preds = %159, %_ZNK4Luau7Ast
   br i1 %.not.i276, label %_ZNK4Luau7AstNameeqEPKc.exit275.thread, label %_ZNK4Luau7AstNameeqEPKc.exit277
 
 _ZNK4Luau7AstNameeqEPKc.exit277:                  ; preds = %196
-  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(7) @.str.142) #14
+  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(7) @.str.142) #13
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit279
 
 _ZNK4Luau7AstNameeqEPKc.exit279:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit277
-  %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(10) @.str.143) #14
+  %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(10) @.str.143) #13
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit281
 
 _ZNK4Luau7AstNameeqEPKc.exit281:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit279
-  %203 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(10) @.str.144) #14
+  %203 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(10) @.str.144) #13
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit283
 
 _ZNK4Luau7AstNameeqEPKc.exit283:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit281
-  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.145) #14
+  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.145) #13
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit285
 
 _ZNK4Luau7AstNameeqEPKc.exit285:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit283
-  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.146) #14
+  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.146) #13
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit287
 
 _ZNK4Luau7AstNameeqEPKc.exit287:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit285
-  %209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.81) #14
+  %209 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.81) #13
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit289
 
 _ZNK4Luau7AstNameeqEPKc.exit289:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit287
-  %211 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(5) @.str.76) #14
+  %211 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(5) @.str.76) #13
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit291
 
 _ZNK4Luau7AstNameeqEPKc.exit291:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit289
-  %213 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.71) #14
+  %213 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.71) #13
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit293
 
 _ZNK4Luau7AstNameeqEPKc.exit293:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit291
-  %215 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(5) @.str.98) #14
+  %215 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(5) @.str.98) #13
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit295
 
 _ZNK4Luau7AstNameeqEPKc.exit295:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit293
-  %217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.97) #14
+  %217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(6) @.str.97) #13
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit297
 
 _ZNK4Luau7AstNameeqEPKc.exit297:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit295
-  %219 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.88) #14
+  %219 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.88) #13
   %220 = icmp eq i32 %219, 0
   br i1 %220, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit299
 
 _ZNK4Luau7AstNameeqEPKc.exit299:                  ; preds = %_ZNK4Luau7AstNameeqEPKc.exit297
-  %221 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.87) #14
+  %221 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(4) @.str.87) #13
   %222 = icmp eq i32 %221, 0
   br i1 %222, label %232, label %_ZNK4Luau7AstNameeqEPKc.exit275.thread
 
@@ -2588,7 +2582,7 @@ _ZNK4Luau7AstNameeqEPKc.exit275.thread:           ; preds = %4, %196, %_ZNK4Luau
   br i1 %.not.i.i300, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit301.thread, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit301
 
 _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit301:   ; preds = %227
-  %230 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(1) %.24.val) #14
+  %230 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(1) %.24.val) #13
   %231 = icmp eq i32 %230, 0
   br i1 %231, label %232, label %_ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit301.thread
 
@@ -2602,7 +2596,7 @@ _ZNK4Luau7Compile7Builtin8isGlobalEPKc.exit301.thread: ; preds = %227, %226, %22
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4Luau7Compile14BuiltinVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 304) #15
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 304) #14
   ret void
 }
 
@@ -2724,7 +2718,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile14BuiltinVisit
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.Luau::Compile::Builtin", align 8
   store ptr %1, ptr %3, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i8, ptr %5, align 8, !tbaa !72, !range !29, !noundef !30
   %7 = trunc nuw i8 %6 to i1
@@ -2796,7 +2790,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile14BuiltinVisit
   br label %.thread
 
 .thread:                                          ; preds = %2, %37, %41, %29, %22, %50, %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 true
 }
 
@@ -3216,7 +3210,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4Luau7Compile7Builtin8isMe
   br i1 %.not.i, label %_ZNK4Luau7AstNameeqEPKc.exit4, label %_ZNK4Luau7AstNameeqEPKc.exit
 
 _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %3
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #14
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %_ZNK4Luau7AstNameeqEPKc.exit4
 
@@ -3227,7 +3221,7 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %3
   br i1 %.not.i3, label %_ZNK4Luau7AstNameeqEPKc.exit4, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %2) #14
+  %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %2) #13
   %12 = icmp eq i32 %11, 0
   br label %_ZNK4Luau7AstNameeqEPKc.exit4
 
@@ -3360,7 +3354,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableIPNS_11AstExp
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %8 = shl i64 %spec.select, 4
-  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #16
+  %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #15
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !70
   br label %.lr.ph.i.i
 
@@ -3396,7 +3390,7 @@ _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16I
   br i1 %.not.i11, label %_ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit, label %15
 
 15:                                               ; preds = %._crit_edge31.thread, %._crit_edge31
-  tail call void @_ZdlPv(ptr noundef nonnull %.pre36) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %.pre36) #16
   br label %_ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit
 
 _ZN4Luau6detail14DenseHashTableIPNS_11AstExprCallESt4pairIS3_iES4_IKS3_iENS0_16ItemInterfaceMapIS3_iEENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit: ; preds = %._crit_edge31, %15
@@ -3484,6 +3478,12 @@ define internal void @_GLOBAL__sub_I_Builtins.cpp() #0 section ".text.startup" {
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
@@ -3500,10 +3500,10 @@ attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { builtin nounwind }
-attributes #16 = { allocsize(0) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { allocsize(0) }
+attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

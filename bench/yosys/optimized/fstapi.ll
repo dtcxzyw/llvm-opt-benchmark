@@ -175,14 +175,14 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_nul
   br i1 %.not.i, label %.critedge.i, label %22
 
 22:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %23 = tail call i32 @feof(ptr noundef nonnull %21) #39
   %.not2535.i = icmp eq i32 %23, 0
   br i1 %.not2535.i, label %.lr.ph.i, label %.thread33.i
 
 .thread33.i:                                      ; preds = %.thread.i, %22
   %24 = call i32 @fclose(ptr noundef nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %22, %.thread.i
@@ -219,7 +219,7 @@ define noundef ptr @fstWriterCreate(ptr noundef readonly captures(address_is_nul
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 272
   store i64 %spec.store.select.i, ptr %38, align 8, !tbaa !11
   %39 = call i32 @fclose(ptr noundef nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZL21fstDetermineBreakSizeP16fstWriterContext.exit
 
 .critedge.i:                                      ; preds = %.thread33.i, %2
@@ -323,15 +323,15 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %37, %.critedge.i
   %90 = load i8, ptr %89, align 4
   %91 = or i8 %90, 2
   store i8 %91, ptr %89, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #39
-  call void @llvm.lifetime.start.p0(i64 119, ptr nonnull %13) #39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store double 0x4005BF0A8B145769, ptr %14, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %92 = load ptr, ptr %17, align 8, !tbaa !26
   %93 = call i32 @fputc(i32 noundef 0, ptr noundef %92)
   %94 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %95
 
 95:                                               ; preds = %95, %86
@@ -347,22 +347,22 @@ _ZL21fstDetermineBreakSizeP16fstWriterContext.exit: ; preds = %37, %.critedge.i
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit.i:           ; preds = %95
   %99 = call noundef i64 @fwrite(ptr noundef nonnull readonly %11, i64 noundef 8, i64 noundef 1, ptr noundef %94)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %100 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %101 = call noundef i64 @fwrite(ptr noundef nonnull readonly %10, i64 noundef 8, i64 noundef 1, ptr noundef %100)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %102 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %103 = call noundef i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef 8, i64 noundef 1, ptr noundef %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %104 = load ptr, ptr %17, align 8, !tbaa !26
   %105 = call noundef i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef 8, i64 noundef 1, ptr noundef %104)
   %106 = load ptr, ptr %17, align 8, !tbaa !26
   %107 = load i64, ptr %42, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %108
 
 108:                                              ; preds = %108, %_ZL15fstWriterUint64P8_IO_FILEm.exit.i
@@ -378,27 +378,27 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit.i:           ; preds = %95
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit33.i:         ; preds = %108
   %112 = call noundef i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 8, i64 noundef 1, ptr noundef %106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %113 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %114 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 8, i64 noundef 1, ptr noundef %113)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %115 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %116 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 8, i64 noundef 1, ptr noundef %115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %118 = call noundef i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 8, i64 noundef 1, ptr noundef %117)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %119 = load ptr, ptr %17, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %120 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 8, i64 noundef 1, ptr noundef %119)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %121 = load ptr, ptr %17, align 8, !tbaa !26
   %122 = call i32 @fputc(i32 noundef 247, ptr noundef %121)
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 10
@@ -421,7 +421,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit33.i:         ; preds = %108
   %137 = load ptr, ptr %17, align 8, !tbaa !26
   %138 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %139 = load i64, ptr %138, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %140
 
 140:                                              ; preds = %140, %_ZL15fstWriterUint64P8_IO_FILEm.exit33.i
@@ -437,13 +437,13 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit33.i:         ; preds = %108
 
 _ZL21fstWriterEmitHdrBytesP16fstWriterContext.exit: ; preds = %140
   %144 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef 8, i64 noundef 1, ptr noundef %137)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %145 = load ptr, ptr %17, align 8, !tbaa !26
   %146 = call i32 @fflush(ptr noundef %145)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #39
-  call void @llvm.lifetime.end.p0(i64 119, ptr nonnull %13) #39
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %147 = call double @strtod(ptr noundef nonnull captures(none) @.str.2, ptr noundef null) #39
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 192
   store double %147, ptr %148, align 8, !tbaa !40
@@ -562,44 +562,38 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit82:          ; preds = %184, %186
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #9
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterFlushContext(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @fstWriterFlushContext(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -621,7 +615,7 @@ define void @fstWriterFlushContext(ptr noundef captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @fstWriterClose(ptr noundef %0) local_unnamed_addr #12 {
+define void @fstWriterClose(ptr noundef %0) local_unnamed_addr #11 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 8
@@ -830,7 +824,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %113, %113
   br i1 %.not310, label %_ZL19fstWriterMmapSanityPvPKciS1_.exit.thread, label %120
 
 120:                                              ; preds = %113, %_ZL19fstWriterMmapSanityPvPKciS1_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %111, ptr %21, align 8, !tbaa !56
   %121 = tail call i64 @compressBound(i64 noundef %111)
   %122 = tail call noalias ptr @malloc(i64 noundef %121) #41
@@ -853,7 +847,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %113, %113
   %132 = load ptr, ptr %0, align 8, !tbaa !26
   %133 = load i64, ptr %21, align 8, !tbaa !56
   %134 = add i64 %133, 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br label %135
 
 135:                                              ; preds = %135, %127
@@ -869,9 +863,9 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %113, %113
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %135
   %139 = call noundef i64 @fwrite(ptr noundef nonnull readonly %20, i64 noundef 8, i64 noundef 1, ptr noundef %132)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %140 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %141
 
 141:                                              ; preds = %141, %_ZL15fstWriterUint64P8_IO_FILEm.exit
@@ -887,11 +881,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %135
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit336:          ; preds = %141
   %145 = call noundef i64 @fwrite(ptr noundef nonnull readonly %19, i64 noundef 8, i64 noundef 1, ptr noundef %140)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %146 = load ptr, ptr %0, align 8, !tbaa !26
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %148 = load i32, ptr %147, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %149
 
 149:                                              ; preds = %149, %_ZL15fstWriterUint64P8_IO_FILEm.exit336
@@ -907,7 +901,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit336:          ; preds = %141
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit341:          ; preds = %149
   %153 = call noundef i64 @fwrite(ptr noundef nonnull readonly %18, i64 noundef 8, i64 noundef 1, ptr noundef %146)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %154 = load i64, ptr %21, align 8, !tbaa !56
   %.not312 = icmp eq i64 %154, %111
   %155 = select i1 %.not312, ptr %116, ptr %122
@@ -947,7 +941,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit343: ; preds = %_ZL15fst
   %177 = call i32 @fflush(ptr noundef %176)
   call void @free(ptr noundef %122) #39
   %178 = call i32 @munmap(ptr noundef nonnull %116, i64 noundef %111) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZL19fstWriterMmapSanityPvPKciS1_.exit.thread
 
 _ZL19fstWriterMmapSanityPvPKciS1_.exit.thread:    ; preds = %106, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit343, %_ZL19fstWriterMmapSanityPvPKciS1_.exit
@@ -962,15 +956,15 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit348:          ; preds = %_ZL19fstWriterMmapS
   %183 = load ptr, ptr %0, align 8, !tbaa !26
   %184 = call i32 @fputc(i32 noundef 255, ptr noundef %183)
   %185 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %186 = add nsw i64 %182, 1
   %187 = call noundef i64 @fwrite(ptr noundef nonnull readonly %17, i64 noundef 8, i64 noundef 1, ptr noundef %185)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %188 = load ptr, ptr %0, align 8, !tbaa !26
   %189 = load i32, ptr %179, align 8, !tbaa !57
   %190 = zext i32 %189 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.not11.i = icmp ult i32 %189, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -997,7 +991,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
   %sext.i = shl i64 %199, 32
   %200 = ashr exact i64 %sext.i, 32
   %201 = call noundef i64 @fwrite(ptr noundef nonnull readonly %16, i64 noundef %200, i64 noundef 1, ptr noundef %188)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %202 = load i32, ptr %179, align 8, !tbaa !57
   %.not472 = icmp eq i32 %202, 0
   br i1 %.not472, label %._crit_edge, label %.lr.ph464
@@ -1024,7 +1018,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i64, ptr %216, align 8, !tbaa !60
   %218 = sub i64 %217, %.0283463
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not11.i350 = icmp ult i64 %218, 128
   br i1 %.not11.i350, label %_ZL15fstWriterVarintP8_IO_FILEm.exit358, label %.lr.ph.i351
 
@@ -1050,7 +1044,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit358:          ; preds = %.lr.ph.i351, %206
   %sext.i357 = shl i64 %226, 32
   %227 = ashr exact i64 %sext.i357, 32
   %228 = call noundef i64 @fwrite(ptr noundef nonnull readonly %15, i64 noundef %227, i64 noundef 1, ptr noundef %214)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %15) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %229 = load ptr, ptr %203, align 8, !tbaa !59
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %231 = load i64, ptr %230, align 8, !tbaa !60
@@ -1082,7 +1076,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit358:          ; preds = %.lr.ph.i351, %206
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit359: ; preds = %._crit_edge, %242
   %246 = load ptr, ptr %0, align 8, !tbaa !26
   %247 = sub nsw i64 %238, %186
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %248
 
 248:                                              ; preds = %248, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit359
@@ -1098,7 +1092,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit359: ; preds = %._crit_e
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit364:          ; preds = %248
   %252 = call noundef i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef 8, i64 noundef 1, ptr noundef %246)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %253 = load ptr, ptr %0, align 8, !tbaa !26
   %254 = call i32 @fflush(ptr noundef %253)
   %255 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1154,14 +1148,14 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %273
   %286 = load ptr, ptr %0, align 8, !tbaa !26
   %287 = call i64 @ftello(ptr noundef %286)
   %288 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8
   %289 = call noundef i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef 8, i64 noundef 1, ptr noundef %288)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %290 = load ptr, ptr %0, align 8, !tbaa !26
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %292 = load i64, ptr %291, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %293
 
 293:                                              ; preds = %293, %_ZL15fstWriterUint64P8_IO_FILEm.exit371
@@ -1177,7 +1171,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit371:          ; preds = %273
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit376:          ; preds = %293
   %297 = call noundef i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef 8, i64 noundef 1, ptr noundef %290)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %299 = load i8, ptr %298, align 4
   %300 = and i8 %299, 4
@@ -1336,7 +1330,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit378: ; preds = %372, %37
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit379: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit378, %385
   %389 = load ptr, ptr %0, align 8, !tbaa !26
   %390 = sub nsw i64 %381, %287
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %391
 
 391:                                              ; preds = %391, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit379
@@ -1352,7 +1346,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit379: ; preds = %_ZL15fst
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit384:          ; preds = %391
   %395 = call noundef i64 @fwrite(ptr noundef nonnull readonly %11, i64 noundef 8, i64 noundef 1, ptr noundef %389)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %396 = load ptr, ptr %0, align 8, !tbaa !26
   %397 = call i32 @fflush(ptr noundef %396)
   %398 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1412,7 +1406,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit387: ; preds = %422, %42
   %430 = load ptr, ptr %0, align 8, !tbaa !26
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %432 = load i64, ptr %431, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %433
 
 433:                                              ; preds = %433, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit387
@@ -1428,11 +1422,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit387: ; preds = %422, %42
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit392:          ; preds = %433
   %437 = call noundef i64 @fwrite(ptr noundef nonnull readonly %10, i64 noundef 8, i64 noundef 1, ptr noundef %430)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %438 = load ptr, ptr %0, align 8, !tbaa !26
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %440 = load i64, ptr %439, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %441
 
 441:                                              ; preds = %441, %_ZL15fstWriterUint64P8_IO_FILEm.exit392
@@ -1448,7 +1442,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit392:          ; preds = %433
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit397:          ; preds = %441
   %445 = call noundef i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef 8, i64 noundef 1, ptr noundef %438)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %446 = load ptr, ptr %0, align 8, !tbaa !26
   %447 = call i32 @fseeko(ptr noundef %446, i64 noundef 41, i32 noundef 0)
   %448 = icmp slt i32 %447, 0
@@ -1465,7 +1459,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit398: ; preds = %_ZL15fst
   %453 = load ptr, ptr %0, align 8, !tbaa !26
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %455 = load i32, ptr %454, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %456
 
 456:                                              ; preds = %456, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit398
@@ -1481,11 +1475,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit398: ; preds = %_ZL15fst
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit403:          ; preds = %456
   %460 = call noundef i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 8, i64 noundef 1, ptr noundef %453)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %461 = load ptr, ptr %0, align 8, !tbaa !26
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %463 = load i32, ptr %462, align 4, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %464
 
 464:                                              ; preds = %464, %_ZL15fstWriterUint64P8_IO_FILEm.exit403
@@ -1501,11 +1495,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit403:          ; preds = %456
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit408:          ; preds = %464
   %468 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 8, i64 noundef 1, ptr noundef %461)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %469 = load ptr, ptr %0, align 8, !tbaa !26
   %470 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %471 = load i32, ptr %470, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %472
 
 472:                                              ; preds = %472, %_ZL15fstWriterUint64P8_IO_FILEm.exit408
@@ -1521,11 +1515,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit408:          ; preds = %464
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit413:          ; preds = %472
   %476 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 8, i64 noundef 1, ptr noundef %469)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %477 = load ptr, ptr %0, align 8, !tbaa !26
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %479 = load i32, ptr %478, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %480
 
 480:                                              ; preds = %480, %_ZL15fstWriterUint64P8_IO_FILEm.exit413
@@ -1541,7 +1535,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit413:          ; preds = %472
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit418:          ; preds = %480
   %484 = call noundef i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 8, i64 noundef 1, ptr noundef %477)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %485 = load ptr, ptr %0, align 8, !tbaa !26
   %486 = call i32 @fflush(ptr noundef %485)
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1681,7 +1675,7 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit431:         ; preds = %523, %525
   br i1 %.not327, label %615, label %548
 
 548:                                              ; preds = %537
-  call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %22) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %549 = load ptr, ptr %0, align 8, !tbaa !26
   %550 = call i32 @fseeko(ptr noundef %549, i64 noundef 0, i32 noundef 2)
   %551 = icmp slt i32 %550, 0
@@ -1698,11 +1692,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit432: ; preds = %548, %55
   %556 = load ptr, ptr %0, align 8, !tbaa !26
   %557 = call i64 @ftello(ptr noundef %556)
   %558 = call i32 @fputc(i32 noundef 254, ptr noundef nonnull %547)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %559 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %560
 
 560:                                              ; preds = %560, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit432
@@ -1718,7 +1712,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit432: ; preds = %548, %55
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit442:          ; preds = %560
   %564 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %565 = call i32 @fflush(ptr noundef nonnull %547)
   %566 = load ptr, ptr %0, align 8, !tbaa !26
   %567 = call i32 @fseeko(ptr noundef %566, i64 noundef 0, i32 noundef 0)
@@ -1790,7 +1784,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit444: ; preds = %588, %59
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit445: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit444, %598
   %602 = add nsw i64 %595, -1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %603
 
 603:                                              ; preds = %603, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit445
@@ -1806,7 +1800,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit445: ; preds = %_ZL15fst
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %603
   %607 = call noundef i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %547)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %608 = call i32 @fclose(ptr noundef nonnull %547)
   %609 = load ptr, ptr %0, align 8, !tbaa !26
   %610 = call i32 @fclose(ptr noundef %609)
@@ -1815,7 +1809,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit450:          ; preds = %603
   %612 = call i32 @unlink(ptr noundef %611) #39
   %613 = load ptr, ptr %538, align 8, !tbaa !35
   %614 = call i32 @rename(ptr noundef nonnull %543, ptr noundef %613) #39
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %22) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %620
 
 615:                                              ; preds = %537
@@ -1879,10 +1873,10 @@ _Z11JenkinsFreePvj.exit:                          ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnamed_addr #12 {
+define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
   %.not = icmp eq ptr %0, null
@@ -1982,7 +1976,7 @@ define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnam
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = load i64, ptr %57, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not11.i = icmp ult i64 %58, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -2009,7 +2003,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %._crit_e
   %sext.i = shl i64 %67, 32
   %68 = ashr exact i64 %sext.i, 32
   %69 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef %68, i64 noundef 1, ptr noundef %56)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 ._crit_edge:                                      ; preds = %29, %17
@@ -2031,7 +2025,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %._crit_e
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %79 = load i64, ptr %78, align 8, !tbaa !68
   %80 = sub i64 %1, %79
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not11.i45 = icmp ult i64 %80, 128
   br i1 %.not11.i45, label %_ZL15fstWriterVarintP8_IO_FILEm.exit53, label %.lr.ph.i46
 
@@ -2058,7 +2052,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit53:           ; preds = %.lr.ph.i46, %75
   %sext.i52 = shl i64 %89, 32
   %90 = ashr exact i64 %sext.i52, 32
   %91 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef %90, i64 noundef 1, ptr noundef %77)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %93 = load i32, ptr %92, align 8, !tbaa !84
   %94 = add i32 %93, 1
@@ -2218,7 +2212,7 @@ _ZL27fstWriterUint32WithVarint32P16fstWriterContextPjjPKvj.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef nonnull %0) unnamed_addr #12 {
+define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef nonnull %0) unnamed_addr #11 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -2236,7 +2230,7 @@ define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef non
   %16 = alloca ptr, align 8
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !87
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8, !tbaa !48
@@ -2273,7 +2267,7 @@ define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef non
   %44 = load ptr, ptr %43, align 8, !tbaa !34
   %45 = load ptr, ptr %0, align 8, !tbaa !26
   %46 = zext i32 %20 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not11.i = icmp ult i32 %20, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -2300,7 +2294,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %37
   %sext.i = shl i64 %55, 32
   %56 = ashr exact i64 %sext.i, 32
   %57 = call noundef i64 @fwrite(ptr noundef nonnull readonly %15, i64 noundef %56, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %15) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 4
@@ -2976,7 +2970,7 @@ _ZL21fstCopyVarint32ToLeftPhj.exit517:            ; preds = %.lr.ph28.i524, %.lr
   br i1 %375, label %376, label %480
 
 376:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %373, ptr %17, align 8, !tbaa !56
   %377 = load i8, ptr %58, align 4
   %378 = and i8 %377, 8
@@ -3019,7 +3013,7 @@ _ZL21fstCopyVarint32ToLeftPhj.exit517:            ; preds = %.lr.ph28.i524, %.lr
   %396 = add nuw nsw i64 %indvars.iv776, 1
   %397 = inttoptr i64 %396 to ptr
   store ptr %397, ptr %389, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not11.i533 = icmp samesign ult i64 %373, 128
   br i1 %.not11.i533, label %_ZL15fstWriterVarintP8_IO_FILEm.exit542, label %.lr.ph.i534
 
@@ -3045,7 +3039,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit542:          ; preds = %.lr.ph.i534, %395
   %sext.i541 = shl i64 %405, 32
   %406 = ashr exact i64 %sext.i541, 32
   %407 = call noundef i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef %406, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %14) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %408 = add nsw i64 %406, %.0346720
   %409 = load i64, ptr %17, align 8, !tbaa !56
   %410 = add i64 %408, %409
@@ -3128,7 +3122,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit542:          ; preds = %.lr.ph.i534, %395
   %451 = add nuw nsw i64 %indvars.iv776, 1
   %452 = inttoptr i64 %451 to ptr
   store ptr %452, ptr %444, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %13) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not11.i547 = icmp samesign ult i64 %373, 128
   br i1 %.not11.i547, label %_ZL15fstWriterVarintP8_IO_FILEm.exit556, label %.lr.ph.i548
 
@@ -3154,7 +3148,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit556:          ; preds = %.lr.ph.i548, %450
   %sext.i555 = shl i64 %460, 32
   %461 = ashr exact i64 %sext.i555, 32
   %462 = call noundef i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef %461, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %13) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %463 = add i64 %.0346720, %440
   %464 = add i64 %463, %461
   %465 = call noundef i64 @fwrite(ptr noundef readonly %.3375, i64 noundef %440, i64 noundef 1, ptr noundef %45)
@@ -3187,7 +3181,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit556:          ; preds = %.lr.ph.i548, %450
   %.2380 = phi i32 [ %.1379, %_ZL15fstWriterVarintP8_IO_FILEm.exit542 ], [ %.1379, %391 ], [ %.1379, %419 ], [ %.1379, %415 ], [ %.3381, %_ZL15fstWriterVarintP8_IO_FILEm.exit556 ], [ %.3381, %446 ], [ %.3381, %473 ], [ %.3381, %469 ]
   %.2374 = phi ptr [ %.1373, %_ZL15fstWriterVarintP8_IO_FILEm.exit542 ], [ %.1373, %391 ], [ %.1373, %419 ], [ %.1373, %415 ], [ %.3375, %_ZL15fstWriterVarintP8_IO_FILEm.exit556 ], [ %.3375, %446 ], [ %.3375, %473 ], [ %.3375, %469 ]
   %.3 = phi i64 [ %410, %_ZL15fstWriterVarintP8_IO_FILEm.exit542 ], [ %.0346720, %391 ], [ %423, %419 ], [ %.0346720, %415 ], [ %464, %_ZL15fstWriterVarintP8_IO_FILEm.exit556 ], [ %.0346720, %446 ], [ %477, %473 ], [ %.0346720, %469 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %494
 
 480:                                              ; preds = %.loopexit
@@ -3298,7 +3292,7 @@ _Z11JenkinsFreePvj.exit:                          ; preds = %_ZL15fstWriterVarin
 522:                                              ; preds = %521
   %523 = shl i32 %.0351727, 1
   %524 = sext i32 %523 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not11.i568 = icmp ult i32 %523, 128
   br i1 %.not11.i568, label %_ZL15fstWriterVarintP8_IO_FILEm.exit577, label %.lr.ph.i569
 
@@ -3324,7 +3318,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit577:          ; preds = %.lr.ph.i569, %522
   %sext.i576 = shl i64 %532, 32
   %533 = ashr exact i64 %sext.i576, 32
   %534 = call noundef i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef %533, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pr = load i32, ptr %519, align 4, !tbaa !51
   br label %535
 
@@ -3341,7 +3335,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit577:          ; preds = %.lr.ph.i569, %522
   %539 = sext i32 %536 to i64
   %540 = shl nsw i64 %539, 1
   %541 = or disjoint i64 %540, 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %542 = trunc i64 %541 to i8
   br label %.lr.ph.i578
 
@@ -3375,7 +3369,7 @@ _ZL16fstWriterSVarintP8_IO_FILEl.exit:            ; preds = %.lr.ph.i578, %547
   %sext.i581 = shl i64 %554, 32
   %555 = ashr exact i64 %sext.i581, 32
   %556 = call noundef i64 @fwrite(ptr noundef nonnull readonly %11, i64 noundef %555, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %576
 
 557:                                              ; preds = %537
@@ -3386,7 +3380,7 @@ _ZL16fstWriterSVarintP8_IO_FILEl.exit:            ; preds = %.lr.ph.i578, %547
   %559 = sub i32 %536, %.0348728
   %560 = shl i32 %559, 1
   %561 = or disjoint i32 %560, 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %562 = trunc i32 %561 to i8
   %.not1622.i586 = icmp ult i32 %560, 64
   br i1 %.not1622.i586, label %_ZL16fstWriterSVarintP8_IO_FILEl.exit597, label %.lr.ph.i587.preheader
@@ -3418,7 +3412,7 @@ _ZL16fstWriterSVarintP8_IO_FILEl.exit597:         ; preds = %.lr.ph.i587, %558
   %sext.i595 = shl i64 %572, 32
   %573 = ashr exact i64 %sext.i595, 32
   %574 = call noundef i64 @fwrite(ptr noundef nonnull readonly %10, i64 noundef %573, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %575 = load i32, ptr %519, align 4, !tbaa !51
   br label %576
 
@@ -3452,7 +3446,7 @@ _ZL16fstWriterSVarintP8_IO_FILEl.exit597:         ; preds = %.lr.ph.i587, %558
 584:                                              ; preds = %._crit_edge732
   %585 = shl i32 %.2353, 1
   %586 = sext i32 %585 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not11.i598 = icmp ult i32 %585, 128
   br i1 %.not11.i598, label %_ZL15fstWriterVarintP8_IO_FILEm.exit607, label %.lr.ph.i599
 
@@ -3479,7 +3473,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit607:          ; preds = %.lr.ph.i599, %584
   %sext.i606 = shl i64 %595, 32
   %596 = ashr exact i64 %sext.i606, 32
   %597 = call noundef i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef %596, i64 noundef 1, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %._crit_edge732.thread
 
 ._crit_edge732.thread:                            ; preds = %_Z11JenkinsFreePvj.exit, %_ZL15fstWriterVarintP8_IO_FILEm.exit607, %._crit_edge732
@@ -3490,7 +3484,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit607:          ; preds = %.lr.ph.i599, %584
   %600 = call i64 @ftello(ptr noundef %599)
   %601 = load ptr, ptr %0, align 8, !tbaa !26
   %602 = sub nsw i64 %600, %504
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %603
 
 603:                                              ; preds = %603, %._crit_edge732.thread
@@ -3506,7 +3500,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit607:          ; preds = %.lr.ph.i599, %584
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %603
   %607 = call noundef i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 8, i64 noundef 1, ptr noundef %601)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %608 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %609 = load ptr, ptr %608, align 8, !tbaa !32
   %610 = call i32 @fflush(ptr noundef %609)
@@ -3545,7 +3539,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseek
   br i1 %.not425, label %664, label %627
 
 627:                                              ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %_ZL19fstWriterMmapSanityPvPKciS1_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %612, ptr %18, align 8, !tbaa !56
   %628 = call i64 @compressBound(i64 noundef %612)
   %629 = call noalias ptr @malloc(i64 noundef %628) #41
@@ -3573,7 +3567,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseek
   call void @free(ptr noundef %629) #39
   %642 = call i32 @munmap(ptr noundef nonnull %623, i64 noundef %612) #39
   %643 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %644
 
 644:                                              ; preds = %644, %641
@@ -3589,10 +3583,10 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit:           ; preds = %_ZL15fstWriterFseek
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit613:          ; preds = %644
   %648 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 8, i64 noundef 1, ptr noundef %643)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %649 = load ptr, ptr %0, align 8, !tbaa !26
   %650 = load i64, ptr %18, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %651
 
 651:                                              ; preds = %651, %_ZL15fstWriterUint64P8_IO_FILEm.exit613
@@ -3608,11 +3602,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit613:          ; preds = %644
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit618:          ; preds = %651
   %655 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 8, i64 noundef 1, ptr noundef %649)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %656 = load ptr, ptr %0, align 8, !tbaa !26
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %658 = load i32, ptr %657, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %659
 
 659:                                              ; preds = %659, %_ZL15fstWriterUint64P8_IO_FILEm.exit618
@@ -3628,8 +3622,8 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit618:          ; preds = %651
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit623:          ; preds = %659
   %663 = call noundef i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 8, i64 noundef 1, ptr noundef %656)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %664
 
 664:                                              ; preds = %_ZL15fstWriterUint64P8_IO_FILEm.exit623, %_ZL19fstWriterMmapSanityPvPKciS1_.exit
@@ -3673,7 +3667,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit625: ; preds = %_ZL15fst
   %688 = load ptr, ptr %0, align 8, !tbaa !26
   %689 = load i64, ptr %680, align 8, !tbaa !101
   %690 = sub nsw i64 %678, %689
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %691
 
 691:                                              ; preds = %691, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit625
@@ -3689,7 +3683,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit625: ; preds = %_ZL15fst
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit630:          ; preds = %691
   %695 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 8, i64 noundef 1, ptr noundef %688)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %696 = load ptr, ptr %0, align 8, !tbaa !26
   %697 = call i32 @fseeko(ptr noundef %696, i64 noundef 8, i32 noundef 1)
   %698 = icmp slt i32 %697, 0
@@ -3706,7 +3700,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit631: ; preds = %_ZL15fst
   %703 = load ptr, ptr %0, align 8, !tbaa !26
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %705 = load i64, ptr %704, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %706
 
 706:                                              ; preds = %706, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit631
@@ -3722,9 +3716,9 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit631: ; preds = %_ZL15fst
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit636:          ; preds = %706
   %710 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef 8, i64 noundef 1, ptr noundef %703)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %711 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %712
 
 712:                                              ; preds = %712, %_ZL15fstWriterUint64P8_IO_FILEm.exit636
@@ -3740,7 +3734,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit636:          ; preds = %706
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit641:          ; preds = %712
   %716 = call noundef i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef 8, i64 noundef 1, ptr noundef %711)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %717 = load ptr, ptr %0, align 8, !tbaa !26
   %718 = call i32 @fflush(ptr noundef %717)
   %719 = load ptr, ptr %0, align 8, !tbaa !26
@@ -3810,21 +3804,21 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit643: ; preds = %_ZL15fst
   br label %753
 
 753:                                              ; preds = %1, %34, %750
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %0, i32 noundef range(i32 1037, 2120) %1, ptr noundef %2) unnamed_addr #14 {
+define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %0, i32 noundef range(i32 1037, 2120) %1, ptr noundef %2) unnamed_addr #13 {
   %magicptr = ptrtoint ptr %0 to i64
   switch i64 %magicptr, label %9 [
     i64 -1, label %4
@@ -3844,22 +3838,22 @@ define internal fastcc void @_ZL19fstWriterMmapSanityPvPKciS1_(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
-declare i64 @compressBound(i64 noundef) local_unnamed_addr #16
+declare i64 @compressBound(i64 noundef) local_unnamed_addr #15
 
-declare i32 @compress2(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @compress2(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #14 {
+define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #13 {
   %3 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not11 = icmp ult i64 %1, 128
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -3886,33 +3880,33 @@ define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef capture
   %sext = shl i64 %12, 32
   %13 = ashr exact i64 %sext, 32
   %14 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef %13, i64 noundef 1, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #15
+declare i32 @dup(i32 noundef) local_unnamed_addr #14
 
-declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #16
+declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #15
 
-declare i32 @gzwrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @gzwrite(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
-declare i32 @gzclose(ptr noundef) local_unnamed_addr #16
+declare i32 @gzclose(ptr noundef) local_unnamed_addr #15
 
-declare i32 @close(i32 noundef) local_unnamed_addr #16
+declare i32 @close(i32 noundef) local_unnamed_addr #15
 
-declare i32 @LZ4_compressBound(i32 noundef) local_unnamed_addr #16
+declare i32 @LZ4_compressBound(i32 noundef) local_unnamed_addr #15
 
-declare i32 @LZ4_compress_default(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #16
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare i32 @LZ4_compress_default(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -3955,13 +3949,13 @@ define void @_Z11JenkinsFreePvj(ptr noundef captures(address_is_null) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetDate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
+define void @fstWriterSetDate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = alloca [119 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 119, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8, !tbaa !26
   %6 = tail call i64 @ftello(ptr noundef %5)
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
@@ -4000,7 +3994,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %4, %12
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %25
-  call void @llvm.lifetime.end.p0(i64 119, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13, %2
@@ -4008,10 +4002,10 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit13: ; preds = %_ZL15fstW
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 {
+define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = alloca [128 x i8], align 16
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -4019,7 +4013,7 @@ define void @fstWriterSetVersion(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %or.cond, label %6, label %31
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %0, align 8, !tbaa !26
   %8 = tail call i64 @ftello(ptr noundef %7)
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
@@ -4058,7 +4052,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %6, %14
   br label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16
 
 _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16: ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit, %27
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 31:                                               ; preds = %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16, %2
@@ -4066,7 +4060,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit16: ; preds = %_ZL15fstW
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetFileType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define void @fstWriterSetFileType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp slt i32 %1, 3
   %or.cond = and i1 %3, %4
@@ -4196,7 +4190,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %30
 36:                                               ; preds = %_ZL23fstWriterSetAttrGenericPvPKcim.exit, %35, %17
   %.027 = phi i64 [ %18, %17 ], [ %23, %35 ], [ %23, %_ZL23fstWriterSetAttrGenericPvPKcim.exit ]
   %37 = zext i32 %2 to i64
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not8.i.i = icmp ult i64 %.027, 128
   br i1 %.not8.i.i, label %_ZL22fstCopyVarint64ToRightPhm.exit.i, label %.lr.ph.i.i
 
@@ -4231,7 +4225,7 @@ _ZL22fstCopyVarint64ToRightPhm.exit.i:            ; preds = %36
 
 _ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit:  ; preds = %_ZL22fstCopyVarint64ToRightPhm.exit.i, %46
   call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef range(i32 4, 6) %4, ptr noundef nonnull %6, i64 noundef range(i64 0, 4294967296) %37)
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48
 
 48:                                               ; preds = %_ZL32fstWriterSetAttrDoubleArgGenericPvimm.exit, %9, %5
@@ -4356,7 +4350,7 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimescale(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define void @fstWriterSetTimescale(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit10, label %3
 
@@ -4398,7 +4392,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit10: ; preds = %21, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimescaleFromString(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #14 {
+define void @fstWriterSetTimescaleFromString(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4503,7 +4497,7 @@ fstWriterSetTimescale.exit:                       ; preds = %36, %_ZL15fstWriter
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetTimezero(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #14 {
+define void @fstWriterSetTimezero(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #13 {
   %3 = alloca [8 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit11, label %4
@@ -4527,7 +4521,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %4, %10
   %14 = load ptr, ptr %0, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %15, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %16
 
 16:                                               ; preds = %16, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
@@ -4543,7 +4537,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %4, %10
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %16
   %20 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef 8, i64 noundef 1, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = load ptr, ptr %0, align 8, !tbaa !26
   %22 = tail call i32 @fflush(ptr noundef %21)
   %23 = load ptr, ptr %0, align 8, !tbaa !26
@@ -4563,7 +4557,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit11: ; preds = %26, %_ZL1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterSetPackType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @fstWriterSetPackType(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -4585,7 +4579,7 @@ define void @fstWriterSetPackType(ptr noundef captures(address_is_null) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstWriterSetRepackOnClose(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @fstWriterSetRepackOnClose(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -4604,7 +4598,7 @@ define void @fstWriterSetRepackOnClose(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -4632,13 +4626,13 @@ define void @fstWriterSetParallelMode(ptr noundef captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #18
+declare void @exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #19 {
+define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4652,7 +4646,7 @@ define void @fstWriterSetDumpSizeLimit(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4670,7 +4664,7 @@ define range(i32 0, 2) i32 @fstWriterGetDumpSizeLimitReached(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstWriterGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -4813,13 +4807,13 @@ _ZL15fstDestroyMmapsP16fstWriterContexti.exit:    ; preds = %18, %27
   store i32 %storemerge, ptr %11, align 4, !tbaa !51
   %52 = load ptr, ptr %33, align 8, !tbaa !27
   %53 = zext nneg i32 %storemerge to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %_ZL15fstWriterVarintP8_IO_FILEm.exit
 
 54:                                               ; preds = %32
   %55 = load ptr, ptr %33, align 8, !tbaa !27
   %56 = zext i32 %3 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not11.i = icmp ult i32 %3, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -4849,7 +4843,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %.thread,
   %sext.i = shl i64 %68, 32
   %69 = ashr exact i64 %sext.i, 32
   %70 = call noundef i64 @fwrite(ptr noundef nonnull readonly %10, i64 noundef %69, i64 noundef 1, ptr noundef %62)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %71 = load i64, ptr %45, align 8, !tbaa !65
   %72 = add nsw i64 %71, %69
   store i64 %72, ptr %45, align 8, !tbaa !65
@@ -4859,7 +4853,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %.thread,
   %spec.store.select = select i1 %75, i32 0, i32 %5
   %76 = load ptr, ptr %33, align 8, !tbaa !27
   %77 = zext i32 %spec.store.select to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not11.i89 = icmp ult i32 %spec.store.select, 128
   br i1 %.not11.i89, label %_ZL15fstWriterVarintP8_IO_FILEm.exit97, label %.lr.ph.i90
 
@@ -4886,7 +4880,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
   %sext.i96 = shl i64 %86, 32
   %87 = ashr exact i64 %sext.i96, 32
   %88 = call noundef i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef %87, i64 noundef 1, ptr noundef %76)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %89 = load i64, ptr %45, align 8, !tbaa !65
   %90 = add nsw i64 %89, %87
   store i64 %90, ptr %45, align 8, !tbaa !65
@@ -4940,7 +4934,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
   br i1 %.not81, label %122, label %168
 
 122:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !51
   %.not82 = icmp eq i32 %63, 0
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4949,7 +4943,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
 
 125:                                              ; preds = %122
   %126 = select i1 %or.cond7.not, i64 %61, i64 0
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not11.i98 = icmp samesign ult i64 %126, 128
   br i1 %.not11.i98, label %_ZL15fstWriterVarintP8_IO_FILEm.exit106, label %.lr.ph.i99
 
@@ -4976,11 +4970,11 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit106:          ; preds = %.lr.ph.i99, %125
   %sext.i105 = shl i64 %135, 32
   %136 = ashr exact i64 %sext.i105, 32
   %137 = call noundef i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef %136, i64 noundef 1, ptr noundef %124)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %143
 
 138:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.lr.ph.i107
 
 .lr.ph.i107:                                      ; preds = %.lr.ph.i107, %138
@@ -4999,7 +4993,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0912.i109.add
   store i8 15, ptr %.ptr, align 1, !tbaa !6
   %142 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 5, i64 noundef 1, ptr noundef %124)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %143
 
 143:                                              ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit114, %_ZL15fstWriterVarintP8_IO_FILEm.exit106
@@ -5049,7 +5043,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
   %166 = load i32, ptr %73, align 8, !tbaa !48
   %167 = add i32 %166, 1
   store i32 %167, ptr %73, align 8, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %168
 
 168:                                              ; preds = %6, %121, %.loopexit
@@ -5058,10 +5052,10 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit114:          ; preds = %.lr.ph.i107
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
+define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %5
 
@@ -5120,7 +5114,7 @@ define void @fstWriterSetScope(ptr noundef captures(address_is_null) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetUpscope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
+define void @fstWriterSetUpscope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -5139,7 +5133,7 @@ define void @fstWriterSetUpscope(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #14 {
+define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #13 {
   %6 = alloca [10 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %7
@@ -5202,7 +5196,7 @@ define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32
   %31 = add nsw i64 %29, 4
   store i64 %31, ptr %30, align 8, !tbaa !65
   %32 = load ptr, ptr %8, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not11.i = icmp ult i64 %4, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -5229,7 +5223,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %28
   %sext.i = shl i64 %41, 32
   %42 = ashr exact i64 %sext.i, 32
   %43 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef %42, i64 noundef 1, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = load i64, ptr %30, align 8, !tbaa !65
   %45 = add nsw i64 %44, %42
   store i64 %45, ptr %30, align 8, !tbaa !65
@@ -5240,7 +5234,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterSetAttrEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
+define void @fstWriterSetAttrEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -5261,7 +5255,7 @@ define void @fstWriterSetAttrEnd(ptr noundef captures(address_is_null) %0) local
 ; Function Attrs: mustprogress nounwind uwtable
 define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %8, %9
@@ -5426,12 +5420,12 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
 
 101:                                              ; preds = %.split.us, %6
   %.0113 = phi i32 [ %99, %.split.us ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5477,7 +5471,7 @@ define range(i32 -2147483647, -2147483648) i32 @fstUtilityBinToEscConvertedLen(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -5624,7 +5618,7 @@ define i32 @fstUtilityBinToEsc(ptr noundef %0, ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @fstWriterEmitEnumTableRef(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define void @fstWriterEmitEnumTableRef(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -5668,7 +5662,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %1, %16
   %20 = load ptr, ptr %0, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load i64, ptr %21, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %23
 
 23:                                               ; preds = %23, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit
@@ -5684,11 +5678,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit: ; preds = %1, %16
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %23
   %27 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 8, i64 noundef 1, ptr noundef %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %28 = load ptr, ptr %0, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %30 = load i64, ptr %29, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %31
 
 31:                                               ; preds = %31, %_ZL15fstWriterUint64P8_IO_FILEm.exit
@@ -5704,7 +5698,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:             ; preds = %23
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit41:           ; preds = %31
   %35 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 8, i64 noundef 1, ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = load ptr, ptr %0, align 8, !tbaa !26
   %37 = tail call i32 @fseeko(ptr noundef %36, i64 noundef 41, i32 noundef 0)
   %38 = icmp slt i32 %37, 0
@@ -5721,7 +5715,7 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit42: ; preds = %_ZL15fstW
   %43 = load ptr, ptr %0, align 8, !tbaa !26
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %45 = load i32, ptr %44, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %46
 
 46:                                               ; preds = %46, %_ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit42
@@ -5737,11 +5731,11 @@ _ZL15fstWriterFseekoP16fstWriterContextP8_IO_FILEli.exit42: ; preds = %_ZL15fstW
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit47:           ; preds = %46
   %50 = call noundef i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 8, i64 noundef 1, ptr noundef %43)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load ptr, ptr %0, align 8, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %53 = load i32, ptr %52, align 4, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %54
 
 54:                                               ; preds = %54, %_ZL15fstWriterUint64P8_IO_FILEm.exit47
@@ -5757,11 +5751,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit47:           ; preds = %46
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit52:           ; preds = %54
   %58 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 8, i64 noundef 1, ptr noundef %51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %59 = load ptr, ptr %0, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %61 = load i32, ptr %60, align 8, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %62
 
 62:                                               ; preds = %62, %_ZL15fstWriterUint64P8_IO_FILEm.exit52
@@ -5777,11 +5771,11 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit52:           ; preds = %54
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit57:           ; preds = %62
   %66 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef 8, i64 noundef 1, ptr noundef %59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = load ptr, ptr %0, align 8, !tbaa !26
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %69 = load i32, ptr %68, align 8, !tbaa !71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %70
 
 70:                                               ; preds = %70, %_ZL15fstWriterUint64P8_IO_FILEm.exit57
@@ -5797,7 +5791,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit57:           ; preds = %62
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit62:           ; preds = %70
   %74 = call noundef i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef 8, i64 noundef 1, ptr noundef %67)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %75 = load ptr, ptr %0, align 8, !tbaa !26
   %76 = tail call i32 @fseeko(ptr noundef %75, i64 noundef %9, i32 noundef 0)
   %77 = icmp slt i32 %76, 0
@@ -5892,7 +5886,7 @@ _ZL19fstWriterMmapSanityPvPKciS1_.exit65:         ; preds = %117, %112, %105, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define void @fstWriterEmitValueChange32(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5913,14 +5907,14 @@ define void @fstWriterEmitValueChange32(ptr noundef captures(address_is_null) %0
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   call void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @fstWriterEmitValueChange64(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5947,7 +5941,7 @@ define void @fstWriterEmitValueChange64(ptr noundef captures(address_is_null) %0
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   call void @fstWriterEmitValueChange(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -6366,7 +6360,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef nonnull captures(none) initializes((176, 184)) %0) unnamed_addr #12 {
+define internal fastcc void @_ZL26fstWriterEmitSectionHeaderPv(ptr noundef nonnull captures(none) initializes((176, 184)) %0) unnamed_addr #11 {
 _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %1 = alloca [10 x i8], align 1
   %2 = alloca [10 x i8], align 1
@@ -6377,7 +6371,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %7 = alloca [8 x i8], align 1
   %8 = alloca [8 x i8], align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !53
   %12 = zext i32 %11 to i64
@@ -6400,10 +6394,10 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %27 = or i8 %26, 16
   store i8 %27, ptr %25, align 1
   %28 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %29 = call noundef i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 8, i64 noundef 1, ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %30 = load ptr, ptr %0, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %32 = load i8, ptr %31, align 4
@@ -6413,7 +6407,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.in = select i1 %.not, ptr %35, ptr %34
   %36 = load i64, ptr %.in, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %37, %_ZL15fstWriterUint64P8_IO_FILEm.exit
@@ -6429,10 +6423,10 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit:
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit40:           ; preds = %37
   %41 = call noundef i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 8, i64 noundef 1, ptr noundef %30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %42 = load ptr, ptr %0, align 8, !tbaa !26
   %43 = load i64, ptr %35, align 8, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %44
 
 44:                                               ; preds = %44, %_ZL15fstWriterUint64P8_IO_FILEm.exit40
@@ -6448,16 +6442,16 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit40:           ; preds = %37
 
 _ZL15fstWriterUint64P8_IO_FILEm.exit45:           ; preds = %44
   %48 = call noundef i64 @fwrite(ptr noundef nonnull readonly %6, i64 noundef 8, i64 noundef 1, ptr noundef %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %50 = call noundef i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 8, i64 noundef 1, ptr noundef %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load ptr, ptr %0, align 8, !tbaa !26
   %52 = load i32, ptr %10, align 8, !tbaa !53
   %53 = zext i32 %52 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not11.i = icmp ult i32 %52, 128
   br i1 %.not11.i, label %_ZL15fstWriterVarintP8_IO_FILEm.exit, label %.lr.ph.i
 
@@ -6484,7 +6478,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
   %sext.i = shl i64 %62, 32
   %63 = ashr exact i64 %sext.i, 32
   %64 = call noundef i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef %63, i64 noundef 1, ptr noundef %51)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = icmp eq i32 %19, 0
   %.pre = load i32, ptr %10, align 8, !tbaa !53
   br i1 %65, label %66, label %_ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge
@@ -6501,7 +6495,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge:  ; preds = %_ZL15fstWriterVarin
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not11.i52 = icmp samesign ult i64 %67, 128
   br i1 %.not11.i52, label %_ZL15fstWriterVarintP8_IO_FILEm.exit60, label %.lr.ph.i53
 
@@ -6528,13 +6522,13 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit60:           ; preds = %.lr.ph.i53, %70
   %sext.i59 = shl i64 %80, 32
   %81 = ashr exact i64 %sext.i59, 32
   %82 = call noundef i64 @fwrite(ptr noundef nonnull readonly %3, i64 noundef %81, i64 noundef 1, ptr noundef %71)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 83:                                               ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge, %66
   %.pre-phi96 = phi i64 [ %.pre95, %_ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge ], [ %68, %66 ]
   %84 = load ptr, ptr %0, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not11.i61 = icmp ult i32 %.pre, 128
   br i1 %.not11.i61, label %_ZL15fstWriterVarintP8_IO_FILEm.exit69, label %.lr.ph.i62
 
@@ -6561,7 +6555,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit69:           ; preds = %.lr.ph.i62, %83
   %sext.i68 = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i68, 32
   %95 = call noundef i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef %94, i64 noundef 1, ptr noundef %84)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
 96:                                               ; preds = %_ZL15fstWriterVarintP8_IO_FILEm.exit69, %_ZL15fstWriterVarintP8_IO_FILEm.exit60
@@ -6569,7 +6563,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit69:           ; preds = %.lr.ph.i62, %83
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %99 = load i32, ptr %98, align 8, !tbaa !48
   %100 = zext i32 %99 to i64
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %1) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.not11.i70 = icmp ult i32 %99, 128
   br i1 %.not11.i70, label %_ZL15fstWriterVarintP8_IO_FILEm.exit78, label %.lr.ph.i71
 
@@ -6596,7 +6590,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit78:           ; preds = %.lr.ph.i71, %96
   %sext.i77 = shl i64 %109, 32
   %110 = ashr exact i64 %sext.i77, 32
   %111 = call noundef i64 @fwrite(ptr noundef nonnull readonly %1, i64 noundef %110, i64 noundef 1, ptr noundef %97)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %1) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %.pre93 = load i32, ptr %10, align 8, !tbaa !53
   br i1 %65, label %112, label %_ZL15fstWriterVarintP8_IO_FILEm.exit78._crit_edge
 
@@ -6624,12 +6618,12 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit78._crit_edge: ; preds = %_ZL15fstWriterVari
 
 123:                                              ; preds = %119, %116
   call void @free(ptr noundef %14) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
+define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -6670,7 +6664,7 @@ define void @fstWriterEmitDumpActive(ptr noundef captures(address_is_null) %0, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
+define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = tail call i32 @fseeko(ptr noundef %1, i64 noundef %2, i32 noundef %3)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -6687,10 +6681,10 @@ define noundef i32 @_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli(ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @fseeko(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -6707,7 +6701,7 @@ define ptr @fstReaderGetCurrentFlatScope(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6728,7 +6722,7 @@ define ptr @fstReaderGetCurrentScopeUserInfo(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
+define ptr @fstReaderPopScope(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -6849,7 +6843,7 @@ define void @fstReaderResetScope(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #25 {
+define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %4
 
@@ -6933,7 +6927,7 @@ define ptr @fstReaderPushScope(ptr noundef captures(address_is_null) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -6954,7 +6948,7 @@ define i32 @fstReaderGetCurrentScopeLen(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -6971,7 +6965,7 @@ define range(i32 0, 2) i32 @fstReaderGetFseekFailed(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -7001,7 +6995,7 @@ define range(i32 0, 2) i32 @fstReaderGetFacProcessMask(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
+define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -7031,7 +7025,7 @@ define void @fstReaderSetFacProcessMask(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #26 {
+define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #25 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3
 
@@ -7062,7 +7056,7 @@ define void @fstReaderClrFacProcessMask(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
+define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7082,7 +7076,7 @@ define void @fstReaderSetFacProcessMaskAll(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #27 {
+define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #26 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -7102,7 +7096,7 @@ define void @fstReaderClrFacProcessMaskAll(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7117,7 +7111,7 @@ define signext i8 @fstReaderGetTimescale(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7132,7 +7126,7 @@ define i64 @fstReaderGetStartTime(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7147,7 +7141,7 @@ define i64 @fstReaderGetEndTime(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7162,7 +7156,7 @@ define i64 @fstReaderGetMemoryUsedByWriter(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7177,7 +7171,7 @@ define i64 @fstReaderGetScopeCount(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7192,7 +7186,7 @@ define i64 @fstReaderGetVarCount(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7207,7 +7201,7 @@ define i32 @fstReaderGetMaxHandle(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7222,7 +7216,7 @@ define i64 @fstReaderGetAliasCount(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7237,7 +7231,7 @@ define i64 @fstReaderGetValueChangeSectionCount(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -7255,7 +7249,7 @@ define range(i32 0, 2) i32 @fstReaderGetDoubleEndianMatchState(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
+define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 123
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7263,7 +7257,7 @@ define ptr @fstReaderGetVersionString(ptr noundef readnone captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #28 {
+define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7271,7 +7265,7 @@ define ptr @fstReaderGetDateString(ptr noundef readnone captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7287,7 +7281,7 @@ define range(i32 0, 256) i32 @fstReaderGetFileType(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7302,7 +7296,7 @@ define i64 @fstReaderGetTimezero(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -7317,7 +7311,7 @@ define i32 @fstReaderGetNumberDumpActivityChanges(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
+define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7345,7 +7339,7 @@ define i64 @fstReaderGetDumpActivityChangeTime(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
+define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -7373,7 +7367,7 @@ define zeroext i8 @fstReaderGetDumpActivityChangeValue(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetLimitTimeRange(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
+define void @fstReaderSetLimitTimeRange(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 
@@ -7393,7 +7387,7 @@ define void @fstReaderSetLimitTimeRange(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetUnlimitedTimeRange(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define void @fstReaderSetUnlimitedTimeRange(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -7409,7 +7403,7 @@ define void @fstReaderSetUnlimitedTimeRange(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderSetVcdExtensions(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @fstReaderSetVcdExtensions(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -7428,7 +7422,7 @@ define void @fstReaderSetVcdExtensions(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @fstReaderIterBlocksSetNativeDoublesOnCallback(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @fstReaderIterBlocksSetNativeDoublesOnCallback(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -7447,7 +7441,7 @@ define void @fstReaderIterBlocksSetNativeDoublesOnCallback(ptr noundef captures(
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterateHierRewind(ptr noundef %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @fstReaderIterateHierRewind(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -7475,7 +7469,7 @@ define range(i32 0, 2) i32 @fstReaderIterateHierRewind(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFileP16fstReaderContext(ptr noundef nonnull %0) unnamed_addr #11 {
   %2 = alloca [8 x i8], align 1
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -7533,7 +7527,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL25fstReaderRecreateHierFi
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %24, %32
   %36 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %36)
   br label %38
 
@@ -7550,7 +7544,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %24, %32
   br i1 %exitcond.not.i, label %_ZL15fstReaderUint64P8_IO_FILE.exit, label %38, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = load ptr, ptr %0, align 8, !tbaa !156
   %45 = tail call i32 @fflush(ptr noundef %44)
   %46 = icmp eq i32 %.0131, 4
@@ -7572,7 +7566,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %38
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit153: ; preds = %47, %52
   %56 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %56)
   br label %58
 
@@ -7589,7 +7583,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit153: ; preds = %47, %52
   br i1 %exitcond.not.i157, label %_ZL15fstReaderUint64P8_IO_FILE.exit158, label %58, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit158:           ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = load ptr, ptr %0, align 8, !tbaa !156
   %65 = tail call i32 @fflush(ptr noundef %64)
   %66 = load ptr, ptr %0, align 8, !tbaa !156
@@ -7627,7 +7621,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit158:           ; preds = %58
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit159: ; preds = %74, %80
   %84 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = call noundef i64 @fread(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %84)
   br label %86
 
@@ -7644,9 +7638,9 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit159: ; preds = %74, %80
   br i1 %exitcond.not.i163, label %_ZL15fstReaderUint64P8_IO_FILE.exit164, label %86, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit164:           ; preds = %86
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %93 = call noundef i64 @fread(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 1, ptr noundef %92)
   br label %94
 
@@ -7664,7 +7658,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit164:           ; preds = %86
 
 _ZL15fstReaderUint64P8_IO_FILE.exit169:           ; preds = %94
   %100 = add i64 %91, -16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %101 = load ptr, ptr %0, align 8, !tbaa !156
   %102 = tail call i32 @fflush(ptr noundef %101)
   br label %103
@@ -7853,7 +7847,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader199
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @fstReaderIterateHier(ptr noundef %0) local_unnamed_addr #12 {
+define ptr @fstReaderIterateHier(ptr noundef %0) local_unnamed_addr #11 {
   %2 = alloca [5 x i8], align 1
   %3 = alloca [5 x i8], align 1
   %.not = icmp eq ptr %0, null
@@ -8198,7 +8192,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store i32 %.6.lcssa, ptr %153, align 8, !tbaa !6
   %154 = load ptr, ptr %5, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %155
 
 155:                                              ; preds = %155, %._crit_edge
@@ -8235,7 +8229,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
   br i1 %167, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !171
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %170 = icmp eq i32 %28, 18
   br i1 %170, label %171, label %174
@@ -8249,7 +8243,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   %storemerge = phi i32 [ %173, %171 ], [ %166, %_ZL17fstReaderVarint32P8_IO_FILE.exit ]
   store i32 %storemerge, ptr %169, align 8, !tbaa !6
   %175 = load ptr, ptr %5, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %176
 
 176:                                              ; preds = %176, %174
@@ -8286,7 +8280,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %188, label %_ZL17fstReaderVarint32P8_IO_FILE.exit136, label %.preheader.i133, !llvm.loop !171
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit136:         ; preds = %.preheader.i133
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not117 = icmp eq i32 %187, 0
   br i1 %.not117, label %190, label %198
 
@@ -8322,18 +8316,18 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit136:         ; preds = %.preheader.i133
 }
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #10
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #14 {
+define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #13 {
   %2 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -8370,12 +8364,12 @@ define internal fastcc noundef i64 @_ZL17fstReaderVarint64P8_IO_FILE(ptr noundef
   br i1 %15, label %17, label %.preheader, !llvm.loop !173
 
 17:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca [5 x i8], align 1
   %5 = alloca [16 x i8], align 16
@@ -8404,7 +8398,7 @@ define range(i32 0, 2) i32 @fstReaderProcessHier(ptr noundef %0, ptr noundef cap
   br i1 %.not248, label %34, label %17
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 0, ptr %6, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, ptr noundef nonnull %18) #39
@@ -8440,7 +8434,7 @@ switch.lookup:                                    ; preds = %26
   %.8 = phi i32 [ %switch.load337, %switch.lookup ], [ 1, %26 ]
   store i8 %.sink, ptr %6, align 2, !tbaa !6
   %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, i32 noundef %.8, ptr noundef nonnull %6) #39
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 34:                                               ; preds = %32, %15
@@ -8634,7 +8628,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %34, %46
 
 106:                                              ; preds = %105, %._crit_edge307
   %107 = load ptr, ptr %11, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %108
 
 108:                                              ; preds = %108, %106
@@ -8671,7 +8665,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %34, %46
   br i1 %120, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not248, label %292, label %122
 
 122:                                              ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit
@@ -8805,7 +8799,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
   %181 = getelementptr inbounds i8, ptr %16, i64 %.4219.lcssa
   store i8 0, ptr %181, align 1, !tbaa !6
   %182 = load ptr, ptr %11, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %183
 
 183:                                              ; preds = %183, %._crit_edge
@@ -8842,9 +8836,9 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
   br i1 %195, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i274, !llvm.loop !171
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i274
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %197 = load ptr, ptr %11, align 8, !tbaa !155
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %198
 
 198:                                              ; preds = %198, %_ZL17fstReaderVarint32P8_IO_FILE.exit
@@ -8881,7 +8875,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i274
   br i1 %210, label %_ZL17fstReaderVarint32P8_IO_FILE.exit286, label %.preheader.i283, !llvm.loop !171
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit286:         ; preds = %.preheader.i283
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not253 = icmp eq i32 %209, 0
   br i1 %.not253, label %212, label %265
 
@@ -8951,7 +8945,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit286:         ; preds = %.preheader.i283
   br i1 %.not248, label %262, label %244
 
 244:                                              ; preds = %243
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not255 = icmp eq i32 %55, 18
   br i1 %.not255, label %245, label %248
 
@@ -8987,7 +8981,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i, %248
   %259 = getelementptr inbounds [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !28
   %261 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %260, i32 noundef %249, ptr noundef nonnull %7, ptr noundef nonnull %16) #39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %262
 
 262:                                              ; preds = %_ZL8fstVcdIDPcj.exit, %243
@@ -9019,7 +9013,7 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i, %248
   br i1 %.not248, label %289, label %273
 
 273:                                              ; preds = %272
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not257 = icmp eq i32 %55, 18
   br i1 %.not257, label %274, label %277
 
@@ -9051,7 +9045,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
   %286 = getelementptr inbounds [30 x ptr], ptr @_ZL8vartypes, i64 0, i64 %285
   %287 = load ptr, ptr %286, align 8, !tbaa !28
   %288 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.31, ptr noundef %287, i32 noundef %278, ptr noundef nonnull %8, ptr noundef nonnull %16) #39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %289
 
 289:                                              ; preds = %_ZL8fstVcdIDPcj.exit294, %272
@@ -9116,7 +9110,7 @@ _ZL8fstVcdIDPcj.exit294:                          ; preds = %.lr.ph.i289
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr noundef %0) local_unnamed_addr #12 {
+define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr noundef %0) local_unnamed_addr #11 {
   %2 = alloca [16 x i8], align 16
   %3 = alloca [5 x i8], align 1
   %4 = alloca [8 x i8], align 1
@@ -9145,11 +9139,11 @@ define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr nou
   br i1 %25, label %26, label %.thread384
 
 26:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %19) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %28 = load ptr, ptr %27, align 8, !tbaa !157
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %30 = call noundef i64 @fread(ptr noundef nonnull %18, i64 noundef 8, i64 noundef 1, ptr noundef %.pre)
   br label %31
 
@@ -9166,9 +9160,9 @@ define noundef range(i32 0, 2) i32 @_Z13fstReaderInitP16fstReaderContext(ptr nou
   br i1 %exitcond.not.i, label %_ZL15fstReaderUint64P8_IO_FILE.exit, label %31, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %37 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %38 = call noundef i64 @fread(ptr noundef nonnull %17, i64 noundef 8, i64 noundef 1, ptr noundef %37)
   br label %39
 
@@ -9185,7 +9179,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %31
   br i1 %exitcond.not.i291, label %_ZL15fstReaderUint64P8_IO_FILE.exit292, label %39, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit292:           ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not = icmp eq i64 %36, 0
   br i1 %.not, label %.critedge, label %45
 
@@ -9272,7 +9266,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
   %85 = load ptr, ptr %0, align 8, !tbaa !156
   %86 = call i32 @fclose(ptr noundef %85)
   store ptr %.0379, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread397
 
 .thread384.critedge:                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit
@@ -9288,7 +9282,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %.thread, %62
   %90 = load ptr, ptr %0, align 8, !tbaa !156
   %91 = call i32 @fclose(ptr noundef %90)
   store ptr %.0379, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread384
 
 .thread384:                                       ; preds = %.thread384.sink.split, %1
@@ -9360,7 +9354,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit294: ; preds = %130, %134
   %137 = load ptr, ptr %0, align 8, !tbaa !156
   %138 = call i32 @fgetc(ptr noundef %137)
   %139 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %140 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %139)
   br label %141
 
@@ -9377,7 +9371,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit294: ; preds = %130, %134
   br i1 %exitcond.not.i298, label %_ZL15fstReaderUint64P8_IO_FILE.exit299, label %141, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit299:           ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %147 = icmp eq i32 %138, -1
   br i1 %147, label %437, label %148
 
@@ -9410,9 +9404,9 @@ _ZL15fstReaderUint64P8_IO_FILE.exit299:           ; preds = %141
   br i1 %128, label %156, label %.loopexit
 
 156:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %157 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %158 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %157)
   br label %159
 
@@ -9429,10 +9423,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit299:           ; preds = %141
   br i1 %exitcond.not.i303, label %_ZL15fstReaderUint64P8_IO_FILE.exit304, label %159, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit304:           ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i64 %164, ptr %114, align 8, !tbaa !141
   %165 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %166 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %165)
   br label %167
 
@@ -9449,7 +9443,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit304:           ; preds = %159
   br i1 %exitcond.not.i308, label %_ZL15fstReaderUint64P8_IO_FILE.exit309, label %167, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit309:           ; preds = %167
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store i64 %172, ptr %113, align 8, !tbaa !142
   %173 = load i64, ptr %114, align 8, !tbaa !141
   %174 = icmp eq i64 %173, 0
@@ -9468,7 +9462,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit309:           ; preds = %167
   br i1 %180, label %185, label %194
 
 185:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit309
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br label %186
 
 186:                                              ; preds = %185, %186
@@ -9485,12 +9479,12 @@ _ZL15fstReaderUint64P8_IO_FILE.exit309:           ; preds = %167
 191:                                              ; preds = %186
   %192 = load double, ptr %21, align 8, !tbaa !6
   %193 = fcmp oeq double %192, 0x4005BF0A8B145769
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %193, label %194, label %257
 
 194:                                              ; preds = %191, %_ZL15fstReaderUint64P8_IO_FILE.exit309
   %195 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %196 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %195)
   br label %197
 
@@ -9507,10 +9501,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit309:           ; preds = %167
   br i1 %exitcond.not.i313, label %_ZL15fstReaderUint64P8_IO_FILE.exit314, label %197, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit314:           ; preds = %197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i64 %202, ptr %115, align 8, !tbaa !143
   %203 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %204 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %203)
   br label %205
 
@@ -9527,10 +9521,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit314:           ; preds = %197
   br i1 %exitcond.not.i318, label %_ZL15fstReaderUint64P8_IO_FILE.exit319, label %205, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit319:           ; preds = %205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i64 %210, ptr %116, align 8, !tbaa !144
   %211 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %212 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %211)
   br label %213
 
@@ -9547,10 +9541,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit319:           ; preds = %205
   br i1 %exitcond.not.i323, label %_ZL15fstReaderUint64P8_IO_FILE.exit324, label %213, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit324:           ; preds = %213
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i64 %218, ptr %117, align 8, !tbaa !145
   %219 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %220 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %219)
   br label %221
 
@@ -9567,7 +9561,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit324:           ; preds = %213
   br i1 %exitcond.not.i328, label %_ZL15fstReaderUint64P8_IO_FILE.exit329, label %221, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit329:           ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %227 = trunc i64 %226 to i32
   store i32 %227, ptr %107, align 8, !tbaa !138
   %228 = load i64, ptr %117, align 8, !tbaa !145
@@ -9575,7 +9569,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit329:           ; preds = %221
   %230 = sub i64 %228, %229
   store i64 %230, ptr %118, align 8, !tbaa !146
   %231 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %232 = call noundef i64 @fread(ptr noundef nonnull %9, i64 noundef 8, i64 noundef 1, ptr noundef %231)
   br label %233
 
@@ -9592,7 +9586,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit329:           ; preds = %221
   br i1 %exitcond.not.i333, label %_ZL15fstReaderUint64P8_IO_FILE.exit334, label %233, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit334:           ; preds = %233
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i64 %238, ptr %119, align 8, !tbaa !147
   %239 = load ptr, ptr %0, align 8, !tbaa !156
   %240 = call i32 @fgetc(ptr noundef %239)
@@ -9609,7 +9603,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit334:           ; preds = %233
   %248 = trunc i32 %247 to i8
   store i8 %248, ptr %125, align 1, !tbaa !148
   %249 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %250 = call noundef i64 @fread(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef %249)
   br label %251
 
@@ -9626,13 +9620,13 @@ _ZL15fstReaderUint64P8_IO_FILE.exit334:           ; preds = %233
   br i1 %exitcond.not.i338, label %.thread387, label %251, !llvm.loop !159
 
 .thread387:                                       ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 %256, ptr %126, align 8, !tbaa !149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 257:                                              ; preds = %191
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread397
 
 258:                                              ; preds = %153, %153, %153
@@ -9640,7 +9634,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit334:           ; preds = %233
 
 259:                                              ; preds = %258
   %260 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %261 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %260)
   br label %262
 
@@ -9657,9 +9651,9 @@ _ZL15fstReaderUint64P8_IO_FILE.exit334:           ; preds = %233
   br i1 %exitcond.not.i343, label %_ZL15fstReaderUint64P8_IO_FILE.exit344, label %262, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit344:           ; preds = %262
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %268 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %269 = call noundef i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef %268)
   br label %270
 
@@ -9676,7 +9670,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit344:           ; preds = %262
   br i1 %exitcond.not.i348, label %_ZL15fstReaderUint64P8_IO_FILE.exit349, label %270, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit349:           ; preds = %270
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %275, ptr %113, align 8, !tbaa !142
   %.not278 = icmp eq i64 %.0235, 0
   br i1 %.not278, label %276, label %277
@@ -9694,7 +9688,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit349:           ; preds = %270
 
 280:                                              ; preds = %279
   %281 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %282 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %281)
   br label %283
 
@@ -9711,13 +9705,13 @@ _ZL15fstReaderUint64P8_IO_FILE.exit349:           ; preds = %270
   br i1 %exitcond.not.i353, label %_ZL15fstReaderUint64P8_IO_FILE.exit354, label %283, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit354:           ; preds = %283
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %289 = call noalias ptr @malloc(i64 noundef %288) #41
   %290 = load i8, ptr %105, align 2
   %291 = or i8 %290, 8
   store i8 %291, ptr %105, align 2
   %292 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %293 = call noundef i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %292)
   br label %294
 
@@ -9735,7 +9729,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit354:           ; preds = %283
 
 _ZL15fstReaderUint64P8_IO_FILE.exit359:           ; preds = %294
   %300 = add i64 %146, -24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %299, ptr %107, align 8, !tbaa !138
   store i32 32, ptr %108, align 8, !tbaa !174
   %301 = load ptr, ptr %109, align 8, !tbaa !139
@@ -9751,7 +9745,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit359:           ; preds = %294
 
 307:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit359
   %308 = call noalias ptr @malloc(i64 noundef %300) #41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 %288, ptr %22, align 8, !tbaa !56
   %309 = load ptr, ptr %0, align 8, !tbaa !156
   %310 = call noundef i64 @fread(ptr noundef %308, i64 noundef %300, i64 noundef 1, ptr noundef %309)
@@ -9767,7 +9761,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit359:           ; preds = %294
 
 315:                                              ; preds = %307
   call void @free(ptr noundef %308) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %319
 
 316:                                              ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit359
@@ -9903,7 +9897,7 @@ _ZL14fstGetVarint32PhPi.exit:                     ; preds = %.preheader538
 
 385:                                              ; preds = %153
   %386 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %387
 
 387:                                              ; preds = %387, %385
@@ -9940,7 +9934,7 @@ _ZL14fstGetVarint32PhPi.exit:                     ; preds = %.preheader538
   br i1 %399, label %_ZL17fstReaderVarint32P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !171
 
 _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %398, ptr %102, align 8, !tbaa !150
   %401 = load ptr, ptr %103, align 8, !tbaa !151
   call void @free(ptr noundef %401) #39
@@ -9968,7 +9962,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 %indvars.iv
   store i8 %412, ptr %414, align 1, !tbaa !6
   %415 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %416
 
 416:                                              ; preds = %416, %.lr.ph438
@@ -10005,7 +9999,7 @@ _ZL17fstReaderVarint32P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %428, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i370, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i370
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %430 = add i64 %427, %.0232437
   %431 = load ptr, ptr %103, align 8, !tbaa !151
   %432 = getelementptr inbounds nuw i64, ptr %431, i64 %indvars.iv
@@ -10047,7 +10041,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i370
   br label %.thread397
 
 .critedge:                                        ; preds = %53, %_ZL15fstReaderUint64P8_IO_FILE.exit292
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread397
 
 .thread397:                                       ; preds = %.loopexit, %151, %.thread380, %257, %441, %444, %437, %.critedge
@@ -10056,9 +10050,9 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i370
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i64 @_ZL15fstReaderUint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #14 {
+define internal fastcc noundef i64 @_ZL15fstReaderUint64P8_IO_FILE(ptr noundef captures(none) %0) unnamed_addr #13 {
   %2 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call noundef i64 @fread(ptr noundef nonnull %2, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   br label %4
 
@@ -10075,25 +10069,25 @@ define internal fastcc noundef i64 @_ZL15fstReaderUint64P8_IO_FILE(ptr noundef c
   br i1 %exitcond.not, label %10, label %4, !llvm.loop !159
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %9
 }
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #15
+declare i32 @getpid() local_unnamed_addr #14
 
-declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @gzread(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
-declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @fstReaderOpenForUtilitiesOnly() local_unnamed_addr #29 {
+define noalias noundef ptr @fstReaderOpenForUtilitiesOnly() local_unnamed_addr #28 {
   %1 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #38
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @fstReaderOpen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
+define noundef ptr @fstReaderOpen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
   %2 = tail call noalias dereferenceable_or_null(67264) ptr @calloc(i64 noundef 1, i64 noundef 67264) #38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
@@ -10314,13 +10308,13 @@ _ZL13tmpfile_closePP8_IO_FILEPPc.exit40:          ; preds = %50, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @fstReaderIterBlocks(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #11 {
   %5 = tail call i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @fstReaderIterBlocks2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #11 {
   %6 = alloca [5 x i8], align 1
   %7 = alloca [8 x i8], align 1
   %8 = alloca [16 x i8], align 16
@@ -10434,7 +10428,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %70, %74
   %77 = load ptr, ptr %0, align 8, !tbaa !156
   %78 = call i32 @fgetc(ptr noundef %77)
   %79 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %80 = call noundef i64 @fread(ptr noundef nonnull %18, i64 noundef 8, i64 noundef 1, ptr noundef %79)
   br label %81
 
@@ -10451,7 +10445,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %70, %74
   br i1 %exitcond.not.i, label %_ZL15fstReaderUint64P8_IO_FILE.exit, label %81, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   switch i32 %78, label %87 [
     i32 -1, label %.thread1365.thread
     i32 255, label %.thread1365.thread
@@ -10475,7 +10469,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %81
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %94 = call noundef i64 @fread(ptr noundef nonnull %17, i64 noundef 8, i64 noundef 1, ptr noundef %93)
   br label %95
 
@@ -10492,9 +10486,9 @@ _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %81
   br i1 %exitcond.not.i1104, label %_ZL15fstReaderUint64P8_IO_FILE.exit1105, label %95, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1105:          ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %101 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %102 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %101)
   br label %103
 
@@ -10511,7 +10505,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1105:          ; preds = %95
   br i1 %exitcond.not.i1109, label %_ZL15fstReaderUint64P8_IO_FILE.exit1110, label %103, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1110:          ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %109 = load i8, ptr %49, align 2
   %.not1023 = icmp sgt i8 %109, -1
   br i1 %.not1023, label %.loopexit1945, label %110
@@ -10533,7 +10527,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1110:          ; preds = %103
 
 .loopexit1945:                                    ; preds = %_ZL15fstReaderUint64P8_IO_FILE.exit1110, %116
   %119 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %120 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %119)
   br label %121
 
@@ -10550,10 +10544,10 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1110:          ; preds = %103
   br i1 %exitcond.not.i1114, label %_ZL15fstReaderUint64P8_IO_FILE.exit1115, label %121, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1115:          ; preds = %121
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %127 = add i64 %126, 66
   %128 = call noalias ptr @malloc(i64 noundef %127) #41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %129 = load ptr, ptr %0, align 8, !tbaa !156
   %130 = add i64 %86, %88
   %131 = add i64 %130, -24
@@ -10573,7 +10567,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1116: ; preds = %_ZL15fst
 
 136:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1116
   %137 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %138 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %137)
   br label %139
 
@@ -10590,9 +10584,9 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1116: ; preds = %_ZL15fst
   br i1 %exitcond.not.i1120, label %_ZL15fstReaderUint64P8_IO_FILE.exit1121, label %139, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1121:          ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %145 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %146 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %145)
   br label %147
 
@@ -10609,9 +10603,9 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1121:          ; preds = %139
   br i1 %exitcond.not.i1125, label %_ZL15fstReaderUint64P8_IO_FILE.exit1126, label %147, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1126:          ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %153 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %154 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %153)
   br label %155
 
@@ -10628,7 +10622,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit1126:          ; preds = %147
   br i1 %exitcond.not.i1130, label %_ZL15fstReaderUint64P8_IO_FILE.exit1131, label %155, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1131:          ; preds = %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %161 = icmp ugt i64 %152, %86
   br i1 %161, label %.thread1365, label %162
 
@@ -10739,7 +10733,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader2415
   %211 = trunc nuw i64 %210 to i32
   %212 = call noalias ptr @calloc(i64 noundef %210, i64 noundef 4) #38
   call void @free(ptr noundef %163) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %213 = load ptr, ptr %0, align 8, !tbaa !156
   %214 = add nsw i64 %.0867, 33
   %215 = call i32 @fseeko(ptr noundef %213, i64 noundef %214, i32 noundef 0)
@@ -10754,7 +10748,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader2415
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1133: ; preds = %._crit_edge, %217
   %220 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %221
 
 221:                                              ; preds = %221, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1133
@@ -10791,9 +10785,9 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1133: ; preds = %._crit_e
   br i1 %233, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %235 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %236
 
 236:                                              ; preds = %236, %_ZL17fstReaderVarint64P8_IO_FILE.exit
@@ -10830,9 +10824,9 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %248, label %_ZL17fstReaderVarint64P8_IO_FILE.exit1147, label %.preheader.i1144, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit1147:        ; preds = %.preheader.i1144
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %250 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %251
 
 251:                                              ; preds = %251, %_ZL17fstReaderVarint64P8_IO_FILE.exit1147
@@ -10869,7 +10863,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1147:        ; preds = %.preheader.i1144
   br i1 %263, label %_ZL17fstReaderVarint64P8_IO_FILE.exit1157, label %.preheader.i1154, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %265 = icmp eq i32 %.0862.ph, 0
   br i1 %265, label %266, label %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1171
 
@@ -10885,7 +10879,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
   br i1 %.not1021, label %295, label %272
 
 272:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %.not1030 = icmp eq i64 %100, 0
   br i1 %.not1030, label %279, label %273
 
@@ -10939,7 +10933,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
 
 294:                                              ; preds = %281, %287, %279
   %.4928 = phi i32 [ %289, %287 ], [ %.0924.ph, %281 ], [ %.0924.ph, %279 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %295
 
 295:                                              ; preds = %294, %270
@@ -10955,7 +10949,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
 
 300:                                              ; preds = %295
   %301 = call noalias ptr @malloc(i64 noundef %247) #41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 %232, ptr %21, align 8, !tbaa !56
   %302 = load ptr, ptr %0, align 8, !tbaa !156
   %303 = call noundef i64 @fread(ptr noundef %301, i64 noundef %247, i64 noundef 1, ptr noundef %302)
@@ -10971,7 +10965,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
 
 308:                                              ; preds = %300
   call void @free(ptr noundef %301) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %309
 
 309:                                              ; preds = %308, %297
@@ -11026,7 +11020,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1157:        ; preds = %.preheader.i1154
   br i1 %.not1021, label %465, label %338
 
 338:                                              ; preds = %337
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %339 = add i32 %.08831619, 1
   %.not.i1158 = icmp eq i32 %339, 0
   br i1 %.not.i1158, label %_ZL17fstVcdIDForFwritePcj.exit, label %.lr.ph.i
@@ -11057,7 +11051,7 @@ _ZL17fstVcdIDForFwritePcj.exit:                   ; preds = %.lr.ph.i, %338
   store i8 10, ptr %352, align 1, !tbaa !6
   %353 = add nuw nsw i32 %.0.lcssa.i, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %353)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %465
 
 354:                                              ; preds = %320
@@ -11101,7 +11095,7 @@ _ZL17fstVcdIDForFwritePcj.exit:                   ; preds = %.lr.ph.i, %338
   br i1 %.not1021, label %465, label %377
 
 377:                                              ; preds = %376
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %378 = add i32 %.08831619, 1
   %.not.i1160 = icmp eq i32 %378, 0
   br i1 %.not.i1160, label %_ZL17fstVcdIDForFwritePcj.exit1166, label %.lr.ph.i1161
@@ -11170,11 +11164,11 @@ _ZL9fstWritexP16fstReaderContextPvj.exit:         ; preds = %_ZL17fstVcdIDForFwr
   store i8 10, ptr %414, align 1, !tbaa !6
   %415 = add nuw nsw i32 %.0.lcssa.i1165, 2
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %23, i32 noundef %415)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %465
 
 416:                                              ; preds = %354
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %417 = zext i32 %.09681618 to i64
   %418 = getelementptr inbounds nuw i8, ptr %271, i64 %417
   br i1 %.not1091, label %445, label %419
@@ -11247,8 +11241,8 @@ _ZL9fstWritexP16fstReaderContextPvj.exit:         ; preds = %_ZL17fstVcdIDForFwr
   br i1 %.not1021, label %464, label %446
 
 446:                                              ; preds = %445
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #39
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %447 = load i8, ptr %49, align 2
   %448 = and i8 %447, 2
   %.not1087 = icmp eq i8 %448, 0
@@ -11294,12 +11288,12 @@ _ZL8fstVcdIDPcj.exit:                             ; preds = %.lr.ph.i1167, %.loo
   %462 = load double, ptr %24, align 8, !tbaa !36
   %463 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %26, i64 noundef 64, ptr noundef nonnull @.str.48, double noundef %462, ptr noundef nonnull %25) #39
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %26, i32 noundef %463)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %464
 
 464:                                              ; preds = %445, %_ZL8fstVcdIDPcj.exit, %.loopexit1410, %.loopexit1408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %465
 
 465:                                              ; preds = %331, %_ZL17fstVcdIDForFwritePcj.exit, %337, %325, %363, %409, %376, %464, %.lr.ph
@@ -11342,7 +11336,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1171: ; preds = %477, %._
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1172: ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1171, %483
   %486 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %487
 
 487:                                              ; preds = %487, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1172
@@ -11379,7 +11373,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1172: ; preds = %_Z15fstR
   br i1 %499, label %_ZL17fstReaderVarint64P8_IO_FILE.exit1182, label %.preheader.i1179, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit1182:        ; preds = %.preheader.i1179
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %501 = load ptr, ptr %0, align 8, !tbaa !156
   %502 = call i64 @ftello(ptr noundef %501)
   %503 = load ptr, ptr %0, align 8, !tbaa !156
@@ -11399,7 +11393,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit1182:        ; preds = %.preheader.i1179
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1183: ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit1182, %510
   %513 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %514 = call noundef i64 @fread(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %513)
   br label %515
 
@@ -11416,7 +11410,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1183: ; preds = %_ZL17fst
   br i1 %exitcond.not.i1187, label %_ZL15fstReaderUint64P8_IO_FILE.exit1188, label %515, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit1188:          ; preds = %515
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %521 = sub nsw i64 %506, %520
   %522 = call noalias ptr @malloc(i64 noundef %520) #41
   %.not1036 = icmp eq ptr %522, null
@@ -11895,7 +11889,7 @@ _ZL14fstGetVarint32PhPi.exit1209:                 ; preds = %.preheader2413
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1210: ; preds = %713, %718
   %721 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %722
 
 722:                                              ; preds = %722, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1210
@@ -11935,14 +11929,14 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2187
   %736 = ptrtoint ptr %725 to i64
   %.neg = sub i64 %65, %736
   %.neg1387 = trunc i64 %.neg to i32
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not1078 = icmp eq i32 %733, 0
   %737 = zext i32 %699 to i64
   br i1 %.not1078, label %764, label %738
 
 738:                                              ; preds = %_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit
   %739 = getelementptr inbounds nuw i8, ptr %128, i64 %737
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %740 = zext i32 %733 to i64
   store i64 %740, ptr %27, align 8, !tbaa !56
   %741 = getelementptr inbounds nuw i32, ptr %.3879, i64 %indvars.iv1905
@@ -11986,7 +11980,7 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2187
   br i1 %759, label %.thread1333, label %.thread1337
 
 .thread1337:                                      ; preds = %754
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.loopexit1413
 
 760:                                              ; preds = %751
@@ -12022,7 +12016,7 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2187
   store i32 %699, ptr %775, align 4, !tbaa !51
   %776 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv1905
   store i32 %733, ptr %776, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %783
 
 777:                                              ; preds = %751
@@ -12031,7 +12025,7 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %.preheader2187
   store i32 %699, ptr %779, align 4, !tbaa !51
   %780 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv1905
   store i32 %733, ptr %780, align 4, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %.not1081 = icmp eq i32 %778, 0
   br i1 %.not1081, label %783, label %.loopexit1413
 
@@ -12145,7 +12139,7 @@ _ZL20fstGetVarint32NoSkipPh.exit1227:             ; preds = %.preheader.i1224
   br i1 %.not1021, label %876, label %823
 
 823:                                              ; preds = %.lr.ph1668
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %824 = getelementptr inbounds nuw i64, ptr %187, i64 %822
   %825 = load i64, ptr %824, align 8, !tbaa !56
   %.not1047 = icmp eq i64 %825, %.31666
@@ -12251,7 +12245,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1229:     ; preds = %848, %852
   %.10954.ph = phi i32 [ %.79511663, %823 ], [ %.12, %863 ], [ %.12, %869 ], [ %.12, %861 ]
   %.9933.ph = phi i32 [ %.69301664, %823 ], [ %.69301664, %863 ], [ %871, %869 ], [ %.69301664, %861 ]
   %.6.ph = phi i64 [ %.31666, %823 ], [ %825, %863 ], [ %825, %869 ], [ %825, %861 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %876
 
 876:                                              ; preds = %.thread1343, %.lr.ph1668
@@ -12346,7 +12340,7 @@ _ZL14fstGetVarint32PhPi.exit1234:                 ; preds = %.preheader2412
   br i1 %.not1021, label %941, label %926
 
 926:                                              ; preds = %925
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br label %.lr.ph.i1236
 
 .lr.ph.i1236:                                     ; preds = %926, %.lr.ph.i1236
@@ -12374,7 +12368,7 @@ _ZL17fstVcdIDForFwritePcj.exit1241:               ; preds = %.lr.ph.i1236
   store i8 10, ptr %939, align 1, !tbaa !6
   %940 = add nuw nsw i32 %.012.i1237, 3
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %29, i32 noundef %940)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %941
 
 941:                                              ; preds = %925, %_ZL17fstVcdIDForFwritePcj.exit1241, %919
@@ -12503,7 +12497,7 @@ _ZL14fstGetVarint32PhPi.exit1257:                 ; preds = %.preheader2409
   br i1 %.not1021, label %1035, label %1003
 
 1003:                                             ; preds = %1002
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %1004 = load i32, ptr %61, align 4, !tbaa !200
   %1005 = add i32 %1004, 1
   %1006 = icmp ult i32 %1005, 65536
@@ -12558,7 +12552,7 @@ _ZL17fstVcdIDForFwritePcj.exit1265:               ; preds = %.lr.ph.i1260
   store i8 10, ptr %1033, align 1, !tbaa !6
   %1034 = add nuw nsw i32 %.012.i1261, 3
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %30, i32 noundef %1034)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %1035
 
 1035:                                             ; preds = %1000, %_ZL17fstVcdIDForFwritePcj.exit1265, %1002, %_ZL14fstGetVarint32PhPi.exit1257
@@ -12790,8 +12784,8 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1134, %1142
   br label %1206
 
 1153:                                             ; preds = %_ZL14fstGetVarint32PhPi.exit1276
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %1154 = and i32 %1068, 1
   %.not1055 = icmp eq i32 %1154, 0
   br i1 %.not1055, label %.preheader1395, label %.loopexit1396
@@ -12888,7 +12882,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1134, %1142
   br i1 %.not1021, label %1204, label %1192
 
 1192:                                             ; preds = %1191
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %1193 = load i8, ptr %49, align 2
   %1194 = and i8 %1193, 2
   %.not1057 = icmp eq i8 %1194, 0
@@ -12920,12 +12914,12 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1134, %1142
   %1203 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %1202) #39
   %spec.store.select = call i32 @llvm.umin.i32(i32 %1203, i32 32)
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %spec.store.select)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %1204
 
 1204:                                             ; preds = %1191, %.loopexit, %.loopexit1394, %.loopexit1392
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %1205
 
 1205:                                             ; preds = %1123, %1126, %1204
@@ -12934,7 +12928,7 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1278:     ; preds = %1134, %1142
 
 1206:                                             ; preds = %.thread1352, %1205
   %.08741354 = phi i32 [ %902, %.thread1352 ], [ %.0874, %1205 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br label %.lr.ph.i1280
 
 .lr.ph.i1280:                                     ; preds = %1206, %.lr.ph.i1280
@@ -12962,7 +12956,7 @@ _ZL17fstVcdIDForFwritePcj.exit1285:               ; preds = %.lr.ph.i1280
   store i8 10, ptr %1219, align 1, !tbaa !6
   %1220 = add nuw nsw i32 %.012.i1281, 3
   call fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef %0, ptr noundef nonnull %34, i32 noundef %1220)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %.thread1349
 
 .thread1349:                                      ; preds = %1133, %_ZL17fstVcdIDForFwritePcj.exit1285, %1205
@@ -13034,7 +13028,7 @@ thread-pre-split1933:                             ; preds = %966, %1059, %1245
   br i1 %.not1053, label %._crit_edge1662, label %880, !llvm.loop !221
 
 1251:                                             ; preds = %828
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %.loopexit1943
 
 ._crit_edge1662:                                  ; preds = %1249, %876
@@ -13061,7 +13055,7 @@ thread-pre-split1933:                             ; preds = %966, %1059, %1245
   br i1 %1258, label %.thread1365.thread, label %.outer
 
 .thread1365:                                      ; preds = %162, %_ZL15fstReaderUint64P8_IO_FILE.exit1131, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1116, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit1116.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.not1094 = icmp eq ptr %128, null
   br i1 %.not1094, label %.thread1365.thread, label %1259
 
@@ -13113,10 +13107,10 @@ _ZL9fstWritexP16fstReaderContextPvj.exit1292:     ; preds = %1266, %1264, %1263,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL16chk_report_abortPKc(ptr noundef %0) unnamed_addr #30 {
+define internal fastcc void @_ZL16chk_report_abortPKc(ptr noundef %0) unnamed_addr #29 {
   %2 = load ptr, ptr @stderr, align 8, !tbaa !41
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %0) #43
   tail call void @abort() #47
@@ -13124,7 +13118,7 @@ define internal fastcc void @_ZL16chk_report_abortPKc(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #31 {
+define internal fastcc void @_ZL9fstWritexP16fstReaderContextPvj(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #30 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %35, label %4
 
@@ -13200,9 +13194,9 @@ _ZL9fstWritexP16fstReaderContextPvj.exit23:       ; preds = %24, %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #14 {
+define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #13 {
   %3 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -13247,16 +13241,16 @@ define internal fastcc noundef i32 @_ZL25fstReaderVarint32WithSkipP8_IO_FILEPj(p
   br i1 %22, label %24, label %16, !llvm.loop !212
 
 24:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
 }
 
-declare i32 @LZ4_decompress_safe_partial(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @LZ4_decompress_safe_partial(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #15
 
-declare i32 @fastlz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #16
+declare i32 @fastlz_decompress(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #12 {
+define noundef ptr @fstReaderGetValueFromHandleAtTime(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null, ret: address, provenance) %3) local_unnamed_addr #11 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
@@ -13397,7 +13391,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %73, %77
   %80 = load ptr, ptr %0, align 8, !tbaa !156
   %81 = tail call i32 @fgetc(ptr noundef %80)
   %82 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %83 = call noundef i64 @fread(ptr noundef nonnull %16, i64 noundef 8, i64 noundef 1, ptr noundef %82)
   br label %84
 
@@ -13414,7 +13408,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit: ; preds = %73, %77
   br i1 %exitcond.not.i, label %_ZL15fstReaderUint64P8_IO_FILE.exit, label %84, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit:              ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not774 = icmp eq i64 %89, 0
   br i1 %.not774, label %.loopexit790, label %switch.early.test
 
@@ -13438,7 +13432,7 @@ switch.early.test:                                ; preds = %_ZL15fstReaderUint6
 
 92:                                               ; preds = %90, %90, %90
   %93 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %94 = call noundef i64 @fread(ptr noundef nonnull %15, i64 noundef 8, i64 noundef 1, ptr noundef %93)
   br label %95
 
@@ -13455,9 +13449,9 @@ switch.early.test:                                ; preds = %_ZL15fstReaderUint6
   br i1 %exitcond.not.i638, label %_ZL15fstReaderUint64P8_IO_FILE.exit639, label %95, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit639:           ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %101 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %102 = call noundef i64 @fread(ptr noundef nonnull %14, i64 noundef 8, i64 noundef 1, ptr noundef %101)
   br label %103
 
@@ -13474,7 +13468,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit639:           ; preds = %95
   br i1 %exitcond.not.i643, label %_ZL15fstReaderUint64P8_IO_FILE.exit644, label %103, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit644:           ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not595 = icmp ugt i64 %100, %1
   %.not596 = icmp ugt i64 %1, %108
   %or.cond631 = or i1 %.not595, %.not596
@@ -13546,10 +13540,10 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit646: ; preds = %138, %134
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i64 %.1497, ptr %142, align 8, !tbaa !225
   %143 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %144 = call noundef i64 @fread(ptr noundef nonnull %13, i64 noundef 8, i64 noundef 1, ptr noundef %143)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %145 = load ptr, ptr %0, align 8, !tbaa !156
   %146 = add i64 %.0499, -24
   %147 = add i64 %146, %.2492
@@ -13565,7 +13559,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit646: ; preds = %138, %134
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit652: ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit646, %150
   %153 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %154 = call noundef i64 @fread(ptr noundef nonnull %12, i64 noundef 8, i64 noundef 1, ptr noundef %153)
   br label %155
 
@@ -13582,9 +13576,9 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit652: ; preds = %_Z15fstRe
   br i1 %exitcond.not.i656, label %_ZL15fstReaderUint64P8_IO_FILE.exit657, label %155, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit657:           ; preds = %155
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %161 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %162 = call noundef i64 @fread(ptr noundef nonnull %11, i64 noundef 8, i64 noundef 1, ptr noundef %161)
   br label %163
 
@@ -13601,9 +13595,9 @@ _ZL15fstReaderUint64P8_IO_FILE.exit657:           ; preds = %155
   br i1 %exitcond.not.i661, label %_ZL15fstReaderUint64P8_IO_FILE.exit662, label %163, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit662:           ; preds = %163
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %169 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %170 = call noundef i64 @fread(ptr noundef nonnull %10, i64 noundef 8, i64 noundef 1, ptr noundef %169)
   br label %171
 
@@ -13620,7 +13614,7 @@ _ZL15fstReaderUint64P8_IO_FILE.exit662:           ; preds = %163
   br i1 %exitcond.not.i666, label %_ZL15fstReaderUint64P8_IO_FILE.exit667, label %171, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit667:           ; preds = %171
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %177 = tail call noalias ptr @malloc(i64 noundef %160) #41
   store i64 %160, ptr %17, align 8, !tbaa !56
   %178 = load ptr, ptr %0, align 8, !tbaa !156
@@ -13713,7 +13707,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader1035
 
 ._crit_edge:                                      ; preds = %_ZL14fstGetVarint64PhPi.exit, %197
   call void @free(ptr noundef %177) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %222 = load ptr, ptr %0, align 8, !tbaa !156
   %223 = add nsw i64 %.2492, 32
   %224 = call i32 @fseeko(ptr noundef %222, i64 noundef %223, i32 noundef 0)
@@ -13728,7 +13722,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader1035
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit669: ; preds = %._crit_edge, %226
   %229 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %230
 
 230:                                              ; preds = %230, %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit669
@@ -13765,9 +13759,9 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit669: ; preds = %._crit_ed
   br i1 %242, label %_ZL17fstReaderVarint64P8_IO_FILE.exit, label %.preheader.i, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %244 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %245
 
 245:                                              ; preds = %245, %_ZL17fstReaderVarint64P8_IO_FILE.exit
@@ -13804,9 +13798,9 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit:            ; preds = %.preheader.i
   br i1 %257, label %_ZL17fstReaderVarint64P8_IO_FILE.exit683, label %.preheader.i680, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit683:         ; preds = %.preheader.i680
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %259 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %260
 
 260:                                              ; preds = %260, %_ZL17fstReaderVarint64P8_IO_FILE.exit683
@@ -13843,7 +13837,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit683:         ; preds = %.preheader.i680
   br i1 %272, label %_ZL17fstReaderVarint64P8_IO_FILE.exit693, label %.preheader.i690, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit693:         ; preds = %.preheader.i690
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store i64 %271, ptr %274, align 8, !tbaa !229
   %275 = call noalias ptr @malloc(i64 noundef %241) #41
@@ -13859,7 +13853,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit693:         ; preds = %.preheader.i690
 
 281:                                              ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit693
   %282 = call noalias ptr @malloc(i64 noundef %256) #41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 %241, ptr %18, align 8, !tbaa !56
   %283 = load ptr, ptr %0, align 8, !tbaa !156
   %284 = call noundef i64 @fread(ptr noundef %282, i64 noundef %256, i64 noundef 1, ptr noundef %283)
@@ -13876,12 +13870,12 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit693:         ; preds = %.preheader.i690
 
 290:                                              ; preds = %281
   call void @free(ptr noundef %282) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %291
 
 291:                                              ; preds = %290, %278
   %292 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %293
 
 293:                                              ; preds = %293, %291
@@ -13918,7 +13912,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit693:         ; preds = %.preheader.i690
   br i1 %305, label %_ZL17fstReaderVarint64P8_IO_FILE.exit703, label %.preheader.i700, !llvm.loop !173
 
 _ZL17fstReaderVarint64P8_IO_FILE.exit703:         ; preds = %.preheader.i700
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 %304, ptr %307, align 8, !tbaa !226
   %308 = load ptr, ptr %0, align 8, !tbaa !156
@@ -13944,7 +13938,7 @@ _ZL17fstReaderVarint64P8_IO_FILE.exit703:         ; preds = %.preheader.i700
 
 _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit704: ; preds = %_ZL17fstReaderVarint64P8_IO_FILE.exit703, %319
   %322 = load ptr, ptr %0, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %323 = call noundef i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef %322)
   br label %324
 
@@ -13961,7 +13955,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit704: ; preds = %_ZL17fstR
   br i1 %exitcond.not.i708, label %_ZL15fstReaderUint64P8_IO_FILE.exit709, label %324, !llvm.loop !159
 
 _ZL15fstReaderUint64P8_IO_FILE.exit709:           ; preds = %324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %330 = sub nsw i64 %315, %329
   %331 = call noalias ptr @malloc(i64 noundef %329) #41
   %332 = load ptr, ptr %0, align 8, !tbaa !156
@@ -14388,7 +14382,7 @@ _ZL14fstGetVarint32PhPi.exit730:                  ; preds = %.preheader1025
 
 .thread944:                                       ; preds = %510, %509, %514
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %516 = load ptr, ptr %0, align 8, !tbaa !156
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %518 = load i64, ptr %517, align 8, !tbaa !230
@@ -14424,7 +14418,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit731: ; preds = %.thread94
   %538 = load i32, ptr %537, align 4, !tbaa !51
   %539 = zext i32 %538 to i64
   %540 = call noalias ptr @malloc(i64 noundef %539) #41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 %533, ptr %20, align 8, !tbaa !56
   %541 = load ptr, ptr %0, align 8, !tbaa !156
   %542 = call noundef i64 @fread(ptr noundef %540, i64 noundef %539, i64 noundef 1, ptr noundef %541)
@@ -14473,7 +14467,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit731: ; preds = %.thread94
 
 561:                                              ; preds = %.thread, %555
   store ptr %534, ptr %515, align 8, !tbaa !190
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %574
 
 562:                                              ; preds = %_Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit731
@@ -14495,7 +14489,7 @@ _Z15fstReaderFseekoP16fstReaderContextP8_IO_FILEli.exit731: ; preds = %.thread94
 574:                                              ; preds = %562, %561
   %575 = phi ptr [ %570, %562 ], [ %534, %561 ]
   store i32 %33, ptr %507, align 8, !tbaa !237
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %576
 
 576:                                              ; preds = %574, %514
@@ -14781,8 +14775,8 @@ _ZL14fstGetVarint32PhPi.exit741:                  ; preds = %.preheader1017
   br label %.loopexit790
 
 721:                                              ; preds = %683
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   br i1 %682, label %.preheader777, label %.loopexit778
 
 .preheader777:                                    ; preds = %721
@@ -14827,8 +14821,8 @@ _ZL14fstGetVarint32PhPi.exit741:                  ; preds = %.preheader1017
   %.in = phi ptr [ %.0489, %.loopexit778 ], [ %21, %.preheader776 ]
   %739 = load double, ptr %.in, align 1
   %740 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.55, double noundef %739) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.loopexit790
 
 .thread765.thread:                                ; preds = %.preheader780, %.thread765
@@ -14841,7 +14835,7 @@ _ZL14fstGetVarint32PhPi.exit741:                  ; preds = %.preheader1017
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #14 {
+define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReaderContextjPc(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -1) %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #13 {
   %4 = alloca double, align 8
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -14900,7 +14894,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
   br label %63
 
 45:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %47 = load ptr, ptr %46, align 8, !tbaa !191
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -14930,7 +14924,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
   %.in = phi ptr [ %53, %45 ], [ %4, %.preheader ]
   %61 = load double, ptr %.in, align 1
   %62 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.47, double noundef %61) #39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %63
 
 63:                                               ; preds = %14, %.loopexit, %30, %3
@@ -14939,7 +14933,7 @@ define internal fastcc noundef ptr @_ZL27fstExtractRvatDataFromFrameP16fstReader
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
+define noundef nonnull ptr @_Z10JenkinsInsPvPKhjj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   %5 = load ptr, ptr %0, align 8, !tbaa !80
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %11
@@ -15246,7 +15240,7 @@ _ZL6j_hashPKhjj.exit:                             ; preds = %._crit_edge.i, %120
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #32 {
+define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, ptr %1, ptr %0
   %4 = icmp sgt i32 %2, 0
@@ -15366,10 +15360,10 @@ define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #33
+declare i32 @toupper(i32 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #14 {
+define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -15477,10 +15471,10 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {
+define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -15501,48 +15495,54 @@ define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @tmpfile() local_unnamed_addr #10
+declare noalias noundef ptr @tmpfile() local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #15
+declare i64 @time(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare ptr @asctime(ptr noundef) local_unnamed_addr #15
+declare ptr @asctime(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #15
+declare ptr @localtime(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #14
 
-declare i32 @fastlz_compress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #16
-
-; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare i32 @fastlz_compress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+
+; Function Attrs: nofree nounwind
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #34
+declare void @abort() local_unnamed_addr #33
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #35
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #34
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #35
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #36
@@ -15569,41 +15569,41 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #36
 declare i32 @llvm.umax.i32(i32, i32) #36
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #18 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { cold mustprogress nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { cold mustprogress nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #36 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #37 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #38 = { nounwind allocsize(0,1) }

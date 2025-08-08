@@ -30,8 +30,8 @@ define hidden noundef zeroext i1 @register_srt_tables(ptr noundef readnone captu
   %5 = tail call i32 @get_srt_proto_id(ptr noundef %1)
   %6 = tail call ptr @find_protocol_by_id(i32 noundef %5)
   %7 = tail call ptr @proto_get_protocol_short_name(ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #7
-  %8 = tail call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %8 = tail call i32 @strcmp(ptr noundef %7, ptr noundef nonnull dereferenceable(6) @.str) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %16, label %10
 
@@ -51,35 +51,32 @@ define hidden noundef zeroext i1 @register_srt_tables(ptr noundef readnone captu
   br label %16
 
 16:                                               ; preds = %3, %10
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 false
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #2
+declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i32 @get_srt_proto_id(ptr noundef) local_unnamed_addr #2
+declare i32 @get_srt_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @srt_table_get_tap_string(ptr noundef) local_unnamed_addr #2
+declare ptr @srt_table_get_tap_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissector_srt_init(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @srt_table_get_filter(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -92,7 +89,7 @@ define internal void @dissector_srt_init(ptr noundef %0, ptr noundef %1) #0 {
   call void @g_free(ptr noundef %7)
   %9 = load ptr, ptr %4, align 8
   call void @g_free(ptr noundef %9)
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #8
   unreachable
 
 10:                                               ; preds = %2
@@ -100,7 +97,7 @@ define internal void @dissector_srt_init(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %11, ptr @global_srt_array, align 8
   call void @srt_table_dissector_init(ptr noundef %1, ptr noundef %11)
   %12 = load ptr, ptr %3, align 8
-  %13 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %13 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %14 = call i32 @get_srt_proto_id(ptr noundef %1)
   %15 = call ptr @find_protocol_by_id(i32 noundef %14)
   %16 = call ptr @proto_get_protocol_short_name(ptr noundef %15)
@@ -126,53 +123,50 @@ define internal void @dissector_srt_init(ptr noundef %0, ptr noundef %1) #0 {
   %27 = load ptr, ptr %24, align 8
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.2, ptr noundef %27)
   %28 = call ptr @g_string_free(ptr noundef nonnull %24, i32 noundef 1)
-  call void @exit(i32 noundef 1) #9
+  call void @exit(i32 noundef 1) #8
   unreachable
 
 init_srt_tables.exit:                             ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @srt_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @srt_table_get_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #2
+declare void @cmdarg_err(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind null_pointer_is_valid
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @srt_table_dissector_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @srt_table_dissector_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_srt_tap_listener_name(ptr noundef) local_unnamed_addr #2
+declare ptr @get_srt_tap_listener_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #2
+declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @srt_draw(ptr noundef readonly captures(none) %0) #0 {
@@ -236,13 +230,13 @@ define internal void @srt_draw(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @free_srt_table(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @free_srt_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @draw_srt_table_data(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
@@ -360,20 +354,25 @@ define internal fastcc void @draw_srt_table_data(ptr noundef readonly captures(n
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { cold noreturn nounwind }
-attributes #10 = { allocsize(0) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { cold noreturn nounwind }
+attributes #9 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

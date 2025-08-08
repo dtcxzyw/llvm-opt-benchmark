@@ -232,15 +232,9 @@ define internal range(i32 -1, 1) i32 @_bz2_exec(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 
@@ -447,7 +441,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_bz2_BZ2Compressor_compress(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   %4 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0) #7
   %.not = icmp eq i32 %4, 0
@@ -503,7 +497,7 @@ _bz2_BZ2Compressor_compress_impl.exit:            ; preds = %16, %18
   br label %28
 
 28:                                               ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -546,7 +540,7 @@ _bz2_BZ2Compressor_flush_impl.exit:               ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -563,7 +557,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @compress(ptr noundef initializes((48, 52)) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca %struct._BlocksOutputBuffer, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -761,14 +755,14 @@ select.unfold:                                    ; preds = %82, %34, %46
 
 OutputBuffer_OnError.exit:                        ; preds = %92, %89, %87, %.thread38, %select.unfold
   %.0 = phi ptr [ %85, %select.unfold ], [ null, %.thread38 ], [ null, %87 ], [ null, %89 ], [ null, %92 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #4 {
+define internal fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #3 {
   %4 = load i32, ptr %2, align 4, !tbaa !43
   %5 = load ptr, ptr %0, align 8, !tbaa !41
   %6 = getelementptr i8, ptr %5, i64 16
@@ -933,7 +927,7 @@ define internal fastcc range(i32 0, 2) i32 @catch_bz2_error(i32 noundef %0) unna
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #3 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8, !tbaa !41
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1085,7 +1079,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1354,7 +1348,7 @@ define internal ptr @_bz2_BZ2Decompressor_decompress(ptr noundef %0, ptr noundef
   %5 = alloca %struct._BlocksOutputBuffer, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %8
 
@@ -1366,7 +1360,7 @@ define internal ptr @_bz2_BZ2Decompressor_decompress(ptr noundef %0, ptr noundef
 10:                                               ; preds = %4, %8
   %11 = phi i64 [ %.val, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
   %13 = add i64 %2, -1
   %14 = icmp ult i64 %13, 2
@@ -1527,7 +1521,7 @@ Py_DECREF.exit.thread:                            ; preds = %23, %Py_DECREF.exit
   br label %89
 
 89:                                               ; preds = %87, %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1654,12 +1648,12 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %94
   br label %143
 
 143:                                              ; preds = %142, %139, %137, %.thread35.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr null, ptr %52, align 8, !tbaa !65
   br label %_bz2_BZ2Decompressor_decompress_impl.exit
 
 144:                                              ; preds = %.loopexit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %145 = load i8, ptr %44, align 8, !tbaa !64
   %.not92.i.i = icmp eq i8 %145, 0
   br i1 %.not92.i.i, label %162, label %146
@@ -1798,8 +1792,8 @@ _bz2_BZ2Decompressor_decompress_impl.exit:        ; preds = %46, %.thread.i.i, %
   br label %201
 
 201:                                              ; preds = %197, %200
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.032
 }
 
@@ -1814,7 +1808,7 @@ declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @PyErr_SetNone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
@@ -1824,6 +1818,12 @@ declare i32 @_PyArg_NoPositional(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @BZ2_bzDecompressInit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
@@ -1832,10 +1832,10 @@ declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

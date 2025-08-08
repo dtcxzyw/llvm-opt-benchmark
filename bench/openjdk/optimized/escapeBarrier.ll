@@ -176,12 +176,12 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   %36 = load ptr, ptr %12, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %7, ptr noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   %37 = load ptr, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #10, !noalias !8
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(1800) %37) #10
   %39 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %37, ptr noundef nonnull byval(%class.frame) align 8 %4, ptr noundef nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = icmp ne ptr %39, null
   %41 = icmp sgt i32 %1, 0
   %42 = and i1 %40, %41
@@ -395,11 +395,11 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
 47:                                               ; preds = %44
   call void @_ZN24KeepStackGCProcessedMarkC1EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %36) #10
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef nonnull %36, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %45) #10, !noalias !14
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %36) #10
   %48 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %36, ptr noundef nonnull byval(%class.frame) align 8 %2, ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not2844 = icmp eq ptr %48, null
   br i1 %.not2844, label %.critedge30, label %.lr.ph46
 
@@ -573,7 +573,7 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier27deoptimize_objects_interna
 
 .thread57:                                        ; preds = %40
   store i8 1, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %_ZN16StackFrameStream4nextEv.exit
 
 42:                                               ; preds = %40, %.preheader65
@@ -589,14 +589,14 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %42
 
 .thread:                                          ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i, %42
   store i8 0, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %50
 
 47:                                               ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
   %48 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(5041) %6) #10
   %49 = zext i1 %48 to i8
   store i8 %49, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %48, label %_ZN16StackFrameStream4nextEv.exit, label %50
 
 50:                                               ; preds = %.thread, %47
@@ -625,7 +625,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
   br label %_ZN16StackFrameStream4nextEv.exit
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %.thread57, %47, %_ZNK5frame6senderEP11RegisterMap.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = load ptr, ptr %27, align 8
   %.not24 = icmp eq ptr %58, %2
   %59 = load i8, ptr %28, align 8
@@ -2052,10 +2052,10 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

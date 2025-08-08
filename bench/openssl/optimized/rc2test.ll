@@ -28,9 +28,9 @@ define internal range(i32 0, 2) i32 @test_rc2(i32 noundef %0) #0 {
   %2 = alloca %struct.rc2_key_st, align 4
   %3 = alloca [8 x i8], align 1
   %4 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [4 x [16 x i8]], ptr @RC2key, i64 0, i64 %5
   call void @RC2_set_key(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull %6, i32 noundef 0) #3
@@ -44,14 +44,11 @@ define internal range(i32 0, 2) i32 @test_rc2(i32 noundef %0) #0 {
   %.not5 = icmp ne i32 %10, 0
   %narrow = select i1 %.not5, i1 %.not, i1 false
   %.1 = zext i1 %narrow to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @RC2_set_key(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -60,7 +57,10 @@ declare void @RC2_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

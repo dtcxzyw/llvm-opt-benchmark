@@ -223,12 +223,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef nonnull ptr @_ZN15Cvc5TermManager11export_sortERKN4cvc54SortE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc54SortESt4pairIKS2_11cvc5_sort_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -244,17 +244,11 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager11export_sortERKN4cvc54SortE(ptr
   ret ptr %12
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_sort_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_sort_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -273,12 +267,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_sort_t(ptr noundef nonnull
 define noundef nonnull ptr @_ZN15Cvc5TermManager11export_termERKN4cvc54TermE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc54TermESt4pairIKS2_11cvc5_term_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -295,7 +289,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager11export_termERKN4cvc54TermE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_term_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_term_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -314,12 +308,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_term_t(ptr noundef nonnull
 define noundef nonnull ptr @_ZN15Cvc5TermManager9export_opERKN4cvc52OpE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc52OpESt4pairIKS2_9cvc5_op_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -336,7 +330,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager9export_opERKN4cvc52OpE(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_op_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_op_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -355,12 +349,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_op_t(ptr noundef nonnull re
 define noundef nonnull ptr @_ZN15Cvc5TermManager9export_dtERKN4cvc58DatatypeE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc58DatatypeESt4pairIKS2_9cvc5_dt_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -377,7 +371,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager9export_dtERKN4cvc58DatatypeE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_dt_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_dt_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -396,12 +390,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_dt_t(ptr noundef nonnull re
 define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_consERKN4cvc519DatatypeConstructorE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc519DatatypeConstructorESt4pairIKS2_14cvc5_dt_cons_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -418,7 +412,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_consERKN4cvc519Datat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_cons_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_cons_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -437,12 +431,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_cons_t(ptr noundef nonn
 define noundef nonnull ptr @_ZN15Cvc5TermManager13export_dt_selERKN4cvc516DatatypeSelectorE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc516DatatypeSelectorESt4pairIKS2_13cvc5_dt_sel_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -459,7 +453,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager13export_dt_selERKN4cvc516Dataty
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP13cvc5_dt_sel_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP13cvc5_dt_sel_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -478,12 +472,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP13cvc5_dt_sel_t(ptr noundef nonnu
 define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_declERKN4cvc512DatatypeDeclE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc512DatatypeDeclESt4pairIKS2_14cvc5_dt_decl_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -500,7 +494,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_declERKN4cvc512Datat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -519,12 +513,12 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_decl_t(ptr noundef nonn
 define noundef nonnull ptr @_ZN15Cvc5TermManager19export_dt_cons_declERKN4cvc523DatatypeConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc523DatatypeConstructorDeclESt4pairIKS2_19cvc5_dt_cons_decl_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -541,7 +535,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager19export_dt_cons_declERKN4cvc523
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP19cvc5_dt_cons_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP19cvc5_dt_cons_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -559,7 +553,7 @@ define noundef ptr @_ZN15Cvc5TermManager4copyEP19cvc5_dt_cons_decl_t(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZN15Cvc5TermManager11export_statERKN4cvc54StatE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %5 = load ptr, ptr %4, align 8, !tbaa !52
@@ -587,7 +581,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager11export_statERKN4cvc54StatE(ptr
 
 _ZNSt6vectorI11cvc5_stat_tSaIS0_EE12emplace_backIJP15Cvc5TermManagerRKN4cvc54StatEEEERS0_DpOT_.exit: ; preds = %8, %13
   %15 = phi ptr [ %12, %8 ], [ %.pre, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = getelementptr inbounds i8, ptr %15, i64 -32
   ret ptr %16
 }
@@ -596,7 +590,7 @@ _ZNSt6vectorI11cvc5_stat_tSaIS0_EE12emplace_backIJP15Cvc5TermManagerRKN4cvc54Sta
 define noundef nonnull ptr @_ZN15Cvc5TermManager12export_statsERKN4cvc510StatisticsE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cvc5::Stat>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cvc5::Stat>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %6 = load ptr, ptr %5, align 8, !tbaa !69
@@ -622,7 +616,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager12export_statsERKN4cvc510Statist
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI12cvc5_stats_tEE9constructIS0_JP15Cvc5TermManagerRKN4cvc510StatisticsEEEEvRS1_PT_DpOT0_.exit.i, label %17
 
 17:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %6, ptr %3, align 8, !tbaa !83
   %18 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4cvc54StatEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.noexc.i.i.i.i.i.i.i
@@ -650,7 +644,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !82
   store i64 %26, ptr %14, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %18, ptr %11, align 8, !tbaa !88
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !69
   br label %_ZNSt16allocator_traitsISaI12cvc5_stats_tEE9constructIS0_JP15Cvc5TermManagerRKN4cvc510StatisticsEEEEvRS1_PT_DpOT0_.exit.i
@@ -675,7 +669,7 @@ _ZNSt16allocator_traitsISaI12cvc5_stats_tEE9constructIS0_JP15Cvc5TermManagerRKN4
 
 _ZNSt6vectorI12cvc5_stats_tSaIS0_EE12emplace_backIJP15Cvc5TermManagerRKN4cvc510StatisticsEEEERS0_DpOT_.exit: ; preds = %_ZNSt16allocator_traitsISaI12cvc5_stats_tEE9constructIS0_JP15Cvc5TermManagerRKN4cvc510StatisticsEEEEvRS1_PT_DpOT0_.exit.i, %32
   %34 = phi ptr [ %31, %_ZNSt16allocator_traitsISaI12cvc5_stats_tEE9constructIS0_JP15Cvc5TermManagerRKN4cvc510StatisticsEEEEvRS1_PT_DpOT0_.exit.i ], [ %.pre, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds i8, ptr %34, i64 -72
   ret ptr %35
 }
@@ -857,7 +851,7 @@ define void @_ZN15Cvc5TermManager7releaseEP19cvc5_dt_cons_decl_t(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15Cvc5TermManager7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15Cvc5TermManager7releaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !109
@@ -1030,7 +1024,7 @@ _ZNSt13unordered_mapIN4cvc523DatatypeConstructorDeclE19cvc5_dt_cons_decl_tSt4has
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4Cvc5D2Ev(ptr noundef nonnull align 8 dereferenceable(800) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4Cvc5D2Ev(ptr noundef nonnull align 8 dereferenceable(800) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = tail call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #24
@@ -1242,7 +1236,7 @@ _ZNSt13unordered_mapIN4cvc56ResultE13cvc5_result_tSt4hashIS1_ESt8equal_toIS1_ESa
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
   tail call void @_ZSt9terminatev() #25
   unreachable
@@ -1251,12 +1245,12 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #9
+declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 declare noundef ptr @_ZNSt9basic_iosIcSt11char_traitsIcEE5rdbufEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #7 align 2
+declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #6 align 2
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc56SolverD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -1265,12 +1259,12 @@ declare void @_ZN4cvc56SolverD1Ev(ptr noundef nonnull align 8 dereferenceable(32
 define hidden noundef nonnull ptr @_ZN4Cvc513export_resultERKN4cvc56ResultE(ptr noundef nonnull align 8 dereferenceable(800) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !230
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc56ResultESt4pairIKS2_13cvc5_result_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP4Cvc5SK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -1287,7 +1281,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc513export_resultERKN4cvc56ResultE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP13cvc5_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP13cvc5_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !232
   %5 = add i32 %4, 1
@@ -1317,12 +1311,12 @@ define hidden void @_ZN4Cvc57releaseEP13cvc5_result_t(ptr noundef nonnull align 
 define hidden noundef nonnull ptr @_ZN4Cvc519export_synth_resultERKN4cvc511SynthResultE(ptr noundef nonnull align 8 dereferenceable(800) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !230
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc511SynthResultESt4pairIKS2_19cvc5_synth_result_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP4Cvc5SK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -1339,7 +1333,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc519export_synth_resultERKN4cvc511Synth
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP19cvc5_synth_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP19cvc5_synth_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !238
   %5 = add i32 %4, 1
@@ -1369,12 +1363,12 @@ define hidden void @_ZN4Cvc57releaseEP19cvc5_synth_result_t(ptr noundef nonnull 
 define hidden noundef nonnull ptr @_ZN4Cvc512export_proofERKN4cvc55ProofE(ptr noundef nonnull align 8 dereferenceable(800) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !230
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc55ProofESt4pairIKS2_12cvc5_proof_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP4Cvc5SK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -1391,7 +1385,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc512export_proofERKN4cvc55ProofE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP12cvc5_proof_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP12cvc5_proof_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !244
   %5 = add i32 %4, 1
@@ -1421,12 +1415,12 @@ define hidden void @_ZN4Cvc57releaseEP12cvc5_proof_t(ptr noundef nonnull align 8
 define hidden noundef nonnull ptr @_ZN4Cvc514export_grammarERKN4cvc57GrammarE(ptr noundef nonnull align 8 dereferenceable(800) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !230
   %5 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc57GrammarESt4pairIKS2_14cvc5_grammar_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP4Cvc5SK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract = extractvalue { ptr, i8 } %5, 0
   %.fca.1.extract = extractvalue { ptr, i8 } %5, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = trunc nuw i8 %.fca.1.extract to i1
   br i1 %6, label %11, label %7
 
@@ -1443,7 +1437,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc514export_grammarERKN4cvc57GrammarE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP14cvc5_grammar_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP14cvc5_grammar_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !250
   %5 = add i32 %4, 1
@@ -1480,7 +1474,7 @@ define hidden void @_ZN4Cvc59PluginCpp5checkEv(ptr dead_on_unwind noalias writab
   br i1 %.not, label %46, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !265
   %10 = invoke noundef ptr %6(ptr noundef nonnull %3, ptr noundef %9)
@@ -1497,7 +1491,7 @@ define hidden void @_ZN4Cvc59PluginCpp5checkEv(ptr dead_on_unwind noalias writab
   br label %16
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN4cvc54TermESaIS1_EE9push_backERKS1_.exit, %.preheader
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %46
 
 14:                                               ; preds = %7
@@ -1568,7 +1562,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16alloca
 
 45:                                               ; preds = %43, %14
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #22
   resume { ptr, i32 } %.pn
 
@@ -1577,7 +1571,7 @@ _ZNSt6vectorIN4cvc54TermESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16alloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !279
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !269
@@ -1629,12 +1623,12 @@ define hidden void @_ZN4Cvc59PluginCpp15notifySatClauseERKN4cvc54TermE(ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !283
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !3
   %14 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc54TermESt4pairIKS2_11cvc5_term_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %14, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %14, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = trunc nuw i8 %.fca.1.extract.i to i1
   br i1 %15, label %_ZN15Cvc5TermManager11export_termERKN4cvc54TermE.exit, label %16
 
@@ -1673,12 +1667,12 @@ define hidden void @_ZN4Cvc59PluginCpp17notifyTheoryLemmaERKN4cvc54TermE(ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !283
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !3
   %14 = call { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN4cvc54TermESt4pairIKS2_11cvc5_term_tESaIS6_ENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEEE11try_emplaceIRS4_JP15Cvc5TermManagerSK_EEES3_INS_14_Node_iteratorIS6_Lb0ELb1EEEbENS_20_Node_const_iteratorIS6_Lb0ELb1EEEOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %14, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %14, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = trunc nuw i8 %.fca.1.extract.i to i1
   br i1 %15, label %_ZN15Cvc5TermManager11export_termERKN4cvc54TermE.exit, label %16
 
@@ -1720,7 +1714,7 @@ define hidden void @_ZN4Cvc59PluginCpp7getNameB5cxx11Ev(ptr dead_on_unwind noali
 
 11:                                               ; preds = %2
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %12, ptr %3, align 8, !tbaa !266
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -1755,12 +1749,12 @@ define hidden void @_ZN4Cvc59PluginCpp7getNameB5cxx11Ev(ptr dead_on_unwind noali
   %23 = load ptr, ptr %0, align 8, !tbaa !290
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !276
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4cvc56PluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4cvc56PluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4cvc56PluginE, i64 16), ptr %0, align 8, !tbaa !150
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !275
@@ -1816,7 +1810,7 @@ _ZNSt12__shared_ptrIN4cvc514PluginInternalELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4Cvc59PluginCppD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4Cvc59PluginCppD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4cvc56PluginE, i64 16), ptr %0, align 8, !tbaa !150
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !275
@@ -1873,19 +1867,19 @@ _ZN4cvc56PluginD2Ev.exit:                         ; preds = %1, %9, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc57GrammarD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc55ProofD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKN4cvc511SynthResultE19cvc5_synth_result_tELb1EEEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKN4cvc511SynthResultE19cvc5_synth_result_tELb1EEEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !275
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1990,7 +1984,7 @@ _ZNSt4pairIKN4cvc511SynthResultE19cvc5_synth_result_tED2Ev.exit: ; preds = %_ZN1
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !150
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2027,7 +2021,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKN4cvc56ResultE13cvc5_result_tELb1EEEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt15__new_allocatorINSt8__detail10_Hash_nodeISt4pairIKN4cvc56ResultE13cvc5_result_tELb1EEEE7destroyIS7_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !275
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -2136,10 +2130,10 @@ declare noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE5closeEv(ptr nound
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -2193,7 +2187,7 @@ _ZNKSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_S
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc54SortESt4pairIKS2_11cvc5_sort_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !301
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -2270,14 +2264,14 @@ _ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Se
           to label %_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -2387,7 +2381,7 @@ _ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Se
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc54SortESt4pairIKS1_11cvc5_sort_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !308
   %.not = icmp eq ptr %3, null
@@ -2412,13 +2406,13 @@ declare noundef zeroext i1 @_ZNK4cvc54SorteqERKS0_(ptr noundef nonnull align 8 d
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc54SortD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -2573,7 +2567,7 @@ _ZNKSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_S
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc54TermESt4pairIKS2_11cvc5_term_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !314
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -2650,14 +2644,14 @@ _ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Se
           to label %_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -2767,7 +2761,7 @@ _ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Se
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc54TermESt4pairIKS1_11cvc5_term_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !319
   %.not = icmp eq ptr %3, null
@@ -2940,7 +2934,7 @@ _ZNKSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select
   br i1 %.not, label %.critedge, label %66
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc52OpESt4pairIKS2_9cvc5_op_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !327
   %28 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -3015,14 +3009,14 @@ _ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1
           to label %_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %64
 
 _ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 64:                                               ; preds = %_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %65
 
 66:                                               ; preds = %_ZNKSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -3132,7 +3126,7 @@ _ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc52OpESt4pairIKS1_9cvc5_op_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !332
   %.not = icmp eq ptr %3, null
@@ -3305,7 +3299,7 @@ _ZNKSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc58DatatypeESt4pairIKS2_9cvc5_dt_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !338
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -3382,14 +3376,14 @@ _ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_S
           to label %_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -3499,7 +3493,7 @@ _ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc58DatatypeESt4pairIKS1_9cvc5_dt_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !345
   %.not = icmp eq ptr %3, null
@@ -3672,7 +3666,7 @@ _ZNKSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc519DatatypeConstructorESt4pairIKS2_14cvc5_dt_cons_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !350
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -3749,14 +3743,14 @@ _ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5
           to label %_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -3866,7 +3860,7 @@ _ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc519DatatypeConstructorESt4pairIKS1_14cvc5_dt_cons_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !357
   %.not = icmp eq ptr %3, null
@@ -4039,7 +4033,7 @@ _ZNKSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_EN
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc516DatatypeSelectorESt4pairIKS2_13cvc5_dt_sel_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !362
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -4116,14 +4110,14 @@ _ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENS
           to label %_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -4233,7 +4227,7 @@ _ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc516DatatypeSelectorESt4pairIKS1_13cvc5_dt_sel_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !369
   %.not = icmp eq ptr %3, null
@@ -4406,7 +4400,7 @@ _ZNKSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc512DatatypeDeclESt4pairIKS2_14cvc5_dt_decl_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !374
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -4483,14 +4477,14 @@ _ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8_
           to label %_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -4600,7 +4594,7 @@ _ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc512DatatypeDeclESt4pairIKS1_14cvc5_dt_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !380
   %.not = icmp eq ptr %3, null
@@ -4773,7 +4767,7 @@ _ZNKSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_de
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc523DatatypeConstructorDeclESt4pairIKS2_19cvc5_dt_cons_decl_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !385
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -4850,14 +4844,14 @@ _ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_dec
           to label %_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP15Cvc5TermManagerSP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -4967,7 +4961,7 @@ _ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_dec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_decl_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !391
   %.not = icmp eq ptr %3, null
@@ -5341,7 +5335,7 @@ _ZNSt12_Vector_baseI11cvc5_stat_tSaIS0_EE13_M_deallocateEPS0_m.exit51: ; preds =
 declare void @_ZN4cvc54StatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc54StatD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
@@ -5399,7 +5393,7 @@ _ZNSt12_Vector_baseI12cvc5_stats_tSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKS
   br i1 %.not.i.i.i.i.i.i, label %44, label %34
 
 34:                                               ; preds = %_ZNSt12_Vector_baseI12cvc5_stats_tSaIS0_EE11_M_allocateEm.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %25, ptr %5, align 8, !tbaa !83
   %35 = invoke noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4cvc54StatEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull %33, ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc.i.i.i.i.i.i unwind label %105
@@ -5427,7 +5421,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !82
   store i64 %43, ptr %31, align 8, !tbaa !82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %35, ptr %28, align 8, !tbaa !88
   br label %44
 
@@ -5775,7 +5769,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %7 = load ptr, ptr %2, align 8, !tbaa !290
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !266
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i.i.i, label %._crit_edge.i.i.i.i.i
@@ -5813,7 +5807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i: ; pred
   %19 = load ptr, ptr %5, align 8, !tbaa !290
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store i8 0, ptr %20, align 1, !tbaa !276
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
   invoke void @_ZN4cvc54StatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
@@ -7171,7 +7165,7 @@ _ZNSt10_HashtableIN4cvc523DatatypeConstructorDeclESt4pairIKS1_19cvc5_dt_cons_dec
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #17
+declare noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #16
 
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
@@ -7225,7 +7219,7 @@ _ZNKSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail
   br i1 %.not, label %.critedge, label %62
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc56ResultESt4pairIKS2_13cvc5_result_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !428
   %28 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -7294,14 +7288,14 @@ _ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail1
           to label %_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %60
 
 _ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
 60:                                               ; preds = %_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %61
 
 62:                                               ; preds = %_ZNKSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -7411,7 +7405,7 @@ _ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc56ResultESt4pairIKS1_13cvc5_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !434
   %.not = icmp eq ptr %3, null
@@ -7740,7 +7734,7 @@ _ZNKSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_E
   br i1 %.not, label %.critedge, label %62
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc511SynthResultESt4pairIKS2_19cvc5_synth_result_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !440
   %28 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -7809,14 +7803,14 @@ _ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_EN
           to label %_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %60
 
 _ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %62
 
 60:                                               ; preds = %_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %61
 
 62:                                               ; preds = %_ZNKSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -7926,7 +7920,7 @@ _ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_EN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc511SynthResultESt4pairIKS1_19cvc5_synth_result_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !446
   %.not = icmp eq ptr %3, null
@@ -8255,7 +8249,7 @@ _ZNKSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc55ProofESt4pairIKS2_12cvc5_proof_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !452
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -8332,14 +8326,14 @@ _ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_
           to label %_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -8449,7 +8443,7 @@ _ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc55ProofESt4pairIKS1_12cvc5_proof_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !459
   %.not = icmp eq ptr %3, null
@@ -8781,7 +8775,7 @@ _ZNKSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__deta
   br i1 %.not, label %.critedge, label %68
 
 .critedge:                                        ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4cvc57GrammarESt4pairIKS2_14cvc5_grammar_tENS_10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS6_Lb1EEE.exit.thread.i.i, %22, %5, %_ZNKSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !465
   %28 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   store ptr null, ptr %28, align 8, !tbaa !116
@@ -8858,14 +8852,14 @@ _ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detai
           to label %_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %66
 
 _ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 66:                                               ; preds = %_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeC2IJRKSt21piecewise_construct_tSt5tupleIJRS3_EESO_IJOP4Cvc5SP_EEEEEPNS7_16_Hashtable_allocISaINS7_10_Hash_nodeIS5_Lb1EEEEEEDpOT_.exit
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %_ZNKSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, %_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -8975,7 +8969,7 @@ _ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt10_HashtableIN4cvc57GrammarESt4pairIKS1_14cvc5_grammar_tESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !472
   %.not = icmp eq ptr %3, null
@@ -9429,11 +9423,17 @@ _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_cvc5_c_structs.cpp() #18 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_cvc5_c_structs.cpp() #17 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
@@ -9451,21 +9451,21 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn }
-attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -187,14 +187,8 @@ define void @quantize_row_q4_0_ref(ptr noalias noundef readonly captures(none) %
   br i1 %exitcond55.not, label %40, label %41, !llvm.loop !14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare float @llvm.fabs.f32(float) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q4_1_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -431,7 +425,7 @@ define void @quantize_row_q5_0_ref(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q5_1_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -655,7 +649,7 @@ define void @quantize_row_q8_0_ref(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.round.f32(float) #2
+declare float @llvm.round.f32(float) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @quantize_row_q8_1_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -781,7 +775,7 @@ define void @quantize_row_q8_1_ref(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -834,7 +828,7 @@ define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -890,10 +884,10 @@ define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #2
+declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -958,7 +952,7 @@ define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -1026,7 +1020,7 @@ define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -1070,7 +1064,7 @@ define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x float], align 16
@@ -1078,11 +1072,11 @@ define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %
   %8 = alloca [16 x float], align 16
   %9 = sdiv i64 %2, 256
   %10 = trunc i64 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.preheader123.preheader, label %._crit_edge
 
@@ -1098,11 +1092,11 @@ define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %
   br label %.preheader120
 
 ._crit_edge:                                      ; preds = %230, %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader120:                                    ; preds = %.preheader123, %make_qkx2_quants.exit
@@ -1524,7 +1518,7 @@ make_qkx2_quants.exit:                            ; preds = %.loopexit.i, %.preh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -1645,7 +1639,7 @@ define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x float], align 16
@@ -1676,14 +1670,14 @@ define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #23, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #23, !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !86
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !86
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %481, %.lr.ph.preheader.i.us
@@ -2524,14 +2518,14 @@ make_qp_quants.exit.us:                           ; preds = %370, %.preheader191
   br i1 %exitcond176.not.i.us, label %quantize_row_q2_K_impl.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !149
 
 quantize_row_q2_K_impl.exit.loopexit.us:          ; preds = %481
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23, !noalias !86
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23, !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !86
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !86
   %483 = getelementptr inbounds float, ptr %.02097.us, i64 %3
   %484 = getelementptr inbounds nuw i8, ptr %.01998.us, i64 %14
   %485 = add nuw nsw i64 %.099.us, 1
@@ -2548,16 +2542,16 @@ quantize_row_q2_K_impl.exit.loopexit.us:          ; preds = %481
   ret i64 %488
 }
 
-declare i64 @ggml_row_size(i32 noundef, i64 noundef) local_unnamed_addr #7
+declare i64 @ggml_row_size(i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q3_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define void @quantize_row_q3_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x float], align 16
   %6 = sdiv i64 %2, 256
   %7 = trunc i64 %6 to i32
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.preheader130.preheader, label %._crit_edge
 
@@ -2571,8 +2565,8 @@ define void @quantize_row_q3_K_ref(ptr noalias noundef readonly captures(none) %
   br label %13
 
 ._crit_edge:                                      ; preds = %221, %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 9:                                                ; preds = %make_q3_quants.exit
@@ -2990,14 +2984,14 @@ make_q3_quants.exit:                              ; preds = %.preheader.preheade
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i32], align 16
   %5 = sdiv i64 %2, 256
   %6 = trunc i64 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -3009,7 +3003,7 @@ define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0,
   br label %11
 
 ._crit_edge:                                      ; preds = %41, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 11:                                               ; preds = %.lr.ph, %41
@@ -3146,7 +3140,7 @@ define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q3_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -3174,11 +3168,11 @@ define i64 @quantize_q3_K(ptr noalias noundef readonly captures(none) %0, ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23, !noalias !184
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23, !noalias !184
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23, !noalias !184
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #23, !noalias !184
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #23, !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !184
   br label %.preheader155.i.us
 
 .preheader155.i.us:                               ; preds = %331, %.preheader155.preheader.i.us
@@ -3760,11 +3754,11 @@ make_qx_quants.exit.us:                           ; preds = %195, %.preheader.pr
   br i1 %exitcond218.not.i.us, label %quantize_row_q3_K_impl.exit.loopexit.us, label %.preheader155.i.us, !llvm.loop !224
 
 quantize_row_q3_K_impl.exit.loopexit.us:          ; preds = %331
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23, !noalias !184
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23, !noalias !184
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23, !noalias !184
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23, !noalias !184
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23, !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !184
   %333 = getelementptr inbounds float, ptr %.02035.us, i64 %3
   %334 = getelementptr inbounds nuw i8, ptr %.01936.us, i64 %11
   %335 = add nuw nsw i64 %.037.us, 1
@@ -3782,7 +3776,7 @@ quantize_row_q3_K_impl.exit.loopexit.us:          ; preds = %331
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
-define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x float], align 16
@@ -3790,11 +3784,11 @@ define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %
   %8 = alloca [8 x float], align 16
   %9 = sdiv i64 %2, 256
   %10 = trunc i64 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.preheader136.preheader, label %._crit_edge
 
@@ -3808,11 +3802,11 @@ define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %
   br label %.preheader135
 
 ._crit_edge:                                      ; preds = %275, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader135:                                    ; preds = %.preheader136, %make_qkx2_quants.exit
@@ -4276,10 +4270,10 @@ get_scale_min_k4.exit:                            ; preds = %233, %239
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #10
+declare float @sqrtf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -4426,7 +4420,7 @@ get_scale_min_k4.exit45:                          ; preds = %23, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [8 x i8], align 8
@@ -4454,14 +4448,14 @@ define i64 @quantize_q4_K(ptr noalias noundef readonly captures(none) %0, ptr no
   %.02097.us = phi ptr [ %512, %quantize_row_q4_K_impl.exit.loopexit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !280
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23, !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !280
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !280
   br label %.preheader138.i.us
 
 .preheader138.i.us:                               ; preds = %.preheader138.i.preheader.us, %510
@@ -5358,14 +5352,14 @@ get_scale_min_k4.exit.i.us:                       ; preds = %469, %455
   br i1 %exitcond204.not.i.us, label %quantize_row_q4_K_impl.exit.loopexit.us, label %.preheader138.i.us, !llvm.loop !332
 
 quantize_row_q4_K_impl.exit.loopexit.us:          ; preds = %510
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !280
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23, !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !280
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !280
   %512 = getelementptr inbounds nuw float, ptr %.02097.us, i64 %3
   %513 = getelementptr inbounds nuw i8, ptr %.01998.us, i64 %14
   %514 = add nuw nsw i64 %.099.us, 1
@@ -5383,18 +5377,18 @@ quantize_row_q4_K_impl.exit.loopexit.us:          ; preds = %510
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
-define void @quantize_row_q5_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #9 {
+define void @quantize_row_q5_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [8 x float], align 16
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x i8], align 16
   %9 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = icmp sgt i64 %2, 255
   br i1 %10, label %.preheader162, label %._crit_edge
 
@@ -5404,11 +5398,11 @@ define void @quantize_row_q5_K_ref(ptr noalias noundef readonly captures(none) %
   br label %.preheader161
 
 ._crit_edge:                                      ; preds = %275, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .preheader161:                                    ; preds = %.preheader162, %make_qkx2_quants.exit
@@ -5904,7 +5898,7 @@ get_scale_min_k4.exit:                            ; preds = %233, %239
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6065,7 +6059,7 @@ get_scale_min_k4.exit59:                          ; preds = %23, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [8 x i8], align 8
@@ -6093,14 +6087,14 @@ define i64 @quantize_q5_K(ptr noalias noundef readonly captures(none) %0, ptr no
   %.020100.us = phi ptr [ %531, %quantize_row_q5_K_impl.exit.loopexit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23, !noalias !388
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #23, !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !388
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !388
   br label %.preheader166.i.us
 
 .preheader166.i.us:                               ; preds = %.preheader166.i.preheader.us, %529
@@ -7031,14 +7025,14 @@ get_scale_min_k4.exit.i.us:                       ; preds = %471, %457
   br i1 %exitcond233.not.i.us, label %quantize_row_q5_K_impl.exit.loopexit.us, label %.preheader166.i.us, !llvm.loop !439
 
 quantize_row_q5_K_impl.exit.loopexit.us:          ; preds = %529
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !388
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23, !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !388
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !388
   %531 = getelementptr inbounds nuw float, ptr %.020100.us, i64 %3
   %532 = getelementptr inbounds nuw i8, ptr %.019101.us, i64 %14
   %533 = add nuw nsw i64 %.0102.us, 1
@@ -7056,12 +7050,12 @@ quantize_row_q5_K_impl.exit.loopexit.us:          ; preds = %529
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q6_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define void @quantize_row_q6_K_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [16 x float], align 16
   %6 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp sgt i64 %2, 255
   br i1 %7, label %.preheader111, label %._crit_edge
 
@@ -7071,8 +7065,8 @@ define void @quantize_row_q6_K_ref(ptr noalias noundef readonly captures(none) %
   br label %10
 
 ._crit_edge:                                      ; preds = %.loopexit109, %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 8:                                                ; preds = %make_qx_quants.exit
@@ -7399,7 +7393,7 @@ make_qx_quants.exit:                              ; preds = %86, %.preheader.pre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -7508,7 +7502,7 @@ define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q6_K(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [16 x float], align 16
   %8 = tail call i64 @ggml_row_size(i32 noundef 14, i64 noundef %3) #23
@@ -7530,8 +7524,8 @@ define i64 @quantize_q6_K(ptr noalias noundef readonly captures(none) %0, ptr no
   %.02025.us = phi ptr [ %199, %quantize_row_q6_K_impl.exit.loopexit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23, !noalias !467
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23, !noalias !467
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !467
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !467
   br label %.preheader121.i.us
 
 .preheader121.i.us:                               ; preds = %.preheader121.i.preheader.us, %.loopexit119.i.us
@@ -7868,8 +7862,8 @@ make_qx_quants.exit.i.us:                         ; preds = %92, %.preheader.pre
   br i1 %exitcond163.not.i.us, label %quantize_row_q6_K_impl.exit.loopexit.us, label %.preheader121.i.us, !llvm.loop !485
 
 quantize_row_q6_K_impl.exit.loopexit.us:          ; preds = %.loopexit119.i.us
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23, !noalias !467
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23, !noalias !467
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !467
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !467
   %199 = getelementptr inbounds nuw float, ptr %.02025.us, i64 %3
   %200 = getelementptr inbounds nuw i8, ptr %.01926.us, i64 %8
   %201 = add nuw nsw i64 %.027.us, 1
@@ -7887,7 +7881,7 @@ quantize_row_q6_K_impl.exit.loopexit.us:          ; preds = %.loopexit119.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %4, null
@@ -8007,8 +8001,8 @@ quantize_row_q4_0_ref.exit:                       ; preds = %45, %8
   %.02439.us = phi ptr [ %195, %quantize_row_q4_0_impl.exit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23, !noalias !497
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !497
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !497
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !497
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
@@ -8242,8 +8236,8 @@ make_qx_quants.exit.us:                           ; preds = %160, %.preheader.pr
   br i1 %exitcond70.not.i.us, label %quantize_row_q4_0_impl.exit.us, label %.lr.ph56.i.us, !llvm.loop !511
 
 quantize_row_q4_0_impl.exit.us:                   ; preds = %194, %._crit_edge.i.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !497
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !497
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !497
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !497
   %195 = getelementptr inbounds nuw float, ptr %.02439.us, i64 %3
   %196 = getelementptr inbounds nuw i8, ptr %.02240.us, i64 %63
   %197 = add nuw nsw i64 %.041.us, 1
@@ -8257,7 +8251,7 @@ quantize_row_q4_0_impl.exit.us:                   ; preds = %194, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -8288,9 +8282,9 @@ define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr no
   %.02437.us = phi ptr [ %186, %quantize_row_q4_1_impl.exit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !516)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23, !noalias !518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !518
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !518
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !518
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !518
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !518
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
@@ -8573,9 +8567,9 @@ make_qkx3_quants.exit.us:                         ; preds = %.loopexit.i.us, %51
   br i1 %exitcond73.not.i.us, label %quantize_row_q4_1_impl.exit.us, label %.lr.ph59.i.us, !llvm.loop !538
 
 quantize_row_q4_1_impl.exit.us:                   ; preds = %185, %._crit_edge.i.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !518
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !518
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !518
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !518
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !518
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !518
   %186 = getelementptr inbounds nuw float, ptr %.02437.us, i64 %3
   %187 = getelementptr inbounds nuw i8, ptr %.02238.us, i64 %13
   %188 = add nuw nsw i64 %.039.us, 1
@@ -8589,7 +8583,7 @@ quantize_row_q4_1_impl.exit.us:                   ; preds = %185, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %.not = icmp eq ptr %4, null
@@ -8619,8 +8613,8 @@ define i64 @quantize_q5_0(ptr noalias noundef readonly captures(none) %0, ptr no
   %.02432.us = phi ptr [ %158, %quantize_row_q5_0_impl.exit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23, !noalias !545
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !545
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
@@ -8870,8 +8864,8 @@ make_qx_quants.exit.i.us:                         ; preds = %109, %.preheader.pr
   br i1 %exitcond90.not.i.us, label %quantize_row_q5_0_impl.exit.us, label %.lr.ph71.i.us, !llvm.loop !560
 
 quantize_row_q5_0_impl.exit.us:                   ; preds = %156, %._crit_edge.i.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !545
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !545
   %158 = getelementptr inbounds nuw float, ptr %.02432.us, i64 %3
   %159 = getelementptr inbounds nuw i8, ptr %.02233.us, i64 %12
   %160 = add nuw nsw i64 %.034.us, 1
@@ -8885,7 +8879,7 @@ quantize_row_q5_0_impl.exit.us:                   ; preds = %156, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca [32 x i8], align 16
@@ -8916,9 +8910,9 @@ define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr no
   %.02435.us = phi ptr [ %200, %quantize_row_q5_1_impl.exit.us ], [ %0, %.lr.ph ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !565)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23, !noalias !567
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23, !noalias !567
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23, !noalias !567
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !567
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !567
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !567
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
@@ -9217,9 +9211,9 @@ make_qkx3_quants.exit.i.us:                       ; preds = %.loopexit.i.i.us, %
   br i1 %exitcond99.not.i.us, label %quantize_row_q5_1_impl.exit.us, label %.lr.ph77.i.us, !llvm.loop !588
 
 quantize_row_q5_1_impl.exit.us:                   ; preds = %198, %._crit_edge.i.us
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23, !noalias !567
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23, !noalias !567
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23, !noalias !567
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !567
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !567
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !567
   %200 = getelementptr inbounds nuw float, ptr %.02435.us, i64 %3
   %201 = getelementptr inbounds nuw i8, ptr %.02236.us, i64 %13
   %202 = add nuw nsw i64 %.037.us, 1
@@ -9233,7 +9227,7 @@ quantize_row_q5_1_impl.exit.us:                   ; preds = %198, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_q8_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #6 {
+define i64 @quantize_q8_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   %6 = tail call i64 @ggml_row_size(i32 noundef 8, i64 noundef %3) #23
   %7 = mul nsw i64 %3, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !590)
@@ -9321,7 +9315,7 @@ quantize_row_q8_0_ref.exit:                       ; preds = %44, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.preheader97, label %._crit_edge
@@ -9491,10 +9485,10 @@ define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind
-declare i64 @lroundf(float noundef) local_unnamed_addr #11
+declare i64 @lroundf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_tq2_0_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_tq2_0_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.preheader44, label %._crit_edge
@@ -9596,7 +9590,7 @@ define void @quantize_row_tq2_0_ref(ptr noalias noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #6 {
+define i64 @quantize_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   %6 = tail call i64 @ggml_row_size(i32 noundef 34, i64 noundef %3) #23
   %7 = mul nsw i64 %3, %2
   tail call void @quantize_row_tq1_0_ref(ptr noundef %0, ptr noundef %1, i64 noundef %7)
@@ -9605,7 +9599,7 @@ define i64 @quantize_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #6 {
+define i64 @quantize_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #5 {
   %6 = tail call i64 @ggml_row_size(i32 noundef 35, i64 noundef %3) #23
   %7 = mul nsw i64 %3, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !612)
@@ -9712,7 +9706,7 @@ quantize_row_tq2_0_ref.exit:                      ; preds = %40, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #12 {
+define void @dequantize_row_tq1_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -9833,7 +9827,7 @@ define void @dequantize_row_tq1_0(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -9898,15 +9892,15 @@ define void @dequantize_row_tq2_0(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x i32], align 8
   %5 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i64 %2, 255
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %13, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .lr.ph:                                           ; preds = %3, %13
@@ -9988,10 +9982,10 @@ define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x float], align 4
   %5 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i64 %2, 255
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -10000,7 +9994,7 @@ define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %
   br label %8
 
 ._crit_edge:                                      ; preds = %16, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 8:                                                ; preds = %.lr.ph, %16
@@ -10091,10 +10085,10 @@ define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [2 x float], align 4
   %5 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp sgt i64 %2, 255
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -10103,7 +10097,7 @@ define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0
   br label %8
 
 ._crit_edge:                                      ; preds = %18, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 8:                                                ; preds = %.lr.ph, %18
@@ -10204,7 +10198,7 @@ define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10309,7 +10303,7 @@ define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10507,7 +10501,7 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10591,12 +10585,12 @@ define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x i16], align 2
   %6 = sdiv i64 %2, 256
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = icmp sgt i64 %2, 255
   %indvars.iv87.sroa.gep106 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %indvars.iv87.sroa.gep109 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -10612,8 +10606,8 @@ define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0
   br label %14
 
 ._crit_edge:                                      ; preds = %37, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 14:                                               ; preds = %.lr.ph, %37
@@ -10791,7 +10785,7 @@ define void @dequantize_row_iq1_m(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 32
   %5 = icmp sgt i64 %2, 31
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10842,7 +10836,7 @@ define void @dequantize_row_iq4_nl(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+define void @dequantize_row_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = sdiv i64 %2, 256
   %5 = icmp sgt i64 %2, 255
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -11061,7 +11055,7 @@ define void @dequantize_row_q8_K(ptr noalias noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @iq2xs_init_impl(i32 noundef %0) local_unnamed_addr #6 {
+define void @iq2xs_init_impl(i32 noundef %0) local_unnamed_addr #5 {
   %2 = alloca i64, align 8
   %3 = alloca [8 x i8], align 1
   switch i32 %0, label %4 [
@@ -11127,7 +11121,7 @@ iq2_grid_size.exit:                               ; preds = %1, %iq2_data_index.
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !693
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(174768) %29, i8 -1, i64 174768, i1 false), !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %48
 
 31:                                               ; preds = %23, %36
@@ -11159,7 +11153,7 @@ iq2_grid_size.exit:                               ; preds = %1, %iq2_data_index.
   br i1 %exitcond.not, label %36, label %37, !llvm.loop !695
 
 44:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = shl nuw nsw i32 %12, 3
   %46 = zext nneg i32 %45 to i64
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #25
@@ -11318,8 +11312,8 @@ iq2_grid_size.exit:                               ; preds = %1, %iq2_data_index.
 
 113:                                              ; preds = %162
   tail call void @free(ptr noundef %47) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %163
 
 114:                                              ; preds = %64, %162
@@ -11449,13 +11443,13 @@ iq2_grid_size.exit:                               ; preds = %1, %iq2_data_index.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @iq2_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal range(i32 -1, 2) i32 @iq2_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = load i32, ptr %0, align 4, !tbaa !90
   %4 = load i32, ptr %1, align 4, !tbaa !90
   %5 = icmp slt i32 %3, %4
@@ -11484,10 +11478,10 @@ define internal range(i32 -1, 2) i32 @iq2_compare_func(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @iq2xs_free_impl(i32 noundef %0) local_unnamed_addr #6 {
+define void @iq2xs_free_impl(i32 noundef %0) local_unnamed_addr #5 {
   switch i32 %0, label %2 [
     i32 16, label %iq2_data_index.exit
     i32 17, label %.fold.split.i
@@ -11535,10 +11529,10 @@ iq2_data_index.exit:                              ; preds = %1, %3, %.fold.split
 }
 
 ; Function Attrs: noreturn
-declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #17
+declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x float], align 16
@@ -11619,14 +11613,14 @@ define i64 @quantize_iq2_xxs(ptr noalias noundef readonly captures(none) %0, ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !717)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #23, !noalias !711
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #23, !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !711
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !711
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %506
@@ -12546,14 +12540,14 @@ iq2_find_best_neighbour.exit355.i.us:             ; preds = %378, %.iq2_find_bes
   br i1 %exitcond509.not.i.us, label %quantize_row_iq2_xxs_impl.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !786
 
 quantize_row_iq2_xxs_impl.exit.loopexit.us:       ; preds = %506
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23, !noalias !711
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !711
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !711
   %507 = getelementptr inbounds float, ptr %.01634.us51, i64 %3
   %508 = getelementptr inbounds nuw i8, ptr %.01535.us50, i64 %24
   %509 = add nuw nsw i64 %.036.us49, 1
@@ -12609,7 +12603,7 @@ quantize_row_iq2_xxs_impl.exit.loopexit.us:       ; preds = %506
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -12698,17 +12692,17 @@ define i64 @quantize_iq2_xs(ptr noalias noundef readonly captures(none) %0, ptr 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !796)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !797)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !798)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #23, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.022)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #23, !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !791
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %384
@@ -13421,17 +13415,17 @@ iq2_find_best_neighbour.exit369.i.us:             ; preds = %264, %228, %209
   br i1 %exitcond521.not.i.us, label %quantize_row_iq2_xs_impl.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !856
 
 quantize_row_iq2_xs_impl.exit.loopexit.us:        ; preds = %384
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.022)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23, !noalias !791
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23, !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.022)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !791
   %385 = getelementptr inbounds float, ptr %.01649.us66, i64 %3
   %386 = getelementptr inbounds nuw i8, ptr %.01550.us65, i64 %23
   %387 = add nuw nsw i64 %.051.us64, 1
@@ -13486,7 +13480,7 @@ quantize_row_iq2_xs_impl.exit.loopexit.us:        ; preds = %384
 }
 
 ; Function Attrs: nounwind uwtable
-define void @iq3xs_init_impl(i32 noundef %0) local_unnamed_addr #6 {
+define void @iq3xs_init_impl(i32 noundef %0) local_unnamed_addr #5 {
   %2 = alloca i32, align 4
   %3 = alloca [4 x i8], align 1
   switch i32 %0, label %4 [
@@ -13549,11 +13543,11 @@ iq3_data_index.exit:                              ; preds = %1, %1
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !865
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16384) %28, i8 -1, i64 16384, i1 false), !tbaa !90
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %.lr.ph197
 
 ._crit_edge198:                                   ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = shl nsw i32 %0, 1
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 2
@@ -13716,8 +13710,8 @@ iq3_data_index.exit:                              ; preds = %1, %1
 
 98:                                               ; preds = %146
   tail call void @free(ptr noundef %33) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %147
 
 99:                                               ; preds = %50, %146
@@ -13847,7 +13841,7 @@ iq3_data_index.exit:                              ; preds = %1, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @iq3_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal range(i32 -1, 2) i32 @iq3_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = load i32, ptr %0, align 4, !tbaa !90
   %4 = load i32, ptr %1, align 4, !tbaa !90
   %5 = icmp slt i32 %3, %4
@@ -13876,7 +13870,7 @@ define internal range(i32 -1, 2) i32 @iq3_compare_func(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @iq3xs_free_impl(i32 noundef %0) local_unnamed_addr #6 {
+define void @iq3xs_free_impl(i32 noundef %0) local_unnamed_addr #5 {
   switch i32 %0, label %2 [
     i32 512, label %iq3_data_index.exit
     i32 256, label %iq3_data_index.exit
@@ -13912,7 +13906,7 @@ iq3_data_index.exit:                              ; preds = %1, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = and i64 %3, 255
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %9, label %8
@@ -13948,7 +13942,7 @@ define i64 @quantize_iq3_xxs(ptr noalias noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(address_is_null) %3) unnamed_addr #6 {
+define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, ptr noalias noundef readonly captures(address_is_null) %3) unnamed_addr #5 {
   %5 = alloca [8 x float], align 16
   %6 = alloca [32 x float], align 16
   %7 = alloca [32 x float], align 16
@@ -13996,16 +13990,16 @@ define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef reado
 
 27:                                               ; preds = %23
   %28 = ashr exact i64 %2, 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %30 = icmp sgt i64 %28, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
@@ -14019,16 +14013,16 @@ define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef reado
   br label %35
 
 ._crit_edge:                                      ; preds = %439, %27
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %14) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 35:                                               ; preds = %.lr.ph, %439
@@ -14833,13 +14827,13 @@ iq3_find_best_neighbour.exit406:                  ; preds = %302, %.iq3_find_bes
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_iq3_xxs_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_iq3_xxs_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   tail call fastcc void @quantize_row_iq3_xxs_impl(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x float], align 16
@@ -14859,15 +14853,15 @@ define i64 @quantize_iq3_s(ptr noalias noundef readonly captures(none) %0, ptr n
 
 18:                                               ; preds = %5
   %19 = ashr exact i64 %3, 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %20 = icmp sgt i64 %2, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -15636,15 +15630,15 @@ quantize_row_iq3_s_impl.exit.loopexit.us:         ; preds = %.loopexit458.i.us
 ._crit_edge:                                      ; preds = %quantize_row_iq3_s_impl.exit.loopexit.us, %.lr.ph.split.split.split, %18
   %380 = mul i64 %2, 110
   %381 = mul i64 %380, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %381
 
 .split.us47:                                      ; preds = %123
@@ -15693,13 +15687,13 @@ quantize_row_iq3_s_impl.exit.loopexit.us:         ; preds = %.loopexit458.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_iq3_s_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_iq3_s_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i64 @quantize_iq3_s(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [8 x float], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [32 x i8], align 16
@@ -15717,14 +15711,14 @@ define i64 @quantize_iq1_s(ptr noalias noundef readonly captures(none) %0, ptr n
   unreachable
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %9) #23
-  call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = ashr exact i64 %3, 8
   %19 = icmp sgt i64 %2, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -16350,14 +16344,14 @@ quantize_row_iq1_s_impl.exit.loopexit.us:         ; preds = %.loopexit.i.us
 ._crit_edge:                                      ; preds = %quantize_row_iq1_s_impl.exit.loopexit.us, %.lr.ph.split.split.split.split, %17
   %306 = mul i64 %2, 50
   %307 = mul i64 %306, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %307
 
 .split.us35:                                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.split.us
@@ -16382,7 +16376,7 @@ quantize_row_iq1_s_impl.exit.loopexit.us:         ; preds = %.loopexit.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -16401,12 +16395,12 @@ define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr n
   unreachable
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %18 = ashr exact i64 %3, 8
   %19 = icmp sgt i64 %2, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -16446,8 +16440,8 @@ define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr n
   br i1 %.not563.i.us, label %.split65.us, label %.lr.ph697.i.us
 
 .lr.ph697.i.us:                                   ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #23, !noalias !1053
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23, !noalias !1053
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1053
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1053
   br label %34
 
 34:                                               ; preds = %508, %.lr.ph697.i.us
@@ -17324,8 +17318,8 @@ define i64 @quantize_iq1_m(ptr noalias noundef readonly captures(none) %0, ptr n
   br i1 %exitcond830.not.i.us, label %quantize_row_iq1_m_impl.exit.loopexit.us, label %34, !llvm.loop !1082
 
 quantize_row_iq1_m_impl.exit.loopexit.us:         ; preds = %508
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23, !noalias !1053
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23, !noalias !1053
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1053
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1053
   %509 = getelementptr inbounds float, ptr %.01659.us, i64 %3
   %510 = getelementptr inbounds nuw i8, ptr %.01560.us, i64 %28
   %511 = add nuw nsw i64 %.061.us, 1
@@ -17362,12 +17356,12 @@ quantize_row_iq1_m_impl.exit.us76:                ; preds = %517
 ._crit_edge:                                      ; preds = %quantize_row_iq1_m_impl.exit.us76, %quantize_row_iq1_m_impl.exit.loopexit.us, %17
   %519 = mul i64 %2, 56
   %520 = mul i64 %519, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %520
 
 .split.us.loopexit80:                             ; preds = %.lr.ph.split
@@ -17398,7 +17392,7 @@ quantize_row_iq1_m_impl.exit.us76:                ; preds = %517
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca i16, align 2
@@ -17413,10 +17407,10 @@ define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr 
 
 13:                                               ; preds = %5
   %14 = ashr exact i64 %3, 5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %15 = icmp sgt i64 %2, 0
   br i1 %15, label %.preheader.lr.ph, label %._crit_edge38
 
@@ -17465,15 +17459,15 @@ define i64 @quantize_iq4_nl(ptr noalias noundef readonly captures(none) %0, ptr 
 ._crit_edge38:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %13
   %29 = mul i64 %2, 18
   %30 = mul i64 %29, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %30
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define internal fastcc void @quantize_row_iq4_nl_impl(i32 noundef range(i32 32, 257) %0, ptr noalias noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef range(i32 -1, 8) %10) unnamed_addr #18 {
+define internal fastcc void @quantize_row_iq4_nl_impl(i32 noundef range(i32 32, 257) %0, ptr noalias noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef range(i32 -1, 8) %10) unnamed_addr #17 {
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %20
 
@@ -18030,7 +18024,7 @@ best_index_int8.exit280:                          ; preds = %286, %291, %302
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x float], align 16
   %6 = alloca i16, align 2
@@ -18045,18 +18039,18 @@ define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none)
 
 11:                                               ; preds = %3
   %12 = ashr exact i64 %2, 5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #23
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
@@ -18072,7 +18066,7 @@ define void @quantize_row_iq4_nl_ref(ptr noalias noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [32 x float], align 16
   %8 = alloca [8 x float], align 16
@@ -18086,9 +18080,9 @@ define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr 
 
 12:                                               ; preds = %5
   %13 = ashr exact i64 %3, 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #23
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = icmp sgt i64 %2, 0
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge41
 
@@ -18141,14 +18135,14 @@ define i64 @quantize_iq4_xs(ptr noalias noundef readonly captures(none) %0, ptr 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %12
   %32 = mul i64 %2, 136
   %33 = mul i64 %32, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #23
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %33
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_iq4_xs_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_iq4_xs_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [32 x float], align 16
   %6 = alloca [8 x float], align 16
@@ -18162,9 +18156,9 @@ define void @quantize_row_iq4_xs_ref(ptr noalias noundef readonly captures(none)
 
 10:                                               ; preds = %3
   %11 = ashr exact i64 %2, 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #23, !noalias !1106
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #23, !noalias !1106
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23, !noalias !1106
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1106
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1106
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1106
   %12 = icmp sgt i64 %11, 0
   br i1 %12, label %.lr.ph.split.us.us.i, label %quantize_iq4_xs.exit
 
@@ -18182,14 +18176,14 @@ define void @quantize_row_iq4_xs_ref(ptr noalias noundef readonly captures(none)
   br i1 %exitcond51.not.i, label %quantize_iq4_xs.exit, label %.lr.ph.split.us.us.i, !llvm.loop !1105
 
 quantize_iq4_xs.exit:                             ; preds = %.lr.ph.split.us.us.i, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #23, !noalias !1106
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #23, !noalias !1106
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #23, !noalias !1106
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1106
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1106
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1106
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @quantize_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #6 {
+define i64 @quantize_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #5 {
   %6 = alloca [16 x float], align 16
   %7 = alloca [16 x float], align 16
   %8 = alloca [16 x float], align 16
@@ -18266,16 +18260,16 @@ define i64 @quantize_iq2_s(ptr noalias noundef readonly captures(none) %0, ptr n
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1117)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #23, !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.022)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.022)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   br label %23
 
 23:                                               ; preds = %.loopexit359.i.us, %.lr.ph.i.us
@@ -18956,16 +18950,16 @@ iq2_find_best_neighbour.exit345.i.us:             ; preds = %242, %206, %187
   br i1 %exitcond498.not.i.us, label %quantize_row_iq2_s_impl.exit.loopexit.us, label %23, !llvm.loop !1173
 
 quantize_row_iq2_s_impl.exit.loopexit.us:         ; preds = %.loopexit359.i.us
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.022)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #23, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #23, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23, !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.022)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1110
   %367 = getelementptr inbounds float, ptr %.01650.us63, i64 %3
   %368 = getelementptr inbounds nuw i8, ptr %.01551.us62, i64 %22
   %369 = add nuw nsw i64 %.052.us61, 1
@@ -19020,13 +19014,13 @@ quantize_row_iq2_s_impl.exit.loopexit.us:         ; preds = %.loopexit359.i.us
 }
 
 ; Function Attrs: nounwind uwtable
-define void @quantize_row_iq2_s_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @quantize_row_iq2_s_ref(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = tail call i64 @quantize_iq2_s(ptr noundef %0, ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @ggml_validate_row_data(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define noundef zeroext i1 @ggml_validate_row_data(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = icmp ugt i32 %0, 38
   br i1 %4, label %5, label %8
 
@@ -20045,17 +20039,17 @@ validate_fp16.exit543:                            ; preds = %264, %269
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
-declare i64 @ggml_type_size(i32 noundef) local_unnamed_addr #7
+declare i64 @ggml_type_size(i32 noundef) local_unnamed_addr #6
 
-declare ptr @ggml_type_name(i32 noundef) local_unnamed_addr #7
+declare ptr @ggml_type_name(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #19
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @iq1_sort_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal range(i32 -1, 2) i32 @iq1_sort_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = load float, ptr %0, align 4, !tbaa !8
   %4 = load float, ptr %1, align 4, !tbaa !8
   %5 = fcmp olt float %3, %4
@@ -20066,7 +20060,7 @@ define internal range(i32 -1, 2) i32 @iq1_sort_helper(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @iq1_find_best_neighbour2(ptr noalias noundef nonnull readonly captures(none) %0, ptr noalias noundef nonnull readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef nonnull readonly captures(none) %3, float noundef %4, ptr noalias noundef nonnull readonly captures(none) %5, ptr noalias noundef nonnull writeonly captures(none) %6) unnamed_addr #6 {
+define internal fastcc range(i32 0, -2147483648) i32 @iq1_find_best_neighbour2(ptr noalias noundef nonnull readonly captures(none) %0, ptr noalias noundef nonnull readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef nonnull readonly captures(none) %3, float noundef %4, ptr noalias noundef nonnull readonly captures(none) %5, ptr noalias noundef nonnull writeonly captures(none) %6) unnamed_addr #5 {
   %8 = load i16, ptr %0, align 2, !tbaa !637
   %9 = zext i16 %8 to i32
   %.not = icmp eq i16 %8, 0
@@ -20243,6 +20237,12 @@ define internal fastcc range(i32 0, -2147483648) i32 @iq1_find_best_neighbour2(p
   br i1 %exitcond154.not, label %86, label %87, !llvm.loop !1214
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
 
@@ -20274,25 +20274,25 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 declare i32 @llvm.usub.sat.i32(i32, i32) #20
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

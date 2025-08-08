@@ -398,12 +398,6 @@ SDL_UnlinkTemporaryMemoryEntry.exit:              ; preds = %._crit_edge19.i, %2
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_FreeTemporaryMemory() local_unnamed_addr #0 {
   %1 = tail call ptr @SDL_GetTLS_REAL(ptr noundef nonnull @SDL_temporary_memory) #8
@@ -482,8 +476,8 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   br label %1427
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 16
   store i8 0, ptr %5, align 16
   %11 = load i32, ptr %0, align 8
@@ -492,7 +486,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   br i1 %or.cond450, label %13, label %34
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef 64) #8
   %15 = load i32, ptr %0, align 8
   %16 = icmp ugt i32 %15, 32768
@@ -520,7 +514,7 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef nonnull %6, i32 noundef %24, i32 noundef %26, i32 noundef %28, ptr noundef %30, ptr noundef %32) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pr = load i32, ptr %0, align 8
   br label %34
 
@@ -2263,8 +2257,8 @@ define hidden i32 @SDL_GetEventDescription_REAL(ptr noundef readonly %0, ptr nou
 
 1426:                                             ; preds = %1422, %1425, %.thread
   %.0 = phi i32 [ %1421, %.thread ], [ 0, %1425 ], [ 0, %1422 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1427
 
 1427:                                             ; preds = %1426, %7
@@ -2589,7 +2583,7 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
   ]
 
 46:                                               ; preds = %44, %42
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = call i32 @SDL_GetEventDescription_REAL(ptr noundef nonnull %25, ptr noundef nonnull %7, i32 noundef 256)
   %48 = load i8, ptr %7, align 16
   %.not.i.i = icmp eq i8 %48, 0
@@ -2600,7 +2594,7 @@ define internal fastcc i32 @SDL_PeepEventsInternal(ptr noundef %0, i32 noundef %
   br label %50
 
 50:                                               ; preds = %49, %46
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SDL_LogEvent.exit.i
 
 SDL_LogEvent.exit.i:                              ; preds = %50, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %39
@@ -3961,7 +3955,7 @@ SDL_PumpEventMaintenance.exit:                    ; preds = %45, %48
   br i1 %.not7.i6, label %54, label %SDL_EventEnabled_REAL.exit
 
 54:                                               ; preds = %49, %51
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %55 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @SDL_sentinel_pending) #8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %59
@@ -3993,7 +3987,7 @@ SDL_CallEventWatchers.exit.thread.i:              ; preds = %SDL_CallEventWatche
   br label %SDL_PushEvent_REAL.exit
 
 SDL_PushEvent_REAL.exit:                          ; preds = %65, %SDL_CallEventWatchers.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_EventEnabled_REAL.exit
 
 SDL_EventEnabled_REAL.exit:                       ; preds = %51, %SDL_PushEvent_REAL.exit, %SDL_PumpEventMaintenance.exit
@@ -4049,7 +4043,7 @@ define hidden zeroext i1 @SDL_WaitEventTimeoutNS(ptr noundef %0, i64 noundef %1)
   br label %SDL_WaitEventTimeout_Device.exit.thread78
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = load ptr, ptr @SDL_EventQ, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %23) #8
   %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_EventQ, i64 8), align 8, !range !6, !noundef !7
@@ -4109,7 +4103,7 @@ SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.s
 
 46:                                               ; preds = %SDL_PeepEventsInternal.exit
   %47 = call fastcc i32 @SDL_PeepEventsInternal(ptr noundef nonnull %3, i32 noundef 1, i32 noundef 2, i32 noundef 32512, i32 noundef 32512, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_WaitEventTimeout_Device.exit.thread78
 
 .critedge.sink.split:                             ; preds = %22
@@ -4118,7 +4112,7 @@ SDL_PeepEventsInternal.exit:                      ; preds = %41, %.lr.ph.split.s
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %SDL_PeepEventsInternal.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 49:                                               ; preds = %.critedge, %16
@@ -4450,7 +4444,7 @@ define hidden zeroext i1 @SDL_GetEventFilter_REAL(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_AddEventWatch_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -4679,12 +4673,12 @@ SDL_SetEventEnabled_REAL.exit.thread:             ; preds = %51, %49, %40, %38, 
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare void @SDL_ToggleDragAndDropSupport() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %2 = lshr i32 %0, 8
   %3 = and i32 %2, 255
   %4 = zext nneg i32 %3 to i64
@@ -4757,7 +4751,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not7.i, label %18, label %SDL_EventEnabled_REAL.exit
 
 18:                                               ; preds = %1, %9
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %19, align 8
@@ -4771,7 +4765,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %22, label %23, label %SDL_LogEvent.exit.thread
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %24 = call i32 @SDL_GetEventDescription_REAL(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 256)
   %25 = load i8, ptr %2, align 16
   %.not.i3 = icmp eq i8 %25, 0
@@ -4782,7 +4776,7 @@ define hidden void @SDL_SendAppEvent(i32 noundef %0) local_unnamed_addr #0 {
   br label %SDL_LogEvent.exit
 
 SDL_LogEvent.exit:                                ; preds = %23, %26
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 8
   %27 = icmp eq i32 %.pre, 32512
   br i1 %27, label %SDL_CallEventWatchers.exit, label %SDL_LogEvent.exit.thread
@@ -4810,7 +4804,7 @@ SDL_CallEventWatchers.exit.thread.i:              ; preds = %SDL_CallEventWatche
   br label %SDL_CallEventWatchers.exit
 
 SDL_CallEventWatchers.exit:                       ; preds = %SDL_CallEventWatchers.exit.thread.i, %33, %SDL_LogEvent.exit.thread, %SDL_LogEvent.exit
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_EventEnabled_REAL.exit
 
 SDL_EventEnabled_REAL.exit:                       ; preds = %9, %SDL_CallEventWatchers.exit
@@ -4831,7 +4825,7 @@ define hidden void @SDL_SendKeymapChangedEvent() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %6, label %SDL_SendAppEvent.exit
 
 6:                                                ; preds = %3, %0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 772, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call i64 @SDL_GetTicksNS_REAL() #8
@@ -4848,7 +4842,7 @@ SDL_CallEventWatchers.exit.thread.i.i:            ; preds = %6
   br label %SDL_CallEventWatchers.exit.i
 
 SDL_CallEventWatchers.exit.i:                     ; preds = %SDL_CallEventWatchers.exit.thread.i.i, %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %SDL_SendAppEvent.exit
 
 SDL_SendAppEvent.exit:                            ; preds = %3, %SDL_CallEventWatchers.exit.i
@@ -4869,7 +4863,7 @@ define hidden void @SDL_SendLocaleChangedEvent() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %6, label %SDL_SendAppEvent.exit
 
 6:                                                ; preds = %3, %0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 263, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call i64 @SDL_GetTicksNS_REAL() #8
@@ -4886,7 +4880,7 @@ SDL_CallEventWatchers.exit.thread.i.i:            ; preds = %6
   br label %SDL_CallEventWatchers.exit.i
 
 SDL_CallEventWatchers.exit.i:                     ; preds = %SDL_CallEventWatchers.exit.thread.i.i, %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %SDL_SendAppEvent.exit
 
 SDL_SendAppEvent.exit:                            ; preds = %3, %SDL_CallEventWatchers.exit.i
@@ -4907,7 +4901,7 @@ define hidden void @SDL_SendSystemThemeChangedEvent() local_unnamed_addr #0 {
   br i1 %.not7.i.i, label %6, label %SDL_SendAppEvent.exit
 
 6:                                                ; preds = %3, %0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 264, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call i64 @SDL_GetTicksNS_REAL() #8
@@ -4924,7 +4918,7 @@ SDL_CallEventWatchers.exit.thread.i.i:            ; preds = %6
   br label %SDL_CallEventWatchers.exit.i
 
 SDL_CallEventWatchers.exit.i:                     ; preds = %SDL_CallEventWatchers.exit.thread.i.i, %10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %SDL_SendAppEvent.exit
 
 SDL_SendAppEvent.exit:                            ; preds = %3, %SDL_CallEventWatchers.exit.i
@@ -5174,6 +5168,12 @@ declare zeroext i1 @SDL_DispatchEventWatchList(ptr noundef, ptr noundef) local_u
 
 declare zeroext i1 @SDL_GetStringBoolean(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
@@ -5185,10 +5185,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }

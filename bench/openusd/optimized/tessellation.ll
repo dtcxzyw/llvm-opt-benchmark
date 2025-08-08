@@ -1171,8 +1171,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_G
   ]
 
 ._crit_edge.i.us.i:                               ; preds = %.lr.ph.split.us.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not.i.i, label %163, label %159
 
 159:                                              ; preds = %._crit_edge.i.us.i
@@ -1186,8 +1186,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_G
 
 163:                                              ; preds = %159, %._crit_edge.i.us.i
   %164 = phi i32 [ %152, %159 ], [ 3, %._crit_edge.i.us.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %165 = add nsw i32 %164, %.0337.us.i
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.i
 
@@ -1230,8 +1230,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   br label %233
 
 .noexc.preheader.i:                               ; preds = %.lr.ph.split.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %.fr.i, ptr %6, align 4
   br label %.noexc.i
 
@@ -1264,8 +1264,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
 
 190:                                              ; preds = %187, %._crit_edge.i.i
   %191 = phi i32 [ %152, %187 ], [ 3, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %192 = add nsw i32 %191, %.0337.i
   br label %233
 
@@ -1288,9 +1288,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %201 = mul nsw i32 %.04.i.i, %13
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds float, ptr %175, i64 %202
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.fr.i, ptr %3, align 4
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %.0113.i.i, ptr noundef nonnull %4)
   %204 = load float, ptr %4, align 4
@@ -1365,9 +1365,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT
 .noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %..noexc52_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %..noexc52_crit_edge.i ], [ %215, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
   %.2.i.i = phi i32 [ 1, %..noexc52_crit_edge.i ], [ %230, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %231 = add nsw i32 %.2.i.i, %.04.i.i
   %exitcond.not.i50.i = icmp eq i32 %.pre-phi.i, %147
   br i1 %exitcond.not.i50.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, label %.lr.ph.i49.i, !llvm.loop !19
@@ -1768,8 +1768,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_G
   ]
 
 ._crit_edge.i.us.i:                               ; preds = %.lr.ph.split.us.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not.i.i, label %163, label %159
 
 159:                                              ; preds = %._crit_edge.i.us.i
@@ -1783,8 +1783,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_G
 
 163:                                              ; preds = %159, %._crit_edge.i.us.i
   %164 = phi i32 [ %152, %159 ], [ 3, %._crit_edge.i.us.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %165 = add nsw i32 %164, %.0337.us.i
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.i
 
@@ -1827,8 +1827,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   br label %233
 
 .noexc.preheader.i:                               ; preds = %.lr.ph.split.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %.fr.i, ptr %6, align 4
   br label %.noexc.i
 
@@ -1861,8 +1861,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
 
 190:                                              ; preds = %187, %._crit_edge.i.i
   %191 = phi i32 [ %152, %187 ], [ 3, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %192 = add nsw i32 %191, %.0337.i
   br label %233
 
@@ -1885,9 +1885,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %201 = mul nsw i32 %.04.i.i, %13
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds double, ptr %175, i64 %202
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.fr.i, ptr %3, align 4
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %.0113.i.i, ptr noundef nonnull %4)
   %204 = load double, ptr %4, align 16
@@ -1962,9 +1962,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT
 .noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %..noexc52_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %..noexc52_crit_edge.i ], [ %215, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
   %.2.i.i = phi i32 [ 1, %..noexc52_crit_edge.i ], [ %230, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %231 = add nsw i32 %.2.i.i, %.04.i.i
   %exitcond.not.i50.i = icmp eq i32 %.pre-phi.i, %147
   br i1 %exitcond.not.i50.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, label %.lr.ph.i49.i, !llvm.loop !25
@@ -3930,9 +3930,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmente
   %3 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %5 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, i8 0, i64 28, i1 false)
   %6 = select i1 %0, i8 71, i8 69
   store i8 %6, ptr %3, align 4
@@ -3976,9 +3976,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmente
   store i32 %.sink20.i, ptr %.sink22.i.sroa.phi, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink19.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %22 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef %.sink19.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %22
 }
 
@@ -3999,15 +3999,15 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %15 = load i32, ptr %0, align 4
   %16 = icmp eq i32 %15, %.0.val
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4220,15 +4220,15 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
 133:                                              ; preds = %125, %113
   %.pn70.i = phi i32 [ %124, %113 ], [ %132, %125 ]
   %.3.i = add nsw i32 %.pn70.i, %.2.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.sroa.speculated32 = tail call i32 @llvm.smin.i32(i32 %.4.val, i32 %.0.val)
   %134 = icmp sgt i32 %.sroa.speculated32, 2
   br i1 %134, label %.lr.ph, label %._crit_edge
@@ -4329,10 +4329,10 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUnifor
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load i32, ptr %0, align 4
   %11 = icmp eq i32 %10, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -4779,10 +4779,10 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
 227:                                              ; preds = %220, %211, %.loopexit.i83.i
   %.pn50.i = phi i32 [ %219, %211 ], [ %.1.i85.i, %.loopexit.i83.i ], [ %226, %220 ]
   %.2.i = add nsw i32 %.pn50.i, %.1.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not39 = icmp slt i32 %1, 3
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
@@ -4932,9 +4932,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
   %.sroa.speculated.i = add nsw i32 %11, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -5081,9 +5081,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
 
 .loopexit:                                        ; preds = %.lr.ph.split.us.i, %82, %6
   %.039.lcssa.i = phi i32 [ 0, %6 ], [ %.1.i, %82 ], [ %.1.us.i, %.lr.ph.split.us.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %84 = icmp sgt i32 %2, 2
   br i1 %84, label %.lr.ph, label %._crit_edge
 
@@ -5192,9 +5192,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   br i1 %or.cond, label %38, label %56
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %6, i8 0, i64 28, i1 false)
   %39 = select i1 %3, i8 71, i8 69
   store i8 %39, ptr %6, align 4
@@ -5237,9 +5237,9 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %.sink20.i, ptr %.sink22.i.sroa.phi, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink19.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %55 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef %.sink19.i)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
 
 56:                                               ; preds = %35
@@ -6672,10 +6672,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

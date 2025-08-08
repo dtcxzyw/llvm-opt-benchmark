@@ -339,13 +339,13 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit:   ; preds = %entry, %if.then.i
 
 if.then:                                          ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit
   %mName = getelementptr inbounds nuw i8, ptr %pTDD, i64 68
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nameBuf.i)
   %call.i2 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i, ptr noundef nonnull readonly dereferenceable(1) %mName, i64 noundef 16) #19
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %nameBuf.i, i64 15
   store i8 0, ptr %arrayidx.i, align 1
   %1 = ptrtoint ptr %nameBuf.i to i64
   %call2.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nameBuf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nameBuf.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit
@@ -378,13 +378,13 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i: ; preds = %if.then1.i, %if.t
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN2EA6Thread13SetThreadNameERKmPKc.exit
 
 if.then.i.i:                                      ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nameBuf.i.i.i)
   %call.i2.i.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %mName.i, i64 noundef 16) #19
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %nameBuf.i.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %1 = ptrtoint ptr %nameBuf.i.i.i to i64
   %call2.i.i.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nameBuf.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nameBuf.i.i.i)
   br label %_ZN2EA6Thread13SetThreadNameERKmPKc.exit
 
 _ZN2EA6Thread13SetThreadNameERKmPKc.exit:         ; preds = %entry, %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i.i, %if.then.i.i
@@ -418,13 +418,13 @@ _ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i: ; preds = %if.then1, %if.then
   br i1 %cmp.i, label %if.then.i, label %if.end6
 
 if.then.i:                                        ; preds = %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %nameBuf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nameBuf.i.i)
   %call.i2.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %nameBuf.i.i, ptr noundef nonnull readonly dereferenceable(1) %mName, i64 noundef 16) #19
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %nameBuf.i.i, i64 15
   store i8 0, ptr %arrayidx.i.i, align 1
   %2 = ptrtoint ptr %nameBuf.i.i to i64
   %call2.i.i = call i32 (i32, ...) @prctl(i32 noundef 15, i64 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %nameBuf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nameBuf.i.i)
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then.i, %_ZN8Internal5GetIdEP19EAThreadDynamicData.exit.i, %entry
@@ -615,10 +615,10 @@ declare void @llvm.va_end.p0(ptr) #15
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

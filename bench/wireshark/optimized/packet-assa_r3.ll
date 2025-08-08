@@ -2948,14 +2948,11 @@ define hidden void @proto_register_r3() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_r3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -2965,19 +2962,16 @@ define internal i32 @dissect_r3(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_r3() local_unnamed_addr #0 {
@@ -2987,13 +2981,13 @@ define hidden void @proto_reg_handoff_r3() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 1, 257) i32 @get_r3_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -3083,7 +3077,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i:                                         ; preds = %43, %47
   %.08298.i = phi i32 [ %49, %47 ], [ 5, %43 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 2)
   %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i)
   %52 = add nuw i32 %.08298.i, 1
@@ -3143,7 +3137,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
 
 dissect_r3_command.exit.i:                        ; preds = %77, %74, %68, %65
   %81 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %83, label %47
 
@@ -3236,55 +3230,55 @@ dissect_r3_packet.exit:                           ; preds = %.loopexit.i, %119, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_cmd_response(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -4103,7 +4097,7 @@ define internal void @dissect_r3_cmd_filters(ptr noundef %0, i32 noundef %1, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit.thread, label %7
 
@@ -4186,7 +4180,7 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %7, %.loopexit, %51, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -4393,7 +4387,7 @@ define internal void @dissect_r3_cmd_alarmlogdump(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %8 = add i32 %1, 2
@@ -4533,7 +4527,7 @@ define internal void @dissect_r3_cmd_downloadfirmware(ptr noundef %0, i32 nounde
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %80, %77, %71, %57, %54, %51, %37, %30, %68, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -4742,10 +4736,10 @@ define internal void @dissect_r3_cmd_extendedresponse(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_response_singlebyte(ptr noundef %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
@@ -4771,7 +4765,7 @@ define internal void @dissect_r3_response_hasdata(ptr noundef %0, i32 noundef %1
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 5036, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 5036, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -4838,7 +4832,7 @@ define internal void @dissect_r3_response_hasdata(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_upstreamcommand_reserved(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -4856,7 +4850,7 @@ define internal void @dissect_r3_upstreamcommand_debugmsg(ptr noundef %0, i32 no
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3854, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3854, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -4894,7 +4888,7 @@ define internal void @dissect_r3_upstreamcommand_dumpeventlog(ptr noundef %0, i3
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3882, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3882, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -4949,7 +4943,7 @@ define internal void @dissect_r3_upstreamcommand_dumpnvram(ptr noundef %0, i32 n
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3918, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3918, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -4990,7 +4984,7 @@ define internal void @dissect_r3_upstreamcommand_queryconfig(ptr noundef %0, i32
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3947, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3947, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -5104,7 +5098,7 @@ define internal void @dissect_r3_upstreamcommand_dpac(ptr noundef %0, i32 nounde
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4020, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4020, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5129,12 +5123,12 @@ define internal void @dissect_r3_upstreamcommand_notify(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_upstreamcommand_mfg(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4043, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4043, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %5
@@ -5164,7 +5158,7 @@ define internal void @dissect_r3_upstreamcommand_mfg(ptr noundef %0, i32 noundef
   br label %28
 
 28:                                               ; preds = %24, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5184,7 +5178,7 @@ define internal void @dissect_r3_upstreamcommand_dumpnvramrle(ptr noundef %0, i3
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4077, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4077, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5224,7 +5218,7 @@ define internal void @dissect_r3_upstreamcommand_dumpdeclinedlog(ptr noundef %0,
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4106, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4106, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5291,7 +5285,7 @@ define internal void @dissect_r3_upstreamcommand_dumpalarmlog(ptr noundef %0, i3
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4149, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4149, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5351,7 +5345,7 @@ define internal void @dissect_r3_upstreamcommand_dumpdebuglog(ptr noundef %0, i3
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4191, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4191, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5372,10 +5366,10 @@ define internal void @dissect_r3_upstreamcommand_dumpdebuglog(ptr noundef %0, i3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -5388,7 +5382,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
   br i1 %.not249, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3592, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 3592, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %223
@@ -5722,7 +5716,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -5786,22 +5780,22 @@ define internal fastcc void @dissect_serialnumber(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @str_to_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @str_to_str(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4) #0 {
@@ -5809,7 +5803,7 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4209, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4209, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -5870,7 +5864,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4245, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4245, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5920,7 +5914,7 @@ define internal void @dissect_r3_upstreammfgfield_hardwareid(ptr noundef %0, i32
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4268, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4268, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -5947,7 +5941,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4286, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4286, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 10:                                               ; preds = %7
@@ -5966,7 +5960,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   %18 = or disjoint i32 %.03744, 1
   %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %18)
   %20 = zext i8 %19 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load i32, ptr @ett_r3checkpointlogentry, align 4
   %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %15, ptr noundef %0, i32 noundef %.03744, i32 noundef 2, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.2041, i32 noundef %.045)
   %23 = call ptr @val_to_str_ext_const(i32 noundef %20, ptr noundef nonnull @r3_checkpointnames_ext, ptr noundef nonnull @.str.2042)
@@ -6008,7 +6002,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   %42 = load i32, ptr @hf_r3_checkpointlog_checkpoint, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %42, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.2044, ptr noundef %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = add i32 %.03744, 2
   %45 = add i32 %.045, 1
   %46 = icmp slt i32 %44, %11
@@ -6028,7 +6022,7 @@ define internal void @dissect_r3_upstreammfgfield_cpuregisters(ptr noundef %0, i
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4350, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4350, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -6426,7 +6420,7 @@ define internal void @dissect_r3_upstreammfgfield_taskflags(ptr noundef %0, i32 
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4535, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4535, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -6476,7 +6470,7 @@ define internal void @dissect_r3_upstreammfgfield_timerchain(ptr noundef %0, i32
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4563, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4563, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -6525,7 +6519,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4589, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4589, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %5
@@ -6535,7 +6529,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
 
 .lr.ph:                                           ; preds = %9, %90
   %.07280 = phi i32 [ %91, %90 ], [ 0, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load i32, ptr @ett_r3peekpoke, align 4
   %13 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.07280, i32 noundef 3, i32 noundef %12, ptr noundef nonnull %6, ptr noundef nonnull @.str.2109)
   %14 = load i32, ptr @hf_r3_peekpoke_operation, align 4
@@ -6673,12 +6667,12 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
 
 .critedge:                                        ; preds = %.lr.ph
   %89 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %15, ptr noundef nonnull @ei_r3_peekpoke_operation)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 90:                                               ; preds = %45, %._crit_edge82, %42, %64, %85, %21, %20
   %.2 = phi i32 [ %43, %42 ], [ %65, %64 ], [ %88, %85 ], [ %17, %21 ], [ %17, %20 ], [ %.pre, %._crit_edge82 ], [ %49, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = add i32 %.2, 3
   %92 = icmp slt i32 %91, %10
   br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !23
@@ -6693,7 +6687,7 @@ define internal void @dissect_r3_upstreammfgfield_lockstate(ptr noundef %0, i32 
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4703, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4703, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -6709,7 +6703,7 @@ define internal void @dissect_r3_upstreammfgfield_capabilities(ptr noundef %0, i
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4718, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4718, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -6801,7 +6795,7 @@ define internal void @dissect_r3_upstreammfgfield_dumpm41t81(ptr noundef %0, i32
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4763, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4763, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -7029,7 +7023,7 @@ define internal void @dissect_r3_upstreammfgfield_nvramchecksumvalue(ptr noundef
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4867, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4867, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -7049,7 +7043,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4879, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4879, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -7158,7 +7152,7 @@ define internal void @dissect_r3_upstreammfgfield_mortisestatelog(ptr noundef %0
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4939, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4939, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -7210,7 +7204,7 @@ define internal void @dissect_r3_upstreammfgfield_mortisepins(ptr noundef %0, i3
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4974, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4974, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -7242,7 +7236,7 @@ define internal void @dissect_r3_upstreammfgfield_keypadchar(ptr noundef %0, i32
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4991, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4991, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 9:                                                ; preds = %6
@@ -7260,7 +7254,7 @@ define internal void @dissect_r3_upstreammfgfield_magcard(ptr noundef %0, i32 no
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4999, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 4999, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -7275,7 +7269,7 @@ define internal void @dissect_r3_upstreammfgfield_proxcard(ptr noundef %0, i32 n
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 5007, ptr noundef nonnull @.str.1862) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.1860, ptr noundef nonnull @.str.1861, i32 noundef 5007, ptr noundef nonnull @.str.1862) #5
   unreachable
 
 8:                                                ; preds = %5
@@ -7285,28 +7279,28 @@ define internal void @dissect_r3_upstreammfgfield_proxcard(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_r3_cmdmfg_setserialnumber(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(none) %3, ptr noundef %4) #0 {
@@ -7707,7 +7701,7 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %5, %116
   %.0120121 = phi i32 [ %117, %116 ], [ 0, %5 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = add i32 %.0120121, %12
   %16 = load i32, ptr @ett_r3peekpoke, align 4
   %17 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %15, i32 noundef 3, i32 noundef %16, ptr noundef nonnull %6, ptr noundef nonnull @.str.2109)
@@ -7859,12 +7853,12 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
 
 .critedge:                                        ; preds = %.lr.ph
   %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_r3_peekpoke_operation, ptr noundef nonnull @.str.2209)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 116:                                              ; preds = %24, %28, %32, %36, %40, %51, %62, %73, %83, %93
   %.2 = phi i32 [ %.0120121, %24 ], [ %.0120121, %28 ], [ %.0120121, %32 ], [ %.0120121, %36 ], [ %50, %40 ], [ %61, %51 ], [ %72, %62 ], [ %82, %73 ], [ %92, %83 ], [ %114, %93 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %117 = add i32 %.2, 3
   %118 = icmp slt i32 %117, %13
   br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !30
@@ -8026,16 +8020,21 @@ define internal void @dissect_r3_cmdmfg_haltandcatchfire(ptr noundef %0, i32 nou
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

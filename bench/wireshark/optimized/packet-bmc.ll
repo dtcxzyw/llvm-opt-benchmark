@@ -133,7 +133,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %89
 
 32:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = load i32, ptr @hf_bmc_offset_to_begin_ctch_bs_index, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %33, ptr noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef 2)
@@ -242,7 +242,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %64, %70
   %.3.i = phi i32 [ %68, %64 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %74, %70 ], [ %80, %.lr.ph13.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %89
 
 82:                                               ; preds = %4
@@ -264,9 +264,6 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -304,9 +301,6 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_cbs_message_identifier(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -337,10 +331,15 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

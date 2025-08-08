@@ -123,7 +123,7 @@ define dso_local noalias noundef ptr @MultiExecHash(ptr noundef readonly capture
   br label %60
 
 60:                                               ; preds = %.critedge.i, %34
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %61 = load ptr, ptr %54, align 8
   %.not.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i, label %ExecProcNode.exit.i, label %62
@@ -170,11 +170,11 @@ ExecProcNode.exit.i:                              ; preds = %62, %60
   %82 = load double, ptr %59, align 8
   %83 = fadd double %82, 1.000000e+00
   store double %83, ptr %59, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 84:                                               ; preds = %66, %ExecProcNode.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %85 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %86 = load i32, ptr %85, align 8
   %87 = icmp sgt i32 %86, 0
@@ -310,7 +310,7 @@ ExecParallelHashMergeCounters.exit.i:             ; preds = %.lr.ph.i.i, %._crit
   br label %178
 
 178:                                              ; preds = %375, %153
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %179 = load ptr, ptr %154, align 8
   %.not.i.i11 = icmp eq ptr %179, null
   br i1 %.not.i.i11, label %ExecProcNode.exit.i12, label %180
@@ -386,7 +386,7 @@ ExecHashGetSkewBucket.exit.i:                     ; preds = %.lr.ph.i.i14
   br i1 %.not38.i, label %ExecHashGetSkewBucket.exit.thread.i, label %216
 
 216:                                              ; preds = %ExecHashGetSkewBucket.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %217 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %182, ptr noundef nonnull %2) #16
   %218 = load i32, ptr %217, align 4
   %219 = add i32 %218, 16
@@ -669,7 +669,7 @@ ExecHashRemoveNextSkewBucket.exit.i.i:            ; preds = %._crit_edge.i.i.i
   br label %ExecHashSkewTableInsert.exit.i
 
 ExecHashSkewTableInsert.exit.i:                   ; preds = %369, %366
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %370 = load double, ptr %176, align 8
   %371 = fadd double %370, 1.000000e+00
   store double %371, ptr %176, align 8
@@ -686,11 +686,11 @@ ExecHashGetSkewBucket.exit.thread.i:              ; preds = %211, %ExecHashGetSk
   br label %375
 
 375:                                              ; preds = %372, %188
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %178
 
 376:                                              ; preds = %184, %ExecProcNode.exit.i12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %377 = load i32, ptr %14, align 8
   %378 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %379 = load i32, ptr %378, align 4
@@ -835,11 +835,8 @@ define dso_local noundef ptr @ExecInitHash(ptr noundef %0, ptr noundef %1, i32 n
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @ExecHash(ptr readnone captures(none) %0) #3 {
+define internal noalias noundef nonnull ptr @ExecHash(ptr readnone captures(none) %0) #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #16
@@ -852,9 +849,6 @@ declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @ExecInitResultTupleSlotTL(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndHash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -873,10 +867,10 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -1067,7 +1061,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
 
 120:                                              ; preds = %116
   %121 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %122 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %122, 0
   %123 = icmp slt i32 %121, 1
@@ -1246,7 +1240,7 @@ define dso_local noundef ptr @ExecHashTableCreate(ptr noundef readonly captures(
   br label %ExecHashBuildSkewHash.exit
 
 ExecHashBuildSkewHash.exit:                       ; preds = %120, %124, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %217
 
 217:                                              ; preds = %ExecHashBuildSkewHash.exit, %116
@@ -1254,15 +1248,15 @@ ExecHashBuildSkewHash.exit:                       ; preds = %120, %124, %.sink.s
   br label %ExecParallelHashTableAlloc.exit
 
 ExecParallelHashTableAlloc.exit:                  ; preds = %.lr.ph.i, %98, %.thread, %96, %217
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #4 {
+define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #3 {
   %10 = add i32 %1, 7
   %11 = and i32 %10, -8
   %12 = add i32 %11, 32
@@ -1466,7 +1460,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef captur
   %41 = add i64 %40, 96
   %42 = mul i64 %41, %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 %42
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @BarrierInit(ptr noundef nonnull %44, i32 noundef 0) #16
   %45 = icmp eq i64 %indvars.iv, 0
@@ -1513,7 +1507,7 @@ define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr noundef captur
   %74 = call ptr @sts_initialize(ptr noundef nonnull %70, i32 noundef %71, i32 noundef %73, i64 noundef 4, i32 noundef 1, ptr noundef nonnull %30, ptr noundef nonnull %3) #16
   %75 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store ptr %74, ptr %75, align 8
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %24, align 8
   %77 = sext i32 %76 to i64
@@ -1564,7 +1558,7 @@ define dso_local void @ExecParallelHashTableAlloc(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @get_hash_memory_limit() local_unnamed_addr #5 {
+define dso_local i64 @get_hash_memory_limit() local_unnamed_addr #4 {
   %1 = load i32, ptr @work_mem, align 4
   %2 = sitofp i32 %1 to double
   %3 = load double, ptr @hash_mem_multiplier, align 8
@@ -1577,7 +1571,7 @@ define dso_local i64 @get_hash_memory_limit() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #6
+declare double @llvm.ceil.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashTableDestroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -1643,7 +1637,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecHashTableInsert(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef %1, ptr noundef nonnull %4) #16
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1855,14 +1849,14 @@ dense_alloc.exit:                                 ; preds = %51, %64, %73
   br label %137
 
 137:                                              ; preds = %136, %133
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 declare ptr @ExecFetchSlotMinimalTuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ExecHashGetBucketAndBatch(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
+define dso_local void @ExecHashGetBucketAndBatch(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
@@ -1890,7 +1884,7 @@ define dso_local void @ExecHashGetBucketAndBatch(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ExecHashIncreaseNumBatches(ptr noundef %0) unnamed_addr #0 {
@@ -2190,9 +2184,9 @@ define dso_local void @ExecParallelHashTableInsert(ptr noundef %0, ptr noundef %
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
   store i32 %2, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef %1, ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -2369,8 +2363,8 @@ ExecParallelHashPushTuple.exit.thread:            ; preds = %43, %.thread
   br label %104
 
 104:                                              ; preds = %103, %ExecParallelHashPushTuple.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2567,9 +2561,9 @@ define dso_local void @ExecParallelHashTableInsertCurrentBatch(ptr noundef %0, p
 ExecHashGetBucketAndBatch.exit:
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef %1, ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i32, ptr %0, align 8
   %7 = add i32 %6, -1
   %8 = and i32 %7, %2
@@ -2614,8 +2608,8 @@ ExecParallelHashPushTuple.exit:                   ; preds = %25
   br label %33
 
 33:                                               ; preds = %32, %ExecParallelHashPushTuple.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2712,7 +2706,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
   %50 = load ptr, ptr %30, align 8
   %51 = call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %49, ptr noundef %50, i1 noundef zeroext false) #16
   store ptr %51, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %33, align 8
   %53 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %52, ptr @CurrentMemoryContext, align 8
@@ -2720,7 +2714,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
   %55 = call i64 %54(ptr noundef nonnull %.fr52, ptr noundef nonnull %1, ptr noundef nonnull %3) #16
   store ptr %53, ptr @CurrentMemoryContext, align 8
   %.not32 = icmp eq i64 %55, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = load ptr, ptr %33, align 8
   call void @MemoryContextReset(ptr noundef %56) #16
   br i1 %.not32, label %.critedge, label %.loopexit33
@@ -2833,7 +2827,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
   %49 = load ptr, ptr %27, align 8
   %50 = call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %48, ptr noundef %49, i1 noundef zeroext false) #16
   store ptr %50, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %51 = load ptr, ptr %30, align 8
   %52 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
@@ -2841,7 +2835,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
   %54 = call i64 %53(ptr noundef nonnull %.fr50, ptr noundef nonnull %1, ptr noundef nonnull %3) #16
   store ptr %52, ptr @CurrentMemoryContext, align 8
   %.not31 = icmp eq i64 %54, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %30, align 8
   call void @MemoryContextReset(ptr noundef %55) #16
   br i1 %.not31, label %.critedge, label %.loopexit32
@@ -2864,7 +2858,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ExecPrepHashTableForUnmatched(ptr noundef writeonly captures(none) initializes((244, 252), (256, 264)) %0) local_unnamed_addr #9 {
+define dso_local void @ExecPrepHashTableForUnmatched(ptr noundef writeonly captures(none) initializes((244, 252), (256, 264)) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 244
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -3279,7 +3273,7 @@ define dso_local void @ExecHashTableReset(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
+define dso_local void @ExecHashTableResetMatchFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph26, label %.preheader
@@ -3389,7 +3383,7 @@ define dso_local void @ExecReScanHash(ptr noundef readonly captures(none) %0) lo
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ExecHashGetSkewBucket(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local i32 @ExecHashGetSkewBucket(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i8, ptr %3, align 8, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
@@ -3509,7 +3503,7 @@ define dso_local void @ExecHashInitializeDSM(ptr noundef captures(none) %0, ptr 
 declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3609,7 +3603,7 @@ define dso_local void @ExecShutdownHash(ptr noundef captures(none) %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ExecHashAccumInstrumentation(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define dso_local void @ExecHashAccumInstrumentation(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
@@ -4075,7 +4069,7 @@ ExecParallelHashPopChunkQueue.exit:               ; preds = %ExecParallelHashPop
   %.0.i109137 = phi i64 [ 0, %.lr.ph138 ], [ %236, %ExecParallelHashPushTuple.exit ]
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 %.0.i109137
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = load i32, ptr %0, align 8
@@ -4158,7 +4152,7 @@ ExecParallelHashPushTuple.exit:                   ; preds = %206, %211
   %234 = add nuw nsw i64 %233, 23
   %235 = and i64 %234, 8589934584
   %236 = add i64 %235, %.0.i109137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %237 = load i64, ptr %172, align 8
   %238 = icmp ult i64 %236, %237
   br i1 %238, label %175, label %._crit_edge139, !llvm.loop !41
@@ -4232,7 +4226,7 @@ ExecParallelHashRepartitionFirst.exit:            ; preds = %242, %139
 
 277:                                              ; preds = %._crit_edge.i, %.lr.ph42.i
   %indvars.iv45.i = phi i64 [ 1, %.lr.ph42.i ], [ %indvars.iv.next46.i, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %278 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv45.i
   %279 = load ptr, ptr %278, align 8
   call void @sts_begin_parallel_scan(ptr noundef %279) #16
@@ -4301,7 +4295,7 @@ ExecHashGetBucketAndBatch.exit.i:                 ; preds = %289, %.lr.ph40.i
 ._crit_edge.i:                                    ; preds = %316, %277
   %319 = load ptr, ptr %278, align 8
   call void @sts_end_parallel_scan(ptr noundef %319) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
   br i1 %exitcond49.not.i, label %ExecParallelHashRepartitionRest.exit, label %277, !llvm.loop !45
@@ -4845,7 +4839,7 @@ declare zeroext i1 @BarrierDetach(ptr noundef) local_unnamed_addr #1
 declare i64 @sts_estimate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4858,14 +4852,14 @@ declare void @sts_begin_parallel_scan(ptr noundef) local_unnamed_addr #1
 declare ptr @sts_parallel_scan_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #13
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #12
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 declare ptr @repalloc0(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4886,6 +4880,12 @@ declare void @BarrierInit(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @sts_initialize(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -4910,18 +4910,18 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

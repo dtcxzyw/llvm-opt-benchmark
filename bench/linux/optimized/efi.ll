@@ -85,7 +85,7 @@ define internal noundef i32 @setup_add_efi_memmap(ptr readnone captures(none) %0
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 section ".init.text" align 16 {
   %1 = alloca %struct.efi_memory_map_data, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %3 = and i64 %2, 64
   %4 = icmp eq i64 %3, 0
@@ -119,7 +119,7 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %5
-  %26 = call i32 @efi_memmap_init_early(ptr noundef nonnull %1) #13
+  %26 = call i32 @efi_memmap_init_early(ptr noundef nonnull %1) #12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %44
 
@@ -132,7 +132,7 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   br label %33
 
 32:                                               ; preds = %28
-  call fastcc void @do_add_efi_memmap() #14
+  call fastcc void @do_add_efi_memmap() #13
   br label %33
 
 33:                                               ; preds = %32, %30
@@ -141,13 +141,13 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   br i1 %35, label %38, label %36, !prof !6
 
 36:                                               ; preds = %33
-  call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #12, !srcloc !7
+  call void asm sideeffect "519: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 519b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 519) #14, !srcloc !7
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 240), align 8
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i64 noundef %37) #12
-  call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #12, !srcloc !8
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 233, i32 2313, i64 12) #12, !srcloc !9
-  call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #12, !srcloc !10
-  call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #12, !srcloc !11
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i64 noundef %37) #14
+  call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #14, !srcloc !8
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 233, i32 2313, i64 12) #14, !srcloc !9
+  call void asm sideeffect "521: nop\0A\09.pushsection .discard.instr_end\0A\09.long 521b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 521) #14, !srcloc !10
+  call void asm sideeffect "522: nop\0A\09.pushsection .discard.instr_end\0A\09.long 522b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 522) #14, !srcloc !11
   br label %38
 
 38:                                               ; preds = %36, %33
@@ -155,24 +155,21 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   %40 = sext i32 %39 to i64
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %42 = mul i64 %41, %40
-  %43 = call i32 @memblock_reserve(i64 noundef %12, i64 noundef %42) #12
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265)) #12, !srcloc !12
+  %43 = call i32 @memblock_reserve(i64 noundef %12, i64 noundef %42) #14
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265)) #14, !srcloc !12
   br label %44
 
 44:                                               ; preds = %38, %25, %0
   %45 = phi i32 [ 0, %38 ], [ 0, %0 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %45
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_memmap_init_early(ptr noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_memmap_init_early(ptr noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.text" align 16 {
@@ -233,7 +230,7 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
 
 29:                                               ; preds = %28, %27, %26, %25, %19, %.preheader
   %30 = phi i32 [ 2, %28 ], [ 7, %27 ], [ 5, %26 ], [ 4, %25 ], [ %24, %19 ], [ 3, %.preheader ]
-  tail call void @e820__range_add(i64 noundef %14, i64 noundef %17, i32 noundef %30) #12
+  tail call void @e820__range_add(i64 noundef %14, i64 noundef %17, i32 noundef %30) #14
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %32 = getelementptr i8, ptr %12, i64 %31
   %33 = icmp ne ptr %32, null
@@ -245,7 +242,7 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
 
 .loopexit:                                        ; preds = %29, %4
   %38 = load ptr, ptr @e820_table, align 8
-  %39 = tail call i32 @e820__update_table(ptr noundef %38) #12
+  %39 = tail call i32 @e820__update_table(ptr noundef %38) #14
   br label %40
 
 40:                                               ; preds = %.loopexit, %0
@@ -253,13 +250,10 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i32 @memblock_reserve(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.text" align 16 {
@@ -276,10 +270,10 @@ define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.t
 .preheader:                                       ; preds = %0, %.preheader
   %9 = phi ptr [ %23, %.preheader ], [ %2, %0 ]
   %10 = phi i32 [ %11, %.preheader ], [ 0, %0 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !5
   %11 = add i32 %10, 1
-  %12 = call ptr @efi_md_typeattr_format(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull %9) #13
+  %12 = call ptr @efi_md_typeattr_format(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull %9) #12
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -288,8 +282,8 @@ define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.t
   %18 = add i64 %14, -1
   %19 = add i64 %18, %17
   %20 = lshr i64 %16, 8
-  %21 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %10, ptr noundef %12, i64 noundef %14, i64 noundef %19, i64 noundef %20) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #12
+  %21 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %10, ptr noundef %12, i64 noundef %14, i64 noundef %19, i64 noundef %20) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %23 = getelementptr i8, ptr %9, i64 %22
   %24 = icmp ne ptr %23, null
@@ -304,10 +298,10 @@ define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.t
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
+declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local ptr @efi_md_typeattr_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local ptr @efi_md_typeattr_format(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" align 16 {
@@ -318,7 +312,7 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
   %5 = shl nuw i64 %4, 32
   %6 = or disjoint i64 %5, %2
   store i64 %6, ptr @efi_systab_phys, align 8
-  %7 = tail call fastcc i32 @efi_systab_init(i64 noundef %6) #14
+  %7 = tail call fastcc i32 @efi_systab_init(i64 noundef %6) #13
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %43
 
@@ -326,23 +320,23 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
   %10 = load i64, ptr @efi_config_table, align 8
   %11 = load i64, ptr @efi_nr_tables, align 8
   %12 = trunc nuw i64 %11 to i32
-  %13 = tail call i32 @efi_reuse_config(i64 noundef %10, i32 noundef %12) #13
+  %13 = tail call i32 @efi_reuse_config(i64 noundef %10, i32 noundef %12) #12
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %43
 
 15:                                               ; preds = %9
-  %16 = tail call fastcc i32 @efi_config_init() #14
+  %16 = tail call fastcc i32 @efi_config_init() #13
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %43
 
 18:                                               ; preds = %15
   %19 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %20 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
-  %21 = tail call zeroext i1 @efi_runtime_disabled() #12
+  %21 = tail call zeroext i1 @efi_runtime_disabled() #14
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @efi_memmap_unmap() #13
+  tail call void @efi_memmap_unmap() #12
   br label %43
 
 23:                                               ; preds = %18
@@ -351,12 +345,12 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
   br i1 %25, label %38, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @early_memremap_ro(i64 noundef %24, i64 noundef 16) #12
+  %27 = tail call ptr @early_memremap_ro(i64 noundef %24, i64 noundef 16) #14
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #13
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #12
   br label %38
 
 31:                                               ; preds = %26
@@ -367,24 +361,24 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %31
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265), i32 2, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265)) #12, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265), i32 2, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 265)) #14, !srcloc !12
   br label %37
 
 37:                                               ; preds = %36, %31
-  tail call void @early_memunmap(ptr noundef nonnull %27, i64 noundef 16) #12
+  tail call void @early_memunmap(ptr noundef nonnull %27, i64 noundef 16) #14
   br label %38
 
 38:                                               ; preds = %37, %29, %23
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !12
-  tail call fastcc void @efi_clean_memmap() #14
-  tail call fastcc void @efi_remove_e820_mmio() #14
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !12
+  tail call fastcc void @efi_clean_memmap() #13
+  tail call fastcc void @efi_remove_e820_mmio() #13
   %39 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %40 = and i64 %39, 256
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %38
-  tail call void @efi_print_memmap() #14
+  tail call void @efi_print_memmap() #13
   br label %43
 
 43:                                               ; preds = %42, %38, %22, %15, %9, %0
@@ -397,21 +391,21 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   %3 = and i64 %2, 32
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %4, i64 72, i64 120
-  %6 = tail call ptr @early_memremap_ro(i64 noundef %0, i64 noundef %5) #12
+  %6 = tail call ptr @early_memremap_ro(i64 noundef %0, i64 noundef %5) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #13
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #12
   br label %57
 
 10:                                               ; preds = %1
-  %11 = tail call i32 @efi_systab_check_header(ptr noundef nonnull %6) #12
+  %11 = tail call i32 @efi_systab_check_header(ptr noundef nonnull %6) #14
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #12
+  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #14
   br label %57
 
 14:                                               ; preds = %10
@@ -429,12 +423,12 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   br i1 %22, label %30, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @early_memremap_ro(i64 noundef %21, i64 noundef 96) #12
+  %24 = tail call ptr @early_memremap_ro(i64 noundef %21, i64 noundef 96) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26
 
 .thread:                                          ; preds = %23
-  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #12
+  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #14
   br label %57
 
 26:                                               ; preds = %23
@@ -443,7 +437,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr @efi_config_table, align 8
-  tail call void @early_memunmap(ptr noundef nonnull %24, i64 noundef 96) #12
+  tail call void @early_memunmap(ptr noundef nonnull %24, i64 noundef 96) #14
   %.pre = load i64, ptr @efi_fw_vendor, align 8
   br label %49
 
@@ -486,8 +480,8 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = load i32, ptr %55, align 8
   store i32 %56, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 8), align 8
-  tail call void @efi_systab_report_header(ptr noundef nonnull %6, i64 noundef %50) #12
-  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #12
+  tail call void @efi_systab_report_header(ptr noundef nonnull %6, i64 noundef %50) #14
+  tail call void @early_memunmap(ptr noundef nonnull %6, i64 noundef %5) #14
   br label %57
 
 57:                                               ; preds = %.thread, %49, %13, %8
@@ -496,7 +490,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_reuse_config(i64 noundef, i32 noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_reuse_config(i64 noundef, i32 noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc i32 @efi_config_init() unnamed_addr #1 section ".init.text" align 16 {
@@ -511,21 +505,21 @@ define internal fastcc i32 @efi_config_init() unnamed_addr #1 section ".init.tex
   %7 = select i1 %6, i64 20, i64 24
   %8 = load i64, ptr @efi_config_table, align 8
   %9 = mul nuw nsw i64 %7, %1
-  %10 = tail call ptr @early_memremap(i64 noundef %8, i64 noundef %9) #12
+  %10 = tail call ptr @early_memremap(i64 noundef %8, i64 noundef %9) #14
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %3
-  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #13
+  %13 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #12
   br label %20
 
 14:                                               ; preds = %3
   %15 = load i64, ptr @efi_nr_tables, align 8
   %16 = trunc nuw i64 %15 to i32
-  %17 = tail call i32 @efi_config_parse_tables(ptr noundef nonnull %10, i32 noundef %16, ptr noundef nonnull @arch_tables) #12
+  %17 = tail call i32 @efi_config_parse_tables(ptr noundef nonnull %10, i32 noundef %16, ptr noundef nonnull @arch_tables) #14
   %18 = load i64, ptr @efi_nr_tables, align 8
   %19 = mul nuw nsw i64 %18, %7
-  tail call void @early_memunmap(ptr noundef nonnull %10, i64 noundef %19) #12
+  tail call void @early_memunmap(ptr noundef nonnull %10, i64 noundef %19) #14
   br label %20
 
 20:                                               ; preds = %14, %12, %0
@@ -534,16 +528,16 @@ define internal fastcc i32 @efi_config_init() unnamed_addr #1 section ".init.tex
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @efi_runtime_disabled() local_unnamed_addr #5
+declare dso_local zeroext i1 @efi_runtime_disabled() local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @efi_memmap_unmap() local_unnamed_addr #4 section ".init.text"
+declare dso_local void @efi_memmap_unmap() local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @early_memremap_ro(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local ptr @early_memremap_ro(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @early_memunmap(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local void @early_memunmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.text" align 16 {
@@ -558,7 +552,7 @@ define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.t
   %6 = phi i32 [ %21, %19 ], [ 0, %0 ]
   %7 = phi i32 [ %24, %19 ], [ 0, %0 ]
   %8 = phi ptr [ %23, %19 ], [ %2, %0 ]
-  %9 = tail call fastcc zeroext i1 @efi_memmap_entry_valid(ptr noundef %8, i32 noundef %7) #14
+  %9 = tail call fastcc zeroext i1 @efi_memmap_entry_valid(ptr noundef %8, i32 noundef %7) #13
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %.preheader
@@ -594,7 +588,7 @@ define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.t
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 208), align 8
   store i64 %29, ptr %1, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -610,9 +604,9 @@ define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.t
   store i64 %20, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %38, align 8
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %21) #13
-  %40 = call i32 @efi_memmap_install(ptr noundef nonnull %1) #13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #12
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %21) #12
+  %40 = call i32 @efi_memmap_install(ptr noundef nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.thread
 
 .thread:                                          ; preds = %0, %28, %26
@@ -650,13 +644,13 @@ define internal fastcc void @efi_remove_e820_mmio() unnamed_addr #1 section ".in
 
 21:                                               ; preds = %12
   %22 = lshr i64 %15, 20
-  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i32 noundef %9, i64 noundef %17, i64 noundef %19, i64 noundef %22) #13
-  %24 = tail call i64 @e820__range_remove(i64 noundef %17, i64 noundef %15, i32 noundef 2, i1 noundef zeroext true) #12
+  %23 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i32 noundef %9, i64 noundef %17, i64 noundef %19, i64 noundef %22) #12
+  %24 = tail call i64 @e820__range_remove(i64 noundef %17, i64 noundef %15, i32 noundef 2, i1 noundef zeroext true) #14
   br label %28
 
 25:                                               ; preds = %12
   %26 = lshr exact i64 %15, 10
-  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %9, i64 noundef %17, i64 noundef %19, i64 noundef %26) #13
+  %27 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %9, i64 noundef %17, i64 noundef %19, i64 noundef %26) #12
   br label %28
 
 28:                                               ; preds = %25, %21, %.preheader
@@ -690,15 +684,15 @@ define dso_local void @efi_enter_virtual_mode() local_unnamed_addr #1 section ".
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call fastcc void @kexec_enter_virtual_mode() #14
+  tail call fastcc void @kexec_enter_virtual_mode() #13
   br label %11
 
 10:                                               ; preds = %4
-  tail call fastcc void @__efi_enter_virtual_mode() #14
+  tail call fastcc void @__efi_enter_virtual_mode() #13
   br label %11
 
 11:                                               ; preds = %10, %9
-  tail call void @efi_dump_pagetable() #13
+  tail call void @efi_dump_pagetable() #12
   br label %12
 
 12:                                               ; preds = %11, %0
@@ -713,18 +707,18 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %0
-  tail call void @efi_memmap_unmap() #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void @efi_memmap_unmap() #12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !19
   br label %47
 
 5:                                                ; preds = %0
-  %6 = tail call i32 @efi_alloc_page_tables() #13
+  %6 = tail call i32 @efi_alloc_page_tables() #12
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !19
   br label %47
 
 10:                                               ; preds = %5
@@ -739,7 +733,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
 
 .preheader:                                       ; preds = %10, %.preheader
   %18 = phi ptr [ %20, %.preheader ], [ %11, %10 ]
-  tail call void @efi_map_region_fixed(ptr noundef nonnull %18) #13
+  tail call void @efi_map_region_fixed(ptr noundef nonnull %18) #12
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %20 = getelementptr i8, ptr %18, i64 %19
   %21 = icmp ne ptr %20, null
@@ -750,19 +744,19 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %10
-  tail call void @efi_memmap_unmap() #13
+  tail call void @efi_memmap_unmap() #12
   %26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 208), align 8
   %27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 232), align 8
   %29 = sext i32 %28 to i64
   %30 = mul i64 %27, %29
-  %31 = tail call i32 @efi_memmap_init_late(i64 noundef %26, i64 noundef %30) #13
+  %31 = tail call i32 @efi_memmap_init_late(i64 noundef %26, i64 noundef %30) #12
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %.loopexit
-  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !19
   br label %47
 
 35:                                               ; preds = %.loopexit
@@ -773,17 +767,17 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
   %40 = add i32 %39, 4095
   %41 = lshr i32 %40, 12
   %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 208), align 8
-  %43 = tail call i32 @efi_setup_page_tables(i64 noundef %42, i32 noundef %41) #13
+  %43 = tail call i32 @efi_setup_page_tables(i64 noundef %42, i32 noundef %41) #12
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %35
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !19
   br label %47
 
 46:                                               ; preds = %35
-  tail call void @efi_sync_low_kernel_mappings() #12
-  tail call void @efi_native_runtime_setup() #12
+  tail call void @efi_sync_low_kernel_mappings() #14
+  tail call void @efi_native_runtime_setup() #14
   br label %47
 
 47:                                               ; preds = %46, %45, %33, %8, %4
@@ -794,26 +788,26 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
 define internal fastcc void @__efi_enter_virtual_mode() unnamed_addr #1 section ".init.text" align 16 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %3 = tail call i32 @efi_alloc_page_tables() #13
+  %3 = tail call i32 @efi_alloc_page_tables() #12
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %0
-  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
+  %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #12
   br label %58
 
 7:                                                ; preds = %0
-  tail call fastcc void @efi_merge_regions() #14
-  %8 = call fastcc ptr @efi_map_regions(ptr noundef nonnull %1, ptr noundef nonnull %2) #14
+  tail call fastcc void @efi_merge_regions() #13
+  %8 = call fastcc ptr @efi_map_regions(ptr noundef nonnull %1, ptr noundef nonnull %2) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #13
+  %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19) #12
   br label %58
 
 12:                                               ; preds = %7
@@ -825,17 +819,17 @@ define internal fastcc void @__efi_enter_virtual_mode() unnamed_addr #1 section 
   %18 = sub i64 -2147483648, %17
   %19 = select i1 %15, i64 %16, i64 %18
   %20 = add i64 %14, %19
-  tail call void @efi_memmap_unmap() #13
+  tail call void @efi_memmap_unmap() #12
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %22 = load i32, ptr %1, align 4
   %23 = sext i32 %22 to i64
   %24 = mul i64 %21, %23
-  %25 = tail call i32 @efi_memmap_init_late(i64 noundef %20, i64 noundef %24) #13
+  %25 = tail call i32 @efi_memmap_init_late(i64 noundef %20, i64 noundef %24) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %12
-  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #13
+  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #12
   br label %58
 
 29:                                               ; preds = %12
@@ -845,68 +839,68 @@ define internal fastcc void @__efi_enter_virtual_mode() unnamed_addr #1 section 
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #13
-  tail call void @efi_print_memmap() #14
+  %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20) #12
+  tail call void @efi_print_memmap() #13
   br label %35
 
 35:                                               ; preds = %33, %29
   %36 = load i32, ptr %2, align 4
   %37 = shl nuw i32 1, %36
-  %38 = tail call i32 @efi_setup_page_tables(i64 noundef %20, i32 noundef %37) #13
+  %38 = tail call i32 @efi_setup_page_tables(i64 noundef %20, i32 noundef %37) #12
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %58
 
 40:                                               ; preds = %35
-  tail call void @efi_sync_low_kernel_mappings() #12
+  tail call void @efi_sync_low_kernel_mappings() #14
   %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
   %42 = mul i64 %41, %23
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 240), align 8
   %44 = trunc i64 %43 to i32
   %45 = inttoptr i64 %20 to ptr
   %46 = load i64, ptr @efi_systab_phys, align 8
-  %47 = tail call i64 @efi_set_virtual_address_map(i64 noundef %42, i64 noundef %41, i32 noundef %44, ptr noundef %45, i64 noundef %46) #12
+  %47 = tail call i64 @efi_set_virtual_address_map(i64 noundef %42, i64 noundef %41, i32 noundef %44, ptr noundef %45, i64 noundef %46) #14
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %40
-  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i64 noundef %47) #13
+  %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, i64 noundef %47) #12
   br label %58
 
 51:                                               ; preds = %40
-  tail call void @efi_free_boot_services() #12
+  tail call void @efi_free_boot_services() #14
   %52 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 264), align 8
   %53 = and i64 %52, 32
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %51
-  tail call void @efi_native_runtime_setup() #12
+  tail call void @efi_native_runtime_setup() #14
   br label %57
 
 56:                                               ; preds = %51
-  tail call void @efi_thunk_runtime_setup() #12
+  tail call void @efi_thunk_runtime_setup() #14
   br label %57
 
 57:                                               ; preds = %56, %55
-  tail call void @efi_runtime_update_mappings() #13
-  tail call void @efi_delete_dummy_variable() #12
+  tail call void @efi_runtime_update_mappings() #12
+  tail call void @efi_delete_dummy_variable() #14
   br label %59
 
 58:                                               ; preds = %49, %35, %27, %10, %5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #14, !srcloc !19
   br label %59
 
 59:                                               ; preds = %58, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @efi_dump_pagetable() local_unnamed_addr #4 section ".init.text"
+declare dso_local void @efi_dump_pagetable() local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_addr #6 align 16 {
+define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_addr #5 align 16 {
   %2 = icmp eq i64 %0, -1
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -927,13 +921,13 @@ define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly captures(ret: address, provenance) %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly captures(ret: address, provenance) %0) local_unnamed_addr #6 align 16 {
   %2 = load i64, ptr @uga_phys, align 8
   %3 = icmp eq i64 %2, -1
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %2) #12
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %2) #14
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %0, i64 %6
   br label %8
@@ -944,34 +938,34 @@ define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @fw_vendor_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = load i64, ptr @efi_fw_vendor, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #14
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @runtime_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = load i64, ptr @efi_runtime, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #14
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #7 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = load i64, ptr @efi_config_table, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #12
+  %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %4) #14
   %6 = sext i32 %5 to i64
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
-define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #8 align 16 {
   %4 = icmp eq ptr %1, @efi_attr_fw_vendor
   br i1 %4, label %5, label %12
 
@@ -1011,22 +1005,22 @@ define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @e820__range_add(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local void @e820__range_add(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @e820__update_table(ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @e820__update_table(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @efi_systab_check_header(ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @efi_systab_check_header(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_systab_report_header(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local void @efi_systab_report_header(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local ptr @early_memremap(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @efi_config_parse_tables(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare dso_local i32 @efi_config_parse_tables(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0, i32 noundef %1) unnamed_addr #1 section ".init.text" align 16 {
@@ -1038,7 +1032,7 @@ define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   %10 = add i64 %9, %6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq i64 %5, 0
   br i1 %11, label %25, label %12
 
@@ -1069,59 +1063,59 @@ define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0
 
 29:                                               ; preds = %25
   store i1 true, ptr @efi_memmap_entry_valid.__already_done, align 1
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #13
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #12
   br label %31
 
 31:                                               ; preds = %29, %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !5
   %32 = icmp eq i64 %26, 0
-  %33 = call ptr @efi_md_typeattr_format(ptr noundef nonnull %3, i64 noundef 64, ptr noundef %0) #13
+  %33 = call ptr @efi_md_typeattr_format(ptr noundef nonnull %3, i64 noundef 64, ptr noundef %0) #12
   %34 = load i64, ptr %7, align 8
   br i1 %32, label %37, label %35
 
 35:                                               ; preds = %31
-  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef %33, i64 noundef %34, i64 noundef %26, i64 noundef %27) #13
+  %36 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef %33, i64 noundef %34, i64 noundef %26, i64 noundef %27) #12
   br label %39
 
 37:                                               ; preds = %31
-  %38 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %1, ptr noundef %33, i64 noundef %34, i64 noundef %27) #13
+  %38 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %1, ptr noundef %33, i64 noundef %34, i64 noundef %27) #12
   br label %39
 
 39:                                               ; preds = %37, %35, %14
   %40 = phi i1 [ true, %14 ], [ false, %37 ], [ false, %35 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_memmap_install(ptr noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_memmap_install(ptr noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @e820__range_remove(i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare dso_local i64 @e820__range_remove(i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_alloc_page_tables() local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_alloc_page_tables() local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @efi_map_region_fixed(ptr noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local void @efi_map_region_fixed(ptr noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_memmap_init_late(i64 noundef, i64 noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_memmap_init_late(i64 noundef, i64 noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local i32 @efi_setup_page_tables(i64 noundef, i32 noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local i32 @efi_setup_page_tables(i64 noundef, i32 noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_sync_low_kernel_mappings() local_unnamed_addr #5
+declare dso_local void @efi_sync_low_kernel_mappings() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_native_runtime_setup() local_unnamed_addr #5
+declare dso_local void @efi_native_runtime_setup() local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @efi_merge_regions() unnamed_addr #11 section ".init.text" align 16 {
+define internal fastcc void @efi_merge_regions() unnamed_addr #10 section ".init.text" align 16 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 216), align 8
   %2 = icmp ne ptr %1, null
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
@@ -1262,21 +1256,21 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
   br i1 %41, label %42, label %13, !llvm.loop !23
 
 42:                                               ; preds = %39, %38, %38, %38, %29
-  tail call void @efi_map_region(ptr noundef nonnull %27) #13
+  tail call void @efi_map_region(ptr noundef nonnull %27) #12
   %43 = icmp ult i64 %8, %3
   br i1 %43, label %44, label %62
 
 44:                                               ; preds = %42
   %45 = load i32, ptr %1, align 4
   %46 = add i32 %45, 1
-  %47 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef %46) #12
+  %47 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef %46) #14
   %48 = inttoptr i64 %47 to ptr
   %49 = icmp eq i64 %47, 0
   br i1 %49, label %.thread7, label %51
 
 .thread7:                                         ; preds = %44
   %50 = ptrtoint ptr %7 to i64
-  tail call void @free_pages(i64 noundef %50, i32 noundef %45) #12
+  tail call void @free_pages(i64 noundef %50, i32 noundef %45) #14
   br label %.thread
 
 51:                                               ; preds = %44
@@ -1288,7 +1282,7 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
   %55 = shl i64 4096, %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %7, i64 %55, i1 false)
   %56 = ptrtoint ptr %7 to i64
-  tail call void @free_pages(i64 noundef %56, i32 noundef %45) #12
+  tail call void @free_pages(i64 noundef %56, i32 noundef %45) #14
   br label %.thread6
 
 .thread6:                                         ; preds = %51, %53
@@ -1321,44 +1315,50 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @efi_set_virtual_address_map(i64 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local i64 @efi_set_virtual_address_map(i64 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_free_boot_services() local_unnamed_addr #5
+declare dso_local void @efi_free_boot_services() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_thunk_runtime_setup() local_unnamed_addr #5
+declare dso_local void @efi_thunk_runtime_setup() local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @efi_runtime_update_mappings() local_unnamed_addr #4 section ".init.text"
+declare dso_local void @efi_runtime_update_mappings() local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @efi_delete_dummy_variable() local_unnamed_addr #5
+declare dso_local void @efi_delete_dummy_variable() local_unnamed_addr #4
 
 ; Function Attrs: cold null_pointer_is_valid
-declare dso_local void @efi_map_region(ptr noundef) local_unnamed_addr #4 section ".init.text"
+declare dso_local void @efi_map_region(ptr noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { cold }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { cold nounwind }
+attributes #13 = { cold }
+attributes #14 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

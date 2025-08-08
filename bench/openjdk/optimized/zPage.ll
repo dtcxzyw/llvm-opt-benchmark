@@ -376,7 +376,7 @@ define hidden void @_ZN5ZPage25verify_remset_after_resetE8ZPageAge14ZPageResetTy
   br label %_ZNK5ZPage30verify_remset_cleared_previousEv.exit
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %9, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.7)
   %17 = load ptr, ptr @g_assert_poison, align 8
@@ -397,7 +397,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %24, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %25
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.6)
   %26 = load ptr, ptr @g_assert_poison, align 8
@@ -437,7 +437,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %45, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %46
 
 46:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %7, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.7)
   %47 = load ptr, ptr @g_assert_poison, align 8
@@ -456,7 +456,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br i1 %53, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %54
 
 54:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %6, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.6)
   %55 = load ptr, ptr @g_assert_poison, align 8
@@ -487,7 +487,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit: ; preds = %._ZNK5ZPage30verif
   br label %_ZNK5ZPage30verify_remset_cleared_previousEv.exit4
 
 66:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.7)
   %67 = load ptr, ptr @g_assert_poison, align 8
@@ -508,7 +508,7 @@ _ZNK5ZPage30verify_remset_cleared_previousEv.exit4: ; preds = %._ZNK5ZPage30veri
   br i1 %74, label %_ZNK5ZPage29verify_remset_cleared_currentEv.exit, label %75
 
 75:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %4, ptr noundef nonnull @.str.6)
   %76 = load ptr, ptr @g_assert_poison, align 8
@@ -535,7 +535,7 @@ define hidden void @_ZNK5ZPage30verify_remset_cleared_previousEv(ptr noundef non
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.7)
   %9 = load ptr, ptr @g_assert_poison, align 8
@@ -562,7 +562,7 @@ define hidden void @_ZNK5ZPage29verify_remset_cleared_currentEv(ptr noundef nonn
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #13
   call void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.6)
   %9 = load ptr, ptr @g_assert_poison, align 8
@@ -811,7 +811,7 @@ define hidden noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 derefer
   %6 = icmp eq i64 %1, %5
   %..i = select i1 %6, i8 1, i8 2
   %.0.i = select i1 %4, i8 0, i8 %..i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @_ZN15ZPhysicalMemory5splitEm(ptr dead_on_unwind nonnull writable sret(%class.ZPhysicalMemory) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %1) #13
   %8 = call noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %.0.i, ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -833,7 +833,7 @@ define hidden noundef ptr @_ZN5ZPage5splitEm(ptr noundef nonnull align 8 derefer
   br label %_ZN5ZPage5splitE9ZPageTypem.exit
 
 _ZN5ZPage5splitE9ZPageTypem.exit:                 ; preds = %2, %.loopexit.i.i.i.i.i, %.loopexit.thread.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %8
 }
 
@@ -1398,10 +1398,10 @@ declare void @llvm.va_end.p0(ptr) #10
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

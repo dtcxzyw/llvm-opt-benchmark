@@ -349,17 +349,11 @@ define void @nk_triangle_from_direction(ptr noundef writeonly captures(none) ini
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i32 @nk_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %.critedge, label %.lr.ph.preheader
 
@@ -383,7 +377,7 @@ define i32 @nk_strlen(ptr noundef readonly captures(address_is_null) %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @nk_strtoi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define i32 @nk_strtoi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %.preheader
 
@@ -446,7 +440,7 @@ define i32 @nk_strtoi(ptr noundef %0, ptr noundef writeonly captures(address_is_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %47, label %.preheader77
 
@@ -577,17 +571,17 @@ define double @nk_strtod(ptr noundef %0, ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @nk_strtof(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define float @nk_strtof(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
   %3 = tail call double @nk_strtod(ptr noundef %0, ptr noundef %1)
   %4 = fptrunc double %3 to float
   ret float %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @nk_stricmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @nk_stricmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   br label %3
 
 3:                                                ; preds = %21, %2
@@ -640,7 +634,7 @@ define range(i32 -1, 2) i32 @nk_stricmp(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @nk_stricmpn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 -1, 2) i32 @nk_stricmpn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   br label %4
 
 4:                                                ; preds = %24, %3
@@ -699,7 +693,7 @@ define range(i32 -1, 2) i32 @nk_stricmpn(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 {
   %3 = load i8, ptr %1, align 1, !tbaa !9
   %4 = icmp eq i8 %3, 94
   br i1 %4, label %5, label %.preheader
@@ -727,7 +721,7 @@ define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %0, ptr noundef re
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1, !tbaa !9
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %nk_str_match_star.exit, label %.lr.ph
@@ -807,7 +801,7 @@ nk_str_match_star.exit:                           ; preds = %tailrecurse, %30, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %1, 0
   %or.cond = and i1 %5, %6
@@ -984,7 +978,7 @@ define range(i32 0, 2) i32 @nk_strmatch_fuzzy_text(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @nk_strmatch_fuzzy_string(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #10 {
   %.not5.i = icmp eq ptr %0, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -1007,7 +1001,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_murmur_hash(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define i32 @nk_murmur_hash(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sdiv i32 %1, 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %.preheader
@@ -1186,7 +1180,7 @@ define i32 @nk_rgba(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -16777216, 0) i32 @nk_rgb_hex(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define range(i32 -16777216, 0) i32 @nk_rgb_hex(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
   %3 = icmp eq i8 %2, 35
   %spec.select.idx = zext i1 %3 to i64
@@ -1318,7 +1312,7 @@ nk_parse_hex.exit19:                              ; preds = %56
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_rgba_hex(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define i32 @nk_rgba_hex(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
   %3 = icmp eq i8 %2, 35
   %spec.select.idx = zext i1 %3 to i64
@@ -1491,7 +1485,7 @@ nk_parse_hex.exit27:                              ; preds = %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hex_rgba(ptr noundef writeonly captures(none) initializes((0, 9)) %0, i32 %1) local_unnamed_addr #12 {
+define void @nk_color_hex_rgba(ptr noundef writeonly captures(none) initializes((0, 9)) %0, i32 %1) local_unnamed_addr #11 {
   %.sroa.7.0.extract.shift = lshr i32 %1, 8
   %.sroa.13.0.extract.shift = lshr i32 %1, 16
   %.sroa.19.0.extract.shift = lshr i32 %1, 24
@@ -1567,7 +1561,7 @@ define void @nk_color_hex_rgba(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hex_rgb(ptr noundef writeonly captures(none) initializes((0, 7)) %0, i32 %1) local_unnamed_addr #12 {
+define void @nk_color_hex_rgb(ptr noundef writeonly captures(none) initializes((0, 7)) %0, i32 %1) local_unnamed_addr #11 {
   %.sroa.7.0.extract.shift = lshr i32 %1, 8
   %.sroa.13.0.extract.shift = lshr i32 %1, 16
   %3 = lshr i32 %1, 4
@@ -1626,7 +1620,7 @@ define void @nk_color_hex_rgb(ptr noundef writeonly captures(none) initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_rgba_iv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define i32 @nk_rgba_iv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !7
@@ -1652,7 +1646,7 @@ define i32 @nk_rgba_iv(ptr noundef readonly captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_rgba_bv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define i32 @nk_rgba_bv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 1
   ret i32 %2
 }
@@ -1674,7 +1668,7 @@ define range(i32 -16777216, 0) i32 @nk_rgb(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -16777216, 0) i32 @nk_rgb_iv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define range(i32 -16777216, 0) i32 @nk_rgb_iv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 4, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !7
@@ -1695,7 +1689,7 @@ define range(i32 -16777216, 0) i32 @nk_rgb_iv(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -16777216, 0) i32 @nk_rgb_bv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define range(i32 -16777216, 0) i32 @nk_rgb_bv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
   %3 = zext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1752,7 +1746,7 @@ define i32 @nk_rgba_f(float noundef %0, float noundef %1, float noundef %2, floa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_rgba_fv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define i32 @nk_rgba_fv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load float, ptr %0, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -1878,7 +1872,7 @@ define range(i32 -16777216, 0) i32 @nk_rgb_f(float noundef %0, float noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -16777216, 0) i32 @nk_rgb_fv(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define range(i32 -16777216, 0) i32 @nk_rgb_fv(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load float, ptr %0, align 4, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4, !tbaa !3
@@ -2965,7 +2959,7 @@ define { <2 x float>, <2 x float> } @nk_hsva_colorf(float noundef %0, float noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { <2 x float>, <2 x float> } @nk_hsva_colorfv(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
@@ -3149,7 +3143,7 @@ define i32 @nk_color_u32(i32 returned %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_f(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i32 %4) local_unnamed_addr #12 {
+define void @nk_color_f(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, i32 %4) local_unnamed_addr #11 {
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -3173,7 +3167,7 @@ define void @nk_color_f(ptr noundef writeonly captures(none) initializes((0, 4))
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_fv(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 %1) local_unnamed_addr #12 {
+define void @nk_color_fv(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3226,7 +3220,7 @@ define { <2 x float>, <2 x float> } @nk_color_cf(i32 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_d(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 %4) local_unnamed_addr #12 {
+define void @nk_color_d(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, i32 %4) local_unnamed_addr #11 {
   %.sroa.0.0.extract.trunc = trunc i32 %4 to i8
   %.sroa.2.0.extract.shift = lshr i32 %4, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
@@ -3250,7 +3244,7 @@ define void @nk_color_d(ptr noundef writeonly captures(none) initializes((0, 8))
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_dv(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 %1) local_unnamed_addr #12 {
+define void @nk_color_dv(ptr noundef writeonly captures(none) initializes((0, 32)) %0, i32 %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4069,7 +4063,7 @@ define void @nk_color_hsv_bv(ptr noundef writeonly captures(none) initializes((0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @nk_utf_decode(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #8 {
+define i32 @nk_utf_decode(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond.not51 = or i1 %4, %5
@@ -4201,7 +4195,7 @@ nk_utf_validate.exit:                             ; preds = %15, %nk_utf_validat
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define range(i32 -2147483648, 5) i32 @nk_utf_encode(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 {
+define range(i32 -2147483648, 5) i32 @nk_utf_encode(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = icmp ugt i32 %0, 1114110
   %5 = add i32 %0, -55296
   %or.cond.i = icmp ult i32 %5, 2047
@@ -4267,7 +4261,7 @@ nk_utf_validate.exit:                             ; preds = %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @nk_utf_len(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define i32 @nk_utf_len(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -4475,7 +4469,7 @@ nk_utf_decode.exit58:                             ; preds = %51, %._crit_edge.lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @nk_utf_at(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #8 {
+define ptr @nk_utf_at(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #7 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %3, null
   %or.cond = and i1 %6, %7
@@ -4536,7 +4530,7 @@ define ptr @nk_utf_at(ptr noundef readonly captures(address_is_null, ret: addres
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @nk_buffer_init_default(ptr noundef %0) local_unnamed_addr #16 {
+define void @nk_buffer_init_default(ptr noundef %0) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_buffer_init.exit, label %2
 
@@ -4584,19 +4578,19 @@ nk_buffer_init.exit:                              ; preds = %1, %nk_zero.exit.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @nk_malloc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2) #17 {
+define internal noalias noundef ptr @nk_malloc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2) #16 {
   %4 = tail call noalias ptr @malloc(i64 noundef %2) #54
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @nk_mfree(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #18 {
+define internal void @nk_mfree(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #17 {
   tail call void @free(ptr noundef %1) #55
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #19 {
+define void @nk_buffer_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -4647,7 +4641,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_buffer_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
+define void @nk_buffer_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -4690,7 +4684,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #19 {
+define void @nk_buffer_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #18 {
   %6 = tail call fastcc ptr @nk_buffer_alloc(ptr noundef %0, i32 noundef %1, i64 noundef %3, i64 noundef %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -4704,7 +4698,7 @@ define void @nk_buffer_push(ptr noundef captures(address_is_null) %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #19 {
+define internal fastcc ptr @nk_buffer_alloc(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #18 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -4962,7 +4956,7 @@ nk_buffer_align.exit93:                           ; preds = %.split, %.split69, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 {
   %4 = icmp eq i64 %2, 0
   %5 = icmp eq ptr %0, %1
   %or.cond102 = or i1 %5, %4
@@ -5132,7 +5126,7 @@ define internal fastcc noundef ptr @nk_memcopy(ptr noundef returned %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_mark(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
+define void @nk_buffer_mark(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %.sink.split
 
@@ -5153,7 +5147,7 @@ define void @nk_buffer_mark(ptr noundef captures(address_is_null) %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_reset(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
+define void @nk_buffer_reset(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %3
 
@@ -5204,7 +5198,7 @@ define void @nk_buffer_reset(ptr noundef captures(address_is_null) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #20 {
+define void @nk_buffer_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -5224,7 +5218,7 @@ define void @nk_buffer_clear(ptr noundef captures(address_is_null) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_buffer_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_buffer_free(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -5257,7 +5251,7 @@ define void @nk_buffer_free(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_buffer_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #20 {
+define void @nk_buffer_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #19 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5290,7 +5284,7 @@ define void @nk_buffer_info(ptr noundef writeonly captures(address_is_null) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_buffer_memory(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define ptr @nk_buffer_memory(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5305,7 +5299,7 @@ define ptr @nk_buffer_memory(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_buffer_memory_const(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define ptr @nk_buffer_memory_const(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5320,7 +5314,7 @@ define ptr @nk_buffer_memory_const(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @nk_buffer_total(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i64 @nk_buffer_total(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5335,7 +5329,7 @@ define i64 @nk_buffer_total(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @nk_str_init_default(ptr noundef %0) local_unnamed_addr #16 {
+define void @nk_str_init_default(ptr noundef %0) local_unnamed_addr #15 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_buffer_init.exit, label %2
 
@@ -5385,7 +5379,7 @@ nk_buffer_init.exit:                              ; preds = %1, %nk_zero.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_str_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #19 {
+define void @nk_str_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.i = and i1 %4, %5
@@ -5438,7 +5432,7 @@ nk_buffer_init.exit:                              ; preds = %3, %nk_zero.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_str_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
+define void @nk_str_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.i = and i1 %4, %5
@@ -5483,7 +5477,7 @@ nk_buffer_init_fixed.exit:                        ; preds = %3, %nk_zero.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_char(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define noundef i32 @nk_str_append_text_char(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -5512,7 +5506,7 @@ define noundef i32 @nk_str_append_text_char(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_char(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
+define i32 @nk_str_append_str_char(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_str_append_text_char.exit, label %.lr.ph.i.preheader
 
@@ -5552,7 +5546,7 @@ nk_str_append_text_char.exit:                     ; preds = %.lr.ph.i.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_utf8(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define noundef i32 @nk_str_append_text_utf8(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -5684,7 +5678,7 @@ nk_str_append_text_char.exit:                     ; preds = %.preheader, %41, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_utf8(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
+define i32 @nk_str_append_str_utf8(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5963,9 +5957,9 @@ nk_str_append_text_char.exit:                     ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_append_text_runes(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #19 {
+define noundef i32 @nk_str_append_text_runes(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -6060,14 +6054,14 @@ nk_str_append_text_char.exit:                     ; preds = %nk_utf_encode.exit,
 
 nk_utf_encode.exit.thread:                        ; preds = %nk_str_append_text_char.exit, %nk_utf_validate.exit.i, %.preheader, %3
   %.015 = phi i32 [ 0, %3 ], [ %2, %.preheader ], [ %2, %nk_utf_validate.exit.i ], [ %2, %nk_str_append_text_char.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_append_str_runes(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #19 {
+define i32 @nk_str_append_str_runes(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #18 {
   %3 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -6165,12 +6159,12 @@ nk_str_append_text_char.exit:                     ; preds = %nk_utf_validate.exi
 
 .loopexit17:                                      ; preds = %.loopexit17.loopexit, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ %41, %.loopexit17.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_str_insert_at_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_str_insert_at_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -6274,9 +6268,9 @@ nk_str_append_text_char.exit:                     ; preds = %28, %27, %34, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_at_rune(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define i32 @nk_str_insert_at_rune(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
@@ -6374,12 +6368,12 @@ nk_str_get_const.exit:                            ; preds = %38, %41
 
 nk_str_append_text_char.exit:                     ; preds = %33, %30, %nk_str_get_const.exit, %4, %45
   %.0 = phi i32 [ %49, %45 ], [ 0, %4 ], [ 0, %nk_str_get_const.exit ], [ %3, %33 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
+define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -6445,7 +6439,7 @@ define ptr @nk_str_at_rune(ptr noundef readonly captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_str_get_const(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define ptr @nk_str_get_const(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -6472,7 +6466,7 @@ define ptr @nk_str_get_const(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define noundef i32 @nk_str_insert_text_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond.i = and i1 %5, %6
@@ -6588,7 +6582,7 @@ nk_str_insert_text_utf8.exit:                     ; preds = %4, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_utf8(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define noundef i32 @nk_str_insert_text_utf8(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -6706,7 +6700,7 @@ nk_utf_decode.exit:                               ; preds = %19, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #19 {
+define i32 @nk_str_insert_str_char(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_str_insert_text_utf8.exit, label %.lr.ph.i.preheader
 
@@ -6828,7 +6822,7 @@ nk_str_insert_text_utf8.exit:                     ; preds = %.lr.ph.i.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_utf8(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #19 {
+define i32 @nk_str_insert_str_utf8(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -7092,9 +7086,9 @@ nk_utf_decode.exit54:                             ; preds = %63, %nk_utf_decode_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @nk_str_insert_text_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #19 {
+define noundef i32 @nk_str_insert_text_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
@@ -7178,14 +7172,14 @@ nk_utf_encode.exit:                               ; preds = %.lr.ph.i, %.prehead
 
 nk_utf_encode.exit.thread:                        ; preds = %nk_utf_encode.exit, %nk_utf_validate.exit.i, %.preheader, %4
   %.017 = phi i32 [ 0, %4 ], [ %3, %.preheader ], [ %3, %nk_utf_validate.exit.i ], [ %3, %nk_utf_encode.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_str_insert_str_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #19 {
+define i32 @nk_str_insert_str_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #18 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -7273,12 +7267,12 @@ nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exi
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %37, %.loopexit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_remove_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @nk_str_remove_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -7307,9 +7301,9 @@ define void @nk_str_remove_chars(ptr noundef captures(address_is_null) %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_remove_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
+define void @nk_str_remove_runes(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %or.cond = or i1 %4, %5
@@ -7390,12 +7384,12 @@ nk_str_remove_chars.exit.sink.split:              ; preds = %6, %37
   br label %nk_str_remove_chars.exit
 
 nk_str_remove_chars.exit:                         ; preds = %nk_str_remove_chars.exit.sink.split, %33, %nk_str_at_rune.exit, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_delete_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
+define void @nk_str_delete_chars(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %2, 0
   %or.cond = and i1 %4, %5
@@ -7466,9 +7460,9 @@ nk_str_remove_chars.exit:                         ; preds = %32, %29, %27, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_str_delete_runes(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
+define void @nk_str_delete_runes(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8, !tbaa !71
   %7 = add nsw i32 %2, %1
@@ -7620,12 +7614,12 @@ nk_str_remove_chars.exit.i:                       ; preds = %65, %62, %60, %53
   br label %nk_str_delete_chars.exit
 
 nk_str_delete_chars.exit:                         ; preds = %14, %.loopexit.i, %9, %nk_str_remove_chars.exit.i, %47, %nk_str_at_rune.exit52, %nk_str_at_rune.exit52.thread, %nk_str_at_rune.exit, %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_str_at_char(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define ptr @nk_str_at_char(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -7649,7 +7643,7 @@ define ptr @nk_str_at_char(ptr noundef readonly captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_str_at_char_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define ptr @nk_str_at_char_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -7673,7 +7667,7 @@ define ptr @nk_str_at_char_const(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #21 {
+define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -7739,9 +7733,9 @@ define ptr @nk_str_at_const(ptr noundef readonly captures(address_is_null) %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @nk_str_rune_at(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
+define i32 @nk_str_rune_at(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !7
   %.not = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
@@ -7777,12 +7771,12 @@ define i32 @nk_str_rune_at(ptr noundef readonly captures(address_is_null) %0, i3
 
 nk_str_at_const.exit:                             ; preds = %13, %.lr.ph.i, %5, %2
   %20 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_str_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define ptr @nk_str_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -7809,7 +7803,7 @@ define ptr @nk_str_get(ptr noundef readonly captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_str_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i32 @nk_str_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -7832,7 +7826,7 @@ define i32 @nk_str_len(ptr noundef readonly captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_str_len_char(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i32 @nk_str_len_char(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -7854,7 +7848,7 @@ define i32 @nk_str_len_char(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_str_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #20 {
+define void @nk_str_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_buffer_clear.exit, label %2
 
@@ -7876,7 +7870,7 @@ nk_buffer_clear.exit:                             ; preds = %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_str_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_str_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_buffer_free.exit, label %2
 
@@ -7911,7 +7905,7 @@ nk_buffer_free.exit:                              ; preds = %1, %2, %5, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_push_scissor(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #22 {
+define void @nk_push_scissor(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_command_buffer_push.exit.thread, label %4
 
@@ -7979,7 +7973,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %4, %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_line(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #19 {
+define void @nk_stroke_line(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #18 {
   %8 = icmp eq ptr %0, null
   %9 = fcmp ole float %5, 0.000000e+00
   %or.cond = or i1 %8, %9
@@ -8038,7 +8032,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %10, %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_curve(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i32 %10) local_unnamed_addr #19 {
+define void @nk_stroke_curve(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, i32 %10) local_unnamed_addr #18 {
   %12 = icmp eq ptr %0, null
   %13 = icmp ult i32 %10, 16777216
   %or.cond = select i1 %12, i1 true, i1 %13
@@ -8111,7 +8105,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %15, %11, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, float noundef %4, i32 %5) local_unnamed_addr #22 {
+define void @nk_stroke_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, float noundef %4, i32 %5) local_unnamed_addr #21 {
   %7 = icmp eq ptr %0, null
   %8 = icmp ult i32 %5, 16777216
   %or.cond = select i1 %7, i1 true, i1 %8
@@ -8224,7 +8218,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %31, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_fill_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i32 %4, 16777216
   %or.cond = select i1 %6, i1 true, i1 %7
@@ -8332,7 +8326,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %29, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_rect_multi_color(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #22 {
+define void @nk_fill_rect_multi_color(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #21 {
   %8 = icmp eq ptr %0, null
   %.sroa.7.8.vec.extract41 = extractelement <2 x float> %2, i64 0
   %9 = fcmp oeq float %.sroa.7.8.vec.extract41, 0.000000e+00
@@ -8441,7 +8435,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %30, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_stroke_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %0, null
   %.sroa.7.8.vec.extract40 = extractelement <2 x float> %2, i64 0
   %7 = fcmp oeq float %.sroa.7.8.vec.extract40, 0.000000e+00
@@ -8549,7 +8543,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %29, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3) local_unnamed_addr #22 {
+define void @nk_fill_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3) local_unnamed_addr #21 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ult i32 %3, 16777216
   %or.cond = select i1 %5, i1 true, i1 %6
@@ -8654,7 +8648,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %28, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_arc(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #19 {
+define void @nk_stroke_arc(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #18 {
   %9 = icmp eq ptr %0, null
   %10 = icmp ult i32 %7, 16777216
   %or.cond = select i1 %9, i1 true, i1 %10
@@ -8716,7 +8710,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %12, %8, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_arc(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #19 {
+define void @nk_fill_arc(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 %6) local_unnamed_addr #18 {
   %8 = icmp eq ptr %0, null
   %9 = icmp ult i32 %6, 16777216
   %or.cond = select i1 %8, i1 true, i1 %9
@@ -8773,7 +8767,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %10, %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_triangle(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 %8) local_unnamed_addr #19 {
+define void @nk_stroke_triangle(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 %8) local_unnamed_addr #18 {
   %10 = icmp eq ptr %0, null
   %11 = icmp ult i32 %8, 16777216
   %or.cond = select i1 %10, i1 true, i1 %11
@@ -8920,7 +8914,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %61, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_triangle(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #19 {
+define void @nk_fill_triangle(ptr noundef captures(address_is_null) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, i32 %7) local_unnamed_addr #18 {
   %9 = icmp eq ptr %0, null
   %10 = icmp ult i32 %7, 16777216
   %or.cond = select i1 %9, i1 true, i1 %10
@@ -9062,7 +9056,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %59, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_polygon(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, i32 %4) local_unnamed_addr #19 {
+define void @nk_stroke_polygon(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, i32 %4) local_unnamed_addr #18 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i32 %4, 16777216
   %or.cond = select i1 %6, i1 true, i1 %7
@@ -9140,7 +9134,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %41, %15, %9, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_fill_polygon(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3) local_unnamed_addr #19 {
+define void @nk_fill_polygon(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3) local_unnamed_addr #18 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ult i32 %3, 16777216
   %or.cond = select i1 %5, i1 true, i1 %6
@@ -9213,7 +9207,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %37, %13, %7, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_stroke_polyline(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, i32 %4) local_unnamed_addr #19 {
+define void @nk_stroke_polyline(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, i32 %4) local_unnamed_addr #18 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i32 %4, 16777216
   %or.cond = select i1 %6, i1 true, i1 %7
@@ -9291,7 +9285,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %41, %15, %9, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_image(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(none) %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_draw_image(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(none) %3, i32 %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_command_buffer_push.exit.thread, label %6
 
@@ -9397,9 +9391,9 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %25, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_nine_slice(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(none) %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_draw_nine_slice(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(none) %3, i32 %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_image, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = load i16, ptr %7, align 4, !tbaa !199
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 14
@@ -9607,12 +9601,12 @@ define void @nk_draw_nine_slice(ptr noundef captures(address_is_null) %0, <2 x f
   %.sroa.3.8.vec.insert.i240 = insertelement <2 x float> poison, float %127, i64 0
   %.sroa.3.12.vec.insert.i241 = insertelement <2 x float> %.sroa.3.8.vec.insert.i240, float %129, i64 1
   call void @nk_draw_image(ptr noundef %0, <2 x float> %.sroa.0.4.vec.insert.i239, <2 x float> %.sroa.3.12.vec.insert.i241, ptr noundef nonnull %6, i32 %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_push_custom(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef %3, ptr %4) local_unnamed_addr #22 {
+define void @nk_push_custom(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef %3, ptr %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_command_buffer_push.exit.thread, label %6
 
@@ -9718,7 +9712,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.critedge, %25, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_text(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 %6, i32 %7) local_unnamed_addr #22 {
+define void @nk_draw_text(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 %6, i32 %7) local_unnamed_addr #21 {
   %9 = alloca i32, align 4
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %3, null
@@ -9792,7 +9786,7 @@ define void @nk_draw_text(ptr noundef captures(address_is_null) %0, <2 x float> 
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %51 = load i8, ptr %3, align 1, !tbaa !9
   br label %52
 
@@ -9915,11 +9909,11 @@ nk_utf_decode.exit:                               ; preds = %59, %._crit_edge.lo
   br i1 %or.cond66.i, label %.lr.ph.i, label %100, !llvm.loop !216
 
 .thread96:                                        ; preds = %nk_utf_decode.exit, %._crit_edge.i, %._crit_edge.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nk_command_buffer_push.exit.thread
 
 100:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not80 = icmp eq i32 %89, 0
   br i1 %.not80, label %nk_command_buffer_push.exit.thread, label %.thread
 
@@ -9992,7 +9986,7 @@ nk_command_buffer_push.exit.thread:               ; preds = %.thread, %.thread96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @nk_draw_list_init(ptr noundef %0) local_unnamed_addr #15 {
+define void @nk_draw_list_init(ptr noundef %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -10053,7 +10047,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_draw_list_setup(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #20 {
+define void @nk_draw_list_setup(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #19 {
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %8, %9
@@ -10096,7 +10090,7 @@ define void @nk_draw_list_setup(ptr noundef writeonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_list_begin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define ptr @nk__draw_list_begin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %18, label %3
 
@@ -10129,7 +10123,7 @@ define ptr @nk__draw_list_begin(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_list_end(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define ptr @nk__draw_list_end(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
@@ -10158,7 +10152,7 @@ define ptr @nk__draw_list_end(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_list_next(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #13 {
+define ptr @nk__draw_list_next(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #12 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -10192,7 +10186,7 @@ nk__draw_list_end.exit:                           ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_poly_line(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_poly_line(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4, float noundef %5, i32 noundef %6) local_unnamed_addr #21 {
   %8 = icmp eq ptr %0, null
   %9 = icmp ult i32 %2, 2
   %or.cond = or i1 %8, %9
@@ -11011,7 +11005,7 @@ nk_draw_list_alloc_elements.exit735:              ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @nk_draw_vertex(ptr noundef %0, ptr readonly captures(none) %.40.val, i64 %.48.val, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) unnamed_addr #23 {
+define internal fastcc ptr @nk_draw_vertex(ptr noundef %0, ptr readonly captures(none) %.40.val, i64 %.48.val, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) unnamed_addr #22 {
   %6 = alloca [4 x float], align 16
   %7 = alloca %struct.nk_color, align 4
   %8 = alloca %struct.nk_color, align 4
@@ -11167,7 +11161,7 @@ nk_draw_vertex_layout_element_is_end_of_layout.exit: ; preds = %nk_draw_vertex_l
   br label %135
 
 114:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %115 = add i32 %107, -19
   %or.cond.i = icmp ult i32 %115, -11
   br i1 %or.cond.i, label %nk_draw_vertex_color.exit, label %116
@@ -11192,55 +11186,55 @@ nk_draw_vertex_layout_element_is_end_of_layout.exit: ; preds = %nk_draw_vertex_l
   ]
 
 117:                                              ; preds = %116, %116
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %.sroa.0.0.insert.insert.i.i50.i, ptr %7, align 4
   %118 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %nk_draw_vertex_color.exit
 
 119:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %.sroa.0.0.insert.insert.i.i, ptr %8, align 4
   %120 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %nk_draw_vertex_color.exit
 
 121:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 %91, ptr %9, align 2, !tbaa !199
   store i16 %93, ptr %101, align 2, !tbaa !199
   store i16 %96, ptr %102, align 2, !tbaa !199
   %122 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %9, i64 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nk_draw_vertex_color.exit
 
 123:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 %91, ptr %10, align 2, !tbaa !199
   store i16 %93, ptr %94, align 2, !tbaa !199
   store i16 %96, ptr %97, align 2, !tbaa !199
   store i16 %99, ptr %100, align 2, !tbaa !199
   %124 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %10, i64 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %nk_draw_vertex_color.exit
 
 125:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %78, ptr %11, align 4, !tbaa !7
   store i32 %80, ptr %88, align 4, !tbaa !7
   store i32 %83, ptr %89, align 4, !tbaa !7
   %126 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %11, i64 noundef 12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %nk_draw_vertex_color.exit
 
 127:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %78, ptr %12, align 16, !tbaa !7
   store i32 %80, ptr %81, align 4, !tbaa !7
   store i32 %83, ptr %84, align 8, !tbaa !7
   store i32 %86, ptr %87, align 4, !tbaa !7
   %128 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %12, i64 noundef 16)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %nk_draw_vertex_color.exit
 
 129:                                              ; preds = %116
@@ -11248,27 +11242,27 @@ nk_draw_vertex_layout_element_is_end_of_layout.exit: ; preds = %nk_draw_vertex_l
   br label %nk_draw_vertex_color.exit
 
 131:                                              ; preds = %116
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double %70, ptr %13, align 16, !tbaa !30
   store double %71, ptr %72, align 8, !tbaa !30
   store double %73, ptr %74, align 16, !tbaa !30
   store double %75, ptr %76, align 8, !tbaa !30
   %132 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %13, i64 noundef 32)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %nk_draw_vertex_color.exit
 
 133:                                              ; preds = %116, %116
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %.sroa.0.0.insert.insert.i.i50.i, ptr %14, align 4, !tbaa !7
   %134 = call fastcc ptr @nk_memcopy(ptr noundef %111, ptr noundef nonnull %14, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %nk_draw_vertex_color.exit
 
 default.unreachable.i:                            ; preds = %116
   unreachable
 
 nk_draw_vertex_color.exit:                        ; preds = %114, %117, %119, %121, %123, %125, %127, %129, %131, %133
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
 
 135:                                              ; preds = %108, %nk_draw_vertex_color.exit, %113, %112
@@ -11283,7 +11277,7 @@ nk_draw_vertex_layout_element_is_end_of_layout.exit.thread: ; preds = %nk_draw_v
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_poly_convex(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_poly_convex(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ult i32 %2, 3
   %or.cond = or i1 %6, %7
@@ -11686,7 +11680,7 @@ nk_draw_list_alloc_elements.exit245:              ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_draw_list_path_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_draw_list_path_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -11725,7 +11719,7 @@ nk_buffer_reset.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_line_to(ptr noundef captures(address_is_null) %0, <2 x float> %1) local_unnamed_addr #22 {
+define void @nk_draw_list_path_line_to(ptr noundef captures(address_is_null) %0, <2 x float> %1) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_draw_list_alloc_path.exit.thread, label %3
 
@@ -11818,7 +11812,7 @@ nk_draw_list_alloc_path.exit.thread:              ; preds = %nk_draw_list_comman
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_add_clip(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_add_clip(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #21 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8, !tbaa !245
   %.not = icmp eq i32 %5, 0
@@ -11946,7 +11940,7 @@ nk_draw_list_push_command.exit:                   ; preds = %nk_draw_list_push_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_push_image(ptr noundef nonnull captures(none) %0, ptr %1) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_push_image(ptr noundef nonnull captures(none) %0, ptr %1) unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i32, ptr %3, align 8, !tbaa !245
   %.not = icmp eq i32 %4, 0
@@ -12089,7 +12083,7 @@ nk_draw_list_push_command.exit:                   ; preds = %66, %47, %23, %7, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_arc_to_fast(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_path_arc_to_fast(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   %.not18 = icmp sgt i32 %3, %4
   %or.cond = or i1 %.not, %.not18
@@ -12125,7 +12119,7 @@ define void @nk_draw_list_path_arc_to_fast(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_arc_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define void @nk_draw_list_path_arc_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   %7 = fcmp oeq float %2, 0.000000e+00
   %or.cond = or i1 %.not, %7
@@ -12194,7 +12188,7 @@ define void @nk_draw_list_path_arc_to(ptr noundef captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_rect_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3) local_unnamed_addr #22 {
+define void @nk_draw_list_path_rect_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, float noundef %3) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_draw_list_path_arc_to_fast.exit157, label %5
 
@@ -12311,7 +12305,7 @@ nk_draw_list_path_arc_to_fast.exit157:            ; preds = %.preheader.i147, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_curve_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_path_curve_to(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 noundef %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %6
 
@@ -12381,7 +12375,7 @@ define void @nk_draw_list_path_curve_to(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_fill(ptr noundef captures(address_is_null) %0, i32 %1) local_unnamed_addr #19 {
+define void @nk_draw_list_path_fill(ptr noundef captures(address_is_null) %0, i32 %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %3
 
@@ -12435,7 +12429,7 @@ nk_draw_list_path_clear.exit:                     ; preds = %9, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_path_stroke(ptr noundef captures(address_is_null) %0, i32 %1, i32 noundef %2, float noundef %3) local_unnamed_addr #19 {
+define void @nk_draw_list_path_stroke(ptr noundef captures(address_is_null) %0, i32 %1, i32 noundef %2, float noundef %3) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %5
 
@@ -12489,7 +12483,7 @@ nk_draw_list_path_clear.exit:                     ; preds = %11, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_line(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_line(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4) local_unnamed_addr #21 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ugt i32 %3, 16777215
   %or.cond = select i1 %6, i1 %7, i1 false
@@ -12573,7 +12567,7 @@ nk_draw_list_path_stroke.exit:                    ; preds = %24, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4) local_unnamed_addr #21 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ugt i32 %3, 16777215
   %or.cond = select i1 %6, i1 %7, i1 false
@@ -12655,7 +12649,7 @@ nk_draw_list_path_fill.exit:                      ; preds = %24, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4, float noundef %5) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_rect(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, float noundef %4, float noundef %5) local_unnamed_addr #21 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ugt i32 %3, 16777215
   %or.cond = select i1 %7, i1 %8, i1 false
@@ -12737,7 +12731,7 @@ nk_draw_list_path_stroke.exit:                    ; preds = %25, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_rect_multi_color(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_rect_multi_color(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, i32 %3, i32 %4, i32 %5, i32 %6) local_unnamed_addr #21 {
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %3 to i8
   %.sroa.2.0.extract.shift.i.i = lshr i32 %3, 8
   %.sroa.2.0.extract.trunc.i.i = trunc i32 %.sroa.2.0.extract.shift.i.i to i8
@@ -12919,7 +12913,7 @@ nk_draw_list_alloc_elements.exit.thread:          ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_triangle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_triangle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 %4) local_unnamed_addr #21 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ugt i32 %4, 16777215
   %or.cond = select i1 %6, i1 %7, i1 false
@@ -12978,7 +12972,7 @@ nk_draw_list_path_fill.exit:                      ; preds = %14, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_triangle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 %4, float noundef %5) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_triangle(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i32 %4, float noundef %5) local_unnamed_addr #21 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ugt i32 %4, 16777215
   %or.cond = select i1 %7, i1 %8, i1 false
@@ -13037,7 +13031,7 @@ nk_draw_list_path_stroke.exit:                    ; preds = %15, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_fill_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #22 {
+define void @nk_draw_list_fill_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ugt i32 %3, 16777215
   %or.cond = select i1 %6, i1 %7, i1 false
@@ -13142,7 +13136,7 @@ nk_draw_list_path_fill.exit:                      ; preds = %47, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 %3, i32 noundef %4, float noundef %5) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_circle(ptr noundef captures(address_is_null) %0, <2 x float> %1, float noundef %2, i32 %3, i32 noundef %4, float noundef %5) local_unnamed_addr #21 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ugt i32 %3, 16777215
   %or.cond = select i1 %7, i1 %8, i1 false
@@ -13247,7 +13241,7 @@ nk_draw_list_path_stroke.exit:                    ; preds = %48, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_stroke_curve(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i32 %5, i32 noundef %6, float noundef %7) local_unnamed_addr #22 {
+define void @nk_draw_list_stroke_curve(ptr noundef captures(address_is_null) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i32 %5, i32 noundef %6, float noundef %7) local_unnamed_addr #21 {
   %9 = icmp ne ptr %0, null
   %10 = icmp ugt i32 %5, 16777215
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -13364,7 +13358,7 @@ nk_draw_list_path_stroke.exit:                    ; preds = %56, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_add_image(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, <2 x float> %2, <2 x float> %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_draw_list_add_image(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, <2 x float> %2, <2 x float> %3, i32 %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %6
 
@@ -13423,7 +13417,7 @@ nk_image_is_subimage.exit.thread:                 ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_image_is_subimage(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_image_is_subimage(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8, !tbaa !200
   %4 = icmp eq i16 %3, 0
@@ -13442,7 +13436,7 @@ define range(i32 0, 2) i32 @nk_image_is_subimage(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i32 %5) unnamed_addr #22 {
+define internal fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i32 %5) unnamed_addr #21 {
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %5 to i8
   %.sroa.2.0.extract.shift.i.i = lshr i32 %5, 8
   %.sroa.2.0.extract.trunc.i.i = trunc i32 %.sroa.2.0.extract.shift.i.i to i8
@@ -13554,11 +13548,11 @@ nk_draw_list_alloc_elements.exit.thread:          ; preds = %nk_draw_list_alloc_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_draw_list_add_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, float noundef %6, i32 %7) local_unnamed_addr #22 {
+define void @nk_draw_list_add_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, float noundef %6, i32 %7) local_unnamed_addr #21 {
   %9 = alloca %struct.nk_user_font_glyph, align 8
   %.sroa.2.0.extract.shift = lshr i32 %7, 24
   %.sroa.2.0.extract.trunc = trunc nuw i32 %.sroa.2.0.extract.shift to i8
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp ne ptr %0, null
   %11 = icmp ne i32 %5, 0
   %or.cond = and i1 %10, %11
@@ -13904,12 +13898,12 @@ nk_utf_decode.exit99.thread:                      ; preds = %110, %138, %142, %n
   br i1 %or.cond135, label %nk_utf_decode.exit.thread, label %96
 
 nk_utf_decode.exit.thread:                        ; preds = %45, %nk_utf_decode.exit99.thread, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit.thread114, %._crit_edge.loopexit.i, %._crit_edge.i, %nk_utf_decode.exit, %13, %18, %23, %29, %8
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 16) i32 @nk_convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #22 {
+define range(i32 0, 16) i32 @nk_convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -15260,7 +15254,7 @@ nk__next.exit:                                    ; preds = %770
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk__begin(ptr noundef %0) local_unnamed_addr #22 {
+define ptr @nk__begin(ptr noundef %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge27, label %2
 
@@ -15532,7 +15526,7 @@ nk_build.exit:                                    ; preds = %46, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__next(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define ptr @nk__next(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -15564,7 +15558,7 @@ define ptr @nk__next(ptr noundef readonly captures(address_is_null) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_begin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define ptr @nk__draw_begin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %nk__draw_list_begin.exit, label %3
 
@@ -15597,7 +15591,7 @@ nk__draw_list_begin.exit:                         ; preds = %2, %3, %6, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define ptr @nk__draw_end(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %nk__draw_list_end.exit, label %3
 
@@ -15624,7 +15618,7 @@ nk__draw_list_end.exit:                           ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk__draw_next(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #13 {
+define ptr @nk__draw_next(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond.i = and i1 %4, %5
@@ -15656,7 +15650,7 @@ nk__draw_list_next.exit:                          ; preds = %3, %nk__draw_list_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_heuristic(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
+define void @stbrp_setup_heuristic(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !377
   %cond = icmp eq i32 %4, 1
@@ -15672,7 +15666,7 @@ define void @stbrp_setup_heuristic(ptr noundef captures(none) %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #20 {
+define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %10
 
@@ -15693,7 +15687,7 @@ define void @stbrp_setup_allow_out_of_mem(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #15 {
+define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = add i32 %4, -1
   %7 = icmp sgt i32 %4, 1
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -15752,7 +15746,7 @@ define void @stbrp_init_target(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #25 {
+define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #24 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge59.thread
 
@@ -16217,10 +16211,10 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %151, %148, %stbrp__
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #26
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
+define internal range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !tbaa !396
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16246,7 +16240,7 @@ define internal range(i32 -1, 2) i32 @rect_height_compare(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #13 {
+define internal range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !392
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -16256,7 +16250,7 @@ define internal range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #27 {
+define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #26 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !408
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -16638,14 +16632,14 @@ define i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #19 {
+define i32 @stbtt_GetCodepointShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #18 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %5 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %4, ptr noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #19 {
+define i32 @stbtt_GetGlyphShape(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #18 {
   %4 = alloca %struct.stbtt__csctx, align 8
   %5 = alloca %struct.stbtt__csctx, align 8
   %6 = alloca ptr, align 8
@@ -17314,7 +17308,7 @@ stbtt__close_shape.exit18:                        ; preds = %218, %235, %239
   %.1279.i40 = phi ptr [ null, %368 ], [ %.2280.i, %537 ]
   %.7.i39 = phi i32 [ 0, %368 ], [ %.8.i, %537 ]
   %.0302.i38 = phi ptr [ %369, %368 ], [ %.2304.i, %537 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !47
   %371 = getelementptr i8, ptr %.0302.i38, i64 1
   %.0302.val399.i = load i8, ptr %371, align 1, !tbaa !9
@@ -17590,7 +17584,7 @@ stbtt__close_shape.exit18:                        ; preds = %218, %235, %239
   %.8.i = phi i32 [ %511, %534 ], [ %.7.i39, %469 ]
   %.2280.i = phi ptr [ %516, %534 ], [ %.1279.i40, %469 ]
   %538 = and i32 %372, 32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq i32 %538, 0
   br i1 %.not.i, label %.thread30, label %370, !llvm.loop !432
 
@@ -17600,7 +17594,7 @@ stbtt__close_shape.exit18:                        ; preds = %218, %235, %239
   %541 = getelementptr i8, ptr %540, i64 16
   %.val409.i = load ptr, ptr %541, align 8, !tbaa !431
   tail call void %.val409.i(ptr %.val408.i, ptr noundef nonnull %476) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbtt__GetGlyphShapeTT.exit
 
 .thread30:                                        ; preds = %537, %363, %366
@@ -17610,10 +17604,10 @@ stbtt__close_shape.exit18:                        ; preds = %218, %235, %239
   br label %stbtt__GetGlyphShapeTT.exit
 
 542:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 1, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %543 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %4)
   %.not.i7 = icmp eq i32 %543, 0
@@ -17647,8 +17641,8 @@ stbtt__close_shape.exit18:                        ; preds = %218, %235, %239
 
 stbtt__GetGlyphShapeT2.exit:                      ; preds = %554, %557
   %.0.i9 = phi i32 [ %556, %554 ], [ 0, %557 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %stbtt__GetGlyphShapeTT.exit
 
 stbtt__GetGlyphShapeTT.exit:                      ; preds = %539, %94, %.thread30, %stbtt__GetGlyfOffset.exit, %stbtt__GetGlyfOffset.exit.thread, %stbtt__GetGlyphShapeT2.exit
@@ -17657,7 +17651,7 @@ stbtt__GetGlyphShapeTT.exit:                      ; preds = %539, %94, %.thread3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #20 {
   %7 = alloca %struct.stbtt__csctx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4, !tbaa !414
@@ -17665,7 +17659,7 @@ define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 1, ptr %7, align 8
   %11 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %7)
@@ -17717,7 +17711,7 @@ define range(i32 0, 2) i32 @stbtt_GetGlyphBox(ptr noundef readonly captures(none
   br label %stbtt__GetGlyphInfoT2.exit
 
 stbtt__GetGlyphInfoT2.exit:                       ; preds = %26, %27
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %stbtt__GetGlyfOffset.exit.thread
 
 31:                                               ; preds = %6
@@ -17899,14 +17893,14 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %141, %140, %104, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbtt_GetCodepointBox(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #20 {
   %7 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %8 = tail call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i32 %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = alloca %struct.stbtt__csctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4, !tbaa !414
@@ -17914,14 +17908,14 @@ define range(i32 0, 2) i32 @stbtt_IsGlyphEmpty(ptr noundef readonly captures(non
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 1, ptr %3, align 8
   %7 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %0, i32 noundef %1, ptr noundef %3)
   %.not24.i = icmp eq i32 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %.not24.i, i1 true, i1 %10
   br label %stbtt__GetGlyfOffset.exit.thread
@@ -18040,7 +18034,7 @@ stbtt__GetGlyfOffset.exit.thread:                 ; preds = %85, %15, %12, %88, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #28 {
+define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #27 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !408
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -18157,7 +18151,7 @@ define void @stbtt_GetGlyphHMetrics(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly captures(none) %0) local_unnamed_addr #29 {
+define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !408
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -18205,7 +18199,7 @@ define range(i32 0, 65536) i32 @stbtt_GetKerningTableLength(ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !408
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -18300,7 +18294,7 @@ define range(i32 -2147483648, 65536) i32 @stbtt_GetKerningTable(ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #27 {
+define range(i32 -32768, 32768) i32 @stbtt_GetGlyphKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !444
   %.not = icmp eq i32 %5, 0
@@ -18888,7 +18882,7 @@ stbtt__GetGlyphGPOSInfoAdvance.exit:              ; preds = %.loopexit.i, %166, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #27 {
+define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #26 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !438
   %.not = icmp eq i32 %5, 0
@@ -18912,7 +18906,7 @@ define range(i32 -32768, 32768) i32 @stbtt_GetCodepointKernAdvance(ptr noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
+define void @stbtt_GetCodepointHMetrics(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !408
@@ -19030,7 +19024,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %34, %61, %.sink.spl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #28 {
+define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #27 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %5
 
@@ -19104,7 +19098,7 @@ define void @stbtt_GetFontVMetrics(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @stbtt_GetFontVMetricsOS2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !408
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19246,7 +19240,7 @@ stbtt__find_table.exit.thread:                    ; preds = %37, %4, %78, %79, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #28 {
+define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) local_unnamed_addr #27 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !408
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -19306,7 +19300,7 @@ define void @stbtt_GetFontBoundingBox(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #29 {
+define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !408
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -19338,7 +19332,7 @@ define float @stbtt_ScaleForPixelHeight(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #29 {
+define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #28 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !408
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -19359,7 +19353,7 @@ define float @stbtt_ScaleForMappingEmToPixels(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeShape(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #19 {
+define void @stbtt_FreeShape(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = load ptr, ptr %0, align 8, !tbaa !419
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %3, i64 16
@@ -19369,7 +19363,7 @@ define void @stbtt_FreeShape(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @stbtt_FindSVGDoc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
+define noundef ptr @stbtt_FindSVGDoc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !408
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -19539,7 +19533,7 @@ stbtt__get_svg.exit:                              ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
+define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !408
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -19602,7 +19596,7 @@ define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_GetCodepointSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
+define i32 @stbtt_GetCodepointSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !408
@@ -19666,17 +19660,17 @@ stbtt_GetGlyphSVG.exit:                           ; preds = %3, %10, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #21 {
+define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #20 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = call i32 @stbtt_GetGlyphBox(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not = icmp eq i32 %15, 0
   %.not31 = icmp eq ptr %6, null
@@ -19767,25 +19761,25 @@ define void @stbtt_GetGlyphBitmapBoxSubpixel(ptr noundef readonly captures(none)
   br label %53
 
 53:                                               ; preds = %.sink.split, %45, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #21 {
+define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #20 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not.i = icmp eq i32 %13, 0
   %.not31.i = icmp eq ptr %4, null
@@ -19876,26 +19870,26 @@ define void @stbtt_GetGlyphBitmapBox(ptr noundef readonly captures(none) %0, i32
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %20, %43, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #21 {
+define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #20 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %15, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %16, 0
   %.not31.i = icmp eq ptr %6, null
@@ -19986,21 +19980,21 @@ define void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef readonly captures(n
   br label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %23, %46, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #21 {
+define void @stbtt_GetCodepointBitmapBox(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #20 {
   tail call void @stbtt_GetCodepointBitmapBoxSubpixel(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readonly captures(none) %11) local_unnamed_addr #19 {
+define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef readonly captures(none) %11) local_unnamed_addr #18 {
   %13 = alloca ptr, align 8
   %14 = alloca [129 x float], align 16
   %.sroa.5.i.i.i = alloca { float, float, i32 }, align 8
@@ -20008,7 +20002,7 @@ define void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, float nound
   %16 = fcmp ogt float %4, %5
   %17 = select i1 %16, float %5, float %4
   %18 = fdiv float %1, %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %19 = fmul float %18, %18
   %20 = icmp sgt i32 %3, 0
   br i1 %20, label %.lr.ph.preheader.i, label %stbtt_FlattenCurves.exit.thread
@@ -20204,11 +20198,11 @@ stbtt__add_point.exit.us.i:                       ; preds = %108, %100, %90, %82
   br label %stbtt_FlattenCurves.exit.thread
 
 stbtt_FlattenCurves.exit.thread:                  ; preds = %._crit_edge.i, %.split.us.i, %26, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1396
 
 stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge137.us.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not.i119.us.i, label %1396, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %stbtt_FlattenCurves.exit, %.lr.ph.i29
@@ -20405,7 +20399,7 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge137.us.i
 
 .lr.ph.i.i.i:                                     ; preds = %218, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %218 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i)
   %204 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %125, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i.i.i = load float, ptr %204, align 4, !tbaa !3
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %204, i64 4
@@ -20450,15 +20444,15 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge137.us.i
   br label %218
 
 218:                                              ; preds = %215, %.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %stbtt__sort_edges.exit.i, label %.lr.ph.i.i.i, !llvm.loop !477
 
 stbtt__sort_edges.exit.i:                         ; preds = %218, %._crit_edge118.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !478
-  call void @llvm.lifetime.start.p0(i64 516, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %219 = load i32, ptr %0, align 8, !tbaa !480
   %220 = icmp sgt i32 %219, 64
   br i1 %220, label %221, label %227
@@ -22435,8 +22429,8 @@ stbtt__hheap_cleanup.exit.i.i:                    ; preds = %1390, %._crit_edge1
   br label %stbtt__rasterize_sorted_edges.exit.i
 
 stbtt__rasterize_sorted_edges.exit.i:             ; preds = %1392, %stbtt__hheap_cleanup.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.val94.i = load ptr, ptr %11, align 8
   %1394 = getelementptr i8, ptr %11, i64 16
   %.val95.i = load ptr, ptr %1394, align 8, !tbaa !431
@@ -22458,7 +22452,7 @@ stbtt__rasterize.exit:                            ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeBitmap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define void @stbtt_FreeBitmap(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val2 = load ptr, ptr %3, align 8, !tbaa !431
@@ -22467,15 +22461,15 @@ define void @stbtt_FreeBitmap(ptr noundef %0, ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #18 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca %struct.stbtt__bitmap, align 8
   %16 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %16)
   %18 = fcmp une float %1, 0.000000e+00
   %.032 = select i1 %18, float %1, float %2
@@ -22494,12 +22488,12 @@ define ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0,
   br label %77
 
 24:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %25 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %5, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %26
@@ -22534,10 +22528,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
   %.059 = phi i32 [ %42, %26 ], [ 0, %24 ]
   %.058 = phi i32 [ %31, %26 ], [ 0, %24 ]
   %.sink.i = phi i32 [ %48, %26 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %49 = sub nsw i32 %.059, %.058
   store i32 %49, ptr %15, align 8, !tbaa !480
   %50 = sub nsw i32 %.sink.i, %.060
@@ -22617,33 +22611,33 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %24, %26
 
 77:                                               ; preds = %72, %20
   %.0 = phi ptr [ null, %20 ], [ %74, %72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #19 {
+define ptr @stbtt_GetGlyphBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #18 {
   %9 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #19 {
+define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #18 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca %struct.stbtt__bitmap, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %17 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %18 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit, label %19
@@ -22665,10 +22659,10 @@ define void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly captures(none) %
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %10, %19
   %.022 = phi i32 [ %24, %19 ], [ 0, %10 ]
   %.0 = phi i32 [ %30, %19 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %1, ptr %31, align 8, !tbaa !499
   store i32 %2, ptr %16, align 8, !tbaa !480
@@ -22693,26 +22687,26 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %10, %19
   %40 = getelementptr i8, ptr %39, i64 16
   %.val20 = load ptr, ptr %40, align 8, !tbaa !431
   call void %.val20(ptr %.val, ptr noundef %.pre) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define void @stbtt_MakeGlyphBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #18 {
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #18 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %5)
   %12 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %11, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #19 {
+define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #18 {
   %15 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %13)
   %.neg31.i = add i32 %2, 1
   %16 = sub i32 %.neg31.i, %9
@@ -22767,7 +22761,7 @@ stbtt_MakeGlyphBitmapSubpixelPrefilter.exit:      ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #19 {
+define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12, i32 noundef %13) local_unnamed_addr #18 {
   %.neg31 = add i32 %2, 1
   %15 = sub i32 %.neg31, %9
   %.neg33 = add i32 %3, 1
@@ -22821,28 +22815,28 @@ stbtt__oversample_shift.exit30:                   ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #19 {
+define void @stbtt_MakeCodepointBitmapSubpixel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #18 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %9)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %11)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointBitmap(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #18 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %3)
   %10 = tail call ptr @stbtt_GetGlyphBitmapSubpixel(ptr noundef readonly %0, float noundef %1, float noundef %2, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define void @stbtt_MakeCodepointBitmap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, i32 noundef %7) local_unnamed_addr #18 {
   %9 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef readonly %0, i32 noundef %7)
   tail call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, float noundef %6, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #20 {
+define void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #19 {
   %.not = icmp eq i32 %7, 0
   %9 = select i1 %.not, float -5.000000e-01, float 0.000000e+00
   %10 = sitofp i32 %1 to float
@@ -22920,7 +22914,7 @@ define void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @stbtt_PackBegin(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #18 {
   %.val54 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %6, i64 8
   %.val55 = load ptr, ptr %8, align 8, !tbaa !48
@@ -23046,7 +23040,7 @@ stbrp_init_target.exit:                           ; preds = %.lr.ph.i, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #19 {
+define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !528
   %4 = load ptr, ptr %0, align 8, !tbaa !522
@@ -23065,7 +23059,7 @@ define void @stbtt_PackEnd(ptr noundef readonly captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = icmp ult i32 %1, 9
   br i1 %4, label %5, label %7
 
@@ -23088,14 +23082,14 @@ define void @stbtt_PackSetOversampling(ptr noundef writeonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @stbtt_PackSetSkipMissingCodepoints(ptr noundef writeonly captures(none) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8, !tbaa !533
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #21 {
+define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #20 {
   %6 = alloca %struct.stbtt__csctx, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph101, label %._crit_edge102
@@ -23255,7 +23249,7 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   br i1 %.not.i62, label %121, label %111
 
 111:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i32 1, ptr %6, align 8
   %112 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %1, i32 noundef %95, ptr noundef %6)
@@ -23268,7 +23262,7 @@ define i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captures(none) 
   %118 = select i1 %.not17.i.i, i32 0, i32 %117
   %119 = load i32, ptr %18, align 4
   %120 = select i1 %.not17.i.i, i32 0, i32 %119
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.pre = load i32, ptr %11, align 4, !tbaa !531
   %.pre112.pre = load i32, ptr %12, align 8, !tbaa !532
   %.pre113.pre.pre = load i32, ptr %72, align 8, !tbaa !539
@@ -23497,9 +23491,9 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %189, %123, %121, %s
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__h_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 2, 0) %4) unnamed_addr #8 {
+define internal fastcc void @stbtt__h_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 2, 0) %4) unnamed_addr #7 {
   %6 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph148, label %._crit_edge149
@@ -23695,14 +23689,14 @@ define internal fastcc void @stbtt__h_prefilter(ptr noundef captures(none) %0, i
   br i1 %exitcond187.not, label %._crit_edge149, label %13, !llvm.loop !550
 
 ._crit_edge149:                                   ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__v_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 2, 0) %4) unnamed_addr #8 {
+define internal fastcc void @stbtt__v_prefilter(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 2, 0) %4) unnamed_addr #7 {
   %6 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph163, label %._crit_edge164
@@ -23904,12 +23898,12 @@ define internal fastcc void @stbtt__v_prefilter(ptr noundef captures(none) %0, i
   br i1 %exitcond204.not, label %._crit_edge164, label %13, !llvm.loop !557
 
 ._crit_edge164:                                   ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #18 {
   %6 = alloca %struct.stbtt__csctx, align 8
   %7 = alloca %struct.stbtt__csctx, align 8
   %8 = alloca [8 x i8], align 8
@@ -24142,7 +24136,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %122, %118
   br i1 %.not.i178, label %176, label %170
 
 170:                                              ; preds = %stbtt_GetGlyphHMetrics.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i32 1, ptr %7, align 8
   %171 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %1, i32 noundef %126, ptr noundef %7)
@@ -24151,7 +24145,7 @@ stbtt_GetGlyphHMetrics.exit:                      ; preds = %122, %118
   %173 = select i1 %.not17.i.i, i32 0, i32 %172
   %174 = load i32, ptr %24, align 4
   %175 = select i1 %.not17.i.i, i32 0, i32 %174
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.pre = load i32, ptr %128, align 4, !tbaa !405
   %.pre315.pre = load i32, ptr %131, align 4, !tbaa !406
   %.pre316.pre = load i32, ptr %108, align 4, !tbaa !395
@@ -24322,15 +24316,15 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %243, %178, %176, %s
   %286 = add i32 %285, 1
   %287 = sub i32 %273, %272
   %288 = add i32 %287, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %289 = call i32 @stbtt_GetGlyphShape(ptr noundef nonnull readonly %1, i32 noundef %126, ptr noundef nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %290 = load i32, ptr %22, align 4, !tbaa !414
   %.not.i187 = icmp eq i32 %290, 0
   br i1 %.not.i187, label %297, label %291
 
 291:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i32 1, ptr %6, align 8
   %292 = call fastcc i32 @stbtt__run_charstring(ptr noundef nonnull readonly %1, i32 noundef %126, ptr noundef %6)
@@ -24339,7 +24333,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %243, %178, %176, %s
   %294 = select i1 %.not17.i.i189, i32 0, i32 %293
   %295 = load i32, ptr %32, align 4
   %296 = select i1 %.not17.i.i189, i32 0, i32 %295
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %stbtt_GetGlyphBox.exit211
 
 297:                                              ; preds = %stbtt_GetGlyphBitmapBox.exit
@@ -24495,8 +24489,8 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
   %399 = getelementptr i8, ptr %398, i64 16
   %.val20.i = load ptr, ptr %399, align 8, !tbaa !431
   call void %.val20.i(ptr %.val.i162, ptr noundef %.pre.i) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %400 = load i32, ptr %12, align 4, !tbaa !531
   %401 = icmp ugt i32 %400, 1
   %.pre321.pre334 = load i32, ptr %128, align 4, !tbaa !405
@@ -24508,7 +24502,7 @@ stbtt_MakeGlyphBitmapSubpixel.exit:               ; preds = %stbtt_GetGlyphBitma
 402:                                              ; preds = %stbtt_MakeGlyphBitmapSubpixel.exit
   %403 = load ptr, ptr %29, align 8, !tbaa !526
   %404 = load i32, ptr %30, align 8, !tbaa !530
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %405 = icmp sgt i32 %.pre327.pre340, 0
   br i1 %405, label %.lr.ph148.i, label %stbtt__h_prefilter.exit
@@ -24714,7 +24708,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
   %.pre325.pre = phi i32 [ %.pre325.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre325.pre338, %402 ]
   %.pre323.pre = phi i32 [ %.pre323.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre323.pre336, %402 ]
   %.pre321.pre = phi i32 [ %.pre321.pre.pre, %stbtt__h_prefilter.exit.loopexit ], [ %.pre321.pre334, %402 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %501
 
 501:                                              ; preds = %stbtt__h_prefilter.exit, %stbtt_MakeGlyphBitmapSubpixel.exit
@@ -24729,7 +24723,7 @@ stbtt__h_prefilter.exit:                          ; preds = %stbtt__h_prefilter.
 504:                                              ; preds = %501
   %505 = load ptr, ptr %29, align 8, !tbaa !526
   %506 = load i32, ptr %30, align 8, !tbaa !530
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %507 = icmp sgt i32 %.pre325, 0
   br i1 %507, label %.lr.ph163.i, label %stbtt__v_prefilter.exit
@@ -24941,7 +24935,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
   %.pre324 = phi i32 [ %.pre324.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre325, %504 ]
   %.pre322 = phi i32 [ %.pre322.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre323, %504 ]
   %.pre320 = phi i32 [ %.pre320.pre, %stbtt__v_prefilter.exit.loopexit ], [ %.pre321, %504 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %607
 
 607:                                              ; preds = %stbtt__v_prefilter.exit, %501
@@ -25040,7 +25034,7 @@ stbtt__v_prefilter.exit:                          ; preds = %stbtt__v_prefilter.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #25 {
+define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #24 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !527
   %6 = tail call i32 @stbrp_pack_rects(ptr noundef %5, ptr noundef %1, i32 noundef %2)
@@ -25048,9 +25042,9 @@ define void @stbtt_PackFontRangesPackRects(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.preheader54.preheader, label %._crit_edge60
 
@@ -25133,12 +25127,12 @@ define range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(none) %0, 
 
 36:                                               ; preds = %._crit_edge60, %25
   %.0 = phi i32 [ %33, %25 ], [ 0, %._crit_edge60 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef captures(none) initializes((8, 20), (64, 80)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @stbtt_InitFont(ptr noundef captures(none) initializes((8, 20), (64, 80)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = alloca %struct.stbtt__buf, align 8
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
@@ -25739,15 +25733,15 @@ stbtt__find_table.exit208.i:                      ; preds = %364, %345, %stbtt__
   br i1 %.not120.i, label %stbtt_InitFont_internal.exit, label %715
 
 368:                                              ; preds = %366
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 2, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !7
   %.val.i209.i = load i8, ptr %15, align 1, !tbaa !9
   %.val25.i210.i = load i8, ptr %16, align 1, !tbaa !9
@@ -26476,21 +26470,21 @@ stbtt__buf_range.exit.i:                          ; preds = %692
   store ptr %713, ptr %711, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %714, ptr %.sroa.4.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %715
 
 stbtt__find_table.exit219.thread.i:               ; preds = %392, %692, %stbtt__cff_get_index.exit331.i, %stbtt__find_table.exit219.i, %368
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %stbtt_InitFont_internal.exit
 
 715:                                              ; preds = %.critedge.i, %367
@@ -26690,7 +26684,7 @@ stbtt_InitFont_internal.exit:                     ; preds = %stbtt__find_table.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #13 {
+define i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = tail call fastcc i32 @stbtt__isfont(ptr noundef readonly %0)
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %7, label %4
@@ -26799,9 +26793,9 @@ stbtt_GetFontOffsetForIndex_internal.exit:        ; preds = %4, %7, %10, %14, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.stbtt_pack_range, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %4, ptr %9, align 4, !tbaa !541
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -26812,14 +26806,14 @@ define range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(none) %0, p
   store ptr %6, ptr %12, align 8, !tbaa !558
   store float %3, ptr %8, align 8, !tbaa !534
   %13 = call i32 @stbtt_PackFontRanges(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #9 {
+define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #8 {
   %7 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %0, i32 noundef %1)
   %9 = call i32 @stbtt_InitFont(ptr noundef nonnull %7, ptr noundef %0, i32 noundef %8)
   %10 = fcmp ogt float %2, 0.000000e+00
@@ -26919,12 +26913,12 @@ define void @stbtt_GetScaledFontVMetrics(ptr noundef %0, i32 noundef %1, float n
   %65 = sitofp i16 %60 to float
   %66 = fmul float %53, %65
   store float %66, ptr %5, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #20 {
+define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #19 {
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds %struct.stbtt_packedchar, ptr %0, i64 %9
   %.not = icmp eq i32 %7, 0
@@ -27022,7 +27016,7 @@ define void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #18 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -27032,21 +27026,21 @@ define ptr @stbtt_GetGlyphSDF(ptr noundef readonly captures(none) %0, float noun
   br i1 %16, label %646, label %17
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %18 = call i32 @stbtt_GetGlyphBox(ptr noundef readonly %0, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, label %stbtt_GetGlyphBitmapBoxSubpixel.exit
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit.thread:      ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %646
 
 stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
@@ -27072,10 +27066,10 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
   %38 = call float @llvm.fmuladd.f32(float %37, float %1, float 0.000000e+00)
   %39 = call float @llvm.ceil.f32(float %38)
   %40 = fptosi float %39 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %41 = icmp eq i32 %23, %34
   %42 = icmp eq i32 %29, %40
   %or.cond520 = select i1 %41, i1 true, i1 %42
@@ -27121,7 +27115,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
 
 57:                                               ; preds = %56, %55
   %58 = fneg float %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %59 = call i32 @stbtt_GetGlyphShape(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %15)
   %60 = mul nsw i32 %49, %48
   %61 = sext i32 %60 to i64
@@ -27334,7 +27328,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %17
 
 193:                                              ; preds = %188
   %194 = fdiv float -1.000000e+00, %179
-  %sqrtf.i.i.us = call float @sqrtf(float noundef %191) #30
+  %sqrtf.i.i.us = call float @sqrtf(float noundef %191) #29
   %195 = fadd float %180, %sqrtf.i.i.us
   %196 = fmul float %194, %195
   %197 = fsub float %180, %sqrtf.i.i.us
@@ -27608,7 +27602,7 @@ stbtt__compute_crossings_x.exit.us:               ; preds = %.thread.i.us
   br i1 %380, label %411, label %381
 
 381:                                              ; preds = %354
-  %sqrtf47.i.us = call float @sqrtf(float noundef %379) #30
+  %sqrtf47.i.us = call float @sqrtf(float noundef %379) #29
   %382 = fneg float %374
   %383 = fsub float %sqrtf47.i.us, %374
   %384 = fmul float %383, 5.000000e-01
@@ -27658,7 +27652,7 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
 
 411:                                              ; preds = %354
   %412 = fdiv float %368, -3.000000e+00
-  %sqrtf.i.us = call float @sqrtf(float noundef %412) #30
+  %sqrtf.i.us = call float @sqrtf(float noundef %412) #29
   %413 = fdiv float -2.700000e+01, %376
   %414 = fpext float %413 to double
   %415 = call double @sqrt(double noundef %414) #55, !tbaa !7
@@ -27705,7 +27699,7 @@ stbtt__cuberoot.exit49.i.us:                      ; preds = %403, %399
   br i1 %451, label %stbtt__solve_cubic.exit.us, label %452
 
 452:                                              ; preds = %446
-  %sqrtf.us = call float @sqrtf(float noundef %450) #30
+  %sqrtf.us = call float @sqrtf(float noundef %450) #29
   %453 = fneg float %442
   %454 = fsub float %453, %sqrtf.us
   %455 = fmul float %353, 2.000000e+00
@@ -27983,7 +27977,7 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
   %645 = getelementptr i8, ptr %644, i64 16
   %.val493 = load ptr, ptr %645, align 8, !tbaa !431
   call void %.val493(ptr %.val492, ptr noundef %.pre.pre) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %646
 
 646:                                              ; preds = %stbtt_GetGlyphBitmapBoxSubpixel.exit.thread, %stbtt_GetGlyphBitmapBoxSubpixel.exit, %10, %._crit_edge536
@@ -27992,20 +27986,20 @@ stbtt__solve_cubic.exit.us:                       ; preds = %461, %459, %452, %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #30
+declare double @sqrt(double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #19 {
+define ptr @stbtt_GetCodepointSDF(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #18 {
   %11 = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %0, i32 noundef %2)
   %12 = tail call ptr @stbtt_GetGlyphSDF(ptr noundef %0, float noundef %1, i32 noundef %11, i32 noundef %3, i8 noundef zeroext %4, float noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   ret ptr %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_FreeSDF(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define void @stbtt_FreeSDF(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 16
   %.val2 = load ptr, ptr %3, align 8, !tbaa !431
@@ -28014,7 +28008,7 @@ define void @stbtt_FreeSDF(ptr noundef %0, ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @stbtt_GetFontNameString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+define ptr @stbtt_GetFontNameString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !408
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -28208,13 +28202,13 @@ stbtt__find_table.exit.thread:                    ; preds = %39, %127, %58, %6, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #19 {
+define range(i32 -2147483647, -2147483648) i32 @stbtt_BakeFontBitmap(ptr noundef %0, i32 noundef %1, float noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #18 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca %struct.stbtt_fontinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !419
   %15 = call i32 @stbtt_InitFont(ptr noundef nonnull %14, ptr noundef %0, i32 noundef %1)
   %.not.i = icmp eq i32 %15, 0
@@ -28296,12 +28290,12 @@ stbtt_GetGlyphHMetrics.exit.i:                    ; preds = %102, %.lr.ph.i
   %67 = shl nuw i16 %66, 8
   %68 = zext i8 %.val41.i.sink.i to i16
   %69 = or disjoint i16 %67, %68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %70 = call i32 @stbtt_GetGlyphBox(ptr noundef nonnull readonly %14, i32 noundef %51, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %.not.i.i.i = icmp eq i32 %70, 0
   br i1 %.not.i.i.i, label %stbtt_GetGlyphBitmapBox.exit.i, label %71
@@ -28336,10 +28330,10 @@ stbtt_GetGlyphBitmapBox.exit.i:                   ; preds = %71, %stbtt_GetGlyph
   %.088.i = phi i32 [ %82, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit.i ]
   %.087.i = phi i32 [ %87, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit.i ]
   %.sink.i.i.i = phi i32 [ %93, %71 ], [ 0, %stbtt_GetGlyphHMetrics.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %94 = sub nsw i32 %.087.i, %.089.i
   %95 = sub nsw i32 %.sink.i.i.i, %.088.i
   %96 = add i32 %.063101.i, 1
@@ -28394,12 +28388,12 @@ stbtt_GetGlyphBitmapBox.exit.i:                   ; preds = %71, %stbtt_GetGlyph
 
 stbtt_BakeFontBitmap_internal.exit:               ; preds = %102, %9, %16, %100
   %.0.i = phi i32 [ %101, %100 ], [ -1, %9 ], [ 1, %16 ], [ %spec.select78.i, %102 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %14) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbtt_GetNumberOfFonts(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define i32 @stbtt_GetNumberOfFonts(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = tail call fastcc i32 @stbtt__isfont(ptr noundef readonly %0)
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %3, label %stbtt_GetNumberOfFonts_internal.exit
@@ -28478,7 +28472,7 @@ stbtt_GetNumberOfFonts_internal.exit:             ; preds = %1, %3, %6, %10, %14
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
-define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #31 {
+define i32 @stbtt_FindMatchingFont(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #30 {
   %4 = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly %0, i32 noundef 0)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %stbtt_FindMatchingFont_internal.exit, label %.lr.ph.i
@@ -28696,7 +28690,7 @@ stbtt_FindMatchingFont_internal.exit:             ; preds = %98, %100, %102, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbtt_CompareUTF8toUTF16_bigendian(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = tail call fastcc i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3)
   %6 = icmp eq i32 %1, %5
   %7 = zext i1 %6 to i32
@@ -28724,7 +28718,7 @@ define noundef nonnull ptr @nk_font_korean_glyph_ranges() local_unnamed_addr #0 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_font_find_glyph(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #32 {
+define ptr @nk_font_find_glyph(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -28825,7 +28819,7 @@ define void @nk_font_config(ptr dead_on_unwind noalias writable writeonly sret(%
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_font_atlas_init_default(ptr noundef %0) local_unnamed_addr #12 {
+define void @nk_font_atlas_init_default(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -28868,7 +28862,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_font_atlas_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #20 {
+define void @nk_font_atlas_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #19 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -28905,7 +28899,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_font_atlas_init_custom(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #20 {
+define void @nk_font_atlas_init_custom(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #19 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -28944,7 +28938,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_begin(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_font_atlas_begin(ptr noundef captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %25, label %2
 
@@ -29002,7 +28996,7 @@ define void @nk_font_atlas_begin(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_add(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -29193,9 +29187,9 @@ nk_zero.exit.thread:                              ; preds = %42
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_from_memory(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_from_memory(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_font_config, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %7
 
@@ -29271,14 +29265,14 @@ define ptr @nk_font_atlas_add_from_memory(ptr noundef captures(address_is_null) 
 
 31:                                               ; preds = %5, %7, %10, %16, %19, %25
   %.0 = phi ptr [ %30, %25 ], [ null, %19 ], [ null, %16 ], [ null, %10 ], [ null, %7 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_from_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_from_file(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_font_config, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %7
@@ -29355,14 +29349,14 @@ nk_file_load.exit.thread28:                       ; preds = %11, %15
 
 nk_file_load.exit.thread:                         ; preds = %8, %nk_file_load.exit.thread28, %4, %27
   %.0 = phi ptr [ %32, %27 ], [ null, %4 ], [ null, %nk_file_load.exit.thread28 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #22 {
+define ptr @nk_font_atlas_add_compressed(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_font_config, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -29914,12 +29908,12 @@ nk_decompress.exit:                               ; preds = %nk_decompress_token
 
 346:                                              ; preds = %22, %5, %9, %12, %15, %19, %340
   %.0 = phi ptr [ %345, %340 ], [ null, %19 ], [ null, %15 ], [ null, %12 ], [ null, %9 ], [ null, %5 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_compressed_base85(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_add_compressed_base85(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #18 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -30037,16 +30031,16 @@ nk_decode_85.exit:                                ; preds = %.lr.ph.i30, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_add_default(ptr noundef captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_add_default(ptr noundef captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #18 {
   %4 = tail call ptr @nk_font_atlas_add_compressed_base85(ptr noundef %0, ptr noundef nonnull @nk_proggy_clean_ttf_compressed_data_base85, float noundef %1, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @nk_font_atlas_bake(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #19 {
+define ptr @nk_font_atlas_bake(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = alloca %struct.nk_baked_font, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -30395,7 +30389,7 @@ nk_memset.exit:                                   ; preds = %.preheader.i152, %.
   %190 = load ptr, ptr %119, align 8, !tbaa !612
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 56
   %192 = load ptr, ptr %191, align 8, !tbaa !624
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %193 = icmp ne ptr %190, null
   %194 = icmp ne ptr %192, null
   %or.cond3.i153 = and i1 %193, %194
@@ -30497,7 +30491,7 @@ nk_font_find_glyph.exit.i:                        ; preds = %._crit_edge.i.i, %2
   br label %nk_font_init.exit
 
 nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_find_glyph.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0126 = load ptr, ptr %.0126175, align 8, !tbaa !650
   %.not149 = icmp eq ptr %.0126, null
   br i1 %.not149, label %.preheader, label %.lr.ph, !llvm.loop !661
@@ -30586,12 +30580,12 @@ nk_font_init.exit:                                ; preds = %.lr.ph, %nk_font_fi
 
 286:                                              ; preds = %281, %283, %27, %4, %10, %14, %17, %21, %269
   %.0 = phi ptr [ %272, %269 ], [ null, %21 ], [ null, %17 ], [ null, %14 ], [ null, %10 ], [ null, %4 ], [ null, %27 ], [ null, %283 ], [ null, %281 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(address) %5, i32 noundef %6, ptr noundef nonnull %7) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @nk_font_bake_pack(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef readonly captures(address) %5, i32 noundef %6, ptr noundef nonnull %7) unnamed_addr #18 {
   %9 = alloca %struct.stbrp_rect, align 4
   %10 = icmp ne ptr %5, null
   %11 = icmp ne i32 %6, 0
@@ -30696,7 +30690,7 @@ nk_range_glyph_count.exit:                        ; preds = %.lr.ph.i, %13, %nk_
   store i32 %48, ptr %2, align 4, !tbaa !7
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = tail call i32 @stbtt_PackBegin(ptr noundef nonnull %49, ptr noundef null, i32 noundef %48, i32 noundef 32768, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, i8 0, i64 24, i1 false), !tbaa !7
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %52 = load i16, ptr %51, align 2, !tbaa !669
@@ -30734,7 +30728,7 @@ nk_range_glyph_count.exit:                        ; preds = %.lr.ph.i, %13, %nk_
   store i16 %76, ptr %51, align 2, !tbaa !669
   %77 = trunc i32 %67 to i16
   store i16 %77, ptr %55, align 2, !tbaa !670
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %78 = icmp sgt i32 %6, 0
   br i1 %78, label %.preheader.lr.ph, label %._crit_edge230
 
@@ -30947,7 +30941,7 @@ stbtt_PackSetOversampling.exit:                   ; preds = %135, %137
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_font_bake(ptr noundef captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address) %6, i32 noundef %7) unnamed_addr #19 {
+define internal fastcc void @nk_font_bake(ptr noundef captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address) %6, i32 noundef %7) unnamed_addr #18 {
   %9 = icmp ne i32 %2, 0
   %10 = icmp ne i32 %3, 0
   %or.cond3 = and i1 %9, %10
@@ -31331,7 +31325,7 @@ stbtt_PackSetOversampling.exit:                   ; preds = %46, %48
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 %3) unnamed_addr #15 {
+define internal fastcc void @nk_font_bake_custom_data(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 %3) unnamed_addr #14 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %1, 0
   %or.cond = and i1 %5, %6
@@ -31392,7 +31386,7 @@ define noundef ptr @nk_handle_ptr(ptr noundef readnone returned captures(ret: ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_end(ptr noundef captures(address_is_null) %0, ptr %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #22 {
+define void @nk_font_atlas_end(ptr noundef captures(address_is_null) %0, ptr %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   %.not37 = icmp eq ptr %2, null
   br i1 %.not, label %4, label %6
@@ -31477,7 +31471,7 @@ define void @nk_font_atlas_end(ptr noundef captures(address_is_null) %0, ptr %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_cleanup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_font_atlas_cleanup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -31536,7 +31530,7 @@ define void @nk_font_atlas_cleanup(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #19 {
+define void @nk_font_atlas_clear(ptr noundef %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_zero.exit, label %2
 
@@ -31672,7 +31666,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_begin(ptr noundef captures(address_is_null) %0) local_unnamed_addr #23 {
+define void @nk_input_begin(ptr noundef captures(address_is_null) %0) local_unnamed_addr #22 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -31722,7 +31716,7 @@ define void @nk_input_begin(ptr noundef captures(address_is_null) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #20 {
+define void @nk_input_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -31754,7 +31748,7 @@ define void @nk_input_end(ptr noundef captures(address_is_null) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_motion(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
+define void @nk_input_motion(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -31782,7 +31776,7 @@ define void @nk_input_motion(ptr noundef captures(address_is_null) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_key(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
+define void @nk_input_key(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 
@@ -31801,7 +31795,7 @@ define void @nk_input_key(ptr noundef captures(address_is_null) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_button(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #20 {
+define void @nk_input_button(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %6
 
@@ -31836,7 +31830,7 @@ define void @nk_input_button(ptr noundef captures(address_is_null) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_input_scroll(ptr noundef captures(address_is_null) %0, <2 x float> %1) local_unnamed_addr #33 {
+define void @nk_input_scroll(ptr noundef captures(address_is_null) %0, <2 x float> %1) local_unnamed_addr #32 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -31858,7 +31852,7 @@ define void @nk_input_scroll(ptr noundef captures(address_is_null) %0, <2 x floa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_glyph(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define void @nk_input_glyph(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   %3 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %3
@@ -32062,9 +32056,9 @@ nk_utf_decode.exit.thread:                        ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_char(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #8 {
+define void @nk_input_char(ptr noundef captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -32074,14 +32068,14 @@ define void @nk_input_char(ptr noundef captures(address_is_null) %0, i8 noundef 
   br label %5
 
 5:                                                ; preds = %2, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @nk_input_unicode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @nk_input_unicode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %4
 
@@ -32147,12 +32141,12 @@ nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exi
   br label %27
 
 27:                                               ; preds = %2, %nk_utf_encode.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_has_mouse_click(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_has_mouse_click(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -32392,7 +32386,7 @@ nk_input_has_mouse_click_down_in_rect.exit.thread: ; preds = %6, %nk_input_has_m
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_any_mouse_click_in_rect(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #34 {
+define range(i32 0, 2) i32 @nk_input_any_mouse_click_in_rect(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #33 {
   %.not.i = icmp eq ptr %0, null
   %.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %1, i64 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -32589,7 +32583,7 @@ nk_input_is_mouse_click_in_rect.exit:             ; preds = %12, %5, %33, %nk_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nk_input_is_mouse_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define i32 @nk_input_is_mouse_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -32606,7 +32600,7 @@ define i32 @nk_input_is_mouse_down(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_is_mouse_pressed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_is_mouse_pressed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -32633,7 +32627,7 @@ define range(i32 0, 2) i32 @nk_input_is_mouse_pressed(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_is_mouse_released(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_is_mouse_released(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -32658,7 +32652,7 @@ define range(i32 0, 2) i32 @nk_input_is_mouse_released(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_is_key_pressed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_is_key_pressed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -32688,7 +32682,7 @@ define range(i32 0, 2) i32 @nk_input_is_key_pressed(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_is_key_released(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_is_key_released(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 
@@ -32718,7 +32712,7 @@ define range(i32 0, 2) i32 @nk_input_is_key_released(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_input_is_key_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_input_is_key_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -32736,13 +32730,13 @@ define range(i32 0, 2) i32 @nk_input_is_key_down(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_default(ptr noundef %0) local_unnamed_addr #24 {
+define void @nk_style_default(ptr noundef %0) local_unnamed_addr #23 {
   tail call void @nk_style_from_table(ptr noundef %0, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_from_table(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #35 {
+define void @nk_style_from_table(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #34 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %763, label %3
 
@@ -34495,7 +34489,7 @@ define ptr @nk_style_get_color_by_name(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_item_color(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 12)) %0, i32 %1) local_unnamed_addr #12 {
+define void @nk_style_item_color(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 12)) %0, i32 %1) local_unnamed_addr #11 {
   store i32 0, ptr %0, align 8, !tbaa !824
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -34503,7 +34497,7 @@ define void @nk_style_item_color(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_image(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 32)) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #20 {
+define void @nk_style_item_image(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 32)) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #19 {
   store i32 1, ptr %0, align 8, !tbaa !824
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !198
@@ -34511,7 +34505,7 @@ define void @nk_style_item_image(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_nine_slice(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 40)) %0, ptr noundef readonly byval(%struct.nk_nine_slice) align 8 captures(none) %1) local_unnamed_addr #20 {
+define void @nk_style_item_nine_slice(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 40)) %0, ptr noundef readonly byval(%struct.nk_nine_slice) align 8 captures(none) %1) local_unnamed_addr #19 {
   store i32 2, ptr %0, align 8, !tbaa !824
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !825
@@ -34519,7 +34513,7 @@ define void @nk_style_item_nine_slice(ptr dead_on_unwind noalias writable writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_item_hide(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 12)) %0) local_unnamed_addr #12 {
+define void @nk_style_item_hide(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_style_item) align 8 captures(none) initializes((0, 4), (8, 12)) %0) local_unnamed_addr #11 {
   store i32 0, ptr %0, align 8, !tbaa !824
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -34527,7 +34521,7 @@ define void @nk_style_item_hide(ptr dead_on_unwind noalias writable writeonly sr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_style_set_font(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #24 {
+define void @nk_style_set_font(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_layout_reset_min_row_height.exit, label %3
 
@@ -34565,7 +34559,7 @@ nk_layout_reset_min_row_height.exit:              ; preds = %11, %8, %3, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_reset_min_row_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_layout_reset_min_row_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -34601,7 +34595,7 @@ define void @nk_layout_reset_min_row_height(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %0, ptr noundef %1) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -34631,7 +34625,7 @@ define range(i32 0, 2) i32 @nk_style_push_font(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -34659,7 +34653,7 @@ define range(i32 0, 2) i32 @nk_style_pop_font(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_style_item(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly byval(%struct.nk_style_item) align 8 captures(none) %2) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_style_item(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly byval(%struct.nk_style_item) align 8 captures(none) %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %4
 
@@ -34687,7 +34681,7 @@ define range(i32 0, 2) i32 @nk_style_push_style_item(ptr noundef captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_float(ptr noundef captures(address_is_null) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_float(ptr noundef captures(address_is_null) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -34716,7 +34710,7 @@ define range(i32 0, 2) i32 @nk_style_push_float(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_vec2(ptr noundef captures(address_is_null) %0, ptr noundef %1, <2 x float> %2) local_unnamed_addr #33 {
+define range(i32 0, 2) i32 @nk_style_push_vec2(ptr noundef captures(address_is_null) %0, ptr noundef %1, <2 x float> %2) local_unnamed_addr #32 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -34745,7 +34739,7 @@ define range(i32 0, 2) i32 @nk_style_push_vec2(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_flags(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_flags(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -34774,7 +34768,7 @@ define range(i32 0, 2) i32 @nk_style_push_flags(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -34803,7 +34797,7 @@ define range(i32 0, 2) i32 @nk_style_push_color(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef captures(address_is_null) %0) local_unnamed_addr #24 {
+define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
 
@@ -34830,7 +34824,7 @@ define range(i32 0, 2) i32 @nk_style_pop_style_item(ptr noundef captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -34858,7 +34852,7 @@ define range(i32 0, 2) i32 @nk_style_pop_float(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -34886,7 +34880,7 @@ define range(i32 0, 2) i32 @nk_style_pop_vec2(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -34914,7 +34908,7 @@ define range(i32 0, 2) i32 @nk_style_pop_flags(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -34942,7 +34936,7 @@ define range(i32 0, 2) i32 @nk_style_pop_color(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_style_set_cursor(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_style_set_cursor(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -34965,21 +34959,21 @@ define range(i32 0, 2) i32 @nk_style_set_cursor(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_show_cursor(ptr noundef writeonly captures(none) initializes((440, 444)) %0) local_unnamed_addr #12 {
+define void @nk_style_show_cursor(ptr noundef writeonly captures(none) initializes((440, 444)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 1, ptr %2, align 8, !tbaa !342
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_hide_cursor(ptr noundef writeonly captures(none) initializes((440, 444)) %0) local_unnamed_addr #12 {
+define void @nk_style_hide_cursor(ptr noundef writeonly captures(none) initializes((440, 444)) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 0, ptr %2, align 8, !tbaa !342
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_load_cursor(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #12 {
+define void @nk_style_load_cursor(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -34995,7 +34989,7 @@ define void @nk_style_load_cursor(ptr noundef writeonly captures(address_is_null
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @nk_style_load_all_cursors(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #15 {
+define void @nk_style_load_all_cursors(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %.preheader
 
@@ -35022,21 +35016,21 @@ define void @nk_style_load_all_cursors(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_init_default(ptr noundef %0, ptr noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_init_default(ptr noundef %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = alloca %struct.nk_allocator, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @nk_malloc, ptr %4, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @nk_mfree, ptr %5, align 8, !tbaa !431
   %6 = call i32 @nk_init(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #18 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %63, label %4
 
@@ -35202,7 +35196,7 @@ nk_pool_init.exit:                                ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_init_fixed(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #20 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %52, label %5
 
@@ -35340,7 +35334,7 @@ nk_buffer_init_fixed.exit:                        ; preds = %nk_setup.exit, %nk_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_init_custom(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_init_custom(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -35527,7 +35521,7 @@ nk_pool_init_fixed.exit:                          ; preds = %58, %nk_zero.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_free(ptr noundef %0) local_unnamed_addr #19 {
+define void @nk_free(ptr noundef %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %2
 
@@ -35657,7 +35651,7 @@ nk_zero.exit36:                                   ; preds = %.loopexit46.i.i30.t
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_clear(ptr noundef %0) local_unnamed_addr #37 {
+define void @nk_clear(ptr noundef %0) local_unnamed_addr #36 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %155, label %2
 
@@ -36060,7 +36054,7 @@ nk_remove_window.exit:                            ; preds = %136, %.thread.i, %.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_free_window(ptr noundef nonnull captures(none) %0, ptr noundef nonnull initializes((456, 472)) %1) unnamed_addr #37 {
+define internal fastcc void @nk_free_window(ptr noundef nonnull captures(none) %0, ptr noundef nonnull initializes((456, 472)) %1) unnamed_addr #36 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %4 = load ptr, ptr %3, align 8, !tbaa !887
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -36238,7 +36232,7 @@ nk_free_page_element.exit:                        ; preds = %nk_link_page_elemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #24 {
+define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18496
   %4 = load ptr, ptr %3, align 8, !tbaa !351
   %5 = icmp eq ptr %1, %4
@@ -36344,13 +36338,13 @@ define internal fastcc void @nk_remove_window(ptr noundef nonnull captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_begin(ptr noundef %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_begin(ptr noundef %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = tail call i32 @nk_begin_titled(ptr noundef %0, ptr noundef %1, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_begin_titled(ptr noundef %0, ptr noundef %1, ptr noundef %2, <2 x float> %3, <2 x float> %4, i32 noundef %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_begin_titled(ptr noundef %0, ptr noundef %1, ptr noundef %2, <2 x float> %3, <2 x float> %4, i32 noundef %5) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %7
 
@@ -37078,7 +37072,7 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %174
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nk_create_window(ptr noundef nonnull captures(address_is_null) %0) unnamed_addr #19 {
+define internal fastcc ptr @nk_create_window(ptr noundef nonnull captures(address_is_null) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18528
   %3 = load ptr, ptr %2, align 8, !tbaa !892
   %.not.i = icmp eq ptr %3, null
@@ -37184,7 +37178,7 @@ nk_create_page_element.exit.thread:               ; preds = %18, %40, %47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_insert_window(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #21 {
+define internal fastcc void @nk_insert_window(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #20 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -37263,7 +37257,7 @@ define internal fastcc void @nk_insert_window(ptr noundef nonnull captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @nk_create_panel(ptr noundef captures(address_is_null) %0) unnamed_addr #19 {
+define internal fastcc ptr @nk_create_panel(ptr noundef captures(address_is_null) %0) unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18528
   %3 = load ptr, ptr %2, align 8, !tbaa !892
   %.not.i = icmp eq ptr %3, null
@@ -37369,7 +37363,7 @@ nk_zero.exit:                                     ; preds = %18, %40, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_panel_begin(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 65) %2) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_panel_begin(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 65) %2) unnamed_addr #21 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
@@ -37852,7 +37846,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   br i1 %.not381, label %266, label %232
 
 232:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !7
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 9432
   %234 = load i32, ptr %233, align 8, !tbaa !932
@@ -37909,7 +37903,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   br label %265
 
 265:                                              ; preds = %261, %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %266
 
 266:                                              ; preds = %265, %225
@@ -37922,7 +37916,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   br i1 %.not384, label %.lr.ph.i.preheader, label %269
 
 269:                                              ; preds = %266
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !7
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 9432
   %271 = load i32, ptr %270, align 8, !tbaa !932
@@ -37999,7 +37993,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %208, %202, %200
   br label %307
 
 307:                                              ; preds = %304, %301, %294
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %266, %307
@@ -38217,7 +38211,7 @@ nk_push_scissor.exit:                             ; preds = %373, %409
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_end(ptr noundef %0) local_unnamed_addr #21 {
   %2 = alloca %struct.nk_rect, align 8
   %3 = alloca %struct.nk_rect, align 8
   %4 = alloca i32, align 4
@@ -38639,7 +38633,7 @@ nk_panel_get_padding.exit.i:                      ; preds = %78, %77, %76, %75, 
 nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_edge.i, %198, %194, %189, %185, %178, %171, %164, %161, %157
   %.1.shrunk.i = phi i1 [ %218, %228 ], [ %218, %230 ], [ true, %._crit_edge.i ], [ false, %198 ], [ false, %194 ], [ false, %189 ], [ false, %185 ], [ false, %161 ], [ false, %157 ], [ false, %164 ], [ false, %171 ], [ false, %178 ]
   %.1.i = zext i1 %.1.shrunk.i to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !7
   %232 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %233 = load float, ptr %232, align 8, !tbaa !915
@@ -38681,8 +38675,8 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_
   br label %259
 
 259:                                              ; preds = %257, %nk_input_is_mouse_hovering_rect.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
   %260 = load float, ptr %232, align 8, !tbaa !915
   %.sroa.0131.0.vec.insert135.i = insertelement <2 x float> poison, float %260, i64 0
@@ -38704,10 +38698,10 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_
   %275 = fmul float %270, 0x3F747AE140000000
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 5968
   %277 = load ptr, ptr %71, align 8, !tbaa !826
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store <2 x float> %.sroa.0131.4.vec.insert139.i, ptr %2, align 8
   %278 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %279 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %280 = fcmp olt float %.sroa.6.0.copyload.i, 1.000000e+00
   %281 = select i1 %280, float 1.000000e+00, float %.sroa.6.0.copyload.i
@@ -38726,7 +38720,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_
   br i1 %.not.i480.i, label %306, label %289
 
 289:                                              ; preds = %286
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.7.8.vec.insert.i.i = insertelement <2 x float> poison, float %281, i64 0
   %.sroa.7.12.vec.insert.i.i = shufflevector <2 x float> %.sroa.7.8.vec.insert.i.i, <2 x float> poison, <2 x i32> zeroinitializer
   %290 = tail call float @llvm.fmuladd.f32(float %281, float -2.000000e+00, float %284)
@@ -38752,7 +38746,7 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_
   %305 = fadd float %281, %260
   store float %305, ptr %2, align 8, !tbaa !124
   store float %290, ptr %278, align 8, !tbaa !125
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %306
 
 306:                                              ; preds = %289, %286
@@ -38838,12 +38832,12 @@ nk_input_is_mouse_hovering_rect.exit.thread.i:    ; preds = %230, %228, %._crit_
 
 nk_do_scrollbarh.exit.i:                          ; preds = %355, %351, %259
   %.0.i479.i = phi float [ 0.000000e+00, %259 ], [ %343, %355 ], [ %343, %351 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %358 = fptoui float %.0.i479.i to i32
   %359 = load ptr, ptr %265, align 8, !tbaa !909
   store i32 %358, ptr %359, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %360
 
 360:                                              ; preds = %nk_do_scrollbarh.exit.i, %143, %140
@@ -39522,7 +39516,7 @@ nk_link_page_element_into_freelist.exit12.i.i:    ; preds = %684, %681
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -39547,7 +39541,7 @@ define { <2 x float>, <2 x float> } @nk_window_get_bounds(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define <2 x float> @nk_window_get_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -39572,7 +39566,7 @@ define <2 x float> @nk_window_get_position(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define <2 x float> @nk_window_get_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -39597,7 +39591,7 @@ define <2 x float> @nk_window_get_size(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_window_get_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #29 {
+define float @nk_window_get_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -39618,7 +39612,7 @@ define float @nk_window_get_width(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_window_get_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #29 {
+define float @nk_window_get_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -39639,7 +39633,7 @@ define float @nk_window_get_height(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -39666,7 +39660,7 @@ define { <2 x float>, <2 x float> } @nk_window_get_content_region(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -39693,7 +39687,7 @@ define <2 x float> @nk_window_get_content_region_min(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
@@ -39726,7 +39720,7 @@ define <2 x float> @nk_window_get_content_region_max(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -39753,7 +39747,7 @@ define <2 x float> @nk_window_get_content_region_size(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @nk_window_get_canvas(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define ptr @nk_window_get_canvas(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -39771,7 +39765,7 @@ define ptr @nk_window_get_canvas(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_window_get_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #29 {
+define ptr @nk_window_get_panel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -39792,7 +39786,7 @@ define ptr @nk_window_get_panel(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #28 {
+define void @nk_window_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -39827,7 +39821,7 @@ define void @nk_window_get_scroll(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_window_has_focus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_window_has_focus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -39850,7 +39844,7 @@ define range(i32 0, 2) i32 @nk_window_has_focus(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
+define range(i32 0, 2) i32 @nk_window_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #37 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_input_is_mouse_hovering_rect.exit, label %2
 
@@ -39920,7 +39914,7 @@ nk_input_is_mouse_hovering_rect.exit:             ; preds = %32, %28, %21, %1, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #39 {
+define range(i32 0, 2) i32 @nk_window_is_any_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -40039,7 +40033,7 @@ nk_input_is_mouse_hovering_rect.exit36.thread:    ; preds = %56, %55, %45, %44, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #39 {
+define range(i32 0, 2) i32 @nk_item_is_any_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #38 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_window_is_any_hovered.exit, label %2
 
@@ -40168,7 +40162,7 @@ nk_window_is_any_hovered.exit:                    ; preds = %27, %44, %55, %nk_i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 32769) i32 @nk_window_is_collapsed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #32 {
+define range(i32 0, 32769) i32 @nk_window_is_collapsed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
 
@@ -40279,7 +40273,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 16385) i32 @nk_window_is_closed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #32 {
+define range(i32 0, 16385) i32 @nk_window_is_closed(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
 
@@ -40390,7 +40384,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 8193) i32 @nk_window_is_hidden(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #32 {
+define range(i32 0, 8193) i32 @nk_window_is_hidden(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
 
@@ -40501,7 +40495,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_window_is_active(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #32 {
+define range(i32 0, 2) i32 @nk_window_is_active(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %3
 
@@ -40613,7 +40607,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @nk_window_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #32 {
+define ptr @nk_window_find(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #31 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -40714,7 +40708,7 @@ nk_find_window.exit:                              ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #40 {
+define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -40741,7 +40735,7 @@ define void @nk_window_close(ptr noundef readonly captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #41 {
+define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #40 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %5
 
@@ -40762,7 +40756,7 @@ define void @nk_window_set_bounds(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
+define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #40 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -40781,7 +40775,7 @@ define void @nk_window_set_position(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #41 {
+define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #40 {
   %4 = tail call ptr @nk_window_find(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -40800,7 +40794,7 @@ define void @nk_window_set_size(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #36 {
+define void @nk_window_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 
@@ -40822,7 +40816,7 @@ define void @nk_window_set_scroll(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_collapse(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #40 {
+define void @nk_window_collapse(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %4
 
@@ -40936,7 +40930,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
+define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #39 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -40951,7 +40945,7 @@ define void @nk_window_collapse_if(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_show(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #40 {
+define void @nk_window_show(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_find_window.exit.thread, label %4
 
@@ -41065,7 +41059,7 @@ nk_find_window.exit.thread:                       ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #40 {
+define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #39 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne i32 %3, 0
   %or.cond = and i1 %5, %6
@@ -41080,7 +41074,7 @@ define void @nk_window_show_if(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_window_set_focus(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #40 {
+define void @nk_window_set_focus(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #39 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %74, label %3
 
@@ -41303,9 +41297,9 @@ nk_insert_window.exit:                            ; preds = %nk_stricmpn.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_rule_horizontal(ptr noundef readonly captures(address_is_null) %0, i32 %1, i32 noundef %2) local_unnamed_addr #22 {
+define void @nk_rule_horizontal(ptr noundef readonly captures(address_is_null) %0, i32 %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @nk_widget(ptr noundef nonnull %4, ptr noundef %0)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_window_get_canvas.exit, label %6
@@ -41338,12 +41332,12 @@ nk_window_get_canvas.exit:                        ; preds = %3, %6
   br label %20
 
 20:                                               ; preds = %nk_window_get_canvas.exit, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #19 {
+define range(i32 0, 4) i32 @nk_widget(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %73, label %3
 
@@ -41457,7 +41451,7 @@ define range(i32 0, 4) i32 @nk_widget(ptr noundef captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_popup_begin(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, <2 x float> %4, <2 x float> %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_popup_begin(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, <2 x float> %4, <2 x float> %5) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %136, label %7
 
@@ -41764,7 +41758,7 @@ nk_free_panel.exit:                               ; preds = %nk_link_page_elemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_popup_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -41786,7 +41780,7 @@ define void @nk_popup_close(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_popup_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_popup_end(ptr noundef %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_push_scissor.exit31, label %2
 
@@ -41965,7 +41959,7 @@ nk_push_scissor.exit31:                           ; preds = %72, %nk_push_scisso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #28 {
+define void @nk_popup_get_scroll(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #27 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %4
 
@@ -42006,7 +42000,7 @@ define void @nk_popup_get_scroll(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_popup_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #24 {
+define void @nk_popup_set_scroll(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
 
@@ -42034,7 +42028,7 @@ define void @nk_popup_set_scroll(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_begin(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_begin(ptr noundef %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, <2 x float> %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %84, label %6
 
@@ -42209,7 +42203,7 @@ nk_input_mouse_clicked.exit:                      ; preds = %29, %36, %43, %nk_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_nonblock_begin(ptr noundef nonnull %0, i32 noundef range(i32 32, 1) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, i32 noundef range(i32 16, 65) %6) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_nonblock_begin(ptr noundef nonnull %0, i32 noundef range(i32 32, 1) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, i32 noundef range(i32 16, 65) %6) unnamed_addr #21 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %9 = load ptr, ptr %8, align 8, !tbaa !828
   %.not = icmp eq ptr %9, null
@@ -42459,9 +42453,9 @@ nk_push_scissor.exit:                             ; preds = %68, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_contextual_close.exit, label %6
 
@@ -42527,12 +42521,12 @@ nk_popup_close.exit.i:                            ; preds = %31
 
 nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit.i, %31, %29, %20, %nk_widget_fitting.exit, %4, %6, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %14, %nk_widget_fitting.exit ], [ 0, %20 ], [ 1, %29 ], [ 1, %31 ], [ 1, %nk_popup_close.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2) local_unnamed_addr #21 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
 
@@ -42558,7 +42552,7 @@ define range(i32 0, 4) i32 @nk_widget_fitting(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10) unnamed_addr #21 {
   %12 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -42802,7 +42796,7 @@ nk_draw_button_text.exit:                         ; preds = %112, %136
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_contextual_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_contextual_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -42830,7 +42824,7 @@ nk_popup_close.exit:                              ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -42849,7 +42843,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_label(ptr noundef captures(addres
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i.preheader ], [ %7, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_text.exit, label %8
 
@@ -42915,14 +42909,14 @@ nk_popup_close.exit.i.i:                          ; preds = %33
 
 nk_contextual_item_text.exit:                     ; preds = %nk_strlen.exit, %8, %11, %nk_widget_fitting.exit.i, %22, %31, %33, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %nk_strlen.exit ], [ %16, %nk_widget_fitting.exit.i ], [ 0, %22 ], [ 1, %31 ], [ 1, %33 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_contextual_close.exit, label %7
 
@@ -42988,12 +42982,12 @@ nk_popup_close.exit.i:                            ; preds = %32
 
 nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit.i, %32, %30, %21, %nk_widget_fitting.exit, %5, %7, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #21 {
   %13 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -43217,7 +43211,7 @@ nk_draw_button_text_image.exit:                   ; preds = %95, %96
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -43236,7 +43230,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_image_label(ptr noundef captures(
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_image_text.exit, label %9
 
@@ -43302,14 +43296,14 @@ nk_popup_close.exit.i.i:                          ; preds = %34
 
 nk_contextual_item_image_text.exit:               ; preds = %nk_strlen.exit, %9, %12, %nk_widget_fitting.exit.i, %23, %32, %34, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %nk_strlen.exit ], [ %17, %nk_widget_fitting.exit.i ], [ 0, %23 ], [ 1, %32 ], [ 1, %34 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_contextual_close.exit, label %7
 
@@ -43375,12 +43369,12 @@ nk_popup_close.exit.i:                            ; preds = %32
 
 nk_contextual_close.exit:                         ; preds = %nk_popup_close.exit.i, %32, %30, %21, %nk_widget_fitting.exit, %5, %7, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_text_symbol(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef captures(address_is_null) %9, ptr noundef %10, ptr noundef readonly captures(address_is_null) %11) unnamed_addr #21 {
   %13 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -43584,7 +43578,7 @@ nk_draw_button_text_symbol.exit:                  ; preds = %84, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_contextual_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_contextual_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -43603,7 +43597,7 @@ define range(i32 0, 2) i32 @nk_contextual_item_symbol_label(ptr noundef captures
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7, %.lr.ph.i.preheader, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_symbol_text.exit, label %9
 
@@ -43669,12 +43663,12 @@ nk_popup_close.exit.i.i:                          ; preds = %34
 
 nk_contextual_item_symbol_text.exit:              ; preds = %nk_strlen.exit, %9, %12, %nk_widget_fitting.exit.i, %23, %32, %34, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %nk_strlen.exit ], [ %17, %nk_widget_fitting.exit.i ], [ 0, %23 ], [ 1, %32 ], [ 1, %34 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_contextual_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_contextual_end(ptr noundef %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %72, label %2
 
@@ -43825,7 +43819,7 @@ nk_input_is_mouse_hovering_rect.exit.thread:      ; preds = %56, %nk_input_is_mo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -43882,7 +43876,7 @@ define void @nk_menubar_begin(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_menubar_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 {
+define void @nk_menubar_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_push_scissor.exit, label %2
 
@@ -44011,9 +44005,9 @@ nk_push_scissor.exit:                             ; preds = %53, %13, %8, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %7
 
@@ -44062,12 +44056,12 @@ define range(i32 0, 2) i32 @nk_menu_begin_text(ptr noundef %0, ptr noundef %1, i
 
 31:                                               ; preds = %13, %5, %7, %10, %19
   %.0 = phi i32 [ %30, %19 ], [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_menu_begin(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, <2 x float> %4, <2 x float> %5, <2 x float> %6) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_menu_begin(ptr noundef nonnull %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, <2 x float> %4, <2 x float> %5, <2 x float> %6) unnamed_addr #21 {
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -44144,7 +44138,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #21 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -44167,10 +44161,10 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %90, label %7
 
@@ -44210,7 +44204,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef read
   %25 = load <2 x float>, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load <2 x float>, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x float> %25, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %27, ptr %28, align 8
@@ -44299,7 +44293,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image(ptr noundef %0, ptr noundef read
   br label %nk_do_button_image.exit
 
 nk_do_button_image.exit:                          ; preds = %73, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not27 = icmp ne i32 %57, 0
   %spec.select28 = zext i1 %.not27 to i32
   %89 = tail call fastcc i32 @nk_menu_begin(ptr noundef %0, ptr noundef %9, ptr noundef %1, i32 noundef %spec.select28, <2 x float> %25, <2 x float> %27, <2 x float> %3)
@@ -44307,14 +44301,14 @@ nk_do_button_image.exit:                          ; preds = %73, %86
 
 90:                                               ; preds = %13, %4, %7, %10, %nk_do_button_image.exit
   %.0 = phi i32 [ %89, %nk_do_button_image.exit ], [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %6
 
@@ -44364,12 +44358,12 @@ define range(i32 0, 2) i32 @nk_menu_begin_symbol(ptr noundef %0, ptr noundef rea
 
 31:                                               ; preds = %12, %4, %6, %9, %19
   %.0 = phi i32 [ %30, %19 ], [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #22 {
+define internal fastcc i32 @nk_do_button_symbol(ptr noundef nonnull captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) unnamed_addr #21 {
   %10 = alloca %struct.nk_rect, align 8
   store <2 x float> %2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -44510,9 +44504,9 @@ nk_draw_button_symbol.exit:                       ; preds = %63, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, <2 x float> %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %8
 
@@ -44562,12 +44556,12 @@ define range(i32 0, 2) i32 @nk_menu_begin_image_text(ptr noundef %0, ptr noundef
 
 33:                                               ; preds = %14, %6, %8, %11, %21
   %.0 = phi i32 [ %32, %21 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_image_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_image_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %3, <2 x float> %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -44586,7 +44580,7 @@ define range(i32 0, 2) i32 @nk_menu_begin_image_label(ptr noundef %0, ptr nounde
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %9, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_menu_begin_image_text.exit, label %10
 
@@ -44636,14 +44630,14 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_menu_begin_image_text.exit:                    ; preds = %nk_strlen.exit, %10, %13, %16, %23
   %.0.i = phi i32 [ %34, %23 ], [ 0, %13 ], [ 0, %10 ], [ 0, %nk_strlen.exit ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %8
 
@@ -44693,12 +44687,12 @@ define range(i32 0, 2) i32 @nk_menu_begin_symbol_text(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %14, %6, %8, %11, %21
   %.0 = phi i32 [ %32, %21 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_begin_symbol_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_begin_symbol_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #21 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -44721,9 +44715,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_text.exit, label %6
 
@@ -44789,26 +44783,26 @@ nk_popup_close.exit.i.i:                          ; preds = %31
 
 nk_contextual_item_text.exit:                     ; preds = %4, %6, %9, %nk_widget_fitting.exit.i, %20, %29, %31, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %14, %nk_widget_fitting.exit.i ], [ 0, %20 ], [ 1, %29 ], [ 1, %31 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_menu_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = tail call i32 @nk_contextual_item_label(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_menu_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = tail call i32 @nk_contextual_item_image_label(ptr noundef %0, ptr noundef nonnull byval(%struct.nk_image) align 8 %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_image_text.exit, label %7
 
@@ -44874,14 +44868,14 @@ nk_popup_close.exit.i.i:                          ; preds = %32
 
 nk_contextual_item_image_text.exit:               ; preds = %5, %7, %10, %nk_widget_fitting.exit.i, %21, %30, %32, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit.i ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_menu_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_symbol_text.exit, label %7
 
@@ -44947,18 +44941,18 @@ nk_popup_close.exit.i.i:                          ; preds = %32
 
 nk_contextual_item_symbol_text.exit:              ; preds = %5, %7, %10, %nk_widget_fitting.exit.i, %21, %30, %32, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit.i ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_menu_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_menu_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = tail call i32 @nk_contextual_item_symbol_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_menu_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_menu_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_close.exit, label %2
 
@@ -44986,7 +44980,7 @@ nk_contextual_close.exit:                         ; preds = %1, %2, %5, %nk_popu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_menu_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_menu_end(ptr noundef %0) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_end.exit, label %2
 
@@ -45137,7 +45131,7 @@ nk_contextual_end.exit:                           ; preds = %1, %2, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_set_min_row_height(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #24 {
+define void @nk_layout_set_min_row_height(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 
@@ -45163,7 +45157,7 @@ define void @nk_layout_set_min_row_height(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @nk_layout_ratio_from_pixel(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #29 {
+define float @nk_layout_ratio_from_pixel(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #28 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -45200,7 +45194,7 @@ define float @nk_layout_ratio_from_pixel(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_dynamic(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define void @nk_layout_row_dynamic(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_row_layout.exit, label %4
 
@@ -45288,7 +45282,7 @@ nk_row_layout.exit:                               ; preds = %3, %4, %7, %nk_pane
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_static(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define void @nk_layout_row_static(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_row_layout.exit, label %5
 
@@ -45377,7 +45371,7 @@ nk_row_layout.exit:                               ; preds = %4, %5, %8, %nk_pane
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define void @nk_layout_row_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %5
 
@@ -45465,7 +45459,7 @@ nk_panel_layout.exit:                             ; preds = %26, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #24 {
+define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -45520,7 +45514,7 @@ define void @nk_layout_row_push(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_layout_row_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -45556,7 +45550,7 @@ define void @nk_layout_row_end(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #22 {
+define void @nk_layout_row(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %62, label %6
 
@@ -45688,7 +45682,7 @@ nk_panel_layout.exit:                             ; preds = %27, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_row_template_begin(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #22 {
+define void @nk_layout_row_template_begin(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %38, label %3
 
@@ -45769,7 +45763,7 @@ nk_panel_layout.exit:                             ; preds = %24, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_dynamic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_dynamic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -45811,7 +45805,7 @@ define void @nk_layout_row_template_push_dynamic(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_variable(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_variable(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %3
 
@@ -45854,7 +45848,7 @@ define void @nk_layout_row_template_push_variable(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_push_static(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #24 {
+define void @nk_layout_row_template_push_static(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
 
@@ -45896,7 +45890,7 @@ define void @nk_layout_row_template_push_static(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_row_template_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
+define void @nk_layout_row_template_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -46048,7 +46042,7 @@ define void @nk_layout_row_template_end(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_layout_space_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define void @nk_layout_space_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %43, label %5
 
@@ -46135,7 +46129,7 @@ nk_panel_layout.exit:                             ; preds = %26, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_space_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_layout_space_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_zero.exit, label %2
 
@@ -46182,7 +46176,7 @@ nk_zero.exit:                                     ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_layout_space_push(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #42 {
+define void @nk_layout_space_push(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #41 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %4
 
@@ -46210,7 +46204,7 @@ define void @nk_layout_space_push(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #29 {
+define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %3 = load ptr, ptr %2, align 8, !tbaa !828
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -46233,7 +46227,7 @@ define { <2 x float>, <2 x float> } @nk_layout_space_bounds(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #29 {
+define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %3 = load ptr, ptr %2, align 8, !tbaa !828
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -46262,7 +46256,7 @@ define { <2 x float>, <2 x float> } @nk_layout_widget_bounds(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_layout_space_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #38 {
+define <2 x float> @nk_layout_space_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #37 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %4 = load ptr, ptr %3, align 8, !tbaa !828
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -46291,7 +46285,7 @@ define <2 x float> @nk_layout_space_to_screen(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define <2 x float> @nk_layout_space_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #38 {
+define <2 x float> @nk_layout_space_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #37 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %4 = load ptr, ptr %3, align 8, !tbaa !828
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -46320,7 +46314,7 @@ define <2 x float> @nk_layout_space_to_local(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #38 {
+define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #37 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !828
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
@@ -46351,7 +46345,7 @@ define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_screen(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #38 {
+define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr noundef readonly captures(none) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #37 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !828
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
@@ -46382,16 +46376,16 @@ define { <2 x float>, <2 x float> } @nk_layout_space_rect_to_local(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_spacer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %2 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call fastcc void @nk_panel_alloc_space(ptr noundef nonnull %2, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_panel_alloc_space(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #22 {
+define internal fastcc void @nk_panel_alloc_space(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #21 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %42, label %3
 
@@ -46477,18 +46471,18 @@ nk_panel_alloc_row.exit:                          ; preds = %33, %28, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_state_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_state_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #18 {
   %5 = tail call fastcc i32 @nk_tree_state_base(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_state_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_state_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !7
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %268, label %8
@@ -46989,19 +46983,19 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 268:                                              ; preds = %nk_strlen.exit, %5, %8, %11, %249
   %.0 = phi i32 [ 1, %249 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %nk_strlen.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_state_image_push(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #18 {
   %6 = call fastcc i32 @nk_tree_state_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_state_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_tree_state_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %2
 
@@ -47047,13 +47041,13 @@ define void @nk_tree_state_pop(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #18 {
   %8 = tail call fastcc i32 @nk_tree_base(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #19 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #18 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %10 = load ptr, ptr %9, align 8, !tbaa !828
   %.not = icmp eq ptr %5, null
@@ -47140,13 +47134,13 @@ nk_find_value.exit:                               ; preds = %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #18 {
   %9 = call fastcc i32 @nk_tree_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_tree_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_tree_state_pop.exit, label %2
 
@@ -47192,13 +47186,13 @@ nk_tree_state_pop.exit:                           ; preds = %1, %2, %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_element_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #18 {
   %9 = tail call fastcc i32 @nk_tree_element_base(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_tree_element_base(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) unnamed_addr #21 {
   %10 = alloca %struct.nk_rect, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -47300,9 +47294,9 @@ nk_find_value.exit:                               ; preds = %28
 
 nk_strlen.exit34:                                 ; preds = %.lr.ph.i29.preheader49, %.lr.ph.i29.preheader, %37
   %.0.lcssa.i33 = phi i32 [ 0, %37 ], [ 0, %.lr.ph.i29.preheader ], [ %40, %.lr.ph.i29.preheader49 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
   %.not.i35 = icmp eq ptr %0, null
   br i1 %.not.i35, label %nk_tree_element_image_push_hashed_base.exit, label %41
@@ -47624,7 +47618,7 @@ nk_rgb_factor.exit187.i:                          ; preds = %171, %170
   br label %209
 
 209:                                              ; preds = %205, %184
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
   br i1 %.not5.i28, label %nk_strlen.exit.i, label %.lr.ph.i.preheader.i
 
@@ -47740,7 +47734,7 @@ nk_strlen.exit.i:                                 ; preds = %.lr.ph.i.preheader1
   br label %nk_do_selectable.exit.i
 
 nk_do_selectable.exit.i:                          ; preds = %268, %263, %239, %237
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %271 = load i32, ptr %.0, align 4, !tbaa !7
   %272 = icmp eq i32 %271, 1
   br i1 %272, label %273, label %nk_tree_element_image_push_hashed_base.exit
@@ -47772,19 +47766,19 @@ nk_do_selectable.exit.i:                          ; preds = %268, %263, %239, %2
 
 nk_tree_element_image_push_hashed_base.exit:      ; preds = %nk_strlen.exit34, %41, %43, %nk_do_selectable.exit.i, %273
   %.0.i = phi i32 [ 1, %273 ], [ 0, %43 ], [ 0, %41 ], [ 0, %nk_strlen.exit34 ], [ 0, %nk_do_selectable.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_tree_element_image_push_hashed(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #18 {
   %10 = call fastcc i32 @nk_tree_element_base(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_tree_element_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_tree_element_pop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_tree_state_pop.exit, label %2
 
@@ -47830,11 +47824,11 @@ nk_tree_state_pop.exit:                           ; preds = %1, %2, %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_scrolled_offset_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_group_scrolled_offset_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca %struct.nk_rect, align 4
   %7 = alloca %struct.nk_window, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %9 = load ptr, ptr %8, align 8, !tbaa !828
   call fastcc void @nk_panel_alloc_space(ptr noundef nonnull %6, ptr noundef %0)
@@ -47937,15 +47931,15 @@ define range(i32 0, 32769) i32 @nk_group_scrolled_offset_begin(ptr noundef %0, p
 
 .thread:                                          ; preds = %.critedge, %66, %33, %39
   %.1 = phi i32 [ 0, %39 ], [ 0, %33 ], [ %.mux, %66 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_scrolled_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_group_scrolled_end(ptr noundef %0) local_unnamed_addr #21 {
   %2 = alloca %struct.nk_window, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %170, label %3
 
@@ -48199,19 +48193,19 @@ nk_push_scissor.exit54:                           ; preds = %nk_push_scissor.exi
   br label %170
 
 170:                                              ; preds = %1, %3, %nk_push_scissor.exit54
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_scrolled_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_group_scrolled_begin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = tail call i32 @nk_group_scrolled_offset_begin(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_group_begin_titled(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %50, label %5
 
@@ -48349,7 +48343,7 @@ nk_find_value.exit57:                             ; preds = %._crit_edge.i52, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @nk_add_value(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #19 {
+define internal fastcc noundef ptr @nk_add_value(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #18 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -48518,19 +48512,19 @@ nk_push_table.exit:                               ; preds = %30, %52, %3, %nk_pu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_group_begin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_group_begin(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = tail call i32 @nk_group_begin_titled(ptr noundef %0, ptr noundef %1, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_end(ptr noundef %0) local_unnamed_addr #19 {
+define void @nk_group_end(ptr noundef %0) local_unnamed_addr #18 {
   tail call void @nk_group_scrolled_end(ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_get_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #19 {
+define void @nk_group_get_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %5
 
@@ -48681,7 +48675,7 @@ nk_find_value.exit60:                             ; preds = %._crit_edge.i55, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_group_set_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define void @nk_group_set_scroll(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %49, label %5
 
@@ -48818,7 +48812,7 @@ nk_find_value.exit54:                             ; preds = %.thread.i53, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32769) i32 @nk_list_view_begin(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #19 {
+define range(i32 0, 32769) i32 @nk_list_view_begin(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #18 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -48991,7 +48985,7 @@ nk_find_value.exit97:                             ; preds = %.thread.i96, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_list_view_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_list_view_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -49029,9 +49023,9 @@ define void @nk_list_view_end(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define { <2 x float>, <2 x float> } @nk_widget_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define { <2 x float>, <2 x float> } @nk_widget_bounds(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %3
 
@@ -49096,14 +49090,14 @@ nk_layout_peek.exit:                              ; preds = %6, %27
 
 30:                                               ; preds = %1, %3, %nk_layout_peek.exit
   %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %29, %nk_layout_peek.exit ], [ zeroinitializer, %3 ], [ zeroinitializer, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define <2 x float> @nk_widget_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define <2 x float> @nk_widget_position(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %3
 
@@ -49167,14 +49161,14 @@ nk_layout_peek.exit:                              ; preds = %6, %27
 
 31:                                               ; preds = %1, %3, %nk_layout_peek.exit
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %nk_layout_peek.exit ], [ zeroinitializer, %3 ], [ zeroinitializer, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret <2 x float> %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define <2 x float> @nk_widget_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define <2 x float> @nk_widget_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %3
 
@@ -49238,14 +49232,14 @@ nk_layout_peek.exit:                              ; preds = %6, %27
 
 31:                                               ; preds = %1, %3, %nk_layout_peek.exit
   %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %nk_layout_peek.exit ], [ zeroinitializer, %3 ], [ zeroinitializer, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret <2 x float> %.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define float @nk_widget_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define float @nk_widget_width(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_layout_peek.exit, label %3
 
@@ -49289,14 +49283,14 @@ define float @nk_widget_width(ptr noundef readonly captures(address_is_null) %0)
 
 nk_layout_peek.exit:                              ; preds = %6, %20, %1, %3
   %.0 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ %.pre, %20 ], [ 0.000000e+00, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define float @nk_widget_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define float @nk_widget_height(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_layout_peek.exit, label %3
 
@@ -49340,14 +49334,14 @@ define float @nk_widget_height(ptr noundef readonly captures(address_is_null) %0
 
 nk_layout_peek.exit:                              ; preds = %6, %20, %1, %3
   %.0 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %1 ], [ %.pre, %20 ], [ 0.000000e+00, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_widget_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #42 {
+define range(i32 0, 2) i32 @nk_widget_is_hovered(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #41 {
   %2 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_input_is_mouse_hovering_rect.exit, label %3
 
@@ -49465,14 +49459,14 @@ nk_layout_peek.exit:                              ; preds = %31, %33
 
 nk_input_is_mouse_hovering_rect.exit:             ; preds = %65, %61, %52, %nk_layout_peek.exit, %1, %3, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %3 ], [ 0, %1 ], [ 0, %nk_layout_peek.exit ], [ 0, %52 ], [ 0, %61 ], [ %69, %65 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_widget_is_mouse_clicked(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #42 {
+define range(i32 0, 2) i32 @nk_widget_is_mouse_clicked(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #41 {
   %3 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %4
 
@@ -49569,14 +49563,14 @@ nk_layout_peek.exit:                              ; preds = %32, %34
 
 57:                                               ; preds = %nk_layout_peek.exit, %2, %4, %7, %53
   %.0 = phi i32 [ %56, %53 ], [ 0, %7 ], [ 0, %4 ], [ 0, %2 ], [ 0, %nk_layout_peek.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_widget_has_mouse_click_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #42 {
+define range(i32 0, 2) i32 @nk_widget_has_mouse_click_down(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #41 {
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_input_has_mouse_click_down_in_rect.exit, label %5
 
@@ -49702,14 +49696,14 @@ nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %54
 
 nk_input_has_mouse_click_down_in_rect.exit:       ; preds = %71, %nk_input_has_mouse_click_in_rect.exit.i, %54, %nk_layout_peek.exit, %3, %5, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ 0, %nk_layout_peek.exit ], [ 0, %nk_input_has_mouse_click_in_rect.exit.i ], [ %76, %71 ], [ 0, %54 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_spacing(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
+define void @nk_spacing(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %4
 
@@ -49837,12 +49831,12 @@ nk_panel_alloc_row.exit:                          ; preds = %.lr.ph.split, %29, 
   br label %56
 
 56:                                               ; preds = %2, %4, %7, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #36 {
+define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %114, label %2
 
@@ -50014,7 +50008,7 @@ define void @nk_widget_disable_begin(ptr noundef %0) local_unnamed_addr #36 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %2
 
@@ -50124,9 +50118,9 @@ define void @nk_widget_disable_end(ptr noundef captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #22 {
+define void @nk_text_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_widget_text.exit, label %7
 
@@ -50322,16 +50316,16 @@ nk_rgb_factor.exit:                               ; preds = %21, %22
   br label %nk_widget_text.exit
 
 nk_widget_text.exit:                              ; preds = %106, %80, %5, %7, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #22 {
+define void @nk_text_wrap_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_widget_text_wrap.exit, label %8
 
@@ -50421,7 +50415,7 @@ nk_rgb_factor.exit:                               ; preds = %22, %23
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %52 = load float, ptr %51, align 8, !tbaa !215
   %53 = tail call float @llvm.fmuladd.f32(float %.sroa.4.0.copyload, float 2.000000e+00, float %52)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
   %54 = call i32 @nk_utf_decode(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %2)
   %.not69.i.i = icmp ne i32 %54, 0
@@ -50432,7 +50426,7 @@ nk_rgb_factor.exit:                               ; preds = %22, %23
   br i1 %or.cond6671.i.i, label %.lr.ph.i.i, label %nk_text_clamp.exit.thread.thread.i
 
 nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %nk_widget_text_wrap.exit
 
 .lr.ph.i.i:                                       ; preds = %nk_rgb_factor.exit
@@ -50467,7 +50461,7 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   %.not64.i.i = icmp eq i32 %spec.select222.i, 0
   %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select222.i
   %71 = select i1 %70, i32 %spec.select.i, i32 %59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not18 = icmp eq i32 %71, 0
   br i1 %.not18, label %nk_widget_text_wrap.exit, label %.lr.ph.i
 
@@ -50518,7 +50512,7 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   %100 = sext i32 %96 to i64
   %101 = getelementptr inbounds i8, ptr %1, i64 %100
   %102 = sub nsw i32 %2, %96
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !7
   %103 = call i32 @nk_utf_decode(ptr noundef %101, ptr noundef nonnull %5, i32 noundef %102)
   %.not69.i72.i = icmp ne i32 %103, 0
@@ -50527,7 +50521,7 @@ nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
   br i1 %105, label %.lr.ph.i86.preheader.i, label %nk_text_clamp.exit111.thread.thread.i
 
 nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nk_widget_text_wrap.exit
 
 .lr.ph.i86.preheader.i:                           ; preds = %80
@@ -50699,17 +50693,17 @@ nk_text_clamp.exit111.thread.i:                   ; preds = %nk_utf_decode.exit.
   %.not64.i82.i = icmp eq i32 %.152.i101160.i, 0
   %spec.select145.i = select i1 %.not64.i82.i, i32 %169, i32 %.152.i101160.i
   %170 = select i1 %.lcssa.i81.i, i32 %spec.select145.i, i32 %169
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not34 = icmp eq i32 %170, 0
   br i1 %.not34, label %nk_widget_text_wrap.exit, label %77, !llvm.loop !1120
 
 nk_widget_text_wrap.exit:                         ; preds = %nk_text_clamp.exit111.thread.i, %77, %nk_text_clamp.exit111.thread.thread.i, %nk_text_clamp.exit.thread.i, %nk_text_clamp.exit.thread.thread.i, %4, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define void @nk_text(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -50724,7 +50718,7 @@ define void @nk_text(ptr noundef readonly captures(address_is_null) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_text_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define void @nk_text_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -50739,7 +50733,7 @@ define void @nk_text_wrap(ptr noundef readonly captures(address_is_null) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define void @nk_label(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50771,7 +50765,7 @@ nk_text.exit:                                     ; preds = %nk_strlen.exit, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #19 {
+define void @nk_label_colored(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50794,7 +50788,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #19 {
+define void @nk_label_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50826,7 +50820,7 @@ nk_text_wrap.exit:                                ; preds = %nk_strlen.exit, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_label_colored_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #19 {
+define void @nk_label_colored_wrap(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 %2) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -50942,7 +50936,7 @@ define void @nk_subimage_handle(ptr dead_on_unwind noalias writable writeonly sr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_handle(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, ptr %1) local_unnamed_addr #12 {
+define void @nk_image_handle(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, ptr %1) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
@@ -50953,7 +50947,7 @@ define void @nk_image_handle(ptr dead_on_unwind noalias writable writeonly sret(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @nk_image_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
@@ -50964,7 +50958,7 @@ define void @nk_image_ptr(ptr dead_on_unwind noalias writable writeonly sret(%st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_id(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @nk_image_id(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_image) align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !tbaa !7
   store i32 %1, ptr %0, align 8, !tbaa !9
@@ -50974,9 +50968,9 @@ define void @nk_image_id(ptr dead_on_unwind noalias writable writeonly sret(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #22 {
+define void @nk_image(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -51006,14 +51000,14 @@ define void @nk_image(ptr noundef readonly captures(address_is_null) %0, ptr nou
   br label %17
 
 17:                                               ; preds = %10, %2, %4, %7, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_image_color(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, i32 %2) local_unnamed_addr #22 {
+define void @nk_image_color(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, i32 %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %5
 
@@ -51043,7 +51037,7 @@ define void @nk_image_color(ptr noundef readonly captures(address_is_null) %0, p
   br label %18
 
 18:                                               ; preds = %11, %3, %5, %8, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51158,7 +51152,7 @@ define void @nk_sub9slice_handle(ptr dead_on_unwind noalias writable writeonly s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_handle(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, ptr %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #12 {
+define void @nk_nine_slice_handle(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, ptr %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8
@@ -51177,7 +51171,7 @@ define void @nk_nine_slice_handle(ptr dead_on_unwind noalias writable writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #12 {
+define void @nk_nine_slice_ptr(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8
@@ -51196,7 +51190,7 @@ define void @nk_nine_slice_ptr(ptr dead_on_unwind noalias writable writeonly sre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_id(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #12 {
+define void @nk_nine_slice_id(ptr dead_on_unwind noalias writable writeonly sret(%struct.nk_nine_slice) align 8 captures(none) initializes((0, 32)) %0, i32 noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5) local_unnamed_addr #11 {
 .loopexit46.i.i.thread:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false), !tbaa !7
   store i32 %1, ptr %0, align 8, !tbaa !9
@@ -51214,7 +51208,7 @@ define void @nk_nine_slice_id(ptr dead_on_unwind noalias writable writeonly sret
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @nk_nine_slice_is_sub9slice(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @nk_nine_slice_is_sub9slice(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8, !tbaa !1121
   %4 = icmp eq i16 %3, 0
@@ -51233,7 +51227,7 @@ define range(i32 0, 2) i32 @nk_nine_slice_is_sub9slice(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_button_set_behavior(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #12 {
+define void @nk_button_set_behavior(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -51247,7 +51241,7 @@ define void @nk_button_set_behavior(ptr noundef writeonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %3
 
@@ -51277,7 +51271,7 @@ define range(i32 0, 2) i32 @nk_button_push_behavior(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef captures(address_is_null) %0) local_unnamed_addr #36 {
+define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -51305,9 +51299,9 @@ define range(i32 0, 2) i32 @nk_button_pop_behavior(ptr noundef captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_button_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null
   %or.cond = and i1 %7, %6
@@ -51358,19 +51352,19 @@ define i32 @nk_button_text_styled(ptr noundef captures(address_is_null) %0, ptr 
 
 34:                                               ; preds = %14, %4, %8, %11, %20
   %.0 = phi i32 [ %33, %20 ], [ 0, %11 ], [ 0, %8 ], [ 0, %4 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @nk_button_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %8 = load ptr, ptr %7, align 8, !tbaa !828
   %.not.i = icmp eq ptr %8, null
@@ -51415,7 +51409,7 @@ define i32 @nk_button_text(ptr noundef captures(address_is_null) %0, ptr noundef
 
 nk_button_text_styled.exit:                       ; preds = %5, %9, %12, %18
   %.0.i = phi i32 [ %31, %18 ], [ 0, %9 ], [ 0, %5 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %3, %nk_button_text_styled.exit
@@ -51424,7 +51418,7 @@ nk_button_text_styled.exit:                       ; preds = %5, %9, %12, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #22 {
+define i32 @nk_button_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -51443,7 +51437,7 @@ define i32 @nk_button_label_styled(ptr noundef captures(address_is_null) %0, ptr
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7, %.lr.ph.i.preheader, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i.preheader ], [ %7, %.lr.ph.i.preheader7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = icmp ne ptr %1, null
   %9 = icmp ne ptr %0, null
   %or.cond.i = and i1 %9, %8
@@ -51494,12 +51488,12 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 
 nk_button_text_styled.exit:                       ; preds = %nk_strlen.exit, %10, %13, %16, %22
   %.0.i = phi i32 [ %35, %22 ], [ 0, %13 ], [ 0, %10 ], [ 0, %nk_strlen.exit ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_label(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #22 {
+define i32 @nk_button_label(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -51523,7 +51517,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 7:                                                ; preds = %nk_strlen.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %10 = load ptr, ptr %9, align 8, !tbaa !828
   %.not.i.i = icmp eq ptr %10, null
@@ -51568,7 +51562,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_button_text_styled.exit.i:                     ; preds = %20, %14, %11, %7
   %.0.i.i = phi i32 [ %33, %20 ], [ 0, %11 ], [ 0, %7 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %nk_button_text.exit
 
 nk_button_text.exit:                              ; preds = %nk_strlen.exit, %nk_button_text_styled.exit.i
@@ -51577,11 +51571,11 @@ nk_button_text.exit:                              ; preds = %nk_strlen.exit, %nk
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_color(ptr noundef captures(address_is_null) %0, i32 %1) local_unnamed_addr #22 {
+define i32 @nk_button_color(ptr noundef captures(address_is_null) %0, i32 %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_style_button, align 8
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %3) #55
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %40, label %5
 
@@ -51657,13 +51651,13 @@ define i32 @nk_button_color(ptr noundef captures(address_is_null) %0, i32 %1) lo
 
 40:                                               ; preds = %11, %2, %5, %8, %17
   %.0 = phi i32 [ %37, %17 ], [ 0, %8 ], [ 0, %5 ], [ 0, %2 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @nk_draw_button(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(ret: address, provenance) %3) unnamed_addr #22 {
+define internal fastcc noundef nonnull ptr @nk_draw_button(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly captures(ret: address, provenance) %3) unnamed_addr #21 {
   %5 = and i32 %2, 16
   %.not = icmp eq i32 %5, 0
   %6 = and i32 %2, 32
@@ -51823,9 +51817,9 @@ nk_rgb_factor.exit70:                             ; preds = %60, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %5
 
@@ -51872,19 +51866,19 @@ define i32 @nk_button_symbol_styled(ptr noundef captures(address_is_null) %0, pt
 
 29:                                               ; preds = %11, %3, %5, %8, %17
   %.0 = phi i32 [ %28, %17 ], [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #22 {
+define i32 @nk_button_symbol(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_rect, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %7 = load ptr, ptr %6, align 8, !tbaa !828
   %.not23.i = icmp eq ptr %7, null
@@ -51927,7 +51921,7 @@ define i32 @nk_button_symbol(ptr noundef captures(address_is_null) %0, i32 nound
 
 nk_button_symbol_styled.exit:                     ; preds = %4, %8, %11, %17
   %.0.i = phi i32 [ %28, %17 ], [ 0, %8 ], [ 0, %4 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %2, %nk_button_symbol_styled.exit
@@ -51936,10 +51930,10 @@ nk_button_symbol_styled.exit:                     ; preds = %4, %8, %11, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2) local_unnamed_addr #22 {
+define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %89, label %6
 
@@ -51979,7 +51973,7 @@ define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr
   %24 = load <2 x float>, ptr %5, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load <2 x float>, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x float> %24, ptr %4, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %26, ptr %27, align 8
@@ -52073,17 +52067,17 @@ define i32 @nk_button_image_styled(ptr noundef captures(address_is_null) %0, ptr
 
 nk_do_button_image.exit:                          ; preds = %18, %73, %86
   %.0.i = phi i32 [ 0, %18 ], [ %57, %86 ], [ %57, %73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %89
 
 89:                                               ; preds = %12, %3, %6, %9, %nk_do_button_image.exit
   %.0 = phi i32 [ %.0.i, %nk_do_button_image.exit ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #19 {
+define i32 @nk_button_image(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -52098,9 +52092,9 @@ define i32 @nk_button_image(ptr noundef captures(address_is_null) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %8
 
@@ -52147,19 +52141,19 @@ define i32 @nk_button_symbol_text_styled(ptr noundef captures(address_is_null) %
 
 32:                                               ; preds = %14, %6, %8, %11, %20
   %.0 = phi i32 [ %31, %20 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %10 = load ptr, ptr %9, align 8, !tbaa !828
   %.not26.i = icmp eq ptr %10, null
@@ -52202,7 +52196,7 @@ define i32 @nk_button_symbol_text(ptr noundef captures(address_is_null) %0, i32 
 
 nk_button_symbol_text_styled.exit:                ; preds = %7, %11, %14, %20
   %.0.i = phi i32 [ %31, %20 ], [ 0, %11 ], [ 0, %7 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 32:                                               ; preds = %5, %nk_button_symbol_text_styled.exit
@@ -52211,7 +52205,7 @@ nk_button_symbol_text_styled.exit:                ; preds = %7, %11, %14, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -52235,7 +52229,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 
 9:                                                ; preds = %nk_strlen.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %12 = load ptr, ptr %11, align 8, !tbaa !828
   %.not26.i.i = icmp eq ptr %12, null
@@ -52278,7 +52272,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 
 nk_button_symbol_text_styled.exit.i:              ; preds = %22, %16, %13, %9
   %.0.i.i = phi i32 [ %33, %22 ], [ 0, %13 ], [ 0, %9 ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nk_button_symbol_text.exit
 
 nk_button_symbol_text.exit:                       ; preds = %nk_strlen.exit, %nk_button_symbol_text_styled.exit.i
@@ -52287,7 +52281,7 @@ nk_button_symbol_text.exit:                       ; preds = %nk_strlen.exit, %nk
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_symbol_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_button_symbol_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %3, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -52306,7 +52300,7 @@ define i32 @nk_button_symbol_label_styled(ptr noundef captures(address_is_null) 
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %9, %.lr.ph.i.preheader8 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_button_symbol_text_styled.exit, label %10
 
@@ -52353,14 +52347,14 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8
 
 nk_button_symbol_text_styled.exit:                ; preds = %nk_strlen.exit, %10, %13, %16, %22
   %.0.i = phi i32 [ %33, %22 ], [ 0, %13 ], [ 0, %10 ], [ 0, %nk_strlen.exit ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define i32 @nk_button_image_text_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %8
 
@@ -52407,15 +52401,15 @@ define i32 @nk_button_image_text_styled(ptr noundef captures(address_is_null) %0
 
 32:                                               ; preds = %14, %6, %8, %11, %20
   %.0 = phi i32 [ %31, %20 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_button_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_button_image_text_styled.exit, label %8
 
@@ -52462,12 +52456,12 @@ define i32 @nk_button_image_text(ptr noundef captures(address_is_null) %0, ptr n
 
 nk_button_image_text_styled.exit:                 ; preds = %5, %8, %11, %14, %20
   %.0.i = phi i32 [ %31, %20 ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_button_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -52487,7 +52481,7 @@ define i32 @nk_button_image_label(ptr noundef captures(address_is_null) %0, ptr 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader6 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %nk_button_image_text.exit, label %10
 
@@ -52534,12 +52528,12 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_button_image_text.exit:                        ; preds = %nk_strlen.exit, %10, %13, %16, %22
   %.0.i.i = phi i32 [ %33, %22 ], [ 0, %13 ], [ 0, %10 ], [ 0, %nk_strlen.exit ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_button_image_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_button_image_label_styled(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %3, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -52558,7 +52552,7 @@ define i32 @nk_button_image_label_styled(ptr noundef captures(address_is_null) %
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %9, %.lr.ph.i.preheader7 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_button_image_text_styled.exit, label %10
 
@@ -52605,16 +52599,16 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 
 nk_button_image_text_styled.exit:                 ; preds = %nk_strlen.exit, %10, %13, %16, %22
   %.0.i = phi i32 [ %33, %22 ], [ 0, %13 ], [ 0, %10 ], [ 0, %nk_strlen.exit ], [ %17, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_check_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nk_rect, align 8
   store i32 %3, ptr %5, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %7
 
@@ -52661,12 +52655,12 @@ define i32 @nk_check_text(ptr noundef captures(address_is_null) %0, ptr noundef 
 
 29:                                               ; preds = %13, %4, %7, %10, %20
   %.0 = phi i32 [ %3, %13 ], [ %3, %4 ], [ %3, %7 ], [ %3, %10 ], [ %.0.pre, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) unnamed_addr #22 {
+define internal fastcc void @nk_do_toggle(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull readonly captures(none) %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10, i32 noundef %11, i32 noundef %12) unnamed_addr #21 {
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %447, label %14
 
@@ -53568,11 +53562,11 @@ nk_draw_checkbox.exit:                            ; preds = %440, %nk_rgb_factor
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define i32 @nk_check_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_rect, align 8
   store i32 %3, ptr %7, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %9
 
@@ -53619,12 +53613,12 @@ define i32 @nk_check_text_align(ptr noundef captures(address_is_null) %0, ptr no
 
 31:                                               ; preds = %15, %6, %9, %12, %22
   %.0 = phi i32 [ %3, %15 ], [ %3, %6 ], [ %3, %9 ], [ %3, %12 ], [ %.0.pre, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_flags_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_check_flags_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
   %8 = icmp ne ptr %0, null
@@ -53634,9 +53628,9 @@ define i32 @nk_check_flags_text(ptr noundef captures(address_is_null) %0, ptr no
 
 10:                                               ; preds = %5
   %11 = and i32 %4, %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %11, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %13 = load ptr, ptr %12, align 8, !tbaa !828
   %.not24.i = icmp eq ptr %13, null
@@ -53679,8 +53673,8 @@ define i32 @nk_check_flags_text(ptr noundef captures(address_is_null) %0, ptr no
 
 nk_check_text.exit:                               ; preds = %10, %14, %17, %24
   %.0.i = phi i32 [ %11, %17 ], [ %11, %10 ], [ %11, %14 ], [ %.0.pre.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not = icmp eq i32 %.0.i, 0
   %33 = or i32 %4, %3
   %34 = xor i32 %4, -1
@@ -53694,7 +53688,7 @@ nk_check_text.exit:                               ; preds = %10, %14, %17, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nk_rect, align 8
   %7 = icmp ne ptr %0, null
@@ -53706,9 +53700,9 @@ define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef captures(address_is_nul
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %11, ptr %5, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %13 = load ptr, ptr %12, align 8, !tbaa !828
   %.not24.i = icmp eq ptr %13, null
@@ -53751,8 +53745,8 @@ define range(i32 0, 2) i32 @nk_checkbox_text(ptr noundef captures(address_is_nul
 
 nk_check_text.exit:                               ; preds = %10, %14, %17, %24
   %.0.i = phi i32 [ %11, %17 ], [ %11, %10 ], [ %11, %14 ], [ %.0.pre.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.0.i, ptr %3, align 4, !tbaa !7
   %33 = icmp ne i32 %11, %.0.i
   %34 = zext i1 %33 to i32
@@ -53764,7 +53758,7 @@ nk_check_text.exit:                               ; preds = %10, %14, %17, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_rect, align 8
   %9 = icmp ne ptr %0, null
@@ -53776,9 +53770,9 @@ define range(i32 0, 2) i32 @nk_checkbox_text_align(ptr noundef captures(address_
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %13, ptr %7, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %15 = load ptr, ptr %14, align 8, !tbaa !828
   %.not26.i = icmp eq ptr %15, null
@@ -53821,8 +53815,8 @@ define range(i32 0, 2) i32 @nk_checkbox_text_align(ptr noundef captures(address_
 
 nk_check_text_align.exit:                         ; preds = %12, %16, %19, %26
   %.0.i = phi i32 [ %13, %19 ], [ %13, %12 ], [ %13, %16 ], [ %.0.pre.i, %26 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 %.0.i, ptr %3, align 4, !tbaa !7
   %35 = icmp ne i32 %13, %.0.i
   %36 = zext i1 %35 to i32
@@ -53834,7 +53828,7 @@ nk_check_text_align.exit:                         ; preds = %12, %16, %19, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
   %8 = icmp ne ptr %0, null
@@ -53847,9 +53841,9 @@ define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef captures(address_
 11:                                               ; preds = %5
   %12 = load i32, ptr %3, align 4, !tbaa !7
   %13 = and i32 %12, %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %13, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %15 = load ptr, ptr %14, align 8, !tbaa !828
   %.not24.i.i = icmp eq ptr %15, null
@@ -53878,8 +53872,8 @@ define range(i32 0, 2) i32 @nk_checkbox_flags_text(ptr noundef captures(address_
   br label %nk_checkbox_text.exit
 
 nk_checkbox_text.exit.thread:                     ; preds = %19, %11, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %43
 
 nk_checkbox_text.exit:                            ; preds = %19, %22
@@ -53893,8 +53887,8 @@ nk_checkbox_text.exit:                            ; preds = %19, %22
   %33 = load <2 x float>, ptr %32, align 8
   call fastcc void @nk_do_toggle(ptr noundef %27, ptr noundef %28, <2 x float> %31, <2 x float> %33, ptr noundef %6, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %29, ptr noundef %26, ptr noundef %30, i32 noundef 17, i32 noundef 17)
   %.0.pre.i.i = load i32, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not24 = icmp eq i32 %13, %.0.pre.i.i
   br i1 %.not24, label %43, label %34
 
@@ -53924,7 +53918,7 @@ nk_checkbox_text.exit:                            ; preds = %19, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @nk_check_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -53944,9 +53938,9 @@ define i32 @nk_check_label(ptr noundef captures(address_is_null) %0, ptr noundef
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %2, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_check_text.exit, label %9
 
@@ -53993,13 +53987,13 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_check_text.exit:                               ; preds = %nk_strlen.exit, %9, %12, %15, %22
   %.0.i = phi i32 [ %2, %15 ], [ %2, %nk_strlen.exit ], [ %2, %9 ], [ %2, %12 ], [ %.0.pre.i, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_check_flags_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_check_flags_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54024,9 +54018,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader9
 
 10:                                               ; preds = %nk_strlen.exit
   %11 = and i32 %3, %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %11, ptr %5, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %13 = load ptr, ptr %12, align 8, !tbaa !828
   %.not24.i.i = icmp eq ptr %13, null
@@ -54069,8 +54063,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader9
 
 nk_check_text.exit.i:                             ; preds = %24, %17, %14, %10
   %.0.i.i = phi i32 [ %11, %17 ], [ %11, %10 ], [ %11, %14 ], [ %.0.pre.i.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq i32 %.0.i.i, 0
   %33 = or i32 %3, %2
   %34 = xor i32 %3, -1
@@ -54084,7 +54078,7 @@ nk_check_flags_text.exit:                         ; preds = %4, %nk_strlen.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #21 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54111,9 +54105,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 11:                                               ; preds = %nk_strlen.exit
   %12 = load i32, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %12, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %14 = load ptr, ptr %13, align 8, !tbaa !828
   %.not24.i.i = icmp eq ptr %14, null
@@ -54156,8 +54150,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 nk_check_text.exit.i:                             ; preds = %25, %18, %15, %11
   %.0.i.i = phi i32 [ %12, %18 ], [ %12, %11 ], [ %12, %15 ], [ %.0.pre.i.i, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.0.i.i, ptr %2, align 4, !tbaa !7
   %34 = icmp ne i32 %12, %.0.i.i
   %35 = zext i1 %34 to i32
@@ -54169,7 +54163,7 @@ nk_checkbox_text.exit:                            ; preds = %3, %nk_strlen.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_checkbox_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54196,9 +54190,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 13:                                               ; preds = %nk_strlen.exit
   %14 = load i32, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %14, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %16 = load ptr, ptr %15, align 8, !tbaa !828
   %.not26.i.i = icmp eq ptr %16, null
@@ -54241,8 +54235,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 nk_check_text_align.exit.i:                       ; preds = %27, %20, %17, %13
   %.0.i.i = phi i32 [ %14, %20 ], [ %14, %13 ], [ %14, %17 ], [ %.0.pre.i.i, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.0.i.i, ptr %2, align 4, !tbaa !7
   %36 = icmp ne i32 %14, %.0.i.i
   %37 = zext i1 %36 to i32
@@ -54254,7 +54248,7 @@ nk_checkbox_text_align.exit:                      ; preds = %5, %nk_strlen.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_checkbox_flags_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_checkbox_flags_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -54277,11 +54271,11 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_option_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nk_rect, align 8
   store i32 %3, ptr %5, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %30, label %7
 
@@ -54328,16 +54322,16 @@ define i32 @nk_option_text(ptr noundef captures(address_is_null) %0, ptr noundef
 
 30:                                               ; preds = %4, %7, %10, %13, %20
   %.0 = phi i32 [ %29, %20 ], [ %15, %13 ], [ %3, %10 ], [ %3, %7 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define i32 @nk_option_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_rect, align 8
   store i32 %3, ptr %7, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %9
 
@@ -54384,12 +54378,12 @@ define i32 @nk_option_text_align(ptr noundef captures(address_is_null) %0, ptr n
 
 32:                                               ; preds = %6, %9, %12, %15, %22
   %.0 = phi i32 [ %31, %22 ], [ %17, %15 ], [ %3, %12 ], [ %3, %9 ], [ %3, %6 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #21 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nk_rect, align 8
   %7 = icmp ne ptr %0, null
@@ -54401,9 +54395,9 @@ define range(i32 0, 2) i32 @nk_radio_text(ptr noundef captures(address_is_null) 
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %11, ptr %5, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %13 = load ptr, ptr %12, align 8, !tbaa !828
   %.not25.i = icmp eq ptr %13, null
@@ -54446,8 +54440,8 @@ define range(i32 0, 2) i32 @nk_radio_text(ptr noundef captures(address_is_null) 
 
 nk_option_text.exit:                              ; preds = %10, %14, %17, %24
   %.0.i = phi i32 [ %33, %24 ], [ %19, %17 ], [ %11, %14 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.0.i, ptr %3, align 4, !tbaa !7
   %34 = icmp ne i32 %11, %.0.i
   %35 = zext i1 %34 to i32
@@ -54459,7 +54453,7 @@ nk_option_text.exit:                              ; preds = %10, %14, %17, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_text_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_rect, align 8
   %9 = icmp ne ptr %0, null
@@ -54471,9 +54465,9 @@ define range(i32 0, 2) i32 @nk_radio_text_align(ptr noundef captures(address_is_
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %13, ptr %7, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %15 = load ptr, ptr %14, align 8, !tbaa !828
   %.not27.i = icmp eq ptr %15, null
@@ -54516,8 +54510,8 @@ define range(i32 0, 2) i32 @nk_radio_text_align(ptr noundef captures(address_is_
 
 nk_option_text_align.exit:                        ; preds = %12, %16, %19, %26
   %.0.i = phi i32 [ %35, %26 ], [ %21, %19 ], [ %13, %16 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 %.0.i, ptr %3, align 4, !tbaa !7
   %36 = icmp ne i32 %13, %.0.i
   %37 = zext i1 %36 to i32
@@ -54529,7 +54523,7 @@ nk_option_text_align.exit:                        ; preds = %12, %16, %19, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define i32 @nk_option_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54549,9 +54543,9 @@ define i32 @nk_option_label(ptr noundef captures(address_is_null) %0, ptr nounde
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %2, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_option_text.exit, label %9
 
@@ -54598,13 +54592,13 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_option_text.exit:                              ; preds = %nk_strlen.exit, %9, %12, %15, %22
   %.0.i = phi i32 [ %31, %22 ], [ %17, %15 ], [ %2, %12 ], [ %2, %9 ], [ %2, %nk_strlen.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_option_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_option_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54624,9 +54618,9 @@ define i32 @nk_option_label_align(ptr noundef captures(address_is_null) %0, ptr 
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i.preheader8 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_option_text_align.exit, label %11
 
@@ -54673,13 +54667,13 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8
 
 nk_option_text_align.exit:                        ; preds = %nk_strlen.exit, %11, %14, %17, %24
   %.0.i = phi i32 [ %33, %24 ], [ %19, %17 ], [ %2, %14 ], [ %2, %11 ], [ %2, %nk_strlen.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #21 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54706,9 +54700,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 11:                                               ; preds = %nk_strlen.exit
   %12 = load i32, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %12, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %14 = load ptr, ptr %13, align 8, !tbaa !828
   %.not25.i.i = icmp eq ptr %14, null
@@ -54751,8 +54745,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 nk_option_text.exit.i:                            ; preds = %25, %18, %15, %11
   %.0.i.i = phi i32 [ %34, %25 ], [ %20, %18 ], [ %12, %15 ], [ %12, %11 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.0.i.i, ptr %2, align 4, !tbaa !7
   %35 = icmp ne i32 %12, %.0.i.i
   %36 = zext i1 %35 to i32
@@ -54764,7 +54758,7 @@ nk_radio_text.exit:                               ; preds = %3, %nk_strlen.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_radio_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_radio_label_align(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
@@ -54791,9 +54785,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 13:                                               ; preds = %nk_strlen.exit
   %14 = load i32, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %14, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %16 = load ptr, ptr %15, align 8, !tbaa !828
   %.not27.i.i = icmp eq ptr %16, null
@@ -54836,8 +54830,8 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 nk_option_text_align.exit.i:                      ; preds = %27, %20, %17, %13
   %.0.i.i = phi i32 [ %36, %27 ], [ %22, %20 ], [ %14, %17 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.0.i.i, ptr %2, align 4, !tbaa !7
   %37 = icmp ne i32 %14, %.0.i.i
   %38 = zext i1 %37 to i32
@@ -54849,9 +54843,9 @@ nk_radio_text_align.exit:                         ; preds = %5, %nk_strlen.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_do_selectable.exit, label %7
 
@@ -54965,14 +54959,14 @@ define range(i32 0, 2) i32 @nk_selectable_text(ptr noundef captures(address_is_n
 
 nk_do_selectable.exit:                            ; preds = %62, %22, %15, %5, %7, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %17, %15 ], [ %65, %62 ], [ 0, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %8
 
@@ -55020,14 +55014,14 @@ define range(i32 0, 2) i32 @nk_selectable_image_text(ptr noundef captures(addres
 
 33:                                               ; preds = %16, %6, %8, %11, %23
   %.0 = phi i32 [ %32, %23 ], [ 0, %11 ], [ 0, %8 ], [ 0, %6 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef %11) unnamed_addr #21 {
   %13 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = icmp ne ptr %4, null
   %15 = icmp ne i32 %5, 0
   %or.cond5 = and i1 %14, %15
@@ -55142,15 +55136,15 @@ define internal fastcc range(i32 0, 2) i32 @nk_do_selectable_image(ptr noundef n
 
 79:                                               ; preds = %12, %75
   %.0 = phi i32 [ %78, %75 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 4
   %8 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %97, label %9
 
@@ -55193,7 +55187,7 @@ define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(addre
   %30 = load <2 x float>, ptr %8, align 8
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load <2 x float>, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %33 = icmp ne ptr %2, null
   %34 = icmp ne i32 %3, 0
   %or.cond5.i = and i1 %33, %34
@@ -55306,17 +55300,17 @@ define range(i32 0, 2) i32 @nk_selectable_symbol_text(ptr noundef captures(addre
 
 nk_do_selectable_symbol.exit:                     ; preds = %24, %93
   %.0.i = phi i32 [ %96, %93 ], [ 0, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 97:                                               ; preds = %17, %6, %9, %12, %nk_do_selectable_symbol.exit
   %.0 = phi i32 [ %.0.i, %nk_do_selectable_symbol.exit ], [ 0, %12 ], [ 0, %9 ], [ 0, %6 ], [ %19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_selectable_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -55339,9 +55333,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_selectable_text.exit, label %7
 
@@ -55438,12 +55432,12 @@ define i32 @nk_select_text(ptr noundef captures(address_is_null) %0, ptr noundef
 
 nk_selectable_text.exit:                          ; preds = %48, %52, %5, %7, %10, %13, %20
   %.1 = phi i32 [ %4, %5 ], [ %4, %7 ], [ %4, %20 ], [ %4, %13 ], [ %4, %10 ], [ %.0, %52 ], [ %.0, %48 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_selectable_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #18 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -55466,7 +55460,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_selectable_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_selectable_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = alloca %struct.nk_image, align 8
   %.not5.i = icmp eq ptr %2, null
@@ -55486,9 +55480,9 @@ define range(i32 0, 2) i32 @nk_selectable_image_label(ptr noundef captures(addre
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i.preheader7 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_selectable_image_text.exit, label %11
 
@@ -55536,13 +55530,13 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader7
 
 nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %11, %14, %19, %26
   %.0.i = phi i32 [ %35, %26 ], [ 0, %14 ], [ 0, %11 ], [ 0, %nk_strlen.exit ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define i32 @nk_select_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -55561,7 +55555,7 @@ define i32 @nk_select_label(ptr noundef captures(address_is_null) %0, ptr nounde
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader10, %.lr.ph.i.preheader, %4
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ 0, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i.preheader10 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_selectable_text.exit, label %9
 
@@ -55658,12 +55652,12 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
 
 nk_selectable_text.exit:                          ; preds = %50, %54, %nk_strlen.exit, %9, %12, %15, %22
   %.1 = phi i32 [ %3, %nk_strlen.exit ], [ %3, %9 ], [ %3, %22 ], [ %3, %15 ], [ %3, %12 ], [ %.0, %54 ], [ %.0, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define i32 @nk_select_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = alloca %struct.nk_image, align 8
   %8 = alloca i32, align 4
@@ -55685,9 +55679,9 @@ define i32 @nk_select_image_label(ptr noundef captures(address_is_null) %0, ptr 
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %11, %.lr.ph.i.preheader6 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_selectable_image_text.exit, label %12
 
@@ -55734,20 +55728,20 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 
 nk_selectable_image_text.exit:                    ; preds = %nk_strlen.exit, %12, %15, %18, %25
   %35 = phi i32 [ %4, %nk_strlen.exit ], [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %.pre, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #22 {
+define i32 @nk_select_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #21 {
   %7 = alloca %struct.nk_rect, align 8
   %8 = alloca %struct.nk_image, align 8
   %9 = alloca i32, align 4
   store i32 %5, ptr %9, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_selectable_image_text.exit, label %10
 
@@ -55794,13 +55788,13 @@ define i32 @nk_select_image_text(ptr noundef captures(address_is_null) %0, ptr n
 
 nk_selectable_image_text.exit:                    ; preds = %6, %10, %13, %16, %23
   %33 = phi i32 [ %5, %6 ], [ %5, %10 ], [ %5, %13 ], [ %5, %16 ], [ %.pre, %23 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #19 {
+define i32 @nk_select_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #18 {
   %7 = alloca i32, align 4
   store i32 %5, ptr %7, align 4, !tbaa !7
   %8 = call i32 @nk_selectable_symbol_text(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7)
@@ -55809,7 +55803,7 @@ define i32 @nk_select_symbol_text(ptr noundef captures(address_is_null) %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_select_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define i32 @nk_select_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca i32, align 4
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
@@ -55828,19 +55822,19 @@ define i32 @nk_select_symbol_label(ptr noundef captures(address_is_null) %0, i32
 
 nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader8, %.lr.ph.i.preheader, %5
   %.0.lcssa.i = phi i32 [ 0, %5 ], [ 0, %.lr.ph.i.preheader ], [ %9, %.lr.ph.i.preheader8 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %4, ptr %6, align 4, !tbaa !7
   %10 = call i32 @nk_selectable_symbol_text(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %.0.lcssa.i, i32 noundef %3, ptr noundef nonnull %6)
   %11 = load i32, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %0, float noundef %1, ptr noundef captures(address_is_null) %2, float noundef %3, float noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %0, float noundef %1, ptr noundef captures(address_is_null) %2, float noundef %3, float noundef %4) local_unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %331, label %8
 
@@ -55914,7 +55908,7 @@ define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %0, float noundef %1, pt
 
 51:                                               ; preds = %23
   %52 = load ptr, ptr %17, align 8, !tbaa !826
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.7.8.vec.insert.i = insertelement <2 x float> poison, float %48, i64 0
   %.sroa.7.12.vec.insert.i = shufflevector <2 x float> %.sroa.7.8.vec.insert.i, <2 x float> poison, <2 x i32> zeroinitializer
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2772
@@ -55943,7 +55937,7 @@ define range(i32 0, 2) i32 @nk_slider_float(ptr noundef %0, float noundef %1, pt
   %70 = tail call float @llvm.fmuladd.f32(float %48, float 2.000000e+00, float %69)
   %71 = fsub float %46, %70
   %.sroa.21.8.vec.insert170.i = insertelement <2 x float> %.sroa.21.12.vec.insert.i, float %71, i64 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre.i = load float, ptr %41, align 4, !tbaa !1140
   br label %72
 
@@ -56468,12 +56462,12 @@ nk_do_slider.exit:                                ; preds = %nk_draw_slider.exit
 
 331:                                              ; preds = %16, %5, %8, %11, %nk_do_slider.exit
   %.0 = phi i32 [ %330, %nk_do_slider.exit ], [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ %18, %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define float @nk_slide_float(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #19 {
+define float @nk_slide_float(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #18 {
   %6 = alloca float, align 4
   store float %2, ptr %6, align 4, !tbaa !3
   %7 = call i32 @nk_slider_float(ptr noundef %0, float noundef %1, ptr noundef nonnull %6, float noundef %3, float noundef %4)
@@ -56482,9 +56476,9 @@ define float @nk_slide_float(ptr noundef %0, float noundef %1, float noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_slide_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define i32 @nk_slide_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sitofp i32 %2 to float
   store float %7, ptr %6, align 4, !tbaa !3
   %8 = sitofp i32 %1 to float
@@ -56493,14 +56487,14 @@ define i32 @nk_slide_int(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
   %11 = call i32 @nk_slider_float(ptr noundef %0, float noundef %8, ptr noundef nonnull %6, float noundef %9, float noundef %10)
   %12 = load float, ptr %6, align 4, !tbaa !3
   %13 = fptosi float %12 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_slider_int(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_slider_int(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %2, align 4, !tbaa !7
   %8 = sitofp i32 %7 to float
   store float %8, ptr %6, align 4, !tbaa !3
@@ -56511,14 +56505,14 @@ define range(i32 0, 2) i32 @nk_slider_int(ptr noundef %0, i32 noundef %1, ptr no
   %13 = load float, ptr %6, align 4, !tbaa !3
   %14 = fptosi float %13 to i32
   store i32 %14, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_knob_float(ptr noundef captures(address) %0, float noundef %1, ptr noundef captures(address_is_null) %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_knob_float(ptr noundef captures(address) %0, float noundef %1, ptr noundef captures(address_is_null) %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #21 {
   %8 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %436, label %9
 
@@ -57297,14 +57291,14 @@ nk_do_knob.exit:                                  ; preds = %nk_draw_knob.exit.i
 
 436:                                              ; preds = %17, %7, %9, %12, %nk_do_knob.exit
   %.0 = phi i32 [ %435, %nk_do_knob.exit ], [ 0, %12 ], [ 0, %9 ], [ 0, %7 ], [ %18, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_knob_int(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_knob_int(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr %2, align 4, !tbaa !7
   %10 = sitofp i32 %9 to float
   store float %10, ptr %8, align 4, !tbaa !3
@@ -57315,14 +57309,14 @@ define range(i32 0, 2) i32 @nk_knob_int(ptr noundef captures(address) %0, i32 no
   %15 = load float, ptr %8, align 4, !tbaa !3
   %16 = fptosi float %15 to i32
   store i32 %16, ptr %2, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_progress(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_progress(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %262, label %6
 
@@ -57825,12 +57819,12 @@ nk_do_progress.exit:                              ; preds = %nk_draw_progress.ex
 
 262:                                              ; preds = %14, %4, %6, %9, %nk_do_progress.exit
   %.0 = phi i32 [ %261, %nk_do_progress.exit ], [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %15, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @nk_prog(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define i64 @nk_prog(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8, !tbaa !54
   %6 = call i32 @nk_progress(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %2, i32 noundef %3)
@@ -57839,7 +57833,7 @@ define i64 @nk_prog(ptr noundef captures(address) %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_textedit_delete(ptr noundef initializes((5378, 5380), (5382, 5384)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #21 {
+define void @nk_textedit_delete(ptr noundef initializes((5378, 5380), (5382, 5384)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #20 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5378
@@ -57922,7 +57916,7 @@ nk_textedit_createundo.exit.i:                    ; preds = %.loopexit.i.i
 43:                                               ; preds = %nk_str_rune_at.exit.i, %.lr.ph39.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph39.i ], [ %indvars.iv.next.i, %nk_str_rune_at.exit.i ]
   %44 = add nsw i64 %indvars.iv.i, %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !7
   %45 = icmp slt i64 %44, 0
   br i1 %45, label %nk_str_rune_at.exit.i, label %46
@@ -58090,7 +58084,7 @@ nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i: ; preds = %nk_utf_d
 
 nk_str_rune_at.exit.i:                            ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %56, %.lr.ph.i.i12.i, %46, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i, %.lr.ph.i.i12.preheader.i, %43
   %110 = phi i32 [ 0, %43 ], [ %109, %nk_utf_decode.exit.nk_str_rune_at.exit.loopexit_crit_edge.i ], [ %.pre.i, %.lr.ph.i.i12.preheader.i ], [ %.pre.i, %46 ], [ 65533, %._crit_edge.loopexit.i.i ], [ 65533, %._crit_edge.i.i ], [ %54, %56 ], [ %54, %.lr.ph.i.i12.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %111 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
   store i32 %110, ptr %111, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -58106,7 +58100,7 @@ nk_textedit_makeundo_delete.exit:                 ; preds = %nk_str_rune_at.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_textedit_delete_selection(ptr noundef %0) local_unnamed_addr #21 {
+define void @nk_textedit_delete_selection(ptr noundef %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !1169
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -58189,7 +58183,7 @@ nk_textedit_clamp.exit:                           ; preds = %20, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_textedit_clamp(ptr noundef captures(none) %0) unnamed_addr #20 {
+define internal fastcc void @nk_textedit_clamp(ptr noundef captures(none) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !1169
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -58241,7 +58235,7 @@ define internal fastcc void @nk_textedit_clamp(ptr noundef captures(none) %0) un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @nk_textedit_cut(ptr noundef %0) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @nk_textedit_cut(ptr noundef %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %3 = load i8, ptr %2, align 4, !tbaa !1173
   %4 = icmp eq i8 %3, 0
@@ -58337,7 +58331,7 @@ nk_textedit_delete_selection.exit:                ; preds = %nk_textedit_clamp.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_textedit_paste(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_textedit_paste(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %5 = load i8, ptr %4, align 4, !tbaa !1173
   %6 = icmp eq i8 %5, 0
@@ -58638,7 +58632,7 @@ nk_textedit_makeundo_insert.exit:                 ; preds = %.lr.ph.i.i.i21, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_text(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define void @nk_textedit_text(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = alloca i32, align 4
   %5 = icmp ne ptr %1, null
   %6 = icmp ne i32 %2, 0
@@ -58871,7 +58865,7 @@ nk_utf_decode.exit:                               ; preds = %20, %nk_utf_decode_
   store i16 %103, ptr %110, align 4, !tbaa !1166
   %111 = add nsw i16 %103, 1
   store i16 %111, ptr %73, align 4, !tbaa !1160
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !7
   %112 = icmp slt i32 %88, 0
   br i1 %112, label %nk_textedit_makeundo_replace.exit, label %113
@@ -58905,7 +58899,7 @@ nk_textedit_makeundo_replace.exit:                ; preds = %.lr.ph.i.i13.i, %11
   %126 = sext i16 %103 to i64
   %127 = getelementptr inbounds [999 x i32], ptr %76, i64 0, i64 %126
   %128 = load i32, ptr %4, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %128, ptr %127, align 4, !tbaa !7
   %129 = load i32, ptr %66, align 8, !tbaa !1172
   call void @nk_str_delete_runes(ptr noundef nonnull %67, i32 noundef %129, i32 noundef 1)
@@ -59346,7 +59340,7 @@ nk_utf_decode.exit143:                            ; preds = %251, %nk_utf_decode
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_undo(ptr noundef %0) local_unnamed_addr #19 {
+define void @nk_textedit_undo(ptr noundef %0) local_unnamed_addr #18 {
   %2 = alloca [4 x i8], align 1
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -59502,7 +59496,7 @@ nk_textedit_discard_redo.exit:                    ; preds = %39, %66
 85:                                               ; preds = %.lr.ph, %nk_str_rune_at.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %nk_str_rune_at.exit ]
   %86 = add nsw i64 %indvars.iv, %83
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !7
   %87 = icmp slt i64 %86, 0
   br i1 %87, label %nk_str_rune_at.exit, label %88
@@ -59538,7 +59532,7 @@ nk_textedit_discard_redo.exit:                    ; preds = %39, %66
 
 nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i, %95, %85, %88
   %102 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %103 = add nsw i64 %indvars.iv, %84
   %104 = getelementptr inbounds [999 x i32], ptr %30, i64 0, i64 %103
   store i32 %102, ptr %104, align 4, !tbaa !7
@@ -59563,7 +59557,7 @@ nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i, %95, %8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %109 = sext i16 %.sroa.21.0.copyload to i64
   %110 = getelementptr inbounds [999 x i32], ptr %108, i64 0, i64 %109
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %111 = icmp sgt i16 %.sroa.8.0.copyload, 0
   br i1 %111, label %.lr.ph.preheader.i58, label %nk_str_insert_text_runes.exit
 
@@ -59638,7 +59632,7 @@ nk_utf_encode.exit.i:                             ; preds = %.lr.ph.i.i61, %.pre
   br i1 %exitcond.not.i64, label %nk_str_insert_text_runes.exit, label %.lr.ph.i59, !llvm.loop !85
 
 nk_str_insert_text_runes.exit:                    ; preds = %nk_utf_validate.exit.i.i, %nk_utf_encode.exit.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 5380
   %141 = load i16, ptr %140, align 4, !tbaa !1160
   %142 = sub i16 %141, %.sroa.8.0.copyload
@@ -59664,7 +59658,7 @@ nk_str_insert_text_runes.exit:                    ; preds = %nk_utf_validate.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_redo(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_textedit_redo(ptr noundef captures(address_is_null) %0) local_unnamed_addr #18 {
   %2 = alloca [4 x i8], align 1
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 5378
@@ -59734,7 +59728,7 @@ define void @nk_textedit_redo(ptr noundef captures(address_is_null) %0) local_un
   %indvars46 = trunc i64 %indvars.iv to i32
   %37 = load i32, ptr %12, align 4, !tbaa !1162
   %38 = add nsw i32 %37, %indvars46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !7
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %nk_str_rune_at.exit, label %40
@@ -59766,7 +59760,7 @@ define void @nk_textedit_redo(ptr noundef captures(address_is_null) %0) local_un
 
 nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i, %46, %36, %40
   %53 = load i32, ptr %3, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = add nsw i64 %indvars.iv, %35
   %55 = getelementptr inbounds [999 x i32], ptr %34, i64 0, i64 %54
   store i32 %53, ptr %55, align 4, !tbaa !7
@@ -59788,7 +59782,7 @@ nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i, %46, %3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1380
   %60 = sext i16 %.sroa.14.0.copyload to i64
   %61 = getelementptr inbounds [999 x i32], ptr %59, i64 0, i64 %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %62 = icmp sgt i16 %.sroa.7.0.copyload, 0
   br i1 %62, label %.lr.ph.preheader.i, label %nk_str_insert_text_runes.exit
 
@@ -59863,7 +59857,7 @@ nk_utf_encode.exit.i:                             ; preds = %.lr.ph.i.i43, %.pre
   br i1 %exitcond.not.i, label %nk_str_insert_text_runes.exit, label %.lr.ph.i, !llvm.loop !85
 
 nk_str_insert_text_runes.exit:                    ; preds = %nk_utf_validate.exit.i.i, %nk_utf_encode.exit.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %91
 
 91:                                               ; preds = %nk_str_insert_text_runes.exit, %57
@@ -59977,7 +59971,7 @@ nk_str_init_fixed.exit:                           ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #22 {
+define void @nk_textedit_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #21 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -60083,7 +60077,7 @@ nk_str_init.exit:                                 ; preds = %nk_memset.exit, %nk
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @nk_textedit_init_default(ptr noundef %0) local_unnamed_addr #43 {
+define void @nk_textedit_init_default(ptr noundef %0) local_unnamed_addr #42 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %2
 
@@ -60181,7 +60175,7 @@ nk_str_init_default.exit:                         ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_textedit_select_all(ptr noundef captures(none) initializes((172, 180)) %0) local_unnamed_addr #20 {
+define void @nk_textedit_select_all(ptr noundef captures(none) initializes((172, 180)) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i32 0, ptr %2, align 4, !tbaa !1170
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -60192,7 +60186,7 @@ define void @nk_textedit_select_all(ptr noundef captures(none) initializes((172,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_textedit_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #19 {
+define void @nk_textedit_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -60291,7 +60285,7 @@ define range(i32 0, 2) i32 @nk_filter_binary(ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_edit_focus(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #24 {
+define void @nk_edit_focus(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -60322,7 +60316,7 @@ define void @nk_edit_focus(ptr noundef readonly captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @nk_edit_unfocus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #36 {
+define void @nk_edit_unfocus(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #35 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -60344,7 +60338,7 @@ define void @nk_edit_unfocus(ptr noundef readonly captures(address_is_null) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32) i32 @nk_edit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #22 {
+define range(i32 0, 32) i32 @nk_edit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #21 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %7, %8
@@ -60543,9 +60537,9 @@ nk_str_init_fixed.exit:                           ; preds = %.loopexit46.i.i.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32) i32 @nk_edit_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 32) i32 @nk_edit_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %80, label %6
 
@@ -60695,12 +60689,12 @@ define range(i32 0, 32) i32 @nk_edit_buffer(ptr noundef %0, i32 noundef %1, ptr 
 
 80:                                               ; preds = %78, %77, %79, %12, %4, %6, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %14, %12 ], [ %68, %78 ], [ %68, %79 ], [ %68, %77 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 32) i32 @nk_do_edit(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) unnamed_addr #22 {
+define internal fastcc range(i32 1, 32) i32 @nk_do_edit(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %9) unnamed_addr #21 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca %struct.nk_vec2, align 4
@@ -61206,7 +61200,7 @@ nk_input_is_key_pressed.exit810:                  ; preds = %255, %256, %258
   br i1 %or.cond779, label %326, label %260
 
 260:                                              ; preds = %nk_input_is_key_pressed.exit810
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %261 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %262 = load i32, ptr %261, align 4, !tbaa !1170
   %263 = getelementptr inbounds nuw i8, ptr %6, i64 176
@@ -61360,7 +61354,7 @@ nk_textedit_delete_selection.exit.i:              ; preds = %324, %nk_textedit_c
 
 nk_textedit_cut.exit:                             ; preds = %nk_textedit_delete_selection.exit.i, %294, %291, %290
   %.7 = phi i8 [ %.5, %290 ], [ 1, %291 ], [ 1, %294 ], [ 1, %nk_textedit_delete_selection.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %326
 
 326:                                              ; preds = %nk_textedit_cut.exit, %nk_input_is_key_pressed.exit810
@@ -61815,17 +61809,17 @@ nk_utf_decode.exit:                               ; preds = %451, %nk_utf_decode
   br i1 %509, label %510, label %515
 
 510:                                              ; preds = %507
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %511 = sub nsw i32 %.07011278, %.0701.ph1308
   %512 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %9, ptr noundef nonnull %503, i32 noundef %511, float noundef %50, ptr noundef %14, ptr noundef nonnull %13, ptr noundef %12)
   %.sroa.0144.0.vec.insert = insertelement <2 x float> %512, float %501, i64 1
   %513 = sext i32 %.07011278 to i64
   %514 = getelementptr inbounds i8, ptr %.0.i8271195, i64 %513
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %515
 
 515:                                              ; preds = %510, %507, %506
@@ -61843,17 +61837,17 @@ nk_utf_decode.exit:                               ; preds = %451, %nk_utf_decode
   br i1 %or.cond783, label %520, label %525
 
 520:                                              ; preds = %516
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %521 = sub nsw i32 %.07011278, %.0701.ph1308
   %522 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %9, ptr noundef nonnull %503, i32 noundef %521, float noundef %50, ptr noundef %17, ptr noundef nonnull %16, ptr noundef %15)
   %.sroa.0141.0.vec.insert = insertelement <2 x float> %522, float %505, i64 1
   %523 = sext i32 %.07011278 to i64
   %524 = getelementptr inbounds i8, ptr %.0.i8271195, i64 %523
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %525
 
 525:                                              ; preds = %520, %516, %515
@@ -61871,17 +61865,17 @@ nk_utf_decode.exit:                               ; preds = %451, %nk_utf_decode
   br i1 %or.cond784, label %530, label %535
 
 530:                                              ; preds = %526
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %531 = sub nsw i32 %.07011278, %.0701.ph1308
   %532 = call fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef nonnull %9, ptr noundef nonnull %503, i32 noundef %531, float noundef %50, ptr noundef %20, ptr noundef nonnull %19, ptr noundef %18)
   %.sroa.0138.0.vec.insert = insertelement <2 x float> %532, float %501, i64 1
   %533 = sext i32 %.07011278 to i64
   %534 = getelementptr inbounds i8, ptr %.0.i8271195, i64 %533
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %535
 
 535:                                              ; preds = %530, %526, %525
@@ -62292,7 +62286,7 @@ nk_utf_decode.exit948:                            ; preds = %616, %600, %nk_utf_
 
 .thread1196:                                      ; preds = %..thread1196_crit_edge, %707, %711
   %714 = phi float [ %.pre1397, %..thread1196_crit_edge ], [ %708, %707 ], [ %709, %711 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %715 = fadd <2 x float> %2, %3
   %716 = extractelement <2 x float> %715, i64 0
   %717 = load float, ptr %25, align 4, !tbaa !782
@@ -62310,7 +62304,7 @@ nk_utf_decode.exit948:                            ; preds = %616, %600, %nk_utf_
   %726 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %727 = call fastcc float @nk_do_scrollbarv(ptr noundef %21, ptr noundef %1, <2 x float> %.sroa.082.0.vec.insert, <2 x float> %.sroa.5.8.vec.insert, i32 noundef 0, float noundef %714, float noundef %.sroa.0190.4.vec.extract196, float noundef %724, float noundef %725, ptr noundef %726, ptr noundef %.1, ptr noundef %9)
   store float %727, ptr %723, align 4, !tbaa !1196
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %728
 
 728:                                              ; preds = %.thread1197, %.thread1196, %713
@@ -63098,9 +63092,9 @@ nk_push_scissor.exit1155:                         ; preds = %1080, %1085
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 32) i32 @nk_edit_string_zero_terminated(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 32) i32 @nk_edit_string_zero_terminated(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #18 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not5.i = icmp eq ptr %2, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -63127,14 +63121,14 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader1
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %2, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #19 {
+define void @nk_property_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %9
 
@@ -63165,12 +63159,12 @@ define void @nk_property_int(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br label %18
 
 18:                                               ; preds = %7, %9, %15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_property(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, float noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #22 {
+define internal fastcc void @nk_property(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, float noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca [64 x i8], align 16
   %8 = alloca %struct.nk_rect, align 8
@@ -63180,17 +63174,17 @@ define internal fastcc void @nk_property(ptr noundef nonnull %0, ptr noundef non
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 18520
   %16 = load ptr, ptr %15, align 8, !tbaa !828
@@ -63304,9 +63298,9 @@ nk_strlen.exit105:                                ; preds = %.lr.ph.i101.prehead
   %69 = load <2 x float>, ptr %8, align 8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %71 = load <2 x float>, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load float, ptr %72, align 8, !tbaa !215
   %74 = fmul float %73, 5.000000e-01
@@ -64763,13 +64757,13 @@ nk_strtod.exit.i:                                 ; preds = %._crit_edge.i.i, %.
   br label %nk_do_property.exit
 
 nk_do_property.exit.thread:                       ; preds = %nk_input_is_key_pressed.exit.thread.thread.i, %604, %603
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %745
 
 nk_do_property.exit:                              ; preds = %nk_input_is_key_pressed.exit.thread.i, %.thread.i, %nk_strtoi.exit.i, %nk_strtod.exit506.i, %nk_strtod.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not25.i.i, label %nk_do_property.exit._crit_edge, label %745
 
 nk_do_property.exit._crit_edge:                   ; preds = %nk_do_property.exit
@@ -64848,20 +64842,20 @@ nk_do_property.exit._crit_edge:                   ; preds = %nk_do_property.exit
   br label %.thread
 
 .thread:                                          ; preds = %747, %766, %769, %779, %20, %5, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_float(ptr noundef %0, ptr noundef %1, float noundef %2, ptr noundef captures(address_is_null) %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #19 {
+define void @nk_property_float(ptr noundef %0, ptr noundef %1, float noundef %2, ptr noundef captures(address_is_null) %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %9
 
@@ -64892,14 +64886,14 @@ define void @nk_property_float(ptr noundef %0, ptr noundef %1, float noundef %2,
   br label %18
 
 18:                                               ; preds = %7, %9, %15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_property_double(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef captures(address_is_null) %3, double noundef %4, double noundef %5, float noundef %6) local_unnamed_addr #19 {
+define void @nk_property_double(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef captures(address_is_null) %3, double noundef %4, double noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %9
 
@@ -64930,14 +64924,14 @@ define void @nk_property_double(ptr noundef %0, ptr noundef %1, double noundef %
   br label %18
 
 18:                                               ; preds = %7, %9, %15
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_propertyi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #19 {
+define i32 @nk_propertyi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %9
 
@@ -64965,14 +64959,14 @@ define i32 @nk_propertyi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 16:                                               ; preds = %7, %9, %14
   %.0 = phi i32 [ %15, %14 ], [ %3, %9 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define float @nk_propertyf(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #19 {
+define float @nk_propertyf(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %9
 
@@ -65000,14 +64994,14 @@ define float @nk_propertyf(ptr noundef %0, ptr noundef %1, float noundef %2, flo
 
 16:                                               ; preds = %7, %9, %14
   %.0 = phi float [ %15, %14 ], [ %3, %9 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret float %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define double @nk_propertyd(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, float noundef %6) local_unnamed_addr #19 {
+define double @nk_propertyd(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, float noundef %6) local_unnamed_addr #18 {
   %8 = alloca %struct.nk_property_variant, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %9
 
@@ -65035,14 +65029,14 @@ define double @nk_propertyd(ptr noundef %0, ptr noundef %1, double noundef %2, d
 
 16:                                               ; preds = %7, %9, %14
   %.0 = phi double [ %15, %14 ], [ %3, %9 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret double %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_chart_begin_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #21 {
   %8 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_zero.exit, label %9
@@ -65368,12 +65362,12 @@ nk_rgb_factor.exit155:                            ; preds = %149, %150
 
 nk_zero.exit:                                     ; preds = %.loopexit46.i.i, %.loopexit46.i.i.thread, %nk_rgb_factor.exit, %nk_rgb_factor.exit107, %nk_rgb_factor.exit119, %nk_rgb_factor.exit155, %7, %9, %12
   %.0 = phi i32 [ 0, %12 ], [ 0, %9 ], [ 0, %7 ], [ 1, %nk_rgb_factor.exit155 ], [ 1, %nk_rgb_factor.exit119 ], [ 1, %nk_rgb_factor.exit107 ], [ 1, %nk_rgb_factor.exit ], [ 0, %.loopexit46.i.i.thread ], [ 0, %.loopexit46.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #18 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5936
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5932
   %8 = load i32, ptr %6, align 8
@@ -65383,7 +65377,7 @@ define range(i32 0, 2) i32 @nk_chart_begin(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_add_slot_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #24 {
+define void @nk_chart_add_slot_colored(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 %2, i32 %3, i32 noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %8
 
@@ -65480,7 +65474,7 @@ nk_rgb_factor.exit:                               ; preds = %28, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_add_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #24 {
+define void @nk_chart_add_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #23 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5936
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5932
   %8 = load i32, ptr %6, align 8
@@ -65577,7 +65571,7 @@ nk_chart_add_slot_colored.exit:                   ; preds = %5, %12, %15, %nk_rg
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #22 {
+define range(i32 0, 4) i32 @nk_chart_push_slot(ptr noundef readonly captures(address_is_null) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_chart_push_column.exit, label %4
 
@@ -66005,13 +65999,13 @@ nk_chart_push_column.exit:                        ; preds = %265, %175, %nk_char
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @nk_chart_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #19 {
+define range(i32 0, 4) i32 @nk_chart_push(ptr noundef readonly captures(address_is_null) %0, float noundef %1) local_unnamed_addr #18 {
   %3 = tail call i32 @nk_chart_push_slot(ptr noundef %0, float noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_chart_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_chart_end(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_memset.exit, label %2
 
@@ -66048,7 +66042,7 @@ nk_memset.exit:                                   ; preds = %.loopexit46.i, %.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #19 {
+define void @nk_plot(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #18 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
@@ -66143,7 +66137,7 @@ nk_chart_end.exit:                                ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #19 {
+define void @nk_plot_function(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #18 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %3, null
   %or.cond = and i1 %7, %8
@@ -66226,9 +66220,9 @@ nk_chart_end.exit:                                ; preds = %.loopexit46.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_color_pick(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_color_pick(ptr noundef captures(address) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_do_color_picker.exit, label %5
 
@@ -67020,12 +67014,12 @@ nk_stroke_line.exit85.i.i:                        ; preds = %391, %nk_stroke_lin
 
 nk_do_color_picker.exit:                          ; preds = %424, %nk_stroke_line.exit85.i.i, %20, %13, %3, %5, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %5 ], [ 0, %3 ], [ %15, %13 ], [ 0, %20 ], [ %.2.i.i, %nk_stroke_line.exit85.i.i ], [ %.2.i.i, %424 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define { <2 x float>, <2 x float> } @nk_color_picker(ptr noundef captures(address) %0, <2 x float> %1, <2 x float> %2, i32 noundef %3) local_unnamed_addr #22 {
+define { <2 x float>, <2 x float> } @nk_color_picker(ptr noundef captures(address) %0, <2 x float> %1, <2 x float> %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_colorf, align 8
   store <2 x float> %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -67039,10 +67033,10 @@ define { <2 x float>, <2 x float> } @nk_color_picker(ptr noundef captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
   %6 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %7
 
@@ -67270,7 +67264,7 @@ nk_rgb_factor.exit166:                            ; preds = %96, %97
 
 110:                                              ; preds = %nk_rgb_factor.exit166, %nk_rgb_factor.exit130, %nk_rgb_factor.exit118, %nk_rgb_factor.exit
   %.sroa.5172.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit118 ], [ 0, %nk_rgb_factor.exit130 ], [ %71, %nk_rgb_factor.exit166 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %111 = load i32, ptr %27, align 8, !tbaa !881
   %112 = and i32 %111, 16
   %.not103 = icmp eq i32 %112, 0
@@ -67424,7 +67418,7 @@ nk_draw_button_symbol.exit:                       ; preds = %188, %189
   br label %202
 
 202:                                              ; preds = %nk_draw_button_symbol.exit, %151
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %203 = load ptr, ptr %8, align 8, !tbaa !828
   %.not.i167 = icmp eq ptr %203, null
   br i1 %.not.i167, label %nk_combo_begin.exit, label %204
@@ -67488,12 +67482,12 @@ nk_draw_button_symbol.exit:                       ; preds = %188, %189
 
 nk_combo_begin.exit:                              ; preds = %232, %230, %227, %204, %202, %15, %4, %7, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %4 ], [ 0, %15 ], [ 1, %232 ], [ 0, %204 ], [ 0, %202 ], [ 0, %227 ], [ 0, %230 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @nk_button_behavior(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #33 {
+define internal fastcc i32 @nk_button_behavior(ptr noundef nonnull captures(none) %0, <2 x float> %1, <2 x float> %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #32 {
   %6 = load i32, ptr %0, align 4, !tbaa !7
   %7 = and i32 %6, 2
   %. = or disjoint i32 %7, 4
@@ -67618,7 +67612,7 @@ nk_input_is_mouse_prev_hovering_rect.exit62.thread: ; preds = %nk_input_is_mouse
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_label(ptr noundef %0, ptr noundef %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_label(ptr noundef %0, ptr noundef %1, <2 x float> %2) local_unnamed_addr #21 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -67641,10 +67635,10 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_color(ptr noundef %0, i32 %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_color(ptr noundef %0, i32 %1, <2 x float> %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %5 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %6
 
@@ -67833,7 +67827,7 @@ nk_rgb_factor.exit136:                            ; preds = %84, %85
   br label %98
 
 98:                                               ; preds = %nk_rgb_factor.exit136, %nk_rgb_factor.exit106, %nk_rgb_factor.exit, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %99 = load i32, ptr %24, align 8, !tbaa !881
   %100 = and i32 %99, 16
   %.not91 = icmp eq i32 %100, 0
@@ -68007,7 +68001,7 @@ nk_draw_button_symbol.exit:                       ; preds = %174, %175
   br label %188
 
 188:                                              ; preds = %nk_draw_button_symbol.exit, %nk_rgb_factor.exit154
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %189 = load ptr, ptr %7, align 8, !tbaa !828
   %.not.i155 = icmp eq ptr %189, null
   br i1 %.not.i155, label %nk_combo_begin.exit, label %190
@@ -68071,15 +68065,15 @@ nk_draw_button_symbol.exit:                       ; preds = %174, %175
 
 nk_combo_begin.exit:                              ; preds = %218, %216, %213, %190, %188, %12, %3, %6, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ 1, %218 ], [ 0, %190 ], [ 0, %188 ], [ 0, %213 ], [ 0, %216 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol(ptr noundef %0, i32 noundef %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol(ptr noundef %0, i32 noundef %1, <2 x float> %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %6
 
@@ -68320,7 +68314,7 @@ nk_rgb_factor.exit157:                            ; preds = %99, %100
 
 113:                                              ; preds = %nk_rgb_factor.exit157, %nk_rgb_factor.exit121, %nk_rgb_factor.exit109, %nk_rgb_factor.exit
   %.sroa.017.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit109 ], [ 0, %nk_rgb_factor.exit121 ], [ %.sroa.017.0.copyload, %nk_rgb_factor.exit157 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %114 = load i32, ptr %24, align 8, !tbaa !881
   %115 = and i32 %114, 16
   %.not95 = icmp eq i32 %115, 0
@@ -68429,7 +68423,7 @@ nk_draw_button_symbol.exit:                       ; preds = %163, %164
   %.sroa.011.0.insert.ext.i.i = zext i8 %.sroa.011.0.i.i to i32
   %.sroa.011.0.insert.insert.i.i = or disjoint i32 %.sroa.3.0.insert.insert.i.i, %.sroa.011.0.insert.ext.i.i
   tail call fastcc void @nk_draw_symbol(ptr noundef nonnull %146, i32 noundef %.0, <2 x float> %.sroa.0.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, i32 %.sroa.02.0.i, i32 %.sroa.011.0.insert.insert.i.i, float noundef 1.000000e+00, ptr noundef %151)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %177 = load ptr, ptr %7, align 8, !tbaa !828
   %.not.i158 = icmp eq ptr %177, null
   br i1 %.not.i158, label %nk_combo_begin.exit, label %178
@@ -68493,12 +68487,12 @@ nk_draw_button_symbol.exit:                       ; preds = %163, %164
 
 nk_combo_begin.exit:                              ; preds = %206, %204, %201, %178, %nk_draw_button_symbol.exit, %12, %3, %6, %9
   %.084 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ 1, %206 ], [ 0, %178 ], [ 0, %nk_draw_button_symbol.exit ], [ 0, %201 ], [ 0, %204 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.084
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_symbol(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i32 %4, i32 %5, float noundef %6, ptr noundef %7) unnamed_addr #22 {
+define internal fastcc void @nk_draw_symbol(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, <2 x float> %2, <2 x float> %3, i32 %4, i32 %5, float noundef %6, ptr noundef %7) unnamed_addr #21 {
   switch i32 %1, label %135 [
     i32 16, label %104
     i32 15, label %104
@@ -68807,10 +68801,10 @@ nk_triangle_from_direction.exit85:                ; preds = %119, %123, %127, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, <2 x float> %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %8
 
@@ -69083,7 +69077,7 @@ nk_rgb_factor.exit197:                            ; preds = %110, %111
 
 124:                                              ; preds = %nk_rgb_factor.exit197, %nk_rgb_factor.exit161, %nk_rgb_factor.exit149, %nk_rgb_factor.exit137
   %.sroa.5204.0 = phi i32 [ undef, %nk_rgb_factor.exit137 ], [ 0, %nk_rgb_factor.exit149 ], [ 0, %nk_rgb_factor.exit161 ], [ %85, %nk_rgb_factor.exit197 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %125 = load i32, ptr %25, align 8, !tbaa !881
   %126 = and i32 %125, 16
   %.not117 = icmp eq i32 %126, 0
@@ -69228,7 +69222,7 @@ nk_draw_button_symbol.exit:                       ; preds = %162, %163
   %.178.i = select i1 %216, float %215, float %209
   %.sroa.17.12.vec.insert52.i = insertelement <2 x float> %208, float %.178.i, i64 1
   tail call void @nk_draw_text(ptr noundef nonnull %150, <2 x float> %.sroa.0.4.vec.insert28.i, <2 x float> %.sroa.17.12.vec.insert52.i, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %196, i32 %.sroa.5204.0, i32 %.sroa.011.0.insert.insert.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %217 = load ptr, ptr %9, align 8, !tbaa !828
   %.not.i199 = icmp eq ptr %217, null
   br i1 %.not.i199, label %nk_combo_begin.exit, label %218
@@ -69292,15 +69286,15 @@ nk_draw_button_symbol.exit:                       ; preds = %162, %163
 
 nk_combo_begin.exit:                              ; preds = %246, %244, %241, %218, %nk_draw_button_symbol.exit, %14, %5, %8, %11
   %.0 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 1, %246 ], [ 0, %218 ], [ 0, %nk_draw_button_symbol.exit ], [ 0, %241 ], [ 0, %244 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image(ptr noundef %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, <2 x float> %2) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image(ptr noundef %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, <2 x float> %2) local_unnamed_addr #21 {
   %4 = alloca %struct.nk_rect, align 8
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %6
 
@@ -69489,7 +69483,7 @@ nk_rgb_factor.exit131:                            ; preds = %84, %85
   br label %nk_rgb_factor.exit143
 
 nk_rgb_factor.exit143:                            ; preds = %nk_rgb_factor.exit131, %nk_rgb_factor.exit101, %nk_rgb_factor.exit, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %98 = load i32, ptr %24, align 8, !tbaa !881
   %99 = and i32 %98, 16
   %.not86 = icmp eq i32 %99, 0
@@ -69618,7 +69612,7 @@ nk_draw_button_symbol.exit:                       ; preds = %154, %155
   br label %168
 
 168:                                              ; preds = %nk_draw_button_symbol.exit, %nk_rgb_factor.exit143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %169 = load ptr, ptr %7, align 8, !tbaa !828
   %.not.i144 = icmp eq ptr %169, null
   br i1 %.not.i144, label %nk_combo_begin.exit, label %170
@@ -69682,15 +69676,15 @@ nk_draw_button_symbol.exit:                       ; preds = %154, %155
 
 nk_combo_begin.exit:                              ; preds = %198, %196, %193, %170, %168, %12, %3, %6, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %12 ], [ 1, %198 ], [ 0, %170 ], [ 0, %168 ], [ 0, %193 ], [ 0, %196 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %3, <2 x float> %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image_text(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %3, <2 x float> %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
   %7 = alloca %struct.nk_rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_combo_begin.exit, label %8
 
@@ -69915,7 +69909,7 @@ nk_rgb_factor.exit178:                            ; preds = %93, %94
 
 107:                                              ; preds = %nk_rgb_factor.exit178, %nk_rgb_factor.exit142, %nk_rgb_factor.exit130, %nk_rgb_factor.exit
   %.sroa.5197.0 = phi i32 [ undef, %nk_rgb_factor.exit ], [ 0, %nk_rgb_factor.exit130 ], [ 0, %nk_rgb_factor.exit142 ], [ %68, %nk_rgb_factor.exit178 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %108 = load i32, ptr %25, align 8, !tbaa !881
   %109 = and i32 %108, 16
   %.not115 = icmp eq i32 %109, 0
@@ -70079,7 +70073,7 @@ nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symb
   %.178.i = select i1 %205, float %204, float %198
   %.sroa.17.12.vec.insert52.i = insertelement <2 x float> %197, float %.178.i, i64 1
   tail call void @nk_draw_text(ptr noundef nonnull %168, <2 x float> %.sroa.0.4.vec.insert28.i, <2 x float> %.sroa.17.12.vec.insert52.i, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %185, i32 %.sroa.5197.0, i32 %.sroa.011.0.insert.insert.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %206 = load ptr, ptr %9, align 8, !tbaa !828
   %.not.i192 = icmp eq ptr %206, null
   br i1 %.not.i192, label %nk_combo_begin.exit, label %207
@@ -70143,12 +70137,12 @@ nk_rgb_factor.exit190:                            ; preds = %nk_draw_button_symb
 
 nk_combo_begin.exit:                              ; preds = %235, %233, %230, %207, %nk_rgb_factor.exit190, %14, %5, %8, %11
   %.0 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %5 ], [ 0, %14 ], [ 1, %235 ], [ 0, %207 ], [ 0, %nk_rgb_factor.exit190 ], [ 0, %230 ], [ 0, %233 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_symbol_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_symbol_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, <2 x float> %3) local_unnamed_addr #21 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -70171,7 +70165,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_begin_image_label(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_begin_image_label(ptr noundef %0, ptr noundef %1, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %2, <2 x float> %3) local_unnamed_addr #21 {
   %.not5.i = icmp eq ptr %1, null
   br i1 %.not5.i, label %nk_strlen.exit, label %.lr.ph.i.preheader
 
@@ -70194,9 +70188,9 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_text(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_text.exit, label %6
 
@@ -70262,20 +70256,20 @@ nk_popup_close.exit.i.i:                          ; preds = %31
 
 nk_contextual_item_text.exit:                     ; preds = %4, %6, %9, %nk_widget_fitting.exit.i, %20, %29, %31, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %9 ], [ 0, %6 ], [ 0, %4 ], [ %14, %nk_widget_fitting.exit.i ], [ 0, %20 ], [ 1, %29 ], [ 1, %31 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_combo_item_label(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = tail call i32 @nk_contextual_item_label(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_image_text(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_image_text.exit, label %7
 
@@ -70341,20 +70335,20 @@ nk_popup_close.exit.i.i:                          ; preds = %32
 
 nk_contextual_item_image_text.exit:               ; preds = %5, %7, %10, %nk_widget_fitting.exit.i, %21, %30, %32, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit.i ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_combo_item_image_label(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.nk_image) align 8 captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = tail call i32 @nk_contextual_item_image_label(ptr noundef %0, ptr noundef nonnull byval(%struct.nk_image) align 8 %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_combo_item_symbol_text(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #21 {
   %6 = alloca %struct.nk_rect, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_item_symbol_text.exit, label %7
 
@@ -70420,18 +70414,18 @@ nk_popup_close.exit.i.i:                          ; preds = %32
 
 nk_contextual_item_symbol_text.exit:              ; preds = %5, %7, %10, %nk_widget_fitting.exit.i, %21, %30, %32, %nk_popup_close.exit.i.i
   %.0.i = phi i32 [ 0, %10 ], [ 0, %7 ], [ 0, %5 ], [ %15, %nk_widget_fitting.exit.i ], [ 0, %21 ], [ 1, %30 ], [ 1, %32 ], [ 1, %nk_popup_close.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_combo_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #19 {
+define range(i32 0, 2) i32 @nk_combo_item_symbol_label(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = tail call i32 @nk_contextual_item_symbol_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combo_end(ptr noundef %0) local_unnamed_addr #22 {
+define void @nk_combo_end(ptr noundef %0) local_unnamed_addr #21 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_end.exit, label %2
 
@@ -70582,7 +70576,7 @@ nk_contextual_end.exit:                           ; preds = %1, %2, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_combo_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #24 {
+define void @nk_combo_close(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #23 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %nk_contextual_close.exit, label %2
 
@@ -70610,7 +70604,7 @@ nk_contextual_close.exit:                         ; preds = %1, %2, %5, %nk_popu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define i32 @nk_combo(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -70938,7 +70932,7 @@ nk_combo_end.exit:                                ; preds = %151, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_separator(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
+define i32 @nk_combo_separator(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #21 {
   %8 = alloca %struct.nk_rect, align 8
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %1, null
@@ -71151,7 +71145,7 @@ nk_layout_row_dynamic.exit:                       ; preds = %53, %56, %nk_panel_
   %101 = ptrtoint ptr %.164101 to i64
   %102 = sub i64 %100, %101
   %103 = trunc i64 %102 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %104 = load ptr, ptr %13, align 8, !tbaa !828
   %.not23.i.i = icmp eq ptr %104, null
   br i1 %.not23.i.i, label %nk_combo_item_text.exit, label %105
@@ -71208,7 +71202,7 @@ nk_popup_close.exit.i.i.i:                        ; preds = %123
 
 nk_combo_item_text.exit:                          ; preds = %114, %nk_widget_fitting.exit.i.i, %99, %105, %nk_popup_close.exit.i.i.i, %123, %121
   %129 = phi i32 [ %.16898, %121 ], [ %.16898, %123 ], [ %.16898, %nk_popup_close.exit.i.i.i ], [ %.166100, %105 ], [ %.166100, %99 ], [ %.166100, %nk_widget_fitting.exit.i.i ], [ %.166100, %114 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %sext = shl i64 %102, 32
   %130 = ashr exact i64 %sext, 32
   %131 = getelementptr inbounds i8, ptr %.164101, i64 %130
@@ -71364,15 +71358,15 @@ nk_combo_end.exit:                                ; preds = %200, %._crit_edge10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define i32 @nk_combo_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = tail call i32 @nk_combo_separator(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef %3, i32 noundef %4, <2 x float> %5)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nk_combo_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
+define i32 @nk_combo_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #21 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ne ptr %0, null
   %10 = icmp ne ptr %1, null
   %or.cond = and i1 %9, %10
@@ -71688,12 +71682,12 @@ nk_input_is_mouse_hovering_rect.exit.thread.i.i:  ; preds = %141, %nk_input_is_m
 
 nk_combo_end.exit:                                ; preds = %149, %._crit_edge, %nk_combo_begin_label.exit, %7
   %.0 = phi i32 [ %3, %7 ], [ %3, %nk_combo_begin_label.exit ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %149 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define void @nk_combobox(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = load i32, ptr %3, align 4, !tbaa !7
   %8 = tail call i32 @nk_combo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %4, <2 x float> %5)
   store i32 %8, ptr %3, align 4, !tbaa !7
@@ -71701,7 +71695,7 @@ define void @nk_combobox(ptr noundef %0, ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_string(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #22 {
+define void @nk_combobox_string(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, <2 x float> %5) local_unnamed_addr #21 {
   %7 = load i32, ptr %2, align 4, !tbaa !7
   %8 = tail call i32 @nk_combo_separator(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef %7, i32 noundef %3, i32 noundef %4, <2 x float> %5)
   store i32 %8, ptr %2, align 4, !tbaa !7
@@ -71709,7 +71703,7 @@ define void @nk_combobox_string(ptr noundef %0, ptr noundef %1, ptr noundef capt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_separator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
+define void @nk_combobox_separator(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #21 {
   %8 = load i32, ptr %3, align 4, !tbaa !7
   %9 = tail call i32 @nk_combo_separator(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %8, i32 noundef %4, i32 noundef %5, <2 x float> %6)
   store i32 %9, ptr %3, align 4, !tbaa !7
@@ -71717,7 +71711,7 @@ define void @nk_combobox_separator(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_combobox_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #22 {
+define void @nk_combobox_callback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, <2 x float> %6) local_unnamed_addr #21 {
   %8 = load i32, ptr %3, align 4, !tbaa !7
   %9 = tail call i32 @nk_combo_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef %4, i32 noundef %5, <2 x float> %6)
   store i32 %9, ptr %3, align 4, !tbaa !7
@@ -71725,7 +71719,7 @@ define void @nk_combobox_callback(ptr noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @nk_tooltip_begin(ptr noundef %0, float noundef %1) local_unnamed_addr #22 {
+define range(i32 0, 2) i32 @nk_tooltip_begin(ptr noundef %0, float noundef %1) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %3
 
@@ -71819,7 +71813,7 @@ define range(i32 0, 2) i32 @nk_tooltip_begin(ptr noundef %0, float noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_tooltip_end(ptr noundef %0) local_unnamed_addr #19 {
+define void @nk_tooltip_end(ptr noundef %0) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -71845,7 +71839,7 @@ nk_popup_close.exit:                              ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @nk_tooltip(ptr noundef %0, ptr noundef %1) local_unnamed_addr #22 {
+define void @nk_tooltip(ptr noundef %0, ptr noundef %1) local_unnamed_addr #21 {
   %3 = alloca %struct.nk_rect, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nk_tooltip_end.exit, label %4
@@ -71905,7 +71899,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   br i1 %.not16.i.i, label %.thread, label %33
 
 .thread:                                          ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.thread31
 
 33:                                               ; preds = %30
@@ -71917,7 +71911,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
 .thread39:                                        ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %37 = load i32, ptr %36, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %74
 
 38:                                               ; preds = %33
@@ -71989,7 +71983,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   store float 0.000000e+00, ptr %71, align 8, !tbaa !927
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %73 = load i32, ptr %72, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not16.i = icmp eq ptr %.pr.pre, null
   br i1 %.not16.i, label %.thread31, label %74
 
@@ -72002,7 +71996,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   br i1 %.not17.i, label %.thread43, label %78
 
 .thread43:                                        ; preds = %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %nk_popup_close.exit.i
 
 78:                                               ; preds = %74
@@ -72042,7 +72036,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   br label %99
 
 .thread31:                                        ; preds = %.thread, %65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %nk_tooltip_end.exit
 
 99:                                               ; preds = %85, %86
@@ -72095,7 +72089,7 @@ nk_strlen.exit:                                   ; preds = %.lr.ph.i.preheader,
   %.sroa.17.12.vec.insert52.i.i = insertelement <2 x float> %118, float %.178.i.i, i64 1
   tail call void @nk_draw_text(ptr noundef nonnull %100, <2 x float> %.sroa.0.4.vec.insert28.i.i, <2 x float> %.sroa.17.12.vec.insert52.i.i, ptr noundef nonnull %1, i32 noundef %.07.i.lcssa, ptr noundef nonnull %101, i32 %81, i32 %.sroa.011.0.insert.insert.i.i)
   %.pr30.pre = load ptr, ptr %5, align 8, !tbaa !828
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not6.i = icmp eq ptr %.pr30.pre, null
   br i1 %.not6.i, label %nk_tooltip_end.exit, label %nk_popup_close.exit.i
 
@@ -72116,13 +72110,13 @@ nk_tooltip_end.exit:                              ; preds = %nk_popup_close.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #44
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #43
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #45
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #44
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #8 {
+define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #7 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
@@ -72150,7 +72144,7 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   %12 = phi i1 [ false, %.preheader.split.us ], [ true, %.preheader ]
   %indvars.iv160 = phi i64 [ 1, %.preheader.split.us ], [ 0, %.preheader ]
   %.0104.us = phi ptr [ %21, %.preheader.split.us ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv160
   %14 = load float, ptr %13, align 4, !tbaa !3
   %15 = fcmp olt float %14, 1.270000e+02
@@ -72164,14 +72158,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i8 %19, ptr %4, align 1, !tbaa !9
   %20 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us, ptr noundef nonnull %4, i64 noundef 1)
   %21 = getelementptr inbounds nuw i8, ptr %.0104.us, i64 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %12, label %.preheader.split.us, label %.loopexit, !llvm.loop !1268
 
 .preheader.split.us105:                           ; preds = %.preheader, %.preheader.split.us105
   %22 = phi i1 [ false, %.preheader.split.us105 ], [ true, %.preheader ]
   %indvars.iv157 = phi i64 [ 1, %.preheader.split.us105 ], [ 0, %.preheader ]
   %.0104.us106 = phi ptr [ %31, %.preheader.split.us105 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv157
   %24 = load float, ptr %23, align 4, !tbaa !3
   %25 = fcmp olt float %24, 3.276700e+04
@@ -72185,14 +72179,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i16 %29, ptr %5, align 2, !tbaa !199
   %30 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us106, ptr noundef nonnull %5, i64 noundef 2)
   %31 = getelementptr inbounds nuw i8, ptr %.0104.us106, i64 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %22, label %.preheader.split.us105, label %.loopexit, !llvm.loop !1269
 
 .preheader.split.us109:                           ; preds = %.preheader, %.preheader.split.us109
   %32 = phi i1 [ false, %.preheader.split.us109 ], [ true, %.preheader ]
   %indvars.iv154 = phi i64 [ 1, %.preheader.split.us109 ], [ 0, %.preheader ]
   %.0104.us110 = phi ptr [ %40, %.preheader.split.us109 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv154
   %34 = load float, ptr %33, align 4, !tbaa !3
   %35 = fcmp uge float %34, 0x41E0000000000000
@@ -72203,14 +72197,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i32 %38, ptr %6, align 4, !tbaa !7
   %39 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us110, ptr noundef nonnull %6, i64 noundef 4)
   %40 = getelementptr inbounds nuw i8, ptr %.0104.us110, i64 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %32, label %.preheader.split.us109, label %.loopexit, !llvm.loop !1270
 
 .preheader.split.us113:                           ; preds = %.preheader, %.preheader.split.us113
   %41 = phi i1 [ false, %.preheader.split.us113 ], [ true, %.preheader ]
   %indvars.iv151 = phi i64 [ 1, %.preheader.split.us113 ], [ 0, %.preheader ]
   %.0104.us114 = phi ptr [ %49, %.preheader.split.us113 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv151
   %43 = load float, ptr %42, align 4, !tbaa !3
   %44 = fcmp uge float %43, 2.560000e+02
@@ -72221,14 +72215,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i8 %47, ptr %7, align 1, !tbaa !9
   %48 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us114, ptr noundef nonnull %7, i64 noundef 1)
   %49 = getelementptr inbounds nuw i8, ptr %.0104.us114, i64 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %41, label %.preheader.split.us113, label %.loopexit, !llvm.loop !1271
 
 .preheader.split.us117:                           ; preds = %.preheader, %.preheader.split.us117
   %50 = phi i1 [ false, %.preheader.split.us117 ], [ true, %.preheader ]
   %indvars.iv148 = phi i64 [ 1, %.preheader.split.us117 ], [ 0, %.preheader ]
   %.0104.us118 = phi ptr [ %59, %.preheader.split.us117 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv148
   %52 = load float, ptr %51, align 4, !tbaa !3
   %53 = fcmp olt float %52, 6.553500e+04
@@ -72243,14 +72237,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i16 %57, ptr %8, align 2, !tbaa !199
   %58 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us118, ptr noundef nonnull %8, i64 noundef 2)
   %59 = getelementptr inbounds nuw i8, ptr %.0104.us118, i64 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %50, label %.preheader.split.us117, label %.loopexit, !llvm.loop !1272
 
 .preheader.split.us121:                           ; preds = %.preheader, %.preheader.split.us121
   %60 = phi i1 [ false, %.preheader.split.us121 ], [ true, %.preheader ]
   %indvars.iv145 = phi i64 [ 1, %.preheader.split.us121 ], [ 0, %.preheader ]
   %.0104.us122 = phi ptr [ %68, %.preheader.split.us121 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv145
   %62 = load float, ptr %61, align 4, !tbaa !3
   %63 = fcmp uge float %62, 0x41F0000000000000
@@ -72261,7 +72255,7 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   store i32 %66, ptr %9, align 4, !tbaa !7
   %67 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us122, ptr noundef nonnull %9, i64 noundef 4)
   %68 = getelementptr inbounds nuw i8, ptr %.0104.us122, i64 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %60, label %.preheader.split.us121, label %.loopexit, !llvm.loop !1273
 
 .preheader.split.us125:                           ; preds = %.preheader, %.preheader.split.us125
@@ -72277,14 +72271,14 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
   %73 = phi i1 [ false, %.preheader.split.us129 ], [ true, %.preheader ]
   %indvars.iv = phi i64 [ 1, %.preheader.split.us129 ], [ 0, %.preheader ]
   %.0104.us130 = phi ptr [ %78, %.preheader.split.us129 ], [ %0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %74 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %75 = load float, ptr %74, align 4, !tbaa !3
   %76 = fpext float %75 to double
   store double %76, ptr %10, align 8, !tbaa !30
   %77 = call fastcc ptr @nk_memcopy(ptr noundef %.0104.us130, ptr noundef nonnull %10, i64 noundef 8)
   %78 = getelementptr inbounds nuw i8, ptr %.0104.us130, i64 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %73, label %.preheader.split.us129, label %.loopexit, !llvm.loop !1275
 
 .loopexit:                                        ; preds = %.preheader.split.us129, %.preheader.split.us125, %.preheader.split.us121, %.preheader.split.us117, %.preheader.split.us113, %.preheader.split.us109, %.preheader.split.us105, %.preheader.split.us, %.preheader, %3
@@ -72292,11 +72286,11 @@ define internal fastcc void @nk_draw_vertex_element(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__run_charstring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #20 {
   %4 = alloca [48 x float], align 16
   %5 = alloca [10 x %struct.stbtt__buf], align 16
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #55
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -73971,13 +73965,13 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 
 .critedge:                                        ; preds = %58, %69, %76, %83, %136, %138, %238, %240, %292, %313, %._crit_edge476, %386, %._crit_edge, %464, %562, %564, %stbtt__get_subr.exit, %601, %727, %807, %.thread, %stbtt__buf_get8.exit328, %700, %685, %670, %659, %654, %3, %stbtt__csctx_v.exit.i, %612
   %.2 = phi i32 [ 1, %612 ], [ 1, %stbtt__csctx_v.exit.i ], [ 0, %3 ], [ 0, %654 ], [ 0, %659 ], [ 0, %670 ], [ 0, %685 ], [ 0, %700 ], [ 0, %stbtt__buf_get8.exit328 ], [ 0, %.thread ], [ 0, %807 ], [ 0, %727 ], [ 0, %601 ], [ 0, %stbtt__get_subr.exit ], [ 0, %564 ], [ 0, %562 ], [ 0, %464 ], [ 0, %._crit_edge ], [ 0, %386 ], [ 0, %._crit_edge476 ], [ 0, %313 ], [ 0, %292 ], [ 0, %240 ], [ 0, %238 ], [ 0, %138 ], [ 0, %136 ], [ 0, %83 ], [ 0, %76 ], [ 0, %69 ], [ 0, %58 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #55
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc { ptr, i64 } @stbtt__cff_index_get(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #6 {
   %.sroa.18.8.extract.shift = lshr i64 %1, 32
   %.sroa.18.8.extract.trunc = trunc nuw i64 %.sroa.18.8.extract.shift to i32
   %4 = tail call i32 @llvm.smin.i32(i32 %.sroa.18.8.extract.trunc, i32 0)
@@ -74116,7 +74110,7 @@ stbtt__buf_range.exit:                            ; preds = %stbtt__buf_get.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rmove_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #36 {
+define internal fastcc void @stbtt__csctx_rmove_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #35 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load float, ptr %4, align 8, !tbaa !1291
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -74353,7 +74347,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__csctx_rccurve_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #36 {
+define internal fastcc void @stbtt__csctx_rccurve_to(ptr noundef nonnull captures(none) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) unnamed_addr #35 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %8, align 8, !tbaa !1276
   %10 = fadd float %1, %9
@@ -74557,7 +74551,7 @@ stbtt__csctx_v.exit:                              ; preds = %stbtt__track_vertex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #27 {
+define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i64 %3) unnamed_addr #26 {
   %5 = alloca %struct.stbtt__buf, align 8
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 8
@@ -74567,11 +74561,11 @@ define internal fastcc { ptr, i64 } @stbtt__get_subrs(ptr %0, i64 %1, ptr %2, i6
   store ptr %2, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @stbtt__dict_get_ints(ptr noundef %5, i32 noundef 18, i32 noundef 2, ptr noundef %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !7
@@ -74725,14 +74719,14 @@ stbtt__cff_get_index.exit:                        ; preds = %stbtt__buf_get.exit
 
 79:                                               ; preds = %stbtt__buf_range.exit, %4, %stbtt__cff_get_index.exit
   %.pn = phi { ptr, i64 } [ %.fca.1.insert.i.i, %stbtt__cff_get_index.exit ], [ zeroinitializer, %4 ], [ zeroinitializer, %stbtt__buf_range.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { ptr, i64 } %.pn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #9 {
+define internal fastcc void @stbtt__dict_get_ints(ptr noundef nonnull captures(none) initializes((8, 12)) %0, i32 noundef range(i32 17, 294) %1, i32 noundef range(i32 1, 3) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !577
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
@@ -75076,7 +75070,7 @@ stbtt__cff_int.exit:                              ; preds = %stbtt__buf_get8.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull captures(none) %0) unnamed_addr #9 {
+define internal fastcc { ptr, i64 } @stbtt__cff_get_index(ptr noundef nonnull captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !576
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -75208,7 +75202,7 @@ stbtt__buf_range.exit:                            ; preds = %49, %53, %56
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #6 {
   %.val63 = load i8, ptr %0, align 1, !tbaa !9
   %3 = getelementptr i8, ptr %0, i64 1
   %.val64 = load i8, ptr %3, align 1, !tbaa !9
@@ -75339,7 +75333,7 @@ define internal fastcc range(i32 -1, 65536) i32 @stbtt__GetGlyphClass(ptr nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #46 {
+define internal fastcc void @stbtt__tesselate_curve(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, i32 noundef %9) unnamed_addr #45 {
   %11 = icmp sgt i32 %9, 16
   br i1 %11, label %.loopexit, label %.lr.ph.preheader
 
@@ -75410,7 +75404,7 @@ stbtt__add_point.exit:                            ; preds = %36, %38
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #46 {
+define internal fastcc void @stbtt__tesselate_cubic(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, i32 noundef %11) unnamed_addr #45 {
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 17)
   %exitcond107 = icmp sgt i32 %11, 16
   br i1 %exitcond107, label %.loopexit, label %.lr.ph
@@ -75508,7 +75502,7 @@ stbtt__add_point.exit:                            ; preds = %64, %66
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #46 {
+define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #45 {
   %3 = alloca %struct.stbtt__edge, align 4
   %4 = icmp sgt i32 %1, 12
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -75516,7 +75510,7 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0,
 .lr.ph:                                           ; preds = %2, %49
   %.078 = phi ptr [ %.1, %49 ], [ %0, %2 ]
   %.06977 = phi i32 [ %.170, %49 ], [ %1, %2 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = lshr i32 %.06977, 1
   %6 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %7 = load float, ptr %6, align 4, !tbaa !469
@@ -75609,7 +75603,7 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0,
 49:                                               ; preds = %48, %47
   %.170 = phi i32 [ %45, %47 ], [ %39, %48 ]
   %.1 = phi ptr [ %28, %47 ], [ %.078, %48 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = icmp sgt i32 %.170, 12
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !1299
 
@@ -75618,19 +75612,19 @@ define internal fastcc void @stbtt__sort_edges_quicksort(ptr noundef nonnull %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @fmod(double noundef, double noundef) local_unnamed_addr #30
+declare double @fmod(double noundef, double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #30
+declare double @acos(double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #30
+declare double @cos(double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #30
+declare double @pow(double noundef, double noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %0) unnamed_addr #13 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly captures(none) %0) unnamed_addr #12 {
   %2 = load i8, ptr %0, align 1, !tbaa !9
   switch i8 %2, label %.thread26 [
     i8 49, label %3
@@ -75734,10 +75728,10 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__isfont(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #47
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #46
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4, i32 noundef range(i32 -1, 18) %5) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 1, 17) %4, i32 noundef range(i32 -1, 18) %5) unnamed_addr #6 {
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -75956,7 +75950,7 @@ define internal fastcc range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #6 {
   %.not97 = icmp eq i32 %3, 0
   br i1 %.not97, label %.critedge, label %.lr.ph
 
@@ -76136,22 +76130,22 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @stbtt__CompareUT
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #48
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #47
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #48
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #47
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #48
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #47
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #48
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #47
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #48
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #47
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define internal float @nk_font_text_width(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #32 {
+define internal float @nk_font_text_width(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #31 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -76489,7 +76483,7 @@ nk_utf_decode.exit.thread:                        ; preds = %20, %134, %138, %nk
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @nk_font_query_font_glyph(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 %4) #49 {
+define internal void @nk_font_query_font_glyph(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 %4) #48 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
@@ -76615,13 +76609,13 @@ nk_font_find_glyph.exit:                          ; preds = %._crit_edge.i, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef range(i32 0, 2) %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef nonnull captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) unnamed_addr #22 {
+define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, <2 x float> %2, <2 x float> %3, i32 noundef range(i32 0, 2) %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef nonnull captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) unnamed_addr #21 {
   %13 = alloca %struct.nk_rect, align 16
   %14 = alloca %struct.nk_rect, align 8
   %15 = alloca i32, align 4
   store <2 x float> %2, ptr %13, align 16
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %17 = extractelement <2 x float> %3, i64 0
   %18 = fcmp olt float %17, 1.000000e+00
   %19 = select i1 %18, float 1.000000e+00, float %17
@@ -76643,7 +76637,7 @@ define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none
   br i1 %.not, label %53, label %30
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %31 = load <4 x float>, ptr %13, align 16
   %.sroa.7.8.vec.insert = insertelement <2 x float> poison, float %19, i64 0
   %.sroa.7.12.vec.insert = shufflevector <2 x float> %.sroa.7.8.vec.insert, <2 x float> poison, <2 x i32> zeroinitializer
@@ -76675,7 +76669,7 @@ define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none
   %51 = fadd float %19, %38
   store float %51, ptr %37, align 4, !tbaa !126
   store float %34, ptr %20, align 4, !tbaa !127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %52 = extractelement <4 x float> %31, i64 0
   br label %53
 
@@ -76774,14 +76768,14 @@ define internal fastcc float @nk_do_scrollbarv(ptr noundef nonnull captures(none
 
 117:                                              ; preds = %110, %114, %12
   %.0 = phi float [ 0.000000e+00, %12 ], [ %97, %114 ], [ %97, %110 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret float %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc float @nk_scrollbar_behavior(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, <2 x float> %.0.val, <2 x float> %.8.val, <2 x float> %.0.val1, <2 x float> %.8.val3, float noundef %5, float noundef %6, float noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #33 {
+define internal fastcc float @nk_scrollbar_behavior(ptr noundef nonnull captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, <2 x float> %.0.val, <2 x float> %.8.val, <2 x float> %.0.val1, <2 x float> %.8.val3, float noundef %5, float noundef %6, float noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #32 {
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !7
   %11 = load i32, ptr %0, align 4, !tbaa !7
   %12 = and i32 %11, 2
@@ -77165,12 +77159,12 @@ nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split: ; preds = %200, 
 
 nk_input_is_mouse_prev_hovering_rect.exit246.thread: ; preds = %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split, %193, %188, %9
   %.0 = phi float [ %5, %9 ], [ %.143, %188 ], [ %.143, %193 ], [ %.0.ph, %nk_input_is_mouse_prev_hovering_rect.exit246.thread.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret float %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_scrollbar(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, <2 x float> %.0.val, <2 x float> %.8.val, <2 x float> %.0.val1, <2 x float> %.8.val3) unnamed_addr #22 {
+define internal fastcc void @nk_draw_scrollbar(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, <2 x float> %.0.val, <2 x float> %.8.val, <2 x float> %.0.val1, <2 x float> %.8.val3) unnamed_addr #21 {
   %4 = and i32 %1, 32
   %.not = icmp eq i32 %4, 0
   %5 = and i32 %1, 16
@@ -77249,7 +77243,7 @@ define internal fastcc void @nk_draw_scrollbar(ptr noundef nonnull captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_layout_widget_space(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #24 {
+define internal fastcc void @nk_layout_widget_space(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #23 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 18520
   %5 = load ptr, ptr %4, align 8, !tbaa !828
   %.not = icmp eq ptr %5, null
@@ -77700,7 +77694,7 @@ nk_roundf.exit171:                                ; preds = %257, %260
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_draw_selectable(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, <2 x float> %.0.val, <2 x float> %.8.val, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #22 {
+define internal fastcc void @nk_draw_selectable(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3, <2 x float> %.0.val, <2 x float> %.8.val, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #21 {
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 276
   %13 = load float, ptr %12, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 280
@@ -77984,7 +77978,7 @@ nk_widget_text.exit:                              ; preds = %110, %136
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_textedit_discard_undo(ptr noundef %0) unnamed_addr #8 {
+define internal fastcc void @nk_textedit_discard_undo(ptr noundef %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5184
   %3 = load i16, ptr %2, align 4, !tbaa !1159
   %4 = icmp sgt i16 %3, 0
@@ -78113,7 +78107,7 @@ nk_memcopy.exit:                                  ; preds = %.preheader.i, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_key(ptr noundef %0, i32 noundef range(i32 -2147483648, 30) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
+define internal fastcc void @nk_textedit_key(ptr noundef %0, i32 noundef range(i32 -2147483648, 30) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #18 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -78603,8 +78597,8 @@ nk_textedit_move_to_word_next.exit:               ; preds = %176, %178
   br label %nk_textedit_clamp.exit308
 
 202:                                              ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %203 = load i8, ptr %17, align 8, !tbaa !1175
   %.not272 = icmp eq i8 %203, 0
   br i1 %.not272, label %204, label %332
@@ -78761,7 +78755,7 @@ nk_textedit_clamp.exit329:                        ; preds = %249, %257
 281:                                              ; preds = %.lr.ph, %305
   %.0247408 = phi i32 [ 0, %.lr.ph ], [ %308, %305 ]
   %.0252407 = phi float [ %269, %.lr.ph ], [ %303, %305 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %282 = add nsw i32 %.0247408, %268
   %283 = icmp slt i32 %282, 0
   br i1 %283, label %nk_textedit_get_width.exit, label %284
@@ -78811,7 +78805,7 @@ nk_textedit_get_width.exit:                       ; preds = %281, %.loopexit.i.i
   %300 = load float, ptr %280, align 8, !tbaa !215
   %301 = load ptr, ptr %3, align 8
   %302 = call float %299(ptr %301, float noundef %300, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %303 = fadd float %.0252407, %302
   %304 = fcmp ogt float %303, %265
   br i1 %304, label %nk_textedit_get_width.exit._crit_edge, label %305
@@ -78879,13 +78873,13 @@ nk_textedit_clamp.exit332:                        ; preds = %326, %329
   br label %.thread385
 
 .thread385:                                       ; preds = %nk_textedit_clamp.exit332, %331, %nk_textedit_clamp.exit329
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nk_textedit_clamp.exit308
 
 332:                                              ; preds = %202
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %332, %453
@@ -78893,8 +78887,8 @@ nk_textedit_clamp.exit332:                        ; preds = %326, %329
   br label %.backedge
 
 333:                                              ; preds = %.backedge
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %334 = load i8, ptr %17, align 8, !tbaa !1175
   %.not277 = icmp eq i8 %334, 0
   br i1 %.not277, label %335, label %453
@@ -79030,7 +79024,7 @@ nk_textedit_clamp.exit339:                        ; preds = %371, %379
 402:                                              ; preds = %.lr.ph412, %426
   %.0251410 = phi float [ %390, %.lr.ph412 ], [ %424, %426 ]
   %.0253409 = phi i32 [ 0, %.lr.ph412 ], [ %429, %426 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %403 = add nsw i32 %.0253409, %382
   %404 = icmp slt i32 %403, 0
   br i1 %404, label %nk_textedit_get_width.exit355, label %405
@@ -79080,7 +79074,7 @@ nk_textedit_get_width.exit355:                    ; preds = %402, %.loopexit.i.i
   %421 = load float, ptr %401, align 8, !tbaa !215
   %422 = load ptr, ptr %3, align 8
   %423 = call float %420(ptr %422, float noundef %421, ptr noundef %.0.i.i351, i32 noundef %.1.i350) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %424 = fadd float %.0251410, %423
   %425 = fcmp ogt float %424, %389
   br i1 %425, label %nk_textedit_get_width.exit355._crit_edge, label %426
@@ -79148,13 +79142,13 @@ nk_textedit_clamp.exit357:                        ; preds = %447, %450
   br label %.thread393
 
 .thread393:                                       ; preds = %nk_textedit_clamp.exit357, %452, %nk_textedit_clamp.exit339
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %nk_textedit_clamp.exit308
 
 453:                                              ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #55
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge.backedge
 
 454:                                              ; preds = %.backedge
@@ -79312,7 +79306,7 @@ nk_textedit_prep_selection_at_cursor.exit361:     ; preds = %509, %515
   br i1 %.not287, label %567, label %529
 
 529:                                              ; preds = %527
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %530 = load i32, ptr %528, align 8, !tbaa !1169
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %532 = load i32, ptr %531, align 4, !tbaa !1170
@@ -79396,11 +79390,11 @@ nk_textedit_prep_selection_at_cursor.exit365:     ; preds = %554, %555
   store i32 %565, ptr %549, align 8, !tbaa !1172
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 183
   store i8 0, ptr %566, align 1, !tbaa !1168
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %nk_textedit_clamp.exit308
 
 567:                                              ; preds = %527
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %568 = load i32, ptr %528, align 8, !tbaa !1169
   %.not288 = icmp eq i32 %568, 0
   br i1 %.not288, label %575, label %569
@@ -79458,7 +79452,7 @@ nk_textedit_move_to_first.exit368:                ; preds = %.nk_textedit_move_t
   store i32 %591, ptr %587, align 8, !tbaa !1172
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 183
   store i8 0, ptr %592, align 1, !tbaa !1168
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %nk_textedit_clamp.exit308
 
 593:                                              ; preds = %.backedge
@@ -79466,7 +79460,7 @@ nk_textedit_move_to_first.exit368:                ; preds = %.nk_textedit_move_t
   br i1 %.not290, label %654, label %594
 
 594:                                              ; preds = %593
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %596 = load i32, ptr %595, align 8, !tbaa !1169
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -79546,13 +79540,13 @@ nk_textedit_prep_selection_at_cursor.exit372:     ; preds = %620, %621
 
 632:                                              ; preds = %nk_textedit_prep_selection_at_cursor.exit372
   %633 = add nsw i32 %630, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
   %634 = icmp slt i32 %630, 1
   br i1 %634, label %nk_str_rune_at.exit.thread, label %635
 
 nk_str_rune_at.exit.thread:                       ; preds = %632
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %652
 
 635:                                              ; preds = %632
@@ -79584,7 +79578,7 @@ nk_str_rune_at.exit.thread:                       ; preds = %632
 
 nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i375, %643, %635
   %.pr = load i32, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %650 = icmp eq i32 %.pr, 10
   br i1 %650, label %651, label %652
 
@@ -79595,11 +79589,11 @@ nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i375, %643
 652:                                              ; preds = %nk_str_rune_at.exit.thread, %651, %nk_str_rune_at.exit, %nk_textedit_prep_selection_at_cursor.exit372
   %653 = phi i32 [ %630, %nk_str_rune_at.exit.thread ], [ %633, %651 ], [ %630, %nk_str_rune_at.exit ], [ %630, %nk_textedit_prep_selection_at_cursor.exit372 ]
   store i32 %653, ptr %599, align 8, !tbaa !1171
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %nk_textedit_clamp.exit308
 
 654:                                              ; preds = %593
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   tail call fastcc void @nk_textedit_clamp(ptr noundef %0)
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %656 = load i32, ptr %655, align 4, !tbaa !1170
@@ -79661,7 +79655,7 @@ nk_textedit_move_to_first.exit382:                ; preds = %.nk_textedit_move_t
   br label %684
 
 684:                                              ; preds = %681, %676, %nk_textedit_move_to_first.exit382
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %nk_textedit_clamp.exit308
 
 nk_textedit_clamp.exit308:                        ; preds = %.backedge, %.thread393, %.thread385, %196, %193, %150, %147, %38, %652, %684, %560, %nk_textedit_move_to_first.exit368, %nk_textedit_prep_selection_at_cursor.exit361, %520, %nk_textedit_prep_selection_at_cursor.exit359, %503, %473, %454, %199, %198, %nk_textedit_move_to_word_previous.exit316, %nk_textedit_move_to_first.exit311, %nk_textedit_clamp.exit303, %118, %70, %89, %41, %33, %37, %28, %32, %491, %471, %22, %20, %18
@@ -79669,7 +79663,7 @@ nk_textedit_clamp.exit308:                        ; preds = %.backedge, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #22 {
+define internal fastcc <2 x float> @nk_text_calculate_text_bounds(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, float noundef %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #21 {
   %8 = icmp ne ptr %1, null
   %9 = icmp sgt i32 %2, 0
   %or.cond.not95 = and i1 %8, %9
@@ -80166,7 +80160,7 @@ nk_utf_decode.exit.thread:                        ; preds = %._crit_edge.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_edit_draw_text(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, ptr noundef %8, i32 %9, i32 %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #22 {
+define internal fastcc void @nk_edit_draw_text(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef %5, i32 noundef %6, float noundef %7, ptr noundef %8, i32 %9, i32 %10, i32 noundef range(i32 0, 2) %11) unnamed_addr #21 {
   %13 = icmp ne ptr %5, null
   %14 = icmp ne i32 %6, 0
   %or.cond = and i1 %13, %14
@@ -80913,11 +80907,11 @@ nk_utf_decode.exit.thread:                        ; preds = %._crit_edge.i147, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #19 {
+define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, float noundef %4) unnamed_addr #18 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.nk_text_edit_row, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load i32, ptr %9, align 8, !tbaa !1169
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -80987,7 +80981,7 @@ define internal fastcc i32 @nk_textedit_locate_coord(ptr noundef readonly captur
 45:                                               ; preds = %.lr.ph82, %73
   %.24981 = phi i32 [ 0, %.lr.ph82 ], [ %74, %73 ]
   %.05080 = phi float [ %36, %.lr.ph82 ], [ %65, %73 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = add nuw nsw i32 %.24981, %.04774
   %47 = load ptr, ptr %41, align 8, !tbaa !80
   %48 = load i64, ptr %42, align 8, !tbaa !77
@@ -81033,7 +81027,7 @@ nk_textedit_get_width.exit:                       ; preds = %.loopexit.i.i, %.lo
   %62 = load float, ptr %44, align 8, !tbaa !215
   %63 = load ptr, ptr %3, align 8
   %64 = call float %61(ptr %63, float noundef %62, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = fadd float %.05080, %64
   %66 = fcmp uge float %1, %65
   br i1 %66, label %73, label %67
@@ -81057,13 +81051,13 @@ nk_textedit_get_width.exit:                       ; preds = %.loopexit.i.i, %.lo
   %.148 = phi i32 [ %.04774, %38 ], [ %18, %73 ]
   %75 = add nsw i32 %18, %.148
   %76 = add nsw i32 %75, -1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
   %77 = icmp slt i32 %75, 1
   br i1 %77, label %nk_str_rune_at.exit.thread, label %78
 
 nk_str_rune_at.exit.thread:                       ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 78:                                               ; preds = %.loopexit
@@ -81095,7 +81089,7 @@ nk_str_rune_at.exit.thread:                       ; preds = %.loopexit
 
 nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i58, %86, %78
   %.pr = load i32, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = icmp eq i32 %.pr, 10
   br i1 %93, label %.thread63, label %94
 
@@ -81104,19 +81098,19 @@ nk_str_rune_at.exit:                              ; preds = %.lr.ph.i.i58, %86, 
 
 .thread63:                                        ; preds = %17, %22, %30, %5, %71, %67, %nk_str_rune_at.exit, %35, %94
   %.0 = phi i32 [ %75, %94 ], [ %.04774, %35 ], [ %76, %nk_str_rune_at.exit ], [ %46, %67 ], [ %72, %71 ], [ %10, %5 ], [ %10, %17 ], [ 0, %22 ], [ %10, %30 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_layout_row(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #22 {
+define internal fastcc void @nk_textedit_layout_row(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #21 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load i32, ptr %9, align 8, !tbaa !71
   %.not6.i = icmp eq i32 %10, 0
@@ -81202,14 +81196,14 @@ nk_str_at_const.exit:                             ; preds = %nk_str_get_const.ex
   %47 = load i32, ptr %6, align 4, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %47, ptr %48, align 4, !tbaa !1317
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @nk_textedit_move_to_last(ptr noundef captures(none) %0) unnamed_addr #20 {
+define internal fastcc void @nk_textedit_move_to_last(ptr noundef captures(none) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %3 = load i32, ptr %2, align 4, !tbaa !1170
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -81262,7 +81256,7 @@ nk_textedit_clamp.exit:                           ; preds = %19, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef readonly captures(none) %0) unnamed_addr #21 {
+define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef readonly captures(none) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !1169
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -81287,11 +81281,11 @@ define internal fastcc i32 @nk_textedit_move_to_word_next(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef readonly captures(address_is_null) %4, float noundef %5) unnamed_addr #19 {
+define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef readonly captures(address_is_null) %4, float noundef %5) unnamed_addr #18 {
 .loopexit46.i.i.thread:
   %6 = alloca i32, align 4
   %7 = alloca %struct.nk_text_edit_row, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %9 = load i32, ptr %8, align 8, !tbaa !1169
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %7, i8 0, i64 24, i1 false), !tbaa !7
@@ -81414,7 +81408,7 @@ define internal fastcc void @nk_textedit_find_charpos(ptr noundef nonnull captur
 65:                                               ; preds = %.lr.ph89, %nk_textedit_get_width.exit
   %66 = phi i32 [ %.152.lcssa, %.lr.ph89 ], [ %.reass, %nk_textedit_get_width.exit ]
   %.25387 = phi i32 [ 0, %.lr.ph89 ], [ %127, %nk_textedit_get_width.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %nk_textedit_get_width.exit, label %68
 
@@ -81569,7 +81563,7 @@ nk_textedit_get_width.exit:                       ; preds = %65, %.loopexit.i.i,
   %122 = load float, ptr %63, align 8, !tbaa !215
   %123 = load ptr, ptr %4, align 8
   %124 = call float %121(ptr %123, float noundef %122, ptr noundef %.0.i.i, i32 noundef %.1.i) #55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %125 = load float, ptr %0, align 4, !tbaa !1330
   %126 = fadd float %124, %125
   store float %126, ptr %0, align 4, !tbaa !1330
@@ -81579,14 +81573,14 @@ nk_textedit_get_width.exit:                       ; preds = %65, %.loopexit.i.i,
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !1333
 
 .loopexit:                                        ; preds = %nk_textedit_get_width.exit, %._crit_edge, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @nk_is_word_boundary(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @nk_is_word_boundary(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #20 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp slt i32 %1, 1
   br i1 %4, label %nk_str_at_rune.exit.thread, label %5
 
@@ -81650,12 +81644,12 @@ nk_str_at_rune.exit:                              ; preds = %.lr.ph.i
 
 nk_str_at_rune.exit.thread:                       ; preds = %5, %.loopexit.i, %23, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %21, %nk_str_at_rune.exit, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %nk_str_at_rune.exit ], [ 1, %21 ], [ %25, %23 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %21 ], [ 1, %.loopexit.i ], [ 1, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #55
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @nk_dtoa(ptr noundef nonnull returned captures(ret: address, provenance) %0, double noundef %1) unnamed_addr #50 {
+define internal fastcc noundef nonnull ptr @nk_dtoa(ptr noundef nonnull returned captures(ret: address, provenance) %0, double noundef %1) unnamed_addr #49 {
   %3 = fcmp oeq double %1, 0.000000e+00
   br i1 %3, label %4, label %6
 
@@ -81887,6 +81881,12 @@ nk_pow.exit112:                                   ; preds = %.lr.ph.i104, %34
   ret ptr %0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #50
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #50
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #51
 
@@ -81954,52 +81954,52 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #43 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #44 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #45 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #46 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #47 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #48 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #49 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #50 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #43 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #44 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #45 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #46 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #47 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #48 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #49 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #50 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #51 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #52 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #53 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

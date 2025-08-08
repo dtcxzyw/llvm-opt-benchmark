@@ -223,8 +223,8 @@ define hidden void @_ZNK11XMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapI
 
 .lr.ph:                                           ; preds = %15, %31
   %17 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %17, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
@@ -253,8 +253,8 @@ _ZNK11XMountPoint14get_mountpointEPKcS1_.exit:    ; preds = %22, %25
   %27 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %27) #12
   %28 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %28, ptr %10, align 8
   %.not6 = icmp eq ptr %28, null
   br i1 %.not6, label %31, label %29
@@ -556,10 +556,10 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

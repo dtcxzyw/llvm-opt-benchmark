@@ -159,7 +159,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.l
   br i1 %or.cond.not, label %15, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread
 
 15:                                               ; preds = %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit
-  call void @llvm.lifetime.start.p0(i64 5048, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) %4, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %16 = load ptr, ptr %4, align 8
   %.not2.i = icmp ugt ptr %16, %1
@@ -177,7 +177,7 @@ _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.l
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i8, %_ZN16StackFrameStream4nextEv.exit.i
   %24 = phi ptr [ %35, %_ZN16StackFrameStream4nextEv.exit.i ], [ %16, %.lr.ph.i8 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = load i8, ptr %17, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %_ZN16StackFrameStream4nextEv.exit.i, label %27
@@ -210,12 +210,12 @@ _ZNK5frame6senderEP11RegisterMap.exit.i.i:        ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit.i:              ; preds = %_ZNK5frame6senderEP11RegisterMap.exit.i.i, %.lr.ph.split.i
   %35 = phi ptr [ %24, %.lr.ph.split.i ], [ %.pre.i, %_ZNK5frame6senderEP11RegisterMap.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i9 = icmp ugt ptr %35, %1
   br i1 %.not.i9, label %_ZL22flush_stack_processingP10JavaThreadPl.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 _ZL22flush_stack_processingP10JavaThreadPl.exit:  ; preds = %_ZN16StackFrameStream4nextEv.exit.i, %15, %.lr.ph.i8
-  call void @llvm.lifetime.end.p0(i64 5048, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread
 
 _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread: ; preds = %9, %2, %_ZL22flush_stack_processingP10JavaThreadPl.exit, %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit
@@ -766,10 +766,10 @@ declare noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull alig
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

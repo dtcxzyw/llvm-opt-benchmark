@@ -53,7 +53,7 @@ define hidden void @dbgsysBuildLibName(ptr noundef captures(none) %0, i32 nounde
 
 20:                                               ; preds = %6
   %21 = sext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %0, align 1
   %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #9
   %23 = trunc i64 %22 to i32
@@ -98,7 +98,7 @@ define hidden void @dbgsysBuildLibName(ptr noundef captures(none) %0, i32 nounde
   br label %dll_build_name.exit
 
 dll_build_name.exit:                              ; preds = %20, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %dll_build_name.exit, %17
@@ -179,10 +179,10 @@ declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) lo
 declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

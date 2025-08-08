@@ -3524,7 +3524,7 @@ SkipEOLN.exit39.i:                                ; preds = %.lr.ph.i38.i, %Skip
   br label %DataFormatSection.exit
 
 165:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %166 = load i32, ptr %96, align 4
   %167 = load i32, ptr %0, align 8
   %.not.i.i46 = icmp ult i32 %166, %167
@@ -3663,7 +3663,7 @@ SkipEOLN.exit60.i.thread:                         ; preds = %180
   br i1 %.not46.i161, label %.thread, label %214
 
 .thread:                                          ; preds = %SkipEOLN.exit60.i.thread
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %DataFormatSection.exit
 
 214:                                              ; preds = %SkipEOLN.exit60.i.thread, %SkipEOLN.exit60.i
@@ -3673,11 +3673,11 @@ SkipEOLN.exit60.i.thread:                         ; preds = %180
   br label %DataSection.exit.thread
 
 DataSection.exit.thread:                          ; preds = %176, %185, %189, %193, %195, %214
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %DataFormatSection.exit.thread
 
 217:                                              ; preds = %SkipEOLN.exit60.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not37 = icmp eq i32 %207, 7
   br i1 %.not37, label %DataFormatSection.exit, label %218
 
@@ -3843,8 +3843,8 @@ cmsIT8SetSheetType.exit71:                        ; preds = %280, %281
   br i1 %286, label %.lr.ph.i72, label %DataFormatSection.exit, !llvm.loop !33
 
 287:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %288
 
 288:                                              ; preds = %SkipEOLN.exit.i76, %287
@@ -4081,13 +4081,13 @@ SkipEOLN.exit.i76:                                ; preds = %.lr.ph.i.i75, %thre
   br label %288, !llvm.loop !42
 
 HeaderSection.exit.thread:                        ; preds = %IsAvailableOnList.exit.i, %.loopexit88.i, %296, %294, %292, %290, %373, %333, %340, %363
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %DataFormatSection.exit.thread
 
 HeaderSection.exit:                               ; preds = %288, %288, %288, %288
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %DataFormatSection.exit
 
 DataFormatSection.exit:                           ; preds = %.lr.ph.i72, %.thread, %HeaderSection.exit, %164, %SkipEOLN.exit39.i, %223, %217, %cmsIT8SetSheetType.exit67, %cmsIT8SetSheetType.exit, %cmsIT8SetSheetType.exit71, %218
@@ -4446,7 +4446,7 @@ GetData.exit.thread:                              ; preds = %SetData.exit, %.pre
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsIT8LoadFromFile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [133 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.7)
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %6
@@ -4524,11 +4524,11 @@ define hidden ptr @cmsIT8LoadFromFile(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %exitcond.not.i.i, label %IsMyFile.exit.thread, label %.lr.ph.i.i, !llvm.loop !30
 
 IsMyFile.exit.thread:                             ; preds = %24, %27, %5, %6, %9, %16
-  call void @llvm.lifetime.end.p0(i64 133, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %112
 
 IsMyFile.exit:                                    ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 133, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = icmp eq i32 %.02634.i.i, 0
   br i1 %28, label %112, label %29
 
@@ -6522,12 +6522,12 @@ define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr nounde
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 255
   store i8 0, ptr %23, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, ptr noundef nonnull align 16 dereferenceable(24) @__const.ParseCube.domain_max, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const.ParseCube.check_0_1, i64 16, i1 false)
@@ -6972,21 +6972,21 @@ ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i104.i
   br label %ParseCube.exit.thread
 
 ParseCube.exit.thread:                            ; preds = %151, %96, %.preheader175.i, %.loopexit.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread80
 
 200:                                              ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %201 = call ptr @cmsCreateProfilePlaceholder(ptr noundef %0) #19
   %.not45 = icmp eq ptr %201, null
   br i1 %.not45, label %.thread80, label %202
@@ -8911,7 +8911,7 @@ AllocChunk.exit:                                  ; preds = %790
   %810 = sext i32 %806 to i64
   %811 = getelementptr inbounds [20 x ptr], ptr %5, i64 0, i64 %810
   %812 = load ptr, ptr %811, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %813 = icmp eq ptr %.val167, null
   br i1 %813, label %isabsolutepath.exit.thread.i, label %814
 
@@ -8921,14 +8921,14 @@ AllocChunk.exit:                                  ; preds = %790
   br i1 %816, label %isabsolutepath.exit.thread.i, label %isabsolutepath.exit.i
 
 isabsolutepath.exit.thread.i:                     ; preds = %814, %805
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %821
 
 isabsolutepath.exit.i:                            ; preds = %814
   %817 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull readonly dereferenceable(1) %.val167, i64 noundef 3) #19
   %818 = load i8, ptr %2, align 1
   %.not.i250 = icmp eq i8 %818, 47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i250, label %819, label %821
 
 819:                                              ; preds = %isabsolutepath.exit.i
@@ -10088,10 +10088,10 @@ declare i32 @llvm.umax.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

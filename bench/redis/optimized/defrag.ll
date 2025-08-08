@@ -109,23 +109,17 @@ define dso_local noalias ptr @activeDefragAlloc(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @je_get_defrag_hint(ptr noundef) local_unnamed_addr #2
+declare i32 @je_get_defrag_hint(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @je_malloc_usable_size(ptr noundef) local_unnamed_addr #3
+declare i64 @je_malloc_usable_size(ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @zmalloc_no_tcache(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @zmalloc_no_tcache(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @zfree_no_tcache(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @zfree_no_tcache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias ptr @activeDefragAllocRaw(i64 noundef %0) local_unnamed_addr #0 {
@@ -176,7 +170,7 @@ activeDefragAlloc.exit:                           ; preds = %4, %7
   ret ptr %.0
 }
 
-declare ptr @sdsAllocPtr(ptr noundef) local_unnamed_addr #2
+declare ptr @sdsAllocPtr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @activeDefragHfield(ptr noundef %0) #0 {
@@ -348,10 +342,10 @@ activeDefragAlloc.exit39:                         ; preds = %41
   ret ptr %.0
 }
 
-declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @activeDefragStringOb(ptr noundef %0) #0 {
@@ -572,12 +566,12 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
   ret void
 }
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   %6 = select i1 %.not, ptr %2, ptr %3
   %7 = load ptr, ptr %0, align 8, !tbaa !56
@@ -710,11 +704,11 @@ activeDefragAlloc.exit:                           ; preds = %45
 
 55:                                               ; preds = %activeDefragAlloc.exit.thread, %activeDefragAlloc.exit, %53
   %.0 = phi ptr [ %54, %53 ], [ null, %activeDefragAlloc.exit ], [ null, %activeDefragAlloc.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragZsetEntry(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -769,16 +763,16 @@ activeDefragSds.exit:                             ; preds = %2
   ret void
 }
 
-declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #2
+declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 
-declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #2
+declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
-declare void @dictSetVal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dictSetVal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @activeDefragSdsDictCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define dso_local void @activeDefragSdsDictCallback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret void
 }
 
@@ -852,20 +846,20 @@ activeDefragHfield.exit:                          ; preds = %6
   ret void
 }
 
-declare i64 @hfieldGetExpireTime(ptr noundef) local_unnamed_addr #2
+declare i64 @hfieldGetExpireTime(ptr noundef) local_unnamed_addr #1
 
-declare ptr @hashTypeGetDictMetaHFE(ptr noundef) local_unnamed_addr #2
+declare ptr @hashTypeGetDictMetaHFE(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ebDefragItem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ebDefragItem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @dictGetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @dictGetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @dictFindByHashAndPtr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @dictFindByHashAndPtr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragSdsDict(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dictDefragFunctions, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @activeDefragSds, ptr %4, align 8, !tbaa !70
@@ -897,16 +891,16 @@ define dso_local void @activeDefragSdsDict(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %15, label %13, !llvm.loop !72
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i64 @dictScanDefrag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @dictScanDefrag(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragHfieldDict(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.dictDefragFunctions, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   br label %3
 
@@ -917,7 +911,7 @@ define dso_local void @activeDefragHfieldDict(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %5, label %3, !llvm.loop !73
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1165,7 +1159,7 @@ activeDefragAlloc.exit26:                         ; preds = %23
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragQuickListNodes(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %storemerge2 = load ptr, ptr %0, align 8, !tbaa !83
   store ptr %storemerge2, ptr %2, align 8, !tbaa !83
   %.not3 = icmp eq ptr %storemerge2, null
@@ -1181,7 +1175,7 @@ define dso_local void @activeDefragQuickListNodes(ptr noundef captures(none) %0)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1195,19 +1189,19 @@ define dso_local void @defragLater(ptr noundef readonly captures(none) %0, ptr n
   ret void
 }
 
-declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
+declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !41
   store ptr %7, ptr %4, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load i32, ptr %0, align 8
   %9 = and i32 %8, 255
   %or.cond22 = icmp eq i32 %9, 145
@@ -1300,18 +1294,18 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
 
 41:                                               ; preds = %3, %._crit_edge, %32, %15
   %.015 = phi i64 [ 1, %32 ], [ %.0.lcssa, %._crit_edge ], [ 0, %15 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.015
 }
 
-declare ptr @quicklistBookmarkFind(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @quicklistBookmarkFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ustime() local_unnamed_addr #2
+declare i64 @ustime() local_unnamed_addr #1
 
-declare i32 @quicklistBookmarkCreate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @quicklistBookmarkCreate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @quicklistBookmarkDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @quicklistBookmarkDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scanLaterZsetCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -1336,15 +1330,15 @@ define dso_local void @scanLaterZset(ptr noundef readonly captures(none) %0, ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = load ptr, ptr %9, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
   %11 = load i64, ptr %1, align 8, !tbaa !94
   %12 = call i64 @dictScanDefrag(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @scanLaterZsetCallback, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
   store i64 %12, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %2, %7
@@ -1352,7 +1346,7 @@ define dso_local void @scanLaterZset(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @scanCallbackCountScanned(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 {
+define dso_local void @scanCallbackCountScanned(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %4 = add nsw i64 %3, 1
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
@@ -1370,12 +1364,12 @@ define dso_local void @scanLaterSet(ptr noundef readonly captures(none) %0, ptr 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
   %9 = load i64, ptr %1, align 8, !tbaa !94
   %10 = call i64 @dictScanDefrag(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @scanCallbackCountScanned, ptr noundef nonnull %3, ptr noundef null) #10
   store i64 %10, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -1393,12 +1387,12 @@ define dso_local void @scanLaterHash(ptr noundef readonly captures(none) %0, ptr
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   %9 = load i64, ptr %1, align 8, !tbaa !94
   %10 = call i64 @dictScanDefrag(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %3, ptr noundef %8) #10
   store i64 %10, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -1464,7 +1458,7 @@ activeDefragAlloc.exit:                           ; preds = %11
   br label %34
 
 31:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %storemerge2.i = load ptr, ptr %.0, align 8, !tbaa !83
   store ptr %storemerge2.i, ptr %3, align 8, !tbaa !83
   %.not3.i = icmp eq ptr %storemerge2.i, null
@@ -1480,7 +1474,7 @@ activeDefragAlloc.exit:                           ; preds = %11
   br i1 %.not.i12, label %activeDefragQuickListNodes.exit, label %.lr.ph.i, !llvm.loop !89
 
 activeDefragQuickListNodes.exit:                  ; preds = %.lr.ph.i, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %activeDefragQuickListNodes.exit, %25
@@ -1636,11 +1630,11 @@ activeDefragAlloc.exit39:                         ; preds = %30
   ret void
 }
 
-declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #2
+declare ptr @dictGetIterator(ptr noundef) local_unnamed_addr #1
 
-declare ptr @dictNext(ptr noundef) local_unnamed_addr #2
+declare ptr @dictNext(ptr noundef) local_unnamed_addr #1
 
-declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #2
+declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1677,7 +1671,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   br label %28
 
 25:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   br label %26
 
@@ -1688,7 +1682,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not.i, label %activeDefragHfieldDict.exit, label %26, !llvm.loop !73
 
 activeDefragHfieldDict.exit:                      ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %activeDefragHfieldDict.exit, %19
@@ -1740,7 +1734,7 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
   br label %30
 
 25:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @activeDefragSds, ptr %26, align 8, !tbaa !70
@@ -1755,7 +1749,7 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not.i, label %activeDefragSdsDict.exit, label %28, !llvm.loop !72
 
 activeDefragSdsDict.exit:                         ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 30:                                               ; preds = %activeDefragSdsDict.exit, %19
@@ -1808,7 +1802,7 @@ activeDefragAlloc.exit:                           ; preds = %1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @scanLaterStreamListpacks(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.raxIterator, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 255
   %or.cond = icmp eq i32 %6, 166
@@ -1963,24 +1957,24 @@ activeDefragAlloc.exit:                           ; preds = %38
 
 66:                                               ; preds = %29, %._crit_edge, %.critedge, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @raxStop(ptr noundef) local_unnamed_addr #2
+declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxNext(ptr noundef) local_unnamed_addr #2
+declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 
-declare void @raxSetData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @raxSetData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragRadixTree(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.raxIterator, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %0, align 8, !tbaa !115
   %7 = tail call i32 @je_get_defrag_hint(ptr noundef %6) #10
   %.not.i = icmp eq i32 %7, 0
@@ -2149,7 +2143,7 @@ activeDefragAlloc.exit22.thread38:                ; preds = %.lr.ph.split.split,
 
 ._crit_edge:                                      ; preds = %59, %46, %activeDefragAlloc.exit22.us.thread, %defragRaxNode.exit
   call void @raxStop(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2184,7 +2178,7 @@ activeDefragAlloc.exit:                           ; preds = %2
   br i1 %.not, label %29, label %16
 
 16:                                               ; preds = %activeDefragAlloc.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = load ptr, ptr %1, align 8, !tbaa !126
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !127
@@ -2203,7 +2197,7 @@ activeDefragAlloc.exit:                           ; preds = %2
   unreachable
 
 28:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %activeDefragAlloc.exit.thread, %28, %activeDefragAlloc.exit
@@ -2211,7 +2205,7 @@ activeDefragAlloc.exit:                           ; preds = %2
   ret ptr %.0.i14
 }
 
-declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @defragStreamConsumer(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -2281,12 +2275,12 @@ activeDefragSds.exit:                             ; preds = %activeDefragAlloc.e
   br i1 %.not17, label %35, label %33
 
 33:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !126
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %spec.select, ptr %34, align 8, !tbaa !120
   call void @defragRadixTree(ptr noundef nonnull %31, i32 noundef 0, ptr noundef nonnull @defragStreamConsumerPendingEntry, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %33, %30
@@ -2422,7 +2416,7 @@ activeDefragAlloc.exit23:                         ; preds = %24
   ret void
 }
 
-declare i64 @raxSize(ptr noundef) local_unnamed_addr #2
+declare i64 @raxSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2439,7 +2433,7 @@ define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr 
   unreachable
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 2147483646, ptr %10, align 4, !tbaa !39
   store i32 0, ptr %3, align 8
@@ -2461,11 +2455,11 @@ define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr 
   br label %22
 
 22:                                               ; preds = %16, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @moduleDefragValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @moduleDefragValue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2832,19 +2826,19 @@ activeDefragAlloc.exit125:                        ; preds = %126
   ret void
 }
 
-declare void @kvstoreDictSetKey(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @kvstoreDictSetKey(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @kvstoreDictSize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @kvstoreGetHash(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @kvstoreGetHash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @kvstoreDictFindByHashAndPtr(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @kvstoreDictFindByHashAndPtr(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @hashTypeUpdateKeyRef(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hashTypeUpdateKeyRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @hashTypeGetMinExpire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @hashTypeGetMinExpire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @kvstoreDictSetVal(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @kvstoreDictSetVal(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragScanCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -2883,10 +2877,10 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @zmalloc_get_allocator_info(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %5) #10
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8020), align 4, !tbaa !147
   %.not = icmp eq i32 %11, -1
@@ -2899,10 +2893,10 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   br label %26
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = call i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %11, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9) #10
   %14 = load i64, ptr %6, align 8, !tbaa !94
   %15 = load i64, ptr %2, align 8, !tbaa !94
@@ -2920,10 +2914,10 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   %24 = load i64, ptr %5, align 8, !tbaa !94
   %25 = sub i64 %24, %23
   store i64 %25, ptr %5, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
 26:                                               ; preds = %._crit_edge, %12
@@ -2958,21 +2952,21 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   br label %46
 
 46:                                               ; preds = %39, %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %33
 }
 
-declare i32 @zmalloc_get_allocator_info(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zmalloc_get_allocator_info(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zmalloc_get_allocator_info_by_arena(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zmalloc_get_allocator_info_by_arena(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #8
+declare float @llvm.fmuladd.f32(float, float, float) #7
 
-declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -3059,13 +3053,13 @@ define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(no
   ret void
 }
 
-declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragOtherGlobals() local_unnamed_addr #0 {
   %1 = alloca %struct.dictDefragFunctions, align 8
   %2 = tail call ptr @evalScriptsDict() #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @activeDefragSds, ptr %3, align 8, !tbaa !70
@@ -3080,7 +3074,7 @@ define dso_local void @defragOtherGlobals() local_unnamed_addr #0 {
   br i1 %.not.i, label %activeDefragSdsDict.exit, label %5, !llvm.loop !72
 
 activeDefragSdsDict.exit:                         ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @moduleDefragGlobals() #10
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !153
   call void @kvstoreDictLUTDefrag(ptr noundef %7, ptr noundef nonnull @dictDefragTables) #10
@@ -3089,11 +3083,11 @@ activeDefragSdsDict.exit:                         ; preds = %5
   ret void
 }
 
-declare ptr @evalScriptsDict() local_unnamed_addr #2
+declare ptr @evalScriptsDict() local_unnamed_addr #1
 
-declare void @moduleDefragGlobals() local_unnamed_addr #2
+declare void @moduleDefragGlobals() local_unnamed_addr #1
 
-declare void @kvstoreDictLUTDefrag(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @kvstoreDictLUTDefrag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -3131,12 +3125,12 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
   %22 = load i64, ptr %1, align 8, !tbaa !94
   %23 = call i64 @dictScanDefrag(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @scanCallbackCountScanned, ptr noundef nonnull %8, ptr noundef null) #10
   store i64 %23, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %scanLaterSet.exit
 
 24:                                               ; preds = %10
@@ -3148,15 +3142,15 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %28, ptr %6, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
   %30 = load i64, ptr %1, align 8, !tbaa !94
   %31 = call i64 @dictScanDefrag(ptr noundef %29, i64 noundef %30, ptr noundef nonnull @scanLaterZsetCallback, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
   store i64 %31, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %scanLaterSet.exit
 
 32:                                               ; preds = %10
@@ -3167,12 +3161,12 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   %37 = load i64, ptr %1, align 8, !tbaa !94
   %38 = call i64 @dictScanDefrag(ptr noundef %36, i64 noundef %37, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %5, ptr noundef %36) #10
   store i64 %38, ptr %1, align 8, !tbaa !94
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %scanLaterSet.exit
 
 39:                                               ; preds = %10
@@ -3180,7 +3174,7 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %scanLaterSet.exit
 
 41:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 2147483646, ptr %42, align 4, !tbaa !39
   store i32 0, ptr %9, align 8
@@ -3188,7 +3182,7 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !41
   %45 = call i32 @moduleLateDefrag(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, i32 noundef %3) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %scanLaterSet.exit
 
 46:                                               ; preds = %10
@@ -3204,7 +3198,7 @@ scanLaterSet.exit:                                ; preds = %34, %32, %26, %24, 
   ret i32 %.1
 }
 
-declare i32 @moduleLateDefrag(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @moduleLateDefrag(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -3354,14 +3348,14 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   ret i32 %.3
 }
 
-declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @kvstoreDictFind(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @kvstoreDictFind(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @computeDefragCycles(float noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call float @getAllocatorFragmentation(ptr noundef nonnull %2)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %.not = icmp eq i32 %4, 0
@@ -3419,7 +3413,7 @@ define dso_local void @computeDefragCycles(float noundef %0) local_unnamed_addr 
   br label %40
 
 40:                                               ; preds = %._crit_edge, %34, %37, %6, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3589,7 +3583,7 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
 
 83:                                               ; preds = %79
   %84 = call ptr @evalScriptsDict() #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !68
   store ptr @activeDefragSds, ptr %49, align 8, !tbaa !70
   store ptr @activeDefragLuaScript, ptr %50, align 8, !tbaa !71
@@ -3602,14 +3596,14 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   br i1 %.not.i.i, label %defragOtherGlobals.exit, label %85, !llvm.loop !72
 
 defragOtherGlobals.exit:                          ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @moduleDefragGlobals() #10
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !153
   call void @kvstoreDictLUTDefrag(ptr noundef %87, ptr noundef nonnull @dictDefragTables) #10
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !154
   call void @kvstoreDictLUTDefrag(ptr noundef %88, ptr noundef nonnull @dictDefragTables) #10
   %89 = call i64 @ustime() #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = call float @getAllocatorFragmentation(ptr noundef nonnull %3)
   %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !148
   %92 = icmp sgt i32 %91, 1
@@ -3685,7 +3679,7 @@ defragOtherGlobals.exit:                          ; preds = %85
   br i1 %133, label %220, label %134
 
 134:                                              ; preds = %128, %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 135:                                              ; preds = %79
@@ -3725,7 +3719,7 @@ defragOtherGlobals.exit:                          ; preds = %85
 
 .loopexit154:                                     ; preds = %220, %.outer, %142
   %151 = phi ptr [ %.pre141, %142 ], [ %.pre142168, %.outer ], [ %.pre142, %220 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %152 = load ptr, ptr %151, align 8, !tbaa !139
   store ptr %152, ptr %4, align 16, !tbaa !174
   store ptr @defragScanCallback, ptr %51, align 8, !tbaa !176
@@ -3883,11 +3877,11 @@ thread-pre-split:                                 ; preds = %165
   br i1 %219, label %.lr.ph173, label %._crit_edge, !prof !180, !llvm.loop !181
 
 .thread113.thread:                                ; preds = %211, %.lr.ph173, %.thread101
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 220:                                              ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %221 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %222 = icmp eq i32 %221, 0
   %223 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
@@ -3953,29 +3947,35 @@ thread-pre-split:                                 ; preds = %165
   ret void
 }
 
-declare void @listEmpty(ptr noundef) local_unnamed_addr #2
+declare void @listEmpty(ptr noundef) local_unnamed_addr #1
 
-declare void @moduleDefragEnd() local_unnamed_addr #2
+declare void @moduleDefragEnd() local_unnamed_addr #1
 
-declare i32 @hasActiveChildProcess() local_unnamed_addr #2
+declare i32 @hasActiveChildProcess() local_unnamed_addr #1
 
-declare i64 @mstime() local_unnamed_addr #2
+declare i64 @mstime() local_unnamed_addr #1
 
-declare void @moduleDefragStart() local_unnamed_addr #2
+declare void @moduleDefragStart() local_unnamed_addr #1
 
-declare ptr @getClientPubSubChannels(ptr noundef) #2
+declare ptr @getClientPubSubChannels(ptr noundef) #1
 
-declare ptr @getClientPubSubShardChannels(ptr noundef) #2
+declare ptr @getClientPubSubShardChannels(ptr noundef) #1
 
-declare i32 @kvstoreGetFirstNonEmptyDictIndex(ptr noundef) local_unnamed_addr #2
+declare i32 @kvstoreGetFirstNonEmptyDictIndex(ptr noundef) local_unnamed_addr #1
 
-declare i64 @kvstoreDictScanDefrag(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @kvstoreDictScanDefrag(ptr noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @kvstoreGetNextNonEmptyDictIndex(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @kvstoreGetNextNonEmptyDictIndex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @mstrGetAllocPtr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @mstrGetAllocPtr(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
@@ -3987,14 +3987,14 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare float @llvm.fabs.f32(float) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

@@ -211,7 +211,7 @@ define void @lv_draw_buf_invalidate_cache(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not13, label %22, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq ptr %1, null
   br i1 %11, label %12, label %20
 
@@ -232,18 +232,12 @@ define void @lv_draw_buf_invalidate_cache(ptr noundef %0, ptr noundef %1) local_
   %21 = phi ptr [ %.pre, %12 ], [ %9, %10 ]
   %.0 = phi ptr [ %3, %12 ], [ %1, %10 ]
   call void %21(ptr noundef nonnull %0, ptr noundef nonnull %.0) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %7, %20
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -270,7 +264,7 @@ define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not13, label %22, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = icmp eq ptr %1, null
   br i1 %11, label %12, label %20
 
@@ -291,7 +285,7 @@ define void @lv_draw_buf_flush_cache(ptr noundef %0, ptr noundef %1) local_unnam
   %21 = phi ptr [ %.pre, %12 ], [ %9, %10 ]
   %.0 = phi ptr [ %3, %12 ], [ %1, %10 ]
   call void %21(ptr noundef nonnull %0, ptr noundef nonnull %.0) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %7, %20
@@ -361,7 +355,7 @@ switch.lookup:                                    ; preds = %11
   br i1 %.not13.i, label %lv_draw_buf_flush_cache.exit, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val.i = load i64, ptr %0, align 4
   %35 = lshr i64 %.val.i, 32
   %36 = trunc nuw i64 %35 to i32
@@ -373,11 +367,11 @@ switch.lookup:                                    ; preds = %11
   call void @lv_area_set(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, i32 noundef %38, i32 noundef %41) #9
   %.pre.i = load ptr, ptr %32, align 8, !tbaa !12
   call void %.pre.i(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %lv_draw_buf_flush_cache.exit
 
 42:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %43, align 4, !tbaa !22
@@ -393,7 +387,7 @@ switch.lookup:                                    ; preds = %11
   %52 = add nsw i32 %51, -1
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %52, ptr %53, align 4, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = call zeroext i1 @lv_area_intersect(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   br i1 %54, label %55, label %lv_draw_buf_flush_cache.exit42
 
@@ -507,8 +501,8 @@ lv_draw_buf_goto_xy.exit34:                       ; preds = %76, %85
   br label %lv_draw_buf_flush_cache.exit42
 
 lv_draw_buf_flush_cache.exit42:                   ; preds = %112, %109, %58, %55, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %lv_draw_buf_flush_cache.exit
 
 lv_draw_buf_flush_cache.exit:                     ; preds = %34, %31, %lv_draw_buf_flush_cache.exit42
@@ -572,13 +566,13 @@ switch.lookup:                                    ; preds = %4
   ret ptr %.1
 }
 
-declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #3
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #3
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #3
+declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_buf_copy(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -874,7 +868,7 @@ switch.lookup123:                                 ; preds = %119
   ret void
 }
 
-declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_draw_buf_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -1083,9 +1077,9 @@ lv_draw_buf_align.exit:                           ; preds = %36, %54
   ret ptr %.1
 }
 
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #3
+declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_draw_buf_dup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -1557,7 +1551,7 @@ switch.lookup:                                    ; preds = %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_draw_buf_has_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define zeroext i1 @lv_draw_buf_has_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 16
@@ -1566,7 +1560,7 @@ define zeroext i1 @lv_draw_buf_has_flag(ptr noundef readonly captures(none) %0, 
   ret i1 %7
 }
 
-declare ptr @lv_memmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @lv_memmove(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_draw_buf_premultiply(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1776,12 +1770,12 @@ switch.lookup:                                    ; preds = %10
   ret i32 %.0
 }
 
-declare void @lv_color_premultiply(ptr noundef) local_unnamed_addr #3
+declare void @lv_color_premultiply(ptr noundef) local_unnamed_addr #2
 
-declare void @lv_color16_premultiply(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @lv_color16_premultiply(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
+define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1810,7 +1804,7 @@ define void @lv_draw_buf_set_palette(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_buf_set_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_draw_buf_set_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = shl i32 %1, 16
@@ -1824,7 +1818,7 @@ define void @lv_draw_buf_set_flag(ptr noundef captures(none) %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_buf_clear_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_draw_buf_clear_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = xor i32 %1, -1
   %4 = load i64, ptr %0, align 8
   %5 = trunc i64 %4 to i32
@@ -1927,7 +1921,7 @@ define void @lv_draw_buf_to_image(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @lv_image_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #5 {
+define void @lv_image_buf_set_palette(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i32 %2) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %4
 
@@ -1978,11 +1972,17 @@ define void @lv_image_buf_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #3
+declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #2
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #3
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
-declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @lv_area_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
@@ -1992,11 +1992,11 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

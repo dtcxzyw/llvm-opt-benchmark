@@ -89,7 +89,7 @@ _ZNSt10unique_ptrIN5arrow8internal22FloatToStringFormatter4ImplESt14default_dele
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEfPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, float noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow_vendored::double_conversion::StringBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %6, align 8, !tbaa !22
@@ -113,7 +113,7 @@ _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter16ToShortestSing
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter16ToShortestSingleEfPNS0_13StringBuilderE.exit, %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %11
 
 17:                                               ; preds = %4
@@ -131,20 +131,14 @@ _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK1
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5: ; preds = %17, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %18
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEdPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, double noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow_vendored::double_conversion::StringBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %6, align 8, !tbaa !22
@@ -167,7 +161,7 @@ _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPN
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPNS0_13StringBuilderE.exit, %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %10
 
 16:                                               ; preds = %4
@@ -185,7 +179,7 @@ _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK1
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5: ; preds = %16, %20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %17
 }
 
@@ -193,14 +187,14 @@ _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5: ; preds = %16, 
 define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i16 noundef zeroext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.arrow_vendored::double_conversion::StringBuilder", align 8
   %6 = alloca %"class.arrow::util::Float16", align 2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %7, align 8, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8, !tbaa !23
   %9 = load ptr, ptr %0, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %1, ptr %6, align 2
   %10 = invoke noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2) %6)
           to label %11 unwind label %20
@@ -211,7 +205,7 @@ define noundef i32 @_ZN5arrow8internal22FloatToStringFormatter11FormatFloatEtPci
           to label %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPNS0_13StringBuilderE.exit unwind label %20
 
 _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPNS0_13StringBuilderE.exit: ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = load i32, ptr %8, align 8, !tbaa !23
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit, label %16
@@ -224,13 +218,13 @@ _ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPN
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter10ToShortestEdPNS0_13StringBuilderE.exit, %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %14
 
 20:                                               ; preds = %11, %4
   %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %22 = load i32, ptr %8, align 8, !tbaa !23
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5, label %24
@@ -243,23 +237,28 @@ _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit: ; preds = %_ZNK1
   br label %_ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5
 
 _ZN14arrow_vendored17double_conversion13StringBuilderD2Ev.exit5: ; preds = %20, %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %21
 }
 
-declare noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2)) local_unnamed_addr #5
+declare noundef float @_ZNK5arrow4util7Float167ToFloatEv(ptr noundef nonnull align 2 dereferenceable(2)) local_unnamed_addr #4
 
-declare noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48), double noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZNK14arrow_vendored17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS0_13StringBuilderENS1_8DtoaModeE(ptr noundef nonnull align 8 dereferenceable(48), double noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { builtin allocsize(0) }
 attributes #7 = { builtin nounwind }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

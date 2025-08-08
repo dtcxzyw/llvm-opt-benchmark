@@ -2764,7 +2764,7 @@ _ZN7CommandC2EPKc.exit:                           ; preds = %3, %22
   %25 = inttoptr i64 %0 to ptr
   %26 = icmp sgt i32 %2, 0
   %27 = select i1 %26, i32 %2, i32 -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %25, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2772,7 +2772,7 @@ _ZN7CommandC2EPKc.exit:                           ; preds = %3, %22
   %30 = load ptr, ptr @tty, align 8
   call void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8print_onEP12outputStreamiPKcS8_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %30, i32 noundef %27, ptr noundef null, ptr noundef null) #16
   %31 = load i64, ptr %29, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr @tty, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
@@ -3060,7 +3060,7 @@ define hidden void @_Z24initialize_assert_poisonv() local_unnamed_addr #1 {
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
@@ -3072,7 +3072,7 @@ define hidden void @_Z24initialize_assert_poisonv() local_unnamed_addr #1 {
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %4, %7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %8 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %9 = call noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef nonnull %3, i64 noundef %8, i1 noundef zeroext false) #16
   br i1 %9, label %10, label %14
@@ -3260,10 +3260,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8print_onEP12outputStreamiPKcS8_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14

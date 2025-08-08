@@ -138,13 +138,7 @@ define zeroext range(i8 0, 2) i8 @lean_sharecommon_eq(ptr noundef %0, ptr nounde
   ret i8 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @lean_object_data_byte_size(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @lean_object_data_byte_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i64 @lean_sharecommon_hash(ptr noundef %0) local_unnamed_addr #0 {
@@ -188,12 +182,12 @@ define i64 @lean_sharecommon_hash(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %.0
 }
 
-declare noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @_ZN4lean8hash_strEmPKhm(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @lean_state_sharecommon(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.lean::sharecommon_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   store ptr %6, ptr %4, align 8, !tbaa !7
@@ -306,7 +300,7 @@ _ZN4lean17sharecommon_stateC2EP11lean_objectS2_.exit: ; preds = %_ZL8lean_incP11
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %51 to i64
   %57 = sub i64 %55, %56
-  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #21
+  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit.i:   ; preds = %52, %49
@@ -320,7 +314,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit.i:   ; preds = %52, %49
   %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %62, %63
-  call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #21
+  call void @_ZdlPvm(ptr noundef nonnull %58, i64 noundef %64) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit2.i
 
 _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit2.i:  ; preds = %59, %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit.i
@@ -377,18 +371,18 @@ _ZL8lean_decP11lean_object.exit4.i.i:             ; preds = %74, %73, %71, %_ZNS
   %86 = landingpad { ptr, i32 }
           catch ptr null
   %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #22
+  call void @__clang_call_terminate(ptr %87) #21
   unreachable
 
 _ZN4lean14sharecommon_fnD2Ev.exit:                ; preds = %_ZL8lean_decP11lean_object.exit4.i.i, %81, %83, %84
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %48
 
 88:                                               ; preds = %_ZN4lean17sharecommon_stateC2EP11lean_objectS2_.exit
   %89 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean14sharecommon_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #20
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #20
+  call void @_ZN4lean14sharecommon_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %89
 }
 
@@ -463,7 +457,7 @@ _ZL8lean_decP11lean_object.exit:                  ; preds = %27, %29, %30, %_ZL8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat()
-  %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #20
+  %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #22
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %_ZN4leanL7mk_pairEP11lean_objectS1_.exit.i
 
@@ -480,7 +474,7 @@ _ZN4leanL7mk_pairEP11lean_objectS1_.exit.i:       ; preds = %_ZL8lean_decP11lean
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %34, ptr %40, align 8, !tbaa !3
   tail call void @lean_inc_heartbeat()
-  %41 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #20
+  %41 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #22
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %_ZN4lean17sharecommon_state4packEP11lean_object.exit
 
@@ -523,7 +517,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   ]
 
 53:                                               ; preds = %.lr.ph
-  %54 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %54 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %56, ptr %55, align 8, !tbaa !23
@@ -597,7 +591,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   br label %125
 
 94:                                               ; preds = %.lr.ph
-  %95 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %95 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store ptr %97, ptr %96, align 8, !tbaa !23
@@ -609,7 +603,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   unreachable
 
 99:                                               ; preds = %.lr.ph
-  %100 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %100 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store ptr %102, ptr %101, align 8, !tbaa !23
@@ -621,7 +615,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   unreachable
 
 104:                                              ; preds = %.lr.ph
-  %105 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %105 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store ptr %107, ptr %106, align 8, !tbaa !23
@@ -633,7 +627,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   unreachable
 
 109:                                              ; preds = %.lr.ph
-  %110 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %110 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store ptr %112, ptr %111, align 8, !tbaa !23
@@ -645,7 +639,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   unreachable
 
 114:                                              ; preds = %.lr.ph
-  %115 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %115 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %117, ptr %116, align 8, !tbaa !23
@@ -657,7 +651,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit: ; preds = %_ZN4leanL7mk_pa
   unreachable
 
 119:                                              ; preds = %.lr.ph
-  %120 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %120 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store ptr %122, ptr %121, align 8, !tbaa !23
@@ -759,7 +753,7 @@ _ZL8lean_decP11lean_object.exit28:                ; preds = %154, %156, %157, %_
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %161 = load ptr, ptr %160, align 8, !tbaa !17
   tail call void @lean_inc_heartbeat()
-  %162 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #20
+  %162 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #22
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %_ZN4leanL7mk_pairEP11lean_objectS1_.exit.i34
 
@@ -776,7 +770,7 @@ _ZN4leanL7mk_pairEP11lean_objectS1_.exit.i34:     ; preds = %_ZL8lean_decP11lean
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store ptr %161, ptr %167, align 8, !tbaa !3
   tail call void @lean_inc_heartbeat()
-  %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #20
+  %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #22
   %169 = icmp eq ptr %168, null
   br i1 %169, label %170, label %_ZN4lean17sharecommon_state4packEP11lean_object.exit35
 
@@ -804,7 +798,7 @@ _ZN4lean17sharecommon_state4packEP11lean_object.exit35: ; preds = %_ZN4leanL7mk_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean14sharecommon_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4lean14sharecommon_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %.not.i.i.i = icmp eq ptr %3, null
@@ -816,7 +810,7 @@ define linkonce_odr hidden void @_ZN4lean14sharecommon_fnD2Ev(ptr noundef nonnul
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %9) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit:     ; preds = %1, %4
@@ -831,7 +825,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit:     ; preds = %1, %4
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit2
 
 _ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit2:    ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EED2Ev.exit, %12
@@ -890,7 +884,7 @@ _ZL8lean_decP11lean_object.exit4.i:               ; preds = %28, %27, %25, %_ZNS
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  tail call void @__clang_call_terminate(ptr %42) #22
+  tail call void @__clang_call_terminate(ptr %42) #21
   unreachable
 
 _ZN4lean17sharecommon_stateD2Ev.exit:             ; preds = %_ZL8lean_decP11lean_object.exit4.i, %36, %38, %39
@@ -1012,10 +1006,10 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_(ptr no
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8, !tbaa !56
   %11 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = load ptr, ptr %5, align 8, !tbaa !3
   br label %25
 
@@ -1053,12 +1047,12 @@ _ZL12lean_dec_refP11lean_object.exit:             ; preds = %19, %21, %22
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0, ptr %28, align 8
   %29 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_IS1_S1_EEEES2_INS7_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %30
 
 30:                                               ; preds = %27, %25
@@ -1076,10 +1070,10 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_objec
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8, !tbaa !56
   %9 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %4, align 8, !tbaa !3
   br label %13
 
@@ -1120,7 +1114,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn11visit_arrayEP11lean_object(p
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.23", align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !3
   %.val.i = load i32, ptr %1, align 4, !tbaa !13
   %7 = icmp eq i32 %.val.i, 1
@@ -1209,7 +1203,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
 _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr i8, ptr %1, i64 8
   %.val.i18 = load i64, ptr %48, align 8, !tbaa !32
   %49 = shl i64 %.val.i18, 3
@@ -1239,11 +1233,11 @@ _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit: ; preds = %_ZNS
   %60 = load i32, ptr %.sink.i, align 4, !tbaa !13
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %.sink.i, align 4, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
 ._crit_edge:                                      ; preds = %85, %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %51, ptr %4, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = call ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -1251,10 +1245,10 @@ _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit: ; preds = %_ZNS
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %62, ptr %3, align 8, !tbaa !56
   %66 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = load ptr, ptr %4, align 8, !tbaa !3
   br label %80
 
@@ -1292,16 +1286,16 @@ _ZL12lean_dec_refP11lean_object.exit.i:           ; preds = %77, %76, %74
   br i1 %81, label %_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit, label %82
 
 82:                                               ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i, ptr %83, align 8
   %84 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_IS1_S1_EEEES2_INS7_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit
 
 _ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit: ; preds = %80, %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %91
 
 85:                                               ; preds = %.lr.ph, %85
@@ -1479,7 +1473,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noun
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 57:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = call ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -1487,10 +1481,10 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noun
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %58, ptr %7, align 8, !tbaa !56
   %62 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %58, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !3
   br label %66
 
@@ -1522,11 +1516,11 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noun
 
 _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit: ; preds = %69, %71, %72
   %73 = phi ptr [ %67, %69 ], [ %67, %71 ], [ %.pre3.i, %72 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 74:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = call ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -1534,10 +1528,10 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit: ; preds = %6
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %75, ptr %5, align 8, !tbaa !56
   %79 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %75, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i45 = load ptr, ptr %6, align 8, !tbaa !3
   br label %83
 
@@ -1569,11 +1563,11 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit: ; preds = %6
 
 _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46: ; preds = %86, %88, %89
   %90 = phi ptr [ %84, %86 ], [ %84, %88 ], [ %.pre3.i44, %89 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 91:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = call ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -1581,10 +1575,10 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46: ; preds = 
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %92, ptr %3, align 8, !tbaa !56
   %96 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i50 = load ptr, ptr %4, align 8, !tbaa !3
   br label %100
 
@@ -1616,7 +1610,7 @@ _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit46: ; preds = 
 
 _ZN4lean20sharecommon_quick_fn14visit_terminalEP11lean_object.exit51: ; preds = %103, %105, %106
   %107 = phi ptr [ %101, %103 ], [ %101, %105 ], [ %.pre3.i49, %106 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL12lean_inc_refP11lean_object.exit
 
 108:                                              ; preds = %11
@@ -1638,7 +1632,7 @@ define noundef ptr @_ZN4lean20sharecommon_quick_fn10visit_ctorEP11lean_object(pt
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::pair.23", align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !3
   %.val.i = load i32, ptr %1, align 4, !tbaa !13
   %7 = icmp eq i32 %.val.i, 1
@@ -1727,7 +1721,7 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
 _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = getelementptr i8, ptr %1, i64 4
   %.val32 = load i32, ptr %48, align 4
   %49 = lshr i32 %.val32, 16
@@ -1745,7 +1739,7 @@ _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds 
   %59 = add nuw nsw i64 %58, %56
   call void @lean_inc_heartbeat()
   %60 = and i64 %59, 4294967288
-  %61 = call noalias ptr @mi_malloc_small(i64 noundef %60) #20
+  %61 = call noalias ptr @mi_malloc_small(i64 noundef %60) #22
   %62 = icmp eq ptr %61, null
   br i1 %62, label %65, label %_ZL23lean_alloc_small_objectj.exit.i.i
 
@@ -1755,7 +1749,7 @@ _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit: ; preds = %_ZNS
   %63 = load i32, ptr %.sink.i, align 4, !tbaa !13
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %.sink.i, align 4, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %117
 
 65:                                               ; preds = %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread
@@ -1821,7 +1815,7 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZL23lean_alloc_sma
   br label %93
 
 93:                                               ; preds = %88, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %61, ptr %4, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %95 = call ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -1829,10 +1823,10 @@ _ZL15lean_alloc_ctorjjj.exit:                     ; preds = %_ZL23lean_alloc_sma
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %94, ptr %3, align 8, !tbaa !56
   %98 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS1_SI_NS4_10_AllocNodeIS2_INS4_10_Hash_nodeIS1_Lb1EEEEEEEESt4pairINS4_14_Node_iteratorIS1_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %99 = load ptr, ptr %4, align 8, !tbaa !3
   br label %112
 
@@ -1870,16 +1864,16 @@ _ZL12lean_dec_refP11lean_object.exit.i:           ; preds = %109, %108, %106
   br i1 %113, label %_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit, label %114
 
 114:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i, ptr %115, align 8
   %116 = call { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJS2_IS1_S1_EEEES2_INS7_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit
 
 _ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit: ; preds = %112, %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
 
 117:                                              ; preds = %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit, %_ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit
@@ -1887,15 +1881,15 @@ _ZN4lean20sharecommon_quick_fn4saveEP11lean_objectS2_.exit: ; preds = %112, %114
   ret ptr %.028
 }
 
-declare i64 @lean_object_byte_size(ptr noundef) local_unnamed_addr #2
+declare i64 @lean_object_byte_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @lean_sharecommon_quick(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.lean::sharecommon_quick_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %3, ptr %2, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1928,7 +1922,7 @@ _ZN4lean20sharecommon_quick_fnclEP11lean_object.exit: ; preds = %1
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN4lean20sharecommon_quick_fnclEP11lean_object.exit, %.lr.ph.i.i.i.i.i
   %.06.i.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i.i ], [ %15, %_ZN4lean20sharecommon_quick_fnclEP11lean_object.exit ]
   %16 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !42
-  call void @mi_free(ptr noundef nonnull %.06.i.i.i.i.i) #20
+  call void @mi_free(ptr noundef nonnull %.06.i.i.i.i.i) #22
   %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !64
 
@@ -1943,7 +1937,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   br i1 %21, label %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit.i, label %22
 
 22:                                               ; preds = %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i
-  call void @mi_free(ptr noundef %20) #20
+  call void @mi_free(ptr noundef %20) #22
   br label %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit.i
 
 _ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit.i: ; preds = %22, %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i
@@ -1954,7 +1948,7 @@ _ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6se
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
   %.06.i.i.i.i3.i = phi ptr [ %24, %.lr.ph.i.i.i.i2.i ], [ %23, %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit.i ]
   %24 = load ptr, ptr %.06.i.i.i.i3.i, align 8, !tbaa !42
-  call void @mi_free(ptr noundef nonnull %.06.i.i.i.i3.i) #20
+  call void @mi_free(ptr noundef nonnull %.06.i.i.i.i3.i) #22
   %.not.i.i.i.i4.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i4.i, label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !66
 
@@ -1969,23 +1963,23 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   br i1 %29, label %_ZN4lean20sharecommon_quick_fnD2Ev.exit, label %30
 
 30:                                               ; preds = %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i
-  call void @mi_free(ptr noundef %28) #20
+  call void @mi_free(ptr noundef %28) #22
   br label %_ZN4lean20sharecommon_quick_fnD2Ev.exit
 
 _ZN4lean20sharecommon_quick_fnD2Ev.exit:          ; preds = %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %14
 
 31:                                               ; preds = %1
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean20sharecommon_quick_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %2) #20
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #20
+  call void @_ZN4lean20sharecommon_quick_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %32
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean20sharecommon_quick_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4lean20sharecommon_quick_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !63
@@ -1995,7 +1989,7 @@ define linkonce_odr hidden void @_ZN4lean20sharecommon_quick_fnD2Ev(ptr noundef 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i.i ], [ %4, %1 ]
   %5 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !42
-  tail call void @mi_free(ptr noundef nonnull %.06.i.i.i.i) #20
+  tail call void @mi_free(ptr noundef nonnull %.06.i.i.i.i) #22
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !64
 
@@ -2012,7 +2006,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   br i1 %12, label %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit, label %13
 
 13:                                               ; preds = %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i
-  tail call void @mi_free(ptr noundef %10) #20
+  tail call void @mi_free(ptr noundef %10) #22
   br label %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit
 
 _ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, %13
@@ -2024,7 +2018,7 @@ _ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6se
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.06.i.i.i.i3 = phi ptr [ %16, %.lr.ph.i.i.i.i2 ], [ %15, %_ZNSt13unordered_setIP11lean_objectN4lean20sharecommon_quick_fn8set_hashENS3_6set_eqE16mi_stl_allocatorIS1_EED2Ev.exit ]
   %16 = load ptr, ptr %.06.i.i.i.i3, align 8, !tbaa !42
-  tail call void @mi_free(ptr noundef nonnull %.06.i.i.i.i3) #20
+  tail call void @mi_free(ptr noundef nonnull %.06.i.i.i.i3) #22
   %.not.i.i.i.i4 = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i4, label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !66
 
@@ -2041,7 +2035,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   br i1 %23, label %_ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEED2Ev.exit, label %24
 
 24:                                               ; preds = %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  tail call void @mi_free(ptr noundef %21) #20
+  tail call void @mi_free(ptr noundef %21) #22
   br label %_ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEED2Ev.exit
 
 _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_allocatorISt4pairIKS1_S1_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %24
@@ -2053,7 +2047,7 @@ define noundef ptr @_ZN4lean25sharecommon_persistent_fnclEP11lean_object(ptr nou
   %3 = alloca ptr, align 8
   %4 = alloca %"class.lean::object_ref", align 8
   %5 = alloca %"class.lean::object_ref", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !3
   %.val.i = load i32, ptr %1, align 4, !tbaa !13
   %6 = icmp eq i32 %.val.i, 1
@@ -2142,9 +2136,9 @@ _ZNSt13unordered_mapIP11lean_objectS1_St4hashIS1_ESt8equal_toIS1_E16mi_stl_alloc
   br label %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit
 
 _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread: ; preds = %2, %.loopexit.i, %42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !67
   %48 = ptrtoint ptr %1 to i64
   %49 = and i64 %48, 1
@@ -2157,7 +2151,7 @@ _ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit: ; preds = %_ZNS
   %50 = load i32, ptr %.sink.i, align 4, !tbaa !13
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %.sink.i, align 4, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %109
 
 52:                                               ; preds = %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit.thread
@@ -2230,13 +2224,13 @@ _ZNSt6vectorIN4lean10object_refESaIS1_EE9push_backEOS1_.exit: ; preds = %._ZNSt6
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #22
+  call void @__clang_call_terminate(ptr %77) #21
   unreachable
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4lean10object_refESaIS1_EE9push_backEOS1_.exit, %71, %73, %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = call noundef ptr @_ZN4lean20sharecommon_quick_fn5visitEP11lean_object(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %78, ptr %5, align 8, !tbaa !67
   %79 = ptrtoint ptr %78 to i64
   %80 = and i64 %79, 1
@@ -2311,25 +2305,25 @@ _ZNSt6vectorIN4lean10object_refESaIS1_EE9push_backEOS1_.exit23: ; preds = %._ZNS
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #22
+  call void @__clang_call_terminate(ptr %104) #21
   unreachable
 
 _ZN4lean10object_refD2Ev.exit26:                  ; preds = %_ZNSt6vectorIN4lean10object_refESaIS1_EE9push_backEOS1_.exit23, %98, %100, %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %109
 
 105:                                              ; preds = %64
   %106 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %110
 
 107:                                              ; preds = %91
   %108 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %110
 
 109:                                              ; preds = %_ZN4lean20sharecommon_quick_fn11check_cacheEP11lean_object.exit, %_ZN4lean10object_refD2Ev.exit26
@@ -2342,7 +2336,7 @@ _ZN4lean10object_refD2Ev.exit26:                  ; preds = %_ZNSt6vectorIN4lean
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !67
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 1
@@ -2374,14 +2368,14 @@ _ZN4lean3decEP11lean_object.exit:                 ; preds = %10, %8, %1, %11
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #22
+  tail call void @__clang_call_terminate(ptr %14) #21
   unreachable
 }
 
-declare noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef i32 @_ZN4lean3cmpERKNS_3mpzES2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @__gmpz_get_si(ptr noundef) local_unnamed_addr #6
+declare i64 @__gmpz_get_si(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4lean14sharecommon_fn10push_childEP11lean_object(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2444,7 +2438,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pr
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %32
 
 32:                                               ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
@@ -2470,7 +2464,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   ]
 
 38:                                               ; preds = %34
-  %39 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+  %39 = tail call ptr @__cxa_allocate_exception(i64 40) #22
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %41, ptr %40, align 8, !tbaa !23
@@ -2535,7 +2529,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i11: ; 
   br i1 %.not.i17.i.i12, label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13, label %70
 
 70:                                               ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i11
-  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %56) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %56) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13
 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i13: ; preds = %70, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i11
@@ -2630,7 +2624,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19: ; 
   br i1 %.not.i17.i.i20, label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21, label %112
 
 112:                                              ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19
-  tail call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %98) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %95, i64 noundef %98) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21
 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21: ; preds = %112, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19
@@ -2694,7 +2688,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i27: ; 
   br i1 %.not.i17.i.i28, label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29, label %141
 
 141:                                              ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i27
-  tail call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %124, i64 noundef %127) #20
   br label %_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29
 
 _ZNSt6vectorIP11lean_objectSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i29: ; preds = %141, %_ZNSt6vectorIP11lean_objectSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i27
@@ -2712,10 +2706,10 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vecto
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #7
+declare void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4lean14sharecommon_fn11visit_arrayEP11lean_object(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2882,7 +2876,7 @@ _ZN4lean14sharecommon_fn14clear_childrenEv.exit:  ; preds = %2, %_ZSt8_DestroyIP
   %23 = add nuw nsw i64 %22, %20
   tail call void @lean_inc_heartbeat()
   %24 = and i64 %23, 4294967288
-  %25 = tail call noalias ptr @mi_malloc_small(i64 noundef %24) #20
+  %25 = tail call noalias ptr @mi_malloc_small(i64 noundef %24) #22
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZL23lean_alloc_small_objectj.exit.i.i
 
@@ -3068,38 +3062,38 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %29, %28, %26, %_ZL8
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #22
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #11
+declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  tail call void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #21
+define linkonce_odr hidden void @_ZN4lean19unreachable_reachedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+  tail call void @_ZN4lean9throwableD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK4lean19unreachable_reached4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   ret ptr @.str.1
 }
 
@@ -3480,33 +3474,33 @@ _ZL8lean_incP11lean_object.exit:                  ; preds = %30, %29, %27, %_ZL8
   ret ptr %33
 }
 
-declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lean_apply_2(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lean_inc_ref_n_cold(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lean_inc_ref_n_cold(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lean_alloc_object(i64 noundef) local_unnamed_addr #2
+declare ptr @lean_alloc_object(i64 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN4lean9alloc_mpzERKNS_3mpzE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
+declare noundef ptr @_ZN4lean9alloc_mpzERKNS_3mpzE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
-declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #2
+declare void @lean_dec_ref_cold(ptr noundef) local_unnamed_addr #1
 
-declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #2
+declare void @lean_inc_ref_cold(ptr noundef) local_unnamed_addr #1
 
-declare void @lean_inc_heartbeat() local_unnamed_addr #2
+declare void @lean_inc_heartbeat() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #7
+declare noalias ptr @mi_malloc_small(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #9
+declare void @lean_internal_panic_out_of_memory() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
-declare void @mi_free(ptr noundef) local_unnamed_addr #7
+declare void @mi_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
@@ -3828,7 +3822,7 @@ _ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identit
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %69, ptr %68, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = load i64, ptr %71, align 8, !tbaa !84
@@ -3894,13 +3888,13 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   %99 = load i64, ptr %6, align 8, !tbaa !78
   %100 = add i64 %99, 1
   store i64 %100, ptr %6, align 8, !tbaa !78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit25: ; preds = %78, %.critedge
   %101 = landingpad { ptr, i32 }
           cleanup
-  call void @mi_free(ptr noundef nonnull %67) #20
+  call void @mi_free(ptr noundef nonnull %67) #22
   resume { ptr, i32 } %101
 
 .loopexit:                                        ; preds = %26, %_ZNKSt8__detail15_Hashtable_baseIP11lean_objectS2_NS_9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS5_8set_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_key_equals_trIS2_EEbRKT_RKNS_16_Hash_node_valueIS2_Lb1EEE.exit, %_ZNKSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS4_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit, %_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
@@ -3997,9 +3991,9 @@ declare void @__cxa_rethrow() local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
-declare noalias ptr @mi_new_n(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @mi_new_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_IdentityEN4lean20sharecommon_quick_fn6set_eqENS7_8set_hashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4073,14 +4067,14 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %._crit_edge.i
-  tail call void @mi_free(ptr noundef %27) #20
+  tail call void @mi_free(ptr noundef %27) #22
   br label %39
 
 31:                                               ; preds = %7
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #20
+  %34 = tail call ptr @__cxa_begin_catch(ptr %33) #22
   %35 = load i64, ptr %2, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %35, ptr %36, align 8, !tbaa !84
@@ -4106,7 +4100,7 @@ _ZNSt10_HashtableIP11lean_objectS1_16mi_stl_allocatorIS1_ENSt8__detail9_Identity
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #22
+  tail call void @__clang_call_terminate(ptr %44) #21
   unreachable
 
 45:                                               ; preds = %31
@@ -4197,7 +4191,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   %45 = phi i64 [ %29, %26 ], [ %14, %.thread ], [ %14, %..loopexit_crit_edge21.i.i ], [ %14, %.lr.ph.i.i ]
   %46 = phi ptr [ %28, %26 ], [ %13, %.thread ], [ %13, %..loopexit_crit_edge21.i.i ], [ %13, %.lr.ph.i.i ]
   %47 = phi i64 [ %27, %26 ], [ %12, %.thread ], [ %12, %..loopexit_crit_edge21.i.i ], [ %12, %.lr.ph.i.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load i64, ptr %49, align 8, !tbaa !84
@@ -4261,18 +4255,18 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIP11lean_objectSt4pairI
   %76 = load i64, ptr %10, align 8, !tbaa !35
   %77 = add i64 %76, 1
   store i64 %77, ptr %10, align 8, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit32: ; preds = %54, %.critedge27
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @mi_free(ptr noundef nonnull %4) #20
+  call void @mi_free(ptr noundef nonnull %4) #22
   resume { ptr, i32 } %78
 
 _ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit: ; preds = %36, %22, %31
   %.sroa.045.0 = phi ptr [ %32, %31 ], [ %.sroa.037.0, %22 ], [ %38, %36 ]
-  tail call void @mi_free(ptr noundef nonnull %4) #20
+  tail call void @mi_free(ptr noundef nonnull %4) #22
   br label %_ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %.thread49, %_ZNKSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit
@@ -4356,14 +4350,14 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   br i1 %30, label %40, label %31
 
 31:                                               ; preds = %._crit_edge.i
-  tail call void @mi_free(ptr noundef %28) #20
+  tail call void @mi_free(ptr noundef %28) #22
   br label %40
 
 32:                                               ; preds = %7
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #20
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #22
   %36 = load i64, ptr %2, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %36, ptr %37, align 8, !tbaa !84
@@ -4389,7 +4383,7 @@ _ZNSt10_HashtableIP11lean_objectSt4pairIKS1_S1_E16mi_stl_allocatorIS4_ENSt8__det
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #22
+  tail call void @__clang_call_terminate(ptr %45) #21
   unreachable
 
 46:                                               ; preds = %32
@@ -4476,7 +4470,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4lean10object_refES2_SaIS1_EET0_T_S5_
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  tail call void @__clang_call_terminate(ptr %41) #22
+  tail call void @__clang_call_terminate(ptr %41) #21
   unreachable
 
 _ZSt8_DestroyIN4lean10object_refEEvPT_.exit.i.i:  ; preds = %38, %37, %35, %.lr.ph.i.i
@@ -4493,7 +4487,7 @@ _ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit:   ; preds = %_ZSt8_DestroyIN4lea
   %45 = load ptr, ptr %43, align 8, !tbaa !72
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %47) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %47) #20
   br label %_ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4lean10object_refEEvT_S3_.exit, %44
@@ -4507,15 +4501,15 @@ _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #20
-  tail call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #20
+  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #22
+  tail call void @_ZN4lean10object_refD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #22
   br label %59
 
 53:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4lean10object_refES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  %56 = tail call ptr @__cxa_begin_catch(ptr %55) #20
+  %56 = tail call ptr @__cxa_begin_catch(ptr %55) #22
   invoke void @_ZSt8_DestroyIPN4lean10object_refEEvT_S3_(ptr noundef nonnull %23, ptr noundef nonnull %27)
           to label %59 unwind label %57
 
@@ -4527,7 +4521,7 @@ _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
 
 59:                                               ; preds = %49, %53
   %60 = shl nuw nsw i64 %16, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %60) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %60) #20
   invoke void @__cxa_rethrow() #23
           to label %65 unwind label %57
 
@@ -4538,7 +4532,7 @@ _ZNSt12_Vector_baseIN4lean10object_refESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #22
+  tail call void @__clang_call_terminate(ptr %64) #21
   unreachable
 
 65:                                               ; preds = %59
@@ -4588,7 +4582,7 @@ _ZSt10_ConstructIN4lean10object_refEJRKS1_EEvPT_DpOT0_.exit: ; preds = %11, %9, 
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #20
+  %18 = tail call ptr @__cxa_begin_catch(ptr %17) #22
   invoke void @_ZSt8_DestroyIPN4lean10object_refEEvT_S3_(ptr noundef %2, ptr noundef nonnull %.016)
           to label %19 unwind label %20
 
@@ -4613,7 +4607,7 @@ _ZSt10_ConstructIN4lean10object_refEJRKS1_EEvPT_DpOT0_.exit: ; preds = %11, %9, 
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #22
+  tail call void @__clang_call_terminate(ptr %25) #21
   unreachable
 
 26:                                               ; preds = %19
@@ -4621,7 +4615,7 @@ _ZSt10_ConstructIN4lean10object_refEJRKS1_EEvPT_DpOT0_.exit: ; preds = %11, %9, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr hidden void @_ZSt8_DestroyIPN4lean10object_refEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #15 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZSt8_DestroyIPN4lean10object_refEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4lean10object_refEEEvT_S5_.exit, label %.lr.ph.i
 
@@ -4655,7 +4649,7 @@ define linkonce_odr hidden void @_ZSt8_DestroyIPN4lean10object_refEEvT_S3_(ptr n
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #22
+  tail call void @__clang_call_terminate(ptr %15) #21
   unreachable
 
 _ZSt8_DestroyIN4lean10object_refEEvPT_.exit.i:    ; preds = %12, %11, %9, %.lr.ph.i
@@ -4666,6 +4660,12 @@ _ZSt8_DestroyIN4lean10object_refEEvPT_.exit.i:    ; preds = %12, %11, %9, %.lr.p
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN4lean10object_refEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN4lean10object_refEEvPT_.exit.i, %2
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
@@ -4680,28 +4680,28 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { noreturn nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind }
 attributes #23 = { noreturn }
 attributes #24 = { builtin allocsize(0) }
 

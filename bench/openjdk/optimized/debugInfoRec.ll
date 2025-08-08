@@ -90,7 +90,7 @@ _ZN21CompressedWriteStream10write_byteEa.exit:    ; preds = %_ZL32compute_record
   store ptr %30, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %37 = load i32, ptr %15, align 4
   %38 = load i32, ptr %12, align 8
   %39 = icmp eq i32 %37, %38
@@ -131,7 +131,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %_ZN21Compres
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds %class.PcDesc, ptr %53, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %57, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -207,7 +207,7 @@ define hidden void @_ZN24DebugInformationRecorder13add_safepointEiP6OopMap(ptr n
   %4 = alloca %class.PcDesc, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i32 @_ZN9OopMapSet10add_gc_mapEiP6OopMap(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1, ptr noundef %2) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -256,14 +256,14 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %3, %._crit_e
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %class.PcDesc, ptr %29, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24DebugInformationRecorder17add_non_safepointEi(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.PcDesc, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -312,7 +312,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %2, %._crit_e
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds %class.PcDesc, ptr %26, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -440,7 +440,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   br i1 %56, label %49, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %49, %_ZN21CompressedWriteStream9write_intEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %57 = load ptr, ptr %9, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
@@ -513,13 +513,13 @@ _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %70
   br i1 %.not.i, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread: ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %96
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %87
   store ptr %91, ptr %60, align 8
   %92 = load i32, ptr %90, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %92, 0
   br i1 %.not, label %96, label %93
 
@@ -743,7 +743,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   br i1 %59, label %49, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %49, %_ZN21CompressedWriteStream9write_intEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %60 = load ptr, ptr %9, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 8
@@ -816,13 +816,13 @@ _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %73
   br i1 %.not.i, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread: ; preds = %90
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %99
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %90
   store ptr %94, ptr %63, align 8
   %95 = load i32, ptr %93, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %95, 0
   br i1 %.not, label %99, label %96
 
@@ -1559,7 +1559,7 @@ _ZN21CompressedWriteStream9write_intEj.exit136:   ; preds = %_ZN9UNSIGNED513fits
   store i8 %268, ptr %270, align 1
   %storemerge.i.i.i125 = add nsw i32 %.sink35.i.i.i124, 1
   store i32 %storemerge.i.i.i125, ptr %236, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %271 = load ptr, ptr %27, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load i32, ptr %272, align 8
@@ -1632,13 +1632,13 @@ _ZN9DIR_ChunkC2EiiP24DebugInformationRecorder.exit.i: ; preds = %.lr.ph.i.i, %28
   br i1 %.not.i, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread, label %_ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit.thread: ; preds = %301
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %310
 
 _ZN24DebugInformationRecorder27find_sharable_decode_offsetEi.exit: ; preds = %301
   store ptr %305, ptr %274, align 8
   %306 = load i32, ptr %304, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not33 = icmp eq i32 %306, 0
   br i1 %.not33, label %310, label %307
 
@@ -1825,7 +1825,7 @@ _ZN24DebugInformationRecorder7last_pcEv.exit:     ; preds = %1
   br i1 %.not, label %36, label %14
 
 14:                                               ; preds = %_ZN24DebugInformationRecorder7last_pcEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %4, %16
@@ -1866,7 +1866,7 @@ _ZN24DebugInformationRecorder17add_new_pc_offsetEi.exit: ; preds = %14, %._crit_
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds %class.PcDesc, ptr %31, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4
   br label %36
 
@@ -2033,10 +2033,10 @@ declare i32 @llvm.ctpop.i32(i32) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

@@ -42,7 +42,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_IsEnabled() #0 {
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @HIDAPI_DriverPS4_IsSupportedDevice(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1, i32 noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 zeroext %5, i32 %6, i32 %7, i32 %8, i32 %9) #0 {
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp eq i32 %2, 5
   br i1 %12, label %25, label %13
 
@@ -73,7 +73,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_IsSupportedDevice(ptr noundef reado
 
 25:                                               ; preds = %13, %15, %16, %19, %10
   %.0 = phi i1 [ true, %10 ], [ %or.cond, %19 ], [ true, %16 ], [ true, %15 ], [ false, %13 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.0
 }
 
@@ -83,8 +83,8 @@ define internal zeroext i1 @HIDAPI_DriverPS4_InitDevice(ptr noundef %0) #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [18 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call noalias dereferenceable_or_null(176) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 176) #10
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %248, label %7
@@ -157,7 +157,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_InitDevice(ptr noundef %0) #0 {
 39:                                               ; preds = %33
   %40 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %40, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i8 18, ptr %3, align 16
   %41 = call i32 @SDL_hid_get_feature_report_REAL(ptr noundef %.val, ptr noundef nonnull %3, i64 noundef 64) #9
@@ -201,7 +201,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_InitDevice(ptr noundef %0) #0 {
   br label %ReadWiredSerial.exit
 
 ReadWiredSerial.exit:                             ; preds = %39, %43, %62
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split
 
 70:                                               ; preds = %33
@@ -226,7 +226,7 @@ ReadWiredSerial.exit:                             ; preds = %39, %43, %62
   br i1 %or.cond7, label %.sink.split, label %117
 
 84:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i8 18, ptr %2, align 16
   %85 = call i32 @SDL_hid_get_feature_report_REAL(ptr noundef %77, ptr noundef nonnull %2, i64 noundef 64) #9
@@ -270,7 +270,7 @@ ReadWiredSerial.exit:                             ; preds = %39, %43, %62
   br label %ReadWiredSerial.exit130
 
 ReadWiredSerial.exit130:                          ; preds = %84, %87, %106
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.sink.split
 
 114:                                              ; preds = %29
@@ -530,8 +530,8 @@ switch.lookup:                                    ; preds = %184
 
 248:                                              ; preds = %245, %239, %233, %1, %246
   %.0 = phi i1 [ %247, %246 ], [ false, %1 ], [ true, %233 ], [ true, %239 ], [ true, %245 ]
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -553,7 +553,7 @@ define internal void @HIDAPI_DriverPS4_SetDevicePlayerIndex(ptr noundef readonly
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 %2, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %4, i8 0, i64 19, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
@@ -615,7 +615,7 @@ define internal void @HIDAPI_DriverPS4_SetDevicePlayerIndex(ptr noundef readonly
 
 HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %20, %.sink.split.i
   %40 = call fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 19, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %3, %HIDAPI_DriverPS4_UpdateEffects.exit
@@ -630,7 +630,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
   %5 = alloca [18 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i64 @SDL_GetTicks_REAL() #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4
@@ -763,13 +763,13 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
   br i1 %or.cond79, label %HIDAPI_DriverPS4_IsPacketValid.exit, label %79
 
 79:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 -95, ptr %3, align 1
   %80 = call i32 @SDL_crc32_REAL(i32 noundef 0, ptr noundef nonnull %3, i64 noundef 1) #9
   %81 = call i32 @SDL_crc32_REAL(i32 noundef %80, ptr noundef nonnull %4, i64 noundef 74) #9
   %82 = load i32, ptr %23, align 2
   %83 = icmp eq i32 %81, %82
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = load i16, ptr %24, align 2
   br i1 %83, label %85, label %87
 
@@ -873,7 +873,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   br i1 %121, label %122, label %HIDAPI_DriverPS4_TickleBluetooth.exit
 
 122:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %2, i8 0, i64 78, i1 false)
   store i8 17, ptr %2, align 16
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -886,7 +886,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   br label %127
 
 127:                                              ; preds = %125, %122
-  call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %HIDAPI_DriverPS4_TickleBluetooth.exit
 
 HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
@@ -950,7 +950,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   br i1 %157, label %158, label %.thread
 
 158:                                              ; preds = %156
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %159 = load ptr, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   store i8 18, ptr %4, align 16
@@ -997,7 +997,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
 
 189:                                              ; preds = %162, %181, %158
   %190 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 191:                                              ; preds = %148, %152, %146, %140
@@ -1020,7 +1020,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
 .thread:                                          ; preds = %156, %189, %196, %193, %191
   %.06977 = phi i32 [ %.lcssa81106, %196 ], [ %.lcssa81106, %193 ], [ %.lcssa81106, %191 ], [ %.lcssa81106, %156 ], [ %160, %189 ]
   %200 = icmp sgt i32 %.06977, -1
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %200
 }
 
@@ -1088,7 +1088,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_RumbleJoystick(ptr noundef readonly
   %18 = trunc nuw i16 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 101
   store i8 %18, ptr %19, align 1
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %20, i8 0, i64 17, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1140,7 +1140,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_RumbleJoystick(ptr noundef readonly
 
 HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %13, %.sink.split.i
   %43 = call fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 19, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 44:                                               ; preds = %HIDAPI_DriverPS4_UpdateEffects.exit, %11
@@ -1202,7 +1202,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_SetJoystickLED(ptr noundef readonly
   store i8 %3, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 105
   store i8 %4, ptr %18, align 1
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %6, i8 0, i64 19, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %20 = load i8, ptr %19, align 1, !range !5, !noundef !6
@@ -1227,7 +1227,7 @@ HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %14, %22
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %4, ptr %30, align 1
   %31 = call fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef 19, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 32:                                               ; preds = %HIDAPI_DriverPS4_UpdateEffects.exit, %12
@@ -1279,7 +1279,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 18
   %25 = load i8, ptr %24, align 2, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
@@ -1583,11 +1583,11 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %232 = getelementptr inbounds nuw i8, ptr %23, i64 35
   %233 = load i8, ptr %232, align 1, !range !5, !noundef !6
   %234 = trunc nuw i8 %233 to i1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %234, label %.loopexit.i, label %.preheader.i
 
 HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i, %.loopexit.i.i
@@ -1713,21 +1713,15 @@ declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef)
 
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare zeroext i1 @HIDAPI_SupportsPlaystationDetection(i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @SDL_hid_get_feature_report_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
 
@@ -1749,7 +1743,7 @@ declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local
 define internal fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [78 x i8], align 16
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
@@ -1825,7 +1819,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
   %.02229 = phi i32 [ 32, %38 ], [ 78, %.thread ]
   %42 = zext nneg i32 %.sink30 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %.021.sroa.gep23.sink, ptr align 1 %1, i64 %42, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 -94, ptr %6, align 1
   %43 = call i32 @SDL_crc32_REAL(i32 noundef 0, ptr noundef nonnull %6, i64 noundef 1) #9
   %44 = zext nneg i32 %.02229 to i64
@@ -1833,7 +1827,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
   %46 = call i32 @SDL_crc32_REAL(i32 noundef %43, ptr noundef nonnull %5, i64 noundef %45) #9
   %47 = getelementptr inbounds nuw [78 x i8], ptr %5, i64 0, i64 %45
   store i32 %46, ptr %47, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre24 = load ptr, ptr %0, align 8
   br label %51
 
@@ -1859,14 +1853,14 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
 
 56:                                               ; preds = %51, %54, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread, %10
   %.0 = phi i1 [ %55, %54 ], [ %22, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread ], [ %11, %10 ], [ true, %51 ]
-  call void @llvm.lifetime.end.p0(i64 78, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @SDL_crc32_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1948,7 +1942,7 @@ HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6:  ; preds = %4, %37
 
 42:                                               ; preds = %HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6
   store i8 1, ptr %39, align 1
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %3, i8 0, i64 19, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %44 = load i8, ptr %43, align 1, !range !5, !noundef !6
@@ -2016,7 +2010,7 @@ HIDAPI_DriverPS4_UpdateEffects.exit.sink.split:   ; preds = %68, %60
 
 HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %HIDAPI_DriverPS4_UpdateEffects.exit.sink.split, %52
   %80 = call fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 19, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %HIDAPI_DriverPS4_SetEnhancedMode.exit
 
 81:                                               ; preds = %2
@@ -2367,7 +2361,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   br i1 %177, label %178, label %.critedge
 
 178:                                              ; preds = %174
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i16
@@ -2457,7 +2451,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %256 = fmul float %255, %253
   store float %256, ptr %226, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %6, ptr noundef nonnull %0, i32 noundef 1, i64 noundef %194, ptr noundef nonnull %5, i32 noundef 3) #9
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %122, %178, %174
@@ -2521,7 +2515,7 @@ switch.lookup:                                    ; preds = %6
 14:                                               ; preds = %10
   %15 = trunc nuw nsw i32 %.0 to i8
   store i8 %15, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %5, i8 0, i64 19, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
@@ -2585,7 +2579,7 @@ switch.lookup:                                    ; preds = %6
 
 HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %25, %.sink.split.i
   %47 = call fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 19, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @SDL_LockJoysticks_REAL() #9
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
@@ -2728,6 +2722,12 @@ declare i32 @SDL_abs_REAL(i32 noundef) local_unnamed_addr #3
 
 declare float @SDL_fabsf_REAL(float noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
@@ -2738,10 +2738,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind allocsize(0,1) }

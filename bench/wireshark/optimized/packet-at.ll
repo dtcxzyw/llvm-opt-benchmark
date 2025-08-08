@@ -809,32 +809,29 @@ define hidden void @proto_register_at_command() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1065,7 +1062,7 @@ dissect_at_command_continuation.exit:             ; preds = %91, %118
   br label %381
 
 122:                                              ; preds = %83, %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.066132)
   %124 = icmp slt i32 %123, 1
   br i1 %124, label %125, label %127
@@ -1100,7 +1097,7 @@ dissect_at_command_continuation.exit:             ; preds = %91, %118
   %140 = phi i8 [ %146, %.lr.ph.i ], [ %139, %131 ]
   %141 = phi ptr [ %145, %.lr.ph.i ], [ %135, %131 ]
   %.0367485.i = phi i32 [ %143, %.lr.ph.i ], [ 0, %131 ]
-  %142 = call signext i8 @g_ascii_toupper(i8 noundef signext %140) #14
+  %142 = call signext i8 @g_ascii_toupper(i8 noundef signext %140) #13
   store i8 %142, ptr %141, align 1
   %143 = add i32 %.0367485.i, 1
   %144 = sext i32 %143 to i64
@@ -1251,7 +1248,7 @@ dissect_at_command_continuation.exit:             ; preds = %91, %118
 
 199:                                              ; preds = %.preheader465.i
   %200 = load i32, ptr @hf_at_cmd, align 4
-  %201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #15
+  %201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %194) #14
   %202 = trunc i64 %201 to i32
   %203 = call ptr @proto_tree_add_item(ptr noundef %.0380.i, i32 noundef %200, ptr noundef %0, i32 noundef %.1362.i, i32 noundef %202, i32 noundef 0)
   %204 = getelementptr inbounds nuw i8, ptr %.1360505.i, i64 8
@@ -1664,7 +1661,7 @@ proto_item_set_generated.exit.i:                  ; preds = %270, %267, %264, %2
 
 dissect_at_command.exit:                          ; preds = %125, %372, %373
   %.0.i82 = phi i32 [ %126, %125 ], [ %.7461.i, %373 ], [ %.4.i, %372 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i77, label %379, label %374
 
 374:                                              ; preds = %dissect_at_command.exit
@@ -1711,9 +1708,6 @@ set_at_packet_info.exit:                          ; preds = %._crit_edge, %383, 
   ret i32 %391
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_at_command() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_at, align 4
@@ -1730,10 +1724,10 @@ define hidden void @proto_reg_handoff_at_command() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @heur_dissect_at(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -1818,100 +1812,100 @@ is_padded.exit:                                   ; preds = %.lr.ph.i27, %is_pad
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_format_text_wsp(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_format_text_wsp(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @conversation_pt_to_conversation_type(i32 noundef) local_unnamed_addr #2
+declare i32 @conversation_pt_to_conversation_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #5
+declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2067,7 +2061,7 @@ check_ccwa.exit.thread96:                         ; preds = %29, %26, %23, %13, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cfun(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cfun(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2129,7 +2123,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   %25 = sext i32 %8 to i64
   %26 = icmp ne i32 %22, -1
   tail call void @llvm.assume(i1 %26)
-  %27 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef %23) #13
+  %27 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef %23) #15
   %28 = getelementptr i8, ptr %24, i64 %25
   store i8 0, ptr %28, align 1
   %29 = tail call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10)
@@ -2175,7 +2169,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
   %53 = sext i32 %8 to i64
   %54 = icmp ne i32 %50, -1
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef %51) #13
+  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %53, i64 noundef %51) #15
   %56 = getelementptr i8, ptr %52, i64 %53
   store i8 0, ptr %56, align 1
   %57 = tail call i64 @g_ascii_strtoull(ptr noundef %52, ptr noundef null, i32 noundef 10)
@@ -2217,7 +2211,7 @@ check_cfun.exit:                                  ; preds = %13, %13, %13, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cgdcont(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cgdcont(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2278,7 +2272,7 @@ check_cgdcont.exit.thread:                        ; preds = %13, %13, %13, %13, 
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef %20) #13, !alias.scope !18
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %22, i64 noundef %20) #15, !alias.scope !18
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -2311,7 +2305,7 @@ check_cgdcont.exit.thread:                        ; preds = %13, %13, %13, %13, 
   %45 = sext i32 %8 to i64
   %46 = icmp ne i32 %42, -1
   tail call void @llvm.assume(i1 %46)
-  %47 = tail call ptr @__memcpy_chk(ptr noundef %44, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef %43) #13, !alias.scope !22
+  %47 = tail call ptr @__memcpy_chk(ptr noundef %44, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef %43) #15, !alias.scope !22
   %48 = getelementptr i8, ptr %44, i64 %45
   store i8 0, ptr %48, align 1
   %49 = tail call i64 @g_ascii_strtoull(ptr noundef %44, ptr noundef null, i32 noundef 10)
@@ -2329,7 +2323,7 @@ check_cgdcont.exit.thread:                        ; preds = %13, %13, %13, %13, 
   %59 = sext i32 %8 to i64
   %60 = icmp ne i32 %56, -1
   tail call void @llvm.assume(i1 %60)
-  %61 = tail call ptr @__memcpy_chk(ptr noundef %58, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %59, i64 noundef %57) #13, !alias.scope !26
+  %61 = tail call ptr @__memcpy_chk(ptr noundef %58, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %59, i64 noundef %57) #15, !alias.scope !26
   %62 = getelementptr i8, ptr %58, i64 %59
   store i8 0, ptr %62, align 1
   %63 = tail call i64 @g_ascii_strtoull(ptr noundef %58, ptr noundef null, i32 noundef 10)
@@ -2349,7 +2343,7 @@ check_cgdcont.exit.thread46:                      ; preds = %13, %16, %30, %33, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cgmi(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cgmi(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2389,7 +2383,7 @@ define internal noundef zeroext i1 @dissect_cgmi_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cgmm(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cgmm(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2429,7 +2423,7 @@ define internal noundef zeroext i1 @dissect_cgmm_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cgmr(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cgmr(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2469,7 +2463,7 @@ define internal noundef zeroext i1 @dissect_cgmr_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cgsn(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cgsn(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2485,12 +2479,12 @@ define internal noundef zeroext i1 @check_cgsn(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #7 {
+define internal noundef zeroext i1 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9, ptr readnone captures(none) %10) #6 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2595,7 +2589,7 @@ check_chld.exit.thread48:                         ; preds = %13, %check_chld.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2611,7 +2605,7 @@ define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -2642,7 +2636,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
   %23 = sext i32 %8 to i64
   %24 = icmp ne i32 %20, -1
   tail call void @llvm.assume(i1 %24)
-  %25 = tail call ptr @__memcpy_chk(ptr noundef %22, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %23, i64 noundef %21) #13, !alias.scope !30
+  %25 = tail call ptr @__memcpy_chk(ptr noundef %22, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %23, i64 noundef %21) #15, !alias.scope !30
   %26 = getelementptr i8, ptr %22, i64 %23
   store i8 0, ptr %26, align 1
   %27 = tail call i64 @g_ascii_strtoull(ptr noundef %22, ptr noundef null, i32 noundef 10)
@@ -2679,7 +2673,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cimi(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cimi(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2742,7 +2736,7 @@ check_cimi.exit.thread:                           ; preds = %11, %check_cimi.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2799,7 +2793,7 @@ check_cind.exit:                                  ; preds = %13, %13, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_clac(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_clac(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2815,7 +2809,7 @@ define internal noundef zeroext i1 @check_clac(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -2877,7 +2871,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #13, !alias.scope !34
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #15, !alias.scope !34
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -2895,7 +2889,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %40 = sext i32 %8 to i64
   %41 = icmp ne i32 %37, -1
   tail call void @llvm.assume(i1 %41)
-  %42 = tail call ptr @__memcpy_chk(ptr noundef %39, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef %38) #13, !alias.scope !38
+  %42 = tail call ptr @__memcpy_chk(ptr noundef %39, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef %38) #15, !alias.scope !38
   %43 = getelementptr i8, ptr %39, i64 %40
   store i8 0, ptr %43, align 1
   %44 = tail call i64 @g_ascii_strtoull(ptr noundef %39, ptr noundef null, i32 noundef 10)
@@ -2913,7 +2907,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %54 = sext i32 %8 to i64
   %55 = icmp ne i32 %51, -1
   tail call void @llvm.assume(i1 %55)
-  %56 = tail call ptr @__memcpy_chk(ptr noundef %53, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %54, i64 noundef %52) #13, !alias.scope !42
+  %56 = tail call ptr @__memcpy_chk(ptr noundef %53, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %54, i64 noundef %52) #15, !alias.scope !42
   %57 = getelementptr i8, ptr %53, i64 %54
   store i8 0, ptr %57, align 1
   %58 = tail call i64 @g_ascii_strtoull(ptr noundef %53, ptr noundef null, i32 noundef 10)
@@ -2931,7 +2925,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %68 = sext i32 %8 to i64
   %69 = icmp ne i32 %65, -1
   tail call void @llvm.assume(i1 %69)
-  %70 = tail call ptr @__memcpy_chk(ptr noundef %67, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %68, i64 noundef %66) #13, !alias.scope !46
+  %70 = tail call ptr @__memcpy_chk(ptr noundef %67, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %68, i64 noundef %66) #15, !alias.scope !46
   %71 = getelementptr i8, ptr %67, i64 %68
   store i8 0, ptr %71, align 1
   %72 = tail call i64 @g_ascii_strtoull(ptr noundef %67, ptr noundef null, i32 noundef 10)
@@ -2949,7 +2943,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %82 = sext i32 %8 to i64
   %83 = icmp ne i32 %79, -1
   tail call void @llvm.assume(i1 %83)
-  %84 = tail call ptr @__memcpy_chk(ptr noundef %81, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %82, i64 noundef %80) #13, !alias.scope !50
+  %84 = tail call ptr @__memcpy_chk(ptr noundef %81, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %82, i64 noundef %80) #15, !alias.scope !50
   %85 = getelementptr i8, ptr %81, i64 %82
   store i8 0, ptr %85, align 1
   %86 = tail call i64 @g_ascii_strtoull(ptr noundef %81, ptr noundef null, i32 noundef 10)
@@ -2972,7 +2966,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %99 = sext i32 %8 to i64
   %100 = icmp ne i32 %96, -1
   tail call void @llvm.assume(i1 %100)
-  %101 = tail call ptr @__memcpy_chk(ptr noundef %98, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %99, i64 noundef %97) #13, !alias.scope !54
+  %101 = tail call ptr @__memcpy_chk(ptr noundef %98, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %99, i64 noundef %97) #15, !alias.scope !54
   %102 = getelementptr i8, ptr %98, i64 %99
   store i8 0, ptr %102, align 1
   %103 = tail call i64 @g_ascii_strtoull(ptr noundef %98, ptr noundef null, i32 noundef 10)
@@ -3001,7 +2995,7 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %119 = sext i32 %8 to i64
   %120 = icmp ne i32 %116, -1
   tail call void @llvm.assume(i1 %120)
-  %121 = tail call ptr @__memcpy_chk(ptr noundef %118, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %119, i64 noundef %117) #13, !alias.scope !58
+  %121 = tail call ptr @__memcpy_chk(ptr noundef %118, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %119, i64 noundef %117) #15, !alias.scope !58
   %122 = getelementptr i8, ptr %118, i64 %119
   store i8 0, ptr %122, align 1
   %123 = tail call i64 @g_ascii_strtoull(ptr noundef %118, ptr noundef null, i32 noundef 10)
@@ -3019,7 +3013,7 @@ default.unreachable:                              ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3085,7 +3079,7 @@ check_clip.exit:                                  ; preds = %11
   %28 = sext i32 %8 to i64
   %29 = icmp ne i32 %25, -1
   tail call void @llvm.assume(i1 %29)
-  %30 = tail call ptr @__memcpy_chk(ptr noundef %27, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %28, i64 noundef %26) #13, !alias.scope !62
+  %30 = tail call ptr @__memcpy_chk(ptr noundef %27, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %28, i64 noundef %26) #15, !alias.scope !62
   %31 = getelementptr i8, ptr %27, i64 %28
   store i8 0, ptr %31, align 1
   %32 = tail call i64 @g_ascii_strtoull(ptr noundef %27, ptr noundef null, i32 noundef 10)
@@ -3103,7 +3097,7 @@ check_clip.exit:                                  ; preds = %11
   %42 = sext i32 %8 to i64
   %43 = icmp ne i32 %39, -1
   tail call void @llvm.assume(i1 %43)
-  %44 = tail call ptr @__memcpy_chk(ptr noundef %41, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %42, i64 noundef %40) #13, !alias.scope !66
+  %44 = tail call ptr @__memcpy_chk(ptr noundef %41, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %42, i64 noundef %40) #15, !alias.scope !66
   %45 = getelementptr i8, ptr %41, i64 %42
   store i8 0, ptr %45, align 1
   %46 = tail call i64 @g_ascii_strtoull(ptr noundef %41, ptr noundef null, i32 noundef 10)
@@ -3173,7 +3167,7 @@ check_clip.exit.thread79:                         ; preds = %13, %36, %22, %21, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -3230,7 +3224,7 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
   %34 = sext i32 %8 to i64
   %35 = icmp ne i32 %31, -1
   tail call void @llvm.assume(i1 %35)
-  %36 = tail call ptr @__memcpy_chk(ptr noundef %33, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %34, i64 noundef %32) #13, !alias.scope !71
+  %36 = tail call ptr @__memcpy_chk(ptr noundef %33, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %34, i64 noundef %32) #15, !alias.scope !71
   %37 = getelementptr i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1
   %38 = tail call i64 @g_ascii_strtoull(ptr noundef %33, ptr noundef null, i32 noundef 10)
@@ -3244,7 +3238,7 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3295,7 +3289,7 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr n
   %24 = sext i32 %8 to i64
   %25 = icmp ne i32 %21, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef %22) #13, !alias.scope !75
+  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %24, i64 noundef %22) #15, !alias.scope !75
   %27 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10)
@@ -3310,7 +3304,7 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3350,7 +3344,7 @@ define internal noundef zeroext i1 @dissect_cmer_parameter(ptr noundef %0, ptr n
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef %19) #13, !alias.scope !79
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef %19) #15, !alias.scope !79
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -3421,7 +3415,7 @@ default.unreachable:                              ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmgl(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmgl(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3484,7 +3478,7 @@ define internal noundef zeroext i1 @dissect_cmgl_parameter(ptr noundef %0, ptr n
   %29 = sext i32 %8 to i64
   %30 = icmp ne i32 %26, -1
   tail call void @llvm.assume(i1 %30)
-  %31 = tail call ptr @__memcpy_chk(ptr noundef %28, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %29, i64 noundef %27) #13, !alias.scope !83
+  %31 = tail call ptr @__memcpy_chk(ptr noundef %28, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %29, i64 noundef %27) #15, !alias.scope !83
   %32 = getelementptr i8, ptr %28, i64 %29
   store i8 0, ptr %32, align 1
   %33 = tail call i64 @g_ascii_strtoull(ptr noundef %28, ptr noundef null, i32 noundef 10)
@@ -3512,7 +3506,7 @@ define internal noundef zeroext i1 @dissect_cmgl_parameter(ptr noundef %0, ptr n
   %49 = sext i32 %8 to i64
   %50 = icmp ne i32 %46, -1
   tail call void @llvm.assume(i1 %50)
-  %51 = tail call ptr @__memcpy_chk(ptr noundef %48, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %49, i64 noundef %47) #13, !alias.scope !87
+  %51 = tail call ptr @__memcpy_chk(ptr noundef %48, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %49, i64 noundef %47) #15, !alias.scope !87
   %52 = getelementptr i8, ptr %48, i64 %49
   store i8 0, ptr %52, align 1
   %53 = tail call i64 @g_ascii_strtoull(ptr noundef %48, ptr noundef null, i32 noundef 10)
@@ -3542,7 +3536,7 @@ default.unreachable:                              ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmgr(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmgr(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3592,7 +3586,7 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
   %25 = sext i32 %8 to i64
   %26 = icmp ne i32 %22, -1
   tail call void @llvm.assume(i1 %26)
-  %27 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef %23) #13
+  %27 = tail call ptr @__memcpy_chk(ptr noundef %24, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %25, i64 noundef %23) #15
   %28 = getelementptr i8, ptr %24, i64 %25
   store i8 0, ptr %28, align 1
   %29 = tail call i64 @g_ascii_strtoull(ptr noundef %24, ptr noundef null, i32 noundef 10)
@@ -3625,7 +3619,7 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
   %44 = sext i32 %8 to i64
   %45 = icmp ne i32 %41, -1
   tail call void @llvm.assume(i1 %45)
-  %46 = tail call ptr @__memcpy_chk(ptr noundef %43, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %44, i64 noundef %42) #13, !alias.scope !91
+  %46 = tail call ptr @__memcpy_chk(ptr noundef %43, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %44, i64 noundef %42) #15, !alias.scope !91
   %47 = getelementptr i8, ptr %43, i64 %44
   store i8 0, ptr %47, align 1
   %48 = tail call i64 @g_ascii_strtoull(ptr noundef %43, ptr noundef null, i32 noundef 10)
@@ -3648,7 +3642,7 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
   %61 = sext i32 %8 to i64
   %62 = icmp ne i32 %58, -1
   tail call void @llvm.assume(i1 %62)
-  %63 = tail call ptr @__memcpy_chk(ptr noundef %60, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %61, i64 noundef %59) #13, !alias.scope !95
+  %63 = tail call ptr @__memcpy_chk(ptr noundef %60, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %61, i64 noundef %59) #15, !alias.scope !95
   %64 = getelementptr i8, ptr %60, i64 %61
   store i8 0, ptr %64, align 1
   %65 = tail call i64 @g_ascii_strtoull(ptr noundef %60, ptr noundef null, i32 noundef 10)
@@ -3675,7 +3669,7 @@ define internal noundef zeroext i1 @dissect_cmgr_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmux(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmux(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3729,7 +3723,7 @@ define internal noundef zeroext i1 @dissect_cmux_parameter(ptr noundef %0, ptr n
   %27 = sext i32 %8 to i64
   %28 = icmp ne i32 %24, -1
   tail call void @llvm.assume(i1 %28)
-  %29 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef %25) #13, !alias.scope !99
+  %29 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef %25) #15, !alias.scope !99
   %30 = getelementptr i8, ptr %26, i64 %27
   store i8 0, ptr %30, align 1
   %31 = tail call i64 @g_ascii_strtoull(ptr noundef %26, ptr noundef null, i32 noundef 10)
@@ -3808,7 +3802,7 @@ default.unreachable:                              ; preds = %33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -3863,7 +3857,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %28 = sext i32 %8 to i64
   %29 = icmp ne i32 %25, -1
   tail call void @llvm.assume(i1 %29)
-  %30 = tail call ptr @__memcpy_chk(ptr noundef %27, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %28, i64 noundef %26) #13, !alias.scope !103
+  %30 = tail call ptr @__memcpy_chk(ptr noundef %27, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %28, i64 noundef %26) #15, !alias.scope !103
   %31 = getelementptr i8, ptr %27, i64 %28
   store i8 0, ptr %31, align 1
   %32 = tail call i64 @g_ascii_strtoull(ptr noundef %27, ptr noundef null, i32 noundef 10)
@@ -3887,7 +3881,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %45 = sext i32 %8 to i64
   %46 = icmp ne i32 %42, -1
   tail call void @llvm.assume(i1 %46)
-  %47 = tail call ptr @__memcpy_chk(ptr noundef %44, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef %43) #13, !alias.scope !107
+  %47 = tail call ptr @__memcpy_chk(ptr noundef %44, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef %43) #15, !alias.scope !107
   %48 = getelementptr i8, ptr %44, i64 %45
   store i8 0, ptr %48, align 1
   %49 = tail call i64 @g_ascii_strtoull(ptr noundef %44, ptr noundef null, i32 noundef 10)
@@ -3905,7 +3899,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %59 = sext i32 %8 to i64
   %60 = icmp ne i32 %56, -1
   tail call void @llvm.assume(i1 %60)
-  %61 = tail call ptr @__memcpy_chk(ptr noundef %58, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %59, i64 noundef %57) #13, !alias.scope !111
+  %61 = tail call ptr @__memcpy_chk(ptr noundef %58, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %59, i64 noundef %57) #15, !alias.scope !111
   %62 = getelementptr i8, ptr %58, i64 %59
   store i8 0, ptr %62, align 1
   %63 = tail call i64 @g_ascii_strtoull(ptr noundef %58, ptr noundef null, i32 noundef 10)
@@ -3928,7 +3922,7 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %76 = sext i32 %8 to i64
   %77 = icmp ne i32 %73, -1
   tail call void @llvm.assume(i1 %77)
-  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %76, i64 noundef %74) #13, !alias.scope !115
+  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %76, i64 noundef %74) #15, !alias.scope !115
   %79 = getelementptr i8, ptr %75, i64 %76
   store i8 0, ptr %79, align 1
   %80 = tail call i64 @g_ascii_strtoull(ptr noundef %75, ptr noundef null, i32 noundef 10)
@@ -3950,7 +3944,7 @@ default.unreachable:                              ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = and i16 %1, -3
   %or.cond = icmp eq i16 %4, 61
@@ -4005,7 +3999,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr n
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #13, !alias.scope !119
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #15, !alias.scope !119
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4023,7 +4017,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr n
   %40 = sext i32 %8 to i64
   %41 = icmp ne i32 %37, -1
   tail call void @llvm.assume(i1 %41)
-  %42 = tail call ptr @__memcpy_chk(ptr noundef %39, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef %38) #13, !alias.scope !123
+  %42 = tail call ptr @__memcpy_chk(ptr noundef %39, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %40, i64 noundef %38) #15, !alias.scope !123
   %43 = getelementptr i8, ptr %39, i64 %40
   store i8 0, ptr %43, align 1
   %44 = tail call i64 @g_ascii_strtoull(ptr noundef %39, ptr noundef null, i32 noundef 10)
@@ -4046,7 +4040,7 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr n
   %57 = sext i32 %8 to i64
   %58 = icmp ne i32 %54, -1
   tail call void @llvm.assume(i1 %58)
-  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %57, i64 noundef %55) #13, !alias.scope !127
+  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %57, i64 noundef %55) #15, !alias.scope !127
   %60 = getelementptr i8, ptr %56, i64 %57
   store i8 0, ptr %60, align 1
   %61 = tail call i64 @g_ascii_strtoull(ptr noundef %56, ptr noundef null, i32 noundef 10)
@@ -4064,7 +4058,7 @@ default.unreachable:                              ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cpin(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cpin(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4142,7 +4136,7 @@ define internal noundef zeroext i1 @dissect_cpin_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cpms(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cpms(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4208,7 +4202,7 @@ define internal noundef zeroext i1 @dissect_cpms_parameter(ptr noundef %0, ptr n
   %33 = sext i32 %8 to i64
   %34 = icmp ne i32 %30, -1
   tail call void @llvm.assume(i1 %34)
-  %35 = tail call ptr @__memcpy_chk(ptr noundef %32, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %33, i64 noundef %31) #13, !alias.scope !131
+  %35 = tail call ptr @__memcpy_chk(ptr noundef %32, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %33, i64 noundef %31) #15, !alias.scope !131
   %36 = getelementptr i8, ptr %32, i64 %33
   store i8 0, ptr %36, align 1
   %37 = tail call i64 @g_ascii_strtoull(ptr noundef %32, ptr noundef null, i32 noundef 10)
@@ -4258,7 +4252,7 @@ define internal noundef zeroext i1 @dissect_cpms_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cscs(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cscs(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4310,7 +4304,7 @@ define internal noundef zeroext i1 @dissect_cscs_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_csim(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_csim(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4361,7 +4355,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #13, !alias.scope !135
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %26, i64 noundef %24) #15, !alias.scope !135
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4430,7 +4424,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
 
 68:                                               ; preds = %59
   %69 = getelementptr i8, ptr %50, i64 %indvars.iv
-  %70 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.075, ptr noundef nonnull @.str.627, ptr noundef %69) #13
+  %70 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.075, ptr noundef nonnull @.str.627, ptr noundef %69) #15
   %71 = getelementptr i8, ptr %.075, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4449,7 +4443,7 @@ define internal noundef zeroext i1 @dissect_csim_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_csq(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_csq(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4489,7 +4483,7 @@ define internal noundef zeroext i1 @dissect_csq_parameter(ptr noundef %0, ptr no
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef %19) #13
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %21, i64 noundef %19) #15
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -4532,7 +4526,7 @@ define internal noundef zeroext i1 @dissect_csq_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_csupi(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_csupi(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4548,7 +4542,7 @@ define internal noundef zeroext i1 @check_csupi(i32 noundef %0, i16 noundef zero
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_gmi(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_gmi(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4588,7 +4582,7 @@ define internal noundef zeroext i1 @dissect_gmi_parameter(ptr noundef %0, ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_gmm(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_gmm(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4628,7 +4622,7 @@ define internal noundef zeroext i1 @dissect_gmm_parameter(ptr noundef %0, ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_gmr(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_gmr(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4668,7 +4662,7 @@ define internal noundef zeroext i1 @dissect_gmr_parameter(ptr noundef %0, ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_gsn(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_gsn(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4684,7 +4678,7 @@ define internal noundef zeroext i1 @check_gsn(i32 noundef %0, i16 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4737,7 +4731,7 @@ define internal noundef zeroext i1 @dissect_vts_parameter(ptr noundef %0, ptr no
   %27 = sext i32 %8 to i64
   %28 = icmp ne i32 %24, -1
   tail call void @llvm.assume(i1 %28)
-  %29 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef %25) #13, !alias.scope !140
+  %29 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %27, i64 noundef %25) #15, !alias.scope !140
   %30 = getelementptr i8, ptr %26, i64 %27
   store i8 0, ptr %30, align 1
   %31 = tail call i64 @g_ascii_strtoull(ptr noundef %26, ptr noundef null, i32 noundef 10)
@@ -4751,7 +4745,7 @@ define internal noundef zeroext i1 @dissect_vts_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_zpas(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_zpas(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 63
   %or.cond = and i1 %3, %4
@@ -4790,7 +4784,7 @@ define internal noundef zeroext i1 @dissect_zpas_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_zusim(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_zusim(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 15679
   %or.cond = and i1 %3, %4
@@ -4825,7 +4819,7 @@ define internal noundef zeroext i1 @dissect_zusim_parameter(ptr noundef %0, ptr 
   %20 = sext i32 %8 to i64
   %21 = icmp ne i32 %17, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %20, i64 noundef %18) #13, !alias.scope !144
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 2147483648) %20, i64 noundef %18) #15, !alias.scope !144
   %23 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10)
@@ -4839,7 +4833,7 @@ define internal noundef zeroext i1 @dissect_zusim_parameter(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_only_dce_role(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_only_dce_role(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 3338
   %or.cond = and i1 %3, %4
@@ -4847,7 +4841,7 @@ define internal noundef zeroext i1 @check_only_dce_role(i32 noundef %0, i16 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_only_dte_role(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_only_dte_role(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -4862,7 +4856,7 @@ define internal fastcc i32 @get_uint_parameter(ptr noundef %0, ptr noundef reado
   %7 = sext i32 %2 to i64
   %8 = icmp ne i32 %4, -1
   tail call void @llvm.assume(i1 %8)
-  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef %5) #13, !alias.scope !148
+  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %7, i64 noundef %5) #15, !alias.scope !148
   %10 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %10, align 1
   %11 = tail call i64 @g_ascii_strtoull(ptr noundef %6, ptr noundef null, i32 noundef 10)
@@ -4871,19 +4865,19 @@ define internal fastcc i32 @get_uint_parameter(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @dissect_e212_utf8_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dissect_e212_utf8_imsi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
@@ -4955,7 +4949,7 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 49:                                               ; preds = %40
   %50 = getelementptr i8, ptr %30, i64 %indvars.iv
   %51 = getelementptr i8, ptr %50, i64 -8
-  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #13
+  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #15
   %53 = getelementptr i8, ptr %.04653, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4977,16 +4971,16 @@ define internal noundef zeroext i1 @dissect_cmgl_data_part(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i16 noundef zeroext %5, ptr noundef readonly captures(none) %6, i32 %7, i32 noundef %8, ptr readnone captures(none) %9) #0 {
@@ -5058,7 +5052,7 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 49:                                               ; preds = %40
   %50 = getelementptr i8, ptr %30, i64 %indvars.iv
   %51 = getelementptr i8, ptr %50, i64 -8
-  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #13
+  %52 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.04653, ptr noundef nonnull @.str.627, ptr noundef %51) #15
   %53 = getelementptr i8, ptr %.04653, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5080,19 +5074,25 @@ define internal noundef zeroext i1 @dissect_cmgr_data_part(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
@@ -5101,21 +5101,21 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { allocsize(1) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

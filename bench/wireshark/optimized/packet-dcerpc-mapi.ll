@@ -8495,7 +8495,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %15, label %11
@@ -8518,7 +8518,7 @@ define hidden i32 @mapi_dissect_struct_response(ptr noundef %0, i32 noundef %1, 
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %spec.select.i to i64
-  %24 = call noalias ptr @wmem_alloc0(ptr noundef %22, i64 noundef %23) #7
+  %24 = call noalias ptr @wmem_alloc0(ptr noundef %22, i64 noundef %23) #6
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %mapi_deobfuscate.exit, label %.lr.ph.i
 
@@ -8603,42 +8603,36 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %33
 
 70:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %62, %67, %mapi_deobfuscate.exit, %30
   %.0 = phi i32 [ %17, %30 ], [ %17, %mapi_deobfuscate.exit ], [ %34, %62 ], [ %69, %67 ], [ %34, %mapi_dissect_element_handles_cnf.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -8654,15 +8648,15 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %18 = alloca i16, align 2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %20 = load i8, ptr %19, align 2, !range !9, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 1, ptr %19, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %25, label %21
@@ -8699,10 +8693,10 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %46 = load i32, ptr @hf_mapi_AUX_PERF_CLIENTINFO_MacAddressOffset, align 4
   %47 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0150, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %18)
   %48 = load i32, ptr @hf_mapi_AUX_PERF_CLIENTINFO_ClientMode, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %49 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0150, ptr noundef %4, ptr noundef %5, i32 noundef %48, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %50 = load i32, ptr @hf_mapi_AUX_PERF_CLIENTINFO_Reserved, align 4
   %51 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0150, ptr noundef %4, ptr noundef %5, i32 noundef %50, i32 noundef 0)
   %52 = load i16, ptr %10, align 2
@@ -8838,26 +8832,26 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_CLIENTINFO(ptr noundef %0, i32 n
   %115 = sub i32 %.5, %1
   call void @proto_item_set_len(ptr noundef %.0149, i32 noundef %115)
   store i8 %20, ptr %19, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.5
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AUX_HEADER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
@@ -8866,9 +8860,9 @@ define hidden i32 @mapi_dissect_struct_AUX_HEADER(ptr noundef %0, i32 noundef %1
   %11 = alloca i8, align 1
   %12 = alloca i16, align 2
   %13 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i16 0, ptr %12, align 2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %15 = load i8, ptr %14, align 2, !range !9, !noundef !10
@@ -8888,11 +8882,11 @@ define hidden i32 @mapi_dissect_struct_AUX_HEADER(ptr noundef %0, i32 noundef %1
   %21 = load i32, ptr @hf_mapi_AUX_HEADER_Size, align 4
   %22 = call i32 @PIDL_dissect_uint16_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0, ptr noundef nonnull %12)
   %23 = load i32, ptr @hf_mapi_AUX_HEADER_Version, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %11)
   %25 = load i8, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   switch i8 %25, label %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit [
     i8 1, label %.sink.split.i
     i8 2, label %26
@@ -8916,7 +8910,7 @@ mapi_dissect_AUX_HEADER_TYPE_ENUM.exit:           ; preds = %20, %.sink.split.i
   ]
 
 30:                                               ; preds = %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %34, label %31
@@ -9097,11 +9091,11 @@ mapi_dissect_AuxDataVersion1.exit.i:              ; preds = %111, %mapi_dissect_
   %114 = load ptr, ptr %10, align 8
   %115 = sub i32 %.0.i.i, %.0.i
   call void @proto_item_set_len(ptr noundef %114, i32 noundef %115)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %mapi_dissect_AUX_DATA.exit
 
 116:                                              ; preds = %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i16.i = icmp eq ptr %.0, null
   br i1 %.not.i16.i, label %120, label %117
@@ -9282,7 +9276,7 @@ mapi_dissect_AuxDataVersion2.exit.i:              ; preds = %197, %mapi_dissect_
   %200 = load ptr, ptr %9, align 8
   %201 = sub i32 %.0.i21.i, %.0.i
   call void @proto_item_set_len(ptr noundef %200, i32 noundef %201)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %mapi_dissect_AUX_DATA.exit
 
 mapi_dissect_AUX_DATA.exit:                       ; preds = %mapi_dissect_AUX_HEADER_TYPE_ENUM.exit, %mapi_dissect_AuxDataVersion1.exit.i, %mapi_dissect_AuxDataVersion2.exit.i
@@ -9291,15 +9285,15 @@ mapi_dissect_AUX_DATA.exit:                       ; preds = %mapi_dissect_AUX_HE
   %203 = zext i16 %202 to i32
   call void @proto_item_set_len(ptr noundef %.035, i32 noundef %203)
   store i8 %15, ptr %14, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0.i37
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
@@ -9330,23 +9324,23 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiRequest(ptr noundef %0, i32 no
   %26 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26)
   store i8 %11, ptr %10, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint8_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint8_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
@@ -9403,7 +9397,7 @@ define hidden i32 @mapi_dissect_struct_request(ptr noundef %0, i32 noundef %1, p
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = zext i32 %spec.select.i to i64
-  %42 = call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef %41) #7
+  %42 = call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef %41) #6
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %mapi_deobfuscate.exit, label %.lr.ph.i
 
@@ -9488,14 +9482,14 @@ mapi_dissect_element_handles_cnf.exit:            ; preds = %.lr.ph.i76, %51
 
 88:                                               ; preds = %mapi_dissect_element_handles_cnf.exit, %80, %85, %mapi_deobfuscate.exit, %48
   %.0 = phi i32 [ %35, %48 ], [ %35, %mapi_deobfuscate.exit ], [ %52, %80 ], [ %87, %85 ], [ %52, %mapi_dissect_element_handles_cnf.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %11 = load i8, ptr %10, align 2, !range !9, !noundef !10
@@ -9526,7 +9520,7 @@ define hidden i32 @mapi_dissect_struct_EcDoRpcMapiResponse(ptr noundef %0, i32 n
   %26 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26)
   store i8 %11, ptr %10, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %25
 }
 
@@ -9554,14 +9548,14 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamContinue_req(ptr nou
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_SyncUploadStateStreamContinue_req_StreamDataSize, align 4
   %22 = load i32, ptr @hf_mapi_SyncUploadStateStreamContinue_req_StreamDataValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %23 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0, ptr noundef nonnull %9)
   %24 = load i32, ptr %9, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %.032, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 0)
   %26 = load i32, ptr %9, align 4
   %27 = add i32 %26, %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %27, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -9596,54 +9590,54 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageMove_req(ptr noundef %0,
   %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_SourceFolderIdSize, align 4
   %26 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_SourceFolderIdValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
   %27 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0, ptr noundef nonnull %13)
   %28 = load i32, ptr %13, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %28, i32 noundef 0)
   %30 = load i32, ptr %13, align 4
   %31 = add i32 %30, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %32 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_SourceMessageIdSize, align 4
   %33 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_SourceMessageIdValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %34 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %32, i32 noundef 0, ptr noundef nonnull %12)
   %35 = load i32, ptr %12, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr %12, align 4
   %38 = add i32 %37, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %39 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_PredecessorChangeListSize, align 4
   %40 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_PredecessorChangeListValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %41 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %11)
   %42 = load i32, ptr %11, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef 0)
   %44 = load i32, ptr %11, align 4
   %45 = add i32 %44, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %46 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_DestinationMessageIdSize, align 4
   %47 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_DestinationMessageIdValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %48 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 noundef 0, ptr noundef nonnull %10)
   %49 = load i32, ptr %10, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef %49, i32 noundef 0)
   %51 = load i32, ptr %10, align 4
   %52 = add i32 %51, %48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %53 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_ChangeNumberSize, align 4
   %54 = load i32, ptr @hf_mapi_SyncImportMessageMove_req_ChangeNumberValue, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %55 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %53, i32 noundef 0, ptr noundef nonnull %9)
   %56 = load i32, ptr %9, align 4
   %57 = call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef %56, i32 noundef 0)
   %58 = load i32, ptr %9, align 4
   %59 = add i32 %58, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %60 = sub i32 %59, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %60)
   store i8 %15, ptr %14, align 2
@@ -9653,7 +9647,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageMove_req(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_OpenFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_OpenFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -9682,20 +9676,20 @@ define hidden i32 @mapi_dissect_bitmap_OpenFlags(ptr noundef %0, i32 noundef %1,
   br label %23
 
 23:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_StoreState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_StoreState, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -9724,7 +9718,7 @@ define hidden i32 @mapi_dissect_bitmap_StoreState(ptr noundef %0, i32 noundef %1
   br label %23
 
 23:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -9736,7 +9730,7 @@ define hidden i32 @mapi_dissect_struct_Logon_repl(ptr noundef %0, i32 noundef %1
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %14 = load i8, ptr %13, align 2, !range !9, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %13, align 2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %15
@@ -9762,11 +9756,11 @@ define hidden i32 @mapi_dissect_struct_Logon_repl(ptr noundef %0, i32 noundef %1
 
 25:                                               ; preds = %19
   %26 = load i32, ptr @hf_mapi_Logon_repl_LogonFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %27 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11)
   %28 = load i8, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %29 = icmp eq i8 %28, 1
   br i1 %29, label %.preheader, label %.preheader131
 
@@ -9793,7 +9787,7 @@ mapi_dissect_element_Logon_repl_FolderIds.exit:   ; preds = %.preheader
   %43 = load i32, ptr @hf_mapi_Logon_repl_GwartTime, align 4
   %44 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %43, ptr noundef null)
   %45 = load i32, ptr @hf_mapi_Logon_repl_StoreState, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = load i32, ptr @ett_mapi_StoreState, align 4
   %47 = load i8, ptr %5, align 1
   %48 = and i8 %47, 16
@@ -9822,7 +9816,7 @@ mapi_dissect_element_Logon_repl_FolderIds.exit:   ; preds = %.preheader
   br label %mapi_dissect_element_Logon_repl_StoreState.exit
 
 mapi_dissect_element_Logon_repl_StoreState.exit:  ; preds = %55, %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %75
 
 .preheader131:                                    ; preds = %25, %.preheader131
@@ -9845,10 +9839,10 @@ mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
 
 68:                                               ; preds = %19
   %69 = load i32, ptr @hf_mapi_Logon_repl_LogonFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %70 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %71 = load i32, ptr @hf_mapi_Logon_repl_ServerNameSize, align 4
   %72 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %70, ptr noundef %2, ptr noundef %.0123, ptr noundef %4, ptr noundef %5, i32 noundef %71, i32 noundef 0)
   %73 = load i32, ptr @hf_mapi_Logon_repl_ServerName, align 4
@@ -9860,17 +9854,17 @@ mapi_dissect_element_Logon_repl_FolderIds.exit129: ; preds = %.preheader131
   %76 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %.0122, i32 noundef %76)
   store i8 %14, ptr %13, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32_val(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_LogonFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -9889,14 +9883,14 @@ define hidden i32 @mapi_dissect_enum_LogonFlags(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_AuxInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
@@ -10001,7 +9995,7 @@ mapi_dissect_element_AuxInfo_auxHeader.exit:      ; preds = %.lr.ph.i, %36
 
 66:                                               ; preds = %mapi_dissect_element_AuxInfo_auxHeader.exit, %63, %59, %32, %8
   %.0 = phi i32 [ %1, %8 ], [ %34, %32 ], [ %34, %59 ], [ %65, %63 ], [ %34, %mapi_dissect_element_AuxInfo_auxHeader.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -10010,10 +10004,10 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %13 = load i8, ptr %12, align 1, !range !9, !noundef !10
@@ -10138,7 +10132,7 @@ define internal fastcc i32 @dissect_RPC_HEADER_EXT(ptr noundef %0, i32 noundef %
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = zext nneg i32 %spec.select.i to i64
-  %83 = call noalias ptr @wmem_alloc0(ptr noundef %81, i64 noundef %82) #7
+  %83 = call noalias ptr @wmem_alloc0(ptr noundef %81, i64 noundef %82) #6
   %.not.i = icmp eq i32 %spec.select.i, 0
   br i1 %.not.i, label %mapi_deobfuscate.exit, label %.lr.ph.i
 
@@ -10188,9 +10182,9 @@ mapi_deobfuscate.exit:                            ; preds = %.lr.ph.i, %77
 
 102:                                              ; preds = %62, %97, %96
   %.0 = phi i32 [ %.2, %96 ], [ %100, %97 ], [ %.2, %62 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -10204,7 +10198,7 @@ define hidden i32 @mapi_dissect_struct_RgbIn(ptr noundef %0, i32 noundef %1, ptr
 define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %10
@@ -10258,7 +10252,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   %37 = icmp eq i8 %36, 0
   %38 = select i1 %37, ptr @.str.6123, ptr @.str.6124
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef nonnull %33, ptr noundef nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %39 = load i8, ptr %20, align 8
   %40 = icmp eq i8 %39, 0
   %41 = load i32, ptr @hf_mapi_RgbIn_ropIn, align 4
@@ -10307,7 +10301,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
   br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %69, %34
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 96
@@ -10343,7 +10337,7 @@ define internal fastcc i32 @mapi_dissect_RgbInOut(ptr noundef %0, i32 noundef %1
 
 91:                                               ; preds = %83, %81, %88, %86, %30
   %.059 = phi i32 [ %32, %30 ], [ %32, %81 ], [ %85, %83 ], [ %32, %86 ], [ %90, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.059
 }
 
@@ -10356,7 +10350,7 @@ define hidden i32 @mapi_dissect_struct_RgbOut(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10375,14 +10369,14 @@ define hidden i32 @mapi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_MAPITAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10401,7 +10395,7 @@ define hidden i32 @mapi_dissect_enum_MAPITAGS(ptr noundef %0, i32 noundef %1, pt
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -10463,7 +10457,7 @@ define hidden i32 @mapi_dissect_struct_DATA_BLOB(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_MAPI_OBJTYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10482,17 +10476,17 @@ define hidden i32 @mapi_dissect_enum_MAPI_OBJTYPE(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ACLRIGHTS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10511,14 +10505,14 @@ define hidden i32 @mapi_dissect_enum_ACLRIGHTS(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ROP_OPNUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -10537,7 +10531,7 @@ define hidden i32 @mapi_dissect_enum_ROP_OPNUM(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -11051,7 +11045,7 @@ mapi_dissect_element_SPropValue_array_wrap_wrap.exit: ; preds = %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ActionType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -11070,7 +11064,7 @@ define hidden i32 @mapi_dissect_enum_ActionType(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -11225,7 +11219,7 @@ mapi_dissect_element_RecipientBlock_PropertyValue.exit: ; preds = %25
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_BounceCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -11244,12 +11238,12 @@ define hidden i32 @mapi_dissect_enum_BounceCode(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_struct_ForwardDelegate_Action(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -11298,16 +11292,16 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
   %.038 = phi ptr [ %17, %14 ], [ null, %8 ]
   %.0 = phi ptr [ %15, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_mapi_ActionBlockData_ActionType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %20 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %11)
   %21 = load i8, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %22 = load i32, ptr @hf_mapi_ActionBlockData_ActionFlavor, align 4
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_ActionBlockData_ActionFlags, align 4
   %25 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %29, label %26
@@ -11358,10 +11352,10 @@ define hidden i32 @mapi_dissect_struct_ActionBlockData(ptr noundef %0, i32 nound
 
 45:                                               ; preds = %29
   %46 = load i32, ptr @hf_mapi_ActionData_BounceCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %47 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit
 
 48:                                               ; preds = %29
@@ -11450,7 +11444,7 @@ mapi_dissect_element_ActionBlockData_ActionDataBuffer.exit: ; preds = %29, %30, 
   %83 = load ptr, ptr %10, align 8
   %84 = sub i32 %.0.i.i, %25
   call void @proto_item_set_len(ptr noundef %83, i32 noundef %84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %85 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %85)
   store i8 %13, ptr %12, align 2
@@ -11935,14 +11929,14 @@ define hidden i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   %.026 = phi ptr [ %18, %15 ], [ null, %8 ]
   %.0 = phi ptr [ %16, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_mapi_mapi_SPropValue_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %22 = load i32, ptr @hf_mapi_mapi_SPropValue_value, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %26, label %23
 
@@ -12123,10 +12117,10 @@ mapi_dissect_element_SPropValue_CTR_RuleAction.exit.i.i: ; preds = %89, %86
 
 100:                                              ; preds = %26
   %101 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_err, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %102 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0155.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %101, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %mapi_dissect_element_SPropValue_value.exit
 
 103:                                              ; preds = %26
@@ -12179,8 +12173,8 @@ mapi_dissect_element_SPropValue_value.exit:       ; preds = %26, %35, %38, %41, 
   %130 = load ptr, ptr %10, align 8
   %131 = sub i32 %.1.i.i, %21
   call void @proto_item_set_len(ptr noundef %130, i32 noundef %131)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %132 = sub i32 %.1.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %132)
   store i8 %14, ptr %13, align 2
@@ -12242,7 +12236,7 @@ define hidden i32 @mapi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ulRowFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12261,7 +12255,7 @@ define hidden i32 @mapi_dissect_enum_ulRowFlags(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -12314,7 +12308,7 @@ define hidden noundef i32 @mapi_dissect_struct_Release_repl(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_OpenFolder_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12333,7 +12327,7 @@ define hidden i32 @mapi_dissect_enum_OpenFolder_OpenModeFlags(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -12364,10 +12358,10 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_req(ptr noundef %0, i32 nounde
   %23 = load i32, ptr @hf_mapi_OpenFolder_req_FolderId, align 4
   %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef null)
   %25 = load i32, ptr @hf_mapi_OpenFolder_req_OpenModeFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %26 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = sub i32 %26, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %27)
   store i8 %11, ptr %10, align 2
@@ -12424,7 +12418,7 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_Success(ptr noundef %0, i32 no
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_OpenFolder_Success_IsGhosted, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_Success_Ghost.exit, label %21
@@ -12438,7 +12432,7 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_Success(ptr noundef %0, i32 no
 mapi_dissect_element_OpenFolder_Success_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %20, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -12467,7 +12461,7 @@ define hidden i32 @mapi_dissect_struct_OpenFolder_repl(ptr noundef %0, i32 nound
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_OpenFolder_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_OpenFolder_repl_repl.exit, label %21
@@ -12484,7 +12478,7 @@ mapi_dissect_element_OpenFolder_repl_repl.exit:   ; preds = %21, %16
   %26 = load ptr, ptr %9, align 8
   %27 = sub i32 %25, %20
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -12494,7 +12488,7 @@ mapi_dissect_element_OpenFolder_repl_repl.exit:   ; preds = %21, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_StringType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12513,7 +12507,7 @@ define hidden i32 @mapi_dissect_enum_StringType(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -12537,12 +12531,12 @@ define hidden i32 @mapi_dissect_struct_TypedString(ptr noundef %0, i32 noundef %
   %.026 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_TypedString_StringType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
   %20 = load i8, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %24, label %21
@@ -12580,7 +12574,7 @@ mapi_dissect_element_TypedString_String.exit:     ; preds = %24, %25, %28, %31
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %12, ptr %11, align 2
@@ -12590,7 +12584,7 @@ mapi_dissect_element_TypedString_String.exit:     ; preds = %24, %25, %28, %31
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_OpenMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12609,7 +12603,7 @@ define hidden i32 @mapi_dissect_enum_OpenMessage_OpenModeFlags(ptr noundef %0, i
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -12642,10 +12636,10 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_req(ptr noundef %0, i32 nound
   %25 = load i32, ptr @hf_mapi_OpenMessage_req_FolderId, align 4
   %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef null)
   %27 = load i32, ptr @hf_mapi_OpenMessage_req_OpenModeFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %28 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %29 = load i32, ptr @hf_mapi_OpenMessage_req_MessageId, align 4
   %30 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef null)
   %31 = sub i32 %30, %1
@@ -12657,7 +12651,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_req(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_CODEPAGEID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12676,17 +12670,17 @@ define hidden i32 @mapi_dissect_enum_CODEPAGEID(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ulRecipClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12705,14 +12699,14 @@ define hidden i32 @mapi_dissect_enum_ulRecipClass(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_addr_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -12731,7 +12725,7 @@ define hidden i32 @mapi_dissect_enum_addr_type(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -12756,10 +12750,10 @@ define hidden i32 @mapi_dissect_struct_RecipExchange(ptr noundef %0, i32 noundef
   %17 = load i32, ptr @hf_mapi_RecipExchange_organization_length, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_RecipExchange_addr_type, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %20 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_RecipExchange_username, align 4
   %22 = call i32 @dissect_null_term_string(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = sub i32 %22, %1
@@ -12811,24 +12805,24 @@ define hidden i32 @mapi_dissect_struct_RecipientRow(ptr noundef %0, i32 noundef 
   %.0 = phi ptr [ %17, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_mapi_RecipientRow_RecipientFlags, align 4
   %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %.not.i.i = icmp eq ptr %.068, null
   br i1 %.not.i.i, label %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread, label %23
 
 mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread: ; preds = %20
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   br label %mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit
 
@@ -12837,29 +12831,29 @@ mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread: ; preds = %20
   %25 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %13, ptr noundef nonnull @.str.6138)
   %.pre.i.i = load ptr, ptr %13, align 8
   call void @proto_item_set_len(ptr noundef %.pre.i.i, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %26 = load i32, ptr @ett_mapi_recipient_EmailAddress, align 4
   %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %12, ptr noundef nonnull @.str.6139)
   %.pre.i.i71 = load ptr, ptr %12, align 8
   call void @proto_item_set_len(ptr noundef %.pre.i.i71, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %28 = load i32, ptr @ett_mapi_recipient_DisplayName, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %11, ptr noundef nonnull @.str.6140)
   %.pre.i.i73 = load ptr, ptr %11, align 8
   call void @proto_item_set_len(ptr noundef %.pre.i.i73, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %30 = load i32, ptr @ett_mapi_recipient_SimpleDisplayName, align 4
   %31 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %10, ptr noundef nonnull @.str.6141)
   %.pre.i.i75 = load ptr, ptr %10, align 8
   call void @proto_item_set_len(ptr noundef %.pre.i.i75, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %32 = load i32, ptr @ett_mapi_recipient_TransmittableDisplayName, align 4
   %33 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.068, ptr noundef %0, i32 noundef %22, i32 noundef -1, i32 noundef %32, ptr noundef nonnull %9, ptr noundef nonnull @.str.6142)
@@ -12869,7 +12863,7 @@ mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread: ; preds = %20
 mapi_dissect_element_RecipientRow_TransmittableDisplayName.exit: ; preds = %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread, %23
   %34 = phi ptr [ %.pre.i.i77, %23 ], [ null, %mapi_dissect_element_RecipientRow_SimpleDisplayName.exit.thread ]
   call void @proto_item_set_len(ptr noundef %34, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = load i32, ptr @hf_mapi_RecipientRow_prop_count, align 4
   %36 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0)
   %37 = load i32, ptr @hf_mapi_RecipientRow_layout, align 4
@@ -12902,15 +12896,15 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_recipients(ptr noundef %0, i3
   %.038 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_OpenMessage_recipients_RecipClass, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %20 = load i32, ptr @hf_mapi_OpenMessage_recipients_codepage, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %21 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = load i32, ptr @hf_mapi_OpenMessage_recipients_Reserved, align 4
   %23 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_OpenMessage_recipients_RecipientRow, align 4
@@ -13000,7 +12994,7 @@ define hidden i32 @mapi_dissect_struct_OpenMessage_repl(ptr noundef %0, i32 noun
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_OpenMessage_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_OpenMessage_repl_repl.exit, label %21
@@ -13017,7 +13011,7 @@ mapi_dissect_element_OpenMessage_repl_repl.exit:  ; preds = %21, %16
   %26 = load ptr, ptr %9, align 8
   %27 = sub i32 %25, %20
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -13027,7 +13021,7 @@ mapi_dissect_element_OpenMessage_repl_repl.exit:  ; preds = %21, %16
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_TableFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_TableFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -13057,7 +13051,7 @@ define hidden i32 @mapi_dissect_bitmap_TableFlags(ptr noundef %0, i32 noundef %1
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -13086,7 +13080,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_req(ptr noundef %0, i32
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_GetHierarchyTable_req_TableFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_TableFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -13116,7 +13110,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_req(ptr noundef %0, i32
   br label %mapi_dissect_element_GetHierarchyTable_req_TableFlags.exit
 
 mapi_dissect_element_GetHierarchyTable_req_TableFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %30, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %38)
   store i8 %11, ptr %10, align 2
@@ -13170,7 +13164,7 @@ define hidden i32 @mapi_dissect_struct_GetHierarchyTable_repl(ptr noundef %0, i3
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_GetHierarchyTable_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %.thread20.i.i, label %22
@@ -13206,7 +13200,7 @@ mapi_dissect_element_GetHierarchyTable_repl_repl.exit: ; preds = %.thread20.i.i,
   store i8 %31, ptr %10, align 2
   %35 = load ptr, ptr %9, align 8
   call void @proto_item_set_len(ptr noundef %35, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %33, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %11, ptr %10, align 2
@@ -13238,7 +13232,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_req(ptr noundef %0, i32 
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_GetContentsTable_req_TableFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_TableFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -13268,7 +13262,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_req(ptr noundef %0, i32 
   br label %mapi_dissect_element_GetContentsTable_req_TableFlags.exit
 
 mapi_dissect_element_GetContentsTable_req_TableFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %30, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %38)
   store i8 %11, ptr %10, align 2
@@ -13322,7 +13316,7 @@ define hidden i32 @mapi_dissect_struct_GetContentsTable_repl(ptr noundef %0, i32
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_GetContentsTable_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %.thread20.i.i, label %22
@@ -13358,7 +13352,7 @@ mapi_dissect_element_GetContentsTable_repl_repl.exit: ; preds = %.thread20.i.i, 
   store i8 %31, ptr %10, align 2
   %35 = load ptr, ptr %9, align 8
   call void @proto_item_set_len(ptr noundef %35, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %33, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %11, ptr %10, align 2
@@ -13420,7 +13414,7 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_repl_success(ptr noundef %0
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_CreateMessage_repl_success_HasMessageId, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_success_MessageId.exit, label %19
@@ -13434,7 +13428,7 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_repl_success(ptr noundef %0
 mapi_dissect_element_CreateMessage_repl_success_MessageId.exit: ; preds = %16, %19
   %22 = phi ptr [ null, %16 ], [ %.pre, %19 ]
   call void @proto_item_set_len(ptr noundef %22, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %23)
   store i8 %11, ptr %10, align 2
@@ -13463,7 +13457,7 @@ define hidden i32 @mapi_dissect_struct_CreateMessage_repl(ptr noundef %0, i32 no
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_CreateMessage_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_CreateMessage_repl_repl.exit, label %21
@@ -13480,7 +13474,7 @@ mapi_dissect_element_CreateMessage_repl_repl.exit: ; preds = %21, %16
   %26 = load ptr, ptr %9, align 8
   %27 = sub i32 %25, %20
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -13570,7 +13564,7 @@ define hidden i32 @mapi_dissect_struct_GetProps_repl(ptr noundef %0, i32 noundef
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_GetProps_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_GetProps_repl_repl.exit, label %21
@@ -13587,7 +13581,7 @@ mapi_dissect_element_GetProps_repl_repl.exit:     ; preds = %21, %16
   %26 = load ptr, ptr %9, align 8
   %27 = sub i32 %25, %20
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -13687,7 +13681,7 @@ define hidden i32 @mapi_dissect_struct_GetPropsAll_repl(ptr noundef %0, i32 noun
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_GetPropsAll_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_GetPropsAll_repl_repl.exit, label %21
@@ -13704,7 +13698,7 @@ mapi_dissect_element_GetPropsAll_repl_repl.exit:  ; preds = %21, %16
   %26 = load ptr, ptr %9, align 8
   %27 = sub i32 %25, %20
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %25, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %11, ptr %10, align 2
@@ -13786,15 +13780,15 @@ define hidden i32 @mapi_dissect_struct_PropertyProblem(ptr noundef %0, i32 nound
   %18 = load i32, ptr @hf_mapi_PropertyProblem_index, align 4
   %19 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
   %20 = load i32, ptr @hf_mapi_PropertyProblem_property_tag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %22 = load i32, ptr @hf_mapi_PropertyProblem_error_code, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %24 = sub i32 %23, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %24)
   store i8 %12, ptr %11, align 2
@@ -13934,7 +13928,7 @@ define hidden i32 @mapi_dissect_struct_DeleteProps_repl(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_SaveFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -13953,7 +13947,7 @@ define hidden i32 @mapi_dissect_enum_SaveFlags(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -14066,7 +14060,7 @@ define hidden noundef i32 @mapi_dissect_struct_RemoveAllRecipients_repl(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_modrecip(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -14085,7 +14079,7 @@ define hidden i32 @mapi_dissect_enum_modrecip(ptr noundef %0, i32 noundef %1, pt
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -14110,10 +14104,10 @@ define hidden i32 @mapi_dissect_struct_ModifyRecipientRow(ptr noundef %0, i32 no
   %17 = load i32, ptr @hf_mapi_ModifyRecipientRow_idx, align 4
   %18 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_ModifyRecipientRow_RecipClass, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %20 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_ModifyRecipientRow_RecipientRow, align 4
   %22 = call i32 @mapi_dissect_struct_RecipientRow(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %1
@@ -14226,10 +14220,10 @@ define hidden i32 @mapi_dissect_struct_ReadRecipientRow(ptr noundef %0, i32 noun
   %17 = load i32, ptr @hf_mapi_ReadRecipientRow_RowId, align 4
   %18 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_ReadRecipientRow_RecipientType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %20 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_ReadRecipientRow_CodePageId, align 4
   %22 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_ReadRecipientRow_ulReserved, align 4
@@ -14291,10 +14285,10 @@ define hidden i32 @mapi_dissect_struct_OpenRecipientRow(ptr noundef %0, i32 noun
   %19 = load i32, ptr @hf_mapi_OpenRecipientRow_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_OpenRecipientRow_RecipientType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %22 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_mapi_OpenRecipientRow_CodePageId, align 4
   %24 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_OpenRecipientRow_Reserved, align 4
@@ -14390,7 +14384,7 @@ mapi_dissect_element_ReloadCachedInformation_repl_RecipientColumns.exit: ; preds
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_MSGFLAG_READ(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_MSGFLAG_READ, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -14420,7 +14414,7 @@ define hidden i32 @mapi_dissect_bitmap_MSGFLAG_READ(ptr noundef %0, i32 noundef 
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -14449,7 +14443,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_req(ptr noundef %0, i3
   %21 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_SetMessageReadFlag_req_ReadFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_MSGFLAG_READ, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -14479,7 +14473,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_req(ptr noundef %0, i3
   br label %mapi_dissect_element_SetMessageReadFlag_req_ReadFlags.exit
 
 mapi_dissect_element_SetMessageReadFlag_req_ReadFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_mapi_SetMessageReadFlag_req_clientdata, align 4
   %39 = call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 1)
   %40 = sub i32 %39, %1
@@ -14509,7 +14503,7 @@ define hidden i32 @mapi_dissect_struct_SetMessageReadFlag_repl(ptr noundef %0, i
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_SetMessageReadFlag_repl_ReadStatusChanged, align 4
   %19 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge, label %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit
@@ -14519,8 +14513,8 @@ mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit: ; preds = %17
   %21 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef nonnull %10, ptr noundef nonnull @.str.6150)
   %22 = load ptr, ptr %10, align 8
   call void @proto_item_set_len(ptr noundef %22, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %23 = load i32, ptr @ett_mapi_SetMessageReadFlag_ClientData, align 4
   %24 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.032, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %9, ptr noundef nonnull @.str.6151)
@@ -14529,15 +14523,15 @@ mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit: ; preds = %17
 
 mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge: ; preds = %17
   tail call void @proto_item_set_len(ptr noundef null, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   br label %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit
 
 mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit: ; preds = %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit
   %25 = phi ptr [ null, %mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit.critedge ], [ %.pre, %mapi_dissect_element_SetMessageReadFlag_repl_LogonId.exit ]
   call void @proto_item_set_len(ptr noundef %25, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = sub i32 %19, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26)
   store i8 %12, ptr %11, align 2
@@ -14547,7 +14541,7 @@ mapi_dissect_element_SetMessageReadFlag_repl_ClientData.exit: ; preds = %mapi_di
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_SetColumnsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -14566,14 +14560,14 @@ define hidden i32 @mapi_dissect_enum_SetColumnsFlags(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_TableStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -14592,7 +14586,7 @@ define hidden i32 @mapi_dissect_enum_TableStatus(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -14619,10 +14613,10 @@ define hidden i32 @mapi_dissect_struct_SetColumns_req(ptr noundef %0, i32 nounde
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_SetColumns_req_SetColumnsFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %22 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_mapi_SetColumns_req_prop_count, align 4
   %24 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_SetColumns_req_properties_)
@@ -14651,10 +14645,10 @@ define hidden i32 @mapi_dissect_struct_SetColumns_repl(ptr noundef %0, i32 nound
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_SetColumns_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -14664,7 +14658,7 @@ define hidden i32 @mapi_dissect_struct_SetColumns_repl(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_TBL_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -14683,14 +14677,14 @@ define hidden i32 @mapi_dissect_enum_TBL_FLAGS(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_TABLE_SORT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -14709,7 +14703,7 @@ define hidden i32 @mapi_dissect_enum_TABLE_SORT(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -14733,15 +14727,15 @@ define hidden i32 @mapi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
   %.026 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_SSortOrder_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %20 = load i32, ptr @hf_mapi_SSortOrder_ulOrder, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %21 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = sub i32 %21, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %22)
   store i8 %12, ptr %11, align 2
@@ -14828,10 +14822,10 @@ define hidden i32 @mapi_dissect_struct_SortTable_repl(ptr noundef %0, i32 nounde
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_SortTable_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -14942,7 +14936,7 @@ mapi_dissect_element_SNotRestriction_res.exit:    ; preds = %22
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_fuzzyLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -14980,7 +14974,7 @@ define hidden i32 @mapi_dissect_bitmap_fuzzyLevel(ptr noundef %0, i32 noundef %1
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -15005,10 +14999,10 @@ define hidden i32 @mapi_dissect_struct_SContentRestriction(ptr noundef %0, i32 n
   %17 = load i32, ptr @hf_mapi_mapi_SContentRestriction_fuzzy, align 4
   %18 = tail call i32 @mapi_dissect_bitmap_fuzzyLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 poison)
   %19 = load i32, ptr @hf_mapi_mapi_SContentRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_mapi_SContentRestriction_lpProp, align 4
   %22 = call i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %1
@@ -15020,7 +15014,7 @@ define hidden i32 @mapi_dissect_struct_SContentRestriction(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_relMBR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -15039,7 +15033,7 @@ define hidden i32 @mapi_dissect_enum_relMBR(ptr noundef %0, i32 noundef %1, ptr 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -15063,15 +15057,15 @@ define hidden i32 @mapi_dissect_struct_SBitmaskRestriction(ptr noundef %0, i32 n
   %.032 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_mapi_SBitmaskRestriction_relMBR, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %20 = load i32, ptr @hf_mapi_mapi_SBitmaskRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = load i32, ptr @hf_mapi_mapi_SBitmaskRestriction_ulMask, align 4
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = sub i32 %23, %1
@@ -15083,7 +15077,7 @@ define hidden i32 @mapi_dissect_struct_SBitmaskRestriction(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_CompareRelop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -15102,7 +15096,7 @@ define hidden i32 @mapi_dissect_enum_CompareRelop(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -15126,15 +15120,15 @@ define hidden i32 @mapi_dissect_struct_SSizeRestriction(ptr noundef %0, i32 noun
   %.032 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_mapi_SSizeRestriction_relop, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %20 = load i32, ptr @hf_mapi_mapi_SSizeRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %22 = load i32, ptr @hf_mapi_mapi_SSizeRestriction_size, align 4
   %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = sub i32 %23, %1
@@ -15164,10 +15158,10 @@ define hidden i32 @mapi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 
   %17 = load i32, ptr @hf_mapi_mapi_SPropertyRestriction_relop, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_mapi_SPropertyRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_mapi_SPropertyRestriction_lpProp, align 4
   %22 = call i32 @mapi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %1
@@ -15197,20 +15191,20 @@ define hidden i32 @mapi_dissect_struct_SCompareProps(ptr noundef %0, i32 noundef
   %.032 = phi ptr [ %17, %14 ], [ null, %8 ]
   %.0 = phi ptr [ %15, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_mapi_mapi_SCompareProps_relop, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %20 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %21 = load i32, ptr @hf_mapi_mapi_SCompareProps_ulPropTag1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %23 = load i32, ptr @hf_mapi_mapi_SCompareProps_ulPropTag2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %24, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %13, ptr %12, align 2
@@ -15236,10 +15230,10 @@ define hidden i32 @mapi_dissect_struct_SExistRestriction(ptr noundef %0, i32 nou
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_mapi_SExistRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -15265,10 +15259,10 @@ define hidden i32 @mapi_dissect_struct_SSubRestriction(ptr noundef %0, i32 nound
   %.026 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_mapi_SSubRestriction_ulSubObject, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_SSubRestriction_res_)
   %20 = sub i32 %19, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %20)
@@ -15299,7 +15293,7 @@ define hidden i32 @mapi_dissect_struct_SCommentRestriction(ptr noundef %0, i32 n
   %19 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_SCommentRestriction_TaggedValues_)
   %20 = load i32, ptr @hf_mapi_mapi_SCommentRestriction_RestrictionPresent, align 4
   %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %mapi_dissect_element_SCommentRestriction_Restriction.exit, label %22
@@ -15313,7 +15307,7 @@ define hidden i32 @mapi_dissect_struct_SCommentRestriction(ptr noundef %0, i32 n
 mapi_dissect_element_SCommentRestriction_Restriction.exit: ; preds = %16, %22
   %25 = phi ptr [ null, %16 ], [ %.pre, %22 ]
   call void @proto_item_set_len(ptr noundef %25, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = sub i32 %21, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26)
   store i8 %11, ptr %10, align 2
@@ -15496,10 +15490,10 @@ define hidden i32 @mapi_dissect_struct_Restrict_repl(ptr noundef %0, i32 noundef
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_Restrict_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -15509,7 +15503,7 @@ define hidden i32 @mapi_dissect_struct_Restrict_repl(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_QueryRowsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -15528,7 +15522,7 @@ define hidden i32 @mapi_dissect_enum_QueryRowsFlags(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -15555,10 +15549,10 @@ define hidden i32 @mapi_dissect_struct_QueryRows_req(ptr noundef %0, i32 noundef
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_QueryRows_req_QueryRowsFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %22 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_mapi_QueryRows_req_ForwardRead, align 4
   %24 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_QueryRows_req_RowCount, align 4
@@ -15644,10 +15638,10 @@ define hidden i32 @mapi_dissect_struct_GetStatus_repl(ptr noundef %0, i32 nounde
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_GetStatus_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -15711,7 +15705,7 @@ define hidden i32 @mapi_dissect_struct_QueryPosition_repl(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_BOOKMARK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -15730,7 +15724,7 @@ define hidden i32 @mapi_dissect_enum_BOOKMARK(ptr noundef %0, i32 noundef %1, pt
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -15757,10 +15751,10 @@ define hidden i32 @mapi_dissect_struct_SeekRow_req(ptr noundef %0, i32 noundef %
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_SeekRow_req_origin, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %22 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_mapi_SeekRow_req_offset, align 4
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_SeekRow_req_WantRowMovedCount, align 4
@@ -15999,7 +15993,7 @@ mapi_dissect_element_CreateBookmark_repl_bookmark.exit: ; preds = %8, %11, %17
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_FOLDER_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -16018,14 +16012,14 @@ define hidden i32 @mapi_dissect_enum_FOLDER_TYPE(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_FOLDER_STRING(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -16044,14 +16038,14 @@ define hidden i32 @mapi_dissect_enum_FOLDER_STRING(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_FOLDER_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -16070,7 +16064,7 @@ define hidden i32 @mapi_dissect_enum_FOLDER_FLAGS(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -16103,22 +16097,22 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_req(ptr noundef %0, i32 noun
   %25 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %26 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0)
   %27 = load i32, ptr @hf_mapi_CreateFolder_req_ulFolderType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 0, ptr %13, align 1
   %28 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %29 = load i32, ptr @hf_mapi_CreateFolder_req_ulType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 0, ptr %12, align 1
   %30 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %12)
   %31 = load i8, ptr %12, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %32 = load i32, ptr @hf_mapi_CreateFolder_req_ulFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2
   %33 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.062, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %.not.i.i = icmp eq ptr %.062, null
   br i1 %.not.i.i, label %37, label %34
@@ -16150,8 +16144,8 @@ mapi_dissect_element_CreateFolder_req_FolderName.exit: ; preds = %37, %38, %41
   %44 = load ptr, ptr %10, align 8
   %45 = sub i32 %.0.i.i, %33
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   br i1 %.not.i.i, label %49, label %46
 
@@ -16182,7 +16176,7 @@ mapi_dissect_element_CreateFolder_req_FolderComment.exit: ; preds = %49, %50, %5
   %56 = load ptr, ptr %9, align 8
   %57 = sub i32 %.0.i.i67, %.0.i.i
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %58 = sub i32 %.0.i.i67, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %58)
   store i8 %15, ptr %14, align 2
@@ -16211,7 +16205,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_GhostInfo(ptr noundef %0, i3
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_CreateFolder_GhostInfo_IsGhosted, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit, label %21
@@ -16225,7 +16219,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_GhostInfo(ptr noundef %0, i3
 mapi_dissect_element_CreateFolder_GhostInfo_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %20, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -16254,7 +16248,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_repl(ptr noundef %0, i32 nou
   %18 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef null)
   %19 = load i32, ptr @hf_mapi_CreateFolder_repl_IsExistingFolder, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_CreateFolder_repl_GhostUnion.exit, label %21
@@ -16268,7 +16262,7 @@ define hidden i32 @mapi_dissect_struct_CreateFolder_repl(ptr noundef %0, i32 nou
 mapi_dissect_element_CreateFolder_repl_GhostUnion.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %20, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -16278,7 +16272,7 @@ mapi_dissect_element_CreateFolder_repl_GhostUnion.exit: ; preds = %16, %21
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_DeleteFolderFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_DeleteFolderFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -16308,7 +16302,7 @@ define hidden i32 @mapi_dissect_bitmap_DeleteFolderFlags(ptr noundef %0, i32 nou
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -16335,7 +16329,7 @@ define hidden i32 @mapi_dissect_struct_DeleteFolder_req(ptr noundef %0, i32 noun
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_DeleteFolder_req_DeleteFolderFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = load i32, ptr @ett_mapi_DeleteFolderFlags, align 4
   %23 = load i8, ptr %5, align 1
   %24 = and i8 %23, 16
@@ -16365,7 +16359,7 @@ define hidden i32 @mapi_dissect_struct_DeleteFolder_req(ptr noundef %0, i32 noun
   br label %mapi_dissect_element_DeleteFolder_req_DeleteFolderFlags.exit
 
 mapi_dissect_element_DeleteFolder_req_DeleteFolderFlags.exit: ; preds = %31, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_mapi_DeleteFolder_req_FolderId, align 4
   %37 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %36, ptr noundef null)
   %38 = sub i32 %37, %1
@@ -16490,7 +16484,7 @@ define hidden i32 @mapi_dissect_struct_GetMessageStatus_req(ptr noundef %0, i32 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_ulMessageStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -16528,7 +16522,7 @@ define hidden i32 @mapi_dissect_bitmap_ulMessageStatus(ptr noundef %0, i32 nound
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -16615,7 +16609,7 @@ define hidden i32 @mapi_dissect_struct_GetAttachmentTable_req(ptr noundef %0, i3
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_GetAttachmentTable_req_TableFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_TableFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -16645,7 +16639,7 @@ define hidden i32 @mapi_dissect_struct_GetAttachmentTable_req(ptr noundef %0, i3
   br label %mapi_dissect_element_GetAttachmentTable_req_TableFlags.exit
 
 mapi_dissect_element_GetAttachmentTable_req_TableFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %30, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %38)
   store i8 %11, ptr %10, align 2
@@ -16674,7 +16668,7 @@ define hidden noundef i32 @mapi_dissect_struct_GetAttachmentTable_repl(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_OpenAttachmentFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -16693,7 +16687,7 @@ define hidden i32 @mapi_dissect_enum_OpenAttachmentFlags(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -16722,10 +16716,10 @@ define hidden i32 @mapi_dissect_struct_OpenAttach_req(ptr noundef %0, i32 nounde
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_OpenAttach_req_OpenAttachmentFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = load i32, ptr @hf_mapi_OpenAttach_req_AttachmentID, align 4
   %26 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0)
   %27 = sub i32 %26, %1
@@ -16880,10 +16874,10 @@ define hidden i32 @mapi_dissect_struct_SaveChangesAttachment_req(ptr noundef %0,
   %21 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_SaveChangesAttachment_req_SaveFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %24, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -17018,7 +17012,7 @@ define hidden i32 @mapi_dissect_struct_GetReceiveFolder_repl(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_NotificationFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -17037,7 +17031,7 @@ define hidden i32 @mapi_dissect_enum_NotificationFlags(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -17067,13 +17061,13 @@ define hidden i32 @mapi_dissect_struct_RegisterNotification_req(ptr noundef %0, 
   %22 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_RegisterNotification_req_notificationFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %25 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %26 = load i32, ptr @hf_mapi_RegisterNotification_req_layout, align 4
   %27 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.050, null
   br i1 %.not.i.i, label %mapi_dissect_element_RegisterNotification_req_u.exit, label %28
@@ -17090,7 +17084,7 @@ mapi_dissect_element_RegisterNotification_req_u.exit: ; preds = %28, %17
   %33 = load ptr, ptr %9, align 8
   %34 = sub i32 %32, %27
   call void @proto_item_set_len(ptr noundef %33, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = sub i32 %32, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %35)
   store i8 %12, ptr %11, align 2
@@ -17119,7 +17113,7 @@ define hidden noundef i32 @mapi_dissect_struct_RegisterNotification_repl(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_MsgFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -17157,7 +17151,7 @@ define hidden i32 @mapi_dissect_bitmap_MsgFlags(ptr noundef %0, i32 noundef %1, 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -17201,7 +17195,7 @@ mapi_dissect_element_GID_GlobalCounter.exit:      ; preds = %18
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_RichTableNotificationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -17220,7 +17214,7 @@ define hidden i32 @mapi_dissect_enum_RichTableNotificationType(ptr noundef %0, i
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -17250,7 +17244,7 @@ define hidden i32 @mapi_dissect_struct_NewMailNotification(ptr noundef %0, i32 n
   %22 = tail call i32 @mapi_dissect_bitmap_MsgFlags(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = load i32, ptr @hf_mapi_NewMailNotification_UnicodeFlag, align 4
   %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.044, null
   br i1 %.not.i.i, label %mapi_dissect_element_NewMailNotification_MessageClass.exit, label %25
@@ -17267,7 +17261,7 @@ mapi_dissect_element_NewMailNotification_MessageClass.exit: ; preds = %25, %16
   %30 = load ptr, ptr %9, align 8
   %31 = sub i32 %29, %24
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %32 = sub i32 %29, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %32)
   store i8 %11, ptr %10, align 2
@@ -17518,12 +17512,12 @@ define hidden i32 @mapi_dissect_struct_HierarchyTableChange(ptr noundef %0, i32 
   %.026 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_HierarchyTableChange_TableEvent, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %19 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
   %20 = load i16, ptr %10, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %24, label %21
@@ -17579,7 +17573,7 @@ mapi_dissect_element_HierarchyTableChange_HierarchyTableChangeUnion.exit: ; pred
   %41 = load ptr, ptr %9, align 8
   %42 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %43)
   store i8 %12, ptr %11, align 2
@@ -17947,12 +17941,12 @@ define hidden i32 @mapi_dissect_struct_ContentsTableChange(ptr noundef %0, i32 n
   %.026 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_ContentsTableChange_TableEvent, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %19 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
   %20 = load i16, ptr %10, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %24, label %21
@@ -17990,7 +17984,7 @@ mapi_dissect_element_ContentsTableChange_ContentsTableChangeUnion.exit: ; preds 
   %34 = load ptr, ptr %9, align 8
   %35 = sub i32 %.0.i.i, %19
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %12, ptr %11, align 2
@@ -18112,12 +18106,12 @@ define hidden i32 @mapi_dissect_struct_Notify_repl(ptr noundef %0, i32 noundef %
   %20 = load i32, ptr @hf_mapi_Notify_repl_LogonId, align 4
   %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_mapi_Notify_repl_NotificationType, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 0, ptr %10, align 2
   %23 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10)
   %24 = load i16, ptr %10, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %28, label %25
@@ -18293,7 +18287,7 @@ mapi_dissect_element_Notify_repl_NotificationData.exit: ; preds = %28, %29, %32,
   %105 = load ptr, ptr %9, align 8
   %106 = sub i32 %.0.i.i, %23
   call void @proto_item_set_len(ptr noundef %105, i32 noundef %106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %107 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %107)
   store i8 %12, ptr %11, align 2
@@ -18303,7 +18297,7 @@ mapi_dissect_element_Notify_repl_NotificationData.exit: ; preds = %28, %29, %32,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_OpenStream_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -18322,7 +18316,7 @@ define hidden i32 @mapi_dissect_enum_OpenStream_OpenModeFlags(ptr noundef %0, i3
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -18352,15 +18346,15 @@ define hidden i32 @mapi_dissect_struct_OpenStream_req(ptr noundef %0, i32 nounde
   %22 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_OpenStream_req_PropertyTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %26 = load i32, ptr @hf_mapi_OpenStream_req_OpenModeFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %27 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = sub i32 %27, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %28)
   store i8 %12, ptr %11, align 2
@@ -18416,7 +18410,7 @@ define hidden i32 @mapi_dissect_struct_ReadStream_req(ptr noundef %0, i32 nounde
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_ReadStream_req_ByteCount, align 4
   %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.038, null
   br i1 %.not.i.i, label %mapi_dissect_element_ReadStream_req_MaximumByteCount.exit, label %23
@@ -18430,7 +18424,7 @@ define hidden i32 @mapi_dissect_struct_ReadStream_req(ptr noundef %0, i32 nounde
 mapi_dissect_element_ReadStream_req_MaximumByteCount.exit: ; preds = %16, %23
   %26 = phi ptr [ null, %16 ], [ %.pre, %23 ]
   call void @proto_item_set_len(ptr noundef %26, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = sub i32 %22, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %27)
   store i8 %11, ptr %10, align 2
@@ -18651,7 +18645,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetStreamSize_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_SearchFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -18689,7 +18683,7 @@ define hidden i32 @mapi_dissect_bitmap_SearchFlags(ptr noundef %0, i32 noundef %
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -18814,7 +18808,7 @@ define hidden i32 @mapi_dissect_struct_GetSearchCriteria_repl(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_SubmitFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -18833,7 +18827,7 @@ define hidden i32 @mapi_dissect_enum_SubmitFlags(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -18860,10 +18854,10 @@ define hidden i32 @mapi_dissect_struct_SubmitMessage_req(ptr noundef %0, i32 nou
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_SubmitMessage_req_SubmitFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %22 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = sub i32 %22, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %23)
   store i8 %11, ptr %10, align 2
@@ -19022,7 +19016,7 @@ define hidden i32 @mapi_dissect_struct_MoveFolder_req(ptr noundef %0, i32 nounde
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_MoveFolder_req_FolderId, align 4
   %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.044, null
   br i1 %.not.i.i, label %mapi_dissect_element_MoveFolder_req_NewFolderName.exit, label %25
@@ -19039,7 +19033,7 @@ mapi_dissect_element_MoveFolder_req_NewFolderName.exit: ; preds = %25, %16
   %30 = load ptr, ptr %9, align 8
   %31 = sub i32 %29, %24
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %32 = sub i32 %29, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %32)
   store i8 %11, ptr %10, align 2
@@ -19099,7 +19093,7 @@ define hidden i32 @mapi_dissect_struct_CopyFolder_req(ptr noundef %0, i32 nounde
   %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_CopyFolder_req_FolderId, align 4
   %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.050, null
   br i1 %.not.i.i, label %mapi_dissect_element_CopyFolder_req_NewFolderName.exit, label %27
@@ -19116,7 +19110,7 @@ mapi_dissect_element_CopyFolder_req_NewFolderName.exit: ; preds = %27, %16
   %32 = load ptr, ptr %9, align 8
   %33 = sub i32 %31, %26
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %34 = sub i32 %31, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %34)
   store i8 %11, ptr %10, align 2
@@ -19247,10 +19241,10 @@ define hidden i32 @mapi_dissect_struct_Abort_repl(ptr noundef %0, i32 noundef %1
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_Abort_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %19)
   store i8 %11, ptr %10, align 2
@@ -19260,7 +19254,7 @@ define hidden i32 @mapi_dissect_struct_Abort_repl(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_CopyFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_CopyFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -19290,7 +19284,7 @@ define hidden i32 @mapi_dissect_bitmap_CopyFlags(ptr noundef %0, i32 noundef %1,
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -19319,7 +19313,7 @@ define hidden i32 @mapi_dissect_struct_CopyTo_req(ptr noundef %0, i32 noundef %1
   %21 = load i32, ptr @hf_mapi_CopyTo_req_WantSubObjects, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_CopyTo_req_CopyFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_CopyFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -19349,7 +19343,7 @@ define hidden i32 @mapi_dissect_struct_CopyTo_req(ptr noundef %0, i32 noundef %1
   br label %mapi_dissect_element_CopyTo_req_CopyFlags.exit
 
 mapi_dissect_element_CopyTo_req_CopyFlags.exit:   ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_mapi_CopyTo_req_ExcludedTags, align 4
   %39 = load i8, ptr %10, align 2, !range !9, !noundef !10
   store i8 1, ptr %10, align 2
@@ -19508,7 +19502,7 @@ define hidden noundef i32 @mapi_dissect_struct_CloneStream_repl(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_PermissionsTableFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_PermissionsTableFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -19538,7 +19532,7 @@ define hidden i32 @mapi_dissect_bitmap_PermissionsTableFlags(ptr noundef %0, i32
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -19567,7 +19561,7 @@ define hidden i32 @mapi_dissect_struct_GetPermissionsTable_req(ptr noundef %0, i
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_GetPermissionsTable_req_TableFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_PermissionsTableFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -19597,7 +19591,7 @@ define hidden i32 @mapi_dissect_struct_GetPermissionsTable_req(ptr noundef %0, i
   br label %mapi_dissect_element_GetPermissionsTable_req_TableFlags.exit
 
 mapi_dissect_element_GetPermissionsTable_req_TableFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %30, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %38)
   store i8 %11, ptr %10, align 2
@@ -19626,7 +19620,7 @@ define hidden noundef i32 @mapi_dissect_struct_GetPermissionsTable_repl(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_RulesTableFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_RulesTableFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -19656,7 +19650,7 @@ define hidden i32 @mapi_dissect_bitmap_RulesTableFlags(ptr noundef %0, i32 nound
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -19685,7 +19679,7 @@ define hidden i32 @mapi_dissect_struct_GetRulesTable_req(ptr noundef %0, i32 nou
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_GetRulesTable_req_TableFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_RulesTableFlags, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -19715,7 +19709,7 @@ define hidden i32 @mapi_dissect_struct_GetRulesTable_req(ptr noundef %0, i32 nou
   br label %mapi_dissect_element_GetRulesTable_req_TableFlags.exit
 
 mapi_dissect_element_GetRulesTable_req_TableFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = sub i32 %30, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %38)
   store i8 %11, ptr %10, align 2
@@ -19744,7 +19738,7 @@ define hidden noundef i32 @mapi_dissect_struct_GetRulesTable_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_ModifyPermissionsFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_ModifyPermissionsFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -19774,7 +19768,7 @@ define hidden i32 @mapi_dissect_bitmap_ModifyPermissionsFlags(ptr noundef %0, i3
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -19797,10 +19791,10 @@ define hidden i32 @mapi_dissect_struct_PermissionData(ptr noundef %0, i32 nounde
   %.026 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_PermissionData_PermissionDataFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = load i32, ptr @hf_mapi_PermissionData_lpProps, align 4
   %20 = load i8, ptr %10, align 2, !range !9, !noundef !10
   store i8 1, ptr %10, align 2
@@ -19847,7 +19841,7 @@ define hidden i32 @mapi_dissect_struct_PermissionsData(ptr noundef %0, i32 nound
   %.032 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_mapi_PermissionsData_ModifyFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %18 = load i32, ptr @ett_mapi_ModifyPermissionsFlags, align 4
   %19 = load i8, ptr %5, align 1
   %20 = and i8 %19, 16
@@ -19877,7 +19871,7 @@ define hidden i32 @mapi_dissect_struct_PermissionsData(ptr noundef %0, i32 nound
   br label %mapi_dissect_element_PermissionsData_ModifyFlags.exit
 
 mapi_dissect_element_PermissionsData_ModifyFlags.exit: ; preds = %27, %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %32 = load i32, ptr @hf_mapi_mapi_PermissionsData_ModifyCount, align 4
   %33 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %32, i32 noundef 0)
   %34 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_PermissionsData_PermissionsData_)
@@ -19954,10 +19948,10 @@ define hidden i32 @mapi_dissect_struct_RuleData(ptr noundef %0, i32 noundef %1, 
   %.026 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_RuleData_RuleDataFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = load i32, ptr @hf_mapi_RuleData_PropertyValues, align 4
   %20 = load i8, ptr %10, align 2, !range !9, !noundef !10
   store i8 1, ptr %10, align 2
@@ -19988,7 +19982,7 @@ mapi_dissect_element_RuleData_PropertyValues.exit: ; preds = %16, %21
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_ModifyRulesFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_ModifyRulesFlag, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -20018,7 +20012,7 @@ define hidden i32 @mapi_dissect_bitmap_ModifyRulesFlag(ptr noundef %0, i32 nound
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -20045,7 +20039,7 @@ define hidden i32 @mapi_dissect_struct_ModifyRules_req(ptr noundef %0, i32 nound
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_ModifyRules_req_ModifyRulesFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = load i32, ptr @ett_mapi_ModifyRulesFlag, align 4
   %23 = load i8, ptr %5, align 1
   %24 = and i8 %23, 16
@@ -20075,7 +20069,7 @@ define hidden i32 @mapi_dissect_struct_ModifyRules_req(ptr noundef %0, i32 nound
   br label %mapi_dissect_element_ModifyRules_req_ModifyRulesFlags.exit
 
 mapi_dissect_element_ModifyRules_req_ModifyRulesFlags.exit: ; preds = %31, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_mapi_ModifyRules_req_RulesCount, align 4
   %37 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0)
   %38 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_ModifyRules_req_RulesData_)
@@ -20276,7 +20270,7 @@ define hidden i32 @mapi_dissect_struct_LongTermIdFromId_repl(ptr noundef %0, i32
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_LongTermIdFromId_repl_ReturnValue, align 4
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %.thread20.i.i, label %22
@@ -20312,7 +20306,7 @@ mapi_dissect_element_LongTermIdFromId_repl_repl.exit: ; preds = %.thread20.i.i, 
   store i8 %31, ptr %10, align 2
   %35 = load ptr, ptr %9, align 8
   call void @proto_item_set_len(ptr noundef %35, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %33, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %11, ptr %10, align 2
@@ -20422,7 +20416,7 @@ define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_repl(ptr noundef %0
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_PublicFolderIsGhosted_repl_IsGhosted, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit, label %19
@@ -20436,7 +20430,7 @@ define hidden i32 @mapi_dissect_struct_PublicFolderIsGhosted_repl(ptr noundef %0
 mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit: ; preds = %16, %19
   %22 = phi ptr [ null, %16 ], [ %.pre, %19 ]
   call void @proto_item_set_len(ptr noundef %22, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = sub i32 %18, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %23)
   store i8 %11, ptr %10, align 2
@@ -20446,7 +20440,7 @@ mapi_dissect_element_PublicFolderIsGhosted_repl_Ghost.exit: ; preds = %16, %19
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_OpenEmbeddedMessage_OpenModeFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -20465,7 +20459,7 @@ define hidden i32 @mapi_dissect_enum_OpenEmbeddedMessage_OpenModeFlags(ptr nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -20496,10 +20490,10 @@ define hidden i32 @mapi_dissect_struct_OpenEmbeddedMessage_req(ptr noundef %0, i
   %23 = load i32, ptr @hf_mapi_OpenEmbeddedMessage_req_CodePageId, align 4
   %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = load i32, ptr @hf_mapi_OpenEmbeddedMessage_req_OpenModeFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %26 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %27 = sub i32 %26, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %27)
   store i8 %11, ptr %10, align 2
@@ -20596,7 +20590,7 @@ define hidden noundef i32 @mapi_dissect_struct_SetSpooler_repl(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_LockState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -20615,7 +20609,7 @@ define hidden i32 @mapi_dissect_enum_LockState(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -20644,10 +20638,10 @@ define hidden i32 @mapi_dissect_struct_SpoolerLockMessage_req(ptr noundef %0, i3
   %21 = load i32, ptr @hf_mapi_SpoolerLockMessage_req_MessageId, align 4
   %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef null)
   %23 = load i32, ptr @hf_mapi_SpoolerLockMessage_req_LockState, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %24, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -20775,7 +20769,7 @@ define hidden i32 @mapi_dissect_struct_TransportSend_repl(ptr noundef %0, i32 no
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_TransportSend_repl_NoPropertiesReturned, align 4
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.026, null
   br i1 %.not.i.i, label %.thread20.i.i, label %20
@@ -20812,7 +20806,7 @@ mapi_dissect_element_TransportSend_repl_properties.exit: ; preds = %.thread20.i.
   store i8 %29, ptr %10, align 2
   %34 = load ptr, ptr %9, align 8
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = sub i32 %32, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %35)
   store i8 %11, ptr %10, align 2
@@ -20851,7 +20845,7 @@ define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_req(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_TransferStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -20870,7 +20864,7 @@ define hidden i32 @mapi_dissect_enum_TransferStatus(ptr noundef %0, i32 noundef 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -20893,10 +20887,10 @@ define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_repl(ptr noun
   %.044 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_FastTransferSourceGetBuffer_repl_TransferStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %18 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %19 = load i32, ptr @hf_mapi_FastTransferSourceGetBuffer_repl_InProgressCount, align 4
   %20 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_FastTransferSourceGetBuffer_repl_TotalStepCount, align 4
@@ -20914,7 +20908,7 @@ define hidden i32 @mapi_dissect_struct_FastTransferSourceGetBuffer_repl(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_FindRow_ulFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -20933,7 +20927,7 @@ define hidden i32 @mapi_dissect_enum_FindRow_ulFlags(ptr noundef %0, i32 noundef
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -20961,17 +20955,17 @@ define hidden i32 @mapi_dissect_struct_FindRow_req(ptr noundef %0, i32 noundef %
   %20 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_mapi_FindRow_req_ulFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %23 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %24 = load i32, ptr @hf_mapi_FindRow_req_res, align 4
   %25 = call i32 @mapi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 poison)
   %26 = load i32, ptr @hf_mapi_FindRow_req_origin, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %27 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = load i32, ptr @hf_mapi_FindRow_req_bookmark, align 4
   %29 = load i8, ptr %11, align 2, !range !9, !noundef !10
   store i8 1, ptr %11, align 2
@@ -21194,7 +21188,7 @@ define hidden i32 @mapi_dissect_struct_GetValidAttachments_repl(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ulKind(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -21213,7 +21207,7 @@ define hidden i32 @mapi_dissect_enum_ulKind(ptr noundef %0, i32 noundef %1, ptr 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -21264,14 +21258,14 @@ define hidden i32 @mapi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   %.032 = phi ptr [ %16, %13 ], [ null, %8 ]
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_mapi_MAPINAMEID_ulKind, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10)
   %20 = load i8, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %21 = load i32, ptr @hf_mapi_MAPINAMEID_lpguid, align 4
   %22 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %26, label %23
@@ -21303,7 +21297,7 @@ mapi_dissect_element_MAPINAMEID_kind.exit:        ; preds = %26, %27, %30
   %33 = load ptr, ptr %9, align 8
   %34 = sub i32 %.0.i.i, %22
   call void @proto_item_set_len(ptr noundef %33, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = sub i32 %.0.i.i, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %35)
   store i8 %12, ptr %11, align 2
@@ -21884,7 +21878,7 @@ define hidden i32 @mapi_dissect_struct_GetStreamSize_repl(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_QueryFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_QueryFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -21914,7 +21908,7 @@ define hidden i32 @mapi_dissect_bitmap_QueryFlags(ptr noundef %0, i32 noundef %1
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -21942,7 +21936,7 @@ define hidden i32 @mapi_dissect_struct_QueryNamedProperties_req(ptr noundef %0, 
   %20 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0)
   %22 = load i32, ptr @hf_mapi_QueryNamedProperties_req_QueryFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %23 = load i32, ptr @ett_mapi_QueryFlags, align 4
   %24 = load i8, ptr %5, align 1
   %25 = and i8 %24, 16
@@ -21972,10 +21966,10 @@ define hidden i32 @mapi_dissect_struct_QueryNamedProperties_req(ptr noundef %0, 
   br label %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit
 
 mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit: ; preds = %32, %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = load i32, ptr @hf_mapi_QueryNamedProperties_req_HasGuid, align 4
   %38 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i47 = icmp eq ptr %.044, null
   br i1 %.not.i.i47, label %mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit, label %39
@@ -21989,7 +21983,7 @@ mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit: ; preds = %32, %3
 mapi_dissect_element_QueryNamedProperties_req_PropertyGuid.exit: ; preds = %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit, %39
   %42 = phi ptr [ null, %mapi_dissect_element_QueryNamedProperties_req_QueryFlags.exit ], [ %.pre, %39 ]
   call void @proto_item_set_len(ptr noundef %42, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %43 = sub i32 %38, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %43)
   store i8 %12, ptr %11, align 2
@@ -22229,7 +22223,7 @@ define hidden i32 @mapi_dissect_struct_SetReadFlags_req(ptr noundef %0, i32 noun
   %21 = load i32, ptr @hf_mapi_SetReadFlags_req_WantAsynchronous, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_SetReadFlags_req_ReadFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_MSGFLAG_READ, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -22259,7 +22253,7 @@ define hidden i32 @mapi_dissect_struct_SetReadFlags_req(ptr noundef %0, i32 noun
   br label %mapi_dissect_element_SetReadFlags_req_ReadFlags.exit
 
 mapi_dissect_element_SetReadFlags_req_ReadFlags.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_mapi_SetReadFlags_req_MessageIdCount, align 4
   %39 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %38, i32 noundef 0)
   %40 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_SetReadFlags_req_MessageIds_)
@@ -22317,7 +22311,7 @@ define hidden i32 @mapi_dissect_struct_CopyProperties_req(ptr noundef %0, i32 no
   %19 = load i32, ptr @hf_mapi_CopyProperties_req_WantAsynchronous, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_CopyProperties_req_CopyFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = load i32, ptr @ett_mapi_CopyFlags, align 4
   %23 = load i8, ptr %5, align 1
   %24 = and i8 %23, 16
@@ -22347,7 +22341,7 @@ define hidden i32 @mapi_dissect_struct_CopyProperties_req(ptr noundef %0, i32 no
   br label %mapi_dissect_element_CopyProperties_req_CopyFlags.exit
 
 mapi_dissect_element_CopyProperties_req_CopyFlags.exit: ; preds = %31, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = load i32, ptr @hf_mapi_CopyProperties_req_PropertyTags, align 4
   %37 = load i8, ptr %10, align 2, !range !9, !noundef !10
   store i8 1, ptr %10, align 2
@@ -22851,7 +22845,7 @@ mapi_dissect_element_OptionsData_repl_OptionsInfo.exit: ; preds = %16, %21
   %29 = load i32, ptr @hf_mapi_OptionsData_repl_HelpFileSize, align 4
   %30 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef 0)
   %31 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mapi_dissect_element_OptionsData_repl_HelpFile_)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   br i1 %.not.i.i, label %mapi_dissect_element_OptionsData_repl_HelpFileName.exit, label %32
 
@@ -22864,7 +22858,7 @@ mapi_dissect_element_OptionsData_repl_OptionsInfo.exit: ; preds = %16, %21
 mapi_dissect_element_OptionsData_repl_HelpFileName.exit: ; preds = %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit, %32
   %35 = phi ptr [ null, %mapi_dissect_element_OptionsData_repl_OptionsInfo.exit ], [ %.pre, %32 ]
   call void @proto_item_set_len(ptr noundef %35, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = sub i32 %31, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %36)
   store i8 %11, ptr %10, align 2
@@ -22874,7 +22868,7 @@ mapi_dissect_element_OptionsData_repl_HelpFileName.exit: ; preds = %mapi_dissect
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_SynchronizationType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -22893,14 +22887,14 @@ define hidden i32 @mapi_dissect_enum_SynchronizationType(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_SendOptions(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_SendOptions, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -22930,14 +22924,14 @@ define hidden i32 @mapi_dissect_bitmap_SendOptions(ptr noundef %0, i32 noundef %
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_SynchronizationFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -22976,14 +22970,14 @@ define hidden i32 @mapi_dissect_bitmap_SynchronizationFlag(ptr noundef %0, i32 n
   br label %30
 
 30:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_SynchronizationExtraFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -23021,7 +23015,7 @@ define hidden i32 @mapi_dissect_bitmap_SynchronizationExtraFlags(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -23051,12 +23045,12 @@ define hidden i32 @mapi_dissect_struct_SyncConfigure_req(ptr noundef %0, i32 nou
   %22 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0)
   %24 = load i32, ptr @hf_mapi_SyncConfigure_req_SynchronizationType, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
   %25 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %26 = load i32, ptr @hf_mapi_SyncConfigure_req_SendOptions, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %27 = load i32, ptr @ett_mapi_SendOptions, align 4
   %28 = load i8, ptr %5, align 1
   %29 = and i8 %28, 16
@@ -23086,7 +23080,7 @@ define hidden i32 @mapi_dissect_struct_SyncConfigure_req(ptr noundef %0, i32 nou
   br label %mapi_dissect_element_SyncConfigure_req_SendOptions.exit
 
 mapi_dissect_element_SyncConfigure_req_SendOptions.exit: ; preds = %36, %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %41 = load i32, ptr @hf_mapi_SyncConfigure_req_SynchronizationFlag, align 4
   %42 = call i32 @mapi_dissect_bitmap_SynchronizationFlag(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %41, i32 poison)
   %43 = load i32, ptr @hf_mapi_SyncConfigure_req_RestrictionData, align 4
@@ -23142,7 +23136,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncConfigure_repl(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_ImportFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_ImportFlag, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -23172,7 +23166,7 @@ define hidden i32 @mapi_dissect_bitmap_ImportFlag(ptr noundef %0, i32 noundef %1
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -23201,7 +23195,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_req(ptr noundef %
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.044, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_SyncImportMessageChange_req_ImportFlag, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr @ett_mapi_ImportFlag, align 4
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
@@ -23231,7 +23225,7 @@ define hidden i32 @mapi_dissect_struct_SyncImportMessageChange_req(ptr noundef %
   br label %mapi_dissect_element_SyncImportMessageChange_req_ImportFlag.exit
 
 mapi_dissect_element_SyncImportMessageChange_req_ImportFlag.exit: ; preds = %33, %36
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %38 = load i32, ptr @hf_mapi_SyncImportMessageChange_req_PropertyValues, align 4
   %39 = load i8, ptr %10, align 2, !range !9, !noundef !10
   store i8 1, ptr %10, align 2
@@ -23447,7 +23441,7 @@ define hidden noundef i32 @mapi_dissect_struct_SyncImportDeletes_repl(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_StateProperty(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -23466,7 +23460,7 @@ define hidden i32 @mapi_dissect_enum_StateProperty(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -23493,10 +23487,10 @@ define hidden i32 @mapi_dissect_struct_SyncUploadStateStreamBegin_req(ptr nounde
   %19 = load i32, ptr @hf_mapi_InputHandleIndex, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = load i32, ptr @hf_mapi_SyncUploadStateStreamBegin_req_StateProperty, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %23 = load i32, ptr @hf_mapi_SyncUploadStateStreamBegin_req_TransferBufferSize, align 4
   %24 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.038, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0)
   %25 = sub i32 %24, %1
@@ -23808,7 +23802,7 @@ define hidden i32 @mapi_dissect_struct_GetStoreState_repl(ptr noundef %0, i32 no
   %.020 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_GetStoreState_repl_StoreState, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %18 = load i32, ptr @ett_mapi_StoreState, align 4
   %19 = load i8, ptr %5, align 1
   %20 = and i8 %19, 16
@@ -23837,7 +23831,7 @@ define hidden i32 @mapi_dissect_struct_GetStoreState_repl(ptr noundef %0, i32 no
   br label %mapi_dissect_element_GetStoreState_repl_StoreState.exit
 
 mapi_dissect_element_GetStoreState_repl_StoreState.exit: ; preds = %27, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = sub i32 %24, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %31)
   store i8 %11, ptr %10, align 2
@@ -24151,7 +24145,7 @@ define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_repl(ptr noundef %
   %18 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_OpenPublicFolderByName_repl_IsGhosted, align 4
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.032, null
   br i1 %.not.i.i, label %mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit, label %21
@@ -24165,7 +24159,7 @@ define hidden i32 @mapi_dissect_struct_OpenPublicFolderByName_repl(ptr noundef %
 mapi_dissect_element_OpenPublicFolderByName_repl_Ghost.exit: ; preds = %16, %21
   %24 = phi ptr [ null, %16 ], [ %.pre, %21 ]
   call void @proto_item_set_len(ptr noundef %24, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = sub i32 %20, %1
   call void @proto_item_set_len(ptr noundef %.0, i32 noundef %25)
   store i8 %11, ptr %10, align 2
@@ -24455,7 +24449,7 @@ define hidden i32 @mapi_dissect_struct_HardDeleteMessagesAndSubfolders_repl(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_DayOfWeek(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24474,7 +24468,7 @@ define hidden i32 @mapi_dissect_enum_DayOfWeek(ptr noundef %0, i32 noundef %1, p
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -24503,10 +24497,10 @@ define hidden i32 @mapi_dissect_struct_LogonTime(ptr noundef %0, i32 noundef %1,
   %21 = load i32, ptr @hf_mapi_LogonTime_Hour, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_LogonTime_DayOfWeek, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %25 = load i32, ptr @hf_mapi_LogonTime_Day, align 4
   %26 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0)
   %27 = load i32, ptr @hf_mapi_LogonTime_Month, align 4
@@ -24522,7 +24516,7 @@ define hidden i32 @mapi_dissect_struct_LogonTime(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_ResponseFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_mapi_ResponseFlags, align 4
   %11 = load i8, ptr %5, align 1
   %12 = and i8 %11, 16
@@ -24552,7 +24546,7 @@ define hidden i32 @mapi_dissect_bitmap_ResponseFlags(ptr noundef %0, i32 noundef
   br label %24
 
 24:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -24581,12 +24575,12 @@ define hidden i32 @mapi_dissect_struct_Logon_req(ptr noundef %0, i32 noundef %1,
   %21 = load i32, ptr @hf_mapi_OutputHandleIndex, align 4
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_Logon_req_LogonFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   %24 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %25 = load i32, ptr @hf_mapi_Logon_req_OpenFlags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = load i32, ptr @ett_mapi_OpenFlags, align 4
   %27 = load i8, ptr %5, align 1
   %28 = and i8 %27, 16
@@ -24615,9 +24609,9 @@ define hidden i32 @mapi_dissect_struct_Logon_req(ptr noundef %0, i32 noundef %1,
   br label %mapi_dissect_element_Logon_req_OpenFlags.exit
 
 mapi_dissect_element_Logon_req_OpenFlags.exit:    ; preds = %35, %38
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %39 = load i32, ptr @hf_mapi_Logon_req_StoreState, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %40 = load i32, ptr @ett_mapi_StoreState, align 4
   %41 = load i8, ptr %5, align 1
   %42 = and i8 %41, 16
@@ -24646,7 +24640,7 @@ mapi_dissect_element_Logon_req_OpenFlags.exit:    ; preds = %35, %38
   br label %mapi_dissect_element_Logon_req_StoreState.exit
 
 mapi_dissect_element_Logon_req_StoreState.exit:   ; preds = %49, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %53 = load i32, ptr @hf_mapi_Logon_req_EssdnSize, align 4
   %54 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.056, ptr noundef %4, ptr noundef %5, i32 noundef %53, i32 noundef 0)
   %55 = load i32, ptr @hf_mapi_Logon_req_EssDN, align 4
@@ -24685,7 +24679,7 @@ define hidden i32 @mapi_dissect_struct_RopBufferTooSmall_repl(ptr noundef %0, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24704,14 +24698,14 @@ define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_1(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24730,14 +24724,14 @@ define hidden i32 @mapi_dissect_enum_AUX_HEADER_TYPE_2(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_AUX_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24756,7 +24750,7 @@ define hidden i32 @mapi_dissect_enum_AUX_VERSION(ptr noundef %0, i32 noundef %1,
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -24790,7 +24784,7 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_REQUESTID(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_ClientMode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24809,14 +24803,14 @@ define hidden i32 @mapi_dissect_enum_ClientMode(ptr noundef %0, i32 noundef %1, 
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_enum_SERVERINFO_ServerType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %11
@@ -24835,7 +24829,7 @@ define hidden i32 @mapi_dissect_enum_SERVERINFO_ServerType(ptr noundef %0, i32 n
 
 15:                                               ; preds = %.thread, %11
   %16 = phi i32 [ %10, %.thread ], [ %13, %11 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %16
 }
 
@@ -24860,10 +24854,10 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_SERVERINFO(ptr noundef %0, i32 n
   %17 = load i32, ptr @hf_mapi_AUX_PERF_SERVERINFO_ServerID, align 4
   %18 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef 0)
   %19 = load i32, ptr @hf_mapi_AUX_PERF_SERVERINFO_ServerType, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %20 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = load i32, ptr @hf_mapi_AUX_PERF_SERVERINFO_ServerDNOffset, align 4
   %22 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.050, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = load i32, ptr @hf_mapi_AUX_PERF_SERVERINFO_ServerNameOffset, align 4
@@ -25217,10 +25211,10 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE(ptr noundef %0, i32 noun
   %27 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_TimeToFailRequest, align 4
   %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0)
   %29 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_ResultCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_RequestOperation, align 4
   %32 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.068, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0)
   br label %33
@@ -25276,10 +25270,10 @@ define hidden i32 @mapi_dissect_struct_AUX_PERF_FAILURE_V2(ptr noundef %0, i32 n
   %31 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_V2_TimeToFailRequest, align 4
   %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.080, ptr noundef %4, ptr noundef %5, i32 noundef %31, i32 noundef 0)
   %33 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_V2_ResultCode, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.080, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = load i32, ptr @hf_mapi_AUX_PERF_FAILURE_V2_RequestOperation, align 4
   %36 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.080, ptr noundef %4, ptr noundef %5, i32 noundef %35, i32 noundef 0)
   br label %37
@@ -25303,7 +25297,7 @@ mapi_dissect_element_AUX_PERF_FAILURE_V2_Reserved_2.exit: ; preds = %37
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_CLIENT_CONTROL_EnableFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -25341,7 +25335,7 @@ define hidden i32 @mapi_dissect_bitmap_CLIENT_CONTROL_EnableFlags(ptr noundef %0
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -25449,7 +25443,7 @@ define hidden i32 @mapi_dissect_struct_AUX_OSVERSIONINFO(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_EXORGINFO_OrgFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -25487,7 +25481,7 @@ define hidden i32 @mapi_dissect_bitmap_EXORGINFO_OrgFlags(ptr noundef %0, i32 no
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -25519,7 +25513,7 @@ define hidden i32 @mapi_dissect_struct_AUX_EXORGINFO(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_RPC_HEADER_EXT_Flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -25558,7 +25552,7 @@ define hidden i32 @mapi_dissect_bitmap_RPC_HEADER_EXT_Flags(ptr noundef %0, i32 
   br label %30
 
 30:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -25677,7 +25671,7 @@ define hidden i32 @mapi_dissect_struct_AuxInfoOut(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @mapi_dissect_bitmap_RpcExt2Flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %11 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
@@ -25715,7 +25709,7 @@ define hidden i32 @mapi_dissect_bitmap_RpcExt2Flags(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %22
 }
 
@@ -25738,11 +25732,11 @@ define hidden i32 @mapi_dissect_struct_RopInput(ptr noundef %0, i32 noundef %1, 
   %.026 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_RopInput_RopId, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
   %19 = load i8, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %20 = zext i8 %19 to i32
   %21 = call fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %20)
   %22 = sub i32 %21, %1
@@ -25823,11 +25817,11 @@ define hidden i32 @mapi_dissect_struct_RopOutput(ptr noundef %0, i32 noundef %1,
   %.026 = phi ptr [ %15, %12 ], [ null, %8 ]
   %.0 = phi ptr [ %13, %12 ], [ null, %8 ]
   %17 = load i32, ptr @hf_mapi_RopOutput_RopId, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %18 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9)
   %19 = load i8, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %20 = zext i8 %19 to i32
   %21 = call fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.026, ptr noundef %4, ptr noundef %5, i32 noundef %20)
   %22 = sub i32 %21, %1
@@ -25899,13 +25893,13 @@ define hidden void @proto_register_dcerpc_mapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_mapi() local_unnamed_addr #0 {
@@ -25917,43 +25911,43 @@ define hidden void @proto_reg_handoff_dcerpc_mapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_child_uncompress_lz77(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_child_uncompress_lz77(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_DATA_BLOB_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -25963,10 +25957,10 @@ define internal i32 @mapi_dissect_element_DATA_BLOB_data_(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_SBinary_short_lpb_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -25976,7 +25970,7 @@ define internal i32 @mapi_dissect_element_SBinary_short_lpb_(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_MV_LONG_STRUCT_lpl_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -25986,7 +25980,7 @@ define internal i32 @mapi_dissect_element_MV_LONG_STRUCT_lpl_(ptr noundef %0, i3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_null_term_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_null_term_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_SLPSTRArray_strings_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) #0 {
@@ -26037,10 +26031,10 @@ define internal i32 @mapi_dissect_element_SGuidArray_lpguid_(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_ForwardDelegate_Action_RecipientBlock_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -26141,32 +26135,32 @@ define internal i32 @mapi_dissect_element_Binary_r_lpb__(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_SPropValue_CTR_lpszA_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_lpszA, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_SPropValue_CTR_lpszW_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_SPropValue_CTR_lpszW, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 2, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26188,10 +26182,10 @@ define internal i32 @mapi_dissect_element_SPropValue_array_lpProps_(ptr noundef 
 define internal i32 @mapi_dissect_element_SPropTagArray_aulPropTag_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_mapi_SPropTagArray_aulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26213,10 +26207,10 @@ define internal i32 @mapi_dissect_element_OpenMessage_Success_recipients_(ptr no
 define internal i32 @mapi_dissect_element_GetProps_req_properties_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_GetProps_req_properties, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26224,10 +26218,10 @@ define internal i32 @mapi_dissect_element_GetProps_req_properties_(ptr noundef %
 define internal i32 @mapi_dissect_element_GetPropList_repl_tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_GetPropList_repl_tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26242,10 +26236,10 @@ define internal i32 @mapi_dissect_element_SetProps_repl_PropertyProblem_(ptr nou
 define internal i32 @mapi_dissect_element_DeleteProps_req_tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_DeleteProps_req_tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26260,10 +26254,10 @@ define internal i32 @mapi_dissect_element_DeleteProps_repl_PropertyProblem_(ptr 
 define internal i32 @mapi_dissect_element_ModifyRecipients_req_properties_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_ModifyRecipients_req_properties, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26292,10 +26286,10 @@ define internal i32 @mapi_dissect_element_ReloadCachedInformation_repl_Recipient
 define internal i32 @mapi_dissect_element_SetColumns_req_properties_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_SetColumns_req_properties, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26338,7 +26332,7 @@ define internal i32 @mapi_dissect_element_SCommentRestriction_TaggedValues_(ptr 
 define internal fastcc i32 @mapi_dissect_SRestriction_CTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %10
@@ -26463,10 +26457,10 @@ mapi_dissect_element_SRestriction_CTR_resExist.exit: ; preds = %56, %60
   %.020.i.i = phi ptr [ %63, %60 ], [ null, %56 ]
   %.0.i.i81 = phi ptr [ %61, %60 ], [ null, %56 ]
   %64 = load i32, ptr @hf_mapi_mapi_SExistRestriction_ulPropTag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %66 = sub i32 %65, %1
   call void @proto_item_set_len(ptr noundef %.0.i.i81, i32 noundef %66)
   store i8 %59, ptr %58, align 2
@@ -26487,7 +26481,7 @@ mapi_dissect_element_SRestriction_CTR_resExist.exit: ; preds = %56, %60
   %74 = load ptr, ptr %9, align 8
   %75 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %75)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -26502,10 +26496,10 @@ define internal i32 @mapi_dissect_element_DeleteMessages_req_message_ids_(ptr no
 define internal i32 @mapi_dissect_element_FolderCreatedNotification_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_FolderCreatedNotification_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26513,10 +26507,10 @@ define internal i32 @mapi_dissect_element_FolderCreatedNotification_Tags_(ptr no
 define internal i32 @mapi_dissect_element_FolderModifiedNotification_10_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_FolderModifiedNotification_10_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26531,10 +26525,10 @@ define internal i32 @mapi_dissect_element_IcsNotification_GID_(ptr noundef %0, i
 define internal i32 @mapi_dissect_element_FolderModifiedNotification_1010_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_FolderModifiedNotification_1010_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26542,10 +26536,10 @@ define internal i32 @mapi_dissect_element_FolderModifiedNotification_1010_Tags_(
 define internal i32 @mapi_dissect_element_FolderModifiedNotification_2010_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_FolderModifiedNotification_2010_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26553,10 +26547,10 @@ define internal i32 @mapi_dissect_element_FolderModifiedNotification_2010_Tags_(
 define internal i32 @mapi_dissect_element_FolderModifiedNotification_3010_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_FolderModifiedNotification_3010_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26564,10 +26558,10 @@ define internal i32 @mapi_dissect_element_FolderModifiedNotification_3010_Tags_(
 define internal i32 @mapi_dissect_element_MessageCreatedNotification_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_MessageCreatedNotification_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26575,10 +26569,10 @@ define internal i32 @mapi_dissect_element_MessageCreatedNotification_Tags_(ptr n
 define internal i32 @mapi_dissect_element_MessageModifiedNotification_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_MessageModifiedNotification_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26586,10 +26580,10 @@ define internal i32 @mapi_dissect_element_MessageModifiedNotification_Tags_(ptr 
 define internal i32 @mapi_dissect_element_SearchMessageCreatedNotification_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_SearchMessageCreatedNotification_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26597,10 +26591,10 @@ define internal i32 @mapi_dissect_element_SearchMessageCreatedNotification_Tags_
 define internal i32 @mapi_dissect_element_SearchMessageModifiedNotification_Tags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_SearchMessageModifiedNotification_Tags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26629,10 +26623,10 @@ define internal i32 @mapi_dissect_element_MoveCopyMessages_req_message_id_(ptr n
 define internal i32 @mapi_dissect_element_QueryColumnsAll_repl_PropertyTags_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_QueryColumnsAll_repl_PropertyTags, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26668,10 +26662,10 @@ define internal i32 @mapi_dissect_element_GetOwningServers_repl_OwningServers_(p
 define internal i32 @mapi_dissect_element_OpenEmbeddedMessage_repl_RecipientColumns_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_mapi_OpenEmbeddedMessage_repl_RecipientColumns, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %9 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -26788,7 +26782,7 @@ define internal i32 @mapi_dissect_element_DeletePropertiesNoReplicate_repl_Prope
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_HardDeleteMessages_req_MessageIds_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -26800,7 +26794,7 @@ define internal i32 @mapi_dissect_element_HardDeleteMessages_req_MessageIds_(ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %9
@@ -27533,7 +27527,7 @@ define internal fastcc i32 @mapi_dissect_RopRequest(ptr noundef %0, i32 noundef 
   %369 = load ptr, ptr %8, align 8
   %370 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %369, i32 noundef %370)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -27592,7 +27586,7 @@ mapi_dissect_struct_SetSyncNotificationGuid_req.exit: ; preds = %6, %10
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %9
@@ -28258,7 +28252,7 @@ define internal fastcc i32 @mapi_dissect_RopReply(ptr noundef %0, i32 noundef %1
   %296 = load ptr, ptr %8, align 8
   %297 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %296, i32 noundef %297)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -28450,10 +28444,10 @@ mapi_dissect_struct_SetColumns_repl.exit:         ; preds = %6, %11
   %.020.i = phi ptr [ %14, %11 ], [ null, %6 ]
   %.0.i = phi ptr [ %12, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_mapi_SetColumns_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %16 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17)
   store i8 %10, ptr %9, align 2
@@ -28480,10 +28474,10 @@ mapi_dissect_struct_SortTable_repl.exit:          ; preds = %6, %11
   %.020.i = phi ptr [ %14, %11 ], [ null, %6 ]
   %.0.i = phi ptr [ %12, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_mapi_SortTable_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %16 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17)
   store i8 %10, ptr %9, align 2
@@ -28510,10 +28504,10 @@ mapi_dissect_struct_Restrict_repl.exit:           ; preds = %6, %11
   %.020.i = phi ptr [ %14, %11 ], [ null, %6 ]
   %.0.i = phi ptr [ %12, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_mapi_Restrict_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %16 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17)
   store i8 %10, ptr %9, align 2
@@ -28540,10 +28534,10 @@ mapi_dissect_struct_GetStatus_repl.exit:          ; preds = %6, %11
   %.020.i = phi ptr [ %14, %11 ], [ null, %6 ]
   %.0.i = phi ptr [ %12, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_mapi_GetStatus_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %16 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17)
   store i8 %10, ptr %9, align 2
@@ -29077,10 +29071,10 @@ mapi_dissect_struct_Abort_repl.exit:              ; preds = %6, %11
   %.020.i = phi ptr [ %14, %11 ], [ null, %6 ]
   %.0.i = phi ptr [ %12, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_mapi_Abort_repl_TableStatus, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %16 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.020.i, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %17 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %.0.i, i32 noundef %17)
   store i8 %10, ptr %9, align 2
@@ -30185,7 +30179,7 @@ define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 nounde
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6367, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoConnect_szUserDN, align 4
   %10 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %9, i1 noundef zeroext false, ptr noundef nonnull %7)
@@ -30195,7 +30189,7 @@ define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 nounde
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.6383, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_mapi_mapi_EcDoConnect_ulFlags, align 4
   %17 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0)
@@ -30252,7 +30246,7 @@ define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6367, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoConnect_hBinding, align 4
@@ -30336,7 +30330,7 @@ define internal i32 @mapi_dissect_EcDoConnect_response(ptr noundef %0, i32 nound
   br label %75
 
 75:                                               ; preds = %71, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %69
 }
 
@@ -30353,7 +30347,7 @@ define internal i32 @mapi_dissect_EcDoDisconnect_request(ptr noundef %0, i32 nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoDisconnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6368, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoDisconnect_pcxh, align 4
@@ -30373,7 +30367,7 @@ define internal i32 @mapi_dissect_EcDoDisconnect_response(ptr noundef %0, i32 no
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -30405,7 +30399,7 @@ define internal i32 @mapi_dissect_EcDoRpc_request(ptr noundef %0, i32 noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6369, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoRpc_handle, align 4
@@ -30437,7 +30431,7 @@ define internal i32 @mapi_dissect_EcDoRpc_response(ptr noundef %0, i32 noundef %
   br label %31
 
 31:                                               ; preds = %27, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %25
 }
 
@@ -30463,7 +30457,7 @@ define internal i32 @mapi_dissect_EcGetMoreRpc_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcGetMoreRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6370, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcGetMoreRpc_pcxh, align 4
@@ -30489,7 +30483,7 @@ define internal i32 @mapi_dissect_EcGetMoreRpc_response(ptr noundef %0, i32 noun
   br label %25
 
 25:                                               ; preds = %21, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %19
 }
 
@@ -30524,7 +30518,7 @@ define internal i32 @mapi_dissect_EcRRegisterPushNotification_request(ptr nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcRRegisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6371, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcRRegisterPushNotification_handle, align 4
@@ -30547,7 +30541,7 @@ define internal i32 @mapi_dissect_EcRRegisterPushNotification_response(ptr nound
   br label %22
 
 22:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %16
 }
 
@@ -30570,7 +30564,7 @@ define internal i32 @mapi_dissect_EcRUnregisterPushNotification_request(ptr noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6372, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcRUnregisterPushNotification_handle, align 4
@@ -30590,12 +30584,12 @@ define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr nou
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #4 {
+define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((72, 80)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6373, ptr %7, align 8
   ret i32 %1
@@ -30604,7 +30598,7 @@ define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr readnone captur
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDummyRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6373, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_werror, align 4
@@ -30621,7 +30615,7 @@ define internal i32 @mapi_dissect_EcDummyRpc_response(ptr noundef %0, i32 nounde
   br label %16
 
 16:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %10
 }
 
@@ -30641,7 +30635,7 @@ define internal i32 @mapi_dissect_EcRGetDCName_request(ptr noundef %0, i32 nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcRGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6374, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcRGetDCName_handle, align 4
@@ -30674,7 +30668,7 @@ mapi_dissect_element_EcRGetDCName_rgchDomainController.exit: ; preds = %12
   br label %24
 
 24:                                               ; preds = %20, %mapi_dissect_element_EcRGetDCName_rgchDomainController.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %18
 }
 
@@ -30691,7 +30685,7 @@ define internal i32 @mapi_dissect_EcRNetGetDCName_request(ptr noundef %0, i32 no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcRNetGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6375, ptr %8, align 8
   br label %9
@@ -30721,7 +30715,7 @@ mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit: ; preds = %9
   br label %21
 
 21:                                               ; preds = %17, %mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %15
 }
 
@@ -30756,7 +30750,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt_request(ptr noundef %0, i32 noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoRpcExt_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6376, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoRpcExt_pcxh, align 4
@@ -30788,7 +30782,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt_response(ptr noundef %0, i32 nounde
   br label %31
 
 31:                                               ; preds = %27, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %25
 }
 
@@ -30797,7 +30791,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noun
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6377, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoConnectEx_szUserDN, align 4
   %10 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %9, i1 noundef zeroext false, ptr noundef nonnull %7)
@@ -30807,7 +30801,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noun
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.6383, ptr noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5)
   %16 = load i32, ptr @hf_mapi_mapi_EcDoConnectEx_ulFlags, align 4
   %17 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, i32 noundef 0)
@@ -30873,7 +30867,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6377, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoConnectEx_handle, align 4
@@ -30963,7 +30957,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_response(ptr noundef %0, i32 nou
   br label %81
 
 81:                                               ; preds = %77, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %75
 }
 
@@ -31001,7 +30995,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt2_request(ptr noundef %0, i32 nounde
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoRpcExt2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6378, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoRpcExt2_pcxh, align 4
@@ -31039,7 +31033,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt2_response(ptr noundef %0, i32 nound
   br label %37
 
 37:                                               ; preds = %33, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %31
 }
 
@@ -31056,7 +31050,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnect_request(ptr noundef %0, i32 n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoAsyncConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6379, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoAsyncConnect_pacxh, align 4
@@ -31076,7 +31070,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnect_response(ptr noundef %0, i32 
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -31096,7 +31090,7 @@ define internal i32 @mapi_dissect_EcDoAsyncWait_request(ptr noundef %0, i32 noun
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoAsyncWait_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6380, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoAsyncWait_pulFlagsOut, align 4
@@ -31116,7 +31110,7 @@ define internal i32 @mapi_dissect_EcDoAsyncWait_response(ptr noundef %0, i32 nou
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
@@ -31133,7 +31127,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnectEx_request(ptr noundef %0, i32
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_EcDoAsyncConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((72, 80)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.6381, ptr %8, align 8
   %9 = load i32, ptr @hf_mapi_mapi_EcDoAsyncConnectEx_pacxh, align 4
@@ -31153,21 +31147,21 @@ define internal i32 @mapi_dissect_EcDoAsyncConnectEx_response(ptr noundef %0, i3
   br label %19
 
 19:                                               ; preds = %15, %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnect_pullTimeStamp_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -31177,7 +31171,7 @@ define internal i32 @mapi_dissect_element_EcDoConnect_pullTimeStamp_(ptr noundef
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnect_hBinding_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -31187,7 +31181,7 @@ define internal i32 @mapi_dissect_element_EcDoConnect_hBinding_(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnect_pcmsPollsMax_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -31227,12 +31221,12 @@ define internal i32 @mapi_dissect_element_EcDoConnect_szDNPrefix_(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnect_szDNPrefix__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcDoConnect_szDNPrefix, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -31246,12 +31240,12 @@ define internal i32 @mapi_dissect_element_EcDoConnect_szDisplayName_(ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnect_szDisplayName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcDoConnect_szDisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -31304,7 +31298,7 @@ define internal i32 @mapi_dissect_element_EcGetMoreRpc_rgb_(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcGetMoreRpc_rgb__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -31377,24 +31371,24 @@ define internal i32 @mapi_dissect_element_EcRGetDCName_handle_(ptr noundef %0, i
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcRGetDCName_szDomainName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcRGetDCName_szDomainName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcRNetGetDCName_szDomainName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcRNetGetDCName_szDomainName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -31440,7 +31434,7 @@ define internal i32 @mapi_dissect_element_EcDoRpcExt_rgbOut_(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissect_ndr_ucvarray_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissect_ndr_ucvarray_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_EcDoRpcExt_RgbOut(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
@@ -31530,12 +31524,12 @@ define internal i32 @mapi_dissect_element_EcDoConnectEx_szDNPrefix_(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnectEx_szDNPrefix__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcDoConnectEx_szDNPrefix, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -31549,12 +31543,12 @@ define internal i32 @mapi_dissect_element_EcDoConnectEx_szDisplayName_(ptr nound
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @mapi_dissect_element_EcDoConnectEx_szDisplayName__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_mapi_mapi_EcDoConnectEx_szDisplayName, align 4
   %9 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef 1, i32 noundef %8, i1 noundef zeroext false, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.6134, ptr noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -31712,6 +31706,12 @@ define internal i32 @mapi_dissect_element_EcDoAsyncConnectEx_pacxh_(ptr noundef 
   ret i32 %8
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
@@ -31719,13 +31719,12 @@ declare i32 @llvm.umin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

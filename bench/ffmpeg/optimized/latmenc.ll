@@ -86,8 +86,8 @@ define internal i32 @latm_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 57430, ptr %4, align 4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !33
@@ -138,7 +138,7 @@ define internal i32 @latm_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br label %909
 
 44:                                               ; preds = %36, %32, %27, %23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %5) #6
   %46 = load i64, ptr %5, align 8, !tbaa !43
   %.not54 = icmp eq i64 %46, 0
@@ -159,14 +159,14 @@ define internal i32 @latm_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread:                                          ; preds = %47, %51, %44
   %.1.ph = phi i32 [ -1094995529, %44 ], [ %54, %51 ], [ -1094995529, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %909
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %21, align 8, !tbaa !37
   %58 = load i64, ptr %5, align 8, !tbaa !43
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %57, ptr align 1 %45, i64 %58, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %56, %20
@@ -1641,8 +1641,8 @@ flush_put_bits.exit:                              ; preds = %887, %876
 
 909:                                              ; preds = %.thread, %908, %901, %42, %18
   %.0 = phi i32 [ %19, %18 ], [ -1094995529, %908 ], [ 0, %901 ], [ %43, %42 ], [ %.1.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1680,9 +1680,6 @@ define internal i32 @latm_check_bitstream(ptr readnone captures(none) %0, ptr no
 
 declare ptr @av_default_item_name(ptr noundef) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -1690,7 +1687,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @latm_decode_extradata(ptr 
   %4 = alloca %struct.MPEG4AudioConfig, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = icmp sgt i32 %2, 1024
   br i1 %7, label %8, label %9
 
@@ -1739,17 +1736,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @latm_decode_extradata(ptr 
 
 28:                                               ; preds = %9, %24, %23, %18, %8
   %.0 = phi i32 [ -1094995529, %8 ], [ -1094995529, %18 ], [ -1094995529, %23 ], [ 0, %24 ], [ %10, %9 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @avpriv_mpeg4audio_get_config2(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @ff_raw_write_packet(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1896,9 +1890,15 @@ put_bits.exit18:                                  ; preds = %52, %74
 declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
+declare void @abort() local_unnamed_addr #3
 
 declare i32 @ff_stream_add_bitstream_filter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
@@ -1917,9 +1917,9 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }

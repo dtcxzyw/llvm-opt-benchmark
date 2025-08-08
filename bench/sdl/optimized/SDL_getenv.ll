@@ -135,9 +135,6 @@ SDL_DestroyEnvironment_REAL.exit:                 ; preds = %0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroyEnvironment_REAL(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -159,29 +156,26 @@ define hidden void @SDL_DestroyEnvironment_REAL(ptr noundef %0) local_unnamed_ad
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @SDL_HashString(ptr noundef, ptr noundef) #3
+declare i32 @SDL_HashString(ptr noundef, ptr noundef) #2
 
-declare zeroext i1 @SDL_KeyMatchString(ptr noundef, ptr noundef, ptr noundef) #3
+declare zeroext i1 @SDL_KeyMatchString(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @SDL_DestroyHashKey(ptr noundef, ptr noundef, ptr noundef) #3
+declare void @SDL_DestroyHashKey(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #3
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -199,7 +193,7 @@ define hidden ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef readonly captures
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %8) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call zeroext i1 @SDL_FindInHashTable(ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %3) #11
@@ -212,7 +206,7 @@ define hidden ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef readonly captures
 
 15:                                               ; preds = %12, %7
   %.0 = phi ptr [ %14, %12 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = load ptr, ptr %0, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %16) #11
   br label %17
@@ -222,13 +216,13 @@ define hidden ptr @SDL_GetEnvironmentVariable_REAL(ptr noundef readonly captures
   ret ptr %.09
 }
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #3
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -244,7 +238,7 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %7) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -263,7 +257,7 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
   %19 = load i64, ptr %2, align 8
   %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %17, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %22, align 8
@@ -274,11 +268,11 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
   %26 = load i64, ptr %23, align 8
   %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %26
   store ptr null, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %18, %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = load ptr, ptr %0, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %29) #11
   br label %30
@@ -288,12 +282,12 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @CountEnvStrings(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -311,7 +305,7 @@ define internal noundef zeroext i1 @CountEnvStrings(ptr noundef captures(none) %
   ret i1 true
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @CopyEnvStrings(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -383,7 +377,7 @@ define hidden zeroext i1 @SDL_SetEnvironmentVariable_REAL(ptr noundef readonly c
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %21) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %22 = call i32 (ptr, ptr, ...) @SDL_asprintf_REAL(ptr noundef nonnull %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %1, ptr noundef nonnull %2) #11
   %23 = icmp sgt i32 %22, 0
@@ -408,16 +402,16 @@ define hidden zeroext i1 @SDL_SetEnvironmentVariable_REAL(ptr noundef readonly c
   br i1 %3, label %39, label %36
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %37 = load ptr, ptr %31, align 8
   %38 = call zeroext i1 @SDL_FindInHashTable(ptr noundef %37, ptr noundef nonnull %1, ptr noundef nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %24, %36, %34, %20
   %.022 = phi i1 [ false, %20 ], [ true, %24 ], [ false, %34 ], [ %38, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load ptr, ptr %0, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %40) #11
   br label %41
@@ -427,9 +421,9 @@ define hidden zeroext i1 @SDL_SetEnvironmentVariable_REAL(ptr noundef readonly c
   ret i1 %.0
 }
 
-declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @SDL_asprintf_REAL(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #3
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -462,7 +456,7 @@ define hidden zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef readonly
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %15) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i1 @SDL_FindInHashTable(ptr noundef %17, ptr noundef nonnull %1, ptr noundef nonnull %3) #11
@@ -475,7 +469,7 @@ define hidden zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef readonly
 
 22:                                               ; preds = %14, %19
   %.0 = phi i1 [ %21, %19 ], [ true, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = load ptr, ptr %0, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %23) #11
   br label %24
@@ -485,11 +479,11 @@ define hidden zeroext i1 @SDL_UnsetEnvironmentVariable_REAL(ptr noundef readonly
   ret i1 %.011
 }
 
-declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
 
-declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #3
+declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_setenv_unsafe_REAL(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -531,7 +525,7 @@ SDL_GetEnvironment_REAL.exit:                     ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind
-declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @SDL_unsetenv_unsafe_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -570,10 +564,10 @@ SDL_GetEnvironment_REAL.exit:                     ; preds = %7, %9
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define hidden noundef ptr @SDL_getenv_unsafe_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden noundef ptr @SDL_getenv_unsafe_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -592,7 +586,7 @@ define hidden noundef ptr @SDL_getenv_unsafe_REAL(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_getenv_REAL(ptr noundef %0) local_unnamed_addr #0 {
@@ -621,7 +615,7 @@ SDL_GetEnvironment_REAL.exit:                     ; preds = %1, %4
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %11) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i1 @SDL_FindInHashTable(ptr noundef %13, ptr noundef nonnull %0, ptr noundef nonnull %2) #11
@@ -634,7 +628,7 @@ SDL_GetEnvironment_REAL.exit:                     ; preds = %1, %4
 
 18:                                               ; preds = %15, %10
   %.0.i = phi ptr [ %17, %15 ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %19 = load ptr, ptr %6, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %19) #11
   br label %SDL_GetEnvironmentVariable_REAL.exit
@@ -645,18 +639,24 @@ SDL_GetEnvironmentVariable_REAL.exit:             ; preds = %SDL_GetEnvironment_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind allocsize(0,1) }
 attributes #11 = { nounwind }
 

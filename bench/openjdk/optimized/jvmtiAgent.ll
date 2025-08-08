@@ -400,7 +400,7 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [1 x ptr], align 8
   %3 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 ptrtoint (ptr @.str.11 to i64), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
@@ -420,12 +420,12 @@ define hidden void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull al
 
 _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit: ; preds = %1, %7, %9
   %12 = call noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %3, i64 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %_ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %2, align 8
   %15 = load i8, ptr %4, align 8
   %16 = trunc i8 %15 to i1
@@ -444,7 +444,7 @@ _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit: ; preds = %1, %7, %9
 
 _ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit: ; preds = %14, %17, %19
   %22 = call noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %2, i64 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
@@ -478,8 +478,8 @@ define hidden noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr nound
   br i1 %10, label %11, label %49
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 ptrtoint (ptr @.str.11 to i64), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i8, ptr %12, align 8
@@ -499,7 +499,7 @@ define hidden noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr nound
 
 _ZL29lookup_JVM_OnLoad_entry_pointP10JvmtiAgent.exit.i: ; preds = %17, %15, %11
   %20 = call noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %6, i64 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %25
 
@@ -567,7 +567,7 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
 
 _ZL17invoke_JVM_OnLoadP10JvmtiAgent.exit:         ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %48
   store volatile i32 6, ptr %29, align 4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL19invoke_Agent_OnLoadP10JvmtiAgent.exit
 
 49:                                               ; preds = %2
@@ -577,8 +577,8 @@ _ZL17invoke_JVM_OnLoadP10JvmtiAgent.exit:         ; preds = %_ZN18SafepointMecha
   br i1 %52, label %53, label %204
 
 53:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = load i8, ptr @EnableDynamicAgentLoading, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %57, label %56
@@ -880,8 +880,8 @@ _ZL16convert_to_jplisP10JvmtiAgent.exit.i:        ; preds = %196, %195
 
 _ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit: ; preds = %56, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i, %81, %109, %115, %171, %174, %175, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i
   %.0.i = phi i1 [ false, %56 ], [ false, %81 ], [ false, %_ZL12load_libraryP10JvmtiAgentPPKcmb.exit.thread.i ], [ true, %_ZL16convert_to_jplisP10JvmtiAgent.exit.i ], [ true, %175 ], [ false, %109 ], [ false, %115 ], [ false, %171 ], [ false, %174 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL19invoke_Agent_OnLoadP10JvmtiAgent.exit
 
 204:                                              ; preds = %49
@@ -914,7 +914,7 @@ _ZL21invoke_Agent_OnAttachP10JvmtiAgentP12outputStream.exit: ; preds = %56, %_ZL
   br label %_ZL14check_cds_dumpP10JvmtiAgent.exit.i
 
 _ZL14check_cds_dumpP10JvmtiAgent.exit.i:          ; preds = %220, %217, %204
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %3, align 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %222 = load i8, ptr %221, align 8
@@ -934,7 +934,7 @@ _ZL14check_cds_dumpP10JvmtiAgent.exit.i:          ; preds = %220, %217, %204
 
 _ZL31lookup_Agent_OnLoad_entry_pointP10JvmtiAgent.exit.i: ; preds = %226, %224, %_ZL14check_cds_dumpP10JvmtiAgent.exit.i
   %229 = call noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %3, i64 noundef 1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %230 = icmp eq ptr %229, null
   br i1 %230, label %231, label %234
 
@@ -1423,10 +1423,10 @@ declare { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

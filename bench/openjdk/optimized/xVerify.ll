@@ -411,8 +411,8 @@ define hidden void @_ZN7XVerify10after_markEv() local_unnamed_addr #0 align 2 {
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -425,8 +425,8 @@ define hidden void @_ZN7XVerify10after_markEv() local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %16, align 8
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap14object_iterateEP13ObjectClosureb(ptr noundef nonnull align 64 dereferenceable(4088) %17, ptr noundef nonnull %2, i1 noundef zeroext false) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %18
 
 18:                                               ; preds = %12, %9
@@ -459,8 +459,8 @@ define hidden void @_ZN7XVerify21after_weak_processingEv() local_unnamed_addr #0
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -473,8 +473,8 @@ define hidden void @_ZN7XVerify21after_weak_processingEv() local_unnamed_addr #0
   store ptr %1, ptr %16, align 8
   %17 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   call void @_ZN5XHeap14object_iterateEP13ObjectClosureb(ptr noundef nonnull align 64 dereferenceable(4088) %17, ptr noundef nonnull %2, i1 noundef zeroext true) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %18
 
 18:                                               ; preds = %12, %9
@@ -1449,7 +1449,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %28
   br label %_ZN12XVerifyStack18prepare_next_frameER5frame.exit
 
 _ZN12XVerifyStack18prepare_next_frameER5frame.exit: ; preds = %36, %42, %49
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = load i8, ptr %11, align 8
   %51 = trunc i8 %50 to i1
   br i1 %51, label %_ZN16StackFrameStream4nextEv.exit, label %52
@@ -1482,7 +1482,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %_ZN12XVerifyStack18prepare_next_frameER5frame.exit, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %60 = phi i8 [ %50, %_ZN12XVerifyStack18prepare_next_frameER5frame.exit ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %61 = trunc i8 %60 to i1
   br i1 %61, label %._crit_edge, label %22, !llvm.loop !15
 
@@ -2155,10 +2155,10 @@ define linkonce_odr hidden void @_ZN27XPageDebugMapOrUnmapClosureILb1EE7do_pageE
 declare void @_ZNK14XPageAllocator14debug_map_pageEPK5XPage(ptr noundef nonnull align 8 dereferenceable(609), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

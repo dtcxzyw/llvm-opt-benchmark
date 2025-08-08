@@ -183,13 +183,10 @@ _ZSt10fpclassifye.exit:                           ; preds = %5
   ret { ptr, i32 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias nonnull writable writeonly align 16 captures(none) %0, x86_fp80 noundef %1) unnamed_addr #2 {
+define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd128Ee(ptr dead_on_unwind noalias nonnull writable writeonly align 16 captures(none) %0, x86_fp80 noundef %1) unnamed_addr #1 {
   %3 = alloca [4 x i64], align 16
   %4 = alloca [4 x i64], align 16
   %5 = alloca [4 x i64], align 16
@@ -252,7 +249,7 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
   %reass.sub = sub nsw i32 %37, %.0.i
   %42 = add nsw i32 %reass.sub, 249
   %43 = add nsw i32 %42, %41
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !3
   %44 = trunc nsw i32 %37 to i16
   %.lhs.trunc.i.i = add nsw i16 %44, 55
   %45 = udiv i16 %.lhs.trunc.i.i, 56
@@ -310,23 +307,23 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
 _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62, %50
   %.sroa.055.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.256.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.055.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %8) #15, !noalias !3
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !14, !noalias !3
   %85 = load i64, ptr %8, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3
   %.sroa.254.0.insert.ext.i = zext i64 %84 to i128
   %.sroa.254.0.insert.shift.i = shl nuw i128 %.sroa.254.0.insert.ext.i, 64
   %.sroa.053.0.insert.ext.i = zext i64 %85 to i128
   %.sroa.053.0.insert.insert.i = or disjoint i128 %.sroa.254.0.insert.shift.i, %.sroa.053.0.insert.ext.i
   %.sroa.051.0.extract.trunc.i = or disjoint i64 %.sroa.055.0.extract.trunc.i, 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.051.0.extract.trunc.i, i64 %.sroa.256.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %7) #15, !noalias !3
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !14, !noalias !3
   %88 = load i64, ptr %7, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3
   %.sroa.250.0.insert.ext.i = zext i64 %87 to i128
   %.sroa.250.0.insert.shift.i = shl nuw i128 %.sroa.250.0.insert.ext.i, 64
   %.sroa.049.0.insert.ext.i = zext i64 %88 to i128
@@ -337,12 +334,12 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.047.0.extract.trunc.i = trunc i128 %90 to i64
   %.sroa.248.0.extract.shift.i = lshr i128 %90, 64
   %.sroa.248.0.extract.trunc.i = trunc nuw i128 %.sroa.248.0.extract.shift.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.047.0.extract.trunc.i, i64 %.sroa.248.0.extract.trunc.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %6) #15, !noalias !3
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !14, !noalias !3
   %93 = load i64, ptr %6, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3
   %.sroa.246.0.insert.ext.i = zext i64 %92 to i128
   %.sroa.246.0.insert.shift.i = shl nuw i128 %.sroa.246.0.insert.ext.i, 64
   %.sroa.045.0.insert.ext.i = zext i64 %93 to i128
@@ -445,7 +442,7 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i: ; preds = %116,
   %.0189.i = phi i8 [ %105, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ 0, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ 0, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
   %.0185.i = phi i1 [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %112, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ false, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ false, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
   %.0176.i = phi i128 [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit221.i ], [ %119, %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i ], [ %.sroa.049.0.insert.insert.i, %_ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3
   br label %196
 
 121:                                              ; preds = %23
@@ -465,7 +462,7 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i: ; preds = %116,
   %134 = trunc nuw nsw i64 %133 to i32
   %.neg243.i = add nsw i32 %128, 248
   %135 = sub nsw i32 %.neg243.i, %134
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3
   %136 = udiv i32 %130, 56
   %.recomposed = urem i32 %130, 56
   %137 = mul nuw i32 %136, 56
@@ -518,23 +515,23 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit233.i: ; preds = %116,
 _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, %141
   %.sroa.025.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.226.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.025.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %5) #15, !noalias !3
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %172 = load i64, ptr %171, align 8, !tbaa !14, !noalias !3
   %173 = load i64, ptr %5, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3
   %.sroa.224.0.insert.ext.i = zext i64 %172 to i128
   %.sroa.224.0.insert.shift.i = shl nuw i128 %.sroa.224.0.insert.ext.i, 64
   %.sroa.023.0.insert.ext.i = zext i64 %173 to i128
   %.sroa.023.0.insert.insert.i = or disjoint i128 %.sroa.224.0.insert.shift.i, %.sroa.023.0.insert.ext.i
   %.sroa.021.0.extract.trunc.i = or disjoint i64 %.sroa.025.0.extract.trunc.i, 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.021.0.extract.trunc.i, i64 %.sroa.226.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %4) #15, !noalias !3
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !14, !noalias !3
   %176 = load i64, ptr %4, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3
   %.sroa.220.0.insert.ext.i = zext i64 %175 to i128
   %.sroa.220.0.insert.shift.i = shl nuw i128 %.sroa.220.0.insert.ext.i, 64
   %.sroa.019.0.insert.ext.i = zext i64 %176 to i128
@@ -545,12 +542,12 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.sroa.017.0.extract.trunc.i = trunc i128 %178 to i64
   %.sroa.218.0.extract.shift.i = lshr i128 %178, 64
   %.sroa.218.0.extract.trunc.i = trunc nuw i128 %.sroa.218.0.extract.shift.i to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15, !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.017.0.extract.trunc.i, i64 %.sroa.218.0.extract.trunc.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %3) #15, !noalias !3
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %180 = load i64, ptr %179, align 8, !tbaa !14, !noalias !3
   %181 = load i64, ptr %3, align 16, !tbaa !14, !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   %.sroa.216.0.insert.ext.i = zext i64 %180 to i128
   %.sroa.216.0.insert.shift.i = shl nuw i128 %.sroa.216.0.insert.ext.i, 64
   %.sroa.015.0.insert.ext.i = zext i64 %181 to i128
@@ -587,7 +584,7 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.2191.i = phi i8 [ 1, %184 ], [ %194, %188 ], [ 0, %186 ], [ 1, %183 ]
   %.2187.i = phi i1 [ false, %184 ], [ false, %188 ], [ false, %186 ], [ %29, %183 ]
   %.2178.i = phi i128 [ %185, %184 ], [ %.sroa.019.0.insert.insert.i, %188 ], [ %.sroa.019.0.insert.insert.i, %186 ], [ %.sroa.019.0.insert.insert.i, %183 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #15, !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3
   br label %196
 
 196:                                              ; preds = %195, %120
@@ -716,7 +713,7 @@ _ZN5boost8charconv6detail3ryuL25generic_binary_to_decimalEojjb.exit: ; preds = %
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_charsENS2_20floating_decimal_128EPclNS0_12chars_formatEi(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 16, !tbaa !13
   %8 = icmp eq i32 %7, 2147483647
@@ -1034,10 +1031,7 @@ _ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail12to_chars_hexIeEENS0_15to_chars_resultEPcS4_T_i(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1229,7 +1223,7 @@ _ZN5boost8charconv6detailrsENS1_7uint128Ei.exit.thread: ; preds = %84
   %. = select i1 %20, i8 45, i8 43
   %.7 = getelementptr inbounds nuw i8, ptr %.5, i64 2
   store i8 %., ptr %89, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   %90 = icmp ugt ptr %.7, %1
   br i1 %90, label %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, label %91
@@ -1315,7 +1309,7 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit.i.i: ; preds = %113
 _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: ; preds = %.loopexit, %125
   %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i184, %125 ], [ %1, %.loopexit ]
   %.sroa.4.0.i.i = phi i32 [ %spec.select25.i.i, %125 ], [ 22, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %127
 
 127:                                              ; preds = %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, %4
@@ -1327,7 +1321,7 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_chars_fixedENS2_20floating_decimal_128EPcli(ptr noundef readonly byval(%"struct.boost::charconv::detail::ryu::floating_decimal_128") align 16 captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 16, !tbaa !13
   %7 = icmp eq i32 %6, 2147483647
@@ -1551,7 +1545,7 @@ _ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail20to_chars_printf_implIeEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, x86_fp80 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat {
   %6 = alloca [10 x i8], align 1
   %7 = alloca [14 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %8, i8 0, i64 13, i1 false)
   store i8 37, ptr %7, align 1
@@ -1587,7 +1581,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail20to_chars_pri
   br label %67
 
 26:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   %27 = icmp slt i32 %4, 0
   %spec.select.i.i = tail call i32 @llvm.abs.i32(i32 %4, i1 false)
@@ -1664,7 +1658,7 @@ _ZN5boost8charconv6detail12to_chars_intIiEENS0_15to_chars_resultEPcS4_T_i.exit: 
   %59 = sub nuw nsw i64 10, %.0.i.i.i38
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.1.i.i, ptr noundef nonnull align 1 dereferenceable(1) %60, i64 %.0.i.i.i38, i1 false)
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   br label %67
 
@@ -1728,14 +1722,14 @@ _ZN5boost8charconv6detail12to_chars_intIiEENS0_15to_chars_resultEPcS4_T_i.exit: 
 88:                                               ; preds = %85, %82
   %.sroa.033.0 = phi ptr [ %1, %82 ], [ %87, %85 ]
   %.sroa.3.0 = phi i32 [ %84, %82 ], [ 0, %85 ]
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.033.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIfNS1_22dragonbox_float_traitsIfEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not5.i.i = icmp eq i32 %1, 0
   br i1 %.not5.i.i, label %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, label %.lr.ph.i.i
 
@@ -2090,7 +2084,7 @@ _ZN5boost8charconv6detail15to_chars_detailL14print_9_digitsEjRiRPc.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_detail22dragon_box_print_charsIdNS1_22dragonbox_float_traitsIdEEEENS0_15to_chars_resultENT0_12carrier_uintEiPcS9_NS0_12chars_formatE(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not5.i.i = icmp eq i32 %1, 0
   br i1 %.not5.i.i, label %_ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit, label %.lr.ph.i.i
 
@@ -2873,7 +2867,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 
 45:                                               ; preds = %44
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 112)
-  call void @llvm.lifetime.start.p0(i64 117, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = fpext float %2 to double
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 117
   %48 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %46, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %47, i32 noundef 3) #15
@@ -2895,7 +2889,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 59:                                               ; preds = %45, %57
   %.sroa.069.2 = phi ptr [ %58, %57 ], [ %1, %45 ]
   %.sroa.13.2 = phi i32 [ 0, %57 ], [ 75, %45 ]
-  call void @llvm.lifetime.end.p0(i64 117, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 60:                                               ; preds = %44
@@ -3045,7 +3039,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 
 45:                                               ; preds = %44
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 767)
-  call void @llvm.lifetime.start.p0(i64 773, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 773
   %47 = call { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatE(double noundef %2, i32 noundef %spec.store.select, ptr noundef nonnull %6, ptr noundef nonnull %46, i32 noundef 3) #15
   %48 = extractvalue { ptr, i32 } %47, 0
@@ -3066,7 +3060,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_flo
 58:                                               ; preds = %45, %56
   %.sroa.069.2 = phi ptr [ %57, %56 ], [ %1, %45 ]
   %.sroa.13.2 = phi i32 [ 0, %56 ], [ 75, %45 ]
-  call void @llvm.lifetime.end.p0(i64 773, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %80
 
 59:                                               ; preds = %44
@@ -3143,13 +3137,13 @@ define { ptr, i32 } @_ZN5boost8charconv8to_charsEPcS1_eNS0_12chars_formatEi(ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6
+declare x86_fp80 @llvm.fabs.f80(x86_fp80) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %3) unnamed_addr #8 {
+define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr noundef readonly captures(none) %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %3) unnamed_addr #7 {
   %5 = zext i64 %.0.val to i128
   %6 = load i64, ptr %0, align 8, !tbaa !14
   %7 = zext i64 %6 to i128
@@ -3438,7 +3432,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #6
+declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128integer_implIoEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat {
@@ -3471,9 +3465,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128
   br label %69
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 0, i64 50, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   br label %22
 
@@ -3575,8 +3569,8 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   %68 = getelementptr inbounds i8, ptr %0, i64 %13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
 69:                                               ; preds = %17, %._crit_edge, %8, %4
@@ -3588,12 +3582,12 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 comdat {
   %4 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
   %5 = icmp ugt ptr %0, %1
   br i1 %5, label %.critedge, label %6
@@ -3936,20 +3930,20 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit107: ; preds = %156
 .critedge:                                        ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread, %171, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit, %3
   %.sroa.0.0 = phi ptr [ %1, %3 ], [ %173, %171 ], [ %1, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
   %.sroa.5.0 = phi i32 [ 22, %3 ], [ 0, %171 ], [ 75, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #10
+declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fixed_implIfEENS0_15to_chars_resultEPcS4_T_NS0_12chars_formatEi(ptr noundef %0, ptr noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -3977,10 +3971,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail19to_chars_fix
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.ext.i = zext nneg i32 %20 to i64
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, %.sroa.05.0.insert.ext.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %.sroa.05.0.insert.insert.i, ptr %7, align 8
   %23 = call { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_(ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.extract = extractvalue { i64, i8 } %23, 0
   %24 = icmp slt i32 %18, 0
   br i1 %24, label %25, label %27
@@ -4167,13 +4161,13 @@ _ZN5boost8charconv6detail19total_buffer_lengthIiEEiiT_b.exit: ; preds = %.lr.ph.
 98:                                               ; preds = %93, %84
   %.2 = phi ptr [ %97, %93 ], [ %.0, %84 ]
   %.sroa.023.0.extract.trunc51 = trunc i64 %.sroa.023.0 to i32
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   %99 = icmp ugt ptr %.2, %1
   br i1 %99, label %_ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread, label %100
 
 _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit.thread: ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 100:                                              ; preds = %98
@@ -4244,7 +4238,7 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i: ; preds = %118, %116, %112,
   br i1 %132, label %123, label %133, !llvm.loop !31
 
 _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T_.exit: ; preds = %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 133:                                              ; preds = %123
@@ -4252,7 +4246,7 @@ _ZN5boost8charconv6detail21to_chars_integer_implIjEENS0_15to_chars_resultEPcS4_T
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2, ptr noundef nonnull align 1 dereferenceable(1) %135, i64 %.0.i.i, i1 false)
   %136 = getelementptr inbounds nuw i8, ptr %.2, i64 %.0.i.i
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %137 = fcmp ult float %17, 1.000000e+00
   br i1 %137, label %.critedge, label %138
 
@@ -4320,7 +4314,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
   %18 = shl i64 %17, 1
   %19 = lshr i64 %18, 53
   %20 = trunc nuw nsw i64 %19 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = and i64 %18, 9007199254740990
   store i64 %21, ptr %7, align 8, !tbaa !14
   br i1 %.not1063, label %26, label %22
@@ -4466,7 +4460,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
 83:                                               ; preds = %50, %47
   %84 = phi i64 [ %48, %47 ], [ %21, %50 ]
   %.0835 = phi i32 [ %49, %47 ], [ -1074, %50 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %85 = mul nsw i32 %.0835, 315653
   %86 = ashr i32 %85, 20
   %87 = sub nsw i32 2, %86
@@ -5230,19 +5224,19 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   %508 = load i32, ptr %8, align 4, !tbaa !32
   %509 = add nsw i32 %508, 294
   %510 = udiv i32 %509, 22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %511 = mul nuw nsw i32 %510, 22
   %512 = add nsw i32 %511, -272
   %513 = sub nsw i32 %512, %508
   store i32 %513, ptr %9, align 4, !tbaa !32
   store i32 %512, ptr %8, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %514 = load i64, ptr %7, align 8, !tbaa !14
   %515 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %514, i1 false)
   %516 = trunc nuw nsw i64 %515 to i32
   %517 = add nsw i32 %.0835, %516
   store i32 %517, ptr %10, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %518 = zext nneg i32 %510 to i64
   %519 = getelementptr inbounds nuw [64 x %"struct.boost::charconv::detail::extended_cache_long_impl<true>::multiplier_index_info"], ptr @_ZN5boost8charconv6detail24extended_cache_long_implILb1EE27multiplier_index_info_tableE, i64 0, i64 %518
@@ -6152,7 +6146,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %1107 = extractvalue { i64, i1 } %1106, 1
   %1108 = zext i1 %1107 to i64
   %1109 = add nuw nsw i64 %1108, %1104
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1110 = sub nsw i32 %513, %.09172043
   store i32 %1110, ptr %9, align 4, !tbaa !32
   %1111 = and i32 %.09172043, 1
@@ -6186,7 +6180,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   ]
 
 1126:                                             ; preds = %1121
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6204,7 +6198,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   br i1 %1129, label %1130, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread2103
 
 _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread2103: ; preds = %1128
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread2091.thread2341
 
 1130:                                             ; preds = %1128
@@ -6213,12 +6207,12 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   br i1 %.not.i1264, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit, label %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread
 
 _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread: ; preds = %1126, %1130
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread2091.thread2349
 
 _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit: ; preds = %1130
   %1132 = call noundef zeroext i1 @_ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %1132, label %.thread2091.thread2349, label %.thread2091.thread2341
 
 .thread2110:                                      ; preds = %1121
@@ -6317,7 +6311,7 @@ _ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9
   br i1 %.not2388, label %.thread2091, label %.thread2091.thread2354
 
 .thread2091.thread2354:                           ; preds = %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1154, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1377
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit2417.thread.thread2716.sink.split
 
 1178:                                             ; preds = %._crit_edge2502
@@ -8382,25 +8376,25 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
   br i1 %.0.i1262, label %.thread1990.sink.split, label %.thread2075.sink.split
 
 .thread2245:                                      ; preds = %1710
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread2066
 
 .thread2091.thread2341:                           ; preds = %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread2103, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit
   %.21893.ph = phi i32 [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread2103 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit ], [ %1184, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ]
   %.43.ph = phi ptr [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread2103 ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit ], [ %.44.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread2075.sink.split
 
 .thread2091.thread2349:                           ; preds = %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit
   %.21893.ph2347 = phi i32 [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit ], [ %1184, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ]
   %.43.ph2348 = phi ptr [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit.thread ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEZNS1_5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcSA_NS0_12chars_formatEEUlvE0_JETnNSt9enable_ifIXntsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_SE_DpT1_.exit ], [ %.44.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj1ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread1990.sink.split
 
 .thread2091:                                      ; preds = %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit2417.thread.sink.split
 
 .thread2066:                                      ; preds = %482, %.thread2245
@@ -8540,9 +8534,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
   %.11928.ph = phi i32 [ %.16933, %.thread2091.thread2354 ], [ %.26943, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ], [ %.24941, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.26943, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1460 ], [ %.09172043, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.20937, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1419 ], [ %.18935, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.18935, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.20937, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ]
   %.7879.ph = phi i32 [ %.19891, %.thread2091.thread2354 ], [ %.30902, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ], [ %.28900, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.30902, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1460 ], [ %.16888, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.24896, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1419 ], [ %.22894, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.22894, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.24896, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ]
   %.25.ph = phi ptr [ %.40, %.thread2091.thread2354 ], [ %.60, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ], [ %.57, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.60, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1460 ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.50, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1419 ], [ %.47, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.47, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.50, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit2417.thread.thread2716
 
 .loopexit2417.thread.thread2716:                  ; preds = %.loopexit2417.thread.thread2716.sink.split, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1145, %451, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit, %333
@@ -8556,9 +8550,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
 .thread1961.sink.split:                           ; preds = %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1508, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1463
   %.8880.ph = phi i32 [ %1617, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1463 ], [ %1617, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163 ], [ %2124, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2124, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175 ], [ %2235, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2235, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181 ], [ %995, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %995, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151 ], [ %1993, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1508 ], [ %1993, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169 ]
   %.26.ph = phi ptr [ %.56.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1463 ], [ %.56.lcssa, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163 ], [ %2115, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2115, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175 ], [ %.68, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.68, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181 ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.32045, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151 ], [ %1957, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1508 ], [ %1957, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread1961
 
 .thread1961:                                      ; preds = %.thread1961.sink.split, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1148, %491, %224, %232, %373, %367, %.loopexit2417.thread.thread2716
@@ -8573,9 +8567,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
   %.13930.ph = phi i32 [ %.09172043, %.thread2091.thread2349 ], [ %.28945, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184 ], [ 8, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2116, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178 ], [ 8, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %1449, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166 ], [ %1449, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469 ], [ 0, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1446 ], [ 0, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268 ], [ %1449, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1466 ], [ %2116, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1525 ], [ %.28945, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1538 ], [ 0, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1350 ], [ 0, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188 ], [ 0, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1353 ], [ 0, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ 0, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ 0, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %1958, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1514 ], [ %1958, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172 ], [ 6, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511 ]
   %.9881.ph = phi i32 [ %.21893.ph2347, %.thread2091.thread2349 ], [ %.43915, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184 ], [ %2272, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.40912, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178 ], [ %2165, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.33905, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166 ], [ %1658, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469 ], [ %.08722044, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1446 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268 ], [ %.33905, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1466 ], [ %.40912, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1525 ], [ %.43915, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1538 ], [ %.08722044, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1350 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188 ], [ %.08722044, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1353 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.08722044, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.37909, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1514 ], [ %.37909, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172 ], [ %2039, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511 ]
   %.27.ph = phi ptr [ %.43.ph2348, %.thread2091.thread2349 ], [ %.81, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184 ], [ %.82.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.76, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178 ], [ %2171, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.65, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166 ], [ %.66.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469 ], [ %.54213921542179, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1446 ], [ %.54213921542179, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268 ], [ %.65, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1466 ], [ %.76, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1525 ], [ %.81, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1538 ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1350 ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188 ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1353 ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj16ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.71, %_ZN5boost8charconv6detail18has_further_digitsILj1ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1514 ], [ %.71, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172 ], [ %2033, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread1990
 
 .thread1990:                                      ; preds = %.thread1990.sink.split, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %469, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj10ELb0EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %351, %241, %249, %385, %379, %.loopexit2417.thread.thread2716
@@ -8590,9 +8584,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
   %.14931.ph = phi i32 [ %.16933, %.thread2091 ], [ %.18935, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.20937, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ], [ %.09172043, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.24941, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.26943, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ]
   %.10882.ph = phi i32 [ %.19891, %.thread2091 ], [ %.22894, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.24896, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ], [ %.16888, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.28900, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.30902, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ]
   %.28.ph = phi ptr [ %.40, %.thread2091 ], [ %.47, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.50, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1157 ], [ %.32045, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.57, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.60, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1160 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit2417.thread
 
 .loopexit2417.thread:                             ; preds = %.loopexit2417.thread.sink.split, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1145
@@ -8606,9 +8600,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
 .thread2057.sink.split:                           ; preds = %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163
   %.11883.ph = phi i32 [ %2235, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181 ], [ %2124, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175 ], [ %1617, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163 ], [ %1993, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169 ], [ %995, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151 ]
   %.29.ph = phi ptr [ %.68, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1181 ], [ %2115, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1175 ], [ %.56.lcssa, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1163 ], [ %1957, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1169 ], [ %.32045, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1151 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread2057
 
 .thread2057:                                      ; preds = %.thread2057.sink.split, %373, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1148, %.loopexit2417.thread, %.thread1961
@@ -8623,9 +8617,9 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long
 .thread2075.sink.split:                           ; preds = %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268, %.thread2091.thread2341
   %.12884.ph = phi i32 [ %.21893.ph, %.thread2091.thread2341 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268 ], [ %.33905, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166 ], [ %1658, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469 ], [ %.40912, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178 ], [ %2165, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.43915, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184 ], [ %2272, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2039, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511 ], [ %.37909, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172 ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.08722044, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188 ]
   %.30.ph = phi ptr [ %.43.ph, %.thread2091.thread2341 ], [ %.54213921542179, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj7ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1268 ], [ %.65, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1166 ], [ %.66.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1469 ], [ %.76, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1178 ], [ %2171, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj6ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %.81, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1184 ], [ %.82.lcssa, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj14ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit ], [ %2033, %_ZN5boost8charconv6detail18has_further_digitsILj0ELj0ENS1_24extended_cache_long_implILb1EEEEEbmiRiNS1_6uconstIXT_EEENS6_IXT0_EEE.exit1511 ], [ %.71, %_ZN5boost8charconv6detailL42check_rounding_condition_inside_subsegmentIbJETnNSt9enable_ifIXsr3std7is_sameIT_bEE5valueEbE4typeELb1EEEbjjiS4_DpT0_.exit1172 ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj6ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj1ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit ], [ %.32045, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit1188 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread2075
 
 .thread2075:                                      ; preds = %.thread2075.sink.split, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj2ELb1EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %_ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_next_subsegmentINS1_32uint_with_known_number_of_digitsILj10ELb0EEEbJETnNSt9enable_ifIXsr3std7is_sameIT0_bEE5valueEbE4typeELb1EEEbjT_S6_DpT1_.exit, %385, %.loopexit2417.thread, %.thread1990
@@ -8764,13 +8758,13 @@ _ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long
 .thread2004:                                      ; preds = %182, %180, %174, %163, %161, %155, %202, %186, %192, %194, %149, %135, %2435, %.thread2278, %2373, %2359
   %.sroa.0824.14 = phi ptr [ %2372, %2359 ], [ %2378, %2373 ], [ %.88, %.thread2278 ], [ %3, %2435 ], [ %3, %149 ], [ %3, %135 ], [ %3, %202 ], [ %201, %194 ], [ %193, %192 ], [ %187, %186 ], [ %156, %155 ], [ %162, %161 ], [ %165, %163 ], [ %175, %174 ], [ %181, %180 ], [ %184, %182 ]
   %.sroa.27.14 = phi i32 [ 0, %2359 ], [ 0, %2373 ], [ 0, %.thread2278 ], [ 75, %2435 ], [ 75, %149 ], [ 75, %135 ], [ 75, %202 ], [ 0, %194 ], [ 75, %192 ], [ 0, %186 ], [ 0, %155 ], [ 75, %161 ], [ 0, %163 ], [ 0, %174 ], [ 75, %180 ], [ 0, %182 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5boost8charconv6detail16print_zero_fixedEPcmi.exit
 
 _ZN5boost8charconv6detail16print_zero_fixedEPcmi.exit: ; preds = %65, %63, %57, %74, %72, %70, %44, %42, %40, %38, %36, %34, %31, %29, %22, %.thread2004, %78, %53
   %.sroa.0824.1 = phi ptr [ %.sroa.0824.14, %.thread2004 ], [ %54, %53 ], [ %82, %78 ], [ %23, %22 ], [ %32, %31 ], [ %3, %29 ], [ %37, %36 ], [ %3, %34 ], [ %41, %40 ], [ %3, %38 ], [ %45, %44 ], [ %3, %42 ], [ %73, %72 ], [ %3, %70 ], [ %3, %74 ], [ %58, %57 ], [ %64, %63 ], [ %67, %65 ]
   %.sroa.27.1 = phi i32 [ %.sroa.27.14, %.thread2004 ], [ 0, %53 ], [ 0, %78 ], [ 75, %22 ], [ 0, %31 ], [ 75, %29 ], [ 0, %36 ], [ 75, %34 ], [ 0, %40 ], [ 75, %38 ], [ 0, %44 ], [ 75, %42 ], [ 0, %72 ], [ 75, %70 ], [ 75, %74 ], [ 0, %57 ], [ 75, %63 ], [ 0, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2446
 
 2446:                                             ; preds = %5, %_ZN5boost8charconv6detail16print_zero_fixedEPcmi.exit
@@ -8946,7 +8940,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit: ; preds = %31, %13
   %. = select i1 %25, i8 45, i8 43
   %.7 = getelementptr inbounds nuw i8, ptr %.5, i64 2
   store i8 %., ptr %91, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   %92 = icmp ugt ptr %.7, %1
   br i1 %92, label %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, label %93
@@ -9032,7 +9026,7 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit.i.i: ; preds = %115
 _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: ; preds = %.loopexit, %127
   %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %127 ], [ %1, %.loopexit ]
   %.sroa.4.0.i.i = phi i32 [ %spec.select25.i.i, %127 ], [ 22, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 129:                                              ; preds = %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, %4
@@ -9044,10 +9038,10 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlNS1_11policy_impl26decimal_to_binary_rounding15nearest_to_evenEE_clESD_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = shl i32 %3, 1
@@ -9358,10 +9352,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
   %.sroa.26.0.insert.shift.i = shl nuw i64 %.sroa.26.0.insert.ext.i, 32
   %.sroa.05.0.insert.ext.i = zext nneg i32 %7 to i64
   %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.26.0.insert.shift.i, %.sroa.05.0.insert.ext.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %.sroa.05.0.insert.insert.i, ptr %5, align 8
   %19 = call { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_(ptr noundef nonnull align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.extract = extractvalue { i64, i8 } %19, 0
   %.sroa.06.0.extract.trunc = trunc i64 %.fca.0.extract to i32
   %.sroa.06.4.extract.shift = lshr i64 %.fca.0.extract, 32
@@ -9469,7 +9463,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail15to_chars_det
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden { i64, i8 } @_ZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11policy_impl4sign6ignoreENS5_13trailing_zero6ignoreENS5_26decimal_to_binary_rounding15nearest_to_evenENS5_26binary_to_decimal_rounding7to_evenENS5_5cache4fullEEEEDaNS1_33dragonbox_signed_significand_bitsIT_T0_EEjDpT1_ENKUlSB_E_clESB_(ptr noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !60
   %4 = shl i32 %3, 1
@@ -9593,7 +9587,7 @@ _ZZZN5boost8charconv6detail10to_decimalIfNS1_22dragonbox_float_traitsIfEEJNS1_11
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
+define linkonce_odr hidden void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 comdat {
   %3 = zext i32 %0 to i64
   %4 = mul nuw nsw i64 %3, 140737489
   %5 = lshr i64 %4, 15
@@ -9627,13 +9621,13 @@ define linkonce_odr hidden void @_ZN5boost8charconv6detail14print_8_digitsEjPc(i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #6
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr hidden noundef zeroext i1 @_ZZN5boost8charconv6detail5floffINS1_15main_cache_fullENS1_24extended_cache_long_implILb1EEEEENS0_15to_chars_resultEdiPcS7_NS0_12chars_formatEENKUlvE0_clEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !66
   %3 = load i64, ptr %2, align 8, !tbaa !14
   %4 = trunc i64 %3 to i32
@@ -10169,7 +10163,7 @@ _ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit: ; preds = %13, %31
   %. = select i1 %23, i8 45, i8 43
   %.7 = getelementptr inbounds nuw i8, ptr %.5, i64 2
   store i8 %., ptr %89, align 1, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
   %90 = icmp ugt ptr %.7, %1
   br i1 %90, label %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, label %91
@@ -10255,7 +10249,7 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit.i.i: ; preds = %113
 _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: ; preds = %.loopexit, %125
   %.sroa.0.0.i.i = phi ptr [ %spec.select.i.i, %125 ], [ %1, %.loopexit ]
   %.sroa.4.0.i.i = phi i32 [ %spec.select25.i.i, %125 ], [ 22, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %127
 
 127:                                              ; preds = %_ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit, %_ZN5boost8charconv6detail19total_buffer_lengthIjEEiiT_b.exit, %4
@@ -10267,7 +10261,7 @@ _ZN5boost8charconv6detail12to_chars_intIjEENS0_15to_chars_resultEPcS4_T_i.exit: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, i64 } @_ZN5boost8charconv6detail4implIdNS1_22dragonbox_float_traitsIdEEE23compute_nearest_shorterINS1_10decimal_fpImLb1ELb0EEENS1_11policy_impl26decimal_to_binary_rounding13interval_type6closedENS9_13trailing_zero6removeENS9_26binary_to_decimal_rounding7to_evenENS9_5cache4fullEJEEET_iDpT4_(i32 noundef %0) local_unnamed_addr #0 comdat align 2 {
@@ -10753,6 +10747,12 @@ _ZZN5boost8charconv6detail10to_decimalIdNS1_22dragonbox_float_traitsIdEEJNS1_11p
   ret { ptr, i32 } %.fca.1.insert.merged
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
 
@@ -10778,17 +10778,17 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

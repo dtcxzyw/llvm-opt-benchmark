@@ -97,14 +97,8 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4copyEPcmm(ptr
   ret i64 %.sroa.speculated
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
@@ -139,7 +133,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findERKS1_m(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece4findEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %.not = icmp ult i64 %2, %5
@@ -285,11 +279,11 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %12
   %21 = load ptr, ptr %1, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %20, ptr %5, align 8, !tbaa !18
   store ptr %17, ptr %6, align 8, !tbaa !18
   store ptr %22, ptr %7, align 8, !tbaa !18
@@ -300,11 +294,11 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
   %gepdiff = sub nsw i64 0, %12
   %25 = getelementptr inbounds i8, ptr %23, i64 %gepdiff
   %.0.i.i = select i1 %24, ptr %20, ptr %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not = icmp eq ptr %.0.i.i, %20
   %26 = load ptr, ptr %0, align 8
   %27 = ptrtoint ptr %.0.i.i to i64
@@ -319,7 +313,7 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = icmp eq i64 %5, 0
@@ -352,7 +346,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece13find_first_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
@@ -479,7 +473,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   br label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
 
 61:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %.val = load ptr, ptr %1, align 8, !tbaa !4
   br label %.lr.ph.i
@@ -520,7 +514,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %68, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.01225, %68 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit: ; preds = %_ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i, %11, %8, %3, %._crit_edge
@@ -529,10 +523,10 @@ _ZNK4i18n12phonenumbers11StringPiece13find_first_ofEcm.exit: ; preds = %_ZSt4fin
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
@@ -570,7 +564,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
   br i1 %exitcond.not.i, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit, label %16, !llvm.loop !27
 
 21:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %.val = load ptr, ptr %1, align 8, !tbaa !4
   br label %.lr.ph.i17
@@ -611,7 +605,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %28, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.01220, %28 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, %16, %11, %8, %3, %._crit_edge
@@ -620,7 +614,7 @@ _ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit: ; preds = %19, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = icmp ult i64 %2, %5
@@ -648,7 +642,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
@@ -687,7 +681,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   br i1 %24, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i, !llvm.loop !20
 
 25:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %.val = load ptr, ptr %1, align 8, !tbaa !4
   br label %.lr.ph.i
@@ -724,7 +718,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
 
 42:                                               ; preds = %33
   %spec.select = select i1 %39, i64 %.010, i64 -1
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %11, %8, %3, %42
@@ -733,7 +727,7 @@ _ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofERKS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [256 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !11
@@ -772,7 +766,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   br i1 %.not.not.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !30
 
 23:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %.val = load ptr, ptr %1, align 8, !tbaa !4
   br label %.lr.ph.i13
@@ -815,7 +809,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %.2 = phi i64 [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ -1, %.lr.ph ], [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit
 
 _ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %.lr.ph.i, %12, %._crit_edge, %8, %3
@@ -824,7 +818,7 @@ _ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit: ; preds = %19, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %6 = icmp eq i64 %5, 0
@@ -857,7 +851,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i64 } @_ZNK4i18n12phonenumbers11StringPiece6substrEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
+define dso_local { ptr, i64 } @_ZNK4i18n12phonenumbers11StringPiece6substrEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !11
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %5)
@@ -873,7 +867,7 @@ define dso_local { ptr, i64 } @_ZNK4i18n12phonenumbers11StringPiece6substrEmm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1416,6 +1410,12 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
@@ -1426,16 +1426,15 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { noreturn }
-attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

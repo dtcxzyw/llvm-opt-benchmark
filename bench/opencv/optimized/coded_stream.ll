@@ -157,14 +157,8 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 ; Function Attrs: cold nofree noreturn
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -219,7 +213,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((36, 37), (40, 44)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((36, 37), (40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -254,7 +248,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAndPushLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden i64 @_ZN6google8protobuf2io16CodedInputStream35IncrementRecursionDepthAndPushLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -486,7 +480,7 @@ _ZN6google8protobuf2io16CodedInputStream9PushLimitEi.exit: ; preds = %_ZN6google
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4, !tbaa !24, !range !30, !noundef !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -536,7 +530,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4, !tbaa !24, !range !30, !noundef !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -573,7 +567,7 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %2, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !21
   %4 = icmp eq i32 %3, 2147483647
@@ -602,7 +596,7 @@ define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -643,7 +637,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream25BytesUntilTotalBytesLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream25BytesUntilTotalBytesLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8, !tbaa !32
   %4 = icmp eq i32 %3, 2147483647
@@ -675,7 +669,7 @@ define hidden noundef i32 @_ZNK6google8protobuf2io16CodedInputStream25BytesUntil
 define hidden void @_ZN6google8protobuf2io16CodedInputStream25PrintTotalBytesLimitErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 193)
   %4 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.2)
           to label %5 unwind label %13
@@ -691,14 +685,14 @@ define hidden void @_ZN6google8protobuf2io16CodedInputStream25PrintTotalBytesLim
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(56) %10)
           to label %12 unwind label %15
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 13:                                               ; preds = %9, %5, %1
@@ -709,13 +703,13 @@ define hidden void @_ZN6google8protobuf2io16CodedInputStream25PrintTotalBytesLim
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
@@ -873,8 +867,8 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
   br label %82
 
 28:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   br label %31
@@ -899,11 +893,11 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %42, ptr %43, align 8, !tbaa !14
   %44 = icmp slt i32 %37, 0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 638)
   %46 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.9)
           to label %47 unwind label %55
@@ -913,13 +907,13 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
           to label %49 unwind label %57
 
 48:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge21
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %3, align 4, !tbaa !23
   br label %.critedge21
 
@@ -943,15 +937,15 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7Refre
 57:                                               ; preds = %47
   %58 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %59
 
 59:                                               ; preds = %55, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %55 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 
 60:                                               ; preds = %.critedge21
@@ -997,8 +991,8 @@ _ZN6google8protobuf2io12_GLOBAL__N_112NextNonEmptyEPNS1_19ZeroCopyInputStreamEPP
   br label %81
 
 81:                                               ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_112NextNonEmptyEPNS1_19ZeroCopyInputStreamEPPKvPi.exit, %_ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %82
 
 82:                                               ; preds = %19, %27, %81
@@ -1048,7 +1042,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadR
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream10ReadStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -1206,7 +1200,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %0, align 8, !tbaa !15
@@ -1260,14 +1254,14 @@ _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread: ; preds = %.pr
 
 _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit: ; preds = %20, %28
   %.04 = phi i1 [ true, %28 ], [ false, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.04
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = load ptr, ptr %0, align 8, !tbaa !15
@@ -1321,7 +1315,7 @@ _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit.thread: ; preds = %.pr
 
 _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit: ; preds = %20, %28
   %.04 = phi i1 [ true, %28 ], [ false, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.04
 }
 
@@ -2396,11 +2390,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread: ; preds = %17
 22:                                               ; preds = %17
   %23 = sub i64 %18, %8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 8 %7, i64 %23, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %24
 
 24:                                               ; preds = %31, %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %6, align 8, !tbaa !53
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -2411,12 +2405,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread: ; preds = %17
 30:                                               ; preds = %24
   store i8 1, ptr %9, align 8, !tbaa !60
   store ptr %10, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %4, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = load i32, ptr %3, align 4, !tbaa !23
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %24, label %35, !llvm.loop !61
@@ -2445,7 +2439,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread: ; preds = %17
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit: ; preds = %30, %38, %42
   %.3.i = phi ptr [ %32, %38 ], [ %7, %42 ], [ %7, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i8, ptr %9, align 8, !tbaa !60, !range !30
   %45 = trunc nuw i8 %.pre to i1
   %sext = shl i64 %19, 32
@@ -2525,11 +2519,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %20
 25:                                               ; preds = %20
   %26 = sub i64 %21, %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 8 %11, i64 %26, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %27
 
 27:                                               ; preds = %34, %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %10, align 8, !tbaa !53
   %29 = load ptr, ptr %28, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2540,12 +2534,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %20
 33:                                               ; preds = %27
   store i8 1, ptr %5, align 8, !tbaa !60
   store ptr %13, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %4, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = load i32, ptr %3, align 4, !tbaa !23
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %27, label %38, !llvm.loop !61
@@ -2574,7 +2568,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %20
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %45, %41, %33
   %.3.i.i = phi ptr [ %35, %41 ], [ %11, %45 ], [ %11, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i = load i8, ptr %5, align 8, !tbaa !60, !range !30
   %48 = trunc nuw i8 %.pre.i to i1
   %sext.i = shl i64 %22, 32
@@ -2673,11 +2667,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %22
 27:                                               ; preds = %22
   %28 = sub i64 %23, %14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 8 %13, i64 %28, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %29
 
 29:                                               ; preds = %36, %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load ptr, ptr %12, align 8, !tbaa !53
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -2688,12 +2682,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %22
 35:                                               ; preds = %29
   store i8 1, ptr %5, align 8, !tbaa !60
   store ptr %15, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %4, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = load i32, ptr %3, align 4, !tbaa !23
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %29, label %40, !llvm.loop !61
@@ -2722,7 +2716,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %22
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %47, %43, %35
   %.3.i.i = phi ptr [ %37, %43 ], [ %13, %47 ], [ %13, %35 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre.i = load i8, ptr %5, align 8, !tbaa !60, !range !30
   %50 = trunc nuw i8 %.pre.i to i1
   %sext.i = shl i64 %24, 32
@@ -2795,7 +2789,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19EpsCopyOutputStream4Sk
   br label %94
 
 15:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = load ptr, ptr %2, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2831,11 +2825,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %28
 33:                                               ; preds = %28
   %34 = sub i64 %29, %20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 8 %19, i64 %34, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %42, %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = load ptr, ptr %18, align 8, !tbaa !53
   %37 = load ptr, ptr %36, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -2846,12 +2840,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %28
 41:                                               ; preds = %35
   store i8 1, ptr %10, align 8, !tbaa !60
   store ptr %21, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %5, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = load i32, ptr %4, align 4, !tbaa !23
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %35, label %46, !llvm.loop !61
@@ -2880,7 +2874,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %28
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %53, %49, %41
   %.3.i.i = phi ptr [ %43, %49 ], [ %19, %53 ], [ %19, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load i8, ptr %10, align 8, !tbaa !60, !range !30
   %56 = trunc nuw i8 %.pre.i to i1
   %sext.i = shl i64 %30, 32
@@ -2918,7 +2912,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
   br label %93
 
 70:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread45, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %71 = load ptr, ptr %17, align 8, !tbaa !58
   store ptr %71, ptr %7, align 8, !tbaa !33
   br label %72
@@ -2963,12 +2957,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread: ; preds = %_ZN
 92:                                               ; preds = %82, %81
   %storemerge = phi ptr [ %.0.i15, %82 ], [ %19, %81 ]
   store ptr %storemerge, ptr %2, align 8, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %93
 
 93:                                               ; preds = %92, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread
   %.1 = phi i1 [ false, %_ZN6google8protobuf2io19EpsCopyOutputStream5FlushEPh.exit.thread ], [ %.not.not.not.not.not, %92 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %94
 
 94:                                               ; preds = %3, %93, %13
@@ -3025,11 +3019,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %25
 30:                                               ; preds = %25
   %31 = sub i64 %26, %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 8 %16, i64 %31, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %32
 
 32:                                               ; preds = %39, %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = load ptr, ptr %15, align 8, !tbaa !53
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -3040,12 +3034,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %25
 38:                                               ; preds = %32
   store i8 1, ptr %7, align 8, !tbaa !60
   store ptr %18, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr %6, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %41 = load i32, ptr %5, align 4, !tbaa !23
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %32, label %43, !llvm.loop !61
@@ -3074,7 +3068,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %25
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %50, %46, %38
   %.3.i.i = phi ptr [ %40, %46 ], [ %16, %50 ], [ %16, %38 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load i8, ptr %7, align 8, !tbaa !60, !range !30
   %53 = trunc nuw i8 %.pre.i to i1
   %sext.i = shl i64 %27, 32
@@ -3205,11 +3199,11 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %24
 29:                                               ; preds = %24
   %30 = sub i64 %25, %16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 8 %15, i64 %30, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %31
 
 31:                                               ; preds = %38, %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %32 = load ptr, ptr %14, align 8, !tbaa !53
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -3220,12 +3214,12 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %24
 37:                                               ; preds = %31
   store i8 1, ptr %6, align 8, !tbaa !60
   store ptr %17, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %5, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = load i32, ptr %4, align 4, !tbaa !23
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %31, label %42, !llvm.loop !61
@@ -3254,7 +3248,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.thread.i: ; preds = %24
 
 _ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i: ; preds = %49, %45, %37
   %.3.i.i = phi ptr [ %39, %45 ], [ %15, %49 ], [ %15, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load i8, ptr %6, align 8, !tbaa !60, !range !30
   %52 = trunc nuw i8 %.pre.i to i1
   %sext.i = shl i64 %26, 32
@@ -3368,11 +3362,11 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSp
 24:                                               ; preds = %22
   %25 = sub i64 %17, %9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 8 %8, i64 %25, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %26
 
 26:                                               ; preds = %33, %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %6, align 8, !tbaa !53
   %28 = load ptr, ptr %27, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -3383,12 +3377,12 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSp
 32:                                               ; preds = %26
   store i8 1, ptr %5, align 8, !tbaa !60
   store ptr %10, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %47
 
 33:                                               ; preds = %26
   %34 = load ptr, ptr %4, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = load i32, ptr %3, align 4, !tbaa !23
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %26, label %37, !llvm.loop !61
@@ -3418,7 +3412,7 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSp
 47:                                               ; preds = %44, %40, %32
   %48 = phi ptr [ %43, %40 ], [ %46, %44 ], [ %10, %32 ]
   %.3.i = phi ptr [ %34, %40 ], [ %8, %44 ], [ %8, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit
 
 49:                                               ; preds = %22
@@ -3506,11 +3500,11 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRaw
 36:                                               ; preds = %34
   %37 = sub i64 %29, %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 8 %16, i64 %37, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %45, %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = load ptr, ptr %14, align 8, !tbaa !53
   %40 = load ptr, ptr %39, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -3521,12 +3515,12 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRaw
 44:                                               ; preds = %38
   store i8 1, ptr %13, align 8, !tbaa !60
   store ptr %18, ptr %0, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %6, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %47 = load i32, ptr %5, align 4, !tbaa !23
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %38, label %49, !llvm.loop !61
@@ -3556,7 +3550,7 @@ define hidden noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRaw
 59:                                               ; preds = %56, %52, %44
   %60 = phi ptr [ %55, %52 ], [ %58, %56 ], [ %18, %44 ]
   %.3.i.i = phi ptr [ %46, %52 ], [ %16, %56 ], [ %16, %44 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream4NextEv.exit.i
 
 61:                                               ; preds = %34
@@ -3931,8 +3925,8 @@ define hidden void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyO
   br i1 %2, label %20, label %36
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = load ptr, ptr %1, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -3959,8 +3953,8 @@ define hidden void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyO
   br label %35
 
 35:                                               ; preds = %20, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %35, %3
@@ -3987,7 +3981,7 @@ define hidden void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(ret: address, provenance) initializes((0, 1)) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(ret: address, provenance) initializes((0, 1)) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !40
   %5 = trunc i64 %4 to i32
@@ -4042,7 +4036,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream35WriteVarint32ToArrayOutOfLineHelperEjPh(i32 noundef %0, ptr noundef captures(ret: address, provenance) initializes((1, 2)) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream35WriteVarint32ToArrayOutOfLineHelperEjPh(i32 noundef %0, ptr noundef captures(ret: address, provenance) initializes((1, 2)) %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 1, !tbaa !27
   %4 = or i8 %3, -128
   store i8 %4, ptr %1, align 1, !tbaa !27
@@ -4081,19 +4075,25 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream35Wr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_coded_stream.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_coded_stream.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
@@ -4111,14 +4111,14 @@ attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold nofree noreturn }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { noreturn nounwind }

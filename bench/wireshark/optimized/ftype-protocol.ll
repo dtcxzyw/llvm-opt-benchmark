@@ -239,20 +239,20 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr noundef readonly captures(n
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile ptr null, ptr %5, align 8
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %10, label %49
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @val_to_repr.catch_spec, i64 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #13
+  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not29 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not29, ptr null, ptr %13
@@ -335,7 +335,7 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr noundef readonly captures(n
 
 44:                                               ; preds = %43
   %.0..0..0..0.10 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 45:                                               ; preds = %43, %41
@@ -343,16 +343,16 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr noundef readonly captures(n
   %47 = load volatile ptr, ptr %46, align 8
   call void @except_free(ptr noundef %47)
   %48 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.0..0..0..0.11 = load volatile ptr, ptr %5, align 8
   br label %49
 
 49:                                               ; preds = %4, %45
   %.026 = phi ptr [ %.0..0..0..0.11, %45 ], [ null, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.026
 }
 
@@ -416,16 +416,16 @@ define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, p
   %8 = alloca %struct.except_catch, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_order.catch_spec, i64 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #13
+  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not, ptr null, ptr %13
@@ -547,7 +547,7 @@ define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, p
 
 64:                                               ; preds = %63
   %.0..0..0..0.10 = load volatile ptr, ptr %5, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 65:                                               ; preds = %63, %61
@@ -555,13 +555,13 @@ define internal noundef i32 @cmp_order(ptr noundef readonly captures(none) %0, p
   %67 = load volatile ptr, ptr %66, align 8
   call void @except_free(ptr noundef %67)
   %68 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0.11 = load volatile i32, ptr %4, align 4
   store i32 %.0..0..0..0.11, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -572,16 +572,16 @@ define internal noundef i32 @cmp_contains(ptr noundef readonly captures(none) %0
   %6 = alloca i32, align 4
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_contains.catch_spec, i64 noundef 1)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = call i32 @_setjmp(ptr noundef nonnull %9) #13
+  %10 = call i32 @_setjmp(ptr noundef nonnull %9) #12
   %.not = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not, ptr null, ptr %11
@@ -674,7 +674,7 @@ define internal noundef i32 @cmp_contains(ptr noundef readonly captures(none) %0
 
 44:                                               ; preds = %43
   %.0..0..0..0.10 = load volatile ptr, ptr %5, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 45:                                               ; preds = %43, %41
@@ -682,13 +682,13 @@ define internal noundef i32 @cmp_contains(ptr noundef readonly captures(none) %0
   %47 = load volatile ptr, ptr %46, align 8
   call void @except_free(ptr noundef %47)
   %48 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0.11 = load volatile i8, ptr %4, align 1, !range !6, !noundef !7
   store i8 %.0..0..0..0.11, ptr %2, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -700,20 +700,20 @@ define internal range(i32 0, 4) i32 @cmp_matches(ptr noundef readonly captures(n
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_catch, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i8 0, ptr %4, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %48, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_matches.catch_spec, i64 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #13
+  %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not26 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not26, ptr null, ptr %13
@@ -797,7 +797,7 @@ define internal range(i32 0, 4) i32 @cmp_matches(ptr noundef readonly captures(n
 
 43:                                               ; preds = %42
   %.0..0..0..0.10 = load volatile ptr, ptr %5, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 44:                                               ; preds = %42, %40
@@ -805,17 +805,17 @@ define internal range(i32 0, 4) i32 @cmp_matches(ptr noundef readonly captures(n
   %46 = load volatile ptr, ptr %45, align 8
   call void @except_free(ptr noundef %46)
   %47 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0..0..0..0.13 = load volatile i8, ptr %4, align 1, !range !6, !noundef !7
   store i8 %.0..0..0..0.13, ptr %2, align 1
   br label %48
 
 48:                                               ; preds = %3, %44
   %.0 = phi i32 [ 0, %44 ], [ 3, %3 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -823,7 +823,7 @@ define internal range(i32 0, 4) i32 @cmp_matches(ptr noundef readonly captures(n
 define internal i32 @val_hash(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @g_direct_hash(ptr noundef %3) #15
+  %4 = tail call i32 @g_direct_hash(ptr noundef %3) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call i32 @g_int_hash(ptr noundef nonnull %5)
   %7 = xor i32 %6, %4
@@ -859,16 +859,16 @@ define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.except_stacknode, align 8
   %6 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i32 0, ptr %2, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @except_setup_try(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @len.catch_spec, i64 noundef 1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %8 = call i32 @_setjmp(ptr noundef nonnull %7) #13
+  %8 = call i32 @_setjmp(ptr noundef nonnull %7) #12
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink = select i1 %.not, ptr null, ptr %9
@@ -947,7 +947,7 @@ define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
 
 35:                                               ; preds = %34
   %.0..0..0..0.10 = load volatile ptr, ptr %3, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 36:                                               ; preds = %34, %32
@@ -955,12 +955,12 @@ define internal i32 @len(ptr noundef readonly captures(none) %0) #0 {
   %38 = load volatile ptr, ptr %37, align 8
   call void @except_free(ptr noundef %38)
   %39 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.0..0..0..0.11 = load volatile i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0..0..0..0.11
 }
 
@@ -971,7 +971,7 @@ define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i32 %3, ptr %5, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -994,14 +994,14 @@ define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %19
 
 19:                                               ; preds = %18, %16, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @slice.catch_spec, i64 noundef 1)
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %21 = call i32 @_setjmp(ptr noundef nonnull %20) #13
+  %21 = call i32 @_setjmp(ptr noundef nonnull %20) #12
   %.not22 = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not22, ptr null, ptr %22
@@ -1067,7 +1067,7 @@ define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef 
 
 43:                                               ; preds = %42
   %.0..0..0..0.10 = load volatile ptr, ptr %6, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #14
+  call void @except_rethrow(ptr noundef %.0..0..0..0.10) #13
   unreachable
 
 44:                                               ; preds = %42, %40
@@ -1075,14 +1075,14 @@ define internal void @slice(ptr noundef readonly captures(none) %0, ptr noundef 
   %46 = load volatile ptr, ptr %45, align 8
   call void @except_free(ptr noundef %46)
   %47 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %48
 
 48:                                               ; preds = %44, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1110,9 +1110,6 @@ declare void @tvb_free_chain(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @byte_array_from_literal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1125,14 +1122,11 @@ declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @byte_array_from_charconst(i64 noundef, ptr noundef) local_unnamed_addr #3
@@ -1141,7 +1135,7 @@ declare ptr @byte_array_from_charconst(i64 noundef, ptr noundef) local_unnamed_a
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #7
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #3
@@ -1153,7 +1147,7 @@ declare ptr @bytes_to_dfilter_repr(ptr noundef, ptr noundef, i64 noundef) local_
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #8
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #3
@@ -1165,16 +1159,16 @@ declare ptr @except_pop() local_unnamed_addr #3
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_find_tvb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @ws_regex_matches_length(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -1183,7 +1177,7 @@ declare zeroext i1 @ws_regex_matches_length(ptr noundef, ptr noundef, i64 nounde
 declare zeroext i1 @ws_regex_matches(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) local_unnamed_addr #9
+declare i32 @g_direct_hash(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_int_hash(ptr noundef) local_unnamed_addr #3
@@ -1194,22 +1188,27 @@ declare i32 @g_str_hash(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { allocsize(1) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind returns_twice }
-attributes #14 = { noreturn }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind returns_twice }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

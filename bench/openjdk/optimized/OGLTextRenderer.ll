@@ -1289,7 +1289,7 @@ OGLTR_CreateLCDTextProgram.exit:                  ; preds = %20
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = load ptr, ptr @j2d_glGetFloatv, align 8
   call void %47(i32 noundef 2816, ptr noundef nonnull %4) #5
   %48 = load float, ptr %4, align 16
@@ -1311,7 +1311,7 @@ OGLTR_CreateLCDTextProgram.exit:                  ; preds = %20
   %64 = call i32 %62(i32 noundef %63, ptr noundef nonnull @.str.8) #5
   %65 = load ptr, ptr @j2d_glUniform3fARB, align 8
   call void %65(i32 noundef %64, float noundef %51, float noundef %56, float noundef %61) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 66:                                               ; preds = %OGLTR_CreateLCDTextProgram.exit.thread, %12, %._crit_edge
@@ -1332,10 +1332,10 @@ declare zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef) local_unnamed_ad
 declare float @llvm.floor.f32(float) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

@@ -61,9 +61,6 @@ X509at_get_attr_by_OBJ.exit:                      ; preds = %13, %11, %6, %3
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -93,9 +90,6 @@ define range(i32 -1, 2147483647) i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr
   %.0 = phi i32 [ -1, %3 ], [ -1, %8 ], [ %.012, %10 ]
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -806,7 +800,7 @@ X509_ATTRIBUTE_get0_type.exit:                    ; preds = %4
 define ptr @ossl_x509at_dup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !12
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -834,7 +828,7 @@ define ptr @ossl_x509at_dup(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit, %10
   %.0 = phi ptr [ null, %10 ], [ %.pre, %._crit_edge.loopexit ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
@@ -1038,6 +1032,12 @@ define ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(address_is_nu
 }
 
 declare i32 @ASN1_TYPE_get(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

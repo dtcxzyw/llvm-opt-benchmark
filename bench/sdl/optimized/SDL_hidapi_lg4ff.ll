@@ -199,57 +199,57 @@ SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread:     ; preds = %73, %SDL_HIDAPI_Dri
   ]
 
 78:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd, i64 7, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @SDL_hid_write_REAL(ptr noundef %80, ptr noundef nonnull %11, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 82:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %12, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd.3, i64 7, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 @SDL_hid_write_REAL(ptr noundef %84, ptr noundef nonnull %12, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 86:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %13, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd.4, i64 7, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 @SDL_hid_write_REAL(ptr noundef %88, ptr noundef nonnull %13, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 90:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %14, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd.5, i64 7, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %92 = load ptr, ptr %91, align 8
   %93 = call i32 @SDL_hid_write_REAL(ptr noundef %92, ptr noundef nonnull %14, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 94:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %15, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd.6, i64 7, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @SDL_hid_write_REAL(ptr noundef %96, ptr noundef nonnull %15, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 98:                                               ; preds = %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %16, ptr noundef nonnull align 1 dereferenceable(7) @__const.HIDAPI_DriverLg4ff_SwitchMode.cmd.7, i64 7, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %100 = load ptr, ptr %99, align 8
   %101 = call i32 @SDL_hid_write_REAL(ptr noundef %100, ptr noundef nonnull %16, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %16) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %HIDAPI_DriverLg4ff_SwitchMode.exit
 
 HIDAPI_DriverLg4ff_SwitchMode.exit:               ; preds = %22, %65, %62, %54, %35, %.thread, %98, %94, %90, %86, %82, %78, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit.thread, %HIDAPI_DriverLg4ff_IdentifyWheel.exit, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %10
@@ -307,7 +307,7 @@ HIDAPI_DriverLg4ff_GetDeviceName.exit:            ; preds = %13, %18
 
 24:                                               ; preds = %HIDAPI_DriverLg4ff_GetDeviceName.exit
   %25 = load ptr, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %26, i8 0, i64 6, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 33
@@ -326,7 +326,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %24, %30
   %32 = load ptr, ptr %21, align 8
   %33 = call i32 @SDL_hid_write_REAL(ptr noundef %32, ptr noundef nonnull %2, i64 noundef 7) #8
   %.030.i.not = icmp eq i32 %33, -1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.030.i.not, label %45, label %34
 
 34:                                               ; preds = %HIDAPI_DriverLg4ff_SetAutoCenter.exit
@@ -372,7 +372,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_UpdateDevice(ptr noundef 
   %2 = alloca [7 x i8], align 1
   %3 = alloca [7 x i8], align 1
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -955,7 +955,7 @@ HIDAPI_DriverLg4ff_HandleState.exit:              ; preds = %._crit_edge.i, %144
 
 SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit:            ; preds = %302, %305
   %.011.i = phi i32 [ %.1.i24, %305 ], [ 900, %302 ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
   %307 = load ptr, ptr %5, align 8
   %308 = trunc nuw nsw i32 %.011.i to i16
@@ -1025,9 +1025,9 @@ HIDAPI_DriverLg4ff_SetRange.exit.sink.split:      ; preds = %317, %317, %318, %3
   br label %HIDAPI_DriverLg4ff_SetRange.exit
 
 HIDAPI_DriverLg4ff_SetRange.exit:                 ; preds = %HIDAPI_DriverLg4ff_SetRange.exit.sink.split, %SDL_HIDAPI_DriverLg4ff_GetEnvInt.exit, %312
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %335 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %42, i8 0, i64 6, i1 false)
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 33
   %337 = load i8, ptr %336, align 1, !range !6, !noundef !7
@@ -1043,7 +1043,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_
   store i8 %.sink, ptr %2, align 1
   %340 = load ptr, ptr %24, align 8
   %341 = call i32 @SDL_hid_write_REAL(ptr noundef %340, ptr noundef nonnull %2, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %342
 
 342:                                              ; preds = %HIDAPI_DriverLg4ff_HandleState.exit, %299, %HIDAPI_DriverLg4ff_SetAutoCenter.exit, %50
@@ -1052,7 +1052,7 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %HIDAPI_DriverLg4ff_
 
 .loopexit:                                        ; preds = %342, %1, %10, %47
   %.0 = phi i1 [ false, %47 ], [ false, %10 ], [ false, %1 ], [ true, %342 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -1158,7 +1158,7 @@ switch.lookup:                                    ; preds = %5, %5
   %spec.select = tail call i8 @llvm.umax.i8(i8 %3, i8 %2)
   %.1.in = tail call i8 @llvm.umax.i8(i8 %4, i8 %spec.select)
   %11 = udiv i8 %.1.in, 51
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = shl nuw nsw i8 %11, 3
   %switch.shiftamt = zext nneg i8 %12 to i48
   %switch.downshift = lshr i48 34149402607872, %switch.shiftamt
@@ -1174,7 +1174,7 @@ switch.lookup:                                    ; preds = %5, %5
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @SDL_hid_write_REAL(ptr noundef %17, ptr noundef nonnull %6, i64 noundef 7) #8
   %19 = icmp eq i32 %18, 7
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %switch.lookup, %9
@@ -1213,7 +1213,7 @@ define internal void @HIDAPI_DriverLg4ff_CloseJoystick(ptr noundef readonly capt
   br label %HIDAPI_DriverLg4ff_SetJoystickLED.exit
 
 8:                                                ; preds = %2, %2
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 -8, ptr %3, align 1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 18, ptr %9, align 1
@@ -1224,7 +1224,7 @@ define internal void @HIDAPI_DriverLg4ff_CloseJoystick(ptr noundef readonly capt
   store i32 0, ptr %11, align 1
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @SDL_hid_write_REAL(ptr noundef %13, ptr noundef nonnull %3, i64 noundef 7) #8
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %HIDAPI_DriverLg4ff_SetJoystickLED.exit
 
 HIDAPI_DriverLg4ff_SetJoystickLED.exit:           ; preds = %6, %8
@@ -1240,20 +1240,14 @@ declare zeroext i1 @SDL_AddHintCallback_REAL(ptr noundef, ptr noundef, ptr nound
 
 declare void @SDL_RemoveHintCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare ptr @SDL_getenv_REAL(ptr noundef) local_unnamed_addr #3
 
 declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @SDL_hid_write_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1262,7 +1256,7 @@ declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 declare zeroext i1 @SDL_OutOfMemory_REAL() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @HIDAPI_SetDeviceName(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1288,6 +1282,12 @@ declare void @SDL_AssertJoysticksLocked() local_unnamed_addr #3
 
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #7
 
@@ -1301,9 +1301,9 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

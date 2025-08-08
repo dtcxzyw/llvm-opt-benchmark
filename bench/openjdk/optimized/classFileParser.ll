@@ -15945,7 +15945,7 @@ _ZN19OopMapBlocksBuilder4copyEP11OopMapBlock.exit: ; preds = %_ZN13InstanceKlass
   br i1 %.not143, label %357, label %577
 
 357:                                              ; preds = %355
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %358 = load ptr, ptr %58, align 8
   %359 = load i32, ptr %358, align 8
   %360 = icmp sgt i32 %359, 0
@@ -16030,7 +16030,7 @@ _ZN19OopMapBlocksBuilder4copyEP11OopMapBlock.exit: ; preds = %_ZN13InstanceKlass
   br i1 %.not53.i, label %410, label %_ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit.thread
 
 _ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit.thread: ; preds = %401
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %577
 
 410:                                              ; preds = %401
@@ -16107,7 +16107,7 @@ _ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit.thread: ; pr
 
 _ZL27check_final_method_overridePK13InstanceKlassP10JavaThread.exit: ; preds = %.loopexit.i, %357, %436, %438
   %.pr = load ptr, ptr %98, align 8
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not144 = icmp eq ptr %.pr, null
   br i1 %.not144, label %449, label %577
 
@@ -19775,10 +19775,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #20
 declare i32 @llvm.usub.sat.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

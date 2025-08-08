@@ -7188,7 +7188,7 @@ define internal void @pred8x8l_horizontal_add_9_c(ptr noundef captures(none) %0,
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_vertical_filter_add_9_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -7389,14 +7389,14 @@ define internal void @pred8x8l_vertical_filter_add_9_c(ptr noundef captures(none
 
 156:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_horizontal_filter_add_9_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -7575,7 +7575,7 @@ define internal void @pred8x8l_horizontal_filter_add_9_c(ptr noundef captures(no
 
 149:                                              ; preds = %106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -14526,7 +14526,7 @@ define internal void @pred8x8l_horizontal_add_10_c(ptr noundef captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_vertical_filter_add_10_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -14727,14 +14727,14 @@ define internal void @pred8x8l_vertical_filter_add_10_c(ptr noundef captures(non
 
 156:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_horizontal_filter_add_10_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -14913,7 +14913,7 @@ define internal void @pred8x8l_horizontal_filter_add_10_c(ptr noundef captures(n
 
 149:                                              ; preds = %106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -21864,7 +21864,7 @@ define internal void @pred8x8l_horizontal_add_12_c(ptr noundef captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_vertical_filter_add_12_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -22065,14 +22065,14 @@ define internal void @pred8x8l_vertical_filter_add_12_c(ptr noundef captures(non
 
 156:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_horizontal_filter_add_12_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -22251,7 +22251,7 @@ define internal void @pred8x8l_horizontal_filter_add_12_c(ptr noundef captures(n
 
 149:                                              ; preds = %106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -29202,7 +29202,7 @@ define internal void @pred8x8l_horizontal_add_14_c(ptr noundef captures(none) %0
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_vertical_filter_add_14_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -29403,14 +29403,14 @@ define internal void @pred8x8l_vertical_filter_add_14_c(ptr noundef captures(non
 
 156:                                              ; preds = %113
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_horizontal_filter_add_14_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = lshr i64 %4, 1
   %8 = trunc i64 %7 to i32
   %.not = icmp eq i32 %2, 0
@@ -29589,7 +29589,7 @@ define internal void @pred8x8l_horizontal_filter_add_14_c(ptr noundef captures(n
 
 149:                                              ; preds = %106
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -36709,7 +36709,7 @@ define internal void @pred8x8l_horizontal_add_8_c(ptr noundef captures(none) %0,
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_vertical_filter_add_8_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %4 to i32
   %.not = icmp eq i32 %2, 0
   %8 = xor i64 %4, -1
@@ -36909,14 +36909,14 @@ define internal void @pred8x8l_vertical_filter_add_8_c(ptr noundef captures(none
 
 155:                                              ; preds = %112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %1, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @pred8x8l_horizontal_filter_add_8_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 %3, i64 noundef %4) #3 {
   %6 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = trunc i64 %4 to i32
   %.not = icmp eq i32 %2, 0
   %8 = xor i64 %4, -1
@@ -37094,7 +37094,7 @@ define internal void @pred8x8l_horizontal_filter_add_8_c(ptr noundef captures(no
 
 148:                                              ; preds = %105
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %1, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -39064,17 +39064,11 @@ define internal void @pred16x16_129_dc_8_c(ptr noundef writeonly captures(none) 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @pred16x16_plane_compat_8_c(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #9 {
+define internal fastcc void @pred16x16_plane_compat_8_c(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #8 {
   %5 = trunc i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %sext = shl i64 %1, 32
@@ -39246,6 +39240,12 @@ define internal fastcc void @pred16x16_plane_compat_8_c(ptr noundef captures(non
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
@@ -39259,9 +39259,9 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }

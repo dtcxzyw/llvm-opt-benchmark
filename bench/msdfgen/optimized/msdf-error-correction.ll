@@ -22,12 +22,12 @@ entry:
   %ref.tmp41.i = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %ref.tmp61.i = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %ref.tmp64.i = alloca %"struct.msdfgen::BitmapConstRef", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stencil.i)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp27.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp41.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp61.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp64.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stencil.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ec.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp27.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp41.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp64.i)
   %errorCorrection.i = getelementptr inbounds nuw i8, ptr %config, i64 8
   %0 = load i32, ptr %errorCorrection.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -197,12 +197,12 @@ delete.notnull.i47.i:                             ; preds = %invoke.cont69.i
   br label %_ZN7msdfgenL24msdfErrorCorrectionInnerILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit
 
 _ZN7msdfgenL24msdfErrorCorrectionInnerILi3EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit: ; preds = %entry, %invoke.cont69.i, %delete.notnull.i47.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stencil.i)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ec.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp27.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp41.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp61.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp64.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stencil.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ec.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp27.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp41.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp64.i)
   ret void
 }
 
@@ -215,12 +215,12 @@ entry:
   %ref.tmp38.i = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
   %ref.tmp58.i = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
   %ref.tmp61.i = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stencil.i)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %ec.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp24.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp38.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp58.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %stencil.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ec.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp38.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp61.i)
   %errorCorrection.i = getelementptr inbounds nuw i8, ptr %config, i64 8
   %0 = load i32, ptr %errorCorrection.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -390,12 +390,12 @@ delete.notnull.i47.i:                             ; preds = %invoke.cont66.i
   br label %_ZN7msdfgenL24msdfErrorCorrectionInnerILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit
 
 _ZN7msdfgenL24msdfErrorCorrectionInnerILi4EEEvRKNS_9BitmapRefIfXT_EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_19MSDFGeneratorConfigE.exit: ; preds = %entry, %invoke.cont66.i, %delete.notnull.i47.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stencil.i)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ec.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp24.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp38.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp58.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp61.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %stencil.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ec.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp24.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp38.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp61.i)
   ret void
 }
 
@@ -2620,10 +2620,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

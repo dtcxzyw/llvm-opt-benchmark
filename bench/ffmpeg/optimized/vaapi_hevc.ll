@@ -45,7 +45,7 @@ define range(i32 -1, 35) i32 @ff_vaapi_parse_hevc_rext_scc_profile(ptr noundef %
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4152
   %8 = load ptr, ptr %7, align 8, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 7576
-  call void @llvm.lifetime.start.p0(i64 422, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(371) %10, i8 0, i64 371, i1 false)
   %11 = load i8, ptr %9, align 1, !tbaa !84
@@ -226,25 +226,19 @@ define range(i32 -1, 35) i32 @ff_vaapi_parse_hevc_rext_scc_profile(ptr noundef %
 
 108:                                              ; preds = %104, %102, %100, %98, %96, %92, %94, %88, %90, %84, %86, %80, %82, %76, %78, %70, %74
   %.0 = phi i32 [ 23, %74 ], [ 23, %70 ], [ 24, %78 ], [ 24, %76 ], [ 25, %82 ], [ 25, %80 ], [ 26, %86 ], [ 26, %84 ], [ 27, %90 ], [ 27, %88 ], [ 28, %94 ], [ 28, %92 ], [ 29, %96 ], [ 30, %98 ], [ 31, %100 ], [ 34, %102 ], [ %., %104 ]
-  call void @llvm.lifetime.end.p0(i64 422, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare ptr @ff_h265_get_profile(ptr noundef) local_unnamed_addr #3
+declare ptr @ff_h265_get_profile(ptr noundef) local_unnamed_addr #2
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_start_frame(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3) #0 {
@@ -1249,7 +1243,7 @@ fill_vaapi_reference_frames.exit:                 ; preds = %fill_vaapi_pic.exit
 
 621:                                              ; preds = %616, %618
   %.0290.ph = phi ptr [ %620, %618 ], [ %617, %616 ]
-  call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %622 = getelementptr inbounds nuw i8, ptr %.0290.ph, i64 384
   %623 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %624 = getelementptr inbounds nuw i8, ptr %.0290.ph, i64 768
@@ -1347,7 +1341,7 @@ fill_vaapi_reference_frames.exit:                 ; preds = %fill_vaapi_pic.exit
 672:                                              ; preds = %671
   %673 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 1016) #6
   %674 = icmp slt i32 %673, 0
-  call void @llvm.lifetime.end.p0(i64 1016, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %674, label %675, label %677
 
 675:                                              ; preds = %672, %.loopexit
@@ -2077,29 +2071,35 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_hevc_end_frame(ptr noundef 
   ret i32 %.0
 }
 
-declare i32 @ff_vaapi_decode_init(ptr noundef) #3
+declare i32 @ff_vaapi_decode_init(ptr noundef) #2
 
-declare i32 @ff_vaapi_decode_uninit(ptr noundef) #3
+declare i32 @ff_vaapi_decode_uninit(ptr noundef) #2
 
-declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #3
+declare i32 @ff_vaapi_common_frame_params(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @ff_vaapi_decode_make_param_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @ff_vaapi_decode_make_param_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ff_vaapi_decode_cancel(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_vaapi_decode_cancel(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @ff_vaapi_decode_make_slice_buffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ff_vaapi_decode_issue(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ff_vaapi_decode_issue(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

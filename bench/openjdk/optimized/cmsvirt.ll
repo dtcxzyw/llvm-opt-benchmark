@@ -875,7 +875,7 @@ define hidden ptr @cmsCreate_sRGBProfileTHR(ptr noundef %0) local_unnamed_addr #
   %5 = alloca [3 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmsCreate_sRGBProfileTHR.D65, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) @__const.cmsCreate_sRGBProfileTHR.Rec709Primaries, i64 72, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store double 2.400000e+00, ptr %2, align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0x3FEE54EDCD0AEB60, ptr %6, align 8
@@ -886,7 +886,7 @@ define hidden ptr @cmsCreate_sRGBProfileTHR(ptr noundef %0) local_unnamed_addr #
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 4.045000e-02, ptr %9, align 16
   %10 = call ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1323,7 +1323,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
   br i1 %17, label %18, label %59
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @cmsCreateProfilePlaceholder(ptr noundef %20) #7
@@ -1400,7 +1400,7 @@ define hidden ptr @cmsTransform2DeviceLink(ptr noundef %0, double noundef %1, i3
 
 CreateNamedColorDevicelink.exit:                  ; preds = %18, %56, %57
   %.0.i = phi ptr [ null, %57 ], [ %21, %56 ], [ null, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %241
 
 59:                                               ; preds = %15, %13
@@ -1956,10 +1956,10 @@ declare void @cmsDoTransform(ptr noundef, ptr noundef, ptr noundef, i32 noundef)
 declare void @cmsFreeNamedColorList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

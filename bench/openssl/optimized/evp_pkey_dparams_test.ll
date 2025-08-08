@@ -44,9 +44,9 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @params_bio_test(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !9
@@ -106,15 +106,15 @@ define internal range(i32 0, 2) i32 @params_bio_test(i32 noundef %0) #0 {
   %40 = load ptr, ptr %2, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %40) #3
   call void @EVP_PKEY_free(ptr noundef null) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [3 x %struct.anon], ptr @pkey_params, i64 0, i64 %3
@@ -201,12 +201,9 @@ define internal i32 @set_enc_pubkey_test(i32 noundef %0) #0 {
 
 48:                                               ; preds = %.critedge, %10
   %.0 = phi i32 [ %11, %10 ], [ %.029.lcssa, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -230,9 +227,6 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
@@ -244,6 +238,12 @@ declare i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef, ptr noundef, i64 noun
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

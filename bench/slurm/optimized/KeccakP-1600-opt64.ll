@@ -17,7 +17,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @KeccakP1600_AddBytesInLane(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %4, label %10 [
     i32 0, label %20
     i32 1, label %7
@@ -48,21 +48,15 @@ define dso_local void @KeccakP1600_AddBytesInLane(ptr noundef captures(none) %0,
   br label %20
 
 20:                                               ; preds = %5, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not77 = icmp ult i32 %2, 8
   br i1 %.not77, label %.preheader76, label %.lr.ph
 
@@ -228,7 +222,7 @@ define dso_local void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = icmp eq i32 %2, 0
@@ -241,7 +235,7 @@ define dso_local void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr n
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %13 = and i32 %3, 7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   switch i32 %13, label %17 [
     i32 0, label %KeccakP1600_AddBytesInLane.exit
     i32 1, label %14
@@ -269,7 +263,7 @@ define dso_local void @KeccakP1600_AddBytes(ptr noundef captures(none) %0, ptr n
   br label %KeccakP1600_AddBytesInLane.exit
 
 KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 24:                                               ; preds = %4
@@ -288,7 +282,7 @@ KeccakP1600_AddBytesInLane.exit:                  ; preds = %8, %19
   %.03037 = phi i32 [ %40, %KeccakP1600_AddBytesInLane.exit35 ], [ %3, %.lr.ph.preheader ]
   %27 = sub nuw nsw i32 8, %.02839
   %spec.select = tail call i32 @llvm.umin.i32(i32 %27, i32 %.03037)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %cond = icmp eq i32 %spec.select, 1
   br i1 %cond, label %28, label %31
 
@@ -315,7 +309,7 @@ KeccakP1600_AddBytesInLane.exit35:                ; preds = %31, %28
   %38 = load i64, ptr %37, align 8
   %39 = xor i64 %38, %35
   store i64 %39, ptr %37, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = sub i32 %.03037, %spec.select
   %41 = add i32 %.02938, 1
   %42 = getelementptr inbounds nuw i8, ptr %.02740, i64 %.pre-phi
@@ -347,7 +341,7 @@ define dso_local void @KeccakP1600_OverwriteLanes(ptr noundef writeonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_OverwriteBytes(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i32 %2, 0
   br i1 %5, label %6, label %13
 
@@ -403,7 +397,7 @@ define dso_local void @KeccakP1600_OverwriteWithZeroes(ptr noundef writeonly cap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_Permute_Nrounds(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -6828,13 +6822,13 @@ define dso_local void @KeccakP1600_ExtractBytesInLane(ptr noundef readonly captu
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i64, ptr %0, i64 %7
   %9 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %9, ptr %6, align 8
   %10 = zext i32 %3 to i64
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 %10
   %12 = zext i32 %4 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %11, i64 %12, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -6847,7 +6841,7 @@ define dso_local void @KeccakP1600_ExtractLanes(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca [1 x i64], align 8
   %.sroa.0 = alloca i64, align 8
   %6 = icmp eq i32 %2, 0
@@ -6863,11 +6857,11 @@ define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(no
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
   %15 = load i64, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   store i64 %15, ptr %.sroa.0, align 8
   %16 = zext nneg i32 %12 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr nonnull align 8 %.sroa.0, i64 %16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %.loopexit
 
 17:                                               ; preds = %4
@@ -6889,13 +6883,13 @@ define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(no
   %21 = zext i32 %.02935 to i64
   %22 = getelementptr inbounds nuw i64, ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %23, ptr %5, align 8
   %24 = zext nneg i32 %.02836 to i64
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   %26 = zext nneg i32 %spec.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02737, ptr noundef nonnull align 1 dereferenceable(1) %25, i64 %26, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = sub i32 %.03034, %spec.select
   %28 = add i32 %.02935, 1
   %29 = getelementptr inbounds nuw i8, ptr %.02737, i64 %26
@@ -6907,12 +6901,12 @@ define dso_local void @KeccakP1600_ExtractBytes(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca [1 x i64], align 8
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %10, ptr %7, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -6938,12 +6932,12 @@ define dso_local void @KeccakP1600_ExtractAndAddBytesInLane(ptr noundef readonly
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -6969,7 +6963,7 @@ define dso_local void @KeccakP1600_ExtractAndAddLanes(ptr noundef readonly captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define dso_local void @KeccakP1600_ExtractAndAddBytes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = alloca [1 x i64], align 8
   %7 = alloca [1 x i64], align 8
   %8 = icmp eq i32 %3, 0
@@ -7002,7 +6996,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %.lr.ph.i, %9
   %21 = and i32 %4, 7
   %22 = getelementptr inbounds nuw i64, ptr %0, i64 %.pre
   %23 = load i64, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %23, ptr %7, align 8
   %.not.i41 = icmp eq i32 %21, 0
   br i1 %.not.i41, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.preheader.i42
@@ -7025,7 +7019,7 @@ KeccakP1600_ExtractAndAddLanes.exit:              ; preds = %.lr.ph.i, %9
   br i1 %exitcond.not.i47, label %KeccakP1600_ExtractAndAddBytesInLane.exit, label %.lr.ph.i44, !llvm.loop !17
 
 KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %KeccakP1600_ExtractAndAddLanes.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 30:                                               ; preds = %5
@@ -7048,7 +7042,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %Keccak
   %34 = zext i32 %.03758 to i64
   %35 = getelementptr inbounds nuw i64, ptr %0, i64 %34
   %36 = load i64, ptr %35, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %36, ptr %6, align 8
   %wide.trip.count.i50 = zext nneg i32 %spec.select to i64
   br label %.lr.ph.i51
@@ -7070,7 +7064,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit:        ; preds = %.lr.ph.i44, %Keccak
   br i1 %exitcond.not.i54, label %KeccakP1600_ExtractAndAddBytesInLane.exit55, label %.lr.ph.i51, !llvm.loop !17
 
 KeccakP1600_ExtractAndAddBytesInLane.exit55:      ; preds = %.lr.ph.i51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = sub i32 %.03857, %spec.select
   %47 = add i32 %.03758, 1
   %48 = getelementptr inbounds nuw i8, ptr %.03560, i64 %wide.trip.count.i50
@@ -7083,7 +7077,7 @@ KeccakP1600_ExtractAndAddBytesInLane.exit55:      ; preds = %.lr.ph.i51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #5 {
+define dso_local i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = load i64, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -11377,7 +11371,7 @@ define dso_local i64 @KeccakF1600_FastLoop_Absorb(ptr noundef captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local i64 @KeccakP1600_12rounds_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #5 {
+define dso_local i64 @KeccakP1600_12rounds_FastLoop_Absorb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = load i64, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -13810,6 +13804,12 @@ define dso_local i64 @KeccakP1600_12rounds_FastLoop_Absorb(ptr noundef captures(
   ret i64 %2238
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
@@ -13819,11 +13819,10 @@ declare i32 @llvm.umin.i32(i32, i32) #6
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

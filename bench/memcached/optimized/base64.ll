@@ -141,16 +141,10 @@ define dso_local noundef i64 @base64_encode(ptr noundef %0, i64 noundef %1, ptr 
   ret i64 %.044
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not65 = icmp eq i64 %1, 0
   br i1 %.not65, label %.loopexit52, label %.lr.ph
 
@@ -265,13 +259,18 @@ define dso_local i64 @base64_decode(ptr noundef readonly captures(none) %0, i64 
 
 .loopexit52:                                      ; preds = %36, %4, %15, %._crit_edge, %.loopexit
   %.036 = phi i64 [ %60, %.loopexit ], [ 0, %._crit_edge ], [ 0, %15 ], [ 0, %4 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.036
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
+
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

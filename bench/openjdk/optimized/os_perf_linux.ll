@@ -106,8 +106,8 @@ define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = load i32, ptr @_ZZL14get_systemtypevE15procEntriesType, align 4
   %.not.i.i = icmp eq i32 %26, 0
   br i1 %.not.i.i, label %27, label %_ZL14get_systemtypev.exit.i
@@ -149,8 +149,8 @@ _ZL14get_systemtypev.exit.i:                      ; preds = %32, %._crit_edge
   br label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit
 
 _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %_ZL14get_systemtypev.exit.i, %33, %35, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = call fastcc noundef i32 @_ZL24perf_context_switch_ratePd(ptr noundef nonnull %4)
   ret i1 true
 }
@@ -369,8 +369,8 @@ define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13C
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = load i32, ptr @_ZZL14get_systemtypevE15procEntriesType, align 4
   %.not.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i, label %17, label %_ZL14get_systemtypev.exit.i
@@ -404,8 +404,8 @@ _ZL14get_systemtypev.exit.i:                      ; preds = %22, %14
   br i1 %26, label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit, label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread
 
 _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit.thread: ; preds = %_ZL14get_systemtypev.exit.i, %23, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %55
 
 _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
@@ -413,8 +413,8 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   store i64 %27, ptr %15, align 8
   %28 = load i64, ptr %6, align 8
   store i64 %28, ptr %.sroa.2.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %33
 
 29:                                               ; preds = %8, %12
@@ -677,7 +677,7 @@ _ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit: ; preds = %3, %3
 define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_load_total_processEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %3, i32 noundef 0)
   %6 = fcmp olt double %5, 0.000000e+00
   %7 = load double, ptr %3, align 8
@@ -685,7 +685,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_l
   %storemerge.i = select i1 %6, double 0.000000e+00, double %8
   %.0.i = sext i1 %6 to i32
   store double %storemerge.i, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -751,7 +751,7 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   %9 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %6) #18
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4095
   store i8 0, ptr %10, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = call i32 @stat64(ptr noundef nonnull readonly %5, ptr noundef nonnull %4) #18
   %12 = icmp sgt i32 %11, -1
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -759,16 +759,16 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
   %.0.i = select i1 %12, i1 %16, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.i, label %17, label %21
 
 17:                                               ; preds = %8
   %18 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str.4, ptr noundef nonnull %6) #18
   store i8 0, ptr %10, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call i32 @stat64(ptr noundef nonnull readonly %5, ptr noundef nonnull %3) #18
   %20 = icmp sgt i32 %19, -1
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 21:                                               ; preds = %17, %2, %8
@@ -977,7 +977,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   %14 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %13, i8 noundef zeroext 9) #18
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %14, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 19
   %18 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %17) #18
@@ -985,7 +985,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   store i8 0, ptr %19, align 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4113
   %21 = call noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef 4096) #18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %25, label %22
 
@@ -1037,7 +1037,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
 
 14:                                               ; preds = %.lr.ph, %.backedge
   %15 = phi ptr [ %9, %.lr.ph ], [ %30, %.backedge ]
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
   %17 = call i32 @atoi(ptr noundef nonnull %16) #19
   %.not.i = icmp eq i32 %17, 0
@@ -1046,24 +1046,24 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
 18:                                               ; preds = %14
   %19 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %16) #18
   store i8 0, ptr %12, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = call i32 @stat64(ptr noundef nonnull readonly %4, ptr noundef nonnull %3) #18
   %21 = icmp sgt i32 %20, -1
   %22 = load i32, ptr %13, align 8
   %23 = and i32 %22, 61440
   %24 = icmp eq i32 %23, 16384
   %.0.i.i = select i1 %21, i1 %24, i1 false
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.i.i, label %25, label %_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit
 
 25:                                               ; preds = %18
   %26 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.4, ptr noundef nonnull %16) #18
   store i8 0, ptr %12, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = call i32 @stat64(ptr noundef nonnull readonly %4, ptr noundef nonnull %2) #18
   %28 = icmp sgt i32 %27, -1
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %28, label %.sink.split, label %.backedge
 
 .backedge:                                        ; preds = %25, %_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit
@@ -1074,7 +1074,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   br i1 %31, label %.sink.split, label %14, !llvm.loop !10
 
 _ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit: ; preds = %14, %18
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 .sink.split:                                      ; preds = %25, %.backedge, %.preheader
@@ -1519,7 +1519,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.01425, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.9, ptr noundef %14, ptr noundef nonnull @.str.10) #18
   %16 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 0) #18
   %17 = icmp eq i32 %16, -1
@@ -1540,9 +1540,9 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
 
 _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit: ; preds = %12, %18, %22
   %.0.i = phi i64 [ %24, %22 ], [ -1, %12 ], [ -1, %18 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.9, ptr noundef %25, ptr noundef nonnull @.str.11) #18
   %27 = call noundef i32 @_ZN2os4openEPKcii(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0) #18
   %28 = icmp eq i32 %27, -1
@@ -1563,7 +1563,7 @@ _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit:
 
 _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21: ; preds = %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit, %29, %33
   %.0.i20 = phi i64 [ %35, %33 ], [ -1, %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit ], [ -1, %29 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #18
   %37 = load ptr, ptr %13, align 8
   store ptr null, ptr %36, align 8
@@ -1652,7 +1652,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr readnone captures(non
   %3 = alloca [2048 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5) #18
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZL14vread_statdataPKcS0_P13__va_list_tag.exit, label %7
@@ -1689,7 +1689,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr readnone captures(non
 
 _ZL14vread_statdataPKcS0_P13__va_list_tag.exit:   ; preds = %2, %20
   %.011.i = phi i32 [ %22, %20 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %.011.i
 }
@@ -1799,10 +1799,10 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #16

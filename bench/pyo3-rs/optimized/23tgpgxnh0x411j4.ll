@@ -218,9 +218,9 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
   store ptr %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx3, align 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.6.0..sroa_idx7, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.6.0..sroa_idx, i64 36, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %49 = load i64, ptr %18, align 8, !noalias !3
   %.not.not.i = icmp eq i64 %49, -9223372036854775808
   br i1 %.not.not.i, label %51, label %50
@@ -256,9 +256,9 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
 
 .thread:                                          ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.backedge.backedge
 
 57:                                               ; preds = %54, %52, %50
@@ -277,8 +277,8 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.0..sroa_idx, i64 12, i1 false)
   store ptr %.sroa.3.0.copyload, ptr %12, align 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.213.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %62 = load i8, ptr %.sroa.1.0..sroa_idx, align 8, !noalias !6
   %.not.not.i18 = icmp eq i8 %62, 3
   br i1 %.not.not.i18, label %69, label %63
@@ -312,8 +312,8 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
 
 .thread107:                                       ; preds = %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.backedge
 
 72:                                               ; preds = %63
@@ -329,9 +329,9 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
   unreachable
 
 76:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sroa.3.0.copyload, ptr %5, align 8, !noalias !9
   store i32 %.sroa.5.0.copyload, ptr %31, align 8, !noalias !9
   %77 = load ptr, ptr %19, align 8, !noalias !9
@@ -370,9 +370,9 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
 .thread109:                                       ; preds = %79
   store ptr %.sroa.3.0.copyload, ptr %19, align 8, !noalias !9
   store i32 %.sroa.5.0.copyload, ptr %32, align 8, !noalias !9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.thread109, %.thread107, %.thread, %89, %93, %95
@@ -391,9 +391,9 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
   unreachable
 
 89:                                               ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %90 = icmp eq i64 %.sroa.030.0.copyload31, -9223372036854775808
   br i1 %90, label %.backedge.backedge, label %91
 
@@ -409,15 +409,15 @@ define void @_ZN19pyo3_macros_backend6module15PyModuleOptions10from_attrs17h2ba6
           to label %97 unwind label %21
 
 93:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %94 = icmp eq i64 %.sroa.0.0.copyload28, -9223372036854775808
   br i1 %94, label %.backedge.backedge, label %91
 
 95:                                               ; preds = %83
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %96 = icmp eq i64 %.sroa.034.0.copyload35, -9223372036854775808
   br i1 %96, label %.backedge.backedge, label %91
 
@@ -1696,7 +1696,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %480 = load i64, ptr %479, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %481 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %478, i64 %480
   store ptr %478, ptr %25, align 8
   store ptr %481, ptr %235, align 8
@@ -1709,7 +1709,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %486 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %488 = load i64, ptr %487, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %489 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %486, i64 %488
   store ptr %486, ptr %24, align 8
   store ptr %489, ptr %232, align 8
@@ -1723,7 +1723,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %494 = load ptr, ptr %493, align 8
   %495 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %496 = load i64, ptr %495, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %497 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %494, i64 %496
   store ptr %494, ptr %23, align 8
   store ptr %497, ptr %231, align 8
@@ -1736,7 +1736,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %501 = load ptr, ptr %500, align 8
   %502 = getelementptr inbounds nuw i8, ptr %236, i64 304
   %503 = load i64, ptr %502, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %504 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %501, i64 %503
   store ptr %501, ptr %22, align 8
   store ptr %504, ptr %226, align 8
@@ -1750,7 +1750,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %509 = load ptr, ptr %508, align 8
   %510 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %511 = load i64, ptr %510, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %512 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %509, i64 %511
   store ptr %509, ptr %21, align 8
   store ptr %512, ptr %225, align 8
@@ -1764,7 +1764,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %519 = load i64, ptr %518, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %520 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %517, i64 %519
   store ptr %517, ptr %20, align 8
   store ptr %520, ptr %224, align 8
@@ -1778,7 +1778,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %525 = load ptr, ptr %524, align 8
   %526 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %527 = load i64, ptr %526, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %528 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %525, i64 %527
   store ptr %525, ptr %19, align 8
   store ptr %528, ptr %223, align 8
@@ -1791,7 +1791,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %533 = load ptr, ptr %532, align 8
   %534 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %535 = load i64, ptr %534, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %536 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %533, i64 %535
   store ptr %533, ptr %18, align 8
   store ptr %536, ptr %220, align 8
@@ -1805,7 +1805,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %541 = load ptr, ptr %540, align 8
   %542 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %543 = load i64, ptr %542, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %544 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %541, i64 %543
   store ptr %541, ptr %17, align 8
   store ptr %544, ptr %219, align 8
@@ -1818,7 +1818,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %549 = load ptr, ptr %548, align 8
   %550 = getelementptr inbounds nuw i8, ptr %236, i64 80
   %551 = load i64, ptr %550, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %552 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %549, i64 %551
   store ptr %549, ptr %16, align 8
   store ptr %552, ptr %214, align 8
@@ -1832,7 +1832,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %557 = load ptr, ptr %556, align 8
   %558 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %559 = load i64, ptr %558, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %560 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %557, i64 %559
   store ptr %557, ptr %15, align 8
   store ptr %560, ptr %213, align 8
@@ -1846,7 +1846,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %565 = load ptr, ptr %564, align 8
   %566 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %567 = load i64, ptr %566, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %568 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %565, i64 %567
   store ptr %565, ptr %14, align 8
   store ptr %568, ptr %212, align 8
@@ -1860,7 +1860,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %573 = load ptr, ptr %572, align 8
   %574 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %575 = load i64, ptr %574, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %576 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %573, i64 %575
   store ptr %573, ptr %13, align 8
   store ptr %576, ptr %211, align 8
@@ -1874,7 +1874,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %583 = load i64, ptr %582, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %584 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %581, i64 %583
   store ptr %581, ptr %12, align 8
   store ptr %584, ptr %210, align 8
@@ -1883,8 +1883,8 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
 
 586:                                              ; preds = %240
   %587 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
   store ptr @anon.990e3f7bdc2744eccd06b939eea5f099.38, ptr %10, align 8
   store i64 15, ptr %206, align 8
@@ -1893,7 +1893,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
           to label %820 unwind label %.loopexit191
 
 588:                                              ; preds = %475
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %482, label %589, label %.backedge.backedge
 
 589:                                              ; preds = %588
@@ -1922,13 +1922,13 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
           to label %840 unwind label %439
 
 596:                                              ; preds = %483
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br i1 %490, label %602, label %597
 
 597:                                              ; preds = %596
   %598 = load ptr, ptr %485, align 8
   %599 = load i64, ptr %487, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %600 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %598, i64 %599
   store ptr %598, ptr %9, align 8
   store ptr %600, ptr %233, align 8
@@ -1940,7 +1940,7 @@ define void @_ZN19pyo3_macros_backend6module20pymodule_module_impl17h9b9ecefcf25
           to label %625 unwind label %.loopexit.split-lp192
 
 603:                                              ; preds = %597
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %601, label %604, label %.backedge.backedge
 
 604:                                              ; preds = %603
@@ -2014,7 +2014,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   br label %.sink.split
 
 630:                                              ; preds = %491
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %498, label %631, label %.backedge.backedge
 
 631:                                              ; preds = %630
@@ -2035,14 +2035,14 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   br label %.sink.split
 
 637:                                              ; preds = %499
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %505, label %641, label %638
 
 638:                                              ; preds = %637
   %639 = load ptr, ptr %122, align 8
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 288
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1
   store ptr @anon.990e3f7bdc2744eccd06b939eea5f099.41, ptr %7, align 8
   store i64 13, ptr %227, align 8
@@ -2057,8 +2057,8 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
 642:                                              ; preds = %638
   %643 = load i8, ptr %8, align 1
   %644 = trunc i8 %643 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %645 = load ptr, ptr %122, align 8
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 232
   %647 = getelementptr inbounds nuw i8, ptr %645, i64 296
@@ -2069,21 +2069,21 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit: ; 
   br i1 %644, label %654, label %652
 
 652:                                              ; preds = %642
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %648, ptr %6, align 8
   store ptr %651, ptr %229, align 8
   %653 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %6, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.42, i64 10)
           to label %656 unwind label %.loopexit191
 
 654:                                              ; preds = %642
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %648, ptr %5, align 8
   store ptr %651, ptr %230, align 8
   %655 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17he5a69e7555b1a785E"(ptr nonnull align 8 %5, ptr nonnull align 1 @anon.990e3f7bdc2744eccd06b939eea5f099.42, i64 10)
           to label %666 unwind label %.loopexit191
 
 656:                                              ; preds = %652
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %653, label %657, label %.backedge.backedge
 
 657:                                              ; preds = %656
@@ -2110,7 +2110,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
           to label %.backedge.backedge unwind label %.loopexit191
 
 666:                                              ; preds = %654
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %655, label %669, label %667
 
 667:                                              ; preds = %666
@@ -2226,7 +2226,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   br label %.sink.split
 
 702:                                              ; preds = %506
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %513, label %703, label %.backedge.backedge
 
 703:                                              ; preds = %702
@@ -2247,7 +2247,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   br label %.sink.split
 
 709:                                              ; preds = %514
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br i1 %521, label %710, label %.backedge.backedge
 
 710:                                              ; preds = %709
@@ -2268,7 +2268,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   br label %.sink.split
 
 716:                                              ; preds = %522
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %529, label %717, label %.backedge.backedge
 
 717:                                              ; preds = %716
@@ -2289,13 +2289,13 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
   br label %.sink.split
 
 723:                                              ; preds = %530
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %537, label %729, label %724
 
 724:                                              ; preds = %723
   %725 = load ptr, ptr %532, align 8
   %726 = load i64, ptr %534, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %727 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %725, i64 %726
   store ptr %725, ptr %4, align 8
   store ptr %727, ptr %221, align 8
@@ -2307,7 +2307,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit173:
           to label %749 unwind label %.loopexit.split-lp192
 
 730:                                              ; preds = %724
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %728, label %731, label %.backedge.backedge
 
 731:                                              ; preds = %730
@@ -2371,7 +2371,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
   br label %.sink.split
 
 754:                                              ; preds = %538
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %545, label %755, label %.backedge.backedge
 
 755:                                              ; preds = %754
@@ -2392,13 +2392,13 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
   br label %.sink.split
 
 761:                                              ; preds = %546
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %553, label %767, label %762
 
 762:                                              ; preds = %761
   %763 = load ptr, ptr %548, align 8
   %764 = load i64, ptr %550, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %765 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %763, i64 %764
   store ptr %763, ptr %3, align 8
   store ptr %765, ptr %215, align 8
@@ -2410,7 +2410,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit175:
           to label %787 unwind label %.loopexit.split-lp192
 
 768:                                              ; preds = %762
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %766, label %769, label %.backedge.backedge
 
 769:                                              ; preds = %768
@@ -2474,7 +2474,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   br label %.sink.split
 
 792:                                              ; preds = %554
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %561, label %793, label %.backedge.backedge
 
 793:                                              ; preds = %792
@@ -2495,7 +2495,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   br label %.sink.split
 
 799:                                              ; preds = %562
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br i1 %569, label %800, label %.backedge.backedge
 
 800:                                              ; preds = %799
@@ -2516,7 +2516,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   br label %.sink.split
 
 806:                                              ; preds = %570
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %577, label %807, label %.backedge.backedge
 
 807:                                              ; preds = %806
@@ -2537,7 +2537,7 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
   br label %.sink.split
 
 813:                                              ; preds = %578
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %585, label %814, label %.backedge.backedge
 
 814:                                              ; preds = %813
@@ -2560,8 +2560,8 @@ _ZN19pyo3_macros_backend6module18get_cfg_attributes17hdab0a8ff4dae99f6E.exit177:
 820:                                              ; preds = %586
   %821 = load i8, ptr %11, align 1
   %822 = trunc i8 %821 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %822, label %823, label %.backedge.backedge
 
 823:                                              ; preds = %820
@@ -2924,37 +2924,37 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %96, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
   store i64 %102, ptr %96, align 8
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.345.i.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %.sroa.6.i)
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.345.i.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   invoke void @_ZN19pyo3_macros_backend5utils3Ctx3new17h9d29bb1afca1261dE(ptr nonnull sret([56 x i8]) align 8 %36, ptr nonnull align 8 %96, ptr align 8 null)
           to label %.noexc unwind label %258
 
@@ -3122,11 +3122,11 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
           to label %130 unwind label %173, !noalias !13
 
 155:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !13
-  call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !13
   store i64 -9223372036854775808, ptr %7, align 8, !noalias !16
   invoke void @_ZN19pyo3_macros_backend10attributes15take_attributes17h356d7add85ac76faE(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %125, ptr nonnull align 8 %7)
           to label %158 unwind label %156, !noalias !16
@@ -3150,11 +3150,11 @@ define void @_ZN19pyo3_macros_backend6module22pymodule_function_impl17h420385ba0
 .thread:                                          ; preds = %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7.0..sroa.345.0..sroa_idx.i.sroa_idx, i64 16, i1 false), !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.6.0..sroa_idx.i, i64 200, i1 false), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13
   br label %.thread75.i
 
 163:                                              ; preds = %161
@@ -3189,11 +3189,11 @@ split:                                            ; preds = %168, %158, %._crit_
           to label %.thread66.i unwind label %.thread63.loopexit.split-lp.i, !noalias !13
 
 .thread66.i:                                      ; preds = %split
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13
   br label %.loopexit78.i
 
 171:                                              ; preds = %156
@@ -3222,11 +3222,11 @@ split:                                            ; preds = %168, %158, %._crit_
   %.sroa.345.i.sroa.0.0.copyload103 = load i64, ptr %.sroa.345.0..sroa_idx.i, align 8, !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.345.i.sroa.7.0..sroa.345.0..sroa_idx.i.sroa_idx, i64 16, i1 false), !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(200) %.sroa.6.0..sroa_idx.i, i64 200, i1 false), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !13
-  call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %7), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !13
   switch i64 %.sroa.0.0.copyload.pr.i, label %175 [
     i64 -9223372036854775807, label %.loopexit78.i
     i64 -9223372036854775808, label %.thread75.i
@@ -3584,37 +3584,37 @@ split:                                            ; preds = %168, %158, %._crit_
   br label %.body
 
 260:                                              ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.345.i.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %.sroa.6.i)
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.345.i.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %261 = icmp eq i64 %.sroa.0.1, -9223372036854775808
   br i1 %261, label %262, label %263
 
@@ -4811,7 +4811,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
           to label %51 unwind label %48
 
 51:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %52 = load i64, ptr %34, align 8
   %53 = icmp eq i64 %52, -9223372036854775808
   br i1 %53, label %60, label %54
@@ -4841,7 +4841,7 @@ define internal fastcc void @_ZN19pyo3_macros_backend6module21module_initializat
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %64 = load i64, ptr %63, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %62, ptr %35, align 8
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %64, ptr %65, align 8
@@ -6332,10 +6332,10 @@ declare void @_ZN4core3ops8function6FnOnce9call_once17h9de704b54e60cd26E(ptr sre
 declare void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17h94cedc206c549084E"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8

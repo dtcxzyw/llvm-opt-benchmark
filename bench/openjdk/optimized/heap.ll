@@ -448,7 +448,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
 
 57:                                               ; preds = %24
   %58 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %60 = icmp sgt i32 %59, 1
   %61 = icmp ne ptr %58, null
@@ -462,7 +462,7 @@ define hidden noundef zeroext i1 @_ZN8CodeHeap7reserveE13ReservedSpacemm(ptr nou
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %57, %62
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %63, align 8
   %64 = load i64, ptr %35, align 8
@@ -1914,10 +1914,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

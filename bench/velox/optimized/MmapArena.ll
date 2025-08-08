@@ -231,8 +231,8 @@ if.end6:                                          ; preds = %if.end
   %address_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call, ptr %address_, align 8
   %2 = load i64, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.addr.i)
   store i64 %magicptr, ptr %address.addr.i, align 8
   store i64 %2, ptr %bytes.addr.i, align 8
   %call.i8 = invoke { ptr, i8 } @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE7emplaceIJRmS8_EEES2_ISt17_Rb_tree_iteratorIS4_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %bytes.addr.i)
@@ -248,8 +248,8 @@ if.then.i:                                        ; preds = %call.i.noexc
   unreachable
 
 if.end.i:                                         ; preds = %call.i.noexc
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i.i)
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i4, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i.i.i.i.i, label %if.then.i.i, label %while.body.lr.ph.i.i.i.i.i
@@ -290,14 +290,14 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt
 _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit.i: ; preds = %if.then.i.i, %lor.rhs.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ], [ %call12.i.i9, %if.then.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i.i)
   %call.i.i.i10 = invoke { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i.i, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.addr.i)
   %8 = load i64, ptr %this, align 8
   %freeBytes_11 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store atomic i64 %8, ptr %freeBytes_11 seq_cst, align 8
@@ -338,8 +338,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %freeLookup_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -383,8 +383,8 @@ _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pair
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
   %5 = extractvalue { ptr, i8 } %call, 0
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %call.i.i = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i, ptr noundef nonnull align 8 dereferenceable(8) %address.addr)
   ret ptr %5
 }
@@ -602,20 +602,20 @@ if.end54:                                         ; preds = %_ZNSt3mapImSt13unor
   br i1 %cmp64, label %if.then65, label %if.end66
 
 if.then65:                                        ; preds = %if.end54
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %addr.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr.addr.i)
   store i64 %11, ptr %addr.addr.i, align 8
   %freeList_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call.i.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %addr.addr.i)
   %14 = load i64, ptr %addr.addr.i, align 8
   call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %14, i64 noundef %spec.select.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %addr.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr.addr.i)
   br label %return
 
 if.end66:                                         ; preds = %if.end54
   %add = add i64 %11, %spec.select.i.i
   %sub67 = sub i64 %12, %spec.select.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.addr.i)
   store i64 %add, ptr %address.addr.i, align 8
   store i64 %sub67, ptr %bytes.addr.i, align 8
   %freeList_.i46 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -629,8 +629,8 @@ if.then.i:                                        ; preds = %if.end66
   unreachable
 
 if.end.i:                                         ; preds = %if.end66
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i.i)
   %16 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not5.i.i.i.i.i, label %if.then.i.i, label %while.body.lr.ph.i.i.i.i.i
@@ -671,17 +671,17 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %_ZNSt
 _ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit: ; preds = %lor.rhs.i.i, %if.then.i.i
   %__i.sroa.0.0.i.i = phi ptr [ %call12.i.i, %if.then.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ]
   %second.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i.i)
   %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i.i, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %addr.addr.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr.addr.i47)
   store i64 %11, ptr %addr.addr.i47, align 8
   %call.i.i49 = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i46, ptr noundef nonnull align 8 dereferenceable(8) %addr.addr.i47)
   %20 = load i64, ptr %addr.addr.i47, align 8
   call void @_ZN8facebook5velox6memory9MmapArena16removeFromLookupEmm(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %20, i64 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %addr.addr.i47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr.addr.i47)
   br label %return
 
 return:                                           ; preds = %cond.false, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %invoke.cont49, %entry, %_ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit, %if.then65
@@ -840,8 +840,8 @@ _ZN8facebook5velox6memory9MmapArena10roundBytesEm.exit: ; preds = %entry
   %1 = atomicrmw add ptr %freeBytes_, i64 %spec.select.i.i seq_cst, align 8
   %2 = ptrtoint ptr %address to i64
   store i64 %2, ptr %curAddr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bytes.addr.i)
   store i64 %2, ptr %address.addr.i, align 8
   store i64 %spec.select.i.i, ptr %bytes.addr.i, align 8
   %freeList_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -856,8 +856,8 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox6
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox6memory9MmapArena10roundBytesEm.exit
   %freeLookup_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i.i)
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -901,11 +901,11 @@ _ZN8facebook5velox6memory9MmapArena12addFreeBlockEmm.exit: ; preds = %lor.rhs.i.
   %__i.sroa.0.0.i.i = phi ptr [ %call12.i.i, %if.then.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ]
   %8 = extractvalue { ptr, i8 } %call.i, 0
   %second.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i.i)
   %call.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i.i, ptr noundef nonnull align 8 dereferenceable(8) %address.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %address.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %address.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bytes.addr.i)
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %9 = load ptr, ptr %_M_left.i.i, align 8
@@ -1009,8 +1009,8 @@ if.end56:                                         ; preds = %if.then53, %if.then
   %_M_storage.i.i33 = getelementptr inbounds nuw i8, ptr %prevIter.sroa.0.0, i64 32
   %call60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i33)
   store i64 %24, ptr %call60, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %25 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not5.i.i.i.i, label %if.then.i39, label %while.body.lr.ph.i.i.i.i
@@ -1051,8 +1051,8 @@ if.then.i39:                                      ; preds = %lor.rhs.i, %_ZNSt3m
 _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit: ; preds = %lor.rhs.i, %if.then.i39
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i39 ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
   %second.i38 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %call.i.i = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i38, ptr noundef nonnull align 8 dereferenceable(8) %prevAddr)
   br label %if.end77
 
@@ -1079,8 +1079,8 @@ if.then65:                                        ; preds = %if.end63
   %_M_storage.i.i47 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %call72 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %freeList_.i, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i47)
   store i64 %add68, ptr %call72, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i48)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i49)
   %33 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i52 = icmp eq ptr %33, null
   br i1 %cmp.not5.i.i.i.i52, label %if.then.i72, label %while.body.i.i.i.i54
@@ -1117,8 +1117,8 @@ if.then.i72:                                      ; preds = %lor.rhs.i66, %_ZNSt
 _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit75: ; preds = %lor.rhs.i66, %if.then.i72
   %__i.sroa.0.0.i70 = phi ptr [ %call12.i74, %if.then.i72 ], [ %__y.addr.1.i.i.i.i59, %lor.rhs.i66 ]
   %second.i71 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i70, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i48)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i49)
   %call.i.i76 = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE10_M_emplaceIJRKmEEESt4pairINS1_14_Node_iteratorImLb1ELb0EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %second.i71, ptr noundef nonnull align 8 dereferenceable(8) %curAddr)
   br label %if.end77
 
@@ -1161,8 +1161,8 @@ entry:
   store i64 %addr, ptr %addr.addr, align 8
   store i64 %bytes, ptr %bytes.addr, align 8
   %freeLookup_ = getelementptr inbounds nuw i8, ptr %this, i64 72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1201,11 +1201,11 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit: ; preds = %lor.rhs.i, %if.then.i
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %call.i.i = call noundef i64 @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKm(ptr noundef nonnull align 8 dereferenceable(56) %second.i, ptr noundef nonnull align 8 dereferenceable(8) %addr.addr)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i2)
   %3 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i5 = icmp eq ptr %3, null
   br i1 %cmp.not5.i.i.i.i5, label %if.then.i24, label %while.body.lr.ph.i.i.i.i6
@@ -1245,8 +1245,8 @@ if.then.i24:                                      ; preds = %lor.rhs.i19, %_ZNSt
 
 _ZNSt3mapImSt13unordered_setImSt4hashImESt8equal_toImESaImEESt4lessImESaISt4pairIKmS6_EEEixERSA_.exit27: ; preds = %lor.rhs.i19, %if.then.i24
   %__i.sroa.0.0.i22 = phi ptr [ %call12.i26, %if.then.i24 ], [ %__y.addr.1.i.i.i.i12, %lor.rhs.i19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i2)
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i22, i64 64
   %7 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.i.i28 = icmp eq i64 %7, 0
@@ -4968,10 +4968,10 @@ _ZNSt8_Rb_treeImSt4pairIKmSt10shared_ptrIN8facebook5velox6memory9MmapArenaEEESt1
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

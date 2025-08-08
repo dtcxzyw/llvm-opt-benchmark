@@ -182,9 +182,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 111:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %112 = shl nsw i32 %17, 2
   %113 = icmp sgt i32 %17, 0
   br i1 %113, label %.lr.ph97.preheader, label %._crit_edge98
@@ -316,8 +316,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %219, label %.lr.ph97, label %._crit_edge98, !llvm.loop !13
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %236
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
@@ -483,9 +483,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 121:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %122 = shl nsw i32 %17, 2
   %123 = icmp sgt i32 %17, 0
   br i1 %123, label %.lr.ph97.preheader, label %._crit_edge98
@@ -628,8 +628,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !16
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %256
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
@@ -795,9 +795,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 121:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %122 = shl nsw i32 %17, 2
   %123 = icmp sgt i32 %17, 0
   br i1 %123, label %.lr.ph97.preheader, label %._crit_edge98
@@ -940,8 +940,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !21
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %256
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
@@ -1107,9 +1107,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 121:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %122 = shl nsw i32 %17, 2
   %123 = icmp sgt i32 %17, 0
   br i1 %123, label %.lr.ph97.preheader, label %._crit_edge98
@@ -1252,8 +1252,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %239, label %.lr.ph97, label %._crit_edge98, !llvm.loop !24
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %256
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
@@ -1384,9 +1384,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 84:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %85 = shl nsw i32 %17, 2
   %86 = icmp sgt i32 %17, 0
   br i1 %86, label %.lr.ph97.preheader, label %._crit_edge98
@@ -1492,8 +1492,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %165, label %.lr.ph97, label %._crit_edge98, !llvm.loop !27
 
 ._crit_edge104:                                   ; preds = %.lr.ph103, %._crit_edge98
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %182
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
@@ -1620,9 +1620,9 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 80:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %81 = shl nsw i32 %17, 2
   %82 = icmp sgt i32 %17, 0
   br i1 %82, label %.lr.ph93.preheader, label %._crit_edge94
@@ -1726,8 +1726,8 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   br i1 %157, label %.lr.ph93, label %._crit_edge94, !llvm.loop !30
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge94
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %174
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
@@ -1760,57 +1760,57 @@ define internal void @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_18linear1DILNS_8BitDe
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float>, ptr, <8 x i32>, <8 x float>, i8 immarg) #7
+declare <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float>, ptr, <8 x i32>, <8 x float>, i8 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #8
+declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #8
+declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #8
+declare <8 x float> @llvm.x86.avx.max.ps.256(<8 x float>, <8 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #8
+declare <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #9
+declare <8 x float> @llvm.fma.v8f32(<8 x float>, <8 x float>, <8 x float>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #8
+declare <8 x i32> @llvm.x86.avx.cvt.ps2dq.256(<8 x float>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float>, i32 immarg) #8
+declare <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float>, i32 immarg) #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_Lut1DOpCPU_AVX2.cpp() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_Lut1DOpCPU_AVX2.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

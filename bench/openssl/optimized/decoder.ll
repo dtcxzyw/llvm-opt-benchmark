@@ -45,7 +45,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8, !tbaa !9
   store i64 %1, ptr %4, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !13
   %6 = tail call ptr @BIO_s_null() #4
   %7 = tail call ptr @BIO_new(ptr noundef %6) #4
@@ -137,12 +137,9 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %55
 
 55:                                               ; preds = %2, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
@@ -161,7 +158,7 @@ declare i32 @EVP_PKEY_print_params(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare ptr @EVP_PKEY_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -183,9 +180,6 @@ declare i32 @EVP_PKEY_pairwise_check(ptr noundef) local_unnamed_addr #1
 
 declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @OSSL_DECODER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
@@ -202,10 +196,16 @@ declare void @ASN1_PCTX_free(ptr noundef) local_unnamed_addr #1
 
 declare void @FuzzerClearRand() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 attributes #5 = { noreturn nounwind }
 

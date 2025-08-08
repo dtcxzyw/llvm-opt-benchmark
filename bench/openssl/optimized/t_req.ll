@@ -52,20 +52,17 @@ define range(i32 0, 2) i32 @X509_REQ_print_fp(ptr noundef %0, ptr noundef %1) lo
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+declare ptr @BIO_s_file() local_unnamed_addr #1
 
-declare ptr @BIO_s_file() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_REQ_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -73,10 +70,7 @@ define range(i32 0, 2) i32 @X509_REQ_print(ptr noundef %0, ptr noundef %1) local
   ret i32 %3
 }
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -150,7 +144,7 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not128, label %43, label %69
 
 43:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef 33) #4
   %45 = icmp slt i32 %44, 1
   br i1 %45, label %.thread, label %46
@@ -193,11 +187,11 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %67, label %.thread, label %68
 
 .thread:                                          ; preds = %43, %46, %49, %55, %61, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 68:                                               ; preds = %64, %65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
 69:                                               ; preds = %68, %41
@@ -413,15 +407,15 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not137, label %169, label %173
 
 169:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @X509_REQ_get0_signature(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
   %170 = load ptr, ptr %6, align 8, !tbaa !21
   %171 = load ptr, ptr %7, align 8, !tbaa !23
   %172 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %170, ptr noundef %171) #4
   %.not138 = icmp eq i32 %172, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not138, label %.sink.split, label %173
 
 .sink.split:                                      ; preds = %86, %._crit_edge, %113, %119, %122, %93, %.lr.ph, %.lr.ph165, %146, %150, %160, %157, %164, %12, %15, %23, %26, %31, %34, %38, %71, %79, %134, %169, %.thread
@@ -437,74 +431,80 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   ret i32 %.0
 }
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @X509_REQ_get_version(ptr noundef) local_unnamed_addr #2
+declare i64 @X509_REQ_get_version(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_subject_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_X509_PUBKEY(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_PUBKEY_get0_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_PUBKEY_get0_param(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get0_pubkey(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get0_pubkey(ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_PKEY_print_public(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_REQ_get_attr_count(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_REQ_get_attr_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_REQ_extension_nid(i32 noundef) local_unnamed_addr #2
+declare i32 @X509_REQ_extension_nid(i32 noundef) local_unnamed_addr #1
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_REQ_get_extensions(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_REQ_get_extensions(ptr noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_EXTENSION_free(ptr noundef) #2
+declare void @X509_EXTENSION_free(ptr noundef) #1
 
-declare void @X509_REQ_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509_REQ_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_signature_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509_signature_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

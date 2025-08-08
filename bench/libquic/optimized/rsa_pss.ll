@@ -68,9 +68,9 @@ define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly capt
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = call i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef %9, ptr noundef nonnull %4) #3
@@ -128,7 +128,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly capt
   br label %38
 
 38:                                               ; preds = %.sink.split, %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !17
   %39 = call ptr @ASN1_item_new(ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   %.not22 = icmp eq ptr %39, null
@@ -172,7 +172,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly capt
 57:                                               ; preds = %56, %49
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %59 = load ptr, ptr %5, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !17
   store ptr null, ptr %58, align 8, !tbaa !22
   %60 = call i32 @EVP_MD_type(ptr noundef %59) #3
@@ -180,7 +180,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_ctx_to_pss(ptr noundef readonly capt
   br i1 %61, label %rsa_md_to_mgf1.exit.thread, label %62
 
 rsa_md_to_mgf1.exit.thread:                       ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
 62:                                               ; preds = %57
@@ -223,7 +223,7 @@ rsa_md_to_mgf1.exit:                              ; preds = %65, %69, %71, %73
   call void @X509_ALGOR_free(ptr noundef %.01217.i) #3
   %78 = load ptr, ptr %58, align 8, !tbaa !22
   %.not10.i.not = icmp eq ptr %78, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not10.i.not, label %rsa_md_to_algor.exit, label %79
 
 79:                                               ; preds = %rsa_md_to_mgf1.exit.thread, %rsa_md_to_mgf1.exit
@@ -243,19 +243,16 @@ rsa_md_to_algor.exit:                             ; preds = %53, %79, %rsa_md_to
   call void @ASN1_item_free(ptr noundef %39, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   %85 = load ptr, ptr %7, align 8, !tbaa !17
   call void @ASN1_STRING_free(ptr noundef %85) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %86
 
 86:                                               ; preds = %rsa_md_to_algor.exit, %17, %2, %11, %14
   %.0 = phi i32 [ 0, %14 ], [ 0, %11 ], [ 0, %2 ], [ %.016, %rsa_md_to_algor.exit ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_PKEY_CTX_get_signature_md(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -283,9 +280,6 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
@@ -302,7 +296,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr nound
   br i1 %.not.i, label %11, label %rsa_pss_decode.exit.thread
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -321,7 +315,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr nound
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 24:                                               ; preds = %20
@@ -343,7 +337,7 @@ define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr nound
   br i1 %.not8.i.i, label %34, label %42
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -352,11 +346,11 @@ define hidden range(i32 0, 2) i32 @x509_rsa_pss_to_ctx(ptr noundef %0, ptr nound
   %39 = load i32, ptr %36, align 8, !tbaa !35
   %40 = sext i32 %39 to i64
   %41 = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %4, i64 noundef %40) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 rsa_pss_decode.exit:                              ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %rsa_pss_decode.exit.thread
 
 rsa_pss_decode.exit.thread:                       ; preds = %3, %9, %rsa_pss_decode.exit
@@ -366,7 +360,7 @@ rsa_pss_decode.exit.thread:                       ; preds = %3, %9, %rsa_pss_dec
 42:                                               ; preds = %34, %31, %28, %24
   %.036.ph.ph = phi ptr [ %41, %34 ], [ null, %31 ], [ null, %28 ], [ null, %24 ]
   %.pr = load ptr, ptr %21, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i31 = icmp eq ptr %.pr, null
   br i1 %.not.i31, label %43, label %45
 
@@ -519,7 +513,7 @@ define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %0, ptr
   br i1 %.not.i, label %11, label %rsa_pss_decode.exit.thread
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -556,7 +550,7 @@ define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %0, ptr
   br i1 %.not8.i.i, label %34, label %44
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -565,11 +559,11 @@ define hidden range(i32 0, 2) i32 @x509_print_rsa_pss_params(ptr noundef %0, ptr
   %39 = load i32, ptr %36, align 8, !tbaa !35
   %40 = sext i32 %39 to i64
   %41 = call ptr @d2i_X509_ALGOR(ptr noundef null, ptr noundef nonnull %5, i64 noundef %40) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 rsa_pss_decode.exit:                              ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %rsa_pss_decode.exit.thread
 
 rsa_pss_decode.exit.thread:                       ; preds = %4, %9, %rsa_pss_decode.exit
@@ -580,7 +574,7 @@ rsa_pss_decode.exit.thread:                       ; preds = %4, %9, %rsa_pss_dec
 
 44:                                               ; preds = %34, %31, %28, %24, %20
   %.056.ph = phi ptr [ null, %20 ], [ null, %24 ], [ null, %28 ], [ null, %31 ], [ %41, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.3) #3
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %121, label %47
@@ -750,6 +744,12 @@ declare ptr @d2i_X509_ALGOR(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare ptr @EVP_sha1() local_unnamed_addr #1
 
 declare ptr @EVP_get_digestbyobj(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

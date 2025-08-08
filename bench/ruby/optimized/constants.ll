@@ -3251,190 +3251,184 @@ define range(i32 -1, 1) i32 @rsock_scm_optname_to_int(ptr noundef readonly captu
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_family(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_family_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @rb_st_lookup(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_family_noprefix(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_family_noprefix_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_protocol_family(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_protocol_family_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_socktype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_socktype_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ipproto(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_ipproto_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_iplevel(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_iplevel_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_so_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_so_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ip_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_ip_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_ipv6_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_ipv6_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_tcp_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_tcp_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_udp_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_udp_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_scm_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_scm_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define i64 @rsock_intern_local_optname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @rsock_intern_local_optname_hash, align 8, !tbaa !10
   %4 = sext i32 %0 to i64
   %5 = call i32 @rb_st_lookup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3447,7 +3441,7 @@ define i32 @rsock_family_arg(i64 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @constant_arg(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = and i64 %0, 255
   %6 = icmp eq i64 %5, 12
   br i1 %6, label %RB_SYMBOL_P.exit.thread, label %7
@@ -3525,7 +3519,7 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
 
 38:                                               ; preds = %RSTRING_PTR.exit._crit_edge, %rb_num2int_inline.exit
   %39 = phi i32 [ %.pre, %RSTRING_PTR.exit._crit_edge ], [ %37, %rb_num2int_inline.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %39
 }
 
@@ -6431,35 +6425,41 @@ define internal fastcc void @init_constants() unnamed_addr #0 {
   ret void
 }
 
-declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #3
+declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @rb_define_const(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @rb_st_init_numtable() local_unnamed_addr #3
+declare ptr @rb_st_init_numtable() local_unnamed_addr #2
 
-declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @rb_st_insert(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }

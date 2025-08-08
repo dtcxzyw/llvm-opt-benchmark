@@ -301,7 +301,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %OS.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %OS.i)
   %Backrefs.i = getelementptr inbounds nuw i8, ptr %D, i64 24
   %0 = load i64, ptr %FunctionParamCount.i.i, align 8
   %conv.i = trunc i64 %0 to i32
@@ -402,7 +402,7 @@ if.then44.i:                                      ; preds = %for.end40.i
   br label %_ZN12_GLOBAL__N_19Demangler18dumpBackReferencesEv.exit
 
 _ZN12_GLOBAL__N_19Demangler18dumpBackReferencesEv.exit: ; preds = %if.end17.i, %for.end40.i, %if.then44.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %OS.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %OS.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_19Demangler18dumpBackReferencesEv.exit, %entry
@@ -4035,12 +4035,12 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_14CustomTypeNodeEJEEEPT_DpOT0_.e
   br label %if.end60
 
 if.else51:                                        ; preds = %if.else46
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp63.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp67.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp71.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp75.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp79.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp83.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp63.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp71.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp75.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp79.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp83.i)
   br i1 %cmp.i.i44, label %if.end.i153, label %_ZNK10StringView10startsWithES_.exit.i.i
 
 _ZNK10StringView10startsWithES_.exit.i.i:         ; preds = %if.else51
@@ -4813,22 +4813,22 @@ sw.bb81.i:                                        ; preds = %if.end58.i
 _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit.thread: ; preds = %if.end.i153, %if.end58.i, %sw.bb55.i
   %Error86.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 1, ptr %Error86.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp67.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp75.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp79.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp83.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp63.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp71.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp75.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp79.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp83.i)
   br label %return
 
 _ZN12_GLOBAL__N_19Demangler21demanglePrimitiveTypeER10StringView.exit: ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit25.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit67.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit88.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit109.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit130.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit151.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit172.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit193.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit214.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit235.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit256.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit277.i, %sw.bb61.i, %sw.bb65.i, %sw.bb69.i, %sw.bb73.i, %sw.bb77.i, %sw.bb81.i
   %retval.0.i155 = phi ptr [ %call2.i.sink10.i.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit.i ], [ %call2.i.sink10.i20.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit25.i ], [ %call2.i.sink10.i41.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit46.i ], [ %call2.i.sink10.i62.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit67.i ], [ %call2.i.sink10.i83.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit88.i ], [ %call2.i.sink10.i104.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit109.i ], [ %call2.i.sink10.i125.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit130.i ], [ %call2.i.sink10.i146.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit151.i ], [ %call2.i.sink10.i167.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit172.i ], [ %call2.i.sink10.i188.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit193.i ], [ %call2.i.sink10.i209.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit214.i ], [ %call2.i.sink10.i230.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit235.i ], [ %call2.i.sink10.i251.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit256.i ], [ %call2.i.sink10.i272.i, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13PrimitiveKindEEEEPT_DpOT0_.exit277.i ], [ %call64.i, %sw.bb61.i ], [ %call68.i, %sw.bb65.i ], [ %call72.i, %sw.bb69.i ], [ %call76.i, %sw.bb73.i ], [ %call80.i, %sw.bb77.i ], [ %call84.i, %sw.bb81.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp63.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp67.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp71.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp75.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp79.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp83.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp63.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp67.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp71.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp75.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp79.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp83.i)
   %tobool.not = icmp eq ptr %retval.0.i155, null
   %Error = getelementptr inbounds nuw i8, ptr %this, i64 8
   %299 = load i8, ptr %Error, align 8
@@ -6282,7 +6282,7 @@ _ZN12OutputStreamlsEc.exit:                       ; preds = %if.then, %if.then.i
   br label %return
 
 if.end:                                           ; preds = %sw.epilog
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %TempBuffer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TempBuffer.i)
   %cmp.i = icmp eq i32 %C, 0
   br i1 %cmp.i, label %if.end.i.i.i, label %if.end.i
 
@@ -6408,7 +6408,7 @@ _ZN12OutputStream4growEm.exit.i.i30.i:            ; preds = %if.then.i._ZN12Outp
   br label %_ZL9outputHexR12OutputStreamj.exit
 
 _ZL9outputHexR12OutputStreamj.exit:               ; preds = %_ZN12OutputStream4growEm.exit.i.i.i, %while.end.i, %_ZN12OutputStream4growEm.exit.i.i30.i
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %TempBuffer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TempBuffer.i)
   br label %return
 
 return:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i236, %_ZN12OutputStream4growEm.exit.i.i211, %_ZN12OutputStream4growEm.exit.i.i186, %_ZN12OutputStream4growEm.exit.i.i161, %_ZN12OutputStream4growEm.exit.i.i136, %_ZN12OutputStream4growEm.exit.i.i111, %_ZN12OutputStream4growEm.exit.i.i86, %_ZN12OutputStream4growEm.exit.i.i61, %_ZN12OutputStream4growEm.exit.i.i36, %_ZN12OutputStream4growEm.exit.i.i, %_ZL9outputHexR12OutputStreamj.exit, %_ZN12OutputStreamlsEc.exit
@@ -6846,7 +6846,7 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
   br i1 %or.cond78.i, label %while.cond.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %while.cond.i, %if.end37.i, %if.then14.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %OS.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %OS.i)
   %45 = load ptr, ptr %Arena, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
@@ -7195,7 +7195,7 @@ _ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i: ; preds = %if.then.
 
 _ZN12_GLOBAL__N_19Demangler30demangleLocallyScopedNamePieceER10StringView.exit: ; preds = %_ZN10StringView12consumeFrontEc.exit17.i, %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i
   %retval.0.i58 = phi ptr [ %call2.i.sink9.i.i, %_ZN12_GLOBAL__N_19Demangler10copyStringE10StringView.exit.i ], [ null, %_ZN10StringView12consumeFrontEc.exit17.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %OS.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %OS.i)
   br label %_ZN12_GLOBAL__N_19Demangler22demangleNameScopePieceER10StringView.exit
 
 if.end17.i:                                       ; preds = %while.body.i, %if.then14.i, %if.then.i.i66, %_ZNK10StringView10startsWithEc.exit.i.i60, %if.end28.i, %if.end23.i, %if.end7.i67, %_ZNK10StringView4findEcm.exit.i, %if.end.i63
@@ -7532,9 +7532,9 @@ _ZN10StringView12consumeFrontES_.exit:            ; preds = %entry, %_ZNK10Strin
   br i1 %tobool, label %if.end, label %land.rhs.i.lr.ph.lr.ph
 
 land.rhs.i.lr.ph.lr.ph:                           ; preds = %_ZN10StringView12consumeFrontES_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Head.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %IsNegative.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %Value.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Head.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %IsNegative.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Value.i)
   %Arena.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %land.rhs.i.lr.ph
 
@@ -8332,9 +8332,9 @@ if.then152.i:                                     ; preds = %_ZNK10StringView10s
 
 _ZN12_GLOBAL__N_19Demangler29demangleTemplateParameterListER10StringView.exit: ; preds = %if.end142.i, %if.then.i, %if.then152.i
   %retval.0.i = phi ptr [ %call154.i, %if.then152.i ], [ null, %if.then.i ], [ null, %if.end142.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Head.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %IsNegative.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %Value.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Head.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %IsNegative.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Value.i)
   %TemplateParams = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %retval.0.i, ptr %TemplateParams, align 8
   %.pre340 = load i8, ptr %Error, align 8
@@ -11358,10 +11358,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20

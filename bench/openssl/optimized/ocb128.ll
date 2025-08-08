@@ -27,10 +27,7 @@ define ptr @CRYPTO_ocb128_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CRYPTO_ocb128_init(ptr noundef initializes((0, 176)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -221,13 +218,10 @@ ocb_double.exit61:                                ; preds = %92
   ret i32 %.0
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr noundef writeonly captures(none) initializes((0, 176)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -280,7 +274,7 @@ define range(i32 0, 2) i32 @CRYPTO_ocb128_copy_ctx(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -288,10 +282,10 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr noundef captures(none) %0, 
   %6 = alloca [16 x i8], align 16
   %7 = alloca [24 x i8], align 16
   %8 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = add i64 %2, -16
   %or.cond = icmp ult i64 %9, -15
   %10 = add i64 %3, -17
@@ -386,17 +380,17 @@ ocb_block_lshift.exit:                            ; preds = %49
 
 66:                                               ; preds = %4, %ocb_block_lshift.exit
   %.0 = phi i32 [ 1, %ocb_block_lshift.exit ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CRYPTO_ocb128_aad(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.OCB_BLOCK, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = lshr i64 %2, 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8, !tbaa !22
@@ -593,7 +587,7 @@ ocb_lookup_l.exit:                                ; preds = %18, %ocb_ntz.exit, 
 
 .critedge:                                        ; preds = %27, %ocb_lookup_l.exit, %104
   %.2 = phi i32 [ 1, %104 ], [ 0, %ocb_lookup_l.exit ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.2
 }
 
@@ -729,7 +723,7 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   %.179129 = phi ptr [ %1, %.lr.ph132 ], [ %113, %104 ]
   %.182128 = phi ptr [ %2, %.lr.ph132 ], [ %130, %104 ]
   %.084.in127 = phi i64 [ %9, %.lr.ph132 ], [ %.084130, %104 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %70 = and i64 %.084.in127, 1
   %.not5.i.not = icmp eq i64 %70, 0
   br i1 %.not5.i.not, label %ocb_lookup_l.exit114, label %.lr.ph.i97
@@ -854,7 +848,7 @@ ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, 
   store i64 %129, ptr %66, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.182128, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %.182128, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.084 = add i64 %.084130, 1
   %.not89 = icmp ugt i64 %.084, %10
   br i1 %.not89, label %.loopexit, label %69, !llvm.loop !27
@@ -867,7 +861,7 @@ ocb_lookup_l.exit114:                             ; preds = %69, %ocb_ntz.exit, 
   br i1 %.not93, label %164, label %132
 
 132:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %134 = load i64, ptr %133, align 8, !tbaa !17
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -915,7 +909,7 @@ ocb_block_xor.exit:                               ; preds = %146
   %162 = load i64, ptr %161, align 8, !tbaa !17
   %163 = xor i64 %162, %160
   store i64 %163, ptr %161, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %164
 
 164:                                              ; preds = %ocb_block_xor.exit, %.loopexit
@@ -923,7 +917,7 @@ ocb_block_xor.exit:                               ; preds = %146
   br label %.critedge
 
 .critedge95:                                      ; preds = %78, %ocb_lookup_l.exit114
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %ocb_lookup_l.exit, %.critedge95, %164
@@ -1042,7 +1036,7 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
   br label %133
 
 59:                                               ; preds = %11, %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.089139 = add i64 %9, 1
   %.not94140 = icmp ugt i64 %.089139, %10
   br i1 %.not94140, label %.thread127, label %.lr.ph146
@@ -1063,7 +1057,7 @@ ocb_lookup_l.exit:                                ; preds = %.preheader, %._crit
 .thread127:                                       ; preds = %106, %59
   %.186.lcssa = phi ptr [ %2, %59 ], [ %132, %106 ]
   %.182.lcssa = phi ptr [ %1, %59 ], [ %115, %106 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %133
 
 70:                                               ; preds = %.lr.ph146, %106
@@ -1108,7 +1102,7 @@ ocb_ntz.exit:                                     ; preds = %.lr.ph.i100
   br i1 %.not34.i106, label %.thread128, label %87
 
 .thread128:                                       ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 87:                                               ; preds = %79
@@ -1163,7 +1157,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
   br i1 %.not95130, label %.thread131, label %106
 
 .thread131:                                       ; preds = %ocb_lookup_l.exit117.thread129
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 106:                                              ; preds = %ocb_lookup_l.exit117, %ocb_lookup_l.exit117.thread129
@@ -1218,7 +1212,7 @@ ocb_lookup_l.exit117.thread129:                   ; preds = %70, %ocb_ntz.exit
   br i1 %.not98, label %167, label %135
 
 135:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %137 = load i64, ptr %136, align 8, !tbaa !17
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1266,7 +1260,7 @@ ocb_block_xor.exit:                               ; preds = %149
   %165 = load i64, ptr %164, align 8, !tbaa !17
   %166 = xor i64 %165, %163
   store i64 %166, ptr %164, align 8, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %167
 
 167:                                              ; preds = %ocb_block_xor.exit, %133
@@ -1281,7 +1275,7 @@ ocb_block_xor.exit:                               ; preds = %149
 ; Function Attrs: nounwind uwtable
 define i32 @CRYPTO_ocb128_finish(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.OCB_BLOCK, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i64 %2, -17
   %or.cond.i = icmp ult i64 %5, -16
   br i1 %or.cond.i, label %ocb_finish.exit, label %6
@@ -1325,14 +1319,14 @@ define i32 @CRYPTO_ocb128_finish(ptr noundef readonly captures(none) %0, ptr nou
 
 ocb_finish.exit:                                  ; preds = %3, %6
   %.0.i = phi i32 [ %35, %6 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @CRYPTO_ocb128_tag(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.OCB_BLOCK, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i64 %2, -17
   %or.cond.i = icmp ult i64 %5, -16
   br i1 %or.cond.i, label %ocb_finish.exit, label %6
@@ -1376,7 +1370,7 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_tag(ptr noundef readonly captures(non
 
 ocb_finish.exit:                                  ; preds = %3, %6
   %.0.i = phi i32 [ 1, %6 ], [ -1, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.i
 }
 
@@ -1399,22 +1393,28 @@ define void @CRYPTO_ocb128_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

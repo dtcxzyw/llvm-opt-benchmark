@@ -90,7 +90,7 @@ define internal void @release_each(ptr noundef %0, ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_stream_map_alloc(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.quic_stream_st, align 8
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %1, ptr %5, align 8, !tbaa !27
   %6 = load ptr, ptr %0, align 8, !tbaa !3
@@ -149,17 +149,11 @@ define ptr @ossl_quic_stream_map_alloc(ptr noundef readonly captures(none) %0, i
 
 48:                                               ; preds = %8, %3, %11
   %.0 = phi ptr [ %9, %11 ], [ null, %3 ], [ null, %8 ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_quic_stream_map_release(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -228,26 +222,26 @@ define void @ossl_quic_stream_map_release(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @ossl_quic_sstream_free(ptr noundef) local_unnamed_addr #3
+declare void @ossl_quic_sstream_free(ptr noundef) local_unnamed_addr #2
 
-declare void @ossl_quic_rstream_free(ptr noundef) local_unnamed_addr #3
+declare void @ossl_quic_rstream_free(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_stream_map_get_by_id(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.quic_stream_st, align 8
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1, ptr %4, align 8, !tbaa !27
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = call ptr @OPENSSL_LH_retrieve(ptr noundef %5, ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_stream_map_set_rr_stepping(ptr noundef writeonly captures(none) initializes((56, 72)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define void @ossl_quic_stream_map_set_rr_stepping(ptr noundef writeonly captures(none) initializes((56, 72)) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -466,9 +460,9 @@ qsm_ready_for_gc.exit.thread:                     ; preds = %57, %qsm_ready_for_
   br i1 %.not50, label %95, label %.critedge
 
 95:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %96 = lshr i64 %91, 8
   %trunc.i = trunc i64 %96 to i8
   %trunc.off.i = add i8 %trunc.i, -1
@@ -489,9 +483,9 @@ qsm_ready_for_gc.exit.thread:                     ; preds = %57, %qsm_ready_for_
 
 stream_has_data_to_send.exit.thread:              ; preds = %.stream_has_data_to_send.exit.thread_crit_edge, %95
   %.pre79 = phi i64 [ %.pre79.pre, %.stream_has_data_to_send.exit.thread_crit_edge ], [ %91, %95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 stream_has_data_to_send.exit:                     ; preds = %97
@@ -511,9 +505,9 @@ stream_has_data_to_send.exit:                     ; preds = %97
   %113 = load i64, ptr %112, align 8
   %114 = icmp ult i64 %113, %111
   %narrow.i64 = select i1 %or.cond.i63, i1 true, i1 %114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre81 = load i64, ptr %6, align 8
   br i1 %narrow.i64, label %.critedge54, label %.critedge
 
@@ -600,7 +594,7 @@ stream_map_mark_active.exit:                      ; preds = %stream_map_mark_act
   ret void
 }
 
-declare i32 @ossl_quic_sstream_is_totally_acked(ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_quic_sstream_is_totally_acked(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_totally_acked(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -637,10 +631,10 @@ shutdown_flush_done.exit:                         ; preds = %13, %6, %2
   ret i32 %.0
 }
 
-declare i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_stream_map_ensure_send_part_id(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_stream_map_ensure_send_part_id(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 8
@@ -692,7 +686,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_all_data_sent(ptr nounde
   ret i32 %.0
 }
 
-declare i32 @ossl_quic_sstream_get_final_size(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_quic_sstream_get_final_size(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -759,10 +753,10 @@ shutdown_flush_done.exit:                         ; preds = %13, %22
   ret i32 %.0
 }
 
-declare i64 @ossl_quic_txfc_get_swm(ptr noundef) local_unnamed_addr #3
+declare i64 @ossl_quic_txfc_get_swm(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 8
@@ -787,7 +781,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_stream_acked(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_size_known_recv_part(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_size_known_recv_part(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 16711680
@@ -806,7 +800,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_size_known_recv_part(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_totally_received(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_totally_received(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 16711680
@@ -850,7 +844,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_totally_read(ptr noundef
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_reset_recv_part(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 16
@@ -901,12 +895,12 @@ ossl_quic_stream_recv_get_final_size.exit.thread: ; preds = %ossl_quic_stream_re
 
 20:                                               ; preds = %ossl_quic_stream_recv_get_final_size.exit, %4, %19, %ossl_quic_stream_recv_get_final_size.exit.thread
   %.0 = phi i32 [ 1, %ossl_quic_stream_recv_get_final_size.exit.thread ], [ 1, %19 ], [ 0, %4 ], [ 0, %ossl_quic_stream_recv_get_final_size.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_app_read_reset_recv_part(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_quic_stream_map_notify_app_read_reset_recv_part(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 16711680
@@ -991,7 +985,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_schedule_stop_sending(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
+define ptr @ossl_quic_stream_map_peek_accept_queue(ptr noundef readonly captures(address) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8, !tbaa !38
@@ -1012,7 +1006,7 @@ list_next.exit:                                   ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #7 {
+define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %3, align 8, !tbaa !37
@@ -1070,7 +1064,7 @@ define void @ossl_quic_stream_map_remove_from_accept_queue(ptr noundef captures(
   ret void
 }
 
-declare i32 @ossl_quic_rxfc_on_retire(ptr noundef, i64 noundef, i64) local_unnamed_addr #3
+declare i32 @ossl_quic_rxfc_on_retire(ptr noundef, i64 noundef, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_stream_map_get_accept_queue_len(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -1092,7 +1086,7 @@ define i64 @ossl_quic_stream_map_get_total_accept_queue_len(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ossl_quic_stream_map_gc(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define void @ossl_quic_stream_map_gc(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
 list_next.exit:
   ret void
 }
@@ -1150,7 +1144,7 @@ define range(i32 0, 2) i32 @ossl_quic_stream_map_is_shutdown_flush_finished(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_iter_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @ossl_quic_stream_iter_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   store ptr %1, ptr %0, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !46
@@ -1198,7 +1192,7 @@ list_next.exit:                                   ; preds = %14, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_iter_next(ptr noundef captures(none) %0) local_unnamed_addr #9 {
+define void @ossl_quic_stream_iter_next(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %4 = icmp eq ptr %3, null
@@ -1232,9 +1226,9 @@ list_next.exit:                                   ; preds = %5, %10
   ret void
 }
 
-declare ptr @OPENSSL_LH_set_thunks(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_LH_set_thunks(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @lh_QUIC_STREAM_hfn_thunk(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
@@ -1249,32 +1243,38 @@ define internal i32 @lh_QUIC_STREAM_cfn_thunk(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @lh_QUIC_STREAM_doall_thunk(ptr noundef %0, ptr noundef readonly captures(none) %1) #10 {
+define internal void @lh_QUIC_STREAM_doall_thunk(ptr noundef %0, ptr noundef readonly captures(none) %1) #9 {
   tail call void %1(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @lh_QUIC_STREAM_doall_arg_thunk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #10 {
+define internal void @lh_QUIC_STREAM_doall_arg_thunk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #9 {
   tail call void %2(ptr noundef %0, ptr noundef %1) #13
   ret void
 }
 
-declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_LH_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_LH_doall_arg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_LH_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_LH_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_LH_delete(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_LH_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @ossl_quic_sstream_get_stream_frame(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_quic_sstream_get_stream_frame(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @ossl_quic_txfc_get_credit(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @ossl_quic_txfc_get_credit(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ossl_quic_rxfc_get_final_size(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ossl_quic_rxfc_get_final_size(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #11
@@ -1284,15 +1284,15 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nounwind }

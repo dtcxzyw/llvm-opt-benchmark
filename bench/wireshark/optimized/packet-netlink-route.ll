@@ -550,33 +550,33 @@ define hidden void @proto_register_netlink_route() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @hf_netlink_route_ifi_flags_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @hf_netlink_route_ifi_flags_label.iff_vals)
   %4 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 16, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.178, i32 noundef %1)
   %5 = call i64 @g_strlcat(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 240)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @netlink_route_ifa_flags_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @netlink_route_ifa_flags_label.iff_vals)
   %4 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 16, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.178, i32 noundef %1)
   %5 = call i64 @g_strlcat(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 240)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @netlink_route_nd_states_label(ptr noundef initializes((0, 1)) %0, i32 noundef %1) #0 {
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call fastcc void @_fill_label_value_string_bitmask(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @netlink_route_nd_states_label.flags_vals)
   %4 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %3, i64 noundef 16, i32 noundef 2, i64 noundef 16, ptr noundef nonnull @.str.342, i32 noundef %1)
   %5 = call i64 @g_strlcat(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 240)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -595,7 +595,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.netlink_route_info, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 
@@ -605,7 +605,7 @@ define internal i32 @dissect_netlink_route(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.413, i32 noundef 1248, ptr noundef nonnull @.str.414) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.413, i32 noundef 1248, ptr noundef nonnull @.str.414) #5
   unreachable
 
 10:                                               ; preds = %6
@@ -808,7 +808,7 @@ dissect_netlink_route_ndmsg.exit:                 ; preds = %10, %10, %134
 
 dissect_netlink_route_ifaddrmsg.exit.thread:      ; preds = %98, %70, %10, %134, %dissect_netlink_route_ndmsg.exit, %105, %77, %dissect_netlink_route_ifinfomsg.exit
   %.0 = phi i32 [ %21, %10 ], [ %65, %dissect_netlink_route_ifinfomsg.exit ], [ %93, %77 ], [ %133, %105 ], [ %21, %134 ], [ %153, %dissect_netlink_route_ndmsg.exit ], [ %75, %70 ], [ %103, %98 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -822,13 +822,10 @@ define hidden void @proto_reg_handoff_netlink_route() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @_fill_label_value_string_bitmask(ptr noundef initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -890,24 +887,21 @@ define internal fastcc void @_fill_label_value_string_bitmask(ptr noundef initia
   br label %31
 
 31:                                               ; preds = %28, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -932,9 +926,9 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   switch i32 %4, label %157 [
     i32 3, label %11
     i32 4, label %16
@@ -1172,16 +1166,16 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifla_attrs(ptr nounde
 
 157:                                              ; preds = %7, %151, %145, %139, %133, %108, %103, %100, %97, %90, %83, %77, %69, %63, %57, %51, %45, %39, %33, %28, %22, %16, %11
   %.0 = phi i32 [ 1, %11 ], [ 1, %16 ], [ 1, %22 ], [ 1, %28 ], [ 1, %33 ], [ 1, %39 ], [ 1, %45 ], [ 1, %51 ], [ 1, %57 ], [ 1, %63 ], [ 1, %69 ], [ 1, %77 ], [ 1, %83 ], [ 1, %90 ], [ 1, %97 ], [ 1, %100 ], [ 1, %103 ], [ 1, %108 ], [ 1, %133 ], [ 1, %139 ], [ 1, %145 ], [ 1, %151 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i32 %4, label %30 [
     i32 3, label %9
     i32 8, label %14
@@ -1226,14 +1220,14 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_ifa_attrs(ptr noundef
 
 30:                                               ; preds = %7, %22, %26, %14, %9
   %.0 = phi i32 [ 1, %9 ], [ 1, %14 ], [ 1, %26 ], [ 1, %22 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   switch i32 %4, label %18 [
     i32 3, label %9
     i32 4, label %11
@@ -1259,7 +1253,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_route_route_attrs(ptr nound
 
 18:                                               ; preds = %.sink.split, %7, %11, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %11 ], [ 0, %7 ], [ 1, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -1353,13 +1347,18 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -71,7 +71,7 @@ declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !4
   switch i32 %5, label %.thread [
@@ -554,25 +554,19 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
 
 .thread:                                          ; preds = %._crit_edge, %31, %37, %42, %59, %50, %leap_year.exit, %149, %.preheader.split, %203, %224, %209, %194, %179, %173, %.preheader.split.us, %238, %162, %7, %140, %141, %.critedge, %160, %243, %161, %245, %246, %2
   %.0122 = phi i32 [ 0, %2 ], [ 1, %246 ], [ 1, %245 ], [ 0, %161 ], [ 0, %243 ], [ 0, %160 ], [ 0, %.critedge ], [ 0, %141 ], [ 0, %140 ], [ 0, %7 ], [ 0, %162 ], [ 0, %238 ], [ 0, %.preheader.split.us ], [ 0, %173 ], [ 0, %179 ], [ 0, %194 ], [ 0, %209 ], [ 0, %224 ], [ 0, %203 ], [ 0, %.preheader.split ], [ 0, %149 ], [ 0, %leap_year.exit ], [ 0, %50 ], [ 0, %59 ], [ 0, %42 ], [ 0, %37 ], [ 0, %31 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0122
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @ossl_ascii_isdigit(i32 noundef) local_unnamed_addr #2
 
 declare i32 @OPENSSL_gmtime_adj(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ossl_asn1_time_from_tm(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -690,9 +684,9 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #2
 define dso_local noundef ptr @ASN1_TIME_set(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -709,8 +703,8 @@ define dso_local noundef ptr @ASN1_TIME_set(ptr noundef %0, i64 noundef %1) loca
 
 ASN1_TIME_adj.exit:                               ; preds = %7, %8
   %.0.i = phi ptr [ null, %7 ], [ %9, %8 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -719,7 +713,7 @@ define dso_local noundef ptr @ASN1_TIME_adj(ptr noundef %0, i64 noundef %1, i32 
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
   store i64 %1, ptr %5, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -747,7 +741,7 @@ define dso_local noundef ptr @ASN1_TIME_adj(ptr noundef %0, i64 noundef %1, i32 
 
 17:                                               ; preds = %13, %15, %9
   %.0 = phi ptr [ null, %9 ], [ %16, %15 ], [ null, %13 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -789,17 +783,17 @@ declare i32 @ASN1_UTCTIME_check(ptr noundef) local_unnamed_addr #2
 define dso_local noundef ptr @ASN1_TIME_to_generalizedtime(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %ASN1_TIME_to_tm.exit
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call i64 @time(ptr noundef nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %8 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.not.i.not = icmp eq ptr %8, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.not, label %ossl_asn1_time_from_tm.exit.thread, label %11
 
 ASN1_TIME_to_tm.exit:                             ; preds = %2
@@ -871,7 +865,7 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %25
 
 ossl_asn1_time_from_tm.exit.thread:               ; preds = %6, %29, %30, %.thread, %ossl_asn1_time_from_tm.exit, %41, %ASN1_TIME_to_tm.exit
   %.011 = phi ptr [ null, %ASN1_TIME_to_tm.exit ], [ %.149.i, %41 ], [ %.149.i, %ossl_asn1_time_from_tm.exit ], [ null, %.thread ], [ null, %30 ], [ null, %29 ], [ null, %6 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.011
 }
 
@@ -882,13 +876,13 @@ define dso_local range(i32 0, 2) i32 @ASN1_TIME_to_tm(ptr noundef readonly captu
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = call i64 @time(ptr noundef nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   %7 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %1) #8
   %.not = icmp ne ptr %7, null
   %. = zext i1 %.not to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 8:                                                ; preds = %2
@@ -924,8 +918,8 @@ define dso_local range(i32 0, 2) i32 @ASN1_TIME_set_string_X509(ptr noundef %0, 
 ASN1_TIME_check.exit:
   %2 = alloca %struct.asn1_string_st, align 8
   %3 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %5 = trunc i64 %4 to i32
   store i32 %5, ptr %2, align 8, !tbaa !13
@@ -1007,13 +1001,13 @@ ASN1_TIME_check.exit18:                           ; preds = %ASN1_TIME_check.exi
 
 39:                                               ; preds = %36, %38, %21, %15, %ASN1_TIME_check.exit18
   %.0 = phi i32 [ 0, %21 ], [ %.1, %38 ], [ %.1, %36 ], [ 0, %15 ], [ 0, %ASN1_TIME_check.exit18 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1022,7 +1016,7 @@ declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #7
+declare i64 @time(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ASN1_TIME_diff(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
@@ -1030,18 +1024,18 @@ define dso_local i32 @ASN1_TIME_diff(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca i64, align 8
   %7 = alloca %struct.tm, align 8
   %8 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %2, null
   br i1 %9, label %10, label %ASN1_TIME_to_tm.exit
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = call i64 @time(ptr noundef nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %12 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not.i.not = icmp eq ptr %12, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not.i.not, label %24, label %15
 
 ASN1_TIME_to_tm.exit:                             ; preds = %4
@@ -1054,12 +1048,12 @@ ASN1_TIME_to_tm.exit:                             ; preds = %4
   br i1 %16, label %17, label %ASN1_TIME_to_tm.exit8
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = call i64 @time(ptr noundef nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %19 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %5, ptr noundef nonnull %8) #8
   %.not.i6.not = icmp eq ptr %19, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i6.not, label %24, label %22
 
 ASN1_TIME_to_tm.exit8:                            ; preds = %15
@@ -1073,8 +1067,8 @@ ASN1_TIME_to_tm.exit8:                            ; preds = %15
 
 24:                                               ; preds = %17, %10, %ASN1_TIME_to_tm.exit8, %ASN1_TIME_to_tm.exit, %22
   %.0 = phi i32 [ %23, %22 ], [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %ASN1_TIME_to_tm.exit8 ], [ 0, %10 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -1099,7 +1093,7 @@ define dso_local range(i32 0, 2) i32 @ASN1_TIME_print_ex(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 2) i32 @ossl_asn1_time_print_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @ossl_asn1_time_to_tm(ptr noundef nonnull %4, ptr noundef %1)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
@@ -1246,7 +1240,7 @@ define dso_local range(i32 -1, 2) i32 @ossl_asn1_time_print_ex(ptr noundef %0, p
 
 104:                                              ; preds = %32, %49, %86, %69, %6
   %.027 = phi i32 [ %85, %69 ], [ %103, %86 ], [ %8, %6 ], [ %48, %32 ], [ %66, %49 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.027
 }
 
@@ -1263,20 +1257,20 @@ define dso_local range(i32 -2, 2) i32 @ASN1_TIME_cmp_time_t(ptr noundef readonly
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i64 %1, ptr %4, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %ASN1_TIME_to_tm.exit
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call i64 @time(ptr noundef nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %12 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %3, ptr noundef nonnull %5) #8
   %.not.i.not = icmp eq ptr %12, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.not, label %27, label %15
 
 ASN1_TIME_to_tm.exit:                             ; preds = %2
@@ -1311,17 +1305,17 @@ ASN1_TIME_to_tm.exit:                             ; preds = %2
 
 27:                                               ; preds = %10, %24, %19, %17, %15, %ASN1_TIME_to_tm.exit
   %.0 = phi i32 [ -2, %ASN1_TIME_to_tm.exit ], [ -2, %15 ], [ -2, %17 ], [ 1, %19 ], [ %., %24 ], [ -2, %10 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @ASN1_TIME_normalize(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.tm, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ossl_asn1_time_from_tm.exit, label %ASN1_TIME_to_tm.exit
 
@@ -1393,7 +1387,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %1
 
 ossl_asn1_time_from_tm.exit:                      ; preds = %41, %17, %9, %.thread.i, %1, %ASN1_TIME_to_tm.exit
   %.0 = phi i32 [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %1 ], [ 1, %41 ], [ 0, %17 ], [ 0, %9 ], [ 0, %.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1401,8 +1395,8 @@ ossl_asn1_time_from_tm.exit:                      ; preds = %41, %17, %9, %.thre
 define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @ASN1_TIME_diff(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
@@ -1424,19 +1418,25 @@ define dso_local range(i32 -2, 2) i32 @ASN1_TIME_compare(ptr noundef readonly ca
 
 14:                                               ; preds = %11, %6, %2
   %.0 = phi i32 [ -2, %2 ], [ 1, %6 ], [ %., %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

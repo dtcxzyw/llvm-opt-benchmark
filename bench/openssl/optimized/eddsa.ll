@@ -62,9 +62,9 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_derive_public_key(ptr noundef %0, p
   %5 = alloca [57 x i8], align 16
   %6 = alloca [1 x %struct.curve448_scalar_s], align 16
   %7 = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc i32 @oneshot_hash(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 57, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %21, label %9
@@ -100,31 +100,25 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_derive_public_key(ptr noundef %0, p
 
 21:                                               ; preds = %4, %19
   %.06 = phi i32 [ -1, %19 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ossl_curve448_scalar_decode_long(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_decode_long(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_halve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_halve(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_precomputed_scalarmul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_precomputed_scalarmul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_destroy(ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_point_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_point_destroy(ptr noundef) local_unnamed_addr #2
-
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
@@ -137,17 +131,17 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   %17 = alloca [1 x %struct.curve448_scalar_s], align 16
   %18 = alloca [1 x %struct.curve448_point_s], align 16
   %19 = alloca [114 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %20 = tail call ptr @EVP_MD_CTX_new() #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 57, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %13, i8 0, i64 57, i1 false)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %55, label %22
 
 22:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 114, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %23 = call fastcc i32 @oneshot_hash(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 114, ptr noundef %2, ptr noundef %9)
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.thread, label %24
@@ -183,27 +177,27 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   br label %.thread
 
 .thread:                                          ; preds = %37, %22
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %54
 
 38:                                               ; preds = %35
   call void @OPENSSL_cleanse(ptr noundef nonnull %15, i64 noundef 114) #5
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 114, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %39 = call i32 @EVP_DigestFinalXOF(ptr noundef nonnull %20, ptr noundef nonnull %16, i64 noundef 114) #5
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %40, label %41
 
 40:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %16) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %54
 
 41:                                               ; preds = %38
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %12, ptr noundef nonnull %16, i64 noundef 114) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %16, i64 noundef 114) #5
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %16) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %18) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %17, ptr noundef nonnull %12) #5
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %17, ptr noundef nonnull %17) #5
   %42 = load ptr, ptr @ossl_curve448_precomputed_base, align 8, !tbaa !8
@@ -211,9 +205,9 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   call void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef nonnull %13, ptr noundef nonnull %18) #5
   call void @ossl_curve448_point_destroy(ptr noundef nonnull %18) #5
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %17) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #5
-  call void @llvm.lifetime.start.p0(i64 114, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %43 = call fastcc i32 @hash_init_with_dom(ptr noundef %0, ptr noundef %20, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, ptr noundef %9)
   %.not46 = icmp eq i32 %43, 0
   br i1 %.not46, label %.thread64, label %44
@@ -239,13 +233,13 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
   br i1 %.not50, label %.thread64, label %52
 
 .thread64:                                        ; preds = %50, %48, %46, %44, %41
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %54
 
 52:                                               ; preds = %50
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %14, ptr noundef nonnull %19, i64 noundef 114) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %19, i64 noundef 114) #5
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @ossl_curve448_scalar_mul(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %11) #5
   call void @ossl_curve448_scalar_add(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %12) #5
   call void @OPENSSL_cleanse(ptr noundef %1, i64 noundef 114) #5
@@ -264,25 +258,25 @@ define range(i32 -1, 1) i32 @ossl_c448_ed448_sign(ptr noundef %0, ptr noundef %1
 
 55:                                               ; preds = %10, %54
   %.040 = phi i32 [ %.039, %54 ], [ 0, %10 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.040
 }
 
-declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %0, ptr noundef nonnull %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [9 x i8], align 1
   %8 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @__const.hash_init_with_dom.dom_s, i64 9, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ugt i64 %4, 255
   br i1 %9, label %25, label %10
 
@@ -325,25 +319,25 @@ define internal fastcc range(i32 -1, 1) i32 @hash_init_with_dom(ptr noundef %0, 
 
 25:                                               ; preds = %.sink.split, %10, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %10 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestFinalXOF(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestFinalXOF(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @ossl_curve448_scalar_encode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_encode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @ossl_c448_ed448_sign_prehash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -358,10 +352,10 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
   %12 = alloca [1 x %struct.curve448_scalar_s], align 16
   %13 = alloca [1 x %struct.curve448_scalar_s], align 16
   %14 = alloca [114 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %17
 
 15:                                               ; preds = %25
@@ -396,7 +390,7 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 31:                                               ; preds = %29
   %32 = call ptr @EVP_MD_CTX_new() #5
-  call void @llvm.lifetime.start.p0(i64 114, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.critedge, label %34
 
@@ -428,14 +422,14 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .critedge:                                        ; preds = %43, %41, %39, %37, %34, %31
   call void @EVP_MD_CTX_free(ptr noundef %32) #5
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread
 
 45:                                               ; preds = %43
   call void @EVP_MD_CTX_free(ptr noundef nonnull %32) #5
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %12, ptr noundef nonnull %14, i64 noundef 114) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %14, i64 noundef 114) #5
-  call void @llvm.lifetime.end.p0(i64 114, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @ossl_curve448_scalar_sub(ptr noundef nonnull %12, ptr noundef nonnull @ossl_curve448_scalar_zero, ptr noundef nonnull %12) #5
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 57
   call void @ossl_curve448_scalar_decode_long(ptr noundef nonnull %13, ptr noundef nonnull %46, i64 noundef 57) #5
@@ -446,20 +440,20 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .thread:                                          ; preds = %15, %17, %.critedge, %29, %27, %45
   %.0 = phi i32 [ %48, %45 ], [ %28, %27 ], [ %30, %29 ], [ 0, %.critedge ], [ 0, %17 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
-declare i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_scalar_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_scalar_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @ossl_curve448_point_eq(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @ossl_curve448_point_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_c448_ed448_verify_prehash(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -478,7 +472,7 @@ define range(i32 0, 2) i32 @ossl_ed448_sign(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ed448_pubkey_verify(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.curve448_point_s], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq i64 %1, 57
   br i1 %.not.i, label %4, label %c448_ed448_pubkey_verify.exit
 
@@ -488,7 +482,7 @@ define i32 @ossl_ed448_pubkey_verify(ptr noundef %0, i64 noundef %1) local_unnam
 
 c448_ed448_pubkey_verify.exit:                    ; preds = %2, %4
   %.0.i = phi i32 [ %5, %4 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -509,17 +503,23 @@ define range(i32 0, 2) i32 @ossl_ed448_public_from_private(ptr noundef %0, ptr n
   ret i32 %7
 }
 
-declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

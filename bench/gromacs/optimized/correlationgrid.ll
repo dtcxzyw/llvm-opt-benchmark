@@ -57,7 +57,7 @@ define void @_ZN3gmx15CorrelationGridC2EiidNS0_18BlockLengthMeasureEd(ptr nounde
   %11 = fcmp ogt double %3, 0.000000e+00
   %. = select i1 %10, double 1.000000e+00, double %5
   %12 = select i1 %11, double %3, double %.
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN3gmx17CorrelationTensorC1Eiid(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %2, i32 noundef 7, double noundef %12)
           to label %13 unwind label %43
 
@@ -86,7 +86,7 @@ define void @_ZN3gmx15CorrelationGridC2EiidNS0_18BlockLengthMeasureEd(ptr nounde
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %24, %25
-  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #16
+  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i:      ; preds = %21, %.lr.ph.i.i.i.i.i
@@ -101,7 +101,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i:      ; preds = %21, %.lr.ph.i.i.i.i
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
   %34 = sub i64 %32, %33
-  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #16
+  call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef %34) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i: ; preds = %29, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i
@@ -124,11 +124,11 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds 
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %36 to i64
   %42 = sub i64 %40, %41
-  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #16
+  call void @_ZdlPvm(ptr noundef nonnull %36, i64 noundef %42) #15
   br label %_ZN3gmx17CorrelationTensorD2Ev.exit
 
 _ZN3gmx17CorrelationTensorD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i, %37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 43:                                               ; preds = %6
@@ -139,18 +139,15 @@ _ZN3gmx17CorrelationTensorD2Ev.exit:              ; preds = %_ZSt8_DestroyIPN3gm
 45:                                               ; preds = %13
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN3gmx17CorrelationTensorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #15
+  call void @_ZN3gmx17CorrelationTensorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #16
   br label %47
 
 47:                                               ; preds = %45, %43
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
-  call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #16
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -201,7 +198,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE6resizeE
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
   %28 = sub i64 %26, %27
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %28) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %28) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %23, %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -216,7 +213,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %23, %.lr.ph.i.
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %36) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %31, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i
@@ -239,7 +236,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %38 to i64
   %44 = sub i64 %42, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %44) #15
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i.i: ; preds = %39, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
@@ -255,10 +252,10 @@ _ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE15_M_erase_at_endEPS1_.exit: ; pre
   ret void
 }
 
-declare void @_ZN3gmx17CorrelationTensorC1Eiid(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, double noundef) unnamed_addr #2
+declare void @_ZN3gmx17CorrelationTensorC1Eiid(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, double noundef) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3gmx17CorrelationTensorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx17CorrelationTensorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
@@ -278,7 +275,7 @@ define linkonce_odr void @_ZN3gmx17CorrelationTensorD2Ev(ptr noundef nonnull ali
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %12) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i:        ; preds = %7, %.lr.ph.i.i.i.i
@@ -293,7 +290,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i:        ; preds = %7, %.lr.ph.i.i.i.i
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i: ; preds = %15, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i
@@ -316,18 +313,15 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i: ; preds = 
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %22 to i64
   %28 = sub i64 %26, %27
-  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %28) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef %28) #15
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i, %23
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !32
@@ -355,7 +349,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EED2Ev(ptr
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %10, %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -370,7 +364,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %10, %.lr.ph.i.i.
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %18, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -393,7 +387,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i: 
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
   %31 = sub i64 %29, %30
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %31) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %31) #15
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i: ; preds = %26, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
@@ -416,7 +410,7 @@ _ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #15
   br label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, %34
@@ -442,7 +436,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE14_M_fil
   br i1 %.not65, label %135, label %15
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %16, align 8, !tbaa !39
@@ -533,7 +527,7 @@ _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1
   %57 = ptrtoint ptr %56 to i64
   %58 = ptrtoint ptr %53 to i64
   %59 = sub i64 %57, %58
-  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #16
+  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %59) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %54, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
@@ -548,7 +542,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %54, %.lr.p
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %61 to i64
   %67 = sub i64 %65, %66
-  call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #16
+  call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %62, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -564,7 +558,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i
   %70 = ptrtoint ptr %46 to i64
   %71 = ptrtoint ptr %42 to i64
   %72 = sub i64 %70, %71
-  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %72) #16
+  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %72) #15
   br label %_ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i
 
 _ZN3gmx17CorrelationTensoraSEOS0_.exit.i.i.i.i.i: ; preds = %69, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
@@ -599,8 +593,8 @@ _ZSt13move_backwardIPN3gmx17CorrelationTensorES2_ET0_T_S4_S3_.exit: ; preds = %_
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %87
   %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %228
 
 78:                                               ; preds = %15
@@ -624,7 +618,7 @@ _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; pre
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  %85 = call ptr @__cxa_begin_catch(ptr %84) #15
+  %85 = call ptr @__cxa_begin_catch(ptr %84) #16
   invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %17, ptr noundef nonnull %.015.i.i.i.i)
           to label %86 unwind label %87
 
@@ -714,7 +708,7 @@ _ZSt4fillIPN3gmx17CorrelationTensorES1_EvT_S3_RKT0_.exit: ; preds = %.noexc80, %
   %116 = ptrtoint ptr %115 to i64
   %117 = ptrtoint ptr %112 to i64
   %118 = sub i64 %116, %117
-  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #16
+  call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %118) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %113, %.lr.ph.i.i.i.i.i.i.i.i
@@ -729,7 +723,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %113, %.lr.ph.i.i.i
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %120 to i64
   %126 = sub i64 %124, %125
-  call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef %126) #16
+  call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef %126) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %121, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
@@ -752,11 +746,11 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %128 to i64
   %134 = sub i64 %132, %133
-  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #16
+  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %134) #15
   br label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit
 
 _ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i, %129
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %227
 
 135:                                              ; preds = %6
@@ -809,7 +803,7 @@ _ZSt10_ConstructIN3gmx17CorrelationTensorEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i86: ; p
   %157 = landingpad { ptr, i32 }
           catch ptr null
   %158 = extractvalue { ptr, i32 } %157, 0
-  %159 = tail call ptr @__cxa_begin_catch(ptr %158) #15
+  %159 = tail call ptr @__cxa_begin_catch(ptr %158) #16
   invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %153, ptr noundef nonnull %.015.i.i.i.i84)
           to label %160 unwind label %161
 
@@ -907,7 +901,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0
   %194 = ptrtoint ptr %193 to i64
   %195 = ptrtoint ptr %190 to i64
   %196 = sub i64 %194, %195
-  tail call void @_ZdlPvm(ptr noundef nonnull %190, i64 noundef %196) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %190, i64 noundef %196) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %191, %.lr.ph.i.i.i.i.i.i.i.i.i
@@ -922,7 +916,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %191, %.lr.ph.i.i
   %202 = ptrtoint ptr %201 to i64
   %203 = ptrtoint ptr %198 to i64
   %204 = sub i64 %202, %203
-  tail call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef %204) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef %204) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %199, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -945,7 +939,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i: 
   %210 = ptrtoint ptr %209 to i64
   %211 = ptrtoint ptr %206 to i64
   %212 = sub i64 %210, %211
-  tail call void @_ZdlPvm(ptr noundef nonnull %206, i64 noundef %212) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %206, i64 noundef %212) #15
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i.i: ; preds = %207, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i.i
@@ -961,7 +955,7 @@ _ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt
   %215 = load ptr, ptr %7, align 8, !tbaa !35
   %216 = ptrtoint ptr %215 to i64
   %217 = sub i64 %216, %137
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %217) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %217) #15
   br label %_ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, %214
@@ -973,7 +967,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
 
 .body89:                                          ; preds = %161
   %219 = extractvalue { ptr, i32 } %162, 0
-  %220 = tail call ptr @__cxa_begin_catch(ptr %219) #15
+  %220 = tail call ptr @__cxa_begin_catch(ptr %219) #16
   %.not66 = icmp eq ptr %152, null
   %221 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %153, i64 %2
   %222 = select i1 %.not66, ptr %153, ptr %152
@@ -989,7 +983,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
 
 .thread:                                          ; preds = %.body89
   %226 = mul nuw nsw i64 %146, 24
-  tail call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef %226) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %152, i64 noundef %226) #15
   invoke void @__cxa_rethrow() #17
           to label %232 unwind label %224
 
@@ -1012,7 +1006,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Temporary_valueD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1033,7 +1027,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE16_Tempo
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %8, %.lr.ph.i.i.i.i.i.i.i
@@ -1048,7 +1042,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %8, %.lr.ph.i.i.i.i.
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %16, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -1071,7 +1065,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; pr
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #15
   br label %_ZNSt16allocator_traitsISaIN3gmx17CorrelationTensorEEE7destroyIS1_EEvRS2_PT_.exit
 
 _ZNSt16allocator_traitsISaIN3gmx17CorrelationTensorEEE7destroyIS1_EEvRS2_PT_.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i, %24
@@ -1081,7 +1075,7 @@ _ZNSt16allocator_traitsISaIN3gmx17CorrelationTensorEEE7destroyIS1_EEvRS2_PT_.exi
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_.exit, label %.lr.ph.i.i
 
@@ -1106,7 +1100,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaI
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %8 to i64
   %14 = sub i64 %12, %13
-  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %14) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i.i.i.i.i
@@ -1121,7 +1115,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %9, %.lr.ph.i.i.i.i
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
   %22 = sub i64 %20, %21
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef %22) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %17, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
@@ -1144,7 +1138,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i: ; 
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #15
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i.i: ; preds = %25, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i.i
@@ -1161,14 +1155,14 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #7
+declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx20CorrelationBlockDataESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1224,7 +1218,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #15
+  %25 = tail call ptr @__cxa_begin_catch(ptr %24) #16
   invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %14, ptr noundef nonnull %.014.i.i.i.i)
           to label %26 unwind label %27
 
@@ -1263,7 +1257,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3gmx20Correlation
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %33 to i64
   %38 = sub i64 %36, %37
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %38) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %38) #15
   br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EED2Ev.exit
 
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EED2Ev.exit: ; preds = %34, %.body
@@ -1271,19 +1265,19 @@ _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EED2Ev.exit: ; preds = %34
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3gmx20CorrelationBlockDataEEEvT_S5_.exit, label %.lr.ph.i
 
@@ -1300,7 +1294,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef %10) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %5, %.lr.ph.i
@@ -1315,7 +1309,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i:              ; preds = %5, %.lr.ph.i
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i: ; preds = %13, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i
@@ -1328,7 +1322,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN3gmx20CorrelationBlockDataEEEvT_S5_.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3gmx20CorrelationBlockDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN3gmx20CorrelationBlockDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(44) %1, i64 44, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1443,7 +1437,7 @@ _ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i: ; preds = %31
   %51 = ptrtoint ptr %50 to i64
   %52 = ptrtoint ptr %48 to i64
   %53 = sub i64 %51, %52
-  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %53) #15
   br label %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = %46, %49
@@ -1451,13 +1445,13 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN3gmx17CorrelationTensorEEEvT_S5_.exit, label %.lr.ph.i
 
@@ -1482,7 +1476,7 @@ define linkonce_odr void @_ZSt8_DestroyIPN3gmx17CorrelationTensorEEvT_S3_(ptr no
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %13) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %8, %.lr.ph.i.i.i.i.i.i.i
@@ -1497,7 +1491,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i:  ; preds = %8, %.lr.ph.i.i.i.i.
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %21) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %16, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -1520,7 +1514,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i: ; pr
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #15
   br label %_ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i
 
 _ZSt8_DestroyIN3gmx17CorrelationTensorEEvPT_.exit.i: ; preds = %24, %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
@@ -1575,7 +1569,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %28, %29
-  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i:          ; preds = %25, %.lr.ph.i.i.i
@@ -1590,7 +1584,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i:          ; preds = %25, %.lr.ph.i.i.i
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %32 to i64
   %38 = sub i64 %36, %37
-  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i: ; preds = %33, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i
@@ -1612,7 +1606,7 @@ _ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit: ; preds = %_
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64
   %45 = sub i64 %43, %44
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #15
   br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx20CorrelationBlockDataES1_EvT_S3_RSaIT0_E.exit, %41
@@ -1684,7 +1678,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3gmx20CorrelationBlockDataESt6vector
   %73 = ptrtoint ptr %72 to i64
   %74 = ptrtoint ptr %69 to i64
   %75 = sub i64 %73, %74
-  tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #15
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i28
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i28:        ; preds = %70, %.lr.ph.i.i.i26
@@ -1699,7 +1693,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i28:        ; preds = %70, %.lr.ph.i.i.i26
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %77 to i64
   %83 = sub i64 %81, %82
-  tail call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #15
   br label %_ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i30
 
 _ZSt8_DestroyIN3gmx20CorrelationBlockDataEEvPT_.exit.i.i.i30: ; preds = %78, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i.i.i.i28
@@ -1767,7 +1761,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRS1_EEvPT_DpOT0_.exit.i.i.i.i: ; p
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #15
+  %107 = tail call ptr @__cxa_begin_catch(ptr %106) #16
   invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %99, ptr noundef nonnull %.016.i.i.i.i)
           to label %108 unwind label %109
 
@@ -1852,7 +1846,7 @@ _ZSt10_ConstructIN3gmx20CorrelationBlockDataEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; 
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #15
+  %19 = tail call ptr @__cxa_begin_catch(ptr %18) #16
   invoke void @_ZSt8_DestroyIPN3gmx20CorrelationBlockDataEEvT_S3_(ptr noundef %13, ptr noundef nonnull %.014.i.i.i.i)
           to label %20 unwind label %21
 
@@ -1881,13 +1875,13 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3gmx20Correlation
 
 .body:                                            ; preds = %21
   %27 = extractvalue { ptr, i32 } %22, 0
-  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #15
+  %28 = tail call ptr @__cxa_begin_catch(ptr %27) #16
   %.not.i11 = icmp eq ptr %13, null
   br i1 %.not.i11, label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit, label %29
 
 29:                                               ; preds = %.body
   %30 = mul i64 %1, 96
-  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %30) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %13, i64 noundef %30) #15
   br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockDataESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %29, %.body
@@ -1961,7 +1955,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE20_M_allocate_and_cop
   br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocateEPS2_m.exit, label %25
 
 25:                                               ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #15
   br label %_ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, %25
@@ -2073,7 +2067,7 @@ _ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_
   br i1 %.not.i, label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #15
   br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %22
@@ -2141,10 +2135,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3gmx15CorrelationGrid12getNumBlocksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #12 align 2 {
+define noundef i32 @_ZNK3gmx15CorrelationGrid12getNumBlocksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2162,7 +2156,7 @@ define noundef i32 @_ZNK3gmx15CorrelationGrid12getNumBlocksEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef double @_ZNK3gmx15CorrelationGrid14getBlockLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK3gmx15CorrelationGrid14getBlockLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = load ptr, ptr %3, align 8, !tbaa !17
@@ -2170,6 +2164,12 @@ define noundef double @_ZNK3gmx15CorrelationGrid14getBlockLengthEv(ptr noundef n
   %6 = load double, ptr %5, align 8, !tbaa !60
   ret double %6
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
@@ -2181,22 +2181,22 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { noreturn nounwind }
 attributes #19 = { builtin allocsize(0) }

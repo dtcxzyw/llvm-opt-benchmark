@@ -10,14 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = load double, ptr %0, align 8, !tbaa !4
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -527,15 +521,15 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load double, ptr %1, align 8, !tbaa !4
   %9 = load double, ptr %0, align 8, !tbaa !4
   %10 = fsub double %8, %9
@@ -871,16 +865,16 @@ define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef
 
 259:                                              ; preds = %192, %241, %239, %80, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %80 ], [ %193, %192 ], [ %.3, %241 ], [ %240, %239 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %6
 
 6:                                                ; preds = %3, %6
@@ -937,17 +931,17 @@ define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readon
 
 42:                                               ; preds = %32, %17
   %.0 = phi i32 [ 0, %17 ], [ %., %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %2, align 8, !tbaa !10
   %7 = load double, ptr %6, align 8, !tbaa !4
   %8 = load double, ptr %0, align 8, !tbaa !4
@@ -1226,13 +1220,13 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
 
 208:                                              ; preds = %196, %188, %180, %172, %161, %149, %134, %122, %110, %96, %83, %70, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %70 ], [ 0, %83 ], [ 0, %96 ], [ 0, %110 ], [ 0, %122 ], [ 0, %134 ], [ 0, %149 ], [ 0, %161 ], [ 0, %172 ], [ 0, %180 ], [ 0, %188 ], [ %207, %196 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest8AABBAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest8AABBAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %1, align 8, !tbaa !4
   %6 = load double, ptr %2, align 8, !tbaa !4
   %7 = fcmp olt double %5, %6
@@ -1287,7 +1281,7 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest8AABBAABBERKN5Ei
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriangle3dERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriangle3dERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.Eigen::Matrix", align 16
   %8 = alloca %"class.Eigen::Matrix", align 16
   %9 = alloca %"class.Eigen::Matrix", align 16
@@ -1364,37 +1358,37 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriang
   %80 = fdiv double %79, 5.000000e+00
   %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %80)
   %81 = fadd double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i, 0x3D719799812DEA11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = fdiv <2 x double> %43, %62
   store <2 x double> %82, ptr %7, align 16, !tbaa !13
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %84 = fdiv double %63, %81
   store double %84, ptr %83, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %85 = fdiv <2 x double> %45, %62
   store <2 x double> %85, ptr %8, align 16, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %87 = fdiv double %65, %81
   store double %87, ptr %86, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %88 = fdiv <2 x double> %48, %62
   store <2 x double> %88, ptr %9, align 16, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %90 = fdiv double %68, %81
   store double %90, ptr %89, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %91 = fdiv <2 x double> %51, %62
   store <2 x double> %91, ptr %10, align 16, !tbaa !13
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %93 = fdiv double %71, %81
   store double %93, ptr %92, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %94 = fdiv <2 x double> %54, %62
   store <2 x double> %94, ptr %11, align 16, !tbaa !13
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %96 = fdiv double %74, %81
   store double %96, ptr %95, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %97 = fdiv <2 x double> %57, %62
   store <2 x double> %97, ptr %12, align 16, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1402,22 +1396,22 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriang
   store double %99, ptr %98, align 16, !tbaa !4
   %100 = call noundef i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %101 = icmp ne i32 %100, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %101
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 16, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8, !tbaa !10
@@ -1425,12 +1419,12 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBER
   store ptr %4, ptr %8, align 16, !tbaa !10
   %9 = call noundef i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %10 = icmp ne i32 %9, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanarERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanarERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %5, align 8, !tbaa !4, !noalias !14
@@ -1480,7 +1474,7 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %6 = load <2 x double>, ptr %2, align 8, !tbaa !13
   %7 = fsub <2 x double> %5, %6
@@ -1598,7 +1592,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load <2 x double>, ptr %1, align 8, !tbaa !13
   %6 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %7 = fsub <2 x double> %5, %6
@@ -1850,16 +1844,21 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimu
   ret double %.scalar.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

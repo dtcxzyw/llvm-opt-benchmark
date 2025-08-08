@@ -348,17 +348,11 @@ Py_DECREF.exit76:                                 ; preds = %131, %128, %.thread
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @PyDict_New() local_unnamed_addr #1
 
-declare ptr @PyDict_New() local_unnamed_addr #2
+declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_SetItemString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @_PyInterpreterConfig_InitFromDict(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -384,7 +378,7 @@ define dso_local range(i32 -1, 1) i32 @_PyInterpreterConfig_InitFromDict(ptr nou
   ret i32 %.0
 }
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @interp_config_from_dict(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -408,7 +402,7 @@ define internal fastcc range(i32 -1, 1) i32 @interp_config_from_dict(ptr noundef
   br i1 %18, label %config_dict_get.exit.thread, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %10) #6
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %_config_dict_get.exit.thread.i, label %22
@@ -419,11 +413,11 @@ define internal fastcc range(i32 -1, 1) i32 @interp_config_from_dict(ptr noundef
   br i1 %24, label %_config_dict_get.exit.thread.i, label %25
 
 _config_dict_get.exit.thread.i:                   ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_config_dict_get_bool.exit
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %26 = icmp eq ptr %23, @_Py_TrueStruct
   %27 = icmp ne ptr %23, @_Py_FalseStruct
   %or.cond.i = xor i1 %26, %27
@@ -472,13 +466,13 @@ _config_dict_get_bool.exit:                       ; preds = %Py_DECREF.exit9.i, 
   br i1 %brmerge, label %config_dict_get.exit, label %44
 
 44:                                               ; preds = %_config_dict_get_bool.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %9) #6
   %46 = icmp slt i32 %45, 0
   %47 = load ptr, ptr %9, align 8
   %48 = icmp eq ptr %47, null
   %or.cond = select i1 %46, i1 true, i1 %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %or.cond, label %49, label %config_dict_get.exit.thread
 
 49:                                               ; preds = %44
@@ -500,7 +494,7 @@ config_dict_get.exit:                             ; preds = %_config_dict_get_bo
   br i1 %.not, label %config_dict_get.exit.thread, label %55
 
 55:                                               ; preds = %config_dict_get.exit.thread145, %config_dict_get.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %_config_dict_get.exit.thread.i102, label %58
@@ -511,11 +505,11 @@ config_dict_get.exit:                             ; preds = %_config_dict_get_bo
   br i1 %60, label %_config_dict_get.exit.thread.i102, label %61
 
 _config_dict_get.exit.thread.i102:                ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_config_dict_get_bool.exit103
 
 61:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %62 = icmp eq ptr %59, @_Py_TrueStruct
   %63 = icmp ne ptr %59, @_Py_FalseStruct
   %or.cond.i96 = xor i1 %62, %63
@@ -564,13 +558,13 @@ _config_dict_get_bool.exit103:                    ; preds = %Py_DECREF.exit9.i10
   br i1 %brmerge81, label %config_dict_get.exit106, label %80
 
 80:                                               ; preds = %_config_dict_get_bool.exit103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %81 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #6
   %82 = icmp slt i32 %81, 0
   %83 = load ptr, ptr %7, align 8
   %84 = icmp eq ptr %83, null
   %or.cond193 = select i1 %82, i1 true, i1 %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %or.cond193, label %85, label %config_dict_get.exit.thread
 
 85:                                               ; preds = %80
@@ -593,7 +587,7 @@ config_dict_get.exit106:                          ; preds = %_config_dict_get_bo
   br i1 %.not56, label %config_dict_get.exit.thread, label %92
 
 92:                                               ; preds = %config_dict_get.exit106.thread153, %config_dict_get.exit106
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %93 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #6
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %_config_dict_get.exit.thread.i113, label %95
@@ -604,11 +598,11 @@ config_dict_get.exit106:                          ; preds = %_config_dict_get_bo
   br i1 %97, label %_config_dict_get.exit.thread.i113, label %98
 
 _config_dict_get.exit.thread.i113:                ; preds = %95, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_config_dict_get_bool.exit114
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %99 = icmp eq ptr %96, @_Py_TrueStruct
   %100 = icmp ne ptr %96, @_Py_FalseStruct
   %or.cond.i107 = xor i1 %99, %100
@@ -670,7 +664,7 @@ _config_dict_get_bool.exit114:                    ; preds = %Py_DECREF.exit9.i11
   br i1 %.not57, label %config_dict_get.exit.thread, label %120
 
 120:                                              ; preds = %.thread, %119
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #6
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %_config_dict_get.exit.thread.i121, label %123
@@ -681,11 +675,11 @@ _config_dict_get_bool.exit114:                    ; preds = %Py_DECREF.exit9.i11
   br i1 %125, label %_config_dict_get.exit.thread.i121, label %126
 
 _config_dict_get.exit.thread.i121:                ; preds = %123, %120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_config_dict_get_bool.exit122
 
 126:                                              ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %127 = icmp eq ptr %124, @_Py_TrueStruct
   %128 = icmp ne ptr %124, @_Py_FalseStruct
   %or.cond.i115 = xor i1 %127, %128
@@ -747,7 +741,7 @@ _config_dict_get_bool.exit122:                    ; preds = %Py_DECREF.exit9.i12
   br i1 %.not58, label %config_dict_get.exit.thread, label %148
 
 148:                                              ; preds = %.thread167, %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %149 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #6
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %_config_dict_get.exit.thread.i129, label %151
@@ -758,11 +752,11 @@ _config_dict_get_bool.exit122:                    ; preds = %Py_DECREF.exit9.i12
   br i1 %153, label %_config_dict_get.exit.thread.i129, label %154
 
 _config_dict_get.exit.thread.i129:                ; preds = %151, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_config_dict_get_bool.exit130
 
 154:                                              ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %155 = icmp eq ptr %152, @_Py_TrueStruct
   %156 = icmp ne ptr %152, @_Py_FalseStruct
   %or.cond.i123 = xor i1 %155, %156
@@ -824,7 +818,7 @@ _config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i12
   br i1 %.not59, label %config_dict_get.exit.thread, label %176
 
 176:                                              ; preds = %.thread176, %175
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %177 = call fastcc i32 @_config_dict_get_bool(ptr noundef %14, ptr noundef nonnull @.str.5, ptr noundef %11)
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %179, label %.thread182
@@ -837,7 +831,7 @@ _config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i12
 
 .thread185:                                       ; preds = %179
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %config_dict_get.exit.thread
 
 .thread182:                                       ; preds = %176
@@ -845,11 +839,11 @@ _config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i12
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %181, ptr %182, align 4, !tbaa !14
   %183 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %185
 
 184:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not60, label %config_dict_get.exit.thread, label %185
 
 185:                                              ; preds = %.thread182, %184
@@ -870,7 +864,7 @@ _config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i12
   br label %config_dict_get.exit.thread
 
 192:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %193 = call fastcc i32 @gil_flag_from_str(ptr noundef %12, ptr noundef %13)
   %194 = icmp slt i32 %193, 0
   br i1 %194, label %198, label %.thread188
@@ -880,11 +874,11 @@ _config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i12
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %195, ptr %196, align 4, !tbaa !15
   %197 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.6, ptr noundef null) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %199
 
 198:                                              ; preds = %192
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %config_dict_get.exit.thread
 
 199:                                              ; preds = %.thread188, %190
@@ -964,7 +958,7 @@ define dso_local range(i32 -1, 1) i32 @_PyInterpreterConfig_UpdateFromDict(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_PyInterpreterConfig_InitFromState(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define dso_local noundef i32 @_PyInterpreterConfig_InitFromState(ptr noundef writeonly captures(none) initializes((0, 28)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8440
   %4 = load i64, ptr %3, align 8, !tbaa !36
   %5 = trunc i64 %4 to i32
@@ -994,14 +988,14 @@ define dso_local noundef i32 @_PyInterpreterConfig_InitFromState(ptr noundef wri
   ret i32 0
 }
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_config_dict_get_bool(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #6
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %_config_dict_get.exit.thread, label %7
@@ -1012,11 +1006,11 @@ define internal fastcc range(i32 -1, 1) i32 @_config_dict_get_bool(ptr noundef n
   br i1 %9, label %_config_dict_get.exit.thread, label %10
 
 _config_dict_get.exit.thread:                     ; preds = %3, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = icmp eq ptr %8, @_Py_TrueStruct
   %12 = icmp ne ptr %8, @_Py_FalseStruct
   %or.cond = xor i1 %11, %12
@@ -1067,18 +1061,18 @@ Py_DECREF.exit:                                   ; preds = %21, %24, %27
   ret i32 %.0
 }
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #2
+declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @config_dict_get(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #6
   %5 = icmp slt i32 %4, 0
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
   %or.cond = select i1 %5, i1 true, i1 %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %or.cond, label %8, label %13
 
 8:                                                ; preds = %2
@@ -1095,12 +1089,12 @@ define internal fastcc void @config_dict_get(ptr noundef nonnull %0, ptr noundef
   ret void
 }
 
-declare i32 @PyDict_PopString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_PopString(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_config_dict_copy_str(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #6
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_config_dict_get.exit.thread, label %6
@@ -1111,11 +1105,11 @@ define internal fastcc range(i32 -1, 1) i32 @_config_dict_copy_str(ptr noundef n
   br i1 %8, label %_config_dict_get.exit.thread, label %9
 
 _config_dict_get.exit.thread:                     ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %Py_DECREF.exit
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = getelementptr i8, ptr %7, i64 8
   %.val = load ptr, ptr %10, align 8, !tbaa !19
   %11 = getelementptr i8, ptr %.val, i64 168
@@ -1199,24 +1193,30 @@ define internal fastcc range(i32 -1, 1) i32 @gil_flag_from_str(ptr noundef nonnu
   ret i32 %.07
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @PyDict_GetItemStringRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PyDict_GetItemStringRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
-declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }
 

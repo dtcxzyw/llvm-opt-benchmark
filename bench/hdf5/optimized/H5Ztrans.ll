@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @H5Z_xform_eval(ptr noundef readonly captures(none) 
   %16 = alloca float, align 4
   %17 = alloca double, align 8
   %18 = alloca x86_fp80, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   %21 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -309,7 +309,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %133, label %134, label %146
 
 134:                                              ; preds = %131
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %135 = icmp eq i32 %130, 1
   %136 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %135, label %137, label %140
@@ -328,7 +328,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %144 = phi i8 [ %139, %137 ], [ %142, %140 ]
   store i8 %144, ptr %6, align 1, !tbaa !20
   %145 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %6, i64 noundef 1, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 146:                                              ; preds = %131
@@ -337,7 +337,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %148, label %149, label %161
 
 149:                                              ; preds = %146
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %150 = icmp eq i32 %130, 1
   %151 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %150, label %152, label %155
@@ -356,7 +356,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %159 = phi i8 [ %154, %152 ], [ %157, %155 ]
   store i8 %159, ptr %7, align 1, !tbaa !20
   %160 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %7, i64 noundef 1, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 161:                                              ; preds = %146
@@ -365,7 +365,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %163, label %164, label %176
 
 164:                                              ; preds = %161
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %165 = icmp eq i32 %130, 1
   %166 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %165, label %167, label %170
@@ -384,7 +384,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %174 = phi i16 [ %169, %167 ], [ %172, %170 ]
   store i16 %174, ptr %8, align 2, !tbaa !21
   %175 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %8, i64 noundef 2, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 176:                                              ; preds = %161
@@ -393,7 +393,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %178, label %179, label %191
 
 179:                                              ; preds = %176
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %180 = icmp eq i32 %130, 1
   %181 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %180, label %182, label %185
@@ -412,7 +412,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %189 = phi i16 [ %184, %182 ], [ %187, %185 ]
   store i16 %189, ptr %9, align 2, !tbaa !21
   %190 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %9, i64 noundef 2, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 191:                                              ; preds = %176
@@ -421,7 +421,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %193, label %194, label %206
 
 194:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %195 = icmp eq i32 %130, 1
   %196 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %195, label %197, label %200
@@ -440,7 +440,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %204 = phi i32 [ %199, %197 ], [ %202, %200 ]
   store i32 %204, ptr %10, align 4, !tbaa !23
   %205 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %10, i64 noundef 4, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 206:                                              ; preds = %191
@@ -449,7 +449,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %208, label %209, label %221
 
 209:                                              ; preds = %206
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %210 = icmp eq i32 %130, 1
   %211 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %210, label %212, label %215
@@ -468,7 +468,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %219 = phi i32 [ %214, %212 ], [ %217, %215 ]
   store i32 %219, ptr %11, align 4, !tbaa !23
   %220 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %11, i64 noundef 4, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 221:                                              ; preds = %206
@@ -477,7 +477,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %223, label %224, label %235
 
 224:                                              ; preds = %221
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %225 = icmp eq i32 %130, 1
   %226 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %225, label %227, label %229
@@ -495,7 +495,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %233 = phi i64 [ %228, %227 ], [ %231, %229 ]
   store i64 %233, ptr %12, align 8, !tbaa !10
   %234 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %12, i64 noundef 8, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 235:                                              ; preds = %221
@@ -504,7 +504,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %237, label %238, label %249
 
 238:                                              ; preds = %235
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %239 = icmp eq i32 %130, 1
   %240 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %239, label %241, label %243
@@ -522,7 +522,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %247 = phi i64 [ %242, %241 ], [ %245, %243 ]
   store i64 %247, ptr %13, align 8, !tbaa !10
   %248 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %13, i64 noundef 8, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
 249:                                              ; preds = %235
@@ -531,7 +531,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %251, label %252, label %263
 
 252:                                              ; preds = %249
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %253 = icmp eq i32 %130, 1
   %254 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %253, label %255, label %257
@@ -549,7 +549,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %261 = phi i64 [ %256, %255 ], [ %259, %257 ]
   store i64 %261, ptr %14, align 8, !tbaa !24
   %262 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %14, i64 noundef 8, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit
 
 263:                                              ; preds = %249
@@ -558,7 +558,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %265, label %266, label %277
 
 266:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %267 = icmp eq i32 %130, 1
   %268 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %267, label %269, label %271
@@ -576,7 +576,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %275 = phi i64 [ %270, %269 ], [ %273, %271 ]
   store i64 %275, ptr %15, align 8, !tbaa !24
   %276 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %15, i64 noundef 8, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
 277:                                              ; preds = %263
@@ -585,7 +585,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %279, label %280, label %292
 
 280:                                              ; preds = %277
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %281 = icmp eq i32 %130, 1
   %282 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %281, label %283, label %286
@@ -604,7 +604,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %290 = phi float [ %285, %283 ], [ %288, %286 ]
   store float %290, ptr %16, align 4, !tbaa !26
   %291 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %16, i64 noundef 4, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.loopexit
 
 292:                                              ; preds = %277
@@ -613,7 +613,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %294, label %295, label %306
 
 295:                                              ; preds = %292
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %296 = icmp eq i32 %130, 1
   %297 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %296, label %298, label %301
@@ -631,7 +631,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %304 = phi double [ %300, %298 ], [ %302, %301 ]
   store double %304, ptr %17, align 8, !tbaa !28
   %305 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %17, i64 noundef 8, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 306:                                              ; preds = %292
@@ -640,7 +640,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   br i1 %308, label %309, label %.loopexit
 
 309:                                              ; preds = %306
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %310 = icmp eq i32 %130, 1
   %311 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %310, label %312, label %315
@@ -659,7 +659,7 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
   %319 = phi x86_fp80 [ %314, %312 ], [ %317, %315 ]
   store x86_fp80 %319, ptr %18, align 16, !tbaa !30
   %320 = call i32 @H5VM_array_fill(ptr noundef %1, ptr noundef nonnull %18, i64 noundef 16, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
 321:                                              ; preds = %128
@@ -792,38 +792,32 @@ H5Z__xform_find_type.exit:                        ; preds = %117, %111, %105, %9
 
 .loopexit:                                        ; preds = %.lr.ph135, %395, %361, %365, %143, %173, %203, %232, %260, %289, %306, %318, %303, %274, %246, %218, %188, %158, %.critedge, %31
   %.1 = phi i32 [ -1, %.critedge ], [ 0, %31 ], [ 0, %158 ], [ 0, %188 ], [ 0, %218 ], [ 0, %246 ], [ 0, %274 ], [ 0, %303 ], [ 0, %318 ], [ 0, %306 ], [ 0, %289 ], [ 0, %260 ], [ 0, %232 ], [ 0, %203 ], [ 0, %173 ], [ 0, %143 ], [ 0, %365 ], [ 0, %361 ], [ -1, %395 ], [ 0, %.lr.ph135 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5Z__init_package() local_unnamed_addr #1
 
-declare i32 @H5Z__init_package() local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @H5VM_array_fill(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5VM_array_fill(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #2
+declare i64 @H5T_get_size(ptr noundef) local_unnamed_addr #1
 
-declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
+declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.result, align 8
   %6 = alloca %struct.result, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -7071,12 +7065,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5Z__xform_eval_full(ptr no
 
 3074:                                             ; preds = %3049, %2991, %2937, %2879, %2821, %2763, %2705, %2647, %2589, %2531, %2473, %2412, %2354, %2295, %2237, %2183, %2125, %2067, %2009, %1951, %1893, %1835, %1777, %1719, %1661, %1603, %1545, %1487, %1433, %1375, %1317, %1259, %1201, %1143, %1085, %1027, %969, %911, %853, %795, %737, %683, %625, %567, %509, %451, %393, %335, %277, %219, %161, %103, %4, %16, %24, %3066, %3059, %20, %3070, %3053, %43, %34
   %.01798 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %24 ], [ -1, %34 ], [ -1, %43 ], [ -1, %3053 ], [ 0, %3059 ], [ 0, %3066 ], [ -1, %3070 ], [ -1, %103 ], [ -1, %161 ], [ -1, %219 ], [ -1, %277 ], [ -1, %335 ], [ -1, %393 ], [ -1, %451 ], [ -1, %509 ], [ -1, %567 ], [ -1, %625 ], [ -1, %683 ], [ -1, %737 ], [ -1, %795 ], [ -1, %853 ], [ -1, %911 ], [ -1, %969 ], [ -1, %1027 ], [ -1, %1085 ], [ -1, %1143 ], [ -1, %1201 ], [ -1, %1259 ], [ -1, %1317 ], [ -1, %1375 ], [ -1, %1433 ], [ -1, %1487 ], [ -1, %1545 ], [ -1, %1603 ], [ -1, %1661 ], [ -1, %1719 ], [ -1, %1777 ], [ -1, %1835 ], [ -1, %1893 ], [ -1, %1951 ], [ -1, %2009 ], [ -1, %2067 ], [ -1, %2125 ], [ -1, %2183 ], [ -1, %2237 ], [ -1, %2295 ], [ -1, %2354 ], [ -1, %2412 ], [ -1, %2473 ], [ -1, %2531 ], [ -1, %2589 ], [ -1, %2647 ], [ -1, %2705 ], [ -1, %2763 ], [ -1, %2821 ], [ -1, %2879 ], [ -1, %2937 ], [ -1, %2991 ], [ -1, %3049 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.01798
 }
 
-declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
+declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @H5Z_xform_create(ptr noundef %0) local_unnamed_addr #0 {
@@ -7247,7 +7241,7 @@ switch.early.test:                                ; preds = %60
 ._crit_edge.thread:                               ; preds = %.preheader, %75, %._crit_edge
   %.157.lcssa106 = phi i32 [ %.2, %75 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   store i32 0, ptr %26, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %85 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %86 = trunc nuw i8 %85 to i1
   %87 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -7257,7 +7251,7 @@ switch.early.test:                                ; preds = %60
   br i1 %90, label %H5Z__xform_parse.exit, label %H5Z__xform_parse.exit.thread, !prof !9
 
 H5Z__xform_parse.exit.thread:                     ; preds = %._crit_edge.thread
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
 H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
@@ -7268,7 +7262,7 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
   store ptr %0, ptr %2, align 8, !tbaa !208
   %93 = call fastcc ptr @H5Z__parse_expression(ptr noundef %2, ptr noundef nonnull %26)
   tail call fastcc void @H5Z__xform_reduce_tree(ptr noundef %93)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !12
   %95 = icmp eq ptr %93, null
@@ -7328,15 +7322,15 @@ H5Z__xform_parse.exit:                            ; preds = %._crit_edge.thread
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @H5MM_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @H5Z__xform_destroy_parse_tree(ptr noundef %0) unnamed_addr #0 {
@@ -7858,7 +7852,7 @@ common.ret1:                                      ; preds = %15, %27, %39, %55, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @H5Z_xform_noop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define zeroext i1 @H5Z_xform_noop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -7892,15 +7886,15 @@ define zeroext i1 @H5Z_xform_noop(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @H5Z_xform_extract_xform_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define ptr @H5Z_xform_extract_xform_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !201
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
-declare i32 @H5T_cmp(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @H5T_cmp(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @H5Z__parse_expression(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
@@ -9002,7 +8996,7 @@ define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull captures(none)
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @H5Z__do_op(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
@@ -9474,18 +9468,24 @@ define internal fastcc void @H5Z__do_op(ptr noundef nonnull captures(none) %0) u
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind allocsize(0) }
 attributes #14 = { nounwind allocsize(0,1) }

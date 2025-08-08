@@ -1248,7 +1248,7 @@ _ZN4NodenwEm.exit96:                              ; preds = %167, %169
   br i1 %.not126, label %284, label %220
 
 220:                                              ; preds = %212
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %221 = load i64, ptr %209, align 8
   %222 = icmp eq i64 %221, 0
   br i1 %222, label %223, label %.thread.i
@@ -1294,7 +1294,7 @@ _ZN4NodenwEm.exit96:                              ; preds = %167, %169
 
 _ZNK5Parse5Block13local_type_atEi.exit:           ; preds = %238, %240
   %.0.i = phi ptr [ %247, %240 ], [ %239, %238 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %248 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = add i32 %249, -23
@@ -1578,7 +1578,7 @@ _ZN13SafePointNode11set_controlEP4Node.exit:      ; preds = %_ZN4Node7del_outEPS
   br i1 %409, label %468, label %410
 
 410:                                              ; preds = %394
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %411 = load i64, ptr %391, align 8
   %412 = icmp eq i64 %411, 0
   br i1 %412, label %413, label %.thread.i106
@@ -1627,7 +1627,7 @@ _ZN13SafePointNode11set_controlEP4Node.exit:      ; preds = %_ZN4Node7del_outEPS
 
 _ZNK5Parse5Block13local_type_atEi.exit111:        ; preds = %431, %433
   %.0.i108 = phi ptr [ %440, %433 ], [ %432, %431 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %441 = getelementptr inbounds nuw i8, ptr %.0.i108, i64 16
   %442 = load i32, ptr %441, align 8
   %443 = add i32 %442, -23
@@ -3786,11 +3786,11 @@ define hidden noundef ptr @_ZN5Parse16create_entry_mapEv(ptr noundef nonnull ali
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load i32, ptr %38, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %37, i32 noundef %39, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
@@ -4408,13 +4408,13 @@ _ZN5Parse13set_parse_bciEi.exit:                  ; preds = %1, %9, %15, %17, %_
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef ptr %48(ptr noundef nonnull align 8 dereferenceable(144) %45) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = tail call noundef ptr @_ZN8ciObject5klassEv(ptr noundef nonnull align 8 dereferenceable(40) %49) #14
   store ptr %50, ptr %2, align 8
   %51 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #14
   %52 = load ptr, ptr %2, align 8
   %53 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 2, ptr noundef %52, ptr noundef %51, i1 noundef zeroext true, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %55, ptr noundef %53) #14
@@ -9803,7 +9803,7 @@ define hidden noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull readonly
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %41 = load ptr, ptr %40, align 8
   %42 = sub nuw i32 %1, %34
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %45 = load i64, ptr %44, align 8
@@ -9856,7 +9856,7 @@ define hidden noundef ptr @_ZN5Parse10ensure_phiEib(ptr noundef nonnull readonly
 
 _ZNK5Parse5Block13local_type_atEi.exit:           ; preds = %66, %68
   %.0.i = phi ptr [ %76, %68 ], [ %67, %66 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %115
 
 77:                                               ; preds = %28
@@ -12300,10 +12300,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

@@ -56,7 +56,7 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %43, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   call void @raxStart(ptr noundef nonnull %3, ptr noundef %10) #9
@@ -71,7 +71,7 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %.lr.ph, %36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr @PrefixTable, align 8, !tbaa !31
   %17 = load ptr, ptr %13, align 8, !tbaa !32
   %18 = load i64, ptr %14, align 8, !tbaa !36
@@ -107,7 +107,7 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
   br label %36
 
 36:                                               ; preds = %29, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %37 = call i32 @raxNext(ptr noundef nonnull %3) #9
   %.not5 = icmp eq i32 %37, 0
   br i1 %.not5, label %._crit_edge, label %15, !llvm.loop !42
@@ -121,7 +121,7 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
   %41 = load ptr, ptr %2, align 8, !tbaa !5
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 680
   store ptr null, ptr %42, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %43
@@ -146,34 +146,28 @@ define dso_local void @disableTracking(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @raxStart(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @raxSeek(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @raxNext(ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxNext(ptr noundef) local_unnamed_addr #2
+declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-declare i32 @raxRemove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @raxRemove(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @raxSize(ptr noundef) local_unnamed_addr #2
+declare i64 @raxSize(ptr noundef) local_unnamed_addr #1
 
-declare void @raxFree(ptr noundef) local_unnamed_addr #2
+declare void @raxFree(ptr noundef) local_unnamed_addr #1
 
-declare void @zfree(ptr noundef) local_unnamed_addr #2
+declare void @zfree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @raxStop(ptr noundef) local_unnamed_addr #2
+declare void @raxStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -198,7 +192,7 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
   br i1 %.not, label %49, label %10
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @raxStart(ptr noundef nonnull %4, ptr noundef nonnull %9) #9
   %11 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #9
   %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04068
@@ -264,7 +258,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 
 .thread:                                          ; preds = %13
   call void @raxStop(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 44:                                               ; preds = %sdslen.exit
@@ -275,7 +269,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %48, ptr noundef %45) #9
   call void @sdsfree(ptr noundef %45) #9
   call void @raxStop(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit58
 
 49:                                               ; preds = %.thread, %8
@@ -400,18 +394,18 @@ sdslen.exit49:                                    ; preds = %sdslen.exit47, %88,
   ret i32 %spec.select
 }
 
-declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #2
+declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @enableBcastTrackingForPrefix(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8, !tbaa !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @PrefixTable, align 8, !tbaa !31
   %7 = call i32 @raxFind(ptr noundef %6, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5) #9
   %.not = icmp eq i32 %7, 0
@@ -460,18 +454,18 @@ define dso_local void @enableBcastTrackingForPrefix(ptr noundef %0, ptr noundef 
   br label %33
 
 33:                                               ; preds = %30, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #3
 
-declare ptr @raxNew() local_unnamed_addr #2
+declare ptr @raxNew() local_unnamed_addr #1
 
-declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @enableTracking(ptr noundef initializes((672, 680)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -583,7 +577,7 @@ sdslen.exit:                                      ; preds = %.lr.ph, %36, %39, %
   ret void
 }
 
-declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -599,7 +593,7 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
   br i1 %or.cond, label %95, label %9
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 6, ptr %10, align 4
@@ -641,7 +635,7 @@ define dso_local void @trackingRememberKeys(ptr noundef %0, ptr noundef readonly
   %32 = load ptr, ptr %31, align 8, !tbaa !64
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %36 = getelementptr inbounds i8, ptr %34, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !67
@@ -759,7 +753,7 @@ sdslen.exit35:                                    ; preds = %59, %65, %68, %72, 
   br label %93
 
 93:                                               ; preds = %90, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !90
@@ -769,7 +763,7 @@ sdslen.exit35:                                    ; preds = %59, %65, %68, %72, 
   br label %94
 
 94:                                               ; preds = %.sink.split, %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %95
 
 95:                                               ; preds = %2, %94
@@ -777,11 +771,11 @@ sdslen.exit35:                                    ; preds = %59, %65, %68, %72, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @getKeysFromCommand(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getKeysFromCommand(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #2
+declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -971,34 +965,34 @@ define dso_local void @sendTrackingMessage(ptr noundef %0, ptr noundef %1, i64 n
   ret void
 }
 
-declare ptr @lookupClientByID(i64 noundef) local_unnamed_addr #2
+declare ptr @lookupClientByID(i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyPushLen(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyPushLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @pauseIOThread(i32 noundef) local_unnamed_addr #2
+declare void @pauseIOThread(i32 noundef) local_unnamed_addr #1
 
-declare void @addReplyPubsubMessage(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @addReplyPubsubMessage(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @addReplyProto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyProto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @updateClientMemUsageAndBucket(ptr noundef) local_unnamed_addr #2
+declare i32 @updateClientMemUsageAndBucket(ptr noundef) local_unnamed_addr #1
 
-declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #2
+declare i32 @clientHasPendingReplies(ptr noundef) local_unnamed_addr #1
 
-declare void @sendReplyToClient(ptr noundef) #2
+declare void @sendReplyToClient(ptr noundef) #1
 
-declare void @resumeIOThread(i32 noundef) local_unnamed_addr #2
+declare void @resumeIOThread(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingRememberKeyToBroadcast(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.raxIterator, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @PrefixTable, align 8, !tbaa !31
   call void @raxStart(ptr noundef nonnull %4, ptr noundef %5) #9
   %6 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #9
@@ -1040,7 +1034,7 @@ define dso_local void @trackingRememberKeyToBroadcast(ptr noundef %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %.backedge, %3
   call void @raxStop(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1111,7 +1105,7 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
   br label %37
 
 37:                                               ; preds = %36, %33, %sdslen.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %38 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %39 = call i32 @raxFind(ptr noundef %38, ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef nonnull %4) #9
   %.not26 = icmp eq i32 %39, 0
@@ -1119,7 +1113,7 @@ sdslen.exit:                                      ; preds = %8, %15, %18, %22, %
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %4, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @raxStart(ptr noundef nonnull %5, ptr noundef %41) #9
   %42 = call i32 @raxSeek(ptr noundef nonnull %5, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #9
   %43 = call i32 @raxNext(ptr noundef nonnull %5) #9
@@ -1229,20 +1223,20 @@ sdslen.exit35:                                    ; preds = %65, %71, %74, %78, 
   call void @raxFree(ptr noundef %41) #9
   %94 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %95 = call i32 @raxRemove(ptr noundef %94, ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef null) #9
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %96
 
 96:                                               ; preds = %37, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %97
 
 97:                                               ; preds = %3, %96
   ret void
 }
 
-declare void @incrRefCount(ptr noundef) local_unnamed_addr #2
+declare void @incrRefCount(ptr noundef) local_unnamed_addr #1
 
-declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_addr #0 {
@@ -1257,7 +1251,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
   br i1 %or.cond, label %75, label %8
 
 8:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @listRewind(ptr noundef nonnull %2, ptr noundef nonnull %1) #9
   %9 = call ptr @listNext(ptr noundef nonnull %1) #9
   %.not17 = icmp eq ptr %9, null
@@ -1391,20 +1385,20 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 ._crit_edge:                                      ; preds = %72, %8
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7664), align 8, !tbaa !103
   call void @listEmpty(ptr noundef %74) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %75
 
 75:                                               ; preds = %0, %._crit_edge
   ret void
 }
 
-declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @listRewind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @listNext(ptr noundef) local_unnamed_addr #2
+declare ptr @listNext(ptr noundef) local_unnamed_addr #1
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 
-declare void @listEmpty(ptr noundef) local_unnamed_addr #2
+declare void @listEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeTrackingRadixTreeCallback(ptr noundef %0) #0 {
@@ -1418,7 +1412,7 @@ define dso_local void @freeTrackingRadixTree(ptr noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @raxFreeWithCallback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnamed_addr #0 {
@@ -1428,7 +1422,7 @@ define dso_local void @trackingInvalidateKeysOnFlush(i32 noundef %0) local_unnam
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !109
   call void @listRewind(ptr noundef %5, ptr noundef nonnull %2) #9
   %6 = call ptr @listNext(ptr noundef nonnull %2) #9
@@ -1514,7 +1508,7 @@ sdslen.exit:                                      ; preds = %19, %31, %34, %38, 
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %49, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %51
 
 51:                                               ; preds = %._crit_edge, %1
@@ -1544,7 +1538,7 @@ sdslen.exit:                                      ; preds = %19, %31, %34, %38, 
   ret void
 }
 
-declare void @freeTrackingRadixTreeAsync(ptr noundef) local_unnamed_addr #2
+declare void @freeTrackingRadixTreeAsync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
@@ -1569,7 +1563,7 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   %10 = load i32, ptr @trackingLimitUsedSlots.timeout_counter, align 4, !tbaa !70
   %11 = mul i32 %10, 100
   %12 = add i32 %11, 100
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   call void @raxStart(ptr noundef nonnull %1, ptr noundef %13) #9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1613,22 +1607,22 @@ define dso_local void @trackingLimitUsedSlots() local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %28, %29
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %33
 
 33:                                               ; preds = %8, %32, %0
   ret void
 }
 
-declare i32 @raxRandomWalk(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @raxRandomWalk(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @raxEOF(ptr noundef) local_unnamed_addr #2
+declare i32 @raxEOF(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.raxIterator, align 8
   %4 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %8
 
@@ -1668,7 +1662,7 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
 
 17:                                               ; preds = %._crit_edge, %6
   %.023 = phi i64 [ %7, %6 ], [ %spec.select, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = call i32 @ll2string(ptr noundef nonnull %4, i64 noundef 32, i64 noundef %.023) #9
   %19 = sext i32 %18 to i64
   %20 = call ptr @sdsempty() #9
@@ -1735,29 +1729,29 @@ define dso_local ptr @trackingBuildBroadcastReply(ptr noundef readnone captures(
 .split.us:                                        ; preds = %43, %.split35.us, %.split36
   %.us-phi = phi ptr [ %25, %.split36 ], [ %55, %.split35.us ], [ %.0.ph.us, %43 ]
   call void @raxStop(ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
 
 57:                                               ; preds = %._crit_edge.thread, %._crit_edge, %.split.us
   %.024 = phi ptr [ %.us-phi, %.split.us ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.024
 }
 
-declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @sdsempty() local_unnamed_addr #2
+declare ptr @sdsempty() local_unnamed_addr #1
 
-declare ptr @sdsMakeRoomFor(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sdsMakeRoomFor(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trackingBroadcastInvalidationMessages() local_unnamed_addr #0 {
   %1 = alloca %struct.raxIterator, align 8
   %2 = alloca %struct.raxIterator, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %1) #9
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @TrackingTable, align 8, !tbaa !31
   %4 = icmp ne ptr %3, null
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7648), align 8
@@ -1931,13 +1925,13 @@ sdslen.exit23:                                    ; preds = %60, %64, %67, %70, 
   br label %84
 
 84:                                               ; preds = %0, %._crit_edge28
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i64 @trackingGetTotalItems() local_unnamed_addr #6 {
+define dso_local i64 @trackingGetTotalItems() local_unnamed_addr #5 {
   %1 = load i64, ptr @TrackingTableTotalItems, align 8, !tbaa !71
   ret i64 %1
 }
@@ -1972,6 +1966,12 @@ define dso_local i64 @trackingGetTotalPrefixes() local_unnamed_addr #0 {
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
 
@@ -1979,12 +1979,12 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nounwind }

@@ -57,8 +57,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %18 = alloca %"class.Eigen::Matrix", align 8
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -80,7 +80,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -96,7 +96,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -112,10 +112,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader177
 
@@ -302,7 +302,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 182:                                              ; preds = %.lr.ph, %232
   %indvars.iv191 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next192, %232 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %183 = icmp eq i64 %indvars.iv.next192, 3
   %184 = and i64 %indvars.iv.next192, 4294967295
@@ -326,7 +326,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %200 = load double, ptr %199, align 8, !tbaa !20
   store double %200, ptr %157, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv191, 0
   %201 = add nuw nsw i64 %indvars.iv191, 4294967295
   %202 = and i64 %201, 4294967295
@@ -344,8 +344,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %213 = load double, ptr %212, align 8, !tbaa !20
   store double %213, ptr %159, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %214 = load double, ptr %19, align 8, !tbaa !20
   %215 = call double @sqrt(double noundef %214) #6, !tbaa !11
@@ -372,17 +372,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %230 = getelementptr inbounds i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %231 = load double, ptr %230, align 8, !tbaa !20
   store double %231, ptr %72, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 232:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %233 = icmp samesign ugt i64 %indvars.iv191, 1
   br i1 %233, label %._crit_edge, label %182, !llvm.loop !50
 
@@ -423,25 +423,19 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %259 = fcmp oge double %258, 0.000000e+00
   %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
   store double %260, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEvRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEvRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
-
-declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #3
+declare double @sqrt(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1ELi2ELi0ELin1ELi2EEENS2_IiLin1ELi2ELi0ELin1ELi2EEES3_S3_NS2_IdLi1ELi2ELi1ELi1ELi2EEES5_dS5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERKNS6_IT2_EERKNS6_IT3_EEiRNS1_15PlainObjectBaseIT4_EERT5_RNSR_IT6_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 16 dereferenceable(16) %8) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -673,8 +667,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %18 = alloca %"class.Eigen::Matrix.206", align 4
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !81
   %.idx.i.i.i = mul nsw i64 %21, 12
@@ -694,7 +688,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %33 = getelementptr i8, ptr %27, i64 8
   %34 = load float, ptr %33, align 4, !tbaa !89
   store float %34, ptr %32, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %35 = getelementptr i8, ptr %23, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = sext i32 %36 to i64
@@ -710,7 +704,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %44 = getelementptr i8, ptr %38, i64 8
   %45 = load float, ptr %44, align 4, !tbaa !89
   store float %45, ptr %43, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = getelementptr i8, ptr %23, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = sext i32 %47 to i64
@@ -726,10 +720,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %55 = getelementptr i8, ptr %49, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !89
   store float %56, ptr %54, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %57 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = fcmp ogt double %57, 1.000000e-04
   br i1 %58, label %70, label %.preheader192
 
@@ -916,7 +910,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 179:                                              ; preds = %.lr.ph, %225
   %indvars.iv206 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next207, %225 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %180 = icmp eq i64 %indvars.iv.next207, 3
   %181 = and i64 %indvars.iv.next207, 4294967295
@@ -937,7 +931,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %193 = getelementptr i8, ptr %189, i64 8
   %194 = load float, ptr %193, align 4, !tbaa !89
   store float %194, ptr %152, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv206, 0
   %195 = add nuw nsw i64 %indvars.iv206, 4294967295
   %196 = and i64 %195, 4294967295
@@ -955,8 +949,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %205 = getelementptr i8, ptr %201, i64 8
   %206 = load float, ptr %205, align 4, !tbaa !89
   store float %206, ptr %154, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %207 = load double, ptr %19, align 8, !tbaa !20
   %208 = call double @sqrt(double noundef %207) #6, !tbaa !11
@@ -983,17 +977,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %223 = getelementptr inbounds i8, ptr %218, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
   %224 = load float, ptr %223, align 4, !tbaa !89
   store float %224, ptr %66, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 225:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %226 = icmp samesign ugt i64 %indvars.iv206, 1
   br i1 %226, label %._crit_edge, label %179, !llvm.loop !119
 
@@ -1040,16 +1034,16 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %259 = fcmp oge float %258, 0.000000e+00
   %260 = select i1 %259, float 1.000000e+00, float -1.000000e+00
   store float %260, ptr %9, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEvRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #2
+declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_S3_S3_EEvRKNS1_10MatrixBaseIT_EERKNS4_IT0_EERKNS4_IT1_EERKNS4_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #1
 
-declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEENS2_IiLin1ELi3ELi0ELin1ELi3EEENS2_IfLin1ELin1ELi0ELin1ELin1EEES5_S5_NS2_IiLin1ELi1ELi0ELin1ELi1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES7_fS7_EEvRKNS1_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EERKNS8_IT5_EEiRNS1_15PlainObjectBaseIT6_EERT7_RNS11_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %7, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(12) %10) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -1062,8 +1056,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %18 = alloca %"class.Eigen::Matrix.206", align 4
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1085,7 +1079,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load float, ptr %36, align 4, !tbaa !89
   store float %37, ptr %35, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -1101,7 +1095,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load float, ptr %48, align 4, !tbaa !89
   store float %49, ptr %47, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -1117,10 +1111,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load float, ptr %59, align 4, !tbaa !89
   store float %60, ptr %58, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader183
 
@@ -1310,7 +1304,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 186:                                              ; preds = %.lr.ph, %236
   %indvars.iv197 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next198, %236 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %187 = icmp eq i64 %indvars.iv.next198, 3
   %188 = and i64 %indvars.iv.next198, 4294967295
@@ -1334,7 +1328,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %203 = getelementptr inbounds i8, ptr %198, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %204 = load float, ptr %203, align 4, !tbaa !89
   store float %204, ptr %159, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv197, 0
   %205 = add nuw nsw i64 %indvars.iv197, 4294967295
   %206 = and i64 %205, 4294967295
@@ -1352,8 +1346,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %216 = getelementptr inbounds i8, ptr %212, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %217 = load float, ptr %216, align 4, !tbaa !89
   store float %217, ptr %161, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %218 = load double, ptr %19, align 8, !tbaa !20
   %219 = call double @sqrt(double noundef %218) #6, !tbaa !11
@@ -1380,17 +1374,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %234 = getelementptr inbounds i8, ptr %229, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %235 = load float, ptr %234, align 4, !tbaa !89
   store float %235, ptr %72, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 236:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %237 = icmp samesign ugt i64 %indvars.iv197, 1
   br i1 %237, label %._crit_edge, label %186, !llvm.loop !153
 
@@ -1437,10 +1431,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %270 = fcmp oge float %269, 0.000000e+00
   %271 = select i1 %270, float 1.000000e+00, float -1.000000e+00
   store float %271, ptr %9, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -1576,8 +1570,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %18 = alloca %"class.Eigen::Matrix", align 16
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !81
   %.idx.i.i.i = mul nsw i64 %21, 12
@@ -1593,7 +1587,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %30 = getelementptr i8, ptr %27, i64 16
   %31 = load double, ptr %30, align 8, !tbaa !20
   store double %31, ptr %29, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %32 = getelementptr i8, ptr %23, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !11
   %34 = sext i32 %33 to i64
@@ -1605,7 +1599,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %38 = getelementptr i8, ptr %35, i64 16
   %39 = load double, ptr %38, align 8, !tbaa !20
   store double %39, ptr %37, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %40 = getelementptr i8, ptr %23, i64 8
   %41 = load i32, ptr %40, align 4, !tbaa !11
   %42 = sext i32 %41 to i64
@@ -1617,10 +1611,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %46 = getelementptr i8, ptr %43, i64 16
   %47 = load double, ptr %46, align 8, !tbaa !20
   store double %47, ptr %45, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %48 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %49 = fcmp ogt double %48, 1.000000e-04
   br i1 %49, label %59, label %.preheader186
 
@@ -1798,7 +1792,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 159:                                              ; preds = %.lr.ph, %201
   %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %201 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %160 = icmp eq i64 %indvars.iv.next201, 3
   %161 = and i64 %indvars.iv.next201, 4294967295
@@ -1816,7 +1810,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %171 = getelementptr i8, ptr %169, i64 16
   %172 = load double, ptr %171, align 8, !tbaa !20
   store double %172, ptr %138, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv200, 0
   %173 = add nuw nsw i64 %indvars.iv200, 4294967295
   %174 = and i64 %173, 4294967295
@@ -1831,8 +1825,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %181 = getelementptr i8, ptr %179, i64 16
   %182 = load double, ptr %181, align 8, !tbaa !20
   store double %182, ptr %139, align 16, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %183 = load double, ptr %19, align 8, !tbaa !20
   %184 = call double @sqrt(double noundef %183) #6, !tbaa !11
@@ -1859,17 +1853,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
   %200 = load double, ptr %199, align 8, !tbaa !20
   store double %200, ptr %56, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 201:                                              ; preds = %159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %202 = icmp samesign ugt i64 %indvars.iv200, 1
   br i1 %202, label %._crit_edge, label %159, !llvm.loop !193
 
@@ -1910,10 +1904,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %228 = fcmp oge double %227, 0.000000e+00
   %229 = select i1 %228, double 1.000000e+00, double -1.000000e+00
   store double %229, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -1928,8 +1922,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %18 = alloca %"class.Eigen::Matrix.206", align 4
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1951,7 +1945,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load float, ptr %36, align 4, !tbaa !89
   store float %37, ptr %35, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !22
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -1967,7 +1961,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load float, ptr %48, align 4, !tbaa !89
   store float %49, ptr %47, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -1983,10 +1977,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load float, ptr %59, align 4, !tbaa !89
   store float %60, ptr %58, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader177
 
@@ -2176,7 +2170,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 186:                                              ; preds = %.lr.ph, %236
   %indvars.iv191 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next192, %236 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %187 = icmp eq i64 %indvars.iv.next192, 3
   %188 = and i64 %indvars.iv.next192, 4294967295
@@ -2200,7 +2194,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %203 = getelementptr inbounds i8, ptr %198, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %204 = load float, ptr %203, align 4, !tbaa !89
   store float %204, ptr %159, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv191, 0
   %205 = add nuw nsw i64 %indvars.iv191, 4294967295
   %206 = and i64 %205, 4294967295
@@ -2218,8 +2212,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %216 = getelementptr inbounds i8, ptr %212, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %217 = load float, ptr %216, align 4, !tbaa !89
   store float %217, ptr %161, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %218 = load double, ptr %19, align 8, !tbaa !20
   %219 = call double @sqrt(double noundef %218) #6, !tbaa !11
@@ -2246,17 +2240,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %234 = getelementptr inbounds i8, ptr %229, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %235 = load float, ptr %234, align 4, !tbaa !89
   store float %235, ptr %72, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 236:                                              ; preds = %186
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %237 = icmp samesign ugt i64 %indvars.iv191, 1
   br i1 %237, label %._crit_edge, label %186, !llvm.loop !224
 
@@ -2303,10 +2297,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %270 = fcmp oge float %269, 0.000000e+00
   %271 = select i1 %270, float 1.000000e+00, float -1.000000e+00
   store float %271, ptr %9, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -2321,8 +2315,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %18 = alloca %"class.Eigen::Matrix.206", align 4
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !81
   %.idx.i.i.i = mul nsw i64 %21, 12
@@ -2342,7 +2336,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %33 = getelementptr i8, ptr %27, i64 8
   %34 = load float, ptr %33, align 4, !tbaa !89
   store float %34, ptr %32, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %35 = getelementptr i8, ptr %23, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = sext i32 %36 to i64
@@ -2358,7 +2352,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %44 = getelementptr i8, ptr %38, i64 8
   %45 = load float, ptr %44, align 4, !tbaa !89
   store float %45, ptr %43, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = getelementptr i8, ptr %23, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = sext i32 %47 to i64
@@ -2374,10 +2368,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %55 = getelementptr i8, ptr %49, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !89
   store float %56, ptr %54, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %57 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = fcmp ogt double %57, 1.000000e-04
   br i1 %58, label %67, label %.preheader186
 
@@ -2568,7 +2562,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
 
 175:                                              ; preds = %.lr.ph, %221
   %indvars.iv202 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next203, %221 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %176 = icmp eq i64 %indvars.iv.next203, 3
   %177 = and i64 %indvars.iv.next203, 4294967295
@@ -2589,7 +2583,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %189 = getelementptr i8, ptr %185, i64 8
   %190 = load float, ptr %189, align 4, !tbaa !89
   store float %190, ptr %149, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv202, 0
   %191 = add nuw nsw i64 %indvars.iv202, 4294967295
   %192 = and i64 %191, 4294967295
@@ -2607,8 +2601,8 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %201 = getelementptr i8, ptr %197, i64 8
   %202 = load float, ptr %201, align 4, !tbaa !89
   store float %202, ptr %151, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %203 = load double, ptr %19, align 8, !tbaa !20
   %204 = call double @sqrt(double noundef %203) #6, !tbaa !11
@@ -2635,17 +2629,17 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %219 = getelementptr inbounds i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
   %220 = load float, ptr %219, align 4, !tbaa !89
   store float %220, ptr %65, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 221:                                              ; preds = %175
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %222 = icmp samesign ugt i64 %indvars.iv202, 1
   br i1 %222, label %._crit_edge, label %175, !llvm.loop !258
 
@@ -2693,16 +2687,16 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIffE
   %256 = fcmp oge float %255, 0.000000e+00
   %257 = select i1 %256, float 1.000000e+00, float -1.000000e+00
   store float %257, ptr %9, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #2
+declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #1
 
-declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELin1ELi1ELi1ELin1EEENS2_IfLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEES5_S5_NS2_IiLin1ELi1ELi0ELin1ELi1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEENS2_IdLi1ELin1ELi1ELi1ELin1EEEdS7_EEvRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKNS9_IT1_EERKNS9_IT2_EERKNS9_IT3_EERKNS9_IT4_EERKNS9_IT5_EEiRNS1_15PlainObjectBaseIT6_EERT7_RNS12_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -2715,8 +2709,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %18 = alloca %"class.Eigen::Matrix", align 8
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2738,7 +2732,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -2754,7 +2748,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -2770,10 +2764,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %87, label %.preheader183
 
@@ -2989,7 +2983,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 
 193:                                              ; preds = %.lr.ph, %243
   %indvars.iv199 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next200, %243 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %194 = icmp eq i64 %indvars.iv.next200, 3
   %195 = and i64 %indvars.iv.next200, 4294967295
@@ -3013,7 +3007,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %210 = getelementptr inbounds i8, ptr %205, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %211 = load double, ptr %210, align 8, !tbaa !20
   store double %211, ptr %160, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv199, 0
   %212 = add nuw nsw i64 %indvars.iv199, 4294967295
   %213 = and i64 %212, 4294967295
@@ -3031,8 +3025,8 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %223 = getelementptr inbounds i8, ptr %219, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %224 = load double, ptr %223, align 8, !tbaa !20
   store double %224, ptr %162, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %225 = load double, ptr %19, align 8, !tbaa !20
   %226 = call double @sqrt(double noundef %225) #6, !tbaa !11
@@ -3059,17 +3053,17 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %241 = getelementptr inbounds i8, ptr %236, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %242 = load double, ptr %241, align 8, !tbaa !20
   store double %242, ptr %74, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 243:                                              ; preds = %193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %244 = icmp samesign ugt i64 %indvars.iv199, 1
   br i1 %244, label %._crit_edge, label %193, !llvm.loop !290
 
@@ -3111,16 +3105,16 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %271 = fcmp oge double %270, 0.000000e+00
   %272 = select i1 %271, double 1.000000e+00, double -1.000000e+00
   store double %272, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
+declare void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEES4_S4_S4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERKNS5_IT2_EERNS1_15PlainObjectBaseIT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
-declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS2_IdLi1ELi3ELi1ELi1ELi3EEES4_NS2_IdLi1ELi1ELi0ELi1ELi1EEES5_EEvRKNS1_10MatrixBaseIT_EERKNS6_IT0_EERKNS6_IT1_EERNS1_15PlainObjectBaseIT2_EERNSJ_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS2_IdLin1ELi3ELi0ELin1ELi3EEES5_S5_NS2_IiLin1ELi1ELi0ELin1ELi1EEENS1_5BlockIS3_Li1ELin1ELb0EEENS2_IdLi1ELi3ELi1ELi1ELi3EEEdS9_EEvRKNS1_10MatrixBaseIT_EERKNSA_IT0_EERKNSA_IT1_EERKNSA_IT2_EERKNSA_IT3_EERKNSA_IT4_EERKNSA_IT5_EEiRNS1_15PlainObjectBaseIT6_EERT7_RNS13_IT8_EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -3136,8 +3130,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %.sroa.0175.0.copyload = load ptr, ptr %6, align 8
   %.sroa.4177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.4177.0.copyload = load ptr, ptr %.sroa.4177.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3159,7 +3153,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -3175,7 +3169,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -3191,10 +3185,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader184
 
@@ -3381,7 +3375,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 182:                                              ; preds = %.lr.ph, %232
   %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %232 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %183 = icmp eq i64 %indvars.iv.next201, 3
   %184 = and i64 %indvars.iv.next201, 4294967295
@@ -3405,7 +3399,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %200 = load double, ptr %199, align 8, !tbaa !20
   store double %200, ptr %157, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv200, 0
   %201 = add nuw nsw i64 %indvars.iv200, 4294967295
   %202 = and i64 %201, 4294967295
@@ -3423,8 +3417,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %213 = load double, ptr %212, align 8, !tbaa !20
   store double %213, ptr %159, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %214 = load double, ptr %19, align 8, !tbaa !20
   %215 = call double @sqrt(double noundef %214) #6, !tbaa !11
@@ -3451,17 +3445,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %230 = getelementptr inbounds i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %231 = load double, ptr %230, align 8, !tbaa !20
   store double %231, ptr %72, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 232:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %233 = icmp samesign ugt i64 %indvars.iv200, 1
   br i1 %233, label %._crit_edge, label %182, !llvm.loop !323
 
@@ -3512,10 +3506,10 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
   %262 = fcmp oge double %260, 0.000000e+00
   %263 = select i1 %262, double 1.000000e+00, double -1.000000e+00
   store double %263, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -3530,8 +3524,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %18 = alloca %"class.Eigen::Matrix.206", align 4
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !81
   %.idx.i.i.i = mul nsw i64 %21, 12
@@ -3551,7 +3545,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %33 = getelementptr i8, ptr %27, i64 8
   %34 = load float, ptr %33, align 4, !tbaa !89
   store float %34, ptr %32, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %35 = getelementptr i8, ptr %23, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = sext i32 %36 to i64
@@ -3567,7 +3561,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %44 = getelementptr i8, ptr %38, i64 8
   %45 = load float, ptr %44, align 4, !tbaa !89
   store float %45, ptr %43, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = getelementptr i8, ptr %23, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = sext i32 %47 to i64
@@ -3583,10 +3577,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %55 = getelementptr i8, ptr %49, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !89
   store float %56, ptr %54, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %57 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = fcmp ogt double %57, 1.000000e-04
   br i1 %58, label %70, label %.preheader186
 
@@ -3773,7 +3767,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
 
 179:                                              ; preds = %.lr.ph, %225
   %indvars.iv200 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next201, %225 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %180 = icmp eq i64 %indvars.iv.next201, 3
   %181 = and i64 %indvars.iv.next201, 4294967295
@@ -3794,7 +3788,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %193 = getelementptr i8, ptr %189, i64 8
   %194 = load float, ptr %193, align 4, !tbaa !89
   store float %194, ptr %152, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv200, 0
   %195 = add nuw nsw i64 %indvars.iv200, 4294967295
   %196 = and i64 %195, 4294967295
@@ -3812,8 +3806,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %205 = getelementptr i8, ptr %201, i64 8
   %206 = load float, ptr %205, align 4, !tbaa !89
   store float %206, ptr %154, align 4, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %207 = load double, ptr %19, align 8, !tbaa !20
   %208 = call double @sqrt(double noundef %207) #6, !tbaa !11
@@ -3840,17 +3834,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %223 = getelementptr inbounds i8, ptr %218, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i92
   %224 = load float, ptr %223, align 4, !tbaa !89
   store float %224, ptr %66, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 225:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %226 = icmp samesign ugt i64 %indvars.iv200, 1
   br i1 %226, label %._crit_edge, label %179, !llvm.loop !355
 
@@ -3897,10 +3891,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIfLin1E
   %259 = fcmp oge float %258, 0.000000e+00
   %260 = select i1 %259, float 1.000000e+00, float -1.000000e+00
   store float %260, ptr %9, align 4, !tbaa !89
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -3915,8 +3909,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %18 = alloca %"class.Eigen::Matrix", align 8
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3938,7 +3932,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -3954,7 +3948,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -3970,10 +3964,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader189
 
@@ -4160,7 +4154,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 182:                                              ; preds = %.lr.ph, %232
   %indvars.iv203 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next204, %232 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %183 = icmp eq i64 %indvars.iv.next204, 3
   %184 = and i64 %indvars.iv.next204, 4294967295
@@ -4184,7 +4178,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %200 = load double, ptr %199, align 8, !tbaa !20
   store double %200, ptr %157, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv203, 0
   %201 = add nuw nsw i64 %indvars.iv203, 4294967295
   %202 = and i64 %201, 4294967295
@@ -4202,8 +4196,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %213 = load double, ptr %212, align 8, !tbaa !20
   store double %213, ptr %159, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %214 = load double, ptr %19, align 8, !tbaa !20
   %215 = call double @sqrt(double noundef %214) #6, !tbaa !11
@@ -4230,17 +4224,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %230 = getelementptr inbounds i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %231 = load double, ptr %230, align 8, !tbaa !20
   store double %231, ptr %72, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 232:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %233 = icmp samesign ugt i64 %indvars.iv203, 1
   br i1 %233, label %._crit_edge, label %182, !llvm.loop !386
 
@@ -4281,10 +4275,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %259 = fcmp oge double %258, 0.000000e+00
   %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
   store double %260, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
@@ -4299,8 +4293,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %18 = alloca %"class.Eigen::Matrix", align 8
   %19 = alloca %"class.Eigen::Matrix.57", align 8
   %20 = alloca %"class.Eigen::Matrix.57", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %21 = sext i32 %7 to i64
   %22 = load ptr, ptr %1, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4322,7 +4316,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %36 = getelementptr inbounds i8, ptr %28, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %37 = load double, ptr %36, align 8, !tbaa !20
   store double %37, ptr %35, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %38 = load i64, ptr %23, align 8, !tbaa !68
   %39 = getelementptr i32, ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !11
@@ -4338,7 +4332,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %48 = getelementptr inbounds i8, ptr %42, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %49 = load double, ptr %48, align 8, !tbaa !20
   store double %49, ptr %47, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.idx = shl i64 %38, 3
   %50 = getelementptr i8, ptr %24, i64 %.idx
   %51 = load i32, ptr %50, align 4, !tbaa !11
@@ -4354,10 +4348,10 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %59 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i.i.i.i.i.i.i.i
   %60 = load double, ptr %59, align 8, !tbaa !20
   store double %60, ptr %58, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %61 = load double, ptr %12, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %62 = fcmp ogt double %61, 1.000000e-04
   br i1 %62, label %76, label %.preheader183
 
@@ -4544,7 +4538,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
 
 182:                                              ; preds = %.lr.ph, %232
   %indvars.iv197 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next198, %232 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %183 = icmp eq i64 %indvars.iv.next198, 3
   %184 = and i64 %indvars.iv.next198, 4294967295
@@ -4568,7 +4562,7 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %199 = getelementptr inbounds i8, ptr %194, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %200 = load double, ptr %199, align 8, !tbaa !20
   store double %200, ptr %157, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.cmp = icmp eq i64 %indvars.iv197, 0
   %201 = add nuw nsw i64 %indvars.iv197, 4294967295
   %202 = and i64 %201, 4294967295
@@ -4586,8 +4580,8 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %212 = getelementptr inbounds i8, ptr %208, i64 %.idx.i.i.i.i.i.i.i.i.i.i82
   %213 = load double, ptr %212, align 8, !tbaa !20
   store double %213, ptr %159, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN3igl23project_to_line_segmentIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEES4_EEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EERNSI_IT3_EE(ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %214 = load double, ptr %19, align 8, !tbaa !20
   %215 = call double @sqrt(double noundef %214) #6, !tbaa !11
@@ -4614,17 +4608,17 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %230 = getelementptr inbounds i8, ptr %225, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i84
   %231 = load double, ptr %230, align 8, !tbaa !20
   store double %231, ptr %72, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit
 
 232:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %233 = icmp samesign ugt i64 %indvars.iv197, 1
   br i1 %233, label %._crit_edge, label %182, !llvm.loop !417
 
@@ -4665,30 +4659,36 @@ define weak_odr dso_local void @_ZN3igl17pseudonormal_testIN5Eigen6MatrixIdLin1E
   %259 = fcmp oge double %258, 0.000000e+00
   %260 = select i1 %259, double 1.000000e+00, double -1.000000e+00
   store double %260, ptr %9, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl10doubleareaIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare void @_ZN3igl10doubleareaIN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES3_S3_NS2_IdLi1ELi1ELi0ELi1ELi1EEEEEvRKNS1_10MatrixBaseIT_EERKNS5_IT0_EERKNS5_IT1_EERNS1_15PlainObjectBaseIT2_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #4
+declare float @llvm.sqrt.f32(float) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

@@ -351,9 +351,9 @@ define internal void @_ZL35connected_channel_init_channel_elemP20grpc_channel_el
   br i1 %.not, label %7, label %.critedge, !prof !62
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 223, i64 13, ptr nonnull @.str.12) #25
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str, i32 noundef 223, i64 13, ptr nonnull @.str.12) #24
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   unreachable
 
 .critedge:                                        ; preds = %3
@@ -421,12 +421,6 @@ define internal void @_ZL34connected_channel_get_channel_infoP20grpc_channel_ele
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -455,7 +449,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %12 = alloca %"class.absl::lts_20240722::AnyInvocable.59", align 16
   %13 = alloca %"class.absl::lts_20240722::AnyInvocable.59", align 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %16 = tail call { i64, ptr } %15(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE)
   %17 = extractvalue { i64, ptr } %16, 0
@@ -464,7 +458,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 312, ptr %.sroa.27.0..sroa_idx.i, align 8, !tbaa !77
   %19 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 1, i64 %17, ptr %18, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   store i8 1, ptr %20, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsClientPromiseBasedCallsERKNS_11ChannelArgsE, ptr %8, align 16, !tbaa !75
@@ -477,8 +471,8 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 24:                                               ; preds = %1
   %25 = load ptr, ptr %22, align 16, !tbaa !97
-  call void %25(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %8) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void %25(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %8) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %27 = call { i64, ptr } %26(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE)
   %28 = extractvalue { i64, ptr } %27, 0
@@ -487,7 +481,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 316, ptr %.sroa.27.0..sroa_idx.i9, align 8, !tbaa !77
   %30 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 4, i64 %28, ptr %29, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   store i8 1, ptr %31, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsClientPromiseBasedCallsERKNS_11ChannelArgsE, ptr %9, align 16, !tbaa !75
@@ -500,8 +494,8 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 35:                                               ; preds = %24
   %36 = load ptr, ptr %33, align 16, !tbaa !97
-  call void %36(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void %36(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %38 = call { i64, ptr } %37(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE)
   %39 = extractvalue { i64, ptr } %38, 0
@@ -510,7 +504,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 321, ptr %.sroa.27.0..sroa_idx.i10, align 8, !tbaa !77
   %41 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 5, i64 %39, ptr %40, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 104
   store i8 1, ptr %42, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsServerPromiseBasedCallsERKNS_11ChannelArgsE, ptr %10, align 16, !tbaa !75
@@ -523,8 +517,8 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 46:                                               ; preds = %35
   %47 = load ptr, ptr %44, align 16, !tbaa !97
-  call void %47(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %10) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void %47(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %10) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %48 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %49 = call { i64, ptr } %48(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE)
   %50 = extractvalue { i64, ptr } %49, 0
@@ -533,7 +527,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 327, ptr %.sroa.27.0..sroa_idx.i11, align 8, !tbaa !77
   %52 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 1, i64 %50, ptr %51, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
   store i8 1, ptr %53, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsClientPromiseBasedCallsERKNS_11ChannelArgsE, ptr %11, align 16, !tbaa !75
@@ -546,8 +540,8 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 57:                                               ; preds = %46
   %58 = load ptr, ptr %55, align 16, !tbaa !97
-  call void %58(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %11) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void %58(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %11) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %60 = call { i64, ptr } %59(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE)
   %61 = extractvalue { i64, ptr } %60, 0
@@ -556,7 +550,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 331, ptr %.sroa.27.0..sroa_idx.i12, align 8, !tbaa !77
   %63 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 4, i64 %61, ptr %62, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
   store i8 1, ptr %64, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsClientPromiseBasedCallsERKNS_11ChannelArgsE, ptr %12, align 16, !tbaa !75
@@ -569,8 +563,8 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 68:                                               ; preds = %57
   %69 = load ptr, ptr %66, align 16, !tbaa !97
-  call void %69(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %12) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void %69(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %12) #26
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = load ptr, ptr @_ZN9grpc_core21NameFromChannelFilterE, align 8, !tbaa !75
   %71 = call { i64, ptr } %70(ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE)
   %72 = extractvalue { i64, ptr } %71, 0
@@ -579,7 +573,7 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
   %.sroa.27.0..sroa_idx.i13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 335, ptr %.sroa.27.0..sroa_idx.i13, align 8, !tbaa !77
   %74 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typeNS_14UniqueTypeNameEPK19grpc_channel_filterPFvRNS_24InterceptionChainBuilderEENS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %14, i32 noundef 5, i64 %72, ptr %73, ptr noundef nonnull @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, ptr noundef null, ptr noundef nonnull byval(%"class.grpc_core::SourceLocation") align 8 %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
   store i8 1, ptr %75, align 8, !tbaa !78
   store ptr @_ZN9grpc_core12_GLOBAL__N_140TransportSupportsServerPromiseBasedCallsERKNS_11ChannelArgsE, ptr %13, align 16, !tbaa !75
@@ -592,49 +586,49 @@ define void @_ZN9grpc_core24RegisterConnectedChannelEPNS_17CoreConfiguration7Bui
 
 79:                                               ; preds = %68
   %80 = load ptr, ptr %77, align 16, !tbaa !97
-  call void %80(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %13) #24
+  call void %80(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %13) #26
   ret void
 
 81:                                               ; preds = %1
   %82 = landingpad { ptr, i32 }
           cleanup
   %83 = load ptr, ptr %22, align 16, !tbaa !97
-  call void %83(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %8) #24
+  call void %83(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %8) #26
   br label %99
 
 84:                                               ; preds = %24
   %85 = landingpad { ptr, i32 }
           cleanup
   %86 = load ptr, ptr %33, align 16, !tbaa !97
-  call void %86(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #24
+  call void %86(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
   br label %99
 
 87:                                               ; preds = %35
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = load ptr, ptr %44, align 16, !tbaa !97
-  call void %89(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %10) #24
+  call void %89(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %10) #26
   br label %99
 
 90:                                               ; preds = %46
   %91 = landingpad { ptr, i32 }
           cleanup
   %92 = load ptr, ptr %55, align 16, !tbaa !97
-  call void %92(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %11) #24
+  call void %92(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %11) #26
   br label %99
 
 93:                                               ; preds = %57
   %94 = landingpad { ptr, i32 }
           cleanup
   %95 = load ptr, ptr %66, align 16, !tbaa !97
-  call void %95(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %12) #24
+  call void %95(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 16 dereferenceable(32) %12) #26
   br label %99
 
 96:                                               ; preds = %68
   %97 = landingpad { ptr, i32 }
           cleanup
   %98 = load ptr, ptr %77, align 16, !tbaa !97
-  call void %98(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %13) #24
+  call void %98(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) %13) #26
   br label %99
 
 99:                                               ; preds = %96, %93, %90, %87, %84, %81
@@ -709,13 +703,13 @@ define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaC
   br i1 %3, label %4, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, !prof !100
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #24
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #26
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit, label %6
 
 6:                                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i8 0, i64 24, i1 false)
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #24
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits) #26
   br label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
 
 _ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit: ; preds = %1, %4, %6
@@ -804,7 +798,7 @@ define internal void @_ZL27run_cancel_in_call_combinerPvN4absl12lts_202407226Sta
   br i1 %.not.i.i, label %11, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -815,7 +809,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2
 11:                                               ; preds = %2
   %12 = inttoptr i64 %5 to ptr
   %13 = atomicrmw add ptr %12, i32 1 monotonic, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -848,18 +842,18 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %_ZN4absl12lts_20240
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #26
+  call void @__clang_call_terminate(ptr %31) #25
   unreachable
 
 .body:                                            ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.i
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
-  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
+  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
+  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #26
   resume { ptr, i32 } %32
 
 33:                                               ; preds = %27, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i.i, label %34, label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 34:                                               ; preds = %33
@@ -871,7 +865,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %_ZN4absl12lts_20240
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #26
+  call void @__clang_call_terminate(ptr %38) #25
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %33, %34
@@ -918,7 +912,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %2, %10
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #26
+  call void @__clang_call_terminate(ptr %22) #25
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %15, %18
@@ -927,7 +921,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %15, %18
 23:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
+  call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26
   resume { ptr, i32 } %24
 }
 
@@ -950,7 +944,7 @@ _ZN4absl12lts_202407226Status5UnrefEm.exit:       ; preds = %1, %4
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
+  tail call void @__clang_call_terminate(ptr %8) #25
   unreachable
 }
 
@@ -958,8 +952,8 @@ declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #26
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
@@ -1032,7 +1026,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072222internal_any_invocable19LocalM
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_connected_channel.cc() #9 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   store ptr @_ZL49connected_channel_start_transport_stream_op_batchP17grpc_call_elementP30grpc_transport_stream_op_batch, ptr @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, align 8, !tbaa !107
   store ptr @_ZL36connected_channel_start_transport_opP20grpc_channel_elementP17grpc_transport_op, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, i64 8), align 8, !tbaa !109
   store i64 512, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_116kConnectedFilterE, i64 16), align 8, !tbaa !110
@@ -1049,7 +1043,7 @@ define internal void @_GLOBAL__sub_I_connected_channel.cc() #9 section ".text.st
   br i1 %3, label %4, label %__cxx_global_var_init.1.exit, !prof !100
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory") #24
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory") #26
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %__cxx_global_var_init.1.exit, label %6
 
@@ -1067,13 +1061,13 @@ define internal void @_GLOBAL__sub_I_connected_channel.cc() #9 section ".text.st
   store i8 0, ptr %11, align 1, !tbaa !28
   store ptr %7, ptr @"_ZZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory", align 8, !tbaa !123
   %12 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @"_ZZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory")
-  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory") #24
+  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory") #26
   br label %__cxx_global_var_init.1.exit
 
 common.resume:                                    ; preds = %31, %13
   %"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory.sink" = phi ptr [ @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory", %31 ], [ @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_2clEvE7factory", %13 ]
   %common.resume.op = phi { ptr, i32 } [ %32, %31 ], [ %14, %13 ]
-  tail call void @__cxa_guard_abort(ptr nonnull %"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory.sink") #24
+  tail call void @__cxa_guard_abort(ptr nonnull %"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory.sink") #26
   resume { ptr, i32 } %common.resume.op
 
 13:                                               ; preds = %6
@@ -1104,7 +1098,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %4, %8
   br i1 %21, label %22, label %__cxx_global_var_init.2.exit, !prof !100
 
 22:                                               ; preds = %__cxx_global_var_init.1.exit
-  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory") #24
+  %23 = tail call i32 @__cxa_guard_acquire(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory") #26
   %.not.i.i1 = icmp eq i32 %23, 0
   br i1 %.not.i.i1, label %__cxx_global_var_init.2.exit, label %24
 
@@ -1122,7 +1116,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %4, %8
   store i8 0, ptr %29, align 1, !tbaa !28
   store ptr %25, ptr @"_ZZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory", align 8, !tbaa !123
   %30 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @"_ZZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory")
-  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory") #24
+  tail call void @__cxa_guard_release(ptr nonnull @"_ZGVZNK9grpc_core12_GLOBAL__N_13$_5clEvE7factory") #26
   br label %__cxx_global_var_init.2.exit
 
 31:                                               ; preds = %24
@@ -1140,6 +1134,12 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
   %37 = tail call ptr @llvm.invariant.start.p0(i64 104, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_128kPromiseBasedTransportFilterE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
@@ -1174,9 +1174,9 @@ attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { noreturn }
-attributes #24 = { nounwind }
-attributes #25 = { cold }
-attributes #26 = { noreturn nounwind }
+attributes #24 = { cold }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { nounwind }
 attributes #27 = { builtin allocsize(0) }
 attributes #28 = { builtin nounwind }
 

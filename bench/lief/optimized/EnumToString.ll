@@ -128,15 +128,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_13STORAGE_MODESE(i32 noundef %0) 
   %3 = alloca [3 x %"struct.std::pair"], align 8
   %4 = alloca %"struct.std::less", align 1
   %5 = alloca %"class.std::allocator.0", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) @constinit, i64 48, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEEC2ESt16initializer_listIS9_ERKS6_RKSA_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -175,15 +175,12 @@ _ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findER
 _ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEE4findERS8_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessIS2_ESaISt4pairIKS2_S4_EEEC2ESt16initializer_listIS9_ERKS6_RKSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #0 comdat align 2 {
@@ -246,7 +243,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART13STORAGE_MODESEPKcSt4lessI
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !14
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !14
@@ -273,10 +270,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE10_M_insert_IRKS7_NSD_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -292,24 +289,21 @@ _ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pairIKS2_PKcESt10_Select1stIS7_ESt4l
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_1714IMAGE_SECTIONSE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"class.std::map.3", align 8
   %3 = alloca [5 x %"struct.std::pair.10"], align 8
   %4 = alloca %"struct.std::less.12", align 1
   %5 = alloca %"class.std::allocator.14", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @constinit.9, i64 80, i1 false), !tbaa.struct !28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -348,7 +342,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
 _ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -413,7 +407,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1714IMAGE_SECTIONSEPKc
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !29
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !29
@@ -440,10 +434,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -465,15 +459,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_2914IMAGE_SECTIONSE(i32 noun
   %3 = alloca [9 x %"struct.std::pair.25"], align 8
   %4 = alloca %"struct.std::less.27", align 1
   %5 = alloca %"class.std::allocator.29", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull align 8 dereferenceable(144) @constinit.14, i64 144, i1 false), !tbaa.struct !36
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -512,7 +506,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
 _ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -577,7 +571,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_2914IMAGE_SECTIONSEPKc
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !37
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !37
@@ -604,10 +598,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_2914IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -629,15 +623,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_3014IMAGE_SECTIONSE(i32 noun
   %3 = alloca [10 x %"struct.std::pair.40"], align 8
   %4 = alloca %"struct.std::less.42", align 1
   %5 = alloca %"class.std::allocator.44", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %3, ptr noundef nonnull align 8 dereferenceable(160) @constinit.16, i64 160, i1 false), !tbaa.struct !44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -676,7 +670,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EE
 _ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -741,7 +735,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_3014IMAGE_SECTIONSEPKc
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !45
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !45
@@ -768,10 +762,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_3014IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -793,15 +787,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_1713IMAGE_METHODSE(i32 nound
   %3 = alloca [6 x %"struct.std::pair.55"], align 8
   %4 = alloca %"struct.std::less.57", align 1
   %5 = alloca %"class.std::allocator.59", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) @constinit.23, i64 96, i1 false), !tbaa.struct !52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -840,7 +834,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE
 _ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -905,7 +899,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1713IMAGE_METHODSEPKcS
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !53
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !53
@@ -932,10 +926,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1713IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -957,15 +951,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_4413IMAGE_METHODSE(i32 nound
   %3 = alloca [7 x %"struct.std::pair.70"], align 8
   %4 = alloca %"struct.std::less.72", align 1
   %5 = alloca %"class.std::allocator.74", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) @constinit.28, i64 112, i1 false), !tbaa.struct !60
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1004,7 +998,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE
 _ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -1069,7 +1063,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4413IMAGE_METHODSEPKcS
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !61
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !61
@@ -1096,10 +1090,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_4413IMAGE_METHODSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -1121,15 +1115,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_1711IMAGE_ROOTSE(i32 noundef
   %3 = alloca [2 x %"struct.std::pair.85"], align 8
   %4 = alloca %"struct.std::less.87", align 1
   %5 = alloca %"class.std::allocator.89", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) @constinit.31, i64 32, i1 false), !tbaa.struct !68
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1168,7 +1162,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4f
 _ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -1233,7 +1227,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_1711IMAGE_ROOTSEPKcSt4
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !69
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !69
@@ -1260,10 +1254,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_1711IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -1285,15 +1279,15 @@ define noundef ptr @_ZN4LIEF3ART9to_stringENS0_6ART_4411IMAGE_ROOTSE(i32 noundef
   %3 = alloca [3 x %"struct.std::pair.100"], align 8
   %4 = alloca %"struct.std::less.102", align 1
   %5 = alloca %"class.std::allocator.104", align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) @constinit.33, i64 48, i1 false), !tbaa.struct !3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEEC2ESt16initializer_listISA_ERKS7_RKSB_(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %3, i64 3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1332,7 +1326,7 @@ _ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4f
 _ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.thread: ; preds = %1, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit, %15
   %18 = phi ptr [ %17, %15 ], [ @.str.3, %_ZNKSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit ], [ @.str.3, %_ZNKSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ @.str.3, %1 ]
   call void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %18
 }
 
@@ -1397,7 +1391,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4LIEF3ART6ART_4411IMAGE_ROOTSEPKcSt4
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #8
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #7
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4, !tbaa !76
   %.pre82.i = load i32, ptr %.08.i, align 4, !tbaa !76
@@ -1424,10 +1418,10 @@ select.unfold:                                    ; preds = %28, %12, %._crit_ed
 
 _ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IRKS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSM_OT_RT0_.exit.i.i: ; preds = %33, %select.unfold
   %38 = phi i1 [ true, %select.unfold ], [ %37, %33 ]
-  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
+  %39 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %.08.i, i64 16, i1 false)
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #7
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %38, ptr noundef nonnull %39, ptr noundef nonnull %.sroa.12.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %6) #9
   %41 = load i64, ptr %10, align 8, !tbaa !25
   %42 = add i64 %41, 1
   store i64 %42, ptr %10, align 8, !tbaa !25
@@ -1464,7 +1458,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF3ART13STORAGE_MODESESt4pai
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_1714IMAGE_SECTIONSESt4pairIKS3_PKcESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -1607,24 +1601,30 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN4LIEF3ART6ART_4411IMAGE_ROOTSES
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #4
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { builtin nounwind allocsize(0) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { builtin nounwind allocsize(0) }
+attributes #9 = { nounwind }
 attributes #10 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

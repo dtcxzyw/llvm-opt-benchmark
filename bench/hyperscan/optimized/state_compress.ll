@@ -42,12 +42,6 @@ partial_store_u32.exit:                           ; preds = %4, %8, %9, %14, %16
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @loadcompressed32(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %partial_load_u32.exit [
@@ -254,7 +248,7 @@ partial_load_u64a.exit:                           ; preds = %4, %5, %7, %20, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed128(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @storecompressed128(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %.sroa.011 = alloca i32, align 4
   %.sroa.412 = alloca i32, align 4
   %.sroa.0 = alloca i64, align 16
@@ -265,16 +259,16 @@ define hidden void @storecompressed128(ptr noundef writeonly captures(none) %0, 
   %.0.vec.extract.i = load i64, ptr %2, align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.8.vec.extract.i = load i64, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.011)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.412)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.011)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.412)
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.vec.extract.i)
   %8 = trunc nuw nsw i64 %7 to i32
   store i32 %8, ptr %.sroa.011, align 4
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.8.vec.extract.i)
   %10 = trunc nuw nsw i64 %9 to i32
   store i32 %10, ptr %.sroa.412, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %11 = tail call i64 @llvm.x86.bmi.pext.64(i64 %.0.vec.extract5.i, i64 %.0.vec.extract.i)
   store i64 %11, ptr %.sroa.0, align 16
   %12 = tail call i64 @llvm.x86.bmi.pext.64(i64 %.8.vec.extract7.i, i64 %.8.vec.extract.i)
@@ -392,15 +386,15 @@ define hidden void @storecompressed128(ptr noundef writeonly captures(none) %0, 
   br i1 %47, label %46, label %13
 
 pack_bits_64.exit:                                ; preds = %13, %16, %17, %25, %30, %35, %37, %42, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.011)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.412)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.011)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.412)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed128(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @loadcompressed128(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %.sroa.0 = alloca i64, align 16
   %.sroa.4 = alloca i64, align 8
   %5 = load <2 x i64>, ptr %2, align 16
@@ -408,8 +402,8 @@ define hidden void @loadcompressed128(ptr noundef writeonly captures(none) %0, p
   %7 = extractelement <2 x i64> %5, i64 1
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   br label %10
 
 10:                                               ; preds = %4, %._crit_edge
@@ -478,14 +472,14 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %34 = tail call i64 @llvm.x86.bmi.pdep.64(i64 %.sroa.4.0..sroa.4.8., i64 %7)
   %35 = insertelement <2 x i64> poison, i64 %33, i64 0
   %36 = insertelement <2 x i64> %35, i64 %34, i64 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   store <2 x i64> %36, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i64], align 16
   %.0.vec.extract8.i = load i64, ptr %1, align 32
@@ -502,7 +496,7 @@ define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, 
   %.16.vec.extract.i = load i64, ptr %11, align 16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.24.vec.extract.i = load i64, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.vec.extract.i)
   %14 = trunc nuw nsw i64 %13 to i32
   store i32 %14, ptr %5, align 16
@@ -518,7 +512,7 @@ define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, 
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.24.vec.extract.i)
   %23 = trunc nuw nsw i64 %22 to i32
   store i32 %23, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = tail call i64 @llvm.x86.bmi.pext.64(i64 %.0.vec.extract8.i, i64 %.0.vec.extract.i)
   store i64 %24, ptr %6, align 16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -645,13 +639,13 @@ define hidden void @storecompressed256(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not, label %31, label %64
 
 pack_bits_64.exit:                                ; preds = %31, %34, %35, %43, %48, %53, %55, %60, %62
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [4 x i32], align 16
   %6 = alloca [4 x i64], align 16
   %.0.vec.extract.i = load i64, ptr %2, align 32
@@ -661,7 +655,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   %.16.vec.extract.i = load i64, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.24.vec.extract.i = load i64, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.vec.extract.i)
   %11 = trunc nuw nsw i64 %10 to i32
   store i32 %11, ptr %5, align 16
@@ -677,7 +671,7 @@ define hidden void @loadcompressed256(ptr noundef writeonly captures(none) %0, p
   %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.24.vec.extract.i)
   %20 = trunc nuw nsw i64 %19 to i32
   store i32 %20, ptr %18, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %21
 
 21:                                               ; preds = %4, %._crit_edge
@@ -754,14 +748,14 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %58 = insertelement <4 x i64> %57, i64 %50, i64 1
   %59 = insertelement <4 x i64> %58, i64 %53, i64 2
   %60 = insertelement <4 x i64> %59, i64 %56, i64 3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <4 x i64> %60, ptr %0, align 32
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [6 x i64], align 16
   %.sroa.03.0.copyload = load i64, ptr %2, align 16
@@ -786,7 +780,7 @@ define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, 
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
   store i32 %8, ptr %5, align 16
@@ -810,7 +804,7 @@ define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, 
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.88.0.copyload)
   %23 = trunc nuw nsw i64 %22 to i32
   store i32 %23, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = tail call i64 @llvm.x86.bmi.pext.64(i64 %.sroa.0.0.copyload, i64 %.sroa.03.0.copyload)
   store i64 %24, ptr %6, align 16
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -943,13 +937,13 @@ define hidden void @storecompressed384(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not, label %35, label %68
 
 pack_bits_64.exit:                                ; preds = %35, %38, %39, %47, %52, %57, %59, %64, %66
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [6 x i64], align 16
   %.sroa.03.0.copyload = load i64, ptr %2, align 16
@@ -963,7 +957,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 16
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7, !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !5
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
   store i32 %8, ptr %5, align 16, !noalias !5
@@ -987,7 +981,7 @@ define hidden void @loadcompressed384(ptr noundef writeonly captures(none) %0, p
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.8.0.copyload)
   %23 = trunc nuw nsw i64 %22 to i32
   store i32 %23, ptr %21, align 4, !noalias !5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7, !noalias !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5
   br label %24
 
 24:                                               ; preds = %4, %._crit_edge
@@ -1072,8 +1066,8 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %69 = insertelement <2 x i64> %68, i64 %59, i64 1
   %70 = insertelement <2 x i64> poison, i64 %62, i64 0
   %71 = insertelement <2 x i64> %70, i64 %65, i64 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7, !noalias !5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7, !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !5
   store <2 x i64> %67, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x i64> %69, ptr %.sroa.4.0..sroa_idx, align 16
@@ -1083,7 +1077,7 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [8 x i32], align 16
   %6 = alloca [8 x i64], align 16
   %.sroa.03.0.copyload = load i64, ptr %2, align 64
@@ -1116,7 +1110,7 @@ define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, 
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
   store i32 %8, ptr %5, align 16
@@ -1148,7 +1142,7 @@ define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, 
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.1010.0.copyload)
   %29 = trunc nuw nsw i64 %28 to i32
   store i32 %29, ptr %27, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = tail call i64 @llvm.x86.bmi.pext.64(i64 %.sroa.0.0.copyload, i64 %.sroa.03.0.copyload)
   store i64 %30, ptr %6, align 16
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1287,13 +1281,13 @@ define hidden void @storecompressed512(ptr noundef writeonly captures(none) %0, 
   br i1 %exitcond.not, label %45, label %78
 
 pack_bits_64.exit:                                ; preds = %45, %48, %49, %57, %62, %67, %69, %74, %76
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [8 x i32], align 16
   %6 = alloca [8 x i64], align 16
   %.sroa.03.0.copyload = load i64, ptr %2, align 64
@@ -1311,7 +1305,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 16
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7, !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !8
   %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.03.0.copyload)
   %8 = trunc nuw nsw i64 %7 to i32
   store i32 %8, ptr %5, align 16, !noalias !8
@@ -1343,7 +1337,7 @@ define hidden void @loadcompressed512(ptr noundef writeonly captures(none) %0, p
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.10.0.copyload)
   %29 = trunc nuw nsw i64 %28 to i32
   store i32 %29, ptr %27, align 4, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7, !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !8
   br label %30
 
 30:                                               ; preds = %4, %._crit_edge
@@ -1436,8 +1430,8 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
   %83 = insertelement <4 x i64> %82, i64 %71, i64 1
   %84 = insertelement <4 x i64> %83, i64 %74, i64 2
   %85 = insertelement <4 x i64> %84, i64 %77, i64 3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #7, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8
   store <4 x i64> %81, ptr %0, align 64
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x i64> %85, ptr %.sroa.4.0..sroa_idx, align 32
@@ -1445,28 +1439,33 @@ unpack_bits_64.exit:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.bmi.pext.32(i32, i32) #5
+declare i32 @llvm.x86.bmi.pext.32(i32, i32) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.bmi.pdep.32(i32, i32) #5
+declare i32 @llvm.x86.bmi.pdep.32(i32, i32) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pext.64(i64, i64) #5
+declare i64 @llvm.x86.bmi.pext.64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #5
+declare i64 @llvm.x86.bmi.pdep.64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

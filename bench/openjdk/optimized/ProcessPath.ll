@@ -953,7 +953,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 .thread84.i:                                      ; preds = %226, %224, %221
   %.sroa.0.188.i = phi double [ %.sroa.0.0.i, %226 ], [ %218, %221 ], [ %.sroa.0.0.i, %224 ]
   %227 = fptrunc double %.sroa.0.188.i to float
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float %185, ptr %13, align 16
   store float %205, ptr %99, align 4
   %228 = fsub float %166, %185
@@ -977,14 +977,14 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   store float %239, ptr %103, align 4
   store float %239, ptr %77, align 4
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %ProcessQuad.exit
 
 .thread.i:                                        ; preds = %224, %222
   %.sroa.0.181.i = phi double [ %218, %222 ], [ %.sroa.0.0.i, %224 ]
   %.sroa.6.080.i = phi double [ %.sroa.0.0.i, %222 ], [ %218, %224 ]
   %240 = fptrunc double %.sroa.0.181.i to float
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float %185, ptr %12, align 16
   store float %205, ptr %104, align 4
   %241 = fsub float %166, %185
@@ -1008,7 +1008,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   store float %252, ptr %108, align 4
   store float %252, ptr %77, align 4
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %253 = fsub double %.sroa.6.080.i, %.sroa.0.181.i
   %254 = fcmp ogt double %253, 0.000000e+00
   br i1 %254, label %255, label %ProcessQuad.exit
@@ -1017,7 +1017,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %256 = fsub double 1.000000e+00, %.sroa.0.181.i
   %257 = fdiv double %253, %256
   %258 = fptrunc double %257 to float
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %259 = load float, ptr %14, align 16
   store float %259, ptr %11, align 16
   %260 = load float, ptr %77, align 4
@@ -1047,7 +1047,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   store float %276, ptr %113, align 4
   store float %276, ptr %77, align 4
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ProcessQuad.exit
 
 ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, %.thread.i, %255
@@ -1126,7 +1126,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   br i1 %or.cond56, label %314, label %519
 
 314:                                              ; preds = %306
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %315 = load float, ptr %14, align 16
   %316 = fcmp ogt float %315, %285
   %317 = fcmp ogt float %285, %291
@@ -1368,7 +1368,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 ._crit_edge.i241:                                 ; preds = %.critedge.i, %.preheader.i
   %442 = load double, ptr %10, align 16
   %443 = fptrunc double %442 to float
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %444 = load float, ptr %14, align 16
   store float %444, ptr %9, align 16
   %445 = load float, ptr %77, align 4
@@ -1416,7 +1416,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   store float %475, ptr %91, align 4
   store float %475, ptr %77, align 4
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %430, label %.lr.ph186.i, label %ProcessCubic.exit
 
 .lr.ph186.i:                                      ; preds = %._crit_edge.i241
@@ -1436,7 +1436,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   %483 = fsub double 1.000000e+00, %477
   %484 = fdiv double %480, %483
   %485 = fptrunc double %484 to float
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %486 = load float, ptr %14, align 16
   store float %486, ptr %8, align 16
   %487 = load float, ptr %77, align 4
@@ -1484,7 +1484,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
   store float %517, ptr %98, align 4
   store float %517, ptr %77, align 4
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %518
 
 518:                                              ; preds = %482, %476
@@ -1494,7 +1494,7 @@ ProcessQuad.exit:                                 ; preds = %226, %.thread84.i, 
 
 ProcessCubic.exit:                                ; preds = %518, %426, %._crit_edge.i241
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %520
 
 519:                                              ; preds = %306
@@ -3657,10 +3657,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11

@@ -1332,14 +1332,14 @@ if.then:                                          ; preds = %invoke.cont3
 
 invoke.cont5:                                     ; preds = %if.then
   %4 = load ptr, ptr %metadata, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i.i)
   store i32 0, ptr %n.i.i, align 4
   %call.i.i8 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %n.i.i, i64 noundef 4)
           to label %call.i.i.noexc unwind label %lpad7
 
 call.i.i.noexc:                                   ; preds = %invoke.cont5
   %5 = load i32, ptr %n.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %4, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %6 = load ptr, ptr %vfn.i, align 8
@@ -1447,14 +1447,14 @@ if.else:                                          ; preds = %invoke.cont3
 
 invoke.cont12:                                    ; preds = %if.else
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mBytes.i, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i.i9)
   store i32 0, ptr %n.i.i9, align 4
   %call.i.i13 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %is, ptr noundef nonnull %n.i.i9, i64 noundef 4)
           to label %call.i.i.noexc12 unwind label %lpad13
 
 call.i.i.noexc12:                                 ; preds = %invoke.cont12
   %22 = load i32, ptr %n.i.i9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i.i9)
   %vtable.i10 = load ptr, ptr %metadata11, align 8
   %vfn.i11 = getelementptr inbounds nuw i8, ptr %vtable.i10, i64 64
   %23 = load ptr, ptr %vfn.i11, align 8
@@ -1713,7 +1713,7 @@ entry:
 for.body:                                         ; preds = %entry, %invoke.cont
   %iter.sroa.0.021 = phi ptr [ %call.i15, %invoke.cont ], [ %1, %entry ]
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %iter.sroa.0.021, i64 32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i)
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #17
   %conv.i = trunc i64 %call.i to i32
   store i32 %conv.i, ptr %size.i, align 4
@@ -1722,14 +1722,14 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %2 = load i32, ptr %size.i, align 4
   %conv3.i = zext i32 %2 to i64
   %call4.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %call2.i, i64 noundef %conv3.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i)
   %second = getelementptr inbounds nuw i8, ptr %iter.sroa.0.021, i64 64
   %3 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i5)
   %call.i6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #17
   %conv.i7 = trunc i64 %call.i6 to i32
   store i32 %conv.i7, ptr %size.i5, align 4
@@ -1744,17 +1744,17 @@ call1.i8.noexc:                                   ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %call1.i8.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #17
   %6 = load ptr, ptr %second, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i.i)
   %vtable.i.i = load ptr, ptr %6, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 56
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   store i32 %call.i.i, ptr %n.i.i, align 4
   %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %n.i.i, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %8 = load ptr, ptr %vfn.i, align 8
@@ -3880,10 +3880,10 @@ entry:
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -53,14 +53,14 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
 38:                                               ; preds = %50
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store float %3, ptr %39, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %11) #6
   store i32 2, ptr %11, align 8, !tbaa !9
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store float 0x3FB99999A0000000, ptr %40, align 4, !tbaa !16
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %8, ptr %41, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %12) #6
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float 0x3FC99999A0000000, ptr %42, align 8, !tbaa !18
@@ -71,7 +71,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   store i64 2, ptr %44, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 3, ptr %46, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %12, i64 72, i1 false), !tbaa.struct !25
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float 0x3FA99999A0000000, ptr %47, align 8, !tbaa !18
@@ -127,7 +127,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %71
 
 71:                                               ; preds = %69, %56
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !41
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %73 = fmul float %3, 0xBF947AE140000000
@@ -141,7 +141,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %78 = fmul float %3, 0x3FB851EB80000000
   store float %78, ptr %77, align 4, !tbaa !43
   %79 = call i64 @b2CreateCapsuleShape(i64 %68, ptr noundef nonnull %12, ptr noundef nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %81, align 4, !tbaa !36
@@ -163,7 +163,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %88
 
 88:                                               ; preds = %86, %71
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float 0.000000e+00, ptr %15, align 4, !tbaa !41
   %89 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %90 = fmul float %3, 0xBFC147AE20000000
@@ -179,7 +179,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %96 = call i64 @b2CreateCapsuleShape(i64 %84, ptr noundef nonnull %12, ptr noundef nonnull %15) #6
   %97 = fadd float %3, %.sroa.0.4.vec.extract.i
   %.sroa.02.4.vec.insert.i456 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %97, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %16) #6
   %98 = load i32, ptr %81, align 4, !tbaa !36
   %99 = sext i32 %98 to i64
@@ -221,8 +221,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %16) #6
   store i64 %123, ptr %122, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %125, align 4, !tbaa !36
@@ -246,7 +246,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %134
 
 134:                                              ; preds = %132, %88
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store float 0.000000e+00, ptr %17, align 4, !tbaa !41
   %135 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %136 = fmul float %3, 0xBFA374BC60000000
@@ -263,7 +263,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %143 = fmul float %3, 0x3FF6666660000000
   %144 = fadd float %.sroa.0.4.vec.extract.i, %143
   %.sroa.02.4.vec.insert.i464 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %144, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %18) #6
   %145 = load i32, ptr %125, align 4, !tbaa !36
   %146 = sext i32 %145 to i64
@@ -303,8 +303,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %168 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %18) #6
   store i64 %168, ptr %167, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %170, align 4, !tbaa !36
@@ -325,7 +325,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %177
 
 177:                                              ; preds = %175, %134
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float 0.000000e+00, ptr %19, align 4, !tbaa !41
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %179 = fmul float %3, -1.250000e-01
@@ -342,7 +342,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %186 = fmul float %3, 0x3FECCCCCC0000000
   %187 = fadd float %.sroa.0.4.vec.extract.i, %186
   %.sroa.02.4.vec.insert.i472 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %187, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %20) #6
   %188 = load i32, ptr %170, align 4, !tbaa !36
   %189 = sext i32 %188 to i64
@@ -382,9 +382,9 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %211 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %20) #6
   store i64 %211, ptr %210, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %212 = fmul float %3, 0xBF9EB851E0000000
   store float %212, ptr %21, align 16, !tbaa !41
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -405,9 +405,9 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %222 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %223 = fmul float %3, 0xBFC1EB8520000000
   store float %223, ptr %222, align 4, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @b2ComputeHull(ptr dead_on_unwind nonnull writable sret(%struct.b2Hull) align 4 %22, ptr noundef nonnull %21, i32 noundef 4) #6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %224 = fmul float %3, 0x3F8EB851E0000000
   call void @b2MakePolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %23, ptr noundef nonnull %22, float noundef %224) #6
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -430,7 +430,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %233
 
 233:                                              ; preds = %231, %177
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %24) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0.000000e+00, ptr %24, align 4, !tbaa !41
   %234 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %235 = fmul float %3, 0xBFC3D70A40000000
@@ -448,7 +448,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %243 = fmul float %3, 6.250000e-01
   %244 = fadd float %.sroa.0.4.vec.extract.i, %243
   %.sroa.02.4.vec.insert.i480 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %244, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %25) #6
   %245 = load i32, ptr %226, align 4, !tbaa !36
   %246 = sext i32 %245 to i64
@@ -488,8 +488,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %268 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %25) #6
   store i64 %268, ptr %267, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %25) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 0, ptr %270, align 4, !tbaa !36
@@ -507,7 +507,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %275
 
 275:                                              ; preds = %273, %233
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 0.000000e+00, ptr %26, align 4, !tbaa !41
   %276 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float %179, ptr %276, align 4, !tbaa !42
@@ -518,7 +518,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %279 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store float %184, ptr %279, align 4, !tbaa !43
   %280 = call i64 @b2CreateCapsuleShape(i64 %271, ptr noundef nonnull %12, ptr noundef nonnull %26) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %27) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %27) #6
   %281 = load i32, ptr %270, align 4, !tbaa !36
   %282 = sext i32 %281 to i64
@@ -558,8 +558,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %304 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %27) #6
   store i64 %304, ptr %303, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 5, ptr %306, align 4, !tbaa !36
@@ -577,7 +577,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %311
 
 311:                                              ; preds = %309, %275
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store float 0.000000e+00, ptr %28, align 4, !tbaa !41
   %312 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float %235, ptr %312, align 4, !tbaa !42
@@ -590,7 +590,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %316 = call i64 @b2CreateCapsuleShape(i64 %307, ptr noundef nonnull %12, ptr noundef nonnull %28) #6
   %317 = load i64, ptr %305, align 4
   %318 = call i64 @b2CreatePolygonShape(i64 %317, ptr noundef nonnull %13, ptr noundef nonnull %23) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %29) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %29) #6
   %319 = load i32, ptr %306, align 4, !tbaa !36
   %320 = sext i32 %319 to i64
@@ -630,8 +630,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %342 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %29) #6
   store i64 %342, ptr %341, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %29) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 1, ptr %344, align 4, !tbaa !36
@@ -652,7 +652,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %351
 
 351:                                              ; preds = %349, %311
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %30) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float 0.000000e+00, ptr %30, align 4, !tbaa !41
   %352 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store float %179, ptr %352, align 4, !tbaa !42
@@ -667,7 +667,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %358 = fmul float %3, 0x3FF59999A0000000
   %359 = fadd float %.sroa.0.4.vec.extract.i, %358
   %.sroa.02.4.vec.insert.i504 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %359, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %31) #6
   %360 = load i32, ptr %344, align 4, !tbaa !36
   %361 = sext i32 %360 to i64
@@ -707,8 +707,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %383 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %31) #6
   store i64 %383, ptr %382, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %30) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 7, ptr %385, align 4, !tbaa !36
@@ -729,7 +729,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %392
 
 392:                                              ; preds = %390, %351
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %32) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store float 0.000000e+00, ptr %32, align 4, !tbaa !41
   %393 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store float %179, ptr %393, align 4, !tbaa !42
@@ -744,7 +744,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %399 = fmul float %3, 0x3FF19999A0000000
   %400 = fadd float %.sroa.0.4.vec.extract.i, %399
   %.sroa.02.4.vec.insert.i512 = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %400, i64 1
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %33) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %33) #6
   %401 = load i32, ptr %385, align 4, !tbaa !36
   %402 = sext i32 %401 to i64
@@ -786,8 +786,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %425 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %33) #6
   store i64 %425, ptr %424, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %33) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 1, ptr %427, align 4, !tbaa !36
@@ -805,7 +805,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %432
 
 432:                                              ; preds = %430, %392
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store float 0.000000e+00, ptr %34, align 4, !tbaa !41
   %433 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %179, ptr %433, align 4, !tbaa !42
@@ -816,7 +816,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %436 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store float %356, ptr %436, align 4, !tbaa !43
   %437 = call i64 @b2CreateCapsuleShape(i64 %428, ptr noundef nonnull %12, ptr noundef nonnull %34) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %35) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %35) #6
   %438 = load i32, ptr %427, align 4, !tbaa !36
   %439 = sext i32 %438 to i64
@@ -856,8 +856,8 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %460 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %461 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %35) #6
   store i64 %461, ptr %460, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %35) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %34) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 9, ptr %463, align 4, !tbaa !36
@@ -875,7 +875,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   br label %468
 
 468:                                              ; preds = %466, %432
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store float 0.000000e+00, ptr %36, align 4, !tbaa !41
   %469 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store float %179, ptr %469, align 4, !tbaa !42
@@ -886,7 +886,7 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %472 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store float %397, ptr %472, align 4, !tbaa !43
   %473 = call i64 @b2CreateCapsuleShape(i64 %464, ptr noundef nonnull %12, ptr noundef nonnull %36) #6
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @b2DefaultRevoluteJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2RevoluteJointDef) align 8 %37) #6
   %474 = load i32, ptr %463, align 4, !tbaa !36
   %475 = sext i32 %474 to i64
@@ -928,50 +928,44 @@ define void @CreateHuman(ptr noundef %0, i32 %1, <2 x float> %2, float noundef %
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %498 = call i64 @b2CreateRevoluteJoint(i32 %1, ptr noundef nonnull %37) #6
   store i64 %498, ptr %497, align 4
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %37) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store i8 1, ptr %499, align 4, !tbaa !56
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %23) #6
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #2
 
-declare void @b2DefaultBodyDef(ptr dead_on_unwind writable sret(%struct.b2BodyDef) align 8) local_unnamed_addr #3
+declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #2
 
-declare void @b2DefaultShapeDef(ptr dead_on_unwind writable sret(%struct.b2ShapeDef) align 8) local_unnamed_addr #3
+declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #2
 
-declare i64 @b2CreateBody(i32, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @b2CreateCapsuleShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @b2DefaultRevoluteJointDef(ptr dead_on_unwind writable sret(%struct.b2RevoluteJointDef) align 8) local_unnamed_addr #2
 
-declare void @b2DefaultRevoluteJointDef(ptr dead_on_unwind writable sret(%struct.b2RevoluteJointDef) align 8) local_unnamed_addr #3
+declare <2 x float> @b2Body_GetLocalPoint(i64, <2 x float>) local_unnamed_addr #2
 
-declare <2 x float> @b2Body_GetLocalPoint(i64, <2 x float>) local_unnamed_addr #3
+declare i64 @b2CreateRevoluteJoint(i32, ptr noundef) local_unnamed_addr #2
 
-declare i64 @b2CreateRevoluteJoint(i32, ptr noundef) local_unnamed_addr #3
+declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @b2ComputeHull(ptr dead_on_unwind writable sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #2
 
-declare void @b2MakePolygon(ptr dead_on_unwind writable sret(%struct.b2Polygon) align 4, ptr noundef, float noundef) local_unnamed_addr #3
-
-declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @b2CreatePolygonShape(i64, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %1, %8
@@ -1016,9 +1010,9 @@ define void @DestroyHuman(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   br i1 %exitcond23.not, label %9, label %.preheader, !llvm.loop !60
 }
 
-declare void @b2DestroyJoint(i64) local_unnamed_addr #3
+declare void @b2DestroyJoint(i64) local_unnamed_addr #2
 
-declare void @b2DestroyBody(i64) local_unnamed_addr #3
+declare void @b2DestroyBody(i64) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Human_SetVelocity(ptr noundef readonly captures(none) %0, <2 x float> %1) local_unnamed_addr #0 {
@@ -1050,10 +1044,10 @@ define void @Human_SetVelocity(ptr noundef readonly captures(none) %0, <2 x floa
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !61
 }
 
-declare void @b2Body_SetLinearVelocity(i64, <2 x float>) local_unnamed_addr #3
+declare void @b2Body_SetLinearVelocity(i64, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Human_ApplyRandomAngularImpulse(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Human_ApplyRandomAngularImpulse(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @g_seed, align 4, !tbaa !28
   %4 = shl i32 %3, 13
   %5 = xor i32 %4, %3
@@ -1074,10 +1068,10 @@ define void @Human_ApplyRandomAngularImpulse(ptr noundef readonly captures(none)
   ret void
 }
 
-declare void @b2Body_ApplyAngularImpulse(i64, float noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @b2Body_ApplyAngularImpulse(i64, float noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #3 {
   %3 = fcmp oeq float %1, 0.000000e+00
   br i1 %3, label %.preheader, label %.preheader17
 
@@ -1115,12 +1109,12 @@ define void @Human_SetJointFrictionTorque(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @b2RevoluteJoint_EnableMotor(i64, i1 noundef zeroext) local_unnamed_addr #3
+declare void @b2RevoluteJoint_EnableMotor(i64, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @b2RevoluteJoint_SetMaxMotorTorque(i64, float noundef) local_unnamed_addr #3
+declare void @b2RevoluteJoint_SetMaxMotorTorque(i64, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #3 {
   %3 = fcmp oeq float %1, 0.000000e+00
   br i1 %3, label %.preheader, label %.preheader13
 
@@ -1148,12 +1142,12 @@ define void @Human_SetJointSpringHertz(ptr noundef readonly captures(none) %0, f
   ret void
 }
 
-declare void @b2RevoluteJoint_EnableSpring(i64, i1 noundef zeroext) local_unnamed_addr #3
+declare void @b2RevoluteJoint_EnableSpring(i64, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @b2RevoluteJoint_SetSpringHertz(i64, float noundef) local_unnamed_addr #3
+declare void @b2RevoluteJoint_SetSpringHertz(i64, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Human_SetJointDampingRatio(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Human_SetJointDampingRatio(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #3 {
   br label %4
 
 3:                                                ; preds = %4
@@ -1169,16 +1163,22 @@ define void @Human_SetJointDampingRatio(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !66
 }
 
-declare void @b2RevoluteJoint_SetSpringDampingRatio(i64, float noundef) local_unnamed_addr #3
+declare void @b2RevoluteJoint_SetSpringDampingRatio(i64, float noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }
 

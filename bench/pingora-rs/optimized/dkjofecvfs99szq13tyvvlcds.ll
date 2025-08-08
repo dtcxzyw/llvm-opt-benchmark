@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$rustls_pemfile..pemfile..Item$C$rustls_pki_types..CertificateDer$GT$$GT$17hc547312277411618E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3
   %3 = load ptr, ptr %0, align 8, !alias.scope !3, !nonnull !6, !noundef !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3, !noundef !6
@@ -66,7 +66,7 @@ define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..in_pla
 
 "_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2932ac88aea21115E.exit": ; preds = %9
   call void @"_ZN4core3ptr80drop_in_place$LT$alloc..raw_vec..RawVec$LT$rustls_pemfile..pemfile..Item$GT$$GT$17h07bc15c52f1b2d4dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3
   ret void
 }
 
@@ -100,7 +100,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h86308c
   %20 = ptrtoint ptr %7 to i64
   %21 = sub nuw i64 %19, %20
   %22 = udiv exact i64 %21, 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %22, ptr %23, align 8
@@ -131,7 +131,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h86308c
   store ptr %.sroa.01.0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %22, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @"_ZN4core3ptr212drop_in_place$LT$core..iter..adapters..filter_map..FilterMap$LT$alloc..vec..into_iter..IntoIter$LT$rustls_pemfile..pemfile..Item$GT$$C$pingora_rustls..load_certs_and_key_files..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h71cac09f3cd40536E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 
@@ -194,10 +194,10 @@ declare void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 nounde
 declare noalias noundef ptr @_RNvCshjvJWTf7CV5_7___rustc14___rust_realloc(ptr allocptr noundef, i64 noundef, i64 allocalign noundef, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7

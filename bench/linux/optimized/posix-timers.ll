@@ -181,9 +181,6 @@ __lock_timer.exit.thread:                         ; preds = %1, %__lock_timer.ex
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @__lock_timer(i32 noundef %0, ptr noundef writeonly captures(none) %1) unnamed_addr #1 align 16 {
   %3 = icmp slt i32 %0, 0
@@ -257,9 +254,6 @@ define internal fastcc ptr @__lock_timer(i32 noundef %0, ptr noundef writeonly c
   ret ptr %48
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @posix_timer_event(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -281,7 +275,7 @@ define dso_local range(i32 0, 2) i32 @posix_timer_event(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @send_sigqueue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @send_sigqueue(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
@@ -299,7 +293,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_create(
 
 12:                                               ; preds = %1
   %13 = inttoptr i64 %6 to ptr
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !9
   %14 = call i64 @_copy_from_user(ptr noundef nonnull %2, ptr noundef nonnull %13, i64 noundef 64) #8
   %15 = icmp eq i64 %14, 0
@@ -312,7 +306,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_create(
 
 19:                                               ; preds = %16, %12
   %20 = phi i64 [ %18, %16 ], [ -14, %12 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 21:                                               ; preds = %1
@@ -343,7 +337,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_create
 
 14:                                               ; preds = %1
   %15 = inttoptr i64 %7 to ptr
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !9
   %16 = call i64 @_copy_from_user(ptr noundef nonnull %2, ptr noundef nonnull %15, i64 noundef 64) #8
   %17 = icmp eq i64 %16, 0
@@ -356,7 +350,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_create
 
 21:                                               ; preds = %18, %14
   %22 = phi i64 [ %20, %18 ], [ -14, %14 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
 23:                                               ; preds = %1
@@ -387,7 +381,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_timer
 
 14:                                               ; preds = %1
   %15 = inttoptr i64 %7 to ptr
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !9
   %16 = call i32 @get_compat_sigevent(ptr noundef nonnull %2, ptr noundef nonnull %15) #8
   %17 = icmp eq i32 %16, 0
@@ -400,7 +394,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_timer
 
 21:                                               ; preds = %18, %14
   %22 = phi i64 [ %20, %18 ], [ -14, %14 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %26
 
 23:                                               ; preds = %1
@@ -499,7 +493,7 @@ define dso_local void @common_timer_get(ptr noundef %0, ptr noundef writeonly ca
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local { i64, i64 } @ns_to_timespec64(i64 noundef) local_unnamed_addr #3
+declare dso_local { i64, i64 } @ns_to_timespec64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -22, 1) i64 @__x64_sys_timer_gettime(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
@@ -516,7 +510,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime(i64 noundef
   %3 = alloca %struct.itimerspec64, align 8
   %4 = trunc i64 %0 to i32
   %5 = inttoptr i64 %1 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %.thread, label %7
 
@@ -611,7 +605,7 @@ __lock_timer.exit.thread5:                        ; preds = %33, %47, %7
 
 .thread:                                          ; preds = %2, %__lock_timer.exit.thread5, %56, %57
   %61 = phi i64 [ -22, %56 ], [ %60, %57 ], [ -22, %__lock_timer.exit.thread5 ], [ -22, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %61
 }
 
@@ -642,7 +636,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime32(i64 nound
   %3 = alloca %struct.itimerspec64, align 8
   %4 = trunc i64 %0 to i32
   %5 = inttoptr i64 %1 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %.thread, label %7
 
@@ -737,7 +731,7 @@ __lock_timer.exit.thread5:                        ; preds = %33, %47, %7
 
 .thread:                                          ; preds = %2, %__lock_timer.exit.thread5, %56, %57
   %61 = phi i64 [ -22, %56 ], [ %60, %57 ], [ -22, %__lock_timer.exit.thread5 ], [ -22, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %61
 }
 
@@ -1104,8 +1098,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_settime
   %12 = trunc i64 %5 to i32
   %13 = trunc i64 %7 to i32
   %14 = inttoptr i64 %11 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = icmp eq i64 %9, 0
   br i1 %15, label %33, label %16
 
@@ -1138,8 +1132,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_settime
 
 33:                                               ; preds = %30, %16, %1
   %34 = phi i64 [ %32, %30 ], [ -22, %1 ], [ -14, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %34
 }
 
@@ -1160,8 +1154,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_settim
   %14 = trunc i64 %5 to i32
   %15 = trunc i64 %7 to i32
   %16 = inttoptr i64 %13 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = icmp eq i64 %10, 0
   br i1 %17, label %35, label %18
 
@@ -1194,8 +1188,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_settim
 
 35:                                               ; preds = %32, %18, %1
   %36 = phi i64 [ %34, %32 ], [ -22, %1 ], [ -14, %18 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -1214,8 +1208,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_settime
   %12 = trunc i64 %5 to i32
   %13 = trunc i64 %7 to i32
   %14 = inttoptr i64 %11 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = icmp ne i64 %11, 0
   %16 = select i1 %15, ptr %3, ptr null
   %17 = icmp eq i64 %9, 0
@@ -1248,8 +1242,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_settime
 
 33:                                               ; preds = %30, %18, %1
   %34 = phi i64 [ %32, %30 ], [ -22, %1 ], [ -14, %18 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %34
 }
 
@@ -1270,8 +1264,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_settim
   %14 = trunc i64 %5 to i32
   %15 = trunc i64 %7 to i32
   %16 = inttoptr i64 %13 to ptr
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = icmp ne i64 %13, 0
   %18 = select i1 %17, ptr %3, ptr null
   %19 = icmp eq i64 %10, 0
@@ -1304,8 +1298,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_settim
 
 35:                                               ; preds = %32, %20, %1
   %36 = phi i64 [ %34, %32 ], [ -22, %1 ], [ -14, %20 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -1343,7 +1337,7 @@ define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_timer_delete(ptr nound
 define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_timer_delete(i64 noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i64, align 8
   %3 = trunc i64 %0 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %__lock_timer.exit.thread, label %5
 
@@ -1489,7 +1483,7 @@ __lock_timer.exit:                                ; preds = %38
 
 __lock_timer.exit.thread:                         ; preds = %58, %1, %__lock_timer.exit.thread5, %78
   %84 = phi i64 [ 0, %78 ], [ -22, %__lock_timer.exit.thread5 ], [ -22, %1 ], [ -22, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %84
 }
 
@@ -1505,7 +1499,7 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_sys_timer_delete(ptr noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @exit_itimers(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca %struct.list_head, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -1712,12 +1706,12 @@ __lock_timer.exit:                                ; preds = %44, %.thread.i
   br i1 %112, label %.loopexit7, label %.preheader, !llvm.loop !27
 
 .loopexit7:                                       ; preds = %110, %8, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
@@ -1735,7 +1729,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -1744,7 +1738,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %34
 
 15:                                               ; preds = %13
@@ -1753,7 +1747,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %34, label %22
@@ -1778,7 +1772,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
 
 34:                                               ; preds = %.thread, %30, %27, %22, %15
   %35 = phi i64 [ %33, %30 ], [ -22, %22 ], [ -22, %15 ], [ -14, %27 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
 
@@ -1800,7 +1794,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -1809,7 +1803,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %35
 
 17:                                               ; preds = %15
@@ -1817,7 +1811,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %35, label %23
@@ -1842,7 +1836,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
 
 35:                                               ; preds = %.thread, %31, %28, %23, %17
   %36 = phi i64 [ %34, %31 ], [ -22, %23 ], [ -22, %17 ], [ -14, %28 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -1862,7 +1856,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -1871,7 +1865,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %35
 
 15:                                               ; preds = %13
@@ -1880,7 +1874,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %35, label %22
@@ -1906,7 +1900,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
 
 35:                                               ; preds = %.thread, %32, %15
   %36 = phi i64 [ %34, %32 ], [ -22, %15 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -1928,7 +1922,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -1937,7 +1931,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %36
 
 17:                                               ; preds = %15
@@ -1945,7 +1939,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %36, label %23
@@ -1971,7 +1965,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
 
 36:                                               ; preds = %.thread, %33, %17
   %37 = phi i64 [ %35, %33 ], [ -22, %17 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %37
 }
 
@@ -2026,7 +2020,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   %8 = inttoptr i64 %6 to ptr
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false), !annotation !9
   %9 = call i64 @_copy_from_user(ptr noundef nonnull %2, ptr noundef %8, i64 noundef 208) #8
   %10 = icmp eq i64 %9, 0
@@ -2079,7 +2073,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
 
 38:                                               ; preds = %.thread4, %33, %1
   %39 = phi i64 [ %37, %.thread4 ], [ -14, %1 ], [ -14, %33 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %39
 }
 
@@ -2094,7 +2088,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   %8 = and i64 %7, 4294967295
   %9 = trunc i64 %4 to i32
   %10 = inttoptr i64 %8 to ptr
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false), !annotation !9
   %11 = call i64 @_copy_from_user(ptr noundef nonnull %2, ptr noundef %10, i64 noundef 208) #8
   %12 = icmp eq i64 %11, 0
@@ -2146,7 +2140,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
 
 39:                                               ; preds = %.thread4, %34, %1
   %40 = phi i64 [ %38, %.thread4 ], [ -14, %1 ], [ -14, %34 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %40
 }
 
@@ -2166,7 +2160,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -2175,7 +2169,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %36
 
 15:                                               ; preds = %13
@@ -2184,7 +2178,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %36, label %22
@@ -2211,7 +2205,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
 
 36:                                               ; preds = %.thread, %33, %15
   %37 = phi i64 [ %35, %33 ], [ -22, %15 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %37
 }
 
@@ -2233,7 +2227,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -2242,7 +2236,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %37
 
 17:                                               ; preds = %15
@@ -2250,7 +2244,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %37, label %23
@@ -2277,7 +2271,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
 
 37:                                               ; preds = %.thread, %34, %17
   %38 = phi i64 [ %36, %34 ], [ -22, %17 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %38
 }
 
@@ -2297,7 +2291,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -2306,7 +2300,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %34
 
 15:                                               ; preds = %13
@@ -2315,7 +2309,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %34, label %22
@@ -2340,7 +2334,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
 
 34:                                               ; preds = %.thread, %30, %27, %22, %15
   %35 = phi i64 [ %33, %30 ], [ -22, %22 ], [ -22, %15 ], [ -14, %27 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
 
@@ -2362,7 +2356,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -2371,7 +2365,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %35
 
 17:                                               ; preds = %15
@@ -2379,7 +2373,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %35, label %23
@@ -2404,7 +2398,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
 
 35:                                               ; preds = %.thread, %31, %28, %23, %17
   %36 = phi i64 [ %34, %31 ], [ -22, %23 ], [ -22, %17 ], [ -14, %28 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -2424,7 +2418,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -2433,7 +2427,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %35
 
 15:                                               ; preds = %13
@@ -2442,7 +2436,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %35, label %22
@@ -2468,7 +2462,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
 
 35:                                               ; preds = %.thread, %32, %15
   %36 = phi i64 [ %34, %32 ], [ -22, %15 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -2490,7 +2484,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -2499,7 +2493,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %36
 
 17:                                               ; preds = %15
@@ -2507,7 +2501,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %36, label %23
@@ -2533,7 +2527,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
 
 36:                                               ; preds = %.thread, %33, %17
   %37 = phi i64 [ %35, %33 ], [ -22, %17 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %37
 }
 
@@ -2546,7 +2540,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   %8 = inttoptr i64 %6 to ptr
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false), !annotation !9
   %9 = call i32 @get_old_timex32(ptr noundef nonnull %2, ptr noundef %8) #8
   %10 = icmp eq i32 %9, 0
@@ -2603,7 +2597,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
 
 40:                                               ; preds = %.thread5, %35, %11
   %41 = phi i64 [ %12, %11 ], [ %39, %.thread5 ], [ -14, %35 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %41
 }
 
@@ -2618,7 +2612,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
   %8 = and i64 %7, 4294967295
   %9 = trunc i64 %4 to i32
   %10 = inttoptr i64 %8 to ptr
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false), !annotation !9
   %11 = call i32 @get_old_timex32(ptr noundef nonnull %2, ptr noundef %10) #8
   %12 = icmp eq i32 %11, 0
@@ -2674,7 +2668,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
 
 41:                                               ; preds = %.thread5, %36, %13
   %42 = phi i64 [ %14, %13 ], [ %40, %.thread5 ], [ -14, %36 ]
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %42
 }
 
@@ -2694,7 +2688,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
   %10 = and i32 %7, 7
   %11 = icmp eq i32 %10, 3
   %12 = select i1 %11, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %22
 
@@ -2703,7 +2697,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
   br i1 %14, label %.thread, label %15
 
 .thread:                                          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %34
 
 15:                                               ; preds = %13
@@ -2712,7 +2706,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
   %18 = and i64 %17, %16
   %19 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %21 = icmp eq i64 %18, 10
   br i1 %21, label %34, label %22
@@ -2737,7 +2731,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
 
 34:                                               ; preds = %.thread, %32, %29, %15
   %35 = phi i64 [ %33, %32 ], [ -22, %15 ], [ -14, %29 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %35
 }
 
@@ -2759,7 +2753,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   %12 = and i32 %9, 7
   %13 = icmp eq i32 %12, 3
   %14 = select i1 %13, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %23
 
@@ -2768,7 +2762,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %35
 
 17:                                               ; preds = %15
@@ -2776,7 +2770,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
   %19 = and i64 %18, %5
   %20 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %22 = icmp eq i64 %19, 10
   br i1 %22, label %35, label %23
@@ -2801,7 +2795,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
 
 35:                                               ; preds = %.thread, %33, %30, %17
   %36 = phi i64 [ %34, %33 ], [ -22, %17 ], [ -14, %30 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
 }
 
@@ -2827,7 +2821,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %16 = and i32 %11, 7
   %17 = icmp eq i32 %16, 3
   %18 = select i1 %17, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %28
 
@@ -2836,7 +2830,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %57
 
 21:                                               ; preds = %19
@@ -2845,7 +2839,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %24 = and i64 %23, %22
   %25 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %27 = icmp eq i64 %24, 10
   br i1 %27, label %57, label %28
@@ -2892,7 +2886,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
 
 57:                                               ; preds = %.thread, %43, %36, %33, %28, %21
   %58 = phi i64 [ %56, %43 ], [ -22, %21 ], [ -95, %28 ], [ -14, %33 ], [ -22, %36 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %58
 }
 
@@ -2921,7 +2915,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   %19 = and i32 %14, 7
   %20 = icmp eq i32 %19, 3
   %21 = select i1 %20, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %30
 
@@ -2930,7 +2924,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %59
 
 24:                                               ; preds = %22
@@ -2938,7 +2932,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   %26 = and i64 %25, %5
   %27 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %29 = icmp eq i64 %26, 10
   br i1 %29, label %59, label %30
@@ -2985,7 +2979,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
 
 59:                                               ; preds = %.thread, %45, %38, %35, %30, %24
   %60 = phi i64 [ %58, %45 ], [ -22, %24 ], [ -95, %30 ], [ -14, %35 ], [ -22, %38 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %60
 }
 
@@ -3011,7 +3005,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %16 = and i32 %11, 7
   %17 = icmp eq i32 %16, 3
   %18 = select i1 %17, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %28
 
@@ -3020,7 +3014,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   br i1 %20, label %.thread, label %21
 
 .thread:                                          ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %57
 
 21:                                               ; preds = %19
@@ -3029,7 +3023,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %24 = and i64 %23, %22
   %25 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %27 = icmp eq i64 %24, 10
   br i1 %27, label %57, label %28
@@ -3076,7 +3070,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
 
 57:                                               ; preds = %.thread, %43, %36, %33, %28, %21
   %58 = phi i64 [ %56, %43 ], [ -22, %21 ], [ -95, %28 ], [ -14, %33 ], [ -22, %36 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %58
 }
 
@@ -3105,7 +3099,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   %19 = and i32 %14, 7
   %20 = icmp eq i32 %19, 3
   %21 = select i1 %20, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   br label %30
 
@@ -3114,7 +3108,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %59
 
 24:                                               ; preds = %22
@@ -3122,7 +3116,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
   %26 = and i64 %25, %5
   %27 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
   %29 = icmp eq i64 %26, 10
   br i1 %29, label %59, label %30
@@ -3169,15 +3163,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
 
 59:                                               ; preds = %.thread, %45, %38, %35, %30, %24
   %60 = phi i64 [ %58, %45 ], [ -22, %24 ], [ -95, %30 ], [ -14, %35 ], [ -22, %38 ], [ -22, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %60
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 align 16 {
@@ -3189,7 +3183,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %6 = and i32 %0, 7
   %7 = icmp eq i32 %6, 3
   %8 = select i1 %7, ptr @clock_posix_dynamic, ptr @clock_posix_cpu
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %20
 
 9:                                                ; preds = %3
@@ -3197,7 +3191,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   br i1 %10, label %.thread, label %11
 
 .thread:                                          ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.thread19
 
 11:                                               ; preds = %9
@@ -3208,7 +3202,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [12 x ptr], ptr @posix_clocks, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = icmp eq i32 %15, 10
   br i1 %19, label %.thread19, label %20
 
@@ -3532,36 +3526,36 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
 
 .thread19:                                        ; preds = %25, %33, %.thread, %201, %184, %.thread22, %20, %11
   %206 = phi i32 [ %88, %.thread22 ], [ %195, %201 ], [ 0, %184 ], [ -22, %11 ], [ -95, %20 ], [ -22, %.thread ], [ -11, %33 ], [ -11, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %206
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @sigqueue_alloc() local_unnamed_addr #3
+declare dso_local ptr @sigqueue_alloc() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @put_pid(ptr noundef) local_unnamed_addr #3
+declare dso_local void @put_pid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @sigqueue_free(ptr noundef) local_unnamed_addr #3
+declare dso_local void @sigqueue_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @k_itimer_rcu_free(ptr noundef %0) #1 align 16 {
@@ -3572,40 +3566,40 @@ define internal void @k_itimer_rcu_free(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #3
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @find_vpid(i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @find_vpid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @pid_task(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @pid_task(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_compat_sigevent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_compat_sigevent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @put_itimerspec64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @put_itimerspec64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @put_old_itimerspec32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @put_old_itimerspec32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @do_timens_ktime_to_host(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i64 @do_timens_ktime_to_host(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_itimerspec64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_itimerspec64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 2, 1) i32 @do_timer_settime(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
@@ -3872,37 +3866,37 @@ define internal fastcc ptr @timer_wait_running(ptr noundef nonnull %0, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_old_itimerspec32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_old_itimerspec32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
+declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @put_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @put_timespec64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @put_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @put_old_timespec32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @get_old_timex32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @get_old_timex32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @put_old_timex32(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @put_old_timex32(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @do_no_restart_syscall(ptr noundef) #3
+declare dso_local i64 @do_no_restart_syscall(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define internal noundef i32 @posix_get_hrtimer_res(i32 %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #5 align 16 {
+define internal noundef i32 @posix_get_hrtimer_res(i32 %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #4 align 16 {
   store i64 0, ptr %1, align 8
   %3 = load i32, ptr @hrtimer_resolution, align 4
   %4 = zext i32 %3 to i64
@@ -3994,7 +3988,7 @@ define internal i64 @common_hrtimer_forward(ptr noundef %0, i64 noundef %1) #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @common_hrtimer_remaining(ptr noundef readonly captures(none) %0, i64 noundef %1) #6 align 16 {
+define internal i64 @common_hrtimer_remaining(ptr noundef readonly captures(none) %0, i64 noundef %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %4, %1
@@ -4062,31 +4056,31 @@ define internal void @common_timer_wait_running(ptr readnone captures(none) %0) 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @do_sys_settimeofday64(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @do_sys_settimeofday64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ktime_get_real_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @ktime_get_with_offset(i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @ktime_get_with_offset(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @do_adjtimex(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @do_adjtimex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @hrtimer_nanosleep(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i64 @hrtimer_nanosleep(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @hrtimer_start_range_ns(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @hrtimer_start_range_ns(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @hrtimer_try_to_cancel(ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @hrtimer_try_to_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @posix_timer_fn(ptr noundef %0) #1 align 16 {
@@ -4158,7 +4152,7 @@ define internal noundef range(i32 0, 2) i32 @posix_timer_fn(ptr noundef %0) #1 a
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @ktime_add_safe(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @ktime_add_safe(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @posix_get_monotonic_timespec(i32 %0, ptr noundef %1) #1 align 16 {
@@ -4177,7 +4171,7 @@ define internal noundef i32 @posix_get_monotonic_timespec(i32 %0, ptr noundef %1
   %14 = load i64, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %16 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %17 = add i64 %14, %11
   %18 = add i64 %16, %13
@@ -4185,7 +4179,7 @@ define internal noundef i32 @posix_get_monotonic_timespec(i32 %0, ptr noundef %1
   %19 = load i64, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %19, ptr %1, align 8
   store i64 %21, ptr %12, align 8
   ret i32 0
@@ -4234,13 +4228,13 @@ define internal i32 @common_nsleep_timens(i32 noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_ts64(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ktime_get_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @set_normalized_timespec64(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local void @set_normalized_timespec64(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @ktime_get() local_unnamed_addr #3
+declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @posix_get_monotonic_raw(i32 %0, ptr noundef %1) #1 align 16 {
@@ -4259,7 +4253,7 @@ define internal noundef i32 @posix_get_monotonic_raw(i32 %0, ptr noundef %1) #1 
   %14 = load i64, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %16 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %17 = add i64 %14, %11
   %18 = add i64 %16, %13
@@ -4267,14 +4261,14 @@ define internal noundef i32 @posix_get_monotonic_raw(i32 %0, ptr noundef %1) #1 
   %19 = load i64, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %19, ptr %1, align 8
   store i64 %21, ptr %12, align 8
   ret i32 0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_raw_ts64(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ktime_get_raw_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @posix_get_coarse_res(i32 %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #1 align 16 {
@@ -4294,7 +4288,7 @@ define internal noundef i32 @posix_get_realtime_coarse(i32 %0, ptr noundef %1) #
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_coarse_real_ts64(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ktime_get_coarse_real_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @posix_get_monotonic_coarse(i32 %0, ptr noundef %1) #1 align 16 {
@@ -4313,7 +4307,7 @@ define internal noundef i32 @posix_get_monotonic_coarse(i32 %0, ptr noundef %1) 
   %14 = load i64, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %16 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %17 = add i64 %14, %11
   %18 = add i64 %16, %13
@@ -4321,14 +4315,14 @@ define internal noundef i32 @posix_get_monotonic_coarse(i32 %0, ptr noundef %1) 
   %19 = load i64, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %19, ptr %1, align 8
   store i64 %21, ptr %12, align 8
   ret i32 0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ktime_get_coarse_ts64(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ktime_get_coarse_ts64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @posix_get_boottime_timespec(i32 %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #1 align 16 {
@@ -4350,7 +4344,7 @@ define internal noundef i32 @posix_get_boottime_timespec(i32 %0, ptr noundef wri
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %18 = load i64, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !9
   %19 = add i64 %16, %6
   %20 = add i64 %18, %7
@@ -4358,7 +4352,7 @@ define internal noundef i32 @posix_get_boottime_timespec(i32 %0, ptr noundef wri
   %21 = load i64, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %21, ptr %1, align 8
   store i64 %23, ptr %8, align 8
   ret i32 0
@@ -4389,16 +4383,22 @@ define internal i64 @posix_get_tai_ktime(i32 %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
+declare i64 @llvm.smin.i64(i64, i64) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(none) }
 

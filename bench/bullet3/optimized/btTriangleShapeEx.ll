@@ -19,7 +19,7 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %7, align 4, !tbaa !4
   store float -1.000000e+03, ptr %0, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp sgt i32 %4, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -110,21 +110,15 @@ define dso_local void @_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9b
   br i1 %exitcond28.not, label %._crit_edge, label %48, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %48, %5, %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_conservativeERKS_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 4, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -225,12 +219,12 @@ define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle25overlap_test_cons
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [16 x %class.btVector3], align 16
   %5 = alloca %class.btVector4, align 4
   %6 = alloca [16 x %class.btVector3], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load float, ptr %7, align 4, !tbaa !13
@@ -285,7 +279,7 @@ define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVec
   br i1 %52, label %124, label %53
 
 53:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load float, ptr %54, align 4, !tbaa !13
   %56 = load float, ptr %7, align 4, !tbaa !13
@@ -371,18 +365,18 @@ define dso_local noundef i32 @_ZN19btPrimitiveTriangle13clip_triangleERS_P9btVec
 
 123:                                              ; preds = %53, %90
   %.1 = phi i32 [ %122, %90 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %124
 
 124:                                              ; preds = %3, %123
   %.0 = phi i32 [ %.1, %123 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4) local_unnamed_addr #5 comdat {
+define linkonce_odr dso_local noundef i32 @_Z22bt_plane_clip_triangleRK9btVector4RK9btVector3S4_S4_PS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef %4) local_unnamed_addr #4 comdat {
   %6 = load float, ptr %1, align 4, !tbaa !13
   %7 = load float, ptr %0, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -582,7 +576,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit38: ; preds = %129, 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #5 comdat {
+define linkonce_odr dso_local noundef i32 @_Z21bt_plane_clip_polygonRK9btVector4PK9btVector3iPS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat {
   %5 = load float, ptr %1, align 4, !tbaa !13
   %6 = load float, ptr %0, align 4, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -746,7 +740,7 @@ _Z29bt_plane_clip_polygon_collectRK9btVector3S1_ffPS_Ri.exit32: ; preds = %98, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(280) %2) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_collision_clip_methodERS_R20GIM_TRIANGLE_CONTACT(ptr noundef nonnull align 4 dereferenceable(72) %0, ptr noundef nonnull align 4 dereferenceable(72) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(280) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   %6 = alloca [16 x %class.btVector3], align 16
@@ -756,9 +750,9 @@ define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_col
   %10 = load float, ptr %9, align 4, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load float, ptr %11, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = fadd float %10, %12
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false)
@@ -767,12 +761,12 @@ define dso_local noundef zeroext i1 @_ZN19btPrimitiveTriangle35find_triangle_col
   br i1 %17, label %131, label %18
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.i, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %131
 
 .lr.ph.i:                                         ; preds = %18
@@ -868,7 +862,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread: 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit: ; preds = %57, %.preheader.i
   %.pr6163 = phi i32 [ %.pr, %.preheader.i ], [ %.pr6164, %57 ]
   %63 = phi float [ %.ph75, %.preheader.i ], [ %28, %57 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = icmp eq i32 %.pr6163, 0
   br i1 %64, label %131, label %65
 
@@ -879,7 +873,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit: ; preds
   store float %67, ptr %20, align 4, !tbaa !13
   %68 = fneg float %25
   store float %68, ptr %21, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(16) %69, i64 16, i1 false)
@@ -888,12 +882,12 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit: ; preds
   br i1 %72, label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit, label %73
 
 73:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = icmp sgt i32 %71, 0
   br i1 %74, label %.lr.ph.i16, label %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread: ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit
 
 .lr.ph.i16:                                       ; preds = %73
@@ -989,7 +983,7 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread
 _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; preds = %112, %.preheader.i24
   %.pr426870 = phi i32 [ %.pr42, %.preheader.i24 ], [ %.pr426871, %112 ]
   %118 = phi float [ %.ph, %.preheader.i24 ], [ %83, %112 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %119 = icmp eq i32 %.pr426870, 0
   br i1 %119, label %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit, label %120
 
@@ -1022,18 +1016,18 @@ _ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30: ; pre
 
 _ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit:    ; preds = %.lr.ph.i35, %.lr.ph.i31, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30, %65
   %.1 = phi i1 [ false, %65 ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30 ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit30.thread ], [ true, %.lr.ph.i31 ], [ true, %.lr.ph.i35 ]
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %131
 
 131:                                              ; preds = %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit, %3, %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit
   %.0 = phi i1 [ %.1, %_ZN20GIM_TRIANGLE_CONTACT9copy_fromERKS_.exit ], [ false, %3 ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit ], [ false, %_ZN20GIM_TRIANGLE_CONTACT12merge_pointsERK9btVector4fPK9btVector3i.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conservativeERKS_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conservativeERKS_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -1176,21 +1170,26 @@ define dso_local noundef zeroext i1 @_ZN17btTriangleShapeEx25overlap_test_conser
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

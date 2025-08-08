@@ -417,8 +417,8 @@ getInstallationPaths.exit:                        ; preds = %19
   unreachable
 
 46:                                               ; preds = %30, %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = load ptr, ptr @optarg, align 8
   call void @ParseLongOption(ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %5) #18
   %48 = load ptr, ptr %5, align 8
@@ -450,8 +450,8 @@ getInstallationPaths.exit:                        ; preds = %19
   call void @pfree(ptr noundef %60) #18
   %61 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %61) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
 62:                                               ; preds = %30
@@ -615,7 +615,7 @@ getInstallationPaths.exit:                        ; preds = %19
 
 127:                                              ; preds = %126, %117
   call void @checkDataDir() #18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %128 = load ptr, ptr @DataDir, align 8
   %129 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.64, ptr noundef %128) #18
   %130 = call ptr @AllocateFile(ptr noundef nonnull %3, ptr noundef nonnull @.str.65) #18
@@ -631,7 +631,7 @@ getInstallationPaths.exit:                        ; preds = %19
 
 checkControlFile.exit:                            ; preds = %127
   %135 = call i32 @FreeFile(ptr noundef nonnull %130) #18
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ChangeToDataDir() #18
   %136 = load i32, ptr @SuperuserReservedConnections, align 4
   %137 = load i32, ptr @ReservedConnections, align 4
@@ -703,7 +703,7 @@ checkControlFile.exit:                            ; preds = %127
   br i1 %167, label %168, label %180
 
 168:                                              ; preds = %166
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @initStringInfo(ptr noundef nonnull %6) #18
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.38) #18
   %169 = load ptr, ptr @environ, align 8
@@ -733,7 +733,7 @@ checkControlFile.exit:                            ; preds = %127
 178:                                              ; preds = %175, %._crit_edge
   %179 = load ptr, ptr %6, align 8
   call void @pfree(ptr noundef %179) #18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %180
 
 180:                                              ; preds = %178, %166
@@ -828,7 +828,7 @@ checkControlFile.exit:                            ; preds = %127
   br i1 %.not100, label %261, label %216
 
 216:                                              ; preds = %213
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %217 = call ptr @pstrdup(ptr noundef nonnull %215) #18
   %218 = call zeroext i1 @SplitGUCList(ptr noundef %217, i8 noundef signext 44, ptr noundef nonnull %7) #18
   br i1 %218, label %223, label %219
@@ -934,7 +934,7 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   %260 = phi ptr [ %.pre, %.critedge ], [ null, %223 ]
   call void @list_free(ptr noundef %260) #18
   call void @pfree(ptr noundef %217) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %261
 
 261:                                              ; preds = %.critedge.thread, %213
@@ -944,7 +944,7 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   br i1 %.not103, label %303, label %263
 
 263:                                              ; preds = %261
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %264 = call ptr @pstrdup(ptr noundef nonnull %262) #18
   %265 = call zeroext i1 @SplitDirectoriesString(ptr noundef %264, i8 noundef signext 44, ptr noundef nonnull %8) #18
   br i1 %265, label %270, label %266
@@ -1031,7 +1031,7 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   %302 = phi ptr [ %285, %.critedge115 ], [ null, %270 ]
   call void @list_free_deep(ptr noundef %302) #18
   call void @pfree(ptr noundef %264) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %303
 
 303:                                              ; preds = %.critedge115.thread, %261
@@ -1139,11 +1139,8 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   unreachable
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitProcessGlobals() local_unnamed_addr #2 {
+define dso_local void @InitProcessGlobals() local_unnamed_addr #1 {
   %1 = tail call i64 @GetCurrentTimestamp() #18
   store i64 %1, ptr @MyStartTimestamp, align 8
   %2 = tail call i64 @timestamptz_to_time_t(i64 noundef %1) #18
@@ -1173,19 +1170,19 @@ define dso_local void @InitProcessGlobals() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind
-declare i32 @umask(i32 noundef) local_unnamed_addr #3
+declare i32 @umask(i32 noundef) local_unnamed_addr #2
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @pqinitmask() local_unnamed_addr #4
+declare void @pqinitmask() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_pm_reload_request_signal(i32 %0) #2 {
+define internal void @handle_pm_reload_request_signal(i32 %0) #1 {
   store volatile i32 1, ptr @pending_pm_reload_request, align 4
   %2 = load ptr, ptr @MyLatch, align 8
   tail call void @SetLatch(ptr noundef %2) #18
@@ -1193,7 +1190,7 @@ define internal void @handle_pm_reload_request_signal(i32 %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_pm_shutdown_request_signal(i32 noundef %0) #2 {
+define internal void @handle_pm_shutdown_request_signal(i32 noundef %0) #1 {
   switch i32 %0, label %3 [
     i32 15, label %.sink.split
     i32 2, label %.sink.split.sink.split
@@ -1219,7 +1216,7 @@ define internal void @handle_pm_shutdown_request_signal(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_pm_pmsignal_signal(i32 %0) #2 {
+define internal void @handle_pm_pmsignal_signal(i32 %0) #1 {
   store volatile i32 1, ptr @pending_pm_pmsignal, align 4
   %2 = load ptr, ptr @MyLatch, align 8
   tail call void @SetLatch(ptr noundef %2) #18
@@ -1227,57 +1224,54 @@ define internal void @handle_pm_pmsignal_signal(i32 %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @dummy_handler(i32 %0) #5 {
+define internal void @dummy_handler(i32 %0) #4 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @handle_pm_child_exit_signal(i32 %0) #2 {
+define internal void @handle_pm_child_exit_signal(i32 %0) #1 {
   store volatile i32 1, ptr @pending_pm_child_exit, align 4
   %2 = load ptr, ptr @MyLatch, align 8
   tail call void @SetLatch(ptr noundef %2) #18
   ret void
 }
 
-declare void @InitializeLatchSupport() local_unnamed_addr #4
+declare void @InitializeLatchSupport() local_unnamed_addr #3
 
-declare void @InitProcessLocalLatch() local_unnamed_addr #4
+declare void @InitProcessLocalLatch() local_unnamed_addr #3
 
-declare void @InitializeGUCOptions() local_unnamed_addr #4
+declare void @InitializeGUCOptions() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
-declare i32 @parse_dispatch_option(ptr noundef) local_unnamed_addr #4
+declare i32 @parse_dispatch_option(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #6
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #4
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ParseLongOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @ParseLongOption(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pfree(ptr noundef) local_unnamed_addr #4
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @set_debug_options(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @set_debug_options(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @set_plan_disabling_options(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @set_plan_disabling_options(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
-
-declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #4
+declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @ExitPostmaster(i32 noundef %0) unnamed_addr #0 {
@@ -1285,59 +1279,59 @@ define internal fastcc void @ExitPostmaster(i32 noundef %0) unnamed_addr #0 {
   unreachable
 }
 
-declare ptr @get_stats_option_name(ptr noundef) local_unnamed_addr #4
+declare ptr @get_stats_option_name(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SelectConfigFiles(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SelectConfigFiles(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @GetConfigOptionFlags(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @GetConfigOptionFlags(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @GetConfigOption(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @GetConfigOption(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-declare void @checkDataDir() local_unnamed_addr #4
+declare void @checkDataDir() local_unnamed_addr #3
 
-declare void @ChangeToDataDir() local_unnamed_addr #4
+declare void @ChangeToDataDir() local_unnamed_addr #3
 
-declare zeroext i1 @CheckDateTokenTables() local_unnamed_addr #4
+declare zeroext i1 @CheckDateTokenTables() local_unnamed_addr #3
 
-declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr #3
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @CreateDataDirLockFile(i1 noundef zeroext) local_unnamed_addr #4
+declare void @CreateDataDirLockFile(i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @LocalProcessControlFile(i1 noundef zeroext) local_unnamed_addr #4
+declare void @LocalProcessControlFile(i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @ApplyLauncherRegister() local_unnamed_addr #4
+declare void @ApplyLauncherRegister() local_unnamed_addr #3
 
-declare void @process_shared_preload_libraries() local_unnamed_addr #4
+declare void @process_shared_preload_libraries() local_unnamed_addr #3
 
-declare void @InitializeMaxBackends() local_unnamed_addr #4
+declare void @InitializeMaxBackends() local_unnamed_addr #3
 
-declare void @InitPostmasterChildSlots() local_unnamed_addr #4
+declare void @InitPostmasterChildSlots() local_unnamed_addr #3
 
-declare void @InitializeFastPathLocks() local_unnamed_addr #4
+declare void @InitializeFastPathLocks() local_unnamed_addr #3
 
-declare void @process_shmem_requests() local_unnamed_addr #4
+declare void @process_shmem_requests() local_unnamed_addr #3
 
-declare void @InitializeShmemGUCs() local_unnamed_addr #4
+declare void @InitializeShmemGUCs() local_unnamed_addr #3
 
-declare void @InitializeWalConsistencyChecking() local_unnamed_addr #4
+declare void @InitializeWalConsistencyChecking() local_unnamed_addr #3
 
-declare void @CreateSharedMemoryAndSemaphores() local_unnamed_addr #4
+declare void @CreateSharedMemoryAndSemaphores() local_unnamed_addr #3
 
-declare void @set_max_safe_fds() local_unnamed_addr #4
+declare void @set_max_safe_fds() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitPostmasterDeathWatchHandle() unnamed_addr #2 {
+define internal fastcc void @InitPostmasterDeathWatchHandle() unnamed_addr #1 {
   %1 = tail call i32 @pipe(ptr noundef nonnull @postmaster_alive_fds) #18
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %3, label %7
@@ -1370,20 +1364,20 @@ define internal fastcc void @InitPostmasterDeathWatchHandle() unnamed_addr #2 {
   ret void
 }
 
-declare void @RemovePromoteSignalFiles() local_unnamed_addr #4
+declare void @RemovePromoteSignalFiles() local_unnamed_addr #3
 
-declare void @RemoveLogrotateSignalFiles() local_unnamed_addr #4
+declare void @RemoveLogrotateSignalFiles() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare i32 @errcode_for_file_access() local_unnamed_addr #4
+declare i32 @errcode_for_file_access() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StartSysLogger() unnamed_addr #2 {
+define internal fastcc void @StartSysLogger() unnamed_addr #1 {
   %1 = tail call ptr @AssignPostmasterChildSlot(i32 noundef 16) #18
   store ptr %1, ptr @SysLoggerPMChild, align 8
   %.not = icmp eq ptr %1, null
@@ -1414,14 +1408,14 @@ define internal fastcc void @StartSysLogger() unnamed_addr #2 {
   ret void
 }
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
-declare void @on_proc_exit(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @on_proc_exit(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @CloseServerPorts(i32 %0, i64 %1) #2 {
+define internal void @CloseServerPorts(i32 %0, i64 %1) #1 {
   %3 = load i32, ptr @NumListenSockets, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1457,22 +1451,22 @@ define internal void @CloseServerPorts(i32 %0, i64 %1) #2 {
   ret void
 }
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SplitGUCList(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SplitGUCList(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #3
 
-declare i32 @ListenServerPort(i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @ListenServerPort(i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @AddToDataDirLockFile(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @AddToDataDirLockFile(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @list_free(ptr noundef) local_unnamed_addr #4
+declare void @list_free(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SplitDirectoriesString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SplitDirectoriesString(ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #3
 
-declare void @list_free_deep(ptr noundef) local_unnamed_addr #4
+declare void @list_free_deep(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @CreateOptsFile(i32 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @CreateOptsFile(i32 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.53)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1523,18 +1517,18 @@ define internal fastcc noundef zeroext i1 @CreateOptsFile(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
-declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @unlink_external_pid_file(i32 %0, i64 %1) #10 {
+define internal void @unlink_external_pid_file(i32 %0, i64 %1) #9 {
   %3 = load ptr, ptr @external_pid_file, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1547,18 +1541,18 @@ define internal void @unlink_external_pid_file(i32 %0, i64 %1) #10 {
   ret void
 }
 
-declare void @RemovePgTempFiles() local_unnamed_addr #4
+declare void @RemovePgTempFiles() local_unnamed_addr #3
 
-declare void @autovac_init() local_unnamed_addr #4
+declare void @autovac_init() local_unnamed_addr #3
 
-declare zeroext i1 @load_hba() local_unnamed_addr #4
+declare zeroext i1 @load_hba() local_unnamed_addr #3
 
-declare zeroext i1 @load_ident() local_unnamed_addr #4
+declare zeroext i1 @load_ident() local_unnamed_addr #3
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #4
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @StartChildProcess(i32 noundef range(i32 3, 16) %0) unnamed_addr #2 {
+define internal fastcc ptr @StartChildProcess(i32 noundef range(i32 3, 16) %0) unnamed_addr #1 {
   %2 = tail call ptr @AssignPostmasterChildSlot(i32 noundef %0) #18
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %13
@@ -1621,7 +1615,7 @@ define internal fastcc ptr @StartChildProcess(i32 noundef range(i32 3, 16) %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @UpdatePMState(i32 noundef range(i32 1, 12) %0) unnamed_addr #2 {
+define internal fastcc void @UpdatePMState(i32 noundef range(i32 1, 12) %0) unnamed_addr #1 {
   %2 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
   br i1 %2, label %switch.lookup, label %7
 
@@ -1644,7 +1638,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @maybe_start_bgworkers() unnamed_addr #2 {
+define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
   %.b31 = load i1, ptr @FatalError, align 1
   store i1 true, ptr @StartWorkerNeeded, align 1
   store i1 false, ptr @HaveCrashedWorker, align 1
@@ -1851,7 +1845,7 @@ define internal fastcc void @ServerLoop() unnamed_addr #0 {
   %20 = alloca i32, align 4
   %21 = alloca [64 x %struct.WaitEvent], align 16
   %22 = alloca %struct.ClientSocket, align 8
-  call void @llvm.lifetime.start.p0(i64 1536, ptr nonnull %21) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %23 = load ptr, ptr @pm_wait_set, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %25, label %24
@@ -2841,7 +2835,7 @@ process_pm_reload_request.exit:                   ; preds = %441, %439, %437, %4
   br i1 %.not28, label %1061, label %445
 
 445:                                              ; preds = %process_pm_reload_request.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store volatile i32 0, ptr @pending_pm_child_exit, align 4
   %446 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #18
   br i1 %446, label %447, label %449
@@ -2975,7 +2969,7 @@ UpdatePMState.exit79.i:                           ; preds = %switch.lookup26, %T
   br i1 %or.cond3.i58, label %519, label %494
 
 494:                                              ; preds = %488
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %495 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %1, i32 noundef 1024) #18
   %496 = and i32 %.pre.i, 127
   %497 = icmp eq i32 %496, 0
@@ -3027,7 +3021,7 @@ UpdatePMState.exit79.i:                           ; preds = %switch.lookup26, %T
   br label %LogChildExit.exit317
 
 LogChildExit.exit317:                             ; preds = %.thread.i314, %507, %511, %.sink.split.i311
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %515 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %515, label %516, label %518
 
@@ -3082,7 +3076,7 @@ UpdatePMState.exit83.i:                           ; preds = %switch.lookup29, %5
 
 532:                                              ; preds = %529
   %533 = load i32, ptr %20, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %534 = icmp eq i32 %533, 0
   br i1 %534, label %.thread.i302, label %535
 
@@ -3140,7 +3134,7 @@ UpdatePMState.exit83.i:                           ; preds = %switch.lookup29, %5
   br label %LogChildExit.exit305
 
 LogChildExit.exit305:                             ; preds = %.thread.i302, %548, %552, %.sink.split.i299
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %556 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %556, label %557, label %559
 
@@ -3210,7 +3204,7 @@ UpdatePMState.exit87.i:                           ; preds = %switch.lookup32, %5
   br i1 %or.cond.i89.i, label %HandleChildCrash.exit.i, label %581, !llvm.loop !16
 
 581:                                              ; preds = %578
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %582 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %3, i32 noundef 1024) #18
   %583 = and i32 %576, 127
   %584 = icmp eq i32 %583, 0
@@ -3262,7 +3256,7 @@ UpdatePMState.exit87.i:                           ; preds = %switch.lookup32, %5
   br label %LogChildExit.exit293
 
 LogChildExit.exit293:                             ; preds = %.thread.i290, %594, %598, %.sink.split.i287
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %602 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %602, label %603, label %605
 
@@ -3359,7 +3353,7 @@ SignalChildren.exit.i57:                          ; preds = %select.unfold.i.i55
   br i1 %or.cond.i99.i, label %HandleChildCrash.exit.i, label %637, !llvm.loop !16
 
 637:                                              ; preds = %634
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %614, label %.thread.i278, label %638
 
 638:                                              ; preds = %637
@@ -3416,7 +3410,7 @@ SignalChildren.exit.i57:                          ; preds = %select.unfold.i.i55
   br label %LogChildExit.exit281
 
 LogChildExit.exit281:                             ; preds = %.thread.i278, %651, %655, %.sink.split.i275
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %659 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %659, label %660, label %662
 
@@ -3454,7 +3448,7 @@ LogChildExit.exit281:                             ; preds = %.thread.i278, %651,
   br i1 %or.cond.i102.i, label %HandleChildCrash.exit.i, label %675, !llvm.loop !16
 
 675:                                              ; preds = %672
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %676 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %5, i32 noundef 1024) #18
   %677 = and i32 %670, 127
   %678 = icmp eq i32 %677, 0
@@ -3506,7 +3500,7 @@ LogChildExit.exit281:                             ; preds = %.thread.i278, %651,
   br label %LogChildExit.exit269
 
 LogChildExit.exit269:                             ; preds = %.thread.i266, %688, %692, %.sink.split.i263
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %696 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %696, label %697, label %699
 
@@ -3547,7 +3541,7 @@ LogChildExit.exit269:                             ; preds = %.thread.i266, %688,
   br i1 %or.cond.i105.i, label %HandleChildCrash.exit.i, label %713, !llvm.loop !16
 
 713:                                              ; preds = %710
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %714 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %6, i32 noundef 1024) #18
   %715 = and i32 %707, 127
   %716 = icmp eq i32 %715, 0
@@ -3599,7 +3593,7 @@ LogChildExit.exit269:                             ; preds = %.thread.i266, %688,
   br label %LogChildExit.exit257
 
 LogChildExit.exit257:                             ; preds = %.thread.i254, %726, %730, %.sink.split.i251
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %734 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %734, label %735, label %737
 
@@ -3637,7 +3631,7 @@ LogChildExit.exit257:                             ; preds = %.thread.i254, %726,
   br i1 %or.cond.i108.i, label %HandleChildCrash.exit.i, label %750, !llvm.loop !16
 
 750:                                              ; preds = %747
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %751 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %7, i32 noundef 1024) #18
   %752 = and i32 %745, 127
   %753 = icmp eq i32 %752, 0
@@ -3689,7 +3683,7 @@ LogChildExit.exit257:                             ; preds = %.thread.i254, %726,
   br label %LogChildExit.exit245
 
 LogChildExit.exit245:                             ; preds = %.thread.i242, %763, %767, %.sink.split.i239
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %771 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %771, label %772, label %774
 
@@ -3727,7 +3721,7 @@ LogChildExit.exit245:                             ; preds = %.thread.i242, %763,
   br i1 %or.cond.i111.i, label %HandleChildCrash.exit.i, label %787, !llvm.loop !16
 
 787:                                              ; preds = %784
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %788 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %8, i32 noundef 1024) #18
   %789 = and i32 %782, 127
   %790 = icmp eq i32 %789, 0
@@ -3779,7 +3773,7 @@ LogChildExit.exit245:                             ; preds = %.thread.i242, %763,
   br label %LogChildExit.exit233
 
 LogChildExit.exit233:                             ; preds = %.thread.i230, %800, %804, %.sink.split.i227
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %808 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %808, label %809, label %811
 
@@ -3820,7 +3814,7 @@ LogChildExit.exit233:                             ; preds = %.thread.i230, %800,
   br i1 %or.cond.i114.i, label %HandleChildCrash.exit.i, label %825, !llvm.loop !16
 
 825:                                              ; preds = %822
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %826 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %9, i32 noundef 1024) #18
   %827 = and i32 %819, 127
   %828 = icmp eq i32 %827, 0
@@ -3872,7 +3866,7 @@ LogChildExit.exit233:                             ; preds = %.thread.i230, %800,
   br label %LogChildExit.exit221
 
 LogChildExit.exit221:                             ; preds = %.thread.i218, %838, %842, %.sink.split.i215
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %846 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %846, label %847, label %849
 
@@ -3935,7 +3929,7 @@ StartSysLogger.exit.i48:                          ; preds = %870, %864, %855
   br i1 %873, label %HandleChildCrash.exit.i, label %874, !llvm.loop !16
 
 874:                                              ; preds = %StartSysLogger.exit.i48
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %875 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %10, i32 noundef 1024) #18
   %876 = and i32 %872, 127
   %877 = icmp eq i32 %876, 0
@@ -3987,7 +3981,7 @@ StartSysLogger.exit.i48:                          ; preds = %870, %864, %855
   br label %LogChildExit.exit209
 
 LogChildExit.exit209:                             ; preds = %.thread.i206, %887, %891, %.sink.split.i203
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %HandleChildCrash.exit.i, !llvm.loop !16
 
 895:                                              ; preds = %852, %850
@@ -4018,7 +4012,7 @@ LogChildExit.exit209:                             ; preds = %.thread.i206, %887,
   br i1 %or.cond.i118.i, label %HandleChildCrash.exit.i, label %908, !llvm.loop !16
 
 908:                                              ; preds = %905
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %909 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %11, i32 noundef 1024) #18
   %910 = and i32 %902, 127
   %911 = icmp eq i32 %910, 0
@@ -4070,7 +4064,7 @@ LogChildExit.exit209:                             ; preds = %.thread.i206, %887,
   br label %LogChildExit.exit197
 
 LogChildExit.exit197:                             ; preds = %.thread.i194, %921, %925, %.sink.split.i191
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %929 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %929, label %930, label %932
 
@@ -4090,7 +4084,7 @@ LogChildExit.exit197:                             ; preds = %.thread.i194, %921,
   br i1 %.not61.i, label %1019, label %936
 
 936:                                              ; preds = %933
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %19) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %937 = getelementptr inbounds nuw i8, ptr %934, i64 8
   %938 = load i32, ptr %937, align 8
   %939 = icmp eq i32 %938, 5
@@ -4132,7 +4126,7 @@ LogChildExit.exit197:                             ; preds = %.thread.i194, %921,
   br i1 %or.cond.i.i.i, label %CleanupBackend.exit.i, label %960
 
 960:                                              ; preds = %957
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %961 = icmp eq i32 %935, 0
   br i1 %961, label %.thread.i182, label %962
 
@@ -4190,7 +4184,7 @@ LogChildExit.exit197:                             ; preds = %.thread.i194, %921,
   br label %LogChildExit.exit185
 
 LogChildExit.exit185:                             ; preds = %.thread.i182, %975, %979, %.sink.split.i179
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %983 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %983, label %984, label %986
 
@@ -4235,7 +4229,7 @@ LogChildExit.exit185:                             ; preds = %.thread.i182, %975,
   %1000 = getelementptr inbounds nuw i8, ptr %955, i64 1472
   store i32 0, ptr %1000, align 8
   call void @ReportBackgroundWorkerExit(ptr noundef nonnull %955) #18
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1001 = icmp eq i32 %935, 0
   br i1 %1001, label %.thread.i170, label %1002
 
@@ -4264,12 +4258,12 @@ LogChildExit.exit185:                             ; preds = %.thread.i182, %975,
   br label %LogChildExit.exit173
 
 LogChildExit.exit173:                             ; preds = %.thread.i170, %.sink.split.i167
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i1 true, ptr @HaveCrashedWorker, align 1
   br label %CleanupBackend.exit.i
 
 .critedge.i.i:                                    ; preds = %990
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1010 = icmp eq i32 %935, 0
   br i1 %1010, label %.thread.i158, label %1011
 
@@ -4298,11 +4292,11 @@ LogChildExit.exit173:                             ; preds = %.thread.i170, %.sin
   br label %LogChildExit.exit161
 
 LogChildExit.exit161:                             ; preds = %.thread.i158, %.sink.split.i155
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %CleanupBackend.exit.i
 
 CleanupBackend.exit.i:                            ; preds = %LogChildExit.exit161, %LogChildExit.exit173, %986, %957
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %19) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %HandleChildCrash.exit.i
 
 1019:                                             ; preds = %933
@@ -4320,7 +4314,7 @@ CleanupBackend.exit.i:                            ; preds = %LogChildExit.exit16
   br i1 %or.cond.i122.i, label %HandleChildCrash.exit.i, label %1025
 
 1025:                                             ; preds = %1022
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1026 = call ptr @pgstat_get_crashed_backend_activity(i32 noundef %452, ptr noundef nonnull %15, i32 noundef 1024) #18
   %1027 = and i32 %935, 127
   %1028 = icmp eq i32 %1027, 0
@@ -4372,7 +4366,7 @@ CleanupBackend.exit.i:                            ; preds = %LogChildExit.exit16
   br label %LogChildExit.exit149
 
 LogChildExit.exit149:                             ; preds = %.thread.i146, %1038, %1042, %.sink.split.i143
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %1046 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %1046, label %1047, label %1049
 
@@ -4386,7 +4380,7 @@ LogChildExit.exit149:                             ; preds = %.thread.i146, %1038
   br label %HandleChildCrash.exit.i
 
 1050:                                             ; preds = %1019
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %16) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %1020, label %.thread.i137, label %1051
 
 1051:                                             ; preds = %1050
@@ -4414,7 +4408,7 @@ LogChildExit.exit149:                             ; preds = %.thread.i146, %1038
   br label %LogChildExit.exit
 
 LogChildExit.exit:                                ; preds = %.thread.i137, %.sink.split.i136
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %16) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %HandleChildCrash.exit.i
 
 HandleChildCrash.exit.i:                          ; preds = %LogChildExit.exit, %1049, %1022, %CleanupBackend.exit.i, %932, %905, %900, %LogChildExit.exit209, %StartSysLogger.exit.i48, %849, %822, %817, %811, %784, %780, %774, %747, %743, %737, %710, %705, %699, %672, %668, %662, %634, %SignalChildren.exit.i57, %605, %578, %574, %568, %559, %529, %UpdatePMState.exit79.i, %UpdatePMState.exit.i69
@@ -4424,7 +4418,7 @@ HandleChildCrash.exit.i:                          ; preds = %LogChildExit.exit, 
 
 process_pm_child_exit.exit:                       ; preds = %HandleChildCrash.exit.i, %449
   call fastcc void @PostmasterStateMachine()
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %1061
 
 1061:                                             ; preds = %process_pm_child_exit.exit, %process_pm_reload_request.exit
@@ -4956,7 +4950,7 @@ process_pm_pmsignal.exit:                         ; preds = %1276, %1273, %1271,
   br i1 %.not30, label %1368, label %1298
 
 1298:                                             ; preds = %process_pm_pmsignal.exit
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %22) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1299 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %1300 = load i32, ptr %1299, align 8
   %1301 = call i32 @AcceptConnection(i32 noundef %1300, ptr noundef nonnull %22) #18
@@ -4964,7 +4958,7 @@ process_pm_pmsignal.exit:                         ; preds = %1276, %1273, %1271,
   br i1 %1302, label %1303, label %1359
 
 1303:                                             ; preds = %1298
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1304 = load i32, ptr @pmState, align 4
   %1305 = add i32 %1304, -5
   %or.cond.i.i91 = icmp ult i32 %1305, -2
@@ -5042,7 +5036,7 @@ process_pm_pmsignal.exit:                         ; preds = %1276, %1273, %1271,
   br label %1338
 
 1338:                                             ; preds = %1336, %1331
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %17) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %1339 = call ptr @pg_strerror(i32 noundef %1333) #18
   %1340 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1000, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef %1339) #18
   %1341 = load i32, ptr %22, align 8
@@ -5064,7 +5058,7 @@ process_pm_pmsignal.exit:                         ; preds = %1276, %1273, %1271,
   br i1 %1350, label %.preheader.i.i, label %report_fork_failure_to_client.exit.i, !llvm.loop !19
 
 report_fork_failure_to_client.exit.i:             ; preds = %1348, %.preheader.i.i, %1338
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %17) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %BackendStartup.exit
 
 1351:                                             ; preds = %1322
@@ -5084,7 +5078,7 @@ report_fork_failure_to_client.exit.i:             ; preds = %1348, %.preheader.i
   br label %BackendStartup.exit
 
 BackendStartup.exit:                              ; preds = %1317, %1319, %report_fork_failure_to_client.exit.i, %1358
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %1359
 
 1359:                                             ; preds = %BackendStartup.exit, %1298
@@ -5107,7 +5101,7 @@ BackendStartup.exit:                              ; preds = %1317, %1319, %repor
   br label %1367
 
 1367:                                             ; preds = %1361, %1365, %1363, %1359
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %22) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1368
 
 1368:                                             ; preds = %process_pm_pmsignal.exit, %1367
@@ -5253,7 +5247,7 @@ TerminateChildren.exit:                           ; preds = %SignalChildren.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed_addr #2 {
+define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @pm_wait_set, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -5345,27 +5339,27 @@ define dso_local void @ClosePostmasterPorts(i1 noundef zeroext %0) local_unnamed
   ret void
 }
 
-declare void @FreeWaitEventSetAfterFork(ptr noundef) local_unnamed_addr #4
+declare void @FreeWaitEventSetAfterFork(ptr noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-declare void @ReleaseExternalFD() local_unnamed_addr #4
+declare void @ReleaseExternalFD() local_unnamed_addr #3
 
-declare i64 @timestamptz_to_time_t(i64 noundef) local_unnamed_addr #4
+declare i64 @timestamptz_to_time_t(i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare zeroext i1 @pg_strong_random(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @pg_prng_seed_check(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @pg_prng_seed_check(ptr noundef) local_unnamed_addr #3
 
-declare void @pg_prng_seed(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @pg_prng_seed(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @srandom(i32 noundef) local_unnamed_addr #3
+declare void @srandom(i32 noundef) local_unnamed_addr #2
 
-declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #4
+declare i32 @pg_prng_uint32(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %0) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ActiveChildList, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not913.not17 = icmp eq ptr %2, @ActiveChildList
@@ -5396,35 +5390,35 @@ select.unfold:                                    ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
-declare void @RemoveSocketFiles() local_unnamed_addr #4
+declare void @RemoveSocketFiles() local_unnamed_addr #3
 
-declare i32 @find_my_exec(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @find_my_exec(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @get_pkglib_path(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @get_pkglib_path(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #4
+declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #3
 
-declare i32 @FreeDir(ptr noundef) local_unnamed_addr #4
+declare i32 @FreeDir(ptr noundef) local_unnamed_addr #3
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @FreeFile(ptr noundef) local_unnamed_addr #4
+declare i32 @FreeFile(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #3
+declare i64 @time(ptr noundef) local_unnamed_addr #2
 
-declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WaitEventSetWait(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #4
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #3
 
-declare i32 @AcceptConnection(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @AcceptConnection(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @signal_child(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 16) %1) unnamed_addr #2 {
+define internal fastcc void @signal_child(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 16) %1) unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   %4 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #18
   br i1 %4, label %switch.lookup, label %11
@@ -5486,27 +5480,27 @@ switch.lookup:                                    ; preds = %2
   ret void
 }
 
-declare zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr #4
+declare zeroext i1 @RecheckDataDirLockFile() local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @TouchSocketFiles() local_unnamed_addr #4
+declare void @TouchSocketFiles() local_unnamed_addr #3
 
-declare void @TouchSocketLockFiles() local_unnamed_addr #4
+declare void @TouchSocketLockFiles() local_unnamed_addr #3
 
-declare void @FreeWaitEventSet(ptr noundef) local_unnamed_addr #4
+declare void @FreeWaitEventSet(ptr noundef) local_unnamed_addr #3
 
-declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @CreateWaitEventSet(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @AddWaitEventToSet(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ForgetBackgroundWorker(ptr noundef) local_unnamed_addr #4
+declare void @ForgetBackgroundWorker(ptr noundef) local_unnamed_addr #3
 
-declare i64 @TimestampDifferenceMilliseconds(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @TimestampDifferenceMilliseconds(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PostmasterStateMachine() unnamed_addr #2 {
+define internal fastcc void @PostmasterStateMachine() unnamed_addr #1 {
   %1 = alloca [4 x i32], align 4
   %2 = alloca [4 x i32], align 4
   %3 = alloca [2 x i32], align 4
@@ -6073,10 +6067,10 @@ ConfigurePostmasterWaitSet.exit105:               ; preds = %.lr.ph.i102, %Updat
   ret void
 }
 
-declare void @SetQuitSignalReason(i32 noundef) local_unnamed_addr #4
+declare void @SetQuitSignalReason(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @CountChildren(i32 %0) unnamed_addr #2 {
+define internal fastcc i32 @CountChildren(i32 %0) unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ActiveChildList, i64 8), align 8
   %.not = icmp eq ptr %2, null
   %.not161922 = icmp eq ptr %2, @ActiveChildList
@@ -6183,10 +6177,10 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %sel
   ret i32 %.0.lcssa
 }
 
-declare void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #4
+declare void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @HandleFatalError(i1 noundef zeroext %0) unnamed_addr #2 {
+define internal fastcc void @HandleFatalError(i1 noundef zeroext %0) unnamed_addr #1 {
   tail call void @SetQuitSignalReason(i32 noundef 1) #18
   %2 = load i8, ptr @send_abort_for_crash, align 1, !range !6
   %3 = trunc nuw i8 %2 to i1
@@ -6319,86 +6313,92 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %22, %24
   ret void
 }
 
-declare void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #4
+declare void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #3
 
-declare void @shmem_exit(i32 noundef) local_unnamed_addr #4
+declare void @shmem_exit(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @IsPostmasterChildWalSender(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @IsPostmasterChildWalSender(i32 noundef) local_unnamed_addr #3
 
-declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #4
+declare ptr @GetBackendTypeDesc(i32 noundef) local_unnamed_addr #3
 
-declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #4
+declare void @ProcessConfigFile(i32 noundef) local_unnamed_addr #3
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @ReleasePostmasterChildSlot(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @ReleasePostmasterChildSlot(ptr noundef) local_unnamed_addr #3
 
-declare ptr @FindPostmasterChildByPid(i32 noundef) local_unnamed_addr #4
+declare ptr @FindPostmasterChildByPid(i32 noundef) local_unnamed_addr #3
 
-declare ptr @pgstat_get_crashed_backend_activity(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @pgstat_get_crashed_backend_activity(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @pg_strsignal(i32 noundef) local_unnamed_addr #4
+declare ptr @pg_strsignal(i32 noundef) local_unnamed_addr #3
 
-declare void @BackgroundWorkerStopNotifications(i32 noundef) local_unnamed_addr #4
+declare void @BackgroundWorkerStopNotifications(i32 noundef) local_unnamed_addr #3
 
-declare void @ReportBackgroundWorkerExit(ptr noundef) local_unnamed_addr #4
+declare void @ReportBackgroundWorkerExit(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @CheckPostmasterSignal(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @CheckPostmasterSignal(i32 noundef) local_unnamed_addr #3
 
-declare void @BackgroundWorkerStateChange(i1 noundef zeroext) local_unnamed_addr #4
+declare void @BackgroundWorkerStateChange(i1 noundef zeroext) local_unnamed_addr #3
 
-declare zeroext i1 @CheckLogrotateSignal() local_unnamed_addr #4
+declare zeroext i1 @CheckLogrotateSignal() local_unnamed_addr #3
 
-declare zeroext i1 @CheckPromoteSignal() local_unnamed_addr #4
+declare zeroext i1 @CheckPromoteSignal() local_unnamed_addr #3
 
-declare void @AutoVacWorkerFailed() local_unnamed_addr #4
+declare void @AutoVacWorkerFailed() local_unnamed_addr #3
 
-declare ptr @AssignPostmasterChildSlot(i32 noundef) local_unnamed_addr #4
+declare ptr @AssignPostmasterChildSlot(i32 noundef) local_unnamed_addr #3
 
-declare ptr @AllocDeadEndChild() local_unnamed_addr #4
+declare ptr @AllocDeadEndChild() local_unnamed_addr #3
 
-declare i32 @postmaster_child_launch(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @postmaster_child_launch(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @pg_set_noblock(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @pg_set_noblock(i32 noundef) local_unnamed_addr #3
 
-declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
-declare zeroext i1 @AutoVacuumingActive() local_unnamed_addr #4
+declare zeroext i1 @AutoVacuumingActive() local_unnamed_addr #3
 
-declare zeroext i1 @PgArchCanRestart() local_unnamed_addr #4
+declare zeroext i1 @PgArchCanRestart() local_unnamed_addr #3
 
-declare zeroext i1 @ValidateSlotSyncParams(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @ValidateSlotSyncParams(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SlotSyncWorkerCanRestart() local_unnamed_addr #4
+declare zeroext i1 @SlotSyncWorkerCanRestart() local_unnamed_addr #3
 
-declare void @SetLatch(ptr noundef) local_unnamed_addr #4
+declare void @SetLatch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #14
+declare void @proc_exit(i32 noundef) local_unnamed_addr #13
 
-declare ptr @PostmasterChildName(i32 noundef) local_unnamed_addr #4
+declare ptr @PostmasterChildName(i32 noundef) local_unnamed_addr #3
 
-declare i32 @SysLogger_Start(i32 noundef) local_unnamed_addr #4
+declare i32 @SysLogger_Start(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ReportBackgroundWorkerPID(ptr noundef) local_unnamed_addr #4
+declare void @ReportBackgroundWorkerPID(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @pipe(ptr noundef) local_unnamed_addr #3
+declare i32 @pipe(ptr noundef) local_unnamed_addr #2
 
-declare void @ReserveExternalFD() local_unnamed_addr #4
+declare void @ReserveExternalFD() local_unnamed_addr #3
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
-declare i32 @errcode_for_socket_access() local_unnamed_addr #4
+declare i32 @errcode_for_socket_access() local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -6416,20 +6416,20 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nofree nounwind }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

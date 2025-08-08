@@ -510,13 +510,13 @@ define hidden void @_ZN14ClassLoaderExt20process_jar_manifestEP10JavaThreadP14Cl
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call noundef ptr @_ZN17ClassPathZipEntry10open_entryEP10JavaThreadPKcPib(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, i1 noundef zeroext true) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN14ClassLoaderExt13read_manifestEP10JavaThreadP14ClassPathEntryPi.exit.thread, label %17
 
 _ZN14ClassLoaderExt13read_manifestEP10JavaThreadP14ClassPathEntryPi.exit.thread: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN14ClassLoaderExt19get_class_path_attrEPKcPci.exit.thread
 
 17:                                               ; preds = %2
@@ -524,7 +524,7 @@ _ZN14ClassLoaderExt13read_manifestEP10JavaThreadP14ClassPathEntryPi.exit.thread:
   %19 = call noundef i32 @_ZN11StringUtils17replace_no_expandEPcPKcS2_(ptr noundef nonnull %15, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #11
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #12
   %21 = trunc i64 %20 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str.14) #12
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %29, label %23
@@ -1651,10 +1651,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -129,27 +129,21 @@ define hidden void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef %0, i32 noundef %
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare double @SDL_sin_REAL(double noundef) local_unnamed_addr #1
 
-declare double @SDL_sin_REAL(double noundef) local_unnamed_addr #2
+declare double @SDL_cos_REAL(double noundef) local_unnamed_addr #1
 
-declare double @SDL_cos_REAL(double noundef) local_unnamed_addr #2
+declare double @SDL_floor_REAL(double noundef) local_unnamed_addr #1
 
-declare double @SDL_floor_REAL(double noundef) local_unnamed_addr #2
-
-declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @SDL_ceil_REAL(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SDLgfx_rotateSurface(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, double noundef %6, double noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
   %13 = tail call zeroext i1 @SDL_SurfaceValid(ptr noundef %0) #6
   br i1 %13, label %14, label %.thread179
@@ -517,7 +511,7 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
   %210 = fpext float %209 to double
   %211 = fmul double %210, 6.553600e+04
   %212 = fptosi double %211 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %213 = call zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef nonnull %0) #6
   br i1 %213, label %214, label %get_colorkey.exit.i
@@ -530,7 +524,7 @@ computeSourceIncrements90.exit.i:                 ; preds = %142, %137, %132, %1
 
 get_colorkey.exit.i:                              ; preds = %214, %.thread196
   %217 = phi i8 [ %216, %214 ], [ 0, %.thread196 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %218 = load i32, ptr %199, align 8
   %219 = sext i32 %218 to i64
   %220 = load i32, ptr %92, align 4
@@ -1320,52 +1314,58 @@ transformSurfaceY90.exit:                         ; preds = %._crit_edge.i162, %
 
 .thread179:                                       ; preds = %37, %44, %31, %40, %transformSurfaceY90.exit, %697, %61, %28, %41, %9, %102
   %.0 = phi ptr [ null, %102 ], [ null, %9 ], [ null, %41 ], [ null, %40 ], [ null, %28 ], [ null, %61 ], [ %.093188190, %697 ], [ %.093188190, %transformSurfaceY90.exit ], [ null, %31 ], [ null, %44 ], [ null, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SurfaceValid(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SurfaceHasColorKey_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSurfaceColorKey_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSurfaceColorKey_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfacePalette_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfacePalette_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetSurfaceBlendMode_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceColorKey_REAL(ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_LockSurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockSurface_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

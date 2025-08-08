@@ -4144,7 +4144,7 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   ]
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %12 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %12(ptr noundef %10, ptr noundef nonnull @.str.266, ptr noundef nonnull %8, ptr noundef null) #19
@@ -4156,11 +4156,11 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %18 = load ptr, ptr @fp_g_free, align 8
   %19 = load ptr, ptr %8, align 8
   call void %18(ptr noundef %19) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %21 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %21(ptr noundef %10, ptr noundef nonnull @.str.267, ptr noundef nonnull %7, ptr noundef null) #19
@@ -4172,17 +4172,17 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %27 = load ptr, ptr @fp_g_free, align 8
   %28 = load ptr, ptr %7, align 8
   call void %27(ptr noundef %28) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 29:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %30 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %30(ptr noundef %10, ptr noundef nonnull @.str.268, ptr noundef nonnull %6, ptr noundef null) #19
   %31 = load i32, ptr %6, align 4
   %32 = trunc i32 %31 to i8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
@@ -4223,17 +4223,17 @@ define internal ptr @gtk3_get_setting(ptr noundef %0, i32 noundef %1) #0 {
 
 get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.i.i
   %.0.i.i.i = phi ptr [ null, %29 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %82
 
 56:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %57 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %57(ptr noundef %10, ptr noundef nonnull @.str.269, ptr noundef nonnull %4, ptr noundef null) #19
   %58 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %58, ptr %3, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -4274,8 +4274,8 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
 
 get_integer_property.exit:                        ; preds = %56, %.sink.split.i.i.i9
   %.0.i.i.i11 = phi ptr [ null, %56 ], [ %.0.ph.i.i.i10, %.sink.split.i.i.i9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
 
 82:                                               ; preds = %2, %get_integer_property.exit, %get_boolean_property.exit, %20, %11
@@ -5290,7 +5290,7 @@ define internal void @gtk3_set_range_value(i32 noundef %0, double noundef %1, do
 ; Function Attrs: nounwind uwtable
 define internal void @gtk3_init_painting(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @gtk3_window, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %init_containers.exit
@@ -5326,7 +5326,7 @@ define internal void @gtk3_init_painting(ptr noundef %0, i32 noundef %1, i32 nou
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %3, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = load ptr, ptr @cr, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
@@ -5447,7 +5447,7 @@ define internal noundef i32 @gtk3_copy_image(ptr noundef writeonly captures(none
 define internal range(i32 -32767, 32769) i32 @gtk3_get_xthickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.GtkBorder, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr @gtk3_window, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %init_containers.exit
@@ -5483,7 +5483,7 @@ define internal range(i32 -32767, 32769) i32 @gtk3_get_xthickness(ptr readnone c
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = call fastcc ptr @gtk3_get_widget(i32 noundef %1)
   store ptr %27, ptr @gtk3_widget, align 8
   %28 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
@@ -5508,7 +5508,7 @@ init_containers.exit:                             ; preds = %2, %7
 define internal range(i32 -32767, 32769) i32 @gtk3_get_ythickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.GtkBorder, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr @gtk3_window, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %init_containers.exit
@@ -5544,7 +5544,7 @@ define internal range(i32 -32767, 32769) i32 @gtk3_get_ythickness(ptr readnone c
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = call fastcc ptr @gtk3_get_widget(i32 noundef %1)
   store ptr %27, ptr @gtk3_widget, align 8
   %28 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
@@ -5583,7 +5583,7 @@ switch.lookup:                                    ; preds = %4
 
 gtk3_get_state_flags.exit:                        ; preds = %4, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %4 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr @gtk3_window, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %init_containers.exit
@@ -5619,7 +5619,7 @@ gtk3_get_state_flags.exit:                        ; preds = %4, %switch.lookup
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %gtk3_get_state_flags.exit, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.b = load i1, ptr @gtk3_version_3_20, align 4
   br i1 %.b, label %32, label %43
 
@@ -5773,7 +5773,7 @@ define internal ptr @gtk3_get_class_value(ptr noundef %0, i32 noundef %1, ptr no
   %7 = alloca %union.jvalue, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.GValue, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load ptr, ptr @gtk3_window, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %init_containers.exit
@@ -5809,7 +5809,7 @@ define internal ptr @gtk3_get_class_value(ptr noundef %0, i32 noundef %1, ptr no
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %3, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = call fastcc ptr @gtk3_get_widget(i32 noundef %1)
   store ptr %32, ptr @gtk3_widget, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -5837,7 +5837,7 @@ init_containers.exit:                             ; preds = %3, %12
   %47 = load ptr, ptr @fp_g_value_get_boolean, align 8
   %48 = call i32 %47(ptr noundef nonnull %9) #19
   %49 = trunc i32 %48 to i8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %49, ptr %7, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -5878,7 +5878,7 @@ init_containers.exit:                             ; preds = %3, %12
 
 create_Boolean.exit:                              ; preds = %46, %.sink.split.i.i
   %.0.i.i = phi ptr [ null, %46 ], [ %.0.ph.i.i, %.sink.split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %259
 
 73:                                               ; preds = %36
@@ -5892,7 +5892,7 @@ create_Boolean.exit:                              ; preds = %46, %.sink.split.i.
   %78 = load ptr, ptr @fp_g_value_get_char, align 8
   %79 = call signext i8 %78(ptr noundef nonnull %9) #19
   %80 = sext i8 %79 to i16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %80, ptr %6, align 8
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
@@ -5933,7 +5933,7 @@ create_Boolean.exit:                              ; preds = %46, %.sink.split.i.
 
 create_Character.exit:                            ; preds = %77, %.sink.split.i.i70
   %.0.i.i72 = phi ptr [ null, %77 ], [ %.0.ph.i.i71, %.sink.split.i.i70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %259
 
 104:                                              ; preds = %73
@@ -5947,7 +5947,7 @@ create_Character.exit:                            ; preds = %77, %.sink.split.i.
   %109 = load ptr, ptr @fp_g_value_get_uchar, align 8
   %110 = call zeroext i8 %109(ptr noundef nonnull %9) #19
   %111 = zext i8 %110 to i16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %111, ptr %5, align 8
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
@@ -5988,7 +5988,7 @@ create_Character.exit:                            ; preds = %77, %.sink.split.i.
 
 create_Character.exit76:                          ; preds = %108, %.sink.split.i.i73
   %.0.i.i75 = phi ptr [ null, %108 ], [ %.0.ph.i.i74, %.sink.split.i.i73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %259
 
 135:                                              ; preds = %104
@@ -6001,7 +6001,7 @@ create_Character.exit76:                          ; preds = %108, %.sink.split.i
 139:                                              ; preds = %135
   %140 = load ptr, ptr @fp_g_value_get_int, align 8
   %141 = call i32 %140(ptr noundef nonnull %9) #19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %141, ptr %4, align 8
   %142 = load ptr, ptr %0, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
@@ -6042,7 +6042,7 @@ create_Character.exit76:                          ; preds = %108, %.sink.split.i
 
 create_Integer.exit:                              ; preds = %139, %.sink.split.i.i77
   %.0.i.i79 = phi ptr [ null, %139 ], [ %.0.ph.i.i78, %.sink.split.i.i77 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %259
 
 165:                                              ; preds = %135
@@ -6205,7 +6205,7 @@ create_Integer.exit:                              ; preds = %139, %.sink.split.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @gtk3_get_pango_font_name(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @gtk3_window, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %init_containers.exit
@@ -6241,7 +6241,7 @@ define internal ptr @gtk3_get_pango_font_name(ptr noundef %0, i32 noundef %1) #0
   br label %init_containers.exit
 
 init_containers.exit:                             ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = call fastcc ptr @gtk3_get_widget(i32 noundef %1)
   store ptr %26, ptr @gtk3_widget, align 8
   %27 = load ptr, ptr @fp_gtk_widget_get_style_context, align 8
@@ -6282,7 +6282,7 @@ switch.lookup:                                    ; preds = %8
 
 12:                                               ; preds = %8, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %8 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = load ptr, ptr @gtk3_window, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %gtk3_get_stock_icon.exit
@@ -6318,7 +6318,7 @@ switch.lookup:                                    ; preds = %8
   br label %gtk3_get_stock_icon.exit
 
 gtk3_get_stock_icon.exit:                         ; preds = %12, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %35 = icmp slt i32 %1, 0
   %36 = select i1 %35, i32 25, i32 %1
   %37 = call fastcc ptr @gtk3_get_widget(i32 noundef %36)
@@ -8236,22 +8236,22 @@ define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias
   br label %49
 
 22:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double 1.000000e+00, ptr %23, align 8, !alias.scope !25, !noalias !28
   %24 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !31
   call void %24(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %6) #19, !noalias !28
   call fastcc void @gtk3_style_shade(ptr noundef %6, ptr noundef nonnull align 8 %9, double noundef 1.300000e+00)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double 1.000000e+00, ptr %25, align 8, !alias.scope !32, !noalias !35
   %26 = load ptr, ptr @fp_gtk_style_context_get_background_color, align 8, !noalias !38
   call void %26(ptr noundef %1, i32 noundef range(i32 0, 33) %2, ptr noundef nonnull align 8 %5) #19, !noalias !35
   call fastcc void @gtk3_style_shade(ptr noundef %5, ptr noundef nonnull align 8 %10, double noundef 0x3FE6666666666666)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = load double, ptr %9, align 8
   %28 = load double, ptr %10, align 8
   %29 = fadd double %27, %28
@@ -8853,10 +8853,10 @@ declare float @llvm.ceil.f32(float) #12
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

@@ -24,9 +24,6 @@ define void @jinit_lhuff_decoder(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal void @start_pass_lhuff_decoder(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -218,7 +215,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %6 = alloca %struct.bitread_working_state, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %8 = load ptr, ptr %7, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %10 = load i32, ptr %9, align 8, !tbaa !66
   %11 = icmp sgt i32 %10, 0
@@ -481,7 +478,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 
 .thread136:                                       ; preds = %._crit_edge155, %80, %99, %109, %52, %.preheader.lr.ph.split.us, %._crit_edge150
   %.4 = phi i32 [ %4, %._crit_edge150 ], [ %4, %.preheader.lr.ph.split.us ], [ 0, %52 ], [ %.0116157, %109 ], [ %.0116157, %99 ], [ %.0116157, %80 ], [ %4, %._crit_edge155 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
@@ -521,23 +518,26 @@ define internal range(i32 0, 2) i32 @process_restart(ptr noundef %0) #0 {
   ret i32 %.0
 }
 
+declare void @jpeg_make_d_derived_tbl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @jzero_far(ptr noundef, i64 noundef) local_unnamed_addr #1
+
+declare i32 @jpeg_fill_bit_buffer(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @jpeg_huff_decode(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare void @jpeg_make_d_derived_tbl(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @jzero_far(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @jpeg_fill_bit_buffer(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @jpeg_huff_decode(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind }
 

@@ -1261,7 +1261,7 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
   br i1 %167, label %_ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit, label %168
 
 168:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %166, ptr %3, align 8
   %169 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %170 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
@@ -1306,7 +1306,7 @@ _ZN7oopDesc11oop_iterateIN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvPT_.exit:
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds = %187, %190, %168
   %.0.i.i.i = phi ptr [ %194, %190 ], [ null, %168 ], [ null, %187 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.0.i.i.i, ptr %165, align 8
   %195 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -2000,7 +2000,7 @@ define hidden void @_ZN17ArchiveHeapWriter20copy_roots_to_bufferEP18GrowableArra
   tail call void @_ZN17ArchiveHeapWriter24maybe_fill_gc_region_gapEm(i64 noundef %27)
   %34 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
   %35 = add i64 %34, %27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %36 = icmp ult i64 %35, 2147483648
   br i1 %36, label %_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit, label %37
 
@@ -2015,7 +2015,7 @@ _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %33
   %40 = trunc nuw nsw i64 %35 to i32
   store i8 0, ptr %2, align 1
   %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
   %43 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2166,7 +2166,7 @@ define hidden void @_ZN17ArchiveHeapWriter24maybe_fill_gc_region_gapEm(i64 nound
 
 25:                                               ; preds = %1
   %26 = sub i64 %24, %20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = icmp ult i64 %22, 2147483648
   br i1 %27, label %_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit, label %28
 
@@ -2181,7 +2181,7 @@ _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %25
   %31 = trunc nuw nsw i64 %24 to i32
   store i8 0, ptr %2, align 1
   %32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = load i8, ptr @UseCompressedOops, align 1
   %34 = trunc i8 %33 to i1
   %35 = select i1 %34, i64 2, i64 3
@@ -2423,8 +2423,8 @@ _ZN18GrowableArrayCHeapIN17ArchiveHeapWriter12HeapObjOrderEL8MEMFLAGS13EEC2Ei.ex
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN10HeapShared16get_pointer_infoEP7oopDescRbS2_(ptr noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   %24 = load i8, ptr %1, align 1
   %25 = trunc i8 %24 to i1
@@ -2434,8 +2434,8 @@ _ZN18GrowableArrayCHeapIN17ArchiveHeapWriter12HeapObjOrderEL8MEMFLAGS13EEC2Ei.ex
   %..i = zext nneg i8 %.mask.i to i32
   %.1.i = select i1 %27, i32 2, i32 3
   %.0.i = select i1 %25, i32 %.1.i, i32 %..i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %28, ptr %3, align 4
   store i32 %.0.i, ptr %17, align 4
@@ -2673,7 +2673,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %23, %26, %33, %53
   tail call void @_ZN17ArchiveHeapWriter24maybe_fill_gc_region_gapEm(i64 noundef %58)
   %59 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
   %60 = add i64 %59, %58
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %61 = icmp ult i64 %60, 2147483648
   br i1 %61, label %64, label %62
 
@@ -2688,7 +2688,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %23, %26, %33, %53
   %66 = trunc nuw nsw i64 %60 to i32
   store i8 0, ptr %2, align 1
   %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %68 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
   %69 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -3033,7 +3033,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter16relocate_root_atI9narro
 
 34:                                               ; preds = %3
   %35 = inttoptr i64 %31 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %35, ptr %4, align 8
   %36 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %37 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -3079,7 +3079,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter16relocate_root_atI9narro
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i: ; preds = %54, %57, %34
   %.0.i.i = phi i64 [ %62, %57 ], [ 0, %34 ], [ 0, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %.0.i.i, %64
@@ -4668,7 +4668,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter20EmbeddedOopRelocator6do
   br i1 %15, label %_ZN17ArchiveHeapWriter20EmbeddedOopRelocator11do_oop_workIP7oopDescEEvPT_.exit, label %16
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %3, align 8
   %17 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %18 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
@@ -4713,7 +4713,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter20EmbeddedOopRelocator6do
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds = %35, %38, %16
   %.0.i.i.i = phi ptr [ %42, %38 ], [ null, %16 ], [ null, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %.0.i.i.i, ptr %11, align 8
   %43 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -4764,7 +4764,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter20EmbeddedOopRelocator6do
 
 25:                                               ; preds = %2
   %26 = inttoptr i64 %22 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %26, ptr %3, align 8
   %27 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %28 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
@@ -4810,7 +4810,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter20EmbeddedOopRelocator6do
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i: ; preds = %45, %48, %25
   %.0.i.i.i = phi i64 [ %53, %48 ], [ 0, %25 ], [ 0, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %.0.i.i.i, %55
@@ -4989,7 +4989,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter
 
 49:                                               ; preds = %.lr.ph
   %50 = inttoptr i64 %46 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %50, ptr %4, align 8
   %51 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %52 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -5035,7 +5035,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %69, %72, %49
   %.0.i.i.i.i.i.i = phi i64 [ %77, %72 ], [ 0, %49 ], [ 0, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %.0.i.i.i.i.i.i, %79
@@ -5134,7 +5134,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter
   br i1 %39, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8
   %41 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %42 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -5179,7 +5179,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchIN17ArchiveHeapWriter
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %59, %62, %40
   %.0.i.i.i.i.i.i = phi ptr [ %66, %62 ], [ null, %40 ], [ null, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i, ptr %36, align 8
   %67 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -5305,7 +5305,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
 
 50:                                               ; preds = %.lr.ph
   %51 = inttoptr i64 %47 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %51, ptr %5, align 8
   %52 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %53 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -5351,7 +5351,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateI9narrowO
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %70, %73, %50
   %.0.i.i.i.i.i.i = phi i64 [ %78, %73 ], [ 0, %50 ], [ 0, %70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %79 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = sub i64 %.0.i.i.i.i.i.i, %80
@@ -5392,9 +5392,9 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorE9narrowOopE
   br i1 %105, label %23, label %._crit_edge33, !llvm.loop !41
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOopN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5494,7 +5494,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass11do_referentI9narrowOopN1
 
 29:                                               ; preds = %3
   %30 = inttoptr i64 %26 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %30, ptr %4, align 8
   %31 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %32 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -5540,7 +5540,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass11do_referentI9narrowOopN1
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %49, %52, %29
   %.0.i.i.i.i.i.i = phi i64 [ %57, %52 ], [ 0, %29 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %.0.i.i.i.i.i.i, %59
@@ -5601,7 +5601,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass13do_discoveredI9narrowOop
 
 29:                                               ; preds = %3
   %30 = inttoptr i64 %26 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %30, ptr %4, align 8
   %31 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %32 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -5647,7 +5647,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass13do_discoveredI9narrowOop
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %49, %52, %29
   %.0.i.i.i.i.i.i = phi i64 [ %57, %52 ], [ 0, %29 ], [ 0, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %58 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %.0.i.i.i.i.i.i, %59
@@ -6591,7 +6591,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
   br i1 %40, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %41
 
 41:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %39, ptr %5, align 8
   %42 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %43 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -6636,7 +6636,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDes
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %60, %63, %41
   %.0.i.i.i.i.i.i = phi ptr [ %67, %63 ], [ null, %41 ], [ null, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i, ptr %37, align 8
   %68 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -6666,9 +6666,9 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEE
   br i1 %85, label %23, label %._crit_edge33, !llvm.loop !44
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6715,7 +6715,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
   br i1 %30, label %_ZN16InstanceRefKlass38oop_oop_iterate_fields_except_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit, label %31
 
 31:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %29, ptr %5, align 8
   %32 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %33 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -6760,7 +6760,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_proc
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i.i: ; preds = %50, %53, %31
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %57, %53 ], [ null, %31 ], [ null, %50 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %26, align 8
   %58 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -6847,7 +6847,7 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRe
   br i1 %38, label %_ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit, label %39
 
 39:                                               ; preds = %_ZN16InstanceRefKlass12try_discoverIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEbS2_13ReferenceTypePT0_.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %37, ptr %6, align 8
   %40 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %41 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
@@ -6892,7 +6892,7 @@ _ZN16InstanceRefKlass12try_discoverIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRe
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i: ; preds = %58, %61, %39
   %.0.i.i.i.i.i.i.i = phi ptr [ %65, %61 ], [ null, %39 ], [ null, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %.0.i.i.i.i.i.i.i, ptr %34, align 8
   %66 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -6929,7 +6929,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRel
   br i1 %88, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit, label %89
 
 89:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %87, ptr %5, align 8
   %90 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %91 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -6974,7 +6974,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRel
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i11: ; preds = %108, %111, %89
   %.0.i.i.i.i.i.i.i12 = phi ptr [ %115, %111 ], [ null, %89 ], [ null, %108 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i.i12, ptr %86, align 8
   %116 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -7019,7 +7019,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsIP
   br i1 %20, label %_ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit, label %21
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %19, ptr %5, align 8
   %22 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %23 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -7064,7 +7064,7 @@ define linkonce_odr hidden void @_ZN16InstanceRefKlass22oop_oop_iterate_fieldsIP
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i: ; preds = %40, %43, %21
   %.0.i.i.i.i.i.i.i = phi ptr [ %47, %43 ], [ null, %21 ], [ null, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i.i, ptr %16, align 8
   %48 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -7101,7 +7101,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRel
   br i1 %70, label %_ZN16InstanceRefKlass13do_discoveredIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit, label %71
 
 71:                                               ; preds = %_ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorE14AlwaysContainsEEvS2_PT0_RT1_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %69, ptr %4, align 8
   %72 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %73 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7146,7 +7146,7 @@ _ZN16InstanceRefKlass11do_referentIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRel
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i9: ; preds = %90, %93, %71
   %.0.i.i.i.i.i.i.i10 = phi ptr [ %97, %93 ], [ null, %71 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i.i10, ptr %68, align 8
   %98 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -7261,7 +7261,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
 
 49:                                               ; preds = %.lr.ph
   %50 = inttoptr i64 %46 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %50, ptr %4, align 8
   %51 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %52 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7307,7 +7307,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateI9narr
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %69, %72, %49
   %.0.i.i.i.i.i.i = phi i64 [ %77, %72 ], [ 0, %49 ], [ 0, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %.0.i.i.i.i.i.i, %79
@@ -7399,7 +7399,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
 
 36:                                               ; preds = %17
   %37 = inttoptr i64 %33 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %37, ptr %4, align 8
   %38 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %39 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7445,7 +7445,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %56, %59, %36
   %.0.i.i.i.i.i.i = phi i64 [ %64, %59 ], [ 0, %36 ], [ 0, %56 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %.0.i.i.i.i.i.i, %66
@@ -7541,7 +7541,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
   br i1 %39, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8
   %41 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %42 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7586,7 +7586,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass15oop_oop_iterateIP7oop
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %59, %62, %40
   %.0.i.i.i.i.i.i = phi ptr [ %66, %62 ], [ null, %40 ], [ null, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i, ptr %36, align 8
   %67 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -7655,7 +7655,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
   br i1 %26, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %27
 
 27:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %25, ptr %4, align 8
   %28 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %29 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7700,7 +7700,7 @@ define linkonce_odr hidden void @_ZN19InstanceMirrorKlass23oop_oop_iterate_stati
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %46, %49, %27
   %.0.i.i.i.i.i.i = phi ptr [ %53, %49 ], [ null, %27 ], [ null, %46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i, ptr %23, align 8
   %54 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -7820,7 +7820,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 
 49:                                               ; preds = %.lr.ph
   %50 = inttoptr i64 %46 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %50, ptr %4, align 8
   %51 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %52 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -7866,7 +7866,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %69, %72, %49
   %.0.i.i.i.i.i.i = phi i64 [ %77, %72 ], [ 0, %49 ], [ 0, %69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %.0.i.i.i.i.i.i, %79
@@ -7965,7 +7965,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
   br i1 %39, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %38, ptr %4, align 8
   %41 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %42 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -8010,7 +8010,7 @@ define linkonce_odr hidden void @_ZN24InstanceClassLoaderKlass15oop_oop_iterateI
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %59, %62, %40
   %.0.i.i.i.i.i.i = phi ptr [ %66, %62 ], [ null, %40 ], [ null, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i, ptr %36, align 8
   %67 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -8097,7 +8097,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %.idx = shl nsw i64 %26, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = icmp sgt i64 %.idx, %20
   br i1 %27, label %28, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOopN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS8_.exit
 
@@ -8177,7 +8177,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %61, %45
   br i1 %or.cond.i, label %45, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOopN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS8_.exit, !llvm.loop !55
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOopN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS8_.exit: ; preds = %61, %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, %65, %.preheader.i.i.i, %12, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %125
 
 69:                                               ; preds = %3
@@ -8303,7 +8303,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
 
 33:                                               ; preds = %3
   %34 = inttoptr i64 %30 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %34, ptr %5, align 8
   %35 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %36 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -8349,7 +8349,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %53, %56, %33
   %.0.i.i.i.i.i.i = phi i64 [ %61, %56 ], [ 0, %33 ], [ 0, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %.0.i.i.i.i.i.i, %63
@@ -8402,7 +8402,7 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorE9narrowOopE
 
 94:                                               ; preds = %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorE9narrowOopEEvPT_PT0_.exit
   %95 = inttoptr i64 %91 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %95, ptr %4, align 8
   %96 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %97 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -8448,7 +8448,7 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorE9narrowOopE
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i9: ; preds = %114, %117, %94
   %.0.i.i.i.i.i.i10 = phi i64 [ %122, %117 ], [ 0, %94 ], [ 0, %114 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %123 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = sub i64 %.0.i.i.i.i.i.i10, %124
@@ -8516,7 +8516,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN33StackChunkOopIterateBitmapCl
 
 32:                                               ; preds = %2
   %33 = inttoptr i64 %29 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %33, ptr %3, align 8
   %34 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %35 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
@@ -8562,7 +8562,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN33StackChunkOopIterateBitmapCl
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %52, %55, %32
   %.0.i.i.i.i.i.i = phi i64 [ %60, %55 ], [ 0, %32 ], [ 0, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = sub i64 %.0.i.i.i.i.i.i, %62
@@ -8624,8 +8624,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %.idx = shl nsw i64 %28, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = icmp sgt i64 %.idx, %22
   br i1 %29, label %30, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
@@ -8655,15 +8655,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   %48 = ptrtoint ptr %35 to i64
   %49 = sub i64 %48, %32
   %50 = ashr exact i64 %49, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %51 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEEbPT_mmEUlmE_EEbS8_mm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %4, i64 noundef %47, i64 noundef %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS9_.exit
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS9_.exit: ; preds = %14, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %108
 
 52:                                               ; preds = %3
@@ -8779,7 +8779,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
   br i1 %23, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %24
 
 24:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %22, ptr %5, align 8
   %25 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %26 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -8824,7 +8824,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_h
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %43, %46, %24
   %.0.i.i.i.i.i.i = phi ptr [ %50, %46 ], [ null, %24 ], [ null, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i, ptr %19, align 8
   %51 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -8858,7 +8858,7 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEE
   br i1 %70, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit11, label %71
 
 71:                                               ; preds = %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %69, ptr %4, align 8
   %72 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %73 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -8903,7 +8903,7 @@ _ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEE
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i9: ; preds = %90, %93, %71
   %.0.i.i.i.i.i.i10 = phi ptr [ %97, %93 ], [ null, %71 ], [ null, %90 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i10, ptr %68, align 8
   %98 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -9007,7 +9007,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %9, %26
   br i1 %50, label %_ZNK6BitMap14IterateInvokerIbEclIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDescN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEEbPT_mmEUlmE_EEbSA_m.exit, label %51
 
 51:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %49, ptr %5, align 8
   %52 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %53 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
@@ -9052,7 +9052,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %9, %26
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i.i.i.i: ; preds = %70, %73, %51
   %.0.i.i.i.i.i.i.i.i.i = phi ptr [ %77, %73 ], [ null, %51 ], [ null, %70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %46, align 8
   %78 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -9158,7 +9158,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9n
 
 44:                                               ; preds = %25
   %45 = inttoptr i64 %41 to ptr
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %45, ptr %4, align 8
   %46 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %47 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -9204,7 +9204,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9n
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %64, %67, %44
   %.0.i.i.i.i.i.i = phi i64 [ %72, %67 ], [ 0, %44 ], [ 0, %64 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %.0.i.i.i.i.i.i, %74
@@ -9287,7 +9287,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7
   br i1 %34, label %_ZN13Devirtualizer6do_oopIN17ArchiveHeapWriter20EmbeddedOopRelocatorEP7oopDescEEvPT_PT0_.exit, label %35
 
 35:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %33, ptr %4, align 8
   %36 = load ptr, ptr @_ZN10HeapShared22_archived_object_cacheE, align 8
   %37 = call noundef i32 @_ZN10HeapShared8oop_hashERKP7oopDesc(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
@@ -9332,7 +9332,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7
 
 _ZN17ArchiveHeapWriter27source_obj_to_requested_objEP7oopDesc.exit.i.i.i.i.i: ; preds = %54, %57, %35
   %.0.i.i.i.i.i.i = phi ptr [ %61, %57 ], [ null, %35 ], [ null, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %.0.i.i.i.i.i.i, ptr %31, align 8
   %62 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -9390,10 +9390,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #15

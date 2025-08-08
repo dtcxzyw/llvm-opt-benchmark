@@ -381,9 +381,6 @@ define internal fastcc void @trans_delete(ptr noundef readonly captures(address)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -612,7 +609,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph35
 declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_refresh_style(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
@@ -656,7 +653,7 @@ define void @lv_obj_refresh_style(ptr noundef %0, i32 noundef %1, i8 noundef zer
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %24 = load i16, ptr %23, align 4, !tbaa !65
   %25 = zext i16 %24 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %26 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %25, i8 noundef zeroext 2, ptr noundef nonnull %5)
   %.not54.i.i = icmp eq i32 %26, 0
@@ -719,7 +716,7 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %.cri
 
 lv_obj_get_style_height.exit:                     ; preds = %get_selector_style_prop.exit.i, %.loopexit.i
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %get_selector_style_prop.exit.i ], [ %42, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = ptrtoint ptr %.sroa.0.0.i.i to i64
   %44 = and i64 %43, 4294967295
   %45 = icmp eq i64 %44, 1073741823
@@ -728,7 +725,7 @@ lv_obj_get_style_height.exit:                     ; preds = %get_selector_style_
 46:                                               ; preds = %lv_obj_get_style_height.exit
   %47 = load i16, ptr %23, align 4, !tbaa !65
   %48 = zext i16 %47 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %49 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %48, i8 noundef zeroext 1, ptr noundef nonnull %4)
   %.not54.i.i52 = icmp eq i32 %49, 0
@@ -791,7 +788,7 @@ get_selector_style_prop.exit.i53:                 ; preds = %.lr.ph63.i.i64, %.c
 
 lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_prop.exit.i53, %.loopexit.i62
   %.sroa.0.0.i.i55 = phi ptr [ %.sroa.0.0.copyload.i.i54, %get_selector_style_prop.exit.i53 ], [ %65, %.loopexit.i62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = ptrtoint ptr %.sroa.0.0.i.i55 to i64
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 1073741823
@@ -863,9 +860,6 @@ lv_obj_get_style_width.exit:                      ; preds = %get_selector_style_
 86:                                               ; preds = %81, %82, %85, %84, %6
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1180,7 +1174,7 @@ define void @lv_obj_update_layer_type(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i16, ptr %8, align 4, !tbaa !65
   %10 = zext i16 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %11 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %10, i8 noundef zeroext 110, ptr noundef nonnull %6)
   %.not54.i.i.i = icmp eq i32 %11, 0
@@ -1222,7 +1216,7 @@ get_selector_style_prop.exit.i.i:                 ; preds = %.lr.ph63.i.i.i, %7
 
 lv_obj_get_style_transform_rotation.exit.i:       ; preds = %.loopexit.i.i, %get_selector_style_prop.exit.i.i
   %.sroa.0.0.i.i.i = phi ptr [ %.sroa.0.0.copyload.i.i.i, %get_selector_style_prop.exit.i.i ], [ %24, %.loopexit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = ptrtoint ptr %.sroa.0.0.i.i.i to i64
   %26 = and i64 %25, 4294967295
   %.not.i = icmp eq i64 %26, 0
@@ -1231,7 +1225,7 @@ lv_obj_get_style_transform_rotation.exit.i:       ; preds = %.loopexit.i.i, %get
 27:                                               ; preds = %lv_obj_get_style_transform_rotation.exit.i
   %28 = load i16, ptr %8, align 4, !tbaa !65
   %29 = zext i16 %28 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %30 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %29, i8 noundef zeroext 108, ptr noundef nonnull %5)
   %.not54.i.i16.i = icmp eq i32 %30, 0
@@ -1273,7 +1267,7 @@ get_selector_style_prop.exit.i17.i:               ; preds = %.lr.ph63.i.i24.i, %
 
 lv_obj_get_style_transform_scale_x.exit.i:        ; preds = %.loopexit.i22.i, %get_selector_style_prop.exit.i17.i
   %.sroa.0.0.i.i19.i = phi ptr [ %.sroa.0.0.copyload.i.i18.i, %get_selector_style_prop.exit.i17.i ], [ %43, %.loopexit.i22.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = ptrtoint ptr %.sroa.0.0.i.i19.i to i64
   %45 = and i64 %44, 4294967295
   %.not8.i = icmp eq i64 %45, 256
@@ -1282,7 +1276,7 @@ lv_obj_get_style_transform_scale_x.exit.i:        ; preds = %.loopexit.i22.i, %g
 46:                                               ; preds = %lv_obj_get_style_transform_scale_x.exit.i
   %47 = load i16, ptr %8, align 4, !tbaa !65
   %48 = zext i16 %47 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %49 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %48, i8 noundef zeroext 109, ptr noundef nonnull %4)
   %.not54.i.i30.i = icmp eq i32 %49, 0
@@ -1324,7 +1318,7 @@ get_selector_style_prop.exit.i31.i:               ; preds = %.lr.ph63.i.i38.i, %
 
 lv_obj_get_style_transform_scale_y.exit.i:        ; preds = %.loopexit.i36.i, %get_selector_style_prop.exit.i31.i
   %.sroa.0.0.i.i33.i = phi ptr [ %.sroa.0.0.copyload.i.i32.i, %get_selector_style_prop.exit.i31.i ], [ %62, %.loopexit.i36.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = ptrtoint ptr %.sroa.0.0.i.i33.i to i64
   %64 = and i64 %63, 4294967295
   %.not9.i = icmp eq i64 %64, 256
@@ -1333,7 +1327,7 @@ lv_obj_get_style_transform_scale_y.exit.i:        ; preds = %.loopexit.i36.i, %g
 65:                                               ; preds = %lv_obj_get_style_transform_scale_y.exit.i
   %66 = load i16, ptr %8, align 4, !tbaa !65
   %67 = zext i16 %66 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %68 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %67, i8 noundef zeroext 113, ptr noundef nonnull %3)
   %.not54.i.i44.i = icmp eq i32 %68, 0
@@ -1375,7 +1369,7 @@ get_selector_style_prop.exit.i45.i:               ; preds = %.lr.ph63.i.i52.i, %
 
 lv_obj_get_style_transform_skew_x.exit.i:         ; preds = %.loopexit.i50.i, %get_selector_style_prop.exit.i45.i
   %.sroa.0.0.i.i47.i = phi ptr [ %.sroa.0.0.copyload.i.i46.i, %get_selector_style_prop.exit.i45.i ], [ %81, %.loopexit.i50.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %82 = ptrtoint ptr %.sroa.0.0.i.i47.i to i64
   %83 = and i64 %82, 4294967295
   %.not10.i = icmp eq i64 %83, 0
@@ -1384,7 +1378,7 @@ lv_obj_get_style_transform_skew_x.exit.i:         ; preds = %.loopexit.i50.i, %g
 84:                                               ; preds = %lv_obj_get_style_transform_skew_x.exit.i
   %85 = load i16, ptr %8, align 4, !tbaa !65
   %86 = zext i16 %85 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %87 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %86, i8 noundef zeroext 114, ptr noundef nonnull %2)
   %.not54.i.i58.i = icmp eq i32 %87, 0
@@ -1426,7 +1420,7 @@ get_selector_style_prop.exit.i59.i:               ; preds = %.lr.ph63.i.i66.i, %
 
 lv_obj_get_style_transform_skew_y.exit.i:         ; preds = %.loopexit.i64.i, %get_selector_style_prop.exit.i59.i
   %.sroa.0.0.i.i61.i = phi ptr [ %.sroa.0.0.copyload.i.i60.i, %get_selector_style_prop.exit.i59.i ], [ %100, %.loopexit.i64.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %101 = ptrtoint ptr %.sroa.0.0.i.i61.i to i64
   %102 = and i64 %101, 4294967295
   %.not11.i = icmp eq i64 %102, 0
@@ -1511,7 +1505,7 @@ define internal fastcc void @refresh_children_style(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @lv_obj_enable_style_refresh(i1 noundef zeroext %0) local_unnamed_addr #4 {
+define void @lv_obj_enable_style_refresh(i1 noundef zeroext %0) local_unnamed_addr #3 {
   %2 = zext i1 %0 to i8
   store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 72), align 8, !tbaa !62
   ret void
@@ -1531,7 +1525,7 @@ define ptr @lv_obj_get_style_prop(ptr noundef readonly captures(address_is_null)
   %7 = load i16, ptr %6, align 4, !tbaa !65
   %8 = zext i16 %7 to i32
   %9 = or i32 %1, %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %10 = call fastcc i32 @get_selector_style_prop(ptr noundef %0, i32 noundef %9, i8 noundef zeroext %2, ptr noundef %4)
   %.not7 = icmp eq i32 %10, 0
@@ -1547,12 +1541,12 @@ define ptr @lv_obj_get_style_prop(ptr noundef readonly captures(address_is_null)
 
 14:                                               ; preds = %12, %11
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %11 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #4 {
   %5 = and i32 %1, 16711680
   %6 = tail call fastcc i32 @get_prop_core(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3)
   %.not54 = icmp eq i32 %6, 0
@@ -1668,7 +1662,7 @@ define internal fastcc range(i32 0, 2) i32 @get_selector_style_prop(ptr noundef 
 declare ptr @lv_style_prop_get_default(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_obj_has_style_prop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
+define zeroext i1 @lv_obj_has_style_prop(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = alloca %union.lv_style_value_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
@@ -1677,10 +1671,10 @@ define zeroext i1 @lv_obj_has_style_prop(ptr noundef readonly captures(address_i
   br label %.preheader
 
 5:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = call fastcc i32 @get_selector_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %4)
   %.not6 = icmp ne i32 %6, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not6
 }
 
@@ -1966,7 +1960,7 @@ define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60,
   %15 = load i8, ptr %14, align 8, !tbaa !103
   %16 = zext i16 %2 to i32
   %17 = or i32 %1, %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %18 = call fastcc i32 @get_selector_style_prop(ptr noundef readonly %0, i32 noundef %17, i8 noundef zeroext %15, ptr noundef %8)
   %.not7.i = icmp eq i32 %18, 0
@@ -1982,12 +1976,12 @@ define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60,
 
 22:                                               ; preds = %20, %19
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %19 ], [ %21, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i16 %3, ptr %13, align 4, !tbaa !65
   %23 = load i8, ptr %14, align 8, !tbaa !103
   %24 = zext i16 %3 to i32
   %25 = or i32 %1, %24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %26 = call fastcc i32 @get_selector_style_prop(ptr noundef readonly %0, i32 noundef %25, i8 noundef zeroext %23, ptr noundef %7)
   %.not7.i73 = icmp eq i32 %26, 0
@@ -2003,7 +1997,7 @@ define void @lv_obj_style_create_transition(ptr noundef nonnull initializes((60,
 
 lv_obj_get_style_prop.exit77:                     ; preds = %27, %28
   %.sroa.0.0.i75 = phi ptr [ %.sroa.0.0.copyload.i74, %27 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %30 = load i16, ptr %10, align 2
   %31 = and i16 %30, -9
   store i16 %31, ptr %10, align 2
@@ -2019,7 +2013,7 @@ lv_obj_get_style_prop.exit77:                     ; preds = %27, %28
 36:                                               ; preds = %lv_obj_get_style_prop.exit77, %33
   store i16 %2, ptr %13, align 4, !tbaa !65
   %37 = load i8, ptr %14, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
   %38 = call fastcc i32 @get_selector_style_prop(ptr noundef readonly %0, i32 noundef %17, i8 noundef zeroext %37, ptr noundef %6)
   %.not7.i79 = icmp eq i32 %38, 0
@@ -2035,7 +2029,7 @@ lv_obj_get_style_prop.exit77:                     ; preds = %27, %28
 
 lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   %.sroa.0.0.i81 = phi ptr [ %.sroa.0.0.copyload.i80, %39 ], [ %41, %40 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i16 %3, ptr %13, align 4, !tbaa !65
   %42 = tail call fastcc ptr @get_trans_style(ptr noundef nonnull %0, i32 noundef %1)
   %43 = load ptr, ptr %42, align 8, !tbaa !49
@@ -2109,7 +2103,7 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   store i8 %76, ptr %77, align 8, !tbaa !53
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 %1, ptr %78, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @lv_anim_init(ptr noundef nonnull %9) #9
   call void @lv_anim_set_var(ptr noundef nonnull %9, ptr noundef nonnull %72) #9
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %9, ptr noundef nonnull @trans_anim_cb) #9
@@ -2131,7 +2125,7 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   %87 = load ptr, ptr %86, align 8, !tbaa !109
   call void @lv_anim_set_user_data(ptr noundef nonnull %9, ptr noundef %87) #9
   %88 = call ptr @lv_anim_start(ptr noundef nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %89
 
 89:                                               ; preds = %33, %73
@@ -2450,7 +2444,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %86 = phi i8 [ %22, %67 ], [ %22, %71 ], [ %22, %75 ], [ %22, %25 ], [ %22, %29 ], [ %22, %35 ], [ %22, %38 ], [ %22, %53 ], [ %22, %59 ], [ %.pre103, %61 ], [ 97, %47 ], [ 97, %49 ], [ 97, %41 ]
   %87 = phi ptr [ %10, %67 ], [ %10, %71 ], [ %10, %75 ], [ %10, %25 ], [ %10, %29 ], [ %10, %35 ], [ %10, %38 ], [ %10, %53 ], [ %10, %59 ], [ %.pre, %61 ], [ %10, %47 ], [ %10, %49 ], [ %10, %41 ]
   %.sroa.08.0 = phi ptr [ %70, %67 ], [ %74, %71 ], [ %84, %75 ], [ %28, %25 ], [ %32, %29 ], [ %37, %35 ], [ %40, %38 ], [ %55, %53 ], [ %60, %59 ], [ %65, %61 ], [ %43, %47 ], [ %., %49 ], [ %46, %41 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %88 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %87, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !49
@@ -2494,7 +2488,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   br label %112
 
 112:                                              ; preds = %.critedge, %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 113:                                              ; preds = %12, %17
@@ -2529,7 +2523,7 @@ define internal void @trans_anim_start_cb(ptr noundef readonly captures(none) %0
   %12 = load i16, ptr %11, align 4, !tbaa !65
   %13 = zext i16 %12 to i32
   %14 = or disjoint i32 %6, %13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %15 = call fastcc i32 @get_selector_style_prop(ptr noundef readonly %7, i32 noundef %14, i8 noundef zeroext %9, ptr noundef %2)
   %.not7.i = icmp eq i32 %15, 0
@@ -2546,7 +2540,7 @@ define internal void @trans_anim_start_cb(ptr noundef readonly captures(none) %0
 lv_obj_get_style_prop.exit:                       ; preds = %16, %17
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %16 ], [ %18, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %.sroa.0.0.i, ptr %19, align 8, !tbaa !37
   %20 = load i8, ptr %8, align 8, !tbaa !53
   store i8 0, ptr %8, align 8, !tbaa !53
@@ -2698,7 +2692,7 @@ define ptr @lv_obj_style_apply_color_filter(ptr noundef readonly captures(addres
   %9 = load i16, ptr %8, align 4, !tbaa !65
   %10 = zext i16 %9 to i32
   %11 = or i32 %1, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %12 = and i32 %1, 16711680
   %13 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %11, i8 noundef zeroext 97, ptr noundef nonnull %5)
@@ -2749,7 +2743,7 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %7
 
 lv_obj_get_style_color_filter_dsc.exit:           ; preds = %get_selector_style_prop.exit.i, %.thread.i.i
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %get_selector_style_prop.exit.i ], [ %27, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.sroa.0.0.i.i, null
   br i1 %.not, label %56, label %28
 
@@ -2762,7 +2756,7 @@ lv_obj_get_style_color_filter_dsc.exit:           ; preds = %get_selector_style_
   %31 = load i16, ptr %8, align 4, !tbaa !65
   %32 = zext i16 %31 to i32
   %33 = or i32 %1, %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %34 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %33, i8 noundef zeroext 98, ptr noundef nonnull %4)
   %.not54.i.i17 = icmp eq i32 %34, 0
@@ -2812,7 +2806,7 @@ get_selector_style_prop.exit.i18:                 ; preds = %.lr.ph63.i.i26, %30
 
 lv_obj_get_style_color_filter_opa.exit:           ; preds = %get_selector_style_prop.exit.i18, %.thread.i.i22
   %.sroa.0.0.i.i20 = phi ptr [ %.sroa.0.0.copyload.i.i19, %get_selector_style_prop.exit.i18 ], [ %48, %.thread.i.i22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %49 = ptrtoint ptr %.sroa.0.0.i.i20 to i64
   %50 = trunc i64 %49 to i8
   %.not16 = icmp eq i8 %50, 0
@@ -2873,7 +2867,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %13, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = call i32 @lv_style_get_prop(ptr noundef %21, i8 noundef zeroext 16, ptr noundef nonnull %4) #9
   %.not64 = icmp eq i32 %22, 0
   br i1 %.not64, label %23, label %.critedge.critedge
@@ -3029,7 +3023,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
 
 82:                                               ; preds = %81, %53, %55, %57, %59, %61, %63, %65, %67, %69, %71, %73, %75, %77, %79
   %.357 = phi i32 [ %spec.store.select, %81 ], [ 2, %53 ], [ 2, %55 ], [ 2, %57 ], [ 2, %59 ], [ 2, %61 ], [ 2, %63 ], [ 2, %65 ], [ 2, %67 ], [ 2, %69 ], [ 2, %71 ], [ 2, %73 ], [ 2, %75 ], [ 2, %77 ], [ 2, %79 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i16, ptr %5, align 2
   br label %83
 
@@ -3044,7 +3038,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   br i1 %88, label %11, label %.critedge, !llvm.loop !119
 
 .critedge.critedge:                               ; preds = %19, %23, %25, %27, %29, %31, %33, %35, %37, %39, %41, %43, %45, %47, %49, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %3, %.critedge.critedge
@@ -3055,7 +3049,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
 ; Function Attrs: nounwind uwtable
 define void @lv_obj_fade_in(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._lv_anim_t, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_anim_init(ptr noundef nonnull %4) #9
   call void @lv_anim_set_var(ptr noundef nonnull %4, ptr noundef %0) #9
   call void @lv_anim_set_values(ptr noundef nonnull %4, i32 noundef 0, i32 noundef 255) #9
@@ -3064,7 +3058,7 @@ define void @lv_obj_fade_in(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   call void @lv_anim_set_duration(ptr noundef nonnull %4, i32 noundef %1) #9
   call void @lv_anim_set_delay(ptr noundef nonnull %4, i32 noundef %2) #9
   %5 = call ptr @lv_anim_start(ptr noundef nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3142,7 +3136,7 @@ lv_obj_remove_local_style_prop.exit:              ; preds = %14, %._crit_edge.i,
 define void @lv_obj_fade_out(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.lv_style_value_t, align 8
   %5 = alloca %struct._lv_anim_t, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @lv_anim_init(ptr noundef nonnull %5) #9
   call void @lv_anim_set_var(ptr noundef nonnull %5, ptr noundef %0) #9
   %.not.i.i = icmp eq ptr %0, null
@@ -3155,7 +3149,7 @@ define void @lv_obj_fade_out(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i16, ptr %7, align 4, !tbaa !65
   %9 = zext i16 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %10 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %9, i8 noundef zeroext 95, ptr noundef nonnull %4)
   %.not54.i.i = icmp eq i32 %10, 0
@@ -3197,7 +3191,7 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %6
 
 lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_prop.exit.i, %.thread.i.i
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %get_selector_style_prop.exit.i ], [ %23, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = ptrtoint ptr %.sroa.0.0.i.i to i64
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 255
@@ -3206,7 +3200,7 @@ lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_
   call void @lv_anim_set_duration(ptr noundef nonnull %5, i32 noundef %1) #9
   call void @lv_anim_set_delay(ptr noundef nonnull %5, i32 noundef %2) #9
   %27 = call ptr @lv_anim_start(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3225,7 +3219,7 @@ define range(i32 1, 0) i32 @lv_obj_calculate_style_text_align(ptr noundef readon
   %8 = load i16, ptr %7, align 4, !tbaa !65
   %9 = zext i16 %8 to i32
   %10 = or i32 %1, %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %11 = and i32 %1, 16711680
   %12 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %10, i8 noundef zeroext 94, ptr noundef nonnull %5)
@@ -3280,8 +3274,8 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %6
 27:                                               ; preds = %.thread.i.i, %get_selector_style_prop.exit.i
   %.pre-phi24 = phi i32 [ %.pre23, %.thread.i.i ], [ %10, %get_selector_style_prop.exit.i ]
   %.sroa.0.0.i.i = phi ptr [ %26, %.thread.i.i ], [ %.sroa.0.0.copyload.i.i, %get_selector_style_prop.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %28 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %.pre-phi24, i8 noundef zeroext 39, ptr noundef nonnull %4)
   %.not54.i.i5 = icmp eq i32 %28, 0
@@ -3328,7 +3322,7 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %6
 lv_obj_get_style_base_dir.exit:                   ; preds = %.lr.ph63.i.i15, %27, %.thread.i.i11
   %43 = ptrtoint ptr %.sroa.0.0.i.i to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %43 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.sroa.0.0.extract.trunc.i, i32 1)
   ret i32 %spec.select
 }
@@ -3348,7 +3342,7 @@ define zeroext range(i8 -1, -4) i8 @lv_obj_get_style_opa_recursive(ptr noundef %
   %7 = load i16, ptr %6, align 4, !tbaa !65
   %8 = zext i16 %7 to i32
   %9 = or i32 %1, %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %10 = and i32 %1, 16711680
   %11 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %9, i8 noundef zeroext 95, ptr noundef nonnull %4)
@@ -3399,7 +3393,7 @@ get_selector_style_prop.exit.i:                   ; preds = %.lr.ph63.i.i, %5
 
 lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_prop.exit.i, %.thread.i.i
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.0.copyload.i.i, %get_selector_style_prop.exit.i ], [ %25, %.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = ptrtoint ptr %.sroa.0.0.i.i to i64
   %27 = trunc i64 %26 to i8
   %28 = icmp ult i8 %27, 3
@@ -3431,7 +3425,7 @@ lv_obj_get_style_opa.exit:                        ; preds = %get_selector_style_
   %39 = getelementptr inbounds nuw i8, ptr %.12147, i64 60
   %40 = load i16, ptr %39, align 4, !tbaa !65
   %41 = zext i16 %40 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %42 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %.12147, i32 noundef %41, i8 noundef zeroext 95, ptr noundef nonnull %3)
   %.not54.i.i30 = icmp eq i32 %42, 0
@@ -3473,7 +3467,7 @@ get_selector_style_prop.exit.i31:                 ; preds = %.lr.ph63.i.i39, %.l
 
 lv_obj_get_style_opa.exit44:                      ; preds = %get_selector_style_prop.exit.i31, %.thread.i.i35
   %.sroa.0.0.i.i33 = phi ptr [ %.sroa.0.0.copyload.i.i32, %get_selector_style_prop.exit.i31 ], [ %55, %.thread.i.i35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %56 = ptrtoint ptr %.sroa.0.0.i.i33 to i64
   %57 = trunc i64 %56 to i8
   %58 = icmp ult i8 %57, 3
@@ -3538,7 +3532,7 @@ declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @lv_style_is_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
+define internal fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #5 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3
@@ -3550,7 +3544,7 @@ define internal fastcc zeroext i8 @lv_obj_get_style_opa_layered(ptr noundef read
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i16, ptr %4, align 4, !tbaa !65
   %6 = zext i16 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %7 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %6, i8 noundef zeroext 96, ptr noundef nonnull %2)
   %.not54.i = icmp eq i32 %7, 0
@@ -3592,14 +3586,14 @@ get_selector_style_prop.exit:                     ; preds = %.lr.ph63.i, %3
 
 lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_prop.exit, %.loopexit
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %get_selector_style_prop.exit ], [ %20, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = ptrtoint ptr %.sroa.0.0.i to i64
   %22 = trunc i64 %21 to i8
   ret i8 %22
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
+define internal fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #5 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3
@@ -3611,7 +3605,7 @@ define internal fastcc ptr @lv_obj_get_style_bitmap_mask_src(ptr noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i16, ptr %4, align 4, !tbaa !65
   %6 = zext i16 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %7 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %6, i8 noundef zeroext 115, ptr noundef nonnull %2)
   %.not54.i = icmp eq i32 %7, 0
@@ -3653,12 +3647,12 @@ get_selector_style_prop.exit:                     ; preds = %.lr.ph63.i, %3
 
 lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_prop.exit, %.loopexit
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %get_selector_style_prop.exit ], [ %20, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #6 {
+define internal fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #5 {
   %2 = alloca %union.lv_style_value_t, align 8
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %3
@@ -3670,7 +3664,7 @@ define internal fastcc i32 @lv_obj_get_style_blend_mode(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i16, ptr %4, align 4, !tbaa !65
   %6 = zext i16 %5 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %7 = call fastcc i32 @get_prop_core(ptr noundef nonnull readonly %0, i32 noundef %6, i8 noundef zeroext 103, ptr noundef nonnull %2)
   %.not54.i = icmp eq i32 %7, 0
@@ -3712,7 +3706,7 @@ get_selector_style_prop.exit:                     ; preds = %.lr.ph63.i, %3
 
 lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_prop.exit, %.loopexit
   %.sroa.0.0.i = phi ptr [ %.sroa.0.0.copyload.i, %get_selector_style_prop.exit ], [ %20, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = ptrtoint ptr %.sroa.0.0.i to i64
   %.sroa.0.0.extract.trunc = trunc i64 %21 to i32
   ret i32 %.sroa.0.0.extract.trunc
@@ -3721,7 +3715,7 @@ lv_obj_get_style_prop.exit:                       ; preds = %get_selector_style_
 declare void @lv_obj_set_style_opa(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #6 {
   %5 = tail call i8 @llvm.umin.i8(i8 %2, i8 124)
   %narrow.i = lshr i8 %5, 2
   %spec.store.select.i = zext nneg i8 %narrow.i to i32
@@ -3984,6 +3978,12 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   ret i32 %.4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
 
@@ -3995,12 +3995,12 @@ declare i8 @llvm.umin.i8(i8, i8) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

@@ -34,7 +34,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br label %88
 
 14:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %15 = tail call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) @lm_control_double, i64 72, i1 false), !tbaa.struct !9
   %16 = zext i1 %5 to i32
@@ -106,13 +106,13 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %.050.us = phi i32 [ %61, %.critedge.us ], [ 0, %.split.us.preheader ]
   %.049.us = phi double [ %50, %.critedge.us ], [ 1.000000e+12, %.split.us.preheader ]
   %48 = load ptr, ptr %41, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !21
   store ptr %2, ptr %42, align 8, !tbaa !24
   store ptr %3, ptr %43, align 8, !tbaa !25
   store ptr %48, ptr %44, align 8, !tbaa !26
   call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04764, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %49 = load double, ptr %20, align 8, !tbaa !27
   %50 = fmul double %49, %49
   %51 = load i32, ptr %45, align 8, !tbaa !29
@@ -155,13 +155,13 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %.050 = phi i32 [ %79, %.critedge ], [ 0, %.critedge.preheader ]
   %.049 = phi double [ %78, %.critedge ], [ 1.000000e+12, %.critedge.preheader ]
   %76 = load ptr, ptr %36, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %1, ptr %9, align 8, !tbaa !21
   store ptr %2, ptr %37, align 8, !tbaa !24
   store ptr %3, ptr %38, align 8, !tbaa !25
   store ptr %76, ptr %39, align 8, !tbaa !26
   call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04767, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %77 = load double, ptr %20, align 8, !tbaa !27
   %78 = fmul double %77, %77
   %79 = add nuw nsw i32 %.050, 1
@@ -177,7 +177,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 
 .split60.us:                                      ; preds = %.critedge, %.critedge.us
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %88
 
 88:                                               ; preds = %.split60.us, %11
@@ -187,26 +187,20 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare noundef i32 @_Z11effnNparamsi(i32 noundef) local_unnamed_addr #3
+declare noundef i32 @_Z11effnNparamsi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
-declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
@@ -248,20 +242,25 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !39
 }
 
-declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { cold nounwind }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

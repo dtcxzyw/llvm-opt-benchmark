@@ -132,13 +132,7 @@ define noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstd27ZBUFF_compressInit_adva
   ret i64 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef i64 @_ZN11duckdb_zstd15ZSTD_CCtx_resetEPNS_11ZSTD_CCtx_sENS_19ZSTD_ResetDirectiveE(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare noundef i64 @_ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -182,8 +176,8 @@ declare noundef i64 @_ZN11duckdb_zstd16ZSTD_initCStreamEPNS_11ZSTD_CCtx_sEi(ptr 
 define noundef i64 @_ZN11duckdb_zstd22ZBUFF_compressContinueEPNS_11ZSTD_CCtx_sEPvPmPKvS3_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %"struct.duckdb_zstd::ZSTD_outBuffer_s", align 8
   %7 = alloca %"struct.duckdb_zstd::ZSTD_inBuffer_s", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %1, ptr %6, align 8, !tbaa !20
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %8, align 8, !tbaa !24
@@ -201,8 +195,8 @@ define noundef i64 @_ZN11duckdb_zstd22ZBUFF_compressContinueEPNS_11ZSTD_CCtx_sEP
   store i64 %15, ptr %2, align 8, !tbaa !25
   %16 = load i64, ptr %11, align 8, !tbaa !29
   store i64 %16, ptr %4, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %14
 }
 
@@ -211,7 +205,7 @@ declare noundef i64 @_ZN11duckdb_zstd19ZSTD_compressStreamEPNS_11ZSTD_CCtx_sEPNS
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN11duckdb_zstd19ZBUFF_compressFlushEPNS_11ZSTD_CCtx_sEPvPm(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.duckdb_zstd::ZSTD_outBuffer_s", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %5, align 8, !tbaa !24
@@ -221,7 +215,7 @@ define noundef i64 @_ZN11duckdb_zstd19ZBUFF_compressFlushEPNS_11ZSTD_CCtx_sEPvPm
   %8 = call noundef i64 @_ZN11duckdb_zstd16ZSTD_flushStreamEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sE(ptr noundef %0, ptr noundef nonnull %4)
   %9 = load i64, ptr %5, align 8, !tbaa !24
   store i64 %9, ptr %2, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %8
 }
 
@@ -230,7 +224,7 @@ declare noundef i64 @_ZN11duckdb_zstd16ZSTD_flushStreamEPNS_11ZSTD_CCtx_sEPNS_16
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN11duckdb_zstd17ZBUFF_compressEndEPNS_11ZSTD_CCtx_sEPvPm(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.duckdb_zstd::ZSTD_outBuffer_s", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %5, align 8, !tbaa !24
@@ -240,7 +234,7 @@ define noundef i64 @_ZN11duckdb_zstd17ZBUFF_compressEndEPNS_11ZSTD_CCtx_sEPvPm(p
   %8 = call noundef i64 @_ZN11duckdb_zstd14ZSTD_endStreamEPNS_11ZSTD_CCtx_sEPNS_16ZSTD_outBuffer_sE(ptr noundef %0, ptr noundef nonnull %4)
   %9 = load i64, ptr %5, align 8, !tbaa !24
   store i64 %9, ptr %2, align 8, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %8
 }
 
@@ -262,10 +256,15 @@ define noundef i64 @_ZN11duckdb_zstd25ZBUFF_recommendedCOutSizeEv() local_unname
 
 declare noundef i64 @_ZN11duckdb_zstd19ZSTD_CStreamOutSizeEv() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

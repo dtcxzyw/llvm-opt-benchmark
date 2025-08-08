@@ -1177,7 +1177,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit.i: ; preds = %52,
   br i1 %56, label %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit, label %45
 
 _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %8, label %57, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 57:                                               ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit
@@ -1189,7 +1189,7 @@ _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit: 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 59:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescC2ERKS0_.exit4
@@ -1219,7 +1219,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit.i6: ; preds = %69
   br i1 %73, label %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit7, label %62
 
 _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit7: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit.i6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %8, label %74, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8
 
 74:                                               ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit7
@@ -1231,7 +1231,7 @@ _ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit7:
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8: ; preds = %_ZNSt5arrayIN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescELm2EED2Ev.exit7, %74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %60
 }
 
@@ -2055,10 +2055,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

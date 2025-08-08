@@ -139,13 +139,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumAudioDrivers_RE
   ret i32 %.012
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_strcmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetAudioDriver_REAL(i32 noundef %0) local_unnamed_addr #0 {
@@ -227,10 +221,10 @@ SDL_GetNumAudioDrivers_REAL.exit:                 ; preds = %3, %9
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @SDL_GetCurrentAudioDriver_REAL() local_unnamed_addr #3 {
+define hidden ptr @SDL_GetCurrentAudioDriver_REAL() local_unnamed_addr #2 {
   %1 = load ptr, ptr @current_audio, align 8
   ret ptr %1
 }
@@ -264,9 +258,9 @@ define hidden range(i32 1, -2147483648) i32 @SDL_GetDefaultSampleFramesFromFreq(
   ret i32 %.1
 }
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @SDL_ChannelMapDup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -284,10 +278,10 @@ define hidden noalias ptr @SDL_ChannelMapDup(ptr noundef readonly captures(none)
   ret ptr %5
 }
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OnAudioStreamCreated(ptr noundef %0) local_unnamed_addr #0 {
@@ -320,9 +314,9 @@ define hidden void @OnAudioStreamCreated(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockRWLockForWriting_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockRWLock_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OnAudioStreamDestroy(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
@@ -421,7 +415,7 @@ define hidden noundef zeroext i1 @SDL_AudioSpecsEqual(ptr noundef readonly captu
   ret i1 %.0
 }
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_AudioChannelMapsEqual(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -453,14 +447,14 @@ define hidden noundef zeroext i1 @SDL_AudioChannelMapsEqual(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsAudioDevicePhysical_REAL(i32 noundef %0) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @SDL_IsAudioDevicePhysical_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 2
   %3 = icmp ne i32 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @SDL_IsAudioDevicePlayback_REAL(i32 noundef %0) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @SDL_IsAudioDevicePlayback_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 1
   %3 = icmp ne i32 %2, 0
   ret i1 %3
@@ -502,9 +496,9 @@ define hidden void @UnrefPhysicalAudioDevice(ptr noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_AddAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RemoveFromHashTable(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DestroyPhysicalAudioDevice(ptr noundef %0) unnamed_addr #0 {
@@ -564,7 +558,7 @@ define hidden void @RefPhysicalAudioDevice(ptr noundef %0) local_unnamed_addr #0
 define hidden noundef ptr @SDL_AddAudioDevice(i1 noundef zeroext %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SDL_AudioSpec, align 4
   %6 = select i1 %0, i32 1, i32 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %7
 
@@ -630,12 +624,12 @@ define hidden noundef ptr @SDL_AddAudioDevice(i1 noundef zeroext %0, ptr noundef
   br label %35
 
 35:                                               ; preds = %24, %26, %22
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_AudioDeviceDisconnected(ptr noundef %0) local_unnamed_addr #0 {
@@ -644,7 +638,7 @@ define hidden void @SDL_AudioDeviceDisconnected(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %77, label %ObtainPhysicalAudioDeviceObj.exit
 
 ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -812,16 +806,16 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %1
   br label %UnrefPhysicalAudioDevice.exit
 
 UnrefPhysicalAudioDevice.exit:                    ; preds = %75, %59, %.critedge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %77
 
 77:                                               ; preds = %1, %UnrefPhysicalAudioDevice.exit
   ret void
 }
 
-declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockRWLockForReading_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @ZombieWaitDevice(ptr noundef %0) #0 {
@@ -853,19 +847,19 @@ define internal noundef zeroext i1 @ZombieWaitDevice(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @ZombieGetDeviceBuf(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
+define internal ptr @ZombieGetDeviceBuf(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @ZombiePlayDevice(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #5 {
+define internal noundef zeroext i1 @ZombiePlayDevice(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #4 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ZombieRecordDevice(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef returned %2) #8 {
+define internal noundef i32 @ZombieRecordDevice(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef returned %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -875,7 +869,7 @@ define internal noundef i32 @ZombieRecordDevice(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @ZombieFlushRecording(ptr readnone captures(none) %0) #5 {
+define internal void @ZombieFlushRecording(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
@@ -1257,9 +1251,9 @@ select.unfold..critedge2_crit_edge:               ; preds = %select.unfold
   br label %CompleteAudioEntryPoints.exit
 
 CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void %78(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %117 = load ptr, ptr %4, align 8
@@ -1267,7 +1261,7 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   br i1 %.not86, label %118, label %126
 
 118:                                              ; preds = %CompleteAudioEntryPoints.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %3, align 8
   store i32 -1, ptr %119, align 4
@@ -1280,7 +1274,7 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %124) #14
   %125 = load ptr, ptr %120, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %125, ptr %4, align 8
   br label %126
 
@@ -1291,7 +1285,7 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   br i1 %.not87, label %129, label %138
 
 129:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 8
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %130, i8 0, i64 3, i1 false)
@@ -1306,7 +1300,7 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %136) #14
   %137 = load ptr, ptr %132, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %137, ptr %5, align 8
   %.pre = load ptr, ptr %4, align 8
   br label %138
@@ -1340,8 +1334,8 @@ CompleteAudioEntryPoints.exit:                    ; preds = %114, %116
   br label %153
 
 153:                                              ; preds = %148, %146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %154
 
 154:                                              ; preds = %.thread100, %13, %153, %74, %8
@@ -1406,41 +1400,41 @@ define hidden void @SDL_QuitAudio() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @SDL_ChooseAudioConverters() local_unnamed_addr #2
+declare void @SDL_ChooseAudioConverters() local_unnamed_addr #1
 
-declare void @SDL_SetupAudioResampler() local_unnamed_addr #2
+declare void @SDL_SetupAudioResampler() local_unnamed_addr #1
 
-declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateRWLock_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateHashTable(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 0, 1073741824) i32 @HashAudioDeviceID(ptr readnone captures(none) %0, ptr noundef %1) #5 {
+define internal noundef range(i32 0, 1073741824) i32 @HashAudioDeviceID(ptr readnone captures(none) %0, ptr noundef %1) #4 {
   %3 = ptrtoint ptr %1 to i64
   %4 = trunc i64 %3 to i32
   %5 = lshr i32 %4, 2
   ret i32 %5
 }
 
-declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @SDL_KeyMatchID(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyRWLock_REAL(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyHashTable(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_strcasecmp_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyAudioStream_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyAudioStream_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_IterateHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @DestroyOnePhysicalAudioDevice(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1458,7 +1452,7 @@ define internal noundef zeroext i1 @DestroyOnePhysicalAudioDevice(ptr readnone c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @SDL_AudioThreadFinalize(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
+define hidden void @SDL_AudioThreadFinalize(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret void
 }
 
@@ -1486,7 +1480,7 @@ define hidden noundef zeroext i1 @SDL_PlaybackAudioThreadIterate(ptr noundef %0)
   br label %192
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %2, align 4
@@ -1651,7 +1645,7 @@ SDL_AudioChannelMapsEqual.exit:                   ; preds = %.SDL_AudioChannelMa
   %101 = and i32 %100, 31
   %102 = udiv i32 %15, %101
   %103 = shl i32 %102, 2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %92, i64 12, i1 false)
   store i32 33056, ptr %3, align 4
   %104 = sext i32 %103 to i64
@@ -1826,7 +1820,7 @@ SDL_AudioChannelMapsEqual.exit151.thread:         ; preds = %143, %144, %134, %S
   br label %183
 
 183:                                              ; preds = %173, %._crit_edge179
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SDL_AudioChannelMapsEqual.exit.thread
 
 SDL_AudioChannelMapsEqual.exit.thread:            ; preds = %78, %79, %67, %183, %SDL_AudioChannelMapsEqual.exit, %66, %.thread155
@@ -1846,22 +1840,22 @@ SDL_AudioChannelMapsEqual.exit.thread:            ; preds = %78, %79, %67, %183,
   br label %191
 
 191:                                              ; preds = %.thread165, %190, %SDL_AudioChannelMapsEqual.exit.thread
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %192
 
 192:                                              ; preds = %191, %7
   ret i1 %.not
 }
 
-declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_LockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_UnlockMutex_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetAudioStreamDataAdjustGain(ptr noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare i32 @SDL_GetAudioStreamDataAdjustGain(ptr noundef, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
-declare void @ConvertAudio(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, float noundef) local_unnamed_addr #2
+declare void @ConvertAudio(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_PlaybackAudioThreadShutdown(ptr noundef %0) local_unnamed_addr #0 {
@@ -1895,7 +1889,7 @@ define hidden void @SDL_PlaybackAudioThreadShutdown(ptr noundef %0) local_unname
   ret void
 }
 
-declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #2
+declare void @SDL_Delay_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RecordingAudioThreadSetup(ptr noundef %0) local_unnamed_addr #0 {
@@ -1986,7 +1980,7 @@ define hidden noundef zeroext i1 @SDL_RecordingAudioThreadIterate(ptr noundef %0
   br i1 %or.cond, label %._crit_edge92, label %56
 
 ._crit_edge92:                                    ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %24, i64 12, i1 false)
   store i32 33056, ptr %2, align 4
   %40 = load ptr, ptr %25, align 8
@@ -2012,7 +2006,7 @@ define hidden noundef zeroext i1 @SDL_RecordingAudioThreadIterate(ptr noundef %0
   br label %55
 
 55:                                               ; preds = %51, %._crit_edge92
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %56
 
 56:                                               ; preds = %34, %55
@@ -2107,7 +2101,7 @@ SDL_AudioChannelMapsEqual.exit.thread:            ; preds = %68, %69, %.lr.ph, %
   ret i1 %.not
 }
 
-declare zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PutAudioStreamData_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_RecordingAudioThreadShutdown(ptr noundef %0) local_unnamed_addr #0 {
@@ -2152,7 +2146,7 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   br i1 %.not16, label %27, label %.sink.split
 
 .thread29:                                        ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %9, ptr %16, align 4
@@ -2168,7 +2162,7 @@ define internal fastcc ptr @GetAudioDevices(ptr noundef writeonly captures(addre
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %13, i64 %23
   store i32 0, ptr %24, align 4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %25) #14
   %.not1630 = icmp eq ptr %0, null
@@ -2208,7 +2202,7 @@ define hidden ptr @SDL_FindPhysicalAudioDeviceByCallback(ptr noundef %0, ptr nou
   br label %19
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %8, align 8
@@ -2231,7 +2225,7 @@ define hidden ptr @SDL_FindPhysicalAudioDeviceByCallback(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %15, %7
   %18 = phi ptr [ %.pre, %15 ], [ %14, %7 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %17, %5
@@ -2275,7 +2269,7 @@ define hidden ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef %0) local_unn
   br label %SDL_FindPhysicalAudioDeviceByCallback.exit
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @TestDeviceHandleCallback, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %7, align 8
@@ -2298,7 +2292,7 @@ define hidden ptr @SDL_FindPhysicalAudioDeviceByHandle(ptr noundef %0) local_unn
 
 16:                                               ; preds = %14, %6
   %17 = phi ptr [ %.pre.i, %14 ], [ %13, %6 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %SDL_FindPhysicalAudioDeviceByCallback.exit
 
 SDL_FindPhysicalAudioDeviceByCallback.exit:       ; preds = %4, %16
@@ -2307,7 +2301,7 @@ SDL_FindPhysicalAudioDeviceByCallback.exit:       ; preds = %4, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @TestDeviceHandleCallback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #7 {
+define internal zeroext i1 @TestDeviceHandleCallback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
@@ -2319,7 +2313,7 @@ define hidden ptr @SDL_GetAudioDeviceName_REAL(i32 noundef %0) local_unnamed_add
   %2 = alloca ptr, align 8
   %3 = and i32 %0, 2
   %.not = icmp eq i32 %3, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %4 = load ptr, ptr @current_audio, align 8
   %.not6 = icmp eq ptr %4, null
@@ -2369,13 +2363,13 @@ define hidden ptr @SDL_GetAudioDeviceName_REAL(i32 noundef %0) local_unnamed_add
 
 29:                                               ; preds = %27, %5
   %.0 = phi ptr [ %.1, %27 ], [ null, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FindInHashTable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPersistentString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetAudioDeviceFormat_REAL(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
@@ -2542,7 +2536,7 @@ SDL_ChannelMapDup.exit:                           ; preds = %.split11, %11
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_CloseAudioDevice_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %2)
   %.not = icmp eq ptr %3, null
@@ -2600,7 +2594,7 @@ define hidden void @SDL_CloseAudioDevice_REAL(i32 noundef %0) local_unnamed_addr
 
 UnrefPhysicalAudioDevice.exit:                    ; preds = %29, %11, %5
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2617,7 +2611,7 @@ define internal fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef
   br label %60
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %8 = and i32 %0, 2
   %.not19 = icmp eq i32 %8, 0
@@ -2720,7 +2714,7 @@ UnrefPhysicalAudioDevice.exit:                    ; preds = %50, %.lr.ph
   %59 = phi ptr [ %.pre, %.thread ], [ %.pr, %._crit_edge ]
   %.01628 = phi ptr [ %.01629, %.thread ], [ %.2.lcssa, %._crit_edge ]
   store ptr %.01628, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 60:                                               ; preds = %58, %5
@@ -2888,7 +2882,7 @@ SerializePhysicalDeviceClose.exit:                ; preds = %5, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @SDL_UpdatedAudioDeviceFormat(ptr noundef captures(none) initializes((108, 112), (136, 140), (176, 180)) %0) local_unnamed_addr #8 {
+define hidden void @SDL_UpdatedAudioDeviceFormat(ptr noundef captures(none) initializes((108, 112), (136, 140), (176, 180)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 8
@@ -2914,7 +2908,7 @@ define hidden void @SDL_UpdatedAudioDeviceFormat(ptr noundef captures(none) init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 129) i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %0) local_unnamed_addr #5 {
+define hidden noundef range(i32 0, 129) i32 @SDL_GetSilenceValueForFormat_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq i32 %0, 8
   %3 = select i1 %2, i32 128, i32 0
   ret i32 %3
@@ -2932,7 +2926,7 @@ define hidden noundef ptr @SDL_GetAudioThreadName(ptr noundef readonly captures(
   ret ptr %1
 }
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @SDL_OpenAudioDevice_REAL(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -2947,7 +2941,7 @@ define hidden i32 @SDL_OpenAudioDevice_REAL(i32 noundef %0, ptr noundef readonly
 
 7:                                                ; preds = %2
   %8 = icmp ugt i32 %0, -3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %9 = and i32 %0, 2
   %.not36.not = icmp eq i32 %9, 0
@@ -3066,7 +3060,7 @@ thread-pre-split:                                 ; preds = %14, %12
 
 62:                                               ; preds = %.thread, %53, %61, %54, %18
   %.028 = phi i32 [ 0, %18 ], [ 0, %53 ], [ %43, %54 ], [ 0, %61 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %63
 
 63:                                               ; preds = %62, %5
@@ -3075,7 +3069,7 @@ thread-pre-split:                                 ; preds = %14, %12
 }
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @OpenPhysicalAudioDevice(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
@@ -3361,7 +3355,7 @@ SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %99, %102, %104, %10
   br i1 %154, label %169, label %155
 
 155:                                              ; preds = %152
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %156 = load i8, ptr %32, align 4, !range !6, !noundef !7
   %157 = trunc nuw i8 %156 to i1
   %158 = select i1 %157, i32 67, i32 80
@@ -3380,11 +3374,11 @@ SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %99, %102, %104, %10
 .thread:                                          ; preds = %155
   call fastcc void @ClosePhysicalAudioDevice(ptr noundef nonnull %0)
   %167 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.39) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %169
 
 168:                                              ; preds = %155
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %169
 
 169:                                              ; preds = %124, %142, %151, %.thread, %168, %152, %14, %SerializePhysicalDeviceClose.exit
@@ -3546,12 +3540,12 @@ define internal fastcc void @UpdateAudioStreamFormatsPhysical(ptr noundef captur
   ret void
 }
 
-declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_InsertIntoHashTable(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_PauseAudioDevice_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %2)
   %4 = icmp ne ptr %3, null
@@ -3565,14 +3559,14 @@ define hidden noundef zeroext i1 @SDL_PauseAudioDevice_REAL(i32 noundef %0) loca
 SetLogicalAudioDevicePauseState.exit:             ; preds = %1, %5
   %8 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_ResumeAudioDevice_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %2)
   %4 = icmp ne ptr %3, null
@@ -3586,14 +3580,14 @@ define hidden noundef zeroext i1 @SDL_ResumeAudioDevice_REAL(i32 noundef %0) loc
 SetLogicalAudioDevicePauseState.exit:             ; preds = %1, %5
   %8 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_AudioDevicePaused_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %2)
   %.not = icmp eq ptr %3, null
@@ -3609,14 +3603,14 @@ define hidden zeroext i1 @SDL_AudioDevicePaused_REAL(i32 noundef %0) local_unnam
   %.0 = phi i1 [ false, %1 ], [ %.not4, %4 ]
   %8 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden float @SDL_GetAudioDeviceGain_REAL(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %2)
   %.not = icmp eq ptr %3, null
@@ -3631,7 +3625,7 @@ define hidden float @SDL_GetAudioDeviceGain_REAL(i32 noundef %0) local_unnamed_a
   %8 = phi float [ %6, %4 ], [ -1.000000e+00, %1 ]
   %9 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %8
 }
 
@@ -3646,7 +3640,7 @@ define hidden zeroext i1 @SDL_SetAudioDeviceGain_REAL(i32 noundef %0, float noun
   br label %12
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %8 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %3)
   %.not = icmp ne ptr %8, null
@@ -3661,7 +3655,7 @@ define hidden zeroext i1 @SDL_SetAudioDeviceGain_REAL(i32 noundef %0, float noun
 
 11:                                               ; preds = %9, %7
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %.pre)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 12:                                               ; preds = %11, %5
@@ -3672,7 +3666,7 @@ define hidden zeroext i1 @SDL_SetAudioDeviceGain_REAL(i32 noundef %0, float noun
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetAudioPostmixCallback_REAL(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %5 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %4)
   %.not = icmp eq ptr %5, null
@@ -3719,18 +3713,18 @@ define hidden noundef zeroext i1 @SDL_SetAudioPostmixCallback_REAL(i32 noundef %
   %20 = phi ptr [ %.pre.pre, %18 ], [ %.pre15, %._crit_edge ]
   %.0 = phi i1 [ %.113, %18 ], [ false, %._crit_edge ]
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #2
+declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_SetAudioIterationCallbacks_REAL(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef %5)
   %.not = icmp ne ptr %6, null
@@ -3748,7 +3742,7 @@ define hidden noundef zeroext i1 @SDL_SetAudioIterationCallbacks_REAL(i32 nounde
 11:                                               ; preds = %7, %4
   %12 = load ptr, ptr %5, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not
 }
 
@@ -3757,7 +3751,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   %5 = and i32 %0, 2
   %.not = icmp eq i32 %5, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %63, label %7
@@ -3924,7 +3918,7 @@ define hidden zeroext i1 @SDL_BindAudioStreams_REAL(i32 noundef %0, ptr noundef 
 
 63:                                               ; preds = %3, %.thread67, %15, %12, %9
   %.0 = phi i1 [ %10, %9 ], [ %.05169, %.thread67 ], [ %16, %15 ], [ %13, %12 ], [ true, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
@@ -4157,7 +4151,7 @@ define hidden ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef %0, ptr noundef %1
   br i1 %.not, label %40, label %8
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %9 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %7, ptr noundef %5)
   %.not37 = icmp eq ptr %9, null
@@ -4175,7 +4169,7 @@ define hidden ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef %0, ptr noundef %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 148
   %16 = load i8, ptr %15, align 4, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not38 = icmp eq ptr %1, null
   br i1 %.not38, label %18, label %20
 
@@ -4227,12 +4221,12 @@ define hidden ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef %0, ptr noundef %1
   br label %.thread44
 
 .thread44:                                        ; preds = %27, %33, %35
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %14)
   br label %39
 
 37:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %14)
   br label %38
 
@@ -4243,7 +4237,7 @@ define hidden ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef %0, ptr noundef %1
 
 39:                                               ; preds = %.thread44, %38
   %.2 = phi ptr [ null, %38 ], [ %.1, %.thread44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %4, %39
@@ -4251,11 +4245,11 @@ define hidden ptr @SDL_OpenAudioDeviceStream_REAL(i32 noundef %0, ptr noundef %1
   ret ptr %.0
 }
 
-declare ptr @SDL_CreateAudioStream_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateAudioStream_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetAudioStreamPutCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetAudioStreamGetCallback_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_PauseAudioStreamDevice_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -4289,7 +4283,7 @@ SDL_GetAudioStreamDevice_REAL.exit:               ; preds = %4
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %13 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %10, ptr noundef %2)
   %14 = icmp ne ptr %13, null
@@ -4303,7 +4297,7 @@ SDL_GetAudioStreamDevice_REAL.exit:               ; preds = %4
 SDL_PauseAudioDevice_REAL.exit:                   ; preds = %12, %15
   %18 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %19
 
 19:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit.thread6, %SDL_GetAudioStreamDevice_REAL.exit.thread, %SDL_GetAudioStreamDevice_REAL.exit, %SDL_PauseAudioDevice_REAL.exit
@@ -4343,7 +4337,7 @@ SDL_GetAudioStreamDevice_REAL.exit:               ; preds = %4
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %13 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %10, ptr noundef %2)
   %14 = icmp ne ptr %13, null
@@ -4357,7 +4351,7 @@ SDL_GetAudioStreamDevice_REAL.exit:               ; preds = %4
 SDL_ResumeAudioDevice_REAL.exit:                  ; preds = %12, %15
   %18 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %19
 
 19:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit.thread6, %SDL_GetAudioStreamDevice_REAL.exit.thread, %SDL_GetAudioStreamDevice_REAL.exit, %SDL_ResumeAudioDevice_REAL.exit
@@ -4397,7 +4391,7 @@ SDL_GetAudioStreamDevice_REAL.exit:               ; preds = %4
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %13 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %10, ptr noundef %2)
   %.not.i4 = icmp eq ptr %13, null
@@ -4413,7 +4407,7 @@ SDL_AudioDevicePaused_REAL.exit:                  ; preds = %12, %14
   %.0.i5 = phi i1 [ false, %12 ], [ %.not4.i, %14 ]
   %17 = load ptr, ptr %2, align 8
   tail call fastcc void @ReleaseAudioDevice(ptr noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %18
 
 18:                                               ; preds = %SDL_GetAudioStreamDevice_REAL.exit.thread8, %SDL_GetAudioStreamDevice_REAL.exit.thread, %SDL_GetAudioStreamDevice_REAL.exit, %SDL_AudioDevicePaused_REAL.exit
@@ -4422,7 +4416,7 @@ SDL_AudioDevicePaused_REAL.exit:                  ; preds = %12, %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed_addr #10 {
+define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed_addr #9 {
   br label %3
 
 2:                                                ; preds = %3
@@ -4443,7 +4437,7 @@ define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @SDL_GetAudioFormatName_REAL(i32 noundef %0) local_unnamed_addr #5 {
+define hidden noundef nonnull ptr @SDL_GetAudioFormatName_REAL(i32 noundef %0) local_unnamed_addr #4 {
   switch i32 %0, label %9 [
     i32 8, label %10
     i32 32776, label %2
@@ -4525,7 +4519,7 @@ define hidden void @SDL_DefaultAudioDeviceChanged(ptr noundef %0) local_unnamed_
 ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   tail call void @SDL_UnlockRWLock_REAL(ptr noundef %20) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4542,7 +4536,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %18, %17
   br label %UnrefPhysicalAudioDevice.exit107
 
 27:                                               ; preds = %ObtainPhysicalAudioDeviceObj.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 208
   %.084125 = load ptr, ptr %28, align 8
   %.not96126 = icmp eq ptr %.084125, null
@@ -4746,7 +4740,7 @@ UnrefPhysicalAudioDevice.exit:                    ; preds = %93, %112
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.0142, i64 72
   %118 = load ptr, ptr %117, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %119 = call fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %114, ptr noundef %2)
   %.not.i105 = icmp eq ptr %119, null
@@ -4791,7 +4785,7 @@ UnrefPhysicalAudioDevice.exit:                    ; preds = %93, %112
 SDL_SetAudioPostmixCallback_REAL.exit:            ; preds = %._crit_edge.i, %132
   %133 = phi ptr [ %.pre.pre.i, %132 ], [ %.pre15.i, %._crit_edge.i ]
   call fastcc void @ReleaseAudioDevice(ptr noundef %133)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.i, label %141, label %134
 
 134:                                              ; preds = %SDL_SetAudioPostmixCallback_REAL.exit
@@ -4822,7 +4816,7 @@ SDL_SetAudioPostmixCallback_REAL.exit:            ; preds = %._crit_edge.i, %132
 .thread:                                          ; preds = %27, %._crit_edge, %._crit_edge144, %142, %50
   %.1 = phi ptr [ %3, %50 ], [ %.2.lcssa, %142 ], [ %.2.lcssa, %._crit_edge144 ], [ %3, %._crit_edge ], [ %3, %27 ]
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @ReleaseAudioDevice(ptr noundef nonnull %0)
   %143 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %144 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %143, i32 noundef -1) #14
@@ -4872,7 +4866,7 @@ UnrefPhysicalAudioDevice.exit107:                 ; preds = %160, %.thread, %.th
   br label %168
 
 168:                                              ; preds = %163, %UnrefPhysicalAudioDevice.exit107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %169
 
 169:                                              ; preds = %168, %.critedge, %1
@@ -4882,7 +4876,7 @@ UnrefPhysicalAudioDevice.exit107:                 ; preds = %160, %.thread, %.th
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ObtainPhysicalAudioDevice(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = and i32 %0, 2
   %.not = icmp eq i32 %3, 0
@@ -4927,7 +4921,7 @@ ObtainPhysicalAudioDeviceObj.exit:                ; preds = %10
 
 23:                                               ; preds = %8, %ObtainPhysicalAudioDeviceObj.exit, %18, %4
   %24 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %24
 }
 
@@ -5041,7 +5035,7 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   br i1 %.254, label %86, label %.thread
 
 .thread:                                          ; preds = %56, %SDL_AudioSpecsEqual.exit.thread, %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %62, align 8
   %63 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #14
@@ -5113,7 +5107,7 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   br label %85
 
 85:                                               ; preds = %80, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %86
 
 86:                                               ; preds = %56, %85, %61, %SDL_AudioSpecsEqual.exit
@@ -5121,7 +5115,7 @@ SDL_AudioSpecsEqual.exit.thread:                  ; preds = %3, %10, %15, %SDL_A
   ret i1 %.055
 }
 
-declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_AudioDeviceFormatChanged(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -5177,7 +5171,7 @@ define hidden void @SDL_UpdateAudio() local_unnamed_addr #0 {
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %17 = load i32, ptr %.012, align 8
   store i32 %17, ptr %1, align 8
@@ -5189,7 +5183,7 @@ define hidden void @SDL_UpdateAudio() local_unnamed_addr #0 {
   %22 = xor i8 %21, 1
   store i8 %22, ptr %10, align 4
   %23 = call zeroext i1 @SDL_PushEvent_REAL(ptr noundef nonnull %1) #14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %24
 
 24:                                               ; preds = %16, %11
@@ -5201,13 +5195,13 @@ define hidden void @SDL_UpdateAudio() local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_EventEnabled_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_PushEvent_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyMutex_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroyCondition_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroyCondition_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @CreatePhysicalAudioDevice(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
@@ -5354,15 +5348,15 @@ SDL_GetDefaultSampleFramesFromFreq.exit:          ; preds = %37, %40, %42, %44
   ret ptr %.040
 }
 
-declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateMutex_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_CreateCondition_REAL() local_unnamed_addr #2
+declare ptr @SDL_CreateCondition_REAL() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @SDL_AudioDetectDevices_Default(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.SDL_AudioSpec, align 4
   %4 = alloca %struct.SDL_AudioSpec, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 32784, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %5, align 4
@@ -5396,14 +5390,14 @@ define internal void @SDL_AudioDetectDevices_Default(ptr noundef writeonly captu
   br label %SDL_AddAudioDevice.exit
 
 SDL_AddAudioDevice.exit:                          ; preds = %2, %8, %10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %7, ptr %0, align 8
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 129), align 1, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %36
 
 21:                                               ; preds = %SDL_AddAudioDevice.exit
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 32784, ptr %3, align 4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %22, align 4
@@ -5437,7 +5431,7 @@ SDL_AddAudioDevice.exit:                          ; preds = %2, %8, %10
   br label %SDL_AddAudioDevice.exit4
 
 SDL_AddAudioDevice.exit4:                         ; preds = %21, %25, %27
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %24, ptr %1, align 8
   br label %36
 
@@ -5462,28 +5456,28 @@ define internal void @SDL_AudioThreadInit_Default(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioThreadDeinit_Default(ptr readnone captures(none) %0) #5 {
+define internal void @SDL_AudioThreadDeinit_Default(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SDL_AudioWaitDevice_Default(ptr readnone captures(none) %0) #5 {
+define internal noundef zeroext i1 @SDL_AudioWaitDevice_Default(ptr readnone captures(none) %0) #4 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SDL_AudioPlayDevice_Default(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #5 {
+define internal noundef zeroext i1 @SDL_AudioPlayDevice_Default(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #4 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @SDL_AudioGetDeviceBuf_Default(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #11 {
+define internal noalias noundef ptr @SDL_AudioGetDeviceBuf_Default(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #10 {
   store i32 0, ptr %1, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SDL_AudioWaitRecordingDevice_Default(ptr readnone captures(none) %0) #5 {
+define internal noundef zeroext i1 @SDL_AudioWaitRecordingDevice_Default(ptr readnone captures(none) %0) #4 {
   ret i1 true
 }
 
@@ -5494,34 +5488,34 @@ define internal noundef i32 @SDL_AudioRecordDevice_Default(ptr readnone captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioFlushRecording_Default(ptr readnone captures(none) %0) #5 {
+define internal void @SDL_AudioFlushRecording_Default(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioCloseDevice_Default(ptr readnone captures(none) %0) #5 {
+define internal void @SDL_AudioCloseDevice_Default(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioFreeDeviceHandle_Default(ptr readnone captures(none) %0) #5 {
+define internal void @SDL_AudioFreeDeviceHandle_Default(ptr readnone captures(none) %0) #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioDeinitializeStart_Default() #5 {
+define internal void @SDL_AudioDeinitializeStart_Default() #4 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @SDL_AudioDeinitialize_Default() #5 {
+define internal void @SDL_AudioDeinitialize_Default() #4 {
   ret void
 }
 
-declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetCurrentThreadPriority_REAL(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @FindLowestDeviceID(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #8 {
+define internal noundef zeroext i1 @FindLowestDeviceID(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #7 {
   %5 = ptrtoint ptr %2 to i64
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 2
@@ -5551,10 +5545,10 @@ define internal noundef zeroext i1 @FindLowestDeviceID(ptr noundef captures(none
   ret i1 true
 }
 
-declare zeroext i1 @SDL_MixAudio_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_MixAudio_REAL(ptr noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @CountAudioDevices(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #12 {
+define internal noundef zeroext i1 @CountAudioDevices(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #11 {
   %5 = ptrtoint ptr %2 to i64
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 2
@@ -5584,15 +5578,15 @@ define internal noundef zeroext i1 @CountAudioDevices(ptr noundef captures(none)
   ret i1 true
 }
 
-declare ptr @SDL_GetAtomicPointer_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetAtomicPointer_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_WaitThread_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_BroadcastCondition_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_BroadcastCondition_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SDL_WaitCondition_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateThreadRuntime_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @RecordingAudioThread(ptr noundef %0) #0 {
@@ -5678,24 +5672,30 @@ SDL_PlaybackAudioThreadShutdown.exit:             ; preds = %._crit_edge, %19
   ret i32 0
 }
 
-declare zeroext i1 @SetAudioStreamChannelMap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SetAudioStreamChannelMap(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0,1) }

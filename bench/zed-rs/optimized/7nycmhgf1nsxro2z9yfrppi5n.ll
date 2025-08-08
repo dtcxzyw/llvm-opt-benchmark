@@ -64,7 +64,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %3, label %49, label %4
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   store i32 0, ptr %.sroa.0.i, align 4, !noalias !4
   %5 = icmp ult i32 %1, 2048
   br i1 %5, label %8, label %6
@@ -141,7 +141,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i: ; preds = %20
   %47 = load i64, ptr %37, align 8, !alias.scope !10, !noundef !13
   %48 = add i64 %47, %33
   store i64 %48, ptr %37, align 8, !alias.scope !10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %_ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit
 
 49:                                               ; preds = %2
@@ -240,21 +240,21 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
   ret ptr %.sroa.0.0
 
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h15d61db285940f9eE.exit": ; preds = %13, %1, %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2)
   %20 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h43eea27b0640e38eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN75_$LT$dyn$u20$git..repository..GitRepository$u20$as$u20$core..fmt..Debug$GT$3fmt17hdadcf31d8ad099feE"(ptr noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(64) %2) unnamed_addr #2 {
   %4 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter12debug_struct17hc861e365b5f81a20E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.42, i64 noundef 22)
   %5 = call noundef zeroext i1 @_ZN4core3fmt8builders11DebugStruct6finish17h0022b1f3b252c4eeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %5
 }
 
@@ -265,7 +265,7 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
   %7 = alloca [16 x i8], align 8
   %8 = alloca [8 x i8], align 8
   store ptr %3, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8
@@ -274,7 +274,7 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN3std3sys6os_str5bytes5Slice8to_owned17he7326b2b60fbbdf5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.44, i64 noundef 3)
           to label %16 unwind label %14
 
@@ -290,7 +290,7 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
 
 16:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -299,7 +299,7 @@ define void @_ZN3git10repository17RealGitRepository3new17hed17d052958bdb7eE(ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 20:                                               ; preds = %24, %14
@@ -327,7 +327,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %2 = alloca [24 x i8], align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = cmpxchg weak ptr %5, i8 0, i8 1 acquire monotonic, align 1
   %7 = extractvalue { i8, i1 } %6, 1
@@ -363,11 +363,11 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !noundef !13
   store ptr %22, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN4git25index5Index4read17h487c0e83c6aca91bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
           to label %25 unwind label %23
 
@@ -391,7 +391,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$git2..error..Error$GT$$GT$17hd3a12745eba5d2faE.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$git2..error..Error$GT$$GT$17hd3a12745eba5d2faE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i", %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @"_ZN60_$LT$git2..index..Index$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9afc4069dc9643dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
           to label %"_ZN4core3ptr39drop_in_place$LT$git2..index..Index$GT$17hb3062970d4daa500E.exit14" unwind label %29
 
@@ -401,7 +401,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr39drop_in_place$LT$git2..index..Index$GT$17hb3062970d4daa500E.exit"
 
 "_ZN4core3ptr39drop_in_place$LT$git2..index..Index$GT$17hb3062970d4daa500E.exit14": ; preds = %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$git2..error..Error$GT$$GT$17hd3a12745eba5d2faE.exit"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN4core3ptr88drop_in_place$LT$core..result..Result$LT$git2..index..Index$C$git2..error..Error$GT$$GT$17hde3c5e96f073ec55E.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..result..Result$LT$git2..index..Index$C$git2..error..Error$GT$$GT$17hde3c5e96f073ec55E.exit": ; preds = %"_ZN4core3ptr39drop_in_place$LT$git2..index..Index$GT$17hb3062970d4daa500E.exit14", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i16", %.thread
@@ -414,7 +414,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit15"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit15": ; preds = %"_ZN4core3ptr88drop_in_place$LT$core..result..Result$LT$git2..index..Index$C$git2..error..Error$GT$$GT$17hde3c5e96f073ec55E.exit", %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 .thread:                                          ; preds = %17
@@ -491,9 +491,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 48:                                               ; preds = %4, %46
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !51
   invoke void @_ZN4git24repo10Repository5index17h689671cc0b9d806aE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49)
           to label %.noexc unwind label %154
 
@@ -509,14 +509,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %51, label %54, label %88
 
 54:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !51
   store ptr %53, ptr %38, align 8, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %29), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !56
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %28, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc.i unwind label %90, !noalias !59
 
@@ -533,7 +533,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   unreachable
 
 58:                                               ; preds = %.noexc59.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !56
   store ptr @anon.b954261911f1a69b15f2337178da659a.58, ptr %27, align 8, !noalias !56
   %59 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 1, ptr %59, align 8, !noalias !56
@@ -547,7 +547,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %.noexc60.i unwind label %90, !noalias !59
 
 .noexc60.i:                                       ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !56
   br label %93
 
 64:                                               ; preds = %.noexc59.i
@@ -565,9 +565,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 70:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !56
   invoke void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h72c747465b0e7570E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc61.i unwind label %90, !noalias !59
 
@@ -575,7 +575,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   store ptr %23, ptr %24, align 8, !noalias !56
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !61
   store ptr @anon.b954261911f1a69b15f2337178da659a.61, ptr %10, align 8, !noalias !69
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !69
@@ -589,9 +589,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %76 unwind label %74, !noalias !59
 
 71:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !56
   invoke void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h72c747465b0e7570E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc62.i unwind label %90, !noalias !59
 
@@ -599,7 +599,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   store ptr %19, ptr %20, align 8, !noalias !56
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !70
   store ptr @anon.b954261911f1a69b15f2337178da659a.63, ptr %9, align 8, !noalias !78
   %.sroa.457.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %.sroa.457.0..sroa_idx.i.i, align 8, !noalias !78
@@ -613,9 +613,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %79 unwind label %77, !noalias !59
 
 72:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !56
   invoke void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h72c747465b0e7570E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc63.i unwind label %90, !noalias !59
 
@@ -623,7 +623,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   store ptr %15, ptr %16, align 8, !noalias !56
   %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.411.0..sroa_idx.i.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !79
   store ptr @anon.b954261911f1a69b15f2337178da659a.65, ptr %8, align 8, !noalias !87
   %.sroa.463.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 2, ptr %.sroa.463.0..sroa_idx.i.i, align 8, !noalias !87
@@ -637,9 +637,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %82 unwind label %80, !noalias !59
 
 73:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !56
   invoke void @_ZN3std3sys6os_str5bytes5Slice15to_string_lossy17h72c747465b0e7570E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc64.i unwind label %90, !noalias !59
 
@@ -647,7 +647,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   store ptr %11, ptr %12, align 8, !noalias !56
   %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h1256b6c9d44db956E", ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !88
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !88
   store ptr @anon.b954261911f1a69b15f2337178da659a.67, ptr %7, align 8, !noalias !96
   %.sroa.469.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %.sroa.469.0..sroa_idx.i.i, align 8, !noalias !96
@@ -670,7 +670,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 76:                                               ; preds = %.noexc61.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !61
   %.val29.i.i = load i64, ptr %23, align 8, !range !26, !noalias !56, !noundef !13
   switch i64 %.val29.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i36.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit37.i.i"
@@ -683,10 +683,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit37.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit37.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i36.i.i", %76, %76
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !56
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit.sink.split.i.i": ; preds = %83, %80, %77, %74
@@ -707,7 +707,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 79:                                               ; preds = %.noexc62.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !70
   %.val25.i.i = load i64, ptr %19, align 8, !range !26, !noalias !56, !noundef !13
   switch i64 %.val25.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i40.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit41.i.i"
@@ -720,10 +720,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit41.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit41.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i40.i.i", %79, %79
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !56
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i"
 
 80:                                               ; preds = %.noexc63.i
@@ -736,7 +736,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 82:                                               ; preds = %.noexc63.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !79
   %.val21.i.i = load i64, ptr %15, align 8, !range !26, !noalias !56, !noundef !13
   switch i64 %.val21.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i46.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit47.i.i"
@@ -749,10 +749,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit47.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit47.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i46.i.i", %82, %82
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !56
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i"
 
 83:                                               ; preds = %.noexc64.i
@@ -765,7 +765,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   ]
 
 85:                                               ; preds = %.noexc64.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !88
   %.val.i.i = load i64, ptr %11, align 8, !range !26, !noalias !56, !noundef !13
   switch i64 %.val.i.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i52.i.i" [
     i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.i"
@@ -778,10 +778,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i52.i.i", %85, %85
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !56
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit47.i.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit41.i.i", %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit37.i.i"
@@ -792,8 +792,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 88:                                               ; preds = %.noexc
   %.sroa.640.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.sroa.640.0.copyload.i = load i64, ptr %.sroa.640.0..sroa_idx.i, align 8, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !51
   store ptr %50, ptr %32, align 8, !noalias !51
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %53, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !51
@@ -803,7 +803,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %.noexc12 unwind label %154
 
 .noexc12:                                         ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !51
   br label %.thread
 
 .body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i", %146, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i77.i", %128, %115, %90, %83, %83, %80, %80, %77, %77, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit.sink.split.i.i", %74, %74
@@ -817,24 +817,24 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %.body.i
 
 92:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %29), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %35), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !51
   invoke void @_ZN4git25index5Index8get_path17hbb82c31f12921f69E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %38, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef 0)
           to label %94 unwind label %90, !noalias !59
 
 93:                                               ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i", %.noexc60.i
   %.sroa.0.1.i.ph.i = phi ptr [ %63, %.noexc60.i ], [ %87, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit53.i.invoke.i" ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %29), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !51
   br label %150
 
 94:                                               ; preds = %92
@@ -873,9 +873,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i"
 
 "_ZN4core3ptr44drop_in_place$LT$git2..index..IndexEntry$GT$17hc84d5c7032e4cb78E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i", %102
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %35), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !51
   invoke void @_ZN4git24repo10Repository9find_blob17h5579cf44a34575e5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %49, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(20) %36)
           to label %106 unwind label %90, !noalias !59
 
@@ -887,7 +887,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %108, label %111, label %113
 
 111:                                              ; preds = %106
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !51
   store ptr %110, ptr %34, align 8, !noalias !51
   %112 = invoke { ptr, i64 } @_ZN4git24blob4Blob7content17h72f72268429b8bcbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34)
           to label %117 unwind label %115, !noalias !59
@@ -895,8 +895,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 113:                                              ; preds = %106
   %.sroa.647.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.647.0.copyload.i = load i64, ptr %.sroa.647.0..sroa_idx.i, align 8, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !51
   store ptr %107, ptr %31, align 8, !noalias !51
   %.sroa.223.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %110, ptr %.sroa.223.0..sroa_idx.i, align 8, !noalias !51
@@ -914,7 +914,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 117:                                              ; preds = %111
   %118 = extractvalue { ptr, i64 } %112, 0
   %119 = extractvalue { ptr, i64 } %112, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !151
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !151
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %119, i1 noundef zeroext false)
           to label %.noexc73.i unwind label %115, !noalias !59
 
@@ -936,14 +936,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 126:                                              ; preds = %.noexc73.i
   %127 = load ptr, ptr %123, align 8, !noalias !151, !nonnull !13, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !151
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !151
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %127, ptr nonnull readonly align 1 %118, i64 %119, i1 false), !noalias !156
   invoke void @"_ZN58_$LT$git2..blob..Blob$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf837a1fc1e634e06E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
           to label %"_ZN4core3ptr37drop_in_place$LT$git2..blob..Blob$GT$17hab4650122b428a9eE.exit76.i" unwind label %146, !noalias !59
 
 "_ZN4core3ptr37drop_in_place$LT$git2..blob..Blob$GT$17hab4650122b428a9eE.exit76.i": ; preds = %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !51
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !157
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !157
   invoke void @_ZN4core3str8converts9from_utf817hc59c49a6a70e8fedE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %119)
           to label %131 unwind label %128, !noalias !161
 
@@ -963,7 +963,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %trunc.i78.i, label %133, label %.thread125.i
 
 .thread125.i:                                     ; preds = %131
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !157
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !157
   br label %138
 
 133:                                              ; preds = %131
@@ -973,7 +973,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %.sroa.10.24.copyload.i = load i64, ptr %.sroa.10.24..sroa_idx.i, align 8, !noalias !157
   %135 = ptrtoint ptr %127 to i64
   %136 = inttoptr i64 %119 to ptr
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !157
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !157
   %137 = icmp eq i64 %122, -9223372036854775808
   br i1 %137, label %138, label %139
 
@@ -985,7 +985,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %156 unwind label %154
 
 139:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !51
   store i64 %122, ptr %30, align 8, !noalias !51
   %.sroa.233.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %135, ptr %.sroa.233.0..sroa_idx.i, align 8, !noalias !51
@@ -1005,7 +1005,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %.body unwind label %144, !noalias !59
 
 143:                                              ; preds = %139
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !51
   invoke void @"_ZN60_$LT$git2..index..Index$u20$as$u20$core..ops..drop..Drop$GT$4drop17he9afc4069dc9643dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %38)
           to label %.thread unwind label %154
 
@@ -1026,8 +1026,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %.body.i
 
 149:                                              ; preds = %113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !51
   br label %150
 
 150:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$git2..index..IndexEntry$GT$$GT$17h6f23f1bfa52603b8E.exit.i", %149, %93
@@ -1037,7 +1037,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %156 unwind label %154
 
 "_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$git2..index..IndexEntry$GT$$GT$17h6f23f1bfa52603b8E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i", %100, %100
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %35), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !51
   br label %150
 
 .body:                                            ; preds = %162, %154, %141, %.body.i
@@ -1057,16 +1057,16 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 .thread:                                          ; preds = %.noexc12, %143
   %.sroa.11.1.ph = phi ptr [ %140, %143 ], [ %89, %.noexc12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %164
 
 156:                                              ; preds = %138, %150
   %.sroa.17.0 = phi i64 [ %.sroa.685.sroa.8.0133.i, %138 ], [ undef, %150 ]
   %.sroa.11.1 = phi ptr [ %.sroa.685.sroa.7.0132.i, %138 ], [ %.sroa.11.0, %150 ]
   %.sroa.0.1 = phi i64 [ %.sroa.685.sroa.0.0131.i, %138 ], [ %.sroa.0.0, %150 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38), !noalias !51
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %157 = icmp eq i64 %.sroa.0.1, -9223372036854775807
   br i1 %157, label %164, label %158
 
@@ -1095,7 +1095,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 164:                                              ; preds = %156, %.thread
   %.sroa.11.126 = phi ptr [ %.sroa.11.1.ph, %.thread ], [ %.sroa.11.1, %156 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %165 = icmp ne ptr %.sroa.11.126, null
   call void @llvm.assume(i1 %165)
   store ptr %.sroa.11.126, ptr %42, align 8
@@ -1106,8 +1106,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %switch8, label %180, label %168
 
 168:                                              ; preds = %164
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr %42, ptr %40, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @"_ZN6anyhow5error60_$LT$impl$u20$core..fmt..Debug$u20$for$u20$anyhow..Error$GT$3fmt17h99a2ef9cf5d496a8E", ptr %.sroa.45.0..sroa_idx, align 8
@@ -1120,7 +1120,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   store ptr %40, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 1, ptr %172, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %173 = invoke noundef align 8 dereferenceable(24) ptr @_ZN3log13__private_api3loc17h3fa24c121663d21fE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.49)
           to label %174 unwind label %162
 
@@ -1138,9 +1138,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %179 unwind label %162
 
 179:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %180
 
 180:                                              ; preds = %164, %179
@@ -1148,7 +1148,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h891a2e6d4b120b20E.exit20" unwind label %154
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h891a2e6d4b120b20E.exit20": ; preds = %180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %181 = cmpxchg ptr %43, i8 1, i8 0 release monotonic, align 1
   %182 = extractvalue { i8, i1 } %181, 1
   br i1 %182, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit21", label %183
@@ -1186,8 +1186,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %13
 
 13:                                               ; preds = %4, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository11find_remote17h1e016d3e7c21ef28E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %20 unwind label %18
@@ -1215,7 +1215,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %25, ptr %7, align 8
   %26 = invoke { ptr, i64 } @_ZN4git26remote6Remote3url17he5358b3b14f51fdaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %33 unwind label %31
@@ -1251,7 +1251,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 37:                                               ; preds = %33
   %38 = extractvalue { ptr, i64 } %26, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !189
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !189
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %38, i1 noundef zeroext false)
           to label %.noexc15 unwind label %31
 
@@ -1277,7 +1277,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 46:                                               ; preds = %.noexc15
   %47 = load ptr, ptr %42, align 8, !noalias !189, !nonnull !13, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !189
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !189
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull readonly align 1 %34, i64 %38, i1 false), !noalias !193
   store i64 %41, ptr %0, align 8
   %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1287,7 +1287,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %45
 
 "_ZN4core3ptr41drop_in_place$LT$git2..remote..Remote$GT$17head56449b3ee8a40E.exit18": ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %48 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %49 = extractvalue { i8, i1 } %48, 1
   br i1 %49, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19", label %50
@@ -1306,9 +1306,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   unreachable
 
 "_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$git2..remote..Remote$C$git2..error..Error$GT$$GT$17h97a75a891a8040d6E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i", %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = cmpxchg ptr %8, i8 1, i8 0 release monotonic, align 1
   %54 = extractvalue { i8, i1 } %53, 1
   br i1 %54, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19", label %55
@@ -1339,8 +1339,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %14
 
 14:                                               ; preds = %2, %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository4head17h4f3a3fd2b5ff80f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
           to label %21 unwind label %19
@@ -1362,24 +1362,24 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 21:                                               ; preds = %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load ptr, ptr %7, align 8, !alias.scope !194, !noalias !197, !noundef !13
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !197
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.51, i64 24, i1 false), !noalias !194
   invoke void @_ZN4util21log_error_with_caller17h878f886df3415c3bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef 1)
           to label %25 unwind label %19
 
 25:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !199
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %26 = cmpxchg ptr %9, i8 1, i8 0 release monotonic, align 1
   %27 = extractvalue { i8, i1 } %26, 1
   br i1 %27, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19", label %28
@@ -1391,10 +1391,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !194, !noalias !197, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %31, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = invoke { ptr, i64 } @_ZN4git29reference9Reference15shorthand_bytes17h5703b60455521d0eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %35 unwind label %33
 
@@ -1422,7 +1422,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %.val16 = load ptr, ptr %39, align 8, !nonnull !13, !noundef !13
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val17 = load i64, ptr %40, align 8, !noundef !13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !200
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.val17, i1 noundef zeroext false)
           to label %.noexc21 unwind label %47
 
@@ -1457,7 +1457,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 
 49:                                               ; preds = %.noexc21
   %50 = load ptr, ptr %44, align 8, !noalias !200, !nonnull !13, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !200
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull readonly align 1 %.val16, i64 %.val17, i1 false), !noalias !215
   store i64 %43, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1475,12 +1475,12 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit24"
 
 "_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit24": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i23", %49, %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit26" unwind label %19
 
 "_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit26": ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h51dc5eee17be38f4E.exit24"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %51 = cmpxchg ptr %9, i8 1, i8 0 release monotonic, align 1
   %52 = extractvalue { i8, i1 } %51, 1
   br i1 %52, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19", label %53
@@ -1508,10 +1508,10 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %7 = alloca [8 x i8], align 8
   %8 = alloca [21 x i8], align 1
   %9 = alloca [20 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = cmpxchg weak ptr %10, i8 0, i8 1 acquire monotonic, align 1
   %12 = extractvalue { i8, i1 } %11, 1
@@ -1549,7 +1549,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %26, align 8, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %27, ptr %7, align 8
   invoke void @_ZN4git29reference9Reference6target17h6057d585a8b8d28cE(ptr noalias noundef nonnull sret([21 x i8]) align 1 captures(none) dereferenceable(21) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
           to label %34 unwind label %32
@@ -1584,7 +1584,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %trunc, label %37, label %36
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i64 -9223372036854775808, ptr %0, align 8
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit17" unwind label %20
@@ -1592,14 +1592,14 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %9, ptr noundef nonnull align 1 dereferenceable(20) %38, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !239
   store i64 0, ptr %5, align 8, !noalias !239
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !239
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !239
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !239
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %39, align 4, !noalias !239
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1633,7 +1633,6 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %.body
 
 51:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !239
   br i1 %45, label %52, label %55
 
 52:                                               ; preds = %51
@@ -1649,10 +1648,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %54, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit18", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit18.sink.split"
 
 55:                                               ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !239
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !239
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit20" unwind label %20
 
@@ -1666,8 +1664,8 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit18"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit18": ; preds = %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit18.sink.split", %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit20", %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit17"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 58:                                               ; preds = %.body, %19
@@ -1677,9 +1675,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   unreachable
 
 "_ZN4core3ptr96drop_in_place$LT$core..result..Result$LT$git2..reference..Reference$C$git2..error..Error$GT$$GT$17h68a6f1e188310b1aE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i.i.i", %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit17"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit", %19
@@ -1690,7 +1688,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repository..GitRepository$GT$6status17h27ceefd76ded3ebaE"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = cmpxchg weak ptr %7, i8 0, i8 1 acquire monotonic, align 1
   %9 = extractvalue { i8, i1 } %8, 1
@@ -1722,7 +1720,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %22, label %23, label %"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$7context17hb696f1bf6ce3a145E.exit"
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !262
   invoke void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5)
           to label %.noexc9 unwind label %15
 
@@ -1736,7 +1734,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %31 unwind label %15
 
 26:                                               ; preds = %.noexc9
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !262
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %27, align 8
   store ptr null, ptr %0, align 8
@@ -1804,7 +1802,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit11"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit11": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i14", %49, %30, %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 52:                                               ; preds = %19
@@ -1833,7 +1831,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %11
 
 11:                                               ; preds = %2, %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN4git24repo10Repository8branches17hc1e49331889ff3edE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, i8 noundef 0)
           to label %18 unwind label %13
@@ -1857,15 +1855,15 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %20, label %23, label %24
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf7295468c14823feE.llvm.5337210721387809739"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef %22)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h691da245781e0ae0E.exit" unwind label %13
 
 24:                                               ; preds = %18
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.612.0.copyload = load i64, ptr %.sroa.612.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %19, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %22, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1891,7 +1889,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %29, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = cmpxchg ptr %6, i8 1, i8 0 release monotonic, align 1
   %31 = extractvalue { i8, i1 } %30, 1
   br i1 %31, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit19.sink.split"
@@ -1929,8 +1927,8 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br label %20
 
 20:                                               ; preds = %3, %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4git24repo10Repository11find_branch17ha577345f7a6dddbeE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false)
           to label %27 unwind label %25
@@ -1958,18 +1956,18 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %29, label %32, label %33
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %31, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN4git29reference9Reference12peel_to_tree17h2029993d1c03655aE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
           to label %37 unwind label %35
 
 33:                                               ; preds = %27
   %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.632.0.copyload = load i64, ptr %.sroa.632.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %28, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %31, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1996,17 +1994,17 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %39, label %42, label %43
 
 42:                                               ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr %41, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN4git24repo10Repository13checkout_tree17h2e6595479b2ee836E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef align 8 dereferenceable_or_null(176) null)
           to label %47 unwind label %45
 
 43:                                               ; preds = %37
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.638.0.copyload = load i64, ptr %.sroa.638.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %38, ptr %7, align 8
   %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %41, ptr %.sroa.217.0..sroa_idx, align 8
@@ -2027,15 +2025,15 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %51 = invoke { ptr, i64 } @_ZN4git29reference9Reference4name17h0fc4f84652f711b6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
           to label %54 unwind label %45
 
 52:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %53 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
           to label %76 unwind label %45
 
@@ -2045,7 +2043,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.b954261911f1a69b15f2337178da659a.54, ptr %5, align 8
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %58, align 8
@@ -2064,8 +2062,8 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %66 unwind label %45
 
 65:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %75
 
 66:                                               ; preds = %63
@@ -2074,24 +2072,24 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   invoke void @"_ZN58_$LT$git2..tree..Tree$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53315313eec7d6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit50" unwind label %35
 
 70:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %71 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %74 unwind label %45
 
 "_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit50": ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit52" unwind label %25
 
 "_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit52": ; preds = %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit50"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %72 = cmpxchg ptr %15, i8 1, i8 0 release monotonic, align 1
   %73 = extractvalue { i8, i1 } %72, 1
   br i1 %73, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit53", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit53.sink.split"
@@ -2106,7 +2104,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   ret ptr %.sroa.0.1
 
 74:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %75
 
 75:                                               ; preds = %65, %74, %76
@@ -2115,12 +2113,12 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit55" unwind label %35
 
 76:                                               ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 "_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit55": ; preds = %75, %79
   %.sroa.0.3 = phi ptr [ %44, %79 ], [ %.sroa.0.2, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit57" unwind label %25
 
@@ -2131,18 +2129,18 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   unreachable
 
 79:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit55"
 
 "_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit57": ; preds = %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit55", %82
   %.sroa.0.4 = phi ptr [ %34, %82 ], [ %.sroa.0.3, %"_ZN4core3ptr37drop_in_place$LT$git2..tree..Tree$GT$17h8b589e5be6a2216fE.exit55" ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %80 = cmpxchg ptr %15, i8 1, i8 0 release monotonic, align 1
   %81 = extractvalue { i8, i1 } %80, 1
   br i1 %81, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit53", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit53.sink.split"
 
 82:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit57"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit": ; preds = %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit", %24
@@ -2170,10 +2168,10 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br label %18
 
 18:                                               ; preds = %3, %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN4git24repo10Repository4head17h4f3a3fd2b5ff80f7E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19)
           to label %25 unwind label %23
@@ -2201,7 +2199,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %29, ptr %10, align 8
   invoke void @_ZN4git29reference9Reference14peel_to_commit17h2d7ccd6305ca5960E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
           to label %35 unwind label %33
@@ -2209,8 +2207,8 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 31:                                               ; preds = %25
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.635.0.copyload = load i64, ptr %.sroa.635.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %26, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2233,7 +2231,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %37, label %40, label %41
 
 40:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr %39, ptr %12, align 8
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit55" unwind label %43
@@ -2241,8 +2239,8 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 41:                                               ; preds = %35
   %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.641.0.copyload = load i64, ptr %.sroa.641.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %36, ptr %5, align 8
   %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %39, ptr %.sroa.217.0..sroa_idx, align 8
@@ -2258,9 +2256,9 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit" unwind label %58
 
 "_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit55": ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN4git24repo10Repository6branch17hcd55acdafd686f44E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %19, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, i1 noundef zeroext false)
           to label %45 unwind label %43
 
@@ -2272,7 +2270,7 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   br i1 %47, label %50, label %51
 
 50:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %49, ptr %8, align 8
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit" unwind label %43
@@ -2280,8 +2278,8 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
 51:                                               ; preds = %45
   %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.647.0.copyload = load i64, ptr %.sroa.647.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %46, ptr %4, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %49, ptr %.sroa.228.0..sroa_idx, align 8
@@ -2291,12 +2289,12 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
           to label %55 unwind label %43
 
 "_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit": ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN62_$LT$git2..commit..Commit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h624aec55e5488fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..commit..Commit$GT$17h389114a51eca65b4E.exit59" unwind label %23
 
 "_ZN4core3ptr41drop_in_place$LT$git2..commit..Commit$GT$17h389114a51eca65b4E.exit59": ; preds = %"_ZN4core3ptr41drop_in_place$LT$git2..branch..Branch$GT$17h05e49000f010c02dE.exit"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %53 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %54 = extractvalue { i8, i1 } %53, 1
   br i1 %54, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit60", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit60.sink.split"
@@ -2311,14 +2309,14 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   ret ptr %.sroa.0.0
 
 55:                                               ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN62_$LT$git2..commit..Commit$u20$as$u20$core..ops..drop..Drop$GT$4drop17h624aec55e5488fd0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
           to label %"_ZN4core3ptr41drop_in_place$LT$git2..commit..Commit$GT$17h389114a51eca65b4E.exit62" unwind label %23
 
 "_ZN4core3ptr41drop_in_place$LT$git2..commit..Commit$GT$17h389114a51eca65b4E.exit62": ; preds = %55, %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit65"
   %.sroa.0.1 = phi ptr [ %.sroa.0.2, %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit65" ], [ %52, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %56 = cmpxchg ptr %13, i8 1, i8 0 release monotonic, align 1
   %57 = extractvalue { i8, i1 } %56, 1
   br i1 %57, label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit60", label %"_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit60.sink.split"
@@ -2330,18 +2328,18 @@ define noundef ptr @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git
   unreachable
 
 60:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @"_ZN68_$LT$git2..reference..Reference$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf52815f3b610cfcaE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
           to label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit65" unwind label %23
 
 "_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit65": ; preds = %60, %61
   %.sroa.0.2 = phi ptr [ %32, %61 ], [ %42, %60 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core3ptr41drop_in_place$LT$git2..commit..Commit$GT$17h389114a51eca65b4E.exit62"
 
 61:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit65"
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$git2..reference..Reference$GT$17h810ff4f437be54edE.exit", %22
@@ -2364,7 +2362,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %3, ptr %16, align 8
   store ptr %4, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = cmpxchg weak ptr %17, i8 0, i8 1 acquire monotonic, align 1
   %19 = extractvalue { i8, i1 } %18, 1
@@ -2421,9 +2419,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br i1 %38, label %39, label %"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$12with_context17h4fe79699f791713cE.exit"
 
 39:                                               ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !328
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !333
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !328
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !333
   store ptr %15, ptr %7, align 8, !noalias !333
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae99b62eb0c41279E.llvm.5252317761193634178", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !333
@@ -2440,17 +2438,17 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %.noexc10 unwind label %31
 
 .noexc10:                                         ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !333
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !333
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !328
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !333
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !328
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !328
   invoke void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9)
           to label %44 unwind label %46, !noalias !337
 
 44:                                               ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !328
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !328
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !328
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !338
   %45 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hee874dfeac589bfaE.llvm.16932917054908776191"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.8c117b5ec9b8bea9ae41c9da5d48b8c8.85.llvm.16932917054908776191, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %53 unwind label %31
@@ -2478,9 +2476,9 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
           to label %58 unwind label %31
 
 53:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !328
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !328
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !328
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !328
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %54, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -2566,7 +2564,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7517753e315ea28cE.exit17"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h7517753e315ea28cE.exit17": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8787335230632349188.exit.i.i1.i.i.i.i16", %86
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !407)
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
   call void @llvm.experimental.noalias.scope.decl(metadata !413)
@@ -2591,7 +2589,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
   unreachable
 
 "_ZN4core3ptr113drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git2..repo..Repository$GT$$GT$17hbcd0d28e7856ad20E.exit13": ; preds = %53, %57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !420)
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
   call void @llvm.experimental.noalias.scope.decl(metadata !426)
@@ -2608,7 +2606,7 @@ define void @"_ZN85_$LT$git..repository..RealGitRepository$u20$as$u20$git..repos
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3git10repository17FakeGitRepository4open17hcfbedda8733c8a8eE(ptr noundef nonnull %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %3, align 8
@@ -2649,7 +2647,7 @@ define { ptr, ptr } @_ZN3git10repository17FakeGitRepository4open17hcfbedda8733c8
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h176bf1b78a68342dE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = insertvalue { ptr, ptr } poison, ptr %6, 0
   %17 = insertvalue { ptr, ptr } %16, ptr @anon.b954261911f1a69b15f2337178da659a.56, 1
   ret { ptr, ptr } %17
@@ -2685,14 +2683,14 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br i1 %19, label %select.unfold, label %20
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !450
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !450
   store i64 0, ptr %7, align 8, !noalias !450
   invoke void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17hc3798a9dab3e8d57E"(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %20
   %21 = load i64, ptr %7, align 8, !alias.scope !453, !noalias !450, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !450
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !450
   call void @llvm.experimental.noalias.scope.decl(metadata !456)
   call void @llvm.experimental.noalias.scope.decl(metadata !459)
   %22 = lshr i64 %21, 57
@@ -2727,12 +2725,12 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %.val4.i.i.i = load ptr, ptr %38, align 8, !alias.scope !469, !noalias !476, !nonnull !13, !noundef !13
   %39 = getelementptr i8, ptr %37, i64 -32
   %.val5.i.i.i = load i64, ptr %39, align 8, !alias.scope !469, !noalias !476, !noundef !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !480
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !480
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %.noexc6 unwind label %.loopexit
 
 .noexc6:                                          ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !480
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !480
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val4.i.i.i, i64 noundef %.val5.i.i.i)
           to label %.noexc7 unwind label %.loopexit
 
@@ -2741,8 +2739,8 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %.noexc7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !480
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !480
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !480
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !480
   br i1 %40, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h70e4115f62416942E.exit", label %43
 
 ._crit_edge.i.i:                                  ; preds = %43, %27
@@ -2788,7 +2786,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %1
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h70e4115f62416942E.exit": ; preds = %.noexc8
   %54 = getelementptr inbounds i8, ptr %37, i64 -24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %54)
           to label %59 unwind label %.loopexit.split-lp
 
@@ -2806,7 +2804,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %1
 
 59:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h70e4115f62416942E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %55
 
 60:                                               ; preds = %53
@@ -2849,7 +2847,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %16
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
           to label %25 unwind label %20
 
@@ -2878,7 +2876,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 25:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %16
 
 26:                                               ; preds = %24
@@ -2929,7 +2927,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %15
 
 21:                                               ; preds = %13, %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   %23 = load ptr, ptr %22, align 8, !alias.scope !487, !noalias !490, !nonnull !13, !noundef !13
@@ -2964,18 +2962,14 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !13, !noundef !13
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %40 = load i64, ptr %39, align 8, !noundef !13
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !497
+  %40 = load i64, ptr %39, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !497
   store ptr %5, ptr %6, align 8, !noalias !497
   %41 = icmp ult i64 %40, 2
-  br i1 %41, label %.loopexit26.thread, label %42
+  br i1 %41, label %.thread26, label %42
 
-.loopexit26.thread:                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdb4fc6578e9f7bebE.exit"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !497
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %.sroa.014.0.copyload27 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !500
+.thread26:                                        ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdb4fc6578e9f7bebE.exit"
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !497
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i"
 
 42:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hdb4fc6578e9f7bebE.exit"
@@ -2984,7 +2978,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 44:                                               ; preds = %42
   invoke void @_ZN4core5slice4sort8unstable7ipnsort17h9286b85d0749bc59E(ptr noalias noundef nonnull align 8 %38, i64 noundef %40, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.loopexit26 unwind label %.loopexit.split-lp
+          to label %.loopexit33 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i:                             ; preds = %42
   %45 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, i64 } } } } }, i8, [7 x i8] }, ptr %38, i64 %40
@@ -2999,32 +2993,28 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 .noexc7:                                          ; preds = %.lr.ph.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i, i64 32
   %.not.i.i = icmp eq ptr %47, %45
-  br i1 %.not.i.i, label %.loopexit26, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit33, label %.lr.ph.i.i
 
 .thread:                                          ; preds = %49, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i", %.noexc10, %57
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %15
 
-.loopexit26:                                      ; preds = %.noexc7, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !497
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %.sroa.014.0.copyload = load i64, ptr %8, align 8
+.loopexit33:                                      ; preds = %.noexc7, %44
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !497
   %48 = icmp ugt i64 %40, 288230376151711743
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !500
   br i1 %48, label %49, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i"
 
-49:                                               ; preds = %.loopexit26
+49:                                               ; preds = %.loopexit33
   invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.b954261911f1a69b15f2337178da659a.37, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.b954261911f1a69b15f2337178da659a.36, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b954261911f1a69b15f2337178da659a.1) #21
           to label %.noexc9 unwind label %.thread
 
 .noexc9:                                          ; preds = %49
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i": ; preds = %.loopexit26.thread, %.loopexit26
-  %.sroa.014.0.copyload28 = phi i64 [ %.sroa.014.0.copyload27, %.loopexit26.thread ], [ %.sroa.014.0.copyload, %.loopexit26 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hda3bd83c2c76a35cE.exit.i": ; preds = %.thread26, %.loopexit33
+  %.sroa.014.0.copyload31 = load i64, ptr %8, align 8
   %50 = shl nuw nsw i64 %40, 5
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !500
   %51 = invoke { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 8, i64 noundef %50)
           to label %.noexc10 unwind label %.thread
 
@@ -3047,16 +3037,16 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   unreachable
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbcf881fa99feec33E.llvm.8787335230632349188.exit.i.i": ; preds = %.noexc11
-  store i64 1, ptr %55, align 8, !noalias !503
+  store i64 1, ptr %55, align 8, !noalias !500
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i64 1, ptr %58, align 8, !noalias !503
+  store i64 1, ptr %58, align 8, !noalias !500
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %38, i64 %50, i1 false), !noalias !500
-  %60 = icmp eq i64 %.sroa.014.0.copyload28, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %38, i64 %50, i1 false), !noalias !505
+  %60 = icmp eq i64 %.sroa.014.0.copyload31, 0
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbcf881fa99feec33E.llvm.8787335230632349188.exit.i.i"
-  %62 = shl nuw i64 %.sroa.014.0.copyload28, 5
+  %62 = shl nuw i64 %.sroa.014.0.copyload31, 5
   call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %62, i64 noundef 8) #20, !noalias !506
   br label %63
 
@@ -3064,7 +3054,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   store ptr %55, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %40, ptr %64, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %65 = cmpxchg ptr %10, i8 1, i8 0 release monotonic, align 1
   %66 = extractvalue { i8, i1 } %65, 1
   br i1 %66, label %"_ZN4core3ptr130drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$git..repository..FakeGitRepositoryState$GT$$GT$17h5ad08c47906c5d72E.exit13", label %67
@@ -3125,7 +3115,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
   br label %11
 
 11:                                               ; preds = %3, %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !513
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false)
           to label %.noexc unwind label %19
 
@@ -3158,7 +3148,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 
 23:                                               ; preds = %.noexc
   %24 = load ptr, ptr %15, align 8, !noalias !513, !nonnull !13, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !513
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !517
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.val4 = load i64, ptr %25, align 8, !range !26, !noundef !13
@@ -3213,7 +3203,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
   br label %11
 
 11:                                               ; preds = %3, %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !527
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !527
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c0e6e9ccb6a7ce0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %2, i1 noundef zeroext false)
           to label %.noexc unwind label %19
 
@@ -3246,7 +3236,7 @@ define noalias noundef ptr @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as
 
 23:                                               ; preds = %.noexc
   %24 = load ptr, ptr %15, align 8, !noalias !527, !nonnull !13, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !527
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !527
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !531
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.val4 = load i64, ptr %25, align 8, !range !26, !noundef !13
@@ -3349,14 +3339,14 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br i1 %38, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hfcbbc95e255f493cE.exit", label %39
 
 39:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !559
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !559
   store i64 0, ptr %16, align 8, !noalias !559
   invoke void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17hc3798a9dab3e8d57E"(ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %35, ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
           to label %.noexc11 unwind label %.loopexit.split-lp
 
 .noexc11:                                         ; preds = %39
   %40 = load i64, ptr %16, align 8, !alias.scope !562, !noalias !559, !noundef !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !559
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !559
   call void @llvm.experimental.noalias.scope.decl(metadata !565)
   call void @llvm.experimental.noalias.scope.decl(metadata !568)
   %41 = lshr i64 %40, 57
@@ -3391,12 +3381,12 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %.val4.i.i.i = load ptr, ptr %57, align 8, !alias.scope !578, !noalias !585, !nonnull !13, !noundef !13
   %58 = getelementptr i8, ptr %56, i64 -120
   %.val5.i.i.i = load i64, ptr %58, align 8, !alias.scope !578, !noalias !585, !noundef !13
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15), !noalias !589
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !589
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %15, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %35)
           to label %.noexc12 unwind label %.loopexit
 
 .noexc12:                                         ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14), !noalias !589
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !589
   invoke void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %14, ptr noalias noundef nonnull readonly align 1 %.val4.i.i.i, i64 noundef %.val5.i.i.i)
           to label %.noexc13 unwind label %.loopexit
 
@@ -3405,8 +3395,8 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %.noexc13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !589
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15), !noalias !589
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !589
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !589
   br i1 %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he4f82cd6cb52ed9bE.exit.i", label %62
 
 ._crit_edge.i.i:                                  ; preds = %62, %46
@@ -3471,9 +3461,9 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 82:                                               ; preds = %78
   call void @llvm.experimental.noalias.scope.decl(metadata !596)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !599
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %85 = load ptr, ptr %84, align 8, !alias.scope !601, !noalias !604, !nonnull !13, !noundef !13
@@ -3482,7 +3472,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !599
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !606)
   call void @llvm.experimental.noalias.scope.decl(metadata !609)
@@ -3496,7 +3486,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %101
 
 92:                                               ; preds = %.noexc17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !616
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !616
   %93 = add i64 %89, 1
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hebb55505895eb333E.llvm.16588787651046433735"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %8, i64 noundef %93, i1 noundef zeroext true)
           to label %.noexc.i unwind label %99, !noalias !599
@@ -3514,7 +3504,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 "_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h7be703a7032c02e4E.llvm.16588787651046433735.exit.i.i.i": ; preds = %.noexc.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !599
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !616
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !616
   br label %101
 
 97:                                               ; preds = %94
@@ -3535,7 +3525,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 101:                                              ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h7be703a7032c02e4E.llvm.16588787651046433735.exit.i.i.i", %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !599
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !599
   %102 = getelementptr inbounds nuw i8, ptr %80, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !618)
   call void @llvm.experimental.noalias.scope.decl(metadata !621)
@@ -3549,7 +3539,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br label %117
 
 107:                                              ; preds = %101
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !628
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !628
   %108 = add i64 %104, 1
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hb2c452be48a8f6adE.llvm.16588787651046433735"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, i64 noundef %108, i1 noundef zeroext true)
           to label %.noexc6.i unwind label %115, !noalias !617
@@ -3567,7 +3557,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
 
 "_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h6c1e9bd886e95431E.llvm.16588787651046433735.exit.i.i.i": ; preds = %.noexc6.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !599
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !628
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !628
   br label %117
 
 112:                                              ; preds = %109
@@ -3595,7 +3585,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   br i1 %120, label %130, label %121
 
 121:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !599
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %118)
           to label %125 unwind label %122, !noalias !617
 
@@ -3610,7 +3600,7 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   %.sroa.0.0.copyload1.i = load i64, ptr %10, align 8, !noalias !599
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !599
   br label %130
 
 126:                                              ; preds = %122, %.body7.i, %.body.i
@@ -3632,11 +3622,11 @@ define void @"_ZN85_$LT$git..repository..FakeGitRepository$u20$as$u20$git..repos
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !599
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !599
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !599
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.0.0.i16, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3767,13 +3757,13 @@ define noundef range(i8 -1, 2) i8 @"_ZN123_$LT$git..repository..RepoPathDescenda
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
   %14 = call noundef i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !range !646
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %15
 
 15:                                               ; preds = %2, %13
@@ -3961,12 +3951,6 @@ declare hidden noundef zeroext i1 @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as
 ; Function Attrs: nonlazybind uwtable
 declare noundef i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef align 8 captures(none) dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(64)) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
-
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h7b8a6d626f24375bE"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #13
 
@@ -4028,7 +4012,7 @@ declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..conve
 declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hb98cd433edb6bd8fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #13
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #17
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #16
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN64_$LT$git2..repo..Repository$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7cbe9c1a26af89dfE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
@@ -4093,6 +4077,12 @@ declare hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h15d61db285
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, ptr } @"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$12with_context17h767865d1260e6017E"(ptr noalias noundef readonly align 8 dereferenceable_or_null(112), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
@@ -4112,8 +4102,8 @@ attributes #12 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #13 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #16 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { cold noreturn nounwind }
 attributes #20 = { nounwind }
@@ -4623,13 +4613,13 @@ attributes #22 = { cold }
 !497 = !{!498}
 !498 = distinct !{!498, !499, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by17h41827be6ffa6f07bE: argument 0"}
 !499 = distinct !{!499, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by17h41827be6ffa6f07bE"}
-!500 = !{!501}
-!501 = distinct !{!501, !502, !"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h78af9c33f0f18f73E: argument 0"}
-!502 = distinct !{!502, !"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h78af9c33f0f18f73E"}
-!503 = !{!504, !501}
-!504 = distinct !{!504, !505, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E: argument 1"}
-!505 = distinct !{!505, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E"}
-!506 = !{!507, !509, !511, !501}
+!500 = !{!501, !503}
+!501 = distinct !{!501, !502, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E: argument 1"}
+!502 = distinct !{!502, !"_ZN5alloc4sync12Arc$LT$T$GT$19allocate_for_layout17h166bfb8b4db47487E"}
+!503 = distinct !{!503, !504, !"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h78af9c33f0f18f73E: argument 0"}
+!504 = distinct !{!504, !"_ZN115_$LT$alloc..sync..Arc$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$C$A$GT$$GT$$GT$4from17h78af9c33f0f18f73E"}
+!505 = !{!503}
+!506 = !{!507, !509, !511, !503}
 !507 = distinct !{!507, !508, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34ea6e4839aef61eE.llvm.8787335230632349188: argument 0"}
 !508 = distinct !{!508, !"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h34ea6e4839aef61eE.llvm.8787335230632349188"}
 !509 = distinct !{!509, !510, !"_ZN4core3ptr144drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$git..repository..RepoPath$C$git..repository..GitFileStatus$RP$$C$$RF$alloc..alloc..Global$GT$$GT$17h4df91a5dd1f9ac15E.llvm.8787335230632349188: argument 0"}

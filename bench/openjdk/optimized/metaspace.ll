@@ -370,8 +370,8 @@ define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_u
 define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCombinedStats(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceStats, align 8
   %3 = alloca %class.MetaspaceStats, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !10
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !10
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -384,8 +384,8 @@ define hidden void @_ZN14MetaspaceUtils22print_metaspace_changeERK22MetaspaceCom
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !10
   %13 = add i64 %12, %10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = load i8, ptr @UseCompressedClassPointers, align 1
   %15 = trunc i8 %14 to i1
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
@@ -471,8 +471,8 @@ declare void @_ZN9metaspace17MetaspaceReporter12print_reportEP12outputStreammi(p
 define hidden void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceStats, align 8
   %3 = alloca %class.MetaspaceStats, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0), !noalias !13
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %3, i32 noundef 1), !noalias !13
   %4 = load i64, ptr %2, align 8, !noalias !13
@@ -488,8 +488,8 @@ define hidden void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef %0)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noalias !13
   %16 = add i64 %15, %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = lshr i64 %16, 10
   %18 = lshr i64 %11, 10
   %19 = lshr i64 %6, 10
@@ -1108,10 +1108,10 @@ define hidden void @_ZN9Metaspace15ergo_initializeEv() local_unnamed_addr #0 ali
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 %13, ptr %1, align 8
   %15 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 784, i32 noundef 6, ptr noundef nonnull %1, i32 noundef 5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %16, null
   br i1 %.not8, label %19, label %17
@@ -1235,7 +1235,7 @@ define hidden void @_ZN9Metaspace17global_initializeEv() local_unnamed_addr #0 a
 
 .thread:                                          ; preds = %23, %32, %31
   %35 = phi ptr [ %27, %23 ], [ %.pre, %32 ], [ %.pr, %31 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %36 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %37 = icmp sgt i32 %36, 1
   %38 = icmp ne ptr %35, null
@@ -1249,7 +1249,7 @@ define hidden void @_ZN9Metaspace17global_initializeEv() local_unnamed_addr #0 a
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %.thread, %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @_ZN9metaspace16MetaspaceContext30initialize_class_space_contextE13ReservedSpace(ptr noundef nonnull byval(%class.ReservedSpace) align 8 %2) #14
   %40 = load ptr, ptr %2, align 8
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2054,10 +2054,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

@@ -29,7 +29,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
@@ -164,7 +164,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %92 = icmp slt i64 %.0100.i, 0
   %93 = tail call i64 @llvm.smin.i64(i64 %91, i64 0)
   %.092.i = select i1 %92, i64 %93, i64 %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = getelementptr inbounds i8, ptr %.094.i, i64 %.0100.i
   %95 = sub nsw i64 %.092.i, %.0100.i
   %96 = add i64 %.0100.i, %7
@@ -261,25 +261,19 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 
 .thread:                                          ; preds = %99, %108, %135
   %.5.i.ph = phi i8 [ %141, %135 ], [ 1, %108 ], [ 0, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcSheng8_Q2i.exit
 
 145:                                              ; preds = %143, %117
   %146 = phi i32 [ %144, %143 ], [ %102, %117 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 nfaExecMcSheng8_Q2i.exit:                         ; preds = %.thread35, %37, %.thread, %63, %80
   %.2.i = phi i8 [ 0, %63 ], [ 1, %80 ], [ %.5.i.ph, %.thread ], [ 0, %37 ], [ 0, %.thread35 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -301,7 +295,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %23, align 2
@@ -531,7 +525,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 
 nfaExecMcSheng16_Q2i.exit:                        ; preds = %.thread34, %36, %130, %107, %98, %62, %79
   %.2.i = phi i8 [ 0, %62 ], [ 1, %79 ], [ %136, %130 ], [ 1, %107 ], [ 0, %98 ], [ 0, %36 ], [ 0, %.thread34 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -709,7 +703,7 @@ doComplexReport.exit:                             ; preds = %.lr.ph, %doComplexR
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
@@ -755,7 +749,7 @@ mcshengHasAccept.exit:                            ; preds = %20, %.lr.ph.i, %3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
@@ -772,7 +766,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 2
@@ -818,7 +812,7 @@ mcshengHasAccept.exit:                            ; preds = %20, %.lr.ph.i, %3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAnyAccept(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %4, align 2
@@ -854,7 +848,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 1
@@ -990,7 +984,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %92 = icmp slt i64 %.0100.i, 0
   %93 = tail call i64 @llvm.smin.i64(i64 %91, i64 0)
   %.092.i = select i1 %92, i64 %93, i64 %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = getelementptr inbounds i8, ptr %.094.i, i64 %.0100.i
   %95 = sub nsw i64 %.092.i, %.0100.i
   %96 = call fastcc signext i8 @mcshengExec8_i_sam(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %94, i64 noundef %95, ptr noundef nonnull %5)
@@ -1102,17 +1096,17 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 
 .thread:                                          ; preds = %99, %118, %145
   %.5.i.ph = phi i8 [ %151, %145 ], [ 1, %118 ], [ 2, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcSheng8_Q2i.exit
 
 155:                                              ; preds = %153, %127
   %156 = phi i32 [ %154, %153 ], [ %98, %127 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 nfaExecMcSheng8_Q2i.exit:                         ; preds = %.thread39, %37, %.thread, %63, %80
   %.2.i = phi i8 [ 0, %63 ], [ 1, %80 ], [ %.5.i.ph, %.thread ], [ 0, %37 ], [ 0, %.thread39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -1136,7 +1130,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i16, ptr %23, align 2
@@ -1272,7 +1266,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %92 = icmp slt i64 %.0100.i, 0
   %93 = tail call i64 @llvm.smin.i64(i64 %91, i64 0)
   %.092.i = select i1 %92, i64 %93, i64 %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %94 = getelementptr inbounds i8, ptr %.094.i, i64 %.0100.i
   %95 = sub nsw i64 %.092.i, %.0100.i
   %96 = call fastcc signext i8 @mcshengExec16_i_sam(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %94, i64 noundef %95, ptr noundef nonnull %5)
@@ -1379,17 +1373,17 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 
 .thread:                                          ; preds = %99, %118, %141
   %.5.i.ph = phi i8 [ %147, %141 ], [ 1, %118 ], [ 2, %99 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcSheng16_Q2i.exit
 
 151:                                              ; preds = %149, %127
   %152 = phi i32 [ %150, %149 ], [ %98, %127 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 nfaExecMcSheng16_Q2i.exit:                        ; preds = %.thread39, %37, %.thread, %63, %80
   %.2.i = phi i8 [ 0, %63 ], [ 1, %80 ], [ %.5.i.ph, %.thread ], [ 0, %37 ], [ 0, %.thread39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.2.i
 }
 
@@ -1413,7 +1407,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 1
@@ -1527,7 +1521,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %83 = icmp slt i64 %71, 0
   %84 = tail call i64 @llvm.smin.i64(i64 %82, i64 0)
   %.092.i52 = select i1 %83, i64 %84, i64 %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %85 = getelementptr inbounds i8, ptr %74, i64 %71
   %86 = sub nsw i64 %.092.i52, %71
   %87 = call fastcc signext i8 @mcshengExec8_i_nm(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %85, i64 noundef %86, ptr noundef nonnull %5)
@@ -1537,7 +1531,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 nfaExecMcSheng8_Q2i.exit.thread34:                ; preds = %112, %65
   %89 = load ptr, ptr %22, align 8
   store i8 0, ptr %89, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %nfaExecMcSheng8_inAccept.exit.sink.split
 
 .lr.ph55:                                         ; preds = %65, %112
@@ -1591,7 +1585,7 @@ nfaExecMcSheng8_Q2i.exit.thread34:                ; preds = %112, %65
 
 112:                                              ; preds = %110, %.lr.ph55
   %.pre = phi i32 [ %111, %110 ], [ %.pre.pre, %.lr.ph55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = zext i32 %.pre to i64
   %.idx.i = mul nuw nsw i64 %113, 24
   %114 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i
@@ -1600,7 +1594,7 @@ nfaExecMcSheng8_Q2i.exit.thread34:                ; preds = %112, %65
   %117 = icmp slt i64 %.092.i54, 0
   %118 = tail call i64 @llvm.smin.i64(i64 %116, i64 0)
   %.092.i = select i1 %117, i64 %118, i64 %116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %119 = getelementptr inbounds i8, ptr %spec.select.i, i64 %.092.i54
   %120 = sub nsw i64 %.092.i, %.092.i54
   %121 = call fastcc signext i8 @mcshengExec8_i_nm(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %119, i64 noundef %120, ptr noundef nonnull %5)
@@ -1617,8 +1611,8 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %92
   store i32 %127, ptr %66, align 8
   %.not108.i = icmp ne i32 %123, 0
   %128 = zext i1 %.not108.i to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not108.i, label %129, label %nfaExecMcSheng8_inAccept.exit
 
 129:                                              ; preds = %nfaExecMcSheng8_Q2i.exit
@@ -1659,7 +1653,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %92
   br i1 %146, label %nfaExecMcSheng8_inAccept.exit, label %143
 
 nfaExecMcSheng8_inAccept.exit.sink.split:         ; preds = %63, %37, %.thread46, %nfaExecMcSheng8_Q2i.exit.thread34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %nfaExecMcSheng8_inAccept.exit
 
 nfaExecMcSheng8_inAccept.exit:                    ; preds = %143, %.lr.ph.i.i, %nfaExecMcSheng8_inAccept.exit.sink.split, %137, %129, %nfaExecMcSheng8_Q2i.exit
@@ -1686,7 +1680,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %19 = load i8, ptr %18, align 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load i16, ptr %22, align 2
@@ -1881,7 +1875,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %91
   store i32 %122, ptr %65, align 8
   %.not108.i = icmp ne i32 %118, 0
   %123 = zext i1 %.not108.i to i8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not108.i, label %124, label %nfaExecMcSheng16_inAccept.exit
 
 124:                                              ; preds = %nfaExecMcSheng16_Q2i.exit
@@ -1922,7 +1916,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %91
   br i1 %141, label %nfaExecMcSheng16_inAccept.exit, label %138
 
 nfaExecMcSheng16_inAccept.exit.sink.split:        ; preds = %62, %36, %.thread46, %nfaExecMcSheng16_Q2i.exit.thread34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %nfaExecMcSheng16_inAccept.exit
 
 nfaExecMcSheng16_inAccept.exit:                   ; preds = %138, %.lr.ph.i.i, %nfaExecMcSheng16_inAccept.exit.sink.split, %132, %124, %nfaExecMcSheng16_Q2i.exit
@@ -1931,7 +1925,7 @@ nfaExecMcSheng16_inAccept.exit:                   ; preds = %138, %.lr.ph.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
@@ -1950,7 +1944,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_initCompressedState(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_initCompressedState(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
   %.not = icmp eq i64 %1, 0
   %.in.in.v = select i1 %.not, i64 72, i64 74
   %.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.in.v
@@ -2058,7 +2052,7 @@ mcshengCheckEOD.exit:                             ; preds = %.lr.ph, %22, %15, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %4, align 1
@@ -2066,7 +2060,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_queueInitState(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden noundef signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store i16 0, ptr %4, align 2
@@ -2074,7 +2068,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_queueInitState(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2085,14 +2079,14 @@ define hidden noundef signext i8 @nfaExecMcSheng8_queueCompressState(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecMcSheng8_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #3 {
   %6 = load i8, ptr %2, align 1
   store i8 %6, ptr %1, align 1
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden noundef signext i8 @nfaExecMcSheng16_queueCompressState(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2103,14 +2097,14 @@ define hidden noundef signext i8 @nfaExecMcSheng16_queueCompressState(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecMcSheng16_expandState(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 2)) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #3 {
   %6 = load i16, ptr %2, align 1
   store i16 %6, ptr %1, align 2
   ret i8 0
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #7 {
+define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %10, label %11
 
@@ -3064,7 +3058,7 @@ mcshengExec8_i.exit:                              ; preds = %291, %276, %270, %2
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #7 {
+define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcshengExec8_i.exit, label %6
 
@@ -3877,7 +3871,7 @@ mcshengExec8_i.exit:                              ; preds = %5, %259, %.thread36
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #7 {
+define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %7
 
@@ -4667,27 +4661,27 @@ mcshengExec8_i.exit:                              ; preds = %6, %doNormal8.exit.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #9
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i64 @llvm.x86.bmi.pext.64(i64, i64) #9
+declare i64 @llvm.x86.bmi.pext.64(i64, i64) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #10
+declare <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8>, <16 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #10
+declare <16 x i8> @llvm.umax.v16i8(<16 x i8>, <16 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 
-declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
+declare ptr @run_accel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7) unnamed_addr #7 {
+define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, i8 noundef signext range(i8 0, 2) %7) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcshengExec16_i.exit, label %9
 
@@ -5787,7 +5781,7 @@ mcshengExec16_i.exit:                             ; preds = %334, %319, %312, %3
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #7 {
+define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %6, label %7
 
@@ -6757,7 +6751,7 @@ mcshengExec16_i.exit:                             ; preds = %.thread58, %.thread
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #7 {
+define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 {
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %mcshengExec16_i.exit, label %5
 
@@ -7682,6 +7676,12 @@ mcshengExec16_i.exit:                             ; preds = %4, %.thread41
   ret i8 1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12
 
@@ -7689,17 +7689,17 @@ declare i64 @llvm.smin.i64(i64, i64) #12
 declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #7 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #1 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #6 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 

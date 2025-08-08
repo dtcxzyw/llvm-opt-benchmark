@@ -92,59 +92,59 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !4
-  %10 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.1, i64 noundef 6) #14
+  %10 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.1, i64 noundef 6) #13
   %.not = icmp eq i32 %10, 0
   %spec.select.idx = select i1 %.not, i64 6, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
-  %11 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.2, i64 noundef 4) #14
+  %11 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.2, i64 noundef 4) #13
   %.not130 = icmp eq i32 %11, 0
   br i1 %.not130, label %12, label %23
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
-  %14 = tail call i32 @strncasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.3, i64 noundef 11) #14
+  %14 = tail call i32 @strncasecmp(ptr noundef nonnull %13, ptr noundef nonnull @.str.3, i64 noundef 11) #13
   %.not131 = icmp eq i32 %14, 0
   br i1 %.not131, label %15, label %20
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 15
-  %17 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #13
+  %17 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #14
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4) #13
+  tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.4) #14
   br label %192
 
 20:                                               ; preds = %15, %12
   %.0116 = phi i64 [ 2097152, %12 ], [ %17, %15 ]
-  %21 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #13
-  %22 = tail call ptr @_php_stream_temp_create(i32 noundef %21, i64 noundef %.0116) #13
+  %21 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #14
+  %22 = tail call ptr @_php_stream_temp_create(i32 noundef %21, i64 noundef %.0116) #14
   br label %192
 
 23:                                               ; preds = %6
-  %24 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.5) #14
+  %24 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.5) #13
   %.not132 = icmp eq i32 %24, 0
   br i1 %.not132, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #13
-  %27 = tail call ptr @_php_stream_memory_create(i32 noundef %26) #13
+  %26 = tail call i32 @php_stream_mode_from_str(ptr noundef %2) #14
+  %27 = tail call ptr @_php_stream_memory_create(i32 noundef %26) #14
   br label %192
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.6) #14
+  %29 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.6) #13
   %.not133 = icmp eq i32 %29, 0
   br i1 %.not133, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_output_ops, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.7) #13
+  %31 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_output_ops, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.7) #14
   br label %192
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.8) #14
+  %33 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.8) #13
   %.not134 = icmp eq i32 %33, 0
   br i1 %.not134, label %34, label %52
 
@@ -162,7 +162,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not135, label %192, label %41
 
 41:                                               ; preds = %39
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #14
   br label %192
 
 42:                                               ; preds = %34
@@ -173,22 +173,22 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not136, label %47, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call i32 @_php_stream_seek(ptr noundef nonnull %44, i64 noundef 0, i32 noundef 0) #13
+  %46 = tail call i32 @_php_stream_seek(ptr noundef nonnull %44, i64 noundef 0, i32 noundef 0) #14
   br label %50
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 128), align 8, !tbaa !36
-  %49 = tail call ptr @_php_stream_temp_create_ex(i32 noundef 0, i64 noundef 16384, ptr noundef %48) #13
+  %49 = tail call ptr @_php_stream_temp_create_ex(i32 noundef 0, i64 noundef 16384, ptr noundef %48) #14
   store ptr %49, ptr %43, align 8, !tbaa !34
   store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !10
   br label %50
 
 50:                                               ; preds = %47, %45
-  %51 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_input_ops, ptr noundef nonnull %43, ptr noundef null, ptr noundef nonnull @.str.10) #13
+  %51 = tail call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_input_ops, ptr noundef nonnull %43, ptr noundef null, ptr noundef nonnull @.str.10) #14
   br label %192
 
 52:                                               ; preds = %32
-  %53 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.11) #14
+  %53 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.11) #13
   %.not137 = icmp eq i32 %53, 0
   br i1 %.not137, label %54, label %68
 
@@ -206,12 +206,12 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not138, label %192, label %61
 
 61:                                               ; preds = %59
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #14
   br label %192
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr @sapi_module, align 8, !tbaa !41
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(4) @.str.12) #14
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(4) @.str.12) #13
   %.not139 = icmp eq i32 %64, 0
   br i1 %.not139, label %65, label %171
 
@@ -225,13 +225,13 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 68:                                               ; preds = %52
-  %69 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.13) #14
+  %69 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.13) #13
   %.not140 = icmp eq i32 %69, 0
   br i1 %.not140, label %70, label %78
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr @sapi_module, align 8, !tbaa !41
-  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.12) #14
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %71, ptr noundef nonnull dereferenceable(4) @.str.12) #13
   %.not141 = icmp eq i32 %72, 0
   br i1 %.not141, label %73, label %171
 
@@ -248,13 +248,13 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 78:                                               ; preds = %68
-  %79 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.14) #14
+  %79 = tail call i32 @strcasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.14) #13
   %.not143 = icmp eq i32 %79, 0
   br i1 %.not143, label %80, label %88
 
 80:                                               ; preds = %78
   %81 = load ptr, ptr @sapi_module, align 8, !tbaa !41
-  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(4) @.str.12) #14
+  %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(4) @.str.12) #13
   %.not144 = icmp eq i32 %82, 0
   br i1 %.not144, label %83, label %171
 
@@ -271,14 +271,14 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 88:                                               ; preds = %78
-  %89 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.15, i64 noundef 3) #14
+  %89 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.15, i64 noundef 3) #13
   %.not146 = icmp eq i32 %89, 0
   br i1 %.not146, label %90, label %126
 
 90:                                               ; preds = %88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %91 = load ptr, ptr @sapi_module, align 8, !tbaa !41
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(4) @.str.12) #14
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(4) @.str.12) #13
   %.not147 = icmp eq i32 %92, 0
   br i1 %.not147, label %96, label %93
 
@@ -288,7 +288,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not151, label %.critedge, label %95
 
 95:                                               ; preds = %93
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.16) #14
   br label %.critedge
 
 96:                                               ; preds = %90
@@ -305,12 +305,12 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not148, label %.critedge, label %103
 
 103:                                              ; preds = %101
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9) #14
   br label %.critedge
 
 104:                                              ; preds = %96
   %105 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
-  %106 = call i64 @strtoll(ptr noundef nonnull %105, ptr noundef nonnull %8, i32 noundef 10) #13
+  %106 = call i64 @strtoll(ptr noundef nonnull %105, ptr noundef nonnull %8, i32 noundef 10) #14
   %107 = load ptr, ptr %8, align 8, !tbaa !4
   %108 = icmp eq ptr %107, %105
   br i1 %108, label %111, label %109
@@ -321,11 +321,11 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not149, label %112, label %111
 
 111:                                              ; preds = %109, %104
-  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.17) #13
+  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.17) #14
   br label %.critedge
 
 112:                                              ; preds = %109
-  %113 = tail call i32 @getdtablesize() #13
+  %113 = tail call i32 @getdtablesize() #14
   %114 = icmp sgt i64 %106, -1
   %115 = sext i32 %113 to i64
   %.not150 = icmp slt i64 %106, %115
@@ -333,38 +333,38 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond166, label %117, label %116
 
 116:                                              ; preds = %112
-  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.18, i32 noundef %113) #13
+  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.18, i32 noundef %113) #14
   br label %.critedge
 
 117:                                              ; preds = %112
   %118 = trunc nuw nsw i64 %106 to i32
-  %119 = tail call i32 @dup(i32 noundef %118) #13
+  %119 = tail call i32 @dup(i32 noundef %118) #14
   %120 = icmp eq i32 %119, -1
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %117
   %122 = tail call ptr @__errno_location() #16
   %123 = load i32, ptr %122, align 4, !tbaa !46
-  %124 = tail call ptr @strerror(i32 noundef %123) #13
-  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.19, i64 noundef %106, i32 noundef %123, ptr noundef %124) #13
+  %124 = tail call ptr @strerror(i32 noundef %123) #14
+  tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.19, i64 noundef %106, i32 noundef %123, ptr noundef %124) #14
   br label %.critedge
 
 125:                                              ; preds = %117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 126:                                              ; preds = %88
-  %127 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.20, i64 noundef 7) #14
+  %127 = tail call i32 @strncasecmp(ptr noundef %spec.select, ptr noundef nonnull @.str.20, i64 noundef 7) #13
   %.not154 = icmp eq i32 %127, 0
   br i1 %.not154, label %128, label %170
 
 128:                                              ; preds = %126
-  %129 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 114) #14
+  %129 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 114) #13
   %.not155 = icmp eq ptr %129, null
   br i1 %.not155, label %130, label %132
 
 130:                                              ; preds = %128
-  %131 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #14
+  %131 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #13
   %.not156 = icmp eq ptr %131, null
   br i1 %.not156, label %133, label %132
 
@@ -373,17 +373,17 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 133:                                              ; preds = %132, %130
   %.0111 = phi i32 [ 1, %132 ], [ 0, %130 ]
-  %134 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 119) #14
+  %134 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 119) #13
   %.not157 = icmp eq ptr %134, null
   br i1 %.not157, label %135, label %139
 
 135:                                              ; preds = %133
-  %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #14
+  %136 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 43) #13
   %.not158 = icmp eq ptr %136, null
   br i1 %.not158, label %137, label %139
 
 137:                                              ; preds = %135
-  %138 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 97) #14
+  %138 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 97) #13
   %.not159 = icmp eq ptr %138, null
   br i1 %.not159, label %141, label %139
 
@@ -394,31 +394,31 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 141:                                              ; preds = %139, %137
   %.1112 = phi i32 [ %140, %139 ], [ %.0111, %137 ]
   %142 = getelementptr inbounds nuw i8, ptr %spec.select, i64 6
-  %143 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #14
-  %144 = tail call noalias ptr @_estrndup(ptr noundef nonnull %142, i64 noundef %143) #13
-  %145 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) @.str.21) #14
+  %143 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #13
+  %144 = tail call noalias ptr @_estrndup(ptr noundef nonnull %142, i64 noundef %143) #14
+  %145 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) @.str.21) #13
   %.not160 = icmp eq ptr %145, null
   br i1 %.not160, label %146, label %147
 
 146:                                              ; preds = %141
-  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22) #13
-  tail call void @_efree(ptr noundef nonnull %144) #13
+  tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.22) #14
+  tail call void @_efree(ptr noundef nonnull %144) #14
   br label %192
 
 147:                                              ; preds = %141
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 10
-  %149 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %148, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #13
+  %149 = tail call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %148, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #14
   %.not161 = icmp eq ptr %149, null
   br i1 %.not161, label %150, label %151
 
 150:                                              ; preds = %147
-  tail call void @_efree(ptr noundef nonnull %144) #13
+  tail call void @_efree(ptr noundef nonnull %144) #14
   br label %192
 
 151:                                              ; preds = %147
   store i8 0, ptr %145, align 1, !tbaa !47
   %152 = getelementptr inbounds nuw i8, ptr %144, i64 1
-  %153 = call ptr @strtok_r(ptr noundef nonnull %152, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #13
+  %153 = call ptr @strtok_r(ptr noundef nonnull %152, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #14
   %.not162175 = icmp eq ptr %153, null
   br i1 %.not162175, label %._crit_edge, label %.lr.ph
 
@@ -429,7 +429,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
 
 156:                                              ; preds = %.lr.ph, %165
   %.0118176 = phi ptr [ %153, %.lr.ph ], [ %166, %165 ]
-  %157 = call i32 @strncasecmp(ptr noundef nonnull %.0118176, ptr noundef nonnull @.str.24, i64 noundef 5) #14
+  %157 = call i32 @strncasecmp(ptr noundef nonnull %.0118176, ptr noundef nonnull @.str.24, i64 noundef 5) #13
   %.not164 = icmp eq i32 %157, 0
   br i1 %.not164, label %158, label %160
 
@@ -439,7 +439,7 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %165
 
 160:                                              ; preds = %156
-  %161 = call i32 @strncasecmp(ptr noundef nonnull %.0118176, ptr noundef nonnull @.str.25, i64 noundef 6) #14
+  %161 = call i32 @strncasecmp(ptr noundef nonnull %.0118176, ptr noundef nonnull @.str.25, i64 noundef 6) #13
   %.not165 = icmp eq i32 %161, 0
   br i1 %.not165, label %162, label %164
 
@@ -453,36 +453,36 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br label %165
 
 165:                                              ; preds = %162, %164, %158
-  %166 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #13
+  %166 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull %7) #14
   %.not162 = icmp eq ptr %166, null
   br i1 %.not162, label %._crit_edge, label %156
 
 ._crit_edge:                                      ; preds = %165, %151
-  call void @_efree(ptr noundef nonnull %144) #13
+  call void @_efree(ptr noundef nonnull %144) #14
   %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !48
   %.not163 = icmp eq ptr %167, null
   br i1 %.not163, label %192, label %168
 
 168:                                              ; preds = %._crit_edge
-  %169 = call i32 @_php_stream_free(ptr noundef nonnull %149, i32 noundef 3) #13
+  %169 = call i32 @_php_stream_free(ptr noundef nonnull %149, i32 noundef 3) #14
   br label %192
 
 170:                                              ; preds = %126
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26) #13
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26) #14
   br label %192
 
 171:                                              ; preds = %80, %83, %70, %73, %62, %65
   %.sink = phi i32 [ 0, %65 ], [ 0, %62 ], [ 1, %73 ], [ 1, %70 ], [ 2, %83 ], [ 2, %80 ]
-  %172 = tail call i32 @dup(i32 noundef %.sink) #13
+  %172 = tail call i32 @dup(i32 noundef %.sink) #14
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %192, label %.thread
 
 .thread:                                          ; preds = %66, %76, %86, %125, %171
   %.0109170 = phi i32 [ %172, %171 ], [ 0, %66 ], [ 1, %76 ], [ 2, %86 ], [ %119, %125 ]
   %.0115169 = phi ptr [ null, %171 ], [ %67, %66 ], [ %77, %76 ], [ %87, %86 ], [ null, %125 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, i8 0, i64 144, i1 false)
-  %174 = call i32 @fstat(i32 noundef %.0109170, ptr noundef nonnull %9) #13
+  %174 = call i32 @fstat(i32 noundef %.0109170, ptr noundef nonnull %9) #14
   %175 = icmp eq i32 %174, 0
   br i1 %175, label %176, label %184
 
@@ -494,120 +494,114 @@ define internal ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr
   br i1 %180, label %181, label %184
 
 181:                                              ; preds = %176
-  %182 = tail call ptr @_php_stream_sock_open_from_socket(i32 noundef %.0109170, ptr noundef null) #13
+  %182 = tail call ptr @_php_stream_sock_open_from_socket(i32 noundef %.0109170, ptr noundef null) #14
   %.not152 = icmp eq ptr %182, null
   br i1 %.not152, label %184, label %183
 
 183:                                              ; preds = %181
   store ptr @php_stream_socket_ops, ptr %182, align 8, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %192
 
 184:                                              ; preds = %181, %176, %.thread
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not153 = icmp eq ptr %.0115169, null
   br i1 %.not153, label %187, label %185
 
 185:                                              ; preds = %184
-  %186 = tail call ptr @_php_stream_fopen_from_file(ptr noundef nonnull %.0115169, ptr noundef %2) #13
+  %186 = tail call ptr @_php_stream_fopen_from_file(ptr noundef nonnull %.0115169, ptr noundef %2) #14
   br label %192
 
 187:                                              ; preds = %184
-  %188 = tail call ptr @_php_stream_fopen_from_fd(i32 noundef %.0109170, ptr noundef %2, ptr noundef null, i1 noundef zeroext false) #13
+  %188 = tail call ptr @_php_stream_fopen_from_fd(i32 noundef %.0109170, ptr noundef %2, ptr noundef null, i1 noundef zeroext false) #14
   %189 = icmp eq ptr %188, null
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %187
-  %191 = tail call i32 @close(i32 noundef %.0109170) #13
+  %191 = tail call i32 @close(i32 noundef %.0109170) #14
   br label %192
 
 .critedge:                                        ; preds = %101, %103, %93, %95, %121, %116, %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %192
 
 192:                                              ; preds = %183, %185, %190, %187, %171, %._crit_edge, %.critedge, %59, %61, %50, %41, %39, %170, %168, %150, %146, %30, %25, %20, %19
   %.0 = phi ptr [ null, %170 ], [ null, %168 ], [ null, %150 ], [ null, %146 ], [ %182, %183 ], [ %31, %30 ], [ %27, %25 ], [ %22, %20 ], [ null, %19 ], [ %51, %50 ], [ null, %41 ], [ null, %39 ], [ null, %61 ], [ null, %59 ], [ null, %.critedge ], [ %149, %._crit_edge ], [ null, %171 ], [ %186, %185 ], [ null, %190 ], [ %188, %187 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
-declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @php_stream_mode_from_str(ptr noundef) local_unnamed_addr #4
+declare i32 @php_stream_mode_from_str(ptr noundef) local_unnamed_addr #3
 
-declare ptr @_php_stream_temp_create(i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @_php_stream_temp_create(i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @_php_stream_memory_create(i32 noundef) local_unnamed_addr #4
+declare ptr @_php_stream_memory_create(i32 noundef) local_unnamed_addr #3
 
-declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @_php_stream_temp_create_ex(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @_php_stream_temp_create_ex(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #7
+declare i32 @dup(i32 noundef) local_unnamed_addr #6
 
-declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @getdtablesize() local_unnamed_addr #7
+declare i32 @getdtablesize() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #7
+declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
+
+declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !4
-  %6 = call ptr @strtok_r(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #13
+  %6 = call ptr @strtok_r(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
   %.not21 = icmp eq ptr %6, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -621,28 +615,28 @@ define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %19
   %.022.us = phi ptr [ %20, %19 ], [ %6, %.lr.ph ]
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us) #14
-  %11 = call i64 @php_url_decode(ptr noundef nonnull %.022.us, i64 noundef %10) #13
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us) #13
+  %11 = call i64 @php_url_decode(ptr noundef nonnull %.022.us, i64 noundef %10) #14
   br i1 %.not19, label %19, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = load i16, ptr %7, align 8
   %14 = trunc i16 %13 to i8
   %15 = and i8 %14, 1
-  %16 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us, ptr noundef null, i8 noundef zeroext %15) #13
+  %16 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us, ptr noundef null, i8 noundef zeroext %15) #14
   %.not20.us = icmp eq ptr %16, null
   br i1 %.not20.us, label %18, label %17
 
 17:                                               ; preds = %12
-  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %16) #13
+  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %16) #14
   br label %19
 
 18:                                               ; preds = %12
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us) #14
   br label %19
 
 19:                                               ; preds = %18, %17, %.lr.ph.split.us
-  %20 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #13
+  %20 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
   %.not.us = icmp eq ptr %20, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
 
@@ -651,97 +645,97 @@ define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %29
   %.022.us23 = phi ptr [ %30, %29 ], [ %6, %.lr.ph.split ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us23) #14
-  %22 = call i64 @php_url_decode(ptr noundef nonnull %.022.us23, i64 noundef %21) #13
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022.us23) #13
+  %22 = call i64 @php_url_decode(ptr noundef nonnull %.022.us23, i64 noundef %21) #14
   %23 = load i16, ptr %7, align 8
   %24 = trunc i16 %23 to i8
   %25 = and i8 %24, 1
-  %26 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us23, ptr noundef null, i8 noundef zeroext %25) #13
+  %26 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022.us23, ptr noundef null, i8 noundef zeroext %25) #14
   %.not18.us = icmp eq ptr %26, null
   br i1 %.not18.us, label %28, label %27
 
 27:                                               ; preds = %.lr.ph.split.split.us
-  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %26) #13
+  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %26) #14
   br label %29
 
 28:                                               ; preds = %.lr.ph.split.split.us
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us23) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022.us23) #14
   br label %29
 
 29:                                               ; preds = %28, %27
-  %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #13
+  %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
   %.not.us24 = icmp eq ptr %30, null
   br i1 %.not.us24, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !82
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %46
   %.022 = phi ptr [ %47, %46 ], [ %6, %.lr.ph.split ]
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022) #14
-  %32 = call i64 @php_url_decode(ptr noundef nonnull %.022, i64 noundef %31) #13
+  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022) #13
+  %32 = call i64 @php_url_decode(ptr noundef nonnull %.022, i64 noundef %31) #14
   %33 = load i16, ptr %7, align 8
   %34 = trunc i16 %33 to i8
   %35 = and i8 %34, 1
-  %36 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %35) #13
+  %36 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %35) #14
   %.not18 = icmp eq ptr %36, null
   br i1 %.not18, label %38, label %37
 
 37:                                               ; preds = %.lr.ph.split.split
-  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %36) #13
+  call void @_php_stream_filter_append(ptr noundef nonnull %8, ptr noundef nonnull %36) #14
   br label %39
 
 38:                                               ; preds = %.lr.ph.split.split
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #14
   br label %39
 
 39:                                               ; preds = %37, %38
   %40 = load i16, ptr %7, align 8
   %41 = trunc i16 %40 to i8
   %42 = and i8 %41, 1
-  %43 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %42) #13
+  %43 = call ptr @php_stream_filter_create(ptr noundef nonnull %.022, ptr noundef null, i8 noundef zeroext %42) #14
   %.not20 = icmp eq ptr %43, null
   br i1 %.not20, label %45, label %44
 
 44:                                               ; preds = %39
-  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %43) #13
+  call void @_php_stream_filter_append(ptr noundef nonnull %9, ptr noundef nonnull %43) #14
   br label %46
 
 45:                                               ; preds = %39
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #13
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef nonnull %.022) #14
   br label %46
 
 46:                                               ; preds = %44, %45
-  %47 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #13
+  %47 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #14
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %46, %29, %19, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
-declare ptr @_php_stream_sock_open_from_socket(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_php_stream_sock_open_from_socket(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @_php_stream_fopen_from_file(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_php_stream_fopen_from_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @_php_stream_fopen_from_fd(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @_php_stream_fopen_from_fd(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_stream_output_write(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef returned %2) #0 {
-  %4 = tail call i64 @php_output_write(ptr noundef %1, i64 noundef %2) #13
+  %4 = tail call i64 @php_output_write(ptr noundef %1, i64 noundef %2) #14
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @php_stream_output_read(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i64 %2) #11 {
+define internal noundef i64 @php_stream_output_read(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i64 %2) #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i16, ptr %4, align 8
   %6 = or i16 %5, 8
@@ -750,14 +744,14 @@ define internal noundef i64 @php_stream_output_read(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_stream_output_close(ptr readnone captures(none) %0, i32 %1) #12 {
+define internal noundef i32 @php_stream_output_close(ptr readnone captures(none) %0, i32 %1) #11 {
   ret i32 0
 }
 
-declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @php_output_write(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @php_stream_input_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #12 {
+define internal noundef i64 @php_stream_input_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #11 {
   ret i64 -1
 }
 
@@ -778,15 +772,15 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @sapi_read_post_block(ptr noundef %1, i64 noundef %2) #13
+  %14 = tail call i64 @sapi_read_post_block(ptr noundef %1, i64 noundef %2) #14
   %.not23 = icmp eq i64 %14, 0
   br i1 %.not23, label %20, label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %5, align 8, !tbaa !34
-  %17 = tail call i32 @_php_stream_seek(ptr noundef %16, i64 noundef 0, i32 noundef 2) #13
+  %17 = tail call i32 @_php_stream_seek(ptr noundef %16, i64 noundef 0, i32 noundef 2) #14
   %18 = load ptr, ptr %5, align 8, !tbaa !34
-  %19 = tail call i64 @_php_stream_write(ptr noundef %18, ptr noundef %1, i64 noundef %14) #13
+  %19 = tail call i64 @_php_stream_write(ptr noundef %18, ptr noundef %1, i64 noundef %14) #14
   br label %20
 
 20:                                               ; preds = %13, %15, %7, %3
@@ -799,13 +793,13 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !86
-  %27 = tail call i32 @_php_stream_seek(ptr noundef nonnull %21, i64 noundef %26, i32 noundef 0) #13
+  %27 = tail call i32 @_php_stream_seek(ptr noundef nonnull %21, i64 noundef %26, i32 noundef 0) #14
   %.pre = load ptr, ptr %5, align 8, !tbaa !34
   br label %28
 
 28:                                               ; preds = %24, %20
   %29 = phi ptr [ %.pre, %24 ], [ %21, %20 ]
-  %30 = tail call i64 @_php_stream_read(ptr noundef %29, ptr noundef %1, i64 noundef %2) #13
+  %30 = tail call i64 @_php_stream_read(ptr noundef %29, ptr noundef %1, i64 noundef %2) #14
   %31 = add i64 %30, 1
   %or.cond = icmp ult i64 %31, 2
   br i1 %or.cond, label %32, label %36
@@ -832,13 +826,13 @@ define internal i64 @php_stream_input_read(ptr noundef captures(none) %0, ptr no
 define internal noundef i32 @php_stream_input_close(ptr noundef captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !83
-  tail call void @_efree(ptr noundef %4) #13
+  tail call void @_efree(ptr noundef %4) #14
   store ptr null, ptr %3, align 8, !tbaa !83
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_stream_input_flush(ptr readnone captures(none) %0) #12 {
+define internal noundef i32 @php_stream_input_flush(ptr readnone captures(none) %0) #11 {
   ret i32 -1
 }
 
@@ -851,7 +845,7 @@ define internal i32 @php_stream_input_seek(ptr noundef readonly captures(none) %
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @_php_stream_seek(ptr noundef nonnull %7, i64 noundef %1, i32 noundef %2) #13
+  %9 = tail call i32 @_php_stream_seek(ptr noundef nonnull %7, i64 noundef %1, i32 noundef %2) #14
   %10 = load ptr, ptr %6, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load i64, ptr %11, align 8, !tbaa !88
@@ -865,33 +859,39 @@ define internal i32 @php_stream_input_seek(ptr noundef readonly captures(none) %
   ret i32 %.0
 }
 
-declare i64 @sapi_read_post_block(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @sapi_read_post_block(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @_php_stream_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @php_url_decode(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @php_url_decode(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @php_stream_filter_create(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @php_stream_filter_create(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
-declare void @_php_stream_filter_append(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_php_stream_filter_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { nounwind }
 attributes #15 = { nounwind allocsize(0,1) }
 attributes #16 = { nounwind willreturn memory(none) }
 

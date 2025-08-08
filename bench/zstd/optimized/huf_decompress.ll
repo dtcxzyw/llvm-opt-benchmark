@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @HUF_readDTableX1_wksp(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = icmp ult i64 %4, 1492
@@ -407,28 +407,22 @@ HUF_rescaleStats.exit:                            ; preds = %16
 
 .critedge:                                        ; preds = %.loopexit, %._crit_edge, %HUF_rescaleStats.exit, %11, %6
   %.0 = phi i64 [ -44, %6 ], [ %14, %11 ], [ -44, %HUF_rescaleStats.exit ], [ %14, %._crit_edge ], [ %14, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @HUF_readStats_wksp(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @HUF_readStats_wksp(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.0.0.copyload.i = load i32, ptr %0, align 4
   %.sroa.0.0.extract.trunc = trunc i32 %.sroa.0.0.copyload.i to i8
   %.sroa.7.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 24
@@ -1098,13 +1092,13 @@ HUF_fillDTableX2.exit:                            ; preds = %.loopexit.i, %._cri
 
 275:                                              ; preds = %22, %17, %12, %6, %HUF_fillDTableX2.exit
   %.087 = phi i64 [ %20, %HUF_fillDTableX2.exit ], [ -1, %6 ], [ -44, %12 ], [ %20, %17 ], [ -44, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.087
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i64 @HUF_decompress1X2_DCtx_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -1128,7 +1122,7 @@ define i64 @HUF_decompress1X2_DCtx_wksp(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #5 {
+define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #4 {
   %7 = and i32 %5, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -1721,7 +1715,7 @@ HUF_decompress1X2_usingDTable_internal_default.exit: ; preds = %HUF_decodeStream
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @HUF_selectDecoder(i64 noundef %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @HUF_selectDecoder(i64 noundef %0, i64 noundef %1) local_unnamed_addr #5 {
   %.not = icmp ult i64 %1, %0
   br i1 %.not, label %3, label %7
 
@@ -1868,7 +1862,7 @@ define i64 @HUF_decompress1X1_DCtx_wksp(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #5 {
+define i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #4 {
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 4
   %7 = and i32 %.sroa.0.0.copyload.i, 65280
   %.not = icmp eq i32 %7, 0
@@ -1888,7 +1882,7 @@ define i64 @HUF_decompress1X_usingDTable(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #7 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #6 {
   %7 = and i32 %5, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -2240,7 +2234,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %16 = getelementptr inbounds i8, ptr %15, i64 -7
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val.i.i = load i16, ptr %2, align 1, !tbaa !66
   %18 = zext i16 %.val.i.i to i64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -4933,7 +4927,7 @@ HUF_decodeStreamX2.exit.i.i:                      ; preds = %1768, %1765, %1759,
 
 BIT_initDStream.exit.thread.i:                    ; preds = %HUF_decodeStreamX2.exit.i.i, %.loopexit636.i, %238, %229, %177, %172, %163, %111, %106, %97, %45, %40, %14
   %.1.i.i = phi i64 [ %239, %238 ], [ -20, %14 ], [ -20, %.loopexit636.i ], [ %spec.select.i.i, %HUF_decodeStreamX2.exit.i.i ], [ -20, %97 ], [ -1, %45 ], [ -72, %40 ], [ -20, %163 ], [ -1, %111 ], [ -72, %106 ], [ -20, %229 ], [ -1, %177 ], [ -72, %172 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %HUF_decompress4X2_usingDTable_internal_default.exit
 
 1786:                                             ; preds = %9
@@ -4975,7 +4969,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %16 = getelementptr inbounds i8, ptr %15, i64 -3
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val.i.i = load i16, ptr %2, align 1, !tbaa !66
   %18 = zext i16 %.val.i.i to i64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -6486,7 +6480,7 @@ HUF_decodeStreamX1.exit.i.i:                      ; preds = %HUF_decodeStreamX1.
 
 BIT_initDStream.exit.thread.i:                    ; preds = %HUF_decodeStreamX1.exit.i.i, %.loopexit.i, %237, %228, %176, %171, %162, %110, %105, %96, %44, %39, %14
   %.1.i.i = phi i64 [ %238, %237 ], [ -20, %14 ], [ -20, %.loopexit.i ], [ %spec.select.i.i, %HUF_decodeStreamX1.exit.i.i ], [ -20, %96 ], [ -1, %44 ], [ -72, %39 ], [ -20, %162 ], [ -1, %110 ], [ -72, %105 ], [ -20, %228 ], [ -1, %176 ], [ -72, %171 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %HUF_decompress4X1_usingDTable_internal_default.exit
 
 981:                                              ; preds = %9
@@ -6582,7 +6576,7 @@ HUF_decompress4X2_DCtx_wksp.exit:                 ; preds = %46, %45, %42, %38, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #8 {
+define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #7 {
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %HUF_decompress1X2_usingDTable_internal_body.exit, label %7
 
@@ -7175,7 +7169,7 @@ HUF_decompress1X2_usingDTable_internal_body.exit: ; preds = %HUF_decodeStreamX2.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #9 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #8 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -7321,10 +7315,10 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #11 {
+define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noundef writeonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #10 {
   %.idx.i = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -7627,13 +7621,13 @@ HUF_decompress1X1_usingDTable_internal_body.exit: ; preds = %HUF_decodeStreamX1.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr noundef captures(none) %0) #12 {
+define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr noundef captures(none) %0) #11 {
   %2 = alloca [4 x ptr], align 16
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !78
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8056,14 +8050,14 @@ define internal void @HUF_decompress4X2_usingDTable_internal_fast_c_loop(ptr nou
   store i64 %.sroa.61.0, ptr %.sroa.61.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #12 {
+define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #11 {
   %6 = alloca %struct.BIT_DStream_t, align 8
   %7 = icmp ult i64 %3, 10
   %8 = icmp ult i64 %1, 6
@@ -8074,7 +8068,7 @@ define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X2_usingDTable_intern
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %11 = getelementptr inbounds i8, ptr %10, i64 -7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val.i = load i16, ptr %2, align 1, !tbaa !66
   %13 = zext i16 %.val.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -10768,7 +10762,7 @@ HUF_decodeStreamX2.exit.i:                        ; preds = %1755, %1761, %1764,
 
 BIT_initDStream.exit.thread:                      ; preds = %224, %172, %167, %158, %106, %101, %92, %40, %35, %HUF_decodeStreamX2.exit.i, %.loopexit636, %233, %9
   %.1.i = phi i64 [ %234, %233 ], [ -20, %9 ], [ -20, %.loopexit636 ], [ %spec.select.i, %HUF_decodeStreamX2.exit.i ], [ -20, %92 ], [ -1, %40 ], [ -72, %35 ], [ -20, %158 ], [ -1, %106 ], [ -72, %101 ], [ -20, %224 ], [ -1, %172 ], [ -72, %167 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HUF_decompress4X2_usingDTable_internal_body.exit
 
 HUF_decompress4X2_usingDTable_internal_body.exit: ; preds = %5, %BIT_initDStream.exit.thread
@@ -10776,15 +10770,15 @@ HUF_decompress4X2_usingDTable_internal_body.exit: ; preds = %5, %BIT_initDStream
   ret i64 %.0.i
 }
 
-declare hidden void @HUF_decompress4X2_usingDTable_internal_fast_asm_loop(ptr noundef) #2
+declare hidden void @HUF_decompress4X2_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #13 {
+define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_fast(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #12 {
   %7 = alloca %struct.HUF_DecompressFastArgs, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.idx.i = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call fastcc i64 @HUF_DecompressFastArgs_init(ptr noundef %7, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %11 = add nsw i64 %10, -1
   %or.cond = icmp ult i64 %11, -120
@@ -11140,15 +11134,15 @@ HUF_decodeLastSymbolX2.exit:                      ; preds = %.loopexit
 
 .thread:                                          ; preds = %224, %20, %28, %21, %6
   %.2 = phi i64 [ %10, %6 ], [ -20, %21 ], [ -20, %28 ], [ %1, %20 ], [ -20, %224 ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #14 {
+define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #13 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %5, align 4
   %.idx.i = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
@@ -11304,9 +11298,9 @@ define internal fastcc range(i64 -20, 2) i64 @HUF_DecompressFastArgs_init(ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr noundef captures(none) %0) #12 {
+define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr noundef captures(none) %0) #11 {
   %2 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -11661,12 +11655,12 @@ define internal void @HUF_decompress4X1_usingDTable_internal_fast_c_loop(ptr nou
   store ptr %.sroa.11.0249, ptr %.sroa.11.0..sroa_idx, align 8
   store ptr %.sroa.18.0247, ptr %.sroa.18.0..sroa_idx, align 8
   store ptr %.sroa.25.0245, ptr %.sroa.25.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #8 {
+define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) unnamed_addr #7 {
   %6 = alloca %struct.BIT_DStream_t, align 8
   %7 = icmp ult i64 %3, 10
   %8 = icmp ult i64 %1, 6
@@ -11677,7 +11671,7 @@ define internal fastcc range(i64 1, 0) i64 @HUF_decompress4X1_usingDTable_intern
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %11 = getelementptr inbounds i8, ptr %10, i64 -3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val.i = load i16, ptr %2, align 1, !tbaa !66
   %13 = zext i16 %.val.i to i64
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -13189,7 +13183,7 @@ HUF_decodeStreamX1.exit.i:                        ; preds = %HUF_decodeStreamX1.
 
 BIT_initDStream.exit.thread:                      ; preds = %223, %171, %166, %157, %105, %100, %91, %39, %34, %HUF_decodeStreamX1.exit.i, %.loopexit, %232, %9
   %.1.i = phi i64 [ %233, %232 ], [ -20, %9 ], [ -20, %.loopexit ], [ %spec.select.i, %HUF_decodeStreamX1.exit.i ], [ -20, %91 ], [ -1, %39 ], [ -72, %34 ], [ -20, %157 ], [ -1, %105 ], [ -72, %100 ], [ -20, %223 ], [ -1, %171 ], [ -72, %166 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %HUF_decompress4X1_usingDTable_internal_body.exit
 
 HUF_decompress4X1_usingDTable_internal_body.exit: ; preds = %5, %BIT_initDStream.exit.thread
@@ -13197,15 +13191,15 @@ HUF_decompress4X1_usingDTable_internal_body.exit: ; preds = %5, %BIT_initDStream
   ret i64 %.0.i
 }
 
-declare hidden void @HUF_decompress4X1_usingDTable_internal_fast_asm_loop(ptr noundef) #2
+declare hidden void @HUF_decompress4X1_usingDTable_internal_fast_asm_loop(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #13 {
+define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_fast(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #12 {
   %7 = alloca %struct.HUF_DecompressFastArgs, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.idx.i = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call fastcc i64 @HUF_DecompressFastArgs_init(ptr noundef %7, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %11 = add nsw i64 %10, -1
   %or.cond = icmp ult i64 %11, -120
@@ -13432,9 +13426,15 @@ BIT_reloadDStream.exit.i:                         ; preds = %BIT_reloadDStream.e
 
 .thread:                                          ; preds = %._crit_edge, %20, %28, %21, %6
   %.2 = phi i64 [ %10, %6 ], [ -20, %21 ], [ -20, %28 ], [ %1, %20 ], [ -20, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.2
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
@@ -13452,20 +13452,20 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i64 @llvm.smin.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+bmi,+bmi2,+cmov,+cx8,+fxsr,+lzcnt,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 

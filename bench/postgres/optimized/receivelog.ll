@@ -94,17 +94,11 @@ define dso_local noundef zeroext i1 @CheckServerVersionForStreaming(ptr noundef 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @PQserverVersion(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQserverVersion(ptr noundef) local_unnamed_addr #2
+declare ptr @PQparameterStatus(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PQparameterStatus(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ReceiveXlogStream(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -122,8 +116,8 @@ define dso_local noundef zeroext i1 @ReceiveXlogStream(ptr noundef %0, ptr nound
   %14 = alloca [128 x i8], align 16
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %17 = tail call i32 @PQserverVersion(ptr noundef %0) #11
   %18 = icmp slt i32 %17, 90300
   br i1 %18, label %19, label %22
@@ -177,9 +171,9 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   br label %55
 
 38:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %39 = call zeroext i1 @RunIdentifySystem(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #11
   br i1 %39, label %42, label %40
 
@@ -214,8 +208,8 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
   br label %.critedge
 
 54:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %55
 
 55:                                               ; preds = %._crit_edge, %54
@@ -235,12 +229,12 @@ CheckServerVersionForStreaming.exit:              ; preds = %22
 
 66:                                               ; preds = %549, %55
   %67 = phi i32 [ %520, %549 ], [ %.pre, %55 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %existsTimeLineHistoryFile.exit.thread, label %existsTimeLineHistoryFile.exit
 
 existsTimeLineHistoryFile.exit.thread:            ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %149
 
 existsTimeLineHistoryFile.exit:                   ; preds = %66
@@ -250,7 +244,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = call zeroext i1 %73(ptr noundef nonnull %70, ptr noundef nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre666 = load i32, ptr %57, align 8
   br i1 %74, label %149, label %75
 
@@ -288,7 +282,7 @@ existsTimeLineHistoryFile.exit:                   ; preds = %66
   %90 = call ptr @PQgetvalue(ptr noundef %77, i32 noundef 0, i32 noundef 1) #11
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #12
   %92 = trunc i64 %91 to i32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %93 = load i32, ptr %57, align 8
   %94 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %93) #11
   %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %89) #12
@@ -385,7 +379,7 @@ mark_file_as_archived.exit.i:                     ; preds = %146, %133
   br label %writeTimeLineHistoryFile.exit
 
 writeTimeLineHistoryFile.exit:                    ; preds = %96, %105, %115, %127, %130, %141, %mark_file_as_archived.exit.i
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @PQclear(ptr noundef %77) #11
   %.pre665 = load i32, ptr %57, align 8
   br label %149
@@ -535,8 +529,8 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
   br i1 %221, label %222, label %CalculateCopyStreamSleeptime.exit.i.preheader
 
 222:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @feTimestampDifference(i64 noundef %183, i64 noundef %220, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %223 = load i64, ptr %9, align 8
   %224 = icmp slt i64 %223, 1
@@ -552,8 +546,8 @@ thread-pre-split.i:                               ; preds = %CopyStreamReceive.e
 
 229:                                              ; preds = %._crit_edge.i.i, %222
   %230 = phi i64 [ %228, %._crit_edge.i.i ], [ 1000, %222 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %CalculateCopyStreamSleeptime.exit.i.preheader
 
 CalculateCopyStreamSleeptime.exit.i.preheader:    ; preds = %229, %216, %213
@@ -578,15 +572,15 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStream
   %.sink.i = phi i64 [ %.sink.i.ph1104, %CalculateCopyStreamSleeptime.exit.i.outer1102 ], [ 0, %CalculateCopyStreamSleeptime.exit.i.backedge ]
   call void @PQfreemem(ptr noundef %.1108) #11
   %231 = load i32, ptr %63, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %232 = call i32 @PQgetCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 1) #11
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %234, label %281
 
 234:                                              ; preds = %CalculateCopyStreamSleeptime.exit.i
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %235 = call i32 @PQsocket(ptr noundef %0) #11
   %236 = icmp slt i32 %235, 0
   br i1 %236, label %245, label %.preheader.preheader.i.i
@@ -665,13 +659,13 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %CalculateCopyStream
 
 CopyStreamPoll.exit.thread.i:                     ; preds = %273, %272, %271, %267, %245
   %.0.i.ph.i = phi i32 [ 0, %267 ], [ -1, %271 ], [ -1, %245 ], [ 0, %273 ], [ 0, %272 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %CopyStreamReceive.exit
 
 276:                                              ; preds = %273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %277 = call i32 @PQconsumeInput(ptr noundef %0) #11
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %CopyStreamReceive.exit.thread, label %279
@@ -682,7 +676,7 @@ CopyStreamPoll.exit.thread.i:                     ; preds = %273, %272, %271, %2
   br i1 %.not.i98, label %CopyStreamReceive.exit.thread116, label %281
 
 CopyStreamReceive.exit.thread116:                 ; preds = %279
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %thread-pre-split.i
 
 281:                                              ; preds = %279, %CalculateCopyStreamSleeptime.exit.i
@@ -693,7 +687,7 @@ CopyStreamReceive.exit.thread116:                 ; preds = %279
   ]
 
 CopyStreamReceive.exit.thread120:                 ; preds = %281
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %282 = call ptr @PQgetResult(ptr noundef %0) #11
   %.b.i50.i = load i1, ptr @still_sending, align 1
   br i1 %.b.i50.i, label %HandleEndOfCopyStream.exit.i, label %286
@@ -706,13 +700,13 @@ CopyStreamReceive.exit.thread:                    ; preds = %281, %276
   %.str.37.sink = phi ptr [ @.str.36, %276 ], [ @.str.37, %281 ]
   %285 = call ptr @PQerrorMessage(ptr noundef %0) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %.str.37.sink, ptr noundef %285) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %HandleCopyStream.exit.thread
 
 CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit.thread.i, %283
   %.4 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %284, %283 ]
   %.1.i = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.018.i, %283 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   switch i32 %.1.i, label %303 [
     i32 0, label %thread-pre-split.i
     i32 -1, label %HandleCopyStream.exit.thread
@@ -894,7 +888,7 @@ CalculateCopyStreamSleeptime.exit.i.backedge:     ; preds = %334, %308
   br i1 %364, label %365, label %450
 
 365:                                              ; preds = %358
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %366 = sext i32 %360 to i64
   %367 = udiv i64 %.4.i, %366
   %368 = load i32, ptr %57, align 8
@@ -1035,12 +1029,12 @@ CalculateCopyStreamSleeptime.exit.i.backedge:     ; preds = %334, %308
 
 open_walfile.exit.thread.i.i:                     ; preds = %446, %433, %411, %396
   call void @pg_free(ptr noundef %380) #11
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HandleCopyStream.exit.thread
 
 open_walfile.exit.i.i:                            ; preds = %449, %426
   %.pre.i59.i = phi ptr [ %.pre.pre.i.i, %426 ], [ %444, %449 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %450
 
 450:                                              ; preds = %open_walfile.exit.i.i, %358
@@ -1167,8 +1161,8 @@ HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStre
   br i1 %508, label %509, label %554
 
 509:                                              ; preds = %506
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %510 = call i32 @PQnfields(ptr noundef nonnull %.0.i51.i) #11
   %511 = icmp slt i32 %510, 2
   br i1 %511, label %514, label %512
@@ -1199,8 +1193,8 @@ HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStre
   br label %ReadEndOfStreamingResult.exit.thread
 
 ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @PQclear(ptr noundef nonnull %.0.i51.i) #11
   br label %.thread
 
@@ -1212,8 +1206,8 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
   %530 = zext i32 %529 to i64
   %531 = or disjoint i64 %528, %530
   store i64 %531, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @PQclear(ptr noundef nonnull %.0.i51.i) #11
   %532 = load i32, ptr %57, align 8
   %.not84 = icmp ult i32 %532, %520
@@ -1311,64 +1305,64 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %514, %523
   br label %CheckServerVersionForStreaming.exit.thread
 
 .critedge:                                        ; preds = %40, %53, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %CheckServerVersionForStreaming.exit.thread
 
 CheckServerVersionForStreaming.exit.thread:       ; preds = %149, %24, %19, %557, %.critedge, %577, %163, %79
   %.0 = phi i1 [ false, %163 ], [ false, %577 ], [ false, %79 ], [ false, %.critedge ], [ true, %557 ], [ false, %19 ], [ false, %24 ], [ true, %149 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.0
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @RunIdentifySystem(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @RunIdentifySystem(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pg_free(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
-
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
-
-declare ptr @PQresultErrorMessage(ptr noundef) local_unnamed_addr #2
-
-declare void @PQclear(ptr noundef) local_unnamed_addr #2
-
-declare i32 @PQnfields(ptr noundef) local_unnamed_addr #2
-
-declare i32 @PQntuples(ptr noundef) local_unnamed_addr #2
-
-declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #2
-
-declare ptr @GetLastWalMethodError(ptr noundef) local_unnamed_addr #2
+declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #1
+
+declare ptr @PQresultErrorMessage(ptr noundef) local_unnamed_addr #1
+
+declare void @PQclear(ptr noundef) local_unnamed_addr #1
+
+declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
+
+declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
+
+declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @PQgetResult(ptr noundef) local_unnamed_addr #1
+
+declare ptr @GetLastWalMethodError(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
-declare i64 @feGetCurrentTimestamp() local_unnamed_addr #2
+declare i64 @feGetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [34 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 114, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @fe_sendint64(i64 noundef %1, ptr noundef nonnull %5) #11
@@ -1399,18 +1393,18 @@ define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noun
 
 17:                                               ; preds = %13, %15
   %.0 = phi i1 [ false, %15 ], [ true, %13 ]
-  call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare zeroext i1 @feTimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @feTimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PQfreemem(ptr noundef) local_unnamed_addr #2
+declare void @PQfreemem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @close_walfile(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @walfile, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %60, label %6
@@ -1509,37 +1503,43 @@ mark_file_as_archived.exit.thread:                ; preds = %52, %40, %36
 
 60:                                               ; preds = %mark_file_as_archived.exit, %2, %mark_file_as_archived.exit.thread, %33
   %.018 = phi i1 [ false, %33 ], [ true, %mark_file_as_archived.exit.thread ], [ true, %2 ], [ false, %mark_file_as_archived.exit ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.018
 }
 
-declare i32 @PQputCopyEnd(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @PQputCopyEnd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQflush(ptr noundef) local_unnamed_addr #2
+declare i32 @PQflush(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #2
+declare ptr @PQerrorMessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare void @fe_sendint64(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @fe_sendint64(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQputCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @feTimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @feTimestampDifference(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @PQgetCopyData(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #2
+declare i32 @PQconsumeInput(ptr noundef) local_unnamed_addr #1
 
-declare i32 @PQsocket(ptr noundef) local_unnamed_addr #2
+declare i32 @PQsocket(ptr noundef) local_unnamed_addr #1
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
-declare i64 @fe_recvint64(ptr noundef) local_unnamed_addr #2
+declare i64 @fe_recvint64(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
@@ -1548,14 +1548,14 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }

@@ -31,11 +31,11 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 10, ptr %6, align 1
   store i8 13, ptr %5, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %15, align 8
@@ -48,7 +48,7 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
 20:                                               ; preds = %13
   %21 = extractvalue { i64, ptr } %17, 1
   %22 = call i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr %21, ptr align 1 %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = icmp ult i64 %22, %10
   br i1 %23, label %24, label %27
 
@@ -85,8 +85,8 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
 
 37:                                               ; preds = %28, %24, %29, %32
   %.sroa.3.0.i.ph = phi i8 [ %spec.select.i, %32 ], [ 1, %29 ], [ 1, %24 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 %.sroa.3.0.i.ph, ptr %8, align 1
   %38 = load ptr, ptr %1, align 8
   %39 = load i64, ptr %9, align 8
@@ -98,9 +98,9 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
   br i1 %.not8, label %58, label %48
 
 43:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %1, align 8
@@ -136,7 +136,6 @@ define hidden void @"_ZN111_$LT$ruff_source_file..newlines..UniversalNewlineIter
   br label %63
 
 .split:                                           ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.2e599a4804e550b86cb8e39d036cf8d1.12, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.2e599a4804e550b86cb8e39d036cf8d1.11, ptr nonnull align 8 @anon.2e599a4804e550b86cb8e39d036cf8d1.4) #6
   unreachable
 
@@ -227,10 +226,10 @@ declare { i64, ptr } @"_ZN6memchr6memchr7memchr228_$u7b$$u7b$closure$u7d$$u7d$17
 declare i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

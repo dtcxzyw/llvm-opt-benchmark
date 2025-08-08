@@ -585,7 +585,7 @@ entry:
 define weak_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8, !noalias !12
   %index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %index_.i.i, align 8, !noalias !12
@@ -596,7 +596,7 @@ entry:
   %index_.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load i32, ptr %index_.i1.i, align 8
   store i32 %3, ptr %index_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %this
 }
 
@@ -604,7 +604,7 @@ entry:
 define weak_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratormmEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue>::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8, !noalias !15
   %index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %index_.i.i, align 8, !noalias !15
@@ -615,7 +615,7 @@ entry:
   %index_.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load i32, ptr %index_.i1.i, align 8
   store i32 %3, ptr %index_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %this
 }
 
@@ -745,9 +745,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %capacity) #8
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
@@ -790,9 +790,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i83.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i51.i, ptr %rightSize_.i25.i.i83.i, align 8, !alias.scope !28
   %call7.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -916,9 +916,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %capacity) #8
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
@@ -961,9 +961,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i83.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i51.i, ptr %rightSize_.i25.i.i83.i, align 8, !alias.scope !58
   %call7.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -979,7 +979,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 2147483640
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #8
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #8
   store i64 0, ptr %call.i.i.i.i, align 8
@@ -988,7 +988,7 @@ if.end:                                           ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %2 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -1522,8 +1522,8 @@ if.end:                                           ; preds = %_ZNK6hermes2vm18Seg
   %agg.tmp.sroa.0.0.copyload.i.i8 = load i64, ptr %6, align 8
   %and.i.i.i.i.i9 = and i64 %agg.tmp.sroa.0.0.copyload.i.i8, 281474976710655
   %7 = inttoptr i64 %and.i.i.i.i.i9 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i, ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %8 = load ptr, ptr %ref.tmp2.i, align 8, !noalias !65
   %index_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
@@ -1561,8 +1561,8 @@ if.else.i.i:                                      ; preds = %if.end
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i ], [ %arrayidx.i.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   store i64 %retval.sroa.0.0.copyload.i.i.i, ptr %retval.0.i.i, align 8
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %15 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -2187,16 +2187,16 @@ if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 8, !noalias !74
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !74
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !74
   %add.i.i.i.i = add i32 %28, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2068.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2068.sroa.579.0.copyload) #8, !noalias !74
   %36 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !74
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !74
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !74
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !74
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !74
   %add.i.i.i9.i = add i32 %27, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp2470.sroa.0.0.copyload80, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2470.sroa.783.0.copyload84) #8, !noalias !74
   %37 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !74
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !74
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !74
   %cmp.i.i.not.i77 = icmp eq i32 %36, %agg.tmp2269.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i77, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !77
 
@@ -2343,16 +2343,16 @@ if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratordeEv.exit.i
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 8, !noalias !84
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !84
   %add.i.i.i.i = add i32 %8, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.513.0.copyload) #8, !noalias !84
   %16 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !84
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !84
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !84
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !84
   %add.i.i.i9.i = add i32 %7, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp38.sroa.0.0.copyload14, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.717.0.copyload18) #8, !noalias !84
   %17 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !84
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !84
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !84
   %cmp.i.i.not.i = icmp eq i32 %16, %agg.tmp27.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !77
 
@@ -2890,11 +2890,11 @@ while.body.lr.ph.i:                               ; preds = %_ZN6hermes2vm18Segm
 while.body.i:                                     ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %while.body.lr.ph.i
   %11 = phi i32 [ %agg.tmp826.sroa.5.0.copyload44, %while.body.lr.ph.i ], [ %13, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %12 = phi i32 [ %agg.tmp525.sroa.4.0.copyload, %while.body.lr.ph.i ], [ %16, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !96
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !96
   %sub.i.i.i.i = add i32 %11, -1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp826.sroa.0.0.copyload43, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp826.sroa.746.0.copyload47) #8, !noalias !96
   %13 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !96
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !96
   %cmp.i.i2.i = icmp ult i32 %13, 4096
   br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -2919,11 +2919,11 @@ if.else.i.i.i:                                    ; preds = %while.body.i
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i4.i), !noalias !96
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !96
   %sub.i.i.i6.i = add i32 %12, -1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp525.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp525.sroa.542.0.copyload) #8, !noalias !96
   %16 = load i32, ptr %index_.i1.i.i8.i, align 8, !noalias !96
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i4.i), !noalias !96
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !96
   %cmp.i.i28 = icmp ult i32 %16, 4096
   br i1 %cmp.i.i28, label %if.then.i.i, label %if.else.i.i29
 
@@ -3036,11 +3036,11 @@ if.then.i.i30.i:                                  ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i30.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorptEv.exit26.i
   store i64 -1970324836974592, ptr %retval.0.i.i21.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i31.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i31.i)
   %add.i.i.i33.i = add i32 %cur5.sroa.3.048.i, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i31.i, ptr noundef %agg.tmp1134.sroa.0.0.copyload, i32 noundef %add.i.i.i33.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1134.sroa.548.0.copyload) #8
   %31 = load i32, ptr %index_.i1.i.i35.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i31.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i31.i)
   %cmp.i.i7.not.i = icmp eq i32 %31, %agg.tmp1335.sroa.3.0.copyload
   br i1 %cmp.i.i7.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !103
 
@@ -3454,7 +3454,7 @@ entry:
 define weak_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8, !noalias !111
   %index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %index_.i.i, align 8, !noalias !111
@@ -3465,7 +3465,7 @@ entry:
   %index_.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load i32, ptr %index_.i1.i, align 8
   store i32 %3, ptr %index_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %this
 }
 
@@ -3473,7 +3473,7 @@ entry:
 define weak_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratormmEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.hermes::vm::SegmentedArrayBase<hermes::vm::HermesValue32>::iterator", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %this, align 8, !noalias !114
   %index_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %index_.i.i, align 8, !noalias !114
@@ -3484,7 +3484,7 @@ entry:
   %index_.i1.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %3 = load i32, ptr %index_.i1.i, align 8
   store i32 %3, ptr %index_.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %this
 }
 
@@ -3630,9 +3630,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %capacity) #8
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
@@ -3675,9 +3675,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i83.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i51.i, ptr %rightSize_.i25.i.i83.i, align 8, !alias.scope !127
   %call7.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3801,9 +3801,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %call.i.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %capacity) #8
   %conv.i.i = sext i32 %call.i.i to i64
   %ref.tmp4.i.sroa.0.0.insert.ext = zext i32 %capacity to i64
@@ -3846,9 +3846,9 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i83.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %conv.i51.i, ptr %rightSize_.i25.i.i83.i, align 8, !alias.scope !157
   %call7.i = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp1.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -3864,7 +3864,7 @@ if.end:                                           ; preds = %entry
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 15
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 2147483640
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #8
   %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #8
   store i64 0, ptr %call.i.i.i.i, align 4
@@ -3873,7 +3873,7 @@ if.end:                                           ; preds = %entry
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 4
   %2 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lk.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lk.i.i.i.i)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -4528,8 +4528,8 @@ _ZN6hermes2vm13HermesValue3217encodeHermesValueENS0_11HermesValueERNS0_7RuntimeE
   %agg.tmp.sroa.0.0.copyload.i.i7 = load i64, ptr %16, align 8
   %and.i.i.i.i.i8 = and i64 %agg.tmp.sroa.0.0.copyload.i.i7, 281474976710655
   %17 = inttoptr i64 %and.i.i.i.i.i8 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i, ptr noundef nonnull align 4 dereferenceable(8) %17, i32 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %runtime) #8
   %18 = load ptr, ptr %ref.tmp2.i, align 8, !noalias !164
   %index_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp2.i, i64 8
@@ -4573,8 +4573,8 @@ if.else.i.i:                                      ; preds = %_ZN6hermes2vm13Herm
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit: ; preds = %if.then.i.i11, %if.else.i.i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i, %if.then.i.i11 ], [ %arrayidx.i.i.i, %if.else.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   store i32 %retval.sroa.0.0.i, ptr %retval.0.i.i, align 4
   %youngGen_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %27 = load ptr, ptr %youngGen_.i.i.i, align 8
@@ -5267,16 +5267,16 @@ if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
   store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 4, !noalias !173
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !173
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !173
   %add.i.i.i.i = add i32 %34, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp2072.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2072.sroa.683.0.copyload) #8, !noalias !173
   %42 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !173
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !173
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !173
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !173
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !173
   %add.i.i.i9.i = add i32 %33, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp2474.sroa.0.0.copyload84, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp2474.sroa.887.0.copyload88) #8, !noalias !173
   %43 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !173
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !173
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !173
   %cmp.i.i.not.i80 = icmp eq i32 %42, %agg.tmp2273.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i80, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !176
 
@@ -5435,16 +5435,16 @@ if.then.i.i6.i:                                   ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i6.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratordeEv.exit.i
   store i32 %agg.tmp.sroa.0.0.copyload.i, ptr %retval.0.i.i.i, align 4, !noalias !183
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !183
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !183
   %add.i.i.i.i = add i32 %11, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp6.sroa.0.0.copyload, i32 noundef %add.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp6.sroa.613.0.copyload) #8, !noalias !183
   %19 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !183
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !183
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !183
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !183
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !183
   %add.i.i.i9.i = add i32 %10, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i7.i, ptr noundef %agg.tmp38.sroa.0.0.copyload14, i32 noundef %add.i.i.i9.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp38.sroa.817.0.copyload18) #8, !noalias !183
   %20 = load i32, ptr %index_.i1.i.i11.i, align 8, !noalias !183
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i7.i), !noalias !183
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i7.i), !noalias !183
   %cmp.i.i.not.i = icmp eq i32 %19, %agg.tmp27.sroa.3.0.copyload
   br i1 %cmp.i.i.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4copyINS0_18SegmentedArrayBaseIS2_E8iteratorES7_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !176
 
@@ -6017,11 +6017,11 @@ while.body.lr.ph.i:                               ; preds = %_ZN6hermes2vm18Segm
 while.body.i:                                     ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %while.body.lr.ph.i
   %15 = phi i32 [ %agg.tmp829.sroa.6.0.copyload47, %while.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %16 = phi i32 [ %agg.tmp528.sroa.4.0.copyload, %while.body.lr.ph.i ], [ %20, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !195
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !195
   %sub.i.i.i.i = add i32 %15, -1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.i, ptr noundef %agg.tmp829.sroa.0.0.copyload46, i32 noundef %sub.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp829.sroa.849.0.copyload50) #8, !noalias !195
   %17 = load i32, ptr %index_.i1.i.i.i, align 8, !noalias !195
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !195
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !195
   %cmp.i.i2.i = icmp ult i32 %17, 4096
   br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -6049,11 +6049,11 @@ if.else.i.i.i:                                    ; preds = %while.body.i
 
 _ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %arrayidx.i.i.i, %if.then.i.i.i ], [ %arrayidx.i.i.i.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i4.i), !noalias !195
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !195
   %sub.i.i.i6.i = add i32 %16, -1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i4.i, ptr noundef %agg.tmp528.sroa.0.0.copyload, i32 noundef %sub.i.i.i6.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp528.sroa.545.0.copyload) #8, !noalias !195
   %20 = load i32, ptr %index_.i1.i.i8.i, align 8, !noalias !195
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i4.i), !noalias !195
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i4.i), !noalias !195
   %cmp.i.i30 = icmp ult i32 %20, 4096
   br i1 %cmp.i.i30, label %if.then.i.i, label %if.else.i.i31
 
@@ -6173,11 +6173,11 @@ if.then.i.i34.i:                                  ; preds = %_ZN6hermes2vm18Segm
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE9setNonPtrES2_RNS0_7HadesGCE.exit.i: ; preds = %if.then.i.i34.i, %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorptEv.exit30.i
   store i32 7, ptr %retval.0.i.i25.i, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i35.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i35.i)
   %add.i.i.i37.i = add i32 %cur5.sroa.3.054.i, 1
   call void @_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE8iteratorC1EPS3_jRNS0_11PointerBaseE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i35.i, ptr noundef %agg.tmp1137.sroa.0.0.copyload, i32 noundef %add.i.i.i37.i, ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp1137.sroa.551.0.copyload) #8
   %36 = load i32, ptr %index_.i1.i.i39.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i35.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i35.i)
   %cmp.i.i7.not.i = icmp eq i32 %36, %agg.tmp1338.sroa.3.0.copyload
   br i1 %cmp.i.i7.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE4fillINS0_18SegmentedArrayBaseIS2_E8iteratorEEEvT_S8_S2_RNS0_7HadesGCE.exit, label %for.body8.i, !llvm.loop !202
 
@@ -6418,10 +6418,10 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 declare i32 @llvm.usub.sat.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6

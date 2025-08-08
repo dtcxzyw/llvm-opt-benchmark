@@ -207,8 +207,8 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %9 = icmp ult i32 %8, 8
   br i1 %9, label %147, label %10
@@ -234,7 +234,7 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %22 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %21, ptr noundef %20, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.115, i32 noundef %19)
   %23 = load i32, ptr @ett_rftap, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %6, align 4
   store ptr null, ptr %7, align 8
   %25 = load i32, ptr @hf_rftap_fixed_header, align 4
@@ -406,7 +406,7 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_rftap_header.exit
 
 dissect_rftap_header.exit:                        ; preds = %46, %115, %116, %126
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %133 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19)
   %134 = load i32, ptr %6, align 4
   %.not35 = icmp eq i32 %134, -1
@@ -441,8 +441,8 @@ dissect_rftap_header.exit:                        ; preds = %46, %115, %116, %12
 
 147:                                              ; preds = %.sink.split, %10, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %10 ], [ %146, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -468,9 +468,6 @@ define internal zeroext i1 @dissect_rftap_heur(ptr noundef %0, ptr noundef %1, p
   %6 = icmp ne i32 %5, 0
   ret i1 %6
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -508,9 +505,6 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -541,6 +535,12 @@ declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
@@ -548,7 +548,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

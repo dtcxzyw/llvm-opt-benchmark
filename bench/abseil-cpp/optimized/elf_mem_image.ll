@@ -43,16 +43,10 @@ define dso_local void @_ZN4absl18debugging_internal11ElfMemImageC2EPKv(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 44), (48, 72)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((0, 44), (48, 72)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -344,7 +338,7 @@ _ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit: ; preds = %_ZNK4absl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !38
   ret i32 %3
@@ -532,7 +526,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   ret ptr %3
 }
@@ -559,7 +553,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVers
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %7, align 8, !tbaa !47, !alias.scope !50
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -581,13 +575,13 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
 
 17:                                               ; preds = %.lr.ph, %33
   %18 = load ptr, ptr %6, align 8, !tbaa !57
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #12
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %1) #11
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %15, align 8, !tbaa !58
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %2) #12
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %2) #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -619,7 +613,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
 
 .critedge:                                        ; preds = %33, %5, %32, %31
   %.not3.i.not.not23 = phi i1 [ true, %32 ], [ true, %31 ], [ false, %5 ], [ false, %33 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.not3.i.not.not23
 }
 
@@ -634,7 +628,7 @@ define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 captures(none) initializes((32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 captures(none) initializes((32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -645,7 +639,7 @@ define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -661,15 +655,15 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratordeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
@@ -680,7 +674,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18debu
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage21LookupSymbolByAddressEPKvPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %5, align 8, !tbaa !47, !alias.scope !64
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -755,12 +749,12 @@ define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage2
 
 .critedge:                                        ; preds = %37, %34, %22, %16, %3
   %.not3.i.not.not31 = phi i1 [ false, %3 ], [ false, %22 ], [ true, %16 ], [ true, %34 ], [ false, %37 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not3.i.not.not31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((32, 36), (40, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((32, 36), (40, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %2, ptr %4, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -769,12 +763,12 @@ define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorptEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorptEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #4 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !53
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -986,22 +980,27 @@ _ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit: ; pred
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

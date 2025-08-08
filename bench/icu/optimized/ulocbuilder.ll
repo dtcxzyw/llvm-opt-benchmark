@@ -371,14 +371,8 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %6, %9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
@@ -471,7 +465,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
   ret void
 }
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #9
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ulocbld_open_77() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -494,12 +488,12 @@ define noundef ptr @ulocbld_open_77() local_unnamed_addr #1 personality ptr @__g
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #10
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #9
 
-declare void @_ZN6icu_7713LocaleBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #9
+declare void @_ZN6icu_7713LocaleBuilderC1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @ulocbld_close_77(ptr noundef %0) local_unnamed_addr #0 {
@@ -527,7 +521,7 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6icu_776LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %4)
   %10 = icmp slt i32 %2, 0
   br i1 %10, label %16, label %11
@@ -540,20 +534,20 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %11, %9
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %5, ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
   %18 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %4, ptr noundef nonnull align 8 dereferenceable(217) %5) #13
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
 
 21:                                               ; preds = %11
@@ -570,26 +564,26 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %36
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 157, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %1, i64 %12, i1 false)
   %27 = getelementptr inbounds nuw [157 x i8], ptr %6, i64 0, i64 %12
   store i8 0, ptr %27, align 1, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %7, ptr noundef nonnull %6, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %28 unwind label %30
 
 28:                                               ; preds = %26
   %29 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %4, ptr noundef nonnull align 8 dereferenceable(217) %7) #13
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %7) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 30:                                               ; preds = %26
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %36
 
 32:                                               ; preds = %28, %23, %17
@@ -598,7 +592,7 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 34:                                               ; preds = %32
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %4) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 35:                                               ; preds = %3, %34
@@ -607,23 +601,23 @@ define void @ulocbld_setLocale_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
 36:                                               ; preds = %30, %24, %19
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %20, %19 ], [ %31, %30 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %4) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6icu_776LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #9
+declare void @_ZN6icu_776LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #8
 
-declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #9
-
-; Function Attrs: nounwind
-declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #10
+declare void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #9
 
-declare void @_ZN6icu_776Locale10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #9
+; Function Attrs: nounwind
+declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #9
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setLocaleERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #9
+declare void @_ZN6icu_776Locale10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #8
+
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setLocaleERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_adoptULocale_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -639,7 +633,7 @@ define void @ulocbld_adoptULocale_77(ptr noundef %0, ptr noundef %1) local_unnam
   ret void
 }
 
-declare void @ulocale_close_77(ptr noundef) local_unnamed_addr #9
+declare void @ulocale_close_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -674,9 +668,9 @@ define void @ulocbld_setLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 nound
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder14setLanguageTagENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder14setLanguageTagENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
-declare void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #9
+declare void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setLanguage_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -711,7 +705,7 @@ define void @ulocbld_setLanguage_77(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder11setLanguageENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder11setLanguageENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setScript_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -746,7 +740,7 @@ define void @ulocbld_setScript_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setScriptENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setScriptENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setRegion_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -781,7 +775,7 @@ define void @ulocbld_setRegion_77(ptr noundef %0, ptr noundef %1, i32 noundef %2
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setRegionENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder9setRegionENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setVariant_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -816,7 +810,7 @@ define void @ulocbld_setVariant_77(ptr noundef %0, ptr noundef %1, i32 noundef %
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder10setVariantENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder10setVariantENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_addUnicodeLocaleAttribute_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -851,7 +845,7 @@ define void @ulocbld_addUnicodeLocaleAttribute_77(ptr noundef %0, ptr noundef %1
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder25addUnicodeLocaleAttributeENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder25addUnicodeLocaleAttributeENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_removeUnicodeLocaleAttribute_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -886,7 +880,7 @@ define void @ulocbld_removeUnicodeLocaleAttribute_77(ptr noundef %0, ptr noundef
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder28removeUnicodeLocaleAttributeENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder28removeUnicodeLocaleAttributeENS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setExtension_77(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
@@ -921,7 +915,7 @@ define void @ulocbld_setExtension_77(ptr noundef %0, i8 noundef signext %1, ptr 
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder12setExtensionEcNS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef signext, ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder12setExtensionEcNS_11StringPieceE(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef signext, ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_setUnicodeLocaleKeyword_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
@@ -974,7 +968,7 @@ define void @ulocbld_setUnicodeLocaleKeyword_77(ptr noundef %0, ptr noundef %1, 
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder23setUnicodeLocaleKeywordENS_11StringPieceES1_(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32, ptr, i32) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder23setUnicodeLocaleKeywordENS_11StringPieceES1_(ptr noundef nonnull align 8 dereferenceable(48), ptr, i32, ptr, i32) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_clear_77(ptr noundef %0) local_unnamed_addr #1 {
@@ -989,7 +983,7 @@ define void @ulocbld_clear_77(ptr noundef %0) local_unnamed_addr #1 {
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder5clearEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder5clearEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @ulocbld_clearExtensions_77(ptr noundef %0) local_unnamed_addr #1 {
@@ -1004,7 +998,7 @@ define void @ulocbld_clearExtensions_77(ptr noundef %0) local_unnamed_addr #1 {
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder15clearExtensionsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #9
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7713LocaleBuilder15clearExtensionsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ulocbld_buildULocale_77(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -1017,7 +1011,7 @@ define noundef ptr @ulocbld_buildULocale_77(ptr noundef %0, ptr noundef %1) loca
   br label %17
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_7713LocaleBuilder5buildER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::Locale") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %7 = load i32, ptr %1, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
@@ -1039,13 +1033,13 @@ define noundef ptr @ulocbld_buildULocale_77(ptr noundef %0, ptr noundef %1) loca
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %13, %11, %6
   %.1 = phi ptr [ null, %6 ], [ null, %13 ], [ %10, %11 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %17
 
 17:                                               ; preds = %16, %5
@@ -1053,9 +1047,9 @@ define noundef ptr @ulocbld_buildULocale_77(ptr noundef %0, ptr noundef %1) loca
   ret ptr %.0
 }
 
-declare void @_ZN6icu_7713LocaleBuilder5buildER10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::Locale") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare void @_ZN6icu_7713LocaleBuilder5buildER10UErrorCode(ptr dead_on_unwind writable sret(%"class.icu_77::Locale") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare noundef ptr @_ZNK6icu_776Locale5cloneEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #9
+declare noundef ptr @_ZNK6icu_776Locale5cloneEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -1073,7 +1067,7 @@ define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %27
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7713LocaleBuilder5buildER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::Locale") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %12 = load i32, ptr %3, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
@@ -1098,7 +1092,7 @@ define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %23
 
 24:                                               ; preds = %20, %14
@@ -1108,7 +1102,7 @@ define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef
 26:                                               ; preds = %24, %11
   %.1 = phi i32 [ 0, %11 ], [ %25, %24 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 27:                                               ; preds = %4, %26, %10
@@ -1117,9 +1111,9 @@ define i32 @ulocbld_buildLocaleID_77(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
-declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
+declare i32 @u_terminateChars_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define i32 @ulocbld_buildLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -1138,14 +1132,14 @@ define i32 @ulocbld_buildLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noun
   br label %34
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7713LocaleBuilder5buildER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::Locale") align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = load i32, ptr %3, align 4, !tbaa !13
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit"
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN6icu_7720CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29) %5, ptr noundef %1, i32 noundef %2)
           to label %.noexc unwind label %32
 
@@ -1187,19 +1181,19 @@ define i32 @ulocbld_buildLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noun
 30:                                               ; preds = %28, %25, %"_ZZ27ulocbld_buildLanguageTag_77ENK3$_0clERN6icu_778ByteSinkER10UErrorCode.exit.i"
   %.1.i = phi i32 [ 0, %"_ZZ27ulocbld_buildLanguageTag_77ENK3$_0clERN6icu_778ByteSinkER10UErrorCode.exit.i" ], [ %22, %25 ], [ %29, %28 ]
   call void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit"
 
 31:                                               ; preds = %26, %18
   %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %19, %18 ]
   call void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %5) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.body
 
 "_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit": ; preds = %30, %12
   %.0.i = phi i32 [ %.1.i, %30 ], [ 0, %12 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 32:                                               ; preds = %15
@@ -1210,7 +1204,7 @@ define i32 @ulocbld_buildLanguageTag_77(ptr noundef %0, ptr noundef %1, i32 noun
 .body:                                            ; preds = %31, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %.pn.i, %31 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #13
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %eh.lpad-body
 
 34:                                               ; preds = %4, %"_ZN6icu_7712ByteSinkUtil28viaByteSinkToTerminatedCharsIZ27ulocbld_buildLanguageTag_77E3$_0vEEiPciOT_R10UErrorCode.exit", %11
@@ -1236,14 +1230,20 @@ define noundef signext i8 @ulocbld_copyErrorTo_77(ptr noundef %0, ptr noundef %1
   ret i8 %.0
 }
 
-declare noundef signext i8 @_ZNK6icu_7713LocaleBuilder11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare noundef signext i8 @_ZNK6icu_7713LocaleBuilder11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
-declare void @_ZN6icu_7720CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #9
+declare void @_ZN6icu_7720CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #10
+declare void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #9
 
-declare void @_ZNK6icu_776Locale13toLanguageTagERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
+declare void @_ZNK6icu_776Locale13toLanguageTagERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
@@ -1255,11 +1255,11 @@ attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #4 = { cold nofree noreturn }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind }
 attributes #14 = { allocsize(0) }

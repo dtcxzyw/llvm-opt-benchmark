@@ -61,7 +61,7 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
   %4 = alloca [128 x i8], align 16
   %5 = alloca i32, align 4
   %6 = tail call ptr @sqlite3_user_data(ptr noundef %0) #3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !17
   %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = tail call ptr @sqlite3_value_text(ptr noundef %7) #3
@@ -80,13 +80,13 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %16) #3
   %20 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %19) #3
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 127
   store i8 0, ptr %21, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 22:                                               ; preds = %14
@@ -100,7 +100,7 @@ define internal void @icuLoadCollation(ptr noundef %0, i32 %1, ptr noundef reado
   br label %25
 
 25:                                               ; preds = %22, %24, %3, %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -110,7 +110,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !18
@@ -140,13 +140,13 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   br label %25
 
 21:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %18) #3
   %23 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef %22) #3
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 127
   store i8 0, ptr %24, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %6, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 25:                                               ; preds = %20, %11
@@ -157,13 +157,13 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %26) #3
   %30 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9, ptr noundef %29) #3
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 127
   store i8 0, ptr %31, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %5, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 32:                                               ; preds = %25
@@ -173,13 +173,13 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %34) #3
   %38 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %37) #3
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 127
   store i8 0, ptr %39, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 40:                                               ; preds = %32
@@ -190,7 +190,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   br label %.critedge
 
 .critedge:                                        ; preds = %21, %13, %3, %40, %36, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -198,7 +198,7 @@ define internal void @icuRegexpFunc(ptr noundef %0, i32 %1, ptr noundef readonly
 define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @sqlite3_user_data(ptr noundef %0) #3
   %.fr = freeze ptr %6
   %.not = icmp eq ptr %.fr, null
@@ -295,17 +295,17 @@ define internal void @icuCaseFunc16(ptr noundef %0, i32 noundef %1, ptr noundef 
 .split58.us:                                      ; preds = %41, %29
   %43 = phi ptr [ @.str.13, %29 ], [ @.str.12, %41 ]
   %.us-phi59 = phi i32 [ %27, %29 ], [ %39, %41 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = call ptr @u_errorName_70(i32 noundef range(i32 1, -2147483648) %.us-phi59) #3
   %45 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 128, ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %43, ptr noundef %44) #3
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 127
   store i8 0, ptr %46, align 1, !tbaa !20
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1) #3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %32, %23, %.split.us, %.split58.us, %.split54.us, %12, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -469,21 +469,15 @@ define internal void @icuLikeFunc(ptr noundef %0, i32 noundef %1, ptr noundef re
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @ucol_open_70(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #2
-
-declare ptr @ucol_open_70(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @sqlite3_create_collation_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_create_collation_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @icuCollationColl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
@@ -503,23 +497,23 @@ define internal void @icuCollationDel(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @ucol_close_70(ptr noundef) local_unnamed_addr #2
+declare void @ucol_close_70(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @u_errorName_70(i32 noundef) local_unnamed_addr #2
+declare ptr @u_errorName_70(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ucol_strcoll_70(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ucol_strcoll_70(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_value_text16(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_value_text16(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_get_auxdata(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_get_auxdata(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @uregex_open_70(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @uregex_open_70(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_set_auxdata(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_set_auxdata(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @icuRegexpDelete(ptr noundef %0) #0 {
@@ -527,27 +521,27 @@ define internal void @icuRegexpDelete(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @uregex_setText_70(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @uregex_setText_70(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @uregex_matches_70(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @uregex_matches_70(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @uregex_close_70(ptr noundef) local_unnamed_addr #2
+declare void @uregex_close_70(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_value_bytes16(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_bytes16(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_text16(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_result_text16(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_realloc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_realloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @sqlite3_free(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_free(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_error_nomem(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_result_error_nomem(ptr noundef) local_unnamed_addr #1
 
-declare i32 @u_strToUpper_70(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strToUpper_70(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @u_strToLower_70(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @u_strToLower_70(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @xFree(ptr noundef %0) #0 {
@@ -555,7 +549,7 @@ define internal void @xFree(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @icuLikeCompare(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 -1, 1310720) %2) unnamed_addr #0 {
@@ -765,11 +759,17 @@ select.unfold.outer.backedge:                     ; preds = %.preheader111, %59,
   ret i32 %.5
 }
 
-declare i32 @u_foldCase_70(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @u_foldCase_70(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

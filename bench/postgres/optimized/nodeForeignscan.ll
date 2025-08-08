@@ -172,9 +172,6 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecForeignScan(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -201,37 +198,34 @@ define internal ptr @ExecForeignScan(ptr noundef %0) #0 {
   ret ptr %.0
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @GetFdwRoutineForRelation(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @GetFdwRoutineByServerId(i32 noundef) local_unnamed_addr #2
+declare ptr @GetFdwRoutineByServerId(i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecTypeFromTL(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecTypeFromTL(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignScanProjectionInfoWithVarno(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecAssignScanProjectionInfoWithVarno(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -273,7 +267,7 @@ define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr #0 {
@@ -321,9 +315,9 @@ define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanEstimate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -354,7 +348,7 @@ define dso_local void @ExecForeignScanEstimate(ptr noundef %0, ptr noundef %1) l
   ret void
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanInitializeDSM(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -386,9 +380,9 @@ define dso_local void @ExecForeignScanInitializeDSM(ptr noundef %0, ptr noundef 
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanReInitializeDSM(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -416,7 +410,7 @@ define dso_local void @ExecForeignScanReInitializeDSM(ptr noundef %0, ptr nounde
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForeignScanInitializeWorker(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -498,9 +492,9 @@ define dso_local void @ExecAsyncForeignScanNotify(ptr noundef %0) local_unnamed_
   ret void
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ForeignNext(ptr noundef %0) #0 {
@@ -573,7 +567,7 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
 15:                                               ; preds = %13, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ExecQual.exit, label %19
 
@@ -590,7 +584,7 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
 
 ExecQual.exit:                                    ; preds = %15, %19
   %.0.i = phi i1 [ %25, %19 ], [ true, %15 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
 
 26:                                               ; preds = %13, %ExecQual.exit
@@ -598,15 +592,21 @@ ExecQual.exit:                                    ; preds = %15, %19
   ret i1 %.0
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 attributes #6 = { cold nounwind }

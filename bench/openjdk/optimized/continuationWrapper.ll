@@ -152,7 +152,7 @@ define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr noundef nonnu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4968
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
   %8 = load ptr, ptr %.sroa.0.0.copyload.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i8, ptr @UseZGC, align 1
   %10 = trunc i8 %9 to i1
   %.not.i = xor i1 %10, true
@@ -181,11 +181,11 @@ define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr noundef nonnu
 
 _ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %22
   %.0.i = phi ptr [ %25, %22 ], [ %21, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = call noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef %6, ptr noundef %.0.i) #7
   %.sroa.0.0.copyload.i5 = load ptr, ptr %7, align 8
   %27 = load ptr, ptr %.sroa.0.0.copyload.i5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = load i8, ptr @UseZGC, align 1
   %29 = trunc i8 %28 to i1
   %.not.i6 = xor i1 %29, true
@@ -214,7 +214,7 @@ _ZNK17stackChunkOopDesc4contEv.exit:              ; preds = %14, %22
 
 _ZNK17stackChunkOopDesc4contEv.exit9:             ; preds = %33, %41
   %.0.i8 = phi ptr [ %44, %41 ], [ %40, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %6, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %45, align 8
@@ -1487,10 +1487,10 @@ declare noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull alig
 declare noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6

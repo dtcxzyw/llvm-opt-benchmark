@@ -61,8 +61,8 @@ define i32 @BN_nist_mod_192(ptr noundef %0, ptr noundef %1, ptr readnone capture
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = load ptr, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
@@ -257,32 +257,26 @@ nist_cp_bn.exit122:                               ; preds = %118
 
 123:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit122, %19, %14
   %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit122 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_nnmod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @bn_wexpand(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @bn_correct_top(ptr noundef) local_unnamed_addr #3
+declare void @bn_correct_top(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @BN_nist_mod_224(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
@@ -291,7 +285,7 @@ define i32 @BN_nist_mod_224(ptr noundef %0, ptr noundef %1, ptr readnone capture
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = load ptr, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
@@ -402,7 +396,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %60 = load i64, ptr %59, align 8, !tbaa !11
   %61 = and i64 %60, 4294967295
   store i64 %61, ptr %59, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 16, !tbaa !11
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %63 = shl i64 %51, 32
@@ -435,7 +429,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %76 = load i64, ptr %59, align 8, !tbaa !11
   %77 = lshr i64 %76, 32
   %78 = trunc nuw i64 %77 to i32
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %90
 
@@ -492,11 +486,11 @@ nist_cp_bn.exit98:                                ; preds = %103
 
 108:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit98, %19, %14
   %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit98 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i64 @bn_add_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @bn_add_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @BN_nist_mod_256(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #1 {
@@ -505,8 +499,8 @@ define i32 @BN_nist_mod_256(ptr noundef %0, ptr noundef %1, ptr readnone capture
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = load ptr, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
@@ -765,8 +759,8 @@ nist_cp_bn.exit228:                               ; preds = %167
 
 172:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit228, %19, %14
   %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit228 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -777,8 +771,8 @@ define i32 @BN_nist_mod_384(ptr noundef %0, ptr noundef %1, ptr readnone capture
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = load ptr, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %14
@@ -1096,8 +1090,8 @@ nist_cp_bn.exit273:                               ; preds = %218
 
 223:                                              ; preds = %29, %24, %23, %nist_cp_bn.exit273, %19, %14
   %.0 = phi i32 [ %15, %14 ], [ 1, %19 ], [ 1, %nist_cp_bn.exit273 ], [ %27, %24 ], [ 1, %23 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1107,7 +1101,7 @@ define i32 @BN_nist_mod_521(ptr noundef %0, ptr noundef %1, ptr readnone capture
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %8 = load ptr, ptr %1, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = tail call i32 @BN_is_negative(ptr noundef nonnull %1) #7
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %13
@@ -1250,7 +1244,7 @@ nist_cp_bn.exit66:                                ; preds = %62
 
 67:                                               ; preds = %28, %23, %22, %nist_cp_bn.exit66, %18, %13
   %.0 = phi i32 [ %14, %13 ], [ 1, %18 ], [ 1, %nist_cp_bn.exit66 ], [ %26, %23 ], [ 1, %22 ], [ 0, %28 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1286,6 +1280,12 @@ define ptr @BN_nist_mod_func(ptr noundef %0) local_unnamed_addr #1 {
   ret ptr %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #4
 
@@ -1300,8 +1300,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }

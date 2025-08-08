@@ -357,7 +357,7 @@ define hidden void @SplashCreateWindow(ptr noundef captures(none) initializes((1
   %27 = call i64 @XCreateWindow(ptr noundef %16, i64 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, i64 noundef 27712, ptr noundef nonnull %3) #16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 11720
   store i64 %27, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %SplashUpdateSizeHints.exit, label %29
 
@@ -388,7 +388,7 @@ define hidden void @SplashCreateWindow(ptr noundef captures(none) initializes((1
   br label %SplashUpdateSizeHints.exit
 
 SplashUpdateSizeHints.exit:                       ; preds = %1, %29
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %42 = call ptr @XAllocWMHints() #16
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 11800
   store ptr %42, ptr %43, align 8
@@ -819,7 +819,7 @@ define hidden void @SplashReconfigureNow(ptr noundef initializes((10636, 10644))
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @XMoveResizeWindow(ptr noundef %9, i64 noundef %10, i32 noundef %12, i32 noundef %14, i32 noundef %16, i32 noundef %18) #16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %SplashUpdateSizeHints.exit, label %21
@@ -851,7 +851,7 @@ define hidden void @SplashReconfigureNow(ptr noundef initializes((10636, 10644))
   br label %SplashUpdateSizeHints.exit
 
 SplashUpdateSizeHints.exit:                       ; preds = %5, %21
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %34
 
 34:                                               ; preds = %SplashUpdateSizeHints.exit, %1
@@ -1031,8 +1031,8 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
   %58 = load ptr, ptr %26, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 52
   %60 = load i32, ptr %59, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %spec.select.i = call i32 @llvm.umin.i32(i32 %60, i32 256)
   %61 = call i64 @XDefaultColormapOfScreen(ptr noundef %57) #16
   %62 = add nuw nsw i32 %spec.select.i, 1
@@ -1067,8 +1067,8 @@ define hidden range(i32 0, 2) i32 @SplashInitPlatform(ptr noundef %0) local_unna
 
 GetNumAvailableColors.exit:                       ; preds = %65, %69
   %.126.ph.i = phi i32 [ %.02531.i, %69 ], [ %.133.i, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %75 = call i32 @quantizeColors(i32 noundef %.126.ph.i, ptr noundef nonnull %7) #16
   %76 = icmp sgt i32 %75, %.126.ph.i
   %77 = load ptr, ptr %13, align 8
@@ -1086,10 +1086,10 @@ GetNumAvailableColors.exit:                       ; preds = %65, %69
 
 83:                                               ; preds = %GetNumAvailableColors.exit
   %84 = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %85 = call i64 @XDefaultColormapOfScreen(ptr noundef %84) #16
   %86 = call i32 @XAllocColorCells(ptr noundef %77, i64 noundef %85, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %8, i32 noundef %75) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 11744
   store i64 %85, ptr %87, align 8
   %88 = icmp sgt i32 %75, 0
@@ -1405,8 +1405,8 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds %struct.SplashImage, ptr %33, i64 %35, i32 1
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, %32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   %40 = load i64, ptr %4, align 8
   %.neg38 = mul i64 %40, 4294966296
@@ -1414,8 +1414,8 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %42 = udiv i64 %41, 1000
   %.neg39 = sub i64 %.neg38, %42
   %.neg40 = trunc i64 %.neg39 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = add i32 %38, %.neg40
   %spec.store.select = call i32 @llvm.smax.i32(i32 %43, i32 0)
   br label %44
@@ -1435,8 +1435,8 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %52, label %53, label %95
 
 53:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %54 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %55 = load i64, ptr %2, align 8
   %56 = mul i64 %55, 1000
@@ -1444,8 +1444,8 @@ define hidden void @SplashEventLoop(ptr noundef %0) local_unnamed_addr #0 {
   %58 = udiv i64 %57, 1000
   %59 = add i64 %58, %56
   %60 = trunc i64 %59 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %61 = load i32, ptr %18, align 8
   %62 = load ptr, ptr %19, align 8
   %63 = load i32, ptr %20, align 4
@@ -1643,8 +1643,8 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %9 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %8, i32 noundef 3, i32 noundef 0) #16
   %10 = or i32 %9, 2048
   %11 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %8, i32 noundef 4, i32 noundef %10) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %13 = load i64, ptr %2, align 8
   %14 = mul i64 %13, 1000
@@ -1653,8 +1653,8 @@ define hidden noalias noundef ptr @SplashScreenThread(ptr noundef %0) #0 {
   %17 = udiv i64 %16, 1000
   %18 = add i64 %17, %14
   %19 = trunc i64 %18 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %19, ptr %20, align 8
   tail call void @SplashCreateWindow(ptr noundef %0)
@@ -1789,7 +1789,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @SplashClosePlatform(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 81, ptr %2, align 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %sendctl.exit, label %3
@@ -1805,14 +1805,14 @@ define hidden void @SplashClosePlatform(ptr noundef readonly captures(address_is
   br label %sendctl.exit
 
 sendctl.exit:                                     ; preds = %1, %3, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @SplashUpdate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 85, ptr %2, align 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %sendctl.exit, label %3
@@ -1828,14 +1828,14 @@ define hidden void @SplashUpdate(ptr noundef readonly captures(address_is_null) 
   br label %sendctl.exit
 
 sendctl.exit:                                     ; preds = %1, %3, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @SplashReconfigure(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 82, ptr %2, align 1
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %sendctl.exit, label %3
@@ -1851,7 +1851,7 @@ define hidden void @SplashReconfigure(ptr noundef readonly captures(address_is_n
   br label %sendctl.exit
 
 sendctl.exit:                                     ; preds = %1, %3, %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1887,10 +1887,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

@@ -587,22 +587,16 @@ define ptr @OSSL_CMP_ITAV_create(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_CMP_ITAV_set0(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @OSSL_CMP_ITAV_set0(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   store ptr %1, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8, !tbaa !9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -616,7 +610,7 @@ define ptr @OSSL_CMP_ITAV_get0_type(ptr noundef readonly captures(address_is_nul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ITAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ITAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1214,7 +1208,7 @@ declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ATAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ATAV_get0_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1309,7 +1303,7 @@ define ptr @OSSL_CMP_ATAV_create(ptr noundef %0, ptr noundef %1) local_unnamed_a
 declare ptr @OSSL_CRMF_ATTRIBUTETYPEANDVALUE_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_CMP_ATAV_set0(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @OSSL_CMP_ATAV_set0(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   store ptr %1, ptr %0, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8, !tbaa !9
@@ -1430,7 +1424,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, -2147483648) i32 @OSSL_CMP_ATAV_get_rsaKeyLen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -1457,14 +1451,14 @@ define range(i32 -2, -2147483648) i32 @OSSL_CMP_ATAV_get_rsaKeyLen(ptr noundef r
 
 15:                                               ; preds = %11, %1, %4, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %4 ], [ -1, %1 ], [ %spec.select, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @OSSL_CMP_ATAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @OSSL_CMP_ATAV_get0_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1769,7 +1763,7 @@ gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge: ; preds = %
 
 gennames_allowed.exit93.thread:                   ; preds = %62, %57, %gennames_allowed.exit93, %55
   %67 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !59
   %68 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef 1) #6
   %69 = icmp eq ptr %68, null
@@ -1791,7 +1785,7 @@ gennames_allowed.exit93.thread:                   ; preds = %62, %57, %gennames_
 
 gennames_new.exit:                                ; preds = %gennames_allowed.exit93.thread, %72, %73
   %.0.i95 = phi ptr [ %68, %73 ], [ null, %72 ], [ null, %gennames_allowed.exit93.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %gennames_allowed.exit93.thread133
 
 gennames_allowed.exit93.thread133:                ; preds = %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge, %gennames_new.exit, %54
@@ -1835,7 +1829,7 @@ gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge: ; preds = %
 
 gennames_allowed.exit98.thread:                   ; preds = %85, %80, %gennames_allowed.exit98, %78
   %90 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %0) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !59
   %91 = call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef 1) #6
   %92 = icmp eq ptr %91, null
@@ -1857,7 +1851,7 @@ gennames_allowed.exit98.thread:                   ; preds = %85, %80, %gennames_
 
 gennames_new.exit101:                             ; preds = %gennames_allowed.exit98.thread, %95, %96
   %.0.i100 = phi ptr [ %91, %96 ], [ null, %95 ], [ null, %gennames_allowed.exit98.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %gennames_allowed.exit98.thread138
 
 gennames_allowed.exit98.thread138:                ; preds = %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge, %gennames_new.exit101, %gennames_allowed.exit93.thread133
@@ -2067,7 +2061,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_ITAV_get0_crls(ptr noundef readonly capture
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_cmp_asn1_get_int(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @ASN1_INTEGER_get_int64(ptr noundef nonnull %2, ptr noundef %0) #6
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %5
@@ -2105,7 +2099,7 @@ define i32 @ossl_cmp_asn1_get_int(ptr noundef %0) local_unnamed_addr #1 {
 
 14:                                               ; preds = %12, %11, %8, %4
   %.0 = phi i32 [ -2, %8 ], [ -2, %11 ], [ %13, %12 ], [ -2, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2679,12 +2673,18 @@ define internal range(i32 0, 2) i32 @ossl_cmp_msg_cb(i32 noundef %0, ptr noundef
 
 declare i32 @ossl_cmp_msg_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

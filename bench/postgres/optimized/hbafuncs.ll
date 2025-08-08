@@ -58,7 +58,7 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %13 = load ptr, ptr @HbaFileName, align 8
   %14 = tail call ptr @open_auth_file(ptr noundef %13, i32 noundef 21, i32 noundef 0, ptr noundef null) #4
@@ -122,9 +122,9 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %56 = load i32, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %3, i8 0, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, i8 0, i64 11, i1 false)
   br i1 %51, label %58, label %57
@@ -355,7 +355,7 @@ switch.lookup:                                    ; preds = %64
   %151 = call ptr @cstring_to_text(ptr noundef %150) #4
   %152 = ptrtoint ptr %151 to i64
   store i64 %152, ptr %34, align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %153 = load i32, ptr %148, align 8
   %.off.i.i.i = add i32 %153, -7
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 2
@@ -735,13 +735,13 @@ thread-pre-split.i.i.i:                           ; preds = %319, %316
   br i1 %.not108.i.i.i, label %get_hba_options.exit.thread.i.i, label %get_hba_options.exit.i.i
 
 get_hba_options.exit.thread.i.i:                  ; preds = %368
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %372
 
 get_hba_options.exit.i.i:                         ; preds = %368, %.thread.i.i.i
   %.17107.i.i.i = phi i32 [ %365, %.thread.i.i.i ], [ %.17.i.i.i, %368 ]
   %369 = call ptr @construct_array_builtin(ptr noundef nonnull %2, i32 noundef %.17107.i.i.i, i32 noundef 25) #4
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not98.i.i = icmp eq ptr %369, null
   br i1 %.not98.i.i, label %372, label %370
 
@@ -774,9 +774,9 @@ get_hba_options.exit.i.i:                         ; preds = %368, %.thread.i.i.i
 fill_hba_line.exit.i:                             ; preds = %378, %375
   %379 = call ptr @heap_form_tuple(ptr noundef %12, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   call void @tuplestore_puttuple(ptr noundef %10, ptr noundef %379) #4
-  call void @llvm.lifetime.end.p0(i64 1025, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i6, 1
   %380 = load i32, ptr %20, align 4
   %381 = sext i32 %380 to i64
@@ -787,19 +787,13 @@ fill_hba_view.exit:                               ; preds = %fill_hba_line.exit.
   call void @free_auth_file(ptr noundef %14, i32 noundef 0) #4
   store ptr %18, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %17) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %383, align 4
   ret i64 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnamed_addr #0 {
@@ -813,7 +807,7 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %11 = load ptr, ptr @IdentFileName, align 8
   %12 = tail call ptr @open_auth_file(ptr noundef %11, i32 noundef 21, i32 noundef 0, ptr noundef null) #4
@@ -868,8 +862,8 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %45 = load i32, ptr %44, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
   br i1 %40, label %47, label %46
@@ -932,8 +926,8 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
 fill_ident_line.exit.i:                           ; preds = %73, %70
   %74 = call ptr @heap_form_tuple(ptr noundef %10, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   call void @tuplestore_puttuple(ptr noundef %8, ptr noundef %74) #4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i5, 1
   %75 = load i32, ptr %18, align 4
   %76 = sext i32 %75 to i64
@@ -944,55 +938,61 @@ fill_ident_view.exit:                             ; preds = %fill_ident_line.exi
   call void @free_auth_file(ptr noundef %12, i32 noundef 0) #4
   store ptr %16, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %15) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %78, align 4
   ret i64 0
 }
 
-declare ptr @open_auth_file(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @open_auth_file(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tokenize_auth_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @tokenize_auth_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @parse_hba_line(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @parse_hba_line(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @free_auth_file(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @free_auth_file(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @strlist_to_textarray(ptr noundef) local_unnamed_addr #2
+declare ptr @strlist_to_textarray(ptr noundef) local_unnamed_addr #1
 
-declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @pg_getnameinfo_all(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @clean_ipv6_addr(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @clean_ipv6_addr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @hba_authname(i32 noundef) local_unnamed_addr #2
+declare ptr @hba_authname(i32 noundef) local_unnamed_addr #1
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tuplestore_puttuple(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_puttuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @parse_ident_line(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @parse_ident_line(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

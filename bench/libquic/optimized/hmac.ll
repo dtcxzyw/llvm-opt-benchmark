@@ -13,7 +13,7 @@ define hidden noundef ptr @HMAC(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   %8 = alloca i32, align 4
   %9 = alloca [64 x i8], align 16
   %10 = alloca %struct.hmac_ctx_st, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = icmp eq ptr %5, null
   %spec.store.select = select i1 %11, ptr @HMAC.static_out_buffer, ptr %5
   store ptr null, ptr %10, align 8, !tbaa !6
@@ -33,8 +33,8 @@ define hidden noundef ptr @HMAC(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   br i1 %.not8, label %28, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef nonnull %8) #5
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %HMAC_Final.exit.thread, label %20
@@ -62,8 +62,8 @@ HMAC_Final.exit.thread:                           ; preds = %18, %20, %22, %26
 
 .sink.split:                                      ; preds = %26, %HMAC_Final.exit.thread
   %.0.ph = phi ptr [ null, %HMAC_Final.exit.thread ], [ %spec.store.select, %26 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %28
 
 28:                                               ; preds = %.sink.split, %7, %16
@@ -72,12 +72,9 @@ HMAC_Final.exit.thread:                           ; preds = %18, %20, %22, %26
   %30 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %13) #5
   %31 = call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %14) #5
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 104) #5
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @HMAC_CTX_init(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
@@ -105,9 +102,9 @@ define hidden range(i32 0, 2) i32 @HMAC_Init_ex(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %12, label %54
 
 12:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = tail call i64 @EVP_MD_block_size(ptr noundef %spec.select) #5
   %14 = icmp ult i64 %13, %2
   br i1 %14, label %15, label %22
@@ -200,16 +197,16 @@ thread-pre-split:                                 ; preds = %20
   br i1 %.not56, label %.thread, label %53
 
 .thread:                                          ; preds = %20, %18, %15, %39, %36, %50, %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 53:                                               ; preds = %50
   store ptr %spec.select, ptr %0, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 54:                                               ; preds = %53, %5
@@ -236,8 +233,8 @@ define hidden i32 @HMAC_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
 define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %7, 0
@@ -267,8 +264,8 @@ define hidden range(i32 0, 2) i32 @HMAC_Final(ptr noundef %0, ptr noundef %1, pt
 
 18:                                               ; preds = %15, %17
   %.0 = phi i32 [ 0, %17 ], [ 1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -284,30 +281,27 @@ define hidden void @HMAC_CTX_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
 
-declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #2
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @EVP_MD_block_size(ptr noundef) local_unnamed_addr #1
 
-declare i64 @EVP_MD_block_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestInit_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @HMAC_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -316,7 +310,7 @@ define hidden i64 @HMAC_size(ptr noundef readonly captures(none) %0) local_unnam
   ret i64 %3
 }
 
-declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #2
+declare i64 @EVP_MD_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @HMAC_CTX_copy_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -409,11 +403,17 @@ HMAC_CTX_copy_ex.exit:                            ; preds = %2, %8, %11, %14
   ret i32 %.0.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

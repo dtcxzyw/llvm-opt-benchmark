@@ -48,7 +48,7 @@ define void @sfdp_layout(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca %struct.expand_t, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.pack_info, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #12
   %7 = tail call ptr @agattr(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef null) #12
   %8 = tail call i32 @late_int(ptr noundef %0, ptr noundef %7, i32 noundef 2, i32 noundef 2) #12
@@ -137,7 +137,7 @@ sfdp_init_graph.exit:                             ; preds = %._crit_edge24.i.i, 
 
 51:                                               ; preds = %sfdp_init_graph.exit
   %52 = tail call ptr @spring_electrical_control_new() #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load i32, ptr %53, align 8, !tbaa !38
   %55 = sext i32 %54 to i64
@@ -321,7 +321,7 @@ late_quadtree_scheme.exit.i:                      ; preds = %124, %122, %120, %1
   br label %tuneControl.exit
 
 tuneControl.exit:                                 ; preds = %late_quadtree_scheme.exit.i, %145
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @graphAdjustMode(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str) #12
   %146 = load i32, ptr %3, align 8, !tbaa !50
   %147 = icmp eq i32 %146, 18
@@ -337,14 +337,14 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   %153 = load double, ptr %152, align 8, !tbaa !54
   %154 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store double %153, ptr %154, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @sepFactor(ptr dead_on_unwind nonnull writable sret(%struct.expand_t) align 8 %4, ptr noundef %0) #12
   %.sroa.016.0.copyload = load double, ptr %4, align 8, !tbaa !56
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !56
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %155 = trunc i8 %.sroa.5.0.copyload to i1
   br i1 %155, label %156, label %162
 
@@ -372,7 +372,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   br label %165
 
 165:                                              ; preds = %164, %162
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %166 = call ptr @ccomps(ptr noundef %0, ptr noundef nonnull %5, ptr noundef null) #12
   %167 = load i64, ptr %5, align 8, !tbaa !40
   %168 = icmp eq i64 %167, 1
@@ -391,7 +391,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
   br label %191
 
 173:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %174 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %6) #12
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 1, ptr %175, align 4, !tbaa !58
@@ -418,7 +418,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %173
   %.lcssa = phi i64 [ 0, %173 ], [ %181, %.lr.ph.split.us ], [ %189, %.lr.ph.split ]
   %183 = call i32 @packSubgraphs(i64 noundef %.lcssa, ptr noundef %166, ptr noundef %0, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %191
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -443,7 +443,7 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 ._crit_edge54:                                    ; preds = %.lr.ph53, %191
   call void @free(ptr noundef %166) #12
   call void @spring_electrical_control_delete(ptr noundef nonnull %52) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %199
 
 .lr.ph53:                                         ; preds = %191, %.lr.ph53
@@ -458,40 +458,34 @@ tuneControl.exit:                                 ; preds = %late_quadtree_schem
 
 199:                                              ; preds = %._crit_edge54, %sfdp_init_graph.exit
   call void @dotneato_postprocess(ptr noundef %0) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 
-declare i32 @agnnodes(ptr noundef) local_unnamed_addr #2
+declare ptr @spring_electrical_control_new() local_unnamed_addr #1
 
-declare ptr @spring_electrical_control_new() local_unnamed_addr #2
+declare void @graphAdjustMode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @graphAdjustMode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @sepFactor(ptr dead_on_unwind writable sret(%struct.expand_t) align 8, ptr noundef) local_unnamed_addr #2
+declare void @sepFactor(ptr dead_on_unwind writable sret(%struct.expand_t) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @spring_electrical_control_print(ptr noundef) local_unnamed_addr #1
 
-declare void @spring_electrical_control_print(ptr noundef) local_unnamed_addr #2
-
-declare ptr @ccomps(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ccomps(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sfdpLayout(ptr noundef %0, ptr noundef %1, double %2, double %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !69
   %8 = tail call ptr @makeMatrix(ptr noundef %0) #12
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -638,32 +632,32 @@ getPos.exit:                                      ; preds = %.loopexit.i, %gv_ca
   call void @SparseMatrix_delete(ptr noundef %8) #12
   %78 = load ptr, ptr %7, align 8, !tbaa !69
   call void @free(ptr noundef %78) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare i32 @removeOverlapWith(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @removeOverlapWith(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @spline_edges(ptr noundef) local_unnamed_addr #2
+declare void @spline_edges(ptr noundef) local_unnamed_addr #1
 
-declare i32 @getPackInfo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @getPackInfo(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @graphviz_node_induce(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @graphviz_node_induce(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @setEdgeType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @setEdgeType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @packSubgraphs(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @packSubgraphs(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @spring_electrical_control_delete(ptr noundef) local_unnamed_addr #2
+declare void @spring_electrical_control_delete(ptr noundef) local_unnamed_addr #1
 
-declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #2
+declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @sfdp_cleanup(ptr noundef %0) local_unnamed_addr #0 {
@@ -694,87 +688,93 @@ define void @sfdp_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare ptr @agfstnode(ptr noundef) local_unnamed_addr #2
+declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
-declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gv_cleanup_edge(ptr noundef) local_unnamed_addr #2
+declare void @gv_cleanup_edge(ptr noundef) local_unnamed_addr #1
 
-declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #2
+declare void @gv_cleanup_node(ptr noundef) local_unnamed_addr #1
 
-declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @late_int(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @late_int(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @agroot(ptr noundef) local_unnamed_addr #2
+declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 
-declare void @neato_init_node(ptr noundef) local_unnamed_addr #2
+declare void @neato_init_node(ptr noundef) local_unnamed_addr #1
 
-declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @agbindrec(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @common_init_edge(ptr noundef) local_unnamed_addr #2
+declare void @common_init_edge(ptr noundef) local_unnamed_addr #1
 
-declare i32 @setSeed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @setSeed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @agwarningf(ptr noundef, ...) local_unnamed_addr #2
+declare void @agwarningf(ptr noundef, ...) local_unnamed_addr #1
 
-declare double @late_double(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare double @late_double(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
-declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #1
 
-declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @mapBool(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @mapBool(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-declare ptr @makeMatrix(ptr noundef) local_unnamed_addr #2
+declare ptr @makeMatrix(ptr noundef) local_unnamed_addr #1
 
-declare ptr @getSizes(ptr noundef, double, double, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @getSizes(ptr noundef, double, double, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @multilevel_spring_electrical_embedding(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @multilevel_spring_electrical_embedding(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #2
+declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit() unnamed_addr #8 {
+define internal fastcc void @graphviz_exit() unnamed_addr #7 {
   tail call void @exit(i32 noundef 1) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #10
+declare void @exit(i32 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold inlinehint nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(read) }

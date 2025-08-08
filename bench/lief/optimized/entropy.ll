@@ -81,12 +81,6 @@ define hidden range(i32 -62, 1) i32 @mbedtls_entropy_add_source(ptr noundef capt
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_entropy_update_manual(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @entropy_update(ptr noundef %0, i8 noundef zeroext 20, ptr noundef %1, i64 noundef %2)
@@ -97,8 +91,8 @@ define hidden i32 @mbedtls_entropy_update_manual(ptr noundef %0, ptr noundef %1,
 define internal fastcc i32 @entropy_update(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [2 x i8], align 1
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ugt i64 %3, 64
   br i1 %7, label %8, label %11
 
@@ -147,8 +141,8 @@ define internal fastcc i32 @entropy_update(ptr noundef %0, i8 noundef zeroext %1
 27:                                               ; preds = %23, %20, %17, %8, %25
   %.0 = phi i32 [ %10, %8 ], [ %19, %17 ], [ %21, %20 ], [ %24, %23 ], [ %26, %25 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 64) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -156,8 +150,8 @@ define internal fastcc i32 @entropy_update(ptr noundef %0, i8 noundef zeroext %1
 define hidden i32 @mbedtls_entropy_gather(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = icmp eq i32 %5, 0
@@ -225,8 +219,8 @@ define hidden i32 @mbedtls_entropy_gather(ptr noundef %0) local_unnamed_addr #0 
 
 entropy_gather_internal.exit:                     ; preds = %20, %1, %.loopexit.i
   %.020.i = phi i32 [ %.119.i, %.loopexit.i ], [ -64, %1 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.020.i
 }
 
@@ -235,7 +229,7 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef writeonly ca
   %4 = alloca [128 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ugt i64 %2, 64
   br i1 %7, label %71, label %.preheader60
 
@@ -246,8 +240,8 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef writeonly ca
 
 10:                                               ; preds = %.preheader60, %.backedge
   %11 = phi i32 [ 1, %.preheader60 ], [ %53, %.backedge ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load i32, ptr %8, align 4, !tbaa !11
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %entropy_gather_internal.exit.thread, label %.preheader.i
@@ -304,21 +298,21 @@ define hidden i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef writeonly ca
 
 entropy_gather_internal.exit.thread:              ; preds = %10, %25
   %.020.i.ph = phi i32 [ %27, %25 ], [ -64, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 entropy_gather_internal.exit.thread56:            ; preds = %.preheader.i, %._crit_edge.loopexit.i, %.lr.ph.i
   %.119.i.ph = phi i32 [ %22, %.lr.ph.i ], [ -61, %._crit_edge.loopexit.i ], [ -61, %.preheader.i ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 128) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexit.i
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 128) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = load i32, ptr %8, align 4, !tbaa !11
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph.preheader, label %.backedge
@@ -418,7 +412,7 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
 
 71:                                               ; preds = %3, %.loopexit
   %.0 = phi i32 [ %.040, %.loopexit ], [ -60, %3 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -435,12 +429,12 @@ declare i32 @mbedtls_md_update(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @mbedtls_md(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -63, 1) i32 @mbedtls_entropy_write_seed_file(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mbedtls_entropy_func(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 64)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.thread
@@ -466,26 +460,26 @@ define hidden range(i32 -63, 1) i32 @mbedtls_entropy_write_seed_file(ptr noundef
 
 11:                                               ; preds = %.thread, %8
   %.0613 = phi i32 [ %.06.ph, %.thread ], [ %., %8 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0613
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #6
+declare void @setbuf(ptr noundef captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_entropy_update_seed_file(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -517,18 +511,18 @@ define hidden i32 @mbedtls_entropy_update_seed_file(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %13, %2, %15
   %.0 = phi i32 [ %16, %15 ], [ -63, %2 ], [ %.016, %13 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mbedtls_entropy_self_test(i32 noundef %0) local_unnamed_addr #0 {
@@ -537,10 +531,10 @@ define hidden range(i32 0, 2) i32 @mbedtls_entropy_self_test(i32 noundef %0) loc
   %4 = alloca %struct.mbedtls_entropy_context, align 8
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 832, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %9, label %7
@@ -553,8 +547,8 @@ define hidden range(i32 0, 2) i32 @mbedtls_entropy_self_test(i32 noundef %0) loc
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %10, i8 0, i64 808, i1 false)
   call void @mbedtls_md_init(ptr noundef nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = icmp eq i32 %12, 0
@@ -620,8 +614,8 @@ mbedtls_entropy_gather.exit.thread32:             ; preds = %16, %.preheader.i.i
 
 40:                                               ; preds = %._crit_edge.loopexit.i.i
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 128) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = load i32, ptr %11, align 4, !tbaa !11
   %42 = icmp sgt i32 %41, 19
   br i1 %42, label %mbedtls_entropy_add_source.exit, label %43
@@ -678,8 +672,8 @@ mbedtls_entropy_gather.exit.thread32:             ; preds = %16, %.preheader.i.i
   br i1 %64, label %mbedtls_entropy_add_source.exit, label %60
 
 mbedtls_entropy_add_source.exit.sink.split:       ; preds = %27, %9, %mbedtls_entropy_gather.exit.thread32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mbedtls_entropy_add_source.exit
 
 mbedtls_entropy_add_source.exit:                  ; preds = %.preheader38, %.preheader, %60, %mbedtls_entropy_add_source.exit.sink.split, %40, %43
@@ -709,21 +703,27 @@ mbedtls_entropy_free.exit:                        ; preds = %mbedtls_entropy_add
 70:                                               ; preds = %69, %mbedtls_entropy_free.exit
   %71 = icmp ne i32 %.015, 0
   %72 = zext i1 %71 to i32
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %72
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @entropy_dummy_source(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #7 {
+define internal noundef i32 @entropy_dummy_source(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #6 {
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 42, i64 %2, i1 false)
   store i64 %2, ptr %3, align 8, !tbaa !19
   ret i32 0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
@@ -738,10 +738,10 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nounwind }

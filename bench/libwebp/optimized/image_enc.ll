@@ -18,8 +18,8 @@ define hidden range(i32 0, 2) i32 @WebPWritePNG(ptr noundef %0, ptr noundef read
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -54,7 +54,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %17
   %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   store ptr %27, ptr %5, align 8, !tbaa !17
@@ -96,7 +96,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %17
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %39, %WebPIsAlphaMode.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = load volatile ptr, ptr %3, align 8, !tbaa !4
   %45 = load volatile ptr, ptr %4, align 8, !tbaa !9
   call void @png_write_end(ptr noundef %44, ptr noundef %45) #9
@@ -110,50 +110,44 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %17
 
 46:                                               ; preds = %.sink.split, %8, %2
   %.016 = phi i32 [ 0, %2 ], [ 0, %8 ], [ %.016.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noalias ptr @png_create_write_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @png_create_write_struct(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @PNGErrorFunction(ptr noundef %0, ptr readnone captures(none) %1) #3 {
+define internal void @PNGErrorFunction(ptr noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = tail call ptr @png_set_longjmp_fn(ptr noundef %0, ptr noundef nonnull @longjmp, i64 noundef 200) #9
   tail call void @longjmp(ptr noundef %3, i32 noundef 1) #11
   unreachable
 }
 
-declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @png_create_info_struct(ptr noundef) local_unnamed_addr #1
 
-declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
-declare ptr @png_set_longjmp_fn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @png_set_longjmp_fn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) #5
+declare void @longjmp(ptr noundef, i32 noundef) #4
 
-declare void @png_init_io(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_init_io(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_set_IHDR(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_set_IHDR(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @png_write_info(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_write_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @png_write_rows(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @png_write_rows(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @png_write_end(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @png_write_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePPM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWritePPM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -200,7 +194,7 @@ WritePPMPAM.exit:                                 ; preds = %19, %21, %2, %5, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePAM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWritePAM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -247,7 +241,7 @@ WritePPMPAM.exit:                                 ; preds = %19, %21, %2, %5, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -295,16 +289,16 @@ define hidden range(i32 0, 2) i32 @WebPWrite16bAsPGM(ptr noundef captures(addres
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWriteBMP(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca [70 x i8], align 16
   %4 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %5, i8 0, i64 22, i1 false)
   %6 = icmp eq ptr %0, null
@@ -445,11 +439,11 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   br i1 %.not57, label %71, label %.loopexit
 
 71:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   %72 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef %56, i64 noundef 1, ptr noundef nonnull %0)
   %.not59 = icmp eq i64 %72, 1
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not59, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %71
@@ -459,17 +453,17 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 
 .loopexit:                                        ; preds = %.lr.ph.split, %71, %.critedge, %.lr.ph.split.us, %.critedge.us, %.preheader, %50, %.thread, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.thread ], [ 0, %50 ], [ 1, %.preheader ], [ 0, %.lr.ph.split.us ], [ 1, %.critedge.us ], [ 0, %.lr.ph.split ], [ 0, %71 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 70, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = alloca [210 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 210, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 73, ptr %3, align 16, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 73, ptr %4, align 1, !tbaa !16
@@ -885,12 +879,12 @@ WebPIsAlphaMode.exit:                             ; preds = %174, %177
 
 .loopexit:                                        ; preds = %202, %204, %.preheader, %197, %WebPIsAlphaMode.exit, %2
   %.032 = phi i32 [ 0, %2 ], [ 0, %WebPIsAlphaMode.exit ], [ 0, %197 ], [ 1, %.preheader ], [ 0, %202 ], [ 1, %204 ]
-  call void @llvm.lifetime.end.p0(i64 210, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.032
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -937,7 +931,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteAlphaPlane(ptr noundef captures(addr
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1089,10 +1083,10 @@ define hidden range(i32 0, 2) i32 @WebPWritePGM(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1455,23 +1449,29 @@ WebPWritePAM.exit:                                ; preds = %104, %102, %77, %75
   ret i32 %.086
 }
 
-declare ptr @ImgIoUtilSetBinaryMode(ptr noundef) local_unnamed_addr #2
+declare ptr @ImgIoUtilSetBinaryMode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind returns_twice }
 attributes #11 = { noreturn nounwind }

@@ -155,13 +155,13 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = call ptr @glue_strings(ptr noundef nonnull @kCRLTestRoot, ptr noundef nonnull %2) #3
   %4 = load i64, ptr %2, align 8, !tbaa !4
   %5 = trunc i64 %4 to i32
   %6 = call ptr @BIO_new_mem_buf(ptr noundef %3, i32 noundef %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -183,13 +183,13 @@ X509_from_strings.exit:                           ; preds = %8, %9
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %X509_from_strings.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !4
   %14 = call ptr @glue_strings(ptr noundef nonnull @kCRLTestLeaf, ptr noundef nonnull %1) #3
   %15 = load i64, ptr %1, align 8, !tbaa !4
   %16 = trunc i64 %15 to i32
   %17 = call ptr @BIO_new_mem_buf(ptr noundef %14, i32 noundef %16) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
 
@@ -241,13 +241,13 @@ define internal i32 @test_no_crl() #0 {
 define internal range(i32 0, 2) i32 @test_basic_crl() #0 {
   %1 = alloca i64, align 8
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = call ptr @glue_strings(ptr noundef nonnull @kBasicCRL, ptr noundef nonnull %2) #3
   %4 = load i64, ptr %2, align 8, !tbaa !4
   %5 = trunc i64 %4 to i32
   %6 = call ptr @BIO_new_mem_buf(ptr noundef %3, i32 noundef %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -263,13 +263,13 @@ define internal range(i32 0, 2) i32 @test_basic_crl() #0 {
 
 CRL_from_strings.exit:                            ; preds = %8, %9
   %.0.i = phi ptr [ null, %8 ], [ %10, %9 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !4
   %12 = call ptr @glue_strings(ptr noundef nonnull @kRevokedCRL, ptr noundef nonnull %1) #3
   %13 = load i64, ptr %1, align 8, !tbaa !4
   %14 = trunc i64 %13 to i32
   %15 = call ptr @BIO_new_mem_buf(ptr noundef %12, i32 noundef %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
 
@@ -336,13 +336,13 @@ make_CRL_stack.exit:                              ; preds = %32, %38
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_bad_issuer_crl() #0 {
   %1 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !4
   %2 = call ptr @glue_strings(ptr noundef nonnull @kBadIssuerCRL, ptr noundef nonnull %1) #3
   %3 = load i64, ptr %1, align 8, !tbaa !4
   %4 = trunc i64 %3 to i32
   %5 = call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -383,13 +383,13 @@ CRL_from_strings.exit:                            ; preds = %7, %8
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_known_critical_crl() #0 {
   %1 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 0, ptr %1, align 8, !tbaa !4
   %2 = call ptr @glue_strings(ptr noundef nonnull @kKnownCriticalCRL, ptr noundef nonnull %1) #3
   %3 = load i64, ptr %1, align 8, !tbaa !4
   %4 = trunc i64 %3 to i32
   %5 = call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
 
@@ -435,13 +435,13 @@ define internal range(i32 0, 2) i32 @test_unknown_critical_crl(i32 noundef %0) #
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [2 x ptr], ptr @unknown_critical_crls, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %6 = call ptr @glue_strings(ptr noundef %5, ptr noundef nonnull %2) #3
   %7 = load i64, ptr %2, align 8, !tbaa !4
   %8 = trunc i64 %7 to i32
   %9 = call ptr @BIO_new_mem_buf(ptr noundef %6, i32 noundef %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -484,14 +484,14 @@ define internal range(i32 0, 2) i32 @test_reuse_crl(i32 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !4
   %5 = call ptr @glue_strings(ptr noundef nonnull @kBasicCRL, ptr noundef nonnull %3) #3
   %6 = load i64, ptr %3, align 8, !tbaa !4
   %7 = trunc i64 %6 to i32
   %8 = call ptr @BIO_new_mem_buf(ptr noundef %5, i32 noundef %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -532,13 +532,13 @@ CRL_from_strings.exit:                            ; preds = %10, %11
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds ptr, ptr @kInvalidCRL, i64 %26
   %28 = select i1 %25, ptr @kRevokedCRL, ptr %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %29 = call ptr @glue_strings(ptr noundef nonnull %28, ptr noundef nonnull %2) #3
   %30 = load i64, ptr %2, align 8, !tbaa !4
   %31 = trunc i64 %30 to i32
   %32 = call ptr @BIO_new_mem_buf(ptr noundef %29, i32 noundef %31) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %33 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 401, ptr noundef nonnull @.str.132, ptr noundef %32) #3
   %.not17 = icmp eq i32 %33, 0
   br i1 %.not17, label %55, label %34
@@ -603,7 +603,7 @@ CRL_from_strings.exit:                            ; preds = %10, %11
   %57 = load ptr, ptr %4, align 8, !tbaa !13
   call void @X509_CRL_free(ptr noundef %57) #3
   call void @X509_CRL_free(ptr noundef %.014) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -618,17 +618,11 @@ define dso_local void @cleanup_tests() local_unnamed_addr #0 {
 
 declare void @X509_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @glue_strings(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -768,6 +762,12 @@ declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @test_ptr_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

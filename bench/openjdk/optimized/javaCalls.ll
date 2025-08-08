@@ -1013,7 +1013,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i8 0, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
@@ -1054,7 +1054,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
 
 _ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6SymbolP17JavaCallArgumentsP10JavaThread.exit: ; preds = %3, %19, %22
   %.sroa.0.0.i = phi ptr [ null, %3 ], [ null, %19 ], [ %spec.select.i, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.sroa.0.0.i
 }
 
@@ -1079,7 +1079,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   %15 = ptrtoint ptr %2 to i64
   store i32 1, ptr %13, align 8
   store i64 %15, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
@@ -1120,7 +1120,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
 
 _ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6SymbolP17JavaCallArgumentsP10JavaThread.exit: ; preds = %4, %21, %24
   %.sroa.0.0.i = phi ptr [ null, %4 ], [ null, %21 ], [ %spec.select.i, %24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.sroa.0.0.i
 }
 
@@ -1150,7 +1150,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
   store i32 2, ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %18, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
@@ -1191,7 +1191,7 @@ define hidden ptr @_ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6Symbo
 
 _ZN9JavaCalls22construct_new_instanceEP13InstanceKlassP6SymbolP17JavaCallArgumentsP10JavaThread.exit: ; preds = %5, %25, %28
   %.sroa.0.0.i = phi ptr [ null, %5 ], [ null, %25 ], [ %spec.select.i, %28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.sroa.0.0.i
 }
 
@@ -3545,10 +3545,10 @@ declare i32 @llvm.ctpop.i32(i32) #6
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

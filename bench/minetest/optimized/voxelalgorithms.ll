@@ -856,16 +856,10 @@ while.end:                                        ; preds = %while.body.i
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144), i48) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7voxalgo12spread_lightEP3MapPK14NodeDefManager9LightBankRNS_10LightQueueERSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef %map, ptr noundef readonly captures(none) %nodemgr, i32 noundef %bank, ptr noundef nonnull align 8 captures(none) dereferenceable(385) %light_sources, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -874,8 +868,8 @@ entry:
   %ref.tmp10.i = alloca %"class.std::tuple.134", align 1
   %current.sroa.7 = alloca %"class.irr::core::vector3d", align 8
   %neighbor_block_pos = alloca %"class.irr::core::vector3d", align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %current.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %neighbor_block_pos) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %current.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %neighbor_block_pos)
   store i16 0, ptr %neighbor_block_pos, align 8, !tbaa !4
   %Y.i = getelementptr inbounds nuw i8, ptr %neighbor_block_pos, i64 2
   store i16 0, ptr %Y.i, align 2, !tbaa !9
@@ -1356,12 +1350,12 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i107:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %if.then31
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %if.then31 ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
   store ptr %neighbor_block_pos, ptr %ref.tmp9.i, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %call12.i = call ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr %__y.addr.0.lcssa.i.i.i23.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   br label %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit
 
 _ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEEixERS9_.exit: ; preds = %if.then.i107, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true18.i.i.i, %lor.lhs.false.i.i.i
@@ -1376,8 +1370,8 @@ for.inc:                                          ; preds = %_ZNSt3mapIN3irr4cor
   br i1 %exitcond.not, label %while.cond.loopexit, label %for.body, !llvm.loop !97
 
 while.end:                                        ; preds = %while.body.i
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %neighbor_block_pos) #22
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %current.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %neighbor_block_pos)
+  call void @llvm.lifetime.end.p0(ptr nonnull %current.sroa.7)
   ret void
 }
 
@@ -1489,7 +1483,7 @@ entry:
   %light_sources = alloca %"struct.voxalgo::LightQueue", align 8
   %m_nodedef.i = getelementptr inbounds nuw i8, ptr %map, i64 136
   %0 = load ptr, ptr %m_nodedef.i, align 8, !tbaa !101
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_valid_position) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %is_valid_position)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %oldnodes, i64 8
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %modified_blocks, i64 16
@@ -1504,16 +1498,16 @@ entry:
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %invoke.cont361
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %is_valid_position)
   ret void
 
 for.body:                                         ; preds = %invoke.cont361, %entry
   %__begin1.0.idx1019 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %invoke.cont361 ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN7voxalgoL5banksE, i64 %__begin1.0.idx1019
   %1 = load i32, ptr %__begin1.0.ptr, align 4, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %disappearing_lights) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %disappearing_lights)
   call void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights, i64 noundef 256)
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %light_sources)
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %light_sources, i64 noundef 256)
           to label %invoke.cont unwind label %lpad
 
@@ -2890,9 +2884,9 @@ invoke.cont348:                                   ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont361:                                   ; preds = %for.cond.cleanup316
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %disappearing_lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx1019, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 8
   br i1 %cmp.not, label %for.cond.cleanup, label %for.body
@@ -2904,10 +2898,10 @@ ehcleanup362:                                     ; preds = %lpad311, %lpad267.l
 
 ehcleanup364:                                     ; preds = %ehcleanup362, %lpad
   %.pn466.pn = phi { ptr, i32 } [ %.pn466, %ehcleanup362 ], [ %4, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %disappearing_lights) #22
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
+  call void @llvm.lifetime.end.p0(ptr nonnull %is_valid_position)
   resume { ptr, i32 } %.pn466.pn
 }
 
@@ -3167,7 +3161,7 @@ declare i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align
 declare void @_ZN3Map7setNodeEN3irr4core8vector3dIsEE7MapNode(ptr noundef nonnull align 8 dereferenceable(144), i48, i32) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arraydestroy.element = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %arraydestroy.element, align 8, !tbaa !80
@@ -3332,7 +3326,7 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN7voxalgo24is_light_locally_correctEP3MapPK14NodeDefManager9LightBankN3irr4core8vector3dIsEE(ptr noundef nonnull %map, ptr noundef readonly captures(none) %ndef, i32 noundef %bank, i48 %pos.coerce) local_unnamed_addr #4 {
@@ -3343,7 +3337,7 @@ entry:
   %pos.sroa.2.0.extract.trunc = trunc i48 %pos.sroa.2.0.extract.shift to i16
   %pos.sroa.3.0.extract.shift = lshr i48 %pos.coerce, 32
   %pos.sroa.3.0.extract.trunc = trunc nuw i48 %pos.sroa.3.0.extract.shift to i16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_valid_position) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %is_valid_position)
   %call = call i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %map, i48 %pos.coerce, ptr noundef nonnull %is_valid_position)
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %ndef, i64 312
   %0 = and i32 %call, 65535
@@ -3550,7 +3544,7 @@ for.cond.cleanup:                                 ; preds = %for.body.us.prehead
 
 cleanup:                                          ; preds = %for.cond.cleanup, %entry
   %retval.0 = phi i1 [ %cmp25, %for.cond.cleanup ], [ true, %entry ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %is_valid_position) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %is_valid_position)
   ret i1 %retval.0
 }
 
@@ -3582,9 +3576,9 @@ for.body:                                         ; preds = %invoke.cont213, %en
   %__begin1.0.idx467 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %invoke.cont213 ]
   %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN7voxalgoL5banksE, i64 %__begin1.0.idx467
   %1 = load i32, ptr %__begin1.0.ptr, align 4, !tbaa !113
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %disappearing_lights) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %disappearing_lights)
   call void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights, i64 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %light_sources)
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %light_sources, i64 noundef 0)
           to label %for.cond1.preheader unwind label %lpad
 
@@ -3732,7 +3726,7 @@ if.then11.i.i.i330:                               ; preds = %if.else.i.i.i328
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %if.then11.i.i.i330, %if.else.i.i.i328, %if.then.i.i.i333, %invoke.cont23
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %areas) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %areas)
   %arrayidx30 = getelementptr inbounds nuw [6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 %indvars.iv475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %areas, ptr noundef nonnull align 2 dereferenceable(18) %arrayidx30, i64 18, i1 false), !tbaa.struct !145
   %arrayidx35 = getelementptr inbounds nuw [6 x %class.VoxelArea], ptr @_ZN7voxalgoL13block_bordersE, i64 0, i64 %16
@@ -3740,7 +3734,7 @@ invoke.cont27:                                    ; preds = %if.then11.i.i.i330,
   br label %for.body40
 
 for.cond.cleanup39:                               ; preds = %for.cond.cleanup50
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %areas) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %areas)
   br label %cleanup
 
 for.body40:                                       ; preds = %for.cond.cleanup50, %invoke.cont27
@@ -4204,7 +4198,7 @@ if.end133:                                        ; preds = %_ZNSt6vectorIN7voxa
 
 ehcleanup135:                                     ; preds = %lpad115, %lpad104.loopexit.split-lp, %lpad104.loopexit, %lpad93, %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i
   %.pn.pn = phi { ptr, i32 } [ %61, %lpad93 ], [ %lpad.loopexit, %lpad104.loopexit ], [ %lpad.loopexit.split-lp, %lpad104.loopexit.split-lp ], [ %62, %lpad115 ], [ %54, %_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %areas) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %areas)
   br label %ehcleanup214
 
 cleanup:                                          ; preds = %for.cond.cleanup39, %land.lhs.true, %invoke.cont12
@@ -4338,9 +4332,9 @@ invoke.cont200:                                   ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont213:                                   ; preds = %for.cond.cleanup167
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %light_sources) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %disappearing_lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx467, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 8
   br i1 %cmp.not, label %for.cond.cleanup, label %for.body
@@ -4352,9 +4346,9 @@ ehcleanup214:                                     ; preds = %lpad162, %ehcleanup
 
 ehcleanup215:                                     ; preds = %ehcleanup214, %lpad
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %3, %lpad ]
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %light_sources) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %light_sources)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %disappearing_lights) #22
-  call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %disappearing_lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %disappearing_lights)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
@@ -4365,7 +4359,7 @@ entry:
   %m_area = getelementptr inbounds nuw i8, ptr %vm, i64 8
   %m_cache_extent.i = getelementptr inbounds nuw i8, ptr %vm, i64 20
   %0 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ignore) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ignore)
   store i16 127, ptr %ignore, align 4, !tbaa !115
   %Y = getelementptr inbounds nuw i8, ptr %vm, i64 16
   %1 = load i16, ptr %Y, align 2, !tbaa !157
@@ -4409,7 +4403,7 @@ for.cond1.preheader.split:                        ; preds = %for.cond1.preheader
   br label %for.body5
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignore) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ignore)
   ret void
 
 for.cond.cleanup4:                                ; preds = %for.cond.cleanup22.loopexit, %for.cond1.preheader
@@ -5869,14 +5863,14 @@ if.end:                                           ; preds = %entry
   %maxblock.sroa.0.0.extract.trunc = trunc nsw i32 %div.i.i.i395 to i16
   %maxblock.sroa.7.0.extract.trunc = trunc nsw i32 %div.i11.i.i400 to i16
   %maxblock.sroa.9.0.extract.trunc = trunc nsw i32 %div.i19.i.i406 to i16
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %unlight)
   call void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %unlight, i64 noundef 256)
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %unlight, i64 392
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element, i64 noundef 256)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %relight)
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %relight, i64 noundef 256)
           to label %invoke.cont13 unwind label %lpad12.thread
 
@@ -5891,8 +5885,8 @@ invoke.cont13:                                    ; preds = %invoke.cont8
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %lights) #22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %data) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %lights)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %data, i8 0, i64 30, i1 false)
   %cmp.not579 = icmp sgt i32 %div.i.i.i, %div.i.i.i395
   br i1 %cmp.not579, label %for.end270, label %for.cond26.preheader.lr.ph
@@ -5957,7 +5951,7 @@ invoke.cont36:                                    ; preds = %for.body32
   %mul6.i = shl i16 %z.0578, 4
   %offset.sroa.7.0.insert.ext = zext i16 %mul6.i to i32
   %16 = load i16, ptr %m_cache_extent.i.i, align 2, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ignore.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ignore.i)
   store i16 127, ptr %ignore.i, align 4, !tbaa !115
   %17 = load i16, ptr %Y.i.i, align 2, !tbaa !157
   %18 = load i16, ptr %Z11.i.i, align 2, !tbaa !160
@@ -6063,7 +6057,7 @@ cleanup.i:                                        ; preds = %if.end.i111.i, %if.
   br i1 %cmp21.not.i, label %for.cond.cleanup22.i.loopexit, label %for.body23.i, !llvm.loop !169
 
 invoke.cont43:                                    ; preds = %for.cond.cleanup4.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ignore.i) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ignore.i)
   store i16 %x.0580, ptr %target_block, align 8, !tbaa !18
   store i16 %sub, ptr %ref.tmp.sroa.4.0.target_block.sroa_idx, align 2, !tbaa !18
   store i16 %z.0578, ptr %ref.tmp.sroa.5.0.target_block.sroa_idx, align 4, !tbaa !18
@@ -6859,14 +6853,14 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont276
   br label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit
 
 _ZN7voxalgo23SunlightPropagationDataD2Ev.exit:    ; preds = %if.then.i.i.i.i, %invoke.cont276
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %data)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lights)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %relight)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   br label %cleanup311
 
 cleanup311:                                       ; preds = %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit, %entry
@@ -6888,22 +6882,22 @@ if.then.i.i.i.i508:                               ; preds = %ehcleanup279
   br label %ehcleanup280
 
 ehcleanup280:                                     ; preds = %if.then.i.i.i.i508, %ehcleanup279
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %data)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lights)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element14) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
   br label %ehcleanup294
 
 ehcleanup294:                                     ; preds = %ehcleanup280, %lpad12, %lpad12.thread
   %.pn381.pn.pn.pn.pn = phi { ptr, i32 } [ %13, %lpad12.thread ], [ %.pn381.pn.pn, %ehcleanup280 ], [ %15, %lpad12 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %relight)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
   br label %ehcleanup308
 
 ehcleanup308:                                     ; preds = %ehcleanup294, %lpad
   %.pn381.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn381.pn.pn.pn.pn, %ehcleanup294 ], [ %14, %lpad ]
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   resume { ptr, i32 } %.pn381.pn.pn.pn.pn.pn
 }
 
@@ -7035,14 +7029,14 @@ entry:
 if.end:                                           ; preds = %entry
   %m_nodedef.i = getelementptr inbounds nuw i8, ptr %map, i64 136
   %0 = load ptr, ptr %m_nodedef.i, align 8, !tbaa !101
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %unlight)
   call void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %unlight, i64 noundef 256)
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %unlight, i64 392
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element, i64 noundef 256)
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %relight)
   invoke void @_ZN7voxalgo10LightQueueC2Em(ptr noundef nonnull align 8 dereferenceable(385) %relight, i64 noundef 256)
           to label %invoke.cont6 unwind label %lpad5.thread
 
@@ -7057,10 +7051,10 @@ invoke.cont6:                                     ; preds = %invoke.cont1
           to label %invoke.cont16 unwind label %lpad5
 
 invoke.cont16:                                    ; preds = %invoke.cont6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %lights) #22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %data) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %lights)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(30) %data, i8 0, i64 30, i1 false)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %blockpos)
   %m_pos.i = getelementptr inbounds nuw i8, ptr %block, i64 10
   %retval.sroa.0.0.copyload.i = load i48, ptr %m_pos.i, align 2, !tbaa.struct !71
   store i48 %retval.sroa.0.0.copyload.i, ptr %blockpos, align 8
@@ -7146,15 +7140,15 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i: ; preds = %land.lhs.true
 
 if.then.i:                                        ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i, %land.lhs.true.i.i.i, %lor.rhs.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, %invoke.cont16
   %__y.addr.0.lcssa.i.i.i23.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i ], [ %add.ptr.i.i.i.i, %invoke.cont16 ], [ %__y.addr.1.i.i.i.i, %land.lhs.true.i.i.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
   store ptr %blockpos, ptr %ref.tmp9.i, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %call12.i227 = invoke ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr nonnull %__y.addr.0.lcssa.i.i.i23.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
           to label %call12.i.noexc unwind label %lpad17.loopexit.split-lp
 
 call12.i.noexc:                                   ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
   %agg.tmp.sroa.0.0.copyload.pre = load i48, ptr %blockpos, align 8, !tbaa.struct !71
   br label %invoke.cont20
 
@@ -7529,15 +7523,15 @@ _ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i272: ; preds = %land.lhs.t
 
 if.then.i275:                                     ; preds = %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i272, %land.lhs.true.i.i.i267, %lor.rhs.i259, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i257, %invoke.cont54
   %__y.addr.0.lcssa.i.i.i23.i276 = phi ptr [ %__y.addr.1.i.i.i.i253, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i272 ], [ %add.ptr.i.i.i.i, %_ZNSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i257 ], [ %add.ptr.i.i.i.i, %invoke.cont54 ], [ %__y.addr.1.i.i.i.i253, %land.lhs.true.i.i.i267 ], [ %__y.addr.1.i.i.i.i253, %lor.rhs.i259 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i236) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i236)
   store ptr %target_block, ptr %ref.tmp9.i236, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i237) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i237)
   %call12.i287 = invoke ptr @_ZNSt8_Rb_treeIN3irr4core8vector3dIsEESt4pairIKS3_P8MapBlockESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESJ_IJEEEEESt17_Rb_tree_iteratorIS8_ESt23_Rb_tree_const_iteratorIS8_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks, ptr nonnull %__y.addr.0.lcssa.i.i.i23.i276, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i236, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i237)
           to label %call12.i.noexc286 unwind label %lpad17.loopexit
 
 call12.i.noexc286:                                ; preds = %if.then.i275
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i237) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i236) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i237)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i236)
   br label %invoke.cont57
 
 invoke.cont57:                                    ; preds = %call12.i.noexc286, %_ZNKSt4lessIN3irr4core8vector3dIsEEEclERKS3_S6_.exit.i272, %land.lhs.true18.i.i.i270, %lor.lhs.false.i.i.i262
@@ -7865,7 +7859,7 @@ for.end140:                                       ; preds = %for.inc137, %for.bo
   br i1 %cmp63.not, label %for.cond.cleanup64, label %for.body65
 
 invoke.cont152:                                   ; preds = %for.cond.cleanup64
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %blockpos) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %blockpos)
   %94 = load ptr, ptr %data, align 8, !tbaa !176
   %tobool.not.i.i.i.i = icmp eq ptr %94, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit, label %if.then.i.i.i.i
@@ -7875,14 +7869,14 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont152
   br label %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit
 
 _ZN7voxalgo23SunlightPropagationDataD2Ev.exit:    ; preds = %if.then.i.i.i.i, %invoke.cont152
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %data)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lights)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %relight)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   br label %return
 
 return:                                           ; preds = %_ZN7voxalgo23SunlightPropagationDataD2Ev.exit, %entry
@@ -7890,7 +7884,7 @@ return:                                           ; preds = %_ZN7voxalgo23Sunlig
 
 ehcleanup153:                                     ; preds = %lpad122.loopexit.split-lp, %lpad122.loopexit, %lpad36.loopexit.split-lp, %lpad36.loopexit, %lpad17.loopexit.split-lp, %lpad17.loopexit
   %.pn222 = phi { ptr, i32 } [ %lpad.loopexit356, %lpad17.loopexit ], [ %lpad.loopexit.split-lp357, %lpad17.loopexit.split-lp ], [ %lpad.loopexit359, %lpad36.loopexit ], [ %lpad.loopexit.split-lp360, %lpad36.loopexit.split-lp ], [ %lpad.loopexit, %lpad122.loopexit ], [ %lpad.loopexit.split-lp, %lpad122.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %blockpos) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %blockpos)
   %95 = load ptr, ptr %data, align 8, !tbaa !176
   %tobool.not.i.i.i.i331 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i.i.i331, label %ehcleanup155, label %if.then.i.i.i.i332
@@ -7900,22 +7894,22 @@ if.then.i.i.i.i332:                               ; preds = %ehcleanup153
   br label %ehcleanup155
 
 ehcleanup155:                                     ; preds = %if.then.i.i.i.i332, %ehcleanup153
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %data) #22
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lights) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %data)
+  call void @llvm.lifetime.end.p0(ptr nonnull %lights)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element7) #22
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %relight) #22
   br label %ehcleanup169
 
 ehcleanup169:                                     ; preds = %ehcleanup155, %lpad5, %lpad5.thread
   %.pn222.pn.pn = phi { ptr, i32 } [ %1, %lpad5.thread ], [ %.pn222, %ehcleanup155 ], [ %34, %lpad5 ]
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %relight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %relight)
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %arrayinit.element) #22
   br label %ehcleanup183
 
 ehcleanup183:                                     ; preds = %ehcleanup169, %lpad
   %.pn222.pn.pn.pn = phi { ptr, i32 } [ %.pn222.pn.pn, %ehcleanup169 ], [ %33, %lpad ]
   call void @_ZN7voxalgo10LightQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(385) %unlight) #22
-  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %unlight) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %unlight)
   resume { ptr, i32 } %.pn222.pn.pn.pn
 }
 
@@ -8889,6 +8883,12 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
 
@@ -8897,9 +8897,9 @@ attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

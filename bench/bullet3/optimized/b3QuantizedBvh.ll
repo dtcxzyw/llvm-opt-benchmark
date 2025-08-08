@@ -104,14 +104,8 @@ define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr noundef nonnull writeonly ali
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh13buildInternalEv(ptr noundef nonnull align 16 dereferenceable(252) initializes((72, 73)) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh13buildInternalEv(ptr noundef nonnull align 16 dereferenceable(252) initializes((72, 73)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.b3BvhSubtreeInfo, align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 1, ptr %3, align 8, !tbaa !24
@@ -218,9 +212,9 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit: ; preds = %3
 
 42:                                               ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE6resizeEiRKS0_.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %44 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %43, ptr noundef nonnull align 16 dereferenceable(32) %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %46 = load ptr, ptr %45, align 16, !tbaa !30
   %47 = load i16, ptr %46, align 16, !tbaa !46
@@ -304,10 +298,10 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE5clearEv.exit: ; preds = %_ZN20b3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh9buildTreeEii(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh9buildTreeEii(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %class.b3Vector3, align 16
   %5 = alloca %class.b3Vector3, align 16
   %6 = sub nsw i32 %2, %1
@@ -481,7 +475,7 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMaxEiRK9b3Vector3.exit: ; preds = %81, %
 130:                                              ; preds = %.lr.ph, %_ZNK14b3QuantizedBvh10getAabbMaxEi.exit
   %indvars.iv = phi i64 [ %129, %.lr.ph ], [ %indvars.iv.next, %_ZNK14b3QuantizedBvh10getAabbMaxEi.exit ]
   %131 = load i32, ptr %7, align 4, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %132 = load i8, ptr %37, align 8, !tbaa !24, !range !42, !noundef !45
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %174
@@ -514,7 +508,7 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMaxEiRK9b3Vector3.exit: ; preds = %81, %
   %.sroa.7.8.vec.insert16.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %157, i64 0
   store <2 x float> %.sroa.0.4.vec.insert12.i.i, ptr %4, align 16
   store <2 x float> %.sroa.7.8.vec.insert16.i.i, ptr %121, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %158 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %135, i64 %indvars.iv, i32 0, i32 1
   %159 = load i16, ptr %158, align 2, !tbaa !46
   %160 = uitofp i16 %159 to float
@@ -543,7 +537,7 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMaxEiRK9b3Vector3.exit: ; preds = %81, %
   %.sroa.3.0.copyload.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !39
   store <2 x float> %.sroa.0.0.copyload.i, ptr %4, align 16
   store <2 x float> %.sroa.3.0.copyload.i, ptr %121, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %.sroa.0.0.copyload.i27 = load <2 x float>, ptr %177, align 16
   %.sroa.3.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %176, i64 24
@@ -556,8 +550,8 @@ _ZNK14b3QuantizedBvh10getAabbMaxEi.exit:          ; preds = %134, %174
   store <2 x float> %.sroa.0.4.vec.insert12.i.pn.i30, ptr %5, align 16
   store <2 x float> %.sroa.7.8.vec.insert16.i.pn.i31, ptr %128, align 8
   call void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %131, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
@@ -608,7 +602,7 @@ _ZN14b3QuantizedBvh26setInternalNodeEscapeIndexEii.exit: ; preds = %195, %190, %
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(32) ptr @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) local_unnamed_addr #5 comdat align 2 {
+define linkonce_odr dso_local noundef nonnull align 16 dereferenceable(32) ptr @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 16 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -698,7 +692,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE7reserveEi.exit: ; preds = %_ZN20b3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((16, 64), (72, 73)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, float noundef %3) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((16, 64), (72, 73)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, float noundef %3) local_unnamed_addr #5 align 2 {
   %5 = load float, ptr %1, align 16, !tbaa !39
   %6 = fsub float %5, %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -748,10 +742,10 @@ define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %0, align 16, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !35
@@ -770,7 +764,7 @@ define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 capt
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  tail call void @__clang_call_terminate(ptr %10) #22
+  tail call void @__clang_call_terminate(ptr %10) #21
   unreachable
 
 _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit: ; preds = %1, %7
@@ -797,7 +791,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit: ; preds = %1, %7
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #22
+  tail call void @__clang_call_terminate(ptr %21) #21
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev.exit, %18
@@ -824,7 +818,7 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3Alig
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #22
+  tail call void @__clang_call_terminate(ptr %32) #21
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit5: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit, %29
@@ -851,7 +845,7 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit5: ; preds = %_ZN20b3Ali
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #22
+  tail call void @__clang_call_terminate(ptr %43) #21
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeED2Ev.exit5, %40
@@ -878,7 +872,7 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit: ; preds = %_ZN20b3Alig
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #22
+  tail call void @__clang_call_terminate(ptr %54) #21
   unreachable
 
 _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit10: ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit, %51
@@ -892,8 +886,8 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit10: ; preds = %_ZN20b3Al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14b3QuantizedBvhD0Ev(ptr noundef nonnull align 16 dereferenceable(252) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 dereferenceable(252) %0) #21
+define dso_local void @_ZN14b3QuantizedBvhD0Ev(ptr noundef nonnull align 16 dereferenceable(252) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 dereferenceable(252) %0) #22
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN14b3QuantizedBvhdlEPv.exit unwind label %2
 
@@ -901,7 +895,7 @@ define dso_local void @_ZN14b3QuantizedBvhD0Ev(ptr noundef nonnull align 16 dere
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #22
+  tail call void @__clang_call_terminate(ptr %4) #21
   unreachable
 
 _ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %1
@@ -909,7 +903,7 @@ _ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14b3QuantizedBvh30assignInternalNodeFromLeafNodeEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh30assignInternalNodeFromLeafNodeEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i8, ptr %4, align 8, !tbaa !24, !range !42, !noundef !45
   %6 = trunc nuw i8 %5 to i1
@@ -942,7 +936,7 @@ define dso_local void @_ZN14b3QuantizedBvh30assignInternalNodeFromLeafNodeEii(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN14b3QuantizedBvh17calcSplittingAxisEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN14b3QuantizedBvh17calcSplittingAxisEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %1, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1218,13 +1212,13 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph170, %_ZNK14b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN14b3QuantizedBvh25sortAndCalcSplittingIndexEiii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define dso_local noundef i32 @_ZN14b3QuantizedBvh25sortAndCalcSplittingIndexEiii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
   %.sroa.0.i = alloca %struct.b3QuantizedBvhNodeData, align 16
   %5 = alloca %struct.b3OptimizedBvhNode, align 16
   %6 = alloca %class.b3Vector3, align 16
   %7 = alloca %class.b3Vector3, align 16
   %8 = sub nsw i32 %2, %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = icmp slt i32 %1, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1369,7 +1363,7 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14b3Qu
 113:                                              ; preds = %.lr.ph122, %186
   %indvars.iv138 = phi i64 [ %112, %.lr.ph122 ], [ %indvars.iv.next139, %186 ]
   %.037119 = phi i32 [ %1, %.lr.ph122 ], [ %.138, %186 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %114 = load i8, ptr %101, align 8, !tbaa !24, !range !42, !noundef !45
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %156
@@ -1460,7 +1454,7 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit68:        ; preds = %116, %156
   br i1 %115, label %173, label %179
 
 173:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %174 = load ptr, ptr %103, align 16, !tbaa !30
   %175 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %174, i64 %indvars.iv138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(16) %175, i64 16, i1 false)
@@ -1469,11 +1463,11 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit68:        ; preds = %116, %156
   %177 = load ptr, ptr %103, align 16, !tbaa !30
   %178 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %177, i64 %172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %178, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %_ZN14b3QuantizedBvh13swapLeafNodesEii.exit
 
 179:                                              ; preds = %171
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %180 = load ptr, ptr %102, align 16, !tbaa !26
   %181 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %180, i64 %indvars.iv138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, ptr noundef nonnull align 16 dereferenceable(64) %181, i64 64, i1 false), !tbaa.struct !53
@@ -1482,7 +1476,7 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit68:        ; preds = %116, %156
   %183 = load ptr, ptr %102, align 16, !tbaa !26
   %184 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %183, i64 %172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %184, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN14b3QuantizedBvh13swapLeafNodesEii.exit
 
 _ZN14b3QuantizedBvh13swapLeafNodesEii.exit:       ; preds = %173, %179
@@ -1491,7 +1485,7 @@ _ZN14b3QuantizedBvh13swapLeafNodesEii.exit:       ; preds = %173, %179
 
 186:                                              ; preds = %_ZN14b3QuantizedBvh13swapLeafNodesEii.exit, %_ZNK14b3QuantizedBvh10getAabbMinEi.exit68
   %.138 = phi i32 [ %185, %_ZN14b3QuantizedBvh13swapLeafNodesEii.exit ], [ %.037119, %_ZNK14b3QuantizedBvh10getAabbMinEi.exit68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %._crit_edge123, label %113, !llvm.loop !69
@@ -1508,12 +1502,12 @@ _ZN14b3QuantizedBvh13swapLeafNodesEii.exit:       ; preds = %173, %179
   %193 = ashr i32 %8, 1
   %194 = add nsw i32 %193, %1
   %.2 = select i1 %192, i32 %194, i32 %.037.lcssa
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr dso_local void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca [3 x i16], align 2
   %6 = alloca [3 x i16], align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1522,8 +1516,8 @@ define linkonce_odr dso_local void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEi
   br i1 %9, label %10, label %85
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load float, ptr %2, align 16, !tbaa !39
   %13 = load float, ptr %11, align 16, !tbaa !39
@@ -1591,8 +1585,8 @@ define linkonce_odr dso_local void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEi
   br label %70
 
 69:                                               ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9b3Vector36setMaxERKS_.exit
 
 70:                                               ; preds = %10, %84
@@ -1727,7 +1721,7 @@ _ZN9b3Vector36setMaxERKS_.exit:                   ; preds = %134, %_Z8b3SetMaxIf
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef nonnull align 16 dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.b3BvhSubtreeInfo, align 16
   %5 = alloca %class.b3BvhSubtreeInfo, align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1751,9 +1745,9 @@ define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef 
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %24 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %23, ptr noundef nonnull align 16 dereferenceable(32) %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load i16, ptr %9, align 16, !tbaa !46
   store i16 %25, ptr %24, align 16, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 2
@@ -1788,9 +1782,9 @@ define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef 
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = call noundef nonnull align 16 dereferenceable(32) ptr @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %46, ptr noundef nonnull align 16 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = load i16, ptr %15, align 16, !tbaa !46
   store i16 %48, ptr %47, align 16, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 2
@@ -1828,7 +1822,7 @@ define dso_local void @_ZN14b3QuantizedBvh20updateSubtreeHeadersEii(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   %.sroa.0 = alloca %struct.b3QuantizedBvhNodeData, align 16
   %4 = alloca %struct.b3OptimizedBvhNode, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1839,7 +1833,7 @@ define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull
   br i1 %7, label %10, label %17
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 16, !tbaa !30
   %13 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %12, i64 %8
@@ -1849,11 +1843,11 @@ define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull
   %15 = load ptr, ptr %11, align 16, !tbaa !30
   %16 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %15, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %24
 
 17:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 16, !tbaa !26
   %20 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %19, i64 %8
@@ -1863,7 +1857,7 @@ define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull
   %22 = load ptr, ptr %18, align 16, !tbaa !26
   %23 = getelementptr inbounds %struct.b3OptimizedBvhNode, ptr %22, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %23, ptr noundef nonnull align 16 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 24:                                               ; preds = %17, %10
@@ -1871,7 +1865,7 @@ define dso_local void @_ZN14b3QuantizedBvh13swapLeafNodesEii(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca [3 x i16], align 2
   %6 = alloca [3 x i16], align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1880,8 +1874,8 @@ define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3Nod
   br i1 %9, label %10, label %125
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload.i = load float, ptr %2, align 16
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.8.0.copyload.i = load float, ptr %.sroa.8.0..sroa_idx.i, align 4
@@ -2075,8 +2069,8 @@ define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3Nod
   br label %_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii.exit
 
 _ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii.exit: ; preds = %120, %._crit_edge.i, %10, %122, %121
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_.exit
 
 125:                                              ; preds = %4
@@ -2216,7 +2210,7 @@ _ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = icmp slt i32 %4, %5
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -2316,7 +2310,7 @@ define dso_local void @_ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3Nod
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh39walkStacklessQuantizedTreeCacheFriendlyEP21b3NodeOverlapCallbackPtS2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh39walkStacklessQuantizedTreeCacheFriendlyEP21b3NodeOverlapCallbackPtS2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = icmp sgt i32 %6, 0
@@ -2472,7 +2466,7 @@ _ZNK14b3QuantizedBvh26walkStacklessQuantizedTreeEP21b3NodeOverlapCallbackPtS2_ii
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18b3QuantizedBvhNodeP21b3NodeOverlapCallbackPtS5_(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(252) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh42walkRecursiveQuantizedTreeAgainstQueryAabbEPK18b3QuantizedBvhNodeP21b3NodeOverlapCallbackPtS5_(ptr noundef nonnull readnone align 16 captures(none) dereferenceable(252) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -2544,7 +2538,7 @@ tailrecurse:                                      ; preds = %43, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh17walkStacklessTreeEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4, !tbaa !44
   %7 = icmp sgt i32 %6, 0
@@ -2677,7 +2671,7 @@ _Z22b3TestAabbAgainstAabb2RK9b3Vector3S1_S1_S1_.exit: ; preds = %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5, i32 %6, i32 %7) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh27walkStacklessTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5, i32 %6, i32 %7) local_unnamed_addr #3 align 2 {
 _Z8b3SetMinIfEvRT_RKS0_.exit.i:
   %.sroa.086.0.copyload = load float, ptr %2, align 16
   %.sroa.889.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2903,7 +2897,7 @@ _Z10b3RayAabb2RK9b3Vector3S1_PKjPS0_Rfff.exit.thread: ; preds = %79, %100, %65
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh36walkStacklessQuantizedTreeAgainstRayEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_ii(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #3 align 2 {
 _Z8b3SetMinIfEvRT_RKS0_.exit.i:
   %8 = load float, ptr %3, align 16, !tbaa !39
   %9 = load float, ptr %2, align 16, !tbaa !39
@@ -3212,12 +3206,12 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh25reportRayOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh25reportRayOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %class.b3Vector3, align 16
   %6 = alloca %class.b3Vector3, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %8 = load i8, ptr %7, align 8, !tbaa !24, !range !42, !noundef !45
@@ -3235,13 +3229,13 @@ define dso_local void @_ZNK14b3QuantizedBvh25reportRayOverlappingNodexEP21b3Node
   br label %_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_.exit
 
 _ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_.exit: ; preds = %10, %13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3NodeOverlapCallbackRK9b3Vector3S4_S4_S4_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0, ptr noundef %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %3, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %4, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %5) local_unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i8, ptr %7, align 8, !tbaa !24, !range !42, !noundef !45
   %9 = trunc nuw i8 %8 to i1
@@ -3262,12 +3256,12 @@ define dso_local void @_ZNK14b3QuantizedBvh29reportBoxCastOverlappingNodexEP21b3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZN14b3QuantizedBvh32getAlignmentSerializationPaddingEv() local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZN14b3QuantizedBvh32getAlignmentSerializationPaddingEv() local_unnamed_addr #11 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK14b3QuantizedBvh28calculateSerializeBufferSizeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0) local_unnamed_addr #13 align 2 {
+define dso_local noundef i32 @_ZNK14b3QuantizedBvh28calculateSerializeBufferSizeEv(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3284,7 +3278,7 @@ define dso_local noundef i32 @_ZNK14b3QuantizedBvh28calculateSerializeBufferSize
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((248, 252)) %0, ptr noundef initializes((0, 8), (16, 48), (64, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %1, i32 %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr noundef nonnull align 16 captures(none) dereferenceable(252) initializes((248, 252)) %0, ptr noundef initializes((0, 8), (16, 48), (64, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %1, i32 %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -3907,7 +3901,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit233
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN14b3QuantizedBvh18deSerializeInPlaceEPvjb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN14b3QuantizedBvh18deSerializeInPlaceEPvjb(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.b3Vector3, align 16
   %5 = alloca %class.b3Vector3, align 16
   %6 = alloca %class.b3Vector3, align 16
@@ -3932,7 +3926,7 @@ define dso_local noundef ptr @_ZN14b3QuantizedBvh18deSerializeInPlaceEPvjb(ptr n
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %12, align 4, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %16
 
 16:                                               ; preds = %16, %11
@@ -3959,9 +3953,9 @@ define dso_local noundef ptr @_ZN14b3QuantizedBvh18deSerializeInPlaceEPvjb(ptr n
 
 _Z21b3UnSwapVector3EndianR9b3Vector3.exit:        ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %30
 
 30:                                               ; preds = %30, %_Z21b3UnSwapVector3EndianR9b3Vector3.exit
@@ -3988,9 +3982,9 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit:        ; preds = %16
 
 _Z21b3UnSwapVector3EndianR9b3Vector3.exit140:     ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %44
 
 44:                                               ; preds = %44, %_Z21b3UnSwapVector3EndianR9b3Vector3.exit140
@@ -4017,7 +4011,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit140:     ; preds = %30
 
 _Z21b3UnSwapVector3EndianR9b3Vector3.exit144:     ; preds = %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %43, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %58 = load i32, ptr %57, align 16, !tbaa !33
   %59 = tail call noundef i32 @llvm.bswap.i32(i32 %58)
@@ -4164,7 +4158,7 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit:
   %116 = phi ptr [ %74, %.lr.ph.preheader ], [ %146, %_Z21b3UnSwapVector3EndianR9b3Vector3.exit159 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_Z21b3UnSwapVector3EndianR9b3Vector3.exit159 ]
   %117 = getelementptr inbounds nuw %struct.b3OptimizedBvhNode, ptr %116, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %118
 
 118:                                              ; preds = %118, %.lr.ph
@@ -4191,10 +4185,10 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit:
 
 _Z21b3UnSwapVector3EndianR9b3Vector3.exit155:     ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, ptr noundef nonnull align 16 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %131 = load ptr, ptr %81, align 8, !tbaa !26
   %132 = getelementptr inbounds nuw %struct.b3OptimizedBvhNode, ptr %131, i64 %indvars.iv, i32 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %133
 
 133:                                              ; preds = %133, %_Z21b3UnSwapVector3EndianR9b3Vector3.exit155
@@ -4221,7 +4215,7 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit155:     ; preds = %118
 
 _Z21b3UnSwapVector3EndianR9b3Vector3.exit159:     ; preds = %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %132, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %146 = load ptr, ptr %81, align 8, !tbaa !26
   %147 = getelementptr inbounds nuw %struct.b3OptimizedBvhNode, ptr %146, i64 %indvars.iv
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
@@ -4318,7 +4312,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((0, 8), (16, 68), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (220, 228), (232, 241)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %1, i1 zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(252) initializes((0, 8), (16, 68), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (220, 228), (232, 241)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(252) %1, i1 zeroext %2) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %0, align 16, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4375,7 +4369,7 @@ define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh16deSerializeFloatER23b3QuantizedBvhFloatData(ptr noundef nonnull align 16 captures(none) dereferenceable(252) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh16deSerializeFloatER23b3QuantizedBvhFloatData(ptr noundef nonnull align 16 captures(none) dereferenceable(252) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
@@ -4853,7 +4847,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %157
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh17deSerializeDoubleER24b3QuantizedBvhDoubleData(ptr noundef nonnull align 16 captures(none) dereferenceable(252) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh17deSerializeDoubleER24b3QuantizedBvhDoubleData(ptr noundef nonnull align 16 captures(none) dereferenceable(252) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %5
@@ -5336,35 +5330,41 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE6resizeEiRKS0_.exit: ; preds = %162
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noalias noundef ptr @_ZNK14b3QuantizedBvh9serializeEPvP12b3Serializer(ptr nonnull readnone align 16 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #12 align 2 {
+define dso_local noalias noundef ptr @_ZNK14b3QuantizedBvh9serializeEPvP12b3Serializer(ptr nonnull readnone align 16 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #11 align 2 {
   ret ptr null
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK14b3QuantizedBvh31calculateSerializeBufferSizeNewEv(ptr noundef nonnull align 16 dereferenceable(252) %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK14b3QuantizedBvh31calculateSerializeBufferSizeNewEv(ptr noundef nonnull align 16 dereferenceable(252) %0) unnamed_addr #14 comdat align 2 {
   ret i32 96
 }
 
-declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #16
+declare void @_Z21b3AlignedFreeInternalPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #22
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #18
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #19
+declare float @llvm.fmuladd.f32(float, float, float) #18
 
-declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #16
+declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #15
 
-declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #16
+declare noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #20
@@ -5376,28 +5376,28 @@ declare i32 @llvm.bswap.i32(i32) #20
 declare float @llvm.sqrt.f32(float) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold nofree noreturn }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { noreturn nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -922,8 +922,8 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager5writeEv(ptr noundef nonnull
   store ptr %4, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %16, 1
@@ -939,8 +939,8 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager5writeEv(ptr noundef nonnull
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %20, align 8
   call void @_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE7iterateI18CompositeOperationI14MutexedWriteOpI17CheckpointWriteOpIS0_EE31ReinitializeAllReleaseRetiredOpI14JfrMemorySpaceI19JfrEpochStorageHostIS0_24JfrMspaceRemoveRetrievalLb1EESC_18JfrConcurrentQueueIS0_S1_ES2_Lb1EES2_E21CompositeOperationAndEEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = load ptr, ptr %0, align 8
   %22 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i = and i8 %22, 1
@@ -1604,7 +1604,7 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager5clearEv(ptr noundef nonnull
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %10, 1
@@ -1660,10 +1660,10 @@ _ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit: ; preds = %16, 
 
 _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9DiscardOpI16DefaultDiscarderIS0_EEEEvRT_b.exit: ; preds = %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit, %1
   %35 = phi i64 [ 0, %1 ], [ %32, %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %38 = load ptr, ptr %37, align 8
   %39 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i1 = and i8 %39, 1
@@ -1716,7 +1716,7 @@ _ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit10: ; preds = %45
   br i1 %or.cond10.not.i.i.i.i8, label %45, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9DiscardOpI16DefaultDiscarderIS0_EEEEvRT_b.exit9, !llvm.loop !21
 
 _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9DiscardOpI16DefaultDiscarderIS0_EEEEvRT_b.exit9: ; preds = %_ZN9DiscardOpI16DefaultDiscarderI9JfrBufferEE7processEPS1_.exit10, %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI9DiscardOpI16DefaultDiscarderIS0_EEEEvRT_b.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %62 = load ptr, ptr %0, align 8
   %63 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i = and i8 %63, 1
@@ -1996,11 +1996,11 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager33write_static_type_set_and_
   %2 = alloca %class.JfrCheckpointWriter, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN19JfrCheckpointWriterC1EbP6Threadb17JfrCheckpointType(ptr noundef nonnull align 8 dereferenceable(73) %2, i1 noundef zeroext true, ptr noundef %4, i1 noundef zeroext true, i32 noundef 4) #20
   call void @_ZN14JfrTypeManager18write_static_typesER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73) %2) #20
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #20
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %5 = call noundef i64 @_ZN20JfrCheckpointManager13write_threadsEP10JavaThread(ptr nonnull align 8 poison, ptr noundef %4)
   %6 = call noundef i64 @_ZN20JfrCheckpointManager5writeEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret i64 %6
@@ -2010,7 +2010,7 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager33write_static_type_set_and_
 define hidden void @_ZN20JfrCheckpointManager11on_rotationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrThreadIterator, align 8
   tail call void @_ZN14JfrTypeManager11on_rotationEv() #20
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN28JfrJavaThreadIteratorAdapterC1Eb(ptr noundef nonnull align 8 dereferenceable(73) %3, i1 noundef zeroext true) #20
   %4 = call noundef zeroext i1 @_ZNK28JfrJavaThreadIteratorAdapter8has_nextEv(ptr noundef nonnull align 8 dereferenceable(73) %3) #20
@@ -2024,7 +2024,7 @@ define hidden void @_ZN20JfrCheckpointManager11on_rotationEv(ptr noundef nonnull
 
 _ZN20JfrCheckpointManager14notify_threadsEv.exit: ; preds = %.lr.ph.i, %1
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #20
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2274,7 +2274,7 @@ _ZN15JfrTraceIdEpoch21has_changed_tag_stateEv.exit: ; preds = %1, %_ZN20ThreadIn
   store ptr %4, ptr %5, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %44, 1
@@ -2303,7 +2303,7 @@ _ZN15JfrTraceIdEpoch21has_changed_tag_stateEv.exit: ; preds = %1, %_ZN20ThreadIn
   br i1 %53, label %50, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI14MutexedWriteOpI17CheckpointWriteOpIS0_EEEEvRT_b.exit, !llvm.loop !26
 
 _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI14MutexedWriteOpI17CheckpointWriteOpIS0_EEEEvRT_b.exit: ; preds = %50, %51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = load ptr, ptr %0, align 8
   %55 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i = and i8 %55, 1
@@ -2350,7 +2350,7 @@ _Z17process_live_listI14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE14JfrMemo
   store ptr %6, ptr %7, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %73 = load ptr, ptr %72, align 8
   %74 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i6 = and i8 %74, 1
@@ -2379,7 +2379,7 @@ _Z17process_live_listI14MutexedWriteOpI17CheckpointWriteOpI9JfrBufferEE14JfrMemo
   br i1 %83, label %80, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI14MutexedWriteOpI35VirtualThreadLocalCheckpointWriteOpIS0_EEEEvRT_b.exit, !llvm.loop !20
 
 _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE7iterateI14MutexedWriteOpI35VirtualThreadLocalCheckpointWriteOpIS0_EEEEvRT_b.exit: ; preds = %80, %81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 0
@@ -5474,10 +5474,10 @@ define internal void @_GLOBAL__sub_I_jfrCheckpointManager.cpp() #17 section ".te
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

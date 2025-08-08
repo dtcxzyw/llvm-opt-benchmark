@@ -33,7 +33,7 @@ sw.bb3:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   %call1.i10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3, i64 noundef 8)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %f)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__c.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__c.addr.i)
   store i8 41, ptr %__c.addr.i, align 1, !tbaa !3
   %vtable.i = load ptr, ptr %call6, align 8, !tbaa !6
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
@@ -54,7 +54,7 @@ if.end.i:                                         ; preds = %sw.default
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi ptr [ %call1.i11, %if.then.i ], [ %call6, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__c.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__c.addr.i)
   br label %return
 
 return:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %sw.bb3, %sw.bb1, %sw.bb
@@ -69,10 +69,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

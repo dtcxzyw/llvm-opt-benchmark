@@ -138,15 +138,9 @@ define hidden void @_glfwInputWindowFocus(ptr noundef %0, i32 noundef %1) local_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @_glfwInputKey(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_glfwInputKey(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_glfwInputMouseClick(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_glfwInputMouseClick(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_glfwInputWindowPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -271,7 +265,7 @@ define hidden void @_glfwInputWindowCloseRequest(ptr noundef initializes((32, 36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_glfwInputWindowMonitor(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @_glfwInputWindowMonitor(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !137
   ret void
@@ -282,9 +276,9 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
   %6 = alloca %struct._GLFWfbconfig, align 8
   %7 = alloca %struct._GLFWctxconfig, align 8
   %8 = alloca %struct._GLFWwndconfig, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @_glfw, align 8, !tbaa !138
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %11
@@ -425,22 +419,22 @@ define noundef ptr @glfwCreateWindow(i32 noundef %0, i32 noundef %1, ptr noundef
 
 glfwDestroyWindow.exit:                           ; preds = %76, %66, %21, %15, %14, %10
   %.0 = phi ptr [ null, %14 ], [ null, %10 ], [ null, %15 ], [ %22, %21 ], [ null, %66 ], [ null, %76 ]
-  call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @_glfwIsValidContextConfig(ptr noundef) local_unnamed_addr #2
+declare i32 @_glfwIsValidContextConfig(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_glfw_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @_glfw_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @glfwDestroyWindow(ptr noundef %0) local_unnamed_addr #0 {
@@ -534,7 +528,7 @@ define void @glfwDefaultWindowHints() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @glfwWindowHint(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -866,13 +860,13 @@ define void @glfwWindowHintString(i32 noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
-declare ptr @_glfwPlatformGetTls(ptr noundef) local_unnamed_addr #2
+declare ptr @_glfwPlatformGetTls(ptr noundef) local_unnamed_addr #1
 
-declare void @glfwMakeContextCurrent(ptr noundef) local_unnamed_addr #2
+declare void @glfwMakeContextCurrent(ptr noundef) local_unnamed_addr #1
 
-declare void @_glfw_free(ptr noundef) local_unnamed_addr #2
+declare void @_glfw_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @glfwWindowShouldClose(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2214,13 +2208,19 @@ define void @glfwPostEmptyEvent() local_unnamed_addr #0 {
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

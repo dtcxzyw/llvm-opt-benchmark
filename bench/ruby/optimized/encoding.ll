@@ -220,12 +220,6 @@ define hidden i64 @pm_encoding_utf_8_char_width(ptr noundef readonly captures(no
   ret i64 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
 define hidden i64 @pm_encoding_utf_8_alpha_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
@@ -546,7 +540,7 @@ pm_unicode_codepoint_match.exit:                  ; preds = %41, %44, %pm_unicod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ascii_char_width(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ascii_char_width(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   %5 = zext i1 %4 to i64
@@ -554,7 +548,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_char_width(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -565,7 +559,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -577,7 +571,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -588,12 +582,12 @@ define internal zeroext i1 @pm_encoding_ascii_isupper_char(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i64 @pm_encoding_single_char_width(ptr readnone captures(none) %0, i64 %1) #3 {
+define internal noundef i64 @pm_encoding_single_char_width(ptr readnone captures(none) %0, i64 %1) #2 {
   ret i64 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4) i64 @pm_encoding_euc_jp_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 4) i64 @pm_encoding_euc_jp_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %25, label %5
@@ -644,7 +638,7 @@ define internal range(i64 0, 4) i64 @pm_encoding_euc_jp_char_width(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %5, label %11
@@ -663,7 +657,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alpha_char_7bit(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %5, label %11
@@ -683,7 +677,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ascii_alnum_char_7bit(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_euc_jp_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal zeroext i1 @pm_encoding_euc_jp_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %14, label %5
@@ -745,7 +739,7 @@ pm_encoding_euc_jp_char_width.exit.thread:        ; preds = %7, %10, %pm_encodin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   %5 = add nsw i8 %3, 95
@@ -784,7 +778,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_char_width(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_alpha_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_alpha_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   %5 = add nsw i8 %3, 95
@@ -835,7 +829,7 @@ pm_encoding_shift_jis_char_width.exit.thread:     ; preds = %12, %16, %pm_encodi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_alnum_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_shift_jis_alnum_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   %5 = add nsw i8 %3, 95
@@ -887,7 +881,7 @@ pm_encoding_shift_jis_char_width.exit.thread:     ; preds = %12, %16, %pm_encodi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_shift_jis_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal zeroext i1 @pm_encoding_shift_jis_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   %5 = add nsw i8 %3, 95
@@ -956,7 +950,7 @@ switch.edge:                                      ; preds = %22, %.thread24, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_big5_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_big5_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %15, label %5
@@ -987,7 +981,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_big5_char_width(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %5, label %11
@@ -1006,17 +1000,17 @@ define internal zeroext i1 @pm_encoding_ascii_isupper_char_7bit(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal i64 @pm_encoding_cesu_8_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
+define internal i64 @pm_encoding_cesu_8_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #3 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call fastcc i32 @pm_cesu_8_codepoint(ptr noundef %0, i64 noundef %1, ptr noundef %3)
   %5 = load i64, ptr %3, align 8, !tbaa !16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #5 {
+define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1, !tbaa !7
   %5 = icmp sgt i8 %4, -1
@@ -1031,7 +1025,7 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
   br label %35
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call fastcc i32 @pm_cesu_8_codepoint(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %3)
   %14 = icmp samesign ult i32 %13, 256
   br i1 %14, label %15, label %.preheader
@@ -1077,7 +1071,7 @@ define internal i64 @pm_encoding_cesu_8_alpha_char(ptr noundef readonly captures
 
 pm_unicode_codepoint_match.exit:                  ; preds = %30, %33, %15
   %.1 = phi i64 [ %21, %15 ], [ %34, %33 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %pm_unicode_codepoint_match.exit, %6
@@ -1086,7 +1080,7 @@ pm_unicode_codepoint_match.exit:                  ; preds = %30, %33, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #5 {
+define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1, !tbaa !7
   %5 = icmp sgt i8 %4, -1
@@ -1102,7 +1096,7 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
   br label %35
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call fastcc i32 @pm_cesu_8_codepoint(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %3)
   %14 = icmp samesign ult i32 %13, 256
   br i1 %14, label %15, label %.preheader
@@ -1148,7 +1142,7 @@ define internal i64 @pm_encoding_cesu_8_alnum_char(ptr noundef readonly captures
 
 pm_unicode_codepoint_match.exit:                  ; preds = %30, %33, %15
   %.1 = phi i64 [ %21, %15 ], [ %34, %33 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %pm_unicode_codepoint_match.exit, %6
@@ -1157,7 +1151,7 @@ pm_unicode_codepoint_match.exit:                  ; preds = %30, %33, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #5 {
+define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1, !tbaa !7
   %5 = icmp sgt i8 %4, -1
@@ -1172,7 +1166,7 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
   br label %32
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = call fastcc i32 @pm_cesu_8_codepoint(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %3)
   %14 = icmp samesign ult i32 %13, 256
   br i1 %14, label %15, label %.preheader
@@ -1212,7 +1206,7 @@ define internal zeroext i1 @pm_encoding_cesu_8_isupper_char(ptr noundef readonly
 
 pm_unicode_codepoint_match.exit:                  ; preds = %29, %26, %15
   %.1 = phi i1 [ %20, %15 ], [ false, %29 ], [ true, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %pm_unicode_codepoint_match.exit, %6
@@ -1221,7 +1215,7 @@ pm_unicode_codepoint_match.exit:                  ; preds = %29, %26, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp850_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp850_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1232,7 +1226,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp850_alpha_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1244,7 +1238,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp850_alnum_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1255,7 +1249,7 @@ define internal zeroext i1 @pm_encoding_cp850_isupper_char(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1266,7 +1260,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp852_alpha_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1278,7 +1272,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp852_alnum_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1289,7 +1283,7 @@ define internal zeroext i1 @pm_encoding_cp852_isupper_char(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1300,7 +1294,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp855_alpha_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1312,7 +1306,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_cp855_alnum_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1323,7 +1317,7 @@ define internal zeroext i1 @pm_encoding_cp855_isupper_char(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_cp949_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_cp949_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp ult i8 %3, -127
   br i1 %4, label %14, label %5
@@ -1354,7 +1348,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_cp949_char_width(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 5) i64 @pm_encoding_emacs_mule_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 5) i64 @pm_encoding_emacs_mule_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %47, label %5
@@ -1451,7 +1445,7 @@ define internal range(i64 0, 5) i64 @pm_encoding_emacs_mule_char_width(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_euc_kr_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_euc_kr_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %14, label %5
@@ -1479,7 +1473,7 @@ define internal range(i64 0, 3) i64 @pm_encoding_euc_kr_char_width(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 5) i64 @pm_encoding_euc_tw_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 5) i64 @pm_encoding_euc_tw_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %28, label %5
@@ -1534,7 +1528,7 @@ define internal range(i64 0, 5) i64 @pm_encoding_euc_tw_char_width(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 5) i64 @pm_encoding_gb18030_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 5) i64 @pm_encoding_gb18030_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp sgt i8 %3, -1
   br i1 %4, label %26, label %5
@@ -1602,7 +1596,7 @@ switch.early.test34:                              ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1613,7 +1607,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1625,7 +1619,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_gb1988_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1636,7 +1630,7 @@ define internal zeroext i1 @pm_encoding_gb1988_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal range(i64 0, 3) i64 @pm_encoding_gbk_char_width(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = icmp ult i8 %3, -127
   br i1 %4, label %53, label %5
@@ -1764,7 +1758,7 @@ switch.early.test:                                ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1775,7 +1769,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1787,7 +1781,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm437_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1798,7 +1792,7 @@ define internal zeroext i1 @pm_encoding_ibm437_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1809,7 +1803,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1821,7 +1815,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm720_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1832,7 +1826,7 @@ define internal zeroext i1 @pm_encoding_ibm720_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1843,7 +1837,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1855,7 +1849,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm737_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1866,7 +1860,7 @@ define internal zeroext i1 @pm_encoding_ibm737_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1877,7 +1871,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1889,7 +1883,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm775_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1900,7 +1894,7 @@ define internal zeroext i1 @pm_encoding_ibm775_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1911,7 +1905,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1923,7 +1917,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm852_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1934,7 +1928,7 @@ define internal zeroext i1 @pm_encoding_ibm852_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1945,7 +1939,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1957,7 +1951,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm855_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1968,7 +1962,7 @@ define internal zeroext i1 @pm_encoding_ibm855_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1979,7 +1973,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -1991,7 +1985,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm857_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2002,7 +1996,7 @@ define internal zeroext i1 @pm_encoding_ibm857_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2013,7 +2007,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2025,7 +2019,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm860_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2036,7 +2030,7 @@ define internal zeroext i1 @pm_encoding_ibm860_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2047,7 +2041,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2059,7 +2053,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm861_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2070,7 +2064,7 @@ define internal zeroext i1 @pm_encoding_ibm861_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2081,7 +2075,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2093,7 +2087,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm862_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2104,7 +2098,7 @@ define internal zeroext i1 @pm_encoding_ibm862_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2115,7 +2109,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2127,7 +2121,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm863_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2138,7 +2132,7 @@ define internal zeroext i1 @pm_encoding_ibm863_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2149,7 +2143,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2161,7 +2155,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm864_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2172,7 +2166,7 @@ define internal zeroext i1 @pm_encoding_ibm864_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2183,7 +2177,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2195,7 +2189,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm865_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2206,7 +2200,7 @@ define internal zeroext i1 @pm_encoding_ibm865_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2217,7 +2211,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2229,7 +2223,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm866_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2240,7 +2234,7 @@ define internal zeroext i1 @pm_encoding_ibm866_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2251,7 +2245,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2263,7 +2257,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_ibm869_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2274,7 +2268,7 @@ define internal zeroext i1 @pm_encoding_ibm869_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2285,7 +2279,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2297,7 +2291,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_1_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2308,7 +2302,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_1_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
@@ -2319,7 +2313,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
@@ -2331,7 +2325,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_2_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_2_table, i64 0, i64 %4
@@ -2342,7 +2336,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_2_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
@@ -2353,7 +2347,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
@@ -2365,7 +2359,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_3_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_3_table, i64 0, i64 %4
@@ -2376,7 +2370,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_3_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
@@ -2387,7 +2381,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
@@ -2399,7 +2393,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_4_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_4_table, i64 0, i64 %4
@@ -2410,7 +2404,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_4_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
@@ -2421,7 +2415,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
@@ -2433,7 +2427,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_5_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_5_table, i64 0, i64 %4
@@ -2444,7 +2438,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_5_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -2455,7 +2449,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -2467,7 +2461,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_6_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -2478,7 +2472,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_6_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
@@ -2489,7 +2483,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
@@ -2501,7 +2495,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_7_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_7_table, i64 0, i64 %4
@@ -2512,7 +2506,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_7_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
@@ -2523,7 +2517,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
@@ -2535,7 +2529,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_8_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_8_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_8_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = add i8 %3, -65
   %5 = icmp ult i8 %4, 26
@@ -2543,7 +2537,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_8_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2554,7 +2548,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alpha_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2566,7 +2560,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_9_alnum_char(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_unicode_table, i64 0, i64 %4
@@ -2577,7 +2571,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_9_isupper_char(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
@@ -2588,7 +2582,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
@@ -2600,7 +2594,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_10_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_10_table, i64 0, i64 %4
@@ -2611,7 +2605,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_10_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
@@ -2622,7 +2616,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
@@ -2634,7 +2628,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_11_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_11_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_11_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = add i8 %3, -65
   %5 = icmp ult i8 %4, 26
@@ -2642,7 +2636,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_11_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -2653,7 +2647,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -2665,7 +2659,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_13_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -2676,7 +2670,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_13_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
@@ -2687,7 +2681,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
@@ -2699,7 +2693,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_14_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_14_table, i64 0, i64 %4
@@ -2710,7 +2704,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_14_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
@@ -2721,7 +2715,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
@@ -2733,7 +2727,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_15_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_15_table, i64 0, i64 %4
@@ -2744,7 +2738,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_15_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
@@ -2755,7 +2749,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
@@ -2767,7 +2761,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_iso_8859_16_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_iso_8859_16_table, i64 0, i64 %4
@@ -2778,7 +2772,7 @@ define internal zeroext i1 @pm_encoding_iso_8859_16_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
@@ -2789,7 +2783,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
@@ -2801,7 +2795,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_r_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_r_table, i64 0, i64 %4
@@ -2812,7 +2806,7 @@ define internal zeroext i1 @pm_encoding_koi8_r_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
@@ -2823,7 +2817,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alpha_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
@@ -2835,7 +2829,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_koi8_u_alnum_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_koi8_u_table, i64 0, i64 %4
@@ -2846,7 +2840,7 @@ define internal zeroext i1 @pm_encoding_koi8_u_isupper_char(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2857,7 +2851,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alpha_char(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2869,7 +2863,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cent_euro_alnum_char(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2880,7 +2874,7 @@ define internal zeroext i1 @pm_encoding_mac_cent_euro_isupper_char(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2891,7 +2885,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2903,7 +2897,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_croatian_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2914,7 +2908,7 @@ define internal zeroext i1 @pm_encoding_mac_croatian_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2925,7 +2919,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2937,7 +2931,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_cyrillic_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2948,7 +2942,7 @@ define internal zeroext i1 @pm_encoding_mac_cyrillic_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2959,7 +2953,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alpha_char(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2971,7 +2965,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_greek_alnum_char(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2982,7 +2976,7 @@ define internal zeroext i1 @pm_encoding_mac_greek_isupper_char(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -2993,7 +2987,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3005,7 +2999,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_iceland_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3016,7 +3010,7 @@ define internal zeroext i1 @pm_encoding_mac_iceland_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3027,7 +3021,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alpha_char(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3039,7 +3033,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_roman_alnum_char(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3050,7 +3044,7 @@ define internal zeroext i1 @pm_encoding_mac_roman_isupper_char(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3061,7 +3055,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3073,7 +3067,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_romania_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3084,7 +3078,7 @@ define internal zeroext i1 @pm_encoding_mac_romania_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3095,7 +3089,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alpha_char(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3107,7 +3101,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_thai_alnum_char(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3118,7 +3112,7 @@ define internal zeroext i1 @pm_encoding_mac_thai_isupper_char(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3129,7 +3123,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3141,7 +3135,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_turkish_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3152,7 +3146,7 @@ define internal zeroext i1 @pm_encoding_mac_turkish_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3163,7 +3157,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3175,7 +3169,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_mac_ukraine_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3186,7 +3180,7 @@ define internal zeroext i1 @pm_encoding_mac_ukraine_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
@@ -3197,7 +3191,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alpha_char(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_tis_620_table, i64 0, i64 %4
@@ -3209,7 +3203,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_tis_620_alnum_char(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_tis_620_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_tis_620_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = add i8 %3, -65
   %5 = icmp ult i8 %4, 26
@@ -3217,7 +3211,7 @@ define internal zeroext i1 @pm_encoding_tis_620_isupper_char(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
@@ -3228,7 +3222,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
@@ -3240,7 +3234,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1250_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1250_table, i64 0, i64 %4
@@ -3251,7 +3245,7 @@ define internal zeroext i1 @pm_encoding_windows_1250_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
@@ -3262,7 +3256,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
@@ -3274,7 +3268,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1251_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1251_table, i64 0, i64 %4
@@ -3285,7 +3279,7 @@ define internal zeroext i1 @pm_encoding_windows_1251_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
@@ -3296,7 +3290,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
@@ -3308,7 +3302,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1252_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1252_table, i64 0, i64 %4
@@ -3319,7 +3313,7 @@ define internal zeroext i1 @pm_encoding_windows_1252_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
@@ -3330,7 +3324,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
@@ -3342,7 +3336,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1253_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1253_table, i64 0, i64 %4
@@ -3353,7 +3347,7 @@ define internal zeroext i1 @pm_encoding_windows_1253_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
@@ -3364,7 +3358,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
@@ -3376,7 +3370,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1254_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1254_table, i64 0, i64 %4
@@ -3387,7 +3381,7 @@ define internal zeroext i1 @pm_encoding_windows_1254_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
@@ -3398,7 +3392,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1255_table, i64 0, i64 %4
@@ -3410,7 +3404,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1255_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1255_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1255_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = add i8 %3, -65
   %5 = icmp ult i8 %4, 26
@@ -3418,7 +3412,7 @@ define internal zeroext i1 @pm_encoding_windows_1255_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -3429,7 +3423,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -3441,7 +3435,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1256_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1256_table, i64 0, i64 %4
@@ -3452,7 +3446,7 @@ define internal zeroext i1 @pm_encoding_windows_1256_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -3463,7 +3457,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -3475,7 +3469,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1257_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_1257_table, i64 0, i64 %4
@@ -3486,7 +3480,7 @@ define internal zeroext i1 @pm_encoding_windows_1257_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3497,7 +3491,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alpha_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3509,7 +3503,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_1258_alnum_char(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3520,7 +3514,7 @@ define internal zeroext i1 @pm_encoding_windows_1258_isupper_char(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alpha_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3531,7 +3525,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alpha_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3543,7 +3537,7 @@ define internal range(i64 0, 2) i64 @pm_encoding_windows_874_alnum_char(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #2 {
+define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef readonly captures(none) %0, i64 %1) #1 {
   %3 = load i8, ptr %0, align 1, !tbaa !7
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x i8], ptr @pm_encoding_windows_874_table, i64 0, i64 %4
@@ -3554,7 +3548,7 @@ define internal zeroext i1 @pm_encoding_windows_874_isupper_char(ptr noundef rea
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @pm_encoding_find(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define hidden ptr @pm_encoding_find(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
   %5 = sub i64 %3, %4
@@ -4465,10 +4459,10 @@ define hidden ptr @pm_encoding_find(ptr noundef %0, ptr noundef %1) local_unname
   ret ptr %.0
 }
 
-declare i32 @pm_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @pm_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 1114112) i32 @pm_cesu_8_codepoint(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #4 {
+define internal fastcc range(i32 0, 1114112) i32 @pm_cesu_8_codepoint(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #3 {
   %4 = load i8, ptr %0, align 1, !tbaa !7
   %5 = icmp sgt i8 %4, -1
   br i1 %5, label %6, label %9
@@ -4665,17 +4659,23 @@ define internal fastcc range(i32 0, 1114112) i32 @pm_cesu_8_codepoint(ptr nounde
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

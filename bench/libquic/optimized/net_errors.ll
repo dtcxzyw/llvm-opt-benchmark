@@ -219,7 +219,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net13ErrorToStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, i32 noundef %1)
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str, i64 noundef 5)
           to label %.noexc unwind label %25
@@ -270,11 +270,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2: ; preds = %15
-  call void @_ZdlPv(ptr noundef %19) #11
+  call void @_ZdlPv(ptr noundef %19) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 25:                                               ; preds = %2
@@ -293,16 +293,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %25
-  call void @_ZdlPv(ptr noundef %27) #11
+  call void @_ZdlPv(ptr noundef %27) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %26
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1142,7 +1139,7 @@ define void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind noalias wri
 
 ._crit_edge.i.i11:                                ; preds = %8, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
   %.0 = phi ptr [ @.str.206, %212 ], [ @.str.3, %9 ], [ @.str.4, %10 ], [ @.str.5, %11 ], [ @.str.6, %12 ], [ @.str.7, %13 ], [ @.str.8, %14 ], [ @.str.9, %15 ], [ @.str.10, %16 ], [ @.str.11, %17 ], [ @.str.12, %18 ], [ @.str.13, %19 ], [ @.str.14, %20 ], [ @.str.15, %21 ], [ @.str.16, %22 ], [ @.str.17, %23 ], [ @.str.18, %24 ], [ @.str.19, %25 ], [ @.str.20, %26 ], [ @.str.21, %27 ], [ @.str.22, %28 ], [ @.str.23, %29 ], [ @.str.24, %30 ], [ @.str.25, %31 ], [ @.str.26, %32 ], [ @.str.27, %33 ], [ @.str.28, %34 ], [ @.str.29, %35 ], [ @.str.30, %36 ], [ @.str.31, %37 ], [ @.str.32, %38 ], [ @.str.33, %39 ], [ @.str.34, %40 ], [ @.str.35, %41 ], [ @.str.36, %42 ], [ @.str.37, %43 ], [ @.str.38, %44 ], [ @.str.39, %45 ], [ @.str.40, %46 ], [ @.str.41, %47 ], [ @.str.42, %48 ], [ @.str.43, %49 ], [ @.str.44, %50 ], [ @.str.45, %51 ], [ @.str.46, %52 ], [ @.str.47, %53 ], [ @.str.48, %54 ], [ @.str.49, %55 ], [ @.str.50, %56 ], [ @.str.51, %57 ], [ @.str.52, %58 ], [ @.str.53, %59 ], [ @.str.54, %60 ], [ @.str.55, %61 ], [ @.str.56, %62 ], [ @.str.57, %63 ], [ @.str.58, %64 ], [ @.str.59, %65 ], [ @.str.60, %66 ], [ @.str.61, %67 ], [ @.str.62, %68 ], [ @.str.63, %69 ], [ @.str.64, %70 ], [ @.str.65, %71 ], [ @.str.66, %72 ], [ @.str.67, %73 ], [ @.str.68, %74 ], [ @.str.69, %75 ], [ @.str.70, %76 ], [ @.str.71, %77 ], [ @.str.72, %78 ], [ @.str.73, %79 ], [ @.str.74, %80 ], [ @.str.75, %81 ], [ @.str.76, %82 ], [ @.str.77, %83 ], [ @.str.78, %84 ], [ @.str.79, %85 ], [ @.str.80, %86 ], [ @.str.81, %87 ], [ @.str.82, %88 ], [ @.str.83, %89 ], [ @.str.84, %90 ], [ @.str.85, %91 ], [ @.str.86, %92 ], [ @.str.87, %93 ], [ @.str.88, %94 ], [ @.str.89, %95 ], [ @.str.90, %96 ], [ @.str.91, %97 ], [ @.str.92, %98 ], [ @.str.93, %99 ], [ @.str.94, %100 ], [ @.str.95, %101 ], [ @.str.96, %102 ], [ @.str.97, %103 ], [ @.str.98, %104 ], [ @.str.99, %105 ], [ @.str.100, %106 ], [ @.str.101, %107 ], [ @.str.102, %108 ], [ @.str.103, %109 ], [ @.str.104, %110 ], [ @.str.105, %111 ], [ @.str.106, %112 ], [ @.str.107, %113 ], [ @.str.108, %114 ], [ @.str.109, %115 ], [ @.str.110, %116 ], [ @.str.111, %117 ], [ @.str.112, %118 ], [ @.str.113, %119 ], [ @.str.114, %120 ], [ @.str.115, %121 ], [ @.str.116, %122 ], [ @.str.117, %123 ], [ @.str.118, %124 ], [ @.str.119, %125 ], [ @.str.120, %126 ], [ @.str.121, %127 ], [ @.str.122, %128 ], [ @.str.123, %129 ], [ @.str.124, %130 ], [ @.str.125, %131 ], [ @.str.126, %132 ], [ @.str.127, %133 ], [ @.str.128, %134 ], [ @.str.129, %135 ], [ @.str.130, %136 ], [ @.str.131, %137 ], [ @.str.132, %138 ], [ @.str.133, %139 ], [ @.str.134, %140 ], [ @.str.135, %141 ], [ @.str.136, %142 ], [ @.str.137, %143 ], [ @.str.138, %144 ], [ @.str.139, %145 ], [ @.str.140, %146 ], [ @.str.141, %147 ], [ @.str.142, %148 ], [ @.str.143, %149 ], [ @.str.144, %150 ], [ @.str.145, %151 ], [ @.str.146, %152 ], [ @.str.147, %153 ], [ @.str.148, %154 ], [ @.str.149, %155 ], [ @.str.150, %156 ], [ @.str.151, %157 ], [ @.str.152, %158 ], [ @.str.153, %159 ], [ @.str.154, %160 ], [ @.str.155, %161 ], [ @.str.156, %162 ], [ @.str.157, %163 ], [ @.str.158, %164 ], [ @.str.159, %165 ], [ @.str.160, %166 ], [ @.str.161, %167 ], [ @.str.162, %168 ], [ @.str.163, %169 ], [ @.str.164, %170 ], [ @.str.165, %171 ], [ @.str.166, %172 ], [ @.str.167, %173 ], [ @.str.168, %174 ], [ @.str.169, %175 ], [ @.str.170, %176 ], [ @.str.171, %177 ], [ @.str.172, %178 ], [ @.str.173, %179 ], [ @.str.174, %180 ], [ @.str.175, %181 ], [ @.str.176, %182 ], [ @.str.177, %183 ], [ @.str.178, %184 ], [ @.str.179, %185 ], [ @.str.180, %186 ], [ @.str.181, %187 ], [ @.str.182, %188 ], [ @.str.183, %189 ], [ @.str.184, %190 ], [ @.str.185, %191 ], [ @.str.186, %192 ], [ @.str.187, %193 ], [ @.str.188, %194 ], [ @.str.189, %195 ], [ @.str.190, %196 ], [ @.str.191, %197 ], [ @.str.192, %198 ], [ @.str.193, %199 ], [ @.str.194, %200 ], [ @.str.195, %201 ], [ @.str.196, %202 ], [ @.str.197, %203 ], [ @.str.198, %204 ], [ @.str.199, %205 ], [ @.str.200, %206 ], [ @.str.201, %207 ], [ @.str.202, %208 ], [ @.str.203, %209 ], [ @.str.204, %210 ], [ @.str.205, %211 ], [ @.str.2, %8 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %213, ptr %3, align 8, !tbaa !3
   store i32 1599230533, ptr %213, align 8
@@ -1151,7 +1148,7 @@ define void @_ZN3net18ErrorToShortStringB5cxx11Ei(ptr dead_on_unwind noalias wri
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %215, align 4, !tbaa !16
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %216 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10, !noalias !17
+  %216 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #11, !noalias !17
   %217 = icmp ugt i64 %216, 4611686018427387899
   br i1 %217, label %218, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
@@ -1210,11 +1207,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %230
-  call void @_ZdlPv(ptr noundef %234) #11
+  call void @_ZdlPv(ptr noundef %234) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %244
 
 238:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %218
@@ -1231,11 +1228,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18: ; preds = %238
-  call void @_ZdlPv(ptr noundef %240) #11
+  call void @_ZdlPv(ptr noundef %240) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %239
 
 244:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %._crit_edge.i.i
@@ -1244,11 +1241,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3net18IsCertificateErrorEi(i32 noundef %0) local_unnamed_addr #2 {
+define noundef zeroext i1 @_ZN3net18IsCertificateErrorEi(i32 noundef %0) local_unnamed_addr #1 {
   %2 = add i32 %0, 214
   %or.cond = icmp ult i32 %2, 15
   %3 = icmp eq i32 %0, -150
@@ -1257,7 +1251,7 @@ define noundef zeroext i1 @_ZN3net18IsCertificateErrorEi(i32 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN3net24IsClientCertificateErrorEi(i32 noundef %0) local_unnamed_addr #2 {
+define noundef zeroext i1 @_ZN3net24IsClientCertificateErrorEi(i32 noundef %0) local_unnamed_addr #1 {
   %switch.tableidx = add i32 %0, 141
   %2 = icmp ult i32 %switch.tableidx, 25
   %switch.cast = trunc i32 %switch.tableidx to i25
@@ -1268,7 +1262,7 @@ define noundef zeroext i1 @_ZN3net24IsClientCertificateErrorEi(i32 noundef %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %0) local_unnamed_addr #2 {
+define noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5ErrorE(i32 noundef %0) local_unnamed_addr #1 {
   switch i32 %0, label %5 [
     i32 0, label %6
     i32 -5, label %2
@@ -1294,20 +1288,26 @@ define noundef range(i32 -300, 1) i32 @_ZN3net19FileErrorToNetErrorEN4base4File5
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -1316,17 +1316,17 @@ declare void @llvm.assume(i1 noundef) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { builtin nounwind }
+attributes #10 = { builtin nounwind }
+attributes #11 = { nounwind }
 attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}

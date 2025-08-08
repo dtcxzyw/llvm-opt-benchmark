@@ -33,14 +33,14 @@ define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %0, ptr noundef %1, 
   br label %20
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %5, ptr noundef null, ptr noundef %2, i32 noundef -1, i32 noundef %3)
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %11
   %15 = zext nneg i32 %12 to i64
-  %16 = call noalias ptr @malloc(i64 noundef %15) #11
+  %16 = call noalias ptr @malloc(i64 noundef %15) #10
   %.not23 = icmp eq ptr %16, null
   br i1 %.not23, label %19, label %17
 
@@ -52,7 +52,7 @@ define internal fastcc i32 @asn1_item_flags_i2d(ptr noundef %0, ptr noundef %1, 
 
 19:                                               ; preds = %14, %11, %17
   %.0 = phi i32 [ %12, %17 ], [ %12, %11 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %20
 
 20:                                               ; preds = %.split, %.split17, %19
@@ -69,7 +69,7 @@ define hidden i32 @ASN1_item_i2d(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %9 = load i8, ptr %2, align 8, !tbaa !17
@@ -125,12 +125,12 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not155, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i32 %.0130(i32 noundef 6, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #10
+  %28 = tail call i32 %.0130(i32 noundef 6, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #11
   %.not156 = icmp eq i32 %28, 0
   br i1 %.not156, label %.critedge, label %29
 
 29:                                               ; preds = %27, %26
-  %30 = tail call i32 @asn1_get_choice_selector(ptr noundef %0, ptr noundef nonnull %2) #10
+  %30 = tail call i32 @asn1_get_choice_selector(ptr noundef %0, ptr noundef nonnull %2) #11
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %32, label %43
 
@@ -145,7 +145,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %39, i64 %33
-  %41 = tail call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef %40) #10
+  %41 = tail call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef %40) #11
   %42 = tail call fastcc i32 @asn1_template_ex_i2d(ptr noundef %41, ptr noundef %1, ptr noundef %40, i32 noundef -1, i32 noundef %4)
   br label %.critedge
 
@@ -153,13 +153,13 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not155, label %.critedge, label %44
 
 44:                                               ; preds = %43
-  %45 = tail call i32 %.0130(i32 noundef 7, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #10
+  %45 = tail call i32 %.0130(i32 noundef 7, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #11
   br label %.critedge
 
 46:                                               ; preds = %16
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !23
-  %49 = tail call i32 %48(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) #10
+  %49 = tail call i32 %48(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4) #11
   br label %.critedge
 
 50:                                               ; preds = %16
@@ -175,7 +175,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !25
   %57 = load ptr, ptr %0, align 8, !tbaa !6
-  %58 = tail call i32 %56(ptr noundef %57, ptr noundef %1) #10
+  %58 = tail call i32 %56(ptr noundef %57, ptr noundef %1) #11
   %59 = icmp ne i32 %3, -1
   %or.cond = and i1 %51, %59
   br i1 %or.cond, label %60, label %.critedge
@@ -199,7 +199,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 69:                                               ; preds = %67, %16
   %70 = phi i1 [ false, %16 ], [ %.not147, %67 ]
   %.0131 = phi i32 [ 1, %16 ], [ %spec.select160, %67 ]
-  %71 = call i32 @asn1_enc_restore(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2) #10
+  %71 = call i32 @asn1_enc_restore(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2) #11
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.critedge, label %73
 
@@ -221,7 +221,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not149, label %81, label %79
 
 79:                                               ; preds = %76
-  %80 = call i32 %.0130(i32 noundef 6, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #10
+  %80 = call i32 %.0130(i32 noundef 6, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #11
   %.not150 = icmp eq i32 %80, 0
   br i1 %.not150, label %.critedge, label %81
 
@@ -243,12 +243,12 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %88 ]
   %.0123168 = phi ptr [ %86, %.lr.ph.preheader ], [ %93, %88 ]
-  %87 = call ptr @asn1_do_adb(ptr noundef %0, ptr noundef %.0123168, i32 noundef 1) #10
+  %87 = call ptr @asn1_do_adb(ptr noundef %0, ptr noundef %.0123168, i32 noundef 1) #11
   %.not154.not = icmp eq ptr %87, null
   br i1 %.not154.not, label %.critedge, label %88
 
 88:                                               ; preds = %.lr.ph
-  %89 = call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef nonnull %87) #10
+  %89 = call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef nonnull %87) #11
   %90 = call fastcc i32 @asn1_template_ex_i2d(ptr noundef %89, ptr noundef null, ptr noundef nonnull %87, i32 noundef -1, i32 noundef %spec.select161)
   %91 = load i32, ptr %6, align 4, !tbaa !28
   %92 = add nsw i32 %91, %90
@@ -261,13 +261,13 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ._crit_edge:                                      ; preds = %88, %.._crit_edge_crit_edge
   %96 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %92, %88 ]
-  %97 = call i32 @ASN1_object_size(i32 noundef %.0131, i32 noundef %96, i32 noundef %spec.select162) #10
+  %97 = call i32 @ASN1_object_size(i32 noundef %.0131, i32 noundef %96, i32 noundef %spec.select162) #11
   %.not151 = icmp eq ptr %1, null
   br i1 %.not151, label %.critedge, label %98
 
 98:                                               ; preds = %._crit_edge
   %99 = load i32, ptr %6, align 4, !tbaa !28
-  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %.0131, i32 noundef %99, i32 noundef %spec.select162, i32 noundef %spec.select161) #10
+  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %.0131, i32 noundef %99, i32 noundef %spec.select162, i32 noundef %spec.select161) #11
   %100 = load i64, ptr %83, align 8, !tbaa !22
   %101 = icmp sgt i64 %100, 0
   br i1 %101, label %.lr.ph172.preheader, label %._crit_edge173
@@ -279,12 +279,12 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph172:                                        ; preds = %.lr.ph172.preheader, %104
   %indvars.iv176 = phi i64 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next177, %104 ]
   %.1124170 = phi ptr [ %102, %.lr.ph172.preheader ], [ %107, %104 ]
-  %103 = call ptr @asn1_do_adb(ptr noundef %0, ptr noundef %.1124170, i32 noundef 1) #10
+  %103 = call ptr @asn1_do_adb(ptr noundef %0, ptr noundef %.1124170, i32 noundef 1) #11
   %.not153.not = icmp eq ptr %103, null
   br i1 %.not153.not, label %.critedge, label %104
 
 104:                                              ; preds = %.lr.ph172
-  %105 = call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef nonnull %103) #10
+  %105 = call ptr @asn1_get_field_ptr(ptr noundef %0, ptr noundef nonnull %103) #11
   %106 = call fastcc i32 @asn1_template_ex_i2d(ptr noundef %105, ptr noundef nonnull %1, ptr noundef nonnull %103, i32 noundef -1, i32 noundef %spec.select161)
   %107 = getelementptr inbounds nuw i8, ptr %.1124170, i64 40
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
@@ -296,14 +296,14 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %70, label %110, label %112
 
 110:                                              ; preds = %._crit_edge173
-  %111 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #10
+  %111 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #11
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge173
   br i1 %.not149, label %115, label %113
 
 113:                                              ; preds = %112
-  %114 = call i32 %.0130(i32 noundef 7, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #10
+  %114 = call i32 %.0130(i32 noundef 7, ptr noundef %0, ptr noundef nonnull %2, ptr noundef null) #11
   %.not152 = icmp eq i32 %114, 0
   br i1 %.not152, label %.critedge, label %115
 
@@ -312,12 +312,9 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph172, %44, %43, %16, %113, %._crit_edge, %79, %69, %54, %60, %27, %10, %115, %74, %46, %37, %24, %22, %20
   %.0 = phi i32 [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %42, %37 ], [ %49, %46 ], [ %75, %74 ], [ %97, %115 ], [ 0, %10 ], [ 0, %27 ], [ %58, %60 ], [ %58, %54 ], [ 0, %69 ], [ 0, %79 ], [ %97, %._crit_edge ], [ 0, %113 ], [ 0, %16 ], [ 0, %43 ], [ 0, %44 ], [ 0, %.lr.ph172 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -360,7 +357,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %0, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not109 = icmp eq ptr %26, null
   br i1 %.not109, label %105, label %27
 
@@ -376,7 +373,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %. = select i1 %.not110, i32 16, i32 17
   %.090 = select i1 %or.cond117, i32 %.095, i32 %.
   %.089 = select i1 %or.cond117, i32 %.094, i32 0
-  %31 = tail call i64 @sk_num(ptr noundef nonnull %26) #10
+  %31 = tail call i64 @sk_num(ptr noundef nonnull %26) #11
   %.not146 = icmp eq i64 %31, 0
   br i1 %.not146, label %._crit_edge, label %.lr.ph
 
@@ -387,19 +384,19 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %.lr.ph, %33
   %.088130 = phi i32 [ 0, %.lr.ph ], [ %37, %33 ]
   %.092129 = phi i64 [ 0, %.lr.ph ], [ %38, %33 ]
-  %34 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.092129) #10
+  %34 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.092129) #11
   store ptr %34, ptr %8, align 8, !tbaa !6
   %35 = load ptr, ptr %32, align 8, !tbaa !36
   %36 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %8, ptr noundef null, ptr noundef %35, i32 noundef -1, i32 noundef %21)
   %37 = add nsw i32 %36, %.088130
   %38 = add nuw i64 %.092129, 1
-  %39 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %39 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %40 = icmp ult i64 %38, %39
   br i1 %40, label %33, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %33, %27
   %.088.lcssa = phi i32 [ 0, %27 ], [ %37, %33 ]
-  %41 = call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090) #10
+  %41 = call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090) #11
   br i1 %.not113, label %42, label %.thread
 
 42:                                               ; preds = %._crit_edge
@@ -407,66 +404,66 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   br i1 %.not116, label %105, label %45
 
 .thread:                                          ; preds = %._crit_edge
-  %43 = call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %41, i32 noundef %.095) #10
+  %43 = call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %41, i32 noundef %.095) #11
   %.not116122 = icmp eq ptr %1, null
   br i1 %.not116122, label %105, label %44
 
 44:                                               ; preds = %.thread
-  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %41, i32 noundef %.095, i32 noundef %.094) #10
+  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %41, i32 noundef %.095, i32 noundef %.094) #11
   br label %45
 
 45:                                               ; preds = %42, %44
   %.096123127 = phi i32 [ %43, %44 ], [ %41, %42 ]
-  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090, i32 noundef %.089) #10
+  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090, i32 noundef %.089) #11
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %47 = load ptr, ptr %46, align 8, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not110, label %.preheader, label %48
 
 48:                                               ; preds = %45
-  %49 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %49 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %50 = icmp ult i64 %49, 2
   br i1 %50, label %.preheader, label %51
 
 51:                                               ; preds = %48
-  %52 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %52 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %53 = mul i64 %52, 24
-  %54 = call noalias ptr @malloc(i64 noundef %53) #11
+  %54 = call noalias ptr @malloc(i64 noundef %53) #10
   %.not63.i = icmp eq ptr %54, null
   br i1 %.not63.i, label %asn1_set_seq_out.exit, label %55
 
 55:                                               ; preds = %51
   %56 = sext i32 %.088.lcssa to i64
-  %57 = call noalias ptr @malloc(i64 noundef %56) #11
+  %57 = call noalias ptr @malloc(i64 noundef %56) #10
   %.not64.i = icmp eq ptr %57, null
   br i1 %.not64.i, label %asn1_set_seq_out.exit.sink.split, label %64
 
 .preheader:                                       ; preds = %45, %48
-  %58 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %58 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %.not150 = icmp eq i64 %58, 0
   br i1 %.not150, label %asn1_set_seq_out.exit, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %.preheader, %.lr.ph145
   %.054.i144 = phi i64 [ %61, %.lr.ph145 ], [ 0, %.preheader ]
-  %59 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.054.i144) #10
+  %59 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.054.i144) #11
   store ptr %59, ptr %6, align 8, !tbaa !6
   %60 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %47, i32 noundef -1, i32 noundef range(i32 0, -192) %21)
   %61 = add nuw i64 %.054.i144, 1
-  %62 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %62 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %63 = icmp ult i64 %61, %62
   br i1 %63, label %.lr.ph145, label %asn1_set_seq_out.exit, !llvm.loop !38
 
 64:                                               ; preds = %55
   store ptr %57, ptr %7, align 8, !tbaa !11
-  %65 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %65 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %.not147 = icmp eq i64 %65, 0
   br i1 %.not147, label %._crit_edge135, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %64, %.lr.ph134
   %.0.i132 = phi ptr [ %73, %.lr.ph134 ], [ %54, %64 ]
   %.155.i131 = phi i64 [ %72, %.lr.ph134 ], [ 0, %64 ]
-  %66 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.155.i131) #10
+  %66 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.155.i131) #11
   store ptr %66, ptr %6, align 8, !tbaa !6
   %67 = load ptr, ptr %7, align 8, !tbaa !11
   store ptr %67, ptr %.0.i132, align 8, !tbaa !39
@@ -478,16 +475,16 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   store ptr %70, ptr %71, align 8, !tbaa !42
   %72 = add nuw i64 %.155.i131, 1
   %73 = getelementptr inbounds nuw i8, ptr %.0.i132, i64 24
-  %74 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %74 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %75 = icmp ult i64 %72, %74
   br i1 %75, label %.lr.ph134, label %._crit_edge135, !llvm.loop !43
 
 ._crit_edge135:                                   ; preds = %.lr.ph134, %64
-  %76 = call i64 @sk_num(ptr noundef nonnull %26) #10
-  call void @qsort(ptr noundef nonnull %54, i64 noundef %76, i64 noundef 24, ptr noundef nonnull @der_cmp) #10
+  %76 = call i64 @sk_num(ptr noundef nonnull %26) #11
+  call void @qsort(ptr noundef nonnull %54, i64 noundef %76, i64 noundef 24, ptr noundef nonnull @der_cmp) #11
   %77 = load ptr, ptr %1, align 8, !tbaa !11
   store ptr %77, ptr %7, align 8, !tbaa !11
-  %78 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %78 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %.not148 = icmp eq i64 %78, 0
   br i1 %.not148, label %._crit_edge140, label %.lr.ph139
 
@@ -507,7 +504,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   store ptr %87, ptr %7, align 8, !tbaa !11
   %88 = add nuw i64 %.256.i136, 1
   %89 = getelementptr inbounds nuw i8, ptr %.1.i137, i64 24
-  %90 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %90 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %91 = icmp ult i64 %88, %90
   br i1 %91, label %.lr.ph139, label %._crit_edge140, !llvm.loop !44
 
@@ -517,7 +514,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   br i1 %.not111.not, label %.loopexit, label %.preheader128
 
 .preheader128:                                    ; preds = %._crit_edge140
-  %93 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %93 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %.not149 = icmp eq i64 %93, 0
   br i1 %.not149, label %.loopexit, label %.lr.ph143
 
@@ -526,38 +523,38 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.3.i141 = phi i64 [ %97, %.lr.ph143 ], [ 0, %.preheader128 ]
   %94 = getelementptr inbounds nuw i8, ptr %.2.i142, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !42
-  %96 = call ptr @sk_set(ptr noundef nonnull %26, i64 noundef %.3.i141, ptr noundef %95) #10
+  %96 = call ptr @sk_set(ptr noundef nonnull %26, i64 noundef %.3.i141, ptr noundef %95) #11
   %97 = add nuw i64 %.3.i141, 1
   %98 = getelementptr inbounds nuw i8, ptr %.2.i142, i64 24
-  %99 = call i64 @sk_num(ptr noundef nonnull %26) #10
+  %99 = call i64 @sk_num(ptr noundef nonnull %26) #11
   %100 = icmp ult i64 %97, %99
   br i1 %100, label %.lr.ph143, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph143, %.preheader128, %._crit_edge140
-  call void @free(ptr noundef nonnull %54) #10
+  call void @free(ptr noundef nonnull %54) #11
   br label %asn1_set_seq_out.exit.sink.split
 
 asn1_set_seq_out.exit.sink.split:                 ; preds = %55, %.loopexit
   %.sink = phi ptr [ %57, %.loopexit ], [ %54, %55 ]
-  call void @free(ptr noundef nonnull %.sink) #10
+  call void @free(ptr noundef nonnull %.sink) #11
   br label %asn1_set_seq_out.exit
 
 asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_set_seq_out.exit.sink.split, %.preheader, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %or.cond.not.not, label %105, label %101
 
 101:                                              ; preds = %asn1_set_seq_out.exit
-  %102 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #10
+  %102 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #11
   br i1 %.not113, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #10
+  %104 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #11
   br label %105
 
 105:                                              ; preds = %.thread, %asn1_set_seq_out.exit, %103, %101, %42, %25
   %.1 = phi i32 [ 0, %25 ], [ %41, %42 ], [ %.096123127, %101 ], [ %.096123127, %103 ], [ %.096123127, %asn1_set_seq_out.exit ], [ %43, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %122
 
 106:                                              ; preds = %20
@@ -573,18 +570,18 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
   br i1 %.not107, label %122, label %112
 
 112:                                              ; preds = %110
-  %113 = tail call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %111, i32 noundef %.095) #10
+  %113 = tail call i32 @ASN1_object_size(i32 noundef %spec.select120, i32 noundef %111, i32 noundef %.095) #11
   %.not108 = icmp eq ptr %1, null
   br i1 %.not108, label %122, label %114
 
 114:                                              ; preds = %112
-  tail call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %111, i32 noundef %.095, i32 noundef %.094) #10
+  tail call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %111, i32 noundef %.095, i32 noundef %.094) #11
   %115 = load ptr, ptr %108, align 8, !tbaa !36
   %116 = tail call i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %115, i32 noundef -1, i32 noundef %21)
   br i1 %or.cond.not.not, label %122, label %117
 
 117:                                              ; preds = %114
-  %118 = tail call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #10
+  %118 = tail call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #11
   br label %122
 
 119:                                              ; preds = %106
@@ -600,7 +597,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !46
   %9 = trunc i64 %8 to i32
@@ -627,7 +624,7 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   ]
 
 16:                                               ; preds = %15
-  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select39, i32 noundef %spec.select, i32 noundef %.031, i32 noundef %4) #10
+  call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select39, i32 noundef %spec.select, i32 noundef %.031, i32 noundef %4) #11
   br label %17
 
 17:                                               ; preds = %15, %15, %15, %16
@@ -636,7 +633,7 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   br i1 %.not37, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #10
+  %21 = call i32 @ASN1_put_eoc(ptr noundef nonnull %1) #11
   br label %26
 
 22:                                               ; preds = %17
@@ -654,31 +651,28 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   ]
 
 27:                                               ; preds = %26
-  %28 = call i32 @ASN1_object_size(i32 noundef %spec.select39, i32 noundef %spec.select, i32 noundef %.031) #10
+  %28 = call i32 @ASN1_object_size(i32 noundef %spec.select39, i32 noundef %spec.select, i32 noundef %.031) #11
   br label %29
 
 29:                                               ; preds = %26, %26, %26, %5, %27
   %.030 = phi i32 [ %28, %27 ], [ 0, %5 ], [ %spec.select, %26 ], [ %spec.select, %26 ], [ %spec.select, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.030
 }
 
-declare i32 @asn1_get_choice_selector(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @asn1_get_choice_selector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @asn1_get_field_ptr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @asn1_get_field_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @asn1_enc_restore(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @asn1_enc_restore(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @asn1_do_adb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @asn1_do_adb(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_object_size(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ASN1_put_object(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @ASN1_put_eoc(ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_put_eoc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @ASN1_template_i2d(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -691,7 +685,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   store ptr %1, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not = icmp eq ptr %8, null
@@ -704,7 +698,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not58, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #10
+  %13 = tail call i32 %11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #11
   br label %.thread74
 
 14:                                               ; preds = %9, %4
@@ -815,14 +809,14 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %56 = load ptr, ptr %.049, align 8, !tbaa !6
   %.not63 = icmp eq ptr %1, null
   %. = select i1 %.not63, ptr null, ptr %5
-  %57 = call i32 @i2c_ASN1_BIT_STRING(ptr noundef %56, ptr noundef %.) #10
+  %57 = call i32 @i2c_ASN1_BIT_STRING(ptr noundef %56, ptr noundef %.) #11
   br label %.thread74
 
 58:                                               ; preds = %34, %34, %34, %34
   %59 = load ptr, ptr %.049, align 8, !tbaa !6
   %.not62 = icmp eq ptr %1, null
   %.1 = select i1 %.not62, ptr null, ptr %5
-  %60 = call i32 @i2c_ASN1_INTEGER(ptr noundef %59, ptr noundef %.1) #10
+  %60 = call i32 @i2c_ASN1_INTEGER(ptr noundef %59, ptr noundef %.1) #11
   br label %.thread74
 
 61:                                               ; preds = %34
@@ -870,32 +864,32 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .thread74:                                        ; preds = %34, %.thread70, %77, %80, %70, %71, %52, %50, %41, %19, %58, %55, %12
   %.0 = phi i32 [ %13, %12 ], [ %57, %55 ], [ %60, %58 ], [ -1, %19 ], [ -1, %41 ], [ -1, %50 ], [ -1, %52 ], [ -2, %71 ], [ -2, %70 ], [ %.050, %80 ], [ %.050, %77 ], [ -1, %.thread70 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @i2c_ASN1_BIT_STRING(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2c_ASN1_BIT_STRING(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2c_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @i2c_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
-declare i64 @sk_num(ptr noundef) local_unnamed_addr #2
+declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @der_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal i32 @der_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !41
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -911,26 +905,32 @@ define internal i32 @der_cmp(ptr noundef readonly captures(none) %0, ptr noundef
   ret i32 %spec.select
 }
 
-declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
+attributes #10 = { nounwind allocsize(0) }
+attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

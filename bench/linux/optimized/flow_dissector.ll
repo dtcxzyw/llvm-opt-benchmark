@@ -260,14 +260,8 @@ define dso_local void @skb_flow_dissector_init(ptr noundef writeonly captures(no
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(address) %3, i32 noundef %4) #0 align 16 {
@@ -310,7 +304,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
   br i1 %10, label %24, label %39
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !annotation !19
   %25 = add i32 %11, %1
   %26 = sub i32 %23, %25
@@ -339,7 +333,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 
 .sink.split:                                      ; preds = %30, %28, %33, %.thread3
   %.ph = phi i32 [ %38, %.thread3 ], [ 0, %33 ], [ 0, %28 ], [ 0, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %.sink.split, %21
@@ -350,7 +344,7 @@ define dso_local i32 @__skb_flow_get_ports(ptr noundef %0, i32 noundef %1, i8 no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skb_flow_get_icmp_tci(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(address) %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.icmphdr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !annotation !19
   %7 = sub i32 %4, %3
   %8 = icmp slt i32 %7, 8
@@ -404,15 +398,15 @@ define dso_local void @skb_flow_get_icmp_tci(ptr noundef %0, ptr noundef writeon
   br label %.thread
 
 .thread:                                          ; preds = %11, %9, %30, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #3
+declare i16 @llvm.bswap.i16(i16) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @skb_flow_dissect_meta(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 align 16 {
+define dso_local void @skb_flow_dissect_meta(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, 33554432
   %6 = icmp eq i64 %5, 0
@@ -433,7 +427,7 @@ define dso_local void @skb_flow_dissect_meta(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @skb_flow_dissect_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i1 noundef zeroext %5, i16 noundef zeroext %6) #4 align 16 {
+define dso_local void @skb_flow_dissect_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i1 noundef zeroext %5, i16 noundef zeroext %6) #3 align 16 {
   %8 = load i64, ptr %1, align 8
   %9 = and i64 %8, 67108864
   %10 = icmp eq i64 %9, 0
@@ -475,10 +469,10 @@ define dso_local void @skb_flow_dissect_ct(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @skb_flow_dissect_tunnel_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
+define dso_local void @skb_flow_dissect_tunnel_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #5 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, 25673728
   %6 = icmp eq i64 %5, 0
@@ -695,7 +689,7 @@ define dso_local void @skb_flow_dissect_tunnel_info(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @skb_flow_dissect_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #4 align 16 {
+define dso_local void @skb_flow_dissect_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #3 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, 134217728
   %6 = icmp eq i64 %5, 0
@@ -904,9 +898,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .thread61:                                        ; preds = %96, %99
   %103 = phi ptr [ %101, %99 ], [ %97, %96 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %26, i8 0, i64 56, i1 false), !annotation !19
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %26, ptr %27, align 8
   %104 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %104, align 8
@@ -933,8 +927,8 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %117, label %.thread63, label %118
 
 .thread63:                                        ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %.thread64
 
 118:                                              ; preds = %112
@@ -1099,8 +1093,8 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 218:                                              ; preds = %210, %.thread62
   call void @__rcu_read_unlock() #12
   %219 = icmp eq i32 %116, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1200
 
 220:                                              ; preds = %.thread64, %.thread
@@ -1206,7 +1200,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   ]
 
 290:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, i8 0, i64 20, i1 false), !annotation !19
   %291 = sub i32 %65, %284
   %292 = icmp slt i32 %291, 20
@@ -1306,11 +1300,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %350 = phi i32 [ %284, %297 ], [ %284, %.thread66 ], [ %308, %347 ], [ %308, %349 ], [ %308, %341 ], [ %284, %293 ], [ %284, %294 ]
   %351 = phi i8 [ %287, %297 ], [ %287, %.thread66 ], [ %310, %347 ], [ %310, %349 ], [ %310, %341 ], [ %287, %293 ], [ %287, %294 ]
   %352 = phi i32 [ 1, %297 ], [ 1, %.thread66 ], [ 0, %347 ], [ 4, %349 ], [ 0, %341 ], [ 1, %293 ], [ 1, %294 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %800
 
 353:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %29, i8 0, i64 40, i1 false), !annotation !19
   %354 = sub i32 %65, %284
   %355 = icmp slt i32 %354, 40
@@ -1410,11 +1404,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %410 = phi i32 [ %284, %360 ], [ %367, %393 ], [ %367, %394 ], [ %367, %399 ], [ %284, %356 ], [ %284, %357 ]
   %411 = phi i8 [ %287, %360 ], [ %366, %393 ], [ %366, %394 ], [ %366, %399 ], [ %287, %356 ], [ %287, %357 ]
   %412 = phi i32 [ 1, %360 ], [ %266, %393 ], [ %396, %394 ], [ %396, %399 ], [ 1, %356 ], [ 1, %357 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %800
 
 413:                                              ; preds = %282, %282
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4, !annotation !19
   %414 = icmp eq i32 %289, 33
   %415 = and i1 %256, %414
@@ -1541,11 +1535,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %494 = phi i32 [ %284, %426 ], [ %435, %487 ], [ %435, %454 ], [ %435, %452 ], [ %284, %422 ], [ %284, %423 ]
   %495 = phi i32 [ %289, %426 ], [ %455, %487 ], [ %455, %454 ], [ %289, %452 ], [ %289, %422 ], [ %289, %423 ]
   %496 = phi i32 [ 1, %426 ], [ 2, %487 ], [ 2, %454 ], [ 2, %452 ], [ 1, %422 ], [ 1, %423 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %800
 
 497:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 0, ptr %31, align 8, !annotation !19
   %498 = sub i32 %65, %284
   %499 = icmp slt i32 %498, 8
@@ -1634,11 +1628,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %546 = phi i16 [ 25736, %504 ], [ %532, %537 ], [ %532, %531 ], [ 25736, %528 ], [ 25736, %511 ], [ 25736, %.thread78 ], [ 25736, %500 ], [ 25736, %501 ]
   %547 = phi i32 [ %284, %504 ], [ %522, %537 ], [ %522, %531 ], [ %522, %528 ], [ %284, %511 ], [ %284, %.thread78 ], [ %284, %500 ], [ %284, %501 ]
   %548 = phi i32 [ 1, %504 ], [ %533, %537 ], [ %533, %531 ], [ 1, %528 ], [ 1, %511 ], [ 1, %.thread78 ], [ 1, %500 ], [ 1, %501 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %800
 
 549:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, i8 0, i64 16, i1 false), !annotation !19
   %550 = sub i32 %65, %284
   %551 = icmp slt i32 %550, 16
@@ -1672,7 +1666,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %568 = load i32, ptr %560, align 4
   %569 = and i32 %568, 2062
   %570 = icmp eq i32 %569, 2062
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !annotation !19
   br i1 %570, label %573, label %571, !prof !5
 
@@ -1687,18 +1681,18 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 574:                                              ; preds = %573, %571
   %575 = phi ptr [ %572, %571 ], [ %25, %573 ]
   %576 = load i32, ptr %575, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store i32 %576, ptr %567, align 4
   store i16 8, ptr %254, align 2
   br label %.thread81
 
 .thread81:                                        ; preds = %553, %552, %574, %.thread82, %556
   %577 = phi i32 [ 1, %556 ], [ 0, %574 ], [ 0, %.thread82 ], [ 1, %552 ], [ 1, %553 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %800
 
 578:                                              ; preds = %282, %282
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 0, ptr %24, align 4, !annotation !19
   %579 = load i64, ptr %2, align 8
   %580 = and i64 %579, 8192
@@ -1793,7 +1787,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 .thread85:                                        ; preds = %593, %592, %629, %596, %587, %582
   %635 = phi i8 [ %285, %582 ], [ %285, %596 ], [ %631, %629 ], [ %285, %587 ], [ %285, %592 ], [ %285, %593 ]
   %636 = phi i32 [ 0, %582 ], [ 1, %596 ], [ %634, %629 ], [ 0, %587 ], [ 1, %592 ], [ 1, %593 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %637 = add i32 %284, 4
   %638 = add i32 %288, 1
   br label %800
@@ -1807,9 +1801,9 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %800
 
 645:                                              ; preds = %282, %282
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %22, i8 0, i64 20, i1 false), !annotation !19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8, !annotation !19
   %646 = load i64, ptr %2, align 8
   %647 = and i64 %646, 512
@@ -1923,12 +1917,12 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .thread89:                                        ; preds = %683, %682, %653, %652, %.thread94, %686, %675, %671, %667, %663, %.thread90, %656, %645
   %714 = phi i32 [ 0, %.thread94 ], [ 0, %645 ], [ 1, %656 ], [ 1, %675 ], [ 1, %671 ], [ 1, %667 ], [ 1, %663 ], [ 1, %.thread90 ], [ 1, %686 ], [ 1, %652 ], [ 1, %653 ], [ 1, %682 ], [ 1, %683 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %800
 
 715:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %21, i8 0, i64 24, i1 false), !annotation !19
   %716 = sub i32 %65, %284
   %717 = icmp slt i32 %716, 24
@@ -1973,11 +1967,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %739 = phi i16 [ 1347, %722 ], [ %735, %733 ], [ 1347, %730 ], [ 1347, %.thread98 ], [ 1347, %718 ], [ 1347, %719 ]
   %740 = phi i32 [ %284, %722 ], [ %736, %733 ], [ %284, %730 ], [ %284, %.thread98 ], [ %284, %718 ], [ %284, %719 ]
   %741 = phi i32 [ 1, %722 ], [ %249, %733 ], [ 1, %730 ], [ 1, %.thread98 ], [ 1, %718 ], [ 1, %719 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %800
 
 742:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %33) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %33, i8 0, i64 34, i1 false), !annotation !19
   %743 = sub i32 %65, %284
   %744 = icmp slt i32 %743, 34
@@ -2007,11 +2001,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 755:                                              ; preds = %745, %751, %.thread99
   %756 = phi i32 [ 1, %.thread99 ], [ 0, %751 ], [ 0, %745 ]
   %757 = phi i32 [ %284, %.thread99 ], [ %754, %751 ], [ %749, %745 ]
-  call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %33) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %800
 
 758:                                              ; preds = %282, %282
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %34) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %34, i8 0, i64 6, i1 false), !annotation !19
   %759 = sub i32 %65, %284
   %760 = icmp slt i32 %759, 6
@@ -2042,11 +2036,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %773 = phi i16 [ %283, %765 ], [ %771, %.thread105 ], [ %283, %761 ], [ %283, %762 ]
   %774 = phi i32 [ %284, %765 ], [ %772, %.thread105 ], [ %284, %761 ], [ %284, %762 ]
   %775 = phi i32 [ 1, %765 ], [ 2, %.thread105 ], [ 1, %761 ], [ 1, %762 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %34) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %800
 
 776:                                              ; preds = %282
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i16 0, ptr %20, align 2, !annotation !19
   %777 = load i64, ptr %2, align 8
   %778 = and i64 %777, 2147483648
@@ -2087,7 +2081,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .thread108:                                       ; preds = %784, %783, %.thread109, %787, %776
   %799 = phi i32 [ 0, %.thread109 ], [ 0, %776 ], [ 1, %787 ], [ 1, %783 ], [ 1, %784 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %800
 
 800:                                              ; preds = %.thread108, %.thread104, %755, %.thread97, %.thread89, %639, %.thread85, %.thread81, %.thread77, %.thread73, %.thread69, %.thread65
@@ -2139,7 +2133,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %276, label %817, label %1125
 
 817:                                              ; preds = %816
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !annotation !19
   %818 = sub i32 %65, %813
   %819 = icmp slt i32 %818, 4
@@ -2208,7 +2202,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 857:                                              ; preds = %.thread212, %848
   %858 = phi i32 [ %847, %.thread212 ], [ %852, %848 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !annotation !19
   %859 = add i32 %858, %813
   %860 = sub i32 %65, %859
@@ -2247,12 +2241,12 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %881
 
 .thread120:                                       ; preds = %866, %862, %863
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread113
 
 881:                                              ; preds = %874, %.thread118
   %882 = add nuw nsw i32 %858, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.pre209 = load i16, ptr %828, align 1
   %883 = lshr i16 %.pre209, 2
   %884 = and i16 %883, 4
@@ -2266,7 +2260,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %889, label %890, label %936
 
 890:                                              ; preds = %887
-  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %18, i8 0, i64 14, i1 false), !annotation !19
   %891 = add i32 %888, %813
   %892 = sub i32 %65, %891
@@ -2288,7 +2282,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %901, label %.thread126, label %.thread124
 
 .thread126:                                       ; preds = %898, %894, %895
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.thread113
 
 .thread124:                                       ; preds = %895, %898
@@ -2296,11 +2290,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 12
   %904 = load i16, ptr %903, align 1
   %905 = add nuw nsw i32 %888, 14
-  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %936
 
 906:                                              ; preds = %881
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4, !annotation !19
   %907 = load i16, ptr %828, align 1
   %908 = add nuw nsw i32 %886, 4
@@ -2347,13 +2341,13 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %933
 
 .thread132:                                       ; preds = %918, %914, %915
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread113
 
 933:                                              ; preds = %.thread130, %931, %932
   %934 = phi i16 [ %838, %.thread130 ], [ -8826, %932 ], [ 8, %931 ]
   %935 = add nuw nsw i32 %910, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %936
 
 936:                                              ; preds = %933, %.thread124, %887
@@ -2369,11 +2363,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %942 = phi i16 [ %812, %824 ], [ %812, %832 ], [ %937, %936 ], [ %838, %840 ], [ %812, %.thread114 ], [ %838, %.thread120 ], [ 22629, %.thread126 ], [ %838, %.thread132 ], [ %812, %820 ], [ %812, %821 ]
   %943 = phi i32 [ %813, %824 ], [ %813, %832 ], [ %939, %936 ], [ %813, %840 ], [ %813, %.thread114 ], [ %813, %.thread120 ], [ %813, %.thread126 ], [ %813, %.thread132 ], [ %813, %820 ], [ %813, %821 ]
   %944 = phi i32 [ 1, %824 ], [ 0, %832 ], [ %249, %936 ], [ 0, %840 ], [ 0, %.thread114 ], [ 1, %.thread120 ], [ 1, %.thread126 ], [ 1, %.thread132 ], [ 1, %820 ], [ 1, %821 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1125
 
 945:                                              ; preds = %811, %811, %811
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %35) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i16 0, ptr %35, align 2, !annotation !19
   %946 = icmp eq i16 %812, -8826
   br i1 %946, label %947, label %.thread135
@@ -2412,11 +2406,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %966 = phi i32 [ %813, %954 ], [ %965, %.thread136 ], [ %813, %945 ], [ %813, %950 ], [ %813, %951 ]
   %967 = phi i8 [ %815, %954 ], [ %959, %.thread136 ], [ %815, %945 ], [ %815, %950 ], [ %815, %951 ]
   %968 = phi i32 [ 1, %954 ], [ 3, %.thread136 ], [ 4, %945 ], [ 1, %950 ], [ 1, %951 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %35) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1125
 
 969:                                              ; preds = %811
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 0, ptr %36, align 8, !annotation !19
   %970 = icmp eq i16 %812, -8826
   br i1 %970, label %971, label %.thread139
@@ -2465,7 +2459,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %994 = phi i32 [ %813, %978 ], [ %985, %993 ], [ %985, %991 ], [ %813, %969 ], [ %813, %974 ], [ %813, %975 ]
   %995 = phi i8 [ 44, %978 ], [ %986, %993 ], [ %986, %991 ], [ 44, %969 ], [ 44, %974 ], [ 44, %975 ]
   %996 = phi i32 [ 1, %978 ], [ 0, %993 ], [ 3, %991 ], [ 4, %969 ], [ 1, %974 ], [ 1, %975 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %1125
 
 997:                                              ; preds = %811
@@ -2490,7 +2484,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %1125
 
 1006:                                             ; preds = %811
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false), !annotation !19
   %1007 = load i64, ptr %2, align 8
   %1008 = and i64 %1007, 1048576
@@ -2533,7 +2527,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.thread143
 
 .thread143:                                       ; preds = %1014, %1013, %1026, %.thread144, %1017, %1006
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1125
 
 1031:                                             ; preds = %811, %811
@@ -2546,7 +2540,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   %1036 = load i16, ptr %273, align 2
   %1037 = zext i16 %1036 to i64
   %1038 = getelementptr i8, ptr %3, i64 %1037
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !annotation !19
   %1039 = sub i32 %65, %813
   %1040 = icmp slt i32 %1039, 8
@@ -2599,11 +2593,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.thread147
 
 .thread147:                                       ; preds = %1042, %1041, %1061, %1045
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1125
 
 1064:                                             ; preds = %811
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !annotation !19
   %1065 = load i64, ptr %2, align 8
   %1066 = and i64 %1065, 1073741824
@@ -2639,11 +2633,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.thread151
 
 .thread151:                                       ; preds = %1072, %1071, %.thread152, %1075, %1064
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1125
 
 1084:                                             ; preds = %811
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !annotation !19
   %1085 = load i64, ptr %2, align 8
   %1086 = and i64 %1085, 4294967296
@@ -2679,11 +2673,11 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.thread155
 
 .thread155:                                       ; preds = %1092, %1091, %.thread156, %1095, %1084
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1125
 
 1104:                                             ; preds = %811
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !annotation !19
   %1105 = load i64, ptr %2, align 8
   %1106 = and i64 %1105, 4294967296
@@ -2720,7 +2714,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br label %.thread159
 
 .thread159:                                       ; preds = %1112, %1111, %.thread160, %1115, %1104
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1125
 
 1125:                                             ; preds = %.thread159, %.thread155, %.thread151, %.thread147, %1031, %.thread143, %1005, %1002, %1001, %998, %997, %.thread139, %.thread135, %.thread113, %816, %811
@@ -2784,7 +2778,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
   br i1 %1151, label %1161, label %1175
 
 1161:                                             ; preds = %1158
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !annotation !19
   %1162 = add i32 %1152, %1127
   %1163 = sub i32 %1160, %1162
@@ -2812,7 +2806,7 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 
 .sink.split:                                      ; preds = %1166, %1165, %1169, %.thread164
   %.ph233 = phi i32 [ %1174, %.thread164 ], [ 0, %1169 ], [ 0, %1165 ], [ 0, %1166 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1175
 
 1175:                                             ; preds = %.sink.split, %1158
@@ -2880,10 +2874,10 @@ define dso_local zeroext i1 @__skb_flow_dissect(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #3
+declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @flow_get_u32_src(ptr noundef readonly captures(none) %0) #7 align 16 {
+define dso_local i32 @flow_get_u32_src(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   switch i16 %3, label %19 [
@@ -2919,7 +2913,7 @@ define dso_local i32 @flow_get_u32_src(ptr noundef readonly captures(none) %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @flow_get_u32_dst(ptr noundef readonly captures(none) %0) #7 align 16 {
+define dso_local i32 @flow_get_u32_dst(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   switch i16 %3, label %16 [
@@ -2955,7 +2949,7 @@ define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 ali
           to label %7 [label %3], !srcloc !27
 
 3:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !19
   %4 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %4, label %5, label %6, !prof !5
@@ -2966,7 +2960,7 @@ define dso_local range(i32 1, 0) i32 @flow_hash_from_keys(ptr noundef %0) #0 ali
   br label %6
 
 6:                                                ; preds = %5, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -3066,7 +3060,7 @@ thread-pre-split:                                 ; preds = %17, %23, %.loopexit
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @make_flow_keys_digest(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
+define dso_local void @make_flow_keys_digest(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i16, ptr %3, align 8
@@ -3094,13 +3088,13 @@ define dso_local void @make_flow_keys_digest(ptr noundef writeonly captures(none
 define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.flow_keys, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
           to label %8 [label %4], !srcloc !27
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !19
   %5 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %5, label %6, label %7, !prof !5
@@ -3111,7 +3105,7 @@ define dso_local range(i32 1, 0) i32 @__skb_get_hash_symmetric(ptr noundef %0) #
   br label %7
 
 7:                                                ; preds = %6, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -3209,7 +3203,7 @@ thread-pre-split:                                 ; preds = %19, %25, %.loopexit
   %52 = call i64 @__siphash_unaligned(ptr noundef nonnull %51, i64 noundef %50, ptr noundef nonnull @hashrnd) #12
   %53 = trunc i64 %52 to i32
   %54 = call i32 @llvm.umax.i32(i32 %53, i32 1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %54
 }
 
@@ -3217,13 +3211,13 @@ thread-pre-split:                                 ; preds = %19, %25, %.loopexit
 define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.flow_keys, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @__flow_hash_secret_init.___once_key, i1 false) #12
           to label %8 [label %4], !srcloc !27
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !19
   %5 = call zeroext i1 @__do_once_start(ptr noundef nonnull @__flow_hash_secret_init.___done, ptr noundef nonnull %2) #12
   br i1 %5, label %6, label %7, !prof !5
@@ -3234,7 +3228,7 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
   br label %7
 
 7:                                                ; preds = %6, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -3254,12 +3248,12 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
   store i24 %21, ptr %17, align 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %9, ptr %22, align 4
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr noundef initializes((0, 80)) %1, ptr noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr noundef initializes((0, 80)) %1, ptr noundef %2) unnamed_addr #7 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   %4 = tail call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_dissector, ptr noundef %1, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 2)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3360,10 +3354,10 @@ thread-pre-split:                                 ; preds = %14, %20, %.loopexit
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 1, 0) i32 @skb_get_hash_perturb(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.flow_keys, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false), !annotation !19
   %4 = call fastcc i32 @___skb_get_hash(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -3393,7 +3387,7 @@ define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr nou
   ]
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !annotation !19
   %16 = add nuw nsw i32 %7, 12
   %17 = sub i32 %3, %16
@@ -3427,7 +3421,7 @@ define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr nou
 
 .thread:                                          ; preds = %21, %19, %.thread2, %24
   %35 = phi i32 [ %34, %.thread2 ], [ %7, %24 ], [ %7, %19 ], [ %7, %21 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 36:                                               ; preds = %12, %12
@@ -3462,7 +3456,7 @@ define dso_local range(i32 0, 65596) i32 @__skb_get_poff(ptr noundef %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 65596) i32 @skb_get_poff(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.flow_keys_basic, align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, i8 0, i64 12, i1 false)
   %3 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %2, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   br i1 %3, label %4, label %13
@@ -3480,7 +3474,7 @@ define dso_local range(i32 0, 65596) i32 @skb_get_poff(ptr noundef %0) local_unn
 
 13:                                               ; preds = %4, %1
   %14 = phi i32 [ %12, %4 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %14
 }
 
@@ -3520,7 +3514,7 @@ define dso_local range(i32 1, 0) i32 @__get_hash_from_flowi6(ptr noundef readonl
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @init_default_flow_dissectors() #9 section ".init.text" align 16 {
+define internal noundef i32 @init_default_flow_dissectors() #8 section ".init.text" align 16 {
   tail call void @skb_flow_dissector_init(ptr noundef nonnull @flow_keys_dissector, ptr noundef nonnull @flow_keys_dissector_keys, i32 noundef 9)
   tail call void @skb_flow_dissector_init(ptr noundef nonnull @flow_keys_dissector_symmetric, ptr noundef nonnull @flow_keys_dissector_symmetric_keys, i32 noundef 5)
   tail call void @skb_flow_dissector_init(ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull @flow_keys_basic_dissector_keys, i32 noundef 2)
@@ -3528,59 +3522,65 @@ define internal noundef i32 @init_default_flow_dissectors() #9 section ".init.te
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @migrate_disable() local_unnamed_addr #10
+declare dso_local void @migrate_disable() local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @migrate_enable() local_unnamed_addr #10
+declare dso_local void @migrate_enable() local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @sched_clock() local_unnamed_addr #10
+declare dso_local i64 @sched_clock() local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_lock() local_unnamed_addr #10
+declare dso_local void @__rcu_read_lock() local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__rcu_read_unlock() local_unnamed_addr #10
+declare dso_local void @__rcu_read_unlock() local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @__do_once_start(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare dso_local zeroext i1 @__do_once_start(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__do_once_done(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare dso_local void @__do_once_done(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @__siphash_unaligned(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #10
+declare dso_local i64 @__siphash_unaligned(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #3
+declare i8 @llvm.umax.i8(i8, i8) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #7 = { fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nounwind }
 attributes #13 = { nounwind memory(read) }
 

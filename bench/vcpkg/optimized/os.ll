@@ -109,7 +109,7 @@ define void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr no
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
   %15 = ptrtoint ptr %1 to i64
   store i64 %15, ptr %4, align 16, !noalias !13
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.2, i64 19, i64 12, ptr nonnull %4)
@@ -122,7 +122,7 @@ define void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr no
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !13
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -135,17 +135,11 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: nounwind
 declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -166,12 +160,12 @@ define void @_ZN3fmt3v1113buffered_file5closeEv(ptr noundef nonnull align 8 capt
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !16
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str, i64 17, i64 0, ptr nonnull %2)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !16
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -197,12 +191,12 @@ define noundef range(i32 0, -1) i32 @_ZNK3fmt3v1113buffered_file10descriptorEv(p
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !19
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str.3, i64 26, i64 0, ptr nonnull %2)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !19
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -239,7 +233,7 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25
   %15 = ptrtoint ptr %1 to i64
   store i64 %15, ptr %4, align 16, !noalias !25
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.2, i64 19, i64 12, ptr nonnull %4)
@@ -252,7 +246,7 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -261,7 +255,7 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3fmt3v114fileD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -294,7 +288,7 @@ define void @_ZN3fmt3v114fileD2Ev(ptr noundef nonnull readonly align 4 captures(
   unreachable
 }
 
-declare i32 @close(i32 noundef) local_unnamed_addr #10
+declare i32 @close(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -313,12 +307,12 @@ define void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 captures(none)
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !28
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str, i64 17, i64 0, ptr nonnull %2)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !28
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -336,7 +330,7 @@ define void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 captures(none)
 define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.fmt::v11::detail::format_arg_store.41", align 16
   %3 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
   %4 = load i32, ptr %0, align 4, !tbaa !22
   %5 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %3) #17
@@ -347,12 +341,12 @@ define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !31
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str.4, i64 26, i64 0, ptr nonnull %2)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !31
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -360,18 +354,18 @@ define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %8) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !34
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
@@ -401,12 +395,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file4readEPvm
   %14 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !39
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %16, ptr nonnull @.str.5, i64 21, i64 0, ptr nonnull %4)
           to label %17 unwind label %18
 
 17:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !39
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !39
   call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -421,7 +415,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file4readEPvm
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPKvm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -448,12 +442,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPK
   %14 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %16, ptr nonnull @.str.6, i64 20, i64 0, ptr nonnull %4)
           to label %17 unwind label %18
 
 17:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !43
   call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -468,7 +462,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPK
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3fmt3v114file3dupEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.fmt::v11::file") align 4 captures(none) %0, i32 noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -481,14 +475,14 @@ define void @_ZN3fmt3v114file3dupEi(ptr dead_on_unwind noalias writable writeonl
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17, !noalias !46
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !46
   %.sroa.01.0.insert.ext.i.i = zext i32 %1 to i64
   store i64 %.sroa.01.0.insert.ext.i.i, ptr %3, align 16, !noalias !46
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str.7, i64 35, i64 1, ptr nonnull %3)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17, !noalias !46
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !46
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -526,7 +520,7 @@ define void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4 captur
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17, !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %15 = load i32, ptr %0, align 4, !tbaa !9, !noalias !56
   %.sroa.01.0.insert.ext.i.i = zext i32 %15 to i64
@@ -538,7 +532,7 @@ define void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4 captur
           to label %17 unwind label %18
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17, !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -597,12 +591,12 @@ define void @_ZN3fmt3v114file6fdopenEPKc(ptr dead_on_unwind noalias writable wri
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !60
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !60
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str.9, i64 44, i64 0, ptr nonnull %4)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !60
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -630,7 +624,7 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   store i32 -1, ptr %0, align 4, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %6, align 4, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %7 = call i32 @pipe(ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %7, 0
@@ -640,12 +634,12 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   %9 = call ptr @__cxa_allocate_exception(i64 32) #17
   %10 = tail call ptr @__errno_location() #16
   %11 = load i32, ptr %10, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !63
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %9, i32 noundef %11, ptr nonnull @.str.10, i64 18, i64 0, ptr nonnull %2)
           to label %12 unwind label %15
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !63
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !63
   invoke void @__cxa_throw(ptr %9, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
           to label %28 unwind label %13
 
@@ -661,7 +655,7 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   br label %27
 
 17:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = load i32, ptr %3, align 8, !tbaa !9
   store i32 %18, ptr %4, align 4, !tbaa !22
   invoke void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -671,8 +665,8 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   store i32 %18, ptr %0, align 4, !tbaa !22
   store i32 -1, ptr %4, align 4, !tbaa !22
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !9
   store i32 %21, ptr %5, align 4, !tbaa !22
@@ -683,27 +677,27 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   store i32 %21, ptr %6, align 4, !tbaa !22
   store i32 -1, ptr %5, align 4, !tbaa !22
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 23:                                               ; preds = %17
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %27
 
 25:                                               ; preds = %19
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %27
 
 27:                                               ; preds = %13, %15, %25, %23
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ], [ %26, %25 ], [ %24, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #17
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) #17
   resume { ptr, i32 } %.pn
@@ -726,12 +720,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v1111getpagesizeE
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %6 = tail call ptr @__errno_location() #16
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #17, !noalias !66
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !66
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %5, i32 noundef %7, ptr nonnull @.str.11, i64 27, i64 0, ptr nonnull %1)
           to label %8 unwind label %9
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #17, !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !66
   call void @__cxa_throw(ptr %5, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -797,10 +791,10 @@ define void @_ZN3fmt3v116detail11file_bufferC2ENS0_18basic_cstring_viewIcEERKNS1
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3fmt3v116detail11file_bufferC2EOS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3fmt3v116detail11file_bufferC2EOS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !73
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !69
@@ -862,7 +856,7 @@ _ZN3fmt3v116detail11file_buffer5flushEv.exit:     ; preds = %.noexc, %1
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3fmt3v117ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
@@ -870,7 +864,13 @@ define void @_ZN3fmt3v117ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable
   ret void
 }
 
-declare void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8, i32 noundef, ptr, i64, i64, ptr) local_unnamed_addr #10
+declare void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8, i32 noundef, ptr, i64, i64, ptr) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
@@ -882,14 +882,14 @@ attributes #3 = { cold nofree noreturn }
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold noreturn }
-attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold noreturn }
+attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nounwind willreturn memory(none) }
 attributes #17 = { nounwind }

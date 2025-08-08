@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyUnicode_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.InternalFormatSpec, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i64 %3, %4
   br i1 %7, label %8, label %22
 
@@ -290,19 +290,16 @@ PyUnicode_MAX_CHAR_VALUE.exit.i:                  ; preds = %78, %calc_padding.e
 
 format_obj.exit:                                  ; preds = %102, %95, %57, %49, %43, %38, %33, %31, %21, %18, %15, %12, %22, %107, %10
   %.0 = phi i32 [ %11, %10 ], [ -1, %107 ], [ -1, %22 ], [ -1, %12 ], [ %16, %15 ], [ %16, %18 ], [ %16, %21 ], [ %58, %57 ], [ -1, %31 ], [ -1, %33 ], [ -1, %38 ], [ -1, %43 ], [ -1, %49 ], [ -1, %95 ], [ 0, %102 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @_PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull captures(none) initializes((0, 20), (24, 36), (40, 52)) %4, i8 noundef signext range(i8 0, 116) %5, i8 noundef signext range(i8 60, 63) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %2, ptr %8, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %10 = load i16, ptr %9, align 2
@@ -981,12 +978,9 @@ PyUnicode_READ.exit150:                           ; preds = %269, %273, %277
 
 Py_DECREF.exit:                                   ; preds = %265, %262, %255, %280, %282, %282, %282, %282, %282, %282, %282, %282, %282, %286, %250, %241, %165, %287, %244, %225, %202
   %.0 = phi i32 [ 0, %202 ], [ 0, %225 ], [ 0, %244 ], [ 0, %287 ], [ 0, %165 ], [ 0, %241 ], [ 0, %250 ], [ 1, %286 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %282 ], [ 1, %280 ], [ 0, %255 ], [ 0, %262 ], [ 0, %265 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyLong_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
@@ -994,7 +988,7 @@ define hidden i32 @_PyLong_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, 
   %7 = alloca %struct.NumberFieldWidths, align 8
   %8 = alloca %struct.LocaleInfo, align 8
   %9 = alloca %struct.InternalFormatSpec, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq i64 %3, %4
   br i1 %10, label %11, label %25
 
@@ -1055,10 +1049,10 @@ define hidden i32 @_PyLong_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, 
   ]
 
 30:                                               ; preds = %27, %27, %27, %27, %27, %27, %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 127, ptr %6, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %32 = load i64, ptr %31, align 8, !tbaa !26
@@ -1419,9 +1413,9 @@ free_locale_info.exit.i:                          ; preds = %169, %166, %164, %P
 
 format_long_internal.exit:                        ; preds = %.thread114.i, %free_locale_info.exit.i
   %.173.i = phi i32 [ %.076136.i, %free_locale_info.exit.i ], [ %79, %.thread114.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %format_obj.exit
 
 172:                                              ; preds = %27, %27, %27, %27, %27, %27, %27
@@ -1459,13 +1453,13 @@ format_long_internal.exit:                        ; preds = %.thread114.i, %free
 
 format_obj.exit:                                  ; preds = %25, %172, %format_long_internal.exit, %175, %188, %185, %182, %24, %21, %18, %15, %13
   %.021 = phi i32 [ %14, %13 ], [ -1, %15 ], [ %19, %18 ], [ %19, %21 ], [ %19, %24 ], [ %183, %182 ], [ %183, %185 ], [ %183, %188 ], [ -1, %25 ], [ -1, %172 ], [ %.173.i, %format_long_internal.exit ], [ -1, %175 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.021
 }
 
-declare i32 @_PyLong_FormatWriter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_PyLong_FormatWriter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #2
+declare ptr @PyNumber_Float(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @format_float_internal(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -1475,11 +1469,11 @@ define internal fastcc i32 @format_float_internal(ptr noundef %0, ptr noundef no
   %7 = alloca %struct.LocaleInfo, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 127, ptr %5, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !26
@@ -1891,17 +1885,17 @@ free_locale_info.exit:                            ; preds = %Py_XDECREF.exit.i, 
   %.sink = phi ptr [ %185, %free_locale_info.exit ], [ %34, %53 ]
   %.084 = phi i32 [ %.074119, %free_locale_info.exit ], [ %54, %53 ]
   call void @PyMem_Free(ptr noundef %.sink) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.084
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_PyFloat_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.InternalFormatSpec, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i64 %3, %4
   br i1 %7, label %8, label %18
 
@@ -1964,7 +1958,7 @@ define hidden i32 @_PyFloat_FormatAdvancedWriter(ptr noundef %0, ptr noundef %1,
 
 format_obj.exit:                                  ; preds = %17, %14, %11, %8, %18, %25, %23
   %.0 = phi i32 [ -1, %25 ], [ %24, %23 ], [ -1, %18 ], [ -1, %8 ], [ %12, %11 ], [ %12, %14 ], [ %12, %17 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1982,7 +1976,7 @@ define hidden i32 @_PyComplex_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
   %15 = alloca i32, align 4
   %16 = alloca %struct.LocaleInfo, align 8
   %17 = alloca %struct.InternalFormatSpec, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = icmp eq i64 %3, %4
   br i1 %18, label %19, label %29
 
@@ -2027,19 +2021,19 @@ define hidden i32 @_PyComplex_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
   ]
 
 34:                                               ; preds = %31, %31, %31, %31, %31, %31, %31, %31
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull readonly align 8 dereferenceable(56) %17, i64 56, i1 false), !tbaa.struct !53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 127, ptr %13, align 4, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !26
@@ -2472,17 +2466,17 @@ format_complex_internal.exit:                     ; preds = %Py_XDECREF.exit.i.i
   %225 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %226 = load ptr, ptr %225, align 8, !tbaa !47
   call void @PyMem_Free(ptr noundef %226) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %format_obj.exit
 
 227:                                              ; preds = %31
@@ -2499,13 +2493,13 @@ format_complex_internal.exit:                     ; preds = %Py_XDECREF.exit.i.i
 
 format_obj.exit:                                  ; preds = %28, %25, %22, %19, %29, %227, %format_complex_internal.exit
   %.0 = phi i32 [ -1, %227 ], [ %.0127.i, %format_complex_internal.exit ], [ -1, %29 ], [ -1, %19 ], [ %23, %22 ], [ %23, %25 ], [ %23, %28 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0
 }
 
-declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #2
+declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #2
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_integer(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
@@ -2640,17 +2634,17 @@ PyUnicode_READ.exit._crit_edge:                   ; preds = %43, %PyUnicode_READ
   ret i32 %.0
 }
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_FromKindAndData(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @_PyUnicode_ToDecimalDigit(i32 noundef) local_unnamed_addr #2
+declare i32 @_PyUnicode_ToDecimalDigit(i32 noundef) local_unnamed_addr #1
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_PyUnicode_FindMaxChar(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_PyUnicode_FindMaxChar(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @fill_padding(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
@@ -2685,23 +2679,23 @@ define internal fastcc void @fill_padding(ptr noundef captures(none) %0, i64 nou
   ret void
 }
 
-declare void @_PyUnicode_FastCopyCharacters(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @_PyUnicode_FastCopyCharacters(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @_PyUnicode_FastFill(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare void @_PyUnicode_FastFill(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #2
+declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #2
+declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
-declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #2
+declare ptr @PyUnicode_FromOrdinal(i32 noundef) local_unnamed_addr #1
 
-declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_PyLong_Format(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @PyUnicode_READ_CHAR(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #4 {
+define internal fastcc i32 @PyUnicode_READ_CHAR(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 7
@@ -2962,7 +2956,7 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   br label %69
 
 59:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2978,7 +2972,7 @@ define internal fastcc i64 @calc_number_widths(ptr noundef nonnull captures(none
   %68 = load i32, ptr %11, align 4, !tbaa !43
   %. = call i32 @llvm.umax.i32(i32 %67, i32 %68)
   store i32 %., ptr %9, align 4, !tbaa !43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %69
 
 69:                                               ; preds = %66, %57
@@ -3094,7 +3088,7 @@ PyUnicode_MAX_CHAR_VALUE.exit107:                 ; preds = %98, %PyUnicode_MAX_
   br label %117
 
 .critedge:                                        ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %117
 
 117:                                              ; preds = %.critedge, %104
@@ -3432,33 +3426,33 @@ PyUnicode_READ.exit125:                           ; preds = %114, %118, %122
 }
 
 ; Function Attrs: nounwind
-declare ptr @localeconv() local_unnamed_addr #5
+declare ptr @localeconv() local_unnamed_addr #4
 
-declare i32 @_Py_GetLocaleconvNumeric(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_Py_GetLocaleconvNumeric(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @_PyMem_Strdup(ptr noundef) local_unnamed_addr #2
+declare ptr @_PyMem_Strdup(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyErr_NoMemory() local_unnamed_addr #2
+declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
-declare ptr @Py_GetConstant(i32 noundef) local_unnamed_addr #2
+declare ptr @Py_GetConstant(i32 noundef) local_unnamed_addr #1
 
-declare i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @_PyUnicode_InsertThousandsGrouping(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
+declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
-declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #2
+declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #1
 
-declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @PyOS_double_to_string(double noundef, i8 noundef signext, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @_PyUnicodeWriter_WriteASCIIString(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @_PyUnicode_FromASCII(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @_PyUnicode_FromASCII(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_number(ptr noundef nonnull readonly captures(none) %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #7 {
+define internal fastcc void @parse_number(ptr noundef nonnull readonly captures(none) %0, i64 noundef range(i64 0, 2) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 7
@@ -3586,14 +3580,20 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph, %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare double @PyComplex_RealAsDouble(ptr noundef) local_unnamed_addr #2
+declare double @PyComplex_RealAsDouble(ptr noundef) local_unnamed_addr #1
 
-declare double @PyComplex_ImagAsDouble(ptr noundef) local_unnamed_addr #2
+declare double @PyComplex_ImagAsDouble(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #9
+declare double @llvm.copysign.f64(double, double) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -3608,15 +3608,15 @@ declare i64 @llvm.smax.i64(i64, i64) #11
 declare i64 @llvm.smin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

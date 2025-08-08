@@ -32,7 +32,7 @@ define ptr @Ivy_ManResyn0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #10
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %Abc_Clock.exit, label %14
@@ -48,14 +48,14 @@ define ptr @Ivy_ManResyn0(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_
 
 Abc_Clock.exit:                                   ; preds = %.critedge, %14
   %.0.i.neg = phi i64 [ %.neg49, %14 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %18 = call ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) #10
   br i1 %.not, label %.critedge32.critedge, label %.critedge28
 
 .critedge28:                                      ; preds = %Abc_Clock.exit
   %putchar = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %19 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %Abc_Clock.exit37, label %21
@@ -71,13 +71,13 @@ Abc_Clock.exit:                                   ; preds = %.critedge, %14
 
 Abc_Clock.exit37:                                 ; preds = %.critedge28, %21
   %.0.i36 = phi i64 [ %27, %21 ], [ -1, %.critedge28 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %28 = add i64 %.0.i36, %.0.i.neg
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %30)
   call void @Ivy_ManPrintStats(ptr noundef %18) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %Abc_Clock.exit39, label %33
@@ -93,11 +93,11 @@ Abc_Clock.exit37:                                 ; preds = %.critedge28, %21
 
 Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %33
   %.0.i38.neg = phi i64 [ %.neg52, %33 ], [ 1, %Abc_Clock.exit37 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %37 = call i32 @Ivy_ManRewritePre(ptr noundef %18, i32 noundef %1, i32 noundef 0, i32 noundef 0) #10
   %putchar25 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %Abc_Clock.exit41, label %40
@@ -113,7 +113,7 @@ Abc_Clock.exit39:                                 ; preds = %Abc_Clock.exit37, %
 
 Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit39, %40
   %.0.i40 = phi i64 [ %46, %40 ], [ -1, %Abc_Clock.exit39 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %47 = add i64 %.0.i40, %.0.i38.neg
   %48 = sitofp i64 %47 to double
   %49 = fdiv double %48, 1.000000e+06
@@ -122,14 +122,14 @@ Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit39, %
   br label %.critedge32
 
 .critedge32.critedge:                             ; preds = %Abc_Clock.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %51 = call i32 @Ivy_ManRewritePre(ptr noundef %18, i32 noundef %1, i32 noundef 0, i32 noundef 0) #10
   br label %.critedge32
 
 .critedge32:                                      ; preds = %.critedge32.critedge, %Abc_Clock.exit41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %Abc_Clock.exit45, label %54
@@ -145,7 +145,7 @@ Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit39, %
 
 Abc_Clock.exit45:                                 ; preds = %.critedge32, %54
   %.0.i44.neg = phi i64 [ %.neg55, %54 ], [ 1, %.critedge32 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %58 = call ptr @Ivy_ManBalance(ptr noundef %18, i32 noundef %1) #10
   call void @Ivy_ManStop(ptr noundef %18) #10
   br i1 %.not, label %.critedge35, label %.critedge34
@@ -153,7 +153,7 @@ Abc_Clock.exit45:                                 ; preds = %.critedge32, %54
 .critedge34:                                      ; preds = %Abc_Clock.exit45
   %putchar26 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %Abc_Clock.exit47, label %61
@@ -169,7 +169,7 @@ Abc_Clock.exit45:                                 ; preds = %.critedge32, %54
 
 Abc_Clock.exit47:                                 ; preds = %.critedge34, %61
   %.0.i46 = phi i64 [ %67, %61 ], [ -1, %.critedge34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %68 = add i64 %.0.i46, %.0.i44.neg
   %69 = sitofp i64 %68 to double
   %70 = fdiv double %69, 1.000000e+06
@@ -181,17 +181,14 @@ Abc_Clock.exit47:                                 ; preds = %.critedge34, %61
   ret ptr %58
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @Ivy_ManPrintStats(ptr noundef) local_unnamed_addr #1
 
-declare void @Ivy_ManPrintStats(ptr noundef) local_unnamed_addr #2
-
-declare ptr @Ivy_ManBalance(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Ivy_ManBalance(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
+define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr @enable_dbg_outs, align 4, !tbaa !9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
@@ -222,16 +219,13 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br label %18
 
 18:                                               ; preds = %2, %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @Ivy_ManRewritePre(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Ivy_ManRewritePre(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Ivy_ManStop(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Ivy_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_ManResyn(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -261,7 +255,7 @@ define ptr @Ivy_ManResyn(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %22 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %20) #10
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %Abc_Clock.exit, label %24
@@ -277,14 +271,14 @@ define ptr @Ivy_ManResyn(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 
 Abc_Clock.exit:                                   ; preds = %.critedge, %24
   %.0.i.neg = phi i64 [ %.neg115, %24 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %28 = call ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) #10
   br i1 %.not, label %.critedge66.critedge, label %.critedge62
 
 .critedge62:                                      ; preds = %Abc_Clock.exit
   %putchar = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #10
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %Abc_Clock.exit83, label %31
@@ -300,13 +294,13 @@ Abc_Clock.exit:                                   ; preds = %.critedge, %24
 
 Abc_Clock.exit83:                                 ; preds = %.critedge62, %31
   %.0.i82 = phi i64 [ %37, %31 ], [ -1, %.critedge62 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %38 = add i64 %.0.i82, %.0.i.neg
   %39 = sitofp i64 %38 to double
   %40 = fdiv double %39, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %40)
   call void @Ivy_ManPrintStats(ptr noundef %28) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %18) #10
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %Abc_Clock.exit85, label %43
@@ -322,11 +316,11 @@ Abc_Clock.exit83:                                 ; preds = %.critedge62, %31
 
 Abc_Clock.exit85:                                 ; preds = %Abc_Clock.exit83, %43
   %.0.i84.neg = phi i64 [ %.neg118, %43 ], [ 1, %Abc_Clock.exit83 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %47 = call i32 @Ivy_ManRewritePre(ptr noundef %28, i32 noundef %1, i32 noundef 0, i32 noundef 0) #10
   %putchar55 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %48 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #10
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %Abc_Clock.exit87, label %50
@@ -342,7 +336,7 @@ Abc_Clock.exit85:                                 ; preds = %Abc_Clock.exit83, %
 
 Abc_Clock.exit87:                                 ; preds = %Abc_Clock.exit85, %50
   %.0.i86 = phi i64 [ %56, %50 ], [ -1, %Abc_Clock.exit85 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %57 = add i64 %.0.i86, %.0.i84.neg
   %58 = sitofp i64 %57 to double
   %59 = fdiv double %58, 1.000000e+06
@@ -351,14 +345,14 @@ Abc_Clock.exit87:                                 ; preds = %Abc_Clock.exit85, %
   br label %.critedge66
 
 .critedge66.critedge:                             ; preds = %Abc_Clock.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %61 = call i32 @Ivy_ManRewritePre(ptr noundef %28, i32 noundef %1, i32 noundef 0, i32 noundef 0) #10
   br label %.critedge66
 
 .critedge66:                                      ; preds = %.critedge66.critedge, %Abc_Clock.exit87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %62 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #10
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %Abc_Clock.exit91, label %64
@@ -374,7 +368,7 @@ Abc_Clock.exit87:                                 ; preds = %Abc_Clock.exit85, %
 
 Abc_Clock.exit91:                                 ; preds = %.critedge66, %64
   %.0.i90.neg = phi i64 [ %.neg121, %64 ], [ 1, %.critedge66 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %68 = call ptr @Ivy_ManBalance(ptr noundef %28, i32 noundef %1) #10
   call void @Ivy_ManStop(ptr noundef %28) #10
   br i1 %.not, label %.critedge72.critedge, label %.critedge68
@@ -382,7 +376,7 @@ Abc_Clock.exit91:                                 ; preds = %.critedge66, %64
 .critedge68:                                      ; preds = %Abc_Clock.exit91
   %putchar56 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %14) #10
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %Abc_Clock.exit93, label %71
@@ -398,13 +392,13 @@ Abc_Clock.exit91:                                 ; preds = %.critedge66, %64
 
 Abc_Clock.exit93:                                 ; preds = %.critedge68, %71
   %.0.i92 = phi i64 [ %77, %71 ], [ -1, %.critedge68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %78 = add i64 %.0.i92, %.0.i90.neg
   %79 = sitofp i64 %78 to double
   %80 = fdiv double %79, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %80)
   call void @Ivy_ManPrintStats(ptr noundef %68) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %81 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #10
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %Abc_Clock.exit95, label %83
@@ -420,11 +414,11 @@ Abc_Clock.exit93:                                 ; preds = %.critedge68, %71
 
 Abc_Clock.exit95:                                 ; preds = %Abc_Clock.exit93, %83
   %.0.i94.neg = phi i64 [ %.neg124, %83 ], [ 1, %Abc_Clock.exit93 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %87 = call i32 @Ivy_ManRewritePre(ptr noundef %68, i32 noundef %1, i32 noundef 1, i32 noundef 0) #10
   %putchar57 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %88 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #10
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %Abc_Clock.exit97, label %90
@@ -440,7 +434,7 @@ Abc_Clock.exit95:                                 ; preds = %Abc_Clock.exit93, %
 
 Abc_Clock.exit97:                                 ; preds = %Abc_Clock.exit95, %90
   %.0.i96 = phi i64 [ %96, %90 ], [ -1, %Abc_Clock.exit95 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %97 = add i64 %.0.i96, %.0.i94.neg
   %98 = sitofp i64 %97 to double
   %99 = fdiv double %98, 1.000000e+06
@@ -449,14 +443,14 @@ Abc_Clock.exit97:                                 ; preds = %Abc_Clock.exit95, %
   br label %.critedge72
 
 .critedge72.critedge:                             ; preds = %Abc_Clock.exit91
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %100 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %101 = call i32 @Ivy_ManRewritePre(ptr noundef %68, i32 noundef %1, i32 noundef 1, i32 noundef 0) #10
   br label %.critedge72
 
 .critedge72:                                      ; preds = %.critedge72.critedge, %Abc_Clock.exit97
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %102 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #10
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %Abc_Clock.exit101, label %104
@@ -472,7 +466,7 @@ Abc_Clock.exit97:                                 ; preds = %Abc_Clock.exit95, %
 
 Abc_Clock.exit101:                                ; preds = %.critedge72, %104
   %.0.i100.neg = phi i64 [ %.neg127, %104 ], [ 1, %.critedge72 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %108 = call ptr @Ivy_ManBalance(ptr noundef %68, i32 noundef %1) #10
   call void @Ivy_ManStop(ptr noundef %68) #10
   br i1 %.not, label %.critedge78.critedge, label %.critedge74
@@ -480,7 +474,7 @@ Abc_Clock.exit101:                                ; preds = %.critedge72, %104
 .critedge74:                                      ; preds = %Abc_Clock.exit101
   %putchar58 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %109 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #10
   %110 = icmp slt i32 %109, 0
   br i1 %110, label %Abc_Clock.exit103, label %111
@@ -496,13 +490,13 @@ Abc_Clock.exit101:                                ; preds = %.critedge72, %104
 
 Abc_Clock.exit103:                                ; preds = %.critedge74, %111
   %.0.i102 = phi i64 [ %117, %111 ], [ -1, %.critedge74 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %118 = add i64 %.0.i102, %.0.i100.neg
   %119 = sitofp i64 %118 to double
   %120 = fdiv double %119, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %120)
   call void @Ivy_ManPrintStats(ptr noundef %108) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %Abc_Clock.exit105, label %123
@@ -518,11 +512,11 @@ Abc_Clock.exit103:                                ; preds = %.critedge74, %111
 
 Abc_Clock.exit105:                                ; preds = %Abc_Clock.exit103, %123
   %.0.i104.neg = phi i64 [ %.neg130, %123 ], [ 1, %Abc_Clock.exit103 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %127 = call i32 @Ivy_ManRewritePre(ptr noundef %108, i32 noundef %1, i32 noundef 1, i32 noundef 0) #10
   %putchar59 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %128 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %Abc_Clock.exit107, label %130
@@ -538,7 +532,7 @@ Abc_Clock.exit105:                                ; preds = %Abc_Clock.exit103, 
 
 Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit105, %130
   %.0.i106 = phi i64 [ %136, %130 ], [ -1, %Abc_Clock.exit105 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %137 = add i64 %.0.i106, %.0.i104.neg
   %138 = sitofp i64 %137 to double
   %139 = fdiv double %138, 1.000000e+06
@@ -547,14 +541,14 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit105, 
   br label %.critedge78
 
 .critedge78.critedge:                             ; preds = %Abc_Clock.exit101
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %140 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %141 = call i32 @Ivy_ManRewritePre(ptr noundef %108, i32 noundef %1, i32 noundef 1, i32 noundef 0) #10
   br label %.critedge78
 
 .critedge78:                                      ; preds = %.critedge78.critedge, %Abc_Clock.exit107
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %Abc_Clock.exit111, label %144
@@ -570,7 +564,7 @@ Abc_Clock.exit107:                                ; preds = %Abc_Clock.exit105, 
 
 Abc_Clock.exit111:                                ; preds = %.critedge78, %144
   %.0.i110.neg = phi i64 [ %.neg133, %144 ], [ 1, %.critedge78 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %148 = call ptr @Ivy_ManBalance(ptr noundef %108, i32 noundef %1) #10
   call void @Ivy_ManStop(ptr noundef %108) #10
   br i1 %.not, label %.critedge81, label %.critedge80
@@ -578,7 +572,7 @@ Abc_Clock.exit111:                                ; preds = %.critedge78, %144
 .critedge80:                                      ; preds = %Abc_Clock.exit111
   %putchar60 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %149 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %Abc_Clock.exit113, label %151
@@ -594,7 +588,7 @@ Abc_Clock.exit111:                                ; preds = %.critedge78, %144
 
 Abc_Clock.exit113:                                ; preds = %.critedge80, %151
   %.0.i112 = phi i64 [ %157, %151 ], [ -1, %.critedge80 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %158 = add i64 %.0.i112, %.0.i110.neg
   %159 = sitofp i64 %158 to double
   %160 = fdiv double %159, 1.000000e+06
@@ -619,7 +613,7 @@ define ptr @Ivy_ManRwsat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   tail call void @Ivy_ManPrintStats(ptr noundef %0) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %Abc_Clock.exit, label %10
@@ -635,11 +629,11 @@ define ptr @Ivy_ManRwsat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 Abc_Clock.exit:                                   ; preds = %.critedge, %10
   %.0.i.neg = phi i64 [ %.neg32, %10 ], [ 1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i32 @Ivy_ManRewritePre(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   %putchar = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %Abc_Clock.exit24, label %17
@@ -655,7 +649,7 @@ Abc_Clock.exit:                                   ; preds = %.critedge, %10
 
 Abc_Clock.exit24:                                 ; preds = %Abc_Clock.exit, %17
   %.0.i23 = phi i64 [ %23, %17 ], [ -1, %Abc_Clock.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = add i64 %.0.i23, %.0.i.neg
   %25 = sitofp i64 %24 to double
   %26 = fdiv double %25, 1.000000e+06
@@ -664,14 +658,14 @@ Abc_Clock.exit24:                                 ; preds = %Abc_Clock.exit, %17
   br label %.critedge19
 
 .critedge19.critedge:                             ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = call i32 @Ivy_ManRewritePre(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.critedge19.critedge, %Abc_Clock.exit24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %Abc_Clock.exit28, label %31
@@ -687,7 +681,7 @@ Abc_Clock.exit24:                                 ; preds = %Abc_Clock.exit, %17
 
 Abc_Clock.exit28:                                 ; preds = %.critedge19, %31
   %.0.i27.neg = phi i64 [ %.neg35, %31 ], [ 1, %.critedge19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = call ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef 0) #10
   call void @Ivy_ManStop(ptr noundef %0) #10
   br i1 %.not, label %.critedge22, label %.critedge21
@@ -695,7 +689,7 @@ Abc_Clock.exit28:                                 ; preds = %.critedge19, %31
 .critedge21:                                      ; preds = %Abc_Clock.exit28
   %putchar16 = call i32 @putchar(i32 10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %Abc_Clock.exit30, label %38
@@ -711,7 +705,7 @@ Abc_Clock.exit28:                                 ; preds = %.critedge19, %31
 
 Abc_Clock.exit30:                                 ; preds = %.critedge21, %38
   %.0.i29 = phi i64 [ %44, %38 ], [ -1, %.critedge21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %45 = add i64 %.0.i29, %.0.i27.neg
   %46 = sitofp i64 %45 to double
   %47 = fdiv double %46, 1.000000e+06
@@ -724,28 +718,34 @@ Abc_Clock.exit30:                                 ; preds = %.critedge21, %38
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
+declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
-declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #5
+declare void @llvm.va_start.p0(ptr) #4
 
-declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #5
+declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
@@ -754,14 +754,14 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

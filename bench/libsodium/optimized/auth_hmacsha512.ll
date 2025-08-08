@@ -33,8 +33,8 @@ declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
 define dso_local noundef i32 @crypto_auth_hmacsha512_init(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [128 x i8], align 16
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp ugt i64 %2, 128
   br i1 %6, label %7, label %11
 
@@ -87,13 +87,10 @@ define dso_local noundef i32 @crypto_auth_hmacsha512_init(ptr noundef nonnull %0
   %28 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %20, ptr noundef nonnull %4, i64 noundef 128) #5
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 128) #5
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @crypto_hash_sha512_init(ptr noundef) local_unnamed_addr #2
 
@@ -102,9 +99,6 @@ declare i32 @crypto_hash_sha512_update(ptr noundef, ptr noundef, i64 noundef) lo
 declare i32 @crypto_hash_sha512_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_auth_hmacsha512_update(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -115,13 +109,13 @@ define dso_local noundef i32 @crypto_auth_hmacsha512_update(ptr noundef nonnull 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noundef i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %0, ptr noundef nonnull %1) local_unnamed_addr #1 {
   %3 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %0, ptr noundef nonnull %3) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %5, ptr noundef nonnull %3, i64 noundef 64) #5
   %7 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %5, ptr noundef nonnull %1) #5
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 64) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -129,17 +123,17 @@ define dso_local noundef i32 @crypto_auth_hmacsha512_final(ptr noundef nonnull %
 define dso_local noundef i32 @crypto_auth_hmacsha512(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) local_unnamed_addr #1 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca %struct.crypto_auth_hmacsha512_state, align 8
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @crypto_auth_hmacsha512_init(ptr noundef %6, ptr noundef %3, i64 noundef 32)
   %8 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %6, ptr noundef nonnull %5) #5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %11 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %10, ptr noundef nonnull %5, i64 noundef 64) #5
   %12 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %10, ptr noundef nonnull %0) #5
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
 
@@ -148,30 +142,36 @@ define dso_local i32 @crypto_auth_hmacsha512_verify(ptr noundef nonnull %0, ptr 
   %5 = alloca [64 x i8], align 16
   %6 = alloca %struct.crypto_auth_hmacsha512_state, align 8
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = call i32 @crypto_auth_hmacsha512_init(ptr noundef %6, ptr noundef nonnull %3, i64 noundef 32)
   %9 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #5
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %6, ptr noundef nonnull %5) #5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %12 = call i32 @crypto_hash_sha512_update(ptr noundef nonnull %11, ptr noundef nonnull %5, i64 noundef 64) #5
   %13 = call i32 @crypto_hash_sha512_final(ptr noundef nonnull %11, ptr noundef nonnull %7) #5
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = call i32 @crypto_verify_64(ptr noundef nonnull %0, ptr noundef nonnull %7) #5
   %15 = icmp eq ptr %0, %7
   %16 = select i1 %15, i32 -1, i32 %14
   %17 = call i32 @sodium_memcmp(ptr noundef nonnull %7, ptr noundef nonnull %0, i64 noundef 64) #5
   %18 = or i32 %16, %17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %18
 }
 
 declare i32 @crypto_verify_64(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @sodium_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4

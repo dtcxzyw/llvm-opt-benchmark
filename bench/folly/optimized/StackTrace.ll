@@ -24,13 +24,7 @@ define noundef range(i64 -1, 2147483648) i64 @_ZN5folly10symbolizer13getStackTra
   ret i64 %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @unw_backtrace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @unw_backtrace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly10symbolizer17getStackTraceSafeEPmm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -38,8 +32,8 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceSafeEPmm(ptr noundef wri
   %4 = alloca i64, align 8
   %5 = alloca %struct.ucontext_t, align 8
   %6 = alloca %struct.unw_cursor, align 8
-  call void @llvm.lifetime.start.p0(i64 968, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 1016, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %8
 
@@ -54,7 +48,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceSafeEPmm(ptr noundef wri
   br i1 %13, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %14
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i32 @_ULx86_64_get_reg(ptr noundef nonnull align 8 dereferenceable(1016) %6, i32 noundef 16, ptr noundef nonnull %4)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread, label %17
@@ -65,7 +59,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceSafeEPmm(ptr noundef wri
   br i1 %19, label %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit, label %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread
 
 _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread: ; preds = %14, %17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit
 
 _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit: ; preds = %17
@@ -74,7 +68,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit: ; preds 
   %.neg.i = sext i1 %21 to i64
   %22 = add i64 %20, %.neg.i
   store i64 %22, ptr %0, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i11 = icmp eq i64 %1, 1
   br i1 %.not.i11, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %.lr.ph
 
@@ -91,7 +85,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit: ; preds 
   br i1 %26, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = call i32 @_ULx86_64_get_reg(ptr noundef nonnull align 8 dereferenceable(1016) %6, i32 noundef 16, ptr noundef nonnull %3)
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread, label %30
@@ -102,7 +96,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit: ; preds 
   br i1 %32, label %33, label %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread
 
 _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread: ; preds = %27, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit
 
 33:                                               ; preds = %30
@@ -111,33 +105,33 @@ _ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread: 
   %.neg.i3 = sext i1 %35 to i64
   %36 = add i64 %34, %.neg.i3
   store i64 %36, ptr %.020.i13, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = add i64 %.019.i12, 1
   %.not.i = icmp eq i64 %37, %1
   br i1 %.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit, label %.lr.ph, !llvm.loop !11
 
 _ZN5folly10symbolizer12_GLOBAL__N_120getStackTraceInPlaceER10ucontext_tR10unw_cursorPmm.exit: ; preds = %25, %33, %.lr.ph, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread, %2, %8, %11
   %.018.i = phi i64 [ 0, %2 ], [ -1, %8 ], [ -1, %11 ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit.thread ], [ -1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit4.thread ], [ 1, %_ZN5folly10symbolizer12_GLOBAL__N_112getFrameInfoEP10unw_cursorRm.exit ], [ %.019.i12, %25 ], [ %1, %33 ], [ -1, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 1016, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 968, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.018.i
 }
 
-declare i32 @_Ux86_64_getcontext(ptr noundef) local_unnamed_addr #2
+declare i32 @_Ux86_64_getcontext(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_ULx86_64_init_local(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_ULx86_64_init_local(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_ULx86_64_step(ptr noundef) local_unnamed_addr #2
+declare i32 @_ULx86_64_step(ptr noundef) local_unnamed_addr #1
 
-declare i32 @_ULx86_64_get_reg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_ULx86_64_get_reg(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_ULx86_64_is_signal_frame(ptr noundef) local_unnamed_addr #2
+declare i32 @_ULx86_64_is_signal_frame(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = tail call noalias noundef nonnull dereferenceable(1984) ptr @_Znwm(i64 noundef 1984) #12, !noalias !13
+  %5 = tail call noalias noundef nonnull dereferenceable(1984) ptr @_Znwm(i64 noundef 1984) #11, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1984) %5, i8 0, i64 1984, i1 false), !noalias !13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 968
   %7 = icmp eq i64 %1, 0
@@ -160,7 +154,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   br i1 %13, label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21, label %14
 
 14:                                               ; preds = %.noexc4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = invoke i32 @_ULx86_64_get_reg(ptr noundef nonnull align 8 dereferenceable(1016) %6, i32 noundef 16, ptr noundef nonnull %4)
           to label %.noexc11 unwind label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp
 
@@ -177,7 +171,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   br i1 %19, label %.noexc5, label %.noexc5.thread
 
 .noexc5.thread:                                   ; preds = %.noexc11, %.noexc12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21
 
 .noexc5:                                          ; preds = %.noexc12
@@ -186,7 +180,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   %.neg.i = sext i1 %21 to i64
   %22 = add i64 %20, %.neg.i
   store i64 %22, ptr %0, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i29 = icmp eq i64 %1, 1
   br i1 %.not.i29, label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21, label %.lr.ph
 
@@ -206,7 +200,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   br i1 %26, label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = invoke i32 @_ULx86_64_get_reg(ptr noundef nonnull align 8 dereferenceable(1016) %6, i32 noundef 16, ptr noundef nonnull %3)
           to label %.noexc15 unwind label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit
 
@@ -223,7 +217,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   br i1 %32, label %33, label %.noexc7.thread
 
 .noexc7.thread:                                   ; preds = %.noexc15, %.noexc16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21
 
 33:                                               ; preds = %.noexc16
@@ -232,7 +226,7 @@ define noundef i64 @_ZN5folly10symbolizer17getStackTraceHeapEPmm(ptr noundef wri
   %.neg.i14 = sext i1 %35 to i64
   %36 = add i64 %34, %.neg.i14
   store i64 %36, ptr %.020.i31, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = add i64 %.019.i30, 1
   %.not.i = icmp eq i64 %37, %1
   br i1 %.not.i, label %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21, label %.lr.ph, !llvm.loop !11
@@ -249,29 +243,29 @@ _ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_de
 
 _ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp, %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit.loopexit.split-lp ]
-  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 1984) #13
+  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 1984) #12
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt10unique_ptrIZN5folly10symbolizer17getStackTraceHeapEPmmE3CtxSt14default_deleteIS3_EED2Ev.exit21: ; preds = %33, %25, %.noexc6, %.noexc5, %.noexc7.thread, %.noexc4, %.noexc, %2, %.noexc5.thread
   %.018.i = phi i64 [ 0, %2 ], [ -1, %.noexc ], [ -1, %.noexc4 ], [ -1, %.noexc5.thread ], [ -1, %.noexc7.thread ], [ 1, %.noexc5 ], [ %1, %33 ], [ %.019.i30, %25 ], [ -1, %.noexc6 ]
-  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 1984) #13
+  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 1984) #12
   ret i64 %.018.i
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noundef ptr @_ZN5folly27tryGetCurrentAsyncStackRootEv() #11
+define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+  %3 = tail call noundef ptr @_ZN5folly27tryGetCurrentAsyncStackRootEv() #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.critedge, label %5
 
@@ -404,37 +398,43 @@ _ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.ex
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN5folly27tryGetCurrentAsyncStackRootEv() local_unnamed_addr #7
+declare noundef ptr @_ZN5folly27tryGetCurrentAsyncStackRootEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.frameaddress.p0(i32 immarg) #8
+declare ptr @llvm.frameaddress.p0(i32 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare ptr @llvm.returnaddress(i32 immarg) #8
+declare ptr @llvm.returnaddress(i32 immarg) #7
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_StackTrace.cpp() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_StackTrace.cpp() #8 section ".text.startup" {
   %1 = tail call i32 @unw_backtrace(ptr noundef nonnull @_ZN5folly10symbolizer12_GLOBAL__N_15sAddrE, i32 noundef 0)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

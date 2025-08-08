@@ -204,7 +204,7 @@ if.else.i:                                        ; preds = %entry
 
 _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.i, %if.else.i
   %retval.0.i = phi i32 [ %3, %if.then.i ], [ %bf.cast.i, %if.else.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %entry4.i)
   %stringIDMap_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %conv.i = zext i32 %retval.0.i to i64
   %5 = load ptr, ptr %stringIDMap_.i, align 8
@@ -256,7 +256,7 @@ _ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i: ; preds = %
 
 _ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit: ; preds = %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i
   %retval.sroa.0.0.i = phi i32 [ %6, %_ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit ], [ %call7.i, %_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %entry4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %entry4.i)
   ret i32 %retval.sroa.0.0.i
 }
 
@@ -300,11 +300,11 @@ entry:
   %1 = load ptr, ptr %bcProvider_.i, align 8
   %functionID_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #7
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -331,11 +331,11 @@ entry:
   %1 = load ptr, ptr %bcProvider_.i.i, align 8
   %functionID_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #7
   %second.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %3 = load ptr, ptr %second.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.then, label %_ZNK6hermes2vm9CodeBlock29getDebugSourceLocationsOffsetEv.exit
 
@@ -443,11 +443,11 @@ entry:
   %1 = load ptr, ptr %bcProvider_.i, align 8
   %functionID_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #7
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -475,11 +475,11 @@ entry:
   %1 = load ptr, ptr %bcProvider_.i, align 8
   %functionID_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %functionID_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr nonnull sret(%"struct.std::pair.48") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %2) #7
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %3 = load ptr, ptr %second.i, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %return, label %if.end
 
@@ -562,10 +562,10 @@ declare i32 @_ZN6hermes2vm13RuntimeModule35createSymbolFromStringIDMayAllocateEj
 declare void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr sret(%"struct.std::pair.48") align 8, ptr noundef nonnull align 8 dereferenceable(376), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

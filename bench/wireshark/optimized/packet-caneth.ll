@@ -85,7 +85,7 @@ define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef 
   %5 = alloca i32, align 4
   %6 = alloca %struct.can_info, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %9 = icmp ult i32 %8, 10
   br i1 %9, label %test_caneth.exit.thread, label %10
@@ -136,8 +136,8 @@ test_caneth.exit:                                 ; preds = %12
 35:                                               ; preds = %.lr.ph, %dissect_caneth_can.exit
   %.02731 = phi i32 [ 10, %.lr.ph ], [ %72, %dissect_caneth_can.exit ]
   %36 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02731, i32 noundef 15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = load i32, ptr @proto_can, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %36, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %39 = load i32, ptr @ett_caneth_can, align 4
@@ -191,8 +191,8 @@ test_caneth.exit:                                 ; preds = %12
 
 dissect_caneth_can.exit:                          ; preds = %61, %66
   %71 = call i32 @tvb_captured_length(ptr noundef %36)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = add i32 %.02731, 15
   %73 = load i32, ptr %7, align 4
   %74 = add i32 %73, -1
@@ -217,7 +217,7 @@ dissect_caneth_can.exit:                          ; preds = %61, %66
 
 test_caneth.exit.thread:                          ; preds = %12, %10, %4, %test_caneth.exit, %80
   %.0 = phi i32 [ %81, %80 ], [ 0, %test_caneth.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -247,9 +247,6 @@ define internal zeroext i1 @dissect_caneth_heur_udp(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @test_caneth(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -303,9 +300,6 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
@@ -335,10 +329,15 @@ define internal range(i32 0, 65536) i32 @get_caneth_len(ptr readnone captures(no
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

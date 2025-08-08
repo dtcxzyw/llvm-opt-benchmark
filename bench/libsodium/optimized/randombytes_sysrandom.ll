@@ -25,10 +25,10 @@ define internal noundef nonnull ptr @randombytes_sysrandom_implementation_name()
 ; Function Attrs: nounwind ssp uwtable
 define internal i32 @randombytes_sysrandom() #1 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @randombytes_sysrandom_buf(ptr noundef nonnull %1, i64 noundef 4)
   %2 = load i32, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %2
 }
 
@@ -41,10 +41,10 @@ define internal void @randombytes_sysrandom_stir() #1 {
   br i1 %.b, label %53, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @__errno_location() #10
+  %5 = tail call ptr @__errno_location() #9
   %6 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  %7 = call i64 @getrandom(ptr noundef nonnull %3, i64 noundef range(i64 0, 257) 16, i32 noundef 0) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %7 = call i64 @getrandom(ptr noundef nonnull %3, i64 noundef range(i64 0, 257) 16, i32 noundef 0) #10
   %8 = trunc i64 %7 to i32
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.lr.ph.i.i.i, label %_randombytes_linux_getrandom.exit.i.i
@@ -57,7 +57,7 @@ define internal void @randombytes_sysrandom_stir() #1 {
   ]
 
 .critedge2.backedge.i.i.i:                        ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %11 = call i64 @getrandom(ptr noundef nonnull %3, i64 noundef range(i64 0, 257) 16, i32 noundef 0) #9
+  %11 = call i64 @getrandom(ptr noundef nonnull %3, i64 noundef range(i64 0, 257) 16, i32 noundef 0) #10
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.lr.ph.i.i.i, label %_randombytes_linux_getrandom.exit.i.i
@@ -70,15 +70,15 @@ _randombytes_linux_getrandom.exit.i.i:            ; preds = %.critedge2.backedge
 .thread.i:                                        ; preds = %_randombytes_linux_getrandom.exit.i.i
   store i1 true, ptr @stream.2, align 4
   store i32 %6, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %randombytes_sysrandom_init.exit
 
 _randombytes_linux_getrandom.exit.i.thread.i:     ; preds = %.lr.ph.i.i.i, %_randombytes_linux_getrandom.exit.i.i
   store i1 false, ptr @stream.2, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #9
-  %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.2, i32 noundef 0) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.2, i32 noundef 0) #10
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %.critedge.i.i, label %16
 
@@ -88,7 +88,7 @@ _randombytes_linux_getrandom.exit.i.thread.i:     ; preds = %.lr.ph.i.i.i, %_ran
   store i16 1, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 0, ptr %18, align 2
-  %19 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #9
+  %19 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.lr.ph.i.i5.i, label %.critedge.i.i.i
 
@@ -100,7 +100,7 @@ _randombytes_linux_getrandom.exit.i.thread.i:     ; preds = %.lr.ph.i.i.i, %_ran
   ]
 
 .critedge2.backedge.i.i6.i:                       ; preds = %.lr.ph.i.i5.i, %.lr.ph.i.i5.i
-  %22 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #9
+  %22 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #10
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.lr.ph.i.i5.i, label %.critedge.i.i.i
 
@@ -110,19 +110,19 @@ _randombytes_linux_getrandom.exit.i.thread.i:     ; preds = %.lr.ph.i.i.i, %_ran
   br i1 %.not.i.i.i, label %randombytes_block_on_dev_random.exit.i.i, label %randombytes_block_on_dev_random.exit.thread.i.i
 
 randombytes_block_on_dev_random.exit.thread.i.i:  ; preds = %.lr.ph.i.i5.i, %.critedge.i.i.i
-  %24 = call i32 @close(i32 noundef %14) #9
+  %24 = call i32 @close(i32 noundef %14) #10
   store i32 5, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %48
 
 randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
-  %25 = call i32 @close(i32 noundef %14) #9
+  %25 = call i32 @close(i32 noundef %14) #10
   %26 = icmp eq i32 %25, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %26, label %.preheader.i.i, label %48
 
 .critedge.i.i:                                    ; preds = %_randombytes_linux_getrandom.exit.i.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i, %randombytes_block_on_dev_random.exit.i.i
@@ -132,12 +132,12 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
 28:                                               ; preds = %45, %.preheader.i.i
   %29 = phi ptr [ %46, %45 ], [ @.str.1, %.preheader.i.i ]
   %.09.i.i = phi ptr [ %.1.i.i, %45 ], [ @randombytes_sysrandom_random_dev_open.devices, %.preheader.i.i ]
-  %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %29, i32 noundef 0) #9
+  %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %29, i32 noundef 0) #10
   %.not11.i.i = icmp eq i32 %30, -1
   br i1 %.not11.i.i, label %40, label %31
 
 31:                                               ; preds = %28
-  %32 = call i32 @fstat(i32 noundef %30, ptr noundef nonnull %2) #9
+  %32 = call i32 @fstat(i32 noundef %30, ptr noundef nonnull %2) #10
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %38
 
@@ -148,7 +148,7 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   br i1 %37, label %49, label %38
 
 38:                                               ; preds = %34, %31
-  %39 = call i32 @close(i32 noundef %30) #9
+  %39 = call i32 @close(i32 noundef %30) #10
   br label %43
 
 40:                                               ; preds = %28
@@ -172,16 +172,16 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   br label %48
 
 48:                                               ; preds = %47, %randombytes_block_on_dev_random.exit.i.i, %randombytes_block_on_dev_random.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 -1, ptr @stream.0, align 4
   call void @sodium_misuse() #11
   unreachable
 
 49:                                               ; preds = %34
-  %50 = call i32 (i32, i32, ...) @fcntl(i32 noundef %30, i32 noundef 1) #9
+  %50 = call i32 (i32, i32, ...) @fcntl(i32 noundef %30, i32 noundef 1) #10
   %51 = or i32 %50, 1
-  %52 = call i32 (i32, i32, ...) @fcntl(i32 noundef %30, i32 noundef 2, i32 noundef %51) #9
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #9
+  %52 = call i32 (i32, i32, ...) @fcntl(i32 noundef %30, i32 noundef 2, i32 noundef %51) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 %30, ptr @stream.0, align 4
   store i32 %6, ptr %5, align 4
   br label %randombytes_sysrandom_init.exit
@@ -212,13 +212,13 @@ randombytes_sysrandom_stir_if_needed.exit:        ; preds = %2, %3
   %.011.i = phi ptr [ %17, %15 ], [ %0, %randombytes_sysrandom_stir_if_needed.exit ]
   %.0.i = phi i64 [ %spec.select.i, %15 ], [ 256, %randombytes_sysrandom_stir_if_needed.exit ]
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.012.i, i64 %.0.i)
-  %4 = tail call i64 @getrandom(ptr noundef %.011.i, i64 noundef range(i64 0, 257) %spec.select.i, i32 noundef 0) #9
+  %4 = tail call i64 @getrandom(ptr noundef %.011.i, i64 noundef range(i64 0, 257) %spec.select.i, i32 noundef 0) #10
   %5 = trunc i64 %4 to i32
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.lr.ph.i.i, label %_randombytes_linux_getrandom.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader
-  %7 = tail call ptr @__errno_location() #10
+  %7 = tail call ptr @__errno_location() #9
   br label %8
 
 8:                                                ; preds = %.critedge2.backedge.i.i, %.lr.ph.i.i
@@ -230,7 +230,7 @@ randombytes_sysrandom_stir_if_needed.exit:        ; preds = %2, %3
   ]
 
 .critedge2.backedge.i.i:                          ; preds = %8, %8
-  %11 = tail call i64 @getrandom(ptr noundef %.011.i, i64 noundef range(i64 0, 257) %spec.select.i, i32 noundef 0) #9
+  %11 = tail call i64 @getrandom(ptr noundef %.011.i, i64 noundef range(i64 0, 257) %spec.select.i, i32 noundef 0) #10
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %8, label %_randombytes_linux_getrandom.exit.i
@@ -259,12 +259,12 @@ randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_
 .preheader8:                                      ; preds = %18, %30
   %.017.i = phi i64 [ %31, %30 ], [ %1, %18 ]
   %.016.i = phi ptr [ %32, %30 ], [ %0, %18 ]
-  %21 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #9
+  %21 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #10
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %.lr.ph.i, label %.critedge22.i
 
 .lr.ph.i:                                         ; preds = %.preheader8
-  %23 = tail call ptr @__errno_location() #10
+  %23 = tail call ptr @__errno_location() #9
   br label %24
 
 24:                                               ; preds = %.critedge2.i, %.lr.ph.i
@@ -276,7 +276,7 @@ randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_
   ]
 
 .critedge2.i:                                     ; preds = %24, %24
-  %27 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #9
+  %27 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #10
   %28 = icmp slt i64 %27, 0
   br i1 %28, label %24, label %.critedge22.i, !llvm.loop !7
 
@@ -318,7 +318,7 @@ define internal range(i32 -1, 1) i32 @randombytes_sysrandom_close() #1 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @close(i32 noundef %1) #9
+  %3 = tail call i32 @close(i32 noundef %1) #10
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
 
@@ -334,49 +334,49 @@ define internal range(i32 -1, 1) i32 @randombytes_sysrandom_close() #1 {
   ret i32 %spec.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @sodium_misuse() local_unnamed_addr #4
+declare void @sodium_misuse() local_unnamed_addr #3
 
-declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @getrandom(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #5
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
 
-declare i32 @close(i32 noundef) local_unnamed_addr #5
+declare i32 @close(i32 noundef) local_unnamed_addr #4
 
-declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

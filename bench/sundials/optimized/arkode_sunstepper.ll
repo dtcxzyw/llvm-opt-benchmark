@@ -123,9 +123,6 @@ define range(i32 -51, 1) i32 @ARKodeCreateSUNStepper(ptr noundef %0, ptr noundef
 
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @SUNStepper_Create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @SUNStepper_SetContent(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -135,7 +132,7 @@ declare i32 @SUNStepper_SetEvolveFn(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %5) #3
   %7 = load ptr, ptr %5, align 8, !tbaa !20
   %8 = call i32 @ARKodeEvolve(ptr noundef %7, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1) #3
@@ -143,7 +140,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperEvolve(ptr noundef %0, dou
   store i32 %8, ptr %9, align 8, !tbaa !21
   %10 = icmp slt i32 %8, 0
   %..i = select i1 %10, i32 -9990, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %..i
 }
 
@@ -152,7 +149,7 @@ declare i32 @SUNStepper_SetOneStepFn(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperOneStep(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %5) #3
   %7 = load ptr, ptr %5, align 8, !tbaa !20
   %8 = call i32 @ARKodeEvolve(ptr noundef %7, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2) #3
@@ -160,7 +157,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperOneStep(ptr noundef %0, do
   store i32 %8, ptr %9, align 8, !tbaa !21
   %10 = icmp slt i32 %8, 0
   %..i = select i1 %10, i32 -9990, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %..i
 }
 
@@ -169,7 +166,7 @@ declare i32 @SUNStepper_SetFullRhsFn(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperFullRhs(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %6) #3
   %8 = load ptr, ptr %6, align 8, !tbaa !20
   %9 = icmp ult i32 %4, 3
@@ -181,7 +178,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperFullRhs(ptr noundef %0, do
   store i32 %12, ptr %13, align 8, !tbaa !21
   %.not = icmp eq i32 %12, 0
   %. = select i1 %.not, i32 0, i32 -9990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
 
@@ -190,7 +187,7 @@ declare i32 @SUNStepper_SetResetFn(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperReset(ptr noundef %0, double noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %4) #3
   %6 = load ptr, ptr %4, align 8, !tbaa !20
   %7 = call i32 @ARKodeReset(ptr noundef %6, double noundef %1, ptr noundef %2) #3
@@ -198,7 +195,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperReset(ptr noundef %0, doub
   store i32 %7, ptr %8, align 8, !tbaa !21
   %.not = icmp eq i32 %7, 0
   %. = select i1 %.not, i32 0, i32 -9990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.
 }
 
@@ -207,7 +204,7 @@ declare i32 @SUNStepper_SetStopTimeFn(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperSetStopTime(ptr noundef %0, double noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %3) #3
   %5 = load ptr, ptr %3, align 8, !tbaa !20
   %6 = call i32 @ARKodeSetStopTime(ptr noundef %5, double noundef %1) #3
@@ -215,7 +212,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperSetStopTime(ptr noundef %0
   store i32 %6, ptr %7, align 8, !tbaa !21
   %.not = icmp eq i32 %6, 0
   %. = select i1 %.not, i32 0, i32 -9990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.
 }
 
@@ -224,7 +221,7 @@ declare i32 @SUNStepper_SetStepDirectionFn(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperSetStepDirection(ptr noundef %0, double noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %3) #3
   %5 = load ptr, ptr %3, align 8, !tbaa !20
   %6 = call i32 @ARKodeSetStepDirection(ptr noundef %5, double noundef %1) #3
@@ -232,7 +229,7 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperSetStepDirection(ptr nound
   store i32 %6, ptr %7, align 8, !tbaa !21
   %.not = icmp eq i32 %6, 0
   %. = select i1 %.not, i32 0, i32 -9990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.
 }
 
@@ -241,7 +238,7 @@ declare i32 @SUNStepper_SetForcingFn(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -9990, 1) i32 @arkSUNStepperSetForcing(ptr noundef %0, double noundef %1, double noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @SUNStepper_GetContent(ptr noundef %0, ptr noundef nonnull %6) #3
   %8 = load ptr, ptr %6, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 552
@@ -251,12 +248,9 @@ define internal range(i32 -9990, 1) i32 @arkSUNStepperSetForcing(ptr noundef %0,
   store i32 %11, ptr %12, align 8, !tbaa !21
   %.not = icmp eq i32 %11, 0
   %. = select i1 %.not, i32 0, i32 -9990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @SUNStepper_GetContent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -267,6 +261,12 @@ declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed
 declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 declare i32 @ARKodeSetStepDirection(ptr noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

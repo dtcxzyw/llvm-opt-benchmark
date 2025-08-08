@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define dso_local i64 @_Py_HashDouble(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp ueq double %4, 0x7FF0000000000000
   br i1 %5, label %6, label %14
@@ -96,18 +96,15 @@ define dso_local i64 @_Py_HashDouble(ptr noundef %0, double noundef %1) local_un
 
 51:                                               ; preds = %40, %11, %8
   %.0 = phi i64 [ %spec.store.select, %40 ], [ %10, %8 ], [ %spec.store.select.i.i, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i64 0, -1) i64 @PyObject_GenericHash(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, -1) i64 @PyObject_GenericHash(ptr noundef %0) local_unnamed_addr #2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call noundef i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 60)
   %spec.store.select.i = tail call noundef range(i64 0, -1) i64 @llvm.umin.i64(i64 %3, i64 -2)
@@ -115,13 +112,10 @@ define dso_local noundef range(i64 0, -1) i64 @PyObject_GenericHash(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i64 0, -1) i64 @Py_HashPointer(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i64 0, -1) i64 @Py_HashPointer(ptr noundef %0) local_unnamed_addr #2 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call noundef i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 60)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %3, i64 -2)
@@ -129,7 +123,7 @@ define dso_local noundef range(i64 0, -1) i64 @Py_HashPointer(ptr noundef %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -1) i64 @Py_HashBuffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #5 {
+define dso_local range(i64 0, -1) i64 @Py_HashBuffer(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %7, label %4
 
@@ -145,23 +139,23 @@ define dso_local range(i64 0, -1) i64 @Py_HashBuffer(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_PyHash_Fini() local_unnamed_addr #3 {
+define hidden void @_PyHash_Fini() local_unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @PyHash_GetFuncDef() local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @PyHash_GetFuncDef() local_unnamed_addr #2 {
   ret ptr @PyHash_Func
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_Py_KeyedHash(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
+define hidden i64 @_Py_KeyedHash(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = tail call fastcc i64 @siphash13(i64 noundef %0, i64 noundef 0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #6 {
+define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #5 {
   %5 = xor i64 %0, 8317987319222330741
   %6 = xor i64 %1, 7237128888997146477
   %7 = xor i64 %0, 7816392313619706465
@@ -355,12 +349,18 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i64 @pysiphash(ptr noundef readonly captures(none) %0, i64 noundef %1) #7 {
+define internal i64 @pysiphash(ptr noundef readonly captures(none) %0, i64 noundef %1) #6 {
   %3 = load i64, ptr @_Py_HashSecret, align 8, !tbaa !14
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Py_HashSecret, i64 8), align 8, !tbaa !14
   %5 = tail call fastcc i64 @siphash13(i64 noundef %3, i64 noundef %4, ptr noundef %0, i64 noundef %1)
   ret i64 %5
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
@@ -369,13 +369,13 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }
 

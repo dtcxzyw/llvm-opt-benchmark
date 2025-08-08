@@ -418,7 +418,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %m_includedCategories = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_includedCategories, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !19
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i), !noalias !19
   %call.i.i.i = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !22
   call void @_ZN4node9inspector8protocol9ListValueC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i) #13, !noalias !22
   %4 = load ptr, ptr %3, align 8, !noalias !27
@@ -456,7 +456,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
   br i1 %cmp.i.not.i.i, label %_ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7toValueEPSA_.exit, label %for.body.i.i
 
 _ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7toValueEPSA_.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit.i.i, %if.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !19
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i), !noalias !19
   store ptr %call.i.i.i, ptr %agg.tmp9, align 8, !alias.scope !19
   call void @_ZN4node9inspector8protocol15DictionaryValue8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_5ValueESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(96) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull %agg.tmp9) #13
   %8 = load ptr, ptr %agg.tmp9, align 8
@@ -632,7 +632,7 @@ entry:
   %m_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_value, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i), !noalias !38
   %call.i.i.i = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !41
   call void @_ZN4node9inspector8protocol9ListValueC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i) #13, !noalias !41
   %1 = load ptr, ptr %0, align 8, !noalias !46
@@ -667,7 +667,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
   br i1 %cmp.i.not.i.i, label %_ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINS1_15DictionaryValueEEEE7toValueEPS5_.exit, label %for.body.i.i
 
 _ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINS1_15DictionaryValueEEEE7toValueEPS5_.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit.i.i, %entry
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i), !noalias !38
   store ptr %call.i.i.i, ptr %agg.tmp, align 8, !alias.scope !38
   call void @_ZN4node9inspector8protocol15DictionaryValue8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_5ValueESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(96) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp) #13
   %7 = load ptr, ptr %agg.tmp, align 8
@@ -887,7 +887,7 @@ entry:
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %notification) #13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #14, !noalias !53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #13, !noalias !53
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i64 16), ptr %call.i, align 8, !noalias !53
@@ -896,7 +896,7 @@ entry:
   %m_binaryNotification.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_binaryNotification.i.i, i8 0, i64 24, i1 false), !noalias !53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #13, !noalias !53
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -1069,7 +1069,7 @@ if.then7:                                         ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 10))
   %6 = load ptr, ptr %out_categories, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !63
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i), !noalias !63
   %call.i.i.i = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !66
   call void @_ZN4node9inspector8protocol9ListValueC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i) #13, !noalias !66
   %7 = load ptr, ptr %6, align 8, !noalias !71
@@ -1107,7 +1107,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
   br i1 %cmp.i.not.i.i, label %_ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7toValueEPSA_.exit, label %for.body.i.i
 
 _ZN4node9inspector8protocol16ValueConversionsINS1_5ArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7toValueEPSA_.exit: ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit.i.i, %if.then7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !63
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i), !noalias !63
   store ptr %call.i.i.i, ptr %agg.tmp, align 8, !alias.scope !63
   call void @_ZN4node9inspector8protocol15DictionaryValue8setValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_5ValueESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(96) %call.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %agg.tmp) #13
   %11 = load ptr, ptr %agg.tmp, align 8
@@ -2658,7 +2658,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   %call3 = call noundef ptr @_ZN4node9inspector8protocol9ListValue2atEm(ptr noundef nonnull align 8 dereferenceable(40) %value, i64 noundef %i.029) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %tobool.not.i11 = icmp eq ptr %call3, null
   br i1 %tobool.not.i11, label %if.then.i, label %land.rhs.i
 
@@ -2691,7 +2691,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i
 
 _ZN4node9inspector8protocol16ValueConversionsINS1_15DictionaryValueEE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit: ; preds = %if.end.i, %lor.lhs.false.i.i.i
   %retval.0.i.i.i = phi i64 [ 0, %if.end.i ], [ %9, %lor.lhs.false.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   %10 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, %10
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -2899,10 +2899,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

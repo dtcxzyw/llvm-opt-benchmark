@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c4ac13481cae94cE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !noundef !3
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -30,7 +30,7 @@ define zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c4ac1
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h73cfba4878125a0dE.exit": ; preds = %7, %9
   %.0.in.i = phi i1 [ %8, %7 ], [ %10, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.in.i
 }
 
@@ -316,8 +316,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h021b6d063f486ecaE
   %4 = alloca { i64, [7 x i64] }, align 8
   %5 = alloca { { { ptr, i64 }, ptr } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -376,8 +376,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h021b6d063f486ecaE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha6d24344efe80715E.exit: ; preds = %11
   call void @"_ZN4core3ptr89drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..FunctionField$GT$$GT$17h7c5fa121370311deE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -387,8 +387,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h3beb70458733c8aaE
   %4 = alloca { i64, [9 x i64] }, align 8
   %5 = alloca { { { ptr, i64 }, ptr } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -447,8 +447,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h3beb70458733c8aaE
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h0ebd7c016e805ba0E.exit: ; preds = %11
   call void @"_ZN4core3ptr87drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..ConfigField$GT$$GT$17h40349475203ba265E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -458,8 +458,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf1f6ab5a5411cc45E
   %4 = alloca { i64, [9 x i64] }, align 8
   %5 = alloca { { { ptr, i64 }, ptr } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -518,8 +518,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hf1f6ab5a5411cc45E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17hf68aba33098dc390E.exit: ; preds = %11
   call void @"_ZN4core3ptr95drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..WasmtimeConfigField$GT$$GT$17h276d5f589a40ee8dE"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -529,8 +529,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfef36e3de4d67ab0E
   %4 = alloca { i64, [10 x i64] }, align 8
   %5 = alloca { { { ptr, i64 }, ptr } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %7
 
 .loopexit.i:                                      ; preds = %9
@@ -589,8 +589,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hfef36e3de4d67ab0E
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h1330aabd60c721ffE.exit: ; preds = %11
   call void @"_ZN4core3ptr90drop_in_place$LT$core..option..IntoIter$LT$wiggle_generate..config..ErrorConfField$GT$$GT$17hda71def81ac36107E"(ptr nonnull align 8 %0)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -968,10 +968,10 @@ declare void @"_ZN4core3ptr43drop_in_place$LT$$RF$std..path..PathBuf$GT$17h7e885
 declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7c7279740e9ce60eE"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

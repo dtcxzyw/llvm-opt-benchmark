@@ -317,14 +317,14 @@ if.then.i.i:                                      ; preds = %invoke.cont
   unreachable
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ret.i)
   %sessionsByIdleAge_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %sessionsByIdleAge_.i, align 8
   %cmp.i.i = icmp eq ptr %1, %sessionsByIdleAge_.i
   br i1 %cmp.i.i, label %invoke.cont5.thread, label %if.then.i
 
 invoke.cont5.thread:                              ; preds = %invoke.cont3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i)
   br label %if.then
 
 if.then.i:                                        ; preds = %invoke.cont3
@@ -343,7 +343,7 @@ if.then.i:                                        ; preds = %invoke.cont3
 invoke.cont5:                                     ; preds = %if.then.i
   %sessionPool.i = getelementptr inbounds nuw i8, ptr %ret.i, i64 8
   %3 = load ptr, ptr %sessionPool.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ret.i)
   %markedForDeath_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %4 = load i8, ptr %markedForDeath_, align 8
   %tobool = trunc i8 %4 to i1
@@ -1258,7 +1258,7 @@ if.then.i:                                        ; preds = %cond.end.i
 if.end.i:                                         ; preds = %if.then.i, %cond.end.i, %_ZN8proxygen27ServerIdleSessionController16isMarkedForDeathEv.exit.i
   %cond3.i = phi ptr [ %call2.i, %if.then.i ], [ null, %cond.end.i ], [ null, %_ZN8proxygen27ServerIdleSessionController16isMarkedForDeathEv.exit.i ]
   %5 = getelementptr inbounds nuw i8, ptr %p, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i32 0, ptr %ref.tmp.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store ptr %cond3.i, ptr %6, align 8
@@ -1295,7 +1295,7 @@ _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit5.i.i: ; preds = %if.then.i
   resume { ptr, i32 } %9
 
 "_ZZN8proxygen27ServerIdleSessionController14getIdleSessionEvEN3$_0clEv.exit": ; preds = %invoke.cont.i.i, %if.then.i.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret void
 }
 
@@ -1422,7 +1422,7 @@ if.then.i:                                        ; preds = %_ZNK5folly7PromiseI
 
 _ZNK5folly7PromiseIPN8proxygen15HTTPSessionBaseEE16throwIfFulfilledEv.exit: ; preds = %_ZNK5folly7PromiseIPN8proxygen15HTTPSessionBaseEE7getCoreEv.exit.i
   %1 = load ptr, ptr %core_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %ref.tmp.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 136
   %2 = load i32, ptr %t, align 8
@@ -1498,7 +1498,7 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit9.i:    ; preds = %if.then5.i.i6.i, %i
   resume { ptr, i32 } %12
 
 _ZN5folly7futures6detail4CoreIPN8proxygen15HTTPSessionBaseEE9setResultEONS_3TryIS5_EE.exit: ; preds = %invoke.cont.i, %if.then.i.i.i2, %if.then5.i.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -1510,7 +1510,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_14PromiseInvalid
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.folly::PromiseInvalid", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly14PromiseInvalidC2Ev.exit unwind label %lpad.i.i.i
@@ -1529,7 +1529,7 @@ _ZN5folly14PromiseInvalidC2Ev.exit:               ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr @.str.4, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly14PromiseInvalidE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_14PromiseInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
@@ -1638,7 +1638,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_23PromiseAlready
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.folly::PromiseAlreadySatisfied", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly23PromiseAlreadySatisfiedC2Ev.exit unwind label %lpad.i.i.i
@@ -1657,7 +1657,7 @@ _ZN5folly23PromiseAlreadySatisfiedC2Ev.exit:      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr @.str.5, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_23PromiseAlreadySatisfiedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
@@ -1878,7 +1878,7 @@ entry:
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i unwind label %lpad.i.i.i
@@ -1897,9 +1897,9 @@ _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i: ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageIPN8proxygen15HTTPSessionBaseEEEPKcvE3str, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %ref.tmp1, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1) #21
   %msg_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 16
   %1 = load ptr, ptr %msg_.i.i.i, align 8
@@ -1915,12 +1915,12 @@ _ZN5folly3TryIPN8proxygen15HTTPSessionBaseEEC2EOS4_.exit.i.i: ; preds = %if.then
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly13BrokenPromiseE, i64 16), ptr %call.i.i.i, align 8, !noalias !33
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i) #21
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i) #21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %agg.tmp, align 8, !noalias !36
   store i64 0, ptr %agg.tmp, align 8, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %ref.tmp.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %core, i64 136
   store i32 1, ptr %add.ptr.i.i, align 8
@@ -1960,7 +1960,7 @@ if.then.i.i3.i:                                   ; preds = %lpad.i
   br i1 %tobool4.not.i.i5.i, label %lpad3.body, label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit9
 
 invoke.cont4.thread:                              ; preds = %if.then.i.i.i, %invoke.cont.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i
@@ -1973,7 +1973,7 @@ invoke.cont4:                                     ; preds = %if.then.i.i.i
   %12 = icmp ne i32 %.pre15, 1
   %13 = icmp eq ptr %.pre16, null
   %14 = select i1 %12, i1 true, i1 %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br i1 %14, label %_ZN5folly3TryIPN8proxygen15HTTPSessionBaseEED2Ev.exit, label %if.then.i.i.i.i4
 
 if.then.i.i.i.i4:                                 ; preds = %invoke.cont4
@@ -2261,7 +2261,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_22FutureAlreadyR
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.folly::FutureAlreadyRetrieved", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly22FutureAlreadyRetrievedC2Ev.exit unwind label %lpad.i.i.i
@@ -2280,7 +2280,7 @@ _ZN5folly22FutureAlreadyRetrievedC2Ev.exit:       ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr @.str.10, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly22FutureAlreadyRetrievedE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_22FutureAlreadyRetrievedEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
@@ -2345,7 +2345,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_13FutureInvalidE
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.folly::FutureInvalid", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly13FutureInvalidC2Ev.exit unwind label %lpad.i.i.i
@@ -2364,7 +2364,7 @@ _ZN5folly13FutureInvalidC2Ev.exit:                ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr @.str.11, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly13FutureInvalidE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_13FutureInvalidEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
@@ -2424,7 +2424,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_16FutureNoExecut
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.folly::FutureNoExecutor", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   invoke void @_ZNSt11logic_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i)
           to label %_ZN5folly16FutureNoExecutorC2Ev.exit unwind label %lpad.i.i.i
@@ -2443,7 +2443,7 @@ _ZN5folly16FutureNoExecutorC2Ev.exit:             ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #21
   %msg_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr @.str.12, ptr %msg_.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly16FutureNoExecutorE, i64 16), ptr %ref.tmp, align 8
   invoke void @_ZN5folly15throw_exceptionINS_16FutureNoExecutorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #11
           to label %invoke.cont unwind label %lpad
@@ -2997,10 +2997,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

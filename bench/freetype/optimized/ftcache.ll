@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 6, ptr %4, align 4, !tbaa !3
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -60,7 +60,7 @@ define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(ad
   %21 = load i32, ptr %10, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i32 %21, ptr %22, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 8, ptr %14, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 7, ptr %23, align 4, !tbaa !31
@@ -70,7 +70,7 @@ define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(ad
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !33
   %27 = load i32, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %29, label %28
 
@@ -114,7 +114,7 @@ define i32 @FTC_ImageCache_New(ptr noundef %0, ptr noundef writeonly captures(ad
 
 FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
   %44 = phi i32 [ %.pre.i.i, %.thread.i.i ], [ 6, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %44
 }
 
@@ -123,7 +123,7 @@ define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr noundef readonly captures(
   %6 = alloca %struct.FTC_BasicQueryRec_, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %152, label %9
 
@@ -172,7 +172,7 @@ define i32 @FTC_ImageCache_Lookup(ptr noundef %0, ptr noundef readonly captures(
   %37 = add i64 %36, %29
   %38 = add i64 %37, %32
   %39 = add i64 %38, %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %6, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -251,7 +251,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %46, %5
   br i1 %.not105, label %71, label %.thread124
 
 .thread124:                                       ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %152
 
 71:                                               ; preds = %.thread, %.loopexit
@@ -260,7 +260,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %46, %5
   %74 = load i32, ptr %73, align 8, !tbaa !77
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -358,7 +358,7 @@ FTC_MruNode_Up.exit118:                           ; preds = %109
   %123 = phi i32 [ %121, %._crit_edge ], [ %74, %FTC_MruNode_Up.exit118 ], [ %74, %109 ]
   %124 = phi ptr [ %.pre, %._crit_edge ], [ %92, %FTC_MruNode_Up.exit118 ], [ %92, %109 ]
   %.2 = phi i32 [ %120, %._crit_edge ], [ 0, %FTC_MruNode_Up.exit118 ], [ 0, %109 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 %123, ptr %73, align 8, !tbaa !77
   %125 = icmp eq i32 %123, 0
   br i1 %125, label %126, label %144
@@ -405,7 +405,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
   br label %144
 
 144:                                              ; preds = %122, %FTC_MruList_Remove.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not115 = icmp eq i32 %.2, 0
   br i1 %.not115, label %145, label %152
 
@@ -425,15 +425,12 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 
 152:                                              ; preds = %.thread124, %144, %148, %145, %5
   %.0 = phi i32 [ 6, %5 ], [ 0, %145 ], [ 0, %148 ], [ %.2, %144 ], [ %68, %.thread124 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -503,7 +500,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_basic_family_compare(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @FTC_MruList_New(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -613,15 +610,12 @@ FTC_MruNode_Remove.exit:                          ; preds = %42, %.sink.split.i
   %51 = phi i32 [ %10, %3 ], [ %.pre, %49 ], [ 0, %FTC_MruNode_Prepend.exit ]
   %.0 = phi ptr [ %9, %3 ], [ %.1, %49 ], [ %9, %FTC_MruNode_Prepend.exit ]
   store ptr %.0, ptr %2, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %51
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -653,7 +647,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_gnode_compare(ptr noundef readonl
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -858,7 +852,7 @@ ftc_cache_add.exit:                               ; preds = %FTC_Manager_Compres
   %111 = phi i32 [ 0, %FTC_Manager_Compress.exit.i ], [ 0, %ftc_node_mru_link.exit.i ], [ %45, %.thread32 ]
   %112 = load ptr, ptr %5, align 8, !tbaa !44
   store ptr %112, ptr %3, align 8, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %111
 }
 
@@ -867,7 +861,7 @@ define i32 @FTC_ImageCache_LookupScaler(ptr noundef %0, ptr noundef readonly cap
   %7 = alloca %struct.FTC_BasicQueryRec_, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = icmp ne ptr %4, null
   %11 = icmp ne ptr %1, null
   %or.cond = and i1 %11, %10
@@ -926,7 +920,7 @@ define i32 @FTC_ImageCache_LookupScaler(ptr noundef %0, ptr noundef readonly cap
   %47 = add i64 %46, %22
   %48 = add i64 %47, %29
   %49 = add i64 %48, %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %3, ptr %7, align 8, !tbaa !62
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1028,7 +1022,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %57, %61, %65, %69, 
   br i1 %.not106, label %97, label %.thread125
 
 .thread125:                                       ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %178
 
 97:                                               ; preds = %.thread, %.loopexit
@@ -1037,7 +1031,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %57, %61, %65, %69, 
   %100 = load i32, ptr %99, align 8, !tbaa !77
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1135,7 +1129,7 @@ FTC_MruNode_Up.exit119:                           ; preds = %135
   %149 = phi i32 [ %147, %._crit_edge ], [ %100, %FTC_MruNode_Up.exit119 ], [ %100, %135 ]
   %150 = phi ptr [ %.pre, %._crit_edge ], [ %118, %FTC_MruNode_Up.exit119 ], [ %118, %135 ]
   %.2 = phi i32 [ %146, %._crit_edge ], [ 0, %FTC_MruNode_Up.exit119 ], [ 0, %135 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 %149, ptr %99, align 8, !tbaa !77
   %151 = icmp eq i32 %149, 0
   br i1 %151, label %152, label %170
@@ -1182,7 +1176,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
   br label %170
 
 170:                                              ; preds = %148, %FTC_MruList_Remove.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not116 = icmp eq i32 %.2, 0
   br i1 %.not116, label %171, label %178
 
@@ -1202,18 +1196,18 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 
 178:                                              ; preds = %.thread125, %170, %174, %171, %6
   %.0 = phi i32 [ 6, %6 ], [ 0, %171 ], [ 0, %174 ], [ %.2, %170 ], [ %94, %.thread125 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 6, ptr %4, align 4, !tbaa !3
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -1246,7 +1240,7 @@ define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(add
   %21 = load i32, ptr %10, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i32 %21, ptr %22, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 8, ptr %14, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 7, ptr %23, align 4, !tbaa !31
@@ -1256,7 +1250,7 @@ define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(add
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !33
   %27 = load i32, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %29, label %28
 
@@ -1300,7 +1294,7 @@ define i32 @FTC_SBitCache_New(ptr noundef %0, ptr noundef writeonly captures(add
 
 FTC_GCache_New.exit:                              ; preds = %43, %.thread.i.i
   %44 = phi i32 [ %.pre.i.i, %.thread.i.i ], [ 6, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %44
 }
 
@@ -1310,7 +1304,7 @@ define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(n
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %174, label %10
 
@@ -1360,7 +1354,7 @@ define i32 @FTC_SBitCache_Lookup(ptr noundef %0, ptr noundef readonly captures(n
   %39 = add i64 %38, %30
   %40 = add i64 %39, %33
   %41 = add i64 %40, %35
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %2, ptr %6, align 8, !tbaa !62
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1439,7 +1433,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   br i1 %.not107, label %73, label %.thread124
 
 .thread124:                                       ; preds = %.loopexit132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %174
 
 73:                                               ; preds = %.thread, %.loopexit132
@@ -1448,8 +1442,8 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
   %76 = load i32, ptr %75, align 8, !tbaa !77
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1, !tbaa !97
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !33
@@ -1581,8 +1575,8 @@ FTC_MruNode_Up.exit119:                           ; preds = %.loopexit.thread
 139:                                              ; preds = %.loopexit.thread, %FTC_MruNode_Up.exit119, %.loopexit130
   %140 = phi ptr [ %.pre149, %.loopexit130 ], [ %127, %FTC_MruNode_Up.exit119 ], [ %127, %.loopexit.thread ]
   %.2 = phi i32 [ %138, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit119 ], [ 0, %.loopexit.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %141 = load i32, ptr %75, align 8, !tbaa !77
   %142 = add i32 %141, -1
   store i32 %142, ptr %75, align 8, !tbaa !77
@@ -1631,7 +1625,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
   br label %162
 
 162:                                              ; preds = %139, %FTC_MruList_Remove.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not117 = icmp eq i32 %.2, 0
   br i1 %.not117, label %163, label %174
 
@@ -1655,7 +1649,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 
 174:                                              ; preds = %.thread124, %162, %170, %163, %5
   %.0 = phi i32 [ 6, %5 ], [ 0, %163 ], [ 0, %170 ], [ %.2, %162 ], [ %70, %.thread124 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -1702,7 +1696,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef capture
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %31 = load i16, ptr %30, align 2, !tbaa !90
   %32 = add i16 %31, 1
@@ -1865,7 +1859,7 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
 
 107:                                              ; preds = %.thread69, %._crit_edge, %101
   %.2 = phi i8 [ 1, %101 ], [ 0, %._crit_edge ], [ 0, %.thread69 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %20, %26, %107, %14
@@ -1879,7 +1873,7 @@ define i32 @FTC_SBitCache_LookupScaler(ptr noundef %0, ptr noundef readonly capt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = icmp ne ptr %4, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %12, %11
@@ -1939,7 +1933,7 @@ define i32 @FTC_SBitCache_LookupScaler(ptr noundef %0, ptr noundef readonly capt
   %49 = add i64 %48, %23
   %50 = add i64 %49, %30
   %51 = add i64 %50, %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %3, ptr %7, align 8, !tbaa !62
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2041,7 +2035,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   br i1 %.not108, label %99, label %.thread125
 
 .thread125:                                       ; preds = %.loopexit132
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %200
 
 99:                                               ; preds = %.thread, %.loopexit132
@@ -2050,8 +2044,8 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
   %102 = load i32, ptr %101, align 8, !tbaa !77
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !97
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !33
@@ -2183,8 +2177,8 @@ FTC_MruNode_Up.exit120:                           ; preds = %.loopexit.thread
 165:                                              ; preds = %.loopexit.thread, %FTC_MruNode_Up.exit120, %.loopexit130
   %166 = phi ptr [ %.pre149, %.loopexit130 ], [ %153, %FTC_MruNode_Up.exit120 ], [ %153, %.loopexit.thread ]
   %.2 = phi i32 [ %164, %.loopexit130 ], [ 0, %FTC_MruNode_Up.exit120 ], [ 0, %.loopexit.thread ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %167 = load i32, ptr %101, align 8, !tbaa !77
   %168 = add i32 %167, -1
   store i32 %168, ptr %101, align 8, !tbaa !77
@@ -2233,7 +2227,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
   br label %188
 
 188:                                              ; preds = %165, %FTC_MruList_Remove.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not118 = icmp eq i32 %.2, 0
   br i1 %.not118, label %189, label %200
 
@@ -2257,7 +2251,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 
 200:                                              ; preds = %.thread125, %188, %196, %189, %6
   %.0 = phi i32 [ 6, %6 ], [ 0, %189 ], [ 0, %196 ], [ %.2, %188 ], [ %96, %.thread125 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2265,7 +2259,7 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 6, ptr %4, align 4, !tbaa !3
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -2298,7 +2292,7 @@ define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly captures(add
   %21 = load i32, ptr %10, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i32 %21, ptr %22, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 8, ptr %14, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 7, ptr %23, align 4, !tbaa !31
@@ -2308,7 +2302,7 @@ define i32 @FTC_CMapCache_New(ptr noundef %0, ptr noundef writeonly captures(add
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !33
   %27 = load i32, ptr %3, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %27, ptr %4, align 4, !tbaa !3
   %.not38.i = icmp eq i32 %27, 0
   br i1 %.not38.i, label %60, label %28
@@ -2417,7 +2411,7 @@ ftc_cache_done.exit:                              ; preds = %28, %30, %.loopexit
 
 FTC_Manager_RegisterCache.exit:                   ; preds = %66, %.thread.i
   %67 = phi i32 [ %.pre.i, %.thread.i ], [ 6, %66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %67
 }
 
@@ -2426,7 +2420,7 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %5 = alloca ptr, align 8
   %6 = alloca %struct.FTC_CMapQueryRec_, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp sgt i32 %2, -1
   %spec.select = select i1 %8, i32 %2, i32 0
   %.not = icmp eq ptr %0, null
@@ -2448,7 +2442,7 @@ define i32 @FTC_CMapCache_Lookup(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %19 = zext nneg i32 %18 to i64
   %20 = add i64 %15, %19
   %21 = add i64 %20, %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2538,7 +2532,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   br label %.thread124
 
 .thread124:                                       ; preds = %59, %FTC_MruNode_Up.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
 ._crit_edge:                                      ; preds = %ftc_cmap_node_compare.exit.thread, %9
@@ -2546,7 +2540,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %70 = call fastcc i32 @FTC_Cache_NewNode(ptr noundef nonnull %0, i64 noundef %21, ptr noundef %6, ptr noundef %7)
   %71 = icmp eq i32 %70, 0
   %72 = load ptr, ptr %7, align 8, !tbaa !44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %71, label %73, label %132
 
 73:                                               ; preds = %._crit_edge
@@ -2573,7 +2567,7 @@ FTC_MruNode_Up.exit:                              ; preds = %59
   %86 = load ptr, ptr %85, align 8, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %88 = load ptr, ptr %87, align 8, !tbaa !130
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not29.i = icmp eq ptr %86, null
   br i1 %.not29.i, label %FTC_Manager_LookupFace.exit.thread, label %89
 
@@ -2626,14 +2620,14 @@ FTC_MruNode_Up.exit.i:                            ; preds = %95
   br label %105
 
 FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %132
 
 105:                                              ; preds = %.loopexit._crit_edge.i, %FTC_MruNode_Up.exit.i, %95
   %106 = phi ptr [ %.pre.i, %.loopexit._crit_edge.i ], [ %.0.i101, %95 ], [ %.0.i101, %FTC_MruNode_Up.exit.i ]
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8, !tbaa !139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %110 = load i32, ptr %109, align 8, !tbaa !140
   %111 = icmp slt i32 %spec.select, %110
@@ -2673,12 +2667,12 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
 
 132:                                              ; preds = %126, %FTC_Manager_LookupFace.exit.thread, %._crit_edge, %75, %73, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %73 ], [ 0, %._crit_edge ], [ %82, %75 ], [ %.2, %126 ], [ 0, %FTC_Manager_LookupFace.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -2719,7 +2713,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_compare(ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define i32 @FTC_Manager_LookupFace(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %5
 
@@ -2785,16 +2779,16 @@ FTC_MruNode_Up.exit:                              ; preds = %12
 
 25:                                               ; preds = %.loopexit, %.thread, %5, %3
   %.023 = phi i32 [ 6, %3 ], [ 39, %5 ], [ 0, %.thread ], [ %21, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.023
 }
 
-declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @FT_Get_Char_Index(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp ne ptr %2, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %6, %5
@@ -2919,7 +2913,7 @@ define i32 @FTC_Manager_LookupSize(ptr noundef captures(address_is_null) %0, ptr
 
 69:                                               ; preds = %.loopexit, %.thread, %7, %3
   %.025 = phi i32 [ 6, %3 ], [ 39, %7 ], [ 0, %.thread ], [ %65, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.025
 }
 
@@ -2988,7 +2982,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_size_node_compare(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #2 {
+define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !135
   %5 = icmp eq ptr %4, %1
@@ -2999,7 +2993,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_face_node_compare(ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %40, label %9
 
@@ -3069,11 +3063,11 @@ define i32 @FTC_Manager_New(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 
 
 40:                                               ; preds = %16, %12, %9, %7
   %.0 = phi i32 [ 33, %7 ], [ 6, %9 ], [ %15, %12 ], [ 0, %16 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @FTC_Manager_Done(ptr noundef %0) local_unnamed_addr #0 {
@@ -3211,7 +3205,7 @@ FTC_MruList_Done.exit27:                          ; preds = %FTC_MruList_Remove.
   ret void
 }
 
-declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @FTC_Manager_Reset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -3525,7 +3519,7 @@ FTC_Cache_RemoveFaceID.exit:                      ; preds = %._crit_edge.i, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @FTC_Node_Unref(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define void @FTC_Node_Unref(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3556,7 +3550,7 @@ define internal i32 @ftc_inode_new(ptr noundef writeonly captures(none) initiali
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call ptr @ft_mem_qalloc(ptr noundef %6, i64 noundef 64, ptr noundef nonnull %4) #12
   %8 = load i32, ptr %4, align 4, !tbaa !3
   %.not.i = icmp eq i32 %8, 0
@@ -3657,12 +3651,12 @@ FTC_INode_New.exit:                               ; preds = %3, %9, %FTC_INode_F
   %55 = phi i32 [ %8, %3 ], [ %.pre.i, %FTC_INode_Free.exit.i ], [ 0, %9 ]
   %.0.i = phi ptr [ %7, %3 ], [ null, %FTC_INode_Free.exit.i ], [ %7, %9 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !185
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal range(i64 64, 9223372030412325018) i64 @ftc_inode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3858,7 +3852,7 @@ define internal i32 @ftc_gcache_init(ptr noundef initializes((0, 24)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 8, ptr %0, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 7, ptr %5, align 4, !tbaa !31
@@ -3868,7 +3862,7 @@ define internal i32 @ftc_gcache_init(ptr noundef initializes((0, 24)) %0) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !33
   %9 = load i32, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %20
 
@@ -4022,14 +4016,14 @@ FTC_MruList_Done.exit:                            ; preds = %FTC_MruList_Remove.
   ret void
 }
 
-declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #5
+declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_cache_init(ptr noundef captures(none) initializes((0, 24)) %0) #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 8, ptr %0, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 7, ptr %5, align 4, !tbaa !31
@@ -4039,11 +4033,11 @@ define internal i32 @ftc_cache_init(ptr noundef captures(none) initializes((0, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !33
   %9 = load i32, ptr %2, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %9
 }
 
-declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @ftc_cache_done(ptr noundef %0) #0 {
@@ -4133,7 +4127,7 @@ ftc_node_mru_unlink.exit:                         ; preds = %27, %.sink.split.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ftc_basic_family_init(ptr noundef writeonly captures(none) initializes((16, 20), (24, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #7 {
+define internal noundef i32 @ftc_basic_family_init(ptr noundef writeonly captures(none) initializes((16, 20), (24, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -4155,7 +4149,7 @@ define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = call i32 @FTC_Manager_LookupSize(ptr noundef %9, ptr noundef nonnull %7, ptr noundef nonnull %5)
@@ -4183,7 +4177,7 @@ define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1,
   ]
 
 22:                                               ; preds = %17, %17, %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = call i32 @FT_Get_Glyph(ptr noundef nonnull %19, ptr noundef nonnull %6) #12
   %.not23 = icmp eq i32 %23, 0
   br i1 %.not23, label %24, label %26
@@ -4194,18 +4188,18 @@ define internal i32 @ftc_basic_family_load_glyph(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %22, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 27:                                               ; preds = %11, %4, %26, %17
   %.018 = phi i32 [ %10, %4 ], [ %16, %11 ], [ %23, %26 ], [ 6, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.018
 }
 
-declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @FT_Load_Glyph(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @FT_Get_Glyph(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @FT_Get_Glyph(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
@@ -4215,7 +4209,7 @@ define internal i32 @ftc_snode_new(ptr noundef writeonly captures(none) %0, ptr 
   %.val5 = load ptr, ptr %5, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -4286,12 +4280,12 @@ FTC_SNode_New.exit:                               ; preds = %3, %18, %._crit_edg
   %38 = phi i32 [ %20, %18 ], [ %.pre.i, %37 ], [ 0, %._crit_edge.i ], [ 6, %3 ]
   %.0.i = phi ptr [ %19, %18 ], [ null, %37 ], [ %19, %._crit_edge.i ], [ null, %3 ]
   store ptr %.0.i, ptr %0, align 8, !tbaa !218
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i64 @ftc_snode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #8 {
+define internal i64 @ftc_snode_weight(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !113
   %.not20 = icmp eq i32 %4, 0
@@ -4429,7 +4423,7 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !83
   %10 = sub i32 %2, %9
@@ -4605,14 +4599,14 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
 
 117:                                              ; preds = %111, %112, %116, %.thread, %4
   %.0 = phi i32 [ 6, %4 ], [ 0, %116 ], [ 0, %.thread ], [ %.1, %112 ], [ 0, %111 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !228
   %spec.select = tail call i32 @llvm.abs.i32(i32 %6, i1 true)
@@ -4626,18 +4620,18 @@ define internal fastcc i32 @ftc_sbit_copy_bitmap(ptr noundef writeonly captures(
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !115
   %15 = load i32, ptr %4, align 4, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %15
 }
 
-declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_dup(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_basic_family_get_count(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not29.i = icmp eq ptr %1, null
   br i1 %.not29.i, label %FTC_Manager_LookupFace.exit.thread, label %6
 
@@ -4690,14 +4684,14 @@ FTC_MruNode_Up.exit.i:                            ; preds = %12
   br label %FTC_Manager_LookupFace.exit
 
 FTC_Manager_LookupFace.exit.thread:               ; preds = %2, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %29
 
 FTC_Manager_LookupFace.exit:                      ; preds = %12, %FTC_MruNode_Up.exit.i, %.loopexit._crit_edge.i
   %22 = phi ptr [ %.pre.i, %.loopexit._crit_edge.i ], [ %.0.i, %12 ], [ %.0.i, %FTC_MruNode_Up.exit.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %29, label %25
 
@@ -4715,7 +4709,7 @@ FTC_Manager_LookupFace.exit:                      ; preds = %12, %FTC_MruNode_Up
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = call i32 @FTC_Manager_LookupSize(ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
@@ -4737,7 +4731,7 @@ define internal i32 @ftc_basic_family_load_bitmap(ptr noundef %0, i32 noundef %1
 
 16:                                               ; preds = %8, %15, %4
   %.0 = phi i32 [ %7, %4 ], [ 0, %15 ], [ %14, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -4775,7 +4769,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = zext i32 %11 to i64
   %20 = shl i32 %11, 1
   %21 = zext i32 %20 to i64
@@ -4788,7 +4782,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
 .thread:                                          ; preds = %17
   %24 = add i32 %20, -1
   store i32 %24, ptr %4, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %._crit_edge103, %.thread
@@ -4837,7 +4831,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   br label %77
 
 44:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread90
 
 45:                                               ; preds = %8
@@ -4864,7 +4858,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %7, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %59 = zext i32 %12 to i64
   %60 = zext nneg i32 %13 to i64
   %61 = call ptr @ft_mem_qrealloc(ptr noundef %58, i64 noundef 8, i64 noundef %59, i64 noundef %60, ptr noundef nonnull %49, ptr noundef nonnull %3) #12
@@ -4876,11 +4870,11 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
 .thread88:                                        ; preds = %57
   %63 = add nsw i32 %13, -1
   store i32 %63, ptr %4, align 4, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %65
 
 64:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread90
 
 65:                                               ; preds = %._crit_edge, %.thread88
@@ -4917,7 +4911,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   ret void
 }
 
-declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ftc_node_destroy(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
@@ -5014,7 +5008,7 @@ ftc_node_hash_unlink.exit:                        ; preds = %42, %47
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_cmap_node_new(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = call ptr @ft_mem_qalloc(ptr noundef %6, i64 noundef 312, ptr noundef nonnull %4) #12
@@ -5041,17 +5035,17 @@ define internal i32 @ftc_cmap_node_new(ptr noundef writeonly captures(none) init
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
   store ptr %7, ptr %0, align 8, !tbaa !247
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @ftc_cmap_node_weight(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #9 {
+define internal noundef i64 @ftc_cmap_node_weight(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #8 {
   ret i64 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
+define internal zeroext range(i8 0, 2) i8 @ftc_cmap_node_remove_faceid(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr readnone captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 
@@ -5075,12 +5069,12 @@ define internal void @ftc_cmap_node_free(ptr noundef %0, ptr noundef readonly ca
   ret void
 }
 
-declare i32 @FT_Activate_Size(ptr noundef) local_unnamed_addr #5
+declare i32 @FT_Activate_Size(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_face_node_init(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %6 = load ptr, ptr %5, align 8, !tbaa !173
   %7 = load ptr, ptr %2, align 8, !tbaa !172
@@ -5111,7 +5105,7 @@ define internal i32 @ftc_face_node_init(ptr noundef writeonly captures(none) %0,
   br label %21
 
 21:                                               ; preds = %17, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %10
 }
 
@@ -5190,18 +5184,18 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %32, %2
   ret void
 }
 
-declare i32 @FT_Done_Size(ptr noundef) local_unnamed_addr #5
+declare i32 @FT_Done_Size(ptr noundef) local_unnamed_addr #4
 
-declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #5
+declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ftc_size_node_init(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !158
   %6 = load ptr, ptr %1, align 8, !tbaa !159
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not29.i.i = icmp eq ptr %2, null
   br i1 %.not29.i.i, label %FTC_Manager_LookupFace.exit.thread.i, label %7
 
@@ -5255,14 +5249,14 @@ FTC_MruNode_Up.exit.i.i:                          ; preds = %13
 
 FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   %.023.i.ph.i = phi i32 [ %22, %.loopexit.i.i ], [ 39, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ftc_scaler_lookup_size.exit.thread
 
 23:                                               ; preds = %.loopexit._crit_edge.i.i, %FTC_MruNode_Up.exit.i.i, %13
   %24 = phi ptr [ %.pre.i.i, %.loopexit._crit_edge.i.i ], [ %.0.i.i, %13 ], [ %.0.i.i, %FTC_MruNode_Up.exit.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %27 = call i32 @FT_New_Size(ptr noundef %26, ptr noundef nonnull %5) #12
   %.not15.i = icmp eq i32 %27, 0
   br i1 %.not15.i, label %28, label %ftc_scaler_lookup_size.exit.thread
@@ -5307,11 +5301,11 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
 
 ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manager_LookupFace.exit.thread.i
   %.0.i.ph = phi i32 [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ], [ %.1.i, %49 ], [ %27, %23 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.pre.i, ptr %52, align 8, !tbaa !165
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5331,13 +5325,19 @@ define internal void @ftc_size_node_done(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-declare i32 @FT_New_Size(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @FT_New_Size(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @FT_Set_Pixel_Sizes(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @FT_Set_Char_Size(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @FT_Set_Char_Size(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -5352,15 +5352,15 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 declare i16 @llvm.abs.i16(i16, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nounwind }

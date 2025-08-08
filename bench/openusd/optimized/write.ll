@@ -3932,7 +3932,7 @@ define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull 
   br i1 %.not, label %.thread, label %28
 
 .thread:                                          ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %33
 
 28:                                               ; preds = %26
@@ -3941,11 +3941,11 @@ define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull 
   br i1 %.not47, label %.thread51, label %180
 
 .thread51:                                        ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %31
 
 30:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %.thread51, %30
@@ -4010,15 +4010,15 @@ define internal fastcc i32 @avifEncoderWriteColorProperties(ptr noundef nonnull 
 
 avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, %45, %49, %55, %59
   %.0.i.ph = phi i32 [ %60, %59 ], [ %56, %55 ], [ %54, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %35 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %180
 
 61:                                               ; preds = %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
@@ -4026,11 +4026,11 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
   br i1 %.not.i49, label %.thread57, label %70
 
 .thread54:                                        ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 1
@@ -4293,10 +4293,10 @@ avifEncoderWriteNclxProperty.exit.thread:         ; preds = %33, %35, %37, %41, 
 
 avifEncoderWriteExtendedColorProperties.exit:     ; preds = %70, %73, %77, %83, %.thread160.i, %97, %101, %105, %109, %113, %117, %121, %125, %131, %.thread165.i, %145, %147, %155, %.thread170.i, %168, %170, %177, %179
   %.0.i50 = phi i32 [ 0, %179 ], [ %72, %70 ], [ %76, %73 ], [ %80, %77 ], [ %84, %83 ], [ %96, %.thread160.i ], [ %100, %97 ], [ %104, %101 ], [ %108, %105 ], [ %112, %109 ], [ %116, %113 ], [ %120, %117 ], [ %124, %121 ], [ %128, %125 ], [ %132, %131 ], [ %144, %.thread165.i ], [ %146, %145 ], [ %152, %147 ], [ %156, %155 ], [ %167, %.thread170.i ], [ %169, %168 ], [ %174, %170 ], [ %178, %177 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %180
 
 180:                                              ; preds = %avifEncoderWriteNclxProperty.exit.thread, %28, %22, %20, %18, %avifEncoderWriteExtendedColorProperties.exit
@@ -4801,12 +4801,12 @@ declare void @avifRWStreamFinishWrite(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden i32 @avifEncoderWrite(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @avifDiagnosticsClearError(ptr noundef nonnull %5) #13
   %6 = call fastcc i32 @avifEncoderAddImageInternal(ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %4, i64 noundef 1, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
 
@@ -5290,7 +5290,7 @@ define internal fastcc i32 @avifEncoderAddImageItems(ptr noundef %0, i32 noundef
   %14 = load ptr, ptr %12, align 8
   %15 = tail call fastcc ptr @avifEncoderDataCreateItem(ptr noundef %14, ptr noundef nonnull @.str.59, ptr noundef nonnull %10, i64 noundef 6, i32 noundef 0)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = or i32 %4, %3
   %.not.i = icmp ugt i32 %17, 65535
   call void @avifRWStreamStart(ptr noundef nonnull %8, ptr noundef nonnull %16) #13
@@ -5345,12 +5345,12 @@ define internal fastcc i32 @avifEncoderAddImageItems(ptr noundef %0, i32 noundef
 
 avifWriteGridPayload.exit.thread:                 ; preds = %13, %19, %22, %26, %31, %33, %35, %38
   %.0.i.ph = phi i32 [ %40, %38 ], [ %37, %35 ], [ %34, %33 ], [ %32, %31 ], [ %29, %26 ], [ %25, %22 ], [ %21, %19 ], [ %18, %13 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .split.us.preheader:                              ; preds = %33, %38
   call void @avifRWStreamFinishWrite(ptr noundef nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i32 %5, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 136
@@ -5961,10 +5961,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12

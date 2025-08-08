@@ -430,17 +430,11 @@ ahci_reg_init.exit:                               ; preds = %.lr.ph.i, %8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 declare ptr @qemu_allocate_irqs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -524,7 +518,7 @@ define dso_local void @ahci_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %14 = tail call i32 @qemu_get_thread_id() #14
@@ -532,7 +526,7 @@ define dso_local void @ahci_reset(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i64, ptr %16, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.191, i32 noundef %14, i64 noundef %15, i64 noundef %17, ptr noundef %0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_ahci_reset.exit
 
 18:                                               ; preds = %9
@@ -600,7 +594,7 @@ define internal fastcc void @ahci_reset_port(ptr noundef %0, i32 noundef %1) unn
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %18 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %19 = tail call i32 @qemu_get_thread_id() #14
@@ -608,7 +602,7 @@ define internal fastcc void @ahci_reset_port(ptr noundef %0, i32 noundef %1) unn
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.193, i32 noundef %19, i64 noundef %20, i64 noundef %22, ptr noundef nonnull %0, i32 noundef %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_reset_port.exit
 
 23:                                               ; preds = %14
@@ -953,7 +947,7 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %33 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %34 = tail call i32 @qemu_get_thread_id() #14
@@ -961,7 +955,7 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load i64, ptr %36, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %34, i64 noundef %35, i64 noundef %37, ptr noundef %0, i32 noundef %2, i64 noundef %1, i64 noundef %22) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_mem_read.exit
 
 38:                                               ; preds = %29
@@ -1001,7 +995,7 @@ define internal void @ahci_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %21 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %22 = tail call i32 @qemu_get_thread_id() #14
@@ -1009,7 +1003,7 @@ define internal void @ahci_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load i64, ptr %24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %22, i64 noundef %23, i64 noundef %25, ptr noundef %0, i32 noundef %3, i64 noundef %1, i64 noundef %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %trace_ahci_mem_write.exit
 
 26:                                               ; preds = %17
@@ -1108,7 +1102,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !11
   %65 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %66 = tail call i32 @qemu_get_thread_id() #14
@@ -1116,7 +1110,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %69 = load i64, ptr %68, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %66, i64 noundef %67, i64 noundef %69, ptr noundef %0, i32 noundef %3, ptr noundef %.pre, i64 noundef range(i64 0, 44) %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %trace_ahci_mem_write_host_unimpl.exit
 
 70:                                               ; preds = %61
@@ -1151,7 +1145,7 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %80 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %81 = tail call i32 @qemu_get_thread_id() #14
@@ -1159,7 +1153,7 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load i64, ptr %83, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %81, i64 noundef %82, i64 noundef %84, ptr noundef %0, i32 noundef %3, ptr noundef %71, i64 noundef range(i64 0, 44) %1, i64 noundef %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %trace_ahci_mem_write_host.exit
 
 85:                                               ; preds = %76
@@ -1214,7 +1208,7 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %119 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %120 = tail call i32 @qemu_get_thread_id() #14
@@ -1222,7 +1216,7 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %123 = load i64, ptr %122, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %120, i64 noundef %121, i64 noundef %123, ptr noundef nonnull %0, i32 noundef range(i32 0, 33554430) %98, ptr noundef %108, i32 noundef range(i32 0, 128) %100, i32 noundef %101) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %trace_ahci_port_write.exit.i
 
 124:                                              ; preds = %115
@@ -1391,7 +1385,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %124, %118, %112, %1
   br i1 %196, label %197, label %203
 
 197:                                              ; preds = %194
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %198 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %199 = tail call i32 @qemu_get_thread_id() #14
@@ -1399,7 +1393,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %124, %118, %112, %1
   %201 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %202 = load i64, ptr %201, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.166, i32 noundef %199, i64 noundef %200, i64 noundef %202, ptr noundef nonnull %0, i32 noundef range(i32 0, 33554430) %98, ptr noundef %108, i32 noundef range(i32 0, 128) %100, i32 noundef %101) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %trace_ahci_port_write_unimpl.exit.i
 
 203:                                              ; preds = %194
@@ -1448,7 +1442,7 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
   br i1 %220, label %221, label %227
 
 221:                                              ; preds = %218
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %222 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %223 = tail call i32 @qemu_get_thread_id() #14
@@ -1456,7 +1450,7 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %226 = load i64, ptr %225, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.168, i32 noundef %223, i64 noundef %224, i64 noundef %226, ptr noundef %0, i32 noundef %3, i64 noundef range(i64 44, 0) %1, i64 noundef %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_ahci_mem_write_host.exit
 
 227:                                              ; preds = %218
@@ -1538,7 +1532,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %41 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %42 = tail call i32 @qemu_get_thread_id() #14
@@ -1546,7 +1540,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = load i64, ptr %44, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %42, i64 noundef %43, i64 noundef %45, ptr noundef %0, ptr noundef %30, i64 noundef range(i64 0, 44) %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %trace_ahci_mem_read_32_host_default.exit
 
 46:                                               ; preds = %37
@@ -1583,7 +1577,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %56 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %57 = tail call i32 @qemu_get_thread_id() #14
@@ -1591,7 +1585,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = load i64, ptr %59, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %57, i64 noundef %58, i64 noundef %60, ptr noundef %0, ptr noundef %47, i64 noundef range(i64 0, 44) %1, i32 noundef %.045) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %trace_ahci_mem_read_32_host.exit
 
 61:                                               ; preds = %52
@@ -1735,7 +1729,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %133
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %137 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %138 = tail call i32 @qemu_get_thread_id() #14
@@ -1743,7 +1737,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %141 = load i64, ptr %140, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %138, i64 noundef %139, i64 noundef %141, ptr noundef nonnull %0, i32 noundef range(i32 0, 33554430) %74, ptr noundef %126, i32 noundef range(i32 0, 128) %76) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %trace_ahci_port_read_default.exit.i
 
 142:                                              ; preds = %133
@@ -1780,7 +1774,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %148
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %152 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %153 = tail call i32 @qemu_get_thread_id() #14
@@ -1788,7 +1782,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %156 = load i64, ptr %155, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %153, i64 noundef %154, i64 noundef %156, ptr noundef nonnull %0, i32 noundef range(i32 0, 33554430) %74, ptr noundef %143, i32 noundef range(i32 0, 128) %76, i32 noundef %.037.i) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_ahci_mem_read_32_host.exit
 
 157:                                              ; preds = %148
@@ -1817,7 +1811,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %165
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %169 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %170 = tail call i32 @qemu_get_thread_id() #14
@@ -1825,7 +1819,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %173 = load i64, ptr %172, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %170, i64 noundef %171, i64 noundef %173, ptr noundef %0, i64 noundef range(i64 44, 0) %1, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_mem_read_32_host.exit
 
 174:                                              ; preds = %165
@@ -1856,7 +1850,7 @@ trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_me
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %183 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %184 = tail call i32 @qemu_get_thread_id() #14
@@ -1864,7 +1858,7 @@ trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_me
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %187 = load i64, ptr %186, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %184, i64 noundef %185, i64 noundef %187, ptr noundef %0, i64 noundef %1, i32 noundef %.154) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_mem_read_32.exit
 
 188:                                              ; preds = %179
@@ -1878,13 +1872,13 @@ trace_ahci_mem_read_32.exit:                      ; preds = %28, %trace_ahci_mem
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1955,7 +1949,7 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %36 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %37 = tail call i32 @qemu_get_thread_id() #14
@@ -1963,7 +1957,7 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = load i64, ptr %39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %37, i64 noundef %38, i64 noundef %40, ptr noundef nonnull %0, i32 noundef %6, i32 noundef %25) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_check_irq.exitthread-pre-split
 
 41:                                               ; preds = %32
@@ -2012,7 +2006,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %57 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %58 = tail call i32 @qemu_get_thread_id() #14
@@ -2020,7 +2014,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load i64, ptr %60, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %58, i64 noundef %59, i64 noundef %61, ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_irq_raise.exit
 
 62:                                               ; preds = %53
@@ -2049,7 +2043,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %74 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %75 = tail call i32 @qemu_get_thread_id() #14
@@ -2057,7 +2051,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %78 = load i64, ptr %77, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %75, i64 noundef %76, i64 noundef %78, ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_ahci_irq_raise.exit
 
 79:                                               ; preds = %70
@@ -2108,11 +2102,11 @@ define internal fastcc range(i32 -1, 1) i32 @ahci_cond_start_engines(ptr noundef
   br label %20
 
 20:                                               ; preds = %19, %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 1024, ptr %5, align 8
   %21 = call ptr @address_space_map(ptr noundef %15, i64 noundef %17, ptr noundef nonnull %5, i1 noundef zeroext true, i64 4294967296) #14
   %22 = load i64, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %21, ptr %16, align 8
   %23 = icmp ugt i64 %22, 1023
   %.not19.i.i = icmp eq ptr %21, null
@@ -2172,7 +2166,7 @@ ahci_map_clb_address.exit.thread:                 ; preds = %map_page.exit.i
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %48 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %49 = tail call i32 @qemu_get_thread_id() #14
@@ -2180,7 +2174,7 @@ ahci_map_clb_address.exit.thread:                 ; preds = %map_page.exit.i
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = load i64, ptr %51, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %49, i64 noundef %50, i64 noundef %52, ptr noundef %35, i32 noundef %37) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ahci_unmap_clb_address.exit
 
 53:                                               ; preds = %44
@@ -2222,11 +2216,11 @@ ahci_unmap_clb_address.exit:                      ; preds = %1, %54, %53, %47, %
   br label %71
 
 71:                                               ; preds = %70, %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 256, ptr %3, align 8
   %72 = call ptr @address_space_map(ptr noundef %65, i64 noundef %68, ptr noundef nonnull %3, i1 noundef zeroext true, i64 4294967296) #14
   %73 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %72, ptr %66, align 8
   %74 = icmp ugt i64 %73, 255
   %.not19.i.i32 = icmp eq ptr %72, null
@@ -2286,7 +2280,7 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %99 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %100 = call i32 @qemu_get_thread_id() #14
@@ -2294,7 +2288,7 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %103 = load i64, ptr %102, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %100, i64 noundef %101, i64 noundef %103, ptr noundef %86, i32 noundef %88) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ahci_unmap_fis_address.exit
 
 104:                                              ; preds = %95
@@ -2526,14 +2520,14 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !annotation !11
   %70 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #14
   %71 = call i32 @qemu_get_thread_id() #14
   %72 = load i64, ptr %18, align 8
   %73 = load i64, ptr %28, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %71, i64 noundef %72, i64 noundef %73, ptr noundef nonnull %0, i32 noundef %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %handle_cmd.exit
 
 74:                                               ; preds = %66
@@ -2568,14 +2562,14 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !annotation !11
   %89 = call i32 @gettimeofday(ptr noundef nonnull %17, ptr noundef null) #14
   %90 = call i32 @qemu_get_thread_id() #14
   %91 = load i64, ptr %17, align 8
   %92 = load i64, ptr %46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %90, i64 noundef %91, i64 noundef %92, ptr noundef nonnull %0, i32 noundef %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %handle_cmd.exit
 
 93:                                               ; preds = %85
@@ -2627,14 +2621,14 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !annotation !11
   %116 = call i32 @gettimeofday(ptr noundef nonnull %16, ptr noundef null) #14
   %117 = call i32 @qemu_get_thread_id() #14
   %118 = load i64, ptr %16, align 8
   %119 = load i64, ptr %45, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, i32 noundef %117, i64 noundef %118, i64 noundef %119, ptr noundef nonnull %0, i32 noundef %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %handle_cmd.exit
 
 120:                                              ; preds = %112
@@ -2645,11 +2639,11 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %122 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %123 = load i64, ptr %122, align 1
   %124 = load ptr, ptr %32, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 128, ptr %15, align 8
   %125 = call ptr @address_space_map(ptr noundef %124, i64 noundef %123, ptr noundef nonnull %15, i1 noundef zeroext false, i64 4294967296) #14
   %126 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not54.i = icmp eq ptr %125, null
   br i1 %.not54.i, label %127, label %143
 
@@ -2675,14 +2669,14 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %134
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !11
   %138 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #14
   %139 = call i32 @qemu_get_thread_id() #14
   %140 = load i64, ptr %14, align 8
   %141 = load i64, ptr %44, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %139, i64 noundef %140, i64 noundef %141, ptr noundef nonnull %0, i32 noundef %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %handle_cmd.exit
 
 142:                                              ; preds = %134
@@ -2718,14 +2712,14 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !annotation !11
   %157 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #14
   %158 = call i32 @qemu_get_thread_id() #14
   %159 = load i64, ptr %13, align 8
   %160 = load i64, ptr %33, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %158, i64 noundef %159, i64 noundef %160, ptr noundef nonnull %0, i32 noundef %1, i64 noundef %126) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %trace_handle_cmd_badmap.exit.i
 
 161:                                              ; preds = %153
@@ -2797,7 +2791,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %197, label %198, label %206
 
 198:                                              ; preds = %195
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !11
   %199 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #14
   %200 = call i32 @qemu_get_thread_id() #14
@@ -2807,7 +2801,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %204 = sext i8 %186 to i32
   %205 = sext i8 %188 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %200, i64 noundef %201, i64 noundef %202, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %203, i32 noundef %204, i32 noundef %205) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %trace_handle_cmd_badmap.exit.i
 
 206:                                              ; preds = %195
@@ -2848,7 +2842,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %225, label %226, label %234
 
 226:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !11
   %227 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %228 = call i32 @qemu_get_thread_id() #14
@@ -2858,7 +2852,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %232 = sext i8 %214 to i32
   %233 = sext i8 %216 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %228, i64 noundef %229, i64 noundef %230, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %231, i32 noundef %232, i32 noundef %233) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %trace_handle_cmd_badmap.exit.i
 
 234:                                              ; preds = %223
@@ -3131,7 +3125,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   br i1 %385, label %386, label %392
 
 386:                                              ; preds = %383
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %387 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %388 = call i32 @qemu_get_thread_id() #14
@@ -3139,7 +3133,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   %390 = load i64, ptr %37, align 8
   %391 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.127, i32 noundef %388, i64 noundef %389, i64 noundef %390, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %391, i32 noundef %48) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %trace_process_ncq_command_mismatch.exit.i.i.i
 
 392:                                              ; preds = %383
@@ -3196,7 +3190,7 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %3
   br i1 %414, label %415, label %421
 
 415:                                              ; preds = %412
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !11
   %416 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %417 = call i32 @qemu_get_thread_id() #14
@@ -3204,7 +3198,7 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %3
   %419 = load i64, ptr %38, align 8
   %420 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %417, i64 noundef %418, i64 noundef %419, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %420) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %trace_process_ncq_command_aux.exit.i.i.i
 
 421:                                              ; preds = %412
@@ -3249,7 +3243,7 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %4
   br i1 %437, label %438, label %444
 
 438:                                              ; preds = %435
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %439 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %440 = call i32 @qemu_get_thread_id() #14
@@ -3257,7 +3251,7 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %4
   %442 = load i64, ptr %39, align 8
   %443 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %440, i64 noundef %441, i64 noundef %442, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %443) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %trace_process_ncq_command_prioicc.exit.i.i.i
 
 444:                                              ; preds = %435
@@ -3291,7 +3285,7 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %4
   br i1 %456, label %457, label %463
 
 457:                                              ; preds = %454
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %458 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %459 = call i32 @qemu_get_thread_id() #14
@@ -3299,7 +3293,7 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %4
   %461 = load i64, ptr %40, align 8
   %462 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %459, i64 noundef %460, i64 noundef %461, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %462) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %trace_process_ncq_command_fua.exit.i.i.i
 
 463:                                              ; preds = %454
@@ -3333,7 +3327,7 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %4
   br i1 %475, label %476, label %482
 
 476:                                              ; preds = %473
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %477 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %478 = call i32 @qemu_get_thread_id() #14
@@ -3341,7 +3335,7 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %4
   %480 = load i64, ptr %41, align 8
   %481 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %478, i64 noundef %479, i64 noundef %480, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %481) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %trace_process_ncq_command_rarc.exit.i.i.i
 
 482:                                              ; preds = %473
@@ -3419,7 +3413,7 @@ trace_process_ncq_command_large.exit.thread121.i.i.i: ; preds = %510
   br i1 %521, label %522, label %528
 
 522:                                              ; preds = %519
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %523 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %524 = call i32 @qemu_get_thread_id() #14
@@ -3427,7 +3421,7 @@ trace_process_ncq_command_large.exit.thread121.i.i.i: ; preds = %510
   %526 = load i64, ptr %42, align 8
   %527 = zext nneg i8 %267 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.149, i32 noundef %524, i64 noundef %525, i64 noundef %526, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %527, i64 noundef %499, i64 noundef range(i64 0, 2199023255041) %494) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %trace_process_ncq_command_large.exit.i.i.i
 
 528:                                              ; preds = %519
@@ -3465,7 +3459,7 @@ trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %5
   br i1 %544, label %545, label %552
 
 545:                                              ; preds = %542
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %546 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %547 = call i32 @qemu_get_thread_id() #14
@@ -3474,7 +3468,7 @@ trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %5
   %550 = zext nneg i8 %267 to i32
   %551 = zext i8 %536 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.151, i32 noundef %547, i64 noundef %548, i64 noundef %549, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %550, i32 noundef %551, i64 noundef %535, i64 noundef %537) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_process_ncq_command.exit.i.i.i
 
 552:                                              ; preds = %542
@@ -3597,7 +3591,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %5
   br i1 %621, label %622, label %630
 
 622:                                              ; preds = %619
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %623 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %624 = call i32 @qemu_get_thread_id() #14
@@ -3607,7 +3601,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %5
   %628 = zext i8 %610 to i32
   %629 = zext i8 %612 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.164, i32 noundef %624, i64 noundef %625, i64 noundef %626, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %627, i32 noundef %628, i32 noundef %629) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_handle_cmd_badmap.exit.i
 
 630:                                              ; preds = %619
@@ -3674,7 +3668,7 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %28 = tail call i32 @qemu_get_thread_id() #14
@@ -3682,7 +3676,7 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.85, i32 noundef %28, i64 noundef %29, i64 noundef %31, ptr noundef %0, i32 noundef %10, ptr noundef %13, i32 noundef range(i32 1, 1073741825) %5, i32 noundef %7, i32 noundef range(i32 1, 0) %8, i32 noundef %16) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_trigger_irq.exit
 
 32:                                               ; preds = %23
@@ -3751,7 +3745,7 @@ g_string_append_c_inline.exit:                    ; preds = %20, %26
 }
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 {
+define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #7 {
   %4 = alloca %struct.timeval, align 8
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %5, 0
@@ -3774,7 +3768,7 @@ define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 nound
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %16 = tail call i32 @qemu_get_thread_id() #14
@@ -3782,7 +3776,7 @@ define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 nound
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %16, i64 noundef %17, i64 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_nocheck__trace_handle_cmd_fis_dump.exit
 
 20:                                               ; preds = %11
@@ -3802,7 +3796,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 {
+define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #7 {
   %4 = alloca %struct.timeval, align 8
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %5, 0
@@ -3825,7 +3819,7 @@ define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 n
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %16 = tail call i32 @qemu_get_thread_id() #14
@@ -3833,7 +3827,7 @@ define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 n
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.162, i32 noundef %16, i64 noundef %17, i64 noundef %19, ptr noundef %0, i32 noundef %1, ptr noundef %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_nocheck__trace_handle_reg_h2d_fis_dump.exit
 
 20:                                               ; preds = %11
@@ -3888,7 +3882,7 @@ define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %0
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !11
   %35 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %36 = tail call i32 @qemu_get_thread_id() #14
@@ -3896,7 +3890,7 @@ define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %0
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load i64, ptr %38, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %36, i64 noundef %37, i64 noundef %39, ptr noundef %22, i32 noundef %24) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %trace_ahci_populate_sglist.exit
 
 40:                                               ; preds = %31
@@ -3931,7 +3925,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %54 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %55 = tail call i32 @qemu_get_thread_id() #14
@@ -3940,7 +3934,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %58 = load i64, ptr %57, align 8
   %59 = zext i16 %12 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %55, i64 noundef %56, i64 noundef %58, ptr noundef %42, i32 noundef %43, i32 noundef %59) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %trace_ahci_populate_sglist_no_prdtl.exit
 
 60:                                               ; preds = %50
@@ -3953,11 +3947,11 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %64 = load ptr, ptr %21, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 600
   %66 = load ptr, ptr %65, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %18, ptr %9, align 8
   %67 = call ptr @address_space_map(ptr noundef %66, i64 noundef %63, ptr noundef nonnull %9, i1 noundef zeroext false, i64 4294967296) #14
   %68 = load i64, ptr %9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not104 = icmp eq ptr %67, null
   br i1 %.not104, label %69, label %88
 
@@ -3985,7 +3979,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %82 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %83 = call i32 @qemu_get_thread_id() #14
@@ -3993,7 +3987,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %86 = load i64, ptr %85, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, i32 noundef %83, i64 noundef %84, i64 noundef %86, ptr noundef %70, i32 noundef %71) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %trace_ahci_populate_sglist_no_prdtl.exit
 
 87:                                               ; preds = %78
@@ -4028,7 +4022,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %103 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %104 = call i32 @qemu_get_thread_id() #14
@@ -4036,7 +4030,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %107 = load i64, ptr %106, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %104, i64 noundef %105, i64 noundef %107, ptr noundef %91, i32 noundef %92) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
 108:                                              ; preds = %99
@@ -4099,7 +4093,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %130
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %134 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %135 = call i32 @qemu_get_thread_id() #14
@@ -4107,7 +4101,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %138 = load i64, ptr %137, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, i32 noundef %135, i64 noundef %136, i64 noundef %138, ptr noundef %122, i32 noundef %123, i32 noundef %.094125, i64 noundef %.097124) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 139:                                              ; preds = %130
@@ -4233,7 +4227,7 @@ is_ncq.exit:                                      ; preds = %1, %1, %1, %1, %1
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %31 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %32 = tail call i32 @qemu_get_thread_id() #14
@@ -4242,7 +4236,7 @@ is_ncq.exit:                                      ; preds = %1, %1, %1, %1, %1
   %35 = load i64, ptr %34, align 8
   %36 = zext i8 %15 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.154, i32 noundef %32, i64 noundef %33, i64 noundef %35, ptr noundef %13, i32 noundef %7, i32 noundef %36, i32 noundef %18, i64 noundef %20) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_execute_ncq_command_read.exit
 
 37:                                               ; preds = %27
@@ -4290,7 +4284,7 @@ trace_execute_ncq_command_read.exit:              ; preds = %16, %22, %24, %30, 
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %63 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %64 = tail call i32 @qemu_get_thread_id() #14
@@ -4299,7 +4293,7 @@ trace_execute_ncq_command_read.exit:              ; preds = %16, %22, %24, %30, 
   %67 = load i64, ptr %66, align 8
   %68 = zext i8 %15 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.158, i32 noundef %64, i64 noundef %65, i64 noundef %67, ptr noundef %13, i32 noundef %7, i32 noundef %68, i32 noundef %50, i64 noundef %52) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_execute_ncq_command_write.exit
 
 69:                                               ; preds = %59
@@ -4343,7 +4337,7 @@ trace_execute_ncq_command_write.exit:             ; preds = %48, %54, %56, %62, 
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %91 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %92 = tail call i32 @qemu_get_thread_id() #14
@@ -4353,7 +4347,7 @@ trace_execute_ncq_command_write.exit:             ; preds = %48, %54, %56, %62, 
   %96 = zext i8 %15 to i32
   %97 = zext nneg i8 %9 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.160, i32 noundef %92, i64 noundef %93, i64 noundef %95, ptr noundef %13, i32 noundef %7, i32 noundef %96, i32 noundef %97) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_execute_ncq_command_unsup.exit
 
 98:                                               ; preds = %87
@@ -4565,7 +4559,7 @@ ahci_write_fis_sdb.exit.i:                        ; preds = %.sink.split.i.i, %8
   br i1 %106, label %107, label %114
 
 107:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %108 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %109 = tail call i32 @qemu_get_thread_id() #14
@@ -4574,7 +4568,7 @@ ahci_write_fis_sdb.exit.i:                        ; preds = %.sink.split.i.i, %8
   %112 = load i64, ptr %111, align 8
   %113 = zext i8 %97 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.156, i32 noundef %109, i64 noundef %110, i64 noundef %112, ptr noundef %93, i32 noundef %95, i32 noundef %113) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ncq_finish.exit
 
 114:                                              ; preds = %104
@@ -4700,7 +4694,7 @@ define internal void @ahci_start_dma(ptr noundef readonly captures(none) %0, ptr
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
@@ -4708,7 +4702,7 @@ define internal void @ahci_start_dma(ptr noundef readonly captures(none) %0, ptr
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.172, i32 noundef %20, i64 noundef %21, i64 noundef %23, ptr noundef %6, i32 noundef %8) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_start_dma.exit
 
 24:                                               ; preds = %15
@@ -4884,7 +4878,7 @@ ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %106
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %110 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %111 = tail call i32 @qemu_get_thread_id() #14
@@ -4892,7 +4886,7 @@ ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %114 = load i64, ptr %113, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.180, i32 noundef %111, i64 noundef %112, i64 noundef %114, ptr noundef %96, i32 noundef %98, ptr noundef nonnull %99, i32 noundef %11, ptr noundef nonnull %93, ptr noundef nonnull %spec.select) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_ahci_pio_transfer.exit
 
 115:                                              ; preds = %106
@@ -4978,7 +4972,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %28 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %29 = tail call i32 @qemu_get_thread_id() #14
@@ -4986,7 +4980,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i64, ptr %31, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.182, i32 noundef %29, i64 noundef %30, i64 noundef %32, ptr noundef %15, i32 noundef %17) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %trace_ahci_dma_prepare_buf_fail.exit
 
 33:                                               ; preds = %24
@@ -5024,7 +5018,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %53 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %54 = tail call i32 @qemu_get_thread_id() #14
@@ -5032,7 +5026,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i64, ptr %56, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.184, i32 noundef %54, i64 noundef %55, i64 noundef %57, ptr noundef %40, i32 noundef %42, i32 noundef %1, i32 noundef %37) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_dma_prepare_buf.exit
 
 58:                                               ; preds = %49
@@ -5049,7 +5043,7 @@ trace_ahci_dma_prepare_buf_fail.exit:             ; preds = %33, %27, %21, %19, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @ahci_commit_buf(ptr noundef readonly captures(none) %0, i32 noundef %1) #9 {
+define internal void @ahci_commit_buf(ptr noundef readonly captures(none) %0, i32 noundef %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2488
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5123,7 +5117,7 @@ define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef 
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %44 = tail call i32 @qemu_get_thread_id() #14
@@ -5131,7 +5125,7 @@ define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef 
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i64, ptr %46, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.186, i32 noundef %44, i64 noundef %45, i64 noundef %47, ptr noundef %30, i32 noundef %32, i32 noundef %13) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_dma_rw_buf.exit
 
 48:                                               ; preds = %39
@@ -5170,7 +5164,7 @@ define internal void @ahci_restart(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @ahci_restart_dma(ptr readnone captures(none) %0) #10 {
+define internal void @ahci_restart_dma(ptr readnone captures(none) %0) #9 {
   ret void
 }
 
@@ -5202,7 +5196,7 @@ define internal void @ahci_cmd_done(ptr noundef %0) #0 {
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %17 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %18 = tail call i32 @qemu_get_thread_id() #14
@@ -5210,7 +5204,7 @@ define internal void @ahci_cmd_done(ptr noundef %0) #0 {
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.189, i32 noundef %18, i64 noundef %19, i64 noundef %21, ptr noundef %4, i32 noundef %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %trace_ahci_cmd_done.exit
 
 22:                                               ; preds = %13
@@ -5431,7 +5425,7 @@ define internal fastcc void @ahci_set_signature(ptr noundef captures(none) initi
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %29 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %30 = tail call i32 @qemu_get_thread_id() #14
@@ -5441,7 +5435,7 @@ define internal fastcc void @ahci_set_signature(ptr noundef captures(none) initi
   %34 = and i32 %10, 255
   %35 = and i32 %7, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.195, i32 noundef %30, i64 noundef %31, i64 noundef %33, ptr noundef %16, i32 noundef %18, i32 noundef %13, i32 noundef %34, i32 noundef %35, i32 noundef %4, i32 noundef range(i32 -351010559, 258) %1) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trace_ahci_set_signature.exit
 
 36:                                               ; preds = %25
@@ -5453,6 +5447,12 @@ define internal fastcc void @ahci_set_signature(ptr noundef captures(none) initi
 trace_ahci_set_signature.exit:                    ; preds = %2, %20, %22, %28, %36
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #11
@@ -5468,15 +5468,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #4 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #8 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #2 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #7 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

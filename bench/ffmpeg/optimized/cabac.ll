@@ -195,14 +195,8 @@ cabac_reinit.exit:                                ; preds = %86, %46, %32, %24
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sao_merge_flag_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sao_merge_flag_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -304,7 +298,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 3) i32 @ff_vvc_sao_type_idx_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @ff_vvc_sao_type_idx_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -454,7 +448,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_sao_band_position_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_sao_band_position_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -522,7 +516,7 @@ fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_sao_offset_abs_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_sao_offset_abs_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1928
@@ -599,7 +593,7 @@ refill.exit.i:                                    ; preds = %40, %26, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ff_vvc_sao_offset_sign_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ff_vvc_sao_offset_sign_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -653,7 +647,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @ff_vvc_sao_eo_class_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @ff_vvc_sao_eo_class_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -743,7 +737,7 @@ get_cabac_bypass.exit5:                           ; preds = %refill.exit.i3, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_alf_ctb_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_alf_ctb_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = mul nsw i32 %3, 3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -903,7 +897,7 @@ vvc_get_cabac.exit:                               ; preds = %48, %85, %110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_alf_use_aps_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_alf_use_aps_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -1005,7 +999,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_alf_luma_prev_filter_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_alf_luma_prev_filter_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
   %3 = load ptr, ptr %2, align 16, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1019,7 +1013,7 @@ define i32 @ff_vvc_alf_luma_prev_filter_idx(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = add nsw i32 %1, 1
   %.not.i = icmp ult i32 %3, 65536
   %4 = lshr i32 %3, 16
@@ -1169,13 +1163,13 @@ get_cabac_bypass.exit21:                          ; preds = %refill.exit.i19, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_alf_luma_fixed_filter_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_alf_luma_fixed_filter_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc i32 @truncated_binary_decode(ptr noundef %0, i32 noundef 15)
   ret i32 %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_alf_ctb_filter_alt_idx(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define i32 @ff_vvc_alf_ctb_filter_alt_idx(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = add i32 %2, -1
   %5 = icmp sgt i32 %2, 1
   br i1 %5, label %.lr.ph, label %.critedge
@@ -1304,7 +1298,7 @@ vvc_get_cabac.exit:                               ; preds = %19, %48, %71
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_alf_ctb_cc_idc(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define i32 @ff_vvc_alf_ctb_cc_idc(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %.not = icmp eq i32 %3, 0
   %6 = select i1 %.not, i32 10, i32 13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
@@ -1526,7 +1520,7 @@ refill.exit.i:                                    ; preds = %158, %144, %140
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_split_cu_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_split_cu_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1936
@@ -1779,7 +1773,7 @@ vvc_get_cabac.exit:                               ; preds = %get_left_top.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_split_mode(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #2 {
+define i32 @ff_vvc_split_mode(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(none) %8) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !113
   %.not = icmp eq i32 %11, 0
@@ -2386,7 +2380,7 @@ mtt_split_cu_binary_flag_decode.exit:             ; preds = %338, %379, %404
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_non_inter_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_non_inter_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 21520
@@ -2553,7 +2547,7 @@ vvc_get_cabac.exit:                               ; preds = %get_left_top.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_pred_mode_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_pred_mode_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
@@ -2726,7 +2720,7 @@ vvc_get_cabac.exit:                               ; preds = %get_left_top.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_pred_mode_plt_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_pred_mode_plt_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -2828,7 +2822,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -2930,7 +2924,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_dir_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_dir_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -3032,7 +3026,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -3134,7 +3128,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_dir_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_dir_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -3236,7 +3230,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cu_skip_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cu_skip_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %4 = load ptr, ptr %3, align 8, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3403,7 +3397,7 @@ vvc_get_cabac.exit:                               ; preds = %get_inc.exit, %88, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_pred_mode_ibc_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_pred_mode_ibc_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
@@ -3577,7 +3571,7 @@ vvc_get_cabac.exit:                               ; preds = %get_left_top.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_mip_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_mip_flag(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %4 = load ptr, ptr %3, align 8, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -3763,7 +3757,7 @@ vvc_get_cabac.exit:                               ; preds = %64, %101, %126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ff_vvc_intra_mip_transposed_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ff_vvc_intra_mip_transposed_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -3817,7 +3811,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_intra_mip_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_intra_mip_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3845,7 +3839,7 @@ define i32 @ff_vvc_intra_mip_mode(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 3) i32 @ff_vvc_intra_luma_ref_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 0, 3) i32 @ff_vvc_intra_luma_ref_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -3969,7 +3963,7 @@ vvc_get_cabac.exit:                               ; preds = %9, %42, %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_subpartitions_mode_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_subpartitions_mode_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4071,7 +4065,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 129) i32 @ff_vvc_isp_split_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 129) i32 @ff_vvc_isp_split_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %87, label %3
 
@@ -4182,7 +4176,7 @@ vvc_get_cabac.exit:                               ; preds = %3, %38, %63
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_luma_mpm_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_luma_mpm_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4284,7 +4278,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_intra_luma_not_planar_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_intra_luma_not_planar_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -4389,7 +4383,7 @@ vvc_get_cabac.exit:                               ; preds = %2, %39, %64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_intra_luma_mpm_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_intra_luma_mpm_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4450,13 +4444,13 @@ refill.exit.i:                                    ; preds = %28, %14, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_intra_luma_mpm_remainder(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_intra_luma_mpm_remainder(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call fastcc i32 @truncated_binary_decode(ptr noundef %0, i32 noundef 60)
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cclm_mode_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cclm_mode_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4558,7 +4552,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 3) i32 @ff_vvc_cclm_mode_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @ff_vvc_cclm_mode_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4708,7 +4702,7 @@ get_cabac_bypass.exit:                            ; preds = %109, %refill.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 5) i32 @ff_vvc_intra_chroma_pred_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 5) i32 @ff_vvc_intra_chroma_pred_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4898,7 +4892,7 @@ get_cabac_bypass.exit8:                           ; preds = %refill.exit.i6, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_palette_predictor_run(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_palette_predictor_run(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -4907,7 +4901,7 @@ define i32 @ff_vvc_palette_predictor_run(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @kth_order_egk_decode(ptr noundef captures(none) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #4 {
+define internal fastcc i32 @kth_order_egk_decode(ptr noundef captures(none) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !100
   %5 = shl i32 %4, 17
@@ -5026,7 +5020,7 @@ get_cabac_bypass.exit22:                          ; preds = %refill.exit.i20, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_num_signalled_palette_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_num_signalled_palette_entries(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5035,7 +5029,7 @@ define i32 @ff_vvc_num_signalled_palette_entries(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_new_palette_entries(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @ff_vvc_new_palette_entries(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -5108,7 +5102,7 @@ fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @ff_vvc_palette_escape_val_present_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define noundef zeroext i1 @ff_vvc_palette_escape_val_present_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5161,7 +5155,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @ff_vvc_palette_transpose_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define zeroext i1 @ff_vvc_palette_transpose_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5264,7 +5258,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @ff_vvc_run_copy_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define zeroext i1 @ff_vvc_run_copy_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = xor i32 %2, -1
   %6 = add i32 %3, %5
   %7 = icmp eq i32 %1, 1
@@ -5388,7 +5382,7 @@ vvc_get_cabac.exit:                               ; preds = %16, %54, %79
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i1 @ff_vvc_copy_above_palette_indices_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define zeroext i1 @ff_vvc_copy_above_palette_indices_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5491,7 +5485,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_palette_idx_idc(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
+define i32 @ff_vvc_palette_idx_idc(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %.neg = sext i1 %2 to i32
   %4 = add i32 %1, %.neg
   %5 = tail call fastcc i32 @truncated_binary_decode(ptr noundef %0, i32 noundef %4)
@@ -5499,7 +5493,7 @@ define i32 @ff_vvc_palette_idx_idc(ptr noundef readonly captures(none) %0, i32 n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_palette_escape_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_palette_escape_val(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5508,7 +5502,7 @@ define i32 @ff_vvc_palette_escape_val(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_general_merge_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_general_merge_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -5610,7 +5604,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_merge_subblock_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_merge_subblock_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5813,7 +5807,7 @@ vvc_get_cabac.exit:                               ; preds = %get_inter_flag_inc.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483648, 2147483647) i32 @ff_vvc_merge_subblock_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define range(i32 -2147483648, 2147483647) i32 @ff_vvc_merge_subblock_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -5975,7 +5969,7 @@ refill.exit.i:                                    ; preds = %108, %94, %90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_regular_merge_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_regular_merge_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
@@ -6080,7 +6074,7 @@ vvc_get_cabac.exit:                               ; preds = %2, %39, %64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_mmvd_merge_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_mmvd_merge_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -6182,7 +6176,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_mmvd_cand_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_mmvd_cand_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -6284,7 +6278,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_vvc_mmvd_offset_coding(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @ff_vvc_mmvd_offset_coding(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 4580560
   %.val = load ptr, ptr %4, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 2672
@@ -6531,7 +6525,7 @@ mmvd_direction_idx_decode.exit:                   ; preds = %refill.exit.i3.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_merge_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_merge_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1928
@@ -6740,7 +6734,7 @@ refill.exit.i:                                    ; preds = %142, %128, %124
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_merge_gpm_partition_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_merge_gpm_partition_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -6808,7 +6802,7 @@ fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_merge_gpm_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @ff_vvc_merge_gpm_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1928
@@ -6978,7 +6972,7 @@ refill.exit.i:                                    ; preds = %116, %102, %98
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_ciip_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_ciip_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -7080,7 +7074,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 1, 129) i32 @ff_vvc_pred_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 1, 129) i32 @ff_vvc_pred_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %4 = load ptr, ptr %3, align 8, !tbaa !124
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -7346,7 +7340,7 @@ vvc_get_cabac.exit25:                             ; preds = %118, %152, %177
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_inter_affine_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_inter_affine_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -7549,7 +7543,7 @@ vvc_get_cabac.exit:                               ; preds = %get_inter_flag_inc.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cu_affine_type_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cu_affine_type_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -7651,7 +7645,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sym_mvd_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sym_mvd_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -7753,7 +7747,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_ref_idx_lx(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #3 {
+define i32 @ff_vvc_ref_idx_lx(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i8 %1 to i32
   %4 = add nsw i32 %3, -1
   %5 = tail call i32 @llvm.smin.i32(i32 %4, i32 2)
@@ -7950,7 +7944,7 @@ refill.exit.i:                                    ; preds = %123, %109, %105
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater0_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater0_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -8052,7 +8046,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater1_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater1_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -8154,7 +8148,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_abs_mvd_minus2(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_abs_mvd_minus2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -8163,7 +8157,7 @@ define i32 @ff_vvc_abs_mvd_minus2(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @limited_kth_order_egk_decode(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef range(i32 -229, 27) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #4 {
+define internal fastcc i32 @limited_kth_order_egk_decode(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef range(i32 -229, 27) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #3 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
@@ -8297,7 +8291,7 @@ get_cabac_bypass.exit20:                          ; preds = %refill.exit.i18, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ff_vvc_mvd_sign_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ff_vvc_mvd_sign_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -8351,7 +8345,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_mvp_lx_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_mvp_lx_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -8453,7 +8447,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_amvr_shift(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @ff_vvc_amvr_shift(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %105, label %5
 
@@ -8600,7 +8594,7 @@ amvr_flag.exit:                                   ; preds = %7, %44, %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @amvr_precision_idx(ptr captures(none) %.4580560.val, i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #5 {
+define internal fastcc range(i32 0, 3) i32 @amvr_precision_idx(ptr captures(none) %.4580560.val, i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %.4580560.val, i64 2672
   %4 = getelementptr inbounds nuw i8, ptr %.4580560.val, i64 400
   %5 = zext nneg i32 %0 to i64
@@ -8809,7 +8803,7 @@ vvc_get_cabac.exit14:                             ; preds = %89, %118, %143
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_bcw_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @ff_vvc_bcw_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, i32 2, i32 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
@@ -8968,7 +8962,7 @@ refill.exit.i:                                    ; preds = %107, %93, %89
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_tu_cb_coded_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_tu_cb_coded_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -9077,7 +9071,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %43, %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_tu_cr_coded_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_tu_cr_coded_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -9188,7 +9182,7 @@ vvc_get_cabac.exit:                               ; preds = %2, %45, %70
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_tu_y_coded_flag(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_tu_y_coded_flag(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -9315,7 +9309,7 @@ vvc_get_cabac.exit:                               ; preds = %15, %51, %76
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cu_act_enabled_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cu_act_enabled_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -9417,7 +9411,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483643, -2147483648) i32 @ff_vvc_cu_qp_delta_abs(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define range(i32 -2147483643, -2147483648) i32 @ff_vvc_cu_qp_delta_abs(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -9748,7 +9742,7 @@ get_cabac_bypass.exit34:                          ; preds = %refill.exit.i32, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ff_vvc_cu_qp_delta_sign_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ff_vvc_cu_qp_delta_sign_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -9802,7 +9796,7 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cu_chroma_qp_offset_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cu_chroma_qp_offset_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -9904,7 +9898,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_cu_chroma_qp_offset_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_cu_chroma_qp_offset_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580552
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1936
@@ -10037,7 +10031,7 @@ vvc_get_cabac.exit:                               ; preds = %20, %49, %72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_tu_joint_cbcr_residual_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_tu_joint_cbcr_residual_flag(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %5 = load ptr, ptr %4, align 16, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2672
@@ -10145,7 +10139,7 @@ vvc_get_cabac.exit:                               ; preds = %3, %44, %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_transform_skip_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_transform_skip_flag(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -10272,7 +10266,7 @@ define noundef i32 @ff_vvc_residual_coding(ptr noundef captures(none) %0, ptr no
   br i1 %.not51, label %.critedge, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 65896, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 2147483647, ptr %18, align 8, !tbaa !166
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -10425,8 +10419,8 @@ define noundef i32 @ff_vvc_residual_coding(ptr noundef captures(none) %0, ptr no
   %124 = getelementptr inbounds i8, ptr %97, i64 %123
   %125 = zext i8 %115 to i64
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 %125
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %127 = zext i32 %104 to i64
   %.not.i19.i = icmp ne i64 %indvars.iv.i, %127
   %128 = load i8, ptr %87, align 8
@@ -11509,8 +11503,8 @@ thread-pre-split.i.i:                             ; preds = %800, %798, %.thread
   br i1 %821, label %626, label %residual_ts_coding_subblock.exit.i, !llvm.loop !202
 
 residual_ts_coding_subblock.exit.i:               ; preds = %818, %.critedge.i.i, %137
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %822 = load i32, ptr %48, align 8, !tbaa !175
   %823 = sext i32 %822 to i64
@@ -11518,7 +11512,7 @@ residual_ts_coding_subblock.exit.i:               ; preds = %818, %.critedge.i.i
   br i1 %.not.not.i, label %103, label %hls_residual_ts_coding.exit, !llvm.loop !203
 
 hls_residual_ts_coding.exit:                      ; preds = %residual_ts_coding_subblock.exit.i
-  call void @llvm.lifetime.end.p0(i64 65896, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2472
 
 .critedge:                                        ; preds = %2, %14
@@ -11534,7 +11528,7 @@ hls_residual_ts_coding.exit:                      ; preds = %residual_ts_coding_
   %833 = load i32, ptr %832, align 8, !tbaa !169
   %834 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %835 = load i8, ptr %834, align 1, !tbaa !176
-  call void @llvm.lifetime.start.p0(i64 65896, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %836 = load ptr, ptr %827, align 8, !tbaa !84
   %837 = getelementptr inbounds nuw i8, ptr %836, i64 15497
   %838 = load i8, ptr %837, align 1, !tbaa !204
@@ -12385,7 +12379,7 @@ derive_last_scan_pos.exit.i:                      ; preds = %1300
   %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 8
   %1359 = load ptr, ptr %1358, align 8, !tbaa !73
   %1360 = load ptr, ptr %4, align 8, !tbaa !190
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1361 = load i32, ptr %916, align 4, !tbaa !189
   %1362 = load ptr, ptr %896, align 8, !tbaa !180
   %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 %indvars.iv.i17
@@ -14175,13 +14169,13 @@ coeff_sign_flag_decode.exit.i.i25:                ; preds = %2436, %refill.exit.
   br i1 %2470, label %2387, label %residual_coding_subblock.exit.i, !llvm.loop !223
 
 residual_coding_subblock.exit.i:                  ; preds = %2469, %2370, %1394, %1384
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i23 = add nsw i64 %indvars.iv.i17, -1
   %2471 = icmp sgt i64 %indvars.iv.i17, 0
   br i1 %2471, label %1356, label %hls_residual_coding.exit, !llvm.loop !224
 
 hls_residual_coding.exit:                         ; preds = %residual_coding_subblock.exit.i, %1332
-  call void @llvm.lifetime.end.p0(i64 65896, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %2472
 
 2472:                                             ; preds = %hls_residual_coding.exit, %hls_residual_ts_coding.exit
@@ -14189,7 +14183,7 @@ hls_residual_coding.exit:                         ; preds = %residual_coding_sub
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_cu_coded_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_cu_coded_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -14291,7 +14285,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sbt_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sbt_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -14403,7 +14397,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %46, %71
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sbt_quad_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sbt_quad_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -14505,7 +14499,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sbt_horizontal_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sbt_horizontal_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %3 = load ptr, ptr %2, align 8, !tbaa !124
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -14618,7 +14612,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %47, %72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 128) i32 @ff_vvc_sbt_pos_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 0, 128) i32 @ff_vvc_sbt_pos_flag(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -14720,7 +14714,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 3) i32 @ff_vvc_lfnst_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @ff_vvc_lfnst_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %4 = load ptr, ptr %3, align 16, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2672
@@ -14927,7 +14921,7 @@ vvc_get_cabac.exit8:                              ; preds = %89, %118, %143
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_mts_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i32 @ff_vvc_mts_idx(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -15052,7 +15046,7 @@ vvc_get_cabac.exit:                               ; preds = %9, %41, %64
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_end_of_slice_flag_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define i32 @ff_vvc_end_of_slice_flag_decode(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -15117,7 +15111,7 @@ get_cabac_terminate.exit:                         ; preds = %11, %17, %33, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_end_of_tile_one_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define i32 @ff_vvc_end_of_tile_one_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -15182,7 +15176,7 @@ get_cabac_terminate.exit:                         ; preds = %11, %17, %33, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ff_vvc_end_of_subset_one_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define i32 @ff_vvc_end_of_subset_one_bit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %3 = load ptr, ptr %2, align 16, !tbaa !67
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -15246,12 +15240,12 @@ get_cabac_terminate.exit:                         ; preds = %11, %17, %33, %35
   ret i32 %.0.i
 }
 
-declare i32 @ff_init_cabac_decoder(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @ff_init_cabac_decoder(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @ff_vvc_ep_init_stat_coeff(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare void @ff_vvc_ep_init_stat_coeff(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #1 {
   %6 = load ptr, ptr %2, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !185
@@ -15439,7 +15433,7 @@ vvc_get_cabac.exit:                               ; preds = %60, %96, %121
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 128) i32 @sig_coeff_flag_decode(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 128) i32 @sig_coeff_flag_decode(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = load ptr, ptr %1, align 8, !tbaa !190
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %7 = load i8, ptr %6, align 2, !tbaa !164
@@ -15700,12 +15694,18 @@ vvc_get_cabac.exit:                               ; preds = %104, %142, %167
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #8
+declare void @abort() local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
@@ -15717,14 +15717,14 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }

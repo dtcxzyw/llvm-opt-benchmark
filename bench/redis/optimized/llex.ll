@@ -74,16 +74,10 @@ define hidden void @luaX_init(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -123,14 +117,14 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #4
+declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
-declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare hidden ptr @luaO_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -193,13 +187,13 @@ txtToken.exit:                                    ; preds = %32, %30, %28, %15
 38:                                               ; preds = %txtToken.exit, %3
   %39 = load ptr, ptr %8, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %39, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare hidden void @luaO_chunkid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden void @luaO_chunkid(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaX_syntaxerror(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -244,9 +238,9 @@ define hidden noundef ptr @luaX_newstring(ptr noundef readonly captures(none) %0
   ret ptr %6
 }
 
-declare hidden ptr @luaH_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden ptr @luaH_setstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #2
+declare hidden void @luaC_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaX_setinput(ptr noundef %0, ptr noundef captures(none) initializes((0, 12), (32, 36), (48, 72), (80, 89)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -302,9 +296,9 @@ define hidden void @luaX_setinput(ptr noundef %0, ptr noundef captures(none) ini
   ret void
 }
 
-declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #2
+declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaX_next(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
@@ -334,7 +328,7 @@ define hidden void @luaX_next(ptr noundef initializes((8, 12)) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @llex(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -502,7 +496,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   br i1 %71, label %.thread168, label %72
 
 72:                                               ; preds = %70
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %74 = load ptr, ptr %73, align 8, !tbaa !25
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
@@ -519,7 +513,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %84 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %81, ptr noundef nonnull @.str.34, ptr noundef %80, ptr noundef %83) #8
   %85 = load ptr, ptr %76, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %85, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %72
@@ -782,7 +776,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   ]
 
 216:                                              ; preds = %214
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %217 = load ptr, ptr %211, align 8, !tbaa !25
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   call void @luaO_chunkid(ptr noundef nonnull %5, ptr noundef nonnull %218, i64 noundef 80) #8
@@ -793,11 +787,11 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   %223 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %222, ptr noundef nonnull @.str.34, ptr noundef %221, ptr noundef nonnull @.str.30) #8
   %224 = load ptr, ptr %212, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %224, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %thread-pre-split.i, !llvm.loop !68
 
 225:                                              ; preds = %214, %214
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %226 = load ptr, ptr %211, align 8, !tbaa !25
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 24
   call void @luaO_chunkid(ptr noundef nonnull %4, ptr noundef nonnull %227, i64 noundef 80) #8
@@ -811,7 +805,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   %234 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %231, ptr noundef nonnull @.str.34, ptr noundef %230, ptr noundef %233) #8
   %235 = load ptr, ptr %212, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %235, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %thread-pre-split.i, !llvm.loop !68
 
 236:                                              ; preds = %214
@@ -959,7 +953,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   br i1 %302, label %303, label %314
 
 303:                                              ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %304 = load ptr, ptr %211, align 8, !tbaa !25
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   call void @luaO_chunkid(ptr noundef nonnull %3, ptr noundef nonnull %305, i64 noundef 80) #8
@@ -973,7 +967,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   %312 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %309, ptr noundef nonnull @.str.34, ptr noundef %308, ptr noundef %311) #8
   %313 = load ptr, ptr %212, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %313, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %314
 
 314:                                              ; preds = %303, %.critedge.i
@@ -1407,7 +1401,7 @@ define internal fastcc void @save(ptr noundef readonly captures(none) %0, i32 no
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -1419,7 +1413,7 @@ define internal fastcc void @save(ptr noundef readonly captures(none) %0, i32 no
   %22 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %19, ptr noundef nonnull @.str.33, ptr noundef nonnull %3, i32 noundef %21, ptr noundef nonnull @.str.35) #8
   %23 = load ptr, ptr %18, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %23, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load i64, ptr %9, align 8, !tbaa !59
   br label %24
 
@@ -1459,7 +1453,7 @@ define internal fastcc void @save(ptr noundef readonly captures(none) %0, i32 no
   ret void
 }
 
-declare hidden ptr @luaM_toobig(ptr noundef) local_unnamed_addr #2
+declare hidden ptr @luaM_toobig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @inclinenumber(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -1672,7 +1666,7 @@ define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr
   ]
 
 32:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = load ptr, ptr %24, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @luaO_chunkid(ptr noundef nonnull %5, ptr noundef nonnull %34, i64 noundef 80) #8
@@ -1683,7 +1677,7 @@ define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr
   %39 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %38, ptr noundef nonnull @.str.34, ptr noundef %37, ptr noundef nonnull @.str.30) #8
   %40 = load ptr, ptr %25, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %40, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.backedge
 
 41:                                               ; preds = %30
@@ -1775,7 +1769,7 @@ define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %89 = load ptr, ptr %24, align 8, !tbaa !25
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   call void @luaO_chunkid(ptr noundef nonnull %4, ptr noundef nonnull %90, i64 noundef 80) #8
@@ -1784,7 +1778,7 @@ define internal fastcc void @read_long_string(ptr noundef captures(none) %0, ptr
   %93 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %91, ptr noundef nonnull @.str.33, ptr noundef nonnull %4, i32 noundef %92, ptr noundef nonnull @.str.35) #8
   %94 = load ptr, ptr %25, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %94, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre.i = load i64, ptr %83, align 8, !tbaa !59
   br label %95
 
@@ -2279,7 +2273,7 @@ buffreplace.exit.i:                               ; preds = %buffreplace.exit.lo
   br i1 %.not.i18.i, label %buffreplace.exit19.i, label %.lr.ph.i16.i, !llvm.loop !74
 
 buffreplace.exit19.i:                             ; preds = %123, %115
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %125 = load ptr, ptr %124, align 8, !tbaa !25
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -2296,25 +2290,31 @@ buffreplace.exit19.i:                             ; preds = %123, %115
   %135 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %132, ptr noundef nonnull @.str.34, ptr noundef %131, ptr noundef %134) #8
   %136 = load ptr, ptr %127, align 8, !tbaa !16
   call void @luaD_throw(ptr noundef %136, i32 noundef 3) #8
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %trydecpoint.exit
 
 trydecpoint.exit:                                 ; preds = %buffreplace.exit19.i, %buffreplace.exit.i, %buffreplace.exit
   ret void
 }
 
-declare hidden i32 @luaO_str2d(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden i32 @luaO_str2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @localeconv() local_unnamed_addr #6
+declare ptr @localeconv() local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }

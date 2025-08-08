@@ -40,7 +40,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
 20:                                               ; preds = %4
   %21 = trunc nuw i64 %3 to i32
   %22 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %21)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.417.0..sroa_idx, align 8
@@ -48,19 +48,19 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 0, ptr %.sroa.520.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 0, ptr %17, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.422.0..sroa_idx, align 8
   %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %.sroa.523.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 0, ptr %16, align 8
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %25, align 8
@@ -126,10 +126,10 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
           to label %38 unwind label %.thread.loopexit.split-lp.loopexit
 
 ._crit_edge148:                                   ; preds = %151, %29
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 48, i1 false)
   invoke void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder6finish17h6e6df0be7d260f63E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
           to label %177 unwind label %175
@@ -144,14 +144,14 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
           to label %44 unwind label %.thread.loopexit.split-lp.loopexit.split-lp
 
 41:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.sroa.09.0143, ptr %6, align 4
   %42 = invoke noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %.noexc unwind label %.thread.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %39, ptr %5, align 4
   %43 = invoke noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
           to label %45 unwind label %.thread.loopexit.split-lp.loopexit
@@ -160,7 +160,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   unreachable
 
 45:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp ugt i64 %42, %43
   br i1 %.not.i, label %64, label %46
 
@@ -208,7 +208,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   %66 = sub nuw i64 %43, %42
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 %42
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 %43
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 55834574858, ptr %14, align 8
   store ptr %67, ptr %.sroa.2.0..sroa_idx, align 8
   store i64 %66, ptr %.sroa.3.0..sroa_idx, align 8
@@ -323,7 +323,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
           to label %154 unwind label %.thread.loopexit.loopexit
 
 ._crit_edge:                                      ; preds = %69, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h6148667b64ca4123E.exit.loopexit"
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @_ZN17ruff_python_index14fstring_ranges20FStringRangesBuilder11visit_token17h04009ea085f62d66E(ptr noalias noundef nonnull align 8 dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %.sroa.034.0145)
           to label %123 unwind label %.thread.loopexit.split-lp.loopexit
 
@@ -446,9 +446,9 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   br label %174
 
 177:                                              ; preds = %._crit_edge148
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   invoke void @_ZN17ruff_python_index16multiline_ranges22MultilineRangesBuilder6finish17h9b5deae91ab17050E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
           to label %181 unwind label %179
@@ -465,9 +465,9 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   br label %178
 
 181:                                              ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   invoke void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges3new17h68dd23ac610a3d58E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
           to label %184 unwind label %182
@@ -479,7 +479,7 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
           to label %178 unwind label %188
 
 184:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
@@ -487,14 +487,14 @@ define void @_ZN17ruff_python_index7indexer7Indexer11from_tokens17h53147a67eed4b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %186, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 
 188:                                              ; preds = %195, %194, %192, %.thread, %182, %178, %174
@@ -613,10 +613,10 @@ define noundef zeroext i1 @_ZN17ruff_python_index7indexer7Indexer15is_continuati
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc { i32, i32 } @_ZN17ruff_python_index7indexer7Indexer17find_continuation17hd7e1153797608e40E(ptr readonly captures(address_is_null) %.8.val, i64 %.16.val, i32 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %0, ptr %4, align 4
   %5 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %6 = call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
   %7 = icmp ult i64 %6, %2
   br i1 %7, label %8, label %11
@@ -711,14 +711,14 @@ define { i32, i32 } @_ZN17ruff_python_index7indexer7Indexer25preceded_by_continu
   unreachable
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %9, ptr %8, align 4
   %12 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %1, ptr %7, align 4
   %13 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i = icmp ugt i64 %12, %13
   br i1 %.not.i, label %75, label %14
 
@@ -860,14 +860,14 @@ define { i32, i32 } @_ZN17ruff_python_index7indexer7Indexer25preceded_by_continu
   unreachable
 
 86:                                               ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %84, ptr %6, align 4
   %87 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.sroa.06.0, ptr %5, align 4
   %88 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i26 = icmp ugt i64 %87, %88
   br i1 %.not.i26, label %150, label %89
 
@@ -1135,10 +1135,10 @@ declare noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace19has_leading_con
 declare noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20has_trailing_content17h366921c3f75af794E(i32 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

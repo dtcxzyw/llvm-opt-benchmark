@@ -853,7 +853,7 @@ if.end19:                                         ; preds = %if.then8, %if.end.i
 
 if.then23:                                        ; preds = %if.end19
   %buf.sroa.4.0 = extractvalue { ptr, i64 } %call18.pn, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store ptr %buf.sroa.0.0, ptr %buf.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   store i64 %buf.sroa.4.0, ptr %13, align 8
@@ -870,7 +870,7 @@ do.body5.i:                                       ; preds = %if.then23
   unreachable
 
 _ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t.exit: ; preds = %if.then23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end24
 
 if.end24:                                         ; preds = %entry, %_ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t.exit, %if.end19
@@ -1046,7 +1046,7 @@ if.end21:                                         ; preds = %if.then12, %_ZNSt5q
 
 if.then24:                                        ; preds = %if.end21
   %buf.sroa.4.0 = extractvalue { ptr, i64 } %call.pn, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   store ptr %buf.sroa.0.0, ptr %buf.i, align 8
   %12 = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   store i64 %buf.sroa.4.0, ptr %12, align 8
@@ -1062,7 +1062,7 @@ do.body5.i:                                       ; preds = %if.then24
   unreachable
 
 _ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t.exit: ; preds = %if.then24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end25
 
 if.end25:                                         ; preds = %_ZN4node7tracing15NodeTraceWriter10StartWriteE8uv_buf_t.exit, %if.end21
@@ -1516,10 +1516,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -121,9 +121,9 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %5, %SDL_Surface
 define hidden noundef zeroext i1 @SDL_CalculateSurfaceSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) local_unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
@@ -247,25 +247,19 @@ SDL_CalculateRGBSize.exit26.thread:               ; preds = %43, %.split, %SDL_C
 
 58:                                               ; preds = %55, %56, %SDL_CalculateRGBSize.exit26, %50, %48
   %.0 = phi i1 [ true, %48 ], [ false, %50 ], [ false, %SDL_CalculateRGBSize.exit26 ], [ true, %56 ], [ true, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-declare zeroext i1 @SDL_CalculateYUVSize(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare zeroext i1 @SDL_CalculateYUVSize(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 0
   br i1 %6, label %7, label %9
 
@@ -343,14 +337,14 @@ define hidden ptr @SDL_CreateSurface_REAL(i32 noundef %0, i32 noundef %1, i32 no
 
 44:                                               ; preds = %25, %28, %41, %21, %19, %17, %40, %15, %11, %7
   %.0 = phi ptr [ null, %7 ], [ null, %11 ], [ null, %15 ], [ null, %40 ], [ null, %17 ], [ null, %19 ], [ null, %21 ], [ %20, %41 ], [ %20, %28 ], [ %20, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #4
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #3
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @SDL_InitializeSurface(ptr noundef nonnull initializes((0, 280)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #2 {
@@ -510,9 +504,9 @@ SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %48, %64, %59, %SDL_
   ret i1 %.0
 }
 
-declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @SDL_aligned_alloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #4
+declare i64 @SDL_GetSIMDAlignment_REAL() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_DestroySurface_REAL(ptr noundef %0) local_unnamed_addr #2 {
@@ -700,7 +694,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %9, %5, %SDL_Sur
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -736,9 +730,9 @@ define hidden ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %0, i32 noundef %1, i3
   br i1 %or.cond, label %22, label %50
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %.mask.i = and i32 %2, -268435456
   %.not25.i = icmp eq i32 %.mask.i, 268435456
@@ -789,14 +783,14 @@ SDL_CalculateRGBSize.exit26.i:                    ; preds = %36
   br i1 %44, label %SDL_CalculateRGBSize.exit26.thread.i, label %SDL_CalculateSurfaceSize.exit
 
 SDL_CalculateSurfaceSize.exit:                    ; preds = %42, %SDL_CalculateRGBSize.exit26.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 SDL_CalculateRGBSize.exit26.thread.i:             ; preds = %36, %SDL_CalculateRGBSize.exit26.i, %.SDL_CalculateRGBSize.exit26.thread.i_crit_edge, %40
   %.029.ph = phi i64 [ 0, %40 ], [ %.pre, %.SDL_CalculateRGBSize.exit26.thread.i_crit_edge ], [ %37, %SDL_CalculateRGBSize.exit26.i ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = icmp slt i32 %4, 0
   %46 = zext nneg i32 %4 to i64
   %47 = icmp ugt i64 %.029.ph, %46
@@ -853,7 +847,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   ret i32 %.0
 }
 
-declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #4
+declare i32 @SDL_CreateProperties_REAL() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -957,7 +951,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %6, %SDL_SurfaceVali
   ret float %.0
 }
 
-declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #4
+declare float @SDL_GetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden float @SDL_GetDefaultHDRHeadroom(i32 noundef %0) local_unnamed_addr #2 {
@@ -1148,7 +1142,7 @@ SDL_SetSurfacePalette_REAL.exit:                  ; preds = %SDL_SurfaceValid.ex
   ret ptr %.0
 }
 
-declare ptr @SDL_CreatePalette_REAL(i32 noundef) local_unnamed_addr #4
+declare ptr @SDL_CreatePalette_REAL(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetSurfacePalette_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -1221,9 +1215,9 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
   ret i1 %.0
 }
 
-declare void @SDL_DestroyPalette_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_DestroyPalette_REAL(ptr noundef) local_unnamed_addr #3
 
-declare void @SDL_InvalidateMap(ptr noundef) local_unnamed_addr #4
+declare void @SDL_InvalidateMap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SDL_GetSurfacePalette_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1308,7 +1302,7 @@ SDL_SurfaceValid.exit15.thread:                   ; preds = %7, %SDL_SurfaceVali
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @SDL_SurfaceHasAlternateImages_REAL(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -1397,7 +1391,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_GetSurfaceImage(ptr noundef %0, float noundef %1) local_unnamed_addr #2 {
@@ -1596,9 +1590,9 @@ SDL_SurfaceValid.exit.i94:                        ; preds = %SDL_SurfaceHasAlter
   ret ptr %.0
 }
 
-declare double @SDL_round_REAL(double noundef) local_unnamed_addr #4
+declare double @SDL_round_REAL(double noundef) local_unnamed_addr #3
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #4
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_ScaleSurface_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
@@ -2371,7 +2365,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %4, %SDL_SurfaceVali
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -2407,11 +2401,11 @@ SDL_SurfaceValid.exit:                            ; preds = %2
 
 SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceValid.exit, %17, %16
   %.0 = phi i1 [ %18, %17 ], [ true, %16 ], [ false, %SDL_SurfaceValid.exit ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_GetSurfaceClipRect_REAL(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
@@ -2470,7 +2464,7 @@ define hidden zeroext i1 @SDL_BlitSurfaceUnchecked_REAL(ptr noundef %0, ptr noun
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_ValidateMap(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_ValidateMap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
@@ -2478,8 +2472,8 @@ define hidden zeroext i1 @SDL_BlitSurface_REAL(ptr noundef %0, ptr noundef %1, p
   %6 = alloca %struct.SDL_Rect, align 4
   %7 = alloca %struct.SDL_Rect, align 4
   %8 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -2554,7 +2548,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   br i1 %.not30, label %55, label %42
 
 42:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %43 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
   br i1 %43, label %44, label %.critedge
 
@@ -2572,7 +2566,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   %54 = add nsw i32 %53, %40
   store i32 %54, ptr %41, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %30, align 4
   %.pre40 = load i32, ptr %33, align 4
   br label %55
@@ -2584,7 +2578,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %56, ptr %59, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %61 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %6, ptr noundef nonnull %60, ptr noundef nonnull %8) #10
   br i1 %61, label %62, label %.critedge33
@@ -2610,7 +2604,7 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   %77 = load i32, ptr %76, align 4
   store i32 %77, ptr %33, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %78 = load i32, ptr %58, align 4
   %79 = icmp slt i32 %78, 1
   %80 = load i32, ptr %59, align 4
@@ -2643,17 +2637,17 @@ SDL_SurfaceValid.exit35.thread:                   ; preds = %13, %SDL_SurfaceVal
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 .critedge:                                        ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 .critedge33:                                      ; preds = %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %SDL_BlitSurfaceUnchecked_REAL.exit
 
 SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %91, %89, %62, %.critedge33, %.critedge, %24, %SDL_SurfaceValid.exit35.thread, %SDL_SurfaceValid.exit.thread
   %.024 = phi i1 [ %25, %24 ], [ %17, %SDL_SurfaceValid.exit35.thread ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %.critedge ], [ true, %.critedge33 ], [ true, %62 ], [ %94, %91 ], [ false, %89 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.024
 }
 
@@ -2662,8 +2656,8 @@ define hidden zeroext i1 @SDL_BlitSurfaceScaled_REAL(ptr noundef %0, ptr noundef
   %6 = alloca %struct.SDL_Rect, align 4
   %7 = alloca %struct.SDL_Rect, align 4
   %8 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -2906,7 +2900,7 @@ switch.lookup:                                    ; preds = %32
   %145 = fptosi double %144 to i32
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %145, ptr %146, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %147 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %147, align 4
@@ -2919,7 +2913,7 @@ switch.lookup:                                    ; preds = %32
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %152, ptr %153, align 4
   %154 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %155 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %87, ptr noundef nonnull %7, ptr noundef nonnull %7) #10
   %156 = load i32, ptr %142, align 4
   %157 = icmp eq i32 %156, 0
@@ -2940,13 +2934,13 @@ switch.lookup:                                    ; preds = %32
 
 166:                                              ; preds = %86, %164, %39, %34, %30, %SDL_SurfaceValid.exit199.thread, %SDL_SurfaceValid.exit.thread
   %.0140 = phi i1 [ %31, %30 ], [ %35, %34 ], [ %40, %39 ], [ %165, %164 ], [ %23, %SDL_SurfaceValid.exit199.thread ], [ %15, %SDL_SurfaceValid.exit.thread ], [ true, %86 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0140
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_BlitSurfaceUncheckedScaled_REAL(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -3142,8 +3136,8 @@ SDL_ConvertSurface_REAL.exit:                     ; preds = %SDL_SurfaceValid.ex
   br label %common.ret262
 
 SDL_SurfaceValid.exit.i209:                       ; preds = %.critedge197
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, @SDL_surface_magic
@@ -3202,7 +3196,7 @@ SDL_GetSurfaceAlphaMod_REAL.exit:                 ; preds = %SDL_SurfaceValid.ex
   br i1 %or.cond241, label %.critedge203, label %138
 
 .critedge203:                                     ; preds = %SDL_GetSurfaceAlphaMod_REAL.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %118, align 4
@@ -3238,7 +3232,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
   %135 = call zeroext i1 @SDL_SetSurfaceAlphaMod_REAL(ptr noundef %128, i8 noundef zeroext %.0227)
   %136 = load i32, ptr %7, align 4
   %137 = call zeroext i1 @SDL_SetSurfaceBlendMode_REAL(ptr noundef %128, i32 noundef %136)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %138
 
 138:                                              ; preds = %SDL_GetSurfaceAlphaMod_REAL.exit, %SDL_BlitSurfaceUnchecked_REAL.exit217
@@ -3255,7 +3249,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
   br i1 %.not176, label %162, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %138, %141
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %144 = load i32, ptr %18, align 4
   %145 = load i32, ptr %22, align 4
   %146 = call ptr @SDL_CreateSurface_REAL(i32 noundef %144, i32 noundef %145, i32 noundef %140)
@@ -3285,7 +3279,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit217:            ; preds = %.critedge203, %130
 SDL_BlitSurfaceUnchecked_REAL.exit219:            ; preds = %._crit_edge, %158
   %.0.i218 = phi i1 [ %161, %158 ], [ false, %._crit_edge ]
   call void @SDL_DestroySurface_REAL(ptr noundef %146)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %164
 
 162:                                              ; preds = %141
@@ -3295,12 +3289,12 @@ SDL_BlitSurfaceUnchecked_REAL.exit219:            ; preds = %._crit_edge, %158
 164:                                              ; preds = %162, %SDL_BlitSurfaceUnchecked_REAL.exit219
   %.0139.in = phi i1 [ %.0.i218, %SDL_BlitSurfaceUnchecked_REAL.exit219 ], [ %163, %162 ]
   call void @SDL_DestroySurface_REAL(ptr noundef %.0140)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.ret262
 }
 
-declare zeroext i1 @SDL_StretchSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_StretchSurface_REAL(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_ConvertSurface_REAL(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -3335,8 +3329,8 @@ define hidden zeroext i1 @SDL_BlitSurfaceTiled_REAL(ptr noundef %0, ptr noundef 
   %6 = alloca %struct.SDL_Rect, align 4
   %7 = alloca %struct.SDL_Rect, align 4
   %8 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -3451,8 +3445,8 @@ SDL_SurfaceValid.exit76.thread:                   ; preds = %13, %SDL_SurfaceVal
   %60 = sdiv i32 %58, %59
   %61 = srem i32 %58, %59
   %62 = srem i32 %55, %56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   %63 = load i32, ptr %39, align 4
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -3618,14 +3612,14 @@ SDL_BlitSurfaceUnchecked_REAL.exit82:             ; preds = %115
 
 SDL_BlitSurfaceUnchecked_REAL.exit.thread:        ; preds = %SDL_BlitSurfaceUnchecked_REAL.exit78, %.critedge, %SDL_BlitSurfaceUnchecked_REAL.exit78.us, %70, %SDL_BlitSurfaceUnchecked_REAL.exit.us, %81, %106, %SDL_BlitSurfaceUnchecked_REAL.exit80, %115, %SDL_BlitSurfaceUnchecked_REAL.exit82, %121
   %.4 = phi i1 [ true, %121 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit82 ], [ false, %115 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit80 ], [ false, %106 ], [ false, %81 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit.us ], [ false, %70 ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78.us ], [ false, %.critedge ], [ false, %SDL_BlitSurfaceUnchecked_REAL.exit78 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %122
 
 122:                                              ; preds = %44, %42, %SDL_BlitSurfaceUnchecked_REAL.exit.thread, %24, %SDL_SurfaceValid.exit76.thread, %SDL_SurfaceValid.exit.thread
   %.052 = phi i1 [ %25, %24 ], [ %.4, %SDL_BlitSurfaceUnchecked_REAL.exit.thread ], [ %17, %SDL_SurfaceValid.exit76.thread ], [ %12, %SDL_SurfaceValid.exit.thread ], [ true, %42 ], [ true, %44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.052
 }
 
@@ -3635,8 +3629,8 @@ define hidden zeroext i1 @SDL_BlitSurfaceTiledWithScale_REAL(ptr noundef %0, ptr
   %8 = alloca %struct.SDL_Rect, align 4
   %9 = alloca %struct.SDL_Rect, align 4
   %10 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -3773,8 +3767,8 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
   %78 = sitofp i32 %.recomposed131 to float
   %79 = fdiv float %78, %2
   %80 = fptosi float %79 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %81 = load i32, ptr %45, align 4
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3908,14 +3902,14 @@ SDL_SurfaceValid.exit94.thread:                   ; preds = %15, %SDL_SurfaceVal
 
 .loopexit:                                        ; preds = %.critedge.us102, %88, %97, %.lr.ph, %124, %127
   %.4 = phi i1 [ true, %127 ], [ false, %124 ], [ false, %.lr.ph ], [ false, %97 ], [ false, %88 ], [ false, %.critedge.us102 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %128
 
 128:                                              ; preds = %50, %48, %.loopexit, %30, %26, %SDL_SurfaceValid.exit94.thread, %SDL_SurfaceValid.exit.thread
   %.072 = phi i1 [ %27, %26 ], [ %31, %30 ], [ %.4, %.loopexit ], [ %19, %SDL_SurfaceValid.exit94.thread ], [ %14, %SDL_SurfaceValid.exit.thread ], [ true, %48 ], [ true, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.072
 }
 
@@ -3931,16 +3925,16 @@ define hidden zeroext i1 @SDL_BlitSurface9Grid_REAL(ptr noundef %0, ptr noundef 
   %.sroa.21261 = alloca i32, align 4
   %11 = alloca %struct.SDL_Rect, align 4
   %12 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0258)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.9259)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.16260)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.21261)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0258)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9259)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16260)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.21261)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -4207,20 +4201,20 @@ SDL_SurfaceValid.exit267.thread:                  ; preds = %17, %SDL_SurfaceVal
 
 154:                                              ; preds = %136, %126, %112, %102, %90, %86, %76, %66, %54, %SDL_SurfaceValid.exit267.thread, %SDL_SurfaceValid.exit.thread
   %.0140 = phi i1 [ %21, %SDL_SurfaceValid.exit267.thread ], [ %16, %SDL_SurfaceValid.exit.thread ], [ false, %54 ], [ false, %66 ], [ false, %76 ], [ false, %86 ], [ false, %90 ], [ false, %102 ], [ false, %112 ], [ false, %126 ], [ %153, %136 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0258)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.9259)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.16260)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.21261)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.16)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0258)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9259)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16260)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21261)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.21)
   ret i1 %.0140
 }
 
-declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #4
+declare float @SDL_roundf_REAL(float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_LockSurface_REAL(ptr noundef %0) local_unnamed_addr #2 {
@@ -4272,7 +4266,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   ret i1 %.0
 }
 
-declare void @SDL_UnRLESurface(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @SDL_UnRLESurface(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_UnlockSurface_REAL(ptr noundef %0) local_unnamed_addr #2 {
@@ -4320,7 +4314,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %5, %8, %SDL_Sur
   ret void
 }
 
-declare zeroext i1 @SDL_RLESurface(ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_RLESurface(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_FlipSurface_REAL(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -4558,7 +4552,7 @@ define hidden ptr @SDL_ConvertSurfaceAndColorspace_REAL(ptr noundef %0, i32 noun
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -4891,8 +4885,8 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
   ]
 
 159:                                              ; preds = %156, %156, %156, %156, %152, %152, %152, %152
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @SDL_DetectPalette(ptr noundef nonnull %148, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %160 = load i8, ptr %8, align 1, !range !22, !noundef !23
   %161 = trunc nuw i8 %160 to i1
@@ -4930,8 +4924,8 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %SDL_SurfaceValid.ex
 .loopexit428:                                     ; preds = %171, %164, %159
   %.1278 = phi ptr [ null, %159 ], [ null, %164 ], [ %170, %171 ]
   %.1276 = phi i32 [ 0, %159 ], [ %166, %164 ], [ %166, %171 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread400
 
 .thread400:                                       ; preds = %152, %155, %156, %.loopexit428, %129
@@ -5098,7 +5092,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %191, %193
 
 .thread403:                                       ; preds = %241, %223, %226, %245, %244, %220
   %.0267 = phi i1 [ true, %220 ], [ false, %244 ], [ false, %245 ], [ true, %226 ], [ true, %223 ], [ false, %241 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %248 = load i32, ptr %95, align 4
   %249 = call ptr @SDL_CreateSurface_REAL(i32 noundef 1, i32 noundef 1, i32 noundef %248)
@@ -5150,11 +5144,11 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %191, %193
   br label %.thread406
 
 .thread406:                                       ; preds = %272, %263
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge355.thread
 
 .critedge355:                                     ; preds = %262, %.thread403
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread416
 
 .critedge355.thread:                              ; preds = %241, %241, %241, %241, %245, %245, %245, %245, %235, %.thread406, %219, %126
@@ -5167,7 +5161,7 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %191, %193
   br label %SDL_SurfaceValid.exit.i375
 
 SDL_SurfaceValid.exit.i375:                       ; preds = %.critedge355.thread, %273
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %274 = load ptr, ptr %89, align 8
   %275 = icmp eq ptr %274, @SDL_surface_magic
   br i1 %275, label %276, label %SDL_SetSurfaceClipRect_REAL.exit
@@ -5190,7 +5184,7 @@ SDL_SurfaceValid.exit.i375:                       ; preds = %.critedge355.thread
   br label %SDL_SetSurfaceClipRect_REAL.exit
 
 SDL_SetSurfaceClipRect_REAL.exit:                 ; preds = %SDL_SurfaceValid.exit.i375, %276
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not323, label %287, label %.thread461
 
 287:                                              ; preds = %SDL_SetSurfaceClipRect_REAL.exit
@@ -5395,20 +5389,20 @@ SDL_AddSurfaceAlternateImage_REAL.exit:           ; preds = %SDL_SurfaceValid.ex
 
 .thread425:                                       ; preds = %356, %SDL_SetSurfaceRLE_REAL.exit, %17, %._crit_edge.thread, %SDL_SurfaceValid.exit.thread, %361, %362
   %.0265 = phi ptr [ null, %362 ], [ null, %361 ], [ null, %SDL_SurfaceValid.exit.thread ], [ null, %._crit_edge.thread ], [ null, %17 ], [ %55, %SDL_SetSurfaceRLE_REAL.exit ], [ %55, %356 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0265
 }
 
-declare void @SDL_DitherPalette(ptr noundef) local_unnamed_addr #4
+declare void @SDL_DitherPalette(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11) local_unnamed_addr #2 {
   %13 = alloca %struct.SDL_Surface, align 8
   %14 = alloca %struct.SDL_Surface, align 8
   %15 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %14) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %16, label %18
 
@@ -5583,17 +5577,17 @@ SDL_BlitSurfaceUnchecked_REAL.exit:               ; preds = %75, %80
 
 .loopexit:                                        ; preds = %66, %59, %72, %70, %56, %SDL_BlitSurfaceUnchecked_REAL.exit, %49, %47, %44, %37, %25, %22, %19, %16
   %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ %48, %47 ], [ %50, %49 ], [ %.0.i, %SDL_BlitSurfaceUnchecked_REAL.exit ], [ %26, %25 ], [ %23, %22 ], [ %20, %19 ], [ %17, %16 ], [ true, %56 ], [ false, %70 ], [ false, %72 ], [ true, %59 ], [ true, %66 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i1 %.0
 }
 
-declare void @SDL_DetectPalette(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @SDL_DetectPalette(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_FillSurfaceRect_REAL(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SDL_ConvertColorkeyToAlpha(ptr noundef nonnull %0) unnamed_addr #2 {
@@ -5944,7 +5938,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %1, %SDL_SurfaceVali
   ret ptr %.0
 }
 
-declare i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef) local_unnamed_addr #4
+declare i32 @SDL_GetDefaultColorspaceForFormat(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @SDL_DuplicatePixels(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #2 {
@@ -6021,13 +6015,13 @@ SDL_SetSurfaceColorspace_REAL.exit:               ; preds = %33, %SDL_SurfaceVal
   ret ptr %7
 }
 
-declare zeroext i1 @SDL_ConvertPixels_STB(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_ConvertPixels_STB(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_ConvertPixels_YUV_to_YUV(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_ConvertPixels_YUV_to_YUV(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_ConvertPixels_YUV_to_RGB(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_ConvertPixels_YUV_to_RGB(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @SDL_ConvertPixels_RGB_to_YUV(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @SDL_ConvertPixels_RGB_to_YUV(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #2 {
@@ -6420,7 +6414,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %2, %SDL_SurfaceVali
 define hidden zeroext i1 @SDL_ClearSurface_REAL(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.SDL_Rect, align 4
   %7 = alloca %struct.SDL_Rect, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
 
@@ -6636,7 +6630,7 @@ SDL_SetSurfaceBlendMode_REAL.exit:                ; preds = %SDL_SurfaceValid.ex
 
 SDL_SurfaceValid.exit.i113:                       ; preds = %SDL_MapSurfaceRGBA_REAL.exit, %68, %99, %100, %SDL_SetSurfaceBlendMode_REAL.exit
   %.2 = phi i1 [ %67, %SDL_MapSurfaceRGBA_REAL.exit ], [ %.1, %99 ], [ false, %68 ], [ %122, %SDL_SetSurfaceBlendMode_REAL.exit ], [ false, %100 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %123 = load ptr, ptr %8, align 8
   %124 = icmp eq ptr %123, @SDL_surface_magic
   br i1 %124, label %125, label %SDL_SetSurfaceClipRect_REAL.exit117
@@ -6658,12 +6652,12 @@ SDL_SurfaceValid.exit.i113:                       ; preds = %SDL_MapSurfaceRGBA_
   br label %SDL_SetSurfaceClipRect_REAL.exit117
 
 SDL_SetSurfaceClipRect_REAL.exit117:              ; preds = %SDL_SurfaceValid.exit.i113, %125
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %135
 
 135:                                              ; preds = %SDL_SetSurfaceClipRect_REAL.exit117, %SDL_SurfaceValid.exit.thread
   %.0 = phi i1 [ %.2, %SDL_SetSurfaceClipRect_REAL.exit117 ], [ %11, %SDL_SurfaceValid.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -6723,16 +6717,16 @@ SDL_MapSurfaceRGBA_REAL.exit:                     ; preds = %SDL_SurfaceValid.ex
   ret i32 %.0.i
 }
 
-declare i32 @SDL_MapRGBA_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #4
+declare i32 @SDL_MapRGBA_REAL(ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ReadSurfacePixel_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %11
 
@@ -6913,7 +6907,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   br label %95
 
 80:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -6936,7 +6930,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
   br label %94
 
 94:                                               ; preds = %86, %80
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %95
 
 95:                                               ; preds = %76, %78, %94, %70
@@ -6952,12 +6946,12 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %18, %25, %22, %SDL_
 
 99:                                               ; preds = %95, %98, %55, %41, %34, %SDL_SurfaceValid.exit.thread
   %.0 = phi i1 [ %35, %34 ], [ %42, %41 ], [ %28, %SDL_SurfaceValid.exit.thread ], [ false, %55 ], [ %.067, %98 ], [ %.067, %95 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
-declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @SDL_GetRGBA_REAL(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @SDL_ReadSurfacePixelFloat_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #2 {
@@ -6967,7 +6961,7 @@ define hidden zeroext i1 @SDL_ReadSurfacePixelFloat_REAL(ptr noundef %0, i32 nou
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %14
 
@@ -7068,10 +7062,10 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br i1 %49, label %50, label %69
 
 50:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %51 = call zeroext i1 @SDL_ReadSurfacePixel_REAL(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br i1 %51, label %52, label %65
 
@@ -7095,10 +7089,10 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br label %65
 
 65:                                               ; preds = %52, %50
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %126
 
 .critedge:                                        ; preds = %46
@@ -7112,7 +7106,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br label %126
 
 69:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %70 = load i32, ptr %0, align 8
   %71 = and i32 %70, 2
   %.not110 = icmp eq i32 %71, 0
@@ -7217,16 +7211,16 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
   br label %.thread124
 
 .thread124:                                       ; preds = %124, %121
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %126
 
 125:                                              ; preds = %77
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %126
 
 126:                                              ; preds = %65, %67, %.critedge, %.thread124, %125, %44, %37, %SDL_SurfaceValid.exit.thread
   %.0 = phi i1 [ %38, %37 ], [ %45, %44 ], [ false, %125 ], [ %31, %SDL_SurfaceValid.exit.thread ], [ %51, %65 ], [ %68, %67 ], [ false, %.critedge ], [ %.4121, %.thread124 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
@@ -7234,7 +7228,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %21, %28, %25, %SDL_
 define hidden zeroext i1 @SDL_WriteSurfacePixel_REAL(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %SDL_SurfaceValid.exit.thread, label %SDL_SurfaceValid.exit
@@ -7374,7 +7368,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   br label %79
 
 70:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 %3, ptr %9, align 1
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %4, ptr %71, align 1
@@ -7387,7 +7381,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %77 = load i32, ptr %76, align 4
   %78 = call zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef 1, i32 noundef 1, i32 noundef 376840196, i32 noundef 301991328, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 4, i32 noundef %.pre68, i32 noundef %75, i32 noundef %77, ptr noundef %57, i32 noundef %51)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %79
 
 79:                                               ; preds = %68, %70, %61
@@ -7403,7 +7397,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %16, %13, %SDL_S
 
 83:                                               ; preds = %79, %82, %46, %32, %25, %SDL_SurfaceValid.exit.thread
   %.048 = phi i1 [ %26, %25 ], [ %33, %32 ], [ %19, %SDL_SurfaceValid.exit.thread ], [ false, %46 ], [ %.0.shrunk, %82 ], [ %.0.shrunk, %79 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.048
 }
 
@@ -7538,7 +7532,7 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   br label %136
 
 80:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %81 = load i32, ptr %0, align 8
   %82 = and i32 %81, 2
   %.not94 = icmp eq i32 %82, 0
@@ -7643,11 +7637,11 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   br label %135
 
 135:                                              ; preds = %131, %134
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %136
 
 .critedge102:                                     ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %136
 
 136:                                              ; preds = %74, %.critedge, %135, %.critedge102, %31, %24, %SDL_SurfaceValid.exit.thread
@@ -7655,19 +7649,25 @@ SDL_SurfaceValid.exit.thread:                     ; preds = %7, %15, %12, %SDL_S
   ret i1 %.0
 }
 
-declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #4
+declare void @SDL_DestroyProperties_REAL(i32 noundef) local_unnamed_addr #3
 
-declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #8
+declare void @SDL_aligned_free_REAL(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #8
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #7
 
-declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 
-declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef) local_unnamed_addr #3
+
+declare zeroext i1 @SDL_CopyProperties_REAL(i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
@@ -7681,12 +7681,12 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(1) }

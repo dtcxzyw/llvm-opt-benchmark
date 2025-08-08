@@ -865,7 +865,7 @@ _ZN9PhaseLive6getsetEP5Block.exit124:             ; preds = %.lr.ph188, %_ZN9Pha
   br i1 %488, label %489, label %_ZN9PhaseLive7freesetEP5Block.exit127
 
 489:                                              ; preds = %._crit_edge186
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %490 = load ptr, ptr %131, align 8
   %491 = getelementptr inbounds nuw %class.IndexSet, ptr %490, i64 %484
   %492 = load i32, ptr %491, align 8
@@ -973,7 +973,7 @@ _ZN8IndexSet6insertEj.exit.i:                     ; preds = %542, %531
   br label %504, !llvm.loop !18
 
 _ZN9PhaseLive10add_liveinEP5BlockP8IndexSet.exit: ; preds = %516, %_ZN16IndexSetIterator4nextEv.exit.i, %489
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN9PhaseLive7freesetEP5Block.exit127
 
 _ZN9PhaseLive7freesetEP5Block.exit127:            ; preds = %._crit_edge186, %_ZN9PhaseLive10add_liveinEP5BlockP8IndexSet.exit
@@ -1866,10 +1866,10 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

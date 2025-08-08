@@ -11160,7 +11160,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN7glslang
   %3 = alloca [16 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %1) #18, !noalias !32
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18, !noalias !32
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11208,7 +11208,7 @@ _ZN7glslang6StringB5cxx11Eii.exit:                ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %8, align 8, !alias.scope !32
   %22 = getelementptr inbounds i8, ptr %21, i64 %9
   store i8 0, ptr %22, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN7glslang13TInfoSinkBase6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %4) #18
   %23 = load ptr, ptr %8, align 8
   %24 = icmp eq ptr %23, %7
@@ -11310,7 +11310,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(48) ptr @_ZN7glslang
   %3 = alloca [16 x i8], align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 16, ptr noundef nonnull @.str.36, i32 noundef %1) #18, !noalias !37
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18, !noalias !37
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -11358,7 +11358,7 @@ _ZN7glslang6StringB5cxx11Eii.exit:                ; preds = %._crit_edge.i.i.i, 
   %21 = load ptr, ptr %8, align 8, !alias.scope !37
   %22 = getelementptr inbounds i8, ptr %21, i64 %9
   store i8 0, ptr %22, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN7glslang13TInfoSinkBase6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(40) %4) #18
   %23 = load ptr, ptr %8, align 8
   %24 = icmp eq ptr %23, %7
@@ -12433,7 +12433,7 @@ define void @_ZN7glslang9TVariableC2ERKS0_(ptr noundef nonnull align 8 dereferen
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr null, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   store ptr %53, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -12449,7 +12449,7 @@ define void @_ZN7glslang9TVariableC2ERKS0_(ptr noundef nonnull align 8 dereferen
   call void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVectorINS_8TTypeLocEEES7_St4lessIS7_EEE(ptr noundef nonnull align 8 dereferenceable(152) %15, ptr noundef nonnull align 8 dereferenceable(152) %52, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %59 = load ptr, ptr %55, align 8
   call void @_ZNSt8_Rb_treeIPN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ENS0_14pool_allocatorIS7_EEE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %59)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %61 = load i8, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -12874,7 +12874,7 @@ _ZNSt6vectorIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE9push_backERKS1_.e
 
 126:                                              ; preds = %114, %._crit_edge
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %128 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   store ptr %128, ptr %2, align 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -12890,7 +12890,7 @@ _ZNSt6vectorIN7glslang10TParameterENS0_14pool_allocatorIS1_EEE9push_backERKS1_.e
   call void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVectorINS_8TTypeLocEEES7_St4lessIS7_EEE(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(152) %127, ptr noundef nonnull align 8 dereferenceable(56) %2)
   %134 = load ptr, ptr %130, align 8
   call void @_ZNSt8_Rb_treeIPN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ENS0_14pool_allocatorIS7_EEE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %134)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not.i.i.i19 = icmp eq ptr %0, %1
   br i1 %.not.i.i.i19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSERKS6_.exit, label %135
 
@@ -13173,7 +13173,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7glslang
   store ptr null, ptr %46, align 8
   %47 = and i64 %26, -9223372019674906624
   store i64 %47, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18
   store ptr %48, ptr %3, align 8
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13189,7 +13189,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7glslang
   call void @_ZN7glslang5TType8deepCopyERKS0_RNS_4TMapIPNS_7TVectorINS_8TTypeLocEEES7_St4lessIS7_EEE(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %11, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %54 = load ptr, ptr %50, align 8
   call void @_ZNSt8_Rb_treeIPN7glslang7TVectorINS0_8TTypeLocEEESt4pairIKS4_S4_ESt10_Select1stIS7_ESt4lessIS4_ENS0_14pool_allocatorIS7_EEE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %54)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13802,7 +13802,7 @@ _ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not, label %_ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread, label %236
 
 236:                                              ; preds = %_ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %237 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #18, !noalias !55
   store ptr %237, ptr %1, align 8
   store ptr %204, ptr %205, align 8
@@ -13862,7 +13862,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZN7glslang17TSymbolTableLevel6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_7TSymbolE.exit
 
 _ZN7glslang17TSymbolTableLevel6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_7TSymbolE.exit: ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolEEC2IRS8_RSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISG_SH_EEEbE4typeELb1EEEOSG_OSH_.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %_ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread
 
 _ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit.thread: ; preds = %.lr.ph97.split, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_PNS4_7TSymbolEESt10_Select1stISC_ESt4lessIS7_ENS5_ISC_EEE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS9_.exit.i.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPNS4_7TSymbolESt4lessIS7_ENS5_ISt4pairIKS7_S9_EEEE4findERSD_.exit.i, %_ZNK7glslang17TSymbolTableLevel4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.exit, %_ZN7glslang17TSymbolTableLevel6insertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPNS_7TSymbolE.exit
@@ -21337,13 +21337,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(168) ptr @_ZN7glslan
   %3 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>, std::_Select1st<std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>>, std::less<int>, glslang::pool_allocator<std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>>>::_Reuse_or_alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, glslang::TVector<const glslang::TIntermTyped *>>, std::_Select1st<std::pair<const int, glslang::TVector<const glslang::TIntermTyped *>>>, std::less<int>, glslang::pool_allocator<std::pair<const int, glslang::TVector<const glslang::TIntermTyped *>>>>::_Reuse_or_alloc_node", align 8
   %5 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>, std::_Select1st<std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>>, std::less<int>, glslang::pool_allocator<std::pair<const int, glslang::TVector<const glslang::TIntermConstantUnion *>>>>::_Reuse_or_alloc_node", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i.i.i = icmp eq ptr %0, %1
   br i1 %.not.i.i.i, label %_ZN7glslang4TMapIiNS_7TVectorIPKNS_12TIntermTypedEEESt4lessIiEEaSERKS8_.exit.thread, label %6
 
 _ZN7glslang4TMapIiNS_7TVectorIPKNS_12TIntermTypedEEESt4lessIiEEaSERKS8_.exit.thread: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %_ZN7glslang4TMapIiNS_7TVectorIPKNS_20TIntermConstantUnionEEESt4lessIiEEaSERKS8_.exit31
 
 6:                                                ; preds = %2
@@ -21421,9 +21421,9 @@ _ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10
   %33 = phi ptr [ %.pre6.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE7_M_copyILb0ENSF_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ERKSF_RT0_.exit.i.i.i ], [ %8, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE20_Reuse_or_alloc_nodeC2ERSF_.exit.i.i.i ]
   %34 = phi ptr [ %.pre.i.i.i, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE7_M_copyILb0ENSF_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ERKSF_RT0_.exit.i.i.i ], [ %0, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE20_Reuse_or_alloc_nodeC2ERSF_.exit.i.i.i ]
   call void @_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(56) %34, ptr noundef %33)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %4, align 8
@@ -21498,9 +21498,9 @@ _ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1
   %62 = phi ptr [ %.pre6.i.i.i15, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE7_M_copyILb0ENSF_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ERKSF_RT0_.exit.i.i.i ], [ %37, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE20_Reuse_or_alloc_nodeC2ERSF_.exit.i.i.i ]
   %63 = phi ptr [ %.pre.i.i.i14, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE7_M_copyILb0ENSF_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ERKSF_RT0_.exit.i.i.i ], [ %35, %_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE20_Reuse_or_alloc_nodeC2ERSF_.exit.i.i.i ]
   call void @_ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_12TIntermTypedEEEESt10_Select1stIS8_ESt4lessIiENS2_14pool_allocatorIS8_EEE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef %62)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %3, align 8
@@ -21578,7 +21578,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN7glslang7TVectorIPKNS2_20TIntermConstantUnionEEEESt10
   br label %_ZN7glslang4TMapIiNS_7TVectorIPKNS_20TIntermConstantUnionEEESt4lessIiEEaSERKS8_.exit31
 
 _ZN7glslang4TMapIiNS_7TVectorIPKNS_20TIntermConstantUnionEEESt4lessIiEEaSERKS8_.exit31: ; preds = %_ZN7glslang4TMapIiNS_7TVectorIPKNS_12TIntermTypedEEESt4lessIiEEaSERKS8_.exit.thread, %90
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
@@ -23896,10 +23896,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

@@ -178,7 +178,7 @@ declare i32 @_sodium_argon2id_hash_raw(i32 noundef, i32 noundef, i32 noundef, pt
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %0, i8 noundef 0, i64 noundef 128, i1 noundef false) #6
   %7 = or i64 %3, %2
   %or.cond = icmp ugt i64 %7, 4294967295
@@ -214,19 +214,13 @@ define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str(ptr noundef no
 
 21:                                               ; preds = %16, %14, %9
   %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ %., %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 declare i32 @_sodium_argon2id_hash_encoded(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str_verify(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -259,6 +253,12 @@ define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2id_str_verify(ptr nou
 }
 
 declare i32 @_sodium_argon2id_verify(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5

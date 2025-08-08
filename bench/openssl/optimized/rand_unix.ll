@@ -37,14 +37,8 @@ define noundef i32 @ossl_rand_pool_init() local_unnamed_addr #0 {
   ret i32 1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define void @ossl_rand_pool_cleanup() local_unnamed_addr #2 {
+define void @ossl_rand_pool_cleanup() local_unnamed_addr #1 {
   %1 = alloca %struct.stat, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -54,7 +48,7 @@ define void @ossl_rand_pool_cleanup() local_unnamed_addr #2 {
 5:                                                ; preds = %0, %close_random_device.exit
   %.03 = phi i64 [ 0, %0 ], [ %32, %close_random_device.exit ]
   %6 = getelementptr inbounds nuw [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %.03
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %1) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %.not.i.i = icmp eq i32 %7, -1
   br i1 %.not.i.i, label %check_random_device.exit.thread.i, label %8
@@ -87,7 +81,7 @@ define void @ossl_rand_pool_cleanup() local_unnamed_addr #2 {
   br i1 %25, label %check_random_device.exit.i, label %check_random_device.exit.thread.i
 
 check_random_device.exit.thread.i:                ; preds = %20, %15, %10, %8, %5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %close_random_device.exit
 
 check_random_device.exit.i:                       ; preds = %20
@@ -95,7 +89,7 @@ check_random_device.exit.i:                       ; preds = %20
   %27 = load i64, ptr %26, align 8, !tbaa !19
   %28 = load i64, ptr %4, align 8, !tbaa !20
   %.not.i = icmp eq i64 %27, %28
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %1) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %.not.i, label %29, label %close_random_device.exit
 
 29:                                               ; preds = %check_random_device.exit.i
@@ -114,7 +108,7 @@ close_random_device.exit:                         ; preds = %check_random_device
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnamed_addr #2 {
+define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.stat, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %3, label %ossl_rand_pool_cleanup.exit
@@ -128,7 +122,7 @@ define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnam
 7:                                                ; preds = %close_random_device.exit.i, %3
   %.03.i = phi i64 [ 0, %3 ], [ %34, %close_random_device.exit.i ]
   %8 = getelementptr inbounds nuw [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %.03.i
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr %8, align 8, !tbaa !3
   %.not.i.i.i = icmp eq i32 %9, -1
   br i1 %.not.i.i.i, label %check_random_device.exit.thread.i.i, label %10
@@ -161,7 +155,7 @@ define void @ossl_rand_pool_keep_random_devices_open(i32 noundef %0) local_unnam
   br i1 %27, label %check_random_device.exit.i.i, label %check_random_device.exit.thread.i.i
 
 check_random_device.exit.thread.i.i:              ; preds = %22, %17, %12, %10, %7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %close_random_device.exit.i
 
 check_random_device.exit.i.i:                     ; preds = %22
@@ -169,7 +163,7 @@ check_random_device.exit.i.i:                     ; preds = %22
   %29 = load i64, ptr %28, align 8, !tbaa !19
   %30 = load i64, ptr %6, align 8, !tbaa !20
   %.not.i.i = icmp eq i64 %29, %30
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i.i, label %31, label %close_random_device.exit.i
 
 31:                                               ; preds = %check_random_device.exit.i.i
@@ -189,7 +183,7 @@ ossl_rand_pool_cleanup.exit:                      ; preds = %close_random_device
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ossl_pool_acquire_entropy(ptr noundef %0) local_unnamed_addr #2 {
+define i64 @ossl_pool_acquire_entropy(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
@@ -267,16 +261,16 @@ syscall_random.exit:                              ; preds = %14, %20
   br i1 %.not65, label %32, label %197
 
 32:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.b30.i = load i1, ptr @wait_random_seeded.seeded, align 4
   br i1 %.b30.i, label %wait_random_seeded.exit.thread110, label %33
 
 wait_random_seeded.exit.thread110:                ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %88
 
 33:                                               ; preds = %32
@@ -313,9 +307,9 @@ wait_random_seeded.exit.thread110:                ; preds = %32
   br i1 %or.cond.i, label %53, label %wait_random_seeded.exit.thread
 
 wait_random_seeded.exit.thread:                   ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %195
 
 53:                                               ; preds = %50, %36
@@ -394,9 +388,9 @@ wait_random_seeded.exit.thread:                   ; preds = %50
 
 wait_random_seeded.exit:                          ; preds = %53, %.critedge.thread.i, %.critedge.i, %83, %.thread38.i, %86
   %.b.i.pr = load i1, ptr @wait_random_seeded.seeded, align 4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.b.i.pr, label %88, label %195
 
 88:                                               ; preds = %wait_random_seeded.exit.thread110, %wait_random_seeded.exit
@@ -419,9 +413,9 @@ wait_random_seeded.exit:                          ; preds = %53, %.critedge.thre
 99:                                               ; preds = %.lr.ph103, %189
   %.052101 = phi i64 [ 0, %.lr.ph103 ], [ %190, %189 ]
   %.053100 = phi i64 [ %89, %.lr.ph103 ], [ %.154, %189 ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %100 = getelementptr inbounds nuw [4 x %struct.random_device], ptr @random_devices, i64 0, i64 %.052101
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %101 = load i32, ptr %100, align 8, !tbaa !3
   %.not.i.i = icmp eq i32 %101, -1
   br i1 %.not.i.i, label %check_random_device.exit.thread.i, label %102
@@ -454,7 +448,7 @@ wait_random_seeded.exit:                          ; preds = %53, %.critedge.thre
   br i1 %119, label %check_random_device.exit.i, label %check_random_device.exit.thread.i
 
 check_random_device.exit.thread.i:                ; preds = %114, %109, %104, %102, %99
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %123
 
 check_random_device.exit.i:                       ; preds = %114
@@ -462,7 +456,7 @@ check_random_device.exit.i:                       ; preds = %114
   %121 = load i64, ptr %120, align 8, !tbaa !19
   %122 = load i64, ptr %92, align 8, !tbaa !20
   %.not.i73 = icmp eq i64 %121, %122
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not.i73, label %get_random_device.exit, label %123
 
 123:                                              ; preds = %check_random_device.exit.i, %check_random_device.exit.thread.i
@@ -500,12 +494,12 @@ check_random_device.exit.i:                       ; preds = %114
   br label %get_random_device.exit.thread
 
 get_random_device.exit.thread:                    ; preds = %123, %139
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %189
 
 get_random_device.exit:                           ; preds = %check_random_device.exit.i, %130
   %.0.i72 = load i32, ptr %100, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %142 = icmp eq i32 %.0.i72, -1
   br i1 %142, label %189, label %.preheader.preheader
 
@@ -550,7 +544,7 @@ get_random_device.exit:                           ; preds = %check_random_device
   br i1 %or.cond, label %187, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %153, %.critedge2
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %162 = load i32, ptr %100, align 8, !tbaa !3
   %.not.i.i74 = icmp eq i32 %162, -1
   br i1 %.not.i.i74, label %check_random_device.exit.thread.i76, label %163
@@ -583,7 +577,7 @@ get_random_device.exit:                           ; preds = %check_random_device
   br i1 %180, label %check_random_device.exit.i77, label %check_random_device.exit.thread.i76
 
 check_random_device.exit.thread.i76:              ; preds = %175, %170, %165, %163, %.critedge2.thread
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %close_random_device.exit
 
 check_random_device.exit.i77:                     ; preds = %175
@@ -591,7 +585,7 @@ check_random_device.exit.i77:                     ; preds = %175
   %182 = load i64, ptr %181, align 8, !tbaa !19
   %183 = load i64, ptr %98, align 8, !tbaa !20
   %.not.i78 = icmp eq i64 %182, %183
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i78, label %184, label %close_random_device.exit
 
 184:                                              ; preds = %check_random_device.exit.i77
@@ -629,33 +623,33 @@ close_random_device.exit:                         ; preds = %check_random_device
   ret i64 %.0
 }
 
-declare i64 @ossl_rand_pool_bytes_needed(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @ossl_rand_pool_bytes_needed(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ossl_rand_pool_add_begin(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @ossl_rand_pool_add_begin(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ossl_rand_pool_add_end(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @ossl_rand_pool_add_end(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
-declare i64 @ossl_rand_pool_entropy_available(ptr noundef) local_unnamed_addr #3
+declare i64 @ossl_rand_pool_entropy_available(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = tail call i32 @getpid() #11
   store i32 %5, ptr %4, align 8, !tbaa !33
   %6 = tail call i64 @CRYPTO_THREAD_get_current_id() #11
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %7, align 8, !tbaa !35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #11
   %.not.i = icmp eq i32 %8, 0
   %9 = load i64, ptr %2, align 8
@@ -663,11 +657,11 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %10, %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not.i, label %get_time_stamp.exit, label %14
 
 14:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
   %.not7.i = icmp eq i32 %15, 0
   %16 = load i64, ptr %3, align 8
@@ -675,7 +669,7 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #2 {
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %17, %19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not7.i, label %get_time_stamp.exit, label %21
 
 21:                                               ; preds = %14
@@ -687,82 +681,88 @@ get_time_stamp.exit:                              ; preds = %1, %14, %21
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.14.i, ptr %23, align 8, !tbaa !36
   %24 = call i32 @ossl_rand_pool_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 24, i64 noundef 0) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #7
+declare i32 @getpid() local_unnamed_addr #6
 
-declare i64 @CRYPTO_THREAD_get_current_id() local_unnamed_addr #3
+declare i64 @CRYPTO_THREAD_get_current_id() local_unnamed_addr #2
 
-declare i32 @ossl_rand_pool_add(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @ossl_rand_pool_add(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-declare extern_weak i32 @getentropy(ptr noundef, i64 noundef) #3
-
-; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #7
+declare extern_weak i32 @getentropy(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind
-declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #6
+
+; Function Attrs: nounwind
+declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
-declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare i32 @OPENSSL_atexit(ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_atexit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_shm() #2 {
+define internal void @cleanup_shm() #1 {
   %1 = load ptr, ptr @shm_addr, align 8, !tbaa !27
   %2 = tail call i32 @shmdt(ptr noundef %1) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @shmdt(ptr noundef) local_unnamed_addr #7
+declare i32 @shmdt(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #7
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #7
+declare i64 @time(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind willreturn memory(read) }

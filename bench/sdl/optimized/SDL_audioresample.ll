@@ -32,7 +32,7 @@ define hidden void @SDL_SetupAudioResampler() local_unnamed_addr #0 {
   br i1 %10, label %BesselI0.exit.i.i, label %.preheader, !llvm.loop !3
 
 BesselI0.exit.i.i:                                ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %11
 
 11:                                               ; preds = %11, %BesselI0.exit.i.i
@@ -49,7 +49,7 @@ BesselI0.exit.i.i:                                ; preds = %.preheader
   br i1 %exitcond.not.i.i.i, label %SincTable.exit.i.i, label %11, !llvm.loop !5
 
 SincTable.exit.i.i:                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 484, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 1.000000e+00, ptr %2, align 16
   br label %18
 
@@ -174,8 +174,8 @@ BesselI0.exit32.i.i:                              ; preds = %28
   br i1 %exitcond49.not.i.i, label %GenerateResamplerFilter.exit.i, label %.preheader.i.i, !llvm.loop !8
 
 GenerateResamplerFilter.exit.i:                   ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 484, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %101
 
 101:                                              ; preds = %101, %GenerateResamplerFilter.exit.i
@@ -210,12 +210,6 @@ define hidden range(i64 -9223372036854775807, -9223372036854775808) i64 @SDL_Get
   %8 = add nsw i64 %7, 1
   ret i64 %8
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef i32 @SDL_GetResamplerHistoryFrames() local_unnamed_addr #2 {
@@ -259,7 +253,7 @@ ResamplerMul.exit:                                ; preds = %8, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i64 -9223372036854775805, -9223372036854775808) i64 @SDL_GetResamplerOutputFrames(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 {
+define hidden range(i64 -9223372036854775805, -9223372036854775808) i64 @SDL_GetResamplerOutputFrames(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = icmp sgt i64 %0, 2147483647
   br i1 %4, label %ResamplerMul.exit.thread15, label %5
 
@@ -344,11 +338,11 @@ define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 noundef %4) #5 {
+define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 noundef %4) #4 {
   %6 = alloca [10 x float], align 16
   %7 = fmul float %3, %3
   %8 = fmul float %3, %7
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %11
 
 .preheader32:                                     ; preds = %11
@@ -405,12 +399,12 @@ define internal void @ResampleFrame_Generic(ptr noundef readonly captures(none) 
   br i1 %exitcond46.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %30, %.preheader32
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ResampleFrame_Mono(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 %4) #5 {
+define internal void @ResampleFrame_Mono(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 %4) #4 {
   %6 = fmul float %3, %3
   %7 = fmul float %3, %6
   br label %8
@@ -443,7 +437,7 @@ define internal void @ResampleFrame_Mono(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ResampleFrame_Stereo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 %4) #5 {
+define internal void @ResampleFrame_Stereo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, float noundef %3, i32 %4) #4 {
   %6 = fmul float %3, %3
   %7 = fmul float %3, %6
   br label %8
@@ -487,7 +481,13 @@ declare float @SDL_sqrtf_REAL(float noundef) local_unnamed_addr #1
 declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
@@ -495,10 +495,10 @@ declare i64 @llvm.smax.i64(i64, i64) #7
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

@@ -44,18 +44,18 @@ define dso_local void @prepare_repo_settings(ptr noundef %0) local_unnamed_addr 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %0, align 8, !tbaa !4
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %1
-  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 33, ptr noundef nonnull @.str.1) #8
+  tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 33, ptr noundef nonnull @.str.1) #7
   unreachable
 
 10:                                               ; preds = %1
@@ -83,7 +83,7 @@ define dso_local void @prepare_repo_settings(ptr noundef %0) local_unnamed_addr 
   %14 = load i32, ptr %11, align 8, !tbaa !28
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %11, align 8, !tbaa !28
-  %16 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #7
+  %16 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #8
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %repo_cfg_bool.exit, label %17
 
@@ -92,7 +92,7 @@ define dso_local void @prepare_repo_settings(ptr noundef %0) local_unnamed_addr 
   br label %repo_cfg_bool.exit
 
 repo_cfg_bool.exit:                               ; preds = %13, %17
-  %18 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #7
+  %18 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #8
   %.not.i79 = icmp eq i32 %18, 0
   br i1 %.not.i79, label %repo_cfg_bool.exit80, label %repo_cfg_bool.exit80.thread
 
@@ -128,7 +128,7 @@ repo_cfg_bool.exit80:                             ; preds = %repo_cfg_bool.exit
 
 27:                                               ; preds = %25, %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %29 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %28) #7
+  %29 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %28) #8
   %.not.i81 = icmp eq i32 %29, 0
   br i1 %.not.i81, label %repo_cfg_bool.exit82, label %30
 
@@ -138,7 +138,7 @@ repo_cfg_bool.exit80:                             ; preds = %repo_cfg_bool.exit
 
 repo_cfg_bool.exit82:                             ; preds = %27, %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %32 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #7
+  %32 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #8
   %.not.i83 = icmp eq i32 %32, 0
   br i1 %.not.i83, label %repo_cfg_int.exit, label %33
 
@@ -147,7 +147,7 @@ repo_cfg_bool.exit82:                             ; preds = %27, %30
   br label %repo_cfg_int.exit
 
 repo_cfg_int.exit:                                ; preds = %repo_cfg_bool.exit82, %33
-  %34 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #7
+  %34 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #8
   %.not.i84 = icmp eq i32 %34, 0
   br i1 %.not.i84, label %repo_cfg_int.exit.repo_cfg_bool.exit85_crit_edge, label %37
 
@@ -164,7 +164,7 @@ repo_cfg_int.exit.repo_cfg_bool.exit85_crit_edge: ; preds = %repo_cfg_int.exit
 repo_cfg_bool.exit85:                             ; preds = %repo_cfg_int.exit.repo_cfg_bool.exit85_crit_edge, %37
   %.not66 = phi i32 [ %36, %repo_cfg_int.exit.repo_cfg_bool.exit85_crit_edge ], [ -1, %37 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %39 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %38) #7
+  %39 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %38) #8
   %.not.i86 = icmp eq i32 %39, 0
   br i1 %.not.i86, label %repo_cfg_int.exit87, label %40
 
@@ -174,7 +174,7 @@ repo_cfg_bool.exit85:                             ; preds = %repo_cfg_int.exit.r
 
 repo_cfg_int.exit87:                              ; preds = %repo_cfg_bool.exit85, %40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %42 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %41) #7
+  %42 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %41) #8
   %.not.i88 = icmp eq i32 %42, 0
   br i1 %.not.i88, label %repo_cfg_bool.exit89, label %43
 
@@ -184,7 +184,7 @@ repo_cfg_int.exit87:                              ; preds = %repo_cfg_bool.exit8
 
 repo_cfg_bool.exit89:                             ; preds = %repo_cfg_int.exit87, %43
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %45 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %44) #7
+  %45 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %44) #8
   %.not.i90 = icmp eq i32 %45, 0
   br i1 %.not.i90, label %repo_cfg_bool.exit91, label %46
 
@@ -194,7 +194,7 @@ repo_cfg_bool.exit89:                             ; preds = %repo_cfg_int.exit87
 
 repo_cfg_bool.exit91:                             ; preds = %repo_cfg_bool.exit89, %46
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 324
-  %48 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %47) #7
+  %48 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %47) #8
   %.not.i92 = icmp eq i32 %48, 0
   br i1 %.not.i92, label %repo_cfg_bool.exit93, label %49
 
@@ -204,7 +204,7 @@ repo_cfg_bool.exit91:                             ; preds = %repo_cfg_bool.exit8
 
 repo_cfg_bool.exit93:                             ; preds = %repo_cfg_bool.exit91, %49
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %51 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %50) #7
+  %51 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %50) #8
   %.not.i94 = icmp eq i32 %51, 0
   br i1 %.not.i94, label %repo_cfg_bool.exit95, label %52
 
@@ -214,7 +214,7 @@ repo_cfg_bool.exit93:                             ; preds = %repo_cfg_bool.exit9
 
 repo_cfg_bool.exit95:                             ; preds = %repo_cfg_bool.exit93, %52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %54 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %53) #7
+  %54 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %53) #8
   %.not.i96 = icmp eq i32 %54, 0
   br i1 %.not.i96, label %repo_cfg_bool.exit97, label %55
 
@@ -224,7 +224,7 @@ repo_cfg_bool.exit95:                             ; preds = %repo_cfg_bool.exit9
 
 repo_cfg_bool.exit97:                             ; preds = %repo_cfg_bool.exit95, %55
   %56 = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !34
-  %57 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %.sroa.5.0..sroa_idx) #7
+  %57 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %.sroa.5.0..sroa_idx) #8
   %.not.i98 = icmp eq i32 %57, 0
   br i1 %.not.i98, label %repo_cfg_bool.exit99, label %58
 
@@ -234,7 +234,7 @@ repo_cfg_bool.exit97:                             ; preds = %repo_cfg_bool.exit9
 
 repo_cfg_bool.exit99:                             ; preds = %repo_cfg_bool.exit97, %58
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %60 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %59) #7
+  %60 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %59) #8
   %.not.i100 = icmp eq i32 %60, 0
   br i1 %.not.i100, label %repo_cfg_bool.exit101, label %61
 
@@ -245,7 +245,7 @@ repo_cfg_bool.exit99:                             ; preds = %repo_cfg_bool.exit9
 repo_cfg_bool.exit101:                            ; preds = %repo_cfg_bool.exit99, %61
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %63 = load i32, ptr %62, align 4, !tbaa !31
-  %64 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %62) #7
+  %64 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %62) #8
   %.not.i102 = icmp eq i32 %64, 0
   br i1 %.not.i102, label %repo_cfg_bool.exit103, label %65
 
@@ -255,7 +255,7 @@ repo_cfg_bool.exit101:                            ; preds = %repo_cfg_bool.exit9
 
 repo_cfg_bool.exit103:                            ; preds = %repo_cfg_bool.exit101, %65
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %67 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %66) #7
+  %67 = call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %66) #8
   %.not.i104 = icmp eq i32 %67, 0
   br i1 %.not.i104, label %repo_cfg_bool.exit105, label %68
 
@@ -264,7 +264,7 @@ repo_cfg_bool.exit103:                            ; preds = %repo_cfg_bool.exit1
   br label %repo_cfg_bool.exit105
 
 repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit103, %68
-  %69 = call i32 @git_env_bool(ptr noundef nonnull @.str.17, i32 noundef 0) #7
+  %69 = call i32 @git_env_bool(ptr noundef nonnull @.str.17, i32 noundef 0) #8
   %.not67 = icmp eq i32 %69, 0
   br i1 %.not67, label %71, label %70
 
@@ -273,7 +273,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %71
 
 71:                                               ; preds = %70, %repo_cfg_bool.exit105
-  %72 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #7
+  %72 = call i32 @repo_config_get_int(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #8
   %.not68 = icmp eq i32 %72, 0
   br i1 %.not68, label %73, label %75
 
@@ -283,13 +283,13 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %75
 
 75:                                               ; preds = %73, %71
-  %76 = call i32 @repo_config_get_string_tmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #7
+  %76 = call i32 @repo_config_get_string_tmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #8
   %.not69 = icmp eq i32 %76, 0
   br i1 %.not69, label %77, label %84
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %4, align 8, !tbaa !37
-  %79 = call i32 @git_parse_maybe_bool(ptr noundef %78) #7
+  %79 = call i32 @git_parse_maybe_bool(ptr noundef %78) #8
   %80 = icmp sgt i32 %79, -1
   br i1 %80, label %81, label %84
 
@@ -301,7 +301,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %84
 
 84:                                               ; preds = %77, %81, %75
-  %85 = call i32 @repo_config_get_string_tmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %4) #7
+  %85 = call i32 @repo_config_get_string_tmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %4) #8
   %.not71 = icmp eq i32 %85, 0
   br i1 %.not71, label %86, label %97
 
@@ -328,7 +328,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br i1 %.not75, label %97, label %96
 
 96:                                               ; preds = %94
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.25, ptr noundef %88) #8
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.25, ptr noundef %88) #7
   unreachable
 
 .sink.split:                                      ; preds = %92, %90, %86
@@ -339,7 +339,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
 97:                                               ; preds = %.sink.split, %94, %84
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i32 1, ptr %98, align 8, !tbaa !38
-  %99 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %7) #7
+  %99 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %7) #8
   %.not76 = icmp eq i32 %99, 0
   br i1 %.not76, label %100, label %102
 
@@ -349,7 +349,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %102
 
 102:                                              ; preds = %100, %97
-  %103 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #7
+  %103 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #8
   %.not77 = icmp eq i32 %103, 0
   br i1 %.not77, label %104, label %112
 
@@ -367,7 +367,7 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %112
 
 112:                                              ; preds = %104, %102
-  %113 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %7) #7
+  %113 = call i32 @repo_config_get_ulong(ptr noundef nonnull %0, ptr noundef nonnull @.str.28, ptr noundef nonnull %7) #8
   %.not78 = icmp eq i32 %113, 0
   br i1 %.not78, label %114, label %116
 
@@ -377,51 +377,45 @@ repo_cfg_bool.exit105:                            ; preds = %repo_cfg_bool.exit1
   br label %116
 
 116:                                              ; preds = %112, %114, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @repo_config_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @repo_config_get_int(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @repo_config_get_string_tmp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @repo_config_get_string_tmp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #3
+declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @repo_config_get_ulong(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @repo_config_get_ulong(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #6
+declare i32 @getpagesize() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 3) i32 @repo_settings_get_log_all_ref_updates(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %3 = call i32 @repo_config_get_string_tmp(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %3 = call i32 @repo_config_get_string_tmp(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10
 
@@ -436,18 +430,18 @@ define dso_local range(i32 -1, 3) i32 @repo_settings_get_log_all_ref_updates(ptr
   br i1 %.not3, label %10, label %8
 
 8:                                                ; preds = %6, %4
-  %9 = call i32 @git_config_bool(ptr noundef nonnull @.str.29, ptr noundef %5) #7
+  %9 = call i32 @git_config_bool(ptr noundef nonnull @.str.29, ptr noundef %5) #8
   %.not4 = icmp ne i32 %9, 0
   %. = zext i1 %.not4 to i32
   br label %10
 
 10:                                               ; preds = %1, %8, %6
   %.0 = phi i32 [ 2, %6 ], [ %., %8 ], [ -1, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @repo_settings_get_warn_ambiguous_refs(ptr noundef %0) local_unnamed_addr #0 {
@@ -458,7 +452,7 @@ define dso_local i32 @repo_settings_get_warn_ambiguous_refs(ptr noundef %0) loca
   br i1 %4, label %5, label %repo_cfg_bool.exit
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #7
+  %6 = tail call i32 @repo_config_get_bool(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %.repo_cfg_bool.exit_crit_edge, label %7
 
@@ -475,17 +469,23 @@ repo_cfg_bool.exit:                               ; preds = %.repo_cfg_bool.exit
   ret i32 %8
 }
 
-declare i32 @repo_config_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @repo_config_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind willreturn memory(none) }
 

@@ -1121,10 +1121,10 @@ define internal noundef ptr @gc_set_threshold(ptr readnone captures(none) %0, pt
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !28
   %6 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !29
@@ -1195,9 +1195,9 @@ define internal noundef ptr @gc_set_threshold(ptr readnone captures(none) %0, pt
 
 gc_set_threshold_impl.exit:                       ; preds = %.thread17, %.thread15, %29, %19, %9, %7, %21
   %.08 = phi ptr [ null, %21 ], [ null, %7 ], [ null, %9 ], [ null, %19 ], [ @_Py_NoneStruct, %29 ], [ @_Py_NoneStruct, %.thread15 ], [ @_Py_NoneStruct, %.thread17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.08
 }
 
@@ -1218,7 +1218,7 @@ define internal ptr @gc_get_threshold(ptr readnone captures(none) %0, ptr readno
 ; Function Attrs: nounwind uwtable
 define internal ptr @gc_collect(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %.thread
 
@@ -1298,7 +1298,7 @@ gc_collect_impl.exit:                             ; preds = %26, %.thread40
 
 38:                                               ; preds = %34, %22, %10, %36
   %.024 = phi ptr [ null, %22 ], [ null, %34 ], [ %37, %36 ], [ null, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.024
 }
 
@@ -1306,19 +1306,19 @@ gc_collect_impl.exit:                             ; preds = %26, %.thread40
 define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
 .thread:                                          ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !36
   br label %11
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !36
   %9 = icmp ult i64 %2, 2
   %10 = icmp ne ptr %1, null
@@ -1385,15 +1385,15 @@ define internal ptr @gc_get_objects(ptr readnone captures(none) %0, ptr noundef 
 
 gc_get_objects_impl.exit:                         ; preds = %.thread30, %.thread32, %32, %27, %20, %17, %11
   %.0 = phi ptr [ null, %17 ], [ null, %11 ], [ %29, %27 ], [ null, %32 ], [ %40, %.thread32 ], [ null, %20 ], [ null, %.thread30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @gc_get_stats(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca [3 x %struct.gc_generation_stats], align 16
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1458,7 +1458,7 @@ Py_DECREF.exit.i:                                 ; preds = %26, %23, %20
 
 gc_get_stats_impl.exit:                           ; preds = %11, %2, %27, %29, %32
   %.0.i = phi ptr [ null, %2 ], [ null, %27 ], [ null, %29 ], [ null, %32 ], [ %9, %11 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.i
 }
 
@@ -1709,22 +1709,16 @@ declare i32 @PyGC_Enable() local_unnamed_addr #1
 
 declare i32 @PyGC_Disable() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @PyGC_IsEnabled() local_unnamed_addr #1
 
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
@@ -1751,7 +1745,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @_PyGC_GetObjects(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
@@ -1837,11 +1831,17 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

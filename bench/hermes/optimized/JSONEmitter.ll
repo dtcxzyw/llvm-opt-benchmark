@@ -436,10 +436,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 if.end.i14:                                       ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp132.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp132.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp133.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp134.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp135.i.i)
   %conv.i.i = sext i8 %3 to i32
   %and.i.i = and i32 %conv.i.i, 224
   %cmp.i.i = icmp eq i32 %and.i.i, 192
@@ -606,10 +606,10 @@ _ZN4llvhplERKNS_5TwineES2_.exit.i.i:              ; preds = %if.else68.i.i
 if.then:                                          ; preds = %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147", %if.end128.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit"
   %retval.0.i.i152 = phi i32 [ %or.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ], [ %or52.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147" ], [ %or123.i.i, %if.end128.i.i ]
   %begin8.1151 = phi ptr [ %add.ptr8.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit" ], [ %add.ptr45.i.i, %"_ZN6hermes10decodeUTF8ILb1EZNS_11JSONEmitter19primitiveEmitStringEN4llvh9StringRefEE3$_0EEjRPKcT0_.exit.thread147" ], [ %add.ptr113.i.i, %if.end128.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp132.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp133.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp134.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp135.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp132.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp133.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp134.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp135.i.i)
   store ptr %add.ptr.i.i.i.i.i, ptr %utf16Chars, align 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
   store i32 2, ptr %Capacity2.i.i.i.i.i, align 4
@@ -1810,10 +1810,10 @@ declare double @llvm.fabs.f64(double) #7
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -441,15 +441,15 @@ define internal fastcc i32 @test_http_url_ok(ptr noundef %0, i32 noundef range(i
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef nonnull %12) #9
   %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 292, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef %15, i32 noundef 1) #9
   %.not = icmp eq i32 %16, 0
@@ -546,25 +546,22 @@ define internal fastcc i32 @test_http_url_ok(ptr noundef %0, i32 noundef range(i
 
 57:                                               ; preds = %5, %.thread30
   %.010 = phi i32 [ %.2, %.thread30 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.010
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -574,15 +571,12 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @test_http_url_path_query_ok(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @OSSL_HTTP_parse_url(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #9
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -609,8 +603,8 @@ define internal fastcc range(i32 0, 2) i32 @test_http_url_path_query_ok(ptr noun
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str.14, i32 noundef 325) #9
   %20 = load ptr, ptr %4, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str.14, i32 noundef 326) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %18
 }
 
@@ -621,15 +615,15 @@ define internal fastcc range(i32 0, 2) i32 @test_http_url_invalid(ptr noundef %0
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @.str.50, ptr %2, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.50, ptr %3, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.50, ptr %4, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 1, ptr %5, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 1, ptr %6, align 4, !tbaa !13
   %7 = call i32 @OSSL_HTTP_parse_url(ptr noundef %0, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #9
   %8 = icmp ne i32 %7, 0
@@ -667,11 +661,11 @@ define internal fastcc range(i32 0, 2) i32 @test_http_url_invalid(ptr noundef %0
 
 23:                                               ; preds = %.thread, %17
   %24 = phi i32 [ 0, %.thread ], [ 1, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %24
 }
 
@@ -688,9 +682,9 @@ define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i
   %8 = tail call ptr @BIO_new(ptr noundef %7) #9
   %9 = tail call ptr @BIO_s_mem() #9
   %10 = tail call ptr @BIO_new(ptr noundef %9) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @__const.test_http_resp_hdr_limit.mock_args, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = icmp samesign ugt i32 %0, 1
   %12 = select i1 %11, ptr @.str.96, ptr @.str.48
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.95, i32 noundef %2, ptr noundef nonnull %12) #9
@@ -770,7 +764,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i
   br i1 %.not, label %57, label %48
 
 48:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = call i32 @BIO_gets(ptr noundef nonnull %41, ptr noundef nonnull %6, i32 noundef 7) #9
   %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 219, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.110, i32 noundef %49, i32 noundef 5) #9
   %.not68 = icmp eq i32 %50, 0
@@ -784,7 +778,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i
 
 55:                                               ; preds = %51, %48
   %56 = phi i32 [ 0, %48 ], [ %54, %51 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 57:                                               ; preds = %47
@@ -817,8 +811,8 @@ define internal fastcc range(i32 0, 2) i32 @test_http_method(i32 noundef range(i
   %72 = call i32 @BIO_free(ptr noundef %8) #9
   %73 = call i32 @BIO_free(ptr noundef %10) #9
   call void @OPENSSL_sk_pop_free(ptr noundef null, ptr noundef nonnull @X509V3_conf_free) #9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.056
 }
 
@@ -827,10 +821,10 @@ declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 declare ptr @BIO_s_mem() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -862,10 +856,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr nound
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = load ptr, ptr @x509, align 8, !tbaa !4
   %25 = load ptr, ptr @x509_it, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %9) #9
   %27 = load ptr, ptr %9, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 3158066, ptr %10, align 4
   %28 = icmp sgt i64 %26, 3
   br i1 %28, label %29, label %.thread91.i
@@ -1086,8 +1080,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @http_bio_cb_ex(ptr nound
 
 mock_http_server.exit:                            ; preds = %.thread91.i, %49, %52, %55, %59, %62, %66, %71, %81, %82, %92, %100, %105, %111, %114, %.thread93.i, %121, %123, %128, %134
   %.0.i = phi i32 [ %108, %105 ], [ %122, %121 ], [ %124, %123 ], [ %139, %134 ], [ %86, %82 ], [ 0, %.thread91.i ], [ 0, %49 ], [ 0, %52 ], [ 0, %59 ], [ 0, %55 ], [ 0, %66 ], [ 0, %62 ], [ 0, %71 ], [ 0, %81 ], [ 0, %92 ], [ 0, %100 ], [ 0, %111 ], [ 0, %114 ], [ 0, %128 ], [ 0, %.thread93.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %140
 
 140:                                              ; preds = %mock_http_server.exit, %8
@@ -1117,13 +1111,13 @@ declare ptr @BIO_get_callback_arg(ptr noundef) local_unnamed_addr #1
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 declare i32 @test_strn_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1134,14 +1128,14 @@ declare i32 @test_char_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @ASN1_item_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1153,9 +1147,9 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   %7 = tail call ptr @BIO_new(ptr noundef %6) #9
   %8 = tail call ptr @BIO_s_mem() #9
   %9 = tail call ptr @BIO_new(ptr noundef %8) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @__const.test_http_resp_hdr_limit.mock_args, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !25
   %10 = icmp eq ptr %7, null
   %11 = icmp eq ptr %9, null
@@ -1228,8 +1222,8 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   %.0 = phi i32 [ 0, %3 ], [ %.2, %42 ]
   %46 = call i32 @BIO_free(ptr noundef %7) #9
   %47 = call i32 @BIO_free(ptr noundef %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -1244,7 +1238,7 @@ define internal fastcc i32 @test_http_resp_hdr_limit(i64 noundef range(i64 0, 25
   %4 = tail call ptr @BIO_new(ptr noundef %3) #9
   %5 = tail call ptr @BIO_s_mem() #9
   %6 = tail call ptr @BIO_new(ptr noundef %5) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) @__const.test_http_resp_hdr_limit.mock_args, i64 32, i1 false)
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 491, ptr noundef nonnull @.str.144, ptr noundef %4) #9
   %8 = icmp eq i32 %7, 0
@@ -1298,7 +1292,7 @@ define internal fastcc i32 @test_http_resp_hdr_limit(i64 noundef range(i64 0, 25
   %32 = call i32 @BIO_free(ptr noundef %4) #9
   %33 = call i32 @BIO_free(ptr noundef %6) #9
   call void @OSSL_HTTP_REQ_CTX_free(ptr noundef %.0) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.018
 }
 
@@ -1312,17 +1306,23 @@ declare ptr @OSSL_HTTP_REQ_CTX_exchange(ptr noundef) local_unnamed_addr #1
 
 declare void @OSSL_HTTP_REQ_CTX_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @memcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nounwind }
 attributes #10 = { nounwind willreturn memory(read) }

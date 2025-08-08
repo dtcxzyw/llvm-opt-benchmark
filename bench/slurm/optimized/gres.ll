@@ -593,7 +593,7 @@ define dso_local range(i32 0, 2) i32 @gres_find_sock_by_job_state(ptr noundef re
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_get_node_used(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
@@ -605,7 +605,7 @@ define dso_local ptr @gres_get_node_used(ptr noundef %0) #2 {
 
 5:                                                ; preds = %3, %1
   %6 = phi ptr [ %.pre, %3 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %6
 }
 
@@ -693,7 +693,7 @@ define dso_local i64 @gres_get_system_cnt(ptr noundef %0, i1 noundef zeroext %1)
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gres_get_step_info(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
   %6 = alloca %struct.foreach_step_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %7, align 8
@@ -743,14 +743,14 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %14, %.pr
 
 26:                                               ; preds = %12, %5, %gres_build_id.exit
   %.0 = phi i32 [ %25, %gres_build_id.exit ], [ 22, %5 ], [ 2072, %12 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_sock_delete(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %3
@@ -811,7 +811,7 @@ define dso_local void @gres_sock_delete(ptr noundef %0) #2 {
   br label %24
 
 24:                                               ; preds = %22, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -823,19 +823,19 @@ _gres_state_delete_members.exit:
   %3 = load ptr, ptr %2, align 8
   tail call void @gres_job_state_delete(ptr noundef %3)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %0, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #28
   call void @slurm_xfree(ptr noundef nonnull %1) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @destroy_gres_device(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
@@ -849,14 +849,14 @@ define dso_local void @destroy_gres_device(ptr noundef %0) #2 {
   br label %6
 
 6:                                                ; preds = %1, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @destroy_gres_slurmd_conf(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %3) #28
@@ -882,7 +882,7 @@ define dso_local void @destroy_gres_slurmd_conf(ptr noundef %0) #2 {
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @slurm_xfree(ptr noundef nonnull %12) #28
   call void @slurm_xfree(ptr noundef nonnull %2) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -916,12 +916,6 @@ define dso_local i32 @gres_build_id(ptr noundef readonly captures(address_is_nul
   %.013 = phi i32 [ 0, %1 ], [ 0, %.preheader ], [ %6, %.lr.ph ]
   ret i32 %.013
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @gres_find_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1071,14 +1065,14 @@ define dso_local zeroext i1 @gres_use_local_device_index() local_unnamed_addr #2
   ret i1 %.01
 }
 
-declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @cgroup_conf_init() local_unnamed_addr #5
+declare i32 @cgroup_conf_init() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_create_state(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.gres_create_state) #28
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1137,17 +1131,17 @@ define dso_local ptr @gres_create_state(ptr noundef readonly captures(none) %0, 
 
 35:                                               ; preds = %33, %28, %18, %9
   %36 = phi ptr [ %.pre, %33 ], [ %6, %28 ], [ %6, %18 ], [ %6, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %36
 }
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @xstrdup(ptr noundef) local_unnamed_addr #5
+declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
-declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
+declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @gres_is_shared_name(ptr noundef %0) local_unnamed_addr #2 {
@@ -1165,7 +1159,7 @@ define dso_local zeroext i1 @gres_is_shared_name(ptr noundef %0) local_unnamed_a
   ret i1 %.0
 }
 
-declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gres_init() local_unnamed_addr #2 {
@@ -1174,13 +1168,13 @@ define dso_local noundef i32 @gres_init() local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %6, 0
@@ -1444,32 +1438,32 @@ gres_is_shared_name.exit.thread:                  ; preds = %.lr.ph, %gres_is_sh
   unreachable
 
 103:                                              ; preds = %.thread75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #7
+declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #8
+declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
-declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @fatal(ptr noundef, ...) local_unnamed_addr #8
+declare void @fatal(ptr noundef, ...) local_unnamed_addr #7
 
-declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_gres_context(ptr noundef %0) unnamed_addr #2 {
@@ -1550,17 +1544,17 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
   ret void
 }
 
-declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #5
+declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
-declare zeroext i1 @running_in_slurmctld() local_unnamed_addr #5
+declare zeroext i1 @running_in_slurmctld() local_unnamed_addr #4
 
-declare i32 @slurm_select_cr_type() local_unnamed_addr #5
+declare i32 @slurm_select_cr_type() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gres_get_gres_cnt() local_unnamed_addr #2 {
@@ -1659,12 +1653,12 @@ define dso_local ptr @gres_name_filter(ptr noundef %0, ptr noundef %1) local_unn
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -1774,15 +1768,15 @@ _gres_name_context.exit.thread:                   ; preds = %34, %26
 
 45:                                               ; preds = %16, %44
   %.0 = phi ptr [ null, %16 ], [ %.0.pre, %44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gres_fini() local_unnamed_addr #2 {
@@ -1905,14 +1899,14 @@ _unload_plugin.exit:                              ; preds = %15, %21
   ret i32 %.2
 }
 
-declare void @list_destroy(ptr noundef) local_unnamed_addr #5
+declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 
-declare void @free_buf(ptr noundef) local_unnamed_addr #5
+declare void @free_buf(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_help_msg() local_unnamed_addr #2 {
   %1 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @xstrdup(ptr noundef nonnull @.str.18) #28
   store ptr %2, ptr %1, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
@@ -1956,7 +1950,7 @@ define dso_local ptr @gres_help_msg() local_unnamed_addr #2 {
 
 17:                                               ; preds = %._crit_edge
   %18 = load ptr, ptr %1, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %18
 }
 
@@ -2025,7 +2019,7 @@ define dso_local noundef i32 @gres_reconfig() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_links_create_empty(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %.not7 = icmp eq i32 %1, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -2036,7 +2030,7 @@ define dso_local ptr @gres_links_create_empty(i32 noundef %0, i32 noundef %1) lo
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %4 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -2056,10 +2050,10 @@ define dso_local i32 @gres_links_validate(ptr noundef %0) local_unnamed_addr #2 
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %5
@@ -2137,30 +2131,30 @@ define dso_local i32 @gres_links_validate(ptr noundef %0) local_unnamed_addr #2 
 
 31:                                               ; preds = %.thread, %._crit_edge, %29, %1, %8
   %.022 = phi i32 [ -2, %8 ], [ -1, %1 ], [ -2, %29 ], [ %.2, %._crit_edge ], [ -2, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_get_autodetected_gpus(ptr noundef byval(%struct.node_config_load_t) align 8 %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   br label %8
 
 7:                                                ; preds = %59
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 8:                                                ; preds = %3, %59
@@ -2210,7 +2204,7 @@ define dso_local void @gres_get_autodetected_gpus(ptr noundef byval(%struct.node
   br i1 %.not24, label %30, label %52
 
 30:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %31 = load volatile i32, ptr @autodetect_flags, align 4
   %32 = and i32 %31, 255
@@ -2263,7 +2257,7 @@ define dso_local void @gres_get_autodetected_gpus(ptr noundef byval(%struct.node
 _get_autodetect_flags_str.exit:                   ; preds = %48, %.sink.split.i
   %.pre30 = phi ptr [ %25, %48 ], [ %.pre30.pre, %.sink.split.i ]
   %51 = phi ptr [ null, %48 ], [ %.pre, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %51, ptr %6, align 8
   br label %52
 
@@ -2295,15 +2289,15 @@ _get_autodetect_flags_str.exit:                   ; preds = %48, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-declare i32 @gpu_plugin_init() local_unnamed_addr #5
+declare i32 @gpu_plugin_init() local_unnamed_addr #4
 
-declare ptr @gpu_g_get_system_gpu_list(ptr noundef) local_unnamed_addr #5
+declare ptr @gpu_g_get_system_gpu_list(ptr noundef) local_unnamed_addr #4
 
-declare ptr @list_create(ptr noundef) local_unnamed_addr #5
+declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 
-declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_merge_by_type(ptr noundef %0, ptr noundef %1) #2 {
@@ -2372,7 +2366,7 @@ define internal noundef i32 @_slurm_conf_gres_str(ptr noundef readonly captures(
   ret i32 0
 }
 
-declare i32 @gpu_plugin_fini() local_unnamed_addr #5
+declare i32 @gpu_plugin_fini() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
@@ -2435,7 +2429,7 @@ define dso_local range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr no
   ret i32 %.6
 }
 
-declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @_print_slurm_conf_mismatch(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
@@ -2459,12 +2453,12 @@ define dso_local noundef i32 @_print_slurm_conf_mismatch(ptr noundef readonly ca
   ret i32 0
 }
 
-declare void @warning(ptr noundef, ...) local_unnamed_addr #5
+declare void @warning(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gres_node_config_load(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.foreach_fill_in_gres_devices_t, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
@@ -2500,18 +2494,18 @@ define dso_local i32 @gres_node_config_load(ptr noundef %0, ptr noundef %1, ptr 
 
 19:                                               ; preds = %17, %15
   %20 = load i32, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %20
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_free_name_list(ptr noundef captures(none) %0) #12 {
+define internal void @_free_name_list(ptr noundef captures(none) %0) #11 {
   tail call void @free(ptr noundef %0) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_fill_in_gres_devices(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
@@ -2587,7 +2581,7 @@ define internal noundef i32 @_foreach_fill_in_gres_devices(ptr noundef readonly 
 43:                                               ; preds = %40, %37
   %44 = load i32, ptr %23, align 8
   %45 = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %46 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2624, ptr noundef nonnull @__func__._init_gres_device) #28
   store ptr %46, ptr %4, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 20
@@ -2599,7 +2593,7 @@ define internal noundef i32 @_foreach_fill_in_gres_devices(ptr noundef readonly 
   %50 = call ptr @xstrdup(ptr noundef %45) #28
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr %50, ptr %51, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 0, ptr %53, align 8
@@ -2666,16 +2660,16 @@ define internal noundef i32 @_foreach_fill_in_gres_devices(ptr noundef readonly 
   br label %_init_gres_device.exit.thread
 
 _init_gres_device.exit.thread:                    ; preds = %58, %87
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @free(ptr noundef nonnull %34) #28
   br label %.backedge
 
 90:                                               ; preds = %86, %83
   %storemerge.i.i = phi i32 [ 2, %86 ], [ 1, %83 ]
   store i32 %storemerge.i.i, ptr %53, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #31
   %92 = trunc i64 %91 to i32
   %.not1822.i = icmp slt i32 %92, 1
@@ -2730,7 +2724,7 @@ _init_gres_device.exit.thread:                    ; preds = %58, %87
 _init_gres_device.exit.thread52:                  ; preds = %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph.i, %90
   %storemerge.i.sink = phi i32 [ -1, %90 ], [ %117, %._crit_edge.thread.i ], [ -1, %._crit_edge.i ], [ -1, %.lr.ph.i ]
   store i32 %storemerge.i.sink, ptr %47, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %118 = load i32, ptr %27, align 4
   %119 = icmp sgt i32 %storemerge.i.sink, %118
   br i1 %119, label %120, label %.thread
@@ -2827,9 +2821,9 @@ define internal noundef i32 @_foreach_fill_in_gres_devices_dev_id(ptr noundef ca
   br i1 %.not, label %38, label %15
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 4
@@ -2840,7 +2834,7 @@ define internal noundef i32 @_foreach_fill_in_gres_devices_dev_id(ptr noundef ca
   %23 = load i32, ptr %22, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.91, i32 noundef %20, i32 noundef %21, i32 noundef %23) #28
   %24 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %24, ptr %4, align 8
   %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %26 = and i64 %25, 64
@@ -2864,7 +2858,7 @@ define internal noundef i32 @_foreach_fill_in_gres_devices_dev_id(ptr noundef ca
 
 37:                                               ; preds = %27, %30, %15
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 38:                                               ; preds = %37, %12
@@ -2885,17 +2879,17 @@ define dso_local i32 @gres_g_node_config_load(i32 noundef %0, ptr noundef %1, pt
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca %struct.node_config_load_t, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8
   %18 = tail call zeroext i1 @running_in_slurmd() #28
   %19 = zext i1 %18 to i8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 %0, ptr %17, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %20, align 4
@@ -3015,8 +3009,8 @@ define dso_local i32 @gres_g_node_config_load(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not1.i, label %_handle_global_autodetect.exit, label %75
 
 75:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %76 = load volatile i32, ptr @autodetect_flags, align 4
   %77 = and i32 %76, 255
@@ -3060,7 +3054,7 @@ define dso_local i32 @gres_g_node_config_load(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not7.i.i, label %_get_autodetect_flags_str.exit.thread.i, label %_get_autodetect_flags_str.exit.i
 
 _get_autodetect_flags_str.exit.thread.i:          ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr null, ptr %11, align 8
   br label %97
 
@@ -3071,7 +3065,7 @@ _get_autodetect_flags_str.exit.i:                 ; preds = %93, %90, %87, %84, 
   %.pre3.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre4.i = and i64 %.pre3.i, 64
   %96 = icmp eq i64 %.pre4.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %.pre.i, ptr %11, align 8
   br i1 %96, label %103, label %97
 
@@ -3088,7 +3082,7 @@ _get_autodetect_flags_str.exit.i:                 ; preds = %93, %90, %87, %84, 
 
 103:                                              ; preds = %101, %97, %_get_autodetect_flags_str.exit.i
   call void @slurm_xfree(ptr noundef nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_handle_global_autodetect.exit
 
 _handle_global_autodetect.exit:                   ; preds = %72, %103
@@ -3200,7 +3194,7 @@ _validate_slurm_conf.exit:                        ; preds = %146, %147
   %150 = phi ptr [ %.pre132, %146 ], [ %.pre, %147 ]
   %151 = load ptr, ptr @gres_conf_list, align 8
   %152 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %150, i64 %indvars.iv123
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %152, ptr %9, align 8
   store i32 -1, ptr %140, align 8
   store i32 -1, ptr %141, align 4
@@ -3233,11 +3227,11 @@ _validate_slurm_conf.exit:                        ; preds = %146, %147
   br label %_validate_gres_conf.exit
 
 _validate_gres_conf.exit:                         ; preds = %157, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %164 = load ptr, ptr @gres_conf_list, align 8
   %165 = load ptr, ptr @gres_context, align 8
   %166 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %165, i64 %indvars.iv123
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %166, ptr %144, align 8
   %167 = icmp ne ptr %164, null
   %or.cond.i = and i1 %145, %167
@@ -3259,7 +3253,7 @@ _validate_gres_conf.exit:                         ; preds = %157, %.sink.split.i
   br label %_check_conf_mismatch.exit
 
 _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf.exit, %168, %175
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %176 = load i32, ptr @gres_context_cnt, align 4
   %177 = sext i32 %176 to i64
@@ -3273,7 +3267,7 @@ _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %137
   %179 = phi ptr [ %.pre133, %._crit_edge.loopexit ], [ %38, %137 ]
   %.val = load i32, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %180 = zext i32 %.val to i64
   store i64 %180, ptr %7, align 8
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3365,7 +3359,7 @@ _check_conf_mismatch.exit:                        ; preds = %_validate_gres_conf
   br label %_merge_config.exit
 
 _merge_config.exit:                               ; preds = %._crit_edge.i, %228
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %229 = call i32 @gpu_plugin_init() #28
   %.not76 = icmp eq i32 %229, 0
   br i1 %.not76, label %.preheader, label %.thread
@@ -3413,7 +3407,7 @@ _merge_config.exit:                               ; preds = %._crit_edge.i, %228
 253:                                              ; preds = %249
   %254 = load ptr, ptr @gres_conf_list, align 8
   %255 = getelementptr inbounds nuw i8, ptr %243, i64 48
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %17, ptr %6, align 8
   store ptr %255, ptr %232, align 8
   store i32 0, ptr %233, align 8
@@ -3443,7 +3437,7 @@ _merge_config.exit:                               ; preds = %._crit_edge.i, %228
 
 gres_node_config_load.exit:                       ; preds = %260, %262
   %264 = load i32, ptr %236, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %265
 
 265:                                              ; preds = %gres_node_config_load.exit, %246
@@ -3663,12 +3657,12 @@ _pack_gres_conf.exit:                             ; preds = %350, %352, %357
 
 362:                                              ; preds = %_pack_gres_conf.exit, %26
   %.0 = phi i32 [ 2069, %26 ], [ %.05698, %_pack_gres_conf.exit ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %13) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
@@ -3683,10 +3677,10 @@ define internal range(i32 0, 2) i32 @_parse_gres_config(ptr noundef writeonly ca
   %13 = alloca ptr, align 8
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %.b = load i1, ptr @reset_prev, align 1
   br i1 %.b, label %17, label %16
@@ -3740,8 +3734,8 @@ define internal range(i32 0, 2) i32 @_parse_gres_config(ptr noundef writeonly ca
   br i1 %.not3.i, label %_handle_local_autodetect.exit, label %38
 
 38:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %39 = load volatile i32, ptr @autodetect_flags, align 4
   %40 = and i32 %39, 255
@@ -3785,7 +3779,7 @@ define internal range(i32 0, 2) i32 @_parse_gres_config(ptr noundef writeonly ca
   br i1 %.not7.i.i, label %_get_autodetect_flags_str.exit.thread.i, label %_get_autodetect_flags_str.exit.i
 
 _get_autodetect_flags_str.exit.thread.i:          ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr null, ptr %8, align 8
   br label %60
 
@@ -3796,7 +3790,7 @@ _get_autodetect_flags_str.exit.i:                 ; preds = %56, %53, %50, %47, 
   %.pre5.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %.pre6.i = and i64 %.pre5.i, 64
   %59 = icmp eq i64 %.pre6.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %.pre.i, ptr %8, align 8
   br i1 %59, label %66, label %60
 
@@ -3813,7 +3807,7 @@ _get_autodetect_flags_str.exit.i:                 ; preds = %56, %53, %50, %47, 
 
 66:                                               ; preds = %64, %60, %_get_autodetect_flags_str.exit.i
   call void @slurm_xfree(ptr noundef nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_handle_local_autodetect.exit
 
 _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
@@ -3877,7 +3871,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
 
 .thread:                                          ; preds = %84, %89
   %.063152 = phi ptr [ @.str.126, %89 ], [ @.str.125, %84 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
   %91 = load ptr, ptr @xcpuinfo_ops, align 8
   %.not83 = icmp eq ptr %91, null
@@ -3939,7 +3933,7 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
 
 122:                                              ; preds = %.critedge, %113
   call void @slurm_xfree(ptr noundef nonnull %13) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %123
 
 123:                                              ; preds = %89, %122
@@ -4003,9 +3997,9 @@ _handle_local_autodetect.exit:                    ; preds = %66, %33, %24
   br i1 %.not91, label %202, label %152
 
 152:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 0, ptr %14, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 1
   %153 = load ptr, ptr %10, align 8
   %154 = call i32 @gres_flags_parse(ptr noundef %153, ptr noundef nonnull %14, ptr noundef nonnull %15)
@@ -4131,8 +4125,8 @@ _set_prev_gres_flags.exit:                        ; preds = %.lr.ph.i.i117, %_sa
   store i32 %.013.i.i123, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 4), align 4
   store i8 %167, ptr getelementptr inbounds nuw (i8, ptr @_parse_gres_config.prev_gres, i64 8), align 4
   call void @slurm_xfree(ptr noundef nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge108
 
 202:                                              ; preds = %150
@@ -4400,10 +4394,10 @@ _set_shared_flag.exit:                            ; preds = %gres_is_shared_name
 
 317:                                              ; preds = %311, %._crit_edge.thread, %74
   %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %311 ], [ 0, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -4452,30 +4446,30 @@ define internal range(i32 0, 2) i32 @_parse_gres_config_node(ptr noundef writeon
   ret i32 %.1
 }
 
-declare zeroext i1 @running_in_slurmd() local_unnamed_addr #5
+declare zeroext i1 @running_in_slurmd() local_unnamed_addr #4
 
-declare ptr @get_extra_conf_path(ptr noundef) local_unnamed_addr #5
+declare ptr @get_extra_conf_path(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
-declare i32 @get_log_level() local_unnamed_addr #5
+declare i32 @get_log_level() local_unnamed_addr #4
 
-declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @s_p_hashtbl_create(ptr noundef) local_unnamed_addr #5
+declare ptr @s_p_hashtbl_create(ptr noundef) local_unnamed_addr #4
 
-declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @s_p_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @s_p_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #5
+declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #4
 
-declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_find_fileless_gres(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
@@ -4642,7 +4636,7 @@ define internal noundef i32 @_log_gres_slurmd_conf(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @_post_plugin_gres_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #15 {
+define internal range(i32 0, 2) i32 @_post_plugin_gres_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4789,21 +4783,21 @@ define dso_local noundef i32 @gres_node_config_pack(ptr noundef %0) local_unname
   ret i32 0
 }
 
-declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
-declare i32 @list_count(ptr noundef) local_unnamed_addr #5
+declare i32 @list_count(ptr noundef) local_unnamed_addr #4
 
-declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #5
+declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #4
 
-declare ptr @list_next(ptr noundef) local_unnamed_addr #5
+declare ptr @list_next(ptr noundef) local_unnamed_addr #4
 
-declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #5
+declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @gres_node_config_unpack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -4824,29 +4818,29 @@ define dso_local range(i32 -1, 1) i32 @gres_node_config_unpack(ptr noundef %0, p
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   %20 = load ptr, ptr @gres_conf_list, align 8
   %.not91 = icmp eq ptr %20, null
@@ -4937,38 +4931,38 @@ define dso_local range(i32 -1, 1) i32 @gres_node_config_unpack(ptr noundef %0, p
   br i1 %.not101, label %53, label %.thread128
 
 53:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %54 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %0) #28
   %.not102 = icmp eq i32 %54, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not102, label %55, label %.thread128
 
 55:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %56 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %16, ptr noundef %0) #28
   %.not103 = icmp eq i32 %56, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not103, label %57, label %.thread128
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %58 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %12, ptr noundef nonnull %17, ptr noundef %0) #28
   %.not104 = icmp eq i32 %58, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br i1 %.not104, label %59, label %.thread128
 
 59:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %60 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef %0) #28
   %.not105 = icmp eq i32 %60, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br i1 %.not105, label %61, label %.thread128
 
 61:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %62 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef %0) #28
   %.not106 = icmp eq i32 %62, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not106, label %63, label %.thread128
 
 63:                                               ; preds = %61, %.lr.ph
@@ -5269,31 +5263,31 @@ _find_context_by_id.exit:                         ; preds = %86
 
 204:                                              ; preds = %.critedge, %.thread128, %._crit_edge, %27
   %.0 = phi i32 [ 0, %27 ], [ 0, %._crit_edge ], [ -1, %.thread128 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack16(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack32(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack64(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #16 {
+define dso_local noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnamed_addr #15 {
   store i8 0, ptr @gres_flags2str.flag_str, align 16
   %2 = zext i32 %0 to i64
   %3 = and i64 %2, 8
@@ -5454,7 +5448,7 @@ define dso_local noundef nonnull ptr @gres_flags2str(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @gres_id_shared(i32 noundef %0) local_unnamed_addr #17 {
+define dso_local noundef zeroext i1 @gres_id_shared(i32 noundef %0) local_unnamed_addr #16 {
   %2 = and i32 %0, 512
   %.not = icmp ne i32 %2, 0
   ret i1 %.not
@@ -5690,9 +5684,9 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %7, %.pre
   ret void
 }
 
-declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_init_node_config(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
@@ -5922,19 +5916,19 @@ _gres_state_delete_members.exit:
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @_gres_node_state_delete(ptr noundef %3)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %0, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #28
   call void @slurm_xfree(ptr noundef nonnull %1) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @gres_id_sharing(i32 noundef %0) local_unnamed_addr #18 {
+define dso_local zeroext i1 @gres_id_sharing(i32 noundef %0) local_unnamed_addr #17 {
   %2 = load i32, ptr @gpu_plugin_id, align 4
   %3 = icmp eq i32 %0, %2
   ret i1 %3
@@ -6045,7 +6039,7 @@ define dso_local range(i32 0, -2147483648) i32 @gres_node_config_validate(ptr no
   %.040 = phi ptr [ %62, %56 ], [ %54, %50 ]
   %76 = load ptr, ptr @gres_context, align 8
   %77 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %76, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 144
   %79 = load i32, ptr %78, align 8
@@ -6469,7 +6463,7 @@ _find_gres_type.exit.thread.i:                    ; preds = %185, %191, %174
 
 278:                                              ; preds = %.critedge.i, %.critedge260.i
   %279 = phi i64 [ %.pre354.i, %.critedge260.i ], [ %229, %.critedge.i ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %13, ptr %11, align 8
   store i32 %5, ptr %32, align 4
   store i64 0, ptr %33, align 8
@@ -6501,7 +6495,7 @@ _find_gres_type.exit.thread.i:                    ; preds = %185, %191, %174
   br label %289
 
 289:                                              ; preds = %286, %278
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %295
 
 290:                                              ; preds = %.critedge.i, %.critedge258.i
@@ -6510,12 +6504,12 @@ _find_gres_type.exit.thread.i:                    ; preds = %185, %191, %174
   br i1 %or.cond5.i, label %292, label %295
 
 292:                                              ; preds = %290
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %77, ptr %12, align 8
   store ptr %88, ptr %48, align 8
   %293 = load ptr, ptr @gres_conf_list, align 8
   %294 = call i32 @list_for_each(ptr noundef %293, ptr noundef nonnull @_foreach_add_gres_info, ptr noundef nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %295
 
 295:                                              ; preds = %292, %290, %289
@@ -7175,7 +7169,7 @@ _valid_gres_type.exit.thread.i:                   ; preds = %._valid_gres_type.e
 
 _node_config_validate.exit:                       ; preds = %87, %158, %.loopexit.i, %390, %391, %394, %406, %407, %410, %.thread297.i, %472, %473, %_find_gres_type.exit.thread.i.i, %543, %546, %_valid_gres_type.exit.i, %_valid_gres_type.exit.thread.i, %555, %595
   %.0197.i = phi i32 [ 0, %87 ], [ %.2204.i, %.loopexit.i ], [ %.5.i, %595 ], [ %.5.i, %555 ], [ %.5.i, %_valid_gres_type.exit.thread.i ], [ 22, %410 ], [ 22, %407 ], [ 22, %406 ], [ %.5.i, %_valid_gres_type.exit.i ], [ 22, %390 ], [ 22, %391 ], [ 22, %394 ], [ %.5.i, %.thread297.i ], [ 22, %546 ], [ 22, %543 ], [ 22, %_find_gres_type.exit.thread.i.i ], [ 22, %472 ], [ 22, %473 ], [ %.1203.ph.i, %158 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %596 = call i32 @llvm.smax.i32(i32 %.03958, i32 %.0197.i)
   %597 = getelementptr inbounds nuw i8, ptr %.040, i64 4
   %598 = load i32, ptr %597, align 4
@@ -7513,9 +7507,9 @@ define internal fastcc void @_build_node_gres_str(ptr noundef readonly captures(
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   tail call void @slurm_xfree(ptr noundef %1) #28
   %11 = load i32, ptr @gres_context_cnt, align 4
@@ -7670,10 +7664,10 @@ define internal fastcc void @_build_node_gres_str(ptr noundef readonly captures(
   br i1 %.not99, label %105, label %81
 
 81:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = call i64 @bit_size(ptr noundef nonnull %80) #28
   %83 = trunc i64 %82 to i32
   %84 = add i32 %83, -1
@@ -7751,9 +7745,9 @@ define internal fastcc void @_build_node_gres_str(ptr noundef readonly captures(
 
 _core_bitmap2str.exit:                            ; preds = %98, %99
   %100 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %100, ptr %10, align 8
   %101 = load ptr, ptr %9, align 8
   %.not100 = icmp eq ptr %101, null
@@ -7980,9 +7974,9 @@ _get_suffix.exit116:                              ; preds = %188, %.sink.split.i
   br i1 %197, label %16, label %._crit_edge150, !llvm.loop !71
 
 ._crit_edge150:                                   ; preds = %.loopexit, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -7992,11 +7986,11 @@ define dso_local void @gres_node_feature(ptr noundef readnone captures(none) %0,
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #31
   %9 = load i8, ptr %1, align 1
   %.not1617.i = icmp eq i8 %9, 0
@@ -8199,19 +8193,19 @@ _gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_
   unreachable
 
 92:                                               ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2073) i32 @gres_node_reconfig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %12, label %10
@@ -8538,7 +8532,7 @@ _node_reconfig.exit.thread:                       ; preds = %_node_reconfig.exit
 
 165:                                              ; preds = %._crit_edge.thread
   call void @slurm_xfree(ptr noundef nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.2.lcssa71
 }
 
@@ -8615,7 +8609,7 @@ define dso_local void @gres_node_remove(ptr noundef readonly captures(none) %0) 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca %struct.pack_state_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -8650,7 +8644,7 @@ define dso_local noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %
   br label %_pack_state.exit
 
 _pack_state.exit:                                 ; preds = %3, %11, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 0
 }
 
@@ -8749,7 +8743,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   br i1 %.not72, label %73, label %60
 
 60:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %61 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %59) #28
   store ptr %61, ptr %3, align 8
   %62 = load ptr, ptr %34, align 8
@@ -8766,7 +8760,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   %72 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %68, i32 noundef %71, ptr noundef %72) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
 73:                                               ; preds = %56
@@ -8782,7 +8776,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   br i1 %.not73, label %92, label %79
 
 79:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %80 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %78) #28
   store ptr %80, ptr %4, align 8
   %81 = load ptr, ptr %35, align 8
@@ -8799,7 +8793,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   %91 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %87, i32 noundef %90, ptr noundef %91) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %94
 
 92:                                               ; preds = %75
@@ -8815,7 +8809,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   br i1 %.not74, label %111, label %98
 
 98:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %99 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %97) #28
   store ptr %99, ptr %5, align 8
   %100 = load ptr, ptr %36, align 8
@@ -8832,7 +8826,7 @@ define internal range(i32 -1, 1) i32 @_foreach_node_state_pack(ptr noundef reado
   %110 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %106, i32 noundef %109, ptr noundef %110) #28
   call void @slurm_xfree(ptr noundef nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %113
 
 111:                                              ; preds = %94
@@ -8880,15 +8874,15 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   %23 = alloca ptr, align 8
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 0, ptr %9, align 2
   %26 = call i32 @unpack16(ptr noundef nonnull %9, ptr noundef %1) #28
   %.not = icmp eq i32 %26, 0
@@ -8939,12 +8933,12 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %44, label %.lr.ph403.split.us, label %.lr.ph403.split
 
 .lr.ph403.split.us:                               ; preds = %.lr.ph403
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %.thread327
 
 .lr.ph403.split:                                  ; preds = %.lr.ph403, %.backedge
   %49 = phi i16 [ %340, %.backedge ], [ %43, %.lr.ph403 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %50 = load i32, ptr %45, align 8
   %51 = load i32, ptr %46, align 4
   %52 = icmp eq i32 %50, %51
@@ -9021,9 +9015,9 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
 
 .lr.ph401:                                        ; preds = %75, %.thread288
   %indvars.iv454 = phi i64 [ %indvars.iv.next455, %.thread288 ], [ 0, %75 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %88 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef nonnull %1) #28
   %.not242 = icmp eq i32 %88, 0
   br i1 %.not242, label %89, label %.thread276
@@ -9034,10 +9028,10 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %.not243, label %117, label %91
 
 91:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %92 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %1) #28
   %.not244 = icmp eq i32 %92, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not244, label %93, label %121
 
 93:                                               ; preds = %91
@@ -9095,23 +9089,23 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br label %.thread
 
 .thread:                                          ; preds = %117, %116
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %120 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef nonnull %1) #28
   %.not248 = icmp eq i32 %120, 0
   br i1 %.not248, label %122, label %.thread284
 
 .thread276:                                       ; preds = %.lr.ph401, %110
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit336
 
 121:                                              ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit336
 
 122:                                              ; preds = %.thread
@@ -9120,10 +9114,10 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %.not249, label %150, label %124
 
 124:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %125 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %1) #28
   %.not250 = icmp eq i32 %125, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not250, label %126, label %154
 
 126:                                              ; preds = %124
@@ -9181,23 +9175,23 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br label %.thread280
 
 .thread280:                                       ; preds = %150, %149
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %153 = call i32 @unpack32(ptr noundef nonnull %18, ptr noundef nonnull %1) #28
   %.not254 = icmp eq i32 %153, 0
   br i1 %.not254, label %155, label %.thread292
 
 .thread284:                                       ; preds = %.thread, %143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit336
 
 154:                                              ; preds = %124
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit336
 
 155:                                              ; preds = %.thread280
@@ -9206,10 +9200,10 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %.not255, label %183, label %157
 
 157:                                              ; preds = %155
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %158 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %1) #28
   %.not256 = icmp eq i32 %158, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not256, label %159, label %189
 
 159:                                              ; preds = %157
@@ -9267,8 +9261,8 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br label %.thread288
 
 .thread288:                                       ; preds = %183, %182
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
   %186 = load i16, ptr %71, align 8
   %187 = zext i16 %186 to i64
@@ -9276,13 +9270,13 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %188, label %.lr.ph401, label %.loopexit332, !llvm.loop !79
 
 .thread292:                                       ; preds = %.thread280, %176
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit336
 
 189:                                              ; preds = %157
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.loopexit336
 
 .loopexit332:                                     ; preds = %.thread288, %75, %73
@@ -9373,9 +9367,9 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
 
 .lr.ph:                                           ; preds = %219, %.thread308
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread308 ], [ 0, %219 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %232 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef nonnull %1) #28
   %.not218 = icmp eq i32 %232, 0
   br i1 %.not218, label %233, label %.thread304
@@ -9386,10 +9380,10 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %.not219, label %261, label %235
 
 235:                                              ; preds = %233
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %236 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %1) #28
   %.not220 = icmp eq i32 %236, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not220, label %237, label %265
 
 237:                                              ; preds = %235
@@ -9447,23 +9441,23 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br label %.thread300
 
 .thread300:                                       ; preds = %261, %260
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %264 = call i32 @unpack32(ptr noundef nonnull %24, ptr noundef nonnull %1) #28
   %.not224 = icmp eq i32 %264, 0
   br i1 %.not224, label %266, label %.thread312
 
 .thread304:                                       ; preds = %.lr.ph, %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit336
 
 265:                                              ; preds = %235
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit336
 
 266:                                              ; preds = %.thread300
@@ -9472,10 +9466,10 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %.not225, label %294, label %268
 
 268:                                              ; preds = %266
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %269 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %23, ptr noundef nonnull %25, ptr noundef nonnull %1) #28
   %.not226 = icmp eq i32 %269, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br i1 %.not226, label %270, label %300
 
 270:                                              ; preds = %268
@@ -9533,8 +9527,8 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br label %.thread308
 
 .thread308:                                       ; preds = %294, %293
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %297 = load i16, ptr %215, align 8
   %298 = zext i16 %297 to i64
@@ -9542,13 +9536,13 @@ define dso_local range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captur
   br i1 %299, label %.lr.ph, label %.loopexit333, !llvm.loop !80
 
 .thread312:                                       ; preds = %.thread300, %287
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit336
 
 300:                                              ; preds = %268
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.loopexit336
 
 .loopexit333:                                     ; preds = %.thread308, %219, %217
@@ -9636,11 +9630,11 @@ _find_context_by_id.exit:                         ; preds = %320
   br label %.backedge
 
 .thread327:                                       ; preds = %.lr.ph403.split, %.lr.ph403.split.us
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit334
 
 .backedge:                                        ; preds = %.loopexit, %331
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %340 = load i16, ptr %9, align 2
   %.not209 = icmp eq i16 %340, 0
   br i1 %.not209, label %.loopexit334, label %.lr.ph403.split, !llvm.loop !81
@@ -9657,7 +9651,7 @@ _find_context_by_id.exit:                         ; preds = %320
   unreachable
 
 .loopexit336:                                     ; preds = %309, %306, %303, %.loopexit333, %214, %212, %209, %207, %205, %202, %198, %195, %192, %.loopexit332, %70, %68, %65, %63, %61, %58, %300, %265, %189, %154, %121, %.thread304, %.thread312, %.thread276, %.thread284, %.thread292, %312
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %344 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.gres_node_state_unpack, ptr noundef %2) #28
   call fastcc void @_gres_node_state_delete(ptr noundef nonnull %55)
   %345 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #28
@@ -9677,25 +9671,25 @@ _find_context_by_id.exit:                         ; preds = %320
 
 .loopexit335:                                     ; preds = %.critedge, %.loopexit336, %.loopexit334, %27
   %.0 = phi i32 [ 0, %27 ], [ 0, %.loopexit334 ], [ -1, %.loopexit336 ], [ -1, %.critedge ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #5
+declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #4
 
-declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @bit_unfmt_hexmask(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #5
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack64_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @unpackstr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpackstr_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_gres_node_state_delete(ptr noundef %0) unnamed_addr #2 {
@@ -10270,9 +10264,9 @@ define internal noundef i32 @_foreach_node_state_log(ptr noundef readonly captur
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = tail call i32 @get_log_level() #28
   %10 = icmp sgt i32 %9, 2
   br i1 %10, label %11, label %12
@@ -10613,8 +10607,8 @@ define internal noundef i32 @_foreach_node_state_log(ptr noundef readonly captur
   br i1 %201, label %171, label %._crit_edge94, !llvm.loop !92
 
 ._crit_edge94:                                    ; preds = %198, %.preheader
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -10657,7 +10651,7 @@ define internal noundef i32 @_foreach_get_node_used(ptr noundef readonly capture
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10682,7 +10676,7 @@ define internal noundef i32 @_foreach_get_node_used(ptr noundef readonly capture
   br i1 %21, label %22, label %144
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = zext i16 %17 to i64
   %24 = tail call ptr @bit_alloc(i64 noundef %23) #28
   store ptr %24, ptr %3, align 8
@@ -10705,11 +10699,11 @@ define internal noundef i32 @_foreach_get_node_used(ptr noundef readonly capture
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph126.i ], [ %indvars.iv.next141.pre-phi.i, %137 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph126.i ], [ %indvars.iv.next.i, %137 ]
   %.091124.i = phi ptr [ @.str.5, %.lr.ph126.i ], [ %.1.i, %137 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = load ptr, ptr %3, align 8
   %35 = call i32 @slurm_bit_test(ptr noundef %34, i64 noundef %indvars.iv140.i) #28
   %.not106.i = icmp eq i32 %35, 0
@@ -10916,9 +10910,9 @@ gres_is_shared_name.exit.i:                       ; preds = %36
 137:                                              ; preds = %136, %._crit_edge147.i
   %indvars.iv.next141.pre-phi.i = phi i64 [ %.pre148.i, %._crit_edge147.i ], [ %129, %136 ]
   %.1.i = phi ptr [ %.091124.i, %._crit_edge147.i ], [ @.str.7, %136 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %138 = load i16, ptr %16, align 8
   %139 = zext i16 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next141.pre-phi.i, %139
@@ -10939,7 +10933,7 @@ gres_is_shared_name.exit.i:                       ; preds = %36
   br label %143
 
 143:                                              ; preds = %142, %._crit_edge127.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_node_gres_used.exit
 
 144:                                              ; preds = %18, %15
@@ -11025,7 +11019,7 @@ _node_gres_used.exit:                             ; preds = %172, %143, %144, %1
   br label %_node_gres_used.exit.thread
 
 _node_gres_used.exit.thread:                      ; preds = %2, %_node_gres_used.exit, %181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 0
 }
 
@@ -11195,7 +11189,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %51
   ret i64 %.0
 }
 
-declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_job_state_delete(ptr noundef %0) local_unnamed_addr #2 {
@@ -11442,11 +11436,11 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %15, align 8
@@ -11478,7 +11472,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %39, label %35
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = tail call ptr @xstrdup(ptr noundef nonnull %29) #28
   store ptr %36, ptr %6, align 8
   call void @slurm_option_update_tres_per_task(i32 noundef 0, ptr noundef nonnull @.str.65, ptr noundef nonnull %6) #28
@@ -11488,11 +11482,11 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 
 38:                                               ; preds = %35
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %426
 
 .critedge:                                        ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %.critedge, %33, %31, %1
@@ -11623,7 +11617,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %49, label %101, label %123
 
 101:                                              ; preds = %100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %102 = load ptr, ptr %95, align 8
   %103 = load ptr, ptr %102, align 8
@@ -11659,14 +11653,14 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %.not257, label %._crit_edge, label %106, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %106, %101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %123
 
 123:                                              ; preds = %._crit_edge, %100
   br i1 %50, label %124, label %149
 
 124:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %125 = load ptr, ptr %95, align 8
   %126 = load ptr, ptr %125, align 8
@@ -11715,7 +11709,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge299:                                   ; preds = %136, %124
   %.1196.lcssa = phi i8 [ 0, %124 ], [ %.2, %136 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %149
 
 149:                                              ; preds = %._crit_edge299, %123
@@ -11723,7 +11717,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %51, label %150, label %183
 
 150:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %151 = load ptr, ptr %95, align 8
   %152 = load ptr, ptr %151, align 8
@@ -11786,7 +11780,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge304:                                   ; preds = %173, %150
   %.4.lcssa = phi i8 [ %.0195, %150 ], [ %.5, %173 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %183
 
 183:                                              ; preds = %._crit_edge304, %149
@@ -11794,7 +11788,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %52, label %184, label %242
 
 184:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
   %185 = load ptr, ptr %95, align 8
   %186 = load ptr, ptr %185, align 8
@@ -11902,7 +11896,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge310:                                   ; preds = %232, %184
   %.7.lcssa = phi i8 [ %.3, %184 ], [ %.8, %232 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %242
 
 242:                                              ; preds = %._crit_edge310, %183
@@ -11910,7 +11904,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %30, label %243, label %276
 
 243:                                              ; preds = %242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %244 = load ptr, ptr %95, align 8
   %245 = load ptr, ptr %244, align 8
@@ -11973,7 +11967,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge316:                                   ; preds = %266, %243
   %.10.lcssa = phi i8 [ %.6, %243 ], [ %.11, %266 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %276
 
 276:                                              ; preds = %._crit_edge316, %242
@@ -11981,7 +11975,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %53, label %277, label %294
 
 277:                                              ; preds = %276
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %278 = load ptr, ptr %95, align 8
   %279 = load ptr, ptr %278, align 8
@@ -12011,7 +12005,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %.not262, label %._crit_edge321, label %282, !llvm.loop !108
 
 ._crit_edge321:                                   ; preds = %282, %277
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %294
 
 294:                                              ; preds = %._crit_edge321, %276
@@ -12041,7 +12035,7 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
 305:                                              ; preds = %301
   %306 = load ptr, ptr %95, align 8
   %307 = load ptr, ptr %306, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %2, align 8
   store i64 -2, ptr %308, align 8
@@ -12061,14 +12055,14 @@ define dso_local i32 @gres_job_state_validate(ptr noundef %0) local_unnamed_addr
   br i1 %316, label %_get_job_gres_list_cnt.exit.thread, label %_get_job_gres_list_cnt.exit
 
 _get_job_gres_list_cnt.exit.thread:               ; preds = %314, %305
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %327
 
 _get_job_gres_list_cnt.exit:                      ; preds = %314
   store i32 7696487, ptr %312, align 4
   %317 = call i32 @list_for_each(ptr noundef nonnull %307, ptr noundef nonnull @_foreach_gres_list_cnt, ptr noundef nonnull %2) #28
   %318 = load i64, ptr %308, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not269 = icmp eq i64 %318, -2
   br i1 %.not269, label %327, label %319
 
@@ -12102,9 +12096,9 @@ _get_job_gres_list_cnt.exit:                      ; preds = %314
   %335 = load i16, ptr %334, align 2
   %336 = zext i16 %335 to i32
   %337 = udiv i32 %332, %336
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %14, ptr noundef nonnull @.str.67, i32 noundef %337) #28
   %338 = load ptr, ptr %14, align 8
@@ -12150,8 +12144,8 @@ _get_job_gres_list_cnt.exit:                      ; preds = %314
 362:                                              ; preds = %._crit_edge325, %359
   %.12 = phi i8 [ %.9, %359 ], [ 1, %._crit_edge325 ]
   call void @slurm_xfree(ptr noundef nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %365
 
 363:                                              ; preds = %329, %329
@@ -12279,13 +12273,13 @@ _get_job_gres_list_cnt.exit:                      ; preds = %314
 
 426:                                              ; preds = %38, %369, %54, %43, %424, %389, %385, %380
   %.1 = phi i32 [ 0, %380 ], [ %425, %424 ], [ 2072, %389 ], [ 2072, %385 ], [ 2122, %38 ], [ 2122, %43 ], [ 0, %54 ], [ %370, %369 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
-declare void @slurm_option_update_tres_per_task(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @slurm_option_update_tres_per_task(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
@@ -12293,12 +12287,12 @@ define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr noundef nonnu
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %0, null
   %10 = load ptr, ptr %3, align 8
@@ -12456,10 +12450,10 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %28, %.pr
 
 78:                                               ; preds = %.sink.split, %12
   %.025 = phi ptr [ null, %12 ], [ %.025.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.025
 }
 
@@ -13122,12 +13116,12 @@ _foreach_set_over_array.exit:                     ; preds = %338, %331, %329, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #2 {
   %3 = alloca %struct.merge_generic_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -13228,7 +13222,7 @@ define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %
 
 _generic_state.exit:                              ; preds = %51, %35, %32, %29, %28, %45, %42, %39, %38, %2
   %.1 = phi i32 [ 0, %2 ], [ 2119, %38 ], [ 2119, %39 ], [ 2119, %42 ], [ 2119, %45 ], [ 2119, %28 ], [ 2119, %29 ], [ 2119, %32 ], [ 2119, %35 ], [ 0, %51 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
@@ -13284,7 +13278,7 @@ define internal range(i32 0, 2) i32 @_find_gres_per_jst(ptr noundef readonly cap
 define dso_local range(i32 0, 2073) i32 @gres_job_revalidate2(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.validate_job_gres_cnt_t, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -13300,7 +13294,7 @@ define dso_local range(i32 0, 2073) i32 @gres_job_revalidate2(i32 noundef %0, pt
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %12 = call ptr @next_node_bitmap(ptr noundef nonnull %2, ptr noundef nonnull %5) #28
   %.not1619 = icmp eq ptr %12, null
@@ -13340,17 +13334,17 @@ define dso_local range(i32 0, 2073) i32 @gres_job_revalidate2(i32 noundef %0, pt
 
 ._crit_edge:                                      ; preds = %25, %15, %19, %11
   %spec.select = phi i32 [ 0, %11 ], [ 2072, %19 ], [ 2072, %15 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
 29:                                               ; preds = %._crit_edge, %3, %9
   %.012 = phi i32 [ 0, %9 ], [ 0, %3 ], [ %spec.select, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_find_job_has_gres_bits(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #19 {
+define internal range(i32 0, 2) i32 @_find_job_has_gres_bits(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -13391,14 +13385,14 @@ define internal range(i32 0, 2) i32 @_find_job_has_gres_bits(ptr noundef readonl
   ret i32 %.not13.lcssa
 }
 
-declare ptr @next_node_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @next_node_bitmap(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_find_invalid_job_gres_on_node(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %58, label %6
 
@@ -13500,14 +13494,14 @@ define internal range(i32 0, 2) i32 @_find_invalid_job_gres_on_node(ptr noundef 
 
 58:                                               ; preds = %.critedge60, %.critedge59, %2, %6, %9, %14, %43
   %.039 = phi i32 [ 1, %43 ], [ 0, %14 ], [ 0, %9 ], [ 0, %6 ], [ 0, %2 ], [ 0, %.critedge59 ], [ 1, %.critedge60 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_job_state_list_dup(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.job_state_extract_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -13523,14 +13517,14 @@ define dso_local ptr @gres_job_state_list_dup(ptr noundef %0) local_unnamed_addr
 
 gres_job_state_extract.exit:                      ; preds = %1, %5
   %7 = phi ptr [ %.pre.i, %5 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_job_state_extract(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.job_state_extract_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -13546,7 +13540,7 @@ define dso_local ptr @gres_job_state_extract(ptr noundef %0, i32 noundef %1) loc
 
 8:                                                ; preds = %6, %2
   %9 = phi ptr [ %.pre, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 }
 
@@ -13985,9 +13979,9 @@ define dso_local ptr @gres_job_state_dup(ptr noundef readonly captures(address_i
   ret ptr %.0
 }
 
-declare ptr @bit_copy(ptr noundef) local_unnamed_addr #5
+declare ptr @bit_copy(ptr noundef) local_unnamed_addr #4
 
-declare i64 @bit_size(ptr noundef) local_unnamed_addr #5
+declare i64 @bit_size(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_foreach_job_state_extract(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
@@ -14198,7 +14192,7 @@ _job_state_dup2.exit.thread19:                    ; preds = %7, %_job_state_dup2
 define dso_local noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #2 {
   %6 = alloca %struct.pack_state_t, align 8
   %7 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %7, ptr %8, align 8
@@ -14235,7 +14229,7 @@ define dso_local noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1
   br label %_pack_state.exit
 
 _pack_state.exit:                                 ; preds = %5, %15, %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0
 }
 
@@ -14354,7 +14348,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_pack(ptr noundef readon
   br i1 %.not139, label %85, label %72
 
 72:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %73 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %71) #28
   store ptr %73, ptr %3, align 8
   %74 = load ptr, ptr %64, align 8
@@ -14371,7 +14365,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_pack(ptr noundef readon
   %84 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %80, i32 noundef %83, ptr noundef %84) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %87
 
 85:                                               ; preds = %.lr.ph
@@ -14478,7 +14472,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_pack(ptr noundef readon
   br i1 %.not134, label %146, label %133
 
 133:                                              ; preds = %.lr.ph149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %134 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %132) #28
   store ptr %134, ptr %4, align 8
   %135 = load ptr, ptr %125, align 8
@@ -14495,7 +14489,7 @@ define internal range(i32 -1, 1) i32 @_foreach_job_state_pack(ptr noundef readon
   %145 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %141, i32 noundef %144, ptr noundef %145) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %148
 
 146:                                              ; preds = %.lr.ph149
@@ -14641,15 +14635,15 @@ define dso_local range(i32 -1, 1) i32 @gres_job_state_unpack(ptr noundef capture
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %17 = call i32 @unpack16(ptr noundef nonnull %8, ptr noundef %1) #28
   %.not = icmp eq i32 %17, 0
@@ -14782,11 +14776,11 @@ define dso_local range(i32 -1, 1) i32 @gres_job_state_unpack(ptr noundef capture
   br i1 %.not219.us, label %78, label %.sink.split
 
 78:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %79 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %79, ptr noundef nonnull %10, ptr noundef nonnull %1) #28
   %.not220.us = icmp eq i32 %80, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not220.us, label %81, label %.sink.split
 
 81:                                               ; preds = %78
@@ -14879,9 +14873,9 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 116:                                              ; preds = %.lr.ph.us, %.thread273.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %.thread273.us ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %117 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef nonnull %1) #28
   %.not257.us = icmp eq i32 %117, 0
   br i1 %.not257.us, label %118, label %.thread277
@@ -14892,15 +14886,15 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not258.us, label %139, label %120
 
 120:                                              ; preds = %118
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %121 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %1) #28
   %.not259.us = icmp eq i32 %121, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not259.us, label %123, label %122
 
 122:                                              ; preds = %120
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread303
 
 123:                                              ; preds = %120
@@ -14939,8 +14933,8 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br label %.thread273.us
 
 .thread273.us:                                    ; preds = %139, %138
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %142 = load i32, ptr %92, align 8
   %143 = zext i32 %142 to i64
@@ -14987,9 +14981,9 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 158:                                              ; preds = %.lr.ph363.us, %.thread287.us
   %indvars.iv419 = phi i64 [ 0, %.lr.ph363.us ], [ %indvars.iv.next420, %.thread287.us ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %159 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef nonnull %1) #28
   %.not245.us = icmp eq i32 %159, 0
   br i1 %.not245.us, label %160, label %.thread291
@@ -15000,15 +14994,15 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not246.us, label %181, label %162
 
 162:                                              ; preds = %160
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %163 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %1) #28
   %.not247.us = icmp eq i32 %163, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not247.us, label %165, label %164
 
 164:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.sink.split
 
 165:                                              ; preds = %162
@@ -15047,8 +15041,8 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br label %.thread287.us
 
 .thread287.us:                                    ; preds = %181, %180
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next420 = add nuw nsw i64 %indvars.iv419, 1
   %184 = load i32, ptr %92, align 8
   %185 = zext i32 %184 to i64
@@ -15295,8 +15289,8 @@ _find_context_by_id.exit.us:                      ; preds = %210
   br label %.thread277
 
 .thread277:                                       ; preds = %116, %274
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.sink.split
 
 .split384.us:                                     ; preds = %167
@@ -15319,8 +15313,8 @@ _find_context_by_id.exit.us:                      ; preds = %210
   br label %.thread291
 
 .thread291:                                       ; preds = %158, %281
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.sink.split
 
 .thread307:                                       ; preds = %.backedge.us, %.lr.ph375.split.us, %.lr.ph375.split, %34
@@ -15362,15 +15356,15 @@ _find_context_by_id.exit.us:                      ; preds = %210
 
 .loopexit325:                                     ; preds = %.thread313, %290, %.thread307, %19
   %.0 = phi i32 [ 0, %19 ], [ 0, %.thread307 ], [ -1, %290 ], [ -1, %.thread313 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @unpack8(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @unpack8(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_prep_pack(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -15422,7 +15416,7 @@ define dso_local void @gres_prep_pack(ptr noundef readonly captures(none) %0, i1
   br i1 %.not33, label %35, label %24
 
 24:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %23) #28
   store ptr %25, ptr %4, align 8
   %26 = load ptr, ptr %17, align 8
@@ -15437,7 +15431,7 @@ define dso_local void @gres_prep_pack(ptr noundef readonly captures(none) %0, i1
   %34 = add i32 %33, 1
   call void @packmem(ptr noundef nonnull %31, i32 noundef %34, ptr noundef %2) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 35:                                               ; preds = %.lr.ph
@@ -15464,11 +15458,11 @@ define dso_local void @gres_prep_pack(ptr noundef readonly captures(none) %0, i1
   ret void
 }
 
-declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
-declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #5
+declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gres_prep_pack_legacy(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
@@ -15560,7 +15554,7 @@ define dso_local i32 @gres_prep_unpack_list(ptr noundef %0, ptr noundef %1, i16 
   ret i32 %8
 }
 
-declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #5
+declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_gres_prep_unpack(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) #2 {
@@ -15571,11 +15565,11 @@ define internal range(i32 -1, 1) i32 @_gres_prep_unpack(ptr noundef writeonly ca
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1
   %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 7722, ptr noundef nonnull @__func__._gres_prep_unpack) #28
   %12 = icmp ugt i16 %1, 10239
@@ -15660,9 +15654,9 @@ define internal range(i32 -1, 1) i32 @_gres_prep_unpack(ptr noundef writeonly ca
 
 47:                                               ; preds = %.lr.ph, %.thread79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread79 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = call i32 @unpack32(ptr noundef nonnull %9, ptr noundef %2) #28
   %.not66 = icmp eq i32 %48, 0
   br i1 %.not66, label %49, label %.sink.split.sink.split
@@ -15673,10 +15667,10 @@ define internal range(i32 -1, 1) i32 @_gres_prep_unpack(ptr noundef writeonly ca
   br i1 %.not67, label %77, label %51
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %52 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef %2) #28
   %.not68 = icmp eq i32 %52, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not68, label %53, label %.sink.split.sink.split
 
 53:                                               ; preds = %51
@@ -15734,8 +15728,8 @@ define internal range(i32 -1, 1) i32 @_gres_prep_unpack(ptr noundef writeonly ca
   br label %.thread79
 
 .thread79:                                        ; preds = %77, %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %21, align 4
   %81 = zext i32 %80 to i64
@@ -15782,19 +15776,19 @@ _find_context_by_id.exit:                         ; preds = %90, %.loopexit
 
 95:                                               ; preds = %18, %13, %83
   %96 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74, ptr noundef nonnull @__func__._gres_prep_unpack) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %11, ptr %4, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_prep_list_del.exit, label %98
 
 .sink.split.sink.split:                           ; preds = %51, %47, %70
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %40, %20, %23, %26, %30, %33
   %97 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.74, ptr noundef nonnull @__func__._gres_prep_unpack) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %11, ptr %4, align 8
   br label %98
 
@@ -15846,21 +15840,21 @@ _find_context_by_id.exit:                         ; preds = %90, %.loopexit
   br label %_prep_list_del.exit
 
 _prep_list_del.exit:                              ; preds = %95, %113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %116
 
 116:                                              ; preds = %_prep_list_del.exit, %_find_context_by_id.exit
   %.053 = phi i32 [ -1, %_prep_list_del.exit ], [ 0, %_find_context_by_id.exit ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_prep_list_del(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
@@ -15913,7 +15907,7 @@ define internal void @_prep_list_del(ptr noundef %0) #2 {
   br label %21
 
 21:                                               ; preds = %1, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -15922,9 +15916,9 @@ define dso_local range(i32 -1, 1) i32 @gres_prep_unpack_legacy(ptr noundef captu
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %7 = call i32 @unpack16(ptr noundef nonnull %5, ptr noundef %1) #28
   %.not26 = icmp eq i32 %7, 0
@@ -16024,7 +16018,7 @@ define dso_local range(i32 -1, 1) i32 @gres_prep_unpack_legacy(ptr noundef captu
   br i1 %.not31, label %64, label %47
 
 47:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %37, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %49 = load ptr, ptr %48, align 8
@@ -16070,7 +16064,7 @@ _prep_list_del.exit:                              ; preds = %47, %._crit_edge.i
   %63 = getelementptr inbounds nuw i8, ptr %37, i64 8
   call void @slurm_xfree(ptr noundef nonnull %63) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %.split, %_prep_list_del.exit
@@ -16086,15 +16080,15 @@ _prep_list_del.exit:                              ; preds = %47, %._crit_edge.i
 
 68:                                               ; preds = %.thread34, %64, %._crit_edge, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %._crit_edge ], [ -1, %64 ], [ -1, %.thread34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_g_prep_build_env(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.foreach_prep_build_env_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
@@ -16130,7 +16124,7 @@ define dso_local ptr @gres_g_prep_build_env(ptr noundef %0, ptr noundef %1) loca
 
 16:                                               ; preds = %2, %14
   %.0 = phi ptr [ %15, %14 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -16207,7 +16201,7 @@ _find_context_by_id.exit:                         ; preds = %8
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_g_prep_set_env(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.foreach_prep_set_env_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -16241,7 +16235,7 @@ define dso_local void @gres_g_prep_set_env(ptr noundef %0, ptr noundef %1, i32 n
   unreachable
 
 16:                                               ; preds = %11, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -16474,7 +16468,7 @@ _core_bitmap_rebuild.exit:                        ; preds = %.lr.ph48.split.i, %
 define dso_local i32 @gres_job_test(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.foreach_job_test_t, align 8
   %9 = zext i1 %2 to i8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -2, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %4, ptr %10, align 4
@@ -16504,7 +16498,7 @@ define dso_local i32 @gres_job_test(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 23:                                               ; preds = %18, %7, %20
   %.0 = phi i32 [ %22, %20 ], [ -2, %7 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -16540,10 +16534,10 @@ define internal range(i32 -1, 1) i32 @_foreach_job_test(ptr noundef %0, ptr noun
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i32, ptr %0, align 8
   %28 = and i32 %27, 512
   %.not.i.i = icmp eq i32 %28, 0
@@ -17108,27 +17102,27 @@ gres_use_busy_dev.exit.i:                         ; preds = %39, %36
   br i1 %298, label %_job_test.exit.thread, label %_job_test.exit.thread38
 
 _job_test.exit.thread:                            ; preds = %267, %61, %.preheader.i, %287, %297
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %299
 
 _job_test.exit.thread38:                          ; preds = %287, %297
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %304
 
 _job_test.exit:                                   ; preds = %247, %249
   store ptr null, ptr %6, align 8
   call void @slurm_xfree(ptr noundef nonnull %3) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not26 = icmp eq i32 %.3.i, -2
   br i1 %.not26, label %304, label %299
 
@@ -17161,7 +17155,7 @@ _job_test.exit:                                   ; preds = %247, %249
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_sock_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.foreach_sock_str_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.5, ptr %4, align 8
@@ -17179,7 +17173,7 @@ define dso_local ptr @gres_sock_str(ptr noundef %0, i32 noundef %1) local_unname
 
 10:                                               ; preds = %2, %7
   %.0 = phi ptr [ %9, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -17258,9 +17252,9 @@ define internal noundef i32 @_foreach_sock_str(ptr noundef readonly captures(non
 define dso_local void @gres_g_job_set_env(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.foreach_gres_accumulate_device_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -17370,8 +17364,8 @@ define dso_local void @gres_g_job_set_env(ptr noundef %0, i32 noundef %1) local_
   unreachable
 
 53:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17619,7 +17613,7 @@ define internal noundef i32 @_job_state_log(ptr noundef readonly captures(none) 
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = tail call i32 @get_log_level() #28
   %8 = icmp sgt i32 %7, 2
   br i1 %8, label %9, label %21
@@ -18233,7 +18227,7 @@ define internal noundef i32 @_job_state_log(ptr noundef readonly captures(none) 
   br i1 %326, label %192, label %._crit_edge210, !llvm.loop !158
 
 ._crit_edge210:                                   ; preds = %323, %177, %184
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -18247,13 +18241,13 @@ define dso_local ptr @gres_g_get_devices(ptr noundef %0, i1 noundef zeroext %1, 
   %12 = alloca %struct.foreach_gres_accumulate_device_t, align 8
   %13 = alloca %struct.foreach_alloc_gres_device_t, align 8
   %14 = zext i1 %1 to i8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %15, 0
@@ -18330,7 +18324,7 @@ define dso_local ptr @gres_g_get_devices(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %.not44, label %54, label %44
 
 44:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8
   %45 = zext i16 %2 to i32
   %46 = and i32 %45, 2
@@ -18356,7 +18350,7 @@ define dso_local ptr @gres_g_get_devices(ptr noundef %0, i1 noundef zeroext %1, 
   br label %_parse_accel_bind_type.exit
 
 _parse_accel_bind_type.exit:                      ; preds = %49, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr @gres_context_cnt, align 4
   br label %54
 
@@ -18378,7 +18372,7 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
 
 65:                                               ; preds = %.lr.ph57, %101
   %indvars.iv60 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next61, %101 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %8, ptr %12, align 8
   store i64 0, ptr %57, align 8
   store ptr %9, ptr %58, align 8
@@ -18389,7 +18383,7 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
   %68 = load i32, ptr %67, align 8
   store i32 %68, ptr %61, align 8
   store i32 0, ptr %62, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %69 = load ptr, ptr %10, align 8
   store ptr %69, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
@@ -18461,8 +18455,8 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
   br label %101
 
 101:                                              ; preds = %85, %65, %100, %83
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %102 = load i32, ptr @gres_context_cnt, align 4
   %103 = sext i32 %102 to i64
@@ -18482,10 +18476,10 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
 
 108:                                              ; preds = %._crit_edge58, %39
   %.0 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0
 }
 
@@ -18522,7 +18516,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr @gres_context, align 8
   %14 = sext i32 %0 to i64
@@ -18744,8 +18738,8 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   %123 = getelementptr inbounds nuw i8, ptr %.088, i64 9
   %124 = call i64 @strtoul(ptr noundef nonnull captures(none) %123, ptr noundef null, i32 noundef 10) #28
   %125 = load i32, ptr @gpu_plugin_id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %126 = call i64 @bit_size(ptr noundef nonnull %4) #28
   %127 = call ptr @bit_alloc(i64 noundef %126) #28
   %128 = call i64 @bit_size(ptr noundef nonnull %4) #28
@@ -19088,8 +19082,8 @@ _filter_shared_gres_per_task.exit68thread-pre-split.i: ; preds = %240, %226, %26
 
 _get_shared_gres_per_task.exit:                   ; preds = %144, %143, %122, %.split.i
   call void @slurm_xfree(ptr noundef nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %5, label %287, label %273
 
 273:                                              ; preds = %_get_shared_gres_per_task.exit
@@ -19192,7 +19186,7 @@ gres_use_local_device_index.exit115:              ; preds = %292, %293, %295, %2
 
 304:                                              ; preds = %283, %116, %39, %9, %303, %25
   %.0 = phi i32 [ 0, %303 ], [ 0, %25 ], [ 0, %9 ], [ 0, %39 ], [ -1, %116 ], [ -1, %283 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
@@ -19244,19 +19238,19 @@ _gres_state_delete_members.exit:
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @_step_state_delete(ptr noundef %3)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %0, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #28
   call void @slurm_xfree(ptr noundef nonnull %1) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %36, label %4
@@ -19347,7 +19341,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
   br label %36
 
 36:                                               ; preds = %1, %33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -19369,9 +19363,9 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   %28 = alloca ptr, align 8
   %29 = alloca ptr, align 8
   %30 = alloca %struct.job_validate_t, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 0, ptr %23, align 8
   store ptr null, ptr %8, align 8
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
@@ -19390,7 +19384,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not131, label %57, label %36
 
 36:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8
   %37 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %35, ptr noundef %24, ptr noundef %22)
   %.not132169 = icmp eq ptr %37, null
@@ -19439,14 +19433,14 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not132, label %._crit_edge, label %.lr.ph, !llvm.loop !168
 
 .thread:                                          ; preds = %50, %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %286
 
 ._crit_edge:                                      ; preds = %51, %36
   %.1103.lcssa = phi i16 [ 0, %36 ], [ %42, %51 ]
   %.1101.lcssa = phi ptr [ null, %36 ], [ %53, %51 ]
   %.1.lcssa = phi ptr [ null, %36 ], [ %55, %51 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %57
 
 57:                                               ; preds = %._crit_edge, %34
@@ -19457,7 +19451,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not136, label %68, label %58
 
 58:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr null, ptr %25, align 8
   %59 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %1, ptr noundef %23, ptr noundef %35, ptr noundef %25, ptr noundef %22)
   %.not137173 = icmp eq ptr %59, null
@@ -19479,7 +19473,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not137, label %._crit_edge176, label %.lr.ph175, !llvm.loop !169
 
 ._crit_edge176:                                   ; preds = %.lr.ph175, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %68
 
 68:                                               ; preds = %._crit_edge176, %57
@@ -19487,7 +19481,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not138, label %82, label %69
 
 69:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr null, ptr %26, align 8
   %70 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %2, ptr noundef %23, ptr noundef %35, ptr noundef %26, ptr noundef %22)
   %.not139177 = icmp eq ptr %70, null
@@ -19514,7 +19508,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not139, label %._crit_edge180, label %72, !llvm.loop !170
 
 ._crit_edge180:                                   ; preds = %72, %69
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %82
 
 82:                                               ; preds = %._crit_edge180, %68
@@ -19522,7 +19516,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not140, label %91, label %83
 
 83:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr null, ptr %27, align 8
   %84 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %3, ptr noundef %23, ptr noundef %35, ptr noundef %27, ptr noundef %22)
   %.not141181 = icmp eq ptr %84, null
@@ -19540,7 +19534,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not141, label %._crit_edge184, label %.lr.ph183, !llvm.loop !171
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %83
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %91
 
 91:                                               ; preds = %._crit_edge184, %82
@@ -19548,7 +19542,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not142, label %108, label %92
 
 92:                                               ; preds = %91
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr null, ptr %28, align 8
   %93 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %4, ptr noundef %23, ptr noundef %35, ptr noundef %28, ptr noundef %22)
   %.not143185 = icmp eq ptr %93, null
@@ -19582,7 +19576,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not143, label %._crit_edge188, label %.lr.ph187, !llvm.loop !172
 
 ._crit_edge188:                                   ; preds = %103, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %108
 
 108:                                              ; preds = %._crit_edge188, %91
@@ -19590,7 +19584,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not144, label %117, label %109
 
 109:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr null, ptr %29, align 8
   %110 = call fastcc ptr @_get_next_step_gres(ptr noundef nonnull %5, ptr noundef %23, ptr noundef %35, ptr noundef %29, ptr noundef %22)
   %.not145189 = icmp eq ptr %110, null
@@ -19608,7 +19602,7 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br i1 %.not145, label %._crit_edge192, label %.lr.ph191, !llvm.loop !173
 
 ._crit_edge192:                                   ; preds = %.lr.ph191, %109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %117
 
 117:                                              ; preds = %._crit_edge192, %108
@@ -19620,11 +19614,11 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   br label %174
 
 118:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 0, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %119 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %17, align 8
   store i64 -2, ptr %119, align 8
@@ -19645,12 +19639,12 @@ define dso_local i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, p
   store i32 7696487, ptr %122, align 4
   %127 = call i32 @list_for_each(ptr noundef nonnull %35, ptr noundef nonnull @_foreach_gres_list_cnt, ptr noundef nonnull %17) #28
   %128 = load i64, ptr %119, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %cond.i = icmp eq i64 %128, -2
   br i1 %cond.i, label %129, label %155
 
 _get_step_gres_list_cnt.exit.thread.i:            ; preds = %124, %118
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %129
 
 129:                                              ; preds = %_get_step_gres_list_cnt.exit.thread.i, %.lr.ph.i.i.i.preheader.i
@@ -19661,9 +19655,9 @@ _get_step_gres_list_cnt.exit.thread.i:            ; preds = %124, %118
 131:                                              ; preds = %129
   %132 = zext i16 %6 to i32
   %133 = udiv i32 %130, %132
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %21, ptr noundef nonnull @.str.67, i32 noundef %133) #28
   %134 = load i32, ptr %11, align 4
@@ -19711,14 +19705,14 @@ _get_step_gres_list_cnt.exit.thread.i:            ; preds = %124, %118
   br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !174
 
 .thread.i:                                        ; preds = %144, %141, %138
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_handle_ntasks_per_tres_step.exit
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   call void @slurm_xfree(ptr noundef nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.pre.i = load i32, ptr %19, align 4
   br label %_handle_ntasks_per_tres_step.exit
 
@@ -19755,8 +19749,8 @@ _get_step_gres_list_cnt.exit.thread.i:            ; preds = %124, %118
 
 _handle_ntasks_per_tres_step.exit:                ; preds = %.thread.i, %._crit_edge.i, %155, %161, %170, %172
   %.1.i = phi i32 [ 2072, %.thread.i ], [ %.pre.i, %._crit_edge.i ], [ 0, %161 ], [ 0, %170 ], [ -1, %172 ], [ 0, %155 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store i32 %.1.i, ptr %22, align 4
   br label %174
 
@@ -19777,7 +19771,7 @@ _handle_ntasks_per_tres_step.exit:                ; preds = %.thread.i, %._crit_
   br i1 %181, label %182, label %218
 
 182:                                              ; preds = %180
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %183 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %16, align 8
   store i64 -2, ptr %183, align 8
@@ -19835,13 +19829,13 @@ gres_build_id.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %.pre
   br label %_get_step_gres_list_cnt.exit
 
 _get_step_gres_list_cnt.exit.thread:              ; preds = %188, %182
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %207
 
 _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.i.i, %201, %203
   %204 = call i32 @list_for_each(ptr noundef nonnull %35, ptr noundef nonnull @_foreach_gres_list_cnt, ptr noundef nonnull %16) #28
   %205 = load i64, ptr %183, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %206 = icmp eq i64 %205, -2
   br i1 %206, label %207, label %214
 
@@ -19892,7 +19886,7 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
   br i1 %224, label %225, label %.thread165
 
 225:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false)
   %226 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %227 = call i32 @list_count(ptr noundef %.2) #28
@@ -19906,7 +19900,7 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
   br i1 %233, label %234, label %thread-pre-split.thread
 
 234:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %30, i64 18
@@ -20002,18 +19996,18 @@ _get_step_gres_list_cnt.exit:                     ; preds = %gres_build_id.exit.
   br i1 %283, label %.lr.ph.i158, label %thread-pre-split, !llvm.loop !111
 
 thread-pre-split.thread199:                       ; preds = %267, %268, %271, %274, %257, %258, %261, %264
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @slurm_xfree(ptr noundef nonnull %226) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %.thread165
 
 thread-pre-split:                                 ; preds = %280, %234
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %225, %thread-pre-split
   call void @slurm_xfree(ptr noundef nonnull %226) #28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   store ptr %.2, ptr %8, align 8
   br label %286
 
@@ -20039,8 +20033,8 @@ thread-pre-split.thread:                          ; preds = %225, %thread-pre-sp
   unreachable
 
 291:                                              ; preds = %286
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret i32 %287
 }
 
@@ -20050,12 +20044,12 @@ define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr noundef nonn
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %0, null
   %10 = load ptr, ptr %3, align 8
@@ -20213,15 +20207,15 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %28, %.pr
 
 78:                                               ; preds = %.sink.split, %12
   %.025 = phi ptr [ null, %12 ], [ %.025.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.025
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_set_over_array(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #20 {
+define internal noundef i32 @_foreach_set_over_array(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #19 {
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
@@ -20317,7 +20311,7 @@ _set_over_array.exit:                             ; preds = %20, %22, %29, %34, 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_step_state_list_dup(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.foreach_state_list_dup_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -20333,14 +20327,14 @@ define dso_local ptr @gres_step_state_list_dup(ptr noundef %0) local_unnamed_add
 
 gres_step_state_extract.exit:                     ; preds = %1, %5
   %7 = phi ptr [ %.pre.i, %5 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_step_state_extract(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.foreach_state_list_dup_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
@@ -20356,7 +20350,7 @@ define dso_local ptr @gres_step_state_extract(ptr noundef %0, i32 noundef %1) lo
 
 8:                                                ; preds = %6, %2
   %9 = phi ptr [ %.pre, %6 ], [ null, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %9
 }
 
@@ -20685,7 +20679,7 @@ _step_state_dup.exit:                             ; preds = %80, %164, %160, %15
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca %struct.pack_state_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -20720,7 +20714,7 @@ define dso_local noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %
   br label %_pack_state.exit
 
 _pack_state.exit:                                 ; preds = %4, %12, %15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }
 
@@ -20804,7 +20798,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   br i1 %.not165, label %67, label %57
 
 57:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %56) #28
   store ptr %58, ptr %3, align 8
   %59 = load ptr, ptr %55, align 8
@@ -20818,7 +20812,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   %66 = load ptr, ptr %1, align 8
   tail call void @packmem(ptr noundef nonnull %58, i32 noundef %65, ptr noundef %66) #28
   call void @slurm_xfree(ptr noundef nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %69
 
 67:                                               ; preds = %50
@@ -20867,7 +20861,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   br i1 %.not172, label %100, label %87
 
 87:                                               ; preds = %.lr.ph181
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %88 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %86) #28
   store ptr %88, ptr %4, align 8
   %89 = load ptr, ptr %79, align 8
@@ -20884,7 +20878,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   %99 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %95, i32 noundef %98, ptr noundef %99) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %102
 
 100:                                              ; preds = %.lr.ph181
@@ -21018,7 +21012,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   br i1 %.not, label %184, label %174
 
 174:                                              ; preds = %138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %175 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %173) #28
   store ptr %175, ptr %5, align 8
   %176 = load ptr, ptr %172, align 8
@@ -21032,7 +21026,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   %183 = load ptr, ptr %1, align 8
   tail call void @packmem(ptr noundef nonnull %175, i32 noundef %182, ptr noundef %183) #28
   call void @slurm_xfree(ptr noundef nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %186
 
 184:                                              ; preds = %138
@@ -21081,7 +21075,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   br i1 %.not163, label %217, label %204
 
 204:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %205 = call ptr @bit_fmt_hexmask(ptr noundef nonnull %203) #28
   store ptr %205, ptr %6, align 8
   %206 = load ptr, ptr %196, align 8
@@ -21098,7 +21092,7 @@ define internal range(i32 -1, 1) i32 @_foreach_step_state_pack(ptr noundef reado
   %216 = load ptr, ptr %1, align 8
   call void @packmem(ptr noundef nonnull %212, i32 noundef %215, ptr noundef %216) #28
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %219
 
 217:                                              ; preds = %.lr.ph
@@ -21206,15 +21200,15 @@ define dso_local range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captur
   %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 0, ptr %8, align 2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 1
   %23 = call i32 @unpack16(ptr noundef nonnull %8, ptr noundef %1) #28
   %.not = icmp eq i32 %23, 0
@@ -21340,11 +21334,11 @@ define dso_local range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captur
   br i1 %.not265.us, label %81, label %.thread342.thread
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %82 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %83 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %82, ptr noundef nonnull %10, ptr noundef nonnull %1) #28
   %.not266.us = icmp eq i32 %83, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not266.us, label %84, label %.thread342.thread
 
 84:                                               ; preds = %81
@@ -21387,9 +21381,9 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %99, label %.thread342.thread, label %100
 
 100:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %101 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef nonnull %1) #28
   %.not268.us = icmp eq i32 %101, 0
   br i1 %.not268.us, label %102, label %.thread306
@@ -21400,15 +21394,15 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not269.us, label %118, label %104
 
 104:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %105 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %1) #28
   %.not270.us = icmp eq i32 %105, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not270.us, label %107, label %106
 
 106:                                              ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread342.thread
 
 107:                                              ; preds = %104
@@ -21441,8 +21435,8 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br label %.thread.us
 
 .thread.us:                                       ; preds = %118, %117
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %120 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #28
   %.not274.us = icmp eq i32 %120, 0
   br i1 %.not274.us, label %121, label %.thread342.thread
@@ -21480,9 +21474,9 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 .lr.ph419.us:                                     ; preds = %130, %.thread310.us
   %indvars.iv517 = phi i64 [ %indvars.iv.next518, %.thread310.us ], [ 0, %130 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %135 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef nonnull %1) #28
   %.not286.us = icmp eq i32 %135, 0
   br i1 %.not286.us, label %136, label %.thread314
@@ -21493,15 +21487,15 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not287.us, label %157, label %138
 
 138:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %139 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %1) #28
   %.not288.us = icmp eq i32 %139, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.not288.us, label %141, label %140
 
 140:                                              ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread342.thread
 
 141:                                              ; preds = %138
@@ -21540,8 +21534,8 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br label %.thread310.us
 
 .thread310.us:                                    ; preds = %157, %156
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %160 = load i32, ptr %95, align 8
   %161 = zext i32 %160 to i64
@@ -21739,9 +21733,9 @@ _find_context_by_id.exit.us:                      ; preds = %165
   br i1 %242, label %.thread342.thread, label %243
 
 243:                                              ; preds = %240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %244 = call i32 @unpack32(ptr noundef nonnull %18, ptr noundef nonnull %1) #28
   %.not232.us = icmp eq i32 %244, 0
   br i1 %.not232.us, label %245, label %.thread325
@@ -21752,15 +21746,15 @@ _find_context_by_id.exit.us:                      ; preds = %165
   br i1 %.not233.us, label %261, label %247
 
 247:                                              ; preds = %245
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %248 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %1) #28
   %.not234.us = icmp eq i32 %248, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br i1 %.not234.us, label %250, label %249
 
 249:                                              ; preds = %247
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread342.thread
 
 250:                                              ; preds = %247
@@ -21793,8 +21787,8 @@ _find_context_by_id.exit.us:                      ; preds = %165
   br label %.thread321.us
 
 .thread321.us:                                    ; preds = %261, %260
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %263 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #28
   %.not238.us = icmp eq i32 %263, 0
   br i1 %.not238.us, label %264, label %.thread342.thread
@@ -21832,9 +21826,9 @@ _find_context_by_id.exit.us:                      ; preds = %165
 
 .lr.ph.us:                                        ; preds = %273, %.thread329.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread329.us ], [ 0, %273 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %278 = call i32 @unpack32(ptr noundef nonnull %21, ptr noundef nonnull %1) #28
   %.not249.us = icmp eq i32 %278, 0
   br i1 %.not249.us, label %279, label %.thread333
@@ -21845,15 +21839,15 @@ _find_context_by_id.exit.us:                      ; preds = %165
   br i1 %.not250.us, label %300, label %281
 
 281:                                              ; preds = %279
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %282 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %1) #28
   %.not251.us = icmp eq i32 %282, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br i1 %.not251.us, label %284, label %283
 
 283:                                              ; preds = %281
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread342.thread
 
 284:                                              ; preds = %281
@@ -21892,8 +21886,8 @@ _find_context_by_id.exit.us:                      ; preds = %165
   br label %.thread329.us
 
 .thread329.us:                                    ; preds = %300, %299
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %303 = load i32, ptr %238, align 8
   %304 = zext i32 %303 to i64
@@ -22033,8 +22027,8 @@ _find_context_by_id.exit.us454:                   ; preds = %327
   br label %.thread306
 
 .thread306:                                       ; preds = %100, %354
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread342.thread
 
 .split435.us:                                     ; preds = %143
@@ -22057,8 +22051,8 @@ _find_context_by_id.exit.us454:                   ; preds = %327
   br label %.thread314
 
 .thread314:                                       ; preds = %.lr.ph419.us, %359
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread342.thread
 
 .split.us467:                                     ; preds = %252
@@ -22077,8 +22071,8 @@ _find_context_by_id.exit.us454:                   ; preds = %327
   br label %.thread325
 
 .thread325:                                       ; preds = %243, %365
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread342.thread
 
 .split472.us:                                     ; preds = %286
@@ -22101,8 +22095,8 @@ _find_context_by_id.exit.us454:                   ; preds = %327
   br label %.thread333
 
 .thread333:                                       ; preds = %.lr.ph.us, %370
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.thread342.thread
 
 .thread346:                                       ; preds = %.backedge.us460, %.lr.ph427.split.split.us, %.backedge.us, %.lr.ph427.split.us, %.lr.ph427.split.split, %40
@@ -22139,18 +22133,18 @@ _find_context_by_id.exit.us454:                   ; preds = %327
 
 .loopexit364:                                     ; preds = %.thread352, %378, %.thread346, %25
   %.0 = phi i32 [ 0, %25 ], [ 0, %.thread346 ], [ -1, %378 ], [ -1, %.thread352 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gres_step_count(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.foreach_gres_list_cnt_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) @__const.gres_step_count.foreach_gres_list_cnt, i64 32, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %27, label %4
@@ -22214,12 +22208,12 @@ define dso_local i64 @gres_step_count(ptr noundef %0, ptr noundef %1) local_unna
 
 27:                                               ; preds = %.loopexit._crit_edge, %2
   %28 = phi i64 [ %.pre, %.loopexit._crit_edge ], [ -2, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_step_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #21 {
+define internal noundef i32 @_foreach_step_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -22292,9 +22286,9 @@ define dso_local ptr @cpu_set_to_bit_str(ptr noundef readonly captures(address_i
   ret ptr %4
 }
 
-declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @bit_set_all(ptr noundef) local_unnamed_addr #5
+declare void @bit_set_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_g_step_hardware_init(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -22512,9 +22506,9 @@ define dso_local void @gres_g_step_hardware_fini() local_unnamed_addr #2 {
 define dso_local void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.foreach_gres_accumulate_device_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr %2, ptr %3, align 8
@@ -22611,8 +22605,8 @@ define dso_local void @gres_g_step_set_env(ptr noundef %0) local_unnamed_addr #2
   unreachable
 
 46:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -22624,13 +22618,13 @@ define dso_local void @gres_g_task_set_env(ptr noundef readonly captures(none) %
   %6 = alloca ptr, align 8
   %7 = alloca %struct.foreach_gres_accumulate_device_t, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %5, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 8
@@ -22648,7 +22642,7 @@ define dso_local void @gres_g_task_set_env(ptr noundef readonly captures(none) %
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %18 = load ptr, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %18, ptr %3, align 8
   %19 = zext i16 %15 to i32
   %20 = and i32 %19, 2
@@ -22674,7 +22668,7 @@ define dso_local void @gres_g_task_set_env(ptr noundef readonly captures(none) %
   br label %_parse_accel_bind_type.exit
 
 _parse_accel_bind_type.exit:                      ; preds = %23, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 28:                                               ; preds = %2, %_parse_accel_bind_type.exit
@@ -22701,7 +22695,7 @@ _parse_accel_bind_type.exit:                      ; preds = %23, %25
 
 37:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %38 = load ptr, ptr @gres_context, align 8
   %39 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %38, i64 %indvars.iv
@@ -22787,7 +22781,7 @@ _parse_accel_bind_type.exit:                      ; preds = %23, %25
   br label %80
 
 80:                                               ; preds = %37, %79, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr @gres_context_cnt, align 4
   %82 = sext i32 %81 to i64
@@ -22806,17 +22800,17 @@ _parse_accel_bind_type.exit:                      ; preds = %23, %25
   unreachable
 
 87:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_step_state_log(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_step_id_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
@@ -22838,7 +22832,7 @@ define dso_local void @gres_step_state_log(ptr noundef %0, i32 noundef %1, i32 n
   br label %15
 
 15:                                               ; preds = %3, %13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -23003,7 +22997,7 @@ define internal noundef i32 @_step_state_log(ptr noundef readonly captures(none)
   br i1 %.not35, label %141, label %89
 
 89:                                               ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = load ptr, ptr %77, align 8
   %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
@@ -23089,7 +23083,7 @@ define internal noundef i32 @_step_state_log(ptr noundef readonly captures(none)
   br i1 %140, label %.lr.ph.i, label %_step_state_log_node.exit, !llvm.loop !195
 
 _step_state_log_node.exit:                        ; preds = %132, %109, %111, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %141
 
 141:                                              ; preds = %86, %_step_state_log_node.exit
@@ -23111,7 +23105,7 @@ _step_state_log_node.exit:                        ; preds = %132, %109, %111, %.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 23) i32 @gres_node_count(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca %struct.foreach_node_count_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
@@ -23132,12 +23126,12 @@ define dso_local range(i32 0, 23) i32 @gres_node_count(ptr noundef %0, i32 nound
 
 15:                                               ; preds = %5, %13
   %.0 = phi i32 [ 0, %13 ], [ 22, %5 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @_foreach_node_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #22 {
+define internal range(i32 -1, 1) i32 @_foreach_node_count(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #21 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 4
@@ -23185,7 +23179,7 @@ define dso_local void @gres_send_stepd(ptr noundef %0, ptr noundef %1) local_unn
   ret void
 }
 
-declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #5
+declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_gres_device_pack(ptr noundef readonly captures(none) %0, i16 zeroext %1, ptr noundef %2) #2 {
@@ -23246,7 +23240,7 @@ define internal range(i32 -1, 1) i32 @_gres_device_unpack(ptr noundef writeonly 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 10715, ptr noundef nonnull @__func__._gres_device_unpack) #28
   %9 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %2) #28
@@ -23288,19 +23282,19 @@ define internal range(i32 -1, 1) i32 @_gres_device_unpack(ptr noundef writeonly 
   %26 = load i32, ptr %5, align 4
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %26, ptr %27, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %6, ptr noundef %2) #28
   %.not24 = icmp eq i32 %29, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not24, label %30, label %.thread
 
 30:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %32 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %31, ptr noundef nonnull %7, ptr noundef %2) #28
   %.not25 = icmp eq i32 %32, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not25, label %33, label %.thread
 
 33:                                               ; preds = %30
@@ -23309,13 +23303,13 @@ define internal range(i32 -1, 1) i32 @_gres_device_unpack(ptr noundef writeonly 
 
 .thread:                                          ; preds = %30, %25, %21, %17, %13, %10
   %34 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__._gres_device_unpack) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
   br label %37
 
 35:                                               ; preds = %3
   %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__._gres_device_unpack) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %destroy_gres_device.exit, label %37
@@ -23329,19 +23323,19 @@ define internal range(i32 -1, 1) i32 @_gres_device_unpack(ptr noundef writeonly 
   br label %destroy_gres_device.exit
 
 destroy_gres_device.exit:                         ; preds = %35, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %destroy_gres_device.exit, %33
   %.019 = phi i32 [ -1, %destroy_gres_device.exit ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_g_send_stepd(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -23657,14 +23651,14 @@ define dso_local void @gres_g_send_stepd(i32 noundef %0, ptr noundef readonly ca
   unreachable
 
 .loopexit:                                        ; preds = %.split193.us, %.outer125._crit_edge, %.thread, %66
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #23
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #22
 
-declare ptr @slurm_cred_get(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @slurm_cred_get(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
@@ -23674,7 +23668,7 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #28
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.lr.ph, label %10
@@ -23940,7 +23934,7 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
   br label %.lr.ph230, !llvm.loop !202
 
 .outer173._crit_edge:                             ; preds = %.split236.us, %.outer175._crit_edge
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %105 = call i32 @unpack32(ptr noundef nonnull %7, ptr noundef %57) #28
   %.not.i = icmp eq i32 %105, 0
   br i1 %.not.i, label %106, label %_unpack_context_buf.exit
@@ -23962,26 +23956,26 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ 0, %108 ]
   %113 = load ptr, ptr @gres_context, align 8
   %114 = getelementptr inbounds nuw %struct.slurm_gres_context, ptr %113, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = call i32 @unpack32(ptr noundef nonnull %115, ptr noundef %57) #28
   %.not.i.i = icmp eq i32 %116, 0
   br i1 %.not.i.i, label %117, label %.thread25.i
 
 117:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %119 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %118, ptr noundef nonnull %4, ptr noundef %57) #28
   %.not20.i.i = icmp eq i32 %119, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not20.i.i, label %120, label %.thread25.i
 
 120:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %122 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %121, ptr noundef nonnull %5, ptr noundef %57) #28
   %.not21.i.i = icmp eq i32 %122, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not21.i.i, label %123, label %.thread25.i
 
 123:                                              ; preds = %120
@@ -23993,11 +23987,11 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
   %126 = load i32, ptr %3, align 4
   %127 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store i32 %126, ptr %127, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %129 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %128, ptr noundef nonnull %6, ptr noundef %57) #28
   %.not23.i.i = icmp eq i32 %129, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not23.i.i, label %130, label %.thread25.i
 
 130:                                              ; preds = %125
@@ -24015,7 +24009,7 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
   br i1 %.not25.i.i, label %138, label %.thread25.i
 
 138:                                              ; preds = %135
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %139 = call fastcc i32 @_load_plugin(ptr noundef nonnull %114)
   %140 = getelementptr inbounds nuw i8, ptr %114, i64 96
   %141 = load ptr, ptr %140, align 8
@@ -24028,7 +24022,7 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
 
 .thread25.i:                                      ; preds = %135, %130, %125, %123, %120, %117, %.lr.ph.i
   %143 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.350, ptr noundef nonnull @__func__._unpack_gres_context) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_unpack_context_buf.exit
 
 144:                                              ; preds = %142, %138
@@ -24040,11 +24034,11 @@ define dso_local i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly cap
 
 _unpack_context_buf.exit:                         ; preds = %.outer173._crit_edge, %.thread25.i
   %148 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__._unpack_context_buf) #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread152
 
 .loopexit:                                        ; preds = %144, %106, %108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not134 = icmp eq ptr %57, null
   br i1 %.not134, label %150, label %149
 
@@ -24383,19 +24377,19 @@ _unpack_context_buf.exit:                         ; preds = %.outer173._crit_edg
 271:                                              ; preds = %.thread169, %262
   %272 = call i32 @gres_init()
   %273 = call i32 @gpu_plugin_init() #28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %273
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #23
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #22
 
-declare ptr @init_buf(i32 noundef) local_unnamed_addr #5
+declare ptr @init_buf(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_unpack_gres_conf(ptr noundef %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @unpack32(ptr noundef nonnull %2, ptr noundef %0) #28
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %11
@@ -24423,7 +24417,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_gres_conf(ptr noundef %0) u
 
 13:                                               ; preds = %9, %7, %11
   %.0 = phi i32 [ -1, %11 ], [ 0, %7 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -24512,7 +24506,7 @@ define internal range(i32 -1, 1) i32 @_foreach_get_step_info(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable
-define dso_local i32 @gres_get_autodetect_flags() local_unnamed_addr #24 {
+define dso_local i32 @gres_get_autodetect_flags() local_unnamed_addr #23 {
   %1 = load volatile i32, ptr @autodetect_flags, align 4
   ret i32 %1
 }
@@ -24520,7 +24514,7 @@ define dso_local i32 @gres_get_autodetect_flags() local_unnamed_addr #24 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @gres_clear_tres_cnt(ptr noundef writeonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.gres_clear_tres_cnt.locks, i64 28, i1 false)
   br i1 %1, label %5, label %4
 
@@ -24564,18 +24558,18 @@ define dso_local void @gres_clear_tres_cnt(ptr noundef writeonly captures(none) 
   br label %20
 
 20:                                               ; preds = %19, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #5
+declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #4
 
-declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #5
+declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_device_id2str(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
@@ -24586,12 +24580,12 @@ define dso_local ptr @gres_device_id2str(ptr noundef readonly captures(none) %0)
   %9 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.91, i32 noundef %6, i32 noundef %7, i32 noundef %9) #28
   %10 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #25
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @add_gres_to_list(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
@@ -24623,7 +24617,7 @@ define dso_local void @add_gres_to_list(ptr noundef %0, ptr noundef captures(non
   br i1 %.not49, label %34, label %17
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = tail call ptr @bit_copy(ptr noundef nonnull %16) #28
   store ptr %18, ptr %3, align 8
   %19 = tail call i64 @bit_size(ptr noundef %18) #28
@@ -24654,7 +24648,7 @@ define dso_local void @add_gres_to_list(ptr noundef %0, ptr noundef captures(non
   %32 = phi ptr [ %.pre, %29 ], [ %18, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %32, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %31, %11
@@ -24782,24 +24776,24 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %60, %.pr
   ret void
 }
 
-declare ptr @list_peek(ptr noundef) local_unnamed_addr #5
+declare ptr @list_peek(ptr noundef) local_unnamed_addr #4
 
-declare i64 @bit_fls(ptr noundef) local_unnamed_addr #5
+declare i64 @bit_fls(ptr noundef) local_unnamed_addr #4
 
-declare ptr @bit_fmt_hexmask_trim(ptr noundef) local_unnamed_addr #5
+declare ptr @bit_fmt_hexmask_trim(ptr noundef) local_unnamed_addr #4
 
-declare ptr @slurm_bit_realloc(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @slurm_bit_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #5
+declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #4
 
-declare i32 @hostlist_count(ptr noundef) local_unnamed_addr #5
+declare i32 @hostlist_count(ptr noundef) local_unnamed_addr #4
 
-declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #5
+declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gres_prepend_tres_type(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -24813,11 +24807,11 @@ define dso_local ptr @gres_prepend_tres_type(ptr noundef %0) local_unnamed_addr 
 
 5:                                                ; preds = %3, %1
   %6 = phi ptr [ %.pre, %3 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %6
 }
 
-declare void @_xstrsubstitute(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @_xstrsubstitute(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @gres_use_busy_dev(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
@@ -24846,7 +24840,7 @@ define dso_local noundef zeroext i1 @gres_use_busy_dev(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @gres_get_gpu_plugin_id() local_unnamed_addr #18 {
+define dso_local i32 @gres_get_gpu_plugin_id() local_unnamed_addr #17 {
   %1 = load i32, ptr @gpu_plugin_id, align 4
   ret i32 %1
 }
@@ -24871,9 +24865,9 @@ define dso_local zeroext i1 @gres_valid_name(ptr noundef %0) local_unnamed_addr 
   ret i1 %.0
 }
 
-declare i32 @plugrack_destroy(ptr noundef) local_unnamed_addr #5
+declare i32 @plugrack_destroy(ptr noundef) local_unnamed_addr #4
 
-declare void @plugin_unload(ptr noundef) local_unnamed_addr #5
+declare void @plugin_unload(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_get_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
@@ -24899,18 +24893,18 @@ define internal range(i32 0, 2) i32 @_get_match(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #26
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #25
 
-declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #5
+declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #4
 
-declare i32 @slurm_find_char_exact_in_list(ptr noundef, ptr noundef) #5
+declare i32 @slurm_find_char_exact_in_list(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #7
+declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
-declare i32 @s_p_parse_line(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @s_p_parse_line(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_validate_file(ptr noundef %0) unnamed_addr #2 {
@@ -24931,7 +24925,7 @@ define internal fastcc i32 @_validate_file(ptr noundef %0) unnamed_addr #2 {
 .lr.ph:                                           ; preds = %.preheader, %_my_stat.exit
   %6 = phi ptr [ %28, %_my_stat.exit ], [ %4, %.preheader ]
   %.05 = phi i32 [ %27, %_my_stat.exit ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = tail call zeroext i1 @running_in_slurmd_stepd() #28
   br i1 %7, label %.preheader.i, label %_my_stat.exit
 
@@ -24985,7 +24979,7 @@ define internal fastcc i32 @_validate_file(ptr noundef %0) unnamed_addr #2 {
   unreachable
 
 _my_stat.exit:                                    ; preds = %.lr.ph, %13, %14, %17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = add nuw nsw i32 %.05, 1
   tail call void @free(ptr noundef nonnull %6) #28
   %28 = tail call ptr @hostlist_shift(ptr noundef nonnull %3) #28
@@ -24999,9 +24993,9 @@ _my_stat.exit:                                    ; preds = %.lr.ph, %13, %14, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
-declare i64 @suffix_mult(ptr noundef) local_unnamed_addr #5
+declare i64 @suffix_mult(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 33) i32 @_handle_autodetect_flags(ptr noundef %0) unnamed_addr #2 {
@@ -25043,13 +25037,13 @@ define internal fastcc range(i32 0, 33) i32 @_handle_autodetect_flags(ptr nounde
   ret i32 %.0
 }
 
-declare zeroext i1 @running_in_slurmd_stepd() local_unnamed_addr #5
+declare zeroext i1 @running_in_slurmd_stepd() local_unnamed_addr #4
 
-declare i32 @sleep(i32 noundef) local_unnamed_addr #5
+declare i32 @sleep(i32 noundef) local_unnamed_addr #4
 
-declare i32 @hostlist_find(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @hostlist_find(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @list_for_each_nobreak(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @list_for_each_nobreak(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_foreach_slurm_conf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
@@ -25304,7 +25298,7 @@ define internal noundef i32 @_lite_copy_gres_slurmd_conf(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_slurm_conf_mismatch_comp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca %struct.conf_cnt_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -25361,7 +25355,7 @@ define internal noundef i32 @_foreach_slurm_conf_mismatch_comp(ptr noundef reado
   br i1 %35, label %24, label %.loopexit, !llvm.loop !210
 
 .loopexit:                                        ; preds = %24, %.preheader, %2, %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -25455,15 +25449,15 @@ define internal noundef i32 @_merge_gres(ptr noundef readonly captures(none) %0,
   ret i32 0
 }
 
-declare i32 @list_flush(ptr noundef) local_unnamed_addr #5
+declare i32 @list_flush(ptr noundef) local_unnamed_addr #4
 
-declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_merge_gres2(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = alloca %struct.gres_slurmd_conf, align 8
   %5 = alloca %struct.conf_cnt_t, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %0, align 8
@@ -25477,7 +25471,7 @@ define internal fastcc void @_merge_gres2(ptr noundef readonly captures(none) %0
   store ptr %13, ptr %9, align 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %15, align 8
@@ -25615,12 +25609,12 @@ _set_file_subset.exit:                            ; preds = %44, %58, %62
   br label %.thread36
 
 .thread36:                                        ; preds = %64, %40, %_set_file_subset.exit, %3, %80
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare ptr @list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @list_remove_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_match_type(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
@@ -25661,9 +25655,9 @@ define internal range(i32 0, 2) i32 @_match_type(ptr noundef %0, ptr noundef rea
   ret i32 %.0
 }
 
-declare ptr @hostlist_pop(ptr noundef) local_unnamed_addr #5
+declare ptr @hostlist_pop(ptr noundef) local_unnamed_addr #4
 
-declare ptr @hostlist_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #5
+declare ptr @hostlist_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pack_gres_slurmd_conf(ptr noundef readonly captures(none) %0, i16 zeroext %1, ptr noundef %2) #2 {
@@ -25696,7 +25690,7 @@ define internal void @_pack_gres_slurmd_conf(ptr noundef readonly captures(none)
   br i1 %.not57, label %27, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = tail call ptr @bit_fmt_hexmask(ptr noundef nonnull %18) #28
   store ptr %20, ptr %4, align 8
   %21 = load ptr, ptr %17, align 8
@@ -25708,7 +25702,7 @@ define internal void @_pack_gres_slurmd_conf(ptr noundef readonly captures(none)
   %26 = add i32 %25, 1
   tail call void @packmem(ptr noundef nonnull %20, i32 noundef %26, ptr noundef %2) #28
   call void @slurm_xfree(ptr noundef nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 27:                                               ; preds = %16
@@ -25792,17 +25786,17 @@ define internal void @_pack_gres_slurmd_conf(ptr noundef readonly captures(none)
   ret void
 }
 
-declare ptr @plugin_load_and_link(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @plugin_load_and_link(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #4
 
-declare ptr @plugrack_create(ptr noundef) local_unnamed_addr #5
+declare ptr @plugrack_create(ptr noundef) local_unnamed_addr #4
 
-declare i32 @plugrack_read_dir(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @plugrack_read_dir(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @plugrack_use_by_type(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @plugrack_use_by_type(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @plugin_get_syms(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @plugin_get_syms(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_get_gres_cnt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 {
@@ -25810,12 +25804,12 @@ define internal fastcc void @_get_gres_cnt(ptr noundef %0, ptr noundef %1, ptr n
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
   %10 = icmp eq ptr %1, null
   br i1 %10, label %50, label %.preheader
@@ -25935,17 +25929,17 @@ define internal fastcc void @_get_gres_cnt(ptr noundef %0, ptr noundef %1, ptr n
   %.1.sink = phi i64 [ %.1, %.loopexit54 ], [ 0, %5 ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.1.sink, ptr %51, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_gres_node_state_delete_topo(ptr noundef %0) unnamed_addr #2 {
@@ -26111,7 +26105,7 @@ define internal range(i32 -1, 1) i32 @_foreach_rebuild_topo(ptr noundef readonly
   br i1 %.not123, label %110, label %39
 
 39:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = load i32, ptr %1, align 8
   %41 = sext i32 %40 to i64
   %42 = tail call ptr @bit_alloc(i64 noundef %41) #28
@@ -26187,10 +26181,10 @@ define internal range(i32 -1, 1) i32 @_foreach_rebuild_topo(ptr noundef readonly
 77:                                               ; preds = %75
   %78 = load ptr, ptr %8, align 8
   %79 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %80 = tail call ptr @bit_fmt_full(ptr noundef %42) #28
   store ptr %80, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %81 = load i32, ptr %0, align 8
   %82 = and i32 %81, 32768
   %.not45.i = icmp eq i32 %82, 0
@@ -26248,15 +26242,15 @@ define internal range(i32 -1, 1) i32 @_foreach_rebuild_topo(ptr noundef readonly
 
 _check_core_range_matches_sock.exit:              ; preds = %96, %103, %105
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 .loopexit158:                                     ; preds = %106, %61
   %108 = load i32, ptr %1, align 8
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %108, ptr %109, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %123
 
 110:                                              ; preds = %30
@@ -26472,9 +26466,9 @@ _check_core_range_matches_sock.exit:              ; preds = %96, %103, %105
   %227 = load i64, ptr %200, align 8
   %228 = trunc i64 %227 to i32
   %229 = load ptr, ptr %201, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i143 = icmp eq ptr %224, null
   br i1 %.not.i143, label %_links_str2array.exit.thread, label %230
 
@@ -26581,8 +26575,8 @@ _check_core_range_matches_sock.exit:              ; preds = %96, %103, %105
   br label %282
 
 _links_str2array.exit.thread:                     ; preds = %.lr.ph.i145, %223
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %288
 
 282:                                              ; preds = %281, %280
@@ -26593,8 +26587,8 @@ _links_str2array.exit.thread:                     ; preds = %.lr.ph.i145, %223
   %sext = shl i64 %227, 32
   %287 = ashr exact i64 %sext, 30
   call void @llvm.memset.p0.i64(ptr align 4 %286, i8 0, i64 %287, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 22, ptr %204, align 8
   br label %288
 
@@ -26660,7 +26654,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i149, %.loop
   br label %319
 
 .critedge:                                        ; preds = %_check_core_range_matches_sock.exit, %53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %319
 
 319:                                              ; preds = %gres_build_id.exit, %.critedge, %2
@@ -26810,7 +26804,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %10, %.pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_foreach_get_tot_from_slurmd_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #15 {
+define internal noundef i32 @_foreach_get_tot_from_slurmd_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -26855,28 +26849,28 @@ define internal noundef i32 @_foreach_get_tot_from_slurmd_conf(ptr noundef reado
   ret i32 0
 }
 
-declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @bit_set_count_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #5
+declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #4
 
-declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @bit_clear_all(ptr noundef) local_unnamed_addr #5
+declare void @bit_clear_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
-declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #5
+declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #2 {
@@ -26884,13 +26878,13 @@ define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull w
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @.str.90, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   %10 = call i32 @slurm_get_next_tres(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef %4) #28
   %11 = load ptr, ptr %6, align 8
@@ -26999,17 +26993,17 @@ define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull w
   %storemerge = phi ptr [ %51, %49 ], [ null, %48 ]
   store ptr %storemerge, ptr %1, align 8
   call void @slurm_xfree(ptr noundef nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @slurm_get_next_tres(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @slurm_get_next_tres(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_foreach_merge_generic_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #22 {
+define internal range(i32 0, 2) i32 @_foreach_merge_generic_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #21 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -27080,7 +27074,7 @@ define internal range(i32 0, 2) i32 @_foreach_merge_generic_data(ptr noundef rea
   ret i32 %.0
 }
 
-declare i32 @bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @bit_overlap(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_gres_list_cnt(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
@@ -27132,7 +27126,7 @@ define internal noundef i32 @_foreach_gres_list_cnt(ptr noundef readonly capture
   ret i32 0
 }
 
-declare i64 @bit_ffs_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @bit_ffs_from_bit(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_find_device(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
@@ -27146,17 +27140,17 @@ define internal range(i32 0, 2) i32 @_find_device(ptr noundef readonly captures(
   ret i32 %.
 }
 
-declare void @bit_consolidate(ptr noundef) local_unnamed_addr #5
+declare void @bit_consolidate(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %9 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %9, 0
@@ -27364,9 +27358,9 @@ gres_use_local_device_index.exit:                 ; preds = %.loopexit55, %56, %
 
 _translate_step_to_global_device_index.exit:      ; preds = %79, %._crit_edge.i, %82, %80, %5
   %.0 = phi ptr [ null, %5 ], [ %81, %80 ], [ %.pre, %82 ], [ %67, %._crit_edge.i ], [ %67, %79 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -27375,7 +27369,7 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   %6 = alloca %struct.foreach_gres_to_task_t, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = tail call i32 @bit_set_count(ptr noundef nonnull %4) #28
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %11, label %20
@@ -27470,7 +27464,7 @@ define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef 
   %62 = load ptr, ptr @gres_context, align 8
   %63 = getelementptr inbounds %struct.slurm_gres_context, ptr %62, i64 %47, i32 8
   %64 = load i32, ptr %63, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 8
   store i32 0, ptr %48, align 4
   store ptr %45, ptr %49, align 8
@@ -27567,7 +27561,7 @@ cpu_set_to_bit_str.exit.i:                        ; preds = %.critedge.i.i, %82,
 
 _assign_gres_to_task.exit:                        ; preds = %89, %95, %98, %101
   %.0.i = phi i32 [ %94, %89 ], [ -1, %98 ], [ -1, %101 ], [ -1, %95 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !231
@@ -27600,7 +27594,7 @@ _assign_gres_to_task.exit:                        ; preds = %89, %95, %98, %101
   br i1 %.not41, label %125, label %116
 
 116:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %117 = call ptr @bit_fmt_hexmask_trim(ptr noundef %105) #28
   store ptr %117, ptr %8, align 8
   %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -27619,22 +27613,22 @@ _assign_gres_to_task.exit:                        ; preds = %89, %95, %98, %101
 
 124:                                              ; preds = %120, %123, %116
   call void @slurm_xfree(ptr noundef nonnull %8) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %125
 
 125:                                              ; preds = %112, %124, %18
   %.0 = phi ptr [ %19, %18 ], [ %105, %124 ], [ %105, %112 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
   %4 = alloca %struct.foreach_closest_usable_gres_t, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %0, ptr %5, align 8
@@ -27721,19 +27715,19 @@ cpu_set_to_bit_str.exit:                          ; preds = %.critedge.i, %.preh
 
 40:                                               ; preds = %37, %7
   %.0 = phi ptr [ %39, %37 ], [ null, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare void @bit_nset(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare void @bit_nset(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = tail call i64 @bit_size(ptr noundef nonnull %0) #28
   %10 = tail call ptr @bit_alloc(i64 noundef %9) #28
   %11 = tail call ptr @bit_copy(ptr noundef nonnull %0) #28
@@ -27756,7 +27750,7 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 nound
   %15 = phi ptr [ %11, %.lr.ph.split.preheader ], [ %22, %.thread24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.thread24 ]
   store i64 %1, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
@@ -27776,7 +27770,7 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 nound
   br label %26
 
 26:                                               ; preds = %.lr.ph.split, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pr = load i64, ptr %6, align 8
   %.not19 = icmp eq i64 %.pr, 0
   br i1 %.not19, label %.thread24, label %27
@@ -27806,17 +27800,17 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 nound
   br label %32
 
 32:                                               ; preds = %31, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %10
 }
 
-declare i64 @bit_ffs(ptr noundef) local_unnamed_addr #5
+declare i64 @bit_ffs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #8
 
-declare i64 @bit_get_bit_num(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @bit_get_bit_num(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_foreach_gres_to_task(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
@@ -27906,11 +27900,11 @@ define internal range(i32 -1, 1) i32 @_foreach_gres_to_task(ptr noundef readonly
   ret i32 %.0
 }
 
-declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_closest_usable_gres(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
@@ -28061,17 +28055,17 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef write
   br i1 %.not44, label %21, label %64
 
 21:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %23 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef %2) #28
   %.not45 = icmp eq i32 %23, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not45, label %24, label %64
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %2) #28
   %.not46 = icmp eq i32 %25, 0
   br i1 %.not46, label %26, label %.sink.split
@@ -28082,10 +28076,10 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef write
   br i1 %.not47, label %45, label %28
 
 28:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %29 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %2) #28
   %.not48 = icmp eq i32 %29, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not48, label %30, label %.sink.split
 
 30:                                               ; preds = %28
@@ -28132,45 +28126,45 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef write
   br label %.thread
 
 .thread:                                          ; preds = %45, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %47 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %48 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %47, ptr noundef nonnull %8, ptr noundef %2) #28
   %.not52 = icmp eq i32 %48, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.not52, label %49, label %64
 
 49:                                               ; preds = %.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %51 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %50, ptr noundef nonnull %9, ptr noundef %2) #28
   %.not53 = icmp eq i32 %51, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not53, label %52, label %64
 
 52:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %54 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %53, ptr noundef nonnull %10, ptr noundef %2) #28
   %.not54 = icmp eq i32 %54, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not54, label %55, label %64
 
 55:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %57 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %56, ptr noundef nonnull %11, ptr noundef %2) #28
   %.not55 = icmp eq i32 %57, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not55, label %58, label %64
 
 58:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %60 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %59, ptr noundef nonnull %12, ptr noundef %2) #28
   %.not56 = icmp eq i32 %60, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not56, label %61, label %64
 
 61:                                               ; preds = %58
@@ -28180,8 +28174,8 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef write
   br i1 %.not57, label %65, label %64
 
 .sink.split:                                      ; preds = %28, %24, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %64
 
 64:                                               ; preds = %.sink.split, %58, %55, %52, %49, %.thread, %21, %61, %18, %15, %3
@@ -28194,6 +28188,12 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef write
   store ptr %storemerge, ptr %0, align 8
   ret i32 %.041
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #26
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27
@@ -28217,29 +28217,29 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { nounwind }
 attributes #29 = { nounwind willreturn memory(none) }

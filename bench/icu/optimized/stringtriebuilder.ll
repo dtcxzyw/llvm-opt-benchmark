@@ -369,9 +369,6 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder9writeNodeEiii(ptr noundef nonn
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7717StringTrieBuilder8makeNodeEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load i32, ptr %4, align 4, !tbaa !12
@@ -715,9 +712,6 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit88: ; p
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [14 x i16], align 16
@@ -725,8 +719,8 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %8 = alloca [5 x i32], align 16
   %9 = alloca [4 x i8], align 1
   %10 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
@@ -769,8 +763,8 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
   %.067.lcssa = phi i32 [ 0, %5 ], [ %34, %._crit_edge.loopexit ]
   %.066.lcssa = phi i32 [ %4, %5 ], [ %28, %._crit_edge.loopexit ]
   %.062.lcssa = phi i32 [ %1, %5 ], [ %20, %._crit_edge.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %35 = add nsw i32 %3, 1
   %36 = add i32 %.066.lcssa, -1
   %smax = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
@@ -817,7 +811,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %wide.trip.count
   store i32 %47, ptr %61, align 4, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %62
 
 62:                                               ; preds = %72, %60
@@ -933,11 +927,11 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder18writeBranchSubNodeEiiii(ptr n
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %.preheader
   %.1.lcssa = phi i32 [ %.061.lcssa, %.preheader ], [ %130, %.lr.ph87 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1.lcssa
 }
 
@@ -949,7 +943,7 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder18registerFinalValueEiR10UError
   br i1 %6, label %7, label %42
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = add i32 %1, 41383797
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %8, ptr %9, align 8, !tbaa !14
@@ -1018,13 +1012,13 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder18registerFinalValueEiR10UError
 40:                                               ; preds = %24, %34, %31, %16
   %.1 = phi ptr [ %18, %16 ], [ null, %24 ], [ null, %34 ], [ %22, %31 ]
   call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %42
 
 41:                                               ; preds = %38, %19
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %20, %19 ]
   call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 42:                                               ; preds = %3, %40
@@ -1100,8 +1094,8 @@ define noundef ptr @_ZN6icu_7717StringTrieBuilder17makeBranchSubNodeEiiiiR10UErr
   br i1 %10, label %11, label %247
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
@@ -1491,8 +1485,8 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93: ; p
 
 .loopexit:                                        ; preds = %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit, %50, %._crit_edge
   %.1 = phi ptr [ null, %._crit_edge ], [ null, %50 ], [ %.0.i, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit ], [ %.0.i91, %_ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %247
 
 247:                                              ; preds = %6, %.loopexit
@@ -1501,10 +1495,10 @@ _ZN6icu_7717StringTrieBuilder12registerNodeEPNS0_4NodeER10UErrorCode.exit93: ; p
 }
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #10
+declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 declare ptr @uhash_find_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -1528,7 +1522,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717StringTrieBuilder10equalNo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNKSt9type_infoeqERKS_.exit.thread6, label %4
 
@@ -1574,7 +1568,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread6:             ; preds = %16, %_ZNKSt9type_in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7717StringTrieBuilder4Node19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef returned %1) unnamed_addr #12 align 2 {
+define noundef i32 @_ZN6icu_7717StringTrieBuilder4Node19markRightEdgesFirstEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef returned %1) unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !21
   %5 = icmp eq i32 %4, 0
@@ -1589,7 +1583,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder4Node19markRightEdgesFirstEi(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14FinalValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14FinalValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
 
@@ -1656,7 +1650,7 @@ define void @_ZN6icu_7717StringTrieBuilder14FinalValueNode5writeERS0_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
 
@@ -1722,7 +1716,7 @@ _ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread: ; preds = %16, %_ZNKSt9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder21IntermediateValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder21IntermediateValueNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
 
@@ -1837,7 +1831,7 @@ define void @_ZN6icu_7717StringTrieBuilder21IntermediateValueNode5writeERS0_(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15LinearMatchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15LinearMatchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
 
@@ -1941,7 +1935,7 @@ define noundef i32 @_ZN6icu_7717StringTrieBuilder15LinearMatchNode19markRightEdg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14ListBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(98) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14ListBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(98) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.critedge, label %4
 
@@ -2218,7 +2212,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15SplitBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder15SplitBranchNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder4NodeeqERKS1_.exit.thread, label %4
 
@@ -2373,7 +2367,7 @@ _ZN6icu_7717StringTrieBuilder4Node26writeUnlessInsideRightEdgeEiiRS0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14BranchHeadNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7717StringTrieBuilder14BranchHeadNodeeqERKNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #10 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK6icu_7717StringTrieBuilder9ValueNodeeqERKNS0_4NodeE.exit.thread, label %4
 
@@ -2531,7 +2525,7 @@ define void @_ZN6icu_7717StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nounde
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder4NodeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder4NodeD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #17
   unreachable
 }
@@ -2541,57 +2535,63 @@ declare noundef ptr @_ZNK6icu_777UObject17getDynamicClassIDEv(ptr noundef nonnul
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14FinalValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14FinalValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #12 comdat align 2 {
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) #16
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder9ValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder9ValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #17
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder21IntermediateValueNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder15LinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder15LinearMatchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #17
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14ListBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14ListBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) unnamed_addr #12 comdat align 2 {
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #16
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder15SplitBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder15SplitBranchNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
+declare void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14BranchHeadNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZN6icu_7717StringTrieBuilder14BranchHeadNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #12 comdat align 2 {
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15
@@ -2605,12 +2605,12 @@ attributes #5 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: wr
 attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }

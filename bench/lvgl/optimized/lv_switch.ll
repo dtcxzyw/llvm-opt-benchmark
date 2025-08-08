@@ -127,7 +127,7 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   %51 = mul i32 %50, %.sroa.0.0.extract.trunc.i.i
   %52 = lshr i32 %51, 8
   %53 = tail call zeroext i1 @lv_anim_delete(ptr noundef nonnull %11, ptr noundef null) #5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @lv_anim_init(ptr noundef nonnull %7) #5
   call void @lv_anim_set_var(ptr noundef nonnull %7, ptr noundef nonnull %11) #5
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_exec_cb) #5
@@ -135,7 +135,7 @@ define internal void @lv_switch_event(ptr readnone captures(none) %0, ptr nounde
   call void @lv_anim_set_completed_cb(ptr noundef nonnull %7, ptr noundef nonnull @lv_switch_anim_completed) #5
   call void @lv_anim_set_duration(ptr noundef nonnull %7, i32 noundef %52) #5
   %54 = call ptr @lv_anim_start(ptr noundef nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %lv_switch_trigger_anim.exit
 
 lv_switch_trigger_anim.exit:                      ; preds = %38, %41
@@ -145,15 +145,15 @@ lv_switch_trigger_anim.exit:                      ; preds = %38, %41
 55:                                               ; preds = %9
   %56 = tail call ptr @lv_event_get_current_target(ptr noundef %1) #5
   %57 = tail call ptr @lv_event_get_layer(ptr noundef %1) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lv_obj_get_content_coords(ptr noundef %56, ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %4) #5
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %57, ptr %58, align 8, !tbaa !17
   call void @lv_obj_init_draw_rect_dsc(ptr noundef %56, i32 noundef 131072, ptr noundef nonnull %4) #5
   call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %4, ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %60 = load i32, ptr %59, align 4, !tbaa !24
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 44
@@ -274,16 +274,16 @@ draw_main.exit:                                   ; preds = %85, %107
   store i32 %133, ptr %122, align 4, !tbaa !25
   %134 = add nsw i32 %116, %.sroa.0.0.extract.trunc.i69.i
   store i32 %134, ptr %120, align 4, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @lv_draw_rect_dsc_init(ptr noundef nonnull %6) #5
   %135 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %57, ptr %135, align 8, !tbaa !17
   call void @lv_obj_init_draw_rect_dsc(ptr noundef nonnull %56, i32 noundef 196608, ptr noundef nonnull %6) #5
   call void @lv_draw_rect(ptr noundef %57, ptr noundef nonnull %6, ptr noundef nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %136
 
 136:                                              ; preds = %35, %draw_main.exit, %lv_switch_trigger_anim.exit, %9, %2
@@ -297,15 +297,9 @@ define noundef ptr @lv_switch_create(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -327,10 +321,10 @@ define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
   ret void
 }
 
-declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -345,31 +339,31 @@ define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captu
   ret i32 %6
 }
 
-declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_event_base(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_code(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_obj_calculate_ext_draw_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i16 @lv_obj_get_state(ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @lv_obj_get_state(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_switch_anim_exec_cb(ptr noundef initializes((64, 68)) %0, i32 noundef %1) #0 {
@@ -379,9 +373,9 @@ define internal void @lv_switch_anim_exec_cb(ptr noundef initializes((64, 68)) %
   ret void
 }
 
-declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lv_switch_anim_completed(ptr noundef readonly captures(none) %0) #0 {
@@ -392,27 +386,33 @@ define internal void @lv_switch_anim_completed(ptr noundef readonly captures(non
   ret void
 }
 
-declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_get_content_coords(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_get_content_coords(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_init_draw_rect_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_draw_rect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #1
 
-declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
@@ -421,9 +421,9 @@ declare i32 @llvm.smax.i32(i32, i32) #4
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

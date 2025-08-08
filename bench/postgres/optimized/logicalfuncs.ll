@@ -145,8 +145,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %73, label %74, label %100
 
 74:                                               ; preds = %72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @deconstruct_array_builtin(ptr noundef nonnull %51, i32 noundef 25, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #9
   %75 = load i32, ptr %4, align 4
   %76 = and i32 %75, 1
@@ -190,8 +190,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi ptr [ null, %.preheader ], [ %96, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %100
 
 100:                                              ; preds = %._crit_edge, %72
@@ -220,7 +220,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @ReplicationSlotAcquire(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext true) #9
   %112 = load ptr, ptr @PG_exception_stack, align 8
   %113 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %114 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #11
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %208
@@ -284,7 +284,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 .lr.ph90.split.us:                                ; preds = %.lr.ph90, %160
   %148 = phi ptr [ %161, %160 ], [ %142, %.lr.ph90 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %149 = call ptr @XLogReadRecord(ptr noundef nonnull %148, ptr noundef nonnull %8) #9
   %150 = load ptr, ptr %8, align 8
@@ -318,7 +318,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br label %160
 
 160:                                              ; preds = %159, %157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %161 = load ptr, ptr %137, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
   %163 = load i64, ptr %162, align 8
@@ -330,7 +330,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 .lr.ph90.split.split.us:                          ; preds = %.lr.ph90.split, %178
   %165 = phi ptr [ %180, %178 ], [ %142, %.lr.ph90.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %166 = call ptr @XLogReadRecord(ptr noundef nonnull %165, ptr noundef nonnull %8) #9
   %167 = load ptr, ptr %8, align 8
@@ -368,13 +368,13 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 178:                                              ; preds = %177, %175
   %179 = phi i64 [ %.pre103, %177 ], [ %174, %175 ]
   %180 = phi ptr [ %.pre101, %177 ], [ %172, %175 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %181 = icmp ult i64 %179, %.071
   br i1 %181, label %.lr.ph90.split.split.us, label %.loopexit, !llvm.loop !11
 
 .lr.ph90.split.split:                             ; preds = %.lr.ph90.split, %200
   %182 = phi ptr [ %202, %200 ], [ %142, %.lr.ph90.split ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %183 = call ptr @XLogReadRecord(ptr noundef nonnull %182, ptr noundef nonnull %8) #9
   %184 = load ptr, ptr %8, align 8
@@ -430,13 +430,13 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 .thread:                                          ; preds = %191, %195, %171, %.thread.loopexit
   %.pre106 = phi i64 [ %.pre106.pre, %.thread.loopexit ], [ %174, %171 ], [ %194, %195 ], [ %194, %191 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 200:                                              ; preds = %197, %199
   %201 = phi i64 [ %194, %197 ], [ %.pre100, %199 ]
   %202 = phi ptr [ %192, %197 ], [ %.pre, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %203 = icmp ult i64 %201, %.071
   br i1 %203, label %.lr.ph90.split.split, label %.loopexit
 
@@ -458,7 +458,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   call void @InvalidateSystemCaches() #9
   store ptr %112, ptr @PG_exception_stack, align 8
   store ptr %113, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 208:                                              ; preds = %111
@@ -547,17 +547,11 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly capture
   ret i64 %44
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
-
-declare i64 @LogLogicalMessage(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @LogLogicalMessage(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_logical_emit_message_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -565,53 +559,53 @@ define dso_local i64 @pg_logical_emit_message_text(ptr noundef readonly captures
   ret i64 %2
 }
 
-declare void @CheckSlotPermissions() local_unnamed_addr #2
+declare void @CheckSlotPermissions() local_unnamed_addr #1
 
-declare void @CheckLogicalDecodingRequirements() local_unnamed_addr #2
+declare void @CheckLogicalDecodingRequirements() local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #2
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @array_contains_nulls(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @array_contains_nulls(ptr noundef) local_unnamed_addr #1
 
-declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #2
+declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 
-declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #2
+declare i64 @GetFlushRecPtr(ptr noundef) local_unnamed_addr #1
 
-declare i64 @GetXLogReplayRecPtr(ptr noundef) local_unnamed_addr #2
+declare i64 @GetXLogReplayRecPtr(ptr noundef) local_unnamed_addr #1
 
-declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ReplicationSlotAcquire(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @CreateDecodingContext(i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @CreateDecodingContext(i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @read_local_xlog_page(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) #2
+declare i32 @read_local_xlog_page(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
-declare void @wal_segment_open(ptr noundef, i64 noundef, ptr noundef) #2
+declare void @wal_segment_open(ptr noundef, i64 noundef, ptr noundef) #1
 
-declare void @wal_segment_close(ptr noundef) #2
+declare void @wal_segment_close(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @LogicalOutputPrepareWrite(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
@@ -625,8 +619,8 @@ define internal void @LogicalOutputPrepareWrite(ptr noundef readonly captures(no
 define internal void @LogicalOutputWrite(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, i1 zeroext %3) #0 {
   %5 = alloca [3 x i64], align 16
   %6 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -662,46 +656,52 @@ define internal void @LogicalOutputWrite(ptr noundef readonly captures(none) %0,
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare ptr @format_procedure(i32 noundef) local_unnamed_addr #2
+declare ptr @format_procedure(i32 noundef) local_unnamed_addr #1
 
-declare void @WaitForStandbyConfirmation(i64 noundef) local_unnamed_addr #2
+declare void @WaitForStandbyConfirmation(i64 noundef) local_unnamed_addr #1
 
-declare void @XLogBeginRead(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @XLogBeginRead(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @InvalidateSystemCaches() local_unnamed_addr #2
+declare void @InvalidateSystemCaches() local_unnamed_addr #1
 
-declare ptr @XLogReadRecord(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @XLogReadRecord(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @LogicalDecodingProcessRecord(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @LogicalDecodingProcessRecord(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare void @LogicalConfirmReceivedLocation(i64 noundef) local_unnamed_addr #2
+declare void @LogicalConfirmReceivedLocation(i64 noundef) local_unnamed_addr #1
 
-declare void @ReplicationSlotMarkDirty() local_unnamed_addr #2
+declare void @ReplicationSlotMarkDirty() local_unnamed_addr #1
 
-declare void @FreeDecodingContext(ptr noundef) local_unnamed_addr #2
+declare void @FreeDecodingContext(ptr noundef) local_unnamed_addr #1
 
-declare void @ReplicationSlotRelease() local_unnamed_addr #2
+declare void @ReplicationSlotRelease() local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #5
+declare void @pg_re_throw() local_unnamed_addr #4
 
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
@@ -710,12 +710,12 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind }

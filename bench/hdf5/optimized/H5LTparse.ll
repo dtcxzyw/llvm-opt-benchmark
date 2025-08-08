@@ -93,8 +93,8 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1) #9
-  call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -2, ptr @H5LTyychar, align 4, !tbaa !3
   br label %10
 
@@ -133,7 +133,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %spec.store.select = call i64 @llvm.smin.i64(i64 %21, i64 10000)
   %22 = mul nsw i64 %spec.store.select, 9
   %23 = add nsw i64 %22, 7
-  %24 = call noalias ptr @malloc(i64 noundef %23) #10
+  %24 = call noalias ptr @malloc(i64 noundef %23) #9
   %.not298.not = icmp eq ptr %24, null
   br i1 %.not298.not, label %1056, label %25
 
@@ -148,7 +148,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not299, label %31, label %30
 
 30:                                               ; preds = %25
-  call void @free(ptr noundef %.0245) #9
+  call void @free(ptr noundef %.0245) #10
   br label %31
 
 31:                                               ; preds = %25, %30
@@ -181,7 +181,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %46 = call i32 @H5LTyylex() #9
+  %46 = call i32 @H5LTyylex() #10
   store i32 %46, ptr @H5LTyychar, align 4, !tbaa !3
   br label %47
 
@@ -351,12 +351,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %92, label %95, label %93, !prof !14
 
 93:                                               ; preds = %87
-  %94 = call i32 @H5open() #9
+  %94 = call i32 @H5open() #10
   br label %95
 
 95:                                               ; preds = %87, %93
   %96 = load i64, ptr @H5T_STD_I8BE_g, align 8, !tbaa !15
-  %97 = call i64 @H5Tcopy(i64 noundef %96) #9
+  %97 = call i64 @H5Tcopy(i64 noundef %96) #10
   %98 = inttoptr i64 %97 to ptr
   br label %1026
 
@@ -369,12 +369,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %104, label %107, label %105, !prof !14
 
 105:                                              ; preds = %99
-  %106 = call i32 @H5open() #9
+  %106 = call i32 @H5open() #10
   br label %107
 
 107:                                              ; preds = %99, %105
   %108 = load i64, ptr @H5T_STD_I8LE_g, align 8, !tbaa !15
-  %109 = call i64 @H5Tcopy(i64 noundef %108) #9
+  %109 = call i64 @H5Tcopy(i64 noundef %108) #10
   %110 = inttoptr i64 %109 to ptr
   br label %1026
 
@@ -387,12 +387,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %116, label %119, label %117, !prof !14
 
 117:                                              ; preds = %111
-  %118 = call i32 @H5open() #9
+  %118 = call i32 @H5open() #10
   br label %119
 
 119:                                              ; preds = %111, %117
   %120 = load i64, ptr @H5T_STD_I16BE_g, align 8, !tbaa !15
-  %121 = call i64 @H5Tcopy(i64 noundef %120) #9
+  %121 = call i64 @H5Tcopy(i64 noundef %120) #10
   %122 = inttoptr i64 %121 to ptr
   br label %1026
 
@@ -405,12 +405,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %128, label %131, label %129, !prof !14
 
 129:                                              ; preds = %123
-  %130 = call i32 @H5open() #9
+  %130 = call i32 @H5open() #10
   br label %131
 
 131:                                              ; preds = %123, %129
   %132 = load i64, ptr @H5T_STD_I16LE_g, align 8, !tbaa !15
-  %133 = call i64 @H5Tcopy(i64 noundef %132) #9
+  %133 = call i64 @H5Tcopy(i64 noundef %132) #10
   %134 = inttoptr i64 %133 to ptr
   br label %1026
 
@@ -423,12 +423,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %140, label %143, label %141, !prof !14
 
 141:                                              ; preds = %135
-  %142 = call i32 @H5open() #9
+  %142 = call i32 @H5open() #10
   br label %143
 
 143:                                              ; preds = %135, %141
   %144 = load i64, ptr @H5T_STD_I32BE_g, align 8, !tbaa !15
-  %145 = call i64 @H5Tcopy(i64 noundef %144) #9
+  %145 = call i64 @H5Tcopy(i64 noundef %144) #10
   %146 = inttoptr i64 %145 to ptr
   br label %1026
 
@@ -441,12 +441,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %152, label %155, label %153, !prof !14
 
 153:                                              ; preds = %147
-  %154 = call i32 @H5open() #9
+  %154 = call i32 @H5open() #10
   br label %155
 
 155:                                              ; preds = %147, %153
   %156 = load i64, ptr @H5T_STD_I32LE_g, align 8, !tbaa !15
-  %157 = call i64 @H5Tcopy(i64 noundef %156) #9
+  %157 = call i64 @H5Tcopy(i64 noundef %156) #10
   %158 = inttoptr i64 %157 to ptr
   br label %1026
 
@@ -459,12 +459,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %164, label %167, label %165, !prof !14
 
 165:                                              ; preds = %159
-  %166 = call i32 @H5open() #9
+  %166 = call i32 @H5open() #10
   br label %167
 
 167:                                              ; preds = %159, %165
   %168 = load i64, ptr @H5T_STD_I64BE_g, align 8, !tbaa !15
-  %169 = call i64 @H5Tcopy(i64 noundef %168) #9
+  %169 = call i64 @H5Tcopy(i64 noundef %168) #10
   %170 = inttoptr i64 %169 to ptr
   br label %1026
 
@@ -477,12 +477,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %176, label %179, label %177, !prof !14
 
 177:                                              ; preds = %171
-  %178 = call i32 @H5open() #9
+  %178 = call i32 @H5open() #10
   br label %179
 
 179:                                              ; preds = %171, %177
   %180 = load i64, ptr @H5T_STD_I64LE_g, align 8, !tbaa !15
-  %181 = call i64 @H5Tcopy(i64 noundef %180) #9
+  %181 = call i64 @H5Tcopy(i64 noundef %180) #10
   %182 = inttoptr i64 %181 to ptr
   br label %1026
 
@@ -495,12 +495,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %188, label %191, label %189, !prof !14
 
 189:                                              ; preds = %183
-  %190 = call i32 @H5open() #9
+  %190 = call i32 @H5open() #10
   br label %191
 
 191:                                              ; preds = %183, %189
   %192 = load i64, ptr @H5T_STD_U8BE_g, align 8, !tbaa !15
-  %193 = call i64 @H5Tcopy(i64 noundef %192) #9
+  %193 = call i64 @H5Tcopy(i64 noundef %192) #10
   %194 = inttoptr i64 %193 to ptr
   br label %1026
 
@@ -513,12 +513,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %200, label %203, label %201, !prof !14
 
 201:                                              ; preds = %195
-  %202 = call i32 @H5open() #9
+  %202 = call i32 @H5open() #10
   br label %203
 
 203:                                              ; preds = %195, %201
   %204 = load i64, ptr @H5T_STD_U8LE_g, align 8, !tbaa !15
-  %205 = call i64 @H5Tcopy(i64 noundef %204) #9
+  %205 = call i64 @H5Tcopy(i64 noundef %204) #10
   %206 = inttoptr i64 %205 to ptr
   br label %1026
 
@@ -531,12 +531,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %212, label %215, label %213, !prof !14
 
 213:                                              ; preds = %207
-  %214 = call i32 @H5open() #9
+  %214 = call i32 @H5open() #10
   br label %215
 
 215:                                              ; preds = %207, %213
   %216 = load i64, ptr @H5T_STD_U16BE_g, align 8, !tbaa !15
-  %217 = call i64 @H5Tcopy(i64 noundef %216) #9
+  %217 = call i64 @H5Tcopy(i64 noundef %216) #10
   %218 = inttoptr i64 %217 to ptr
   br label %1026
 
@@ -549,12 +549,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %224, label %227, label %225, !prof !14
 
 225:                                              ; preds = %219
-  %226 = call i32 @H5open() #9
+  %226 = call i32 @H5open() #10
   br label %227
 
 227:                                              ; preds = %219, %225
   %228 = load i64, ptr @H5T_STD_U16LE_g, align 8, !tbaa !15
-  %229 = call i64 @H5Tcopy(i64 noundef %228) #9
+  %229 = call i64 @H5Tcopy(i64 noundef %228) #10
   %230 = inttoptr i64 %229 to ptr
   br label %1026
 
@@ -567,12 +567,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %236, label %239, label %237, !prof !14
 
 237:                                              ; preds = %231
-  %238 = call i32 @H5open() #9
+  %238 = call i32 @H5open() #10
   br label %239
 
 239:                                              ; preds = %231, %237
   %240 = load i64, ptr @H5T_STD_U32BE_g, align 8, !tbaa !15
-  %241 = call i64 @H5Tcopy(i64 noundef %240) #9
+  %241 = call i64 @H5Tcopy(i64 noundef %240) #10
   %242 = inttoptr i64 %241 to ptr
   br label %1026
 
@@ -585,12 +585,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %248, label %251, label %249, !prof !14
 
 249:                                              ; preds = %243
-  %250 = call i32 @H5open() #9
+  %250 = call i32 @H5open() #10
   br label %251
 
 251:                                              ; preds = %243, %249
   %252 = load i64, ptr @H5T_STD_U32LE_g, align 8, !tbaa !15
-  %253 = call i64 @H5Tcopy(i64 noundef %252) #9
+  %253 = call i64 @H5Tcopy(i64 noundef %252) #10
   %254 = inttoptr i64 %253 to ptr
   br label %1026
 
@@ -603,12 +603,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %260, label %263, label %261, !prof !14
 
 261:                                              ; preds = %255
-  %262 = call i32 @H5open() #9
+  %262 = call i32 @H5open() #10
   br label %263
 
 263:                                              ; preds = %255, %261
   %264 = load i64, ptr @H5T_STD_U64BE_g, align 8, !tbaa !15
-  %265 = call i64 @H5Tcopy(i64 noundef %264) #9
+  %265 = call i64 @H5Tcopy(i64 noundef %264) #10
   %266 = inttoptr i64 %265 to ptr
   br label %1026
 
@@ -621,12 +621,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %272, label %275, label %273, !prof !14
 
 273:                                              ; preds = %267
-  %274 = call i32 @H5open() #9
+  %274 = call i32 @H5open() #10
   br label %275
 
 275:                                              ; preds = %267, %273
   %276 = load i64, ptr @H5T_STD_U64LE_g, align 8, !tbaa !15
-  %277 = call i64 @H5Tcopy(i64 noundef %276) #9
+  %277 = call i64 @H5Tcopy(i64 noundef %276) #10
   %278 = inttoptr i64 %277 to ptr
   br label %1026
 
@@ -639,12 +639,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %284, label %287, label %285, !prof !14
 
 285:                                              ; preds = %279
-  %286 = call i32 @H5open() #9
+  %286 = call i32 @H5open() #10
   br label %287
 
 287:                                              ; preds = %279, %285
   %288 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
-  %289 = call i64 @H5Tcopy(i64 noundef %288) #9
+  %289 = call i64 @H5Tcopy(i64 noundef %288) #10
   %290 = inttoptr i64 %289 to ptr
   br label %1026
 
@@ -657,12 +657,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %296, label %299, label %297, !prof !14
 
 297:                                              ; preds = %291
-  %298 = call i32 @H5open() #9
+  %298 = call i32 @H5open() #10
   br label %299
 
 299:                                              ; preds = %291, %297
   %300 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
-  %301 = call i64 @H5Tcopy(i64 noundef %300) #9
+  %301 = call i64 @H5Tcopy(i64 noundef %300) #10
   %302 = inttoptr i64 %301 to ptr
   br label %1026
 
@@ -675,12 +675,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %308, label %311, label %309, !prof !14
 
 309:                                              ; preds = %303
-  %310 = call i32 @H5open() #9
+  %310 = call i32 @H5open() #10
   br label %311
 
 311:                                              ; preds = %303, %309
   %312 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !15
-  %313 = call i64 @H5Tcopy(i64 noundef %312) #9
+  %313 = call i64 @H5Tcopy(i64 noundef %312) #10
   %314 = inttoptr i64 %313 to ptr
   br label %1026
 
@@ -693,12 +693,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %320, label %323, label %321, !prof !14
 
 321:                                              ; preds = %315
-  %322 = call i32 @H5open() #9
+  %322 = call i32 @H5open() #10
   br label %323
 
 323:                                              ; preds = %315, %321
   %324 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !15
-  %325 = call i64 @H5Tcopy(i64 noundef %324) #9
+  %325 = call i64 @H5Tcopy(i64 noundef %324) #10
   %326 = inttoptr i64 %325 to ptr
   br label %1026
 
@@ -711,12 +711,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %332, label %335, label %333, !prof !14
 
 333:                                              ; preds = %327
-  %334 = call i32 @H5open() #9
+  %334 = call i32 @H5open() #10
   br label %335
 
 335:                                              ; preds = %327, %333
   %336 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !15
-  %337 = call i64 @H5Tcopy(i64 noundef %336) #9
+  %337 = call i64 @H5Tcopy(i64 noundef %336) #10
   %338 = inttoptr i64 %337 to ptr
   br label %1026
 
@@ -729,12 +729,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %344, label %347, label %345, !prof !14
 
 345:                                              ; preds = %339
-  %346 = call i32 @H5open() #9
+  %346 = call i32 @H5open() #10
   br label %347
 
 347:                                              ; preds = %339, %345
   %348 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !15
-  %349 = call i64 @H5Tcopy(i64 noundef %348) #9
+  %349 = call i64 @H5Tcopy(i64 noundef %348) #10
   %350 = inttoptr i64 %349 to ptr
   br label %1026
 
@@ -747,12 +747,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %356, label %359, label %357, !prof !14
 
 357:                                              ; preds = %351
-  %358 = call i32 @H5open() #9
+  %358 = call i32 @H5open() #10
   br label %359
 
 359:                                              ; preds = %351, %357
   %360 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !15
-  %361 = call i64 @H5Tcopy(i64 noundef %360) #9
+  %361 = call i64 @H5Tcopy(i64 noundef %360) #10
   %362 = inttoptr i64 %361 to ptr
   br label %1026
 
@@ -765,12 +765,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %368, label %371, label %369, !prof !14
 
 369:                                              ; preds = %363
-  %370 = call i32 @H5open() #9
+  %370 = call i32 @H5open() #10
   br label %371
 
 371:                                              ; preds = %363, %369
   %372 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !15
-  %373 = call i64 @H5Tcopy(i64 noundef %372) #9
+  %373 = call i64 @H5Tcopy(i64 noundef %372) #10
   %374 = inttoptr i64 %373 to ptr
   br label %1026
 
@@ -783,12 +783,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %380, label %383, label %381, !prof !14
 
 381:                                              ; preds = %375
-  %382 = call i32 @H5open() #9
+  %382 = call i32 @H5open() #10
   br label %383
 
 383:                                              ; preds = %375, %381
   %384 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !15
-  %385 = call i64 @H5Tcopy(i64 noundef %384) #9
+  %385 = call i64 @H5Tcopy(i64 noundef %384) #10
   %386 = inttoptr i64 %385 to ptr
   br label %1026
 
@@ -801,12 +801,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %392, label %395, label %393, !prof !14
 
 393:                                              ; preds = %387
-  %394 = call i32 @H5open() #9
+  %394 = call i32 @H5open() #10
   br label %395
 
 395:                                              ; preds = %387, %393
   %396 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !15
-  %397 = call i64 @H5Tcopy(i64 noundef %396) #9
+  %397 = call i64 @H5Tcopy(i64 noundef %396) #10
   %398 = inttoptr i64 %397 to ptr
   br label %1026
 
@@ -819,12 +819,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %404, label %407, label %405, !prof !14
 
 405:                                              ; preds = %399
-  %406 = call i32 @H5open() #9
+  %406 = call i32 @H5open() #10
   br label %407
 
 407:                                              ; preds = %399, %405
   %408 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !15
-  %409 = call i64 @H5Tcopy(i64 noundef %408) #9
+  %409 = call i64 @H5Tcopy(i64 noundef %408) #10
   %410 = inttoptr i64 %409 to ptr
   br label %1026
 
@@ -837,12 +837,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %416, label %419, label %417, !prof !14
 
 417:                                              ; preds = %411
-  %418 = call i32 @H5open() #9
+  %418 = call i32 @H5open() #10
   br label %419
 
 419:                                              ; preds = %411, %417
   %420 = load i64, ptr @H5T_IEEE_F16BE_g, align 8, !tbaa !15
-  %421 = call i64 @H5Tcopy(i64 noundef %420) #9
+  %421 = call i64 @H5Tcopy(i64 noundef %420) #10
   %422 = inttoptr i64 %421 to ptr
   br label %1026
 
@@ -855,12 +855,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %428, label %431, label %429, !prof !14
 
 429:                                              ; preds = %423
-  %430 = call i32 @H5open() #9
+  %430 = call i32 @H5open() #10
   br label %431
 
 431:                                              ; preds = %423, %429
   %432 = load i64, ptr @H5T_IEEE_F16LE_g, align 8, !tbaa !15
-  %433 = call i64 @H5Tcopy(i64 noundef %432) #9
+  %433 = call i64 @H5Tcopy(i64 noundef %432) #10
   %434 = inttoptr i64 %433 to ptr
   br label %1026
 
@@ -873,12 +873,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %440, label %443, label %441, !prof !14
 
 441:                                              ; preds = %435
-  %442 = call i32 @H5open() #9
+  %442 = call i32 @H5open() #10
   br label %443
 
 443:                                              ; preds = %435, %441
   %444 = load i64, ptr @H5T_IEEE_F32BE_g, align 8, !tbaa !15
-  %445 = call i64 @H5Tcopy(i64 noundef %444) #9
+  %445 = call i64 @H5Tcopy(i64 noundef %444) #10
   %446 = inttoptr i64 %445 to ptr
   br label %1026
 
@@ -891,12 +891,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %452, label %455, label %453, !prof !14
 
 453:                                              ; preds = %447
-  %454 = call i32 @H5open() #9
+  %454 = call i32 @H5open() #10
   br label %455
 
 455:                                              ; preds = %447, %453
   %456 = load i64, ptr @H5T_IEEE_F32LE_g, align 8, !tbaa !15
-  %457 = call i64 @H5Tcopy(i64 noundef %456) #9
+  %457 = call i64 @H5Tcopy(i64 noundef %456) #10
   %458 = inttoptr i64 %457 to ptr
   br label %1026
 
@@ -909,12 +909,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %464, label %467, label %465, !prof !14
 
 465:                                              ; preds = %459
-  %466 = call i32 @H5open() #9
+  %466 = call i32 @H5open() #10
   br label %467
 
 467:                                              ; preds = %459, %465
   %468 = load i64, ptr @H5T_IEEE_F64BE_g, align 8, !tbaa !15
-  %469 = call i64 @H5Tcopy(i64 noundef %468) #9
+  %469 = call i64 @H5Tcopy(i64 noundef %468) #10
   %470 = inttoptr i64 %469 to ptr
   br label %1026
 
@@ -927,12 +927,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %476, label %479, label %477, !prof !14
 
 477:                                              ; preds = %471
-  %478 = call i32 @H5open() #9
+  %478 = call i32 @H5open() #10
   br label %479
 
 479:                                              ; preds = %471, %477
   %480 = load i64, ptr @H5T_IEEE_F64LE_g, align 8, !tbaa !15
-  %481 = call i64 @H5Tcopy(i64 noundef %480) #9
+  %481 = call i64 @H5Tcopy(i64 noundef %480) #10
   %482 = inttoptr i64 %481 to ptr
   br label %1026
 
@@ -945,12 +945,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %488, label %491, label %489, !prof !14
 
 489:                                              ; preds = %483
-  %490 = call i32 @H5open() #9
+  %490 = call i32 @H5open() #10
   br label %491
 
 491:                                              ; preds = %483, %489
   %492 = load i64, ptr @H5T_NATIVE_FLOAT16_g, align 8, !tbaa !15
-  %493 = call i64 @H5Tcopy(i64 noundef %492) #9
+  %493 = call i64 @H5Tcopy(i64 noundef %492) #10
   %494 = inttoptr i64 %493 to ptr
   br label %1026
 
@@ -963,12 +963,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %500, label %503, label %501, !prof !14
 
 501:                                              ; preds = %495
-  %502 = call i32 @H5open() #9
+  %502 = call i32 @H5open() #10
   br label %503
 
 503:                                              ; preds = %495, %501
   %504 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8, !tbaa !15
-  %505 = call i64 @H5Tcopy(i64 noundef %504) #9
+  %505 = call i64 @H5Tcopy(i64 noundef %504) #10
   %506 = inttoptr i64 %505 to ptr
   br label %1026
 
@@ -981,12 +981,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %512, label %515, label %513, !prof !14
 
 513:                                              ; preds = %507
-  %514 = call i32 @H5open() #9
+  %514 = call i32 @H5open() #10
   br label %515
 
 515:                                              ; preds = %507, %513
   %516 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8, !tbaa !15
-  %517 = call i64 @H5Tcopy(i64 noundef %516) #9
+  %517 = call i64 @H5Tcopy(i64 noundef %516) #10
   %518 = inttoptr i64 %517 to ptr
   br label %1026
 
@@ -999,12 +999,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %524, label %527, label %525, !prof !14
 
 525:                                              ; preds = %519
-  %526 = call i32 @H5open() #9
+  %526 = call i32 @H5open() #10
   br label %527
 
 527:                                              ; preds = %519, %525
   %528 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8, !tbaa !15
-  %529 = call i64 @H5Tcopy(i64 noundef %528) #9
+  %529 = call i64 @H5Tcopy(i64 noundef %528) #10
   %530 = inttoptr i64 %529 to ptr
   br label %1026
 
@@ -1012,7 +1012,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %532 = load i32, ptr @csindex, align 4, !tbaa !3
   %533 = add nsw i32 %532, 1
   store i32 %533, ptr @csindex, align 4, !tbaa !3
-  %534 = call i64 @H5Tcreate(i32 noundef 6, i64 noundef 1) #9
+  %534 = call i64 @H5Tcreate(i32 noundef 6, i64 noundef 1) #10
   %535 = load i32, ptr @csindex, align 4, !tbaa !3
   %536 = sext i32 %535 to i64
   %537 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %536
@@ -1052,18 +1052,18 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 558:                                              ; preds = %550
   %559 = getelementptr inbounds i8, ptr %.2260, i64 -32
   %560 = load i64, ptr %559, align 8, !tbaa !7
-  %561 = call i64 @H5Tget_size(i64 noundef %560) #9
+  %561 = call i64 @H5Tget_size(i64 noundef %560) #10
   %562 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %563 = load i32, ptr %562, align 8, !tbaa !7
   %564 = sext i32 %563 to i64
   %565 = add i64 %561, %564
-  %566 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %565) #9
+  %566 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %565) #10
   %567 = getelementptr inbounds i8, ptr %.2260, i64 -16
   %568 = load ptr, ptr %567, align 8, !tbaa !7
   %569 = load i32, ptr %562, align 8, !tbaa !7
   %570 = sext i32 %569 to i64
   %571 = load i64, ptr %559, align 8, !tbaa !7
-  %572 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %568, i64 noundef %570, i64 noundef %571) #9
+  %572 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %568, i64 noundef %570, i64 noundef %571) #10
   %573 = load i32, ptr @csindex, align 4, !tbaa !3
   %574 = sext i32 %573 to i64
   %575 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %574, i32 2
@@ -1071,7 +1071,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %604
 
 576:                                              ; preds = %550
-  %577 = call i64 @H5Tget_size(i64 noundef %554) #9
+  %577 = call i64 @H5Tget_size(i64 noundef %554) #10
   %578 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %579 = load i32, ptr %578, align 8, !tbaa !7
   %580 = icmp eq i32 %579, 0
@@ -1080,28 +1080,28 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 581:                                              ; preds = %576
   %582 = getelementptr inbounds i8, ptr %.2260, i64 -32
   %583 = load i64, ptr %582, align 8, !tbaa !7
-  %584 = call i64 @H5Tget_size(i64 noundef %583) #9
+  %584 = call i64 @H5Tget_size(i64 noundef %583) #10
   %585 = add i64 %584, %577
-  %586 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %585) #9
+  %586 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %585) #10
   %587 = getelementptr inbounds i8, ptr %.2260, i64 -16
   %588 = load ptr, ptr %587, align 8, !tbaa !7
   %589 = load i64, ptr %582, align 8, !tbaa !7
-  %590 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %588, i64 noundef %577, i64 noundef %589) #9
+  %590 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %588, i64 noundef %577, i64 noundef %589) #10
   br label %604
 
 591:                                              ; preds = %576
   %592 = sext i32 %579 to i64
   %593 = getelementptr inbounds i8, ptr %.2260, i64 -32
   %594 = load i64, ptr %593, align 8, !tbaa !7
-  %595 = call i64 @H5Tget_size(i64 noundef %594) #9
+  %595 = call i64 @H5Tget_size(i64 noundef %594) #10
   %596 = add i64 %595, %592
-  %597 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %596) #9
+  %597 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %596) #10
   %598 = getelementptr inbounds i8, ptr %.2260, i64 -16
   %599 = load ptr, ptr %598, align 8, !tbaa !7
   %600 = load i32, ptr %578, align 8, !tbaa !7
   %601 = sext i32 %600 to i64
   %602 = load i64, ptr %593, align 8, !tbaa !7
-  %603 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %599, i64 noundef %601, i64 noundef %602) #9
+  %603 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %599, i64 noundef %601, i64 noundef %602) #10
   br label %604
 
 604:                                              ; preds = %581, %591, %558
@@ -1111,7 +1111,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not322, label %608, label %607
 
 607:                                              ; preds = %604
-  call void @free(ptr noundef nonnull %606) #9
+  call void @free(ptr noundef nonnull %606) #10
   store ptr null, ptr %605, align 8, !tbaa !7
   br label %608
 
@@ -1122,14 +1122,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   store i8 0, ptr %611, align 8, !tbaa !20
   %612 = getelementptr inbounds i8, ptr %.2260, i64 -32
   %613 = load i64, ptr %612, align 8, !tbaa !7
-  %614 = call i32 @H5Tclose(i64 noundef %613) #9
-  %615 = call i64 @H5Tget_size(i64 noundef %554) #9
+  %614 = call i32 @H5Tclose(i64 noundef %613) #10
+  %615 = call i64 @H5Tget_size(i64 noundef %554) #10
   br label %1026
 
 616:                                              ; preds = %77
   %617 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
-  %618 = call noalias ptr @strdup(ptr noundef %617) #9
-  call void @free(ptr noundef %617) #9
+  %618 = call noalias ptr @strdup(ptr noundef %617) #10
+  call void @free(ptr noundef %617) #10
   store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
   br label %1026
 
@@ -1162,7 +1162,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %634 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %633
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 256
   %636 = load i32, ptr %635, align 8, !tbaa !21
-  %637 = call i64 @H5Tarray_create2(i64 noundef %631, i32 noundef %636, ptr noundef nonnull %634) #9
+  %637 = call i64 @H5Tarray_create2(i64 noundef %631, i32 noundef %636, ptr noundef nonnull %634) #10
   %638 = inttoptr i64 %637 to ptr
   %639 = load i32, ptr @asindex, align 4, !tbaa !3
   %640 = sext i32 %639 to i64
@@ -1171,7 +1171,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %642 = add nsw i32 %639, -1
   store i32 %642, ptr @asindex, align 4, !tbaa !3
   %643 = load i64, ptr %630, align 8, !tbaa !7
-  %644 = call i32 @H5Tclose(i64 noundef %643) #9
+  %644 = call i32 @H5Tclose(i64 noundef %643) #10
   br label %1026
 
 645:                                              ; preds = %77
@@ -1202,10 +1202,10 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 662:                                              ; preds = %77
   %663 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %664 = load i64, ptr %663, align 8, !tbaa !7
-  %665 = call i64 @H5Tvlen_create(i64 noundef %664) #9
+  %665 = call i64 @H5Tvlen_create(i64 noundef %664) #10
   %666 = inttoptr i64 %665 to ptr
   %667 = load i64, ptr %663, align 8, !tbaa !7
-  %668 = call i32 @H5Tclose(i64 noundef %667) #9
+  %668 = call i32 @H5Tclose(i64 noundef %667) #10
   br label %1026
 
 669:                                              ; preds = %77
@@ -1217,12 +1217,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %674, label %677, label %675, !prof !14
 
 675:                                              ; preds = %669
-  %676 = call i32 @H5open() #9
+  %676 = call i32 @H5open() #10
   br label %677
 
 677:                                              ; preds = %669, %675
   %678 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_g, align 8, !tbaa !15
-  %679 = call i64 @H5Tcopy(i64 noundef %678) #9
+  %679 = call i64 @H5Tcopy(i64 noundef %678) #10
   %680 = inttoptr i64 %679 to ptr
   br label %1026
 
@@ -1235,12 +1235,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %686, label %689, label %687, !prof !14
 
 687:                                              ; preds = %681
-  %688 = call i32 @H5open() #9
+  %688 = call i32 @H5open() #10
   br label %689
 
 689:                                              ; preds = %681, %687
   %690 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_g, align 8, !tbaa !15
-  %691 = call i64 @H5Tcopy(i64 noundef %690) #9
+  %691 = call i64 @H5Tcopy(i64 noundef %690) #10
   %692 = inttoptr i64 %691 to ptr
   br label %1026
 
@@ -1253,12 +1253,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %698, label %701, label %699, !prof !14
 
 699:                                              ; preds = %693
-  %700 = call i32 @H5open() #9
+  %700 = call i32 @H5open() #10
   br label %701
 
 701:                                              ; preds = %693, %699
   %702 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_g, align 8, !tbaa !15
-  %703 = call i64 @H5Tcopy(i64 noundef %702) #9
+  %703 = call i64 @H5Tcopy(i64 noundef %702) #10
   %704 = inttoptr i64 %703 to ptr
   br label %1026
 
@@ -1271,12 +1271,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %710, label %713, label %711, !prof !14
 
 711:                                              ; preds = %705
-  %712 = call i32 @H5open() #9
+  %712 = call i32 @H5open() #10
   br label %713
 
 713:                                              ; preds = %705, %711
   %714 = load i64, ptr @H5T_COMPLEX_IEEE_F16LE_g, align 8, !tbaa !15
-  %715 = call i64 @H5Tcopy(i64 noundef %714) #9
+  %715 = call i64 @H5Tcopy(i64 noundef %714) #10
   %716 = inttoptr i64 %715 to ptr
   br label %1026
 
@@ -1289,12 +1289,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %722, label %725, label %723, !prof !14
 
 723:                                              ; preds = %717
-  %724 = call i32 @H5open() #9
+  %724 = call i32 @H5open() #10
   br label %725
 
 725:                                              ; preds = %717, %723
   %726 = load i64, ptr @H5T_COMPLEX_IEEE_F16BE_g, align 8, !tbaa !15
-  %727 = call i64 @H5Tcopy(i64 noundef %726) #9
+  %727 = call i64 @H5Tcopy(i64 noundef %726) #10
   %728 = inttoptr i64 %727 to ptr
   br label %1026
 
@@ -1307,12 +1307,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %734, label %737, label %735, !prof !14
 
 735:                                              ; preds = %729
-  %736 = call i32 @H5open() #9
+  %736 = call i32 @H5open() #10
   br label %737
 
 737:                                              ; preds = %729, %735
   %738 = load i64, ptr @H5T_COMPLEX_IEEE_F32LE_g, align 8, !tbaa !15
-  %739 = call i64 @H5Tcopy(i64 noundef %738) #9
+  %739 = call i64 @H5Tcopy(i64 noundef %738) #10
   %740 = inttoptr i64 %739 to ptr
   br label %1026
 
@@ -1325,12 +1325,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %746, label %749, label %747, !prof !14
 
 747:                                              ; preds = %741
-  %748 = call i32 @H5open() #9
+  %748 = call i32 @H5open() #10
   br label %749
 
 749:                                              ; preds = %741, %747
   %750 = load i64, ptr @H5T_COMPLEX_IEEE_F32BE_g, align 8, !tbaa !15
-  %751 = call i64 @H5Tcopy(i64 noundef %750) #9
+  %751 = call i64 @H5Tcopy(i64 noundef %750) #10
   %752 = inttoptr i64 %751 to ptr
   br label %1026
 
@@ -1343,12 +1343,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %758, label %761, label %759, !prof !14
 
 759:                                              ; preds = %753
-  %760 = call i32 @H5open() #9
+  %760 = call i32 @H5open() #10
   br label %761
 
 761:                                              ; preds = %753, %759
   %762 = load i64, ptr @H5T_COMPLEX_IEEE_F64LE_g, align 8, !tbaa !15
-  %763 = call i64 @H5Tcopy(i64 noundef %762) #9
+  %763 = call i64 @H5Tcopy(i64 noundef %762) #10
   %764 = inttoptr i64 %763 to ptr
   br label %1026
 
@@ -1361,28 +1361,28 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %770, label %773, label %771, !prof !14
 
 771:                                              ; preds = %765
-  %772 = call i32 @H5open() #9
+  %772 = call i32 @H5open() #10
   br label %773
 
 773:                                              ; preds = %765, %771
   %774 = load i64, ptr @H5T_COMPLEX_IEEE_F64BE_g, align 8, !tbaa !15
-  %775 = call i64 @H5Tcopy(i64 noundef %774) #9
+  %775 = call i64 @H5Tcopy(i64 noundef %774) #10
   %776 = inttoptr i64 %775 to ptr
   br label %1026
 
 777:                                              ; preds = %77
   %778 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %779 = load i64, ptr %778, align 8, !tbaa !7
-  %780 = call i64 @H5Tcomplex_create(i64 noundef %779) #9
+  %780 = call i64 @H5Tcomplex_create(i64 noundef %779) #10
   %781 = inttoptr i64 %780 to ptr
   %782 = load i64, ptr %778, align 8, !tbaa !7
-  %783 = call i32 @H5Tclose(i64 noundef %782) #9
+  %783 = call i32 @H5Tclose(i64 noundef %782) #10
   br label %1026
 
 784:                                              ; preds = %77
   %785 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
   %786 = sext i32 %785 to i64
-  %787 = call i64 @H5Tcreate(i32 noundef 5, i64 noundef %786) #9
+  %787 = call i64 @H5Tcreate(i32 noundef 5, i64 noundef %786) #10
   %788 = inttoptr i64 %787 to ptr
   br label %1026
 
@@ -1390,9 +1390,9 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %790 = getelementptr inbounds i8, ptr %.2260, i64 -24
   %791 = load i64, ptr %790, align 8, !tbaa !7
   %792 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
-  %793 = call i32 @H5Tset_tag(i64 noundef %791, ptr noundef %792) #9
+  %793 = call i32 @H5Tset_tag(i64 noundef %791, ptr noundef %792) #10
   %794 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
-  call void @free(ptr noundef %794) #9
+  call void @free(ptr noundef %794) #10
   store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
   br label %1026
 
@@ -1472,12 +1472,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %826, label %829, label %827, !prof !14
 
 827:                                              ; preds = %821
-  %828 = call i32 @H5open() #9
+  %828 = call i32 @H5open() #10
   br label %829
 
 829:                                              ; preds = %821, %827
   %830 = load i64, ptr @H5T_C_S1_g, align 8, !tbaa !15
-  %831 = call i64 @H5Tcopy(i64 noundef %830) #9
+  %831 = call i64 @H5Tcopy(i64 noundef %830) #10
   %832 = inttoptr i64 %831 to ptr
   br label %1026
 
@@ -1490,12 +1490,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %838, label %841, label %839, !prof !14
 
 839:                                              ; preds = %833
-  %840 = call i32 @H5open() #9
+  %840 = call i32 @H5open() #10
   br label %841
 
 841:                                              ; preds = %833, %839
   %842 = load i64, ptr @H5T_FORTRAN_S1_g, align 8, !tbaa !15
-  %843 = call i64 @H5Tcopy(i64 noundef %842) #9
+  %843 = call i64 @H5Tcopy(i64 noundef %842) #10
   %844 = inttoptr i64 %843 to ptr
   br label %1026
 
@@ -1506,21 +1506,21 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.b321, label %848, label %850
 
 848:                                              ; preds = %845
-  %849 = call i32 @H5Tset_size(i64 noundef %847, i64 noundef -1) #9
+  %849 = call i32 @H5Tset_size(i64 noundef %847, i64 noundef -1) #10
   store i1 false, ptr @is_variable, align 1
   br label %853
 
 850:                                              ; preds = %845
   %851 = load i64, ptr @str_size, align 8, !tbaa !15
-  %852 = call i32 @H5Tset_size(i64 noundef %847, i64 noundef %851) #9
+  %852 = call i32 @H5Tset_size(i64 noundef %847, i64 noundef %851) #10
   br label %853
 
 853:                                              ; preds = %850, %848
   %854 = load i32, ptr @str_pad, align 4, !tbaa !3
-  %855 = call i32 @H5Tset_strpad(i64 noundef %847, i32 noundef %854) #9
+  %855 = call i32 @H5Tset_strpad(i64 noundef %847, i32 noundef %854) #10
   %.b295 = load i1, ptr @str_cset, align 4
   %856 = zext i1 %.b295 to i32
-  %857 = call i32 @H5Tset_cset(i64 noundef %847, i32 noundef %856) #9
+  %857 = call i32 @H5Tset_cset(i64 noundef %847, i32 noundef %856) #10
   %858 = inttoptr i64 %847 to ptr
   br label %1026
 
@@ -1576,10 +1576,10 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   store i1 true, ptr @is_enum, align 1
   %880 = getelementptr inbounds i8, ptr %.2260, i64 -8
   %881 = load i64, ptr %880, align 8, !tbaa !7
-  %882 = call i64 @H5Tenum_create(i64 noundef %881) #9
+  %882 = call i64 @H5Tenum_create(i64 noundef %881) #10
   store i64 %882, ptr @enum_id, align 8, !tbaa !15
   %883 = load i64, ptr %880, align 8, !tbaa !7
-  %884 = call i32 @H5Tclose(i64 noundef %883) #9
+  %884 = call i32 @H5Tclose(i64 noundef %883) #10
   br label %1026
 
 885:                                              ; preds = %77
@@ -1591,32 +1591,32 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 888:                                              ; preds = %77
   store i1 true, ptr @is_enum_memb, align 1
   %889 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
-  %890 = call noalias ptr @strdup(ptr noundef %889) #9
+  %890 = call noalias ptr @strdup(ptr noundef %889) #10
   store ptr %890, ptr @enum_memb_symbol, align 8, !tbaa !24
-  call void @free(ptr noundef %889) #9
+  call void @free(ptr noundef %889) #10
   store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
   br label %1026
 
 891:                                              ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %892 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
   %893 = trunc i32 %892 to i8
   store i8 %893, ptr %3, align 1, !tbaa !7
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %894 = trunc i32 %892 to i16
   store i16 %894, ptr %4, align 2, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %892, ptr %5, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %895 = sext i32 %892 to i64
   store i64 %895, ptr %6, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %895, ptr %7, align 8, !tbaa !27
   %896 = load i64, ptr @enum_id, align 8, !tbaa !15
-  %897 = call i64 @H5Tget_super(i64 noundef %896) #9
-  %898 = call i64 @H5Tget_native_type(i64 noundef %897, i32 noundef 1) #9
-  %899 = call i32 @H5Tget_order(i64 noundef %897) #9
-  %900 = call i32 @H5Tget_order(i64 noundef %898) #9
+  %897 = call i64 @H5Tget_super(i64 noundef %896) #10
+  %898 = call i64 @H5Tget_native_type(i64 noundef %897, i32 noundef 1) #10
+  %899 = call i32 @H5Tget_order(i64 noundef %897) #10
+  %900 = call i32 @H5Tget_order(i64 noundef %898) #10
   %.b296303 = load i1, ptr @is_enum, align 1
   %.b297304 = load i1, ptr @is_enum_memb, align 1
   %or.cond5 = select i1 %.b296303, i1 %.b297304, i1 false
@@ -1631,12 +1631,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %906, label %909, label %907, !prof !14
 
 907:                                              ; preds = %901
-  %908 = call i32 @H5open() #9
+  %908 = call i32 @H5open() #10
   br label %909
 
 909:                                              ; preds = %901, %907
   %910 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
-  %911 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %910) #9
+  %911 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %910) #10
   %.not305 = icmp eq i32 %911, 0
   br i1 %.not305, label %912, label %923
 
@@ -1649,12 +1649,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %917, label %920, label %918, !prof !14
 
 918:                                              ; preds = %912
-  %919 = call i32 @H5open() #9
+  %919 = call i32 @H5open() #10
   br label %920
 
 920:                                              ; preds = %912, %918
   %921 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !15
-  %922 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %921) #9
+  %922 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %921) #10
   %.not306 = icmp eq i32 %922, 0
   br i1 %.not306, label %924, label %923
 
@@ -1671,12 +1671,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %929, label %932, label %930, !prof !14
 
 930:                                              ; preds = %924
-  %931 = call i32 @H5open() #9
+  %931 = call i32 @H5open() #10
   br label %932
 
 932:                                              ; preds = %924, %930
   %933 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !15
-  %934 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %933) #9
+  %934 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %933) #10
   %.not307 = icmp eq i32 %934, 0
   br i1 %.not307, label %935, label %946
 
@@ -1689,12 +1689,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %940, label %943, label %941, !prof !14
 
 941:                                              ; preds = %935
-  %942 = call i32 @H5open() #9
+  %942 = call i32 @H5open() #10
   br label %943
 
 943:                                              ; preds = %935, %941
   %944 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !15
-  %945 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %944) #9
+  %945 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %944) #10
   %.not308 = icmp eq i32 %945, 0
   br i1 %.not308, label %947, label %946
 
@@ -1711,12 +1711,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %952, label %955, label %953, !prof !14
 
 953:                                              ; preds = %947
-  %954 = call i32 @H5open() #9
+  %954 = call i32 @H5open() #10
   br label %955
 
 955:                                              ; preds = %947, %953
   %956 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !15
-  %957 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %956) #9
+  %957 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %956) #10
   %.not309 = icmp eq i32 %957, 0
   br i1 %.not309, label %958, label %969
 
@@ -1729,12 +1729,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %963, label %966, label %964, !prof !14
 
 964:                                              ; preds = %958
-  %965 = call i32 @H5open() #9
+  %965 = call i32 @H5open() #10
   br label %966
 
 966:                                              ; preds = %958, %964
   %967 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !15
-  %968 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %967) #9
+  %968 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %967) #10
   %.not310 = icmp eq i32 %968, 0
   br i1 %.not310, label %970, label %969
 
@@ -1751,12 +1751,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %975, label %978, label %976, !prof !14
 
 976:                                              ; preds = %970
-  %977 = call i32 @H5open() #9
+  %977 = call i32 @H5open() #10
   br label %978
 
 978:                                              ; preds = %970, %976
   %979 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !15
-  %980 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %979) #9
+  %980 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %979) #10
   %.not311 = icmp eq i32 %980, 0
   br i1 %.not311, label %981, label %992
 
@@ -1769,12 +1769,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %986, label %989, label %987, !prof !14
 
 987:                                              ; preds = %981
-  %988 = call i32 @H5open() #9
+  %988 = call i32 @H5open() #10
   br label %989
 
 989:                                              ; preds = %981, %987
   %990 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !15
-  %991 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %990) #9
+  %991 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %990) #10
   %.not312 = icmp eq i32 %991, 0
   br i1 %.not312, label %993, label %992
 
@@ -1791,12 +1791,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %998, label %1001, label %999, !prof !14
 
 999:                                              ; preds = %993
-  %1000 = call i32 @H5open() #9
+  %1000 = call i32 @H5open() #10
   br label %1001
 
 1001:                                             ; preds = %993, %999
   %1002 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !15
-  %1003 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1002) #9
+  %1003 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1002) #10
   %.not313 = icmp eq i32 %1003, 0
   br i1 %.not313, label %1004, label %1015
 
@@ -1809,12 +1809,12 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %1009, label %1012, label %1010, !prof !14
 
 1010:                                             ; preds = %1004
-  %1011 = call i32 @H5open() #9
+  %1011 = call i32 @H5open() #10
   br label %1012
 
 1012:                                             ; preds = %1004, %1010
   %1013 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !15
-  %1014 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1013) #9
+  %1014 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1013) #10
   %.not314 = icmp eq i32 %1014, 0
   br i1 %.not314, label %1020, label %1015
 
@@ -1824,14 +1824,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 .sink.split.sink.split:                           ; preds = %1015, %992, %969, %946, %923
   %.sink = phi ptr [ %3, %923 ], [ %4, %946 ], [ %5, %969 ], [ %6, %992 ], [ %7, %1015 ]
-  %1016 = call i32 @H5Tconvert(i64 noundef %898, i64 noundef %897, i64 noundef 1, ptr noundef nonnull %.sink, ptr noundef null, i64 noundef 0) #9
+  %1016 = call i32 @H5Tconvert(i64 noundef %898, i64 noundef %897, i64 noundef 1, ptr noundef nonnull %.sink, ptr noundef null, i64 noundef 0) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %1015, %992, %969, %946, %923
   %.sink405 = phi ptr [ %3, %923 ], [ %4, %946 ], [ %5, %969 ], [ %6, %992 ], [ %7, %1015 ], [ %.sink, %.sink.split.sink.split ]
   %1017 = load i64, ptr @enum_id, align 8, !tbaa !15
   %1018 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
-  %1019 = call i32 @H5Tenum_insert(i64 noundef %1017, ptr noundef %1018, ptr noundef nonnull %.sink405) #9
+  %1019 = call i32 @H5Tenum_insert(i64 noundef %1017, ptr noundef %1018, ptr noundef nonnull %.sink405) #10
   br label %1020
 
 1020:                                             ; preds = %.sink.split, %1012
@@ -1841,17 +1841,17 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not320, label %1023, label %1022
 
 1022:                                             ; preds = %1020
-  call void @free(ptr noundef nonnull %1021) #9
+  call void @free(ptr noundef nonnull %1021) #10
   br label %1023
 
 1023:                                             ; preds = %1020, %1022, %891
-  %1024 = call i32 @H5Tclose(i64 noundef %897) #9
-  %1025 = call i32 @H5Tclose(i64 noundef %898) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  %1024 = call i32 @H5Tclose(i64 noundef %897) #10
+  %1025 = call i32 @H5Tclose(i64 noundef %898) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %1026
 
 1026:                                             ; preds = %818, %813, %807, %77, %829, %841, %816, %817, %810, %812, %811, %803, %804, %1023, %888, %885, %879, %878, %877, %874, %871, %868, %865, %862, %859, %853, %795, %789, %784, %777, %773, %761, %749, %737, %725, %713, %701, %689, %677, %662, %649, %645, %629, %626, %622, %619, %616, %608, %546, %538, %531, %527, %515, %503, %491, %479, %467, %455, %443, %431, %419, %407, %395, %383, %371, %359, %347, %335, %323, %311, %299, %287, %275, %263, %251, %239, %227, %215, %203, %191, %179, %167, %155, %143, %131, %119, %107, %95, %84
@@ -1899,11 +1899,11 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %1053 = load i32, ptr @H5LTyynerrs, align 4, !tbaa !3
   %1054 = add nsw i32 %1053, 1
   store i32 %1054, ptr @H5LTyynerrs, align 4, !tbaa !3
-  %1055 = call i32 @H5LTyyerror(ptr noundef nonnull @.str) #9
+  %1055 = call i32 @H5LTyyerror(ptr noundef nonnull @.str) #10
   br label %.loopexit
 
 1056:                                             ; preds = %14, %20
-  %1057 = call i32 @H5LTyyerror(ptr noundef nonnull @.str.3) #9
+  %1057 = call i32 @H5LTyyerror(ptr noundef nonnull @.str.3) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread343, %53, %1052, %1056
@@ -1915,95 +1915,95 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 .loopexit.thread:                                 ; preds = %31, %.loopexit
   %.5395 = phi ptr [ %.5, %.loopexit ], [ %24, %31 ]
   %.0267394 = phi i64 [ %.0267, %.loopexit ], [ 1, %31 ]
-  call void @free(ptr noundef %.5395) #9
+  call void @free(ptr noundef %.5395) #10
   br label %1058
 
 1058:                                             ; preds = %.loopexit, %.loopexit.thread, %85
   %.0 = phi i64 [ %86, %85 ], [ %.0267394, %.loopexit.thread ], [ %.0267, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 1600, ptr nonnull %2) #9
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @H5LTyylex() local_unnamed_addr #5
+declare i32 @H5LTyylex() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5open() local_unnamed_addr #5
+declare i32 @H5open() local_unnamed_addr #4
 
-declare i64 @H5Tcreate(i32 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tcreate(i32 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tget_size(i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tset_size(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tset_size(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tinsert(i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tinsert(i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare i64 @H5Tarray_create2(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @H5Tarray_create2(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i64 @H5Tvlen_create(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tvlen_create(i64 noundef) local_unnamed_addr #4
 
-declare i64 @H5Tcomplex_create(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tcomplex_create(i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tset_tag(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @H5Tset_tag(i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @H5Tset_strpad(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @H5Tset_strpad(i64 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tset_cset(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @H5Tset_cset(i64 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i64 @H5Tenum_create(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tenum_create(i64 noundef) local_unnamed_addr #4
 
-declare i64 @H5Tget_super(i64 noundef) local_unnamed_addr #5
+declare i64 @H5Tget_super(i64 noundef) local_unnamed_addr #4
 
-declare i64 @H5Tget_native_type(i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @H5Tget_native_type(i64 noundef, i32 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tget_order(i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tget_order(i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tequal(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tequal(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tconvert(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @H5Tconvert(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @H5Tenum_insert(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @H5Tenum_insert(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @H5LTyyerror(ptr noundef) local_unnamed_addr #5
+declare i32 @H5LTyyerror(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #9 = { nounwind allocsize(0) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

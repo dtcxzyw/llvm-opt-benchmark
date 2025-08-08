@@ -1092,7 +1092,7 @@ vaarg.in_mem405:                                  ; preds = %sw.bb399
 vaarg.end409:                                     ; preds = %vaarg.in_mem405, %vaarg.in_reg403
   %vaarg.addr410 = phi ptr [ %101, %vaarg.in_reg403 ], [ %overflow_arg_area407, %vaarg.in_mem405 ]
   %103 = load ptr, ptr %vaarg.addr410, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i)
   %cmp.i128 = icmp eq ptr %103, null
   br i1 %cmp.i128, label %if.then.i131, label %if.else.i129
 
@@ -1134,7 +1134,7 @@ if.else.i129:                                     ; preds = %vaarg.end409
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDscEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i140, %if.else.i129
   %retval.0.i130 = phi i32 [ %call2.i.i142, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i140 ], [ %call3.i, %if.else.i129 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i)
   %cmp413 = icmp slt i32 %retval.0.i130, 0
   br i1 %cmp413, label %FormatError, label %sw.epilog435
 
@@ -1160,7 +1160,7 @@ vaarg.in_mem423:                                  ; preds = %sw.bb417
 vaarg.end427:                                     ; preds = %vaarg.in_mem423, %vaarg.in_reg421
   %vaarg.addr428 = phi ptr [ %111, %vaarg.in_reg421 ], [ %overflow_arg_area425, %vaarg.in_mem423 ]
   %113 = load ptr, ptr %vaarg.addr428, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i150)
   %cmp.i151 = icmp eq ptr %113, null
   br i1 %cmp.i151, label %if.then.i155, label %if.else.i152
 
@@ -1202,7 +1202,7 @@ if.else.i152:                                     ; preds = %vaarg.end427
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDicEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i164, %if.else.i152
   %retval.0.i154 = phi i32 [ %call2.i.i166, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EccEclEPFiPKcmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPcS5_.exit.i164 ], [ %call3.i153, %if.else.i152 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i150)
   %cmp431 = icmp slt i32 %retval.0.i154, 0
   br i1 %cmp431, label %FormatError, label %sw.epilog435
 
@@ -2171,7 +2171,7 @@ vaarg.in_mem390:                                  ; preds = %sw.bb384
 vaarg.end394:                                     ; preds = %vaarg.in_mem390, %vaarg.in_reg388
   %vaarg.addr395 = phi ptr [ %90, %vaarg.in_reg388 ], [ %overflow_arg_area392, %vaarg.in_mem390 ]
   %92 = load ptr, ptr %vaarg.addr395, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i)
   %cmp.i = icmp eq ptr %92, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -2213,7 +2213,7 @@ if.else.i:                                        ; preds = %vaarg.end394
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIcDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i, %if.else.i
   %retval.0.i = phi i32 [ %call2.i.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i ], [ %call3.i, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i)
   %cmp398 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp398, label %FormatError, label %sw.epilog438
 
@@ -2337,7 +2337,7 @@ vaarg.in_mem426:                                  ; preds = %sw.bb420
 vaarg.end430:                                     ; preds = %vaarg.in_mem426, %vaarg.in_reg424
   %vaarg.addr431 = phi ptr [ %104, %vaarg.in_reg424 ], [ %overflow_arg_area428, %vaarg.in_mem426 ]
   %106 = load ptr, ptr %vaarg.addr431, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i149)
   %cmp.i150 = icmp eq ptr %106, null
   br i1 %cmp.i150, label %if.then.i154, label %if.else.i151
 
@@ -2379,7 +2379,7 @@ if.else.i151:                                     ; preds = %vaarg.end430
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDiDsEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162, %if.else.i151
   %retval.0.i153 = phi i32 [ %call2.i.i168, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDsDsEclEPFiPKDsmPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDsS5_.exit.i162 ], [ %call3.i152, %if.else.i151 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i149)
   %cmp434 = icmp slt i32 %retval.0.i153, 0
   br i1 %cmp434, label %FormatError, label %sw.epilog438
 
@@ -3351,7 +3351,7 @@ vaarg.in_mem389:                                  ; preds = %sw.bb383
 vaarg.end393:                                     ; preds = %vaarg.in_mem389, %vaarg.in_reg387
   %vaarg.addr394 = phi ptr [ %90, %vaarg.in_reg387 ], [ %overflow_arg_area391, %vaarg.in_mem389 ]
   %92 = load ptr, ptr %vaarg.addr394, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i)
   %cmp.i = icmp eq ptr %92, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -3397,7 +3397,7 @@ if.else.i:                                        ; preds = %vaarg.end393
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIcDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i, %if.else.i
   %retval.0.i = phi i32 [ %call2.i.i, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i ], [ %call3.i, %if.else.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i)
   %cmp397 = icmp slt i32 %retval.0.i, 0
   br i1 %cmp397, label %FormatError, label %sw.epilog437
 
@@ -3423,7 +3423,7 @@ vaarg.in_mem407:                                  ; preds = %sw.bb401
 vaarg.end411:                                     ; preds = %vaarg.in_mem407, %vaarg.in_reg405
   %vaarg.addr412 = phi ptr [ %98, %vaarg.in_reg405 ], [ %overflow_arg_area409, %vaarg.in_mem407 ]
   %100 = load ptr, ptr %vaarg.addr412, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %helper2.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper2.i129)
   %cmp.i130 = icmp eq ptr %100, null
   br i1 %cmp.i130, label %if.then.i134, label %if.else.i131
 
@@ -3469,7 +3469,7 @@ if.else.i131:                                     ; preds = %vaarg.end411
 
 _ZN2EA4StdC12SprintfLocal12StringFormatIDsDiEEiPFiPKT0_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPS3_PKT_.exit: ; preds = %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146, %if.else.i131
   %retval.0.i133 = phi i32 [ %call2.i.i148, %_ZN2EA4StdC12SprintfLocal18StringFormatHelperILb1EDiDiEclEPFiPKDimPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEPDiS5_.exit.i146 ], [ %call3.i132, %if.else.i131 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %helper2.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper2.i129)
   %cmp415 = icmp slt i32 %retval.0.i133, 0
   br i1 %cmp415, label %FormatError, label %sw.epilog437
 
@@ -4714,7 +4714,7 @@ entry:
   %nFill.i = alloca i8, align 1
   %idx.ext = sext i32 %nWriteCount to i64
   %add.ptr = getelementptr inbounds i8, ptr %pBufferData, i64 %idx.ext
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %0 = load i32, ptr %fd, align 4, !noalias !80
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31, label %lor.lhs.false.i
@@ -4777,15 +4777,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %for.body.i, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31: ; preds = %lor.lhs.false.i, %entry
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp = icmp slt i32 %sub.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4808,14 +4808,14 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   %fd.val = load i32, ptr %fd, align 4
   %4 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val15 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i16 = icmp sgt i32 %fd.val15, %add
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i16, i1 false
   br i1 %or.cond.i, label %if.end.i18, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41: ; preds = %if.end5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i18:                                       ; preds = %if.end5
@@ -4837,11 +4837,11 @@ for.body.i20:                                     ; preds = %if.end.i18, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i22
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i20
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %5
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i22, %if.end.i18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp7 = icmp slt i32 %sub.i19.fr, 0
   br i1 %cmp7, label %5, label %return
 
@@ -5417,7 +5417,7 @@ if.end35:                                         ; preds = %if.then28
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %7 = load i32, ptr %fd, align 4, !noalias !94
   %cmp.i = icmp eq i32 %7, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -5476,15 +5476,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then12.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end49
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp47 = icmp slt i32 %sub.i, 0
   br i1 %cmp47, label %return, label %if.end49
 
@@ -5528,14 +5528,14 @@ if.then63:                                        ; preds = %if.end57, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %15 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %15, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then63
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then63
@@ -5557,11 +5557,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %16
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp66, label %16, label %return
 
@@ -5658,7 +5658,7 @@ if.end35:                                         ; preds = %if.then28
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %6 = load i32, ptr %fd, align 4, !noalias !101
   %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -5717,15 +5717,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then12.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end45
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end49
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp47 = icmp slt i32 %sub.i, 0
   br i1 %cmp47, label %return, label %if.end49
 
@@ -5769,14 +5769,14 @@ if.then63:                                        ; preds = %if.end57, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %14 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then63
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then63
@@ -5798,11 +5798,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %15
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIcEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp66, label %15, label %return
 
@@ -6718,7 +6718,7 @@ entry:
   %nFill.i = alloca i16, align 2
   %idx.ext = sext i32 %nWriteCount to i64
   %add.ptr = getelementptr inbounds i16, ptr %pBufferData, i64 %idx.ext
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %0 = load i32, ptr %fd, align 4, !noalias !116
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31, label %lor.lhs.false.i
@@ -6781,15 +6781,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %for.body.i, %if.then12.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31: ; preds = %lor.lhs.false.i, %entry
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp = icmp slt i32 %sub.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -6813,14 +6813,14 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   %fd.val = load i32, ptr %fd, align 4
   %4 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val15 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i16 = icmp sgt i32 %fd.val15, %add
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i16, i1 false
   br i1 %or.cond.i, label %if.end.i18, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41: ; preds = %if.end5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i18:                                       ; preds = %if.end5
@@ -6842,11 +6842,11 @@ for.body.i20:                                     ; preds = %if.end.i18, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i22
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i20
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %5
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i22, %if.end.i18
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp7 = icmp slt i32 %sub.i19.fr, 0
   br i1 %cmp7, label %5, label %return
 
@@ -7403,7 +7403,7 @@ if.end34:                                         ; preds = %if.then27
 
 if.end44:                                         ; preds = %if.end34, %land.lhs.true, %if.then22
   %nWriteCount.0 = phi i32 [ %conv23, %land.lhs.true ], [ %conv23, %if.then22 ], [ %spec.select50, %if.end34 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %6 = load i32, ptr %fd, align 4, !noalias !130
   %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -7462,15 +7462,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then12.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end44
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end48
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp46 = icmp slt i32 %sub.i, 0
   br i1 %cmp46, label %return, label %if.end48
 
@@ -7514,14 +7514,14 @@ if.then62:                                        ; preds = %if.end56, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %14 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then62
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then62
@@ -7543,11 +7543,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %15
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp65 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp65, label %15, label %return
 
@@ -7644,7 +7644,7 @@ if.end35:                                         ; preds = %if.then28
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %6 = load i32, ptr %fd, align 4, !noalias !137
   %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -7703,15 +7703,15 @@ for.body.i:                                       ; preds = %if.end17.i, %for.co
   br i1 %cmp21.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then12.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end45
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end49
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end17.i
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp47 = icmp slt i32 %sub.i, 0
   br i1 %cmp47, label %return, label %if.end49
 
@@ -7755,14 +7755,14 @@ if.then63:                                        ; preds = %if.end57, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %14 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then63
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then63
@@ -7784,11 +7784,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %15
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDsEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp66, label %15, label %return
 
@@ -8692,7 +8692,7 @@ entry:
   %nFill.i = alloca i32, align 4
   %idx.ext = sext i32 %nWriteCount to i64
   %add.ptr = getelementptr inbounds i32, ptr %pBufferData, i64 %idx.ext
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %0 = load i32, ptr %fd, align 4, !noalias !152
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31, label %lor.lhs.false.i
@@ -8755,15 +8755,15 @@ for.body.i:                                       ; preds = %if.end15.i, %for.co
   br i1 %cmp19.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %for.body.i, %if.then10.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread31: ; preds = %lor.lhs.false.i, %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp = icmp slt i32 %sub.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -8787,14 +8787,14 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   %fd.val = load i32, ptr %fd, align 4
   %4 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val15 = load i32, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i16 = icmp sgt i32 %fd.val15, %add
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i16, i1 false
   br i1 %or.cond.i, label %if.end.i18, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread41: ; preds = %if.end5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i18:                                       ; preds = %if.end5
@@ -8816,11 +8816,11 @@ for.body.i20:                                     ; preds = %if.end.i18, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i22
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %5
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i22, %if.end.i18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp7 = icmp slt i32 %sub.i19.fr, 0
   br i1 %cmp7, label %5, label %return
 
@@ -9373,7 +9373,7 @@ if.end34:                                         ; preds = %if.then27
 
 if.end44:                                         ; preds = %if.end34, %land.lhs.true, %if.then22
   %nWriteCount.0 = phi i32 [ %conv23, %land.lhs.true ], [ %conv23, %if.then22 ], [ %spec.select50, %if.end34 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %6 = load i32, ptr %fd, align 4, !noalias !166
   %cmp.i = icmp eq i32 %6, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -9432,15 +9432,15 @@ for.body.i:                                       ; preds = %if.end15.i, %for.co
   br i1 %cmp19.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then10.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end48
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp46 = icmp slt i32 %sub.i, 0
   br i1 %cmp46, label %return, label %if.end48
 
@@ -9484,14 +9484,14 @@ if.then62:                                        ; preds = %if.end56, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %14 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then62
@@ -9513,11 +9513,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %15
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp65 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp65, label %15, label %return
 
@@ -9626,7 +9626,7 @@ if.end35:                                         ; preds = %if.then28
 
 if.end45:                                         ; preds = %if.end35, %land.lhs.true, %if.then23
   %nWriteCount.0 = phi i32 [ %conv24, %land.lhs.true ], [ %conv24, %if.then23 ], [ %spec.select50, %if.end35 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nFill.i)
   %7 = load i32, ptr %fd, align 4, !noalias !174
   %cmp.i = icmp eq i32 %7, 0
   br i1 %cmp.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66, label %lor.lhs.false.i
@@ -9685,15 +9685,15 @@ for.body.i:                                       ; preds = %if.end15.i, %for.co
   br i1 %cmp19.i, label %_ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread, label %for.cond.i
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread: ; preds = %if.then10.i, %for.body.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %return
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit.thread66: ; preds = %lor.lhs.false.i, %if.end45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   br label %if.end49
 
 _ZN2EA4StdC12SprintfLocalL16WriteLeftPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataERS5_i.exit: ; preds = %for.cond.i, %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nFill.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nFill.i)
   %cmp47 = icmp slt i32 %sub.i, 0
   br i1 %cmp47, label %return, label %if.end49
 
@@ -9737,14 +9737,14 @@ if.then63:                                        ; preds = %if.end57, %while.en
   %fd.val = load i32, ptr %fd, align 4
   %15 = getelementptr inbounds nuw i8, ptr %fd, i64 12
   %fd.val52 = load i32, ptr %15, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nSpace.i)
   %cmp.not.i = icmp eq i32 %fd.val, 0
   %cmp1.not.i53 = icmp sgt i32 %fd.val52, %nWriteCountSum.0.lcssa104
   %or.cond.i = select i1 %cmp.not.i, i1 %cmp1.not.i53, i1 false
   br i1 %or.cond.i, label %if.end.i55, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread75: ; preds = %if.then63
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %return
 
 if.end.i55:                                       ; preds = %if.then63
@@ -9766,11 +9766,11 @@ for.body.i57:                                     ; preds = %if.end.i55, %for.co
   br i1 %cmp4.i, label %_ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread, label %for.cond.i59
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit.thread: ; preds = %for.body.i57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   br label %16
 
 _ZN2EA4StdC12SprintfLocalL17WriteRightPaddingIDiEEiPFiPKT_mPvNS0_18WriteFunctionStateEES6_RKNS1_10FormatDataEi.exit: ; preds = %for.cond.i59, %if.end.i55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nSpace.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nSpace.i)
   %cmp66 = icmp slt i32 %sub.i56.fr, 0
   br i1 %cmp66, label %16, label %return
 
@@ -9808,10 +9808,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

@@ -212,11 +212,11 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
   %6 = alloca [1000 x i32], align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 8000, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4000, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %13
@@ -2048,12 +2048,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %240, label %246, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %241 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(8) @.str) #12
+  %241 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(8) @.str) #11
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %246, label %243
 
 243:                                              ; preds = %.tail.thread
-  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(9) @.str.2) #12
+  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %234, ptr noundef nonnull dereferenceable(9) @.str.2) #11
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %._crit_edge5401
 
@@ -3438,7 +3438,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5306: ; preds = %897
   store ptr %1082, ptr %1083, align 8, !tbaa !133
   %1084 = getelementptr inbounds nuw i8, ptr %1080, i64 32
   store ptr null, ptr %1084, align 8, !tbaa !137
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1085 = load ptr, ptr %.45153, align 8, !tbaa !9
   %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 8
   %1087 = load ptr, ptr %1086, align 8, !tbaa !139
@@ -3447,10 +3447,10 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5306: ; preds = %897
   %1090 = load ptr, ptr %1089, align 8, !tbaa !9
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 8
   %1092 = load ptr, ptr %1091, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %1092, ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #11
-  %1093 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %1093 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.7) #12
   %1094 = icmp eq i32 %1093, 0
   %1095 = getelementptr inbounds nuw i8, ptr %1080, i64 4
   br i1 %1094, label %1096, label %1099
@@ -3486,7 +3486,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge5401
 
 1106:                                             ; preds = %102
@@ -9609,7 +9609,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5314: ; preds = %102
   %4885 = load ptr, ptr %.45153, align 8, !tbaa !9
   %4886 = call noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef %4885)
   %4887 = load ptr, ptr %.45153, align 8, !tbaa !9
-  %4888 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4887, ptr noundef nonnull dereferenceable(7) @.str.67) #12
+  %4888 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4887, ptr noundef nonnull dereferenceable(7) @.str.67) #11
   %4889 = icmp eq i32 %4888, 0
   br i1 %4889, label %4890, label %4897
 
@@ -14894,7 +14894,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
 
 8273:                                             ; preds = %102
   %8274 = load ptr, ptr %.45153, align 8, !tbaa !9
-  %8275 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8274, ptr noundef nonnull dereferenceable(22) @.str.157) #12
+  %8275 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8274, ptr noundef nonnull dereferenceable(22) @.str.157) #11
   %8276 = icmp eq i32 %8275, 0
   br i1 %8276, label %8277, label %8280
 
@@ -15775,51 +15775,45 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit5328: ; preds = %8054
   br label %8802
 
 8802:                                             ; preds = %.thread5365, %8801
-  call void @llvm.lifetime.end.p0(i64 4000, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8000, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.051175376
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery6pallocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef) local_unnamed_addr #1
 
-declare void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery10base_yylexEPNS_7YYSTYPEEPiPv(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery7lappendEPNS_6PGListEPv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery7lappendEPNS_6PGListEPv(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery5lconsEPvPNS_6PGListE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery5lconsEPvPNS_6PGListE(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery7newNodeEmNS_9PGNodeTagE(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery7newNodeEmNS_9PGNodeTagE(i64 noundef, i32 noundef) local_unnamed_addr #2
-
-declare noundef ptr @_ZN17duckdb_libpgquery11makeDefElemEPKcPNS_6PGNodeEi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery11makeDefElemEPKcPNS_6PGNodeEi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare noundef i32 @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery7ereportEiz(i32 noundef, ...) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery7errcodeEi(i32 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef, ...) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery6errmsgEPKcz(ptr noundef, ...) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery19scanner_errpositionEiPv(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery11makeIntegerEl(i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery11makeIntegerEl(i64 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery10makeStringEPKc(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery10makeStringEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL14processCASbitsEiiPKcPbS2_S2_S2_Pv(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #0 {
@@ -15927,9 +15921,9 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL14processCASbitsEiiPKcPbS2_S
   ret void
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery19makeDefElemExtendedEPKcS1_PNS_6PGNodeENS_15PGDefElemActionEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery19makeDefElemExtendedEPKcS1_PNS_6PGNodeENS_15PGDefElemActionEi(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery12makeRangeVarEPcS0_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery12makeRangeVarEPcS0_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL20check_qualified_nameEPNS_6PGListEPv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
@@ -15963,11 +15957,11 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit: ; preds = %2
   ret void
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery16NameListToStringEPNS_6PGListE(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery16NameListToStringEPNS_6PGListE(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery9makeAliasEPKcPNS_6PGListE(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery9makeAliasEPKcPNS_6PGListE(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
@@ -16007,14 +16001,14 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit: ; preds = %2
   ret ptr %0
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery11list_concatEPNS_6PGListES1_(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery11list_concatEPNS_6PGListES1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef ptr @_ZN17duckdb_libpgquery9makeFloatEPc(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery9makeFloatEPc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL13doNegateFloatEPNS_7PGValueE(ptr noundef captures(none) %0) unnamed_addr #0 {
@@ -16105,9 +16099,9 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit: ; preds = %4
   ret void
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery24makeTypeNameFromNameListEPNS_6PGListE(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery24makeTypeNameFromNameListEPNS_6PGListE(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery8psprintfEPKcz(ptr noundef, ...) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery8psprintfEPKcz(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN17duckdb_libpgqueryL19insertSelectOptionsEPNS_12PGSelectStmtEPNS_6PGListES3_PNS_6PGNodeES5_S5_PNS_12PGWithClauseEPv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
@@ -16228,11 +16222,11 @@ define internal fastcc void @_ZN17duckdb_libpgqueryL19insertSelectOptionsEPNS_12
   ret void
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery8list_nthEPKNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery8list_nthEPKNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery7errhintEPKc(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery15makeSimpleAExprENS_12PGAExpr_KindEPKcPNS_6PGNodeES4_i(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery15makeSimpleAExprENS_12PGAExpr_KindEPKcPNS_6PGNodeES4_i(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL8doNegateEPNS_6PGNodeEi(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -16290,7 +16284,7 @@ _ZN17duckdb_libpgqueryL13doNegateFloatEPNS_7PGValueE.exit: ; preds = %20, %22
   ret ptr %.1
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery15makeGroupingSetENS_15GroupingSetKindEPNS_6PGListEi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery15makeGroupingSetENS_15GroupingSetKindEPNS_6PGListEi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr noundef %0) local_unnamed_addr #0 {
@@ -16300,9 +16294,9 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14SystemTypeNameEPKc(ptr nounde
   ret ptr %4
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery12makeTypeNameEPc(ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery12makeTypeNameEPc(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery12makeFuncCallEPNS_6PGListES1_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery12makeFuncCallEPNS_6PGListES1_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17duckdb_libpgquery14SystemFuncNameEPKc(ptr noundef %0) local_unnamed_addr #0 {
@@ -16313,7 +16307,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14SystemFuncNameEPKc(ptr nounde
   ret ptr %5
 }
 
-declare noundef ptr @_ZN17duckdb_libpgquery9makeAExprENS_12PGAExpr_KindEPNS_6PGListEPNS_6PGNodeES4_i(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery9makeAExprENS_12PGAExpr_KindEPNS_6PGListEPNS_6PGNodeES4_i(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL11makeAndExprEPNS_6PGNodeES1_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -16749,31 +16743,37 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17duckdb_libpgquery11parser_initEPNS_18base_yy_extra_typeE(ptr noundef writeonly captures(none) initializes((120, 128)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN17duckdb_libpgquery11parser_initEPNS_18base_yy_extra_typeE(ptr noundef writeonly captures(none) initializes((120, 128)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8, !tbaa !13
   ret void
 }
 
-declare void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @_ZN17duckdb_libpgquery15scanner_yyerrorEPKcPv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery13list_truncateEPNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery13list_truncateEPNS_6PGListEi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noundef i32 @_ZN17duckdb_libpgquery12exprLocationEPKNS_6PGNodeE(ptr noundef) local_unnamed_addr #2
+declare noundef i32 @_ZN17duckdb_libpgquery12exprLocationEPKNS_6PGNodeE(ptr noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery12makeBoolExprENS_14PGBoolExprTypeEPNS_6PGListEi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery12makeBoolExprENS_14PGBoolExprTypeEPNS_6PGListEi(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @_ZN17duckdb_libpgquery4elogEiPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare noundef ptr @_ZN17duckdb_libpgquery16list_delete_cellEPNS_6PGListEPNS_10PGListCellES3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN17duckdb_libpgquery16list_delete_cellEPNS_6PGListEPNS_10PGListCellES3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
@@ -16788,18 +16788,18 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

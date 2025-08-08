@@ -38,13 +38,7 @@ define void @b2RevoluteJoint_EnableSpring(i64 %0, i1 noundef zeroext %1) local_u
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @b2GetJointSimCheckType(i64, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @b2RevoluteJoint_IsSpringEnabled(i64 %0) local_unnamed_addr #0 {
@@ -88,7 +82,7 @@ define float @b2RevoluteJoint_GetSpringDampingRatio(i64 %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define float @b2RevoluteJoint_GetAngle(i64 %0) local_unnamed_addr #3 {
+define float @b2RevoluteJoint_GetAngle(i64 %0) local_unnamed_addr #2 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %2 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = and i32 %2, 65535
@@ -137,9 +131,9 @@ b2UnwindAngle.exit:                               ; preds = %26, %28, %30
   ret float %.0.i
 }
 
-declare ptr @b2GetWorld(i32 noundef) local_unnamed_addr #2
+declare ptr @b2GetWorld(i32 noundef) local_unnamed_addr #1
 
-declare { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @b2RevoluteJoint_EnableLimit(i64 %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -295,7 +289,7 @@ define float @b2RevoluteJoint_GetMaxMotorTorque(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden <2 x float> @b2GetRevoluteJointForce(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden <2 x float> @b2GetRevoluteJointForce(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load float, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -310,7 +304,7 @@ define hidden <2 x float> @b2GetRevoluteJointForce(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden float @b2GetRevoluteJointTorque(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden float @b2GetRevoluteJointTorque(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1768
   %4 = load float, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
@@ -326,7 +320,7 @@ define hidden float @b2GetRevoluteJointTorque(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2PrepareRevoluteJoint(ptr noundef captures(none) initializes((32, 48), (100, 152)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define hidden void @b2PrepareRevoluteJoint(ptr noundef captures(none) initializes((32, 48), (100, 152)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -523,10 +517,10 @@ b2MakeSoft.exit:                                  ; preds = %b2UnwindAngle.exit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @b2WarmStartRevoluteJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define hidden void @b2WarmStartRevoluteJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca %struct.b2BodyState, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 4, !tbaa !93
@@ -536,7 +530,7 @@ define hidden void @b2WarmStartRevoluteJoint(ptr noundef readonly captures(none)
   %9 = load float, ptr %8, align 4, !tbaa !95
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load float, ptr %10, align 4, !tbaa !96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveRevoluteJoint.dummyState, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %13 = load i32, ptr %12, align 4, !tbaa !97
@@ -658,12 +652,12 @@ define hidden void @b2WarmStartRevoluteJoint(ptr noundef readonly captures(none)
   %94 = load float, ptr %93, align 4, !tbaa !109
   %95 = fadd float %94, %92
   store float %95, ptr %93, align 4, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2SolveRevoluteJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
+define hidden void @b2SolveRevoluteJoint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca %struct.b2BodyState, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load float, ptr %5, align 4, !tbaa !93
@@ -673,7 +667,7 @@ define hidden void @b2SolveRevoluteJoint(ptr noundef captures(none) %0, ptr noun
   %10 = load float, ptr %9, align 4, !tbaa !95
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load float, ptr %11, align 4, !tbaa !96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) @__const.b2SolveRevoluteJoint.dummyState, i64 32, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %14 = load i32, ptr %13, align 4, !tbaa !97
@@ -1111,12 +1105,12 @@ b2UnwindAngle.exit:                               ; preds = %132, %134, %136
   store float %322, ptr %33, align 4, !tbaa !109
   store <2 x float> %.sroa.03.4.vec.insert.i336, ptr %32, align 4
   store float %331, ptr %35, align 4, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @b2DrawRevoluteJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, float noundef %6) local_unnamed_addr #3 {
+define hidden void @b2DrawRevoluteJoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, <2 x float> %5, float noundef %6) local_unnamed_addr #2 {
   %8 = alloca [32 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load <2 x float>, ptr %9, align 4
@@ -1193,7 +1187,7 @@ define hidden void @b2DrawRevoluteJoint(ptr noundef readonly captures(none) %0, 
 
 b2UnwindAngle.exit:                               ; preds = %50, %52, %54
   %.0.i = phi float [ %51, %50 ], [ %55, %54 ], [ %48, %52 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = fmul float %.0.i, 1.800000e+02
   %57 = fdiv float %56, 0x400921FB60000000
   %58 = fpext float %57 to double
@@ -1202,7 +1196,7 @@ b2UnwindAngle.exit:                               ; preds = %50, %52, %54
   %61 = load ptr, ptr %60, align 8, !tbaa !133
   %62 = load ptr, ptr %24, align 8, !tbaa !130
   call void %61(<2 x float> %.sroa.02.4.vec.insert.i, ptr noundef nonnull %8, i32 noundef 16777215, ptr noundef %62) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %63
 
 63:                                               ; preds = %b2UnwindAngle.exit, %7
@@ -1288,24 +1282,30 @@ b2UnwindAngle.exit:                               ; preds = %50, %52, %54
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
-declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #2
+declare float @b2Atan2(float noundef, float noundef) local_unnamed_addr #1
 
-declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #2
+declare <2 x float> @b2ComputeCosSin(float noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 

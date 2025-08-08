@@ -983,7 +983,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE1EEEP
   br i1 %7, label %11, label %237
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %8, align 8
@@ -1403,11 +1403,11 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %236, %._crit_edge.i
   %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %236 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %463
 
 237:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %239 = load i64, ptr %238, align 8
   %240 = load i64, ptr %8, align 8
@@ -1827,7 +1827,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %462, %._crit_edge.i87
   %.1.i97 = phi ptr [ %.0.lcssa.i88, %._crit_edge.i87 ], [ %.3.i94, %462 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %463
 
 463:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE1EEEPNS_7ExtMoveERKNS_8PositionES5_.exit
@@ -3784,7 +3784,7 @@ define weak_odr dso_local noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE4EEEP
   br i1 %7, label %10, label %321
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i64, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = load i64, ptr %12, align 8
@@ -4358,11 +4358,11 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE0ELNS_9PieceTypeE5ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %320, %._crit_edge.i
   %.1.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %.3.i, %320 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %631
 
 321:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %323 = load i64, ptr %322, align 8
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -4940,7 +4940,7 @@ _ZN9Stockfish12_GLOBAL__N_114generate_movesILNS_5ColorE1ELNS_9PieceTypeE5ELb0EEE
 
 _ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit: ; preds = %630, %._crit_edge.i122
   %.1.i132 = phi ptr [ %.0.lcssa.i123, %._crit_edge.i122 ], [ %.3.i129, %630 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %631
 
 631:                                              ; preds = %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE1ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit, %_ZN9Stockfish12_GLOBAL__N_112generate_allILNS_5ColorE0ELNS_7GenTypeE4EEEPNS_7ExtMoveERKNS_8PositionES5_.exit
@@ -5044,10 +5044,10 @@ define internal void @_GLOBAL__sub_I_movegen.cpp() #5 section ".text.startup" {
 declare i64 @llvm.ctpop.i64(i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

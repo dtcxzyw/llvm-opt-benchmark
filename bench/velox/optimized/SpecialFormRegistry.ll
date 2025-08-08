@@ -46,7 +46,7 @@ $_ZN8facebook5velox4exec19SpecialFormRegistryD2Ev = comdat any
 define void @_ZN8facebook5velox4exec19SpecialFormRegistry33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef captures(none) %functionCallToSpecialForm) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !4
@@ -89,7 +89,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %5
 
 "_ZN5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SG_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withWLockIZNSC_19SpecialFormRegistry33registerFunctionCallToSpecialFormERSM_SG_E3$_0EEDaOT_.exit": ; preds = %if.then3.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -151,7 +151,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
 define noundef ptr @_ZNK8facebook5velox4exec19SpecialFormRegistry14getSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr.20", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %mutex_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %mutex_.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !12
@@ -189,7 +189,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %3
 
 "_ZNK5folly16SynchronizedBaseINS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteISD_EESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SG_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEELNS_6detail22SynchronizedMutexLevelE2EE9withRLockIZNKSC_19SpecialFormRegistry14getSpecialFormERSM_E3$_0EEDaOT_.exit": ; preds = %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret ptr %specialForm.0
 }
 
@@ -275,7 +275,7 @@ _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %i
   %3 = load i64, ptr %functionCallToSpecialForm, align 8
   %4 = inttoptr i64 %3 to ptr
   store ptr null, ptr %functionCallToSpecialForm, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 56), ptr %ref.tmp.i.i, align 8, !alias.scope !16
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 56))
           to label %.noexc unwind label %lpad
@@ -317,7 +317,7 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 _ZNSt10unique_ptrIN8facebook5velox4exec25FunctionCallToSpecialFormESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.then3.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
@@ -440,7 +440,7 @@ init.i.i:                                         ; preds = %init.check.i.i
   br label %_ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit
 
 _ZN8facebook5velox4exec26mutableSpecialFormRegistryEv.exit: ; preds = %entry, %init.check.i.i, %init.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox4exec12_GLOBAL__N_127specialFormRegistryInternalEvE8instance, i64 56), ptr %ref.tmp.i.i, align 8, !alias.scope !22
   %_M_owns.i2.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
@@ -478,7 +478,7 @@ lpad.i.i:                                         ; preds = %_ZN8facebook5velox4
   resume { ptr, i32 } %7
 
 _ZNK8facebook5velox4exec19SpecialFormRegistry14getSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.then.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   ret i1 %specialForm.0.i
 }
 
@@ -1117,10 +1117,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

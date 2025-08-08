@@ -132,18 +132,18 @@ define internal noundef zeroext i1 @GL_CreateRenderer(ptr noundef %0, ptr nounde
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %9 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 20, ptr noundef nonnull %5) #7
-  %10 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 17, ptr noundef nonnull %6) #7
-  %11 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 18, ptr noundef nonnull %7) #7
-  %12 = call zeroext i1 @SDL_SyncWindow_REAL(ptr noundef %1) #7
-  %13 = call i64 @SDL_GetWindowFlags_REAL(ptr noundef %1) #7
+  %9 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 20, ptr noundef nonnull %5) #6
+  %10 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 17, ptr noundef nonnull %6) #6
+  %11 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 18, ptr noundef nonnull %7) #6
+  %12 = call zeroext i1 @SDL_SyncWindow_REAL(ptr noundef %1) #6
+  %13 = call i64 @SDL_GetWindowFlags_REAL(ptr noundef %1) #6
   %14 = and i64 %13, 2
   %15 = icmp eq i64 %14, 0
   %16 = load i32, ptr %5, align 4
@@ -158,16 +158,16 @@ define internal noundef zeroext i1 @GL_CreateRenderer(ptr noundef %0, ptr nounde
   br i1 %or.cond5, label %22, label %29
 
 22:                                               ; preds = %3
-  %23 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 20, i32 noundef 0) #7
-  %24 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 17, i32 noundef 2) #7
-  %25 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 18, i32 noundef 1) #7
+  %23 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 20, i32 noundef 0) #6
+  %24 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 17, i32 noundef 2) #6
+  %25 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 18, i32 noundef 1) #6
   %26 = and i64 %13, -805306371
   %27 = or disjoint i64 %26, 2
-  %28 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %27) #7
+  %28 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %27) #6
   br i1 %28, label %29, label %.thread149
 
 29:                                               ; preds = %22, %3
-  call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #7
+  call void @SDL_SetupRendererColorspace(ptr noundef %0, i32 noundef %2) #6
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %31 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %31, 301991328
@@ -255,647 +255,647 @@ define internal noundef zeroext i1 @GL_CreateRenderer(ptr noundef %0, ptr nounde
   %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL_RenderDriver, i64 8), align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %71, ptr %72, align 8
-  %73 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 372645892) #7
-  %74 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376840196) #7
-  %75 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #7
-  %76 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 374740996) #7
-  %77 = call ptr @SDL_GL_CreateContext_REAL(ptr noundef %1) #7
+  %73 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 372645892) #6
+  %74 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 376840196) #6
+  %75 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 370546692) #6
+  %76 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 374740996) #6
+  %77 = call ptr @SDL_GL_CreateContext_REAL(ptr noundef %1) #6
   store ptr %77, ptr %33, align 8
   %.not134 = icmp eq ptr %77, null
   br i1 %.not134, label %477, label %78
 
 78:                                               ; preds = %34
-  %79 = call zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef %1, ptr noundef nonnull %77) #7
+  %79 = call zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef %1, ptr noundef nonnull %77) #6
   br i1 %79, label %80, label %477
 
 80:                                               ; preds = %78
-  %81 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.58) #7
+  %81 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.58) #6
   %82 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store ptr %81, ptr %82, align 8
   %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %83, label %86
 
 83:                                               ; preds = %80
-  %84 = call ptr @SDL_GetError_REAL() #7
-  %85 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.58, ptr noundef %84) #7
+  %84 = call ptr @SDL_GetError_REAL() #6
+  %85 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.58, ptr noundef %84) #6
   br label %86
 
 86:                                               ; preds = %83, %80
   %.0.i = phi i1 [ true, %80 ], [ %85, %83 ]
-  %87 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.60) #7
+  %87 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.60) #6
   %88 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store ptr %87, ptr %88, align 8
   %.not96.i = icmp eq ptr %87, null
   br i1 %.not96.i, label %89, label %92
 
 89:                                               ; preds = %86
-  %90 = call ptr @SDL_GetError_REAL() #7
-  %91 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef %90) #7
+  %90 = call ptr @SDL_GetError_REAL() #6
+  %91 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef %90) #6
   br label %92
 
 92:                                               ; preds = %89, %86
   %.1.i = phi i1 [ %.0.i, %86 ], [ %91, %89 ]
-  %93 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.61) #7
+  %93 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.61) #6
   %94 = getelementptr inbounds nuw i8, ptr %33, i64 72
   store ptr %93, ptr %94, align 8
   %.not97.i = icmp eq ptr %93, null
   br i1 %.not97.i, label %95, label %98
 
 95:                                               ; preds = %92
-  %96 = call ptr @SDL_GetError_REAL() #7
-  %97 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.61, ptr noundef %96) #7
+  %96 = call ptr @SDL_GetError_REAL() #6
+  %97 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.61, ptr noundef %96) #6
   br label %98
 
 98:                                               ; preds = %95, %92
   %.2.i = phi i1 [ %.1.i, %92 ], [ %97, %95 ]
-  %99 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.62) #7
+  %99 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.62) #6
   %100 = getelementptr inbounds nuw i8, ptr %33, i64 80
   store ptr %99, ptr %100, align 8
   %.not98.i = icmp eq ptr %99, null
   br i1 %.not98.i, label %101, label %104
 
 101:                                              ; preds = %98
-  %102 = call ptr @SDL_GetError_REAL() #7
-  %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.62, ptr noundef %102) #7
+  %102 = call ptr @SDL_GetError_REAL() #6
+  %103 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.62, ptr noundef %102) #6
   br label %104
 
 104:                                              ; preds = %101, %98
   %.3.i = phi i1 [ %.2.i, %98 ], [ %103, %101 ]
-  %105 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.63) #7
+  %105 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.63) #6
   %106 = getelementptr inbounds nuw i8, ptr %33, i64 88
   store ptr %105, ptr %106, align 8
   %.not99.i = icmp eq ptr %105, null
   br i1 %.not99.i, label %107, label %110
 
 107:                                              ; preds = %104
-  %108 = call ptr @SDL_GetError_REAL() #7
-  %109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.63, ptr noundef %108) #7
+  %108 = call ptr @SDL_GetError_REAL() #6
+  %109 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.63, ptr noundef %108) #6
   br label %110
 
 110:                                              ; preds = %107, %104
   %.4.i = phi i1 [ %.3.i, %104 ], [ %109, %107 ]
-  %111 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.64) #7
+  %111 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.64) #6
   %112 = getelementptr inbounds nuw i8, ptr %33, i64 96
   store ptr %111, ptr %112, align 8
   %.not100.i = icmp eq ptr %111, null
   br i1 %.not100.i, label %113, label %116
 
 113:                                              ; preds = %110
-  %114 = call ptr @SDL_GetError_REAL() #7
-  %115 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.64, ptr noundef %114) #7
+  %114 = call ptr @SDL_GetError_REAL() #6
+  %115 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.64, ptr noundef %114) #6
   br label %116
 
 116:                                              ; preds = %113, %110
   %.5.i = phi i1 [ %.4.i, %110 ], [ %115, %113 ]
-  %117 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.65) #7
+  %117 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.65) #6
   %118 = getelementptr inbounds nuw i8, ptr %33, i64 104
   store ptr %117, ptr %118, align 8
   %.not101.i = icmp eq ptr %117, null
   br i1 %.not101.i, label %119, label %122
 
 119:                                              ; preds = %116
-  %120 = call ptr @SDL_GetError_REAL() #7
-  %121 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.65, ptr noundef %120) #7
+  %120 = call ptr @SDL_GetError_REAL() #6
+  %121 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.65, ptr noundef %120) #6
   br label %122
 
 122:                                              ; preds = %119, %116
   %.6.i = phi i1 [ %.5.i, %116 ], [ %121, %119 ]
-  %123 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.66) #7
+  %123 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.66) #6
   %124 = getelementptr inbounds nuw i8, ptr %33, i64 112
   store ptr %123, ptr %124, align 8
   %.not102.i = icmp eq ptr %123, null
   br i1 %.not102.i, label %125, label %128
 
 125:                                              ; preds = %122
-  %126 = call ptr @SDL_GetError_REAL() #7
-  %127 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.66, ptr noundef %126) #7
+  %126 = call ptr @SDL_GetError_REAL() #6
+  %127 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.66, ptr noundef %126) #6
   br label %128
 
 128:                                              ; preds = %125, %122
   %.7.i = phi i1 [ %.6.i, %122 ], [ %127, %125 ]
-  %129 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.67) #7
+  %129 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.67) #6
   %130 = getelementptr inbounds nuw i8, ptr %33, i64 120
   store ptr %129, ptr %130, align 8
   %.not103.i = icmp eq ptr %129, null
   br i1 %.not103.i, label %131, label %134
 
 131:                                              ; preds = %128
-  %132 = call ptr @SDL_GetError_REAL() #7
-  %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.67, ptr noundef %132) #7
+  %132 = call ptr @SDL_GetError_REAL() #6
+  %133 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.67, ptr noundef %132) #6
   br label %134
 
 134:                                              ; preds = %131, %128
   %.8.i = phi i1 [ %.7.i, %128 ], [ %133, %131 ]
-  %135 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.68) #7
+  %135 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.68) #6
   %136 = getelementptr inbounds nuw i8, ptr %33, i64 128
   store ptr %135, ptr %136, align 8
   %.not104.i = icmp eq ptr %135, null
   br i1 %.not104.i, label %137, label %140
 
 137:                                              ; preds = %134
-  %138 = call ptr @SDL_GetError_REAL() #7
-  %139 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.68, ptr noundef %138) #7
+  %138 = call ptr @SDL_GetError_REAL() #6
+  %139 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.68, ptr noundef %138) #6
   br label %140
 
 140:                                              ; preds = %137, %134
   %.9.i = phi i1 [ %.8.i, %134 ], [ %139, %137 ]
-  %141 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.69) #7
+  %141 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.69) #6
   %142 = getelementptr inbounds nuw i8, ptr %33, i64 136
   store ptr %141, ptr %142, align 8
   %.not105.i = icmp eq ptr %141, null
   br i1 %.not105.i, label %143, label %146
 
 143:                                              ; preds = %140
-  %144 = call ptr @SDL_GetError_REAL() #7
-  %145 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.69, ptr noundef %144) #7
+  %144 = call ptr @SDL_GetError_REAL() #6
+  %145 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.69, ptr noundef %144) #6
   br label %146
 
 146:                                              ; preds = %143, %140
   %.10.i = phi i1 [ %.9.i, %140 ], [ %145, %143 ]
-  %147 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.70) #7
+  %147 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.70) #6
   %148 = getelementptr inbounds nuw i8, ptr %33, i64 144
   store ptr %147, ptr %148, align 8
   %.not106.i = icmp eq ptr %147, null
   br i1 %.not106.i, label %149, label %152
 
 149:                                              ; preds = %146
-  %150 = call ptr @SDL_GetError_REAL() #7
-  %151 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.70, ptr noundef %150) #7
+  %150 = call ptr @SDL_GetError_REAL() #6
+  %151 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.70, ptr noundef %150) #6
   br label %152
 
 152:                                              ; preds = %149, %146
   %.11.i = phi i1 [ %.10.i, %146 ], [ %151, %149 ]
-  %153 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.71) #7
+  %153 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.71) #6
   %154 = getelementptr inbounds nuw i8, ptr %33, i64 152
   store ptr %153, ptr %154, align 8
   %.not107.i = icmp eq ptr %153, null
   br i1 %.not107.i, label %155, label %158
 
 155:                                              ; preds = %152
-  %156 = call ptr @SDL_GetError_REAL() #7
-  %157 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.71, ptr noundef %156) #7
+  %156 = call ptr @SDL_GetError_REAL() #6
+  %157 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.71, ptr noundef %156) #6
   br label %158
 
 158:                                              ; preds = %155, %152
   %.12.i = phi i1 [ %.11.i, %152 ], [ %157, %155 ]
-  %159 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.72) #7
+  %159 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.72) #6
   %160 = getelementptr inbounds nuw i8, ptr %33, i64 160
   store ptr %159, ptr %160, align 8
   %.not108.i = icmp eq ptr %159, null
   br i1 %.not108.i, label %161, label %164
 
 161:                                              ; preds = %158
-  %162 = call ptr @SDL_GetError_REAL() #7
-  %163 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.72, ptr noundef %162) #7
+  %162 = call ptr @SDL_GetError_REAL() #6
+  %163 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.72, ptr noundef %162) #6
   br label %164
 
 164:                                              ; preds = %161, %158
   %.13.i = phi i1 [ %.12.i, %158 ], [ %163, %161 ]
-  %165 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.73) #7
+  %165 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.73) #6
   %166 = getelementptr inbounds nuw i8, ptr %33, i64 168
   store ptr %165, ptr %166, align 8
   %.not109.i = icmp eq ptr %165, null
   br i1 %.not109.i, label %167, label %170
 
 167:                                              ; preds = %164
-  %168 = call ptr @SDL_GetError_REAL() #7
-  %169 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.73, ptr noundef %168) #7
+  %168 = call ptr @SDL_GetError_REAL() #6
+  %169 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.73, ptr noundef %168) #6
   br label %170
 
 170:                                              ; preds = %167, %164
   %.14.i = phi i1 [ %.13.i, %164 ], [ %169, %167 ]
-  %171 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.74) #7
+  %171 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.74) #6
   %172 = getelementptr inbounds nuw i8, ptr %33, i64 176
   store ptr %171, ptr %172, align 8
   %.not110.i = icmp eq ptr %171, null
   br i1 %.not110.i, label %173, label %176
 
 173:                                              ; preds = %170
-  %174 = call ptr @SDL_GetError_REAL() #7
-  %175 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.74, ptr noundef %174) #7
+  %174 = call ptr @SDL_GetError_REAL() #6
+  %175 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.74, ptr noundef %174) #6
   br label %176
 
 176:                                              ; preds = %173, %170
   %.15.i = phi i1 [ %.14.i, %170 ], [ %175, %173 ]
-  %177 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.75) #7
+  %177 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.75) #6
   %178 = getelementptr inbounds nuw i8, ptr %33, i64 184
   store ptr %177, ptr %178, align 8
   %.not111.i = icmp eq ptr %177, null
   br i1 %.not111.i, label %179, label %182
 
 179:                                              ; preds = %176
-  %180 = call ptr @SDL_GetError_REAL() #7
-  %181 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.75, ptr noundef %180) #7
+  %180 = call ptr @SDL_GetError_REAL() #6
+  %181 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.75, ptr noundef %180) #6
   br label %182
 
 182:                                              ; preds = %179, %176
   %.16.i = phi i1 [ %.15.i, %176 ], [ %181, %179 ]
-  %183 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.76) #7
+  %183 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.76) #6
   %184 = getelementptr inbounds nuw i8, ptr %33, i64 192
   store ptr %183, ptr %184, align 8
   %.not112.i = icmp eq ptr %183, null
   br i1 %.not112.i, label %185, label %188
 
 185:                                              ; preds = %182
-  %186 = call ptr @SDL_GetError_REAL() #7
-  %187 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.76, ptr noundef %186) #7
+  %186 = call ptr @SDL_GetError_REAL() #6
+  %187 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.76, ptr noundef %186) #6
   br label %188
 
 188:                                              ; preds = %185, %182
   %.17.i = phi i1 [ %.16.i, %182 ], [ %187, %185 ]
-  %189 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.77) #7
+  %189 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.77) #6
   %190 = getelementptr inbounds nuw i8, ptr %33, i64 200
   store ptr %189, ptr %190, align 8
   %.not113.i = icmp eq ptr %189, null
   br i1 %.not113.i, label %191, label %194
 
 191:                                              ; preds = %188
-  %192 = call ptr @SDL_GetError_REAL() #7
-  %193 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.77, ptr noundef %192) #7
+  %192 = call ptr @SDL_GetError_REAL() #6
+  %193 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.77, ptr noundef %192) #6
   br label %194
 
 194:                                              ; preds = %191, %188
   %.18.i = phi i1 [ %.17.i, %188 ], [ %193, %191 ]
-  %195 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.78) #7
+  %195 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.78) #6
   %196 = getelementptr inbounds nuw i8, ptr %33, i64 208
   store ptr %195, ptr %196, align 8
   %.not114.i = icmp eq ptr %195, null
   br i1 %.not114.i, label %197, label %200
 
 197:                                              ; preds = %194
-  %198 = call ptr @SDL_GetError_REAL() #7
-  %199 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.78, ptr noundef %198) #7
+  %198 = call ptr @SDL_GetError_REAL() #6
+  %199 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.78, ptr noundef %198) #6
   br label %200
 
 200:                                              ; preds = %197, %194
   %.19.i = phi i1 [ %.18.i, %194 ], [ %199, %197 ]
-  %201 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.79) #7
+  %201 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.79) #6
   %202 = getelementptr inbounds nuw i8, ptr %33, i64 216
   store ptr %201, ptr %202, align 8
   %.not115.i = icmp eq ptr %201, null
   br i1 %.not115.i, label %203, label %206
 
 203:                                              ; preds = %200
-  %204 = call ptr @SDL_GetError_REAL() #7
-  %205 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.79, ptr noundef %204) #7
+  %204 = call ptr @SDL_GetError_REAL() #6
+  %205 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.79, ptr noundef %204) #6
   br label %206
 
 206:                                              ; preds = %203, %200
   %.20.i = phi i1 [ %.19.i, %200 ], [ %205, %203 ]
-  %207 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.80) #7
+  %207 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.80) #6
   %208 = getelementptr inbounds nuw i8, ptr %33, i64 224
   store ptr %207, ptr %208, align 8
   %.not116.i = icmp eq ptr %207, null
   br i1 %.not116.i, label %209, label %212
 
 209:                                              ; preds = %206
-  %210 = call ptr @SDL_GetError_REAL() #7
-  %211 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.80, ptr noundef %210) #7
+  %210 = call ptr @SDL_GetError_REAL() #6
+  %211 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.80, ptr noundef %210) #6
   br label %212
 
 212:                                              ; preds = %209, %206
   %.21.i = phi i1 [ %.20.i, %206 ], [ %211, %209 ]
-  %213 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.81) #7
+  %213 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.81) #6
   %214 = getelementptr inbounds nuw i8, ptr %33, i64 232
   store ptr %213, ptr %214, align 8
   %.not117.i = icmp eq ptr %213, null
   br i1 %.not117.i, label %215, label %218
 
 215:                                              ; preds = %212
-  %216 = call ptr @SDL_GetError_REAL() #7
-  %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.81, ptr noundef %216) #7
+  %216 = call ptr @SDL_GetError_REAL() #6
+  %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.81, ptr noundef %216) #6
   br label %218
 
 218:                                              ; preds = %215, %212
   %.22.i = phi i1 [ %.21.i, %212 ], [ %217, %215 ]
-  %219 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.82) #7
+  %219 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.82) #6
   %220 = getelementptr inbounds nuw i8, ptr %33, i64 240
   store ptr %219, ptr %220, align 8
   %.not118.i = icmp eq ptr %219, null
   br i1 %.not118.i, label %221, label %224
 
 221:                                              ; preds = %218
-  %222 = call ptr @SDL_GetError_REAL() #7
-  %223 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.82, ptr noundef %222) #7
+  %222 = call ptr @SDL_GetError_REAL() #6
+  %223 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.82, ptr noundef %222) #6
   br label %224
 
 224:                                              ; preds = %221, %218
   %.23.i = phi i1 [ %.22.i, %218 ], [ %223, %221 ]
-  %225 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.83) #7
+  %225 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.83) #6
   %226 = getelementptr inbounds nuw i8, ptr %33, i64 248
   store ptr %225, ptr %226, align 8
   %.not119.i = icmp eq ptr %225, null
   br i1 %.not119.i, label %227, label %230
 
 227:                                              ; preds = %224
-  %228 = call ptr @SDL_GetError_REAL() #7
-  %229 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.83, ptr noundef %228) #7
+  %228 = call ptr @SDL_GetError_REAL() #6
+  %229 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.83, ptr noundef %228) #6
   br label %230
 
 230:                                              ; preds = %227, %224
   %.24.i = phi i1 [ %.23.i, %224 ], [ %229, %227 ]
-  %231 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.84) #7
+  %231 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.84) #6
   %232 = getelementptr inbounds nuw i8, ptr %33, i64 256
   store ptr %231, ptr %232, align 8
   %.not120.i = icmp eq ptr %231, null
   br i1 %.not120.i, label %233, label %236
 
 233:                                              ; preds = %230
-  %234 = call ptr @SDL_GetError_REAL() #7
-  %235 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.84, ptr noundef %234) #7
+  %234 = call ptr @SDL_GetError_REAL() #6
+  %235 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.84, ptr noundef %234) #6
   br label %236
 
 236:                                              ; preds = %233, %230
   %.25.i = phi i1 [ %.24.i, %230 ], [ %235, %233 ]
-  %237 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.85) #7
+  %237 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.85) #6
   %238 = getelementptr inbounds nuw i8, ptr %33, i64 264
   store ptr %237, ptr %238, align 8
   %.not121.i = icmp eq ptr %237, null
   br i1 %.not121.i, label %239, label %242
 
 239:                                              ; preds = %236
-  %240 = call ptr @SDL_GetError_REAL() #7
-  %241 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.85, ptr noundef %240) #7
+  %240 = call ptr @SDL_GetError_REAL() #6
+  %241 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.85, ptr noundef %240) #6
   br label %242
 
 242:                                              ; preds = %239, %236
   %.26.i = phi i1 [ %.25.i, %236 ], [ %241, %239 ]
-  %243 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.86) #7
+  %243 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.86) #6
   %244 = getelementptr inbounds nuw i8, ptr %33, i64 272
   store ptr %243, ptr %244, align 8
   %.not122.i = icmp eq ptr %243, null
   br i1 %.not122.i, label %245, label %248
 
 245:                                              ; preds = %242
-  %246 = call ptr @SDL_GetError_REAL() #7
-  %247 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.86, ptr noundef %246) #7
+  %246 = call ptr @SDL_GetError_REAL() #6
+  %247 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.86, ptr noundef %246) #6
   br label %248
 
 248:                                              ; preds = %245, %242
   %.27.i = phi i1 [ %.26.i, %242 ], [ %247, %245 ]
-  %249 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.87) #7
+  %249 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.87) #6
   %250 = getelementptr inbounds nuw i8, ptr %33, i64 280
   store ptr %249, ptr %250, align 8
   %.not123.i = icmp eq ptr %249, null
   br i1 %.not123.i, label %251, label %254
 
 251:                                              ; preds = %248
-  %252 = call ptr @SDL_GetError_REAL() #7
-  %253 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.87, ptr noundef %252) #7
+  %252 = call ptr @SDL_GetError_REAL() #6
+  %253 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.87, ptr noundef %252) #6
   br label %254
 
 254:                                              ; preds = %251, %248
   %.28.i = phi i1 [ %.27.i, %248 ], [ %253, %251 ]
-  %255 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.88) #7
+  %255 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.88) #6
   %256 = getelementptr inbounds nuw i8, ptr %33, i64 288
   store ptr %255, ptr %256, align 8
   %.not124.i = icmp eq ptr %255, null
   br i1 %.not124.i, label %257, label %260
 
 257:                                              ; preds = %254
-  %258 = call ptr @SDL_GetError_REAL() #7
-  %259 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.88, ptr noundef %258) #7
+  %258 = call ptr @SDL_GetError_REAL() #6
+  %259 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.88, ptr noundef %258) #6
   br label %260
 
 260:                                              ; preds = %257, %254
   %.29.i = phi i1 [ %.28.i, %254 ], [ %259, %257 ]
-  %261 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.89) #7
+  %261 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.89) #6
   %262 = getelementptr inbounds nuw i8, ptr %33, i64 296
   store ptr %261, ptr %262, align 8
   %.not125.i = icmp eq ptr %261, null
   br i1 %.not125.i, label %263, label %266
 
 263:                                              ; preds = %260
-  %264 = call ptr @SDL_GetError_REAL() #7
-  %265 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.89, ptr noundef %264) #7
+  %264 = call ptr @SDL_GetError_REAL() #6
+  %265 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.89, ptr noundef %264) #6
   br label %266
 
 266:                                              ; preds = %263, %260
   %.30.i = phi i1 [ %.29.i, %260 ], [ %265, %263 ]
-  %267 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.90) #7
+  %267 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.90) #6
   %268 = getelementptr inbounds nuw i8, ptr %33, i64 304
   store ptr %267, ptr %268, align 8
   %.not126.i = icmp eq ptr %267, null
   br i1 %.not126.i, label %269, label %272
 
 269:                                              ; preds = %266
-  %270 = call ptr @SDL_GetError_REAL() #7
-  %271 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.90, ptr noundef %270) #7
+  %270 = call ptr @SDL_GetError_REAL() #6
+  %271 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.90, ptr noundef %270) #6
   br label %272
 
 272:                                              ; preds = %269, %266
   %.31.i = phi i1 [ %.30.i, %266 ], [ %271, %269 ]
-  %273 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.91) #7
+  %273 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.91) #6
   %274 = getelementptr inbounds nuw i8, ptr %33, i64 312
   store ptr %273, ptr %274, align 8
   %.not127.i = icmp eq ptr %273, null
   br i1 %.not127.i, label %275, label %278
 
 275:                                              ; preds = %272
-  %276 = call ptr @SDL_GetError_REAL() #7
-  %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.91, ptr noundef %276) #7
+  %276 = call ptr @SDL_GetError_REAL() #6
+  %277 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.91, ptr noundef %276) #6
   br label %278
 
 278:                                              ; preds = %275, %272
   %.32.i = phi i1 [ %.31.i, %272 ], [ %277, %275 ]
-  %279 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.92) #7
+  %279 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.92) #6
   %280 = getelementptr inbounds nuw i8, ptr %33, i64 320
   store ptr %279, ptr %280, align 8
   %.not128.i = icmp eq ptr %279, null
   br i1 %.not128.i, label %281, label %284
 
 281:                                              ; preds = %278
-  %282 = call ptr @SDL_GetError_REAL() #7
-  %283 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.92, ptr noundef %282) #7
+  %282 = call ptr @SDL_GetError_REAL() #6
+  %283 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.92, ptr noundef %282) #6
   br label %284
 
 284:                                              ; preds = %281, %278
   %.33.i = phi i1 [ %.32.i, %278 ], [ %283, %281 ]
-  %285 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.93) #7
+  %285 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.93) #6
   %286 = getelementptr inbounds nuw i8, ptr %33, i64 328
   store ptr %285, ptr %286, align 8
   %.not129.i = icmp eq ptr %285, null
   br i1 %.not129.i, label %287, label %290
 
 287:                                              ; preds = %284
-  %288 = call ptr @SDL_GetError_REAL() #7
-  %289 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.93, ptr noundef %288) #7
+  %288 = call ptr @SDL_GetError_REAL() #6
+  %289 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.93, ptr noundef %288) #6
   br label %290
 
 290:                                              ; preds = %287, %284
   %.34.i = phi i1 [ %.33.i, %284 ], [ %289, %287 ]
-  %291 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.94) #7
+  %291 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.94) #6
   %292 = getelementptr inbounds nuw i8, ptr %33, i64 336
   store ptr %291, ptr %292, align 8
   %.not130.i = icmp eq ptr %291, null
   br i1 %.not130.i, label %293, label %296
 
 293:                                              ; preds = %290
-  %294 = call ptr @SDL_GetError_REAL() #7
-  %295 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.94, ptr noundef %294) #7
+  %294 = call ptr @SDL_GetError_REAL() #6
+  %295 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.94, ptr noundef %294) #6
   br label %296
 
 296:                                              ; preds = %293, %290
   %.35.i = phi i1 [ %.34.i, %290 ], [ %295, %293 ]
-  %297 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.95) #7
+  %297 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.95) #6
   %298 = getelementptr inbounds nuw i8, ptr %33, i64 344
   store ptr %297, ptr %298, align 8
   %.not131.i = icmp eq ptr %297, null
   br i1 %.not131.i, label %299, label %302
 
 299:                                              ; preds = %296
-  %300 = call ptr @SDL_GetError_REAL() #7
-  %301 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.95, ptr noundef %300) #7
+  %300 = call ptr @SDL_GetError_REAL() #6
+  %301 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.95, ptr noundef %300) #6
   br label %302
 
 302:                                              ; preds = %299, %296
   %.36.i = phi i1 [ %.35.i, %296 ], [ %301, %299 ]
-  %303 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.96) #7
+  %303 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.96) #6
   %304 = getelementptr inbounds nuw i8, ptr %33, i64 352
   store ptr %303, ptr %304, align 8
   %.not132.i = icmp eq ptr %303, null
   br i1 %.not132.i, label %305, label %308
 
 305:                                              ; preds = %302
-  %306 = call ptr @SDL_GetError_REAL() #7
-  %307 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.96, ptr noundef %306) #7
+  %306 = call ptr @SDL_GetError_REAL() #6
+  %307 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.96, ptr noundef %306) #6
   br label %308
 
 308:                                              ; preds = %305, %302
   %.37.i = phi i1 [ %.36.i, %302 ], [ %307, %305 ]
-  %309 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.97) #7
+  %309 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.97) #6
   %310 = getelementptr inbounds nuw i8, ptr %33, i64 360
   store ptr %309, ptr %310, align 8
   %.not133.i = icmp eq ptr %309, null
   br i1 %.not133.i, label %311, label %314
 
 311:                                              ; preds = %308
-  %312 = call ptr @SDL_GetError_REAL() #7
-  %313 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.97, ptr noundef %312) #7
+  %312 = call ptr @SDL_GetError_REAL() #6
+  %313 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.97, ptr noundef %312) #6
   br label %314
 
 314:                                              ; preds = %311, %308
   %.38.i = phi i1 [ %.37.i, %308 ], [ %313, %311 ]
-  %315 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.98) #7
+  %315 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.98) #6
   %316 = getelementptr inbounds nuw i8, ptr %33, i64 368
   store ptr %315, ptr %316, align 8
   %.not134.i = icmp eq ptr %315, null
   br i1 %.not134.i, label %317, label %320
 
 317:                                              ; preds = %314
-  %318 = call ptr @SDL_GetError_REAL() #7
-  %319 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.98, ptr noundef %318) #7
+  %318 = call ptr @SDL_GetError_REAL() #6
+  %319 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.98, ptr noundef %318) #6
   br label %320
 
 320:                                              ; preds = %317, %314
   %.39.i = phi i1 [ %.38.i, %314 ], [ %319, %317 ]
-  %321 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.99) #7
+  %321 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.99) #6
   %322 = getelementptr inbounds nuw i8, ptr %33, i64 376
   store ptr %321, ptr %322, align 8
   %.not135.i = icmp eq ptr %321, null
   br i1 %.not135.i, label %323, label %326
 
 323:                                              ; preds = %320
-  %324 = call ptr @SDL_GetError_REAL() #7
-  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.99, ptr noundef %324) #7
+  %324 = call ptr @SDL_GetError_REAL() #6
+  %325 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.99, ptr noundef %324) #6
   br label %326
 
 326:                                              ; preds = %323, %320
   %.40.i = phi i1 [ %.39.i, %320 ], [ %325, %323 ]
-  %327 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.100) #7
+  %327 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.100) #6
   %328 = getelementptr inbounds nuw i8, ptr %33, i64 384
   store ptr %327, ptr %328, align 8
   %.not136.i = icmp eq ptr %327, null
   br i1 %.not136.i, label %329, label %332
 
 329:                                              ; preds = %326
-  %330 = call ptr @SDL_GetError_REAL() #7
-  %331 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.100, ptr noundef %330) #7
+  %330 = call ptr @SDL_GetError_REAL() #6
+  %331 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.100, ptr noundef %330) #6
   br label %332
 
 332:                                              ; preds = %329, %326
   %.41.i = phi i1 [ %.40.i, %326 ], [ %331, %329 ]
-  %333 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.101) #7
+  %333 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.101) #6
   %334 = getelementptr inbounds nuw i8, ptr %33, i64 392
   store ptr %333, ptr %334, align 8
   %.not137.i = icmp eq ptr %333, null
   br i1 %.not137.i, label %335, label %338
 
 335:                                              ; preds = %332
-  %336 = call ptr @SDL_GetError_REAL() #7
-  %337 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.101, ptr noundef %336) #7
+  %336 = call ptr @SDL_GetError_REAL() #6
+  %337 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.101, ptr noundef %336) #6
   br label %338
 
 338:                                              ; preds = %335, %332
   %.42.i = phi i1 [ %.41.i, %332 ], [ %337, %335 ]
-  %339 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.102) #7
+  %339 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.102) #6
   %340 = getelementptr inbounds nuw i8, ptr %33, i64 400
   store ptr %339, ptr %340, align 8
   %.not138.i = icmp eq ptr %339, null
   br i1 %.not138.i, label %341, label %344
 
 341:                                              ; preds = %338
-  %342 = call ptr @SDL_GetError_REAL() #7
-  %343 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.102, ptr noundef %342) #7
+  %342 = call ptr @SDL_GetError_REAL() #6
+  %343 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.102, ptr noundef %342) #6
   br label %344
 
 344:                                              ; preds = %341, %338
   %.43.i = phi i1 [ %.42.i, %338 ], [ %343, %341 ]
-  %345 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.103) #7
+  %345 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.103) #6
   %346 = getelementptr inbounds nuw i8, ptr %33, i64 408
   store ptr %345, ptr %346, align 8
   %.not139.i = icmp eq ptr %345, null
   br i1 %.not139.i, label %347, label %350
 
 347:                                              ; preds = %344
-  %348 = call ptr @SDL_GetError_REAL() #7
-  %349 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.103, ptr noundef %348) #7
+  %348 = call ptr @SDL_GetError_REAL() #6
+  %349 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.103, ptr noundef %348) #6
   br label %350
 
 350:                                              ; preds = %347, %344
   %.44.i = phi i1 [ %.43.i, %344 ], [ %349, %347 ]
-  %351 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.104) #7
+  %351 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.104) #6
   %352 = getelementptr inbounds nuw i8, ptr %33, i64 416
   store ptr %351, ptr %352, align 8
   %.not140.i = icmp eq ptr %351, null
   br i1 %.not140.i, label %353, label %356
 
 353:                                              ; preds = %350
-  %354 = call ptr @SDL_GetError_REAL() #7
-  %355 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.104, ptr noundef %354) #7
+  %354 = call ptr @SDL_GetError_REAL() #6
+  %355 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.104, ptr noundef %354) #6
   br label %356
 
 356:                                              ; preds = %353, %350
   %.45.i = phi i1 [ %.44.i, %350 ], [ %355, %353 ]
-  %357 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.105) #7
+  %357 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.105) #6
   %358 = getelementptr inbounds nuw i8, ptr %33, i64 424
   store ptr %357, ptr %358, align 8
   %.not141.i = icmp eq ptr %357, null
   br i1 %.not141.i, label %359, label %362
 
 359:                                              ; preds = %356
-  %360 = call ptr @SDL_GetError_REAL() #7
-  %361 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.105, ptr noundef %360) #7
+  %360 = call ptr @SDL_GetError_REAL() #6
+  %361 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.105, ptr noundef %360) #6
   br label %362
 
 362:                                              ; preds = %359, %356
   %.46.i = phi i1 [ %.45.i, %356 ], [ %361, %359 ]
-  %363 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.106) #7
+  %363 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.106) #6
   %364 = getelementptr inbounds nuw i8, ptr %33, i64 432
   store ptr %363, ptr %364, align 8
   %.not142.i = icmp eq ptr %363, null
   br i1 %.not142.i, label %365, label %GL_LoadFunctions.exit
 
 365:                                              ; preds = %362
-  %366 = call ptr @SDL_GetError_REAL() #7
-  %367 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.106, ptr noundef %366) #7
+  %366 = call ptr @SDL_GetError_REAL() #6
+  %367 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.106, ptr noundef %366) #6
   br i1 %367, label %368, label %477
 
 GL_LoadFunctions.exit:                            ; preds = %362
   br i1 %.46.i, label %368, label %477
 
 368:                                              ; preds = %365, %GL_LoadFunctions.exit
-  %369 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 19, ptr noundef nonnull %4) #7
+  %369 = call zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef 19, ptr noundef nonnull %4) #6
   br i1 %369, label %370, label %375
 
 370:                                              ; preds = %368
@@ -916,26 +916,26 @@ GL_LoadFunctions.exit:                            ; preds = %362
   br i1 %378, label %379, label %389
 
 379:                                              ; preds = %375
-  %380 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.2) #7
+  %380 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.2) #6
   br i1 %380, label %381, label %389
 
 381:                                              ; preds = %379
-  %382 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.3) #7
+  %382 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.3) #6
   %383 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 1, ptr %383, align 1
   %384 = load ptr, ptr %220, align 8
   %385 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  call void %384(i32 noundef 33348, ptr noundef nonnull %385) #7
+  call void %384(i32 noundef 33348, ptr noundef nonnull %385) #6
   %386 = load ptr, ptr %220, align 8
   %387 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  call void %386(i32 noundef 33349, ptr noundef nonnull %387) #7
-  call void %382(ptr noundef nonnull @GL_HandleDebugMessage, ptr noundef nonnull %0) #7
+  call void %386(i32 noundef 33349, ptr noundef nonnull %387) #6
+  call void %382(ptr noundef nonnull @GL_HandleDebugMessage, ptr noundef nonnull %0) #6
   %388 = load ptr, ptr %178, align 8
-  call void %388(i32 noundef 33346) #7
+  call void %388(i32 noundef 33346) #6
   br label %389
 
 389:                                              ; preds = %381, %379, %375
-  %390 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.4) #7
+  %390 = call ptr @SDL_GetHint_REAL(ptr noundef nonnull @.str.4) #6
   %.not136 = icmp eq ptr %390, null
   br i1 %.not136, label %393, label %391
 
@@ -946,30 +946,30 @@ GL_LoadFunctions.exit:                            ; preds = %362
 
 393:                                              ; preds = %391, %389
   %394 = load ptr, ptr %226, align 8
-  %395 = call ptr %394(i32 noundef 7938) #7
+  %395 = call ptr %394(i32 noundef 7938) #6
   %.not138 = icmp eq ptr %395, null
   br i1 %.not138, label %.critedge, label %396
 
 396:                                              ; preds = %393
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  %397 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %8, ptr noundef nonnull %395, i64 noundef 16) #7
-  %398 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %8, i32 noundef 46) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %397 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %8, ptr noundef nonnull %395, i64 noundef 16) #6
+  %398 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %8, i32 noundef 46) #6
   %.not139 = icmp eq ptr %398, null
   br i1 %.not139, label %.critedge145, label %399
 
 399:                                              ; preds = %396
   store i8 0, ptr %398, align 1
-  %400 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %8) #7
+  %400 = call i32 @SDL_atoi_REAL(ptr noundef nonnull %8) #6
   %401 = icmp sgt i32 %400, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %401, label %403, label %.critedge
 
 .critedge145:                                     ; preds = %396
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 .critedge:                                        ; preds = %393, %.critedge145, %399
-  %402 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.4) #7
+  %402 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.4) #6
   br i1 %402, label %403, label %406
 
 403:                                              ; preds = %.critedge, %399
@@ -982,11 +982,11 @@ GL_LoadFunctions.exit:                            ; preds = %362
 406:                                              ; preds = %391, %.critedge
   %407 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 3553, ptr %407, align 8
-  %408 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.6) #7
+  %408 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.6) #6
   br i1 %408, label %411, label %409
 
 409:                                              ; preds = %406
-  %410 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.7) #7
+  %410 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.7) #6
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %409, %406
@@ -999,16 +999,16 @@ GL_LoadFunctions.exit:                            ; preds = %362
   %.sink = phi i32 [ 34040, %411 ], [ 3379, %403 ], [ 3379, %409 ]
   %414 = phi ptr [ %407, %411 ], [ %404, %403 ], [ %407, %409 ]
   %415 = load ptr, ptr %214, align 8
-  call void %415(i32 noundef %.sink, ptr noundef nonnull %4) #7
-  %416 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef nonnull %0) #7
+  call void %415(i32 noundef %.sink, ptr noundef nonnull %4) #6
+  %416 = call i32 @SDL_GetRendererProperties_REAL(ptr noundef nonnull %0) #6
   %417 = load i32, ptr %4, align 4
   %418 = sext i32 %417 to i64
-  %419 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %416, ptr noundef nonnull @.str.5, i64 noundef %418) #7
-  %420 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.8) #7
+  %419 = call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %416, ptr noundef nonnull @.str.5, i64 noundef %418) #6
+  %420 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.8) #6
   br i1 %420, label %421, label %428
 
 421:                                              ; preds = %413
-  %422 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.9) #7
+  %422 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.9) #6
   %423 = getelementptr inbounds nuw i8, ptr %33, i64 448
   store ptr %422, ptr %423, align 8
   %.not140 = icmp eq ptr %422, null
@@ -1019,16 +1019,16 @@ GL_LoadFunctions.exit:                            ; preds = %362
   store i8 1, ptr %425, align 8
   %426 = load ptr, ptr %214, align 8
   %427 = getelementptr inbounds nuw i8, ptr %33, i64 456
-  call void %426(i32 noundef 34018, ptr noundef nonnull %427) #7
+  call void %426(i32 noundef 34018, ptr noundef nonnull %427) #6
   br label %428
 
 428:                                              ; preds = %421, %424, %413
-  %429 = call ptr @GL_CreateShaderContext() #7
+  %429 = call ptr @GL_CreateShaderContext() #6
   %430 = getelementptr inbounds nuw i8, ptr %33, i64 504
   store ptr %429, ptr %430, align 8
   %.not141 = icmp eq ptr %429, null
   %431 = select i1 %.not141, ptr @.str.12, ptr @.str.11
-  call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull %431) #7
+  call void (i32, ptr, ...) @SDL_LogInfo_REAL(i32 noundef 6, ptr noundef nonnull @.str.10, ptr noundef nonnull %431) #6
   %432 = load ptr, ptr %430, align 8
   %.not142 = icmp eq ptr %432, null
   br i1 %.not142, label %.thread147, label %433
@@ -1040,8 +1040,8 @@ GL_LoadFunctions.exit:                            ; preds = %362
   br i1 %436, label %437, label %.thread
 
 437:                                              ; preds = %433
-  %438 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094169) #7
-  %439 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 1448433993) #7
+  %438 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094169) #6
+  %439 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 1448433993) #6
   %.pr.pre = load ptr, ptr %430, align 8
   %440 = icmp eq ptr %.pr.pre, null
   br i1 %440, label %.thread147, label %thread-pre-split
@@ -1056,49 +1056,49 @@ thread-pre-split:                                 ; preds = %437
   br i1 %442, label %443, label %.thread147
 
 443:                                              ; preds = %.thread
-  %444 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094158) #7
-  %445 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 825382478) #7
+  %444 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 842094158) #6
+  %445 = call zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef nonnull %0, i32 noundef 825382478) #6
   br label %.thread147
 
 .thread147:                                       ; preds = %428, %443, %.thread, %437
-  %446 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.13) #7
+  %446 = call zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef nonnull @.str.13) #6
   br i1 %446, label %447, label %.sink.split
 
 447:                                              ; preds = %.thread147
   %448 = getelementptr inbounds nuw i8, ptr %33, i64 46
   store i8 1, ptr %448, align 2
-  %449 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.14) #7
+  %449 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.14) #6
   %450 = getelementptr inbounds nuw i8, ptr %33, i64 464
   store ptr %449, ptr %450, align 8
-  %451 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.15) #7
+  %451 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.15) #6
   %452 = getelementptr inbounds nuw i8, ptr %33, i64 472
   store ptr %451, ptr %452, align 8
-  %453 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.16) #7
+  %453 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.16) #6
   %454 = getelementptr inbounds nuw i8, ptr %33, i64 480
   store ptr %453, ptr %454, align 8
-  %455 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.17) #7
+  %455 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.17) #6
   %456 = getelementptr inbounds nuw i8, ptr %33, i64 488
   store ptr %455, ptr %456, align 8
-  %457 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.18) #7
+  %457 = call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.18) #6
   %458 = getelementptr inbounds nuw i8, ptr %33, i64 496
   store ptr %457, ptr %458, align 8
   %459 = load ptr, ptr %244, align 8
-  call void %459(i32 noundef 5888) #7
+  call void %459(i32 noundef 5888) #6
   %460 = load ptr, ptr %238, align 8
-  call void %460() #7
+  call void %460() #6
   %461 = load ptr, ptr %154, align 8
-  call void %461(i32 noundef 2929) #7
+  call void %461(i32 noundef 2929) #6
   %462 = load ptr, ptr %154, align 8
-  call void %462(i32 noundef 2884) #7
+  call void %462(i32 noundef 2884) #6
   %463 = load ptr, ptr %154, align 8
-  call void %463(i32 noundef 3089) #7
+  call void %463(i32 noundef 3089) #6
   %464 = load ptr, ptr %154, align 8
   %465 = load i32, ptr %414, align 8
-  call void %464(i32 noundef %465) #7
+  call void %464(i32 noundef %465) #6
   %466 = load ptr, ptr %112, align 8
-  call void %466(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #7
+  call void %466(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #6
   %467 = load ptr, ptr %124, align 8
-  call void %467(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #7
+  call void %467(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00) #6
   %468 = getelementptr inbounds nuw i8, ptr %33, i64 620
   store float 1.000000e+00, ptr %468, align 4
   %469 = getelementptr inbounds nuw i8, ptr %33, i64 624
@@ -1119,57 +1119,54 @@ thread-pre-split:                                 ; preds = %437
 
 .sink.split:                                      ; preds = %.thread147, %29
   %.str.19.sink = phi ptr [ @.str.1, %29 ], [ @.str.19, %.thread147 ]
-  %476 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.19.sink) #7
+  %476 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.19.sink) #6
   br label %477
 
 477:                                              ; preds = %.sink.split, %365, %GL_LoadFunctions.exit, %78, %34, %32
   br i1 %or.cond5, label %.thread149, label %488
 
 .thread149:                                       ; preds = %22, %477
-  %478 = call ptr @SDL_GetError_REAL() #7
-  %479 = call noalias ptr @SDL_strdup_REAL(ptr noundef %478) #7
+  %478 = call ptr @SDL_GetError_REAL() #6
+  %479 = call noalias ptr @SDL_strdup_REAL(ptr noundef %478) #6
   %480 = load i32, ptr %5, align 4
-  %481 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 20, i32 noundef %480) #7
+  %481 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 20, i32 noundef %480) #6
   %482 = load i32, ptr %6, align 4
-  %483 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 17, i32 noundef %482) #7
+  %483 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 17, i32 noundef %482) #6
   %484 = load i32, ptr %7, align 4
-  %485 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 18, i32 noundef %484) #7
-  %486 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %13) #7
-  %487 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20, ptr noundef %479) #7
-  call void @SDL_free_REAL(ptr noundef %479) #7
+  %485 = call zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef 18, i32 noundef %484) #6
+  %486 = call zeroext i1 @SDL_RecreateWindow(ptr noundef %1, i64 noundef %13) #6
+  %487 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.20, ptr noundef %479) #6
+  call void @SDL_free_REAL(ptr noundef %479) #6
   br label %488
 
 488:                                              ; preds = %477, %.thread149, %447
   %.0 = phi i1 [ true, %447 ], [ false, %.thread149 ], [ false, %477 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SyncWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetWindowFlags_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SetAttribute_REAL(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_RecreateWindow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_RecreateWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @SDL_SetupRendererColorspace(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @GL_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal void @GL_WindowEvent(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 8
   %.off = add i32 %3, -517
   %switch = icmp ult i32 %.off, 2
@@ -1189,12 +1186,12 @@ define internal void @GL_WindowEvent(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GL_SupportsBlendMode(ptr readnone captures(none) %0, i32 noundef %1) #0 {
 GetBlendFunc.exit:
-  %2 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #7
-  %3 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #7
-  %4 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #7
-  %5 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #7
-  %6 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #7
-  %7 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #7
+  %2 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %1) #6
+  %3 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %1) #6
+  %4 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %1) #6
+  %5 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %1) #6
+  %6 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %1) #6
+  %7 = tail call i32 @SDL_GetBlendModeAlphaOperation(i32 noundef %1) #6
   %.off = add i32 %2, -1
   %switch = icmp ult i32 %.off, 10
   %.off29 = add i32 %3, -1
@@ -1240,7 +1237,7 @@ define internal zeroext i1 @GL_CreateTexture(ptr noundef readonly captures(none)
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #7
+  %19 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #6
   br label %282
 
 20:                                               ; preds = %14, %3
@@ -1263,8 +1260,8 @@ define internal zeroext i1 @GL_CreateTexture(ptr noundef readonly captures(none)
   br label %25
 
 convert_format.exit:                              ; preds = %20
-  %23 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %21) #7
-  %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22, ptr noundef %23) #7
+  %23 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %21) #6
+  %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22, ptr noundef %23) #6
   br label %282
 
 25:                                               ; preds = %20, %20, %22, %.sink.split.i
@@ -1358,7 +1355,7 @@ convert_format.exit:                              ; preds = %20
   br i1 %.not195.not, label %71, label %.critedgethread-pre-split
 
 71:                                               ; preds = %68
-  tail call void @SDL_free_REAL(ptr noundef nonnull %26) #7
+  tail call void @SDL_free_REAL(ptr noundef nonnull %26) #6
   br label %282
 
 .critedgethread-pre-split:                        ; preds = %68
@@ -1399,7 +1396,7 @@ convert_format.exit:                              ; preds = %20
   br i1 %.not.i, label %.critedge26.i, label %.lr.ph.i, !llvm.loop !5
 
 .critedge26.i:                                    ; preds = %.critedge2.i, %74
-  %85 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #7
+  %85 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #6
   %.not25.i = icmp eq ptr %85, null
   br i1 %.not25.i, label %GL_GetFBO.exit, label %86
 
@@ -1410,7 +1407,7 @@ convert_format.exit:                              ; preds = %20
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 464
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  tail call void %89(i32 noundef 1, ptr noundef nonnull %90) #7
+  tail call void %89(i32 noundef 1, ptr noundef nonnull %90) #6
   %91 = load ptr, ptr %79, align 8
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store ptr %91, ptr %92, align 8
@@ -1421,7 +1418,7 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   %.sink = phi ptr [ %85, %86 ], [ null, %.critedge26.i ], [ null, %.critedge ], [ %.030.i, %81 ]
   %93 = getelementptr inbounds nuw i8, ptr %26, i64 120
   store ptr %.sink, ptr %93, align 8
-  %94 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 0) #7
+  %94 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.23, i64 noundef 0) #6
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %26, align 8
   %.not196 = icmp eq i32 %95, 0
@@ -1436,7 +1433,7 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   %99 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.24, ptr noundef %0, i32 noundef 505, ptr noundef nonnull @__func__.GL_CreateTexture)
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %101 = load ptr, ptr %100, align 8
-  tail call void %101(i32 noundef 1, ptr noundef nonnull %26) #7
+  tail call void %101(i32 noundef 1, ptr noundef nonnull %26) #6
   %102 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.26, ptr noundef %0, i32 noundef 507, ptr noundef nonnull @__func__.GL_CreateTexture)
   br i1 %102, label %108, label %103
 
@@ -1447,11 +1444,11 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   br i1 %.not197, label %107, label %106
 
 106:                                              ; preds = %103
-  tail call void @SDL_free_REAL(ptr noundef nonnull %105) #7
+  tail call void @SDL_free_REAL(ptr noundef nonnull %105) #6
   br label %107
 
 107:                                              ; preds = %106, %103
-  tail call void @SDL_free_REAL(ptr noundef nonnull %26) #7
+  tail call void @SDL_free_REAL(ptr noundef nonnull %26) #6
   br label %282
 
 108:                                              ; preds = %98, %96
@@ -1489,10 +1486,10 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   br label %145
 
 131:                                              ; preds = %119
-  %132 = tail call i32 @SDL_powerof2(i32 noundef %124) #7
+  %132 = tail call i32 @SDL_powerof2(i32 noundef %124) #6
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %134 = load i32, ptr %133, align 8
-  %135 = tail call i32 @SDL_powerof2(i32 noundef %134) #7
+  %135 = tail call i32 @SDL_powerof2(i32 noundef %134) #6
   %136 = load i32, ptr %123, align 4
   %137 = sitofp i32 %136 to float
   %138 = sitofp i32 %132 to float
@@ -1511,18 +1508,18 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   %.0183 = phi i32 [ %127, %125 ], [ %135, %131 ], [ %117, %113 ]
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store float %.sink226, ptr %146, align 4
-  %147 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #7
+  %147 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #6
   %148 = load i32, ptr %26, align 8
   %149 = zext i32 %148 to i64
-  %150 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.27, i64 noundef %149) #7
+  %150 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.27, i64 noundef %149) #6
   %151 = zext i32 %7 to i64
-  %152 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.28, i64 noundef %151) #7
+  %152 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.28, i64 noundef %151) #6
   %153 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %154 = load float, ptr %153, align 8
-  %155 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.29, float noundef %154) #7
+  %155 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.29, float noundef %154) #6
   %156 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %157 = load float, ptr %156, align 4
-  %158 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.30, float noundef %157) #7
+  %158 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.30, float noundef %157) #6
   %159 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 %.0214.ph, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %26, i64 20
@@ -1535,17 +1532,17 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   store i32 -1, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %165 = load ptr, ptr %164, align 8
-  tail call void %165(i32 noundef %7) #7
+  tail call void %165(i32 noundef %7) #6
   %166 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %167 = load ptr, ptr %166, align 8
   %168 = load i32, ptr %26, align 8
-  tail call void %167(i32 noundef %7, i32 noundef %168) #7
+  tail call void %167(i32 noundef %7, i32 noundef %168) #6
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %170 = load ptr, ptr %169, align 8
-  tail call void %170(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %.0184, i32 noundef %.0183, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #7
+  tail call void %170(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %.0184, i32 noundef %.0183, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #6
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %172 = load ptr, ptr %171, align 8
-  tail call void %172(i32 noundef %7) #7
+  tail call void %172(i32 noundef %7) #6
   %173 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.31, ptr noundef %0, i32 noundef 578, ptr noundef nonnull @__func__.GL_CreateTexture)
   br i1 %173, label %174, label %282
 
@@ -1559,7 +1556,7 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 176:                                              ; preds = %174, %174
   %177 = getelementptr inbounds nuw i8, ptr %26, i64 84
   store i8 1, ptr %177, align 4
-  %178 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.32, i64 noundef 0) #7
+  %178 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.32, i64 noundef 0) #6
   %179 = trunc i64 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i32 %179, ptr %180, align 8
@@ -1574,11 +1571,11 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 183:                                              ; preds = %176
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %185 = load ptr, ptr %184, align 8
-  tail call void %185(i32 noundef 1, ptr noundef nonnull %180) #7
+  tail call void %185(i32 noundef 1, ptr noundef nonnull %180) #6
   br label %186
 
 186:                                              ; preds = %183, %181
-  %187 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.33, i64 noundef 0) #7
+  %187 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.33, i64 noundef 0) #6
   %188 = trunc i64 %187 to i32
   %189 = getelementptr inbounds nuw i8, ptr %26, i64 96
   store i32 %188, ptr %189, align 8
@@ -1593,30 +1590,30 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 192:                                              ; preds = %186
   %193 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %194 = load ptr, ptr %193, align 8
-  tail call void %194(i32 noundef 1, ptr noundef nonnull %189) #7
+  tail call void %194(i32 noundef 1, ptr noundef nonnull %189) #6
   br label %195
 
 195:                                              ; preds = %192, %190
   %196 = load ptr, ptr %166, align 8
   %197 = load i32, ptr %180, align 8
-  tail call void %196(i32 noundef %7, i32 noundef %197) #7
+  tail call void %196(i32 noundef %7, i32 noundef %197) #6
   %198 = load ptr, ptr %169, align 8
   %199 = add nsw i32 %.0184, 1
   %200 = sdiv i32 %199, 2
   %201 = add nsw i32 %.0183, 1
   %202 = sdiv i32 %201, 2
-  tail call void %198(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %200, i32 noundef %202, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #7
+  tail call void %198(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %200, i32 noundef %202, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #6
   %203 = load i32, ptr %180, align 8
   %204 = zext i32 %203 to i64
-  %205 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.34, i64 noundef %204) #7
+  %205 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.34, i64 noundef %204) #6
   %206 = load ptr, ptr %166, align 8
   %207 = load i32, ptr %189, align 8
-  tail call void %206(i32 noundef %7, i32 noundef %207) #7
+  tail call void %206(i32 noundef %7, i32 noundef %207) #6
   %208 = load ptr, ptr %169, align 8
-  tail call void %208(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %200, i32 noundef %202, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #7
+  tail call void %208(i32 noundef %7, i32 noundef 0, i32 noundef %.0213.ph, i32 noundef %200, i32 noundef %202, i32 noundef 0, i32 noundef %.0214.ph, i32 noundef 5121, ptr noundef null) #6
   %209 = load i32, ptr %189, align 8
   %210 = zext i32 %209 to i64
-  %211 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.35, i64 noundef %210) #7
+  %211 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.35, i64 noundef %210) #6
   %.pr220 = load i32, ptr %1, align 8
   br label %212
 
@@ -1630,7 +1627,7 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 214:                                              ; preds = %212, %212
   %215 = getelementptr inbounds nuw i8, ptr %26, i64 85
   store i8 1, ptr %215, align 1
-  %216 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.36, i64 noundef 0) #7
+  %216 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.36, i64 noundef 0) #6
   %217 = trunc i64 %216 to i32
   %218 = getelementptr inbounds nuw i8, ptr %26, i64 88
   store i32 %217, ptr %218, align 8
@@ -1645,23 +1642,23 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 221:                                              ; preds = %214
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %223 = load ptr, ptr %222, align 8
-  tail call void %223(i32 noundef 1, ptr noundef nonnull %218) #7
+  tail call void %223(i32 noundef 1, ptr noundef nonnull %218) #6
   %.pre = load i32, ptr %218, align 8
   br label %224
 
 224:                                              ; preds = %221, %219
   %225 = phi i32 [ %.pre, %221 ], [ %217, %219 ]
   %226 = load ptr, ptr %166, align 8
-  tail call void %226(i32 noundef %7, i32 noundef %225) #7
+  tail call void %226(i32 noundef %7, i32 noundef %225) #6
   %227 = load ptr, ptr %169, align 8
   %228 = add nsw i32 %.0184, 1
   %229 = sdiv i32 %228, 2
   %230 = add nsw i32 %.0183, 1
   %231 = sdiv i32 %230, 2
-  tail call void %227(i32 noundef %7, i32 noundef 0, i32 noundef 6410, i32 noundef %229, i32 noundef %231, i32 noundef 0, i32 noundef 6410, i32 noundef 5121, ptr noundef null) #7
+  tail call void %227(i32 noundef %7, i32 noundef 0, i32 noundef 6410, i32 noundef %229, i32 noundef %231, i32 noundef 0, i32 noundef 6410, i32 noundef 5121, ptr noundef null) #6
   %232 = load i32, ptr %218, align 8
   %233 = zext i32 %232 to i64
-  %234 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.37, i64 noundef %233) #7
+  %234 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %147, ptr noundef nonnull @.str.37, i64 noundef %233) #6
   %.pre223 = load i32, ptr %1, align 8
   br label %235
 
@@ -1707,7 +1704,7 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
 
 261:                                              ; preds = %255
   %262 = icmp eq i32 %236, 842094158
-  %263 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.38, i1 noundef zeroext false) #7
+  %263 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.38, i1 noundef zeroext false) #6
   %264 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br i1 %262, label %265, label %268
 
@@ -1738,14 +1735,14 @@ GL_GetFBO.exit:                                   ; preds = %81, %.critedge, %86
   %273 = load i32, ptr %272, align 8
   %274 = load i32, ptr %240, align 4
   %275 = load i32, ptr %245, align 8
-  %276 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %273, i32 noundef %274, i32 noundef %275, i32 noundef 8) #7
+  %276 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %273, i32 noundef %274, i32 noundef %275, i32 noundef 8) #6
   %277 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %276, ptr %277, align 8
   %.not201 = icmp eq ptr %276, null
   br i1 %.not201, label %278, label %280
 
 278:                                              ; preds = %271
-  %279 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.39) #7
+  %279 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.39) #6
   br label %282
 
 280:                                              ; preds = %271, %255
@@ -1790,7 +1787,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   br i1 %.not93.old, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %17, %.preheader
-  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @GL_UpdateTexture.sdl_assert_data, ptr noundef nonnull @__func__.GL_UpdateTexture, ptr noundef nonnull @.str.25, i32 noundef 674) #7
+  %19 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @GL_UpdateTexture.sdl_assert_data, ptr noundef nonnull @__func__.GL_UpdateTexture, ptr noundef nonnull @.str.25, i32 noundef 674) #6
   switch i32 %19, label %.thread [
     i32 0, label %.preheader
     i32 1, label %20
@@ -1808,13 +1805,13 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %11, align 8
-  tail call void %25(i32 noundef %9, i32 noundef %26) #7
+  tail call void %25(i32 noundef %9, i32 noundef %26) #6
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(i32 noundef 3317, i32 noundef 1) #7
+  tail call void %28(i32 noundef 3317, i32 noundef 1) #6
   %29 = load ptr, ptr %27, align 8
   %30 = sdiv i32 %4, %21
-  tail call void %29(i32 noundef 3314, i32 noundef %30) #7
+  tail call void %29(i32 noundef 3314, i32 noundef %30) #6
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 400
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %2, align 4
@@ -1828,7 +1825,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %41 = load i32, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %43 = load i32, ptr %42, align 4
-  tail call void %32(i32 noundef %9, i32 noundef 0, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, ptr noundef %3) #7
+  tail call void %32(i32 noundef %9, i32 noundef 0, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43, ptr noundef %3) #6
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %45 = load i8, ptr %44, align 4, !range !3, !noundef !4
   %46 = trunc nuw i8 %45 to i1
@@ -1838,7 +1835,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %48 = load ptr, ptr %27, align 8
   %49 = add nsw i32 %4, 1
   %50 = sdiv i32 %49, 2
-  tail call void %48(i32 noundef 3314, i32 noundef %50) #7
+  tail call void %48(i32 noundef 3314, i32 noundef %50) #6
   %51 = load i32, ptr %38, align 4
   %52 = mul nsw i32 %51, %4
   %53 = sext i32 %52 to i64
@@ -1849,7 +1846,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %. = select i1 %56, i64 96, i64 88
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 %.
   %59 = load i32, ptr %58, align 8
-  tail call void %57(i32 noundef %9, i32 noundef %59) #7
+  tail call void %57(i32 noundef %9, i32 noundef %59) #6
   %60 = load ptr, ptr %31, align 8
   %61 = load i32, ptr %2, align 4
   %62 = sdiv i32 %61, 2
@@ -1863,7 +1860,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %70 = sdiv i32 %69, 2
   %71 = load i32, ptr %40, align 8
   %72 = load i32, ptr %42, align 4
-  tail call void %60(i32 noundef %9, i32 noundef 0, i32 noundef %62, i32 noundef %64, i32 noundef %67, i32 noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef %54) #7
+  tail call void %60(i32 noundef %9, i32 noundef 0, i32 noundef %62, i32 noundef %64, i32 noundef %67, i32 noundef %70, i32 noundef %71, i32 noundef %72, ptr noundef %54) #6
   %73 = load i32, ptr %38, align 4
   %74 = add nsw i32 %73, 1
   %75 = sdiv i32 %74, 2
@@ -1876,7 +1873,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %81 = load ptr, ptr %24, align 8
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 %.sink105
   %83 = load i32, ptr %82, align 8
-  tail call void %81(i32 noundef %9, i32 noundef %83) #7
+  tail call void %81(i32 noundef %9, i32 noundef %83) #6
   %84 = load ptr, ptr %31, align 8
   %85 = load i32, ptr %2, align 4
   %86 = sdiv i32 %85, 2
@@ -1890,7 +1887,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %94 = sdiv i32 %93, 2
   %95 = load i32, ptr %40, align 8
   %96 = load i32, ptr %42, align 4
-  tail call void %84(i32 noundef %9, i32 noundef 0, i32 noundef %86, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %95, i32 noundef %96, ptr noundef %78) #7
+  tail call void %84(i32 noundef %9, i32 noundef 0, i32 noundef %86, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %95, i32 noundef %96, ptr noundef %78) #6
   br label %97
 
 97:                                               ; preds = %47, %.thread
@@ -1904,7 +1901,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %102 = load ptr, ptr %27, align 8
   %103 = add nsw i32 %4, 1
   %104 = sdiv i32 %103, 2
-  tail call void %102(i32 noundef 3314, i32 noundef %104) #7
+  tail call void %102(i32 noundef 3314, i32 noundef %104) #6
   %105 = load i32, ptr %38, align 4
   %106 = mul nsw i32 %105, %4
   %107 = sext i32 %106 to i64
@@ -1912,7 +1909,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %109 = load ptr, ptr %24, align 8
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %111 = load i32, ptr %110, align 8
-  tail call void %109(i32 noundef %9, i32 noundef %111) #7
+  tail call void %109(i32 noundef %9, i32 noundef %111) #6
   %112 = load ptr, ptr %31, align 8
   %113 = load i32, ptr %2, align 4
   %114 = sdiv i32 %113, 2
@@ -1924,7 +1921,7 @@ define internal noundef zeroext i1 @GL_UpdateTexture(ptr noundef readonly captur
   %120 = load i32, ptr %38, align 4
   %121 = add nsw i32 %120, 1
   %122 = sdiv i32 %121, 2
-  tail call void %112(i32 noundef %9, i32 noundef 0, i32 noundef %114, i32 noundef %116, i32 noundef %119, i32 noundef %122, i32 noundef 6410, i32 noundef 5121, ptr noundef %108) #7
+  tail call void %112(i32 noundef %9, i32 noundef 0, i32 noundef %114, i32 noundef %116, i32 noundef %119, i32 noundef %122, i32 noundef 6410, i32 noundef 5121, ptr noundef %108) #6
   br label %123
 
 123:                                              ; preds = %101, %97
@@ -1946,12 +1943,12 @@ define internal noundef zeroext i1 @GL_UpdateTextureYUV(ptr noundef readonly cap
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %15, align 8
-  tail call void %19(i32 noundef %13, i32 noundef %20) #7
+  tail call void %19(i32 noundef %13, i32 noundef %20) #6
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(i32 noundef 3317, i32 noundef 1) #7
+  tail call void %22(i32 noundef 3317, i32 noundef 1) #6
   %23 = load ptr, ptr %21, align 8
-  tail call void %23(i32 noundef 3314, i32 noundef %4) #7
+  tail call void %23(i32 noundef 3314, i32 noundef %4) #6
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 400
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %2, align 4
@@ -1965,13 +1962,13 @@ define internal noundef zeroext i1 @GL_UpdateTextureYUV(ptr noundef readonly cap
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %36 = load i32, ptr %35, align 4
-  tail call void %25(i32 noundef %13, i32 noundef 0, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36, ptr noundef %3) #7
+  tail call void %25(i32 noundef %13, i32 noundef 0, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36, ptr noundef %3) #6
   %37 = load ptr, ptr %21, align 8
-  tail call void %37(i32 noundef 3314, i32 noundef %6) #7
+  tail call void %37(i32 noundef 3314, i32 noundef %6) #6
   %38 = load ptr, ptr %18, align 8
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %40 = load i32, ptr %39, align 8
-  tail call void %38(i32 noundef %13, i32 noundef %40) #7
+  tail call void %38(i32 noundef %13, i32 noundef %40) #6
   %41 = load ptr, ptr %24, align 8
   %42 = load i32, ptr %2, align 4
   %43 = sdiv i32 %42, 2
@@ -1985,13 +1982,13 @@ define internal noundef zeroext i1 @GL_UpdateTextureYUV(ptr noundef readonly cap
   %51 = sdiv i32 %50, 2
   %52 = load i32, ptr %33, align 8
   %53 = load i32, ptr %35, align 4
-  tail call void %41(i32 noundef %13, i32 noundef 0, i32 noundef %43, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef %5) #7
+  tail call void %41(i32 noundef %13, i32 noundef 0, i32 noundef %43, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef %5) #6
   %54 = load ptr, ptr %21, align 8
-  tail call void %54(i32 noundef 3314, i32 noundef %8) #7
+  tail call void %54(i32 noundef 3314, i32 noundef %8) #6
   %55 = load ptr, ptr %18, align 8
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %57 = load i32, ptr %56, align 8
-  tail call void %55(i32 noundef %13, i32 noundef %57) #7
+  tail call void %55(i32 noundef %13, i32 noundef %57) #6
   %58 = load ptr, ptr %24, align 8
   %59 = load i32, ptr %2, align 4
   %60 = sdiv i32 %59, 2
@@ -2005,7 +2002,7 @@ define internal noundef zeroext i1 @GL_UpdateTextureYUV(ptr noundef readonly cap
   %68 = sdiv i32 %67, 2
   %69 = load i32, ptr %33, align 8
   %70 = load i32, ptr %35, align 4
-  tail call void %58(i32 noundef %13, i32 noundef 0, i32 noundef %60, i32 noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef %7) #7
+  tail call void %58(i32 noundef %13, i32 noundef 0, i32 noundef %60, i32 noundef %62, i32 noundef %65, i32 noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef %7) #6
   %71 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.53, ptr noundef %0, i32 noundef 761, ptr noundef nonnull @__func__.GL_UpdateTextureYUV)
   ret i1 %71
 }
@@ -2024,12 +2021,12 @@ define internal noundef zeroext i1 @GL_UpdateTextureNV(ptr noundef readonly capt
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %13, align 8
-  tail call void %17(i32 noundef %11, i32 noundef %18) #7
+  tail call void %17(i32 noundef %11, i32 noundef %18) #6
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(i32 noundef 3317, i32 noundef 1) #7
+  tail call void %20(i32 noundef 3317, i32 noundef 1) #6
   %21 = load ptr, ptr %19, align 8
-  tail call void %21(i32 noundef 3314, i32 noundef %4) #7
+  tail call void %21(i32 noundef 3314, i32 noundef %4) #6
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 400
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %2, align 4
@@ -2043,14 +2040,14 @@ define internal noundef zeroext i1 @GL_UpdateTextureNV(ptr noundef readonly capt
   %32 = load i32, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %34 = load i32, ptr %33, align 4
-  tail call void %23(i32 noundef %11, i32 noundef 0, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, ptr noundef %3) #7
+  tail call void %23(i32 noundef %11, i32 noundef 0, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %34, ptr noundef %3) #6
   %35 = load ptr, ptr %19, align 8
   %36 = sdiv i32 %6, 2
-  tail call void %35(i32 noundef 3314, i32 noundef %36) #7
+  tail call void %35(i32 noundef 3314, i32 noundef %36) #6
   %37 = load ptr, ptr %16, align 8
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %39 = load i32, ptr %38, align 8
-  tail call void %37(i32 noundef %11, i32 noundef %39) #7
+  tail call void %37(i32 noundef %11, i32 noundef %39) #6
   %40 = load ptr, ptr %22, align 8
   %41 = load i32, ptr %2, align 4
   %42 = sdiv i32 %41, 2
@@ -2062,13 +2059,13 @@ define internal noundef zeroext i1 @GL_UpdateTextureNV(ptr noundef readonly capt
   %48 = load i32, ptr %29, align 4
   %49 = add nsw i32 %48, 1
   %50 = sdiv i32 %49, 2
-  tail call void %40(i32 noundef %11, i32 noundef 0, i32 noundef %42, i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef 6410, i32 noundef 5121, ptr noundef %5) #7
+  tail call void %40(i32 noundef %11, i32 noundef 0, i32 noundef %42, i32 noundef %44, i32 noundef %47, i32 noundef %50, i32 noundef 6410, i32 noundef 5121, ptr noundef %5) #6
   %51 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.53, ptr noundef %0, i32 noundef 790, ptr noundef nonnull @__func__.GL_UpdateTextureNV)
   ret i1 %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @GL_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #5 {
+define internal noundef zeroext i1 @GL_LockTexture(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 68
@@ -2175,7 +2172,7 @@ define internal zeroext i1 @GL_SetRenderTarget(ptr noundef readonly captures(non
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #7
+  %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.21) #6
   br label %35
 
 11:                                               ; preds = %2
@@ -2187,7 +2184,7 @@ define internal zeroext i1 @GL_SetRenderTarget(ptr noundef readonly captures(non
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 488
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(i32 noundef 36160, i32 noundef 0) #7
+  tail call void %15(i32 noundef 36160, i32 noundef 0) #6
   br label %35
 
 16:                                               ; preds = %11
@@ -2199,21 +2196,21 @@ define internal zeroext i1 @GL_SetRenderTarget(ptr noundef readonly captures(non
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
-  tail call void %20(i32 noundef 36160, i32 noundef %24) #7
+  tail call void %20(i32 noundef 36160, i32 noundef %24) #6
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 480
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = load i32, ptr %18, align 8
-  tail call void %26(i32 noundef 36160, i32 noundef 36064, i32 noundef %28, i32 noundef %29, i32 noundef 0) #7
+  tail call void %26(i32 noundef 36160, i32 noundef 36064, i32 noundef %28, i32 noundef %29, i32 noundef 0) #6
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 496
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(i32 noundef 36160) #7
+  %32 = tail call i32 %31(i32 noundef 36160) #6
   %.not15 = icmp eq i32 %32, 36053
   br i1 %.not15, label %35, label %33
 
 33:                                               ; preds = %16
-  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.54) #7
+  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.54) #6
   br label %35
 
 35:                                               ; preds = %16, %33, %13, %9
@@ -2222,7 +2219,7 @@ define internal zeroext i1 @GL_SetRenderTarget(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @GL_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #6 {
+define internal noundef zeroext i1 @GL_QueueNoOp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 {
   ret i1 true
 }
 
@@ -2232,7 +2229,7 @@ define internal noundef zeroext i1 @GL_QueueDrawPoints(ptr noundef %0, ptr nound
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %7, i64 noundef 0, ptr noundef nonnull %8) #7
+  %9 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %7, i64 noundef 0, ptr noundef nonnull %8) #6
   %.not = icmp ne ptr %9, null
   br i1 %.not, label %10, label %.loopexit
 
@@ -2273,7 +2270,7 @@ define internal noundef zeroext i1 @GL_QueueDrawLines(ptr noundef %0, ptr nounde
   %5 = sext i32 %3 to i64
   %6 = shl nsw i64 %5, 3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #7
+  %8 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %6, i64 noundef 0, ptr noundef nonnull %7) #6
   %.not = icmp ne ptr %8, null
   br i1 %.not, label %9, label %.loopexit
 
@@ -2309,10 +2306,10 @@ define internal noundef zeroext i1 @GL_QueueDrawLines(ptr noundef %0, ptr nounde
   %23 = fadd float %22, 5.000000e-01
   %24 = fsub float %20, %.03743
   %25 = fsub float %23, %.03842
-  %26 = tail call float @SDL_atan2f_REAL(float noundef %25, float noundef %24) #7
-  %27 = tail call float @SDL_cosf_REAL(float noundef %26) #7
+  %26 = tail call float @SDL_atan2f_REAL(float noundef %25, float noundef %24) #6
+  %27 = tail call float @SDL_cosf_REAL(float noundef %26) #6
   %28 = tail call float @llvm.fmuladd.f32(float %27, float 2.500000e-01, float %20)
-  %29 = tail call float @SDL_sinf_REAL(float noundef %26) #7
+  %29 = tail call float @SDL_sinf_REAL(float noundef %26) #6
   %30 = tail call float @llvm.fmuladd.f32(float %29, float 2.500000e-01, float %23)
   %31 = getelementptr inbounds nuw i8, ptr %.pn41, i64 12
   store float %28, ptr %.039, align 4
@@ -2336,7 +2333,7 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
   %20 = load float, ptr %19, align 8
   %21 = sext i32 %16 to i64
   %22 = mul nsw i64 %17, %21
-  %23 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %22, i64 noundef 0, ptr noundef nonnull %18) #7
+  %23 = tail call ptr @SDL_AllocateRenderVertices(ptr noundef %0, i64 noundef %22, i64 noundef 0, ptr noundef nonnull %18) #6
   %.not70 = icmp ne ptr %23, null
   br i1 %.not70, label %24, label %.loopexit
 
@@ -2520,7 +2517,7 @@ define internal noundef zeroext i1 @GL_QueueGeometry(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @GL_InvalidateCachedState(ptr noundef readonly captures(none) %0) #4 {
+define internal void @GL_InvalidateCachedState(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 512
@@ -2573,11 +2570,11 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br i1 %.not, label %15, label %29
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = load ptr, ptr %16, align 8
-  %18 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %17, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
+  %18 = call zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef %17, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %19 = load i32, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 552
   %21 = load i32, ptr %20, align 8
@@ -2601,8 +2598,8 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %28
 
 28:                                               ; preds = %25, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
 29:                                               ; preds = %28, %10
@@ -2694,7 +2691,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 89:                                               ; preds = %86, %83, %80, %77, %61
   %90 = load ptr, ptr %44, align 8
-  call void %90(float noundef %66, float noundef %69, float noundef %72, float noundef %74) #7
+  call void %90(float noundef %66, float noundef %69, float noundef %72, float noundef %74) #6
   store float %66, ptr %40, align 4
   store float %69, ptr %41, align 4
   store float %72, ptr %42, align 4
@@ -2704,7 +2701,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 91:                                               ; preds = %59
   %92 = getelementptr inbounds nuw i8, ptr %.0201314, i64 16
-  %93 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %57, ptr noundef nonnull %92, i64 noundef 16) #7
+  %93 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %57, ptr noundef nonnull %92, i64 noundef 16) #6
   %.not243 = icmp eq i32 %93, 0
   br i1 %.not243, label %SetCopyState.exit.thread, label %94
 
@@ -2728,7 +2725,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   br label %101
 
 101:                                              ; preds = %100, %95
-  %102 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %55, ptr noundef nonnull %97, i64 noundef 16) #7
+  %102 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %55, ptr noundef nonnull %97, i64 noundef 16) #6
   %.not242 = icmp eq i32 %102, 0
   br i1 %.not242, label %SetCopyState.exit.thread, label %103
 
@@ -2777,7 +2774,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 132:                                              ; preds = %129, %126, %123, %120, %104
   %133 = load ptr, ptr %50, align 8
-  call void %133(float noundef %109, float noundef %112, float noundef %115, float noundef %117) #7
+  call void %133(float noundef %109, float noundef %112, float noundef %115, float noundef %117) #6
   store float %109, ptr %46, align 8
   store float %112, ptr %47, align 4
   store float %115, ptr %48, align 8
@@ -2797,14 +2794,14 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 140:                                              ; preds = %137, %134
   %141 = load ptr, ptr %53, align 8
-  call void %141(i32 noundef 3089) #7
+  call void %141(i32 noundef 3089) #6
   %142 = load i8, ptr %51, align 1, !range !3, !noundef !4
   store i8 %142, ptr %52, align 8
   br label %143
 
 143:                                              ; preds = %140, %137
   %144 = load ptr, ptr %54, align 8
-  call void %144(i32 noundef 16384) #7
+  call void %144(i32 noundef 16384) #6
   br label %SetCopyState.exit.thread
 
 145:                                              ; preds = %59
@@ -2815,14 +2812,14 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %149 = load i64, ptr %146, align 8
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 %149
   %151 = load ptr, ptr %30, align 8
-  call void %151(i32 noundef 2, i32 noundef 5126, i32 noundef 8, ptr noundef %150) #7
+  call void %151(i32 noundef 2, i32 noundef 5126, i32 noundef 8, ptr noundef %150) #6
   %152 = icmp ugt i64 %148, 2
   br i1 %152, label %153, label %156
 
 153:                                              ; preds = %145
   %154 = load ptr, ptr %31, align 8
   %155 = trunc i64 %148 to i32
-  call void %154(i32 noundef 3, i32 noundef 0, i32 noundef %155) #7
+  call void %154(i32 noundef 3, i32 noundef 0, i32 noundef %155) #6
   br label %SetCopyState.exit.thread
 
 156:                                              ; preds = %145
@@ -2870,7 +2867,7 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
   %.0204.lcssa = phi i64 [ %148, %156 ], [ %148, %.lr.ph.preheader ], [ %167, %166 ], [ %167, %.lr.ph ], [ %.0204274323, %.lr.ph325 ], [ %.0204274323, %163 ]
   %168 = load ptr, ptr %31, align 8
   %169 = trunc i64 %.0204.lcssa to i32
-  call void %168(i32 noundef 1, i32 noundef 0, i32 noundef %169) #7
+  call void %168(i32 noundef 1, i32 noundef 0, i32 noundef %169) #6
   br label %SetCopyState.exit.thread
 
 170:                                              ; preds = %59, %59
@@ -2991,17 +2988,17 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 224:                                              ; preds = %220
   %225 = load ptr, ptr %34, align 8
-  call void %225(i32 noundef 33986) #7
+  call void %225(i32 noundef 33986) #6
   %226 = load ptr, ptr %35, align 8
   %227 = getelementptr inbounds nuw i8, ptr %206, i64 96
   %228 = load i32, ptr %227, align 8
-  call void %226(i32 noundef %207, i32 noundef %228) #7
+  call void %226(i32 noundef %207, i32 noundef %228) #6
   %229 = load ptr, ptr %34, align 8
-  call void %229(i32 noundef 33985) #7
+  call void %229(i32 noundef 33985) #6
   %230 = load ptr, ptr %35, align 8
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 88
   %232 = load i32, ptr %231, align 8
-  call void %230(i32 noundef %207, i32 noundef %232) #7
+  call void %230(i32 noundef %207, i32 noundef %232) #6
   br label %233
 
 233:                                              ; preds = %224, %220
@@ -3012,11 +3009,11 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 237:                                              ; preds = %233
   %238 = load ptr, ptr %34, align 8
-  call void %238(i32 noundef 33985) #7
+  call void %238(i32 noundef 33985) #6
   %239 = load ptr, ptr %35, align 8
   %240 = getelementptr inbounds nuw i8, ptr %206, i64 88
   %241 = load i32, ptr %240, align 8
-  call void %239(i32 noundef %207, i32 noundef %241) #7
+  call void %239(i32 noundef %207, i32 noundef %241) #6
   br label %242
 
 242:                                              ; preds = %237, %233
@@ -3026,13 +3023,13 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 245:                                              ; preds = %242
   %246 = load ptr, ptr %34, align 8
-  call void %246(i32 noundef 33984) #7
+  call void %246(i32 noundef 33984) #6
   br label %247
 
 247:                                              ; preds = %245, %242
   %248 = load ptr, ptr %35, align 8
   %249 = load i32, ptr %206, align 8
-  call void %248(i32 noundef %207, i32 noundef %249) #7
+  call void %248(i32 noundef %207, i32 noundef %249) #6
   store ptr %173, ptr %33, align 8
   br label %250
 
@@ -3051,13 +3048,13 @@ define internal noundef zeroext i1 @GL_RunCommandQueue(ptr noundef readonly capt
 
 258:                                              ; preds = %254
   %259 = load ptr, ptr %34, align 8
-  call void %259(i32 noundef 33986) #7
+  call void %259(i32 noundef 33986) #6
   %260 = load i32, ptr %176, align 8
   %261 = icmp ult i32 %260, 3
   br i1 %261, label %switch.lookup, label %SetTextureScaleMode.exit.i
 
 SetTextureScaleMode.exit.i:                       ; preds = %258
-  %262 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %260) #7
+  %262 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %260) #6
   br i1 %262, label %SetTextureScaleMode.exit.thread.i, label %SetCopyState.exit.thread
 
 switch.lookup:                                    ; preds = %258
@@ -3065,20 +3062,20 @@ switch.lookup:                                    ; preds = %258
   %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.GL_RunCommandQueue.5, i64 0, i64 %263
   %switch.load = load i32, ptr %switch.gep, align 4
   %264 = load ptr, ptr %37, align 8
-  call void %264(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load) #7
+  call void %264(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load) #6
   %265 = load ptr, ptr %37, align 8
-  call void %265(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load) #7
+  call void %265(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load) #6
   br label %SetTextureScaleMode.exit.thread.i
 
 SetTextureScaleMode.exit.thread.i:                ; preds = %switch.lookup, %SetTextureScaleMode.exit.i
   %266 = load ptr, ptr %34, align 8
-  call void %266(i32 noundef 33985) #7
+  call void %266(i32 noundef 33985) #6
   %267 = load i32, ptr %176, align 8
   %268 = icmp ult i32 %267, 3
   br i1 %268, label %.sink.split.i.sink.split, label %SetTextureScaleMode.exit97.i
 
 SetTextureScaleMode.exit97.i:                     ; preds = %SetTextureScaleMode.exit.thread.i
-  %269 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %267) #7
+  %269 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %267) #6
   br i1 %269, label %.sink.split.i, label %SetCopyState.exit.thread
 
 270:                                              ; preds = %254
@@ -3089,13 +3086,13 @@ SetTextureScaleMode.exit97.i:                     ; preds = %SetTextureScaleMode
 
 274:                                              ; preds = %270
   %275 = load ptr, ptr %34, align 8
-  call void %275(i32 noundef 33985) #7
+  call void %275(i32 noundef 33985) #6
   %276 = load i32, ptr %176, align 8
   %277 = icmp ult i32 %276, 3
   br i1 %277, label %.sink.split.i.sink.split, label %SetTextureScaleMode.exit99.i
 
 SetTextureScaleMode.exit99.i:                     ; preds = %274
-  %278 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %276) #7
+  %278 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %276) #6
   br i1 %278, label %.sink.split.i, label %SetCopyState.exit.thread
 
 .sink.split.i.sink.split:                         ; preds = %274, %SetTextureScaleMode.exit.thread.i
@@ -3105,14 +3102,14 @@ SetTextureScaleMode.exit99.i:                     ; preds = %274
   %switch.gep363 = getelementptr inbounds nuw [3 x i32], ptr %switch.table.GL_RunCommandQueue.4.sink, i64 0, i64 %279
   %switch.load364 = load i32, ptr %switch.gep363, align 4
   %280 = load ptr, ptr %37, align 8
-  call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load364) #7
+  call void %280(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load364) #6
   %281 = load ptr, ptr %37, align 8
-  call void %281(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load364) #7
+  call void %281(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load364) #6
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.i.sink.split, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit97.i
   %.sink135.i = load ptr, ptr %34, align 8
-  call void %.sink135.i(i32 noundef 33984) #7
+  call void %.sink135.i(i32 noundef 33984) #6
   %.pre316 = load i32, ptr %176, align 8
   br label %282
 
@@ -3122,7 +3119,7 @@ SetTextureScaleMode.exit99.i:                     ; preds = %274
   br i1 %284, label %switch.lookup366, label %SetTextureScaleMode.exit101.i
 
 SetTextureScaleMode.exit101.i:                    ; preds = %282
-  %285 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %283) #7
+  %285 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.55, i32 noundef %283) #6
   br i1 %285, label %SetTextureScaleMode.exit101.thread.i, label %SetCopyState.exit.thread
 
 switch.lookup366:                                 ; preds = %282
@@ -3130,9 +3127,9 @@ switch.lookup366:                                 ; preds = %282
   %switch.gep367 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.GL_RunCommandQueue.5, i64 0, i64 %286
   %switch.load368 = load i32, ptr %switch.gep367, align 4
   %287 = load ptr, ptr %37, align 8
-  call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load368) #7
+  call void %287(i32 noundef %207, i32 noundef 10241, i32 noundef %switch.load368) #6
   %288 = load ptr, ptr %37, align 8
-  call void %288(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load368) #7
+  call void %288(i32 noundef %207, i32 noundef 10240, i32 noundef %switch.load368) #6
   br label %SetTextureScaleMode.exit101.thread.i
 
 SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup366, %SetTextureScaleMode.exit101.i
@@ -3162,17 +3159,17 @@ SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup366, %
 
 302:                                              ; preds = %298
   %303 = load ptr, ptr %34, align 8
-  call void %303(i32 noundef 33986) #7
+  call void %303(i32 noundef 33986) #6
   %304 = load i32, ptr %178, align 4
   %305 = load i32, ptr %180, align 8
   %306 = load ptr, ptr %37, align 8
   %switch.selectcmp.i.i.i = icmp eq i32 %304, 2
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 10497, i32 33071
-  call void %306(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i.i) #7
+  call void %306(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i.i) #6
   %307 = load ptr, ptr %37, align 8
   %switch.selectcmp.i5.i.i = icmp eq i32 %305, 2
   %switch.select.i6.i.i = select i1 %switch.selectcmp.i5.i.i, i32 10497, i32 33071
-  call void %307(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i.i) #7
+  call void %307(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i.i) #6
   br label %.sink.split142.i
 
 308:                                              ; preds = %298
@@ -3183,19 +3180,19 @@ SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup366, %
 
 .sink.split142.i:                                 ; preds = %308, %302
   %312 = load ptr, ptr %34, align 8
-  call void %312(i32 noundef 33985) #7
+  call void %312(i32 noundef 33985) #6
   %313 = load i32, ptr %178, align 4
   %314 = load i32, ptr %180, align 8
   %315 = load ptr, ptr %37, align 8
   %switch.selectcmp.i.i106.i = icmp eq i32 %313, 2
   %switch.select.i.i107.i = select i1 %switch.selectcmp.i.i106.i, i32 10497, i32 33071
-  call void %315(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i107.i) #7
+  call void %315(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i107.i) #6
   %316 = load ptr, ptr %37, align 8
   %switch.selectcmp.i5.i108.i = icmp eq i32 %314, 2
   %switch.select.i6.i109.i = select i1 %switch.selectcmp.i5.i108.i, i32 10497, i32 33071
-  call void %316(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i109.i) #7
+  call void %316(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i109.i) #6
   %.sink143.i = load ptr, ptr %34, align 8
-  call void %.sink143.i(i32 noundef 33984) #7
+  call void %.sink143.i(i32 noundef 33984) #6
   %.pre317 = load i32, ptr %178, align 4
   br label %317
 
@@ -3205,11 +3202,11 @@ SetTextureScaleMode.exit101.thread.i:             ; preds = %switch.lookup366, %
   %320 = load ptr, ptr %37, align 8
   %switch.selectcmp.i.i110.i = icmp eq i32 %318, 2
   %switch.select.i.i111.i = select i1 %switch.selectcmp.i.i110.i, i32 10497, i32 33071
-  call void %320(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i111.i) #7
+  call void %320(i32 noundef %207, i32 noundef 10242, i32 noundef %switch.select.i.i111.i) #6
   %321 = load ptr, ptr %37, align 8
   %switch.selectcmp.i5.i112.i = icmp eq i32 %319, 2
   %switch.select.i6.i113.i = select i1 %switch.selectcmp.i5.i112.i, i32 10497, i32 33071
-  call void %321(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i113.i) #7
+  call void %321(i32 noundef %207, i32 noundef 10243, i32 noundef %switch.select.i6.i113.i) #6
   %322 = load i32, ptr %178, align 4
   store i32 %322, ptr %292, align 4
   %323 = load i32, ptr %180, align 8
@@ -3232,42 +3229,42 @@ SetCopyState.exit.thread259:                      ; preds = %.thread252
 
 331:                                              ; preds = %SetCopyState.exit
   %332 = load ptr, ptr %30, align 8
-  call void %332(i32 noundef 2, i32 noundef 5126, i32 noundef 32, ptr noundef %326) #7
+  call void %332(i32 noundef 2, i32 noundef 5126, i32 noundef 32, ptr noundef %326) #6
   %333 = load ptr, ptr %38, align 8
   %334 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  call void %333(i32 noundef 4, i32 noundef 5126, i32 noundef 32, ptr noundef nonnull %334) #7
+  call void %333(i32 noundef 4, i32 noundef 5126, i32 noundef 32, ptr noundef nonnull %334) #6
   %335 = load ptr, ptr %39, align 8
   %336 = getelementptr inbounds nuw i8, ptr %326, i64 24
-  call void %335(i32 noundef 2, i32 noundef 5126, i32 noundef 32, ptr noundef nonnull %336) #7
+  call void %335(i32 noundef 2, i32 noundef 5126, i32 noundef 32, ptr noundef nonnull %336) #6
   br label %345
 
 .thread264:                                       ; preds = %SetCopyState.exit.thread259
   %337 = load ptr, ptr %30, align 8
-  call void %337(i32 noundef 2, i32 noundef 5126, i32 noundef 24, ptr noundef %329) #7
+  call void %337(i32 noundef 2, i32 noundef 5126, i32 noundef 24, ptr noundef %329) #6
   %338 = load ptr, ptr %38, align 8
   %339 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  call void %338(i32 noundef 4, i32 noundef 5126, i32 noundef 24, ptr noundef nonnull %339) #7
+  call void %338(i32 noundef 4, i32 noundef 5126, i32 noundef 24, ptr noundef nonnull %339) #6
   br label %345
 
 340:                                              ; preds = %SetCopyState.exit, %SetCopyState.exit.thread259
   %341 = phi ptr [ %329, %SetCopyState.exit.thread259 ], [ %326, %SetCopyState.exit ]
   %342 = load ptr, ptr %30, align 8
-  call void %342(i32 noundef 2, i32 noundef 5126, i32 noundef 8, ptr noundef %341) #7
+  call void %342(i32 noundef 2, i32 noundef 5126, i32 noundef 8, ptr noundef %341) #6
   %343 = load ptr, ptr %31, align 8
   %344 = trunc i64 %.0213.lcssa to i32
-  call void %343(i32 noundef 0, i32 noundef 0, i32 noundef %344) #7
+  call void %343(i32 noundef 0, i32 noundef 0, i32 noundef %344) #6
   br label %SetCopyState.exit.thread
 
 345:                                              ; preds = %331, %.thread264
   %346 = load ptr, ptr %31, align 8
   %347 = trunc i64 %.0213.lcssa to i32
-  call void %346(i32 noundef 4, i32 noundef 0, i32 noundef %347) #7
+  call void %346(i32 noundef 4, i32 noundef 0, i32 noundef %347) #6
   %348 = load float, ptr %40, align 4
   %349 = load float, ptr %41, align 4
   %350 = load float, ptr %42, align 4
   %351 = load float, ptr %43, align 4
   %352 = load ptr, ptr %44, align 8
-  call void %352(float noundef %348, float noundef %349, float noundef %350, float noundef %351) #7
+  call void %352(float noundef %348, float noundef %349, float noundef %350, float noundef %351) #6
   br label %SetCopyState.exit.thread
 
 SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode.exit101.i, %SetTextureScaleMode.exit99.i, %SetTextureScaleMode.exit97.i, %SetTextureScaleMode.exit.i, %340, %345, %153, %.thread, %101, %103, %91, %94, %86, %89, %143, %59
@@ -3286,7 +3283,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
 358:                                              ; preds = %._crit_edge
   %359 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %360 = load ptr, ptr %359, align 8
-  call void %360(i32 noundef 32884) #7
+  call void %360(i32 noundef 32884) #6
   store i8 0, ptr %355, align 2
   br label %361
 
@@ -3299,7 +3296,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
 365:                                              ; preds = %361
   %366 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %367 = load ptr, ptr %366, align 8
-  call void %367(i32 noundef 32886) #7
+  call void %367(i32 noundef 32886) #6
   store i8 0, ptr %362, align 1
   br label %368
 
@@ -3312,7 +3309,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
 372:                                              ; preds = %368
   %373 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %374 = load ptr, ptr %373, align 8
-  call void %374(i32 noundef 32888) #7
+  call void %374(i32 noundef 32888) #6
   store i8 0, ptr %369, align 8
   br label %375
 
@@ -3361,8 +3358,8 @@ define internal ptr @GL_RenderReadPixels(ptr noundef %0, ptr noundef readonly ca
   br label %16
 
 convert_format.exit:                              ; preds = %10
-  %14 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %11) #7
-  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22, ptr noundef %14) #7
+  %14 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %11) #6
+  %15 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.22, ptr noundef %14) #6
   br label %60
 
 16:                                               ; preds = %10, %10, %.thread, %13, %.sink.split.i
@@ -3372,7 +3369,7 @@ convert_format.exit:                              ; preds = %10
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %18, i32 noundef %20, i32 noundef %.ph) #7
+  %21 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %18, i32 noundef %20, i32 noundef %.ph) #6
   %.not43 = icmp eq ptr %21, null
   br i1 %.not43, label %60, label %22
 
@@ -3384,22 +3381,22 @@ convert_format.exit:                              ; preds = %10
   br i1 %.not44, label %26, label %32
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  %27 = call zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %27 = call zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %28 = load i32, ptr %4, align 4
   %29 = load i32, ptr %19, align 4
   %30 = add i32 %24, %29
   %31 = sub i32 %28, %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %26, %22
   %.0 = phi i32 [ %24, %22 ], [ %31, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %34 = load ptr, ptr %33, align 8
-  call void %34(i32 noundef 3333, i32 noundef 1) #7
+  call void %34(i32 noundef 3333, i32 noundef 1) #6
   %35 = load ptr, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %37 = load i32, ptr %36, align 8
@@ -3425,7 +3422,7 @@ convert_format.exit:                              ; preds = %10
 44:                                               ; preds = %38, %39, %38, %42
   %45 = phi i32 [ %43, %42 ], [ %41, %39 ], [ 2, %38 ], [ 2, %38 ]
   %46 = udiv i32 %37, %45
-  call void %35(i32 noundef 3330, i32 noundef %46) #7
+  call void %35(i32 noundef 3330, i32 noundef %46) #6
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %1, align 4
@@ -3433,12 +3430,12 @@ convert_format.exit:                              ; preds = %10
   %51 = load i32, ptr %19, align 4
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %53 = load ptr, ptr %52, align 8
-  call void %48(i32 noundef %49, i32 noundef %.0, i32 noundef %50, i32 noundef %51, i32 noundef %.050.ph, i32 noundef 5121, ptr noundef %53) #7
+  call void %48(i32 noundef %49, i32 noundef %.0, i32 noundef %50, i32 noundef %51, i32 noundef %.050.ph, i32 noundef 5121, ptr noundef %53) #6
   %54 = call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.56, ptr noundef nonnull %0, i32 noundef 1531, ptr noundef nonnull @__func__.GL_RenderReadPixels)
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %44
-  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %21) #7
+  call void @SDL_DestroySurface_REAL(ptr noundef nonnull %21) #6
   br label %60
 
 56:                                               ; preds = %44
@@ -3447,7 +3444,7 @@ convert_format.exit:                              ; preds = %10
   br i1 %.not47, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = call zeroext i1 @SDL_FlipSurface_REAL(ptr noundef nonnull %21, i32 noundef 2) #7
+  %59 = call zeroext i1 @SDL_FlipSurface_REAL(ptr noundef nonnull %21, i32 noundef 2) #6
   br label %60
 
 60:                                               ; preds = %55, %58, %56, %16, %convert_format.exit
@@ -3460,7 +3457,7 @@ define internal zeroext i1 @GL_RenderPresent(ptr noundef readonly captures(none)
   %2 = tail call fastcc zeroext i1 @GL_ActivateRenderer(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef %4) #7
+  %5 = tail call zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef %4) #6
   ret i1 %5
 }
 
@@ -3508,7 +3505,7 @@ define internal void @GL_DestroyTexture(ptr noundef readonly captures(none) %0, 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(i32 noundef 1, ptr noundef nonnull %6) #7
+  tail call void %26(i32 noundef 1, ptr noundef nonnull %6) #6
   br label %27
 
 27:                                               ; preds = %24, %20, %18
@@ -3527,7 +3524,7 @@ define internal void @GL_DestroyTexture(ptr noundef readonly captures(none) %0, 
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  tail call void %37(i32 noundef 1, ptr noundef nonnull %38) #7
+  tail call void %37(i32 noundef 1, ptr noundef nonnull %38) #6
   br label %39
 
 39:                                               ; preds = %35, %31
@@ -3540,7 +3537,7 @@ define internal void @GL_DestroyTexture(ptr noundef readonly captures(none) %0, 
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  tail call void %45(i32 noundef 1, ptr noundef nonnull %46) #7
+  tail call void %45(i32 noundef 1, ptr noundef nonnull %46) #6
   br label %47
 
 47:                                               ; preds = %39, %43, %27
@@ -3559,14 +3556,14 @@ define internal void @GL_DestroyTexture(ptr noundef readonly captures(none) %0, 
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  tail call void %57(i32 noundef 1, ptr noundef nonnull %58) #7
+  tail call void %57(i32 noundef 1, ptr noundef nonnull %58) #6
   br label %59
 
 59:                                               ; preds = %51, %55, %47
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %61 = load ptr, ptr %60, align 8
-  tail call void @SDL_free_REAL(ptr noundef %61) #7
-  tail call void @SDL_free_REAL(ptr noundef nonnull %6) #7
+  tail call void @SDL_free_REAL(ptr noundef %61) #6
+  tail call void @SDL_free_REAL(ptr noundef nonnull %6) #6
   store ptr null, ptr %5, align 8
   br label %62
 
@@ -3623,7 +3620,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
-  tail call void @SDL_free_REAL(ptr noundef %24) #7
+  tail call void @SDL_free_REAL(ptr noundef %24) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
@@ -3633,7 +3630,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
 ._crit_edge.i:                                    ; preds = %21, %.preheader.i
   %28 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %29 = load ptr, ptr %28, align 8
-  tail call void @SDL_free_REAL(ptr noundef %29) #7
+  tail call void @SDL_free_REAL(ptr noundef %29) #6
   store i32 0, ptr %17, align 4
   store ptr null, ptr %28, align 8
   br label %GL_ClearErrors.exit
@@ -3646,7 +3643,7 @@ define internal void @GL_DestroyRenderer(ptr noundef readonly captures(none) %0)
 
 .preheader1.i:                                    ; preds = %30, %.preheader1.i
   %33 = load ptr, ptr %31, align 8
-  %34 = tail call i32 %33() #7
+  %34 = tail call i32 %33() #6
   %.not13.i = icmp eq i32 %34, 0
   br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
 
@@ -3657,12 +3654,12 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %GL_ClearErrors.exit
-  %39 = tail call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.3) #7
+  %39 = tail call ptr @SDL_GL_GetProcAddress_REAL(ptr noundef nonnull @.str.3) #6
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %43 = load ptr, ptr %42, align 8
-  tail call void %39(ptr noundef %41, ptr noundef %43) #7
+  tail call void %39(ptr noundef %41, ptr noundef %43) #6
   br label %44
 
 44:                                               ; preds = %38, %GL_ClearErrors.exit
@@ -3672,7 +3669,7 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
   br i1 %.not25, label %48, label %47
 
 47:                                               ; preds = %44
-  tail call void @GL_DestroyShaderContext(ptr noundef nonnull %46) #7
+  tail call void @GL_DestroyShaderContext(ptr noundef nonnull %46) #6
   br label %48
 
 48:                                               ; preds = %47, %44
@@ -3696,10 +3693,10 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  tail call void %57(i32 noundef 1, ptr noundef nonnull %58) #7
+  tail call void %57(i32 noundef 1, ptr noundef nonnull %58) #6
   %59 = tail call fastcc zeroext i1 @GL_CheckAllErrors(ptr noundef nonnull @.str.24, ptr noundef nonnull %0, i32 noundef 1616, ptr noundef nonnull @__func__.GL_DestroyRenderer)
   %60 = load ptr, ptr %50, align 8
-  tail call void @SDL_free_REAL(ptr noundef %60) #7
+  tail call void @SDL_free_REAL(ptr noundef %60) #6
   store ptr %56, ptr %50, align 8
   %.not27 = icmp eq ptr %56, null
   br i1 %.not27, label %._crit_edge.loopexit, label %53, !llvm.loop !15
@@ -3710,11 +3707,11 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %61 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %49, %.preheader ]
-  %62 = tail call zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef %61) #7
+  %62 = tail call zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef %61) #6
   br label %63
 
 63:                                               ; preds = %._crit_edge, %48
-  tail call void @SDL_free_REAL(ptr noundef nonnull %3) #7
+  tail call void @SDL_free_REAL(ptr noundef nonnull %3) #6
   br label %64
 
 64:                                               ; preds = %63, %1
@@ -3724,13 +3721,13 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %8, 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @GL_SetVSync(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  %4 = tail call zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef %1) #7
+  %4 = tail call zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef %1) #6
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
-  %6 = call zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef nonnull %3) #7
+  %6 = call zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef nonnull %3) #6
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
@@ -3739,24 +3736,24 @@ define internal zeroext i1 @GL_SetVSync(ptr readnone captures(none) %0, i32 noun
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.57) #7
+  %10 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.57) #6
   br label %11
 
 11:                                               ; preds = %7, %5, %2, %9
   %.0 = phi i1 [ %10, %9 ], [ false, %2 ], [ false, %5 ], [ true, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }
 
-declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_AddSupportedTextureFormat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GL_CreateContext_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_ExtensionSupported_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GL_GetProcAddress_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @GL_HandleDebugMessage(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) #0 {
@@ -3780,7 +3777,7 @@ define internal void @GL_HandleDebugMessage(i32 noundef %0, i32 noundef %1, i32 
 20:                                               ; preds = %11
   store i32 %14, ptr %12, align 4
   store ptr %19, ptr %15, align 8
-  %21 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %5) #7
+  %21 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %5) #6
   %22 = load ptr, ptr %15, align 8
   %23 = load i32, ptr %12, align 4
   %24 = sext i32 %23 to i64
@@ -3805,63 +3802,60 @@ define internal void @GL_HandleDebugMessage(i32 noundef %0, i32 noundef %1, i32 
   %33 = phi ptr [ %31, %.thread ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %35 = load ptr, ptr %34, align 8
-  tail call void %33(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %35) #7
+  tail call void %33(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %35) #6
   br label %37
 
 36:                                               ; preds = %27
-  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef %5) #7
+  tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef %5) #6
   br label %37
 
 .thread28:                                        ; preds = %.thread
-  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef %5) #7
+  tail call void (i32, ptr, ...) @SDL_LogDebug_REAL(i32 noundef 6, ptr noundef nonnull @.str.20, ptr noundef %5) #6
   br label %37
 
 37:                                               ; preds = %36, %.thread28, %32
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlcpy_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_strchr_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_atoi_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetRendererProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @GL_CreateShaderContext() local_unnamed_addr #1
 
-declare ptr @GL_CreateShaderContext() local_unnamed_addr #2
+declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_LogInfo_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @SDL_strdup_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetError_REAL() local_unnamed_addr #1
 
-declare ptr @SDL_GetError_REAL() local_unnamed_addr #2
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeColorOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstColorFactor(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef) local_unnamed_addr #2
-
-declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_GetBlendModeAlphaOperation(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @SDL_GL_GetCurrentContext_REAL() #7
+  %4 = tail call ptr @SDL_GL_GetCurrentContext_REAL() #6
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %10, label %6
@@ -3869,7 +3863,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef %8, ptr noundef %5) #7
+  %9 = tail call zeroext i1 @SDL_GL_MakeCurrent_REAL(ptr noundef %8, ptr noundef %5) #6
   br i1 %9, label %10, label %GL_ClearErrors.exit
 
 10:                                               ; preds = %6, %1
@@ -3904,7 +3898,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
-  tail call void @SDL_free_REAL(ptr noundef %26) #7
+  tail call void @SDL_free_REAL(ptr noundef %26) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %19, align 4
   %28 = sext i32 %27 to i64
@@ -3914,7 +3908,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
 ._crit_edge.i:                                    ; preds = %23, %.preheader.i
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %31 = load ptr, ptr %30, align 8
-  tail call void @SDL_free_REAL(ptr noundef %31) #7
+  tail call void @SDL_free_REAL(ptr noundef %31) #6
   store i32 0, ptr %19, align 4
   store ptr null, ptr %30, align 8
   br label %GL_ClearErrors.exit
@@ -3927,7 +3921,7 @@ define internal fastcc noundef zeroext i1 @GL_ActivateRenderer(ptr noundef reado
 
 .preheader1.i:                                    ; preds = %32, %.preheader1.i
   %35 = load ptr, ptr %33, align 8
-  %36 = tail call i32 %35() #7
+  %36 = tail call i32 %35() #6
   %.not13.i = icmp eq i32 %36, 0
   br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
 
@@ -3936,9 +3930,9 @@ GL_ClearErrors.exit:                              ; preds = %.preheader1.i, %32,
   ret i1 %.0
 }
 
-declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetPixelFormatName_REAL(i32 noundef) local_unnamed_addr #1
 
-declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @SDL_GetNumberProperty_REAL(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 505, 1617) %2, ptr noundef %3) unnamed_addr #0 {
@@ -3958,7 +3952,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 .preheader5:                                      ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15() #7
+  %16 = tail call i32 %15() #6
   %.not7 = icmp eq i32 %16, 0
   br i1 %.not7, label %GL_ClearErrors.exit, label %.lr.ph
 
@@ -3981,7 +3975,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef %25) #7
+  %26 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef %25) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
@@ -4021,7 +4015,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
   %40 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
-  tail call void @SDL_free_REAL(ptr noundef %42) #7
+  tail call void @SDL_free_REAL(ptr noundef %42) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %43 = load i32, ptr %35, align 4
   %44 = sext i32 %43 to i64
@@ -4031,7 +4025,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 ._crit_edge.i:                                    ; preds = %39, %.preheader.i
   %46 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %47 = load ptr, ptr %46, align 8
-  tail call void @SDL_free_REAL(ptr noundef %47) #7
+  tail call void @SDL_free_REAL(ptr noundef %47) #6
   store i32 0, ptr %35, align 4
   store ptr null, ptr %46, align 8
   br label %GL_ClearErrors.exit
@@ -4044,7 +4038,7 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 
 .preheader1.i:                                    ; preds = %48, %.preheader1.i
   %51 = load ptr, ptr %49, align 8
-  %52 = tail call i32 %51() #7
+  %52 = tail call i32 %51() #6
   %.not13.i = icmp eq i32 %52, 0
   br i1 %.not13.i, label %GL_ClearErrors.exit, label %.preheader1.i, !llvm.loop !14
 
@@ -4097,9 +4091,9 @@ define internal fastcc noundef zeroext i1 @GL_CheckAllErrors(ptr noundef %0, ptr
 
 67:                                               ; preds = %66, %65, %64, %63, %62, %61, %60, %59
   %.0.i = phi ptr [ @.str.51, %66 ], [ @.str.44, %60 ], [ @.str.45, %61 ], [ @.str.46, %62 ], [ @.str.48, %63 ], [ @.str.49, %64 ], [ @.str.50, %65 ], [ @.str.43, %59 ]
-  %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42, ptr noundef nonnull %.130, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %.0.i, i32 noundef %53) #7
+  %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.42, ptr noundef nonnull %.130, ptr noundef nonnull @.str.25, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %.0.i, i32 noundef %53) #6
   %69 = load ptr, ptr %14, align 8
-  %70 = tail call i32 %69() #7
+  %70 = tail call i32 %69() #6
   %.not = icmp eq i32 %70, 0
   br i1 %.not, label %GL_ClearErrors.exit, label %.lr.ph
 
@@ -4108,42 +4102,42 @@ GL_ClearErrors.exit:                              ; preds = %67, %.preheader1.i,
   ret i1 %.0
 }
 
-declare i32 @SDL_powerof2(i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_powerof2(i32 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #2
+declare i32 @SDL_GetTextureProperties_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #2
+declare ptr @SDL_GL_GetCurrentContext_REAL() local_unnamed_addr #1
 
-declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @SDL_malloc_REAL(i64 noundef) local_unnamed_addr #1
 
-declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SDL_ReportAssertion_REAL(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @llvm.debugtrap() #7
+declare void @llvm.debugtrap() #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_AllocateRenderVertices(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #2
+declare float @SDL_atan2f_REAL(float noundef, float noundef) local_unnamed_addr #1
 
-declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_cosf_REAL(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #9
+declare float @llvm.fmuladd.f32(float, float, float) #8
 
-declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #2
+declare float @SDL_sinf_REAL(float noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetWindowSizeInPixels_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_memcmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -4161,10 +4155,10 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(i32 noundef 5889) #7
+  tail call void %15(i32 noundef 5889) #6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %17 = load ptr, ptr %16, align 8
-  tail call void %17() #7
+  tail call void %17() #6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %13, align 4
@@ -4193,7 +4187,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
   %35 = phi i32 [ %23, %21 ], [ %32, %24 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %37 = load i32, ptr %36, align 4
-  tail call void %19(i32 noundef %20, i32 noundef %35, i32 noundef %37, i32 noundef %34) #7
+  tail call void %19(i32 noundef %20, i32 noundef %35, i32 noundef %37, i32 noundef %34) #6
   %38 = load i32, ptr %36, align 4
   %.not112 = icmp eq i32 %38, 0
   br i1 %.not112, label %49, label %39
@@ -4211,12 +4205,12 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
   %46 = sitofp i32 %41 to double
   %47 = select i1 %.not, double %46, double 0.000000e+00
   %48 = select i1 %.not, double 0.000000e+00, double %46
-  tail call void %44(double noundef 0.000000e+00, double noundef %45, double noundef %47, double noundef %48, double noundef 0.000000e+00, double noundef 1.000000e+00) #7
+  tail call void %44(double noundef 0.000000e+00, double noundef %45, double noundef %47, double noundef %48, double noundef 0.000000e+00, double noundef 1.000000e+00) #6
   br label %49
 
 49:                                               ; preds = %42, %39, %33
   %50 = load ptr, ptr %14, align 8
-  tail call void %50(i32 noundef 5888) #7
+  tail call void %50(i32 noundef 5888) #6
   store i8 0, ptr %7, align 8
   br label %51
 
@@ -4233,7 +4227,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
   %. = select i1 %58, i64 184, i64 152
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %60 = load ptr, ptr %59, align 8
-  tail call void %60(i32 noundef 3089) #7
+  tail call void %60(i32 noundef 3089) #6
   store i8 0, ptr %52, align 8
   br label %61
 
@@ -4291,7 +4285,7 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
   %99 = phi i32 [ %84, %79 ], [ %96, %85 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %101 = load i32, ptr %100, align 4
-  tail call void %73(i32 noundef %76, i32 noundef %99, i32 noundef %101, i32 noundef %98) #7
+  tail call void %73(i32 noundef %76, i32 noundef %99, i32 noundef %101, i32 noundef %98) #6
   store i8 0, ptr %66, align 2
   br label %102
 
@@ -4308,16 +4302,16 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull re
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %109 = load ptr, ptr %108, align 8
-  tail call void %109(i32 noundef 3042) #7
+  tail call void %109(i32 noundef 3042) #6
   br label %132
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %112 = load ptr, ptr %111, align 8
-  tail call void %112(i32 noundef 3042) #7
+  tail call void %112(i32 noundef 3042) #6
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %6) #7
+  %115 = tail call i32 @SDL_GetBlendModeSrcColorFactor(i32 noundef %6) #6
   %switch.tableidx = add i32 %115, -1
   %116 = icmp ult i32 %switch.tableidx, 10
   br i1 %116, label %switch.lookup, label %GetBlendFunc.exit
@@ -4330,7 +4324,7 @@ switch.lookup:                                    ; preds = %110
 
 GetBlendFunc.exit:                                ; preds = %110, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1280, %110 ]
-  %118 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %6) #7
+  %118 = tail call i32 @SDL_GetBlendModeDstColorFactor(i32 noundef %6) #6
   %switch.tableidx2 = add i32 %118, -1
   %119 = icmp ult i32 %switch.tableidx2, 10
   br i1 %119, label %switch.lookup1, label %GetBlendFunc.exit125
@@ -4343,7 +4337,7 @@ switch.lookup1:                                   ; preds = %GetBlendFunc.exit
 
 GetBlendFunc.exit125:                             ; preds = %GetBlendFunc.exit, %switch.lookup1
   %.0.i124 = phi i32 [ %switch.load4, %switch.lookup1 ], [ 1280, %GetBlendFunc.exit ]
-  %121 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %6) #7
+  %121 = tail call i32 @SDL_GetBlendModeSrcAlphaFactor(i32 noundef %6) #6
   %switch.tableidx6 = add i32 %121, -1
   %122 = icmp ult i32 %switch.tableidx6, 10
   br i1 %122, label %switch.lookup5, label %GetBlendFunc.exit127
@@ -4356,7 +4350,7 @@ switch.lookup5:                                   ; preds = %GetBlendFunc.exit12
 
 GetBlendFunc.exit127:                             ; preds = %GetBlendFunc.exit125, %switch.lookup5
   %.0.i126 = phi i32 [ %switch.load8, %switch.lookup5 ], [ 1280, %GetBlendFunc.exit125 ]
-  %124 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %6) #7
+  %124 = tail call i32 @SDL_GetBlendModeDstAlphaFactor(i32 noundef %6) #6
   %switch.tableidx10 = add i32 %124, -1
   %125 = icmp ult i32 %switch.tableidx10, 10
   br i1 %125, label %switch.lookup9, label %GetBlendFunc.exit129
@@ -4369,10 +4363,10 @@ switch.lookup9:                                   ; preds = %GetBlendFunc.exit12
 
 GetBlendFunc.exit129:                             ; preds = %GetBlendFunc.exit127, %switch.lookup9
   %.0.i128 = phi i32 [ %switch.load12, %switch.lookup9 ], [ 1280, %GetBlendFunc.exit127 ]
-  tail call void %114(i32 noundef %.0.i, i32 noundef %.0.i124, i32 noundef %.0.i126, i32 noundef %.0.i128) #7
+  tail call void %114(i32 noundef %.0.i, i32 noundef %.0.i124, i32 noundef %.0.i126, i32 noundef %.0.i128) #6
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %6) #7
+  %129 = tail call i32 @SDL_GetBlendModeColorOperation(i32 noundef %6) #6
   %switch.tableidx14 = add i32 %129, -1
   %130 = icmp ult i32 %switch.tableidx14, 5
   br i1 %130, label %switch.lookup13, label %GetBlendEquation.exit
@@ -4385,7 +4379,7 @@ switch.lookup13:                                  ; preds = %GetBlendFunc.exit12
 
 GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit129, %switch.lookup13
   %.0.i130 = phi i32 [ %switch.load16, %switch.lookup13 ], [ 1280, %GetBlendFunc.exit129 ]
-  tail call void %128(i32 noundef %.0.i130) #7
+  tail call void %128(i32 noundef %.0.i130) #6
   br label %132
 
 132:                                              ; preds = %GetBlendEquation.exit, %107
@@ -4411,7 +4405,7 @@ GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit12
   br i1 %.not118, label %144, label %142
 
 142:                                              ; preds = %139, %136
-  tail call void @GL_SelectShader(ptr noundef nonnull %135, i32 noundef %2, ptr noundef %3) #7
+  tail call void @GL_SelectShader(ptr noundef nonnull %135, i32 noundef %2, ptr noundef %3) #6
   store i32 %2, ptr %137, align 4
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %3, ptr %143, align 8
@@ -4441,7 +4435,7 @@ GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit12
   %.158 = zext i1 %.not120 to i8
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 %.157
   %156 = load ptr, ptr %155, align 8
-  tail call void %156(i32 noundef %154) #7
+  tail call void %156(i32 noundef %154) #6
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 612
   store i8 %.158, ptr %157, align 4
   store i8 0, ptr %145, align 1
@@ -4470,7 +4464,7 @@ switch.edge:                                      ; preds = %._crit_edge, %148
   %.159 = select i1 %160, i64 192, i64 160
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 %.159
   %172 = load ptr, ptr %171, align 8
-  tail call void %172(i32 noundef 32884) #7
+  tail call void %172(i32 noundef 32884) #6
   store i8 %161, ptr %168, align 2
   br label %173
 
@@ -4484,7 +4478,7 @@ switch.edge:                                      ; preds = %._crit_edge, %148
   %.160 = select i1 %162, i64 192, i64 160
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 %.160
   %178 = load ptr, ptr %177, align 8
-  tail call void %178(i32 noundef 32886) #7
+  tail call void %178(i32 noundef 32886) #6
   store i8 %163, ptr %174, align 1
   br label %179
 
@@ -4498,7 +4492,7 @@ switch.edge:                                      ; preds = %._crit_edge, %148
   %.161 = select i1 %166, i64 192, i64 160
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 %.161
   %184 = load ptr, ptr %183, align 8
-  tail call void %184(i32 noundef 32888) #7
+  tail call void %184(i32 noundef 32888) #6
   store i8 %167, ptr %180, align 8
   br label %185
 
@@ -4506,44 +4500,50 @@ switch.edge:                                      ; preds = %._crit_edge, %148
   ret void
 }
 
-declare void @GL_SelectShader(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @GL_SelectShader(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @SDL_CreateSurface_REAL(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GetRenderOutputSize_REAL(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #2
+declare void @SDL_DestroySurface_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_FlipSurface_REAL(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SwapWindow_REAL(ptr noundef) local_unnamed_addr #1
 
-declare void @GL_DestroyShaderContext(ptr noundef) local_unnamed_addr #2
+declare void @GL_DestroyShaderContext(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_DestroyContext_REAL(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_SetSwapInterval_REAL(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @SDL_GL_GetSwapInterval_REAL(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(1)
-declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @SDL_realloc_REAL(ptr noundef, i64 noundef) local_unnamed_addr #9
 
-declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogError_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @SDL_LogDebug_REAL(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind allocsize(0,1) }
 attributes #12 = { nounwind allocsize(1) }
 

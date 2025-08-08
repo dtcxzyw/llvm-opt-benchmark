@@ -1053,16 +1053,16 @@ invoke.cont95:                                    ; preds = %call.i.i.i.i.i.i.no
   %mpEnd.i14.i.i.i = getelementptr inbounds nuw i8, ptr %d, i64 64
   store ptr %add.ptr.i13.i.i.i, ptr %mpEnd.i14.i.i.i, align 8
   store ptr %12, ptr %mItEnd.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i)
   store ptr %a.sroa.17.1, ptr %agg.tmp.i, align 8
   store ptr %a.sroa.0.1, ptr %agg.tmp2.i, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE8DoAssignINS_16reverse_iteratorIPiEEEEvT_S7_NS_17integral_constantIbLb0EEE(ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
           to label %_ZN5eastl5dequeIiNS_9allocatorELj64EE6assignINS_16reverse_iteratorIPiEEEEvT_S7_.exit unwind label %lpad97.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl5dequeIiNS_9allocatorELj64EE6assignINS_16reverse_iteratorIPiEEEEvT_S7_.exit: ; preds = %invoke.cont95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %a.sroa.17.1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %a.sroa.0.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -1123,7 +1123,7 @@ for.end115:                                       ; preds = %for.inc113
   %23 = load ptr, ptr %mpCurrentArrayPtr.i11.i.i.i, align 8, !noalias !53
   store ptr %a.sroa.17.1, ptr %agg.tmp119, align 8, !alias.scope !56
   store ptr %a.sroa.0.1, ptr %agg.tmp120, align 8, !alias.scope !59
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp116115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp116115)
   store ptr %20, ptr %agg.tmp116115, align 8
   %agg.tmp116.sroa.2.0.agg.tmp116115.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp116115, i64 8
   store ptr %21, ptr %agg.tmp116.sroa.2.0.agg.tmp116115.sroa_idx, align 8
@@ -1135,7 +1135,7 @@ for.end115:                                       ; preds = %for.inc113
           to label %_ZN5eastl5dequeIiNS_9allocatorELj64EE6insertINS_16reverse_iteratorIPiEEEENS_13DequeIteratorIiS5_RiLj64EEENS7_IiPKiRSA_Lj64EEET_SE_.exit unwind label %lpad97.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl5dequeIiNS_9allocatorELj64EE6insertINS_16reverse_iteratorIPiEEEENS_13DequeIteratorIiS5_RiLj64EEENS7_IiPKiRSA_Lj64EEET_SE_.exit: ; preds = %for.end115
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp116115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp116115)
   br label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %_ZN5eastl5dequeIiNS_9allocatorELj64EE6insertINS_16reverse_iteratorIPiEEEENS_13DequeIteratorIiS5_RiLj64EEENS7_IiPKiRSA_Lj64EEET_SE_.exit, %for.inc138
@@ -1273,16 +1273,16 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i149:  ; preds = %lpad144
 for.end164:                                       ; preds = %for.inc162
   %mpEnd.i151 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %42 = load ptr, ptr %mpEnd.i151, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i153)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i.i154)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i154)
   store ptr %a.sroa.17.1, ptr %agg.tmp.i.i153, align 8
   store ptr %a.sroa.0.1, ptr %agg.tmp2.i.i154, align 8
   invoke void @_ZN5eastl6vectorIiNS_9allocatorEE20DoInsertFromIteratorINS_16reverse_iteratorIPiEEEEvPKiT_S9_NS_26bidirectional_iterator_tagE(ptr noundef nonnull align 8 dereferenceable(24) %b, ptr noundef %42, ptr noundef nonnull %agg.tmp.i.i153, ptr noundef nonnull %agg.tmp2.i.i154)
           to label %_ZN5eastl6vectorIiNS_9allocatorEE6insertINS_16reverse_iteratorIPiEEEES5_PKiT_S9_.exit unwind label %lpad144.loopexit.split-lp.loopexit.split-lp
 
 _ZN5eastl6vectorIiNS_9allocatorEE6insertINS_16reverse_iteratorIPiEEEES5_PKiT_S9_.exit: ; preds = %for.end164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i153)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i.i154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i154)
   br label %for.body173
 
 for.body173:                                      ; preds = %_ZN5eastl6vectorIiNS_9allocatorEE6insertINS_16reverse_iteratorIPiEEEES5_PKiT_S9_.exit, %for.inc186
@@ -1388,11 +1388,11 @@ invoke.cont203.thread:                            ; preds = %invoke.cont201
   store i8 0, ptr %56, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp195, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp195, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %ref.tmp195, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
@@ -1488,11 +1488,11 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   store i8 0, ptr %currentDest.07.i.i.i.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %currentDest.07.i.i.i.i.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %currentDest.07.i.i.i.i.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %currentDest.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.06.i.i.i.i.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.06.i.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i.i.i.i)
   store i8 0, ptr %first.sroa.0.06.i.i.i.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.06.i.i.i.i.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i, align 1
@@ -2596,10 +2596,10 @@ call.i.i.i10.i.i.i.noexc:                         ; preds = %call.i.i.i.i.i.i.no
   store ptr %add.ptr.i.i.i.i984, ptr %mpEnd.i14.i.i.i989, align 8
   %add.ptr15.i.i.i = getelementptr inbounds nuw i8, ptr %188, i64 12
   store ptr %add.ptr15.i.i.i, ptr %mItEnd.i.i981, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %first.addr.i.i.i5.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %first.addr.i.i.i5.i.i)
   store ptr %188, ptr %first.addr.i.i.i5.i.i, align 8
   %189 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i5.i.i, i32 0, i64 3, ptr %188) #14, !srcloc !74
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i5.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %first.addr.i.i.i5.i.i)
   %call568 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 511, ptr noundef nonnull @.str.70)
           to label %while.body.i.i.i1022 unwind label %lpad560
 
@@ -2988,7 +2988,7 @@ _ZN5eastl4copyINS_16reverse_iteratorIPiEENS_13DequeIteratorIiS2_RiLj64EEEEET0_T_
   %14 = load ptr, ptr %mpEnd4.i7, align 8
   store ptr %add.ptr.i.i.i, ptr %agg.tmp8, align 8
   store ptr %10, ptr %agg.tmp9, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp710)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp710)
   store ptr %13, ptr %agg.tmp710, align 8
   %agg.tmp7.sroa.2.0.agg.tmp710.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp710, i64 8
   store ptr %12, ptr %agg.tmp7.sroa.2.0.agg.tmp710.sroa_idx, align 8
@@ -2997,7 +2997,7 @@ _ZN5eastl4copyINS_16reverse_iteratorIPiEENS_13DequeIteratorIiS2_RiLj64EEEEET0_T_
   %agg.tmp7.sroa.4.0.agg.tmp710.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp710, i64 24
   store ptr %11, ptr %agg.tmp7.sroa.4.0.agg.tmp710.sroa_idx, align 8
   call void @_ZN5eastl5dequeIiNS_9allocatorELj64EE20DoInsertFromIteratorINS_16reverse_iteratorIPiEEEENS_13DequeIteratorIiS5_RiLj64EEENS7_IiPKiRSA_Lj64EEERKT_SG_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %tmp10, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp710, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp710)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp710)
   br label %if.end21
 
 if.else:                                          ; preds = %entry
@@ -4964,11 +4964,11 @@ for.body.i.i.i:                                   ; preds = %_ZN5eastl10VectorBa
   store i8 0, ptr %retval.sroa.0.08.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.08.i.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.08.i.i.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.07.i.i.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.07.i.i.i, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i.i.i)
   store i8 0, ptr %first.sroa.0.07.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.sroa.0.07.i.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
@@ -4982,11 +4982,11 @@ _ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_12basic_stringIcNS_9allocatorE
   store i8 0, ptr %retval.sroa.0.0.lcssa.i.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.0.lcssa.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %args, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i)
   store i8 0, ptr %args, align 8
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i, align 1
@@ -5793,10 +5793,10 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

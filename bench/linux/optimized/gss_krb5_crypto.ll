@@ -29,10 +29,10 @@ define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly captures
   %6 = alloca [1 x %struct.scatterlist], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %8, i8 0, i64 464, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -88,20 +88,17 @@ define dso_local i32 @krb5_encrypt(ptr noundef %0, ptr noundef readonly captures
 
 38:                                               ; preds = %23, %15, %5
   %39 = phi i32 [ -22, %5 ], [ -22, %15 ], [ %32, %23 ]
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %39
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -109,18 +106,15 @@ declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_skcipher_encrypt(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [1 x %struct.scatterlist], align 16
   %7 = alloca [16 x i8], align 16
   %8 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %8, i8 0, i64 464, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
@@ -176,9 +170,9 @@ define dso_local i32 @krb5_decrypt(ptr noundef %0, ptr noundef readonly captures
 
 38:                                               ; preds = %23, %15, %5
   %39 = phi i32 [ -22, %5 ], [ -22, %15 ], [ %32, %23 ]
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %39
 }
 
@@ -188,7 +182,7 @@ declare dso_local i32 @crypto_skcipher_decrypt(ptr noundef) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(none) %7) local_unnamed_addr #0 align 16 {
   %9 = alloca [1 x %struct.scatterlist], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -346,7 +340,7 @@ define dso_local noundef range(i32 0, 851969) i32 @make_checksum(ptr noundef rea
 
 105:                                              ; preds = %103, %16, %8
   %106 = phi i32 [ %104, %103 ], [ 851968, %8 ], [ 851968, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %106
 }
 
@@ -431,7 +425,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %2) #8
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -442,7 +436,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_checksum(ptr noundef
   store ptr null, ptr %40, align 8
   %41 = call i32 @crypto_ahash_update(ptr noundef nonnull %20) #8
   %42 = icmp eq i32 %41, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %42, label %43, label %58
 
 43:                                               ; preds = %37, %35
@@ -490,10 +484,10 @@ declare dso_local void @kfree_sensitive(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @gss_encrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.encryptor_desc, align 8
   %6 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %7, i8 0, i64 280, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %6, i8 0, i64 464, i1 false), !annotation !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i32, ptr %8, align 8
@@ -544,8 +538,8 @@ define dso_local i32 @gss_encrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %37 = add nuw nsw i64 %36, 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %6, i8 0, i64 %37, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6) #8, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %32
 }
 
@@ -742,10 +736,10 @@ define internal i32 @encryptor(ptr noundef readonly captures(none) %0, ptr nound
 define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.decryptor_desc, align 8
   %5 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %5, i8 0, i64 464, i1 false), !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i32, ptr %7, align 8
@@ -788,8 +782,8 @@ define dso_local i32 @gss_decrypt_xdr_buf(ptr noundef %0, ptr noundef %1, i32 no
   %32 = add nuw nsw i64 %31, 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, i8 0, i64 %32, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #8, !srcloc !6
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %27
 }
 
@@ -937,12 +931,12 @@ define dso_local noundef i32 @xdr_extend_head(ptr noundef captures(none) %0, i32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.xdr_netobj, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %6, 0
   %8 = select i1 %7, i64 40, i64 48
@@ -1077,7 +1071,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noun
 
 93:                                               ; preds = %81, %78, %56
   %94 = phi i32 [ 0, %81 ], [ 851968, %56 ], [ 851968, %78 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %94
 }
 
@@ -1085,7 +1079,7 @@ define dso_local noundef range(i32 0, 851969) i32 @gss_krb5_aes_encrypt(ptr noun
 define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.encryptor_desc, align 8
   %7 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %8, i8 0, i64 296, i1 false), !annotation !5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1107,7 +1101,7 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
   br i1 %23, label %43, label %24
 
 24:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %7, i8 0, i64 464, i1 false), !annotation !5
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %2, ptr %25, align 8
@@ -1139,7 +1133,7 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, i8 0, i64 %41, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7) #8, !srcloc !6
   %42 = icmp eq i32 %36, 0
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %24, %5
@@ -1149,7 +1143,7 @@ define internal fastcc i32 @krb5_cbc_cts_encrypt(ptr noundef %0, ptr noundef %1,
 
 46:                                               ; preds = %43, %24
   %47 = phi i32 [ %36, %24 ], [ %45, %43 ]
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %47
 }
 
@@ -1159,12 +1153,12 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr noundef readonly captures(none) %
   %8 = alloca [24 x i8], align 16
   %9 = alloca [24 x i8], align 16
   %10 = alloca %struct.xdr_buf, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false), !annotation !5
   %11 = load i32, ptr %0, align 8
   %12 = icmp eq i32 %11, 0
@@ -1238,10 +1232,10 @@ define dso_local i32 @gss_krb5_aes_decrypt(ptr noundef readonly captures(none) %
   %65 = icmp ne i32 %63, 393216
   %66 = and i1 %64, %65
   %67 = select i1 %66, i32 851968, i32 %63
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %67
 }
 
@@ -1252,7 +1246,7 @@ declare dso_local i32 @xdr_buf_subsegment(ptr noundef, ptr noundef, i32 noundef,
 define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.decryptor_desc, align 8
   %5 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %6, i8 0, i64 144, i1 false), !annotation !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1273,7 +1267,7 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
   br i1 %20, label %.sink.split, label %21
 
 21:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %5, i8 0, i64 464, i1 false), !annotation !5
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 0, ptr %22, align 8
@@ -1297,7 +1291,7 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %5, i8 0, i64 %34, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #8, !srcloc !6
   %35 = icmp eq i32 %29, 0
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %35, label %.sink.split, label %37
 
 .sink.split:                                      ; preds = %21, %3
@@ -1307,7 +1301,7 @@ define internal fastcc i32 @krb5_cbc_cts_decrypt(ptr noundef %0, ptr noundef %1,
 
 37:                                               ; preds = %.sink.split, %21
   %38 = phi i32 [ %29, %21 ], [ %36, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %38
 }
 
@@ -1452,7 +1446,7 @@ define dso_local noundef range(i32 0, 851969) i32 @krb5_etm_encrypt(ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %.32.val.-16.val, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %.0.val, ptr writeonly captures(none) %.8.val) unnamed_addr #0 align 16 {
   %4 = alloca [1 x %struct.scatterlist], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1536,7 +1530,7 @@ define internal fastcc noundef range(i32 0, 851969) i32 @krb5_etm_checksum(i32 %
 
 51:                                               ; preds = %49, %3
   %52 = phi i32 [ %50, %49 ], [ 851968, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %52
 }
 
@@ -1545,11 +1539,11 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr noundef readonly
   %7 = alloca [24 x i8], align 16
   %8 = alloca [24 x i8], align 16
   %9 = alloca %struct.xdr_buf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 72, i1 false), !annotation !5
   %10 = load i32, ptr %0, align 8
   %11 = icmp eq i32 %10, 0
@@ -1627,17 +1621,17 @@ define dso_local range(i32 0, 851969) i32 @krb5_etm_decrypt(ptr noundef readonly
 
 .thread6:                                         ; preds = %51, %.thread, %61, %54
   %64 = phi i32 [ 0, %54 ], [ 393216, %.thread ], [ 851968, %61 ], [ 851968, %51 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %64
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #6
+declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1646,8 +1640,8 @@ declare dso_local void @crypto_destroy_tfm(ptr noundef, ptr noundef) local_unnam
 define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = alloca [1 x %struct.scatterlist], align 16
   %8 = alloca [464 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = sub i32 %10, %2
@@ -1727,8 +1721,8 @@ define internal fastcc i32 @gss_krb5_cts_crypt(ptr noundef %0, ptr noundef %1, i
 
 49:                                               ; preds = %47, %13, %6
   %50 = phi i32 [ %48, %47 ], [ -12, %6 ], [ -12, %13 ]
-  call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %50
 }
 
@@ -1739,16 +1733,22 @@ declare dso_local i32 @write_bytes_to_xdr_buf(ptr noundef, i32 noundef, ptr noun
 declare dso_local i64 @__crypto_memneq(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind allocsize(2) }
 attributes #10 = { nounwind allocsize(0) }

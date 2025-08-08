@@ -747,10 +747,10 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   ], !prof !5
 
 31:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   call void @_ZN10polars_row5fixed7numeric11encode_iter17h9959e9978d7df8abE(ptr noalias noundef nonnull align 1 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %8, i8 noundef %3, ptr noalias noundef nonnull align 8 %4, i64 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %803
 
 32:                                               ; preds = %11
@@ -1066,8 +1066,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.10.0 = phi ptr [ %.sroa.4497.0.copyload, %33 ], [ %.sroa.10.3, %122 ]
   %.sroa.7.0 = phi ptr [ %.sroa.0496.0.copyload, %33 ], [ %.sroa.7.4, %122 ]
   %.sroa.0493.0 = phi ptr [ %4, %33 ], [ %.sroa.0493.1, %122 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5505)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10506)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5505)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10506)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %81 = icmp eq ptr %.sroa.0493.0, %34
   br i1 %81, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit", label %82
@@ -1185,8 +1185,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %112, label %114, label %119
 
 113:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5505)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10506)
   br label %803
 
 114:                                              ; preds = %110
@@ -1210,8 +1210,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %123 = load i64, ptr %.sroa.0503.1, align 8, !noundef !3
   %124 = add i64 %123, 1
   store i64 %124, ptr %.sroa.0503.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5505)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5505)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10506)
   br label %80
 
 125:                                              ; preds = %168, %35
@@ -1223,8 +1223,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.10515.0 = phi ptr [ %.sroa.4532.0.copyload, %35 ], [ %.sroa.10515.3, %168 ]
   %.sroa.7514.0 = phi ptr [ %.sroa.0531.0.copyload, %35 ], [ %.sroa.7514.4, %168 ]
   %.sroa.0512.0 = phi ptr [ %4, %35 ], [ %.sroa.0512.1, %168 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5543)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10544)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5543)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10544)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %126 = icmp eq ptr %.sroa.0512.0, %36
   br i1 %126, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit198", label %127
@@ -1342,8 +1342,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %157, label %159, label %165
 
 158:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit198"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5543)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10544)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5543)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10544)
   br label %803
 
 159:                                              ; preds = %155
@@ -1369,8 +1369,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %169 = load i64, ptr %.sroa.0541.1, align 8, !noundef !3
   %170 = add i64 %169, 2
   store i64 %170, ptr %.sroa.0541.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5543)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10544)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5543)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10544)
   br label %125
 
 171:                                              ; preds = %214, %38
@@ -1382,8 +1382,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.10553.0 = phi ptr [ %.sroa.4570.0.copyload, %38 ], [ %.sroa.10553.3, %214 ]
   %.sroa.7552.0 = phi ptr [ %.sroa.0569.0.copyload, %38 ], [ %.sroa.7552.4, %214 ]
   %.sroa.0550.0 = phi ptr [ %4, %38 ], [ %.sroa.0550.1, %214 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5581)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10582)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5581)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %172 = icmp eq ptr %.sroa.0550.0, %39
   br i1 %172, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit219", label %173
@@ -1501,8 +1501,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %203, label %205, label %211
 
 204:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit219"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5581)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10582)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5581)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10582)
   br label %803
 
 205:                                              ; preds = %201
@@ -1528,8 +1528,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %215 = load i64, ptr %.sroa.0579.1, align 8, !noundef !3
   %216 = add i64 %215, 3
   store i64 %216, ptr %.sroa.0579.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5581)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10582)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5581)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10582)
   br label %171
 
 217:                                              ; preds = %260, %41
@@ -1541,8 +1541,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.10591.0 = phi ptr [ %.sroa.4608.0.copyload, %41 ], [ %.sroa.10591.3, %260 ]
   %.sroa.7590.0 = phi ptr [ %.sroa.0607.0.copyload, %41 ], [ %.sroa.7590.4, %260 ]
   %.sroa.0588.0 = phi ptr [ %4, %41 ], [ %.sroa.0588.1, %260 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5619)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10620)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10620)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %218 = icmp eq ptr %.sroa.0588.0, %42
   br i1 %218, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit240", label %219
@@ -1660,8 +1660,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %249, label %251, label %257
 
 250:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit240"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5619)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10620)
   br label %803
 
 251:                                              ; preds = %247
@@ -1687,8 +1687,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %261 = load i64, ptr %.sroa.0617.1, align 8, !noundef !3
   %262 = add i64 %261, 4
   store i64 %262, ptr %.sroa.0617.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5619)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10620)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10620)
   br label %217
 
 263:                                              ; preds = %306, %44
@@ -1700,8 +1700,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.10629.0 = phi ptr [ %.sroa.4646.0.copyload, %44 ], [ %.sroa.10629.3, %306 ]
   %.sroa.7628.0 = phi ptr [ %.sroa.0645.0.copyload, %44 ], [ %.sroa.7628.4, %306 ]
   %.sroa.0626.0 = phi ptr [ %4, %44 ], [ %.sroa.0626.1, %306 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5657)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10658)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5657)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10658)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %264 = icmp eq ptr %.sroa.0626.0, %45
   br i1 %264, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit261", label %265
@@ -1819,8 +1819,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %295, label %297, label %303
 
 296:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit261"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5657)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10658)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5657)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10658)
   br label %803
 
 297:                                              ; preds = %293
@@ -1846,8 +1846,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %307 = load i64, ptr %.sroa.0655.1, align 8, !noundef !3
   %308 = add i64 %307, 5
   store i64 %308, ptr %.sroa.0655.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5657)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10658)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5657)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10658)
   br label %263
 
 309:                                              ; preds = %352, %47
@@ -1859,8 +1859,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20673.0 = phi i64 [ %.sroa.8688.0.copyload, %47 ], [ %.sroa.20673.4, %352 ]
   %.sroa.22674.0 = phi i64 [ %.sroa.9689.0.copyload, %47 ], [ %.sroa.22674.5, %352 ]
   %.sroa.0693.0 = phi ptr [ undef, %47 ], [ %.sroa.0693.1, %352 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5695)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10696)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5695)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10696)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   %310 = icmp eq ptr %.sroa.0664.0, %48
   br i1 %310, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit282", label %311
@@ -1978,8 +1978,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %341, label %343, label %349
 
 342:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit282"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5695)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10696)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5695)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10696)
   br label %803
 
 343:                                              ; preds = %339
@@ -2005,8 +2005,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %353 = load i64, ptr %.sroa.0693.1, align 8, !noundef !3
   %354 = add i64 %353, 6
   store i64 %354, ptr %.sroa.0693.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5695)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10696)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5695)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10696)
   br label %309
 
 355:                                              ; preds = %398, %50
@@ -2018,8 +2018,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20711.0 = phi i64 [ %.sroa.8726.0.copyload, %50 ], [ %.sroa.20711.4, %398 ]
   %.sroa.22712.0 = phi i64 [ %.sroa.9727.0.copyload, %50 ], [ %.sroa.22712.5, %398 ]
   %.sroa.0731.0 = phi ptr [ undef, %50 ], [ %.sroa.0731.1, %398 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5733)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10734)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5733)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %356 = icmp eq ptr %.sroa.0702.0, %51
   br i1 %356, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit303", label %357
@@ -2137,8 +2137,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %387, label %389, label %395
 
 388:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit303"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5733)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10734)
   br label %803
 
 389:                                              ; preds = %385
@@ -2164,8 +2164,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %399 = load i64, ptr %.sroa.0731.1, align 8, !noundef !3
   %400 = add i64 %399, 7
   store i64 %400, ptr %.sroa.0731.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5733)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10734)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5733)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10734)
   br label %355
 
 401:                                              ; preds = %444, %53
@@ -2177,8 +2177,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20749.0 = phi i64 [ %.sroa.8764.0.copyload, %53 ], [ %.sroa.20749.4, %444 ]
   %.sroa.22750.0 = phi i64 [ %.sroa.9765.0.copyload, %53 ], [ %.sroa.22750.5, %444 ]
   %.sroa.0769.0 = phi ptr [ undef, %53 ], [ %.sroa.0769.1, %444 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5771)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10772)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5771)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10772)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %402 = icmp eq ptr %.sroa.0740.0, %54
   br i1 %402, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit324", label %403
@@ -2296,8 +2296,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %433, label %435, label %441
 
 434:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit324"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5771)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10772)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5771)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10772)
   br label %803
 
 435:                                              ; preds = %431
@@ -2323,8 +2323,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %445 = load i64, ptr %.sroa.0769.1, align 8, !noundef !3
   %446 = add i64 %445, 8
   store i64 %446, ptr %.sroa.0769.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5771)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10772)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5771)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10772)
   br label %401
 
 447:                                              ; preds = %490, %56
@@ -2336,8 +2336,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20787.0 = phi i64 [ %.sroa.8802.0.copyload, %56 ], [ %.sroa.20787.4, %490 ]
   %.sroa.22788.0 = phi i64 [ %.sroa.9803.0.copyload, %56 ], [ %.sroa.22788.5, %490 ]
   %.sroa.0807.0 = phi ptr [ undef, %56 ], [ %.sroa.0807.1, %490 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5809)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10810)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5809)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10810)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %448 = icmp eq ptr %.sroa.0778.0, %57
   br i1 %448, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit345", label %449
@@ -2455,8 +2455,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %479, label %481, label %487
 
 480:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit345"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5809)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10810)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5809)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10810)
   br label %803
 
 481:                                              ; preds = %477
@@ -2482,8 +2482,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %491 = load i64, ptr %.sroa.0807.1, align 8, !noundef !3
   %492 = add i64 %491, 9
   store i64 %492, ptr %.sroa.0807.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5809)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10810)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5809)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10810)
   br label %447
 
 493:                                              ; preds = %536, %59
@@ -2495,8 +2495,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20825.0 = phi i64 [ %.sroa.8840.0.copyload, %59 ], [ %.sroa.20825.4, %536 ]
   %.sroa.22826.0 = phi i64 [ %.sroa.9841.0.copyload, %59 ], [ %.sroa.22826.5, %536 ]
   %.sroa.0845.0 = phi ptr [ undef, %59 ], [ %.sroa.0845.1, %536 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5847)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10848)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5847)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10848)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %494 = icmp eq ptr %.sroa.0816.0, %60
   br i1 %494, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit366", label %495
@@ -2614,8 +2614,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %525, label %527, label %533
 
 526:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit366"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5847)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10848)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5847)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10848)
   br label %803
 
 527:                                              ; preds = %523
@@ -2641,8 +2641,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %537 = load i64, ptr %.sroa.0845.1, align 8, !noundef !3
   %538 = add i64 %537, 10
   store i64 %538, ptr %.sroa.0845.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5847)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10848)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5847)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10848)
   br label %493
 
 539:                                              ; preds = %582, %62
@@ -2654,8 +2654,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20863.0 = phi i64 [ %.sroa.8878.0.copyload, %62 ], [ %.sroa.20863.4, %582 ]
   %.sroa.22864.0 = phi i64 [ %.sroa.9879.0.copyload, %62 ], [ %.sroa.22864.5, %582 ]
   %.sroa.0883.0 = phi ptr [ undef, %62 ], [ %.sroa.0883.1, %582 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5885)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10886)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5885)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10886)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %540 = icmp eq ptr %.sroa.0854.0, %63
   br i1 %540, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit387", label %541
@@ -2773,8 +2773,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %571, label %573, label %579
 
 572:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit387"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5885)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10886)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5885)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10886)
   br label %803
 
 573:                                              ; preds = %569
@@ -2800,8 +2800,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %583 = load i64, ptr %.sroa.0883.1, align 8, !noundef !3
   %584 = add i64 %583, 11
   store i64 %584, ptr %.sroa.0883.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5885)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10886)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5885)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10886)
   br label %539
 
 585:                                              ; preds = %628, %65
@@ -2813,8 +2813,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20901.0 = phi i64 [ %.sroa.8916.0.copyload, %65 ], [ %.sroa.20901.4, %628 ]
   %.sroa.22902.0 = phi i64 [ %.sroa.9917.0.copyload, %65 ], [ %.sroa.22902.5, %628 ]
   %.sroa.0921.0 = phi ptr [ undef, %65 ], [ %.sroa.0921.1, %628 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5923)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10924)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5923)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10924)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !369)
   %586 = icmp eq ptr %.sroa.0892.0, %66
   br i1 %586, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit408", label %587
@@ -2932,8 +2932,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %617, label %619, label %625
 
 618:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit408"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5923)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10924)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5923)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10924)
   br label %803
 
 619:                                              ; preds = %615
@@ -2959,8 +2959,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %629 = load i64, ptr %.sroa.0921.1, align 8, !noundef !3
   %630 = add i64 %629, 12
   store i64 %630, ptr %.sroa.0921.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5923)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10924)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5923)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10924)
   br label %585
 
 631:                                              ; preds = %674, %68
@@ -2972,8 +2972,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20939.0 = phi i64 [ %.sroa.8954.0.copyload, %68 ], [ %.sroa.20939.4, %674 ]
   %.sroa.22940.0 = phi i64 [ %.sroa.9955.0.copyload, %68 ], [ %.sroa.22940.5, %674 ]
   %.sroa.0959.0 = phi ptr [ undef, %68 ], [ %.sroa.0959.1, %674 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5961)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10962)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5961)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10962)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
   %632 = icmp eq ptr %.sroa.0930.0, %69
   br i1 %632, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit429", label %633
@@ -3091,8 +3091,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %663, label %665, label %671
 
 664:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit429"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5961)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10962)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5961)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10962)
   br label %803
 
 665:                                              ; preds = %661
@@ -3118,8 +3118,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %675 = load i64, ptr %.sroa.0959.1, align 8, !noundef !3
   %676 = add i64 %675, 13
   store i64 %676, ptr %.sroa.0959.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5961)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10962)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5961)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10962)
   br label %631
 
 677:                                              ; preds = %720, %71
@@ -3131,8 +3131,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.20977.0 = phi i64 [ %.sroa.8992.0.copyload, %71 ], [ %.sroa.20977.4, %720 ]
   %.sroa.22978.0 = phi i64 [ %.sroa.9993.0.copyload, %71 ], [ %.sroa.22978.5, %720 ]
   %.sroa.0997.0 = phi ptr [ undef, %71 ], [ %.sroa.0997.1, %720 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.5999)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.101000)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5999)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.101000)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
   %678 = icmp eq ptr %.sroa.0968.0, %72
   br i1 %678, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit450", label %679
@@ -3250,8 +3250,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %709, label %711, label %717
 
 710:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit450"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5999)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101000)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5999)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101000)
   br label %803
 
 711:                                              ; preds = %707
@@ -3277,8 +3277,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %721 = load i64, ptr %.sroa.0997.1, align 8, !noundef !3
   %722 = add i64 %721, 14
   store i64 %722, ptr %.sroa.0997.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.5999)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101000)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5999)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101000)
   br label %677
 
 723:                                              ; preds = %766, %74
@@ -3290,8 +3290,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.201015.0 = phi i64 [ %.sroa.81030.0.copyload, %74 ], [ %.sroa.201015.4, %766 ]
   %.sroa.221016.0 = phi i64 [ %.sroa.91031.0.copyload, %74 ], [ %.sroa.221016.5, %766 ]
   %.sroa.01035.0 = phi ptr [ undef, %74 ], [ %.sroa.01035.1, %766 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.51037)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.101038)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.51037)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.101038)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
   %724 = icmp eq ptr %.sroa.01006.0, %75
   br i1 %724, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit471", label %725
@@ -3409,8 +3409,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %755, label %757, label %763
 
 756:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit471"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.51037)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101038)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51037)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101038)
   br label %803
 
 757:                                              ; preds = %753
@@ -3436,8 +3436,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %767 = load i64, ptr %.sroa.01035.1, align 8, !noundef !3
   %768 = add i64 %767, 15
   store i64 %768, ptr %.sroa.01035.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.51037)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101038)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51037)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101038)
   br label %723
 
 769:                                              ; preds = %813, %77
@@ -3449,8 +3449,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %.sroa.201053.0 = phi i64 [ %.sroa.81068.0.copyload, %77 ], [ %.sroa.201053.4, %813 ]
   %.sroa.221054.0 = phi i64 [ %.sroa.91069.0.copyload, %77 ], [ %.sroa.221054.5, %813 ]
   %.sroa.01073.0 = phi ptr [ undef, %77 ], [ %.sroa.01073.1, %813 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.51075)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.101076)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.51075)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.101076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
   %770 = icmp eq ptr %.sroa.01044.0, %78
   br i1 %770, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit492", label %771
@@ -3568,8 +3568,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   br i1 %801, label %804, label %810
 
 802:                                              ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h8a666a5984c329ceE.exit492"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.51075)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101076)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51075)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101076)
   br label %803
 
 803:                                              ; preds = %113, %158, %204, %250, %296, %342, %388, %434, %480, %526, %572, %618, %664, %710, %756, %802, %31
@@ -3596,8 +3596,8 @@ define hidden void @_ZN10polars_row5fixed7decimal11encode_iter17hc3ac3ea4ed116e2
   %814 = load i64, ptr %.sroa.01073.1, align 8, !noundef !3
   %815 = add i64 %814, 16
   store i64 %815, ptr %.sroa.01073.1, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.51075)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.101076)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.51075)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.101076)
   br label %769
 }
 
@@ -3742,7 +3742,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17h6cd4abd85e58c
   %.sroa.15.2 = phi i64 [ %.sroa.15.027, %55 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %55 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %55 ], [ %66, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !561
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !561
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !561
   %67 = load i8, ptr %7, align 8, !range !562, !noalias !561, !noundef !3
   %.not.i.i.i = icmp eq i8 %67, 2
@@ -3753,7 +3753,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17h6cd4abd85e58c
   %69 = load i64, ptr %13, align 8, !noalias !561, !noundef !3
   %70 = load ptr, ptr %14, align 8, !noalias !561, !nonnull !3, !align !563
   %.sroa.01.0.i.i.i = select i1 %68, ptr %70, ptr null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !561
   %71 = load i64, ptr %.sroa.05.031, align 8, !noundef !3
   %72 = sub nuw i64 %1, %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 %71
@@ -3765,7 +3765,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17h6cd4abd85e58c
   br i1 %77, label %.loopexit, label %.lr.ph.split
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !561
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.thread20.i", %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2a602dbd9c5c94cE.exit.i.i.us", %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.thread14.i.us", %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.i"
@@ -3958,7 +3958,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17haafd785ab450a
   %.sroa.15.2 = phi i64 [ %.sroa.15.027, %80 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %80 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %80 ], [ %91, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !610
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !610
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !610
   %92 = load i8, ptr %7, align 8, !range !562, !noalias !610, !noundef !3
   %.not.i.i.i = icmp eq i8 %92, 2
@@ -3969,7 +3969,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17haafd785ab450a
   %94 = load i64, ptr %14, align 8, !noalias !610, !noundef !3
   %95 = load ptr, ptr %15, align 8, !noalias !610, !nonnull !3, !align !563
   %.sroa.01.0.i.i.i = select i1 %93, ptr %95, ptr null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !610
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !610
   %96 = load i64, ptr %.sroa.05.031, align 8, !noundef !3
   %97 = sub nuw i64 %1, %96
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 %96
@@ -3981,7 +3981,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17haafd785ab450a
   br i1 %102, label %.loopexit, label %.lr.ph.split
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !610
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !610
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.thread20.i", %21, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72793057bf8aad9fE.exit.i.i.us", %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.thread14.i.us", %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.i"
@@ -4125,7 +4125,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17hd5ace15d1f279
   %.sroa.15.2 = phi i64 [ %.sroa.15.027, %51 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %51 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %51 ], [ %62, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !637
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !637
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !637
   %63 = load i8, ptr %7, align 8, !range !562, !noalias !637, !noundef !3
   %.not.i.i.i = icmp eq i8 %63, 2
@@ -4136,7 +4136,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17hd5ace15d1f279
   %65 = load i64, ptr %13, align 8, !noalias !637, !noundef !3
   %66 = load ptr, ptr %14, align 8, !noalias !637, !nonnull !3, !align !563
   %.sroa.01.0.i.i.i = select i1 %64, ptr %66, ptr null
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !637
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !637
   %67 = load i64, ptr %.sroa.05.031, align 8, !noundef !3
   %68 = sub nuw i64 %1, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %67
@@ -4148,7 +4148,7 @@ define hidden void @_ZN10polars_row8variable6binary11encode_iter17hd5ace15d1f279
   br i1 %73, label %.loopexit, label %.lr.ph.split
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !637
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !637
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.thread20.i", %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70656994c773b637E.exit.i.i.us", %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.thread14.i.us", %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.i"
@@ -4309,7 +4309,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.15.2 = phi i64 [ %.sroa.15.078, %55 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %55 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i.i = phi i8 [ 2, %55 ], [ %66, %._crit_edge.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !673
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !673
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !noalias !673
   %67 = load i8, ptr %7, align 8, !range !562, !noalias !673, !noundef !3
   %.not.i.i.i.i = icmp eq i8 %67, 2
@@ -4319,7 +4319,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %68 = trunc nuw i8 %67 to i1
   %69 = load i64, ptr %13, align 8, !noalias !673, !noundef !3
   %70 = load ptr, ptr %14, align 8, !noalias !673, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !673
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !673
   %.pn = load i64, ptr %.sroa.07.082, align 8, !noundef !3
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %68, label %.thread53, label %.thread
@@ -4330,7 +4330,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %74
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f84b3667e5feb4eE.exit.i.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !673
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !673
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44094785da168ccbE.exit.i.i.i.us", %38, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f84b3667e5feb4eE.exit.i.i"
@@ -4521,7 +4521,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.15.2 = phi i64 [ %.sroa.15.084, %55 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %55 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %55 ], [ %66, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !718
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !718
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !718
   %67 = load i8, ptr %7, align 8, !range !562, !noalias !718, !noundef !3
   %.not.i.i.i = icmp eq i8 %67, 2
@@ -4531,7 +4531,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %68 = trunc nuw i8 %67 to i1
   %69 = load i64, ptr %13, align 8, !noalias !718, !noundef !3
   %70 = load ptr, ptr %14, align 8, !noalias !718, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !718
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !718
   %.pn = load i64, ptr %.sroa.07.088, align 8, !noundef !3
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %68, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h0e1c3af5b5fa3012E.exit.thread57", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h0e1c3af5b5fa3012E.exit.thread27"
@@ -4542,7 +4542,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %74
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !718
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !718
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70656994c773b637E.exit.i.i.us", %38, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03409445336eddeE.exit.i"
@@ -4737,7 +4737,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.15.2 = phi i64 [ %.sroa.15.084, %59 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %59 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %59 ], [ %70, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !763
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !763
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !763
   %71 = load i8, ptr %7, align 8, !range !562, !noalias !763, !noundef !3
   %.not.i.i.i = icmp eq i8 %71, 2
@@ -4747,7 +4747,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %72 = trunc nuw i8 %71 to i1
   %73 = load i64, ptr %13, align 8, !noalias !763, !noundef !3
   %74 = load ptr, ptr %14, align 8, !noalias !763, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !763
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !763
   %.pn = load i64, ptr %.sroa.07.088, align 8, !noundef !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %72, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5cafccad896807deE.exit.thread57", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5cafccad896807deE.exit.thread27"
@@ -4758,7 +4758,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %78
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !763
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !763
   br label %.loopexit
 
 .loopexit:                                        ; preds = %78, %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb2a602dbd9c5c94cE.exit.i.i.us", %40, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha4967af1c4ad7defE.exit.i"
@@ -4953,7 +4953,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.15.2 = phi i64 [ %.sroa.15.078, %59 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %59 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i.i = phi i8 [ 2, %59 ], [ %70, %._crit_edge.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !811
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !811
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !noalias !811
   %71 = load i8, ptr %7, align 8, !range !562, !noalias !811, !noundef !3
   %.not.i.i.i.i = icmp eq i8 %71, 2
@@ -4963,7 +4963,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %72 = trunc nuw i8 %71 to i1
   %73 = load i64, ptr %13, align 8, !noalias !811, !noundef !3
   %74 = load ptr, ptr %14, align 8, !noalias !811, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !811
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !811
   %.pn = load i64, ptr %.sroa.07.082, align 8, !noundef !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %72, label %.thread53, label %.thread
@@ -4974,7 +4974,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %78
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha82fc1078bf58425E.exit.i.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !811
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !811
   br label %.loopexit
 
 .loopexit:                                        ; preds = %78, %19, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf78bca40edbebb96E.exit.i.i.i.us", %40, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha82fc1078bf58425E.exit.i.i"
@@ -5223,7 +5223,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.20.2 = phi i64 [ %.sroa.20.0149, %91 ], [ %99, %._crit_edge.i.i.i ]
   %.sroa.15.3 = phi i64 [ %.sroa.15.0151, %91 ], [ %.sroa.15.2, %._crit_edge.i.i.i ]
   %.sroa.0.0.i3.i.i = phi i8 [ 2, %91 ], [ %102, %._crit_edge.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !890
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !890
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i), !noalias !890
   %103 = load i8, ptr %7, align 8, !range !562, !noalias !890, !noundef !3
   %.not.i.i = icmp eq i8 %103, 2
@@ -5233,7 +5233,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %104 = trunc nuw i8 %103 to i1
   %105 = load i64, ptr %14, align 8, !noalias !890, !noundef !3
   %106 = load ptr, ptr %15, align 8, !noalias !890, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !890
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !890
   %.pn = load i64, ptr %.sroa.07.0154, align 8, !noundef !3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %104, label %.thread100, label %.thread
@@ -5244,7 +5244,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %110
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !890
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !890
   br label %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit.thread"
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit.thread": ; preds = %110, %62, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h77ad7c14853a9d72E.exit.i.us", %21, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit"
@@ -5493,7 +5493,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %.sroa.15.2 = phi i64 [ %.sroa.15.0110, %91 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.24.2 = phi i64 [ 0, %91 ], [ %.sroa.24.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %91 ], [ %102, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !955
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !955
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17h7416d44116dd9c76E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !955
   %103 = load i8, ptr %7, align 8, !range !562, !noalias !955, !noundef !3
   %.not.i.i.i = icmp eq i8 %103, 2
@@ -5503,7 +5503,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   %104 = trunc nuw i8 %103 to i1
   %105 = load i64, ptr %14, align 8, !noalias !955, !noundef !3
   %106 = load ptr, ptr %15, align 8, !noalias !955, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !955
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !955
   %.pn = load i64, ptr %.sroa.07.0114, align 8, !noundef !3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %104, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a2b4f8a93c5208eE.exit.thread57", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a2b4f8a93c5208eE.exit.thread27"
@@ -5514,7 +5514,7 @@ define hidden void @_ZN10polars_row8variable8no_order24encode_variable_no_order1
   br label %110
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !955
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !955
   br label %.loopexit
 
 .loopexit:                                        ; preds = %110, %21, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h72793057bf8aad9fE.exit.i.i.us", %62, %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he42c601406a3ab62E.exit.i"
@@ -5717,7 +5717,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1e4cd67ac7647207
   %.sroa.20.1 = phi i64 [ %.sroa.20.0110, %65 ], [ %73, %._crit_edge.i.i.i.i ]
   %.sroa.15.2 = phi i64 [ %.sroa.15.0112, %65 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %65 ], [ %76, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !975
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !975
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !975
   %77 = load i8, ptr %7, align 8, !range !562, !noalias !975, !noundef !3
   %.not.i.i.i = icmp eq i8 %77, 2
@@ -5727,7 +5727,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1e4cd67ac7647207
   %78 = trunc nuw i8 %77 to i1
   %79 = load i64, ptr %15, align 8, !noalias !975, !noundef !3
   %80 = load ptr, ptr %16, align 8, !noalias !975, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !975
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !975
   %.pn = load i64, ptr %.sroa.019.0115, align 8, !noundef !3
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %78, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf260fd261761d47bE.exit.thread77", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf260fd261761d47bE.exit.thread46"
@@ -5738,7 +5738,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1e4cd67ac7647207
   br label %85
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha82fc1078bf58425E.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !975
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !975
   br label %.loopexit
 
 .loopexit:                                        ; preds = %85, %22, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf78bca40edbebb96E.exit.i.i.us", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb28fe410ce190954E.exit.thread.us", %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha82fc1078bf58425E.exit.i"
@@ -5998,7 +5998,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1ee8de3a3e44ff43
   %.sroa.20.1 = phi i64 [ %.sroa.20.0114, %96 ], [ %104, %._crit_edge.i.i.i.i ]
   %.sroa.15.2 = phi i64 [ %.sroa.15.0116, %96 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %96 ], [ %107, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1015
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1015
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !1015
   %108 = load i8, ptr %7, align 8, !range !562, !noalias !1015, !noundef !3
   %.not.i.i.i = icmp eq i8 %108, 2
@@ -6008,7 +6008,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1ee8de3a3e44ff43
   %109 = trunc nuw i8 %108 to i1
   %110 = load i64, ptr %16, align 8, !noalias !1015, !noundef !3
   %111 = load ptr, ptr %17, align 8, !noalias !1015, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1015
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1015
   %112 = load i64, ptr %.sroa.019.0119, align 8, !noundef !3
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 %112
   br i1 %109, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h008c107311be3769E.exit.thread77", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h008c107311be3769E.exit.thread46"
@@ -6019,7 +6019,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h1ee8de3a3e44ff43
   br label %117
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1015
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1015
   br label %.loopexit
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h008c107311be3769E.exit.thread77": ; preds = %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6036800d3a22a3ceE.exit.thread20.i"
@@ -6219,7 +6219,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h47b8df71b8b02e5e
   %.sroa.20.1 = phi i64 [ %.sroa.20.0110, %61 ], [ %69, %._crit_edge.i.i.i.i ]
   %.sroa.15.2 = phi i64 [ %.sroa.15.0112, %61 ], [ %.sroa.15.1, %._crit_edge.i.i.i.i ]
   %.sroa.0.0.i3.i.i.i = phi i8 [ 2, %61 ], [ %72, %._crit_edge.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1035
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1035
   call void @"_ZN4core6option15Option$LT$T$GT$3zip17hed850668531d9883E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, i8 noundef %.sroa.0.0.i3.i.i.i, ptr noalias noundef readonly align 1 %.sroa.0.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !noalias !1035
   %73 = load i8, ptr %7, align 8, !range !562, !noalias !1035, !noundef !3
   %.not.i.i.i = icmp eq i8 %73, 2
@@ -6229,7 +6229,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h47b8df71b8b02e5e
   %74 = trunc nuw i8 %73 to i1
   %75 = load i64, ptr %15, align 8, !noalias !1035, !noundef !3
   %76 = load ptr, ptr %16, align 8, !noalias !1035, !nonnull !3, !align !563
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1035
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1035
   %.pn = load i64, ptr %.sroa.019.0115, align 8, !noundef !3
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 %.pn
   br i1 %74, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h20a0cc2effdf0b52E.exit.thread77", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h20a0cc2effdf0b52E.exit.thread46"
@@ -6240,7 +6240,7 @@ define hidden void @_ZN10polars_row8variable4utf810encode_str17h47b8df71b8b02e5e
   br label %81
 
 "_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f84b3667e5feb4eE.exit.i": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1035
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1035
   br label %.loopexit
 
 .loopexit:                                        ; preds = %81, %22, %"_ZN114_$LT$polars_arrow..array..iterator..ArrayValuesIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44094785da168ccbE.exit.i.i.us", %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb28fe410ce190954E.exit.thread.us", %6, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f84b3667e5feb4eE.exit.i"
@@ -6318,10 +6318,10 @@ declare hidden void @_ZN10polars_row5fixed7numeric11encode_iter17h9959e9978d7df8
 declare hidden noundef i64 @_ZN10polars_row8variable6binary10encode_one17h3bdfc1e8b1dea280E(ptr noalias noundef nonnull align 1, i64 noundef, ptr noalias noundef readonly align 1, i64, i8 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

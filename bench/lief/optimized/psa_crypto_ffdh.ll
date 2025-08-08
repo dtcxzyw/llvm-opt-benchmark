@@ -25,10 +25,10 @@ define hidden i32 @mbedtls_psa_ffdh_export_public_key(ptr noundef readonly captu
   %8 = alloca %struct.mbedtls_mpi, align 8
   %9 = alloca %struct.mbedtls_mpi, align 8
   %10 = alloca %struct.mbedtls_mpi, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i16, ptr %0, align 4, !tbaa !3
   %12 = and i16 %11, 28672
   %13 = icmp eq i16 %12, 16384
@@ -124,43 +124,37 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread46: ; preds = %19, %36, %34, %mb
 
 42:                                               ; preds = %mbedtls_psa_ffdh_set_prime_generator.exit.thread46, %40, %14, %16
   %.0 = phi i32 [ 0, %16 ], [ -138, %14 ], [ %41, %40 ], [ %.020.i42, %mbedtls_psa_ffdh_set_prime_generator.exit.thread46 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #4
+declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_mpi_exp_mod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @mbedtls_mpi_exp_mod(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #4
+declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_to_psa_error(i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @mbedtls_to_psa_error(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_ffdh_generate_key(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_mpi, align 8
   %6 = alloca %struct.mbedtls_mpi, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @mbedtls_mpi_init(ptr noundef nonnull %6) #7
   call void @mbedtls_mpi_init(ptr noundef nonnull %5) #7
   %7 = add i64 %2, -256
@@ -221,19 +215,19 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread24: ; preds = %4, %15, %13, %mbe
 
 21:                                               ; preds = %mbedtls_psa_ffdh_set_prime_generator.exit.thread24, %19
   %.011 = phi i32 [ %20, %19 ], [ %.020.i20, %mbedtls_psa_ffdh_set_prime_generator.exit.thread24 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.011
 }
 
-declare i32 @mbedtls_mpi_random(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @mbedtls_mpi_random(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_psa_get_random(ptr noundef, ptr noundef, i64 noundef) #4
+declare i32 @mbedtls_psa_get_random(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare i32 @mbedtls_mpi_sub_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_mpi_sub_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -138, 1) i32 @mbedtls_psa_ffdh_import_key(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #5 {
+define hidden range(i32 -138, 1) i32 @mbedtls_psa_ffdh_import_key(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #4 {
   %8 = icmp ult i64 %4, %2
   br i1 %8, label %11, label %9
 
@@ -256,11 +250,11 @@ define hidden i32 @mbedtls_psa_ffdh_key_agreement(ptr noundef readonly captures(
   %11 = alloca %struct.mbedtls_mpi, align 8
   %12 = alloca %struct.mbedtls_mpi, align 8
   %13 = alloca %struct.mbedtls_mpi, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.not = icmp ne i64 %2, %4
   %14 = icmp ugt i64 %2, %6
   %or.cond34 = or i1 %.not, %14
@@ -357,23 +351,29 @@ mbedtls_psa_ffdh_set_prime_generator.exit.thread44: ; preds = %18, %37, %35, %33
 
 43:                                               ; preds = %mbedtls_psa_ffdh_set_prime_generator.exit.thread44, %41, %15, %8
   %.0 = phi i32 [ -135, %8 ], [ -135, %15 ], [ %42, %41 ], [ %.020.i40, %mbedtls_psa_ffdh_set_prime_generator.exit.thread44 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

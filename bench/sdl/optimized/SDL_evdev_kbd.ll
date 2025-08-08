@@ -43,18 +43,18 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 6, ptr %6, align 8
-  %7 = tail call noalias dereferenceable_or_null(224) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 224) #13
+  %7 = tail call noalias dereferenceable_or_null(224) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 224) #12
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %79, label %8
 
 8:                                                ; preds = %0
-  %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 524288) #12
+  %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str, i32 noundef 524288) #13
   store i32 %9, ptr %7, align 8
-  %10 = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19251, ptr noundef nonnull %5) #12
+  %10 = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19251, ptr noundef nonnull %5) #13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %15
 
@@ -65,7 +65,7 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   br i1 %or.cond, label %17, label %15
 
 15:                                               ; preds = %12, %8
-  %16 = call i32 @close(i32 noundef %9) #12
+  %16 = call i32 @close(i32 noundef %9) #13
   store i32 -1, ptr %7, align 8
   br label %17
 
@@ -73,7 +73,7 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   %18 = phi i32 [ -1, %15 ], [ %9, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 -1, ptr %19, align 4
-  %20 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 21532, ptr noundef nonnull %6) #12
+  %20 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 21532, ptr noundef nonnull %6) #13
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %25
 
@@ -84,7 +84,7 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %22, %17
-  %26 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 19300, ptr noundef nonnull %4) #12
+  %26 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 19300, ptr noundef nonnull %4) #13
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %31
 
@@ -100,18 +100,18 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @default_key_maps, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 19268, ptr noundef nonnull %34) #12
+  %35 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 19268, ptr noundef nonnull %34) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %31
   %38 = load i32, ptr %7, align 8
-  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef %38, i64 noundef 19269, i32 noundef 3) #12
+  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef %38, i64 noundef 19269, i32 noundef 3) #13
   br label %40
 
 40:                                               ; preds = %37, %31
   %41 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call fastcc i32 @find_free_signal(ptr noundef nonnull @kbd_vt_release_signal_action)
   store i32 %42, ptr @vt_release_signal, align 4
   %43 = call fastcc i32 @find_free_signal(ptr noundef nonnull @kbd_vt_acquire_signal_action)
@@ -123,14 +123,14 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %59, label %47
 
 47:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i.i = icmp eq i32 %44, 0
   br i1 %.not.i.i, label %52, label %48
 
 48:                                               ; preds = %47
   %49 = sext i32 %44 to i64
   %50 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %49
-  %51 = call i32 @sigaction(i32 noundef %44, ptr noundef nonnull %50, ptr noundef null) #12
+  %51 = call i32 @sigaction(i32 noundef %44, ptr noundef nonnull %50, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   %.pre.i = load i32, ptr @vt_acquire_signal, align 4
   br label %52
@@ -143,14 +143,14 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
   %56 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %55
-  %57 = call i32 @sigaction(i32 noundef %53, ptr noundef nonnull %56, ptr noundef null) #12
+  %57 = call i32 @sigaction(i32 noundef %53, ptr noundef nonnull %56, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit.i
 
 kbd_vt_quit.exit.i:                               ; preds = %54, %52
   store i64 0, ptr %2, align 8
-  %58 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  %58 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %kbd_vt_init.exit
 
 59:                                               ; preds = %40
@@ -161,12 +161,12 @@ kbd_vt_quit.exit.i:                               ; preds = %54, %52
   %62 = trunc i32 %43 to i16
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 %62, ptr %63, align 4
-  %64 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %3) #12
+  %64 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %3) #13
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %kbd_vt_init.exit
 
 66:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %67 = load i32, ptr @vt_release_signal, align 4
   %.not.i4.i = icmp eq i32 %67, 0
   br i1 %.not.i4.i, label %72, label %68
@@ -174,7 +174,7 @@ kbd_vt_quit.exit.i:                               ; preds = %54, %52
 68:                                               ; preds = %66
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %69
-  %71 = call i32 @sigaction(i32 noundef %67, ptr noundef nonnull %70, ptr noundef null) #12
+  %71 = call i32 @sigaction(i32 noundef %67, ptr noundef nonnull %70, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   br label %72
 
@@ -186,46 +186,40 @@ kbd_vt_quit.exit.i:                               ; preds = %54, %52
 74:                                               ; preds = %72
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %75
-  %77 = call i32 @sigaction(i32 noundef %73, ptr noundef nonnull %76, ptr noundef null) #12
+  %77 = call i32 @sigaction(i32 noundef %73, ptr noundef nonnull %76, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit6.i
 
 kbd_vt_quit.exit6.i:                              ; preds = %74, %72
   store i64 0, ptr %1, align 8
-  %78 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %1) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
+  %78 = call i32 (i32, i64, ...) @ioctl(i32 noundef %41, i64 noundef 22018, ptr noundef nonnull %1) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %kbd_vt_init.exit
 
 kbd_vt_init.exit:                                 ; preds = %kbd_vt_quit.exit.i, %59, %kbd_vt_quit.exit6.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %79
 
 79:                                               ; preds = %0, %kbd_vt_init.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @SDL_calloc_REAL(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
+declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 
-declare i32 @close(i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -245,13 +239,13 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
   br i1 %1, label %11, label %39
 
 11:                                               ; preds = %10
-  %12 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.1, i1 noundef zeroext true) #12
+  %12 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.1, i1 noundef zeroext true) #13
   br i1 %12, label %13, label %kbd_register_emerg_cleanup.exit
 
 13:                                               ; preds = %11
   %14 = load i32, ptr %0, align 8
-  %15 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 19269, i32 noundef 4) #12
-  %16 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.2, i1 noundef zeroext false) #12
+  %15 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %14, i64 noundef 19269, i32 noundef 4) #13
+  %16 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.2, i1 noundef zeroext false) #13
   %17 = load ptr, ptr @kbd_cleanup_state, align 8
   %.not.i = icmp ne ptr %17, null
   %or.cond.not = select i1 %16, i1 true, i1 %.not.i
@@ -263,7 +257,7 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
   br i1 %.b.i, label %21, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call i32 @atexit(ptr noundef nonnull @kbd_cleanup_atexit) #12
+  %20 = tail call i32 @atexit(ptr noundef nonnull @kbd_cleanup_atexit) #13
   store i1 true, ptr @kbd_cleanup_atexit_installed, align 4
   br label %21
 
@@ -278,12 +272,12 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
 
 24:                                               ; preds = %38, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %38 ]
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw [9 x i32], ptr @fatal_signals, i64 0, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %27
-  %29 = call i32 @sigaction(i32 noundef %26, ptr noundef null, ptr noundef nonnull %28) #12
+  %29 = call i32 @sigaction(i32 noundef %26, ptr noundef null, ptr noundef nonnull %28) #13
   %.not15.i = icmp eq i32 %29, 0
   br i1 %.not15.i, label %30, label %38
 
@@ -305,11 +299,11 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
   %36 = or i32 %35, 4
   store i32 %36, ptr %23, align 8
   store ptr @kbd_cleanup_signal_action, ptr %4, align 8
-  %37 = call i32 @sigaction(i32 noundef %26, ptr noundef nonnull %4, ptr noundef null) #12
+  %37 = call i32 @sigaction(i32 noundef %26, ptr noundef nonnull %4, ptr noundef null) #13
   br label %38
 
 38:                                               ; preds = %34, %32, %24
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %kbd_register_emerg_cleanup.exit, label %24, !llvm.loop !5
@@ -326,12 +320,12 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
 
 42:                                               ; preds = %56, %40
   %indvars.iv.i10 = phi i64 [ 0, %40 ], [ %indvars.iv.next.i12, %56 ]
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw [9 x i32], ptr @fatal_signals, i64 0, i64 %indvars.iv.i10
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %45
-  %47 = call i32 @sigaction(i32 noundef %44, ptr noundef null, ptr noundef nonnull %3) #12
+  %47 = call i32 @sigaction(i32 noundef %44, ptr noundef null, ptr noundef nonnull %3) #13
   %.not.i11 = icmp eq i32 %47, 0
   br i1 %.not.i11, label %48, label %56
 
@@ -345,11 +339,11 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
   br i1 %or.cond.i, label %56, label %54
 
 54:                                               ; preds = %48
-  %55 = call i32 @sigaction(i32 noundef %44, ptr noundef nonnull %46, ptr noundef null) #12
+  %55 = call i32 @sigaction(i32 noundef %44, ptr noundef nonnull %46, ptr noundef null) #13
   br label %56
 
 56:                                               ; preds = %54, %48, %42
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 9
   br i1 %exitcond.not.i13, label %kbd_unregister_emerg_cleanup.exit, label %42, !llvm.loop !7
@@ -358,7 +352,7 @@ kbd_unregister_emerg_cleanup.exit:                ; preds = %56, %39
   %57 = load i32, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i32, ptr %58, align 8
-  %60 = call i32 (i32, i64, ...) @ioctl(i32 noundef %57, i64 noundef 19269, i32 noundef %59) #12
+  %60 = call i32 (i32, i64, ...) @ioctl(i32 noundef %57, i64 noundef 19269, i32 noundef %59) #13
   br label %kbd_register_emerg_cleanup.exit
 
 kbd_register_emerg_cleanup.exit:                  ; preds = %38, %21, %11, %13, %kbd_unregister_emerg_cleanup.exit
@@ -369,10 +363,10 @@ kbd_register_emerg_cleanup.exit:                  ; preds = %38, %21, %11, %13, 
   ret void
 }
 
-declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
+declare zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SDL_EVDEV_kbd_set_vt_switch_callbacks(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #7 {
+define hidden void @SDL_EVDEV_kbd_set_vt_switch_callbacks(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %12, label %7
 
@@ -397,7 +391,7 @@ define hidden void @SDL_EVDEV_kbd_update(ptr noundef readonly captures(address_i
   br i1 %.not, label %kbd_vt_update.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending) #12
+  %3 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending) #13
   switch i32 %3, label %7 [
     i32 0, label %kbd_vt_update.exit
     i32 1, label %4
@@ -421,14 +415,14 @@ define hidden void @SDL_EVDEV_kbd_update(ptr noundef readonly captures(address_i
   %.sink14.ph.i = phi i32 [ 1, %4 ], [ 2, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %11 = load ptr, ptr %10, align 8
-  tail call void %.sink15.i(ptr noundef %11) #12
+  tail call void %.sink15.i(ptr noundef %11) #13
   br label %12
 
 12:                                               ; preds = %.sink.split.i, %7, %4
   %.sink14.i = phi i32 [ 1, %4 ], [ 2, %7 ], [ %.sink14.ph.i, %.sink.split.i ]
   %13 = load i32, ptr %0, align 8
-  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 22021, i32 noundef %.sink14.i) #12
-  %15 = tail call zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef %3, i32 noundef 0) #12
+  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 22021, i32 noundef %.sink14.i) #13
+  %15 = tail call zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef %3, i32 noundef 0) #13
   br label %kbd_vt_update.exit
 
 kbd_vt_update.exit:                               ; preds = %12, %2, %1
@@ -460,12 +454,12 @@ define hidden void @SDL_EVDEV_kbd_quit(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %26, %10
   %indvars.iv.i10.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i12.i, %26 ]
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw [9 x i32], ptr @fatal_signals, i64 0, i64 %indvars.iv.i10.i
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %15
-  %17 = call i32 @sigaction(i32 noundef %14, ptr noundef null, ptr noundef nonnull %3) #12
+  %17 = call i32 @sigaction(i32 noundef %14, ptr noundef null, ptr noundef nonnull %3) #13
   %.not.i11.i = icmp eq i32 %17, 0
   br i1 %.not.i11.i, label %18, label %26
 
@@ -479,11 +473,11 @@ define hidden void @SDL_EVDEV_kbd_quit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i.i, label %26, label %24
 
 24:                                               ; preds = %18
-  %25 = call i32 @sigaction(i32 noundef %14, ptr noundef nonnull %16, ptr noundef null) #12
+  %25 = call i32 @sigaction(i32 noundef %14, ptr noundef nonnull %16, ptr noundef null) #13
   br label %26
 
 26:                                               ; preds = %24, %18, %12
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, 9
   br i1 %exitcond.not.i13.i, label %kbd_unregister_emerg_cleanup.exit.i, label %12, !llvm.loop !7
@@ -492,13 +486,13 @@ kbd_unregister_emerg_cleanup.exit.i:              ; preds = %26, %9
   %27 = load i32, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = call i32 (i32, i64, ...) @ioctl(i32 noundef %27, i64 noundef 19269, i32 noundef %29) #12
+  %30 = call i32 (i32, i64, ...) @ioctl(i32 noundef %27, i64 noundef 19269, i32 noundef %29) #13
   store i8 0, ptr %6, align 4
   br label %SDL_EVDEV_kbd_set_muted.exit
 
 SDL_EVDEV_kbd_set_muted.exit:                     ; preds = %5, %kbd_unregister_emerg_cleanup.exit.i
   %31 = load i32, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = load i32, ptr @vt_release_signal, align 4
   %.not.i21 = icmp eq i32 %32, 0
   br i1 %.not.i21, label %37, label %33
@@ -506,7 +500,7 @@ SDL_EVDEV_kbd_set_muted.exit:                     ; preds = %5, %kbd_unregister_
 33:                                               ; preds = %SDL_EVDEV_kbd_set_muted.exit
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %34
-  %36 = call i32 @sigaction(i32 noundef %32, ptr noundef nonnull %35, ptr noundef null) #12
+  %36 = call i32 @sigaction(i32 noundef %32, ptr noundef nonnull %35, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   br label %37
 
@@ -518,20 +512,20 @@ SDL_EVDEV_kbd_set_muted.exit:                     ; preds = %5, %kbd_unregister_
 39:                                               ; preds = %37
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %40
-  %42 = call i32 @sigaction(i32 noundef %38, ptr noundef nonnull %41, ptr noundef null) #12
+  %42 = call i32 @sigaction(i32 noundef %38, ptr noundef nonnull %41, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit
 
 kbd_vt_quit.exit:                                 ; preds = %37, %39
   store i64 0, ptr %2, align 8
-  %43 = call i32 (i32, i64, ...) @ioctl(i32 noundef %31, i64 noundef 22018, ptr noundef nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  %43 = call i32 (i32, i64, ...) @ioctl(i32 noundef %31, i64 noundef 22018, ptr noundef nonnull %2) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %44 = load i32, ptr %0, align 8
   %45 = icmp sgt i32 %44, -1
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %kbd_vt_quit.exit
-  %47 = call i32 @close(i32 noundef %44) #12
+  %47 = call i32 @close(i32 noundef %44) #13
   store i32 -1, ptr %0, align 8
   br label %48
 
@@ -552,7 +546,7 @@ kbd_vt_quit.exit:                                 ; preds = %37, %39
   br i1 %.not20, label %55, label %54
 
 54:                                               ; preds = %.preheader
-  call void @SDL_free_REAL(ptr noundef nonnull %53) #12
+  call void @SDL_free_REAL(ptr noundef nonnull %53) #13
   br label %55
 
 55:                                               ; preds = %.preheader, %54
@@ -562,18 +556,18 @@ kbd_vt_quit.exit:                                 ; preds = %37, %39
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %49, align 8
-  call void @SDL_free_REAL(ptr noundef %57) #12
+  call void @SDL_free_REAL(ptr noundef %57) #13
   br label %58
 
 58:                                               ; preds = %56, %48
-  call void @SDL_free_REAL(ptr noundef nonnull %0) #12
+  call void @SDL_free_REAL(ptr noundef nonnull %0) #13
   br label %59
 
 59:                                               ; preds = %1, %58
   ret void
 }
 
-declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #6
+declare void @SDL_free_REAL(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -625,17 +619,17 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   br label %41
 
 33:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %17, ptr %4, align 2
   %34 = trunc nuw i32 %1 to i8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %34, ptr %35, align 1
-  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %27, i64 noundef 19270, ptr noundef nonnull %4) #12
+  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %27, i64 noundef 19270, ptr noundef nonnull %4) #13
   %37 = icmp eq i32 %36, 0
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = xor i16 %39, -4096
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %37, label %41, label %88
 
 41:                                               ; preds = %29, %33
@@ -687,17 +681,17 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   br label %74
 
 67:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %55, ptr %5, align 2
   %68 = trunc nuw i32 %1 to i8
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %68, ptr %69, align 1
-  %70 = call i32 (i32, i64, ...) @ioctl(i32 noundef %61, i64 noundef 19270, ptr noundef nonnull %5) #12
+  %70 = call i32 (i32, i64, ...) @ioctl(i32 noundef %61, i64 noundef 19270, ptr noundef nonnull %5) #13
   %71 = icmp eq i32 %70, 0
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %73 = load i16, ptr %72, align 2
   %.3 = select i1 %71, i16 %73, i16 %.1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %74
 
 74:                                               ; preds = %51, %63, %67, %54, %46
@@ -709,7 +703,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   %78 = trunc i16 %.2 to i8
   %.not58 = icmp eq i32 %2, 0
   %79 = zext i1 %.not58 to i8
-  call void %77(ptr noundef nonnull %0, i8 noundef zeroext %78, i8 noundef signext %79) #12
+  call void %77(ptr noundef nonnull %0, i8 noundef zeroext %78, i8 noundef signext %79) #13
   %.not59 = icmp eq i8 %.049, 12
   br i1 %.not59, label %81, label %80
 
@@ -728,7 +722,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   %86 = zext i32 %83 to i64
   %87 = getelementptr inbounds nuw [128 x i8], ptr %85, i64 0, i64 %86
   store i8 0, ptr %87, align 1
-  call void @SDL_SendKeyboardText(ptr noundef nonnull %85) #12
+  call void @SDL_SendKeyboardText(ptr noundef nonnull %85) #13
   store i32 0, ptr %82, align 4
   br label %88
 
@@ -737,7 +731,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @put_utf8(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @put_utf8(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #7 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %4, label %14
 
@@ -915,16 +909,16 @@ put_queue.exit:                                   ; preds = %put_queue.exit34, %
   ret void
 }
 
-declare void @SDL_SendKeyboardText(ptr noundef) local_unnamed_addr #6
+declare void @SDL_SendKeyboardText(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483646, -2147483648) i32 @find_free_signal(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.sigaction, align 8
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca %struct.sigaction, align 8
-  %5 = tail call i32 @__libc_current_sigrtmin() #12
+  %5 = tail call i32 @__libc_current_sigrtmin() #13
   %6 = add i32 %5, 2
-  %7 = tail call i32 @__libc_current_sigrtmax() #12
+  %7 = tail call i32 @__libc_current_sigrtmax() #13
   %.not18 = icmp sgt i32 %6, %7
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -936,13 +930,13 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @find_free_signal
 
 11:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false)
   store ptr %0, ptr %4, align 8
   store i32 268435456, ptr %9, align 8
   %13 = trunc nsw i64 %indvars.iv to i32
-  %14 = call i32 @sigaction(i32 noundef range(i32 -2147483646, -2147483648) %13, ptr noundef nonnull %4, ptr noundef nonnull %12) #12
+  %14 = call i32 @sigaction(i32 noundef range(i32 -2147483646, -2147483648) %13, ptr noundef nonnull %4, ptr noundef nonnull %12) #13
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %20, label %16
 
@@ -952,29 +946,29 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @find_free_signal
   br i1 %.not.i, label %setup_vt_signal.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = call i32 @sigaction(i32 noundef range(i32 -2147483646, -2147483648) %13, ptr noundef nonnull %12, ptr noundef null) #12
+  %19 = call i32 @sigaction(i32 noundef range(i32 -2147483646, -2147483648) %13, ptr noundef nonnull %12, ptr noundef null) #13
   br label %20
 
 setup_vt_signal.exit:                             ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 20:                                               ; preds = %18, %11
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %21 = call i32 @__libc_current_sigrtmax() #12
+  %21 = call i32 @__libc_current_sigrtmax() #13
   %22 = sext i32 %21 to i64
   %.not.not = icmp slt i64 %indvars.iv, %22
   br i1 %.not.not, label %11, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %20, %1
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %23, i8 0, i64 144, i1 false)
   store ptr %0, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 268435456, ptr %24, align 8
-  %25 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1520)) #12
+  %25 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1520)) #13
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %31, label %27
 
@@ -984,22 +978,22 @@ setup_vt_signal.exit:                             ; preds = %16
   br i1 %.not.i8, label %setup_vt_signal.exit10, label %29
 
 29:                                               ; preds = %27
-  %30 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1520), ptr noundef null) #12
+  %30 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1520), ptr noundef null) #13
   br label %31
 
 setup_vt_signal.exit10:                           ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %41
 
 31:                                               ; preds = %29, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %32, i8 0, i64 144, i1 false)
   store ptr %0, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 268435456, ptr %33, align 8
-  %34 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1824)) #12
+  %34 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1824)) #13
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %setup_vt_signal.exit13.thread, label %36
 
@@ -1009,15 +1003,15 @@ setup_vt_signal.exit10:                           ; preds = %27
   br i1 %.not.i11, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1824), ptr noundef null) #12
+  %39 = call i32 @sigaction(i32 noundef 12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @old_sigaction, i64 1824), ptr noundef null) #13
   br label %setup_vt_signal.exit13.thread
 
 setup_vt_signal.exit13.thread:                    ; preds = %38, %31
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 40:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %41
 
 41:                                               ; preds = %40, %setup_vt_signal.exit13.thread, %setup_vt_signal.exit10, %setup_vt_signal.exit
@@ -1027,32 +1021,32 @@ setup_vt_signal.exit13.thread:                    ; preds = %38, %31
 
 ; Function Attrs: nounwind uwtable
 define internal void @kbd_vt_release_signal_action(i32 %0) #0 {
-  %2 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef 1) #12
+  %2 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef 1) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @kbd_vt_acquire_signal_action(i32 %0) #0 {
-  %2 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef 2) #12
+  %2 = tail call i32 @SDL_SetAtomicInt_REAL(ptr noundef nonnull @vt_signal_pending, i32 noundef 2) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
-declare i32 @__libc_current_sigrtmin() local_unnamed_addr #5
+declare i32 @__libc_current_sigrtmin() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @__libc_current_sigrtmax() local_unnamed_addr #5
+declare i32 @__libc_current_sigrtmax() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare i32 @SDL_SetAtomicInt_REAL(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #10
+declare i32 @atexit(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @kbd_cleanup_atexit() #0 {
@@ -1066,7 +1060,7 @@ define internal void @kbd_cleanup_atexit() #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 19269, i32 noundef %6) #12
+  %7 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 19269, i32 noundef %6) #13
   br label %kbd_cleanup.exit
 
 kbd_cleanup.exit:                                 ; preds = %0, %3
@@ -1081,12 +1075,12 @@ kbd_cleanup.exit:                                 ; preds = %0, %3
 
 10:                                               ; preds = %24, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %24 ]
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %11 = getelementptr inbounds nuw [9 x i32], ptr @fatal_signals, i64 0, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %13
-  %15 = call i32 @sigaction(i32 noundef %12, ptr noundef null, ptr noundef nonnull %1) #12
+  %15 = call i32 @sigaction(i32 noundef %12, ptr noundef null, ptr noundef nonnull %1) #13
   %.not.i1 = icmp eq i32 %15, 0
   br i1 %.not.i1, label %16, label %24
 
@@ -1100,11 +1094,11 @@ kbd_cleanup.exit:                                 ; preds = %0, %3
   br i1 %or.cond.i, label %24, label %22
 
 22:                                               ; preds = %16
-  %23 = call i32 @sigaction(i32 noundef %12, ptr noundef nonnull %14, ptr noundef null) #12
+  %23 = call i32 @sigaction(i32 noundef %12, ptr noundef nonnull %14, ptr noundef null) #13
   br label %24
 
 24:                                               ; preds = %22, %16, %10
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %exitcond.not.i, label %kbd_unregister_emerg_cleanup.exit, label %10, !llvm.loop !7
@@ -1118,11 +1112,11 @@ define internal void @kbd_cleanup_signal_action(i32 noundef %0, ptr noundef %1, 
   %4 = alloca %struct.__sigset_t, align 8
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds [65 x %struct.sigaction], ptr @old_sigaction, i64 0, i64 %5
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #12
-  %7 = tail call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %6, ptr noundef null) #12
-  %8 = call i32 @sigemptyset(ptr noundef nonnull %4) #12
-  %9 = call i32 @sigaddset(ptr noundef nonnull %4, i32 noundef %0) #12
-  %10 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %7 = tail call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %6, ptr noundef null) #13
+  %8 = call i32 @sigemptyset(ptr noundef nonnull %4) #13
+  %9 = call i32 @sigaddset(ptr noundef nonnull %4, i32 noundef %0) #13
+  %10 = call i32 @sigprocmask(i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #13
   store ptr %1, ptr @SDL_EVDEV_kdb_cleanup_siginfo, align 8
   store ptr %2, ptr @SDL_EVDEV_kdb_cleanup_ucontext, align 8
   %11 = load ptr, ptr @kbd_cleanup_state, align 8
@@ -1134,30 +1128,30 @@ define internal void @kbd_cleanup_signal_action(i32 noundef %0, ptr noundef %1, 
   %13 = load i32, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 19269, i32 noundef %15) #12
+  %16 = call i32 (i32, i64, ...) @ioctl(i32 noundef %13, i64 noundef 19269, i32 noundef %15) #13
   br label %kbd_cleanup.exit
 
 kbd_cleanup.exit:                                 ; preds = %3, %12
-  %17 = call i32 @raise(i32 noundef %0) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #12
+  %17 = call i32 @raise(i32 noundef %0) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #5
+declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #5
+declare i32 @raise(i32 noundef) local_unnamed_addr #4
 
-declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #6
+declare i32 @SDL_GetAtomicInt_REAL(ptr noundef) local_unnamed_addr #5
 
-declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare zeroext i1 @SDL_CompareAndSwapAtomicInt_REAL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @k_self(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #0 {
@@ -1180,7 +1174,7 @@ define internal void @k_self(ptr noundef captures(none) %0, i8 noundef zeroext %
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19274, ptr noundef %13) #12
+  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19274, ptr noundef %13) #13
   br label %15
 
 15:                                               ; preds = %11, %7
@@ -1258,7 +1252,7 @@ handle_diacr.exit:                                ; preds = %29, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_fn(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_fn(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
@@ -1279,7 +1273,7 @@ define internal void @k_spec(ptr noundef %0, i8 noundef zeroext %1, i8 noundef s
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw [20 x ptr], ptr @fn_handler, i64 0, i64 %7
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %0) #12
+  tail call void %12(ptr noundef %0) #13
   br label %13
 
 13:                                               ; preds = %3, %10, %6
@@ -1287,7 +1281,7 @@ define internal void @k_spec(ptr noundef %0, i8 noundef zeroext %1, i8 noundef s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @k_pad(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #8 {
+define internal void @k_pad(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #7 {
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %4, label %put_queue.exit
 
@@ -1344,7 +1338,7 @@ define internal void @k_dead(ptr noundef captures(none) %0, i8 noundef zeroext %
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 19274, ptr noundef %16) #12
+  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 19274, ptr noundef %16) #13
   br label %18
 
 18:                                               ; preds = %14, %11
@@ -1404,12 +1398,12 @@ k_deadunicode.exit:                               ; preds = %3, %handle_diacr.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_cons(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_cons(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_cur(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_cur(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
@@ -1437,7 +1431,7 @@ define internal void @k_shift(ptr noundef captures(none) %0, i8 noundef zeroext 
   store i8 %14, ptr %12, align 1
   %15 = load i32, ptr %0, align 8
   %16 = zext i8 %14 to i64
-  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 19250, i64 noundef %16) #12
+  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 19250, i64 noundef %16) #13
   br label %25
 
 18:                                               ; preds = %9
@@ -1504,12 +1498,12 @@ define internal void @k_shift(ptr noundef captures(none) %0, i8 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_meta(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_meta(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @k_ascii(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #8 {
+define internal void @k_ascii(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #7 {
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %4, label %13
 
@@ -1533,7 +1527,7 @@ define internal void @k_ascii(ptr noundef captures(none) %0, i8 noundef zeroext 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @k_lock(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #8 {
+define internal void @k_lock(ptr noundef captures(none) %0, i8 noundef zeroext %1, i8 noundef signext %2) #7 {
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %4, label %15
 
@@ -1558,7 +1552,7 @@ define internal void @k_lock(ptr noundef captures(none) %0, i8 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_lowercase(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_lowercase(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
@@ -1586,7 +1580,7 @@ define internal void @k_slock(ptr noundef captures(none) %0, i8 noundef zeroext 
   store i8 %14, ptr %12, align 1
   %15 = load i32, ptr %0, align 8
   %16 = zext i8 %14 to i64
-  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 19250, i64 noundef %16) #12
+  %17 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 19250, i64 noundef %16) #13
   br label %25
 
 18:                                               ; preds = %9
@@ -1705,7 +1699,7 @@ define internal void @k_dead2(ptr noundef captures(none) %0, i8 noundef zeroext 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19274, ptr noundef %13) #12
+  %14 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19274, ptr noundef %13) #13
   br label %15
 
 15:                                               ; preds = %11, %8
@@ -1765,17 +1759,17 @@ k_deadunicode.exit:                               ; preds = %3, %handle_diacr.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_brl(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_brl(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @k_ignore(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #11 {
+define internal void @k_ignore(ptr readnone captures(none) %0, i8 zeroext %1, i8 signext %2) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fn_enter(ptr noundef captures(none) %0) #8 {
+define internal void @fn_enter(ptr noundef captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -1804,7 +1798,7 @@ define internal void @fn_caps_toggle(ptr noundef captures(none) %0) #0 {
   store i8 %8, ptr %6, align 1
   %9 = load i32, ptr %0, align 8
   %10 = zext i8 %8 to i64
-  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #12
+  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #13
   br label %12
 
 12:                                               ; preds = %1, %5
@@ -1825,7 +1819,7 @@ define internal void @fn_num(ptr noundef captures(none) %0) #0 {
   store i8 %8, ptr %6, align 1
   %9 = load i32, ptr %0, align 8
   %10 = zext i8 %8 to i64
-  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #12
+  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #13
   br label %12
 
 12:                                               ; preds = %5, %1
@@ -1846,7 +1840,7 @@ define internal void @fn_caps_on(ptr noundef captures(none) %0) #0 {
   store i8 %8, ptr %6, align 1
   %9 = load i32, ptr %0, align 8
   %10 = zext i8 %8 to i64
-  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #12
+  %11 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 19250, i64 noundef %10) #13
   br label %12
 
 12:                                               ; preds = %1, %5
@@ -1854,26 +1848,32 @@ define internal void @fn_caps_on(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fn_compose(ptr noundef writeonly captures(none) initializes((33, 34)) %0) #7 {
+define internal void @fn_compose(ptr noundef writeonly captures(none) initializes((33, 34)) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %2, align 1
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0,1) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind allocsize(0,1) }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

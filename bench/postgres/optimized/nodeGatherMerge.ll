@@ -159,9 +159,6 @@ gather_merge_setup.exit:                          ; preds = %77, %.loopexit
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %2 = alloca i8, align 1
@@ -627,7 +624,7 @@ gather_merge_getnext.exit:                        ; preds = %203
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %263 = load ptr, ptr %262, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load ptr, ptr %264, align 8
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
@@ -651,7 +648,7 @@ gather_merge_getnext.exit:                        ; preds = %203
   %280 = trunc i32 %279 to i16
   %281 = getelementptr inbounds nuw i8, ptr %263, i64 6
   store i16 %280, ptr %281, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %gather_merge_getnext.exit.thread
 
 gather_merge_getnext.exit.thread:                 ; preds = %._crit_edge.i14.i, %208, %252, %gather_merge_getnext.exit, %248, %256
@@ -659,22 +656,19 @@ gather_merge_getnext.exit.thread:                 ; preds = %._crit_edge.i14.i, 
   ret ptr %.0
 }
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecGetResultType(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecConditionalAssignProjectionInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecConditionalAssignProjectionInfo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -715,7 +709,7 @@ ExecShutdownGatherMerge.exit:                     ; preds = %ExecShutdownGatherM
   ret void
 }
 
-declare void @ExecEndNode(ptr noundef) local_unnamed_addr #2
+declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecShutdownGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -753,7 +747,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %5, %8
   ret void
 }
 
-declare void @ExecParallelCleanup(ptr noundef) local_unnamed_addr #2
+declare void @ExecParallelCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanGatherMerge(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -862,28 +856,28 @@ gather_merge_clear_tuples.exit._crit_edge:        ; preds = %gather_merge_clear_
   ret void
 }
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
-declare ptr @ExecInitParallelPlan(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @ExecInitParallelPlan(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @ExecParallelReinitialize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ExecParallelReinitialize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @LaunchParallelWorkers(ptr noundef) local_unnamed_addr #2
+declare void @LaunchParallelWorkers(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecParallelCreateReaders(ptr noundef) local_unnamed_addr #2
+declare void @ExecParallelCreateReaders(ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @gather_merge_readnext(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -1074,29 +1068,29 @@ gm_readnext_tuple.exit.thread:                    ; preds = %60, %gm_readnext_tu
   ret i1 %.1
 }
 
-declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #2
+declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_reset(ptr noundef) local_unnamed_addr #1
 
-declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @binaryheap_build(ptr noundef) local_unnamed_addr #2
+declare void @binaryheap_build(ptr noundef) local_unnamed_addr #1
 
-declare ptr @TupleQueueReaderNext(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare ptr @TupleQueueReaderNext(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_copy_minimal_tuple(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ExecParallelFinish(ptr noundef) local_unnamed_addr #2
+declare void @ExecParallelFinish(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
@@ -1227,12 +1221,18 @@ ApplySortComparator.exit.thread:                  ; preds = %48, %ApplySortCompa
   ret i32 %.2
 }
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

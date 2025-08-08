@@ -90,15 +90,9 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
 
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @test_gc_control(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
@@ -174,7 +168,7 @@ define internal noundef ptr @test_gc_control(ptr readnone captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @test_gc_visit_objects_basic(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.gc_visit_state_basic, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @PyList_New(i64 noundef 0) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6
@@ -210,14 +204,14 @@ Py_DECREF.exit:                                   ; preds = %6, %9, %12
 
 16:                                               ; preds = %Py_DECREF.exit, %2, %14
   %.0 = phi ptr [ null, %14 ], [ null, %2 ], [ @_Py_NoneStruct, %Py_DECREF.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_gc_visit_objects_exit_early(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
   call void @PyUnstable_GC_VisitObjects(ptr noundef nonnull @gc_visit_callback_exit_early, ptr noundef nonnull %3) #8
   %4 = load i32, ptr %3, align 4, !tbaa !13
@@ -230,7 +224,7 @@ define internal noundef nonnull ptr @test_gc_visit_objects_exit_early(ptr readno
   br label %7
 
 7:                                                ; preds = %5, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
@@ -298,7 +292,7 @@ _Py_NewRef.exit:                                  ; preds = %24, %21, %9
 ; Function Attrs: nounwind uwtable
 define internal ptr @with_tp_del(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %_Py_NewRef.exit, label %5
@@ -339,7 +333,7 @@ define internal ptr @with_tp_del(ptr readnone captures(none) %0, ptr noundef %1)
 
 _Py_NewRef.exit:                                  ; preds = %20, %16, %2, %13
   %.0 = phi ptr [ null, %13 ], [ null, %2 ], [ %6, %16 ], [ %6, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -356,7 +350,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare void @PyUnstable_GC_VisitObjects(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) #3 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1) #2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !9
   %4 = icmp eq ptr %0, %3
   br i1 %4, label %5, label %7
@@ -374,7 +368,7 @@ define internal range(i32 0, 2) i32 @gc_visit_callback_basic(ptr noundef readnon
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #3 {
+define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = load i32, ptr %1, align 4, !tbaa !13
   %4 = add i32 %3, 1
   store i32 %4, ptr %1, align 4, !tbaa !13
@@ -386,7 +380,7 @@ define internal range(i32 0, 2) i32 @gc_visit_callback_exit_early(ptr readnone c
 declare void @PyObject_Free(ptr noundef) #1
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -659,7 +653,7 @@ define internal ptr @obj_extra_data_new(ptr noundef %0, ptr readnone captures(no
 declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @obj_extra_data_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #5 {
+define internal ptr @obj_extra_data_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
@@ -743,6 +737,12 @@ declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
@@ -751,10 +751,10 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

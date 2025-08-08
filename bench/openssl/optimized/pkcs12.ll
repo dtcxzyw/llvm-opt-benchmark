@@ -230,20 +230,20 @@ define dso_local range(i32 0, 2) i32 @pkcs12_main(i32 noundef %0, ptr noundef %1
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %4, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %5, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !9
   %23 = tail call ptr @EVP_aes_256_cbc() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %23, ptr %9, align 8, !tbaa !11
   tail call void @opt_set_unknown_name(ptr noundef nonnull @.str.118) #6
   %24 = tail call ptr @opt_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @pkcs12_options) #6
@@ -1022,11 +1022,11 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not353, label %468, label %307
 
 307:                                              ; preds = %.thread461
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !19
   %308 = and i32 %.0322, 3
   %309 = icmp eq i32 %308, 3
@@ -1137,7 +1137,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not411, label %390, label %362
 
 362:                                              ; preds = %361
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %363 = icmp eq ptr %.1236, null
   %364 = load ptr, ptr %10, align 8
   %365 = icmp ne ptr %364, null
@@ -1190,11 +1190,11 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %.thread470
 
 .thread470:                                       ; preds = %370, %373, %376, %384, %379
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %462
 
 389:                                              ; preds = %379
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %390
 
 390:                                              ; preds = %389, %361
@@ -1365,15 +1365,15 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 .thread473:                                       ; preds = %462, %456
   %.3302.ph = phi i32 [ 1, %456 ], [ %.2301, %462 ]
   %.3251.ph = phi ptr [ null, %456 ], [ %.2250, %462 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
 467:                                              ; preds = %438
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %set_pbe.exit.thread
 
 468:                                              ; preds = %.thread461
@@ -1437,11 +1437,11 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not391, label %564, label %497
 
 497:                                              ; preds = %494
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %498 = load ptr, ptr %8, align 8, !tbaa !9
   call void @PKCS12_get0_mac(ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef %498) #6
   %499 = load ptr, ptr %15, align 8, !tbaa !23
@@ -1468,7 +1468,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %540
 
 515:                                              ; preds = %508
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %516 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %517 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %518 = load ptr, ptr %517, align 8, !tbaa !27
@@ -1499,7 +1499,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %537 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %538 = call ptr @OBJ_nid2sn(i32 noundef %.0219) #6
   %539 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %537, ptr noundef nonnull @.str.154, ptr noundef %538) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %540
 
 540:                                              ; preds = %536, %512
@@ -1546,11 +1546,11 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br label %563
 
 563:                                              ; preds = %560, %540
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %564
 
 564:                                              ; preds = %563, %494, %492
@@ -1558,8 +1558,8 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not395, label %613, label %565
 
 565:                                              ; preds = %564
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %566 = load ptr, ptr %8, align 8, !tbaa !9
   call void @PKCS12_get0_mac(ptr noundef null, ptr noundef nonnull %20, ptr noundef null, ptr noundef null, ptr noundef %566) #6
   %567 = load ptr, ptr %20, align 8, !tbaa !23
@@ -1590,8 +1590,8 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   %580 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %579, ptr noundef nonnull @.str.159) #6
   %581 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %582 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %581, ptr noundef nonnull @.str.160) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 583:                                              ; preds = %575
@@ -1620,7 +1620,7 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   br i1 %.not400, label %593, label %.sink.split1103
 
 593:                                              ; preds = %590
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %594 = call i64 @ERR_peek_error() #6
   %595 = and i64 %594, 4294967295
   %or.cond502 = icmp eq i64 %595, 293601388
@@ -1650,27 +1650,27 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
 608:                                              ; preds = %599
   %609 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %604, ptr noundef nonnull @.str.163) #6
   %spec.select429 = select i1 %.not386467, ptr %601, ptr %.1276465
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.sink.split1103
 
 .thread497:                                       ; preds = %596, %605
   %.3272.ph.ph = phi ptr [ %601, %605 ], [ null, %596 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit
 
 610:                                              ; preds = %593
   %611 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %612 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %611, ptr noundef nonnull @.str.157) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %.sink.split1103
 
 .sink.split1103:                                  ; preds = %608, %589, %590, %569, %610
   %.6.ph = phi ptr [ %.1276465, %610 ], [ %spec.select429, %608 ], [ %spec.select, %589 ], [ %.1276465, %590 ], [ %.1276465, %569 ]
   %.4273.ph = phi ptr [ null, %610 ], [ %601, %608 ], [ null, %589 ], [ null, %590 ], [ null, %569 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %613
 
 613:                                              ; preds = %.sink.split1103, %564
@@ -1714,87 +1714,84 @@ set_pbe.exit.backedge:                            ; preds = %84, %81, %73, %70, 
   call void @CRYPTO_free(ptr noundef %628, ptr noundef nonnull @.str.161, i32 noundef 913) #6
   %629 = load ptr, ptr %7, align 8, !tbaa !4
   call void @CRYPTO_free(ptr noundef %629, ptr noundef nonnull @.str.161, i32 noundef 914) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1300
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare ptr @EVP_aes_256_cbc() local_unnamed_addr #3
+declare ptr @EVP_aes_256_cbc() local_unnamed_addr #2
 
-declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #3
+declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @opt_next() local_unnamed_addr #3
+declare i32 @opt_next() local_unnamed_addr #2
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @opt_help(ptr noundef) local_unnamed_addr #3
+declare void @opt_help(ptr noundef) local_unnamed_addr #2
 
-declare ptr @opt_arg() local_unnamed_addr #3
+declare ptr @opt_arg() local_unnamed_addr #2
 
-declare ptr @opt_flag() local_unnamed_addr #3
+declare ptr @opt_flag() local_unnamed_addr #2
 
-declare ptr @opt_unknown() local_unnamed_addr #3
+declare ptr @opt_unknown() local_unnamed_addr #2
 
-declare i32 @opt_int_arg() local_unnamed_addr #3
+declare i32 @opt_int_arg() local_unnamed_addr #2
 
-declare i32 @opt_rand(i32 noundef) local_unnamed_addr #3
+declare i32 @opt_rand(i32 noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #3
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #3
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
 
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #3
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
 
-declare i32 @app_RAND_load() local_unnamed_addr #3
+declare i32 @app_RAND_load() local_unnamed_addr #2
 
-declare i32 @opt_cipher_any(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_cipher_any(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OSSL_PROVIDER_available(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OSSL_PROVIDER_available(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @app_get0_libctx() local_unnamed_addr #3
+declare ptr @app_get0_libctx() local_unnamed_addr #2
 
-declare i32 @app_provider_load(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @app_provider_load(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_des_ede3_cbc() local_unnamed_addr #3
+declare ptr @EVP_des_ede3_cbc() local_unnamed_addr #2
 
-declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @load_key(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @load_certs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @load_certs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @cert_matches_key(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @cert_matches_key(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_keyid_set1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @X509_keyid_set1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @X509_alias_set1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @X509_alias_set1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
@@ -1831,35 +1828,32 @@ define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %0, ptr noundef n
   ret i32 %.0
 }
 
-declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #3
+declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #2
 
-declare void @X509_free(ptr noundef) local_unnamed_addr #3
+declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #3
+declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #2
 
-declare ptr @X509_verify_cert_error_string(i64 noundef) local_unnamed_addr #3
+declare i32 @EVP_PKEY_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_PKEY_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @OBJ_txt2obj(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PKCS12_create_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_create_ex2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @app_get0_propq() local_unnamed_addr #3
+declare ptr @app_get0_propq() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @jdk_trust(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %10, label %5
 
@@ -1874,69 +1868,69 @@ define internal noundef i32 @jdk_trust(ptr noundef %0, ptr noundef %1) #0 {
   br label %10
 
 10:                                               ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 1
 }
 
-declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_set_pbmac1_pbkdf2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS12_set_pbmac1_pbkdf2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_set_mac(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS12_set_mac(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @bio_open_owner(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @i2d_PKCS12_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @i2d_PKCS12_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
-declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #3
+declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #3
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
 
-declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #3
+declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_init_ex(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_init_ex(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @d2i_PKCS12_bio(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @d2i_PKCS12_bio(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_mac_present(ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS12_mac_present(ptr noundef) local_unnamed_addr #2
 
-declare void @PKCS12_get0_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PKCS12_get0_mac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @X509_ALGOR_get0(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #3
+declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PBMAC1_get1_pbkdf2_param(ptr noundef) local_unnamed_addr #3
+declare ptr @PBMAC1_get1_pbkdf2_param(ptr noundef) local_unnamed_addr #2
 
-declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #3
+declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #2
 
-declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #3
+declare i32 @ASN1_STRING_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #3
+declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #2
 
-declare void @PBKDF2PARAM_free(ptr noundef) local_unnamed_addr #3
+declare void @PBKDF2PARAM_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_KDF_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_KDF_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_verify_mac(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @PKCS12_verify_mac(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @ERR_peek_error() local_unnamed_addr #3
+declare i64 @ERR_peek_error() local_unnamed_addr #2
 
-declare ptr @OPENSSL_asc2uni(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_asc2uni(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_uni2utf8(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_uni2utf8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @dump_certs_keys_p12(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -2049,28 +2043,28 @@ dump_certs_pkeys_bags.exit:                       ; preds = %.lr.ph.i
   ret i32 %.031
 }
 
-declare void @PKCS12_free(ptr noundef) local_unnamed_addr #3
+declare void @PKCS12_free(ptr noundef) local_unnamed_addr #2
 
-declare void @release_engine(ptr noundef) local_unnamed_addr #3
+declare void @release_engine(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #3
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_unpack_authsafes(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_unpack_authsafes(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @alg_print(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @X509_ALGOR_get0(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef %0) #6
   %5 = load ptr, ptr %3, align 8, !tbaa !25
   %6 = call i32 @OBJ_obj2nid(ptr noundef %5) #6
@@ -2221,13 +2215,13 @@ define internal fastcc void @alg_print(ptr noundef %0) unnamed_addr #0 {
 94:                                               ; preds = %.thread55, %88, %.thread52, %.thread44, %79, %.thread
   %95 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %96 = call i32 @BIO_puts(ptr noundef %95, ptr noundef nonnull @.str.178) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @dump_certs_pkeys_bags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -2253,11 +2247,11 @@ define dso_local range(i32 0, 2) i32 @dump_certs_pkeys_bags(ptr noundef %0, ptr 
   ret i32 %.011
 }
 
-declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PKCS12_SAFEBAG_free(ptr noundef) #3
+declare void @PKCS12_SAFEBAG_free(ptr noundef) #2
 
-declare void @PKCS7_free(ptr noundef) #3
+declare void @PKCS7_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @dump_certs_pkeys_bag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -2307,14 +2301,14 @@ define dso_local i32 @dump_certs_pkeys_bag(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not78, label %34, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = load ptr, ptr @bio_err, align 8, !tbaa !13
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.171) #6
   %32 = tail call ptr @PKCS12_SAFEBAG_get0_pkcs8(ptr noundef %1) #6
   call void @X509_SIG_get0(ptr noundef %32, ptr noundef nonnull %8, ptr noundef null) #6
   %33 = load ptr, ptr %8, align 8, !tbaa !23
   call fastcc void @alg_print(ptr noundef %33)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %34
 
 34:                                               ; preds = %29, %27
@@ -2460,9 +2454,9 @@ dump_certs_pkeys_bags.exit:                       ; preds = %94, %.lr.ph, %89, %
   ret i32 %.0
 }
 
-declare ptr @PKCS12_SAFEBAG_get0_attrs(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_attrs(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_SAFEBAG_get_nid(ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS12_SAFEBAG_get_nid(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @print_attribs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2537,38 +2531,38 @@ define dso_local noundef i32 @print_attribs(ptr noundef %0, ptr noundef %1, ptr 
   ret i32 1
 }
 
-declare ptr @PKCS12_SAFEBAG_get0_p8inf(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_p8inf(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_PKCS82PKEY(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_PKCS82PKEY(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS8_pkey_get0_attrs(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS8_pkey_get0_attrs(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PEM_write_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PEM_write_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get0_pkcs8(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_pkcs8(ptr noundef) local_unnamed_addr #2
 
-declare void @X509_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @X509_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_decrypt_skey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PKCS12_decrypt_skey(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #3
+declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get0_attr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @PKCS12_SAFEBAG_get_bag_nid(ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS12_SAFEBAG_get_bag_nid(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get1_cert(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get1_cert(ptr noundef) local_unnamed_addr #2
 
-declare void @dump_cert_text(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @dump_cert_text(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get0_bag_type(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_bag_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @print_attribute(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %1, align 8, !tbaa !66
   switch i32 %4, label %53 [
     i32 30, label %5
@@ -2670,15 +2664,15 @@ hex_prin.exit31:                                  ; preds = %.lr.ph.i27, %32
   br label %55
 
 55:                                               ; preds = %53, %44, %hex_prin.exit31, %hex_prin.exit, %13, %5
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @PKCS12_SAFEBAG_get0_bag_obj(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_bag_obj(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get0_safes(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_safes(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PKCS12_SAFEBAG_get0_type(ptr noundef) local_unnamed_addr #3
+declare ptr @PKCS12_SAFEBAG_get0_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @cert_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2706,11 +2700,11 @@ define dso_local range(i32 0, 2) i32 @cert_load(ptr noundef %0, ptr noundef %1) 
   ret i32 %.0
 }
 
-declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_clear_error() local_unnamed_addr #3
+declare void @ERR_clear_error() local_unnamed_addr #2
 
-declare ptr @OPENSSL_uni2asc(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @OPENSSL_uni2asc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hex_prin(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -2735,65 +2729,71 @@ define dso_local void @hex_prin(ptr noundef %0, ptr noundef readonly captures(no
   ret void
 }
 
-declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #3
+declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #2
 
-declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OBJ_obj2txt(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #3
+declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #3
+declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #2
 
-declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @X509_ATTRIBUTE_create(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @X509_ATTRIBUTE_create(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @PKCS12_SAFEBAG_set0_attrs(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @PKCS12_SAFEBAG_set0_attrs(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #3
+declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @X509_STORE_CTX_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @X509_STORE_CTX_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @X509_STORE_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #3
+declare i32 @X509_verify_cert(ptr noundef) local_unnamed_addr #2
 
-declare ptr @X509_STORE_CTX_get1_chain(ptr noundef) local_unnamed_addr #3
+declare ptr @X509_STORE_CTX_get1_chain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #3
+declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #2
 
-declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @X509_STORE_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ASN1_item_unpack(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @PBE2PARAM_it() local_unnamed_addr #3
+declare ptr @PBE2PARAM_it() local_unnamed_addr #2
 
-declare ptr @PBKDF2PARAM_it() local_unnamed_addr #3
+declare ptr @PBKDF2PARAM_it() local_unnamed_addr #2
 
-declare ptr @SCRYPT_PARAMS_it() local_unnamed_addr #3
+declare ptr @SCRYPT_PARAMS_it() local_unnamed_addr #2
 
-declare void @SCRYPT_PARAMS_free(ptr noundef) local_unnamed_addr #3
+declare void @SCRYPT_PARAMS_free(ptr noundef) local_unnamed_addr #2
 
-declare void @PBE2PARAM_free(ptr noundef) local_unnamed_addr #3
+declare void @PBE2PARAM_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @PBEPARAM_it() local_unnamed_addr #3
+declare ptr @PBEPARAM_it() local_unnamed_addr #2
 
-declare void @PBEPARAM_free(ptr noundef) local_unnamed_addr #3
+declare void @PBEPARAM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #3
+declare i32 @OBJ_txt2nid(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

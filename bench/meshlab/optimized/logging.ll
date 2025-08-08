@@ -393,8 +393,8 @@ define void @_ZN7logging6Logger4InitEi(i32 noundef %0) local_unnamed_addr #3 ali
   store i32 %0, ptr @_ZN7logging6Logger8logLevelE, align 4
   %5 = tail call i64 @pthread_self() #23
   store i64 %5, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -431,8 +431,8 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
 _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixEOS1_.exit: ; preds = %10, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %13, %.critedge.i ], [ %.19.i.i.i.i, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.6)
   ret void
 }
@@ -873,8 +873,8 @@ define void @_ZN7logging6Logger12RegisterNameERKNSt7__cxx1112basic_stringIcSt11c
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %7 = tail call i64 @pthread_self() #23
   store i64 %7, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN7logging6Logger11threadNamesB5cxx11E, i64 16), align 8
   %.not10.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
@@ -911,8 +911,8 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
 16:                                               ; preds = %12, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %12 ], [ %15, %.critedge.i ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %19 unwind label %21
 
@@ -974,8 +974,8 @@ _ZNKSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4
   br i1 %.not8, label %_ZNKSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE5countERSB_.exit.thread, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE5countERSB_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i.i.i.i
@@ -1009,8 +1009,8 @@ _ZNSt3mapINSt6thread2idENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4l
 22:                                               ; preds = %18, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %18 ], [ %21, %.critedge.i ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %36 unwind label %24
 
@@ -1156,10 +1156,10 @@ define internal void @_GLOBAL__sub_I_logging.cpp() #15 section ".text.startup" p
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

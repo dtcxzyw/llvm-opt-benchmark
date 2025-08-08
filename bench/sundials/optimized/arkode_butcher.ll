@@ -259,14 +259,11 @@ define noundef ptr @ARKodeButcherTable_Alloc(i32 noundef %0, i32 noundef %1) loc
   ret ptr %.042
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -352,9 +349,6 @@ define void @ARKodeButcherTable_Free(ptr noundef captures(address_is_null) %0) l
 31:                                               ; preds = %30, %1
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ARKodeButcherTable_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
@@ -541,7 +535,7 @@ define noundef ptr @ARKodeButcherTable_Copy(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeButcherTable_Space(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #4 {
+define void @ARKodeButcherTable_Space(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   store i64 0, ptr %1, align 8, !tbaa !23
   store i64 0, ptr %2, align 8, !tbaa !23
   %4 = icmp eq ptr %0, null
@@ -566,10 +560,10 @@ define void @ARKodeButcherTable_Space(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 {
+define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -719,10 +713,10 @@ define void @ARKodeButcherTable_Write(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp sgt i32 %3, 0
@@ -761,7 +755,7 @@ define range(i32 0, 2) i32 @ARKodeButcherTable_IsStifflyAccurate(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 2) i32 @ARKodeButcherTable_CheckOrder(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
@@ -2156,7 +2150,7 @@ thread-pre-split1078:                             ; preds = %arkode_butcher_rows
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
   %7 = icmp eq ptr %1, null
@@ -2219,7 +2213,7 @@ arkode_butcher_dot.exit:                          ; preds = %17, %25, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order3b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #9 {
   %5 = sext i32 %3 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #16
   %7 = icmp eq ptr %1, null
@@ -2295,7 +2289,7 @@ arkode_butcher_dot.exit:                          ; preds = %22, %30, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
@@ -2385,7 +2379,7 @@ arkode_butcher_dot.exit:                          ; preds = %28, %36, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
@@ -2486,7 +2480,7 @@ arkode_butcher_dot.exit:                          ; preds = %39, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
@@ -2589,7 +2583,7 @@ arkode_butcher_dot.exit:                          ; preds = %32, %40, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order4d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #9 {
   %6 = sext i32 %4 to i64
   %7 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
   %8 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 8) #16
@@ -2705,7 +2699,7 @@ arkode_butcher_dot.exit:                          ; preds = %37, %45, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -2817,7 +2811,7 @@ arkode_butcher_dot.exit:                          ; preds = %37, %45, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -2945,7 +2939,7 @@ arkode_butcher_dot.exit:                          ; preds = %49, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3089,7 +3083,7 @@ arkode_butcher_dot.exit:                          ; preds = %48, %56, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3212,7 +3206,7 @@ arkode_butcher_dot.exit:                          ; preds = %48, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3342,7 +3336,7 @@ arkode_butcher_dot.exit:                          ; preds = %42, %50, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3478,7 +3472,7 @@ arkode_butcher_dot.exit:                          ; preds = %53, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3621,7 +3615,7 @@ arkode_butcher_dot.exit:                          ; preds = %47, %55, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3767,7 +3761,7 @@ arkode_butcher_dot.exit:                          ; preds = %46, %54, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order5i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) unnamed_addr #9 {
   %7 = sext i32 %5 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
   %9 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #16
@@ -3923,7 +3917,7 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6a(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4057,7 +4051,7 @@ arkode_butcher_dot.exit:                          ; preds = %46, %54, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6b(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4207,7 +4201,7 @@ arkode_butcher_dot.exit:                          ; preds = %58, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6c(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4374,7 +4368,7 @@ arkode_butcher_dot.exit:                          ; preds = %57, %65, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6d(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4527,7 +4521,7 @@ arkode_butcher_dot.exit:                          ; preds = %59, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6e(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4698,7 +4692,7 @@ arkode_butcher_dot.exit:                          ; preds = %64, %arkode_butcher
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6f(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -4883,7 +4877,7 @@ arkode_butcher_dot.exit:                          ; preds = %62, %70, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6g(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5035,7 +5029,7 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6h(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5200,7 +5194,7 @@ arkode_butcher_dot.exit:                          ; preds = %56, %64, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6i(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5368,7 +5362,7 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6j(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5546,7 +5540,7 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6k(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5698,7 +5692,7 @@ arkode_butcher_dot.exit:                          ; preds = %51, %59, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6l(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -5863,7 +5857,7 @@ arkode_butcher_dot.exit:                          ; preds = %56, %64, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6m(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6048,7 +6042,7 @@ arkode_butcher_dot.exit:                          ; preds = %62, %70, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6n(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6216,7 +6210,7 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6o(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6394,7 +6388,7 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6p(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6563,7 +6557,7 @@ arkode_butcher_dot.exit:                          ; preds = %55, %63, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6q(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6745,7 +6739,7 @@ arkode_butcher_dot.exit:                          ; preds = %60, %68, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6r(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -6930,7 +6924,7 @@ arkode_butcher_dot.exit:                          ; preds = %59, %67, %arkode_bu
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @arkode_butcher_order6s(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) unnamed_addr #9 {
   %8 = sext i32 %6 to i64
   %9 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
   %10 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #16
@@ -7334,14 +7328,14 @@ define range(i32 -1, 2) i32 @ARKodeButcherTable_CheckARKOrder(ptr noundef readon
   %.sroa.181 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
   %.sroa.38 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05626)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.121)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05506)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.385507)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05470)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.181)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05626)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05506)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.385507)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.05470)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.181)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.38)
   store i32 0, ptr %3, align 4, !tbaa !25
   store i32 0, ptr %2, align 4, !tbaa !25
   %6 = icmp eq ptr %0, null
@@ -13754,21 +13748,27 @@ thread-pre-split2603.thread:                      ; preds = %arkode_butcher_rows
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph2979, %.thread4941, %2226, %2220, %2213, %2209, %2204, %2200, %thread-pre-split2603.thread, %42, %._crit_edge2980, %31, %27, %22, %._crit_edge, %11, %7, %5, %2230
   %.01701 = phi i32 [ 0, %2230 ], [ -1, %5 ], [ -1, %7 ], [ -1, %11 ], [ -1, %._crit_edge ], [ -1, %22 ], [ -1, %27 ], [ -1, %31 ], [ -1, %._crit_edge2980 ], [ -1, %42 ], [ 1, %thread-pre-split2603.thread ], [ 1, %2200 ], [ 1, %2204 ], [ 1, %2209 ], [ 1, %2213 ], [ 1, %2220 ], [ 1, %2226 ], [ 1, %.thread4941 ], [ -1, %.lr.ph2979 ], [ -1, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05470)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.181)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05506)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.385507)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05626)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05470)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05506)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.385507)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05626)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.121)
   ret i32 %.01701
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
-declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #11
+declare double @SUNRpowerI(double noundef, i32 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
@@ -13786,17 +13786,17 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind memory(readwrite, argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

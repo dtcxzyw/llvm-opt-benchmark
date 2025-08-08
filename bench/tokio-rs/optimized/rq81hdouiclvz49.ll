@@ -38,8 +38,7 @@ _ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078
   br i1 %5, label %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit"
 
 6:                                                ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.99617e9b38b04d979831048b7b1fbcab.2, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.4) #6
+  call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.99617e9b38b04d979831048b7b1fbcab.2, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.4) #5
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit": ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, %1
@@ -80,16 +79,12 @@ declare hidden noundef align 4 ptr @"_ZN3std3sys6common12thread_local10fast_loca
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

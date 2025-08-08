@@ -393,7 +393,7 @@ entry:
   br i1 %cmp.not.i, label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 16), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
@@ -465,7 +465,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13Memory
   br label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
 
 _ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i:   ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit
 
 _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %entry, %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i
@@ -1918,7 +1918,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i38.sroa.0.0 = phi ptr [ %33, %if.then.i ], [ %34, %if.end.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 32
   %35 = load ptr, ptr %add.ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds nuw i8, ptr %35, i64 40
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #16
   %histogram_.i = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -1953,7 +1953,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 "_ZN4node9Histogram11PercentilesIZNS_13HistogramBase14GetPercentilesERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit": ; preds = %while.body.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %iter.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %"_ZN4node9Histogram11PercentilesIZNS_13HistogramBase14GetPercentilesERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit"
@@ -2083,7 +2083,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i38.sroa.0.0 = phi ptr [ %33, %if.then.i ], [ %34, %if.end.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 32
   %35 = load ptr, ptr %add.ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds nuw i8, ptr %35, i64 40
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #16
   %histogram_.i = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -2117,7 +2117,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 "_ZN4node9Histogram11PercentilesIZNS_13HistogramBase20GetPercentilesBigIntERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit": ; preds = %while.body.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %iter.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %"_ZN4node9Histogram11PercentilesIZNS_13HistogramBase20GetPercentilesBigIntERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit"
@@ -6151,7 +6151,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i38.sroa.0.0 = phi ptr [ %33, %if.then.i ], [ %34, %if.end.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 88
   %35 = load ptr, ptr %add.ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds nuw i8, ptr %35, i64 40
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #16
   %histogram_.i = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -6186,7 +6186,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 "_ZN4node9Histogram11PercentilesIZNS_17IntervalHistogram14GetPercentilesERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit": ; preds = %while.body.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %iter.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %"_ZN4node9Histogram11PercentilesIZNS_17IntervalHistogram14GetPercentilesERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit"
@@ -6314,7 +6314,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %retval.i38.sroa.0.0 = phi ptr [ %33, %if.then.i ], [ %34, %if.end.i ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 88
   %35 = load ptr, ptr %add.ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %iter.i)
   %mutex_.i = getelementptr inbounds nuw i8, ptr %35, i64 40
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #16
   %histogram_.i = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -6348,7 +6348,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 "_ZN4node9Histogram11PercentilesIZNS_17IntervalHistogram20GetPercentilesBigIntERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit": ; preds = %while.body.i, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   call void @uv_mutex_unlock(ptr noundef nonnull %mutex_.i) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %iter.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %iter.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %"_ZN4node9Histogram11PercentilesIZNS_17IntervalHistogram20GetPercentilesBigIntERKN2v820FunctionCallbackInfoINS3_5ValueEEEE3$_0EEvOT_.exit"
@@ -9004,7 +9004,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -9030,7 +9030,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -10012,10 +10012,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

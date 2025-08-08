@@ -316,7 +316,7 @@ define hidden void @_ZN19ZStoreBarrierBuffer21on_new_phase_relocateEi(ptr nounde
 15:                                               ; preds = %9
   %16 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %0, i64 0, i64 %11
   %17 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %13, ptr %3, align 8
   %.0..0..0..0..0..i = load volatile i64, ptr %3, align 8
   %18 = icmp eq i64 %.0..0..0..0..0..i, 0
@@ -390,7 +390,7 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %15, %19, %_ZN8
   %57 = sub i64 %56, %13
   %58 = add i64 %57, %.0..0.4.i
   %59 = inttoptr i64 %58 to ptr
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %59, ptr %16, align 8
   br label %60
 
@@ -1095,7 +1095,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
 
 51:                                               ; preds = %.lr.ph.split
   %52 = load i64, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %49, ptr %2, align 8
   %.0..0..0..0..0..i = load volatile i64, ptr %2, align 8
   %53 = icmp eq i64 %.0..0..0..0..0..i, 0
@@ -1170,7 +1170,7 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %51, %54, %_ZN8
   %93 = sub i64 %92, %49
   %94 = add i64 %93, %.0..0.4.i
   %95 = inttoptr i64 %94 to ptr
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %96
 
 96:                                               ; preds = %.lr.ph.split, %_ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit
@@ -1766,10 +1766,10 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

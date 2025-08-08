@@ -43,7 +43,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   br i1 %19, label %21, label %102
 
 21:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = load i64, ptr %20, align 8, !tbaa !11
   %23 = icmp sgt i64 %22, 0
   br i1 %23, label %.lr.ph171, label %._crit_edge172
@@ -57,7 +57,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 ._crit_edge172:                                   ; preds = %99, %21
   %.0.lcssa = phi double [ 0.000000e+00, %21 ], [ %.1, %99 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %218
 
 28:                                               ; preds = %.lr.ph171, %99
@@ -79,11 +79,11 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   %37 = getelementptr i8, ptr %31, i64 %.idx165
   %38 = load double, ptr %37, align 8, !tbaa !13
   store double %38, ptr %26, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEES3_S3_S3_NS2_IdLi2ELi1ELi0ELi2ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(32) %9)
   %39 = load double, ptr %10, align 16, !tbaa !13
   %40 = load double, ptr %27, align 8, !tbaa !13
@@ -180,18 +180,18 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 99:                                               ; preds = %28, %88, %79, %71, %59, %49, %41
   %.1 = phi double [ %.0169, %28 ], [ %48, %41 ], [ %58, %49 ], [ %70, %59 ], [ %78, %71 ], [ %87, %79 ], [ %98, %88 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %100 = load i64, ptr %20, align 8, !tbaa !11
   %101 = icmp sgt i64 %100, %indvars.iv.next176
   br i1 %101, label %28, label %._crit_edge172, !llvm.loop !19
 
 102:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %103 = load i64, ptr %20, align 8, !tbaa !11
   %104 = icmp sgt i64 %103, 0
   br i1 %104, label %.lr.ph, label %._crit_edge
@@ -211,7 +211,7 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 ._crit_edge:                                      ; preds = %215, %102
   %.3.lcssa = phi double [ 0.000000e+00, %102 ], [ %.4, %215 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %218
 
 115:                                              ; preds = %.lr.ph, %215
@@ -253,11 +253,11 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   %134 = getelementptr i8, ptr %118, i64 %.idx163
   %135 = load double, ptr %134, align 8, !tbaa !13
   store double %135, ptr %112, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #5
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #5
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEES3_S3_S3_NS2_IdLi3ELi1ELi0ELi3ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(72) %15)
   %136 = load double, ptr %16, align 8, !tbaa !13
   %137 = load double, ptr %113, align 8, !tbaa !13
@@ -379,11 +379,11 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
 
 215:                                              ; preds = %115, %201, %189, %177, %162, %149, %139
   %.4 = phi double [ %.3167, %115 ], [ %148, %139 ], [ %161, %149 ], [ %176, %162 ], [ %188, %177 ], [ %200, %189 ], [ %214, %201 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %216 = load i64, ptr %20, align 8, !tbaa !11
   %217 = icmp sgt i64 %216, %indvars.iv.next
@@ -394,38 +394,38 @@ define dso_local noundef double @_ZN3igl29mapping_energy_with_jacobiansERKN5Eige
   ret double %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEES3_S3_S3_NS2_IdLi2ELi1ELi0ELi2ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #2
+declare void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi2ELi2ELi0ELi2ELi2EEES3_S3_S3_NS2_IdLi2ELi1ELi0ELi2ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(32), ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #3
+declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #3
+declare double @exp(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @log(double noundef) local_unnamed_addr #3
+declare double @log(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEES3_S3_S3_NS2_IdLi3ELi1ELi0ELi3ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
+declare void @_ZN3igl9polar_svdIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEES3_S3_S3_NS2_IdLi3ELi1ELi0ELi3ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERNS1_15PlainObjectBaseIT0_EERNSA_IT1_EERNSA_IT2_EERNSA_IT3_EERNSA_IT4_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #3
 
 declare i32 @__gxx_personality_v0(...)
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

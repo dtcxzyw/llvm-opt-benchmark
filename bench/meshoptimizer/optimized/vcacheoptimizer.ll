@@ -25,7 +25,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
   %6 = alloca %class.meshopt_Allocator, align 8
   %7 = alloca %"struct.meshopt::TriangleAdjacency", align 8
   %8 = alloca [40 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %6, i8 0, i64 200, i1 false)
   %9 = icmp eq i64 %2, 0
   %10 = icmp eq i64 %3, 0
@@ -59,7 +59,7 @@ define dso_local void @_Z32meshopt_optimizeVertexCacheTablePjPKjmmPKN7meshopt16V
 23:                                               ; preds = %19, %11
   %.0 = phi ptr [ %18, %19 ], [ %1, %11 ]
   %24 = udiv i64 %2, 3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %.0, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(200) %6)
           to label %25 unwind label %49
@@ -140,7 +140,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   br i1 %exitcond.not, label %._crit_edge, label %55, !llvm.loop !18
 
 ._crit_edge208:                                   ; preds = %.lr.ph207, %_ZN17meshopt_Allocator8allocateIfEEPT_m.exit200
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !20
@@ -392,8 +392,8 @@ _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit: ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, label %93, !llvm.loop !30
 
 _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge230.thread, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit, %199
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.preheader267
 
 .preheader267:                                    ; preds = %5, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread
@@ -417,38 +417,32 @@ _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge2
   %210 = landingpad { ptr, i32 }
           catch ptr null
   %211 = extractvalue { ptr, i32 } %210, 0
-  tail call void @__clang_call_terminate(ptr %211) #11
+  tail call void @__clang_call_terminate(ptr %211) #10
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %203
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 212:                                              ; preds = %51, %72, %53, %49
   %.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %52, %51 ], [ %73, %72 ], [ %54, %53 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %213
 
 213:                                              ; preds = %212, %21
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %212 ], [ %22, %21 ]
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #10
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #10
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull align 8 captures(none) dereferenceable(200) %4) unnamed_addr #0 {
@@ -586,7 +580,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i64, ptr %2, align 8, !tbaa !8
   br label %4
@@ -611,7 +605,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #11
+  tail call void @__clang_call_terminate(ptr %13) #10
   unreachable
 }
 
@@ -631,7 +625,7 @@ define dso_local void @meshopt_optimizeVertexCacheStrip(ptr noundef writeonly ca
 define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.meshopt_Allocator, align 8
   %7 = alloca %"struct.meshopt::TriangleAdjacency", align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %6, i8 0, i64 200, i1 false)
   %8 = icmp eq i64 %2, 0
   %9 = icmp eq i64 %3, 0
@@ -665,7 +659,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
 22:                                               ; preds = %18, %10
   %.0 = phi ptr [ %17, %18 ], [ %1, %10 ]
   %23 = udiv i64 %2, 3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %.0, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(200) %6)
           to label %24 unwind label %87
@@ -986,7 +980,7 @@ _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit: ; preds = %.lr.ph.i134, %_
   br i1 %.not, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, label %59, !llvm.loop !39
 
 _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread: ; preds = %.preheader.i, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit, %180
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.preheader
 
 .preheader:                                       ; preds = %5, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread
@@ -1010,42 +1004,48 @@ _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread: ; preds = %.prehead
   %191 = landingpad { ptr, i32 }
           catch ptr null
   %192 = extractvalue { ptr, i32 } %191, 0
-  tail call void @__clang_call_terminate(ptr %192) #11
+  tail call void @__clang_call_terminate(ptr %192) #10
   unreachable
 
 _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 193:                                              ; preds = %89, %93, %95, %91, %87
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %96, %95 ], [ %94, %93 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %194
 
 194:                                              ; preds = %193, %20
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %193 ], [ %21, %20 ]
-  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #10
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #10
+  call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #10
-  tail call void @_ZSt9terminatev() #11
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #11
+  tail call void @_ZSt9terminatev() #10
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #6
+declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #7
+declare void @_ZdlPv(ptr noundef) #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -1057,17 +1057,17 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree noreturn }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

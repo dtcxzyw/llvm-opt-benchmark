@@ -17,19 +17,19 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not, label %11, label %108
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 32, ptr %4, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 1024, ptr %8, align 4, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %7, ptr %9, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %7, ptr %10, align 8, !tbaa !11
   %12 = load i8, ptr %0, align 1, !tbaa !13
   %.not110.i = icmp eq i8 %12, 0
@@ -69,7 +69,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
 25:                                               ; preds = %17
   %26 = shl nsw i32 %23, 1
   %27 = sext i32 %26 to i64
-  %28 = call noalias ptr @malloc(i64 noundef %27) #8
+  %28 = call noalias ptr @malloc(i64 noundef %27) #7
   %.not26.i.i = icmp eq ptr %28, null
   br i1 %.not26.i.i, label %.thread.thread.i, label %29
 
@@ -79,7 +79,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not27.i.i, label %.thread.i.i, label %30
 
 30:                                               ; preds = %29
-  call void @free(ptr noundef %19) #7
+  call void @free(ptr noundef %19) #8
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %30, %29
@@ -144,7 +144,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
 57:                                               ; preds = %49
   %58 = shl nsw i32 %55, 1
   %59 = sext i32 %58 to i64
-  %60 = call noalias ptr @malloc(i64 noundef %59) #8
+  %60 = call noalias ptr @malloc(i64 noundef %59) #7
   %.not26.i73.i = icmp eq ptr %60, null
   br i1 %.not26.i73.i, label %.thread.thread.i, label %61
 
@@ -154,7 +154,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not27.i74.i, label %.thread.i77.i, label %62
 
 62:                                               ; preds = %61
-  call void @free(ptr noundef %51) #7
+  call void @free(ptr noundef %51) #8
   br label %.thread.i77.i
 
 .thread.i77.i:                                    ; preds = %62, %61
@@ -181,7 +181,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
 74:                                               ; preds = %66
   %75 = shl nsw i32 %72, 1
   %76 = sext i32 %75 to i64
-  %77 = call noalias ptr @malloc(i64 noundef %76) #8
+  %77 = call noalias ptr @malloc(i64 noundef %76) #7
   %.not26.i82.i = icmp eq ptr %77, null
   br i1 %.not26.i82.i, label %.thread.thread.i, label %78
 
@@ -191,7 +191,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not27.i83.i, label %.thread.i86.i, label %79
 
 79:                                               ; preds = %78
-  call void @free(ptr noundef %68) #7
+  call void @free(ptr noundef %68) #8
   br label %.thread.i86.i
 
 .thread.i86.i:                                    ; preds = %79, %78
@@ -245,7 +245,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %92 = ptrtoint ptr %90 to i64
   %93 = add i64 %91, 8
   %94 = sub i64 %93, %92
-  %95 = call noalias ptr @malloc(i64 noundef %94) #8
+  %95 = call noalias ptr @malloc(i64 noundef %94) #7
   %.not68.i = icmp eq ptr %95, null
   br i1 %.not68.i, label %.preheader.i, label %97
 
@@ -266,7 +266,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %100 = phi ptr [ %101, %.lr.ph119.i ], [ %.promoted.i, %.preheader.i ]
   %101 = getelementptr inbounds i8, ptr %100, i64 -8
   %102 = load ptr, ptr %101, align 8, !tbaa !11
-  call void @free(ptr noundef %102) #7
+  call void @free(ptr noundef %102) #8
   %.not69.i = icmp eq ptr %101, %96
   br i1 %.not69.i, label %.loopexit.i, label %.lr.ph119.i, !llvm.loop !20
 
@@ -277,7 +277,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not70.i, label %105, label %104
 
 104:                                              ; preds = %.loopexit.i
-  call void @free(ptr noundef %103) #7
+  call void @free(ptr noundef %103) #8
   br label %105
 
 105:                                              ; preds = %104, %.loopexit.i
@@ -286,18 +286,18 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   br i1 %.not71.i, label %kwsysSystem__ParseUnixCommand.exit, label %107
 
 107:                                              ; preds = %105
-  call void @free(ptr noundef %106) #7
+  call void @free(ptr noundef %106) #8
   br label %kwsysSystem__ParseUnixCommand.exit
 
 kwsysSystem__ParseUnixCommand.exit:               ; preds = %105, %107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %108
 
 108:                                              ; preds = %2, %kwsysSystem__ParseUnixCommand.exit
@@ -305,14 +305,11 @@ kwsysSystem__ParseUnixCommand.exit:               ; preds = %105, %107
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #2
+declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noundef nonnull readnone captures(address) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull readnone captures(address) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noundef nonnull readnone captures(address) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull readnone captures(address) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7) unnamed_addr #2 {
   %9 = load ptr, ptr %6, align 8, !tbaa !11
   %10 = load ptr, ptr %5, align 8, !tbaa !11
   %11 = ptrtoint ptr %9 to i64
@@ -326,7 +323,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
 16:                                               ; preds = %8
   %17 = shl nsw i32 %14, 1
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias ptr @malloc(i64 noundef %18) #8
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #7
   %.not26.i = icmp eq ptr %19, null
   br i1 %.not26.i, label %kwsysSystem__AppendByte.exit.thread, label %20
 
@@ -336,7 +333,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
   br i1 %.not27.i, label %.thread.i, label %21
 
 21:                                               ; preds = %20
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef %10) #8
   %.pre.i = load i32, ptr %7, align 4, !tbaa !4
   %.pre29.i = shl nsw i32 %.pre.i, 1
   br label %.thread.i
@@ -366,7 +363,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
 
 34:                                               ; preds = %23
   %35 = shl nsw i64 %33, 4
-  %36 = tail call noalias ptr @malloc(i64 noundef %35) #8
+  %36 = tail call noalias ptr @malloc(i64 noundef %35) #7
   %.not42 = icmp eq ptr %36, null
   br i1 %.not42, label %kwsysSystem__AppendByte.exit.thread, label %37
 
@@ -376,7 +373,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
   br i1 %.not43, label %.thread, label %38
 
 38:                                               ; preds = %37
-  tail call void @free(ptr noundef %27) #7
+  tail call void @free(ptr noundef %27) #8
   %.pre = load i32, ptr %3, align 4, !tbaa !4
   br label %.thread
 
@@ -396,7 +393,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
-  %49 = tail call noalias ptr @malloc(i64 noundef %48) #8
+  %49 = tail call noalias ptr @malloc(i64 noundef %48) #7
   store ptr %49, ptr %43, align 8, !tbaa !11
   %.not44 = icmp eq ptr %49, null
   br i1 %.not44, label %kwsysSystem__AppendByte.exit.thread, label %50
@@ -419,26 +416,29 @@ kwsysSystem__AppendByte.exit.thread:              ; preds = %16, %34, %42, %50
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
+attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

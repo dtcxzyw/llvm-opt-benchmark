@@ -96,9 +96,9 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 54:                                               ; preds = %2, %77
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %77 ]
   %55 = getelementptr inbounds nuw [145 x ptr], ptr @item_type, i64 0, i64 %indvars.iv
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = call ptr %56() #3
@@ -140,16 +140,16 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %77
 
 77:                                               ; preds = %76, %54
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 144
   br i1 %.not, label %78, label %54, !llvm.loop !12
 
 78:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !9
   %79 = call ptr @d2i_TS_REQ(ptr noundef null, ptr noundef nonnull %5, i64 noundef %1) #3
   %.not233 = icmp eq ptr %79, null
@@ -174,11 +174,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %89
 
 89:                                               ; preds = %86, %78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !9
   %90 = call ptr @d2i_TS_MSG_IMPRINT(ptr noundef null, ptr noundef nonnull %7, i64 noundef %1) #3
   %.not235 = icmp eq ptr %90, null
@@ -203,11 +203,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %100
 
 100:                                              ; preds = %97, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !9
   %101 = call ptr @d2i_TS_RESP(ptr noundef null, ptr noundef nonnull %9, i64 noundef %1) #3
   %.not237 = icmp eq ptr %101, null
@@ -232,11 +232,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %111
 
 111:                                              ; preds = %108, %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %0, ptr %11, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !9
   %112 = call ptr @d2i_TS_STATUS_INFO(ptr noundef null, ptr noundef nonnull %11, i64 noundef %1) #3
   %.not239 = icmp eq ptr %112, null
@@ -261,11 +261,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %122
 
 122:                                              ; preds = %119, %111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %0, ptr %13, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !9
   %123 = call ptr @d2i_TS_TST_INFO(ptr noundef null, ptr noundef nonnull %13, i64 noundef %1) #3
   %.not241 = icmp eq ptr %123, null
@@ -290,11 +290,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %133
 
 133:                                              ; preds = %130, %122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %0, ptr %15, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !9
   %134 = call ptr @d2i_TS_ACCURACY(ptr noundef null, ptr noundef nonnull %15, i64 noundef %1) #3
   %.not243 = icmp eq ptr %134, null
@@ -311,11 +311,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %141
 
 141:                                              ; preds = %135, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %0, ptr %17, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr null, ptr %18, align 8, !tbaa !9
   %142 = call ptr @d2i_ESS_ISSUER_SERIAL(ptr noundef null, ptr noundef nonnull %17, i64 noundef %1) #3
   %.not244 = icmp eq ptr %142, null
@@ -332,11 +332,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %149
 
 149:                                              ; preds = %143, %141
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %0, ptr %19, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8, !tbaa !9
   %150 = call ptr @d2i_ESS_CERT_ID(ptr noundef null, ptr noundef nonnull %19, i64 noundef %1) #3
   %.not245 = icmp eq ptr %150, null
@@ -353,11 +353,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %157
 
 157:                                              ; preds = %151, %149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %0, ptr %21, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8, !tbaa !9
   %158 = call ptr @d2i_ESS_SIGNING_CERT(ptr noundef null, ptr noundef nonnull %21, i64 noundef %1) #3
   %.not246 = icmp eq ptr %158, null
@@ -374,11 +374,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %165
 
 165:                                              ; preds = %159, %157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %0, ptr %23, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8, !tbaa !9
   %166 = call ptr @d2i_ESS_CERT_ID_V2(ptr noundef null, ptr noundef nonnull %23, i64 noundef %1) #3
   %.not247 = icmp eq ptr %166, null
@@ -395,11 +395,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %173
 
 173:                                              ; preds = %167, %165
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store ptr %0, ptr %25, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr null, ptr %26, align 8, !tbaa !9
   %174 = call ptr @d2i_ESS_SIGNING_CERT_V2(ptr noundef null, ptr noundef nonnull %25, i64 noundef %1) #3
   %.not248 = icmp eq ptr %174, null
@@ -416,11 +416,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %181
 
 181:                                              ; preds = %175, %173
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store ptr %0, ptr %27, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr null, ptr %28, align 8, !tbaa !9
   %182 = call ptr @d2i_DHparams(ptr noundef null, ptr noundef nonnull %27, i64 noundef %1) #3
   %.not249 = icmp eq ptr %182, null
@@ -437,11 +437,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %189
 
 189:                                              ; preds = %183, %181
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr %0, ptr %29, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr null, ptr %30, align 8, !tbaa !9
   %190 = call ptr @d2i_DHxparams(ptr noundef null, ptr noundef nonnull %29, i64 noundef %1) #3
   %.not250 = icmp eq ptr %190, null
@@ -458,11 +458,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %197
 
 197:                                              ; preds = %191, %189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %0, ptr %31, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr null, ptr %32, align 8, !tbaa !9
   %198 = call ptr @d2i_DSA_SIG(ptr noundef null, ptr noundef nonnull %31, i64 noundef %1) #3
   %.not251 = icmp eq ptr %198, null
@@ -479,11 +479,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %205
 
 205:                                              ; preds = %199, %197
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr %0, ptr %33, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr null, ptr %34, align 8, !tbaa !9
   %206 = call ptr @d2i_DSAPrivateKey(ptr noundef null, ptr noundef nonnull %33, i64 noundef %1) #3
   %.not252 = icmp eq ptr %206, null
@@ -500,11 +500,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %213
 
 213:                                              ; preds = %207, %205
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %0, ptr %35, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr null, ptr %36, align 8, !tbaa !9
   %214 = call ptr @d2i_DSAPublicKey(ptr noundef null, ptr noundef nonnull %35, i64 noundef %1) #3
   %.not253 = icmp eq ptr %214, null
@@ -521,11 +521,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %221
 
 221:                                              ; preds = %215, %213
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr %0, ptr %37, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store ptr null, ptr %38, align 8, !tbaa !9
   %222 = call ptr @d2i_DSAparams(ptr noundef null, ptr noundef nonnull %37, i64 noundef %1) #3
   %.not254 = icmp eq ptr %222, null
@@ -542,11 +542,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %229
 
 229:                                              ; preds = %223, %221
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store ptr %0, ptr %39, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store ptr null, ptr %40, align 8, !tbaa !9
   %230 = call ptr @d2i_RSAPublicKey(ptr noundef null, ptr noundef nonnull %39, i64 noundef %1) #3
   %.not255 = icmp eq ptr %230, null
@@ -563,11 +563,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %237
 
 237:                                              ; preds = %231, %229
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr %0, ptr %41, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr null, ptr %42, align 8, !tbaa !9
   %238 = call ptr @d2i_ECPKParameters(ptr noundef null, ptr noundef nonnull %41, i64 noundef %1) #3
   %.not256 = icmp eq ptr %238, null
@@ -592,11 +592,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %248
 
 248:                                              ; preds = %245, %237
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr %0, ptr %43, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store ptr null, ptr %44, align 8, !tbaa !9
   %249 = call ptr @d2i_ECPrivateKey(ptr noundef null, ptr noundef nonnull %43, i64 noundef %1) #3
   %.not258 = icmp eq ptr %249, null
@@ -621,11 +621,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %259
 
 259:                                              ; preds = %256, %248
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store ptr %0, ptr %45, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store ptr null, ptr %46, align 8, !tbaa !9
   %260 = call ptr @d2i_ECParameters(ptr noundef null, ptr noundef nonnull %45, i64 noundef %1) #3
   %.not260 = icmp eq ptr %260, null
@@ -650,11 +650,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %270
 
 270:                                              ; preds = %267, %259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store ptr %0, ptr %47, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr null, ptr %48, align 8, !tbaa !9
   %271 = call ptr @d2i_ECDSA_SIG(ptr noundef null, ptr noundef nonnull %47, i64 noundef %1) #3
   %.not262 = icmp eq ptr %271, null
@@ -671,11 +671,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %278
 
 278:                                              ; preds = %272, %270
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr %0, ptr %49, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr null, ptr %50, align 8, !tbaa !9
   %279 = call ptr @d2i_AutoPrivateKey(ptr noundef null, ptr noundef nonnull %49, i64 noundef %1) #3
   %.not263 = icmp eq ptr %279, null
@@ -701,11 +701,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %290
 
 290:                                              ; preds = %287, %278
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store ptr %0, ptr %51, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr null, ptr %52, align 8, !tbaa !9
   %291 = call ptr @d2i_SSL_SESSION(ptr noundef null, ptr noundef nonnull %51, i64 noundef %1) #3
   %.not265 = icmp eq ptr %291, null
@@ -730,14 +730,11 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
   br label %301
 
 301:                                              ; preds = %298, %290
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @ERR_clear_error() #3
   ret i32 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -748,9 +745,6 @@ declare ptr @BIO_s_null() local_unnamed_addr #1
 declare i32 @ASN1_item_print(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ASN1_item_i2d(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1213,6 +1207,12 @@ declare ptr @ZINT64_it() #1
 declare ptr @UINT64_it() #1
 
 declare ptr @ZUINT64_it() #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

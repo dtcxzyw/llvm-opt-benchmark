@@ -40,10 +40,10 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   %16 = alloca %"struct.std::array", align 4
   %17 = alloca %"class.ZXing::BitMatrix", align 8
   %18 = alloca %"class.ZXing::BitMatrix", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %2, i32 noundef %3)
   %19 = load ptr, ptr %1, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   invoke void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %2, i32 noundef %3)
           to label %.noexc unwind label %420
@@ -76,8 +76,8 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   br i1 %or.cond.i, label %37, label %88
 
 37:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #11, !noalias !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !11
   br label %38
 
 38:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i", %37
@@ -121,7 +121,7 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
 
 61:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %10, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11, !noalias !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !11
   br label %62
 
 62:                                               ; preds = %82, %61
@@ -153,7 +153,7 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
 .invoke.i:                                        ; preds = %38, %66
   %79 = phi i64 [ %73, %66 ], [ %53, %38 ]
   %80 = phi i64 [ %78, %66 ], [ %58, %38 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %79, i64 noundef %80) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %79, i64 noundef %80) #11
           to label %.cont.i unwind label %86
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -172,7 +172,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   br label %.thread233.i.preheader
 
 .thread233.i.preheader:                           ; preds = %244, %196, %192, %142, %138, %84
@@ -182,7 +182,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
 86:                                               ; preds = %.invoke.i
   %87 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8
   br label %408
 
 88:                                               ; preds = %34
@@ -194,8 +194,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
   br i1 %.not.i, label %196, label %91
 
 91:                                               ; preds = %90
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11, !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !32
   br label %92
 
 92:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i78.i", %91
@@ -239,7 +239,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
 
 115:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i78.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11, !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !32
   br label %116
 
 116:                                              ; preds = %136, %115
@@ -271,7 +271,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
 .invoke423.i:                                     ; preds = %92, %120
   %133 = phi i64 [ %127, %120 ], [ %107, %92 ]
   %134 = phi i64 [ %132, %120 ], [ %112, %92 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %133, i64 noundef %134) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %133, i64 noundef %134) #11
           to label %.cont424.i unwind label %140
 
 .cont424.i:                                       ; preds = %.invoke423.i
@@ -290,13 +290,13 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i87.i:           ; preds = %120
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8
   br label %.thread233.i.preheader
 
 140:                                              ; preds = %.invoke423.i
   %141 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !8
   br label %408
 
 142:                                              ; preds = %88
@@ -307,8 +307,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i87.i:           ; preds = %120
   br i1 %or.cond235.i, label %145, label %.thread233.i.preheader
 
 145:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11, !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !36
   br label %146
 
 146:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i100.i", %145
@@ -352,7 +352,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i87.i:           ; preds = %120
 
 169:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i100.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11, !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !36
   br label %170
 
 170:                                              ; preds = %190, %169
@@ -384,7 +384,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i87.i:           ; preds = %120
 .invoke425.i:                                     ; preds = %146, %174
   %187 = phi i64 [ %181, %174 ], [ %161, %146 ]
   %188 = phi i64 [ %186, %174 ], [ %166, %146 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %187, i64 noundef %188) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %187, i64 noundef %188) #11
           to label %.cont426.i unwind label %194
 
 .cont426.i:                                       ; preds = %.invoke425.i
@@ -403,21 +403,21 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i109.i:          ; preds = %174
 
 192:                                              ; preds = %190
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !8
   br label %.thread233.i.preheader
 
 194:                                              ; preds = %.invoke425.i
   %195 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !8
   br label %408
 
 196:                                              ; preds = %90
   br i1 %30, label %197, label %.thread233.i.preheader
 
 197:                                              ; preds = %196
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11, !noalias !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !40
   br label %198
 
 198:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i122.i", %197
@@ -461,7 +461,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i109.i:          ; preds = %174
 
 221:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i122.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11, !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !40
   br label %222
 
 222:                                              ; preds = %242, %221
@@ -493,7 +493,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i109.i:          ; preds = %174
 .invoke427.i:                                     ; preds = %198, %226
   %239 = phi i64 [ %233, %226 ], [ %213, %198 ]
   %240 = phi i64 [ %238, %226 ], [ %218, %198 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %239, i64 noundef %240) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %239, i64 noundef %240) #11
           to label %.cont428.i unwind label %246
 
 .cont428.i:                                       ; preds = %.invoke427.i
@@ -512,13 +512,13 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i131.i:          ; preds = %226
 
 244:                                              ; preds = %242
   %245 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !8
   br label %.thread233.i.preheader
 
 246:                                              ; preds = %.invoke427.i
   %247 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !8
   br label %408
 
 .thread233.i:                                     ; preds = %.thread233.i.preheader, %317
@@ -550,8 +550,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i131.i:          ; preds = %226
   br i1 %.not236.i, label %263, label %317
 
 263:                                              ; preds = %260
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11, !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !44
   %reass.sub = sub i32 %.1.i, %31
   %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %264
@@ -606,7 +606,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i131.i:          ; preds = %226
 
 288:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i145.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11, !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !44
   br label %289
 
 289:                                              ; preds = %309, %288
@@ -638,7 +638,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i131.i:          ; preds = %226
 .invoke431.i:                                     ; preds = %264, %293
   %306 = phi i64 [ %300, %293 ], [ %280, %264 ]
   %307 = phi i64 [ %305, %293 ], [ %285, %264 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %306, i64 noundef %307) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %306, i64 noundef %307) #11
           to label %.cont432.i unwind label %315
 
 .cont432.i:                                       ; preds = %.invoke431.i
@@ -657,7 +657,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
 
 311:                                              ; preds = %309
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.028.2, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !8
   br label %317
 
 313:                                              ; preds = %.invoke429.i
@@ -668,7 +668,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
 315:                                              ; preds = %.invoke431.i
   %316 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !8
   br label %408
 
 317:                                              ; preds = %311, %260, %.thread233.i
@@ -710,7 +710,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
 .invoke429.i:                                     ; preds = %250, %329
   %339 = phi i64 [ %333, %329 ], [ %254, %250 ]
   %340 = phi i64 [ %338, %329 ], [ %259, %250 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %339, i64 noundef %340) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %339, i64 noundef %340) #11
           to label %.cont430.i unwind label %313
 
 .cont430.i:                                       ; preds = %.invoke429.i
@@ -723,8 +723,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
   br i1 %.not237.i, label %344, label %396
 
 344:                                              ; preds = %341
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #11, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11, !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !50
   %reass.sub109 = sub i32 %.2.i, %31
   %reass.sub.reass.i179.reass.reass.i = add i32 %reass.sub109, 4
   br label %345
@@ -779,7 +779,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
 
 369:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i176.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !31, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11, !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !50
   br label %370
 
 370:                                              ; preds = %390, %369
@@ -811,7 +811,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i153.i:          ; preds = %293
 .invoke433.i:                                     ; preds = %345, %374
   %387 = phi i64 [ %381, %374 ], [ %361, %345 ]
   %388 = phi i64 [ %386, %374 ], [ %366, %345 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %387, i64 noundef %388) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %387, i64 noundef %388) #11
           to label %.cont434.i unwind label %394
 
 .cont434.i:                                       ; preds = %.invoke433.i
@@ -830,13 +830,13 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i187.i:          ; preds = %374
 
 392:                                              ; preds = %390
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.028.4, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !8
   br label %396
 
 394:                                              ; preds = %.invoke433.i
   %395 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #11, !noalias !8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !8
   br label %408
 
 396:                                              ; preds = %392, %341, %326
@@ -868,7 +868,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i187.i:          ; preds = %374
   %413 = ptrtoint ptr %412 to i64
   %414 = ptrtoint ptr %409 to i64
   %415 = sub i64 %413, %414
-  call void @_ZdlPvm(ptr noundef nonnull %409, i64 noundef %415) #13
+  call void @_ZdlPvm(ptr noundef nonnull %409, i64 noundef %415) #12
   br label %.body
 
 "_ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_.exit": ; preds = %402
@@ -939,7 +939,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i187.i:          ; preds = %374
 .invoke:                                          ; preds = %447, %437, %422
   %459 = phi i64 [ %428, %422 ], [ %441, %437 ], [ %453, %447 ]
   %460 = phi i64 [ %433, %422 ], [ %446, %437 ], [ %458, %447 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %459, i64 noundef %460) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %459, i64 noundef %460) #11
           to label %.cont unwind label %462
 
 .cont:                                            ; preds = %.invoke
@@ -963,7 +963,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit20:               ; preds = %447
   %468 = ptrtoint ptr %467 to i64
   %469 = ptrtoint ptr %464 to i64
   %470 = sub i64 %468, %469
-  call void @_ZdlPvm(ptr noundef nonnull %464, i64 noundef %470) #13
+  call void @_ZdlPvm(ptr noundef nonnull %464, i64 noundef %470) #12
   br label %.body
 
 471:                                              ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit20, %434
@@ -993,11 +993,11 @@ _ZN5ZXing9BitMatrix3setEiib.exit20:               ; preds = %447
   %485 = ptrtoint ptr %484 to i64
   %486 = ptrtoint ptr %481 to i64
   %487 = sub i64 %485, %486
-  call void @_ZdlPvm(ptr noundef nonnull %481, i64 noundef %487) #13
+  call void @_ZdlPvm(ptr noundef nonnull %481, i64 noundef %487) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit23
 
 _ZN5ZXing9BitMatrixD2Ev.exit23:                   ; preds = %480, %482
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %488 = load ptr, ptr %26, align 8, !tbaa !27
   %.not.i.i.i.i24 = icmp eq ptr %488, null
   br i1 %.not.i.i.i.i24, label %_ZN5ZXing9BitMatrixD2Ev.exit25, label %489
@@ -1008,16 +1008,16 @@ _ZN5ZXing9BitMatrixD2Ev.exit23:                   ; preds = %480, %482
   %492 = ptrtoint ptr %491 to i64
   %493 = ptrtoint ptr %488 to i64
   %494 = sub i64 %492, %493
-  call void @_ZdlPvm(ptr noundef nonnull %488, i64 noundef %494) #13
+  call void @_ZdlPvm(ptr noundef nonnull %488, i64 noundef %494) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit25
 
 _ZN5ZXing9BitMatrixD2Ev.exit25:                   ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit23, %489
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
 .body:                                            ; preds = %465, %462, %420, %410, %408
   %.pn = phi { ptr, i32 } [ %421, %420 ], [ %.pn.i, %410 ], [ %.pn.i, %408 ], [ %463, %462 ], [ %463, %465 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %495 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %496 = load ptr, ptr %495, align 8, !tbaa !27
   %.not.i.i.i.i26 = icmp eq ptr %496, null
@@ -1029,16 +1029,13 @@ _ZN5ZXing9BitMatrixD2Ev.exit25:                   ; preds = %_ZN5ZXing9BitMatrix
   %500 = ptrtoint ptr %499 to i64
   %501 = ptrtoint ptr %496 to i64
   %502 = sub i64 %500, %501
-  call void @_ZdlPvm(ptr noundef nonnull %496, i64 noundef %502) #13
+  call void @_ZdlPvm(ptr noundef nonnull %496, i64 noundef %502) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit27
 
 _ZN5ZXing9BitMatrixD2Ev.exit27:                   ; preds = %.body, %497
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   resume { ptr, i32 } %.pn
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1052,7 +1049,7 @@ define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 d
   br i1 %8, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #12
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #11
   unreachable
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
@@ -1065,7 +1062,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %15
 
 .noexc15:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #14
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #13
   store ptr %10, ptr %5, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !26
@@ -1093,12 +1090,12 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br i1 %.not12, label %31, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #11
+  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #14
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull @.str)
           to label %26 unwind label %29
 
 26:                                               ; preds = %24
-  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #12
+  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #11
           to label %40 unwind label %27
 
 27:                                               ; preds = %26
@@ -1109,7 +1106,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %25) #11
+  tail call void @__cxa_free_exception(ptr nonnull %25) #14
   br label %32
 
 31:                                               ; preds = %19, %15
@@ -1127,7 +1124,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
   %39 = sub i64 %37, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #12
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %34, %32
@@ -1139,11 +1136,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %34, %32
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.ZXing::ByteArray") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(40) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -1161,7 +1155,7 @@ define void @_ZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0
   %15 = alloca %"struct.std::array", align 4
   %16 = alloca %"class.ZXing::BitMatrix", align 8
   %17 = alloca %"class.ZXing::BitMatrix", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !61, !noalias !58
@@ -1249,7 +1243,7 @@ define void @_ZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0
 .invoke.i:                                        ; preds = %65, %.lr.ph.i
   %74 = phi i64 [ %59, %.lr.ph.i ], [ %68, %65 ]
   %75 = phi i64 [ %64, %.lr.ph.i ], [ %73, %65 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %74, i64 noundef %75) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %74, i64 noundef %75) #11
           to label %.cont.i unwind label %83
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -1279,7 +1273,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i:               ; preds = %65
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %85 to i64
   %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %91) #13
+  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %91) #12
   br label %common.resume
 
 common.resume:                                    ; preds = %83, %86, %_ZN5ZXing9BitMatrixD2Ev.exit19
@@ -1308,7 +1302,7 @@ common.resume:                                    ; preds = %83, %86, %_ZN5ZXing
   br i1 %109, label %.noexc.i, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 .noexc.i:                                         ; preds = %.loopexit
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #12
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #11
           to label %.noexc unwind label %517
 
 .noexc:                                           ; preds = %.noexc.i
@@ -1319,7 +1313,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.loopexit
   br i1 %.not.i.i.i.i.i6, label %_ZN5ZXing9ByteArrayC2Ei.exit, label %.noexc3.i
 
 .noexc3.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #14
+  %110 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #13
           to label %.noexc7 unwind label %517
 
 .noexc7:                                          ; preds = %.noexc3.i
@@ -1363,8 +1357,8 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   br i1 %or.cond.i, label %130, label %181
 
 130:                                              ; preds = %127
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #11, !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !76
   br label %131
 
 131:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i", %130
@@ -1408,7 +1402,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
 
 154:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, ptr noundef nonnull align 4 dereferenceable(64) %9, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11, !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !76
   store i8 0, ptr %.sroa.020.0, align 1, !tbaa !28
   br label %155
 
@@ -1434,7 +1428,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
 .invoke.i10:                                      ; preds = %131, %155
   %169 = phi i64 [ %163, %155 ], [ %146, %131 ]
   %170 = phi i64 [ %168, %155 ], [ %151, %131 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %169, i64 noundef %170) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %169, i64 noundef %170) #11
           to label %.cont.i11 unwind label %179
 
 .cont.i11:                                        ; preds = %.invoke.i10
@@ -1454,7 +1448,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %155
 
 177:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i.i
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !73
   br label %.thread223.i.preheader
 
 .thread223.i.preheader:                           ; preds = %337, %289, %285, %235, %231, %177
@@ -1464,7 +1458,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %155
 179:                                              ; preds = %.invoke.i10
   %180 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !73
   br label %501
 
 181:                                              ; preds = %127
@@ -1476,8 +1470,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %155
   br i1 %.not.i, label %289, label %184
 
 184:                                              ; preds = %183
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11, !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !81
   br label %185
 
 185:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i78.i", %184
@@ -1521,7 +1515,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %155
 
 208:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i78.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %8, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11, !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !81
   store i8 0, ptr %.sroa.020.0, align 1, !tbaa !28
   br label %209
 
@@ -1547,7 +1541,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %155
 .invoke449.i:                                     ; preds = %185, %209
   %223 = phi i64 [ %217, %209 ], [ %200, %185 ]
   %224 = phi i64 [ %222, %209 ], [ %205, %185 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %223, i64 noundef %224) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %223, i64 noundef %224) #11
           to label %.cont450.i unwind label %233
 
 .cont450.i:                                       ; preds = %.invoke449.i
@@ -1567,13 +1561,13 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i85.i:           ; preds = %209
 
 231:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i85.i
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !73
   br label %.thread223.i.preheader
 
 233:                                              ; preds = %.invoke449.i
   %234 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !73
   br label %501
 
 235:                                              ; preds = %181
@@ -1584,8 +1578,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i85.i:           ; preds = %209
   br i1 %or.cond225.i, label %238, label %.thread223.i.preheader
 
 238:                                              ; preds = %235
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11, !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !85
   br label %239
 
 239:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i98.i", %238
@@ -1629,7 +1623,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i85.i:           ; preds = %209
 
 262:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i98.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %7, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11, !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !85
   store i8 0, ptr %.sroa.020.0, align 1, !tbaa !28
   br label %263
 
@@ -1655,7 +1649,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i85.i:           ; preds = %209
 .invoke451.i:                                     ; preds = %239, %263
   %277 = phi i64 [ %271, %263 ], [ %254, %239 ]
   %278 = phi i64 [ %276, %263 ], [ %259, %239 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %277, i64 noundef %278) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %277, i64 noundef %278) #11
           to label %.cont452.i unwind label %287
 
 .cont452.i:                                       ; preds = %.invoke451.i
@@ -1675,21 +1669,21 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i105.i:          ; preds = %263
 
 285:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i105.i
   %286 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !73
   br label %.thread223.i.preheader
 
 287:                                              ; preds = %.invoke451.i
   %288 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !73
   br label %501
 
 289:                                              ; preds = %183
   br i1 %123, label %290, label %.thread223.i.preheader
 
 290:                                              ; preds = %289
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11, !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !89
   br label %291
 
 291:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i118.i", %290
@@ -1733,7 +1727,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i105.i:          ; preds = %263
 
 314:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i118.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #11, !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !89
   store i8 0, ptr %.sroa.020.0, align 1, !tbaa !28
   br label %315
 
@@ -1759,7 +1753,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i105.i:          ; preds = %263
 .invoke453.i:                                     ; preds = %291, %315
   %329 = phi i64 [ %323, %315 ], [ %306, %291 ]
   %330 = phi i64 [ %328, %315 ], [ %311, %291 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %329, i64 noundef %330) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %329, i64 noundef %330) #11
           to label %.cont454.i unwind label %339
 
 .cont454.i:                                       ; preds = %.invoke453.i
@@ -1779,13 +1773,13 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i125.i:          ; preds = %315
 
 337:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i125.i
   %338 = getelementptr inbounds nuw i8, ptr %.sroa.020.0, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !73
   br label %.thread223.i.preheader
 
 339:                                              ; preds = %.invoke453.i
   %340 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !73
   br label %501
 
 .thread223.i:                                     ; preds = %.thread223.i.preheader, %410
@@ -1817,8 +1811,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i125.i:          ; preds = %315
   br i1 %.not226.i, label %356, label %410
 
 356:                                              ; preds = %353
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11, !noalias !93
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !93
   %reass.sub = sub i32 %.1.i, %124
   %reass.sub.reass.i.reass.reass.i = add i32 %reass.sub, 4
   br label %357
@@ -1873,7 +1867,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i125.i:          ; preds = %315
 
 381:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i139.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %14, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11, !noalias !93
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !93
   store i8 0, ptr %.sroa.020.2, align 1, !tbaa !28
   br label %382
 
@@ -1899,7 +1893,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i125.i:          ; preds = %315
 .invoke457.i:                                     ; preds = %357, %382
   %396 = phi i64 [ %390, %382 ], [ %373, %357 ]
   %397 = phi i64 [ %395, %382 ], [ %378, %357 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %396, i64 noundef %397) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %396, i64 noundef %397) #11
           to label %.cont458.i unwind label %408
 
 .cont458.i:                                       ; preds = %.invoke457.i
@@ -1919,7 +1913,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
 
 404:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i145.i
   %405 = getelementptr inbounds nuw i8, ptr %.sroa.020.2, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !73
   br label %410
 
 406:                                              ; preds = %.invoke455.i
@@ -1930,7 +1924,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
 408:                                              ; preds = %.invoke457.i
   %409 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !73
   br label %501
 
 410:                                              ; preds = %404, %353, %.thread223.i
@@ -1972,7 +1966,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
 .invoke455.i:                                     ; preds = %343, %422
   %432 = phi i64 [ %426, %422 ], [ %347, %343 ]
   %433 = phi i64 [ %431, %422 ], [ %352, %343 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %432, i64 noundef %433) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %432, i64 noundef %433) #11
           to label %.cont456.i unwind label %406
 
 .cont456.i:                                       ; preds = %.invoke455.i
@@ -1985,8 +1979,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
   br i1 %.not227.i, label %437, label %489
 
 437:                                              ; preds = %434
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #11, !noalias !73
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #11, !noalias !99
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !99
   %reass.sub133 = sub i32 %.2.i, %124
   %reass.sub.reass.i171.reass.reass.i = add i32 %reass.sub133, 4
   br label %438
@@ -2041,7 +2035,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
 
 462:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i168.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %15, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 64, i1 false), !tbaa.struct !31, !noalias !73
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #11, !noalias !99
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !99
   store i8 0, ptr %.sroa.020.4, align 1, !tbaa !28
   br label %463
 
@@ -2067,7 +2061,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i145.i:          ; preds = %382
 .invoke459.i:                                     ; preds = %438, %463
   %477 = phi i64 [ %471, %463 ], [ %454, %438 ]
   %478 = phi i64 [ %476, %463 ], [ %459, %438 ]
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %477, i64 noundef %478) #12
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.2, i64 noundef %477, i64 noundef %478) #11
           to label %.cont460.i unwind label %487
 
 .cont460.i:                                       ; preds = %.invoke459.i
@@ -2087,13 +2081,13 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i177.i:          ; preds = %463
 
 485:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i177.i
   %486 = getelementptr inbounds nuw i8, ptr %.sroa.020.4, i64 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !73
   br label %489
 
 487:                                              ; preds = %.invoke459.i
   %488 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #11, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !73
   br label %501
 
 489:                                              ; preds = %485, %434, %419
@@ -2125,7 +2119,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i177.i:          ; preds = %463
   %506 = ptrtoint ptr %505 to i64
   %507 = ptrtoint ptr %502 to i64
   %508 = sub i64 %506, %507
-  call void @_ZdlPvm(ptr noundef nonnull %502, i64 noundef %508) #13
+  call void @_ZdlPvm(ptr noundef nonnull %502, i64 noundef %508) #12
   br label %.body
 
 "_ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.exit": ; preds = %495
@@ -2139,7 +2133,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i177.i:          ; preds = %463
   %513 = ptrtoint ptr %512 to i64
   %514 = ptrtoint ptr %509 to i64
   %515 = sub i64 %513, %514
-  call void @_ZdlPvm(ptr noundef nonnull %509, i64 noundef %515) #13
+  call void @_ZdlPvm(ptr noundef nonnull %509, i64 noundef %515) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %"_ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.exit", %510
@@ -2165,7 +2159,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %"_ZN5ZXing10DataMat
   %522 = ptrtoint ptr %.sroa.13.1 to i64
   %523 = ptrtoint ptr %.sroa.039.1 to i64
   %524 = sub i64 %522, %523
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.1, i64 noundef %524) #13
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.1, i64 noundef %524) #12
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 .thread:                                          ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit
@@ -2185,7 +2179,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %"_ZN5ZXing10DataMat
   %529 = ptrtoint ptr %.sroa.13.1 to i64
   %530 = ptrtoint ptr %.sroa.039.1 to i64
   %531 = sub i64 %529, %530
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.1, i64 noundef %531) #13
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.039.1, i64 noundef %531) #12
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit15
 
 _ZNSt6vectorIhSaIhEED2Ev.exit15:                  ; preds = %.thread, %527, %528
@@ -2199,11 +2193,11 @@ _ZNSt6vectorIhSaIhEED2Ev.exit15:                  ; preds = %.thread, %527, %528
   %536 = ptrtoint ptr %535 to i64
   %537 = ptrtoint ptr %532 to i64
   %538 = sub i64 %536, %537
-  call void @_ZdlPvm(ptr noundef nonnull %532, i64 noundef %538) #13
+  call void @_ZdlPvm(ptr noundef nonnull %532, i64 noundef %538) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit17
 
 _ZN5ZXing9BitMatrixD2Ev.exit17:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit15, %533
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %521, %.body, %517
@@ -2219,59 +2213,65 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %521, %.body, %517
   %544 = ptrtoint ptr %543 to i64
   %545 = ptrtoint ptr %540 to i64
   %546 = sub i64 %544, %545
-  call void @_ZdlPvm(ptr noundef nonnull %540, i64 noundef %546) #13
+  call void @_ZdlPvm(ptr noundef nonnull %540, i64 noundef %546) #12
   br label %_ZN5ZXing9BitMatrixD2Ev.exit19
 
 _ZN5ZXing9BitMatrixD2Ev.exit19:                   ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %541
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.resume
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
-declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
+declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
-declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
+declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #6
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold noreturn }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin nounwind }
-attributes #14 = { builtin allocsize(0) }
+attributes #11 = { noreturn }
+attributes #12 = { builtin nounwind }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2}

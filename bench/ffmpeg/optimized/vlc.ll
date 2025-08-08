@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes((0, 4), (16, 20)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = alloca [1500 x %struct.VLCcode], align 16
   %15 = alloca [64 x [2 x ptr]], align 16
-  call void @llvm.lifetime.start.p0(i64 12000, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 %1, ptr %0, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %16, align 8, !tbaa !11
@@ -264,7 +264,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 
 ._crit_edge:                                      ; preds = %125, %.preheader363
   %.0231.lcssa = phi i32 [ 0, %.preheader363 ], [ %.2233, %125 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %.1.ph, ptr %15, align 16, !tbaa !24
   %126 = sext i32 %.0231.lcssa to i64
   %127 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %126
@@ -534,7 +534,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br i1 %.not282, label %238, label %130, !llvm.loop !29
 
 238:                                              ; preds = %.thread348
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not281380, label %.lr.ph410, label %._crit_edge411
 
 .lr.ph410:                                        ; preds = %238
@@ -729,22 +729,16 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 
 vlc_common_init.exit:                             ; preds = %259, %258, %281, %279, %51, %50, %73, %71, %25, %._crit_edge411
   %.0 = phi i32 [ %334, %._crit_edge411 ], [ -12, %25 ], [ -22, %71 ], [ -22, %73 ], [ -22, %50 ], [ -22, %51 ], [ -22, %279 ], [ -22, %281 ], [ -22, %258 ], [ -22, %259 ]
-  call void @llvm.lifetime.end.p0(i64 12000, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_free(ptr noundef) local_unnamed_addr #2
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @vlc_common_end(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #0 {
@@ -802,7 +796,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vlc_common_end(ptr noundef
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @ff_vlc_init_from_lengths(ptr noundef initializes((0, 4), (16, 20)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca [1500 x %struct.VLCcode], align 16
-  call void @llvm.lifetime.start.p0(i64 12000, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = mul nsw i32 %1, 3
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 32)
   store i32 %1, ptr %0, align 8, !tbaa !4
@@ -1020,14 +1014,14 @@ vlc_common_init.exit:                             ; preds = %17, %20
 
 vlc_common_init.exit.thread:                      ; preds = %24, %103, %104, %._crit_edge
   %.0 = phi i32 [ %102, %._crit_edge ], [ -1094995529, %104 ], [ -1094995529, %103 ], [ -12, %24 ]
-  call void @llvm.lifetime.end.p0(i64 12000, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define void @ff_vlc_init_table_from_lengths(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #4 {
+define void @ff_vlc_init_table_from_lengths(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #3 {
   %12 = alloca %struct.VLC, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %13, align 4
@@ -1039,17 +1033,17 @@ define void @ff_vlc_init_table_from_lengths(ptr noundef %0, i32 noundef %1, i32 
   store i32 %1, ptr %16, align 4, !tbaa !13
   %17 = or i32 %10, 1
   %18 = call i32 @ff_vlc_init_from_lengths(ptr noundef nonnull %12, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %17, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: cold nounwind optsize uwtable
-define ptr @ff_vlc_init_tables_from_lengths(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #4 {
+define ptr @ff_vlc_init_tables_from_lengths(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 {
   %11 = alloca %struct.VLC, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
@@ -1073,14 +1067,14 @@ define ptr @ff_vlc_init_tables_from_lengths(ptr noundef captures(none) %0, i32 n
   %26 = sub i32 %25, %21
   store i32 %26, ptr %17, align 8, !tbaa !36
   %27 = load ptr, ptr %13, align 8, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %27
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define void @ff_vlc_init_table_sparse(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly captures(address_is_null) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #4 {
+define void @ff_vlc_init_table_sparse(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly captures(address_is_null) %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) local_unnamed_addr #3 {
   %15 = alloca %struct.VLC, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4
@@ -1092,14 +1086,14 @@ define void @ff_vlc_init_table_sparse(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %1, ptr %19, align 4, !tbaa !13
   %20 = or i32 %13, 1
   %21 = call i32 @ff_vlc_init_sparse(ptr noundef nonnull %15, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %20)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define ptr @ff_vlc_init_tables_sparse(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #4 {
+define ptr @ff_vlc_init_tables_sparse(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(address_is_null) %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #3 {
   %14 = alloca %struct.VLC, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %15, align 4
@@ -1123,7 +1117,7 @@ define ptr @ff_vlc_init_tables_sparse(ptr noundef captures(none) %0, i32 noundef
   %29 = sub i32 %28, %24
   store i32 %29, ptr %20, align 8, !tbaa !36
   %30 = load ptr, ptr %16, align 8, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %30
 }
 
@@ -1131,7 +1125,7 @@ define ptr @ff_vlc_init_tables_sparse(ptr noundef captures(none) %0, i32 noundef
 define range(i32 -1094995529, 1) i32 @ff_vlc_init_multi_from_lengths(ptr noundef initializes((0, 4), (16, 20)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca [5 x i32], align 16
   %15 = alloca [1500 x %struct.VLCcode], align 16
-  call void @llvm.lifetime.start.p0(i64 12000, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %16 = mul nsw i32 %2, 3
   %17 = tail call i32 @llvm.smin.i32(i32 %16, i32 32)
   store i32 %2, ptr %0, align 8, !tbaa !4
@@ -1321,7 +1315,7 @@ vlc_common_end.exit:                              ; preds = %92
   %96 = load ptr, ptr %1, align 8, !tbaa !37
   %97 = icmp sgt i32 %3, 256
   %98 = zext i1 %97 to i32
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   %99 = shl nuw i32 1, %2
   %.not106.i = icmp eq i32 %2, 31
@@ -1483,7 +1477,7 @@ vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %169 = load i32, ptr %168, align 16, !tbaa !17
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %12, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %161, i32 noundef %163, i32 noundef %165, i32 noundef %167, i32 noundef %169, i32 noundef %.075.lcssa127130136.i, i32 noundef %.076.lcssa137.i) #8
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not81 = icmp eq ptr %.192.ph, %15
   br i1 %.not81, label %vlc_common_init.exit, label %170
 
@@ -1505,11 +1499,11 @@ vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.
 
 vlc_common_init.exit:                             ; preds = %27, %vlc_multi_gen.exit, %170, %173
   %.0 = phi i32 [ -1094995529, %173 ], [ 0, %170 ], [ 0, %vlc_multi_gen.exit ], [ -12, %27 ]
-  call void @llvm.lifetime.end.p0(i64 12000, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_vlc_free_multi(ptr noundef %0) local_unnamed_addr #0 {
@@ -1517,7 +1511,7 @@ define void @ff_vlc_free_multi(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ff_vlc_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -1526,7 +1520,7 @@ define void @ff_vlc_free(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @build_table(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) unnamed_addr #0 {
@@ -1849,12 +1843,12 @@ alloc_table.exit:                                 ; preds = %7, %26
   ret i32 %.0134
 }
 
-declare void @avpriv_request_sample(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @avpriv_request_sample(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @av_realloc_f(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @av_realloc_f(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, -2147483648) %7, i32 noundef range(i32 0, 6) %8, i32 noundef range(i32 0, 33) %9, i32 noundef %10, ptr noundef nonnull captures(none) %11, i64 %12) unnamed_addr #6 {
+define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, -2147483648) %7, i32 noundef range(i32 0, 6) %8, i32 noundef range(i32 0, 33) %9, i32 noundef %10, ptr noundef nonnull captures(none) %11, i64 %12) unnamed_addr #5 {
   %14 = alloca %struct.VLC_MULTI_ELEM, align 8
   store i64 %12, ptr %14, align 8
   %.not.not83 = icmp sgt i32 %2, %10
@@ -2019,6 +2013,12 @@ define internal fastcc void @add_level(ptr noundef writeonly captures(none) %0, 
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
@@ -2032,12 +2032,12 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { noreturn nounwind }

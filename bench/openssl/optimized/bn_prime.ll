@@ -633,25 +633,22 @@ probable_prime.exit.thread:                       ; preds = %.split61.i, %.lr.ph
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @ERR_new() local_unnamed_addr #2
 
-declare void @ERR_new() local_unnamed_addr #3
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_start(ptr noundef) local_unnamed_addr #3
-
-declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #3
+declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @bn_is_prime_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @BN_value_one() #5
   %8 = tail call i32 @BN_cmp(ptr noundef %0, ptr noundef %7) #5
   %9 = icmp slt i32 %8, 1
@@ -777,18 +774,15 @@ calc_trial_divisions.exit:                        ; preds = %17, %20, %22, %24
 
 .thread44:                                        ; preds = %26, %35, %31, %12, %5, %43, %57, %14
   %.0 = phi i32 [ %.031, %57 ], [ -1, %43 ], [ %15, %14 ], [ 0, %5 ], [ 1, %12 ], [ %32, %31 ], [ -1, %35 ], [ -1, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_rshift1(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @BN_generate_prime_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
@@ -806,9 +800,9 @@ define range(i32 0, 2) i32 @BN_generate_prime_ex(ptr noundef %0, i32 noundef %1,
   ret i32 %.0
 }
 
-declare ptr @BN_CTX_new() local_unnamed_addr #3
+declare ptr @BN_CTX_new() local_unnamed_addr #2
 
-declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @BN_is_prime_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -840,7 +834,7 @@ define i32 @BN_is_prime_fasttest_ex(ptr noundef %0, i32 noundef %1, ptr noundef 
   ret i32 %8
 }
 
-declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_bn_check_generated_prime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -1088,69 +1082,75 @@ define range(i32 0, 2) i32 @ossl_bn_miller_rabin_is_prime(ptr noundef %0, i32 no
   ret i32 %.099
 }
 
-declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_sub_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_negative(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_is_bit_set(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_rshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @BN_MONT_CTX_new() local_unnamed_addr #3
+declare ptr @BN_MONT_CTX_new() local_unnamed_addr #2
 
-declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_priv_rand_range_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_priv_rand_range_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_gcd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #3
+declare i32 @BN_is_one(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_exp_mont(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_mod_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BN_clear(ptr noundef) local_unnamed_addr #3
+declare void @BN_clear(ptr noundef) local_unnamed_addr #2
 
-declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #3
+declare void @BN_MONT_CTX_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BN_value_one() local_unnamed_addr #3
+declare ptr @BN_value_one() local_unnamed_addr #2
 
-declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @BN_is_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i64 @BN_mod_word(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @BN_mod_word(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BN_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #3
+declare i64 @BN_get_word(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_div(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @BN_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

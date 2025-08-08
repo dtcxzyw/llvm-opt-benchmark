@@ -56,7 +56,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef captures(address_is_null
 
 6:                                                ; preds = %2
   tail call void @flockfile(ptr noundef nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 1
@@ -89,7 +89,7 @@ define noundef i32 @ungetwc(i32 noundef %0, ptr noundef captures(address_is_null
 
 ungetwc_unlocked.exit:                            ; preds = %6, %11, %14, %20
   %.0.i = phi i32 [ %0, %20 ], [ -1, %6 ], [ -1, %11 ], [ -1, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @funlockfile(ptr noundef nonnull %1)
   br label %27
 
@@ -105,10 +105,10 @@ declare void @flockfile(ptr noundef captures(none)) local_unnamed_addr #3
 declare void @funlockfile(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -221,16 +221,10 @@ define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event10StackFrameEEclERKS3
   ret i64 %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress uwtable
 define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca [48 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not7 = icmp eq i64 %5, 0
@@ -242,7 +236,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
   %7 = sext i32 %6 to i64
   %8 = call noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef nonnull %3, i64 noundef %7)
   %9 = zext i32 %8 to i64
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %9
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -256,12 +250,12 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 }
 
-declare noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEEclERKS3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %1) local_unnamed_addr #2 align 2 {
   %3 = alloca [48 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 768
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not7.i = icmp eq i64 %5, 0
@@ -283,7 +277,7 @@ _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %.lr
   %11 = sext i32 %10 to i64
   %12 = call noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef nonnull %3, i64 noundef %11)
   %13 = zext i32 %12 to i64
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %16 = ptrtoint ptr %15 to i64
@@ -293,14 +287,19 @@ _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %.lr
   ret i64 %19
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

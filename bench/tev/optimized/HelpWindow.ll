@@ -419,7 +419,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 182:                                              ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #19
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 208
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %185 = load ptr, ptr %184, align 16
   %186 = icmp eq ptr %185, null
@@ -471,7 +471,7 @@ _ZNSt3__18functionIFvvEEC2ERKS2_.exit.i.i:        ; preds = %_ZNSt3__18functionI
   br label %207
 
 207:                                              ; preds = %.sink.split.i.i.i.i, %203
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %208 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %209 unwind label %643
 
@@ -3332,7 +3332,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
   store i64 %1068, ptr %1070, align 8
   store ptr %158, ptr %1069, align 16
   %1071 = getelementptr inbounds nuw i8, ptr %225, i64 288
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1072 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %5, ptr %1072, align 16
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev10HelpWindowC1EPN7nanogui6WidgetEbNS_8functionIFvvEEEE3$_4NS_9allocatorISA_EEFviEEE", i64 16), ptr %5, align 16
@@ -3356,7 +3356,7 @@ _ZNSt3__18functionIFviEEC2ERKS2_.exit.i.i:        ; preds = %.noexc794
   br label %1080
 
 1080:                                             ; preds = %.sink.split.i.i.i.i797, %1076
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1081 = load ptr, ptr %1069, align 16
   %1082 = icmp eq ptr %1081, %158
   br i1 %1082, label %.sink.split.i.i, label %1083
@@ -5178,10 +5178,10 @@ define internal void @_GLOBAL__sub_I_HelpWindow.cpp() #16 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

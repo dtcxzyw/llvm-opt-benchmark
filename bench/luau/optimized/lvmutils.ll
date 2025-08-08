@@ -36,7 +36,7 @@ $_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua_TValuePKS3_S6_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13luaV_tonumberPK10lua_TValuePS_(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !4
   switch i32 %5, label %13 [
@@ -63,17 +63,11 @@ define hidden noundef ptr @_Z13luaV_tonumberPK10lua_TValuePS_(ptr noundef readon
 
 14:                                               ; preds = %2, %13, %10
   %.0 = phi ptr [ %1, %10 ], [ null, %13 ], [ %0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare hidden noundef i32 @_Z10luaO_str2dPKcPd(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare hidden noundef i32 @_Z10luaO_str2dPKcPd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 0, 2) i32 @_Z13luaV_tostringP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -84,7 +78,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_tostringP9lua_StateP10lua_TV
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = load double, ptr %1, align 8, !tbaa !9
   %9 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef nonnull %3, double noundef %8)
   %10 = ptrtoint ptr %9 to i64
@@ -93,7 +87,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_tostringP9lua_StateP10lua_TV
   %13 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %12)
   store ptr %13, ptr %1, align 8, !tbaa !9
   store i32 5, ptr %4, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %2, %7
@@ -101,12 +95,12 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaV_tostringP9lua_StateP10lua_TV
   ret i32 %.0
 }
 
-declare hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef, double noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_Z13luaV_tovectorPK10lua_TValue(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define hidden noundef ptr @_Z13luaV_tovectorPK10lua_TValue(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !4
   %4 = icmp eq i32 %3, 4
@@ -195,7 +189,7 @@ define hidden void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br i1 %45, label %46, label %.thread44
 
 46:                                               ; preds = %41
-  tail call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef nonnull %.03451, ptr noundef %2) #12
+  tail call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef nonnull %.03451, ptr noundef %2) #11
   unreachable
 
 .thread44:                                        ; preds = %..thread44_crit_edge, %41
@@ -247,32 +241,32 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %49, %65
   br label %.critedge
 
 75:                                               ; preds = %7
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str) #12
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str) #11
   unreachable
 
 .critedge:                                        ; preds = %.thread, %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
   ret void
 }
 
-declare hidden noundef ptr @_Z8luaH_getP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z8luaH_getP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: noreturn
-declare hidden void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare hidden void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: noreturn
+declare hidden void @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.lua_TValue, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.0.sroa.gep61 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -327,7 +321,7 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br i1 %.not58, label %33, label %32
 
 32:                                               ; preds = %.thread
-  call void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef %0) #12
+  call void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef %0) #11
   unreachable
 
 33:                                               ; preds = %.thread
@@ -384,7 +378,7 @@ define hidden void @_Z13luaV_settableP9lua_StatePK10lua_TValuePS1_S4_(ptr nounde
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %61
-  call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %.072, ptr noundef %2) #12
+  call void @_Z15luaG_indexerrorP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %.072, ptr noundef %2) #11
   unreachable
 
 67:                                               ; preds = %._crit_edge, %61
@@ -434,23 +428,23 @@ _ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit: ; preds = %70, %86
   br i1 %exitcond.not, label %91, label %7, !llvm.loop !39
 
 91:                                               ; preds = %89
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1) #12
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1) #11
   unreachable
 
 .critedge:                                        ; preds = %38, %51, %55, %60, %_ZL6callTMP9lua_StatePK10lua_TValueS3_S3_S3_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef) local_unnamed_addr #5
+declare hidden void @_Z18luaG_readonlyerrorP9lua_State(ptr noundef) local_unnamed_addr #4
 
-declare hidden noundef ptr @_Z11luaH_newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z11luaH_newkeyP9lua_StateP8LuaTablePK10lua_TValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare hidden void @_Z17luaC_barriertableP9lua_StateP8LuaTableP8GCObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden void @_Z17luaC_barriertableP9lua_StateP8LuaTableP8GCObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 {
+define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %22, label %4
 
@@ -475,7 +469,7 @@ define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly cap
   %17 = load i32, ptr %16, align 4, !tbaa !40
   %18 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
   %19 = zext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %19) #13
+  %20 = tail call i32 @memcmp(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef %19) #12
   %.not26 = icmp eq i32 %20, 0
   %21 = tail call i32 @llvm.ucmp.i32.i32(i32 %15, i32 %17)
   %.2 = select i1 %.not26, i32 %21, i32 %20
@@ -487,7 +481,7 @@ define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_TValueS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -499,7 +493,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
   br i1 %.not, label %9, label %8, !prof !42
 
 8:                                                ; preds = %3
-  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 16) #12
+  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 16) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -532,7 +526,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z13luaV_lessthanP9lua_StatePK10lua_
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare hidden void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_StatePK10lua_TValueS3_3TMSb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 {
@@ -546,7 +540,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_Stat
   br i1 %4, label %11, label %50
 
 11:                                               ; preds = %10
-  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
+  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #11
   unreachable
 
 12:                                               ; preds = %5
@@ -559,7 +553,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12call_orderTMP9lua_Stat
   br i1 %4, label %16, label %50
 
 16:                                               ; preds = %15
-  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
+  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #11
   unreachable
 
 17:                                               ; preds = %12
@@ -634,7 +628,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17) #12
+  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17) #11
   unreachable
 
 9:                                                ; preds = %3
@@ -677,7 +671,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z14luaV_lessequalP9lua_StatePK10lua_
   %32 = load i32, ptr %31, align 4, !tbaa !40
   %33 = tail call i32 @llvm.umin.i32(i32 %30, i32 %32)
   %34 = zext i32 %33 to i64
-  %35 = tail call i32 @memcmp(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %21, i64 noundef %34) #13
+  %35 = tail call i32 @memcmp(ptr noundef nonnull readonly %20, ptr noundef nonnull readonly %21, i64 noundef %34) #12
   %.not26.i = icmp eq i32 %35, 0
   %36 = tail call i32 @llvm.ucmp.i32.i32(i32 %30, i32 %32)
   %.2.i = select i1 %.not26.i, i32 %36, i32 %35
@@ -700,7 +694,7 @@ _Z11luaV_strcmpPK7TStringS1_.exit:                ; preds = %15, %24, %28
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
-  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17) #12
+  tail call void @_Z15luaG_ordererrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef 17) #11
   unreachable
 
 45:                                               ; preds = %41
@@ -999,7 +993,7 @@ define hidden void @_Z11luaV_concatP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   ]
 
 _Z13luaV_tostringP9lua_StateP10lua_TValue.exit:   ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = load double, ptr %18, align 8, !tbaa !9
   %27 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef nonnull %6, double noundef %26)
   %28 = ptrtoint ptr %27 to i64
@@ -1007,7 +1001,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit:   ; preds = %23
   %30 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %29)
   store ptr %30, ptr %18, align 8, !tbaa !9
   store i32 5, ptr %24, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 _Z13luaV_tostringP9lua_StateP10lua_TValue.exit.thread: ; preds = %23, %15
@@ -1065,7 +1059,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
 60:                                               ; preds = %35
-  call void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %18) #12
+  call void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %18) #11
   unreachable
 
 61:                                               ; preds = %23, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit
@@ -1081,7 +1075,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br i1 %cond, label %68, label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
 68:                                               ; preds = %66
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = load double, ptr %20, align 8, !tbaa !9
   %70 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef nonnull %5, double noundef %69)
   %71 = ptrtoint ptr %70 to i64
@@ -1089,7 +1083,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %73 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %72)
   store ptr %73, ptr %20, align 8, !tbaa !9
   store i32 5, ptr %21, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
 74:                                               ; preds = %61
@@ -1115,7 +1109,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   ]
 
 _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = load double, ptr %80, align 8, !tbaa !9
   %84 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef nonnull %4, double noundef %83)
   %85 = ptrtoint ptr %84 to i64
@@ -1123,7 +1117,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %87 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %86)
   store ptr %87, ptr %80, align 8, !tbaa !9
   store i32 5, ptr %81, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit86
@@ -1136,7 +1130,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %.critedge2
-  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.2) #12
+  call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.2) #11
   unreachable
 
 95:                                               ; preds = %.critedge2
@@ -1152,7 +1146,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
 .critedge:                                        ; preds = %95, %.critedge.loopexit.split.loop.exit, %74
   %.073.lcssa = phi i64 [ %75, %74 ], [ %.073100, %.critedge.loopexit.split.loop.exit ], [ %96, %95 ]
   %.1.lcssa = phi i32 [ 1, %74 ], [ %97, %.critedge.loopexit.split.loop.exit ], [ %.0, %95 ]
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = icmp ult i64 %.073.lcssa, 512
   br i1 %98, label %102, label %99
 
@@ -1204,7 +1198,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %.sink = phi ptr [ %124, %123 ], [ %122, %121 ]
   store ptr %.sink, ptr %119, align 8, !tbaa !9
   store i32 5, ptr %120, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = add nsw i32 %.1.lcssa, -1
   br label %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84
 
@@ -1220,11 +1214,11 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit84: ; preds = %66, %68, %_ZL10call
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @_Z16luaG_concaterrorP9lua_StateP10lua_TValueS2_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare hidden noundef ptr @_Z13luaS_bufstartP9lua_Statem(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z13luaS_bufstartP9lua_Statem(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z14luaS_buffinishP9lua_StateP7TString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat {
@@ -1233,7 +1227,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.077 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.077)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.077)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -1278,7 +1272,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_
   br i1 %38, label %53, label %39
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %40, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
@@ -1289,7 +1283,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS8EEvP9lua_StateP10lua_
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
 44:                                               ; preds = %36
@@ -1298,7 +1292,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
   br i1 %or.cond56.not, label %46, label %53
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond74 = icmp eq i32 %10, 5
   br i1 %cond74, label %47, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59
 
@@ -1315,11 +1309,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %46, %47, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit59, %_Z13luaV_tonumberPK10lua_TValuePS_.exit, %37, %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %54, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit62 [
     i32 3, label %61
@@ -1339,13 +1333,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %46, %47, %51
   br label %61
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit62:        ; preds = %53, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 61:                                               ; preds = %59, %53
   %.0.i61.ph = phi ptr [ %2, %53 ], [ %.sroa.077, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %62, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit65 [
     i32 3, label %._crit_edge
@@ -1360,13 +1354,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit62:        ; preds = %53, %55
   br i1 %.not.i63, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit65, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %71
 
 ._crit_edge:                                      ; preds = %63, %61
   %.in = phi ptr [ %3, %61 ], [ %5, %63 ]
   %67 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %68 = load double, ptr %.0.i61.ph, align 8, !tbaa !9
   %69 = fadd double %68, %67
   store double %69, ptr %1, align 8, !tbaa !9
@@ -1432,16 +1426,16 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %105
 
 104:                                              ; preds = %76
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 8) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 8) #11
   unreachable
 
 105:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.077)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.077)
   ret void
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare hidden void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat {
@@ -1450,7 +1444,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.077 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.077)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.077)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -1495,7 +1489,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_
   br i1 %38, label %53, label %39
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %40, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
@@ -1506,7 +1500,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS9EEvP9lua_StateP10lua_
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
 44:                                               ; preds = %36
@@ -1515,7 +1509,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
   br i1 %or.cond56.not, label %46, label %53
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond74 = icmp eq i32 %10, 5
   br i1 %cond74, label %47, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59
 
@@ -1532,11 +1526,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %40, %39
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %46, %47, %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit59, %_Z13luaV_tonumberPK10lua_TValuePS_.exit, %37, %44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %54, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit62 [
     i32 3, label %61
@@ -1556,13 +1550,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %46, %47, %51
   br label %61
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit62:        ; preds = %53, %55
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %71
 
 61:                                               ; preds = %59, %53
   %.0.i61.ph = phi ptr [ %2, %53 ], [ %.sroa.077, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %62, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit65 [
     i32 3, label %._crit_edge
@@ -1577,13 +1571,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit62:        ; preds = %53, %55
   br i1 %.not.i63, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit65, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit65:        ; preds = %61, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %71
 
 ._crit_edge:                                      ; preds = %63, %61
   %.in = phi ptr [ %3, %61 ], [ %5, %63 ]
   %67 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %68 = load double, ptr %.0.i61.ph, align 8, !tbaa !9
   %69 = fsub double %68, %67
   store double %69, ptr %1, align 8, !tbaa !9
@@ -1649,11 +1643,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %105
 
 104:                                              ; preds = %76
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 9) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 9) #11
   unreachable
 
 105:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.077)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.077)
   ret void
 }
 
@@ -1664,7 +1658,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.0110 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0110)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -1713,7 +1707,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br label %.thread
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %40, label %45
 
@@ -1726,11 +1720,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 
 .thread91:                                        ; preds = %40
   %44 = load double, ptr %8, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 45:                                               ; preds = %39, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
@@ -1765,7 +1759,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br label %.thread94
 
 62:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond108 = icmp eq i32 %10, 5
   br i1 %cond108, label %63, label %68
 
@@ -1778,11 +1772,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
 
 .thread97:                                        ; preds = %63
   %67 = load double, ptr %7, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread94
 
 68:                                               ; preds = %62, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
@@ -1806,7 +1800,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br label %134
 
 82:                                               ; preds = %68, %45, %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %83, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit86 [
     i32 3, label %90
@@ -1826,13 +1820,13 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS10EEvP9lua_StateP10lua
   br label %90
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %82, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %100
 
 90:                                               ; preds = %88, %82
   %.0.i85.ph = phi ptr [ %2, %82 ], [ %.sroa.0110, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %91, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89 [
     i32 3, label %._crit_edge
@@ -1847,13 +1841,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %82, %84
   br i1 %.not.i87, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
 ._crit_edge:                                      ; preds = %92, %90
   %.in = phi ptr [ %3, %90 ], [ %5, %92 ]
   %96 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %97 = load double, ptr %.0.i85.ph, align 8, !tbaa !9
   %98 = fmul double %97, %96
   store double %98, ptr %1, align 8, !tbaa !9
@@ -1919,11 +1913,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %134
 
 133:                                              ; preds = %105
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 10) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 10) #11
   unreachable
 
 134:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge, %.thread94, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0110)
   ret void
 }
 
@@ -1934,7 +1928,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.0110 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0110)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -1983,7 +1977,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br label %.thread
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %40, label %45
 
@@ -1996,11 +1990,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 
 .thread91:                                        ; preds = %40
   %44 = load double, ptr %8, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 45:                                               ; preds = %39, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %82
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
@@ -2035,7 +2029,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br label %.thread94
 
 62:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond108 = icmp eq i32 %10, 5
   br i1 %cond108, label %63, label %68
 
@@ -2048,11 +2042,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
 
 .thread97:                                        ; preds = %63
   %67 = load double, ptr %7, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread94
 
 68:                                               ; preds = %62, %63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %82
 
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
@@ -2076,7 +2070,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br label %134
 
 82:                                               ; preds = %68, %45, %59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %83, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit86 [
     i32 3, label %90
@@ -2096,13 +2090,13 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS11EEvP9lua_StateP10lua
   br label %90
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %82, %84
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %100
 
 90:                                               ; preds = %88, %82
   %.0.i85.ph = phi ptr [ %2, %82 ], [ %.sroa.0110, %88 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %91, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89 [
     i32 3, label %._crit_edge
@@ -2117,13 +2111,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %82, %84
   br i1 %.not.i87, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %90, %92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %100
 
 ._crit_edge:                                      ; preds = %92, %90
   %.in = phi ptr [ %3, %90 ], [ %5, %92 ]
   %96 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %97 = load double, ptr %.0.i85.ph, align 8, !tbaa !9
   %98 = fdiv double %97, %96
   store double %98, ptr %1, align 8, !tbaa !9
@@ -2189,11 +2183,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %134
 
 133:                                              ; preds = %105
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 11) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 11) #11
   unreachable
 
 134:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge, %.thread94, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0110)
   ret void
 }
 
@@ -2204,7 +2198,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.0110 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0110)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -2265,7 +2259,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br label %.thread
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %52, label %57
 
@@ -2278,11 +2272,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
 
 .thread91:                                        ; preds = %52
   %56 = load double, ptr %8, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 57:                                               ; preds = %51, %52
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %114
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread91
@@ -2327,7 +2321,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br label %.thread94
 
 84:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond108 = icmp eq i32 %10, 5
   br i1 %cond108, label %85, label %90
 
@@ -2340,11 +2334,11 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
 
 .thread97:                                        ; preds = %85
   %89 = load double, ptr %7, align 8, !tbaa !10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread94
 
 90:                                               ; preds = %84, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %114
 
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread97
@@ -2378,7 +2372,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br label %167
 
 114:                                              ; preds = %90, %57, %81
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %115 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %115, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit86 [
     i32 3, label %122
@@ -2398,13 +2392,13 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS12EEvP9lua_StateP10lua
   br label %122
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %114, %116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %133
 
 122:                                              ; preds = %120, %114
   %.0.i85.ph = phi ptr [ %2, %114 ], [ %.sroa.0110, %120 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %123, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89 [
     i32 3, label %._crit_edge
@@ -2419,13 +2413,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit86:        ; preds = %114, %116
   br i1 %.not.i87, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit89, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit89:        ; preds = %122, %124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %133
 
 ._crit_edge:                                      ; preds = %124, %122
   %.in = phi ptr [ %3, %122 ], [ %5, %124 ]
   %128 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %129 = load double, ptr %.0.i85.ph, align 8, !tbaa !9
   %130 = fdiv double %129, %128
   %131 = call noundef double @llvm.floor.f64(double %130)
@@ -2492,11 +2486,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %167
 
 166:                                              ; preds = %138
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 12) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 12) #11
   unreachable
 
 167:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge, %.thread94, %.thread, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0110)
   ret void
 }
 
@@ -2507,7 +2501,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS13EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.063 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -2529,7 +2523,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS13EEvP9lua_StateP10lua
   br i1 %21, label %36, label %22
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %23, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
@@ -2540,7 +2534,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS13EEvP9lua_StateP10lua
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 27:                                               ; preds = %19
@@ -2549,7 +2543,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
   br i1 %or.cond42.not, label %29, label %36
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond60 = icmp eq i32 %10, 5
   br i1 %cond60, label %30, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit45
 
@@ -2566,11 +2560,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit45
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit45:        ; preds = %29, %30, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 36:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit45, %_Z13luaV_tonumberPK10lua_TValuePS_.exit, %20, %27, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %37, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit48 [
     i32 3, label %44
@@ -2590,13 +2584,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit45:        ; preds = %29, %30, %34
   br label %44
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit48:        ; preds = %36, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %57
 
 44:                                               ; preds = %42, %36
   %.0.i47.ph = phi ptr [ %2, %36 ], [ %.sroa.063, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %45, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit51 [
     i32 3, label %._crit_edge
@@ -2611,13 +2605,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit48:        ; preds = %36, %38
   br i1 %.not.i49, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit51, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %57
 
 ._crit_edge:                                      ; preds = %46, %44
   %.in = phi ptr [ %3, %44 ], [ %5, %46 ]
   %50 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load double, ptr %.0.i47.ph, align 8, !tbaa !9
   %52 = fdiv double %51, %50
   %53 = call double @llvm.floor.f64(double %52)
@@ -2686,11 +2680,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %91
 
 90:                                               ; preds = %62
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 13) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 13) #11
   unreachable
 
 91:                                               ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
   ret void
 }
 
@@ -2701,7 +2695,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS14EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.063 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.063)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -2723,7 +2717,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS14EEvP9lua_StateP10lua
   br i1 %21, label %36, label %22
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %23, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
@@ -2734,7 +2728,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS14EEvP9lua_StateP10lua
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %36
 
 27:                                               ; preds = %19
@@ -2743,7 +2737,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
   br i1 %or.cond42.not, label %29, label %36
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond60 = icmp eq i32 %10, 5
   br i1 %cond60, label %30, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit45
 
@@ -2760,11 +2754,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %23, %22
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit45
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit45:        ; preds = %29, %30, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %36
 
 36:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit45, %_Z13luaV_tonumberPK10lua_TValuePS_.exit, %20, %27, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %37, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit48 [
     i32 3, label %44
@@ -2784,13 +2778,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit45:        ; preds = %29, %30, %34
   br label %44
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit48:        ; preds = %36, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %54
 
 44:                                               ; preds = %42, %36
   %.0.i47.ph = phi ptr [ %2, %36 ], [ %.sroa.063, %42 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %45, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit51 [
     i32 3, label %._crit_edge
@@ -2805,13 +2799,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit48:        ; preds = %36, %38
   br i1 %.not.i49, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit51, label %._crit_edge
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit51:        ; preds = %44, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %54
 
 ._crit_edge:                                      ; preds = %46, %44
   %.in = phi ptr [ %3, %44 ], [ %5, %46 ]
   %50 = load double, ptr %.in, align 8, !tbaa !9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = load double, ptr %.0.i47.ph, align 8, !tbaa !9
   %52 = call double @llvm.pow.f64(double %51, double %50)
   store double %52, ptr %1, align 8, !tbaa !9
@@ -2877,16 +2871,16 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %88
 
 87:                                               ; preds = %59
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 14) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 14) #11
   unreachable
 
 88:                                               ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.063)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.063)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.pow.f64(double, double) #8
+declare double @llvm.pow.f64(double, double) #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua_TValuePKS3_S6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 comdat {
@@ -2895,7 +2889,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %.sroa.0 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, 4
@@ -2935,7 +2929,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua
   br i1 %33, label %48, label %34
 
 34:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %cond = icmp eq i32 %13, 5
   br i1 %cond, label %35, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
@@ -2946,7 +2940,7 @@ define weak_odr dso_local void @_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %35, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %48
 
 39:                                               ; preds = %31
@@ -2955,7 +2949,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %35, %34
   br i1 %or.cond50.not, label %41, label %48
 
 41:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond67 = icmp eq i32 %10, 5
   br i1 %cond67, label %42, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit53
 
@@ -2972,11 +2966,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit:          ; preds = %35, %34
   br label %_Z13luaV_tonumberPK10lua_TValuePS_.exit53
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit53:        ; preds = %41, %42, %46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %48
 
 48:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit53, %_Z13luaV_tonumberPK10lua_TValuePS_.exit, %32, %39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load i32, ptr %9, align 4, !tbaa !4
   switch i32 %49, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit56 [
     i32 3, label %56
@@ -2996,13 +2990,13 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit53:        ; preds = %41, %42, %46
   br label %56
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit56:        ; preds = %48, %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 56:                                               ; preds = %54, %48
   %.0.i55.ph = phi ptr [ %2, %48 ], [ %.sroa.0, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = load i32, ptr %12, align 4, !tbaa !4
   switch i32 %57, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59 [
     i32 3, label %62
@@ -3017,11 +3011,11 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit56:        ; preds = %48, %50
   br i1 %.not.i57, label %_Z13luaV_tonumberPK10lua_TValuePS_.exit59, label %62
 
 _Z13luaV_tonumberPK10lua_TValuePS_.exit59:        ; preds = %56, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 62:                                               ; preds = %58, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load double, ptr %.0.i55.ph, align 8, !tbaa !9
   %64 = fneg double %63
   store double %64, ptr %1, align 8, !tbaa !9
@@ -3087,11 +3081,11 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   br label %100
 
 99:                                               ; preds = %71
-  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 15) #12
+  call void @_Z15luaG_aritherrorP9lua_StatePK10lua_TValueS3_3TMS(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 15) #11
   unreachable
 
 100:                                              ; preds = %_ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit, %62, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   ret void
 }
 
@@ -3151,7 +3145,7 @@ define hidden void @_Z10luaV_dolenP9lua_StateP10lua_TValuePKS1_(ptr noundef %0, 
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %.critedge
-  tail call void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #12
+  tail call void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #11
   unreachable
 
 34:                                               ; preds = %.critedge
@@ -3200,7 +3194,7 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %34, %50
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %_ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #11
   unreachable
 
 .sink.split:                                      ; preds = %23, %.thread
@@ -3214,13 +3208,13 @@ _ZL9callTMresP9lua_StateP10lua_TValuePKS1_S4_S4_.exit: ; preds = %34, %50
   ret void
 }
 
-declare hidden noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef) local_unnamed_addr #2
+declare hidden noundef i32 @_Z9luaH_getnP8LuaTable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare hidden void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noinline uwtable
-define hidden void @_Z16luaV_prepareFORNP9lua_StateP10lua_TValueS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #9 {
+define hidden void @_Z16luaV_prepareFORNP9lua_StateP10lua_TValueS2_S2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #8 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3230,7 +3224,7 @@ define hidden void @_Z16luaV_prepareFORNP9lua_StateP10lua_TValueS2_S2_(ptr nound
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %cond30 = icmp eq i32 %9, 5
   br i1 %cond30, label %12, label %17
 
@@ -3245,12 +3239,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit.thread:   ; preds = %12
   %16 = load double, ptr %7, align 8, !tbaa !10
   store double %16, ptr %3, align 8, !tbaa !9
   store i32 3, ptr %8, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %18
 
 17:                                               ; preds = %11, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.5) #11
   unreachable
 
 18:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit.thread, %4
@@ -3260,7 +3254,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit.thread:   ; preds = %12
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %cond29 = icmp eq i32 %20, 5
   br i1 %cond29, label %23, label %28
 
@@ -3275,12 +3269,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit19.thread: ; preds = %23
   %27 = load double, ptr %6, align 8, !tbaa !10
   store double %27, ptr %1, align 8, !tbaa !9
   store i32 3, ptr %19, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %29
 
 28:                                               ; preds = %22, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.6) #11
   unreachable
 
 29:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit19.thread, %18
@@ -3290,7 +3284,7 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit19.thread: ; preds = %23
   br i1 %32, label %40, label %33
 
 33:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %cond = icmp eq i32 %31, 5
   br i1 %cond, label %34, label %39
 
@@ -3305,12 +3299,12 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit22.thread: ; preds = %34
   %38 = load double, ptr %5, align 8, !tbaa !10
   store double %38, ptr %2, align 8, !tbaa !9
   store i32 3, ptr %30, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 39:                                               ; preds = %33, %34
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull @.str.7) #11
   unreachable
 
 40:                                               ; preds = %_Z13luaV_tonumberPK10lua_TValuePS_.exit22.thread, %29
@@ -3318,10 +3312,10 @@ _Z13luaV_tonumberPK10lua_TValuePS_.exit22.thread: ; preds = %34
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare hidden void @_Z14luaG_forerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noinline uwtable
-define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i16, ptr %4, align 8, !tbaa !52
   %6 = add i16 %5, 1
@@ -3432,14 +3426,14 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   ret void
 }
 
-declare hidden void @_Z16luaD_checkCstackP9lua_State(ptr noundef) local_unnamed_addr #2
+declare hidden void @_Z16luaD_checkCstackP9lua_State(ptr noundef) local_unnamed_addr #1
 
-declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden noundef ptr @_Z11luaD_growCIP9lua_State(ptr noundef) local_unnamed_addr #2
+declare hidden noundef ptr @_Z11luaD_growCIP9lua_State(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noinline uwtable
-define hidden void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+define hidden void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = tail call noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef %0, ptr noundef %1, i32 noundef 4)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !4
@@ -3447,7 +3441,7 @@ define hidden void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef %0, p
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8) #12
+  tail call void @_Z15luaG_typeerrorLP9lua_StatePK10lua_TValuePKc(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8) #11
   unreachable
 
 8:                                                ; preds = %2
@@ -3475,15 +3469,21 @@ define hidden void @_Z14luaV_tryfuncTMP9lua_StateP10lua_TValue(ptr noundef %0, p
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
 }
 
-declare hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare hidden void @_Z9luaD_callP9lua_StateP10lua_TValuei(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare hidden noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #8
+declare hidden noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #8
+declare double @llvm.floor.f64(double) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
@@ -3492,19 +3492,18 @@ declare i32 @llvm.umin.i32(i32, i32) #10
 declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

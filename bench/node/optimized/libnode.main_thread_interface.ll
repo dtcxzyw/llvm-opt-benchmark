@@ -949,7 +949,7 @@ do.body:                                          ; preds = %do.cond, %if.end
 
 if.then3:                                         ; preds = %do.body
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %requests_lock_) #20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %requests_, i64 16, i1 false)
   %4 = load ptr, ptr %_M_start3.i.i.i.i.i, align 8
   %5 = load ptr, ptr %_M_first3.i.i.i.i.i.i, align 8
@@ -969,7 +969,7 @@ if.then3:                                         ; preds = %do.body
   store ptr %9, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i, align 8
   store ptr %10, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i, align 8
   store ptr %11, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @uv_mutex_unlock(ptr noundef nonnull %requests_lock_) #20
   %.pre13 = load ptr, ptr %_M_finish.i, align 8
   %.pre14 = load ptr, ptr %_M_start.i, align 8
@@ -1082,9 +1082,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %this, ptr %ref.tmp2, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__a.i)
   call void @_ZNSt12__shared_ptrIN4node9inspector16MainThreadHandleELN9__gnu_cxx12_Lock_policyE2EEC2ISaIvEJPNS1_19MainThreadInterfaceEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__a.i)
   %1 = load ptr, ptr %ref.tmp, align 8
   %_M_refcount4.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_refcount4.i.i.i, align 8
@@ -1715,7 +1715,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i.i: ; preds = %
   store ptr @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState6CreateEPNS0_19MainThreadInterfaceEb, ptr %factory_.i.i.i.i, align 8, !noalias !33
   %_M_bound_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
   store i8 %frombool.i, ptr %_M_bound_args.i.i.i.i.i, align 1, !noalias !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %main_thread_.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -1741,12 +1741,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i: ; preds =
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i, %if.end.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   br label %if.then.i.i.i6.i
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   %vtable.i.i.i.i = load ptr, ptr %call.i.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -1835,7 +1835,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i: ; preds = %if
   store ptr @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE5ApplyISt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEEEvPS3_MS3_FvT_ERSC_, ptr %fn_.i.i.i.i, align 8
   %_M_bound_args.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 24
   store i64 %7, ptr %_M_bound_args.i.i.i.i17.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i)
   %block_lock_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i, i64 24
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i.i) #20
   %main_thread_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i, i64 16
@@ -1861,12 +1861,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i.i: ; preds
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i.i, %if.end.i.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i)
   br label %if.then.i.i.i
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i21.i: ; preds = %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit.i
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i)
   %vtable.i.i.i.i22.i = load ptr, ptr %call2.i.i.i, align 8
   %vfn.i.i.i.i23.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i22.i, i64 16
   %51 = load ptr, ptr %vfn.i.i.i.i23.i, align 8
@@ -1999,7 +1999,7 @@ do.end5.i:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i64 16), ptr %call.i, align 8, !noalias !36
   %object_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %3, ptr %object_.i.i, align 8, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %id.addr.i)
   store i32 %1, ptr %id.addr.i, align 4
   %managed_objects_.i = getelementptr inbounds nuw i8, ptr %2, i64 296
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
@@ -2016,7 +2016,7 @@ _ZNKSt14default_deleteIN4node9inspector9DeletableEEclEPS2_.exit.i.i.i.i.i: ; pre
   br label %_ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteIS2_EED2Ev.exit: ; preds = %do.end5.i, %_ZNKSt14default_deleteIN4node9inspector9DeletableEEclEPS2_.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   %call3 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %_M_refcount2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !39
@@ -2351,7 +2351,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_113DeleteRequestE, i64 16), ptr %call.i.i, align 8, !noalias !45
   %object_id_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 %object_id_.val.i, ptr %object_id_.i.i.i, align 8, !noalias !45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2377,12 +2377,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i: ; preds = %
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i, %if.end.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_113DeleteRequestESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i: ; preds = %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i, align 8
@@ -2499,7 +2499,7 @@ entry:
   store ptr @_ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE5ApplyISt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEEEvPS3_MS3_FvT_ERSD_, ptr %fn_.i.i.i, align 8
   %_M_bound_args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 24
   store i64 %0, ptr %_M_bound_args.i.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i)
   %block_lock_.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i, i64 24
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i.i) #20
   %main_thread_.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i, i64 16
@@ -2525,12 +2525,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i: ; preds =
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i.i, %if.end.i.i.i
   store ptr null, ptr %agg.tmp.i.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadSessionStateEE4CallISt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEEEvMS3_FvT_ESC_.exit
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i: ; preds = %entry
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i)
   %vtable.i.i.i.i = load ptr, ptr %call2.i.i, align 8
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
@@ -2577,7 +2577,7 @@ do.end5.i:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i64 16), ptr %call.i, align 8, !noalias !51
   %object_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %__u.val.i.i.i.i, ptr %object_.i.i, align 8, !noalias !51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %id.addr.i)
   store i32 %0, ptr %id.addr.i, align 4
   %managed_objects_.i = getelementptr inbounds nuw i8, ptr %thread, i64 296
   %call.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS6_EEESaISA_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
@@ -2594,7 +2594,7 @@ _ZNKSt14default_deleteIN4node9inspector9DeletableEEclEPS2_.exit.i.i.i.i.i: ; pre
   br label %_ZNSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector9DeletableEEclEPS2_.exit.i.i.i.i.i, %do.end5.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   %4 = load ptr, ptr %agg.tmp2, align 8
   %cmp.not.i2 = icmp eq ptr %4, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14default_deleteIS3_EED2Ev.exit, label %delete.notnull.i.i
@@ -2878,7 +2878,7 @@ entry:
   %id.addr.i = alloca i32, align 4
   %object_id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %object_id_, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %id.addr.i)
   store i32 %0, ptr %id.addr.i, align 4
   %managed_objects_.i = getelementptr inbounds nuw i8, ptr %thread, i64 296
   %call.i.i.i = call noundef i64 @_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector9DeletableESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) %managed_objects_.i, ptr noundef nonnull align 4 dereferenceable(4) %id.addr.i)
@@ -2891,7 +2891,7 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZN4node9inspector19MainThreadInterface12RemoveObjectEi.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %id.addr.i)
   ret void
 }
 
@@ -3114,7 +3114,7 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_113DeleteRequestE, i64 16), ptr %call.i.i, align 8, !noalias !55
   %object_id_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 %object_id_.val.i, ptr %object_id_.i.i.i, align 8, !noalias !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3140,12 +3140,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i: ; preds = %
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i, %if.end.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_113DeleteRequestESt14default_deleteIS3_EED2Ev.exit.i
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i: ; preds = %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i, align 8
@@ -3330,7 +3330,7 @@ entry:
   store i32 %delegate_.val1, ptr %id_.i.i, align 8
   %fn_.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   store i64 %1, ptr %fn_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %block_lock_.i.i = getelementptr inbounds nuw i8, ptr %delegate_.val, i64 24
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %block_lock_.i.i) #20
   %main_thread_.i.i = getelementptr inbounds nuw i8, ptr %delegate_.val, i64 16
@@ -3356,12 +3356,12 @@ _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i: ; preds = %
 _ZN4node9inspector16MainThreadHandle4PostESt10unique_ptrINS0_7RequestESt14default_deleteIS3_EE.exit.thread.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i.i, %if.end.i.i
   store ptr null, ptr %agg.tmp.i.i, align 8
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   br label %_ZNK4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS0_24InspectorSessionDelegateEE4CallIZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EEvT_.exit
 
 _ZNKSt14default_deleteIN4node9inspector7RequestEEclEPS2_.exit.i.i: ; preds = %entry
   call void @uv_mutex_unlock(ptr noundef nonnull %block_lock_.i.i) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   %vtable.i.i.i = load ptr, ptr %call2.i, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i, align 8
@@ -3468,7 +3468,7 @@ _ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegat
   %object_.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %object_.i, align 8
   %fn_.val = load ptr, ptr %fn_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %vtable.i = load ptr, ptr %fn_.val, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %12 = load ptr, ptr %vfn.i, align 8
@@ -3477,7 +3477,7 @@ _ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegat
   %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 16
   %13 = load ptr, ptr %vfn3.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret void
 }
 
@@ -4701,10 +4701,10 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

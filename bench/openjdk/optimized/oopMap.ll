@@ -2045,7 +2045,7 @@ define hidden void @_ZN6OopMap7set_xxxEP9VMRegImplN11OopMapValue9oop_typesES1_(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapValue, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i16
   %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -2064,14 +2064,14 @@ define hidden void @_ZN6OopMap7set_oopEP9VMRegImpl(ptr noundef nonnull align 8 c
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6OopMap13set_narrowoopEP9VMRegImpl(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.OopMapValue, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i16
   %.tr = sub i16 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -2091,14 +2091,14 @@ define hidden void @_ZN6OopMap13set_narrowoopEP9VMRegImpl(ptr noundef nonnull al
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.OopMapValue, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = ptrtoint ptr %1 to i64
   %6 = trunc i64 %5 to i16
   %.tr = sub i16 %6, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -2117,7 +2117,7 @@ define hidden void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonn
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2133,7 +2133,7 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr noundef nonnu
   br i1 %6, label %10, label %20
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %9, ptr %5, align 2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 -1, ptr %11, align 2
@@ -2148,11 +2148,11 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr noundef nonnu
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %32
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = or disjoint i16 %9, 3
   store i16 %21, ptr %4, align 2
   %22 = ptrtoint ptr %2 to i64
@@ -2169,7 +2169,7 @@ define hidden void @_ZN6OopMap15set_derived_oopEP9VMRegImplS1_(ptr noundef nonnu
   store i32 %30, ptr %28, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 32:                                               ; preds = %20, %10
@@ -2238,10 +2238,10 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosure27
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %10, ptr noundef %12) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17ProcessDerivedOop, i64 16), ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %14, align 8
@@ -2271,10 +2271,10 @@ _ZNK15ImmutableOopMap7oops_doEPK5framePK11RegisterMapP10OopClosure27DerivedPoint
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.0.i, ptr %19, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2334,12 +2334,12 @@ define hidden void @_ZN9OopMapSet7oops_doEPK5framePK11RegisterMapP10OopClosureP1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZNK8CodeBlob26oop_map_for_return_addressEPh(ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef %9) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %11, align 8
   call void @_ZN8OopMapDoI10OopClosure17DerivedOopClosure13SkipNullValueE15iterate_oops_doI11RegisterMapEEvPK5framePKT_PK15ImmutableOopMap(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(9) %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4033,7 +4033,7 @@ define hidden void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr noundef nonnull writeon
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = and i8 %10, 1
   store i8 %12, ptr %11, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %13, align 8
@@ -4074,7 +4074,7 @@ _ZNK6OopMap21copy_and_sort_data_toEPh.exit:       ; preds = %.lr.ph.i.i, %2
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr align 1 %30, i64 %33, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6046,10 +6046,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18

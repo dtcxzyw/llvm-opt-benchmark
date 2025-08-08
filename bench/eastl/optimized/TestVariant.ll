@@ -2885,30 +2885,30 @@ _ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %
   %call100 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 959, ptr noundef nonnull @.str.79)
   %call107 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 976, ptr noundef nonnull @.str.79)
   %call112 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 981, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   %call.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i74)
   store i32 0, ptr %nErrorCount.i74, align 4
   %call.i79 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i74, ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i74)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i81)
   store i32 0, ptr %nErrorCount.i81, align 4
   %call.i86 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i81, ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i81)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i90)
   store i32 0, ptr %nErrorCount.i90, align 4
   %call.i94 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i90, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i90)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i97)
   store i32 0, ptr %nErrorCount.i97, align 4
   %call.i102 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i97, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i97)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i104)
   store i32 0, ptr %nErrorCount.i104, align 4
   %call.i109 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i104, ptr noundef nonnull @.str, i32 noundef 698, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i104)
   %mStorage.i110 = getelementptr inbounds nuw i8, ptr %v0131, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v0131, i8 0, i64 24, i1 false)
   store i32 1, ptr %mStorage.i110, align 8
@@ -2917,14 +2917,14 @@ _ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %
   store i32 2, ptr %mStorage.i111, align 8
   %16 = getelementptr inbounds nuw i8, ptr %v2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i113)
   store i32 0, ptr %nErrorCount.i113, align 4
   %call.i118 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i113, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i113)
   store i64 1, ptr %v2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i121)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %bVisited.i122)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bVisited.i122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i123)
   store i32 0, ptr %nErrorCount.i121, align 4
   store i8 0, ptr %bVisited.i122, align 1
   store ptr %bVisited.i122, ptr %ref.tmp.i123, align 8
@@ -2932,14 +2932,14 @@ _ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %
   %17 = load i8, ptr %bVisited.i122, align 1
   %tobool.i125 = trunc i8 %17 to i1
   %call.i126 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i125, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i121, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i121)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %bVisited.i122)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bVisited.i122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i123)
   store i64 1, ptr %v0131, align 8
   store i8 1, ptr %mStorage.i110, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i129)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %bVisited.i130)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %bVisited.i130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i131)
   store i32 0, ptr %nErrorCount.i129, align 4
   store i8 0, ptr %bVisited.i130, align 1
   store ptr %bVisited.i130, ptr %ref.tmp.i131, align 8
@@ -2947,9 +2947,9 @@ _ZN5eastl7variantIJilNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit: ; preds = %
   %18 = load i8, ptr %bVisited.i130, align 1
   %tobool.i133 = trunc i8 %18 to i1
   %call.i134 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %tobool.i133, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i129, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.79)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i129)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %bVisited.i130)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %bVisited.i130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i131)
   %mStorage.i135 = getelementptr inbounds nuw i8, ptr %i, i64 8
   %mpHandler.i.i136 = getelementptr inbounds nuw i8, ptr %i, i64 32
   store i64 0, ptr %i, align 8
@@ -3974,11 +3974,11 @@ entry:
   %add8 = add nsw i32 %add6, %call7
   %call9 = tail call noundef i32 @_Z27TestVariantHoldsAlternativev()
   %add10 = add nsw i32 %add8, %call9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i)
   store i32 0, ptr %nErrorCount.i, align 4
   %call2.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 428, ptr noundef nonnull @.str.43)
   %0 = load i32, ptr %nErrorCount.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i)
   %add14 = add nsw i32 %add10, %0
   %call15 = call noundef i32 @_Z15TestVariantSwapv()
   %add16 = add nsw i32 %add14, %call15
@@ -3994,11 +3994,11 @@ entry:
   %add26 = add nsw i32 %add24, %call25
   %call27 = call noundef i32 @_Z21TestVariantAssignmentv()
   %add28 = add nsw i32 %add26, %call27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nErrorCount.i22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %nErrorCount.i22)
   store i32 0, ptr %nErrorCount.i22, align 4
   %call1.i = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i22, ptr noundef nonnull @.str, i32 noundef 1241, ptr noundef nonnull @.str.88)
   %1 = load i32, ptr %nErrorCount.i22, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nErrorCount.i22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %nErrorCount.i22)
   %add30 = add nsw i32 %add28, %1
   %call31 = call noundef i32 @_Z55TestVariantUserRegressionCopyMoveAssignmentOperatorLeakv()
   %add32 = add nsw i32 %add30, %call31
@@ -4263,11 +4263,11 @@ sw.bb3:                                           ; preds = %entry
   store i8 0, ptr %pThis, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %pThis, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pThis, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pThis, ptr noundef nonnull align 8 dereferenceable(24) %pOther, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pOther, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %pOther, align 1
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
@@ -4398,11 +4398,11 @@ sw.bb3:                                           ; preds = %entry
   store i8 0, ptr %pThis, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %pThis, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pThis, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pThis, ptr noundef nonnull align 8 dereferenceable(24) %pOther, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pOther, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %pOther, align 1
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
@@ -4853,11 +4853,11 @@ sw.bb3:                                           ; preds = %entry
   store i8 0, ptr %pThis, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %pThis, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i8, align 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %pThis, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pThis, ptr noundef nonnull align 8 dereferenceable(24) %pOther, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pOther, ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %temp.sroa.0.i.i.i.i.i)
   store i8 0, ptr %pOther, align 1
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pOther, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i, align 1
@@ -4926,7 +4926,7 @@ define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overlo
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
@@ -4997,7 +4997,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_0Z28TestVariantVisitorOverloadedvE3$_1Z28TestVariantVisitorOverloadedvE3$_2Z28TestVariantVisitorOverloadedvE3$_3EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5034,7 +5034,7 @@ define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overlo
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variant, i64 31
@@ -5100,7 +5100,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_4Z28TestVariantVisitorOverloadedvE3$_5Z28TestVariantVisitorOverloadedvE3$_6Z28TestVariantVisitorOverloadedvE3$_7EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5135,7 +5135,7 @@ define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overlo
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
@@ -5206,7 +5206,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE3$_8Z28TestVariantVisitorOverloadedvE3$_9Z28TestVariantVisitorOverloadedvE4$_10Z28TestVariantVisitorOverloadedvE4$_11EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5243,7 +5243,7 @@ define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorINS_10overlo
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variant, i64 31
@@ -5309,7 +5309,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeINS_10overloadedIJZ28TestVariantVisitorOverloadedvE4$_12Z28TestVariantVisitorOverloadedvE4$_13Z28TestVariantVisitorOverloadedvE4$_14Z28TestVariantVisitorOverloadedvE4$_15EEEJRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5344,7 +5344,7 @@ define internal void @"_ZN5eastl18visitor_caller_one14invoke_visitorIZ18TestVari
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variant, i64 31
@@ -5414,7 +5414,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_0JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_0JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5453,7 +5453,7 @@ define internal void @"_ZN5eastl9visitor_rIvE16invoke_visitor_rIZ18TestVariantVi
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variant, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variant, i64 31
@@ -5523,7 +5523,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %"_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_1JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit"
 
 "_ZN5eastl6invokeIZ18TestVariantVisitorvE3$_1JRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit": ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret void
 }
 
@@ -5580,7 +5580,7 @@ define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl16visit
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i1 = getelementptr inbounds nuw i8, ptr %variants1, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variants1, i64 31
@@ -5647,7 +5647,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret ptr %visitor
 }
 
@@ -5656,8 +5656,8 @@ define internal fastcc void @_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleV
 entry:
   %agg.tmp.i = alloca %"class.eastl::basic_string", align 8
   %agg.tmp4.i = alloca %"class.eastl::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp4.i)
   store i8 0, ptr %agg.tmp.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 23
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds nuw i8, ptr %args, i64 23
@@ -5810,8 +5810,8 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit46.i: ; preds = %_ZN5eastl9allo
   resume { ptr, i32 } %18
 
 _ZN5eastl11invoke_implIZ18TestVariantVisitorvE15MultipleVisitorJRNS_12basic_stringIcNS_9allocatorEEES5_EEEDTclclsr5eastlE7forwardIT_Efp_Espclsr5eastlE7forwardIT0_Efp0_EEEOS6_DpOS7_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit.i, %if.then.i.i37.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i39.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp4.i)
   ret void
 }
 
@@ -5846,7 +5846,7 @@ define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visit
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i1 = getelementptr inbounds nuw i8, ptr %variants1, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variants1, i64 31
@@ -5913,7 +5913,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRiRNS_12basic_stringIcNS_9allocatorEEEEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret ptr %visitor
 }
 
@@ -5922,7 +5922,7 @@ define internal noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl18visit
 entry:
   %agg.tmp.i.i = alloca %"class.eastl::basic_string", align 8
   %mStorage.i = getelementptr inbounds nuw i8, ptr %variants, i64 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i)
   store i8 0, ptr %agg.tmp.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i, i64 23
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %variants, i64 31
@@ -5988,7 +5988,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   br label %_ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRNS_12basic_stringIcNS_9allocatorEEERiEEEDcOT_DpOT0_.exit
 
 _ZN5eastl6invokeIZ18TestVariantVisitorvE15MultipleVisitorJRNS_12basic_stringIcNS_9allocatorEEERiEEEDcOT_DpOT0_.exit: ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i, %if.then.i.i.i.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i)
   ret ptr %visitor
 }
 
@@ -7622,10 +7622,10 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13

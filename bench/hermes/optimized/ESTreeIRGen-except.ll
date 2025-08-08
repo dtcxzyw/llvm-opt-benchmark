@@ -50,7 +50,7 @@ entry:
   %call7.i = tail call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %1) #11
   %call9.i = tail call noundef ptr @_ZN6hermes9IRBuilder18createTryStartInstEPNS_10BasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i, ptr noundef %call3.i) #11
   tail call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call7.i) #11
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %thisTry.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %thisTry.i.i)
   %hasVal.i.i.i.i = getelementptr inbounds nuw i8, ptr %thisTry.i.i, i64 64
   %_finalizer.i.i = getelementptr inbounds nuw i8, ptr %tryStmt, i64 64
   %2 = load ptr, ptr %_finalizer.i.i, align 8
@@ -125,7 +125,7 @@ if.then.i.i.i.i.i.i24.i.i:                        ; preds = %if.then.i.i.i19.i.i
   br label %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
 
 "_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i": ; preds = %if.then.i.i.i.i.i.i24.i.i, %if.then.i.i.i19.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %thisTry.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %thisTry.i.i)
   %call12.i = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %1) #11
   %call14.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #11
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call12.i) #11
@@ -148,7 +148,7 @@ if.then.i.i:                                      ; preds = %"_ZZN6hermes5irgen1
 "_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_1clEv.exit.i": ; preds = %if.then.i.i, %"_ZZN6hermes5irgen11ESTreeIRGen15genTryStatementEPNS_6ESTree16TryStatementNodeEENK3$_0clEv.exit.i"
   %call19.i = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #11
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call3.i) #11
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %newScope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %newScope.i.i)
   %_handler.i.i = getelementptr inbounds nuw i8, ptr %tryStmt, i64 56
   %17 = load ptr, ptr %_handler.i.i, align 8
   %tobool.not.i21.i = icmp eq ptr %17, null
@@ -296,7 +296,7 @@ if.else24.i.i:                                    ; preds = %"_ZZN6hermes5irgen1
   br label %"_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit"
 
 "_ZN6hermes5irgen11ESTreeIRGen23emitTryCatchScaffoldingIZNS1_15genTryStatementEPNS_6ESTree16TryStatementNodeEE3$_0ZNS1_15genTryStatementES5_E3$_1ZNS1_15genTryStatementES5_E3$_2EEPNS_10BasicBlockESA_T_T0_T1_.exit": ; preds = %if.end.i23.i, %if.end.i23.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFvOZNS0_16_Variant_storageILb0EJSt9monostateN6hermes20ScopedHashTableScopeINS5_10IdentifierEPNS5_5ValueEEENS5_5irgen15EnterBlockScopeEEE8_M_resetEvEUlOT_E_RSt7variantIJS4_SA_SC_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESH_SK_.exit.i.i.i.i.i.i.i.i.i.i.i, %sw.bb3.i.i.i.i.i.i.i.i.i.i.i, %if.else24.i.i
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %newScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %newScope.i.i)
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder.i, ptr noundef %call5.i) #11
   ret void
 }
@@ -574,9 +574,9 @@ if.then14:                                        ; preds = %if.end
   store ptr %6, ptr %surroundingTry, align 8
   %node = getelementptr inbounds nuw i8, ptr %sourceTry.addr.016, i64 16
   %7 = load ptr, ptr %node, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr4.i)
   store ptr %7, ptr %__args.addr.i, align 8
   store i32 %cfc, ptr %__args.addr2.i, align 4
   store ptr %continueTarget, ptr %__args.addr4.i, align 8
@@ -592,9 +592,9 @@ _ZNKSt8functionIFvPN6hermes6ESTree4NodeENS0_5irgen17ControlFlowChangeEPNS0_10Bas
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %sourceTry.addr.016, i64 56
   %9 = load ptr, ptr %_M_invoker.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(32) %genFinalizer, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr2.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr4.i)
   store ptr %5, ptr %surroundingTry, align 8
   br label %for.inc
 
@@ -1115,10 +1115,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

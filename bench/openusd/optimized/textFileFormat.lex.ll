@@ -2374,7 +2374,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515: ; preds = %856
 909:                                              ; preds = %906
   %910 = getelementptr inbounds nuw i8, ptr %151, i64 64
   store i8 3, ptr %910, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %151)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit unwind label %911
@@ -2387,7 +2387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10SdfAllowedD2Ev.exit515: ; preds = %856
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit: ; preds = %909
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %914 = load i8, ptr %910, align 8
   switch i8 %914, label %926 [
     i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit
@@ -2508,7 +2508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
 950:                                              ; preds = %947
   %951 = getelementptr inbounds nuw i8, ptr %158, i64 64
   store i8 3, ptr %951, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(72) %158)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524 unwind label %952
@@ -2521,7 +2521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit: ; preds
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit524: ; preds = %950
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %955 = load i8, ptr %951, align 8
   switch i8 %955, label %967 [
     i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527
@@ -2699,7 +2699,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527: ; pr
   store double %1044, ptr %169, align 8
   %1045 = getelementptr inbounds nuw i8, ptr %169, i64 64
   store i8 2, ptr %1045, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(72) %169)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528 unwind label %1046
@@ -2712,7 +2712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit527: ; pr
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ; preds = %1042
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1049 = load i8, ptr %1045, align 8
   switch i8 %1049, label %1061 [
     i8 -1, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
@@ -3320,7 +3320,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.96, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENSA_12SdfAssetPathEEEaSEOSD_EUlOT_T0_E_JRSt7variantIJmldS9_SB_SC_EEEEDcOSH_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(65) %1)
           to label %_ZNSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS6_12SdfAssetPathEEEaSEOS9_.exit unwind label %4
@@ -3333,7 +3333,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInt
   unreachable
 
 _ZNSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7TfTokenENS6_12SdfAssetPathEEEaSEOS9_.exit: ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
@@ -5173,10 +5173,10 @@ declare void @exit(i32 noundef) local_unnamed_addr #26
 declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #28
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #29

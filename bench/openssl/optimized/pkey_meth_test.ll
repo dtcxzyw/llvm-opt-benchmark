@@ -25,7 +25,7 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
   %1 = alloca i32, align 4
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = tail call i32 @EVP_PKEY_asn1_get_count() #3
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -56,7 +56,7 @@ define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
 
 .lr.ph18:                                         ; preds = %12, %20
   %.11216 = phi i32 [ %24, %20 ], [ 0, %12 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call ptr @EVP_PKEY_asn1_get0(i32 noundef %.11216) #3
   %16 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, ptr noundef null, ptr noundef %15) #3
   %17 = load ptr, ptr %2, align 8, !tbaa !10
@@ -72,7 +72,7 @@ define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
   %22 = call ptr @OBJ_nid2ln(i32 noundef %21) #3
   %23 = load ptr, ptr %2, align 8, !tbaa !10
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.5, i32 noundef %21, ptr noundef %22, ptr noundef %23) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = add nuw nsw i32 %.11216, 1
   %25 = call i32 @EVP_PKEY_asn1_get_count() #3
   %26 = icmp slt i32 %24, %25
@@ -80,14 +80,14 @@ define internal range(i32 0, 2) i32 @test_asn1_meths() #0 {
 
 .loopexit:                                        ; preds = %20, %0, %12, %._crit_edge
   %.0.lcssa21 = phi i32 [ 0, %12 ], [ %.015, %._crit_edge ], [ 1, %0 ], [ %spec.select, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.lcssa21
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
   %1 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i64 @EVP_PKEY_meth_get_count() #3
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph
@@ -130,12 +130,9 @@ define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
 
 .loopexit:                                        ; preds = %.lr.ph18, %0, %9, %._crit_edge
   %.0.lcssa23 = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge ], [ 1, %0 ], [ 0, %.lr.ph18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0.lcssa23
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @EVP_PKEY_asn1_get_count() local_unnamed_addr #1
 
@@ -149,14 +146,17 @@ declare void @test_note(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @EVP_PKEY_meth_get_count() local_unnamed_addr #1
 
 declare ptr @EVP_PKEY_meth_get0(i64 noundef) local_unnamed_addr #1
 
 declare void @EVP_PKEY_meth_get0_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

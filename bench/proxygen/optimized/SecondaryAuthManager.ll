@@ -1101,7 +1101,7 @@ _ZNR5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE5valueEv.exit.i.
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i6, label %if.else.i.i.i
 
 if.then.i.i.i6:                                   ; preds = %_ZNR5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE5valueEv.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i)
   %9 = load ptr, ptr %certs, align 8
   %10 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %certs, i64 16
@@ -1121,7 +1121,7 @@ if.then.i.i.i6:                                   ; preds = %_ZNR5folly8Optional
   store ptr %11, ptr %_M_end_of_storage.i.i4.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i.i) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i)
   %.pre83 = load i8, ptr %hasValue.i.i.i.i, align 8
   br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i
 
@@ -1220,7 +1220,7 @@ _ZNR5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE5valueEv.exit.i.
   br i1 %tobool.i.i.i.i.i25, label %if.then.i.i.i37, label %if.else.i.i.i30
 
 if.then.i.i.i37:                                  ; preds = %_ZNR5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE5valueEv.exit.i.i28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.i.i21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i.i21)
   %27 = load ptr, ptr %certs, align 8
   %28 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i29, align 8
   %_M_end_of_storage.i.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %certs, i64 16
@@ -1240,7 +1240,7 @@ if.then.i.i.i37:                                  ; preds = %_ZNR5folly8Optional
   store ptr %29, ptr %_M_end_of_storage.i.i4.i.i.i.i.i42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i.i21) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i.i.i.i21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i.i21)
   %.pre = load i8, ptr %hasValue.i.i.i.i22, align 8
   br label %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEE6assignEOS5_.exit.i.i34
 
@@ -1537,7 +1537,7 @@ if.then.i.i6:                                     ; preds = %invoke.cont3
   br label %invoke.cont4
 
 if.else.i.i:                                      ; preds = %invoke.cont3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %val.i.i.i)
   %sub.ptr.sub.i36.i = sub i64 %6, %5
   %cmp37.i = icmp ult i64 %sub.ptr.sub.i36.i, 2
   br i1 %cmp37.i, label %for.body.i, label %if.then8.i
@@ -1607,7 +1607,7 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i.i.i.noexc
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i: ; preds = %call.i.i.i.i.noexc
   %12 = load i16, ptr %val.i.i.i, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %val.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %val.i.i.i)
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowItEET_v.exit.i.i, %if.then.i.i6
@@ -1703,8 +1703,8 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %eh.resume
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -1738,8 +1738,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit15: ; preds = %if.then.i, %lor.rhs.i
   %__i.sroa.0.0.i = phi ptr [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %call12.i11, %if.then.i ]
   %second.i = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %24 = load i64, ptr %second.i, align 8
   store ptr null, ptr %second.i, align 8
   %hasValue.i.i12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2013,8 +2013,8 @@ _ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEED2Ev.exit: ; pred
   resume { ptr, i32 } %3
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %invoke.cont
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
@@ -2042,8 +2042,8 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapItSt6vecto
 
 invoke.cont8.thread:                              ; preds = %lor.rhs.i
   %second.i18 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %_M_finish.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %certChain, i64 8
   br label %invoke.cont10.thread
 
@@ -2056,8 +2056,8 @@ invoke.cont8:                                     ; preds = %if.then.i
   %.pre = load i8, ptr %hasValue.i.i, align 8
   %7 = trunc i8 %.pre to i1
   %second.i = getelementptr inbounds nuw i8, ptr %call12.i2, i64 40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp9.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %certChain, i64 8
   br i1 %7, label %invoke.cont10, label %invoke.cont10.thread
 
@@ -2081,7 +2081,7 @@ invoke.cont10.thread:                             ; preds = %invoke.cont8, %invo
   br label %if.then.i.i8.i
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i.i.i)
   %11 = load ptr, ptr %certChain, align 8
   %12 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %certChain, i64 16
@@ -2101,7 +2101,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   store ptr %13, ptr %_M_end_of_storage.i.i4.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN4fizz16CertificateEntryESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i.i.i)
   %.pre14 = load i8, ptr %hasValue.i.i, align 8
   %hasValue.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %hasValue.i.i3, align 8
@@ -3356,10 +3356,10 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Selec
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

@@ -381,7 +381,7 @@ define internal i32 @test_cmp_create_ir_protection_fails() #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_cmp_create_ir_protection_set() #0 {
   %1 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call fastcc ptr @set_up(ptr noundef nonnull @.str.27)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %37, label %4
@@ -457,7 +457,7 @@ set1_newPkey.exit:                                ; preds = %18, %21, %23
 
 37:                                               ; preds = %.sink.split, %0
   %.014 = phi i32 [ 0, %0 ], [ %.014.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.014
 }
 
@@ -1588,9 +1588,6 @@ execute_pkimessage_create_test.exit:              ; preds = %29, %33, %40
   ret i32 %.015
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @set_up(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str.14, i32 noundef 52) #4
@@ -1697,9 +1694,6 @@ define internal fastcc i32 @execute_certreq_create_test(ptr noundef nonnull read
   tail call void @ERR_print_errors_fp(ptr noundef %22) #4
   ret i32 %21
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1850,6 +1844,12 @@ declare ptr @ossl_cmp_pollRep_new(ptr noundef, i32 noundef, i64 noundef) local_u
 declare ptr @ossl_cmp_pollrepcontent_get0_pollrep(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @ossl_cmp_msg_create(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

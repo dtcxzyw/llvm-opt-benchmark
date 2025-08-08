@@ -16,8 +16,8 @@ define noundef i32 @_ZN3tbb6detail2r13rml11tbb_factory4openEv(ptr noundef nonnul
   %2 = alloca ptr, align 8
   %3 = alloca [4 x %"struct.tbb::detail::r1::dynamic_link_descriptor"], align 16
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str, ptr %3, align 16, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !10
@@ -48,10 +48,10 @@ define noundef i32 @_ZN3tbb6detail2r13rml11tbb_factory4openEv(ptr noundef nonnul
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load ptr, ptr %2, align 8, !tbaa !12
   %22 = call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 23:                                               ; preds = %1
@@ -60,26 +60,20 @@ define noundef i32 @_ZN3tbb6detail2r13rml11tbb_factory4openEv(ptr noundef nonnul
 
 24:                                               ; preds = %23, %20
   %.0 = phi i32 [ %22, %20 ], [ 2, %23 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare extern_weak i32 @__RML_open_factory(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) #1
 
-declare extern_weak i32 @__RML_open_factory(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) #2
+declare extern_weak i32 @__TBB_make_rml_server(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #1
 
-declare extern_weak i32 @__TBB_make_rml_server(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #2
+declare extern_weak void @__RML_close_factory(ptr noundef nonnull align 8 dereferenceable(16)) #1
 
-declare extern_weak void @__RML_close_factory(ptr noundef nonnull align 8 dereferenceable(16)) #2
+declare extern_weak void @__TBB_call_with_my_server_info(ptr noundef, ptr noundef) #1
 
-declare extern_weak void @__TBB_call_with_my_server_info(ptr noundef, ptr noundef) #2
-
-declare noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define void @_ZN3tbb6detail2r13rml11tbb_factory5closeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
@@ -104,7 +98,7 @@ define void @_ZN3tbb6detail2r13rml11tbb_factory5closeEv(ptr noundef nonnull alig
   ret void
 }
 
-declare void @_ZN3tbb6detail2r114dynamic_unlinkEPv(ptr noundef) local_unnamed_addr #2
+declare void @_ZN3tbb6detail2r114dynamic_unlinkEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef i32 @_ZN3tbb6detail2r13rml11tbb_factory11make_serverERPNS2_10tbb_serverERNS2_10tbb_clientE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
@@ -114,10 +108,15 @@ define noundef i32 @_ZN3tbb6detail2r13rml11tbb_factory11make_serverERPNS2_10tbb_
   ret i32 %6
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

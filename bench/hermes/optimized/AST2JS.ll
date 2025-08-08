@@ -1664,10 +1664,10 @@ _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.the
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %3, align 8
   %agg.tmp.sroa.2.0.call2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.call2.sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp68.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp74.i.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp78.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp68.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp74.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp78.i.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i
   %cmp248.i.i = icmp sgt i64 %agg.tmp.sroa.2.0.copyload.i, 0
   br i1 %cmp248.i.i, label %for.body.lr.ph.i.i, label %_ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i
@@ -2190,10 +2190,10 @@ _ZN4llvh11raw_ostreamlsEPKc.exit214.i.i:          ; preds = %if.then4.i.i209.i.i
   br label %for.cond.backedge.i.i
 
 _ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i: ; preds = %for.cond.backedge.i.i, %_ZN4llvh11raw_ostreamlsEc.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp68.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp74.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp78.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp68.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp74.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp78.i.i)
   %71 = load ptr, ptr %v, align 8
   %OutBufCur.i3.i = getelementptr inbounds nuw i8, ptr %71, i64 24
   %72 = load ptr, ptr %OutBufCur.i3.i, align 8
@@ -2220,11 +2220,11 @@ _ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17StringLiteralNodeE.exit: ; pre
 define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL__N_15GenJSENS0_18NumericLiteralNodeEvE4callERS4_PS5_PNS0_4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %v, double %node.48.val) unnamed_addr #0 align 2 {
 entry:
   %buf8.i = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf8.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf8.i)
   %call.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %node.48.val, ptr noundef nonnull %buf8.i, i64 noundef 32) #13
   %0 = load ptr, ptr %v, align 8
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %buf8.i, i64 noundef %call.i) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf8.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf8.i)
   ret void
 }
 
@@ -10180,10 +10180,10 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

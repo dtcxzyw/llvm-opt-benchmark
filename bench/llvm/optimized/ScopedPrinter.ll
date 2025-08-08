@@ -341,10 +341,10 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   %.0.i.i = phi ptr [ %15, %14 ], [ %0, %16 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load i64, ptr %1, align 8, !tbaa !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #12, !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %21 = icmp eq i64 %19, 0
   br i1 %21, label %22, label %.thread.i
@@ -360,7 +360,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
   store ptr %24, ptr %5, align 8, !tbaa !20, !alias.scope !16
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %25, align 8, !tbaa !22, !alias.scope !16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12, !noalias !16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !16
   %26 = ptrtoint ptr %20 to i64
   %27 = ptrtoint ptr %.1.lcssa.i to i64
   %28 = sub i64 %26, %27
@@ -409,8 +409,8 @@ _ZN4llvm9utohexstrB5cxx11Embj.exit:               ; preds = %._crit_edge.i.i.i, 
   %44 = load ptr, ptr %5, align 8, !tbaa !25, !alias.scope !16
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   store i8 0, ptr %45, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12, !noalias !16
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #12, !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   %46 = load ptr, ptr %5, align 8, !tbaa !25
   %47 = load i64, ptr %25, align 8, !tbaa !22
   %48 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %46, i64 noundef %47) #12
@@ -431,15 +431,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm13ScopedPrinter15printBinaryImplENS_9StringRefES1_NS_8ArrayRefIhEEbj(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef") align 8 captures(none) %5, i1 noundef zeroext %6, i32 noundef %7) unnamed_addr #0 align 2 {
@@ -564,7 +558,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %73, %75
 
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
   %80 = load ptr, ptr %63, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.05.0.copyload = load ptr, ptr %5, align 8, !tbaa !38
   %81 = zext i32 %7 to i64
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -608,7 +602,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %73, %75
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit21
 
 _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %98, %100
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %103
 
 103:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit21, %_ZN4llvm11raw_ostreamlsEPKc.exit18
@@ -753,7 +747,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit36:    ; preds = %161, %159, %_ZN4llv
 
 _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %175, %177
   %.0.i.i38 = phi ptr [ %176, %175 ], [ %166, %177 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !38
   %180 = trunc nuw nsw i64 %12 to i32
   store ptr %.sroa.0.0.copyload, ptr %10, align 8, !tbaa !38, !alias.scope !53
@@ -802,7 +796,7 @@ _ZN4llvm12format_bytesENS_8ArrayRefIhEESt8optionalImEjhjb.exit: ; preds = %_ZN4l
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit44
 
 _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %197, %199
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit24
 
 _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %118, %116, %_ZN4llvm11raw_ostreamlsEPKc.exit44
@@ -810,9 +804,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %118, %116, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_14FormattedBytesE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(43)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_14FormattedBytesE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(43)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm17JSONScopedPrinterC2ERNS_11raw_ostreamEbOSt10unique_ptrINS_14DelimitedScopeESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 20), (24, 44)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %3) unnamed_addr #0 align 2 {
@@ -1921,7 +1915,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   %.0.i.i = phi ptr [ %32, %31 ], [ %.0.i, %33 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.8, ptr %37, align 8, !tbaa !77, !alias.scope !79
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJfEEE, i64 16), ptr %5, align 8, !tbaa !30, !alias.scope !79
@@ -1947,7 +1941,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
 _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %45, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2010,7 +2004,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   %.0.i.i = phi ptr [ %32, %31 ], [ %.0.i, %33 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.8, ptr %37, align 8, !tbaa !77, !alias.scope !85
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJdEEE, i64 16), ptr %5, align 8, !tbaa !30, !alias.scope !85
@@ -2036,7 +2030,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit5
 
 _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %45, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2182,7 +2176,7 @@ define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter9printListENS_9StringRef
 define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter9printListENS_9StringRefENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 comdat align 2 {
   %6 = alloca %"class.llvm::SmallVector.30", align 8
   %7 = alloca %"class.llvm::SmallVector.30", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2262,7 +2256,7 @@ _ZN4llvm11SmallVectorIjLj12EED2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit10
 
 _ZN4llvm11SmallVectorIjLj12EED2Ev.exit10:         ; preds = %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit, %31
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .lr.ph:                                           ; preds = %5, %_ZN4llvm15SmallVectorImplIjE12emplace_backIJRKhEEERjDpOT_.exit
@@ -2316,7 +2310,7 @@ define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter9printListENS_9StringRef
 define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter9printListENS_9StringRefENS_8ArrayRefIaEE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 comdat align 2 {
   %6 = alloca %"class.llvm::SmallVector.35", align 8
   %7 = alloca %"class.llvm::SmallVector.35", align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2396,7 +2390,7 @@ _ZN4llvm11SmallVectorIiLj12EED2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit10
 
 _ZN4llvm11SmallVectorIiLj12EED2Ev.exit10:         ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit, %31
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .lr.ph:                                           ; preds = %5, %_ZN4llvm15SmallVectorImplIiE12emplace_backIJRKaEEERiDpOT_.exit
@@ -3101,7 +3095,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit24:    ; preds = %97, %99, %100
 
 _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %110, %112
   %.0.i.i26 = phi ptr [ %111, %110 ], [ %.0.i23, %112 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %116 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !94
   store i64 %117, ptr %8, align 8
@@ -3128,7 +3122,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %110, %112
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit30
 
 _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %127, %129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %132 = getelementptr inbounds nuw i8, ptr %.033, i64 24
   %.not = icmp eq ptr %132, %54
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3428,11 +3422,11 @@ _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit:   ; preds = %55
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit18:    ; preds = %55, %65, %67
   %.0.i17 = phi ptr [ %66, %65 ], [ %56, %67 ], [ %56, %55 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload = load i64, ptr %.038, align 8, !tbaa !24
   store i64 %.sroa.0.0.copyload, ptr %6, align 8
   %70 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_9HexNumberE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i17, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %71 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %.not = icmp eq ptr %71, %38
   br i1 %.not, label %._crit_edge, label %55
@@ -4047,7 +4041,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %45, %47
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm17JSONScopedPrinterE, i64 16), ptr %0, align 8, !tbaa !30
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -4089,7 +4083,7 @@ _ZN4llvm11SmallVectorINS_17JSONScopedPrinter12ScopeContextELj8EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 376) (i8, ptr @_ZTVN4llvm17JSONScopedPrinterE, i64 16), ptr %0, align 8, !tbaa !30
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -4135,7 +4129,7 @@ _ZN4llvm17JSONScopedPrinterD2Ev.exit:             ; preds = %_ZN4llvm4json7OStre
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i8 noundef signext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = sext i8 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4144,7 +4138,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4152,7 +4146,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEa(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i8 noundef signext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = sext i8 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4161,7 +4155,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4169,7 +4163,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i8 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = zext i8 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4178,7 +4172,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4186,7 +4180,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEs(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i16 noundef signext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = sext i16 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4195,7 +4189,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4203,7 +4197,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEt(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i16 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = zext i16 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4212,7 +4206,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4220,7 +4214,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEi(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4229,7 +4223,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4237,7 +4231,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = zext i32 %3 to i64
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4246,7 +4240,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4254,7 +4248,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEl(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !24
@@ -4262,7 +4256,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4270,7 +4264,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 4, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !24
@@ -4278,7 +4272,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4286,7 +4280,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEx(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 3, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !24
@@ -4294,7 +4288,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4302,7 +4296,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEy(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 4, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !24
@@ -4310,7 +4304,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4333,7 +4327,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEf(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, float noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 2, ptr %5, align 8, !tbaa !96
   %7 = fpext float %3 to double
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4342,7 +4336,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4350,7 +4344,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9StringRefEd(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, double noundef %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 2, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %3, ptr %7, align 8, !tbaa !100
@@ -4358,7 +4352,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4366,7 +4360,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printNumberENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printBooleanENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = zext i1 %3 to i8
   store i16 1, ptr %5, align 8, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4375,7 +4369,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printBooleanENS_9S
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4395,13 +4389,13 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %12, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i8, ptr %.09.i.i.i, align 1, !tbaa !101, !range !75, !noundef !76
   store i16 1, ptr %6, align 8, !tbaa !96
   store i8 %11, ptr %9, align 8, !tbaa !101
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %12, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIbEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4420,7 +4414,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !102
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %10, align 8, !tbaa !104
@@ -4429,7 +4423,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
   call void @_ZZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_9StringRefERKT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -4450,13 +4444,13 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %12, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i64, ptr %.09.i.i.i, align 8, !tbaa !24
   store i16 4, ptr %6, align 8, !tbaa !96
   store i64 %11, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %12, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefImEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4484,14 +4478,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i32, ptr %.09.i.i.i, align 4, !tbaa !92
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = zext i32 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIjEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4519,14 +4513,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i16, ptr %.09.i.i.i, align 2, !tbaa !107
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = zext i16 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 2
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefItEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4553,14 +4547,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i8, ptr %.09.i.i.i, align 1, !tbaa !19
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = zext i8 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIhEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4588,13 +4582,13 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %12, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i64, ptr %.09.i.i.i, align 8, !tbaa !24
   store i16 3, ptr %6, align 8, !tbaa !96
   store i64 %11, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %12, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIlEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4622,14 +4616,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i32, ptr %.09.i.i.i, align 4, !tbaa !92
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = sext i32 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIiEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4657,14 +4651,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i16, ptr %.09.i.i.i, align 2, !tbaa !107
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = sext i16 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 2
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIsEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4691,14 +4685,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter9printListENS_9Strin
 
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %.09.i.i.i = phi ptr [ %3, %.lr.ph.i.i.i ], [ %13, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load i8, ptr %.09.i.i.i, align 1, !tbaa !19
   store i16 3, ptr %6, align 8, !tbaa !96
   %12 = sext i8 %11 to i64
   store i64 %12, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %13, %8
   br i1 %.not.i.i.i, label %_ZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefIaEEEEvNS_9StringRefERKT_.exit, label %10
@@ -4742,11 +4736,11 @@ _ZN4llvm12function_refIFvvEE11callback_fnIZNS_17JSONScopedPrinter9printListENS_9
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.llvm::json::Value", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr %1, i64 %2)
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4754,13 +4748,13 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printStringENS_9St
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter11printStringENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 comdat align 2 {
   %6 = alloca %"class.llvm::json::Value", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr %3, i64 %4)
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr %1, i64 %2) #12
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %7) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5042,7 +5036,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter15printBinaryImplENS
   store i64 %4, ptr %12, align 8
   store i32 %7, ptr %10, align 4, !tbaa !92
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %9, ptr %11, align 8, !tbaa !115
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %14, align 8, !tbaa !117
@@ -5055,7 +5049,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter15printBinaryImplENS
   call void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplENS_9StringRefES1_NS_8ArrayRefIhEEbjENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %13) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %13) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 }
 
@@ -5070,7 +5064,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter14printFlagsImplENS_
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 4, ptr %7, align 8, !tbaa !96
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %12, align 8, !tbaa !24
@@ -5078,8 +5072,8 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter14printFlagsImplENS_
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 8 dereferenceable(40) %7) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %9, ptr %8, align 8, !tbaa !123
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %13, align 8, !tbaa !125
@@ -5088,7 +5082,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter14printFlagsImplENS_
   call void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefINS_9FlagEntryEEEENKUlvE_clEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   ret void
@@ -5104,7 +5098,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter14printFlagsImplENS_
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %5, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8, !tbaa !127
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %12, align 8, !tbaa !131
@@ -5115,7 +5109,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter14printFlagsImplENS_
   call void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefIS2_EEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -5136,13 +5130,13 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter16printHexListImplEN
 
 10:                                               ; preds = %10, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %3, %.lr.ph.i.i ], [ %11, %10 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload.i.i = load i64, ptr %.09.i.i, align 8, !tbaa !24
   store i16 4, ptr %6, align 8, !tbaa !96
   store i64 %.sroa.0.0.copyload.i.i, ptr %9, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(40) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
   %.not.i.i = icmp eq ptr %11, %8
   br i1 %.not.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZNS_17JSONScopedPrinter16printHexListImplENS_9StringRefENS_8ArrayRefINS_9HexNumberEEEEUlvE_EEvl.exit, label %10
@@ -5157,7 +5151,7 @@ _ZN4llvm12function_refIFvvEE11callback_fnIZNS_17JSONScopedPrinter16printHexListI
 define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printHexImplENS_9StringRefENS_9HexNumberE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %1, i64 %2, i64 %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca %"class.llvm::json::Value", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 4, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !24
@@ -5165,7 +5159,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printHexImplENS_9S
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(40) %5) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %6) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -5176,14 +5170,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printHexImplENS_9S
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %3, i64 %4)
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr nonnull @.str.20, i64 4) #12
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(40) %7) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 4, ptr %8, align 8, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %5, ptr %10, align 8, !tbaa !24
@@ -5191,7 +5185,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter12printHexImplENS_9S
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(40) %8) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   ret void
@@ -5204,14 +5198,14 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter21printSymbolOffsetI
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr %1, i64 %2) #12
   tail call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr %3, i64 %4)
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr nonnull @.str.21, i64 7) #12
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(40) %7) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 4, ptr %8, align 8, !tbaa !96
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %5, ptr %10, align 8, !tbaa !24
@@ -5219,7 +5213,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter21printSymbolOffsetI
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(40) %8) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %8) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %9) #12
   ret void
@@ -5233,7 +5227,7 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter15printNumberImplENS
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %0, ptr %8, align 8, !tbaa !133
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %11, align 8, !tbaa !115
@@ -5244,35 +5238,35 @@ define linkonce_odr hidden void @_ZN4llvm17JSONScopedPrinter15printNumberImplENS
   call void @_ZZN4llvm17JSONScopedPrinter15printNumberImplENS_9StringRefES1_S1_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %10) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEy(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
-declare void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #3
+declare void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
-declare void @_ZN4llvm18format_object_base4homeEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
+declare void @_ZN4llvm18format_object_base4homeEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJfEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
@@ -5287,7 +5281,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJfEE7snprintEPc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJdEE7snprintEPcj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
@@ -5300,7 +5294,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJdEE7snprintEPc
   ret i32 %9
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter13printListImplINS_8ArrayRefIbEEEEvNS_9StringRefET_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
@@ -6127,7 +6121,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm13ScopedPrinter13printListImplINS_8ArrayRefIlEEEEvNS_9StringRefET_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 comdat align 2 {
@@ -6922,26 +6916,26 @@ _ZN4llvm11raw_ostreamlsEc.exit8:                  ; preds = %48, %50
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64, i1 noundef zeroext) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176), ptr, i64) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176), ptr, i64) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4json7OStream13rawValueBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4json7OStream13rawValueBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream11rawValueEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream11rawValueEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream10arrayBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_9StringRefERKT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter13printListImplINS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS_9StringRefERKT_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca i64, align 8
   %4 = alloca %"class.llvm::json::Value", align 8
@@ -6973,12 +6967,12 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter13printListImplINS_
 
 21:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.09 = phi ptr [ %7, %.lr.ph ], [ %64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %14, ptr %5, align 8, !tbaa !20
   %22 = load ptr, ptr %.09, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %24, ptr %3, align 8, !tbaa !24
   %25 = icmp ugt i64 %24, 15
   br i1 %25, label %26, label %._crit_edge.i.i
@@ -7012,7 +7006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %34 = load ptr, ptr %5, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store i8 0, ptr %35, align 1, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i16 6, ptr %4, align 8, !tbaa !96
   %36 = load ptr, ptr %5, align 8, !tbaa !25
   %37 = load i64, ptr %15, align 8, !tbaa !22
@@ -7020,7 +7014,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %38, label %49, label %39, !prof !91
 
 39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %40 = load ptr, ptr %5, align 8, !tbaa !25
   %41 = load i64, ptr %15, align 8, !tbaa !22
   call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr %40, i64 %41) #12
@@ -7042,7 +7036,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %49
 
 49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -7091,7 +7085,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %.not = icmp eq ptr %64, %10
   br i1 %.not, label %._crit_edge, label %21
@@ -7108,7 +7102,7 @@ define linkonce_odr hidden void @_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_string
   br i1 %7, label %20, label %8, !prof !91
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr %1, align 8, !tbaa !25
   %10 = load i64, ptr %5, align 8, !tbaa !22
   call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr %9, i64 %10) #12
@@ -7132,7 +7126,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
 20:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %2
@@ -7168,9 +7162,9 @@ _ZN4llvm4json5Value6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJ
   ret void
 }
 
-declare noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr, i64, ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr, i64, ptr noundef) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #3
+declare void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0 align 2
@@ -7188,7 +7182,7 @@ define linkonce_odr hidden void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr nounde
   br i1 %7, label %17, label %8, !prof !91
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm4json7fixUTF8B5cxx11ENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr %1, i64 %2) #12
   call void @_ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
@@ -7213,21 +7207,21 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %3
   ret void
 }
 
-declare void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
+declare void @_ZN4llvm4json5Value8moveFromEOKS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
-declare void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
+declare void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplENS_9StringRefES1_NS_8ArrayRefIhEEbjENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplENS_9StringRefES1_NS_8ArrayRefIhEEbjENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.llvm::json::Value", align 8
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = alloca %"class.llvm::json::Value", align 8
@@ -7241,19 +7235,19 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplEN
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8, !tbaa !38
   call void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr %.sroa.0.0.copyload, i64 %9)
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %12, ptr nonnull @.str.16, i64 5) #12
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %12, ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %12) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %11, %1
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !143
   %17 = load i32, ptr %16, align 4, !tbaa !92
@@ -7265,7 +7259,7 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplEN
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %14, ptr noundef nonnull align 8 dereferenceable(40) %4) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %14) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !144
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %14, ptr nonnull @.str.18, i64 5) #12
@@ -7284,13 +7278,13 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printBinaryImplEN
 27:                                               ; preds = %27, %.lr.ph.i.i
   %.08.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %30, %27 ]
   %28 = load i8, ptr %.08.i.i, align 1, !tbaa !19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 3, ptr %2, align 8, !tbaa !96
   %29 = zext i8 %28 to i64
   store i64 %29, ptr %26, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %14, ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %30 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %.not.i.i = icmp eq ptr %30, %25
   br i1 %.not.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZZNS_17JSONScopedPrinter15printBinaryImplENS_9StringRefES5_NS_8ArrayRefIhEEbjENKUlvE_clEvEUlvE_EEvl.exit, label %27
@@ -7302,7 +7296,7 @@ _ZN4llvm12function_refIFvvEE11callback_fnIZZNS_17JSONScopedPrinter15printBinaryI
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefINS_9FlagEntryEEEENKUlvE_clEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefINS_9FlagEntryEEEENKUlvE_clEvENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.llvm::json::Value", align 8
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !146
@@ -7327,7 +7321,7 @@ define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplEN
 13:                                               ; preds = %.lr.ph, %13
   %.012 = phi ptr [ %5, %.lr.ph ], [ %16, %13 ]
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.0.0.copyload = load ptr, ptr %.012, align 8, !tbaa !38
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !24
@@ -7336,8 +7330,8 @@ define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplEN
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !94
   store i16 4, ptr %3, align 8, !tbaa !96
@@ -7346,7 +7340,7 @@ define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplEN
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %11) #12
   %16 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %.not = icmp eq ptr %16, %8
@@ -7354,12 +7348,12 @@ define linkonce_odr hidden void @_ZZZN4llvm17JSONScopedPrinter14printFlagsImplEN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefIS2_EEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefIS2_EEENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.llvm::json::Value", align 8
   %3 = alloca %"class.llvm::json::Value", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !127
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !151
   %.sroa.0.0.copyload = load i64, ptr %7, align 8, !tbaa !24
@@ -7370,7 +7364,7 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(40) %3) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %5) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !152
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr nonnull @.str.19, i64 5) #12
@@ -7389,13 +7383,13 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter14printFlagsImplENS
 
 16:                                               ; preds = %16, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %18, %16 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = load i64, ptr %.09.i.i, align 8, !tbaa !13
   store i16 4, ptr %2, align 8, !tbaa !96
   store i64 %17, ptr %15, align 8, !tbaa !24
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %5, ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 8
   %.not.i.i = icmp eq ptr %18, %14
   br i1 %.not.i.i, label %_ZN4llvm12function_refIFvvEE11callback_fnIZZNS_17JSONScopedPrinter14printFlagsImplENS_9StringRefENS_9HexNumberENS_8ArrayRefIS6_EEENKUlvE_clEvEUlvE_EEvl.exit, label %16
@@ -7407,11 +7401,11 @@ _ZN4llvm12function_refIFvvEE11callback_fnIZZNS_17JSONScopedPrinter14printFlagsIm
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printNumberImplENS_9StringRefES1_S1_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 comdat align 2 {
+define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printNumberImplENS_9StringRefES1_S1_ENKUlvE_clEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"class.llvm::json::Value", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !133
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !156
   %.sroa.01.0.copyload = load ptr, ptr %6, align 8, !tbaa !38
@@ -7422,7 +7416,7 @@ define linkonce_odr hidden void @_ZZN4llvm17JSONScopedPrinter15printNumberImplEN
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(40) %2) #12
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %4) #12
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %4, ptr nonnull @.str.16, i64 5) #12
   %7 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4json7OStream13rawValueBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7461,6 +7455,12 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %18, %20, %21
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
@@ -7471,14 +7471,14 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

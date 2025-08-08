@@ -11,11 +11,11 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %9 = alloca [256 x double], align 16
   %10 = alloca [256 x double], align 16
   %11 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %8, i8 0, i64 2048, i1 false)
   %12 = mul i32 %2, %1
   %13 = sext i32 %12 to i64
@@ -103,9 +103,9 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 52:                                               ; preds = %._crit_edge160, %._crit_edge148
   %.0119163 = phi double [ 0x47D2CED32A16A1B1, %._crit_edge148 ], [ %104, %._crit_edge160 ]
   %.0121162 = phi i32 [ 0, %._crit_edge148 ], [ %107, %._crit_edge160 ]
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %10, i8 0, i64 2048, i1 false)
   br label %.preheader136
 
@@ -217,15 +217,15 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 ._crit_edge160:                                   ; preds = %.lr.ph159
   %105 = fsub double %.0119163, %104
   %106 = fcmp olt double %105, %15
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %107 = add nuw nsw i32 %.0121162, 1
   %exitcond196.not = icmp eq i32 %107, 6
   %or.cond210 = select i1 %106, i1 true, i1 %exitcond196.not
   br i1 %or.cond210, label %.lr.ph167.preheader, label %52, !llvm.loop !17
 
 .lr.ph167.preheader:                              ; preds = %._crit_edge160
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %wide.trip.count200 = zext nneg i32 %51 to i64
   br label %.lr.ph167
 
@@ -257,7 +257,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   br i1 %exitcond203.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !19
 
 ._crit_edge170:                                   ; preds = %.lr.ph169
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %122 = fptoui double %104 to i64
   br label %._crit_edge.thread
 
@@ -272,23 +272,23 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 124:                                              ; preds = %._crit_edge.thread, %123, %17, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 1, %123 ], [ 1, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %8) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -300,11 +300,10 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

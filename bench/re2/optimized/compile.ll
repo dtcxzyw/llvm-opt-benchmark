@@ -468,7 +468,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -477,7 +477,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   store i64 %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %retval.8.retval.8.retval.8..sroa_idx, align 8
@@ -706,7 +706,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -715,7 +715,7 @@ if.then7:                                         ; preds = %if.end5
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   store i64 %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %retval.8.retval.8.retval.8..sroa_idx, align 8
@@ -809,7 +809,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -818,7 +818,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -929,7 +929,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -938,7 +938,7 @@ if.then7:                                         ; preds = %if.end
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %4 = insertvalue { i64, i64 } poison, i64 %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, 0
   %5 = insertvalue { i64, i64 } %4, i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, 1
   br label %return
@@ -1039,13 +1039,13 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i7 = icmp slt i32 %call.i, 0
   br i1 %cmp.i7, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1054,7 +1054,7 @@ if.then.i:                                        ; preds = %if.then
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %_ZN3re28Compiler3NopEv.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -1079,7 +1079,7 @@ if.end.i:                                         ; preds = %if.then
 _ZN3re28Compiler3NopEv.exit:                      ; preds = %if.then.i, %if.end.i
   %retval.8.retval.8..fca.1.load.i = phi i64 [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i, %if.end.i ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i ]
   %retval.0.retval.0..fca.0.load.i = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i, %if.end.i ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1088,7 +1088,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i8)
   store i32 0, ptr %retval.i8, align 8
   %retval.i8.4.retval.i8.4.retval.i8.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i8, i64 4
   store i64 0, ptr %retval.i8.4.retval.i8.4.retval.i8.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1097,7 +1097,7 @@ if.then4:                                         ; preds = %if.end
   %retval.i8.0.retval.i8.0.retval.i8.0.retval.0.retval.0..fca.0.load.i9 = load i64, ptr %retval.i8, align 8
   %retval.i8.8.retval.i8.8.retval.i8.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i8, i64 8
   %retval.i8.8.retval.i8.8.retval.i8.8.retval.8.retval.8..fca.1.load.i11 = load i64, ptr %retval.i8.8.retval.i8.8.retval.i8.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i8)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -1191,7 +1191,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1200,7 +1200,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1240,7 +1240,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1249,7 +1249,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1294,7 +1294,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1303,7 +1303,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1342,7 +1342,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1351,7 +1351,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1401,7 +1401,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1410,7 +1410,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -1419,7 +1419,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i7)
   store i32 0, ptr %retval.i7, align 8
   %retval.i7.4.retval.i7.4.retval.i7.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i7, i64 4
   store i64 0, ptr %retval.i7.4.retval.i7.4.retval.i7.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1428,7 +1428,7 @@ if.then4:                                         ; preds = %if.end
   %retval.i7.0.retval.i7.0.retval.i7.0.retval.0.retval.0..fca.0.load.i10 = load i64, ptr %retval.i7, align 8
   %retval.i7.8.retval.i7.8.retval.i7.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i7, i64 8
   %retval.i7.8.retval.i7.8.retval.i7.8.retval.8.retval.8..fca.1.load.i13 = load i64, ptr %retval.i7.8.retval.i7.8.retval.i7.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i7)
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -1562,13 +1562,13 @@ entry:
   %retval.i.i = alloca %"struct.re2::Frag", align 8
   %retval.i = alloca %"struct.re2::Frag", align 8
   %f = alloca %"struct.re2::Frag", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -1577,7 +1577,7 @@ if.then.i:                                        ; preds = %entry
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit
 
 if.end.i:                                         ; preds = %entry
@@ -1605,7 +1605,7 @@ if.end.i:                                         ; preds = %entry
 _ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %if.then.i, %if.end.i
   %retval.8.retval.8..fca.1.load.i = phi i64 [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i, %if.end.i ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i ]
   %retval.0.retval.0..fca.0.load.i = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i, %if.end.i ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   store i64 %retval.0.retval.0..fca.0.load.i, ptr %f, align 8
   %f.8.f.8.f.8.f.8..sroa_idx = getelementptr inbounds nuw i8, ptr %f, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i, ptr %f.8.f.8.f.8.f.8..sroa_idx, align 8
@@ -2511,7 +2511,7 @@ if.then4:                                         ; preds = %_ZN3re28Compiler14B
   br label %return
 
 if.else:                                          ; preds = %if.then, %land.lhs.true.i, %_ZN3re28Compiler14ByteRangeEqualEii.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -2520,7 +2520,7 @@ if.else:                                          ; preds = %if.then, %land.lhs.
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   store i64 %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx124 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %retval.8.retval.8.retval.8..sroa_idx124, align 8
@@ -2571,7 +2571,7 @@ if.then14:                                        ; preds = %_ZN3re28Compiler14B
   br label %return
 
 if.then18:                                        ; preds = %_ZN3re28Compiler14ByteRangeEqualEii.exit35, %land.lhs.true.i27, %while.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i38)
   store i32 0, ptr %retval.i38, align 8
   %retval.i38.4.retval.i38.4.retval.i38.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i38, i64 4
   store i64 0, ptr %retval.i38.4.retval.i38.4.retval.i38.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -2580,7 +2580,7 @@ if.then18:                                        ; preds = %_ZN3re28Compiler14B
   %retval.i38.0.retval.i38.0.retval.i38.0.retval.0.retval.0..fca.0.load.i41 = load i64, ptr %retval.i38, align 8
   %retval.i38.8.retval.i38.8.retval.i38.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i38, i64 8
   %retval.i38.8.retval.i38.8.retval.i38.8.retval.8.retval.8..fca.1.load.i44 = load i64, ptr %retval.i38.8.retval.i38.8.retval.i38.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i38)
   store i64 %retval.i38.0.retval.i38.0.retval.i38.0.retval.0.retval.0..fca.0.load.i41, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx122 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i38.8.retval.i38.8.retval.i38.8.retval.8.retval.8..fca.1.load.i44, ptr %retval.8.retval.8.retval.8..sroa_idx122, align 8
@@ -2621,7 +2621,7 @@ if.then31:                                        ; preds = %_ZN3re28Compiler14B
   br label %return
 
 if.else35:                                        ; preds = %if.else29, %land.lhs.true.i59, %_ZN3re28Compiler14ByteRangeEqualEii.exit67
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i72)
   store i32 0, ptr %retval.i72, align 8
   %retval.i72.4.retval.i72.4.retval.i72.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i72, i64 4
   store i64 0, ptr %retval.i72.4.retval.i72.4.retval.i72.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -2630,7 +2630,7 @@ if.else35:                                        ; preds = %if.else29, %land.lh
   %retval.i72.0.retval.i72.0.retval.i72.0.retval.0.retval.0..fca.0.load.i75 = load i64, ptr %retval.i72, align 8
   %retval.i72.8.retval.i72.8.retval.i72.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i72, i64 8
   %retval.i72.8.retval.i72.8.retval.i72.8.retval.8.retval.8..fca.1.load.i78 = load i64, ptr %retval.i72.8.retval.i72.8.retval.i72.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i72)
   store i64 %retval.i72.0.retval.i72.0.retval.i72.0.retval.0.retval.0..fca.0.load.i75, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx123 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i72.8.retval.i72.8.retval.i72.8.retval.8.retval.8..fca.1.load.i78, ptr %retval.8.retval.8.retval.8..sroa_idx123, align 8
@@ -2671,7 +2671,7 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
 
 invoke.cont39:                                    ; preds = %_ZN10LogMessageC2EPKci.exit
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i81)
   store i32 0, ptr %retval.i81, align 8
   %retval.i81.4.retval.i81.4.retval.i81.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i81, i64 4
   store i64 0, ptr %retval.i81.4.retval.i81.4.retval.i81.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -2680,7 +2680,7 @@ invoke.cont39:                                    ; preds = %_ZN10LogMessageC2EP
   %retval.i81.0.retval.i81.0.retval.i81.0.retval.0.retval.0..fca.0.load.i84 = load i64, ptr %retval.i81, align 8
   %retval.i81.8.retval.i81.8.retval.i81.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i81, i64 8
   %retval.i81.8.retval.i81.8.retval.i81.8.retval.8.retval.8..fca.1.load.i87 = load i64, ptr %retval.i81.8.retval.i81.8.retval.i81.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i81)
   store i64 %retval.i81.0.retval.i81.0.retval.i81.0.retval.0.retval.0..fca.0.load.i84, ptr %retval, align 8
   %retval.8.retval.8.retval.8..sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i81.8.retval.i81.8.retval.i81.8.retval.8.retval.8..fca.1.load.i87, ptr %retval.8.retval.8.retval.8..sroa_idx, align 8
@@ -2782,7 +2782,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %s.i)
   %str_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.8)
           to label %call2.i.noexc unwind label %terminate.lpad
@@ -2798,7 +2798,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   %call5.i = call i64 @fwrite(ptr noundef %call4.i, i64 noundef 1, i64 noundef %call3.i, ptr noundef %1) #29
   store i8 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s.i) #26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %s.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %s.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
@@ -3545,7 +3545,7 @@ _ZN10LogMessageC2EPKci.exit:                      ; preds = %invoke.cont6.i
 
 invoke.cont2:                                     ; preds = %_ZN10LogMessageC2EPKci.exit
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3556,7 +3556,7 @@ invoke.cont2:                                     ; preds = %_ZN10LogMessageC2EP
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   ret { i64, i64 } %.fca.1.insert.i
 
 lpad:                                             ; preds = %_ZN10LogMessageC2EPKci.exit
@@ -3572,7 +3572,7 @@ entry:
   %retval.i = alloca %"struct.re2::Frag", align 8
   %failed_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i8 1, ptr %failed_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3583,7 +3583,7 @@ entry:
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   ret { i64, i64 } %.fca.1.insert.i
 }
 
@@ -3646,13 +3646,13 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 sw.bb:                                            ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3661,7 +3661,7 @@ if.then.i:                                        ; preds = %sw.bb
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit
 
 if.end.i:                                         ; preds = %sw.bb
@@ -3687,7 +3687,7 @@ if.end.i:                                         ; preds = %sw.bb
 _ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %if.then.i, %if.end.i
   %retval.8.retval.8..fca.1.load.i = phi i64 [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i, %if.end.i ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i ]
   %retval.0.retval.0..fca.0.load.i = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i, %if.end.i ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %retval.8.retval.8.retval.8..sroa_idx103 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i, ptr %retval.8.retval.8.retval.8..sroa_idx103, align 8
   br label %return
@@ -3697,13 +3697,13 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i6)
   %call.i7 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i8 = icmp slt i32 %call.i7, 0
   br i1 %cmp.i8, label %if.then.i26, label %if.end.i9
 
 if.then.i26:                                      ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i5)
   store i32 0, ptr %retval.i.i5, align 8
   %retval.i.i5.4.retval.i.i5.4.retval.i.i5.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i5, i64 4
   store i64 0, ptr %retval.i.i5.4.retval.i.i5.4.retval.i.i5.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3712,7 +3712,7 @@ if.then.i26:                                      ; preds = %if.then
   %retval.i.i5.0.retval.i.i5.0.retval.i.i5.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i29 = load i64, ptr %retval.i.i5, align 8
   %retval.i.i5.8.retval.i.i5.8.retval.i.i5.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i5, i64 8
   %retval.i.i5.8.retval.i.i5.8.retval.i.i5.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i31 = load i64, ptr %retval.i.i5.8.retval.i.i5.8.retval.i.i5.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i5)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit32
 
 if.end.i9:                                        ; preds = %if.then
@@ -3738,7 +3738,7 @@ if.end.i9:                                        ; preds = %if.then
 _ZN3re28Compiler9ByteRangeEiib.exit32:            ; preds = %if.then.i26, %if.end.i9
   %retval.8.retval.8..fca.1.load.i22 = phi i64 [ %retval.i6.8.retval.i6.8.retval.i6.8.retval.8.retval.8..fca.1.load.pre.i21, %if.end.i9 ], [ %retval.i.i5.8.retval.i.i5.8.retval.i.i5.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i31, %if.then.i26 ]
   %retval.0.retval.0..fca.0.load.i23 = phi i64 [ %retval.i6.0.retval.i6.0.retval.i6.0.retval.0.retval.0..fca.0.load.pre.i19, %if.end.i9 ], [ %retval.i.i5.0.retval.i.i5.0.retval.i.i5.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i29, %if.then.i26 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i6)
   %retval.8.retval.8.retval.8..sroa_idx102 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i22, ptr %retval.8.retval.8.retval.8..sroa_idx102, align 8
   br label %return
@@ -3746,13 +3746,13 @@ _ZN3re28Compiler9ByteRangeEiib.exit32:            ; preds = %if.then.i26, %if.en
 if.end:                                           ; preds = %sw.bb2
   %call5 = call noundef i32 @_ZN3re210runetocharEPcPKi(ptr noundef nonnull %buf, ptr noundef nonnull %r.addr)
   %3 = load i8, ptr %buf, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i34)
   %call.i35 = call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i36 = icmp slt i32 %call.i35, 0
   br i1 %cmp.i36, label %if.then.i53, label %if.end.i37
 
 if.then.i53:                                      ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i33)
   store i32 0, ptr %retval.i.i33, align 8
   %retval.i.i33.4.retval.i.i33.4.retval.i.i33.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i33, i64 4
   store i64 0, ptr %retval.i.i33.4.retval.i.i33.4.retval.i.i33.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3761,7 +3761,7 @@ if.then.i53:                                      ; preds = %if.end
   %retval.i.i33.0.retval.i.i33.0.retval.i.i33.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i56 = load i64, ptr %retval.i.i33, align 8
   %retval.i.i33.8.retval.i.i33.8.retval.i.i33.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i33, i64 8
   %retval.i.i33.8.retval.i.i33.8.retval.i.i33.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i58 = load i64, ptr %retval.i.i33.8.retval.i.i33.8.retval.i.i33.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i33)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit59
 
 if.end.i37:                                       ; preds = %if.end
@@ -3787,7 +3787,7 @@ if.end.i37:                                       ; preds = %if.end
 _ZN3re28Compiler9ByteRangeEiib.exit59:            ; preds = %if.then.i53, %if.end.i37
   %retval.8.retval.8..fca.1.load.i49 = phi i64 [ %retval.i34.8.retval.i34.8.retval.i34.8.retval.8.retval.8..fca.1.load.pre.i48, %if.end.i37 ], [ %retval.i.i33.8.retval.i.i33.8.retval.i.i33.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i58, %if.then.i53 ]
   %retval.0.retval.0..fca.0.load.i50 = phi i64 [ %retval.i34.0.retval.i34.0.retval.i34.0.retval.0.retval.0..fca.0.load.pre.i46, %if.end.i37 ], [ %retval.i.i33.0.retval.i.i33.0.retval.i.i33.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i56, %if.then.i53 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i34)
   %retval.8.retval.8.retval.8..sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i49, ptr %retval.8.retval.8.retval.8..sroa_idx, align 8
   %cmp991 = icmp sgt i32 %call5, 1
@@ -3812,19 +3812,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %retval.8.retval.8.retval.8.agg.tmp.sroa.2.0.copyload = load i64, ptr %retval.8.retval.8.retval.8..sroa_idx101, align 8
   %arrayidx11 = getelementptr inbounds nuw [4 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx11, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i61)
   %call.i62 = call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i63 = icmp slt i32 %call.i62, 0
   br i1 %cmp.i63, label %if.then.i80, label %if.end.i64
 
 if.then.i80:                                      ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i60)
   store i32 0, ptr %retval.i.i60, align 8
   store i64 0, ptr %retval.i.i60.4.retval.i.i60.4.retval.i.i60.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
   store i8 0, ptr %retval.i.i60.12.retval.i.i60.12.retval.i.i60.12.retval.i.12.retval.i.12.retval.12.retval.12.nullable.i.sroa_idx, align 4
   %retval.i.i60.0.retval.i.i60.0.retval.i.i60.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i83 = load i64, ptr %retval.i.i60, align 8
   %retval.i.i60.8.retval.i.i60.8.retval.i.i60.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i85 = load i64, ptr %retval.i.i60.8.retval.i.i60.8.retval.i.i60.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i60)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit86
 
 if.end.i64:                                       ; preds = %for.body
@@ -3846,7 +3846,7 @@ if.end.i64:                                       ; preds = %for.body
 _ZN3re28Compiler9ByteRangeEiib.exit86:            ; preds = %if.then.i80, %if.end.i64
   %retval.8.retval.8..fca.1.load.i76 = phi i64 [ %retval.i61.8.retval.i61.8.retval.i61.8.retval.8.retval.8..fca.1.load.pre.i75, %if.end.i64 ], [ %retval.i.i60.8.retval.i.i60.8.retval.i.i60.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i85, %if.then.i80 ]
   %retval.0.retval.0..fca.0.load.i77 = phi i64 [ %retval.i61.0.retval.i61.0.retval.i61.0.retval.0.retval.0..fca.0.load.pre.i73, %if.end.i64 ], [ %retval.i.i60.0.retval.i.i60.0.retval.i.i60.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i83, %if.then.i80 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i61)
   %call17 = call { i64, i64 } @_ZN3re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %5, i64 %retval.8.retval.8.retval.8.agg.tmp.sroa.2.0.copyload, i64 %retval.0.retval.0..fca.0.load.i77, i64 %retval.8.retval.8..fca.1.load.i76)
   %8 = extractvalue { i64, i64 } %call17, 0
   %9 = extractvalue { i64, i64 } %call17, 1
@@ -3899,7 +3899,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   store i32 0, ptr %retval.i, align 8
   %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 4
   store i64 0, ptr %retval.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3908,7 +3908,7 @@ if.then:                                          ; preds = %entry
   %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i = load i64, ptr %retval.i, align 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i, i64 8
   %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i = load i64, ptr %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %retval.8.retval.8.retval.8..sroa_idx444 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %retval.8.retval.8.retval.8..sroa_idx444, align 8
   br label %return
@@ -3939,7 +3939,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb5:                                           ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i50)
   store i32 0, ptr %retval.i50, align 8
   %retval.i50.4.retval.i50.4.retval.i50.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i50, i64 4
   store i64 0, ptr %retval.i50.4.retval.i50.4.retval.i50.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3948,19 +3948,19 @@ sw.bb5:                                           ; preds = %if.end
   %retval.i50.0.retval.i50.0.retval.i50.0.retval.0.retval.0..fca.0.load.i53 = load i64, ptr %retval.i50, align 8
   %retval.i50.8.retval.i50.8.retval.i50.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i50, i64 8
   %retval.i50.8.retval.i50.8.retval.i50.8.retval.8.retval.8..fca.1.load.i56 = load i64, ptr %retval.i50.8.retval.i50.8.retval.i50.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i50)
   %retval.8.retval.8.retval.8..sroa_idx441 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i50.8.retval.i50.8.retval.i50.8.retval.8.retval.8..fca.1.load.i56, ptr %retval.8.retval.8.retval.8..sroa_idx441, align 8
   br label %return
 
 sw.bb7:                                           ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i58)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.bb7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -3969,7 +3969,7 @@ if.then.i:                                        ; preds = %sw.bb7
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %_ZN3re28Compiler3NopEv.exit
 
 if.end.i:                                         ; preds = %sw.bb7
@@ -3994,7 +3994,7 @@ if.end.i:                                         ; preds = %sw.bb7
 _ZN3re28Compiler3NopEv.exit:                      ; preds = %if.then.i, %if.end.i
   %retval.8.retval.8..fca.1.load.i59 = phi i64 [ %retval.i58.8.retval.i58.8.retval.i58.8.retval.8.retval.8..fca.1.load.pre.i, %if.end.i ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i ]
   %retval.0.retval.0..fca.0.load.i60 = phi i64 [ %retval.i58.0.retval.i58.0.retval.i58.0.retval.0.retval.0..fca.0.load.pre.i, %if.end.i ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i58)
   %retval.8.retval.8.retval.8..sroa_idx440 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i59, ptr %retval.8.retval.8.retval.8..sroa_idx440, align 8
   br label %return
@@ -4002,13 +4002,13 @@ _ZN3re28Compiler3NopEv.exit:                      ; preds = %if.then.i, %if.end.
 sw.bb9:                                           ; preds = %if.end
   %3 = getelementptr inbounds nuw i8, ptr %re, i64 24
   %4 = load i32, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i64)
   %call.i65 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i66 = icmp slt i32 %call.i65, 0
   br i1 %cmp.i66, label %if.then.i80, label %if.end.i67
 
 if.then.i80:                                      ; preds = %sw.bb9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i63)
   store i32 0, ptr %retval.i.i63, align 8
   %retval.i.i63.4.retval.i.i63.4.retval.i.i63.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i63, i64 4
   store i64 0, ptr %retval.i.i63.4.retval.i.i63.4.retval.i.i63.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4017,7 +4017,7 @@ if.then.i80:                                      ; preds = %sw.bb9
   %retval.i.i63.0.retval.i.i63.0.retval.i.i63.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i83 = load i64, ptr %retval.i.i63, align 8
   %retval.i.i63.8.retval.i.i63.8.retval.i.i63.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i63, i64 8
   %retval.i.i63.8.retval.i.i63.8.retval.i.i63.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i85 = load i64, ptr %retval.i.i63.8.retval.i.i63.8.retval.i.i63.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i63)
   br label %_ZN3re28Compiler5MatchEi.exit
 
 if.end.i67:                                       ; preds = %sw.bb9
@@ -4039,7 +4039,7 @@ if.end.i67:                                       ; preds = %sw.bb9
 _ZN3re28Compiler5MatchEi.exit:                    ; preds = %if.then.i80, %if.end.i67
   %retval.8.retval.8..fca.1.load.i76 = phi i64 [ %retval.i64.8.retval.i64.8.retval.i64.8.retval.8.retval.8..fca.1.load.pre.i75, %if.end.i67 ], [ %retval.i.i63.8.retval.i.i63.8.retval.i.i63.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i85, %if.then.i80 ]
   %retval.0.retval.0.agg.tmp14.sroa.0.0.copyload = phi i64 [ %retval.i64.0.retval.i64.0.retval.i64.0.retval.0.retval.0..fca.0.load.pre.i73, %if.end.i67 ], [ %retval.i.i63.0.retval.i.i63.0.retval.i.i63.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i83, %if.then.i80 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i64)
   %retval.8.retval.8.retval.8..sroa_idx439 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i76, ptr %retval.8.retval.8.retval.8..sroa_idx439, align 8
   %anchor_ = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -4292,13 +4292,13 @@ _ZN3re28Compiler10BeginRangeEv.exit:              ; preds = %_ZN4absl7debian218c
   br label %return
 
 sw.bb96:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i105)
   %call.i106 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i107 = icmp slt i32 %call.i106, 0
   br i1 %cmp.i107, label %if.then.i124, label %if.end.i108
 
 if.then.i124:                                     ; preds = %sw.bb96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i104)
   store i32 0, ptr %retval.i.i104, align 8
   %retval.i.i104.4.retval.i.i104.4.retval.i.i104.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i104, i64 4
   store i64 0, ptr %retval.i.i104.4.retval.i.i104.4.retval.i.i104.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4307,7 +4307,7 @@ if.then.i124:                                     ; preds = %sw.bb96
   %retval.i.i104.0.retval.i.i104.0.retval.i.i104.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i127 = load i64, ptr %retval.i.i104, align 8
   %retval.i.i104.8.retval.i.i104.8.retval.i.i104.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i104, i64 8
   %retval.i.i104.8.retval.i.i104.8.retval.i.i104.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i129 = load i64, ptr %retval.i.i104.8.retval.i.i104.8.retval.i.i104.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i104)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit
 
 if.end.i108:                                      ; preds = %sw.bb96
@@ -4332,7 +4332,7 @@ if.end.i108:                                      ; preds = %sw.bb96
 _ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %if.then.i124, %if.end.i108
   %retval.8.retval.8..fca.1.load.i120 = phi i64 [ %retval.i105.8.retval.i105.8.retval.i105.8.retval.8.retval.8..fca.1.load.pre.i119, %if.end.i108 ], [ %retval.i.i104.8.retval.i.i104.8.retval.i.i104.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i129, %if.then.i124 ]
   %retval.0.retval.0..fca.0.load.i121 = phi i64 [ %retval.i105.0.retval.i105.0.retval.i105.0.retval.0.retval.0..fca.0.load.pre.i117, %if.end.i108 ], [ %retval.i.i104.0.retval.i.i104.0.retval.i.i104.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i127, %if.then.i124 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i105)
   %retval.8.retval.8.retval.8..sroa_idx432 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i120, ptr %retval.8.retval.8.retval.8..sroa_idx432, align 8
   br label %return
@@ -4354,7 +4354,7 @@ if.then101:                                       ; preds = %sw.bb98
 
 invoke.cont105:                                   ; preds = %if.then101
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp103) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i131)
   store i32 0, ptr %retval.i131, align 8
   %retval.i131.4.retval.i131.4.retval.i131.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i131, i64 4
   store i64 0, ptr %retval.i131.4.retval.i131.4.retval.i131.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4363,7 +4363,7 @@ invoke.cont105:                                   ; preds = %if.then101
   %retval.i131.0.retval.i131.0.retval.i131.0.retval.0.retval.0..fca.0.load.i134 = load i64, ptr %retval.i131, align 8
   %retval.i131.8.retval.i131.8.retval.i131.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i131, i64 8
   %retval.i131.8.retval.i131.8.retval.i131.8.retval.8.retval.8..fca.1.load.i137 = load i64, ptr %retval.i131.8.retval.i131.8.retval.i131.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i131)
   %retval.8.retval.8.retval.8..sroa_idx431 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i131.8.retval.i131.8.retval.i131.8.retval.8.retval.8..fca.1.load.i137, ptr %retval.8.retval.8.retval.8..sroa_idx431, align 8
   br label %return
@@ -4485,13 +4485,13 @@ if.end153:                                        ; preds = %sw.bb148
 sw.bb158:                                         ; preds = %if.end
   %reversed_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %79 = load i8, ptr %reversed_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i147)
   %call.i148 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i149 = icmp slt i32 %call.i148, 0
   br i1 %cmp.i149, label %if.then.i166, label %if.end.i150
 
 if.then.i166:                                     ; preds = %sw.bb158
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i146)
   store i32 0, ptr %retval.i.i146, align 8
   %retval.i.i146.4.retval.i.i146.4.retval.i.i146.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i146, i64 4
   store i64 0, ptr %retval.i.i146.4.retval.i.i146.4.retval.i.i146.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4500,7 +4500,7 @@ if.then.i166:                                     ; preds = %sw.bb158
   %retval.i.i146.0.retval.i.i146.0.retval.i.i146.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i169 = load i64, ptr %retval.i.i146, align 8
   %retval.i.i146.8.retval.i.i146.8.retval.i.i146.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i146, i64 8
   %retval.i.i146.8.retval.i.i146.8.retval.i.i146.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i171 = load i64, ptr %retval.i.i146.8.retval.i.i146.8.retval.i.i146.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i146)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit
 
 if.end.i150:                                      ; preds = %sw.bb158
@@ -4527,7 +4527,7 @@ if.end.i150:                                      ; preds = %sw.bb158
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit:   ; preds = %if.then.i166, %if.end.i150
   %retval.8.retval.8..fca.1.load.i162 = phi i64 [ %retval.i147.8.retval.i147.8.retval.i147.8.retval.8.retval.8..fca.1.load.pre.i161, %if.end.i150 ], [ %retval.i.i146.8.retval.i.i146.8.retval.i.i146.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i171, %if.then.i166 ]
   %retval.0.retval.0..fca.0.load.i163 = phi i64 [ %retval.i147.0.retval.i147.0.retval.i147.0.retval.0.retval.0..fca.0.load.pre.i159, %if.end.i150 ], [ %retval.i.i146.0.retval.i.i146.0.retval.i.i146.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i169, %if.then.i166 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i147)
   %retval.8.retval.8.retval.8..sroa_idx428 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i162, ptr %retval.8.retval.8.retval.8..sroa_idx428, align 8
   br label %return
@@ -4535,13 +4535,13 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit:   ; preds = %if.then.i166, %if.e
 sw.bb161:                                         ; preds = %if.end
   %reversed_162 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %81 = load i8, ptr %reversed_162, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i173)
   %call.i174 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i175 = icmp slt i32 %call.i174, 0
   br i1 %cmp.i175, label %if.then.i192, label %if.end.i176
 
 if.then.i192:                                     ; preds = %sw.bb161
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i172)
   store i32 0, ptr %retval.i.i172, align 8
   %retval.i.i172.4.retval.i.i172.4.retval.i.i172.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i172, i64 4
   store i64 0, ptr %retval.i.i172.4.retval.i.i172.4.retval.i.i172.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4550,7 +4550,7 @@ if.then.i192:                                     ; preds = %sw.bb161
   %retval.i.i172.0.retval.i.i172.0.retval.i.i172.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i195 = load i64, ptr %retval.i.i172, align 8
   %retval.i.i172.8.retval.i.i172.8.retval.i.i172.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i172, i64 8
   %retval.i.i172.8.retval.i.i172.8.retval.i.i172.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i197 = load i64, ptr %retval.i.i172.8.retval.i.i172.8.retval.i.i172.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i172)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198
 
 if.end.i176:                                      ; preds = %sw.bb161
@@ -4577,7 +4577,7 @@ if.end.i176:                                      ; preds = %sw.bb161
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198: ; preds = %if.then.i192, %if.end.i176
   %retval.8.retval.8..fca.1.load.i188 = phi i64 [ %retval.i173.8.retval.i173.8.retval.i173.8.retval.8.retval.8..fca.1.load.pre.i187, %if.end.i176 ], [ %retval.i.i172.8.retval.i.i172.8.retval.i.i172.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i197, %if.then.i192 ]
   %retval.0.retval.0..fca.0.load.i189 = phi i64 [ %retval.i173.0.retval.i173.0.retval.i173.0.retval.0.retval.0..fca.0.load.pre.i185, %if.end.i176 ], [ %retval.i.i172.0.retval.i.i172.0.retval.i.i172.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i195, %if.then.i192 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i173)
   %retval.8.retval.8.retval.8..sroa_idx427 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i188, ptr %retval.8.retval.8.retval.8..sroa_idx427, align 8
   br label %return
@@ -4585,13 +4585,13 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit198: ; preds = %if.then.i192, %if.
 sw.bb166:                                         ; preds = %if.end
   %reversed_167 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %83 = load i8, ptr %reversed_167, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i200)
   %call.i201 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i202 = icmp slt i32 %call.i201, 0
   br i1 %cmp.i202, label %if.then.i219, label %if.end.i203
 
 if.then.i219:                                     ; preds = %sw.bb166
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i199)
   store i32 0, ptr %retval.i.i199, align 8
   %retval.i.i199.4.retval.i.i199.4.retval.i.i199.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i199, i64 4
   store i64 0, ptr %retval.i.i199.4.retval.i.i199.4.retval.i.i199.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4600,7 +4600,7 @@ if.then.i219:                                     ; preds = %sw.bb166
   %retval.i.i199.0.retval.i.i199.0.retval.i.i199.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i222 = load i64, ptr %retval.i.i199, align 8
   %retval.i.i199.8.retval.i.i199.8.retval.i.i199.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i199, i64 8
   %retval.i.i199.8.retval.i.i199.8.retval.i.i199.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i224 = load i64, ptr %retval.i.i199.8.retval.i.i199.8.retval.i.i199.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i199)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225
 
 if.end.i203:                                      ; preds = %sw.bb166
@@ -4627,7 +4627,7 @@ if.end.i203:                                      ; preds = %sw.bb166
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225: ; preds = %if.then.i219, %if.end.i203
   %retval.8.retval.8..fca.1.load.i215 = phi i64 [ %retval.i200.8.retval.i200.8.retval.i200.8.retval.8.retval.8..fca.1.load.pre.i214, %if.end.i203 ], [ %retval.i.i199.8.retval.i.i199.8.retval.i.i199.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i224, %if.then.i219 ]
   %retval.0.retval.0..fca.0.load.i216 = phi i64 [ %retval.i200.0.retval.i200.0.retval.i200.0.retval.0.retval.0..fca.0.load.pre.i212, %if.end.i203 ], [ %retval.i.i199.0.retval.i.i199.0.retval.i.i199.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i222, %if.then.i219 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i200)
   %retval.8.retval.8.retval.8..sroa_idx426 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i215, ptr %retval.8.retval.8.retval.8..sroa_idx426, align 8
   br label %return
@@ -4635,13 +4635,13 @@ _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit225: ; preds = %if.then.i219, %if.
 sw.bb171:                                         ; preds = %if.end
   %reversed_172 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %85 = load i8, ptr %reversed_172, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i227)
   %call.i228 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i229 = icmp slt i32 %call.i228, 0
   br i1 %cmp.i229, label %if.then.i246, label %if.end.i230
 
 if.then.i246:                                     ; preds = %sw.bb171
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i226)
   store i32 0, ptr %retval.i.i226, align 8
   %retval.i.i226.4.retval.i.i226.4.retval.i.i226.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i226, i64 4
   store i64 0, ptr %retval.i.i226.4.retval.i.i226.4.retval.i.i226.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4650,7 +4650,7 @@ if.then.i246:                                     ; preds = %sw.bb171
   %retval.i.i226.0.retval.i.i226.0.retval.i.i226.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i249 = load i64, ptr %retval.i.i226, align 8
   %retval.i.i226.8.retval.i.i226.8.retval.i.i226.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i226, i64 8
   %retval.i.i226.8.retval.i.i226.8.retval.i.i226.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i251 = load i64, ptr %retval.i.i226.8.retval.i.i226.8.retval.i.i226.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i226)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252
 
 if.end.i230:                                      ; preds = %sw.bb171
@@ -4677,19 +4677,19 @@ if.end.i230:                                      ; preds = %sw.bb171
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit252: ; preds = %if.then.i246, %if.end.i230
   %retval.8.retval.8..fca.1.load.i242 = phi i64 [ %retval.i227.8.retval.i227.8.retval.i227.8.retval.8.retval.8..fca.1.load.pre.i241, %if.end.i230 ], [ %retval.i.i226.8.retval.i.i226.8.retval.i.i226.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i251, %if.then.i246 ]
   %retval.0.retval.0..fca.0.load.i243 = phi i64 [ %retval.i227.0.retval.i227.0.retval.i227.0.retval.0.retval.0..fca.0.load.pre.i239, %if.end.i230 ], [ %retval.i.i226.0.retval.i.i226.0.retval.i.i226.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i249, %if.then.i246 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i227)
   %retval.8.retval.8.retval.8..sroa_idx425 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i242, ptr %retval.8.retval.8.retval.8..sroa_idx425, align 8
   br label %return
 
 sw.bb176:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i254)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i254)
   %call.i255 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i256 = icmp slt i32 %call.i255, 0
   br i1 %cmp.i256, label %if.then.i273, label %if.end.i257
 
 if.then.i273:                                     ; preds = %sw.bb176
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i253)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i253)
   store i32 0, ptr %retval.i.i253, align 8
   %retval.i.i253.4.retval.i.i253.4.retval.i.i253.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i253, i64 4
   store i64 0, ptr %retval.i.i253.4.retval.i.i253.4.retval.i.i253.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4698,7 +4698,7 @@ if.then.i273:                                     ; preds = %sw.bb176
   %retval.i.i253.0.retval.i.i253.0.retval.i.i253.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i276 = load i64, ptr %retval.i.i253, align 8
   %retval.i.i253.8.retval.i.i253.8.retval.i.i253.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i253, i64 8
   %retval.i.i253.8.retval.i.i253.8.retval.i.i253.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i278 = load i64, ptr %retval.i.i253.8.retval.i.i253.8.retval.i.i253.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i253)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i253)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279
 
 if.end.i257:                                      ; preds = %sw.bb176
@@ -4723,19 +4723,19 @@ if.end.i257:                                      ; preds = %sw.bb176
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit279: ; preds = %if.then.i273, %if.end.i257
   %retval.8.retval.8..fca.1.load.i269 = phi i64 [ %retval.i254.8.retval.i254.8.retval.i254.8.retval.8.retval.8..fca.1.load.pre.i268, %if.end.i257 ], [ %retval.i.i253.8.retval.i.i253.8.retval.i.i253.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i278, %if.then.i273 ]
   %retval.0.retval.0..fca.0.load.i270 = phi i64 [ %retval.i254.0.retval.i254.0.retval.i254.0.retval.0.retval.0..fca.0.load.pre.i266, %if.end.i257 ], [ %retval.i.i253.0.retval.i.i253.0.retval.i.i253.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i276, %if.then.i273 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i254)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i254)
   %retval.8.retval.8.retval.8..sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i269, ptr %retval.8.retval.8.retval.8..sroa_idx, align 8
   br label %return
 
 sw.bb178:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i281)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i281)
   %call.i282 = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i283 = icmp slt i32 %call.i282, 0
   br i1 %cmp.i283, label %if.then.i300, label %if.end.i284
 
 if.then.i300:                                     ; preds = %sw.bb178
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i280)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i280)
   store i32 0, ptr %retval.i.i280, align 8
   %retval.i.i280.4.retval.i.i280.4.retval.i.i280.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i280, i64 4
   store i64 0, ptr %retval.i.i280.4.retval.i.i280.4.retval.i.i280.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4744,7 +4744,7 @@ if.then.i300:                                     ; preds = %sw.bb178
   %retval.i.i280.0.retval.i.i280.0.retval.i.i280.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i303 = load i64, ptr %retval.i.i280, align 8
   %retval.i.i280.8.retval.i.i280.8.retval.i.i280.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i280, i64 8
   %retval.i.i280.8.retval.i.i280.8.retval.i.i280.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i305 = load i64, ptr %retval.i.i280.8.retval.i.i280.8.retval.i.i280.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i280)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i280)
   br label %_ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306
 
 if.end.i284:                                      ; preds = %sw.bb178
@@ -4769,7 +4769,7 @@ if.end.i284:                                      ; preds = %sw.bb178
 _ZN3re28Compiler10EmptyWidthENS_7EmptyOpE.exit306: ; preds = %if.then.i300, %if.end.i284
   %retval.8.retval.8..fca.1.load.i296 = phi i64 [ %retval.i281.8.retval.i281.8.retval.i281.8.retval.8.retval.8..fca.1.load.pre.i295, %if.end.i284 ], [ %retval.i.i280.8.retval.i.i280.8.retval.i.i280.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i305, %if.then.i300 ]
   %retval.0.retval.0..fca.0.load.i297 = phi i64 [ %retval.i281.0.retval.i281.0.retval.i281.0.retval.0.retval.0..fca.0.load.pre.i293, %if.end.i284 ], [ %retval.i.i280.0.retval.i.i280.0.retval.i.i280.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i303, %if.then.i300 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i281)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i281)
   %retval.8.retval.8.retval.8..sroa_idx442 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.8.retval.8..fca.1.load.i296, ptr %retval.8.retval.8.retval.8..sroa_idx442, align 8
   br label %return
@@ -4816,7 +4816,7 @@ invoke.cont185:                                   ; preds = %_ZN10LogMessageC2EP
 
 invoke.cont189:                                   ; preds = %invoke.cont185
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp181) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i310)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i310)
   store i32 0, ptr %retval.i310, align 8
   %retval.i310.4.retval.i310.4.retval.i310.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i310, i64 4
   store i64 0, ptr %retval.i310.4.retval.i310.4.retval.i310.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -4825,7 +4825,7 @@ invoke.cont189:                                   ; preds = %invoke.cont185
   %retval.i310.0.retval.i310.0.retval.i310.0.retval.0.retval.0..fca.0.load.i313 = load i64, ptr %retval.i310, align 8
   %retval.i310.8.retval.i310.8.retval.i310.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i310, i64 8
   %retval.i310.8.retval.i310.8.retval.i310.8.retval.8.retval.8..fca.1.load.i316 = load i64, ptr %retval.i310.8.retval.i310.8.retval.i310.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i310)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i310)
   %retval.8.retval.8.retval.8..sroa_idx443 = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i64 %retval.i310.8.retval.i310.8.retval.i310.8.retval.8.retval.8..fca.1.load.i316, ptr %retval.8.retval.8.retval.8..sroa_idx443, align 8
   br label %return
@@ -4987,7 +4987,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 lor.lhs.false.i:                                  ; preds = %invoke.cont14
   store i8 0, ptr %reversed_, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %ninst_.i = getelementptr inbounds nuw i8, ptr %c, i64 136
   %9 = load i32, ptr %ninst_.i, align 8
   %add.i = add nsw i32 %9, 1
@@ -5070,7 +5070,7 @@ call.i.noexc:                                     ; preds = %if.end.i49, %_ZN3re
   br i1 %cmp.i31, label %if.then.i33, label %if.end.i32
 
 if.then.i33:                                      ; preds = %call.i.noexc.thread, %call.i.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -5079,7 +5079,7 @@ if.then.i33:                                      ; preds = %call.i.noexc.thread
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %invoke.cont21
 
 if.end.i32:                                       ; preds = %call.i.noexc
@@ -5104,7 +5104,7 @@ if.end.i32:                                       ; preds = %call.i.noexc
 invoke.cont21:                                    ; preds = %.noexc, %if.then.i33
   %retval.8.retval.8..fca.1.load.i = phi i64 [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i, %.noexc ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i33 ]
   %retval.0.retval.0..fca.0.load.i = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i, %.noexc ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i33 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %call24 = call { i64, i64 } @_ZN3re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(212) %c, i64 %6, i64 %7, i64 %retval.0.retval.0..fca.0.load.i, i64 %retval.8.retval.8..fca.1.load.i)
   %15 = extractvalue { i64, i64 } %call24, 0
   %16 = extractvalue { i64, i64 } %call24, 1
@@ -5134,7 +5134,7 @@ invoke.cont21:                                    ; preds = %.noexc, %if.then.i3
   br i1 %tobool.i41, label %if.end57, label %if.then49
 
 if.then49:                                        ; preds = %invoke.cont21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i42)
   %24 = load i8, ptr %failed_, align 8
   %tobool.i57 = trunc i8 %24 to i1
   br i1 %tobool.i57, label %call.i.i.noexc.thread, label %lor.lhs.false.i58
@@ -5228,7 +5228,7 @@ call.i.i.noexc:                                   ; preds = %if.end.i63, %_ZN3re
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc.thread, %call.i.i.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i.i)
   store i32 0, ptr %retval.i.i.i, align 8
   %retval.i.i.i.4.retval.i.i.i.4.retval.i.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i.i, i64 4
   store i64 0, ptr %retval.i.i.i.4.retval.i.i.i.4.retval.i.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -5237,7 +5237,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc.thre
   %retval.i.i.i.0.retval.i.i.i.0.retval.i.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i.i = load i64, ptr %retval.i.i.i, align 8
   %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i.i, i64 8
   %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i.i = load i64, ptr %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i.i)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit.i
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
@@ -5265,7 +5265,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
 _ZN3re28Compiler9ByteRangeEiib.exit.i:            ; preds = %.noexc45, %if.then.i.i
   %retval.8.retval.8..fca.1.load.i.i = phi i64 [ %retval.i.i42.8.retval.i.i42.8.retval.i.i42.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i.i, %.noexc45 ], [ %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i.i, %if.then.i.i ]
   %retval.0.retval.0..fca.0.load.i.i = phi i64 [ %retval.i.i42.0.retval.i.i42.0.retval.i.i42.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i.i, %.noexc45 ], [ %retval.i.i.i.0.retval.i.i.i.0.retval.i.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i42)
   %call2.i46 = invoke { i64, i64 } @_ZN3re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(212) %c, i64 %retval.0.retval.0..fca.0.load.i.i, i64 %retval.8.retval.8..fca.1.load.i.i, i1 noundef zeroext true)
           to label %invoke.cont52 unwind label %lpad
 
@@ -5606,13 +5606,13 @@ define { i64, i64 } @_ZN3re28Compiler7DotStarEv(ptr noundef nonnull align 8 capt
 entry:
   %retval.i.i = alloca %"struct.re2::Frag", align 8
   %retval.i = alloca %"struct.re2::Frag", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i)
   %call.i = tail call noundef i32 @_ZN3re28Compiler9AllocInstEi(ptr noundef nonnull align 8 dereferenceable(212) %this, i32 noundef 1)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   store i32 0, ptr %retval.i.i, align 8
   %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 4
   store i64 0, ptr %retval.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -5621,7 +5621,7 @@ if.then.i:                                        ; preds = %entry
   %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i = load i64, ptr %retval.i.i, align 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i, i64 8
   %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i = load i64, ptr %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit
 
 if.end.i:                                         ; preds = %entry
@@ -5646,7 +5646,7 @@ if.end.i:                                         ; preds = %entry
 _ZN3re28Compiler9ByteRangeEiib.exit:              ; preds = %if.then.i, %if.end.i
   %retval.8.retval.8..fca.1.load.i = phi i64 [ %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i, %if.end.i ], [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i, %if.then.i ]
   %retval.0.retval.0..fca.0.load.i = phi i64 [ %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i, %if.end.i ], [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i)
   %call2 = tail call { i64, i64 } @_ZN3re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(212) %this, i64 %retval.0.retval.0..fca.0.load.i, i64 %retval.8.retval.8..fca.1.load.i, i1 noundef zeroext true)
   ret { i64, i64 } %call2
 }
@@ -5902,7 +5902,7 @@ if.end9:                                          ; preds = %invoke.cont7
   br i1 %cmp13, label %if.then14, label %if.end21
 
 if.then14:                                        ; preds = %if.end9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i)
   %10 = load i8, ptr %failed_, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %call.i.i.noexc.thread, label %lor.lhs.false.i
@@ -5997,7 +5997,7 @@ call.i.i.noexc:                                   ; preds = %if.end.i20, %_ZN3re
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc.thread, %call.i.i.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %retval.i.i.i)
   store i32 0, ptr %retval.i.i.i, align 8
   %retval.i.i.i.4.retval.i.i.i.4.retval.i.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i.i, i64 4
   store i64 0, ptr %retval.i.i.i.4.retval.i.i.i.4.retval.i.i.i.4.retval.i.i.4.retval.i.i.4.retval.i.4.retval.i.4.retval.4.retval.4.end.i.sroa_idx, align 4
@@ -6006,7 +6006,7 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc.thre
   %retval.i.i.i.0.retval.i.i.i.0.retval.i.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i.i = load i64, ptr %retval.i.i.i, align 8
   %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.i.i.i, i64 8
   %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i.i = load i64, ptr %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.gep.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i.i)
   br label %_ZN3re28Compiler9ByteRangeEiib.exit.i
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
@@ -6034,7 +6034,7 @@ if.end.i.i:                                       ; preds = %call.i.i.noexc
 _ZN3re28Compiler9ByteRangeEiib.exit.i:            ; preds = %.noexc, %if.then.i.i
   %retval.8.retval.8..fca.1.load.i.i = phi i64 [ %retval.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.pre.i.i, %.noexc ], [ %retval.i.i.i.8.retval.i.i.i.8.retval.i.i.i.8.retval.i.i.8.retval.i.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i.i.i, %if.then.i.i ]
   %retval.0.retval.0..fca.0.load.i.i = phi i64 [ %retval.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.pre.i.i, %.noexc ], [ %retval.i.i.i.0.retval.i.i.i.0.retval.i.i.i.0.retval.i.i.0.retval.i.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %retval.i.i)
   %call2.i17 = invoke { i64, i64 } @_ZN3re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(212) %c, i64 %retval.0.retval.0..fca.0.load.i.i, i64 %retval.8.retval.8..fca.1.load.i.i, i1 noundef zeroext true)
           to label %invoke.cont16 unwind label %lpad
 
@@ -7580,10 +7580,10 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #22

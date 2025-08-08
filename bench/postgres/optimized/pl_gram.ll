@@ -199,14 +199,14 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse(ptr noundef %0, ptr noundef %
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 6400, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %7, align 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1420,7 +1420,7 @@ list_length.exit1282:                             ; preds = %382
   br label %1842
 
 575:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %576 = call ptr @palloc0(i64 noundef 24) #12
   store i32 23, ptr %576, align 8
   %577 = load i32, ptr %.21141, align 4
@@ -1453,7 +1453,7 @@ list_length.exit1282:                             ; preds = %382
   %597 = add i32 %596, 1
   call fastcc void @check_sql_expr(ptr noundef %593, i32 noundef %595, i32 noundef %597, ptr noundef %1)
   store ptr %576, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1842
 
 598:                                              ; preds = %108
@@ -2195,7 +2195,7 @@ tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, 
   br label %1842
 
 959:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %960 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   store i32 %960, ptr %10, align 4
   %961 = load i32, ptr %4, align 4
@@ -2205,7 +2205,7 @@ tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, 
   ]
 
 962:                                              ; preds = %959
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %963 = call fastcc ptr @read_sql_construct(i32 noundef 336, i32 noundef 381, i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1)
   %964 = call ptr @palloc0(i64 noundef 56) #12
   store i32 18, ptr %964, align 8
@@ -2281,7 +2281,7 @@ tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, 
 
 .loopexit1546:                                    ; preds = %1001, %996
   store ptr %964, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1159
 
 1007:                                             ; preds = %959
@@ -2364,12 +2364,12 @@ tok_is_keyword.exit1326:                          ; preds = %.thread1979, %764, 
   br label %1159
 
 1057:                                             ; preds = %959
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1058 = icmp eq i32 %960, 363
   br i1 %1058, label %tok_is_keyword.exit1329.thread, label %.thread1453
 
 1059:                                             ; preds = %1011, %1007
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1060 = load i8, ptr %18, align 8, !range !3, !noundef !4
   %1061 = trunc nuw i8 %1060 to i1
   br i1 %1061, label %.thread1453, label %1062
@@ -2541,11 +2541,11 @@ tok_is_keyword.exit1329.thread:                   ; preds = %1064, %1057
 1158:                                             ; preds = %1156, %1097
   %storemerge1233 = phi ptr [ %1124, %1156 ], [ %1103, %1097 ]
   store ptr %storemerge1233, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1159
 
 1159:                                             ; preds = %1049, %1158, %.loopexit1546
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1842
 
 1160:                                             ; preds = %108
@@ -2854,7 +2854,7 @@ tok_is_keyword.exit1337:                          ; preds = %1307, %1304, %1301,
   br label %1842
 
 1323:                                             ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1324 = call ptr @palloc(i64 noundef 48) #12
   store i32 14, ptr %1324, align 8
   %1325 = load i32, ptr %.21141, align 4
@@ -3110,11 +3110,11 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
 1420:                                             ; preds = %1323, %thread-pre-split, %thread-pre-split.thread
   call fastcc void @check_raise_parameters(ptr noundef nonnull %1324)
   store ptr %1324, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1842
 
 1421:                                             ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1422 = call ptr @palloc(i64 noundef 32) #12
   store i32 15, ptr %1422, align 8
   %1423 = load i32, ptr %.21141, align 4
@@ -3144,7 +3144,7 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
   %1438 = getelementptr inbounds nuw i8, ptr %1422, i64 24
   store ptr %.sink1966, ptr %1438, align 8
   store ptr %1422, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %1842
 
 1439:                                             ; preds = %108
@@ -3220,7 +3220,7 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
   br label %1842
 
 1469:                                             ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1470 = call fastcc ptr @read_sql_construct(i32 noundef 332, i32 noundef 381, i32 noundef 59, ptr noundef nonnull @.str.63, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %4, ptr noundef %1)
   %1471 = call ptr @palloc(i64 noundef 48) #12
   store i32 17, ptr %1471, align 8
@@ -3299,7 +3299,7 @@ thread-pre-split.thread:                          ; preds = %tok_is_keyword.exit
 
 1501:                                             ; preds = %.loopexit
   store ptr %1471, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %1842
 
 1502:                                             ; preds = %108
@@ -3421,7 +3421,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   br i1 %1552, label %1553, label %1565
 
 1553:                                             ; preds = %1550
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1554 = call fastcc ptr @read_sql_construct(i32 noundef 381, i32 noundef 59, i32 noundef 0, ptr noundef nonnull @.str.68, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1)
   %1555 = getelementptr inbounds nuw i8, ptr %1503, i64 40
   store ptr %1554, ptr %1555, align 8
@@ -3443,7 +3443,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   br i1 %1564, label %1559, label %.loopexit1549, !llvm.loop !9
 
 .loopexit1549:                                    ; preds = %1559, %1553
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %1571
 
 1565:                                             ; preds = %1550
@@ -3466,7 +3466,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
 1572:                                             ; preds = %108
   %1573 = getelementptr inbounds i8, ptr %.21129, i64 -64
   %1574 = load ptr, ptr %1573, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @read_into_target(ptr noundef nonnull %17, ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %1)
   %1575 = call i32 @plpgsql_yylex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %1) #12
   %.not1219 = icmp eq i32 %1575, 59
@@ -3511,7 +3511,7 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   %1600 = getelementptr inbounds nuw i8, ptr %1574, i64 48
   store i8 0, ptr %1600, align 8
   store ptr %1574, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %1842
 
 1601:                                             ; preds = %108
@@ -4074,47 +4074,41 @@ tok_is_keyword.exit1364.thread1497:               ; preds = %1527, %1524, %.tail
   br label %1904
 
 1904:                                             ; preds = %.thread1519, %1903
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 6400, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.011481509
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
-
-declare i32 @plpgsql_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
+declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
-declare i32 @plpgsql_location_to_lineno(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_location_to_lineno(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_labels(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
@@ -4152,25 +4146,25 @@ define internal fastcc void @check_labels(ptr noundef %0, ptr noundef %1, i32 no
   ret void
 }
 
-declare void @plpgsql_ns_pop() local_unnamed_addr #3
+declare void @plpgsql_ns_pop() local_unnamed_addr #2
 
-declare i32 @plpgsql_add_initdatums(ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_add_initdatums(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @plpgsql_scanner_errposition(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_scanner_errposition(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @format_type_be(i32 noundef) local_unnamed_addr #3
+declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_build_variable(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @plpgsql_build_variable(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @plpgsql_ns_additem(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @plpgsql_ns_additem(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @plpgsql_ns_push(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @plpgsql_ns_push(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_build_datatype(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_build_datatype(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_sql_stmt(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -4179,24 +4173,24 @@ define internal fastcc ptr @read_sql_stmt(ptr noundef nonnull %0, ptr noundef no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare void @list_free(ptr noundef) local_unnamed_addr #3
+declare void @list_free(ptr noundef) local_unnamed_addr #2
 
-declare void @plpgsql_adddatum(ptr noundef) local_unnamed_addr #3
+declare void @plpgsql_adddatum(ptr noundef) local_unnamed_addr #2
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_ns_lookup(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_ns_lookup(ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_ns_top() local_unnamed_addr #3
+declare ptr @plpgsql_ns_top() local_unnamed_addr #2
 
-declare ptr @NameListToString(ptr noundef) local_unnamed_addr #3
+declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @plpgsql_yyerror(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @plpgsql_yyerror(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_datatype(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
@@ -4205,7 +4199,7 @@ define internal fastcc ptr @read_datatype(i32 noundef %0, ptr noundef nonnull %1
   %7 = alloca %struct.sql_error_callback_arg, align 8
   %8 = alloca %struct.ErrorContextCallback, align 8
   %9 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq i32 %0, -2
   br i1 %10, label %11, label %13
 
@@ -4516,10 +4510,10 @@ tok_is_keyword.exit162:                           ; preds = %99, %111
   unreachable
 
 142:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %14, ptr %7, align 8
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %143, align 8
@@ -4540,10 +4534,10 @@ tok_is_keyword.exit162:                           ; preds = %99, %111
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 28
   %153 = load i32, ptr %152, align 4
   %154 = call ptr @plpgsql_build_datatype(i32 noundef %149, i32 noundef %150, i32 noundef %153, ptr noundef %147) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %155 = load ptr, ptr %9, align 8
   call void @pfree(ptr noundef %155) #12
   call void @plpgsql_push_back_token(i32 noundef %.8, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) #12
@@ -4551,22 +4545,22 @@ tok_is_keyword.exit162:                           ; preds = %99, %111
 
 156:                                              ; preds = %._crit_edge.thread, %._crit_edge, %123, %142
   %.0127 = phi ptr [ %154, %142 ], [ %124, %123 ], [ %.1131, %._crit_edge ], [ %.1131, %._crit_edge.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %.0127
 }
 
-declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #3
+declare ptr @makeString(ptr noundef) local_unnamed_addr #2
 
-declare void @plpgsql_push_back_token(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @plpgsql_push_back_token(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0, i32 noundef range(i32 0, 382) %1, i32 noundef range(i32 0, 382) %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %11) unnamed_addr #0 {
   %13 = alloca %struct.sql_error_callback_arg, align 8
   %14 = alloca %struct.ErrorContextCallback, align 8
   %15 = alloca %struct.StringInfoData, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @initStringInfo(ptr noundef nonnull %15) #12
   %16 = load i32, ptr @plpgsql_IdentifierLookup, align 4
   store i32 2, ptr @plpgsql_IdentifierLookup, align 4
@@ -4714,8 +4708,8 @@ define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0
 74:                                               ; preds = %62
   %75 = load ptr, ptr %64, align 8
   %76 = load i32, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %77 = load i8, ptr @plpgsql_check_syntax, align 1, !range !3, !noundef !4
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %check_sql_expr.exit
@@ -4741,27 +4735,27 @@ define internal fastcc ptr @read_sql_construct(i32 noundef range(i32 44, 385) %0
   br label %check_sql_expr.exit
 
 check_sql_expr.exit:                              ; preds = %74, %79
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %88
 
 88:                                               ; preds = %check_sql_expr.exit, %62
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret ptr %64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_sql_expr(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.sql_error_callback_arg, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr @plpgsql_check_syntax, align 1, !range !3, !noundef !4
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %18
@@ -4787,8 +4781,8 @@ define internal fastcc void @check_sql_expr(ptr noundef %0, i32 noundef %1, i32 
   br label %18
 
 18:                                               ; preds = %4, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4845,10 +4839,10 @@ tailrecurse:                                      ; preds = %17, %3
   ret void
 }
 
-declare ptr @plpgsql_getdiag_kindname(i32 noundef) local_unnamed_addr #3
+declare ptr @plpgsql_getdiag_kindname(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 280, 384) %2, ptr noundef readonly captures(none) %3) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 280, 384) %2, ptr noundef readonly captures(none) %3) unnamed_addr #7 {
   %5 = icmp eq i32 %0, %2
   br i1 %5, label %19, label %6
 
@@ -4881,7 +4875,7 @@ define internal fastcc noundef zeroext i1 @tok_is_keyword(i32 noundef %0, ptr no
   ret i1 %.0
 }
 
-declare i32 @plpgsql_peek(ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_peek(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @NameOfDatum(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
@@ -4902,7 +4896,7 @@ define internal fastcc ptr @NameOfDatum(ptr noundef nonnull readonly captures(no
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @word_is_not_variable(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc void @word_is_not_variable(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 16801924) #12
@@ -4914,7 +4908,7 @@ define internal fastcc void @word_is_not_variable(ptr noundef nonnull readonly c
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @cword_is_not_variable(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc void @cword_is_not_variable(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str.2) #14
   tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 16801924) #12
@@ -4979,7 +4973,7 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   br i1 %.not, label %58, label %31
 
 31:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = load i32, ptr @plpgsql_nDatums, align 4
   %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.144, i32 noundef %32) #12
   %34 = load i32, ptr %10, align 4
@@ -5005,7 +4999,7 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @initStringInfo(ptr noundef nonnull %7) #12
   %48 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %7, ptr noundef nonnull @.str.145, ptr noundef nonnull %6, ptr noundef %48) #12
@@ -5019,7 +5013,7 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   store ptr %52, ptr %53, align 8
   %54 = load ptr, ptr %7, align 8
   call void @pfree(ptr noundef %54) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %39, align 4
   %56 = sext i32 %55 to i64
@@ -5027,7 +5021,7 @@ list_length.exit.thread:                          ; preds = %5, %25, %list_lengt
   br i1 %57, label %.lr.ph38, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph38, %.lr.ph, %31
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 58:                                               ; preds = %.critedge, %29
@@ -5070,7 +5064,7 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = tail call i32 @plpgsql_yylex(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
@@ -5137,10 +5131,10 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 49:                                               ; preds = %.lr.ph115, %.thread
   %.087113 = phi i32 [ 0, %.lr.ph115 ], [ %120, %.thread ]
   %.089112 = phi i1 [ false, %.lr.ph115 ], [ %.190, %.thread ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @plpgsql_peek2(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, ptr noundef %4) #12
   %50 = load i32, ptr %8, align 4
   %51 = icmp eq i32 %50, 258
@@ -5278,10 +5272,10 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
   unreachable
 
 .thread:                                          ; preds = %94, %98, %109
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %120 = add nuw nsw i32 %.087113, 1
   %121 = icmp slt i32 %120, %.pre
   br i1 %121, label %49, label %._crit_edge116, !llvm.loop !14
@@ -5385,18 +5379,18 @@ define internal fastcc ptr @read_cursor_args(ptr noundef readonly captures(none)
 
 166:                                              ; preds = %._crit_edge121, %25
   %.0 = phi ptr [ null, %25 ], [ %154, %._crit_edge121 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare ptr @plpgsql_build_record(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @plpgsql_build_record(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @read_into_scalar_list(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [1024 x ptr], align 16
   %8 = alloca [1024 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call fastcc void @check_assignable(ptr noundef %1, i32 noundef %2, ptr noundef %5)
   store ptr %0, ptr %7, align 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5544,14 +5538,14 @@ NameOfDatum.exit:                                 ; preds = %36, %38
 
 ._crit_edge73:                                    ; preds = %.lr.ph72
   tail call void @plpgsql_adddatum(ptr noundef nonnull %54) #12
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %54
 }
 
-declare ptr @plpgsql_ns_lookup_label(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_ns_lookup_label(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_ns_find_nearest_loop(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_ns_find_nearest_loop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @make_return_next_stmt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
@@ -5693,7 +5687,7 @@ define internal fastcc noundef ptr @make_return_query_stmt(i32 noundef %0, ptr n
   br label %40
 
 28:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = call fastcc ptr @read_sql_construct(i32 noundef 59, i32 noundef 381, i32 noundef 0, ptr noundef nonnull @.str.115, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %29, ptr %30, align 8
@@ -5715,7 +5709,7 @@ define internal fastcc noundef ptr @make_return_query_stmt(i32 noundef %0, ptr n
   br i1 %39, label %34, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %34, %28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %.loopexit, %25
@@ -5862,11 +5856,11 @@ define internal fastcc noundef ptr @make_return_stmt(i32 noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef) local_unnamed_addr #2
 
-declare i32 @plpgsql_recognize_err_condition(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i32 @plpgsql_recognize_err_condition(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
@@ -5877,7 +5871,7 @@ define internal fastcc ptr @read_raise_options(ptr noundef nonnull %0, ptr nound
 
 7:                                                ; preds = %58, %3
   %.038 = phi ptr [ null, %3 ], [ %61, %58 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i32 @plpgsql_yylex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #12
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -6025,7 +6019,7 @@ tok_is_keyword.exit62:                            ; preds = %16, %25, %42, %.thr
   %61 = call ptr @lappend(ptr noundef %.038, ptr noundef nonnull %12) #12
   %62 = load i32, ptr %4, align 4
   %63 = icmp eq i32 %62, 59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %63, label %64, label %7
 
 64:                                               ; preds = %58
@@ -6112,12 +6106,12 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef range(i32 275,
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
   %12 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @initStringInfo(ptr noundef nonnull %9) #12
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr @plpgsql_IdentifierLookup, align 4
@@ -6378,8 +6372,8 @@ switch.early.test:                                ; preds = %74
   call void @pfree(ptr noundef %112) #12
   %113 = load ptr, ptr %103, align 8
   %114 = load i32, ptr %105, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %115 = load i8, ptr @plpgsql_check_syntax, align 1, !range !3, !noundef !4
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %check_sql_expr.exit
@@ -6405,8 +6399,8 @@ switch.early.test:                                ; preds = %74
   br label %check_sql_expr.exit
 
 check_sql_expr.exit:                              ; preds = %.critedge, %117
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %126 = call ptr @palloc0(i64 noundef 40) #12
   store i32 16, ptr %126, align 8
   %127 = call i32 @plpgsql_location_to_lineno(i32 noundef %1, ptr noundef %5) #12
@@ -6429,10 +6423,10 @@ check_sql_expr.exit:                              ; preds = %.critedge, %117
   %138 = load ptr, ptr %10, align 8
   %139 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr %138, ptr %139, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %126
 }
 
@@ -6536,7 +6530,7 @@ NameOfDatum.exit:                                 ; preds = %27, %30
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @read_fetch_direction(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1
   %5 = tail call ptr @palloc0(i64 noundef 56) #12
   store i32 21, ptr %5, align 8
@@ -6737,27 +6731,27 @@ tok_is_keyword.exit.thread:                       ; preds = %3, %24, %33, %47, %
   unreachable
 
 82:                                               ; preds = %79, %79, %tok_is_keyword.exit.thread
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %5
 }
 
-declare ptr @plpgsql_parse_err_condition(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_parse_err_condition(ptr noundef) local_unnamed_addr #2
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
 
-declare i32 @plpgsql_token_length(ptr noundef) local_unnamed_addr #3
+declare i32 @plpgsql_token_length(ptr noundef) local_unnamed_addr #2
 
-declare void @plpgsql_append_source_text(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @plpgsql_append_source_text(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_parse_wordtype(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_parse_wordtype(ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_parse_wordrowtype(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_parse_wordrowtype(ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_parse_cwordtype(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_parse_cwordtype(ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_parse_cwordrowtype(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_parse_cwordrowtype(ptr noundef) local_unnamed_addr #2
 
-declare ptr @plpgsql_build_datatype_arrayof(ptr noundef) local_unnamed_addr #3
+declare ptr @plpgsql_build_datatype_arrayof(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @plpgsql_sql_error_callback(ptr noundef readonly captures(none) %0) #0 {
@@ -6785,21 +6779,21 @@ define internal void @plpgsql_sql_error_callback(ptr noundef readonly captures(n
   ret void
 }
 
-declare ptr @typeStringToTypeName(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @typeStringToTypeName(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @typenameTypeIdAndMod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @typenameTypeIdAndMod(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @geterrposition() local_unnamed_addr #3
+declare i32 @geterrposition() local_unnamed_addr #2
 
-declare i32 @getinternalerrposition() local_unnamed_addr #3
+declare i32 @getinternalerrposition() local_unnamed_addr #2
 
-declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #3
+declare i32 @internalerrposition(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errposition(i32 noundef) local_unnamed_addr #3
+declare i32 @errposition(i32 noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @appendStringInfoSpaces(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @scanner_isspace(i8 noundef signext) local_unnamed_addr #3
+declare zeroext i1 @scanner_isspace(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @complete_direction(ptr noundef writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
@@ -6839,19 +6833,25 @@ define internal fastcc void @complete_direction(ptr noundef writeonly captures(n
   ret void
 }
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @raw_parser(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @plpgsql_peek2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @plpgsql_peek2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #3
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -6863,15 +6863,15 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

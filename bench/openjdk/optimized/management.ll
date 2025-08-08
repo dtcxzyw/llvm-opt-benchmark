@@ -4706,7 +4706,7 @@ _ZL13get_num_flagsv.exit.loopexit:                ; preds = %73
   br label %_ZL13get_num_flagsv.exit
 
 83:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20VmThreadCountClosure, i64 16), ptr %2, align 8
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %84, align 8
@@ -4726,7 +4726,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %83
 
 _ZL19get_vm_thread_countv.exit:                   ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, %86
   %87 = load i32, ptr %84, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %88 = sext i32 %87 to i64
   br label %_ZL13get_num_flagsv.exit
 
@@ -6971,14 +6971,14 @@ _ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit: ; preds = %_ZN10JNIHandle
   br i1 %.not41, label %136, label %119
 
 119:                                              ; preds = %_ZN14instanceHandleC2EP6ThreadP15instanceOopDesc.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %120 = load ptr, ptr %118, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr dead_on_unwind nonnull writable sret(%class.MemoryUsage) align 8 %4, ptr noundef nonnull align 8 dereferenceable(201) %118) #17
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %136
 
 124:                                              ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
@@ -15531,10 +15531,10 @@ declare i32 @llvm.ctpop.i32(i32) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15

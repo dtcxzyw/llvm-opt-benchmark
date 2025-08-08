@@ -163,18 +163,12 @@ define dso_local ptr @GinDataLeafPageGetItems(ptr noundef %0, ptr noundef %1, i4
   ret ptr %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ginPostingListDecodeAllSegments(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginPostingListDecodeAllSegments(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GinDataLeafPageGetItemsToTbm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -214,12 +208,12 @@ define dso_local i32 @GinDataLeafPageGetItemsToTbm(ptr noundef %0, ptr noundef %
   ret i32 %.0
 }
 
-declare i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @GinDataPageAddPostingItem(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
+define dso_local void @GinDataPageAddPostingItem(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i64
@@ -269,10 +263,10 @@ define dso_local void @GinDataPageAddPostingItem(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @GinPageDeletePostingItem(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+define dso_local void @GinPageDeletePostingItem(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -354,7 +348,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %61
   %.sroa.0.083 = phi ptr [ %63, %61 ], [ %.sroa.0.083.ph, %.lr.ph.outer ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not75 = icmp eq ptr %23, null
@@ -404,7 +398,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = call ptr @ginCompressPostingList(ptr noundef nonnull %43, i32 noundef %48, i32 noundef %.062, ptr noundef nonnull %5) #11
   store ptr %51, ptr %46, align 8
   %52 = load i32, ptr %5, align 4
@@ -422,7 +416,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 57:                                               ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 16
   store i8 3, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 59:                                               ; preds = %45
@@ -432,7 +426,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %.thread
 
 61:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not70 = icmp eq ptr %63, %19
@@ -441,7 +435,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 .thread:                                          ; preds = %57, %59
   %64 = phi i32 [ %48, %59 ], [ %52, %57 ]
   store i32 %64, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not7094 = icmp eq ptr %66, %19
@@ -786,22 +780,22 @@ dlist_push_tail.exit31:                           ; preds = %41, %54
   ret ptr %2
 }
 
-declare ptr @ginPostingListDecode(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginPostingListDecode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginVacuumItemPointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginVacuumItemPointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginCompressPostingList(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginCompressPostingList(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(address) %0) unnamed_addr #0 {
@@ -960,22 +954,22 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
   ret void
 }
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
-declare void @XLogBeginInsert() local_unnamed_addr #2
+declare void @XLogBeginInsert() local_unnamed_addr #1
 
-declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @XLogRegisterBuffer(i8 noundef zeroext, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ginDataFillRoot(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #4 {
+define dso_local void @ginDataFillRoot(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #3 {
   %.sroa.57 = alloca %struct.ItemPointerData, align 8
   %.sroa.5 = alloca %struct.ItemPointerData, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.57)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %.sroa.57, ptr noundef nonnull align 2 dereferenceable(6) %7, i64 6, i1 false)
   %8 = lshr i32 %2, 16
@@ -1025,8 +1019,8 @@ define dso_local void @ginDataFillRoot(ptr readnone captures(none) %0, ptr nound
   %38 = mul i16 %37, 10
   %39 = add i16 %38, 32
   store i16 %39, ptr %24, align 4
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.57)
   ret void
 }
 
@@ -1055,7 +1049,7 @@ define dso_local i32 @createPostingTree(ptr noundef %0, ptr noundef %1, i32 noun
   %.081 = phi ptr [ %31, %29 ], [ %16, %.lr.ph.preheader ]
   %.06280 = phi i32 [ %33, %29 ], [ 0, %.lr.ph.preheader ]
   %.06479 = phi i32 [ %27, %29 ], [ 0, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = sext i32 %.06280 to i64
   %18 = getelementptr inbounds %struct.ItemPointerData, ptr %1, i64 %17
   %19 = sub nuw i32 %2, %.06280
@@ -1071,7 +1065,7 @@ define dso_local i32 @createPostingTree(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %28, label %.thread, label %29
 
 .thread:                                          ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 29:                                               ; preds = %.lr.ph
@@ -1081,7 +1075,7 @@ define dso_local i32 @createPostingTree(ptr noundef %0, ptr noundef %1, i32 noun
   %32 = load i32, ptr %8, align 4
   %33 = add i32 %32, %.06280
   call void @pfree(ptr noundef nonnull %20) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = icmp ult i32 %33, %2
   br i1 %34, label %.lr.ph, label %.loopexit
 
@@ -1151,7 +1145,7 @@ BufferGetPage.exit:                               ; preds = %40, %46
   br i1 %10, label %.critedge, label %73
 
 73:                                               ; preds = %68, %72
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 %.06478, ptr %9, align 4
   call void @XLogBeginInsert() #11
   call void @XLogRegisterData(ptr noundef nonnull %9, i32 noundef 4) #11
@@ -1165,7 +1159,7 @@ BufferGetPage.exit:                               ; preds = %40, %46
   %78 = trunc i64 %75 to i32
   %79 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %78, ptr %79, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %80
 
 80:                                               ; preds = %73, %68, %64, %BufferGetPage.exit
@@ -1206,8 +1200,8 @@ BufferGetPage.exit:                               ; preds = %40, %46
   %95 = sext i32 %.06276 to i64
   %96 = getelementptr inbounds %struct.ItemPointerData, ptr %1, i64 %95
   %97 = sub nuw i32 %2, %.06276
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false)
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -1257,34 +1251,34 @@ BufferGetPage.exit:                               ; preds = %40, %46
   br i1 %122, label %114, label %ginInsertItemPointers.exit, !llvm.loop !12
 
 ginInsertItemPointers.exit:                       ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %123
 
 123:                                              ; preds = %ginInsertItemPointers.exit, %93
   ret i32 %52
 }
 
-declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @GinInitPage(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @GinNewBuffer(ptr noundef) local_unnamed_addr #2
+declare i32 @GinNewBuffer(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
-declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PageRestoreTempPage(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PageRestoreTempPage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogRegisterData(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
+declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.GinBtreeData, align 8
   %7 = alloca %struct.GinBtreeDataLeafInsertData, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -1339,14 +1333,14 @@ define dso_local void @ginInsertItemPointers(ptr noundef %0, i32 noundef %1, ptr
   br i1 %33, label %25, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %25, %5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare ptr @ginFindLeafPage(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @ginFindLeafPage(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ginInsertValue(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginScanBeginPostingTree(ptr noundef initializes((0, 128)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1380,10 +1374,10 @@ define dso_local ptr @ginScanBeginPostingTree(ptr noundef initializes((0, 128)) 
   ret ptr %16
 }
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dataLocateItem(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -1541,7 +1535,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @dataGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal i32 @dataGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load i16, ptr %3, align 2
   %4 = getelementptr i8, ptr %1, i64 34
@@ -1554,7 +1548,7 @@ define internal i32 @dataGetLeftMostPage(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @dataIsMoveRight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal zeroext i1 @dataIsMoveRight(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 4
@@ -1606,7 +1600,7 @@ define internal zeroext i1 @dataIsMoveRight(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #8 {
+define internal zeroext i16 @dataFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i64
@@ -1752,8 +1746,8 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %47, %43
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %.sroa.0.0.copyload1.i = load i16, ptr %49, align 2
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 26
@@ -1952,7 +1946,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
   %.075137.i.i = phi ptr [ %.1128.i.i, %265 ], [ %45, %140 ]
   %.076136.i.i = phi i32 [ %.177127.i.i, %265 ], [ %.1.i, %140 ]
   %.080135.i.i = phi i1 [ %.2126.i.i, %265 ], [ false, %140 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %156 = getelementptr i8, ptr %.sroa.0.0138.i.i, i64 8
   %.sroa.0.0.val.i.i = load ptr, ptr %156, align 8
   %.not.i.i = icmp eq ptr %.sroa.0.0.val.i.i, %77
@@ -2023,7 +2017,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
   br i1 %187, label %.thread119.i.i, label %188
 
 .thread119.i.i:                                   ; preds = %.critedge.i.i, %163
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %265
 
 188:                                              ; preds = %.critedge.i.i
@@ -2119,7 +2113,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   store ptr %231, ptr %241, align 8
   store ptr %231, ptr %77, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %addItemsToLeaf.exit.thread.i
 
 ._crit_edge.i.i:                                  ; preds = %226, %223, %200, %196
@@ -2165,7 +2159,7 @@ dlist_push_tail.exit.i.i:                         ; preds = %152, %144
   %.3.i.i = phi i1 [ true, %258 ], [ %.080135.i.i, %._crit_edge.i.i ]
   %261 = sub i32 %.076136.i.i, %.078.i.i
   %262 = icmp eq i32 %261, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %262, label %addItemsToLeaf.exit.i, label %._crit_edge143.i.i
 
 ._crit_edge143.i.i:                               ; preds = %260
@@ -2187,7 +2181,7 @@ addItemsToLeaf.exit.i:                            ; preds = %265, %260
   br i1 %.0.i.i19, label %addItemsToLeaf.exit.thread.i, label %dataBeginPlaceToPageLeaf.exit
 
 addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit.i, %.thread.i.i, %dlist_push_tail.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 -1, ptr %15, align 2
   %267 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 -1, ptr %267, align 2
@@ -2302,7 +2296,7 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit
   br i1 %or.cond.i.i, label %319, label %353
 
 319:                                              ; preds = %312
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %320 = load ptr, ptr %318, align 8
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %325
@@ -2359,13 +2353,13 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit
   store ptr %349, ptr %351, align 8
   %352 = load ptr, ptr %.0112154.i.i, align 8
   store ptr %352, ptr %349, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread134.i.i
 
 .thread136.i.i:                                   ; preds = %335
   store i8 1, ptr %273, align 8
   store ptr null, ptr %276, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr null, ptr %318, align 8
   store i32 0, ptr %338, align 8
   br label %.thread134.i.i
@@ -2498,7 +2492,7 @@ addItemsToLeaf.exit.thread.i:                     ; preds = %addItemsToLeaf.exit
   br i1 %.not126.i.i, label %leafRepackItems.exit.i, label %.lr.ph166.i.i, !llvm.loop !21
 
 leafRepackItems.exit.i:                           ; preds = %398, %380
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.val.i = load i16, ptr %268, align 2
   %.not3.i = icmp eq i16 %.val.i, 0
   br i1 %.not3.i, label %._crit_edge.thread44.i, label %401
@@ -2881,8 +2875,8 @@ dataBeginPlaceToPageLeaf.exit:                    ; preds = %addItemsToLeaf.exit
   %591 = load i32, ptr %42, align 4
   %592 = add i32 %591, %.2.sink.i
   store i32 %592, ptr %42, align 4
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %15) #11
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dataBeginPlaceToPageInternal.exit
 
 BufferGetPage.exit.i23:                           ; preds = %BufferGetPage.exit
@@ -2914,10 +2908,10 @@ BufferGetPage.exit.i.i:                           ; preds = %BufferGetPage.exit.
   %.val.i.i21 = load i16, ptr %608, align 2
   %609 = and i16 %.val.i.i21, -256
   %610 = zext i16 %609 to i64
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %611 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, ptr noundef nonnull align 2 dereferenceable(6) %611, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8200, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %612 = tail call ptr @PageGetTempPage(ptr noundef nonnull %.0.i.i.i.i) #11
   %613 = tail call ptr @PageGetTempPage(ptr noundef nonnull %.0.i.i.i.i) #11
   %614 = load i16, ptr %606, align 4
@@ -3032,8 +3026,8 @@ dataSplitPageInternal.exit.i:                     ; preds = %662, %651
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %676, ptr noundef nonnull align 2 dereferenceable(6) %9, i64 6, i1 false)
   store ptr %612, ptr %6, align 8
   store ptr %613, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dataBeginPlaceToPageInternal.exit
 
 dataBeginPlaceToPageInternal.exit:                ; preds = %dataSplitPageInternal.exit.i, %BufferGetPage.exit.thread.i, %BufferGetPage.exit.i23, %dataBeginPlaceToPageLeaf.exit
@@ -3341,13 +3335,19 @@ BufferGetPage.exit:                               ; preds = %5, %11
   ret ptr %3
 }
 
-declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ginMergeItemPointers(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ginMergeItemPointers(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @PageGetTempPage(ptr noundef) local_unnamed_addr #2
+declare ptr @PageGetTempPage(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -3359,14 +3359,14 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

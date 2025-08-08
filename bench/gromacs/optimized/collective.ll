@@ -271,11 +271,11 @@ define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(
   fence seq_cst
   %44 = load ptr, ptr %1, align 8, !tbaa !3
   %45 = getelementptr inbounds %struct.coll_env_thread, ptr %44, i64 %13, i32 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i32 -1, ptr %11, align 4, !tbaa !55
   %.0..0..0..0..0..0..i = load volatile i32, ptr %11, align 4, !tbaa !55
   %46 = atomicrmw add ptr %45, i32 %.0..0..0..0..0..0..i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %47 = icmp slt i32 %46, 2
   br i1 %47, label %48, label %.critedge
 
@@ -283,11 +283,11 @@ define void @_Z14tMPI_Mult_recvP10tmpi_comm_P8coll_enviiiP14tmpi_datatype_mPvPi(
   fence seq_cst
   %49 = load ptr, ptr %1, align 8, !tbaa !3
   %50 = getelementptr inbounds %struct.coll_env_thread, ptr %49, i64 %13, i32 6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile i32 1, ptr %10, align 4, !tbaa !55
   %.0..0..0..0..0..0..i36 = load volatile i32, ptr %10, align 4, !tbaa !55
   %51 = atomicrmw add ptr %50, i32 %.0..0..0..0..0..0..i36 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %37, %43, %48
@@ -385,11 +385,11 @@ define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr 
   fence seq_cst
   %35 = load ptr, ptr %0, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %35, i64 %indvars.iv, i32 7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store volatile i32 1, ptr %12, align 4, !tbaa !55
   %.0..0..0..0..0..0..i = load volatile i32, ptr %12, align 4, !tbaa !55
   %37 = atomicrmw add ptr %36, i32 %.0..0..0..0..0..0..i seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load i32, ptr %29, align 8, !tbaa !12
   br label %38
 
@@ -405,11 +405,11 @@ define noundef i32 @_Z15tMPI_Post_multiP8coll_enviiiP14tmpi_datatype_mPviii(ptr 
   %43 = load ptr, ptr %0, align 8, !tbaa !3
   %44 = zext nneg i32 %9 to i64
   %45 = getelementptr inbounds nuw %struct.coll_env_thread, ptr %43, i64 %44, i32 7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store volatile i32 1, ptr %11, align 4, !tbaa !55
   %.0..0..0..0..0..0..i30 = load volatile i32, ptr %11, align 4, !tbaa !55
   %46 = atomicrmw add ptr %45, i32 %.0..0..0..0..0..0..i30 seq_cst, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.preheader, %42
@@ -483,10 +483,10 @@ define noundef i32 @_Z12tMPI_BarrierP10tmpi_comm_(ptr noundef %0) local_unnamed_
 declare noundef i32 @_Z17tMPI_Barrier_waitP14tMPI_Barrier_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

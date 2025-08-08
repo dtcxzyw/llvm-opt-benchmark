@@ -42,17 +42,11 @@ define range(i64 8192, 0) i64 @exr_compress_max_buffer_size(i64 noundef %0) loca
   ret i64 %.022
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @libdeflate_zlib_compress_bound(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @libdeflate_zlib_compress_bound(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @internal_exr_huf_compress_spare_bytes() local_unnamed_addr #1
 
-declare i64 @internal_exr_huf_compress_spare_bytes() local_unnamed_addr #2
-
-declare i64 @internal_exr_huf_decompress_spare_bytes() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @internal_exr_huf_decompress_spare_bytes() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
@@ -110,24 +104,24 @@ define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(ad
   ret i32 %.1
 }
 
-declare void @libdeflate_set_memory_allocator(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @libdeflate_set_memory_allocator(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @internal_exr_alloc(i64 noundef) #2
+declare noalias ptr @internal_exr_alloc(i64 noundef) #1
 
-declare void @internal_exr_free(ptr noundef) #2
+declare void @internal_exr_free(ptr noundef) #1
 
-declare void @exr_get_default_zip_compression_level(ptr noundef) local_unnamed_addr #2
+declare void @exr_get_default_zip_compression_level(ptr noundef) local_unnamed_addr #1
 
-declare ptr @libdeflate_alloc_compressor(i32 noundef) local_unnamed_addr #2
+declare ptr @libdeflate_alloc_compressor(i32 noundef) local_unnamed_addr #1
 
-declare i64 @libdeflate_zlib_compress(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @libdeflate_zlib_compress(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @libdeflate_free_compressor(ptr noundef) local_unnamed_addr #2
+declare void @libdeflate_free_compressor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %8
 
@@ -168,15 +162,15 @@ define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly captures
 
 23:                                               ; preds = %.thread, %16, %18, %22, %21
   %.0 = phi i32 [ 23, %22 ], [ 0, %21 ], [ 0, %18 ], [ 1, %16 ], [ 1, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare ptr @libdeflate_alloc_decompressor() local_unnamed_addr #2
+declare ptr @libdeflate_alloc_decompressor() local_unnamed_addr #1
 
-declare i32 @libdeflate_zlib_decompress_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @libdeflate_zlib_decompress_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @libdeflate_free_decompressor(ptr noundef) local_unnamed_addr #2
+declare void @libdeflate_free_decompressor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @exr_rle_compress_buffer(i64 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
@@ -184,7 +178,7 @@ define i64 @exr_rle_compress_buffer(i64 noundef %0, ptr noundef %1, ptr noundef 
   ret i64 %5
 }
 
-declare i64 @internal_rle_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @internal_rle_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @exr_rle_uncompress_buffer(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -192,10 +186,10 @@ define i64 @exr_rle_uncompress_buffer(i64 noundef %0, i64 noundef %1, ptr nounde
   ret i64 %5
 }
 
-declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -1, 257) i32 @exr_compression_lines_per_chunk(i32 noundef %0) local_unnamed_addr #3 {
+define range(i32 -1, 257) i32 @exr_compression_lines_per_chunk(i32 noundef %0) local_unnamed_addr #2 {
   %2 = icmp ult i32 %0, 10
   br i1 %2, label %switch.lookup, label %4
 
@@ -461,25 +455,25 @@ exr_compress_max_buffer_size.exit107:             ; preds = %41, %46, %50
   ret i32 %.0
 }
 
-declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_encode_free_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @internal_encode_free_buffer(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_rle(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_rle(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_zip(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_zip(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_piz(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_piz(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_pxr24(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_pxr24(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_b44(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_b44(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_b44a(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_b44a(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_dwaa(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_dwaa(ptr noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_apply_dwab(ptr noundef) local_unnamed_addr #2
+declare i32 @internal_exr_apply_dwab(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @exr_uncompress_chunk(ptr noundef %0) local_unnamed_addr #0 {
@@ -675,32 +669,38 @@ define internal fastcc i32 @decompress_data(ptr noundef nonnull %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @internal_exr_undo_rle(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_rle(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_zip(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_zip(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_piz(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_piz(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_pxr24(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_pxr24(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_b44(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_b44(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_b44a(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_b44a(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_dwaa(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_dwaa(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @internal_exr_undo_dwab(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @internal_exr_undo_dwab(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

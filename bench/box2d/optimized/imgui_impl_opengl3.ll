@@ -343,14 +343,11 @@ imgl3wInit2.exit:                                 ; preds = %53, %51, %29, %85, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #2
+declare i32 @atexit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL11close_libglv() #3 {
+define internal void @_ZL11close_libglv() #2 {
   %1 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %2
@@ -436,11 +433,8 @@ _ZL13parse_versionv.exit:                         ; preds = %_ZL10load_procsPFPF
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @imgl3wIsSupported(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @imgl3wIsSupported(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %0, 2
   br i1 %3, label %12, label %4
 
@@ -521,9 +515,9 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   store ptr @.str.2, ptr %15, align 8, !tbaa !31
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 312), align 8, !tbaa !10
   %17 = tail call noundef ptr %16(i32 noundef 7938)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !32
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %18(i32 noundef 33307, ptr noundef nonnull %2)
@@ -597,7 +591,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57)
   %endptr = getelementptr inbounds i8, ptr %57, i64 %strlen
   store i16 10, ptr %endptr, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %59(i32 noundef 32873, ptr noundef nonnull %4)
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -620,7 +614,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %72 = getelementptr inbounds nuw i8, ptr %13, i64 97
   %73 = zext i1 %71 to i8
   store i8 %73, ptr %72, align 1, !tbaa !45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !32
   %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %74(i32 noundef 33309, ptr noundef nonnull %5)
@@ -629,10 +623,10 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %83, %67
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %87
 
 .lr.ph:                                           ; preds = %67, %83
@@ -661,28 +655,28 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   ret i1 %.not
 }
 
-declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #5
+declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #4
 
-declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #5
+declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z26ImGui_ImplOpenGL3_Shutdownv() local_unnamed_addr #0 {
@@ -846,13 +840,13 @@ define dso_local noundef zeroext i1 @_Z37ImGui_ImplOpenGL3_CreateDeviceObjectsv(
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   %16 = phi ptr [ %15, %12 ], [ null, %0 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %17(i32 noundef 32873, ptr noundef nonnull %4)
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %18(i32 noundef 34964, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !32
   %19 = load i32, ptr %16, align 8, !tbaa !33
   %20 = icmp ugt i32 %19, 209
@@ -866,10 +860,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   br label %24
 
 24:                                               ; preds = %21, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %25(i32 noundef 34229, ptr noundef nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 130, ptr %8, align 4, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #17
@@ -890,7 +884,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
 34:                                               ; preds = %32, %30, %24
   %.045 = phi ptr [ @.str.13, %24 ], [ @.str.16, %30 ], [ %.str.15..str.14, %32 ]
   %.0 = phi ptr [ @.str.9, %24 ], [ @.str.12, %30 ], [ %.str.11..str.10, %32 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %26, ptr %9, align 16, !tbaa !8
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0, ptr %35, align 8, !tbaa !8
@@ -901,7 +895,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 104), align 8, !tbaa !10
   call void %39(i32 noundef %37)
   call fastcc void @_ZL11CheckShaderjPKc(i32 noundef %37, ptr noundef nonnull @.str.17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %26, ptr %10, align 16, !tbaa !8
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.045, ptr %40, align 8, !tbaa !8
@@ -937,9 +931,9 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i:    ; preds = %55, %34
   %59 = phi ptr [ %58, %55 ], [ null, %34 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !32
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 288), align 8, !tbaa !10
   call void %60(i32 noundef %53, i32 noundef 35714, ptr noundef nonnull %1)
@@ -962,7 +956,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i:    ; preds = %55, %34
   br i1 %71, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i, label %_ZL12CheckProgramjPKc.exit
 
 _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %72 = add nuw nsw i32 %70, 1
   %73 = call i32 @llvm.umax.i32(i32 %72, i32 8)
@@ -999,21 +993,21 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit.i:                       ; preds = %81, %78
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL12CheckProgramjPKc.exit
 
 85:                                               ; preds = %.noexc6.i, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
   %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %86
 
 _ZL12CheckProgramjPKc.exit:                       ; preds = %69, %_ZN8ImVectorIcED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 168), align 8, !tbaa !10
   %88 = load i32, ptr %47, align 8, !tbaa !49
   call void %87(i32 noundef %88, i32 noundef %37)
@@ -1076,13 +1070,13 @@ _ZL12CheckProgramjPKc.exit:                       ; preds = %69, %_ZN8ImVectorIc
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 40), align 8, !tbaa !10
   %129 = load i32, ptr %7, align 4, !tbaa !32
   call void %128(i32 noundef %129)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 true
 }
 
@@ -1105,13 +1099,13 @@ define dso_local noundef zeroext i1 @_Z36ImGui_ImplOpenGL3_CreateFontsTexturev()
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
   %11 = phi ptr [ %10, %7 ], [ null, %0 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !51
   call void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180) %13, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %14(i32 noundef 32873, ptr noundef nonnull %4)
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 240), align 8, !tbaa !10
@@ -1140,10 +1134,10 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %7
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 32), align 8, !tbaa !10
   %32 = load i32, ptr %4, align 4, !tbaa !32
   call void %31(i32 noundef 3553, i32 noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 true
 }
 
@@ -1195,18 +1189,18 @@ define dso_local void @_Z32ImGui_ImplOpenGL3_RenderDrawDataP10ImDrawData(ptr nou
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %38 = phi ptr [ %37, %34 ], [ null, %32 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %39(i32 noundef 34016, ptr noundef nonnull %2)
   %40 = load ptr, ptr @imgl3wProcs, align 8, !tbaa !10
   call void %40(i32 noundef 33984)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %41(i32 noundef 35725, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %42(i32 noundef 32873, ptr noundef nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = load i32, ptr %38, align 8, !tbaa !33
   %44 = icmp ugt i32 %43, 329
   br i1 %44, label %49, label %45
@@ -1227,13 +1221,13 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br label %52
 
 52:                                               ; preds = %51, %49
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %53(i32 noundef 34964, ptr noundef nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %54(i32 noundef 34229, ptr noundef nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %56 = load i8, ptr %55, align 8, !tbaa !44, !range !42, !noundef !43
   %57 = trunc nuw i8 %56 to i1
@@ -1245,28 +1239,28 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   br label %60
 
 60:                                               ; preds = %58, %52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %61(i32 noundef 2978, ptr noundef nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %62(i32 noundef 3088, ptr noundef nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %63(i32 noundef 32969, ptr noundef nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %64(i32 noundef 32968, ptr noundef nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %65(i32 noundef 32971, ptr noundef nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %66(i32 noundef 32970, ptr noundef nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %67(i32 noundef 32777, ptr noundef nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %68(i32 noundef 34877, ptr noundef nonnull %16)
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 352), align 8, !tbaa !10
@@ -1291,7 +1285,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 
 85:                                               ; preds = %60, %81
   %.not102 = phi i1 [ %84, %81 ], [ true, %60 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 0, ptr %17, align 4, !tbaa !32
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 248), align 8, !tbaa !10
   call void %86(i32 noundef 1, ptr noundef nonnull %17)
@@ -1631,22 +1625,22 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %285 = load i32, ptr %284, align 4, !tbaa !32
   call void %278(i32 noundef %279, i32 noundef %281, i32 noundef %283, i32 noundef %285)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %286
 
 286:                                              ; preds = %1, %269
@@ -1710,14 +1704,14 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !32
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 272), align 8, !tbaa !10
   call void %35(i32 noundef 37724, ptr noundef nonnull %5)
   %36 = load i32, ptr %5, align 4, !tbaa !32
   %.fr = freeze i32 %36
   %37 = icmp ne i32 %.fr, 36002
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %34, %30
@@ -1736,7 +1730,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   %49 = fadd float %46, %48
   %50 = select i1 %.0, float %46, float %49
   %51 = select i1 %.0, float %49, float %46
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = fsub float %44, %41
   %53 = fdiv float 2.000000e+00, %52
   store float %53, ptr %6, align 16, !tbaa !79
@@ -1825,11 +1819,11 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %4, %8
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 456), align 8, !tbaa !10
   %110 = load i32, ptr %103, align 4, !tbaa !70
   call void %109(i32 noundef %110, i32 noundef 4, i32 noundef 5121, i8 noundef zeroext 1, i32 noundef 20, ptr noundef nonnull inttoptr (i64 16 to ptr))
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN11ImFontAtlas18GetTexDataAsRGBA32EPPhPiS2_S2_(ptr noundef nonnull align 8 dereferenceable(1180), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z37ImGui_ImplOpenGL3_DestroyFontsTexturev() local_unnamed_addr #0 {
@@ -1877,9 +1871,9 @@ define internal fastcc void @_ZL11CheckShaderjPKc(i32 noundef %0, ptr noundef %1
 
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !32
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @imgl3wProcs, i64 304), align 8, !tbaa !10
   call void %12(i32 noundef %0, i32 noundef 35713, ptr noundef nonnull %3)
@@ -1902,7 +1896,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %2, %7
   br i1 %23, label %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, label %39
 
 _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %24 = add nuw nsw i32 %22, 1
   %25 = call i32 @llvm.umax.i32(i32 %24, i32 8)
@@ -1939,40 +1933,40 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %30, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 37:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, %.noexc6
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %_ZN8ImVectorIcED2Ev.exit, %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #8
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
-declare noundef ptr @_ZN5ImGui17GetCurrentContextEv() local_unnamed_addr #5
+declare noundef ptr @_ZN5ImGui17GetCurrentContextEv() local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !62
   %.not = icmp eq ptr %3, null
@@ -1993,10 +1987,10 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
   unreachable
 }
 
-declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #21
   unreachable
@@ -2005,7 +1999,13 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
@@ -2020,18 +2020,18 @@ declare void @llvm.assume(i1 noundef) #15
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

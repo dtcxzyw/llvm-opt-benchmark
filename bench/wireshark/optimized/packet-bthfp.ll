@@ -767,23 +767,20 @@ define hidden void @proto_register_bthfp() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_epan_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bthfp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
@@ -801,17 +798,17 @@ define internal i32 @dissect_bthfp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @wmem_list_tail(ptr noundef %20)
@@ -914,9 +911,9 @@ define internal i32 @dissect_bthfp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread314
 
 68:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 1, ptr %15, align 4
   store i32 3, ptr %16, align 4
   %69 = lshr i32 %49, 1
@@ -1081,9 +1078,9 @@ define internal i32 @dissect_bthfp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread316
 
 .thread316:                                       ; preds = %.thread316.sink.split, %111, %114, %129, %125, %121, %119, %101, %96, %92, %68
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.pre = load i32, ptr %5, align 4
   br label %.thread314
 
@@ -1233,7 +1230,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   store i32 0, ptr %199, align 16
   store ptr null, ptr %200, align 8
   %233 = call ptr @wmem_file_scope()
-  %234 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %233, i64 noundef 64) #11
+  %234 = call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %233, i64 noundef 64) #10
   %235 = load i32, ptr %7, align 4
   store i32 %235, ptr %234, align 8
   %236 = load i32, ptr %8, align 4
@@ -1271,7 +1268,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %256 = call ptr @wmem_file_scope()
   %257 = load i32, ptr %255, align 8
   %258 = zext i32 %257 to i64
-  %259 = call noalias ptr @wmem_alloc(ptr noundef %256, i64 noundef %258) #11
+  %259 = call noalias ptr @wmem_alloc(ptr noundef %256, i64 noundef %258) #10
   %260 = getelementptr inbounds nuw i8, ptr %234, i64 32
   store ptr %259, ptr %260, align 8
   %261 = getelementptr inbounds nuw i8, ptr %234, i64 40
@@ -1587,7 +1584,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %426 = load ptr, ptr %425, align 8
   %427 = zext i32 %424 to i64
-  %428 = call noalias ptr @wmem_alloc(ptr noundef %426, i64 noundef %427) #11
+  %428 = call noalias ptr @wmem_alloc(ptr noundef %426, i64 noundef %427) #10
   %429 = load i32, ptr %417, align 8
   %430 = icmp eq i32 %429, 1
   br i1 %430, label %431, label %.preheader338.preheader
@@ -1606,7 +1603,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %442 = select i1 %441, i64 0, i64 %440
   %443 = icmp ne i64 %442, -1
   call void @llvm.assume(i1 %443)
-  %444 = call ptr @__memcpy_chk(ptr noundef %436, ptr noundef %438, i64 noundef range(i64 -2147483648, 4294967296) %439, i64 noundef %442) #10, !alias.scope !11
+  %444 = call ptr @__memcpy_chk(ptr noundef %436, ptr noundef %438, i64 noundef range(i64 -2147483648, 4294967296) %439, i64 noundef %442) #11, !alias.scope !11
   %445 = getelementptr inbounds nuw i8, ptr %391, i64 40
   %446 = load ptr, ptr %445, align 8
   %.not295 = icmp eq ptr %446, null
@@ -1639,7 +1636,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %460 = select i1 %459, i64 0, i64 %458
   %461 = icmp ne i64 %460, -1
   call void @llvm.assume(i1 %461)
-  %462 = call ptr @__memcpy_chk(ptr noundef %454, ptr noundef %456, i64 noundef range(i64 -2147483648, 4294967296) %457, i64 noundef %460) #10, !alias.scope !15
+  %462 = call ptr @__memcpy_chk(ptr noundef %454, ptr noundef %456, i64 noundef range(i64 -2147483648, 4294967296) %457, i64 noundef %460) #11, !alias.scope !15
   %463 = getelementptr inbounds nuw i8, ptr %.2275348, i64 40
   %464 = load ptr, ptr %463, align 8
   %.not296 = icmp eq ptr %464, null
@@ -1670,7 +1667,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %484 = select i1 %483, i64 0, i64 %482
   %485 = icmp ne i64 %484, -1
   call void @llvm.assume(i1 %485)
-  %486 = call ptr @__memcpy_chk(ptr noundef %476, ptr noundef %480, i64 noundef range(i64 -2147483648, 4294967296) %481, i64 noundef %484) #10, !alias.scope !20
+  %486 = call ptr @__memcpy_chk(ptr noundef %476, ptr noundef %480, i64 noundef range(i64 -2147483648, 4294967296) %481, i64 noundef %484) #11, !alias.scope !20
   br label %.critedge307
 
 .critedge306:                                     ; preds = %.critedge13
@@ -1685,7 +1682,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   %495 = select i1 %494, i64 0, i64 %493
   %496 = icmp ne i64 %495, -1
   call void @llvm.assume(i1 %496)
-  %497 = call ptr @__memcpy_chk(ptr noundef %489, ptr noundef %491, i64 noundef range(i64 -2147483648, 4294967296) %492, i64 noundef %495) #10, !alias.scope !24
+  %497 = call ptr @__memcpy_chk(ptr noundef %489, ptr noundef %491, i64 noundef range(i64 -2147483648, 4294967296) %492, i64 noundef %495) #11, !alias.scope !24
   br label %.critedge307
 
 .critedge307:                                     ; preds = %449, %470, %.critedge306, %431
@@ -1764,7 +1761,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread314, %159, %
   br label %proto_item_set_generated.exit310
 
 proto_item_set_generated.exit310:                 ; preds = %522, %525, %528
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %532 = load i32, ptr @hf_fragment, align 4
   %533 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %534 = load ptr, ptr %533, align 8
@@ -1773,47 +1770,44 @@ proto_item_set_generated.exit310:                 ; preds = %522, %525, %528
   %537 = load ptr, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %536, i32 noundef 25, ptr noundef nonnull @.str.479, ptr noundef %537)
   %538 = call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph355, %.preheader, %proto_item_set_generated.exit310, %._crit_edge, %168
   %.0259 = phi i32 [ %177, %168 ], [ %538, %proto_item_set_generated.exit310 ], [ %516, %._crit_edge ], [ 0, %.preheader ], [ %518, %.lr.ph355 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0259
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bthfp() local_unnamed_addr #0 {
@@ -1827,75 +1821,75 @@ define hidden void @proto_reg_handoff_bthfp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_frame_prev(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_frame_prev(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @btsdp_get_service_info(ptr noundef) local_unnamed_addr #2
+declare ptr @btsdp_get_service_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3)
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %10, label %12
@@ -1921,7 +1915,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %17 = load ptr, ptr %16, align 8
   %18 = add nuw i32 %8, 1
   %19 = sext i32 %18 to i64
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #11
+  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #10
   %21 = zext nneg i32 %8 to i64
   %22 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %20, i32 noundef %3, i64 noundef %21)
   %23 = getelementptr i8, ptr %20, i64 %21
@@ -1934,7 +1928,7 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
   %.0380 = phi ptr [ null, %._crit_edge615 ], [ %20, %13 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %.pre-phi619) #11
+  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %.pre-phi619) #10
   %28 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %27, i32 noundef %3, i64 noundef %.pre-phi621)
   %29 = getelementptr i8, ptr %27, i64 %.pre-phi621
   store i8 0, ptr %29, align 1
@@ -2528,54 +2522,54 @@ define internal fastcc i32 @dissect_at_command(ptr noundef %0, ptr noundef %1, p
 
 280:                                              ; preds = %278, %279, %10
   %.0 = phi i32 [ %11, %10 ], [ %.7379516, %279 ], [ %.4376, %278 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #5
+declare signext i8 @g_ascii_toupper(i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_xapl(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_xapl(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2627,7 +2621,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   %19 = load i32, ptr @ett_bthfp_xapl_accessory_info, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19)
   %21 = tail call ptr @wmem_packet_scope()
-  %22 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %21, i64 noundef 5) #11
+  %22 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %21, i64 noundef 5) #10
   %23 = load i32, ptr %6, align 1
   store i32 %23, ptr %22, align 1
   %24 = getelementptr i8, ptr %22, i64 4
@@ -2638,7 +2632,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef %26)
   %29 = getelementptr i8, ptr %6, i64 5
   %30 = tail call ptr @wmem_packet_scope()
-  %31 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %30, i64 noundef 5) #11
+  %31 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %30, i64 noundef 5) #10
   %32 = load i32, ptr %29, align 1
   store i32 %32, ptr %31, align 1
   %33 = getelementptr i8, ptr %31, i64 4
@@ -2650,7 +2644,7 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 4, i32 noundef %35)
   %39 = getelementptr i8, ptr %6, i64 10
   %40 = tail call ptr @wmem_packet_scope()
-  %41 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %40, i64 noundef 5) #11
+  %41 = tail call noalias dereferenceable_or_null(5) ptr @wmem_alloc(ptr noundef %40, i64 noundef 5) #10
   %42 = load i32, ptr %39, align 1
   store i32 %42, ptr %41, align 1
   %43 = getelementptr i8, ptr %41, i64 4
@@ -2671,11 +2665,11 @@ check_xapl.exit.thread:                           ; preds = %check_xapl.exit, %c
   %53 = tail call ptr @wmem_packet_scope()
   %54 = add i32 %8, 1
   %55 = sext i32 %54 to i64
-  %56 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef %55) #11
+  %56 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef %55) #10
   %57 = sext i32 %8 to i64
   %58 = icmp ne i32 %54, -1
   tail call void @llvm.assume(i1 %58)
-  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %57, i64 noundef %55) #10, !alias.scope !39
+  %59 = tail call ptr @__memcpy_chk(ptr noundef %56, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %57, i64 noundef %55) #11, !alias.scope !39
   %60 = getelementptr i8, ptr %56, i64 %57
   store i8 0, ptr %60, align 1
   %61 = tail call i64 @g_ascii_strtoull(ptr noundef %56, ptr noundef null, i32 noundef 10)
@@ -2697,7 +2691,7 @@ check_xapl.exit.thread40:                         ; preds = %check_xapl.exit, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_iphoneaccev(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_iphoneaccev(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2719,11 +2713,11 @@ define internal noundef zeroext i1 @dissect_iphoneaccev_parameter(ptr noundef %0
   %16 = tail call ptr @wmem_packet_scope()
   %17 = add i32 %8, 1
   %18 = sext i32 %17 to i64
-  %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #11
+  %19 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef %18) #10
   %20 = sext i32 %8 to i64
   %21 = icmp ne i32 %17, -1
   tail call void @llvm.assume(i1 %21)
-  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %20, i64 noundef %18) #10, !alias.scope !43
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %19, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %20, i64 noundef %18) #11, !alias.scope !43
   %23 = getelementptr i8, ptr %19, i64 %20
   store i8 0, ptr %23, align 1
   %24 = tail call i64 @g_ascii_strtoull(ptr noundef %19, ptr noundef null, i32 noundef 10)
@@ -2738,11 +2732,11 @@ define internal noundef zeroext i1 @dissect_iphoneaccev_parameter(ptr noundef %0
   %30 = tail call ptr @wmem_packet_scope()
   %31 = add i32 %8, 1
   %32 = sext i32 %31 to i64
-  %33 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %32) #11
+  %33 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef %32) #10
   %34 = sext i32 %8 to i64
   %35 = icmp ne i32 %31, -1
   tail call void @llvm.assume(i1 %35)
-  %36 = tail call ptr @__memcpy_chk(ptr noundef %33, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %34, i64 noundef %32) #10
+  %36 = tail call ptr @__memcpy_chk(ptr noundef %33, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %34, i64 noundef %32) #11
   %37 = getelementptr i8, ptr %33, i64 %34
   store i8 0, ptr %37, align 1
   %38 = tail call i64 @g_ascii_strtoull(ptr noundef %33, ptr noundef null, i32 noundef 10)
@@ -2770,7 +2764,7 @@ define internal noundef zeroext i1 @dissect_iphoneaccev_parameter(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_aplsiri(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_aplsiri(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 63
   %or.cond = and i1 %3, %4
@@ -2810,11 +2804,11 @@ check_aplsiri.exit:                               ; preds = %10, %13
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !47
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !47
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -2834,7 +2828,7 @@ check_aplsiri.exit:                               ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_aplefm(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_aplefm(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2874,11 +2868,11 @@ check_aplefm.exit:                                ; preds = %10, %13
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !51
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !51
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -2897,7 +2891,7 @@ check_aplefm.exit:                                ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_biev(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_biev(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -2921,11 +2915,11 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
   %15 = tail call ptr @wmem_packet_scope()
   %16 = add i32 %8, 1
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #11
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #10
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !55
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #11, !alias.scope !55
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -2951,11 +2945,11 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
   %35 = tail call ptr @wmem_packet_scope()
   %36 = add i32 %8, 1
   %37 = sext i32 %36 to i64
-  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef %37) #11
+  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef %37) #10
   %39 = sext i32 %8 to i64
   %40 = icmp ne i32 %36, -1
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !59
+  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #11, !alias.scope !59
   %42 = getelementptr i8, ptr %38, i64 %39
   store i8 0, ptr %42, align 1
   %43 = tail call i64 @g_ascii_strtoull(ptr noundef %38, ptr noundef null, i32 noundef 10)
@@ -2970,7 +2964,7 @@ define internal noundef zeroext i1 @dissect_biev_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bind(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bind(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3020,11 +3014,11 @@ check_bind.exit:                                  ; preds = %12, %12, %12, %13
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !63
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !63
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3038,7 +3032,7 @@ check_bind.exit:                                  ; preds = %12, %12, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bac(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bac(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3056,11 +3050,11 @@ define internal noundef zeroext i1 @dissect_bac_parameter(ptr noundef %0, ptr no
   %14 = tail call ptr @wmem_packet_scope()
   %15 = add i32 %8, 1
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #11
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #10
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !67
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #11, !alias.scope !67
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -3080,7 +3074,7 @@ define internal noundef zeroext i1 @dissect_bac_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bcs(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bcs(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3120,11 +3114,11 @@ check_bcs.exit:                                   ; preds = %10, %13
   %17 = tail call ptr @wmem_packet_scope()
   %18 = add i32 %8, 1
   %19 = sext i32 %18 to i64
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #11
+  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #10
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !71
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #11, !alias.scope !71
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -3144,7 +3138,7 @@ check_bcs.exit:                                   ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bcc(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bcc(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -3152,12 +3146,12 @@ define internal noundef zeroext i1 @check_bcc(i32 noundef %0, i16 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9) #7 {
+define internal noundef zeroext i1 @dissect_no_parameter(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i16 zeroext %5, ptr readnone captures(none) %6, i32 %7, i32 %8, ptr readnone captures(none) %9) #6 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_btrh(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_btrh(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = and i16 %1, -3
   %or.cond = icmp eq i16 %4, 61
@@ -3198,11 +3192,11 @@ define internal noundef zeroext i1 @dissect_btrh_parameter(ptr noundef %0, ptr n
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !75
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !75
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3222,7 +3216,7 @@ define internal noundef zeroext i1 @dissect_btrh_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bsir(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bsir(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -3242,11 +3236,11 @@ define internal noundef zeroext i1 @dissect_bsir_parameter(ptr noundef %0, ptr n
   %14 = tail call ptr @wmem_packet_scope()
   %15 = add i32 %8, 1
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #11
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #10
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !79
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #11, !alias.scope !79
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -3265,7 +3259,7 @@ define internal noundef zeroext i1 @dissect_bsir_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_vgs(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_vgs(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3305,11 +3299,11 @@ define internal noundef zeroext i1 @dissect_vgs_parameter(ptr noundef %0, ptr no
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !83
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !83
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3329,7 +3323,7 @@ define internal noundef zeroext i1 @dissect_vgs_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_vgm(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_vgm(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3369,11 +3363,11 @@ define internal noundef zeroext i1 @dissect_vgm_parameter(ptr noundef %0, ptr no
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !87
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !87
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3393,7 +3387,7 @@ define internal noundef zeroext i1 @dissect_vgm_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_nrec(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_nrec(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3423,11 +3417,11 @@ define internal noundef zeroext i1 @dissect_nrec_parameter(ptr noundef %0, ptr n
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !91
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !91
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3447,7 +3441,7 @@ define internal noundef zeroext i1 @dissect_nrec_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_brsf(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_brsf(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3487,11 +3481,11 @@ define internal noundef zeroext i1 @dissect_brsf_parameter(ptr noundef %0, ptr n
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !95
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !95
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3527,7 +3521,7 @@ define internal noundef zeroext i1 @dissect_brsf_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bvra(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bvra(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3567,11 +3561,11 @@ define internal noundef zeroext i1 @dissect_bvra_parameter(ptr noundef %0, ptr n
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !99
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !99
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3591,7 +3585,7 @@ define internal noundef zeroext i1 @dissect_bvra_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bldn(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bldn(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -3599,7 +3593,7 @@ define internal noundef zeroext i1 @check_bldn(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_binp(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_binp(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3637,11 +3631,11 @@ define internal noundef zeroext i1 @dissect_binp_parameter(ptr noundef %0, ptr n
   %18 = tail call ptr @wmem_packet_scope()
   %19 = add i32 %8, 1
   %20 = sext i32 %19 to i64
-  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #11
+  %21 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %20) #10
   %22 = sext i32 %8 to i64
   %23 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %23)
-  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #10, !alias.scope !103
+  %24 = tail call ptr @__memcpy_chk(ptr noundef %21, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %22, i64 noundef %20) #11, !alias.scope !103
   %25 = getelementptr i8, ptr %21, i64 %22
   store i8 0, ptr %25, align 1
   %26 = tail call i64 @g_ascii_strtoull(ptr noundef %21, ptr noundef null, i32 noundef 10)
@@ -3666,7 +3660,7 @@ define internal noundef zeroext i1 @dissect_binp_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_bia(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_bia(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -3686,11 +3680,11 @@ define internal noundef zeroext i1 @dissect_bia_parameter(ptr noundef %0, ptr no
   %15 = tail call ptr @wmem_packet_scope()
   %16 = add i32 %8, 1
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #11
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #10
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !107
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #11, !alias.scope !107
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -3711,7 +3705,7 @@ define internal noundef zeroext i1 @dissect_bia_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_ccwa(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3855,7 +3849,7 @@ check_ccwa.exit.thread88:                         ; preds = %26, %23, %20, %12, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_chld(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3901,7 +3895,7 @@ check_chld.exit:                                  ; preds = %10
 
 18:                                               ; preds = %15
   %19 = tail call ptr @wmem_packet_scope()
-  %20 = tail call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %19, i64 noundef 2) #11
+  %20 = tail call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %19, i64 noundef 2) #10
   %21 = load i8, ptr %6, align 1
   store i8 %21, ptr %20, align 1
   %22 = getelementptr i8, ptr %20, i64 1
@@ -3959,7 +3953,7 @@ check_chld.exit.thread47:                         ; preds = %12, %check_chld.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -3975,7 +3969,7 @@ define internal noundef zeroext i1 @check_chup(i32 noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cind(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4032,7 +4026,7 @@ check_cind.exit:                                  ; preds = %12, %12, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_clcc(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4089,11 +4083,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %20 = tail call ptr @wmem_packet_scope()
   %21 = add i32 %8, 1
   %22 = sext i32 %21 to i64
-  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #11
+  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #10
   %24 = sext i32 %8 to i64
   %25 = icmp ne i32 %21, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !111
+  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #11, !alias.scope !111
   %27 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10)
@@ -4106,11 +4100,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %33 = tail call ptr @wmem_packet_scope()
   %34 = add i32 %8, 1
   %35 = sext i32 %34 to i64
-  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #11
+  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #10
   %37 = sext i32 %8 to i64
   %38 = icmp ne i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !115
+  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #11, !alias.scope !115
   %40 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %40, align 1
   %41 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10)
@@ -4123,11 +4117,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %46 = tail call ptr @wmem_packet_scope()
   %47 = add i32 %8, 1
   %48 = sext i32 %47 to i64
-  %49 = tail call noalias ptr @wmem_alloc(ptr noundef %46, i64 noundef %48) #11
+  %49 = tail call noalias ptr @wmem_alloc(ptr noundef %46, i64 noundef %48) #10
   %50 = sext i32 %8 to i64
   %51 = icmp ne i32 %47, -1
   tail call void @llvm.assume(i1 %51)
-  %52 = tail call ptr @__memcpy_chk(ptr noundef %49, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %50, i64 noundef %48) #10, !alias.scope !119
+  %52 = tail call ptr @__memcpy_chk(ptr noundef %49, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %50, i64 noundef %48) #11, !alias.scope !119
   %53 = getelementptr i8, ptr %49, i64 %50
   store i8 0, ptr %53, align 1
   %54 = tail call i64 @g_ascii_strtoull(ptr noundef %49, ptr noundef null, i32 noundef 10)
@@ -4140,11 +4134,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %59 = tail call ptr @wmem_packet_scope()
   %60 = add i32 %8, 1
   %61 = sext i32 %60 to i64
-  %62 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %61) #11
+  %62 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %61) #10
   %63 = sext i32 %8 to i64
   %64 = icmp ne i32 %60, -1
   tail call void @llvm.assume(i1 %64)
-  %65 = tail call ptr @__memcpy_chk(ptr noundef %62, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %63, i64 noundef %61) #10, !alias.scope !123
+  %65 = tail call ptr @__memcpy_chk(ptr noundef %62, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %63, i64 noundef %61) #11, !alias.scope !123
   %66 = getelementptr i8, ptr %62, i64 %63
   store i8 0, ptr %66, align 1
   %67 = tail call i64 @g_ascii_strtoull(ptr noundef %62, ptr noundef null, i32 noundef 10)
@@ -4157,11 +4151,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %72 = tail call ptr @wmem_packet_scope()
   %73 = add i32 %8, 1
   %74 = sext i32 %73 to i64
-  %75 = tail call noalias ptr @wmem_alloc(ptr noundef %72, i64 noundef %74) #11
+  %75 = tail call noalias ptr @wmem_alloc(ptr noundef %72, i64 noundef %74) #10
   %76 = sext i32 %8 to i64
   %77 = icmp ne i32 %73, -1
   tail call void @llvm.assume(i1 %77)
-  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %76, i64 noundef %74) #10, !alias.scope !127
+  %78 = tail call ptr @__memcpy_chk(ptr noundef %75, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %76, i64 noundef %74) #11, !alias.scope !127
   %79 = getelementptr i8, ptr %75, i64 %76
   store i8 0, ptr %79, align 1
   %80 = tail call i64 @g_ascii_strtoull(ptr noundef %75, ptr noundef null, i32 noundef 10)
@@ -4179,11 +4173,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %88 = tail call ptr @wmem_packet_scope()
   %89 = add i32 %8, 1
   %90 = sext i32 %89 to i64
-  %91 = tail call noalias ptr @wmem_alloc(ptr noundef %88, i64 noundef %90) #11
+  %91 = tail call noalias ptr @wmem_alloc(ptr noundef %88, i64 noundef %90) #10
   %92 = sext i32 %8 to i64
   %93 = icmp ne i32 %89, -1
   tail call void @llvm.assume(i1 %93)
-  %94 = tail call ptr @__memcpy_chk(ptr noundef %91, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %92, i64 noundef %90) #10, !alias.scope !131
+  %94 = tail call ptr @__memcpy_chk(ptr noundef %91, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %92, i64 noundef %90) #11, !alias.scope !131
   %95 = getelementptr i8, ptr %91, i64 %92
   store i8 0, ptr %95, align 1
   %96 = tail call i64 @g_ascii_strtoull(ptr noundef %91, ptr noundef null, i32 noundef 10)
@@ -4207,11 +4201,11 @@ define internal noundef zeroext i1 @dissect_clcc_parameter(ptr noundef %0, ptr n
   %107 = tail call ptr @wmem_packet_scope()
   %108 = add i32 %8, 1
   %109 = sext i32 %108 to i64
-  %110 = tail call noalias ptr @wmem_alloc(ptr noundef %107, i64 noundef %109) #11
+  %110 = tail call noalias ptr @wmem_alloc(ptr noundef %107, i64 noundef %109) #10
   %111 = sext i32 %8 to i64
   %112 = icmp ne i32 %108, -1
   tail call void @llvm.assume(i1 %112)
-  %113 = tail call ptr @__memcpy_chk(ptr noundef %110, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %111, i64 noundef %109) #10, !alias.scope !135
+  %113 = tail call ptr @__memcpy_chk(ptr noundef %110, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %111, i64 noundef %109) #11, !alias.scope !135
   %114 = getelementptr i8, ptr %110, i64 %111
   store i8 0, ptr %114, align 1
   %115 = tail call i64 @g_ascii_strtoull(ptr noundef %110, ptr noundef null, i32 noundef 10)
@@ -4229,7 +4223,7 @@ default.unreachable:                              ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cops(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = and i16 %1, -3
   %or.cond = icmp eq i16 %4, 61
@@ -4279,11 +4273,11 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %20 = tail call ptr @wmem_packet_scope()
   %21 = add i32 %8, 1
   %22 = sext i32 %21 to i64
-  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #11
+  %23 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22) #10
   %24 = sext i32 %8 to i64
   %25 = icmp ne i32 %21, -1
   tail call void @llvm.assume(i1 %25)
-  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #10, !alias.scope !139
+  %26 = tail call ptr @__memcpy_chk(ptr noundef %23, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %24, i64 noundef %22) #11, !alias.scope !139
   %27 = getelementptr i8, ptr %23, i64 %24
   store i8 0, ptr %27, align 1
   %28 = tail call i64 @g_ascii_strtoull(ptr noundef %23, ptr noundef null, i32 noundef 10)
@@ -4296,11 +4290,11 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %33 = tail call ptr @wmem_packet_scope()
   %34 = add i32 %8, 1
   %35 = sext i32 %34 to i64
-  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #11
+  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef %35) #10
   %37 = sext i32 %8 to i64
   %38 = icmp ne i32 %34, -1
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #10, !alias.scope !143
+  %39 = tail call ptr @__memcpy_chk(ptr noundef %36, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %37, i64 noundef %35) #11, !alias.scope !143
   %40 = getelementptr i8, ptr %36, i64 %37
   store i8 0, ptr %40, align 1
   %41 = tail call i64 @g_ascii_strtoull(ptr noundef %36, ptr noundef null, i32 noundef 10)
@@ -4318,11 +4312,11 @@ define internal noundef zeroext i1 @dissect_cops_parameter(ptr noundef %0, ptr r
   %49 = tail call ptr @wmem_packet_scope()
   %50 = add i32 %8, 1
   %51 = sext i32 %50 to i64
-  %52 = tail call noalias ptr @wmem_alloc(ptr noundef %49, i64 noundef %51) #11
+  %52 = tail call noalias ptr @wmem_alloc(ptr noundef %49, i64 noundef %51) #10
   %53 = sext i32 %8 to i64
   %54 = icmp ne i32 %50, -1
   tail call void @llvm.assume(i1 %54)
-  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %53, i64 noundef %51) #10, !alias.scope !147
+  %55 = tail call ptr @__memcpy_chk(ptr noundef %52, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %53, i64 noundef %51) #11, !alias.scope !147
   %56 = getelementptr i8, ptr %52, i64 %53
   store i8 0, ptr %56, align 1
   %57 = tail call i64 @g_ascii_strtoull(ptr noundef %52, ptr noundef null, i32 noundef 10)
@@ -4340,7 +4334,7 @@ default.unreachable:                              ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmee(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 61
   %or.cond = and i1 %3, %4
@@ -4360,11 +4354,11 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr r
   %14 = tail call ptr @wmem_packet_scope()
   %15 = add i32 %8, 1
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #11
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #10
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !151
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #11, !alias.scope !151
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -4378,7 +4372,7 @@ define internal noundef zeroext i1 @dissect_cmee_parameter(ptr noundef %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cme(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -4398,11 +4392,11 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
   %14 = tail call ptr @wmem_packet_scope()
   %15 = add i32 %8, 1
   %16 = sext i32 %15 to i64
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #11
+  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef %16) #10
   %18 = sext i32 %8 to i64
   %19 = icmp ne i32 %15, -1
   tail call void @llvm.assume(i1 %19)
-  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #10, !alias.scope !155
+  %20 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %18, i64 noundef %16) #11, !alias.scope !155
   %21 = getelementptr i8, ptr %17, i64 %18
   store i8 0, ptr %21, align 1
   %22 = tail call i64 @g_ascii_strtoull(ptr noundef %17, ptr noundef null, i32 noundef 10)
@@ -4416,7 +4410,7 @@ define internal noundef zeroext i1 @dissect_cme_error_parameter(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_clip(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4477,11 +4471,11 @@ check_clip.exit:                                  ; preds = %10
   %22 = tail call ptr @wmem_packet_scope()
   %23 = add i32 %8, 1
   %24 = sext i32 %23 to i64
-  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #11
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #10
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !159
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #11, !alias.scope !159
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4494,11 +4488,11 @@ check_clip.exit:                                  ; preds = %10
   %35 = tail call ptr @wmem_packet_scope()
   %36 = add i32 %8, 1
   %37 = sext i32 %36 to i64
-  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef %37) #11
+  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef %37) #10
   %39 = sext i32 %8 to i64
   %40 = icmp ne i32 %36, -1
   tail call void @llvm.assume(i1 %40)
-  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #10, !alias.scope !163
+  %41 = tail call ptr @__memcpy_chk(ptr noundef %38, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %39, i64 noundef %37) #11, !alias.scope !163
   %42 = getelementptr i8, ptr %38, i64 %39
   store i8 0, ptr %42, align 1
   %43 = tail call i64 @g_ascii_strtoull(ptr noundef %38, ptr noundef null, i32 noundef 10)
@@ -4562,7 +4556,7 @@ check_clip.exit.thread74:                         ; preds = %12, %34, %21, %20, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cmer(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4597,11 +4591,11 @@ define internal noundef zeroext i1 @dissect_cmer_parameter(ptr noundef %0, ptr n
   %15 = tail call ptr @wmem_packet_scope()
   %16 = add i32 %8, 1
   %17 = sext i32 %16 to i64
-  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #11
+  %18 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %17) #10
   %19 = sext i32 %8 to i64
   %20 = icmp ne i32 %16, -1
   tail call void @llvm.assume(i1 %20)
-  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #10, !alias.scope !167
+  %21 = tail call ptr @__memcpy_chk(ptr noundef %18, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef %17) #11, !alias.scope !167
   %22 = getelementptr i8, ptr %18, i64 %19
   store i8 0, ptr %22, align 1
   %23 = tail call i64 @g_ascii_strtoull(ptr noundef %18, ptr noundef null, i32 noundef 10)
@@ -4672,7 +4666,7 @@ default.unreachable:                              ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_ciev(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 58
   %or.cond = and i1 %3, %4
@@ -4698,11 +4692,11 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
   %17 = tail call ptr @wmem_packet_scope()
   %18 = add i32 %8, 1
   %19 = sext i32 %18 to i64
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #11
+  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %19) #10
   %21 = sext i32 %8 to i64
   %22 = icmp ne i32 %18, -1
   tail call void @llvm.assume(i1 %22)
-  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #10, !alias.scope !171
+  %23 = tail call ptr @__memcpy_chk(ptr noundef %20, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %21, i64 noundef %19) #11, !alias.scope !171
   %24 = getelementptr i8, ptr %20, i64 %21
   store i8 0, ptr %24, align 1
   %25 = tail call i64 @g_ascii_strtoull(ptr noundef %20, ptr noundef null, i32 noundef 10)
@@ -4711,7 +4705,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %26)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %30, i64 noundef 4) #11
+  %31 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %30, i64 noundef 4) #10
   store ptr %31, ptr %9, align 8
   store i32 %26, ptr %31, align 4
   br label %44
@@ -4740,7 +4734,7 @@ define internal noundef zeroext i1 @dissect_ciev_parameter(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_vts(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   br i1 %3, label %4, label %5
 
@@ -4790,11 +4784,11 @@ define internal noundef zeroext i1 @dissect_vts_parameter(ptr noundef %0, ptr no
   %22 = tail call ptr @wmem_packet_scope()
   %23 = add i32 %8, 1
   %24 = sext i32 %23 to i64
-  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #11
+  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #10
   %26 = sext i32 %8 to i64
   %27 = icmp ne i32 %23, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #10, !alias.scope !175
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %25, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %26, i64 noundef %24) #11, !alias.scope !175
   %29 = getelementptr i8, ptr %25, i64 %26
   store i8 0, ptr %29, align 1
   %30 = tail call i64 @g_ascii_strtoull(ptr noundef %25, ptr noundef null, i32 noundef 10)
@@ -4809,7 +4803,7 @@ define internal noundef zeroext i1 @dissect_vts_parameter(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_cnum(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -4866,11 +4860,11 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %26 = tail call ptr @wmem_packet_scope()
   %27 = add i32 %8, 1
   %28 = sext i32 %27 to i64
-  %29 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %28) #11
+  %29 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %28) #10
   %30 = sext i32 %8 to i64
   %31 = icmp ne i32 %27, -1
   tail call void @llvm.assume(i1 %31)
-  %32 = tail call ptr @__memcpy_chk(ptr noundef %29, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %30, i64 noundef %28) #10, !alias.scope !179
+  %32 = tail call ptr @__memcpy_chk(ptr noundef %29, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %30, i64 noundef %28) #11, !alias.scope !179
   %33 = getelementptr i8, ptr %29, i64 %30
   store i8 0, ptr %33, align 1
   %34 = tail call i64 @g_ascii_strtoull(ptr noundef %29, ptr noundef null, i32 noundef 10)
@@ -4889,11 +4883,11 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %42 = tail call ptr @wmem_packet_scope()
   %43 = add i32 %8, 1
   %44 = sext i32 %43 to i64
-  %45 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef %44) #11
+  %45 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef %44) #10
   %46 = sext i32 %8 to i64
   %47 = icmp ne i32 %43, -1
   tail call void @llvm.assume(i1 %47)
-  %48 = tail call ptr @__memcpy_chk(ptr noundef %45, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %46, i64 noundef %44) #10, !alias.scope !183
+  %48 = tail call ptr @__memcpy_chk(ptr noundef %45, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %46, i64 noundef %44) #11, !alias.scope !183
   %49 = getelementptr i8, ptr %45, i64 %46
   store i8 0, ptr %49, align 1
   %50 = tail call i64 @g_ascii_strtoull(ptr noundef %45, ptr noundef null, i32 noundef 10)
@@ -4911,11 +4905,11 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %58 = tail call ptr @wmem_packet_scope()
   %59 = add i32 %8, 1
   %60 = sext i32 %59 to i64
-  %61 = tail call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef %60) #11
+  %61 = tail call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef %60) #10
   %62 = sext i32 %8 to i64
   %63 = icmp ne i32 %59, -1
   tail call void @llvm.assume(i1 %63)
-  %64 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %62, i64 noundef %60) #10, !alias.scope !187
+  %64 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %62, i64 noundef %60) #11, !alias.scope !187
   %65 = getelementptr i8, ptr %61, i64 %62
   store i8 0, ptr %65, align 1
   %66 = tail call i64 @g_ascii_strtoull(ptr noundef %61, ptr noundef null, i32 noundef 10)
@@ -4933,11 +4927,11 @@ define internal noundef zeroext i1 @dissect_cnum_parameter(ptr noundef %0, ptr n
   %74 = tail call ptr @wmem_packet_scope()
   %75 = add i32 %8, 1
   %76 = sext i32 %75 to i64
-  %77 = tail call noalias ptr @wmem_alloc(ptr noundef %74, i64 noundef %76) #11
+  %77 = tail call noalias ptr @wmem_alloc(ptr noundef %74, i64 noundef %76) #10
   %78 = sext i32 %8 to i64
   %79 = icmp ne i32 %75, -1
   tail call void @llvm.assume(i1 %79)
-  %80 = tail call ptr @__memcpy_chk(ptr noundef %77, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %78, i64 noundef %76) #10, !alias.scope !191
+  %80 = tail call ptr @__memcpy_chk(ptr noundef %77, ptr noundef readonly %6, i64 noundef range(i64 -2147483648, 4294967296) %78, i64 noundef %76) #11, !alias.scope !191
   %81 = getelementptr i8, ptr %77, i64 %78
   store i8 0, ptr %81, align 1
   %82 = tail call i64 @g_ascii_strtoull(ptr noundef %77, ptr noundef null, i32 noundef 10)
@@ -4960,7 +4954,7 @@ default.unreachable:                              ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_only_ag_role(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_only_ag_role(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 1
   %4 = icmp eq i16 %1, 3338
   %or.cond = and i1 %3, %4
@@ -4968,7 +4962,7 @@ define internal noundef zeroext i1 @check_only_ag_role(i32 noundef %0, i16 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @check_only_hs_role(i32 noundef %0, i16 noundef zeroext %1) #7 {
+define internal noundef zeroext i1 @check_only_hs_role(i32 noundef %0, i16 noundef zeroext %1) #6 {
   %3 = icmp eq i32 %0, 2
   %4 = icmp eq i16 %1, 13
   %or.cond = and i1 %3, %4
@@ -4980,11 +4974,11 @@ define internal fastcc i32 @get_uint_parameter(ptr noundef readonly captures(non
   %3 = tail call ptr @wmem_packet_scope()
   %4 = add i32 %1, 1
   %5 = sext i32 %4 to i64
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef %5) #11
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef %5) #10
   %7 = sext i32 %1 to i64
   %8 = icmp ne i32 %4, -1
   tail call void @llvm.assume(i1 %8)
-  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %7, i64 noundef %5) #10, !alias.scope !195
+  %9 = tail call ptr @__memcpy_chk(ptr noundef %6, ptr noundef %0, i64 noundef range(i64 -2147483648, 4294967296) %7, i64 noundef %5) #11, !alias.scope !195
   %10 = getelementptr i8, ptr %6, i64 %7
   store i8 0, ptr %10, align 1
   %11 = tail call i64 @g_ascii_strtoull(ptr noundef %6, ptr noundef null, i32 noundef 10)
@@ -4993,19 +4987,25 @@ define internal fastcc i32 @get_uint_parameter(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_packet_scope() local_unnamed_addr #2
+declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
@@ -5014,17 +5014,17 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { allocsize(1) }
+attributes #10 = { allocsize(1) }
+attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }
 attributes #13 = { nounwind willreturn memory(read) }
 

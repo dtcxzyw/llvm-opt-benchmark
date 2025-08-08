@@ -2095,14 +2095,8 @@ define range(i32 0, 256) i32 @cli_wcwidth(i32 noundef %0) local_unnamed_addr #0 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3MemTraceActivate(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3MemTraceActivate(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @memtraceBase, align 8, !tbaa !11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %9
@@ -2122,10 +2116,10 @@ define i32 @sqlite3MemTraceActivate(ptr noundef %0) local_unnamed_addr #2 {
   ret i32 %.0
 }
 
-declare i32 @sqlite3_config(i32 noundef, ...) local_unnamed_addr #3
+declare i32 @sqlite3_config(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3MemTraceDeactivate() local_unnamed_addr #2 {
+define i32 @sqlite3MemTraceDeactivate() local_unnamed_addr #1 {
   %1 = load ptr, ptr @memtraceBase, align 8, !tbaa !11
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
@@ -2146,10 +2140,10 @@ define i32 @sqlite3MemTraceDeactivate() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3PcacheTraceActivate(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3PcacheTraceActivate(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcacheBase, i64 56), align 8, !tbaa !16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %9
@@ -2170,7 +2164,7 @@ define i32 @sqlite3PcacheTraceActivate(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3PcacheTraceDeactivate() local_unnamed_addr #2 {
+define i32 @sqlite3PcacheTraceDeactivate() local_unnamed_addr #1 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pcacheBase, i64 56), align 8, !tbaa !16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
@@ -2191,7 +2185,7 @@ define i32 @sqlite3PcacheTraceDeactivate() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_shathree_init(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_shathree_init(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1, i32 noundef 2099201, ptr noundef null, ptr noundef nonnull @sha3Func, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.thread19
@@ -2225,12 +2219,12 @@ define i32 @sqlite3_shathree_init(ptr noundef %0, ptr readnone captures(none) %1
   ret i32 %.4
 }
 
-declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha3Func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sha3Func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.SHA3Context, align 8
-  call void @llvm.lifetime.start.p0(i64 1616, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_type(ptr noundef %5) #43
   %7 = load ptr, ptr %2, align 8, !tbaa !18
@@ -2459,12 +2453,12 @@ SHA3Update.exit:                                  ; preds = %119, %74, %.loopexi
   br label %123
 
 123:                                              ; preds = %17, %SHA3Update.exit, %16
-  call void @llvm.lifetime.end.p0(i64 1616, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha3AggStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sha3AggStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 1616) #43
   %5 = icmp eq ptr %4, null
   br i1 %5, label %30, label %6
@@ -2526,7 +2520,7 @@ SHA3Init.exit:                                    ; preds = %13, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha3AggFinal(ptr noundef %0) #2 {
+define internal void @sha3AggFinal(ptr noundef %0) #1 {
   %2 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 1616) #43
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -2549,18 +2543,18 @@ define internal void @sha3AggFinal(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha3QueryFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sha3QueryFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.SHA3Context, align 8
   %7 = tail call ptr @sqlite3_context_db_handle(ptr noundef %0) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load ptr, ptr %2, align 8, !tbaa !18
   %9 = tail call ptr @sqlite3_value_text(ptr noundef %8) #43
   store ptr %9, ptr %4, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 1616, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = icmp eq i32 %1, 1
   br i1 %10, label %thread-pre-split, label %11
 
@@ -2800,14 +2794,14 @@ SHA3Update.exit52:                                ; preds = %SHA3Update.exit52.p
   br label %125
 
 125:                                              ; preds = %thread-pre-split, %._crit_edge57, %44, %34, %17
-  call void @llvm.lifetime.end.p0(i64 1616, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_sha_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_sha_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1, i32 noundef 2099201, ptr noundef null, ptr noundef nonnull @sha1Func, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.thread
@@ -2827,15 +2821,15 @@ define i32 @sqlite3_sha_init(ptr noundef %0, ptr noundef readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha1Func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sha1Func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.SHA1Context, align 4
   %5 = alloca [44 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %2, align 8, !tbaa !18
   %7 = tail call i32 @sqlite3_value_type(ptr noundef %6) #43
   %8 = load ptr, ptr %2, align 8, !tbaa !18
   %9 = tail call i32 @sqlite3_value_bytes(ptr noundef %8) #43
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = icmp eq i32 %7, 5
   br i1 %10, label %48, label %11
 
@@ -2920,13 +2914,13 @@ hash_step.exit:                                   ; preds = %.lr.ph.i12, %.lr.ph
   br label %48
 
 48:                                               ; preds = %hash_step.exit, %3
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha1QueryFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sha1QueryFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.SHA1Context, align 4
@@ -2934,14 +2928,14 @@ define internal void @sha1QueryFunc(ptr noundef %0, i32 %1, ptr noundef readonly
   %8 = alloca [9 x i8], align 1
   %9 = alloca [9 x i8], align 1
   %10 = tail call ptr @sqlite3_context_db_handle(ptr noundef %0) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load ptr, ptr %2, align 8, !tbaa !18
   %12 = tail call ptr @sqlite3_value_text(ptr noundef %11) #43
   store ptr %12, ptr %4, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %6) #43
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %264, label %14
 
@@ -3166,7 +3160,7 @@ hash_step.exit57:                                 ; preds = %119, %120
   br label %258
 
 127:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %128 = load ptr, ptr %5, align 8, !tbaa !31
   %129 = call i64 @sqlite3_column_int64(ptr noundef %128, i32 noundef %.084) #43
   br label %130
@@ -3220,11 +3214,11 @@ hash_step.exit62:                                 ; preds = %142, %147
   %154 = sub nuw nsw i32 9, %.1.i58
   %155 = zext nneg i32 %154 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %151, ptr nonnull readonly align 1 %153, i64 %155, i1 false)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %258
 
 156:                                              ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %157 = load ptr, ptr %5, align 8, !tbaa !31
   %158 = call double @sqlite3_column_double(ptr noundef %157, i32 noundef %.084) #43
   %159 = bitcast double %158 to i64
@@ -3279,7 +3273,7 @@ hash_step.exit67:                                 ; preds = %172, %177
   %184 = sub nuw nsw i32 9, %.1.i63
   %185 = zext nneg i32 %184 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr nonnull readonly align 1 %183, i64 %185, i1 false)
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %258
 
 186:                                              ; preds = %.lr.ph
@@ -3421,23 +3415,23 @@ hash_step.exit77:                                 ; preds = %.lr.ph.i75, %236, %
   br label %264
 
 264:                                              ; preds = %3, %._crit_edge89, %38, %28
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_uint_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_uint_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_collation(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef null, ptr noundef nonnull @uintCollFunc) #43
   ret i32 %4
 }
 
-declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @uintCollFunc(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #5 {
+define internal i32 @uintCollFunc(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #4 {
   %6 = icmp sgt i32 %1, 0
   %7 = icmp sgt i32 %3, 0
   %8 = and i1 %6, %7
@@ -3626,7 +3620,7 @@ define internal i32 @uintCollFunc(ptr readnone captures(none) %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_decimal_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_decimal_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -3666,7 +3660,7 @@ define i32 @sqlite3_decimal_init(ptr noundef %0, ptr noundef readnone captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %4, i32 noundef 0)
   %.not = icmp eq ptr %5, null
@@ -3697,7 +3691,7 @@ decimal_free.exit:                                ; preds = %9, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalCmpFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalCmpFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %4, i32 noundef 1)
   %6 = icmp eq ptr %5, null
@@ -3793,7 +3787,7 @@ decimal_free.exit24:                              ; preds = %3, %decimal_free.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalAddFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalAddFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %4, i32 noundef 1)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3827,7 +3821,7 @@ decimal_free.exit12:                              ; preds = %decimal_free.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalSubFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalSubFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %4, i32 noundef 1)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3870,7 +3864,7 @@ decimal_free.exit:                                ; preds = %decimal_free.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalMulFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalMulFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %4, i32 noundef 1)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3938,7 +3932,7 @@ decimal_free.exit24:                              ; preds = %decimal_free.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalPow2Func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalPow2Func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_type(ptr noundef %4) #43
   %6 = icmp eq i32 %5, 1
@@ -3963,10 +3957,10 @@ decimal_free.exit:                                ; preds = %11, %7, %3
   ret void
 }
 
-declare i32 @sqlite3_create_window_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_create_window_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalSumStep(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalSumStep(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 24) #43
   %5 = icmp eq ptr %4, null
   br i1 %5, label %decimal_free.exit, label %6
@@ -4026,7 +4020,7 @@ decimal_free.exit:                                ; preds = %26, %23, %19, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalSumFinalize(ptr noundef %0) #2 {
+define internal void @decimalSumFinalize(ptr noundef %0) #1 {
   %2 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 0) #43
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -4043,7 +4037,7 @@ define internal void @decimalSumFinalize(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalSumValue(ptr noundef %0) #2 {
+define internal void @decimalSumValue(ptr noundef %0) #1 {
   %2 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 0) #43
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -4057,7 +4051,7 @@ define internal void @decimalSumValue(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decimalSumInverse(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @decimalSumInverse(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 24) #43
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -4096,7 +4090,7 @@ decimal_free.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decimalCollFunc(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #2 {
+define internal i32 @decimalCollFunc(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = tail call fastcc ptr @decimalNewFromText(ptr noundef %2, i32 noundef %1)
   %7 = tail call fastcc ptr @decimalNewFromText(ptr noundef %4, i32 noundef %3)
   %8 = icmp eq ptr %6, null
@@ -4175,7 +4169,7 @@ decimal_free.exit18:                              ; preds = %decimal_free.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_percentile_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_percentile_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -4197,7 +4191,7 @@ define i32 @sqlite3_percentile_init(ptr noundef %0, ptr noundef readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @percentStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @percentStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %.critedge, label %5
 
@@ -4427,19 +4421,19 @@ percentBinarySearch.exit._crit_edge:              ; preds = %percentBinarySearch
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @percentFinal(ptr noundef %0) #2 {
+define internal void @percentFinal(ptr noundef %0) #1 {
   tail call fastcc void @percentCompute(ptr noundef %0, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @percentValue(ptr noundef %0) #2 {
+define internal void @percentValue(ptr noundef %0) #1 {
   tail call fastcc void @percentCompute(ptr noundef %0, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @percentInverse(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @percentInverse(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 32) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_type(ptr noundef %5) #43
@@ -4531,13 +4525,13 @@ percentBinarySearch.exit.thread:                  ; preds = %42, %22, %44, %perc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_base64_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_base64_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef 1, i32 noundef 2623489, ptr noundef null, ptr noundef nonnull @base64, ptr noundef null, ptr noundef null) #43
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @base64(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @base64(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_bytes(ptr noundef %4) #43
   %6 = tail call ptr @sqlite3_context_db_handle(ptr noundef %0) #43
@@ -4944,13 +4938,13 @@ fromBase64.exit:                                  ; preds = %.lr.ph87.i, %skipNo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_base85_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_base85_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef 1, i32 noundef 2623489, ptr noundef null, ptr noundef nonnull @base85, ptr noundef null, ptr noundef null) #43
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @base85(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @base85(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_bytes(ptr noundef %4) #43
   %6 = tail call ptr @sqlite3_context_db_handle(ptr noundef %0) #43
@@ -5354,7 +5348,7 @@ fromBase85.exit:                                  ; preds = %skipNonB85.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_ieee_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_ieee_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %3, %4
@@ -5378,13 +5372,13 @@ define i32 @sqlite3_ieee_init(ptr noundef %0, ptr noundef readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [100 x i8], align 16
   %5 = icmp eq i32 %1, 1
   br i1 %5, label %6, label %60
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = tail call i32 @sqlite3_value_type(ptr noundef %7) #43
   %9 = icmp eq i32 %8, 4
@@ -5492,7 +5486,7 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
   br label %59
 
 59:                                               ; preds = %57, %56, %53, %50
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
 60:                                               ; preds = %3
@@ -5585,7 +5579,7 @@ define internal void @ieee754func(ptr noundef %0, i32 noundef %1, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ieee754func_to_blob(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @ieee754func_to_blob(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [8 x i8], align 1
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_type(ptr noundef %5) #43
@@ -5601,7 +5595,7 @@ define internal void @ieee754func_to_blob(ptr noundef %0, i32 %1, ptr noundef re
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %2, align 8, !tbaa !18
   %14 = tail call double @sqlite3_value_double(ptr noundef %13) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = bitcast double %14 to i64
   br label %16
 
@@ -5619,7 +5613,7 @@ define internal void @ieee754func_to_blob(ptr noundef %0, i32 %1, ptr noundef re
 
 21:                                               ; preds = %16
   call void @sqlite3_result_blob(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %22
 
 22:                                               ; preds = %21, %8
@@ -5627,7 +5621,7 @@ define internal void @ieee754func_to_blob(ptr noundef %0, i32 %1, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ieee754func_from_blob(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @ieee754func_from_blob(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_type(ptr noundef %4) #43
   %6 = icmp eq i32 %5, 4
@@ -5666,7 +5660,7 @@ define internal void @ieee754func_from_blob(ptr noundef %0, i32 %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ieee754inc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @ieee754inc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call double @sqlite3_value_double(ptr noundef %4) #43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5680,7 +5674,7 @@ define internal void @ieee754inc(ptr noundef %0, i32 %1, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_series_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_series_init(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_libversion_number() #43
   %5 = icmp slt i32 %4, 3008012
   %6 = icmp ne ptr %1, null
@@ -5701,14 +5695,14 @@ define i32 @sqlite3_series_init(ptr noundef %0, ptr noundef writeonly captures(a
   ret i32 %.0
 }
 
-declare i32 @sqlite3_libversion_number() local_unnamed_addr #3
+declare i32 @sqlite3_libversion_number() local_unnamed_addr #2
 
-declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @sqlite3_create_module(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_create_module(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_regexp_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_regexp_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef 2, i32 noundef 2099201, ptr noundef null, ptr noundef nonnull @re_sql_func, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
@@ -5723,7 +5717,7 @@ define i32 @sqlite3_regexp_init(ptr noundef %0, ptr noundef readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @re_sql_func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @re_sql_func(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [2 x %struct.ReStateSet], align 16
   %5 = alloca [100 x i16], align 16
   %6 = alloca %struct.ReInput, align 8
@@ -6089,9 +6083,9 @@ sqlite3re_free.exit:                              ; preds = %sqlite3re_free.exit
   br i1 %.not17, label %505, label %181
 
 181:                                              ; preds = %177
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #43
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %180, ptr %6, align 8, !tbaa !114
   %182 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %182, align 8, !tbaa !115
@@ -6931,9 +6925,9 @@ re_space_char.exit273.thread.i:                   ; preds = %477, %437, %424, %4
 
 sqlite3re_match.exit:                             ; preds = %.critedge2.i, %188, %204, %.loopexit.i
   %.2144.i = phi i32 [ %.3.i, %.loopexit.i ], [ -1, %204 ], [ 0, %188 ], [ 0, %.critedge2.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @sqlite3_result_int(ptr noundef %0, i32 noundef %.2144.i) #43
   br label %505
 
@@ -6949,7 +6943,7 @@ sqlite3re_match.exit:                             ; preds = %.critedge2.i, %188,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_fileio_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_fileio_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef 1, i32 noundef 524289, ptr noundef null, ptr noundef nonnull @readfileFunc, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %.thread9
@@ -6974,7 +6968,7 @@ define i32 @sqlite3_fileio_init(ptr noundef %0, ptr noundef readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @readfileFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @readfileFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #43
   %6 = icmp eq ptr %5, null
@@ -6989,7 +6983,7 @@ define internal void @readfileFunc(ptr noundef %0, i32 %1, ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writefileFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @writefileFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.stat, align 8
   %5 = add i32 %1, -5
   %or.cond = icmp ult i32 %5, -3
@@ -7052,7 +7046,7 @@ define internal void @writefileFunc(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %33
   %.02233.i = phi i64 [ 1, %33 ], [ %indvars.iv.next.i, %.backedge.i.backedge ]
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %sext35.i = shl i64 %.02233.i, 32
   %38 = ashr exact i64 %sext35.i, 32
   br label %39
@@ -7083,7 +7077,7 @@ define internal void @writefileFunc(ptr noundef %0, i32 noundef %1, ptr noundef 
   %52 = tail call i32 @mkdir(ptr noundef nonnull %31, i32 noundef 511) #43
   %.not26.not.i = icmp eq i32 %52, 0
   store i8 47, ptr %46, align 1, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not26.not.i, label %.backedge.i.backedge, label %makeDirectory.exit.thread42
 
 53:                                               ; preds = %49
@@ -7091,7 +7085,7 @@ define internal void @writefileFunc(ptr noundef %0, i32 noundef %1, ptr noundef 
   %55 = and i32 %54, 61440
   %.not37.i = icmp eq i32 %55, 16384
   store i8 47, ptr %46, align 1, !tbaa !25
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not37.i, label %.backedge.i.backedge, label %makeDirectory.exit.thread42
 
 .backedge.i.backedge:                             ; preds = %53, %51
@@ -7102,7 +7096,7 @@ makeDirectory.exit.thread42:                      ; preds = %51, %53
   br label %makeDirectory.exit.thread
 
 56:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @sqlite3_free(ptr noundef nonnull %31) #43
   %57 = load ptr, ptr %22, align 8, !tbaa !18
   %58 = tail call fastcc i32 @writeFile(ptr noundef %0, ptr noundef %9, ptr noundef %57, i32 noundef %.03440, i64 noundef %.0)
@@ -7139,11 +7133,11 @@ makeDirectory.exit.thread:                        ; preds = %30, %makeDirectory.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lsModeFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @lsModeFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [16 x i8], align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_int(ptr noundef %5) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = trunc i32 %6 to i16
   %trunc = and i16 %7, -4096
   switch i16 %trunc, label %10 [
@@ -7197,24 +7191,24 @@ define internal void @lsModeFunc(ptr noundef %0, i32 %1, ptr noundef readonly ca
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 0, ptr %29, align 2, !tbaa !25
   call void @sqlite3_result_text(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3CompletionVtabInit(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3CompletionVtabInit(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @sqlite3_create_module(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @completionModule, ptr noundef null) #43
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_completion_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_completion_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_module(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @completionModule, ptr noundef null) #43
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_appendvfs_init(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_appendvfs_init(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @sqlite3_vfs_find(ptr noundef null) #43
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -7237,12 +7231,12 @@ define i32 @sqlite3_appendvfs_init(ptr noundef readnone captures(none) %0, ptr n
   ret i32 %.0
 }
 
-declare ptr @sqlite3_vfs_find(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_vfs_find(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_vfs_register(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_vfs_register(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_zipfile_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_zipfile_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_module(ptr noundef %0, ptr noundef nonnull @.str.228, ptr noundef nonnull @zipfileRegister.zipfileModule, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %zipfileRegister.exit
@@ -7262,7 +7256,7 @@ zipfileRegister.exit:                             ; preds = %3, %6, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_sqlar_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_sqlar_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef 1, i32 noundef 2097153, ptr noundef null, ptr noundef nonnull @sqlarCompressFunc, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
@@ -7277,7 +7271,7 @@ define i32 @sqlite3_sqlar_init(ptr noundef %0, ptr noundef readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlarCompressFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sqlarCompressFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_type(ptr noundef %5) #43
@@ -7290,7 +7284,7 @@ define internal void @sqlarCompressFunc(ptr noundef %0, i32 %1, ptr noundef read
   %11 = load ptr, ptr %2, align 8, !tbaa !18
   %12 = tail call i32 @sqlite3_value_bytes(ptr noundef %11) #43
   %13 = sext i32 %12 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = tail call i64 @compressBound(i64 noundef %13) #43
   store i64 %14, ptr %4, align 8, !tbaa !138
   %15 = trunc i64 %14 to i32
@@ -7331,7 +7325,7 @@ define internal void @sqlarCompressFunc(ptr noundef %0, i32 %1, ptr noundef read
   br label %30
 
 30:                                               ; preds = %29, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
 31:                                               ; preds = %3
@@ -7343,7 +7337,7 @@ define internal void @sqlarCompressFunc(ptr noundef %0, i32 %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !18
@@ -7365,7 +7359,7 @@ define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef re
   br label %30
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %8, ptr %4, align 8, !tbaa !138
   %18 = load ptr, ptr %2, align 8, !tbaa !18
   %19 = tail call ptr @sqlite3_value_blob(ptr noundef %18) #43
@@ -7394,7 +7388,7 @@ define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef re
 
 29:                                               ; preds = %25, %26, %22
   call void @sqlite3_free(ptr noundef %20) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %29, %15
@@ -7402,32 +7396,32 @@ define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dummyCompare(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #6 {
+define noundef i32 @dummyCompare(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #5 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @useDummyCS(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define void @useDummyCS(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = tail call i32 @sqlite3_create_collation_v2(ptr noundef %1, ptr noundef %3, i32 noundef %2, ptr noundef null, ptr noundef nonnull @dummyCompare, ptr noundef null) #43
   ret void
 }
 
-declare i32 @sqlite3_create_collation_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_create_collation_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @dummyUDF(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #6 {
+define void @dummyUDF(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #5 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @dummyUDFvalue(ptr readnone captures(none) %0) #6 {
+define void @dummyUDFvalue(ptr readnone captures(none) %0) #5 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @registerUDFs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @registerUDFs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.preheader, label %55
@@ -7535,25 +7529,25 @@ select.unfold:                                    ; preds = %48, %.lr.ph
 
 55:                                               ; preds = %.thread, %.thread.thread, %2
   %.034 = phi i32 [ %4, %2 ], [ 1, %.thread.thread ], [ %spec.select53, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.034
 }
 
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_expert_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define ptr @sqlite3_expert_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7614,7 +7608,7 @@ idxMalloc.exit:                                   ; preds = %2
   br i1 %42, label %43, label %.thread66
 
 43:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !31
   %44 = load ptr, ptr %15, align 8, !tbaa !139
   %45 = call i32 (ptr, ptr, ptr, ptr, ...) @idxPrintfPrepareStmt(ptr noundef %44, ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull @.str.40)
@@ -7633,14 +7627,14 @@ idxMalloc.exit:                                   ; preds = %2
   %53 = load ptr, ptr %12, align 8, !tbaa !31
   %54 = call ptr @sqlite3_column_text(ptr noundef %53, i32 noundef 1) #43
   %55 = load ptr, ptr %20, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !31
   %56 = call i32 @sqlite3_prepare_v2(ptr noundef %55, ptr noundef nonnull @.str.259, i32 noundef -1, ptr noundef nonnull %11, ptr noundef null) #43
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %expertDbContainsObject.exit, label %.thread
 
 .thread:                                          ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread68
 
 expertDbContainsObject.exit:                      ; preds = %51
@@ -7651,7 +7645,7 @@ expertDbContainsObject.exit:                      ; preds = %51
   %62 = icmp ne i32 %61, 100
   %63 = load ptr, ptr %11, align 8, !tbaa !31
   %64 = call i32 @sqlite3_finalize(ptr noundef %63) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %65 = icmp eq i32 %64, 0
   %66 = icmp ne ptr %52, null
   %or.cond = select i1 %65, i1 %66, i1 false
@@ -7660,7 +7654,7 @@ expertDbContainsObject.exit:                      ; preds = %51
 
 67:                                               ; preds = %expertDbContainsObject.exit
   %68 = load ptr, ptr %20, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !29
   %69 = call i32 @sqlite3_exec(ptr noundef %68, ptr noundef nonnull %52, ptr noundef null, ptr noundef null, ptr noundef nonnull %10) #43
   %70 = icmp ne i32 %69, 0
@@ -7688,7 +7682,7 @@ expertSchemaSql.exit:                             ; preds = %67, %73, %77, %79
   %80 = phi ptr [ %71, %67 ], [ null, %79 ], [ %71, %77 ], [ %71, %73 ]
   %.0.i30 = phi i32 [ %69, %67 ], [ 0, %79 ], [ %69, %77 ], [ %69, %73 ]
   store ptr %80, ptr %1, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %81
 
 81:                                               ; preds = %expertSchemaSql.exit, %expertDbContainsObject.exit
@@ -7699,20 +7693,20 @@ expertSchemaSql.exit:                             ; preds = %67, %73, %77, %79
 .thread68:                                        ; preds = %81, %.thread, %43
   %83 = load ptr, ptr %12, align 8, !tbaa !31
   %84 = call i32 @sqlite3_finalize(ptr noundef %83) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread66
 
 85:                                               ; preds = %.lr.ph
   %86 = call i32 @sqlite3_finalize(ptr noundef %50) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %.thread66
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %89 = load ptr, ptr %16, align 8, !tbaa !151
   %90 = call i32 @sqlite3_create_module(ptr noundef %89, ptr noundef nonnull @.str.267, ptr noundef nonnull @idxRegisterVtab.expertModule, ptr noundef nonnull %13) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !31
   %91 = load ptr, ptr %15, align 8, !tbaa !139
   %92 = call i32 @sqlite3_prepare_v2(ptr noundef %91, ptr noundef nonnull @.str.261, i32 noundef -1, ptr noundef nonnull %9, ptr noundef null) #43
@@ -7753,14 +7747,14 @@ idxPrepareStmt.exit.i:                            ; preds = %88
 
 112:                                              ; preds = %102
   %113 = load ptr, ptr %16, align 8, !tbaa !151
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !31
   %114 = call i32 @sqlite3_prepare_v2(ptr noundef %113, ptr noundef nonnull @.str.259, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #43
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %expertDbContainsObject.exit.i, label %expertDbContainsObject.exit.thread.i
 
 expertDbContainsObject.exit.thread.i:             ; preds = %112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.i
 
 expertDbContainsObject.exit.i:                    ; preds = %112
@@ -7771,7 +7765,7 @@ expertDbContainsObject.exit.i:                    ; preds = %112
   %120 = icmp eq i32 %119, 100
   %121 = load ptr, ptr %7, align 8, !tbaa !31
   %122 = call i32 @sqlite3_finalize(ptr noundef %121) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 %122, ptr %8, align 4, !tbaa !36
   %123 = icmp ne i32 %122, 0
   %or.cond3.i = select i1 %123, i1 true, i1 %120
@@ -7796,7 +7790,7 @@ expertDbContainsObject.exit.i:                    ; preds = %112
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %16, align 8, !tbaa !151
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
   %135 = call i32 @sqlite3_exec(ptr noundef %134, ptr noundef nonnull %107, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #43
   %136 = icmp ne i32 %135, 0
@@ -7824,13 +7818,13 @@ expertSchemaSql.exit.i:                           ; preds = %145, %143, %139, %1
   %146 = phi ptr [ %137, %133 ], [ null, %145 ], [ %137, %143 ], [ %137, %139 ]
   %.0.i44.i = phi i32 [ %135, %133 ], [ 0, %145 ], [ %135, %143 ], [ %135, %139 ]
   store ptr %146, ptr %1, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %.0.i44.i, ptr %8, align 4, !tbaa !36
   br label %271
 
 147:                                              ; preds = %127
   %148 = load ptr, ptr %15, align 8, !tbaa !139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %149 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #44
   %150 = call i32 (ptr, ptr, ptr, ptr, ...) @idxPrintfPrepareStmt(ptr noundef %148, ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @.str.270, ptr noundef nonnull %105)
@@ -7854,13 +7848,13 @@ expertSchemaSql.exit.i:                           ; preds = %145, %143, %139, %1
 
 158:                                              ; preds = %.lr.ph.i.i
   %159 = call ptr @sqlite3_column_text(ptr noundef %157, i32 noundef 1) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !29
   %160 = icmp eq ptr %159, null
   br i1 %160, label %.thread.i.i, label %161
 
 .thread.i.i:                                      ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread102.i.i
 
 161:                                              ; preds = %158
@@ -7888,7 +7882,7 @@ expertSchemaSql.exit.i:                           ; preds = %145, %143, %139, %1
   %178 = icmp sgt i32 %177, 0
   %179 = zext i1 %178 to i32
   %180 = add nuw nsw i32 %.065125.i.i, %179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = icmp eq i32 %164, 0
   br i1 %181, label %.lr.ph.i.i, label %.thread102.i.i
 
@@ -7933,7 +7927,7 @@ expertSchemaSql.exit.i:                           ; preds = %145, %143, %139, %1
 
 202:                                              ; preds = %197
   %203 = call ptr @sqlite3_column_text(ptr noundef %201, i32 noundef 1) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !29
   %204 = icmp eq ptr %203, null
   br i1 %204, label %237, label %205, !llvm.loop !158
@@ -7993,7 +7987,7 @@ expertSchemaSql.exit.i:                           ; preds = %145, %143, %139, %1
   %.6.i.i = phi i32 [ 0, %202 ], [ %220, %235 ]
   %.270.i.i = phi ptr [ %.169128.i.i, %202 ], [ %.371.i.i, %235 ]
   %.4.i.i = phi i32 [ %.3129.i.i, %202 ], [ %236, %235 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %238 = icmp eq i32 %.6.i.i, 0
   br i1 %238, label %197, label %idxFinalize.exit.thread.i.i
 
@@ -8013,7 +8007,7 @@ idxGetTableInfo.exit.thread.i:                    ; preds = %idxFinalize.exit.i.
   %.075107144.i.i = phi ptr [ %.075107145.i.i, %idxFinalize.exit.thread.i.i ], [ %191, %idxFinalize.exit.i.i ]
   %.8111.i.i = phi i32 [ %.5.lcssa.i.i, %idxFinalize.exit.thread.i.i ], [ %241, %idxFinalize.exit.i.i ]
   call void @sqlite3_free(ptr noundef %.075107144.i.i) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.i
 
 242:                                              ; preds = %idxFinalize.exit.i.i
@@ -8030,7 +8024,7 @@ idxGetTableInfo.exit.thread.i:                    ; preds = %idxFinalize.exit.i.
   br label %idxGetTableInfo.exit.i
 
 idxGetTableInfo.exit.i:                           ; preds = %244, %242
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 0, ptr %8, align 4, !tbaa !36
   %247 = load ptr, ptr %95, align 8, !tbaa !164
   %248 = getelementptr inbounds nuw i8, ptr %191, i64 24
@@ -8096,8 +8090,8 @@ idxGetTableInfo.exit.i:                           ; preds = %244, %242
 
 279:                                              ; preds = %277, %.critedge.i
   %280 = phi i32 [ %274, %.critedge.i ], [ %278, %277 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %.thread73, label %.thread66
 
@@ -8115,16 +8109,16 @@ idxGetTableInfo.exit.i:                           ; preds = %244, %242
   ret ptr %.0
 }
 
-declare i32 @sqlite3_open(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_open(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare i32 @sqlite3_collation_needed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_collation_needed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @idxPrintfPrepareStmt(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ...) unnamed_addr #2 {
+define internal i32 @idxPrintfPrepareStmt(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ...) unnamed_addr #1 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call ptr @sqlite3_vmprintf(ptr noundef %3, ptr noundef nonnull %5) #43
   %7 = icmp eq ptr %6, null
@@ -8149,14 +8143,14 @@ idxPrepareStmt.exit:                              ; preds = %8, %10
 13:                                               ; preds = %4, %idxPrepareStmt.exit
   %.0 = phi i32 [ %9, %idxPrepareStmt.exit ], [ 7, %4 ]
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @idxAuthCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #2 {
+define internal range(i32 0, 8) i32 @idxAuthCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #1 {
   switch i32 %1, label %.critedge [
     i32 23, label %7
     i32 18, label %7
@@ -8235,7 +8229,7 @@ define internal range(i32 0, 8) i32 @idxAuthCallback(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sqlite3_expert_destroy(ptr noundef %0) local_unnamed_addr #2 {
+define void @sqlite3_expert_destroy(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %2
 
@@ -8390,9 +8384,9 @@ idxHashClear.exit:                                ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define range(i32 0, 13) i32 @sqlite3_expert_config(ptr noundef writeonly captures(none) %0, i32 noundef %1, ...) local_unnamed_addr #8 {
+define range(i32 0, 13) i32 @sqlite3_expert_config(ptr noundef writeonly captures(none) %0, i32 noundef %1, ...) local_unnamed_addr #7 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %cond = icmp eq i32 %1, 1
   br i1 %cond, label %4, label %20
@@ -8429,25 +8423,25 @@ define range(i32 0, 13) i32 @sqlite3_expert_config(ptr noundef writeonly capture
 20:                                               ; preds = %2, %17
   %.0 = phi i32 [ 0, %17 ], [ 12, %2 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_expert_sql(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_expert_sql(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !176
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !187
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8, !tbaa !202
@@ -8470,7 +8464,7 @@ define i32 @sqlite3_expert_sql(ptr noundef captures(none) %0, ptr noundef %1, pt
   br i1 %.not37, label %.critedge.thread, label %17
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %18 = load ptr, ptr %12, align 8, !tbaa !139
   %19 = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull %15, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #43
@@ -8542,7 +8536,7 @@ idxMalloc.exit:                                   ; preds = %29, %46
 
 50:                                               ; preds = %idxMalloc.exit, %27
   %.2 = phi i32 [ 0, %27 ], [ %.351, %idxMalloc.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = icmp eq i32 %.2, 0
   %52 = load ptr, ptr %4, align 8
   %53 = icmp ne ptr %52, null
@@ -8559,7 +8553,7 @@ idxMalloc.exit:                                   ; preds = %29, %46
   %54 = call ptr @sqlite3_errmsg(ptr noundef %.sink) #43
   %55 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef %54) #43
   store ptr %55, ptr %2, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %.sink.split, %.critedge
@@ -8644,20 +8638,20 @@ idxStatementFree.exit:                            ; preds = %.lr.ph.i44, %idxSca
 
 .critedge.thread:                                 ; preds = %14, %.preheader, %.critedge, %idxStatementFree.exit, %3
   %.0 = phi i32 [ 21, %3 ], [ %.162, %idxStatementFree.exit ], [ 0, %.critedge ], [ 0, %.preheader ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_expert_analyze(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @sqlite3_expert_analyze(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.IdxHash, align 8
   %5 = alloca ptr, align 8
@@ -8672,7 +8666,7 @@ define i32 @sqlite3_expert_analyze(ptr noundef captures(none) %0, ptr noundef %1
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.01421.i = load ptr, ptr %17, align 8, !tbaa !174
   %.not.i = icmp eq ptr %.01421.i, null
@@ -8703,9 +8697,9 @@ idxProcessTriggers.exit.thread:                   ; preds = %2
   %23 = load ptr, ptr %.020.i, align 8, !tbaa !170
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !163
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %26 = load ptr, ptr %18, align 8, !tbaa !139
   %27 = call i32 (ptr, ptr, ptr, ptr, ...) @idxPrintfPrepareStmt(ptr noundef %26, ptr noundef nonnull %13, ptr noundef %1, ptr noundef nonnull @.str.274, ptr noundef %25, ptr noundef %25)
   %28 = icmp eq i32 %27, 0
@@ -8839,7 +8833,7 @@ idxFinalize.exit.i.i:                             ; preds = %.lr.ph.i.i
 
 .thread51.i.i:                                    ; preds = %.loopexit.i.i, %84
   %.153.i.i = phi ptr [ %.1.ph.i.i, %.loopexit.i.i ], [ %85, %84 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !31
   %89 = load ptr, ptr %19, align 8, !tbaa !151
   %90 = call i32 @sqlite3_prepare_v2(ptr noundef %89, ptr noundef %.153.i.i, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #43
@@ -8862,7 +8856,7 @@ idxFinalize.exit46.thread.i.i:                    ; preds = %idxFinalize.exit46.
   br label %97
 
 97:                                               ; preds = %idxFinalize.exit46.thread.i.i, %idxFinalize.exit46.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %97, %.loopexit.i.i, %87, %83
@@ -8873,15 +8867,15 @@ idxFinalize.exit46.thread.i.i:                    ; preds = %idxFinalize.exit46.
   br i1 %99, label %idxProcessOneTrigger.exit.i, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %idxProcessTriggers.exit
 
 idxProcessOneTrigger.exit.i:                      ; preds = %.thread.i.i
   %100 = load ptr, ptr %19, align 8, !tbaa !151
   %101 = call i32 @sqlite3_exec(ptr noundef %100, ptr noundef nonnull @.str.273, ptr noundef null, ptr noundef null, ptr noundef %1) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %102 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !175
   %104 = icmp eq i32 %101, 0
@@ -9101,12 +9095,12 @@ idxCreateCandidates.exit:                         ; preds = %idxCreateFromWhere.
   br i1 %174, label %175, label %418
 
 175:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !31
   %176 = load i32, ptr %0, align 8, !tbaa !149
   %177 = icmp eq i32 %176, 0
@@ -9115,7 +9109,7 @@ idxCreateCandidates.exit:                         ; preds = %idxCreateFromWhere.
 178:                                              ; preds = %175
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %180 = load ptr, ptr %179, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !31
   %181 = call i32 @sqlite3_prepare_v2(ptr noundef %180, ptr noundef nonnull @.str.299, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #43
   %.not.i.i.i26 = icmp eq i32 %181, 0
@@ -9140,14 +9134,14 @@ idxLargestIndex.exit.thread.i:                    ; preds = %178
   store ptr %191, ptr %1, align 8, !tbaa !29
   %192 = load ptr, ptr %8, align 8, !tbaa !31
   %193 = call i32 @sqlite3_finalize(ptr noundef %192) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %idxPopulateStat1.exit
 
 idxLargestIndex.exit.i:                           ; preds = %186, %182
   %.087.i = phi i32 [ %189, %186 ], [ 0, %182 ]
   %194 = load ptr, ptr %8, align 8, !tbaa !31
   %195 = call i32 @sqlite3_finalize(ptr noundef %194) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %196 = icmp slt i32 %.087.i, 1
   %197 = icmp ne i32 %195, 0
   %or.cond.i = select i1 %196, i1 true, i1 %197
@@ -9264,9 +9258,9 @@ idxBuildSampleTable.exit.i:                       ; preds = %251
 256:                                              ; preds = %idxBuildSampleTable.exit.i, %243
   %257 = load ptr, ptr %11, align 8, !tbaa !31
   %258 = load ptr, ptr %12, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !36
   %259 = call i32 @sqlite3_bind_text(ptr noundef %257, i32 noundef 1, ptr noundef nonnull %240, i32 noundef -1, ptr noundef null) #43
   br label %266
@@ -9569,8 +9563,8 @@ idxFinalize.exit.critedge.i.i:                    ; preds = %idxFinalize.exit.cr
 
 idxPopulateOneStat1.exit.i:                       ; preds = %idxFinalize.exit.critedge.i.i, %idxMalloc.exit.threadthread-pre-split.i.i, %.thread.i.i39
   %.2.i.i = phi i32 [ %272, %.thread.i.i39 ], [ %367, %idxFinalize.exit.critedge.i.i ], [ %spec.select.i, %idxMalloc.exit.threadthread-pre-split.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %370
 
 370:                                              ; preds = %idxPopulateOneStat1.exit.i, %234
@@ -9695,10 +9689,10 @@ idxFinalize.exit72.i:                             ; preds = %idxFinalize.exit71.
 
 idxPopulateStat1.exit:                            ; preds = %175, %idxLargestIndex.exit.thread.i, %idxLargestIndex.exit.i, %410
   %.0.i27 = phi i32 [ %.10.i, %410 ], [ 0, %175 ], [ %195, %idxLargestIndex.exit.i ], [ %181, %idxLargestIndex.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 %.0.i27, ptr %16, align 4, !tbaa !36
   br label %418
 
@@ -9742,8 +9736,8 @@ idxPopulateStat1.exit:                            ; preds = %175, %idxLargestInd
 433:                                              ; preds = %._crit_edge
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %435 = load ptr, ptr %434, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.057119.i = load ptr, ptr %436, align 8, !tbaa !241
@@ -9757,7 +9751,7 @@ idxPopulateStat1.exit:                            ; preds = %175, %idxLargestInd
 
 439:                                              ; preds = %557, %.lr.ph122.i
   %.057120.i = phi ptr [ %.057119.i, %.lr.ph122.i ], [ %.057.i, %557 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   br label %440
 
@@ -10080,7 +10074,7 @@ idxHashSearch.exit.thread.i:                      ; preds = %536, %502, %524, %5
 557:                                              ; preds = %._crit_edge.i46, %._crit_edge.i46.thread
   %558 = phi i32 [ %458, %._crit_edge.i46.thread ], [ %spec.select, %._crit_edge.i46 ]
   store i32 %558, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %559 = getelementptr inbounds nuw i8, ptr %.057120.i, i64 32
   %.057.i = load ptr, ptr %559, align 8, !tbaa !241
   %560 = icmp eq i32 %558, 0
@@ -10090,7 +10084,7 @@ idxHashSearch.exit.thread.i:                      ; preds = %536, %502, %524, %5
 
 .loopexit.i47.sink.split:                         ; preds = %._crit_edge.i76.i, %.thread163
   %.ph = phi i32 [ %449, %.thread163 ], [ 7, %._crit_edge.i76.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit.i47
 
 .loopexit.i47:                                    ; preds = %557, %.loopexit.i47.sink.split, %433
@@ -10122,8 +10116,8 @@ idxHashSearch.exit.thread.i:                      ; preds = %536, %502, %524, %5
   br i1 %exitcond.not.i86.i, label %572, label %565, !llvm.loop !200
 
 572:                                              ; preds = %._crit_edge.i84.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %573 = icmp eq i32 %563, 0
   br i1 %573, label %574, label %.thread
 
@@ -10134,14 +10128,14 @@ idxHashSearch.exit.thread.i:                      ; preds = %536, %502, %524, %5
 
 .thread:                                          ; preds = %._crit_edge, %572, %574, %169, %170
   %.018 = phi i32 [ %431, %._crit_edge ], [ %563, %572 ], [ 0, %574 ], [ 773, %169 ], [ 773, %170 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @idxAppendText(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #2 {
+define internal ptr @idxAppendText(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -10203,12 +10197,12 @@ define internal ptr @idxAppendText(ptr noundef nonnull captures(none) %0, ptr no
 27:                                               ; preds = %26, %8
   %.023 = phi ptr [ %.2, %26 ], [ null, %8 ]
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.023
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @sqlite3_expert_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define range(i32 -2147483647, -2147483648) i32 @sqlite3_expert_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !187
   %.not = icmp eq ptr %3, null
@@ -10225,7 +10219,7 @@ define range(i32 -2147483647, -2147483648) i32 @sqlite3_expert_count(ptr noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @sqlite3_expert_report(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #12 {
+define ptr @sqlite3_expert_report(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !202
   %6 = icmp eq i32 %5, 0
@@ -10293,12 +10287,12 @@ define ptr @sqlite3_expert_report(ptr noundef readonly captures(none) %0, i32 no
   ret ptr %.016
 }
 
-declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_free(ptr noundef) #3
+declare void @sqlite3_free(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_intck_open(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_intck_open(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.45, ptr %1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #44
@@ -10354,10 +10348,10 @@ sqlite3_intck_close.exit:                         ; preds = %10
   ret i32 %.018
 }
 
-declare ptr @sqlite3_malloc(i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_malloc(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @intckParseCreateIndexFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @intckParseCreateIndexFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10810,7 +10804,7 @@ intckParseCreateIndex.exit:                       ; preds = %intckGetToken.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sqlite3_intck_close(ptr noundef %0) local_unnamed_addr #2 {
+define void @sqlite3_intck_close(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
@@ -10843,7 +10837,7 @@ define void @sqlite3_intck_close(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_intck_step(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define i32 @sqlite3_intck_step(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !267
   %4 = icmp eq i32 %3, 0
@@ -11028,9 +11022,9 @@ intckFinalize.exit:                               ; preds = %70, %76
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @intckCheckObjectSql(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc ptr @intckCheckObjectSql(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4, !tbaa !267
@@ -11038,7 +11032,7 @@ define internal fastcc ptr @intckCheckObjectSql(ptr noundef captures(none) %0, p
   br i1 %8, label %9, label %intckPrepare.exit.thread9.i
 
 intckPrepare.exit.thread9.i:                      ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %intckStep.exit.i
 
 9:                                                ; preds = %4
@@ -11050,7 +11044,7 @@ intckPrepare.exit.thread9.i:                      ; preds = %4
 
 intckPrepare.exit.thread.i:                       ; preds = %9
   %12 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 intckPrepare.exit.i:                              ; preds = %9
@@ -11066,7 +11060,7 @@ intckPrepare.exit.i:                              ; preds = %9
   store ptr %19, ptr %15, align 8, !tbaa !257
   %.val.pr.i = load i32, ptr %6, align 4, !tbaa !267
   %20 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i6.i = icmp eq i32 %.val.pr.i, 0
   br i1 %.not.i6.i, label %21, label %intckStep.exit.i
 
@@ -11242,9 +11236,9 @@ intckFinalize.exit:                               ; preds = %.critedge, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @intckPrepare(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @intckPrepare(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4, !tbaa !267
@@ -11273,14 +11267,14 @@ define internal fastcc ptr @intckPrepare(ptr noundef captures(none) %0, ptr noun
 
 18:                                               ; preds = %7, %10, %2
   %19 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @intckMprintf(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal ptr @intckMprintf(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -11302,12 +11296,12 @@ define internal ptr @intckMprintf(ptr noundef captures(none) %0, ptr noundef %1,
 
 12:                                               ; preds = %8, %10, %11
   %.0 = phi ptr [ null, %10 ], [ %4, %8 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_intck_message(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define ptr @sqlite3_intck_message(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !258
   %.not = icmp eq ptr %3, null
@@ -11329,7 +11323,7 @@ define ptr @sqlite3_intck_message(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 102, 101) i32 @sqlite3_intck_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #13 {
+define range(i32 102, 101) i32 @sqlite3_intck_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #12 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -11348,7 +11342,7 @@ define range(i32 102, 101) i32 @sqlite3_intck_error(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_intck_unlock(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define i32 @sqlite3_intck_unlock(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4, !tbaa !267
@@ -11483,14 +11477,14 @@ define i32 @sqlite3_intck_unlock(ptr noundef captures(none) %0) local_unnamed_ad
 
 67:                                               ; preds = %._crit_edge105.i, %._crit_edge111.i
   %.183.i = phi ptr [ %30, %._crit_edge111.i ], [ %66, %._crit_edge105.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
   %68 = load i32, ptr %3, align 4, !tbaa !267
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %intckPrepare.exit.thread.i
 
 intckPrepare.exit.thread.i:                       ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %intckFinalize.exit.i
 
 70:                                               ; preds = %67
@@ -11502,7 +11496,7 @@ intckPrepare.exit.thread.i:                       ; preds = %67
 
 intckPrepare.exit.thread122.i:                    ; preds = %70
   %73 = load ptr, ptr %2, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader.i
 
 intckPrepare.exit.i:                              ; preds = %70
@@ -11519,7 +11513,7 @@ intckPrepare.exit.i:                              ; preds = %70
   %.pr.i = load i32, ptr %3, align 4, !tbaa !267
   %81 = icmp eq i32 %.pr.i, 0
   %82 = load ptr, ptr %2, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %81, label %.preheader.i, label %intckFinalize.exit.i
 
 .preheader.i:                                     ; preds = %intckPrepare.exit.i, %intckPrepare.exit.thread122.i
@@ -11628,7 +11622,7 @@ intckFinalize.exit:                               ; preds = %intckSaveKey.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_intck_test_sql(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define ptr @sqlite3_intck_test_sql(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !256
   tail call void @sqlite3_free(ptr noundef %4) #43
@@ -11663,7 +11657,7 @@ define ptr @sqlite3_intck_test_sql(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_stmtrand_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_stmtrand_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_function(ptr noundef %0, ptr noundef nonnull @.str.50, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef nonnull @stmtrandFunc, ptr noundef null, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
@@ -11678,7 +11672,7 @@ define i32 @sqlite3_stmtrand_init(ptr noundef %0, ptr noundef readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @stmtrandFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @stmtrandFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_get_auxdata(ptr noundef %0, i32 noundef -4418371) #43
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %21
@@ -11740,7 +11734,7 @@ define internal void @stmtrandFunc(ptr noundef %0, i32 noundef %1, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @vfstrace_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define i32 @vfstrace_register(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @sqlite3_vfs_find(ptr noundef %1) #43
   %7 = icmp eq ptr %6, null
   br i1 %7, label %92, label %8
@@ -11876,10 +11870,10 @@ define i32 @vfstrace_register(ptr noundef readonly captures(none) %0, ptr nounde
   ret i32 %.0
 }
 
-declare ptr @sqlite3_malloc64(i64 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_malloc64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceOpen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2, i32 noundef %3, ptr noundef %4) #2 {
+define internal i32 @vfstraceOpen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [50 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !136
@@ -12018,7 +12012,7 @@ fileTail.exit:                                    ; preds = %13, %14
   br label %82
 
 82:                                               ; preds = %.thread, %19
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %83 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %26)
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %vfstrace_print_errcode.exit
@@ -12041,7 +12035,7 @@ fileTail.exit:                                    ; preds = %13, %14
 vfstrace_print_errcode.exit:                      ; preds = %82, %88, %91
   %.0.i69 = phi ptr [ %83, %82 ], [ %6, %91 ], [ %6, %88 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.345, ptr noundef nonnull %.0.i69)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not68 = icmp eq ptr %4, null
   br i1 %.not68, label %95, label %93
 
@@ -12059,7 +12053,7 @@ vfstrace_print_errcode.exit:                      ; preds = %82, %88, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceDelete(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal noundef i32 @vfstraceDelete(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca [50 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !136
@@ -12077,7 +12071,7 @@ define internal noundef i32 @vfstraceDelete(ptr noundef readonly captures(none) 
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !282
   %18 = tail call i32 %17(ptr noundef %7, ptr noundef %1, i32 noundef %2) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %18)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %vfstrace_print_errcode.exit
@@ -12100,12 +12094,12 @@ define internal noundef i32 @vfstraceDelete(ptr noundef readonly captures(none) 
 vfstrace_print_errcode.exit:                      ; preds = %3, %24, %27
   %.0.i = phi ptr [ %19, %3 ], [ %4, %27 ], [ %4, %24 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceAccess(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal noundef i32 @vfstraceAccess(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !136
@@ -12123,7 +12117,7 @@ define internal noundef i32 @vfstraceAccess(ptr noundef readonly captures(none) 
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !283
   %19 = tail call i32 %18(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %19)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %vfstrace_print_errcode.exit
@@ -12146,14 +12140,14 @@ define internal noundef i32 @vfstraceAccess(ptr noundef readonly captures(none) 
 vfstrace_print_errcode.exit:                      ; preds = %4, %25, %28
   %.0.i = phi ptr [ %20, %4 ], [ %5, %28 ], [ %5, %25 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.345, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = load i32, ptr %3, align 4, !tbaa !36
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull %7, ptr noundef nonnull @.str.371, i32 noundef %30)
   ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceFullPathname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal noundef i32 @vfstraceFullPathname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !136
@@ -12171,7 +12165,7 @@ define internal noundef i32 @vfstraceFullPathname(ptr noundef readonly captures(
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !284
   %19 = tail call i32 %18(ptr noundef %8, ptr noundef %1, i32 noundef %2, ptr noundef %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %19)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %vfstrace_print_errcode.exit
@@ -12194,13 +12188,13 @@ define internal noundef i32 @vfstraceFullPathname(ptr noundef readonly captures(
 vfstrace_print_errcode.exit:                      ; preds = %4, %25, %28
   %.0.i = phi ptr [ %20, %4 ], [ %5, %28 ], [ %5, %25 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.345, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull %7, ptr noundef nonnull @.str.526, i32 noundef %2, ptr noundef %3)
   ret i32 %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vfstraceDlOpen(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @vfstraceDlOpen(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12221,7 +12215,7 @@ define internal ptr @vfstraceDlOpen(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @vfstraceDlError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal void @vfstraceDlError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = load ptr, ptr %5, align 8, !tbaa !297
@@ -12243,7 +12237,7 @@ define internal void @vfstraceDlError(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vfstraceDlSym(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal ptr @vfstraceDlSym(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = load ptr, ptr %5, align 8, !tbaa !297
@@ -12257,7 +12251,7 @@ define internal ptr @vfstraceDlSym(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @vfstraceDlClose(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal void @vfstraceDlClose(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12278,7 +12272,7 @@ define internal void @vfstraceDlClose(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceRandomness(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @vfstraceRandomness(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = load ptr, ptr %5, align 8, !tbaa !297
@@ -12299,7 +12293,7 @@ define internal i32 @vfstraceRandomness(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceSleep(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal i32 @vfstraceSleep(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12320,7 +12314,7 @@ define internal i32 @vfstraceSleep(ptr noundef readonly captures(none) %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceCurrentTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal i32 @vfstraceCurrentTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12343,7 +12337,7 @@ define internal i32 @vfstraceCurrentTime(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceGetLastError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal noundef i32 @vfstraceGetLastError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = load ptr, ptr %5, align 8, !tbaa !297
@@ -12374,7 +12368,7 @@ define internal noundef i32 @vfstraceGetLastError(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceCurrentTimeInt64(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal i32 @vfstraceCurrentTimeInt64(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12397,7 +12391,7 @@ define internal i32 @vfstraceCurrentTimeInt64(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceSetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal i32 @vfstraceSetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = load ptr, ptr %5, align 8, !tbaa !297
@@ -12408,7 +12402,7 @@ define internal i32 @vfstraceSetSystemCall(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vfstraceGetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @vfstraceGetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12419,7 +12413,7 @@ define internal ptr @vfstraceGetSystemCall(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @vfstraceNextSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @vfstraceNextSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = load ptr, ptr %4, align 8, !tbaa !297
@@ -12430,9 +12424,9 @@ define internal ptr @vfstraceNextSystemCall(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @vfstrace_printf(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @vfstrace_printf(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4, !tbaa !304
   %.not = icmp eq i8 %5, 0
@@ -12451,12 +12445,12 @@ define internal void @vfstrace_printf(ptr noundef readonly captures(none) %0, pt
   br label %13
 
 13:                                               ; preds = %6, %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @vfstrace_unregister(ptr noundef %0) local_unnamed_addr #2 {
+define void @vfstrace_unregister(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @sqlite3_vfs_find(ptr noundef %0) #43
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -12476,10 +12470,10 @@ define void @vfstrace_unregister(ptr noundef %0) local_unnamed_addr #2 {
   ret void
 }
 
-declare i32 @sqlite3_vfs_unregister(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_vfs_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_dbdata_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define i32 @sqlite3_dbdata_init(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_create_module(ptr noundef %0, ptr noundef nonnull @.str.540, ptr noundef nonnull @sqlite3DbdataRegister.dbdata_module, ptr noundef null) #43
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %sqlite3DbdataRegister.exit
@@ -12494,7 +12488,7 @@ sqlite3DbdataRegister.exit:                       ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @recoverInit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define ptr @recoverInit(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %1, null
   %spec.store.select = select i1 %6, ptr @.str.45, ptr %1
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #44
@@ -12554,7 +12548,7 @@ recoverStrlen.exit:                               ; preds = %5, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_recover_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define ptr @sqlite3_recover_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %4, ptr @.str.45, ptr %1
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #44
@@ -12612,7 +12606,7 @@ recoverInit.exit:                                 ; preds = %recoverStrlen.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @sqlite3_recover_init_sql(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @sqlite3_recover_init_sql(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %1, null
   %spec.store.select.i = select i1 %5, ptr @.str.45, ptr %1
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select.i) #44
@@ -12649,7 +12643,7 @@ recoverInit.exit:                                 ; preds = %4, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @sqlite3_recover_errmsg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define ptr @sqlite3_recover_errmsg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -12670,7 +12664,7 @@ define ptr @sqlite3_recover_errmsg(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @sqlite3_recover_errcode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define i32 @sqlite3_recover_errcode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -12685,7 +12679,7 @@ define i32 @sqlite3_recover_errcode(ptr noundef readonly captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 22) i32 @sqlite3_recover_config(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 22) i32 @sqlite3_recover_config(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %28, label %5
 
@@ -12752,9 +12746,9 @@ define range(i32 0, 22) i32 @sqlite3_recover_config(ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @recoverMPrintf(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal ptr @recoverMPrintf(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -12777,12 +12771,12 @@ define internal ptr @recoverMPrintf(ptr noundef nonnull captures(none) %0, ptr n
 
 12:                                               ; preds = %8, %10, %11
   %.0 = phi ptr [ null, %10 ], [ %4, %8 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_recover_step(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3_recover_step(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -12813,7 +12807,7 @@ define i32 @sqlite3_recover_step(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverStep(ptr noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc void @recoverStep(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -12887,7 +12881,7 @@ recoverSqlCallback.exit:                          ; preds = %23, %26, %30
 recoverSqlCallback.exit56:                        ; preds = %19, %recoverSqlCallback.exit, %33, %35, %39
   %41 = tail call ptr @sqlite3_mutex_alloc(i32 noundef 9) #43
   tail call void @sqlite3_mutex_enter(ptr noundef %41) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !354
   %42 = load ptr, ptr %0, align 8, !tbaa !335
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12923,8 +12917,8 @@ recoverSqlCallback.exit56:                        ; preds = %19, %recoverSqlCall
   br label %recoverInstallWrapper.exit
 
 recoverInstallWrapper.exit:                       ; preds = %recoverSqlCallback.exit56, %47, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !221
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !343
@@ -12981,7 +12975,7 @@ recoverOpenOutput.exit:                           ; preds = %.lr.ph.i, %66, %.th
   %87 = load ptr, ptr %15, align 8, !tbaa !221
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %87, ptr %88, align 8, !tbaa !364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %89 = load ptr, ptr %0, align 8, !tbaa !335
   %90 = load ptr, ptr %43, align 8, !tbaa !342
   %91 = call i32 @sqlite3_file_control(ptr noundef %89, ptr noundef %90, i32 noundef 42, ptr noundef null) #43
@@ -13043,7 +13037,7 @@ recoverExec.exit63:                               ; preds = %110, %114
   br i1 %118, label %119, label %recoverTransferSettings.exit
 
 119:                                              ; preds = %recoverExec.exit63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !221
   %120 = call i32 @sqlite3_open(ptr noundef nonnull @.str.44, ptr noundef nonnull %14) #43
   %.not.i64 = icmp eq i32 %120, 0
@@ -13192,7 +13186,7 @@ recoverExec.exit41.thread.i:                      ; preds = %189, %186, %recover
   br label %192
 
 192:                                              ; preds = %recoverExec.exit41.thread.i, %123
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %recoverTransferSettings.exit
 
 recoverTransferSettings.exit:                     ; preds = %recoverOpenOutput.exit, %recoverExec.exit, %recoverExec.exit61, %recoverExec.exit63, %192
@@ -13253,7 +13247,7 @@ recoverOpenRecovery.exit:                         ; preds = %recoverTransferSett
 recoverCacheSchema.exit:                          ; preds = %recoverOpenRecovery.exit, %216, %218
   %.val = load ptr, ptr %0, align 8, !tbaa !335
   %.val53 = load ptr, ptr %43, align 8, !tbaa !342
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !354
   %222 = call i32 @sqlite3_file_control(ptr noundef %.val, ptr noundef %.val53, i32 noundef 7, ptr noundef nonnull %13) #43
   %223 = load ptr, ptr %13, align 8, !tbaa !354
@@ -13273,7 +13267,7 @@ recoverCacheSchema.exit:                          ; preds = %recoverOpenRecovery
   br label %recoverUninstallWrapper.exit
 
 recoverUninstallWrapper.exit:                     ; preds = %recoverCacheSchema.exit, %224, %226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %228 = call ptr @sqlite3_mutex_alloc(i32 noundef 9) #43
   call void @sqlite3_mutex_leave(ptr noundef %228) #43
   %229 = load ptr, ptr %88, align 8, !tbaa !364
@@ -13282,7 +13276,7 @@ recoverUninstallWrapper.exit:                     ; preds = %recoverCacheSchema.
   br i1 %231, label %232, label %recoverExec.exit73.thread
 
 recoverExec.exit73.thread:                        ; preds = %recoverUninstallWrapper.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br label %recoverPrepare.exit50.thread.i
 
 232:                                              ; preds = %recoverUninstallWrapper.exit
@@ -13299,13 +13293,13 @@ recoverExec.exit73.thread:                        ; preds = %recoverUninstallWra
 recoverExec.exit73:                               ; preds = %232, %234
   %.pr187 = load i32, ptr %20, align 8, !tbaa !347
   %238 = load ptr, ptr %88, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !31
   %239 = icmp eq i32 %.pr187, 0
   br i1 %239, label %240, label %recoverPrepare.exit50.thread.i
 
 recoverPrepare.exit50.thread.i:                   ; preds = %recoverExec.exit73.thread, %recoverExec.exit73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.split.i
 
 240:                                              ; preds = %recoverExec.exit73
@@ -13322,9 +13316,9 @@ recoverPrepare.exit50.thread.i:                   ; preds = %recoverExec.exit73.
 recoverPrepare.exit.i:                            ; preds = %242, %240
   %.pr.i76 = load i32, ptr %20, align 8, !tbaa !347
   %246 = load ptr, ptr %12, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %247 = load ptr, ptr %88, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !31
   %248 = icmp eq i32 %.pr.i76, 0
   br i1 %248, label %249, label %recoverPrepare.exit50.i
@@ -13342,7 +13336,7 @@ recoverPrepare.exit.i:                            ; preds = %242, %240
 
 recoverPrepare.exit50.i:                          ; preds = %251, %249, %recoverPrepare.exit.i
   %255 = load ptr, ptr %11, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not.i77 = icmp eq ptr %246, null
   br i1 %.not.i77, label %.split.i, label %262
 
@@ -13830,16 +13824,16 @@ recoverWriteSchema1.exit:                         ; preds = %recoverFinalize.exi
   store ptr %475, ptr %478, align 8, !tbaa !390
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %480 = load ptr, ptr %479, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !31
   %481 = load i32, ptr %471, align 8, !tbaa !347
   %482 = icmp eq i32 %481, 0
   br i1 %482, label %483, label %recoverPrepare.exit.thread.i
 
 recoverPrepare.exit.thread.i:                     ; preds = %477
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr null, ptr %454, align 8, !tbaa !391
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !31
   br label %recoverPrepare.exit25.i
 
@@ -13857,10 +13851,10 @@ recoverPrepare.exit.thread.i:                     ; preds = %477
 recoverPrepare.exit.i86:                          ; preds = %485, %483
   %.pr.i87 = load i32, ptr %471, align 8, !tbaa !347
   %489 = load ptr, ptr %10, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %489, ptr %454, align 8, !tbaa !391
   %490 = load ptr, ptr %479, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !31
   %491 = icmp eq i32 %.pr.i87, 0
   br i1 %491, label %492, label %recoverPrepare.exit25.i
@@ -13878,7 +13872,7 @@ recoverPrepare.exit.i86:                          ; preds = %485, %483
 
 recoverPrepare.exit25.i:                          ; preds = %494, %492, %recoverPrepare.exit.i86, %recoverPrepare.exit.thread.i
   %498 = load ptr, ptr %9, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %recoverWriteDataInit.exit.sink.split
 
 recoverWriteDataInit.exit.sink.split:             ; preds = %._crit_edge.i, %476, %recoverPrepare.exit25.i
@@ -14167,7 +14161,7 @@ recoverFinalize.exit141.i:                        ; preds = %579, %576, %573
   %630 = call ptr (ptr, ptr, ...) @recoverMPrintf(ptr noundef nonnull %0, ptr noundef nonnull %.str.600..str.599.i.i, ptr noundef %.156.lcssa.i.i, ptr noundef %.2.lcssa.i.i)
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %632 = load ptr, ptr %631, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !31
   %633 = load i32, ptr %504, align 8, !tbaa !347
   %634 = icmp eq i32 %633, 0
@@ -14186,7 +14180,7 @@ recoverFinalize.exit141.i:                        ; preds = %579, %576, %573
 
 recoverPrepare.exit.i.i:                          ; preds = %637, %635, %._crit_edge.i.i91
   %641 = load ptr, ptr %8, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @sqlite3_free(ptr noundef %.156.lcssa.i.i) #43
   call void @sqlite3_free(ptr noundef %.2.lcssa.i.i) #43
   call void @sqlite3_free(ptr noundef %630) #43
@@ -14503,7 +14497,7 @@ recoverWriteDataStep.exit.thread:                 ; preds = %511, %recoverWriteD
 
 recoverBitmapAlloc.exit.thread.i:                 ; preds = %791, %778
   store ptr null, ptr %775, align 8, !tbaa !409
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %recoverPrepare.exit.thread.i107
 
 recoverBitmapAlloc.exit.i:                        ; preds = %789
@@ -14513,7 +14507,7 @@ recoverBitmapAlloc.exit.i:                        ; preds = %789
   store ptr %790, ptr %775, align 8, !tbaa !409
   %792 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %793 = load ptr, ptr %792, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !31
   %794 = icmp eq i32 %.pr.i109, 0
   br i1 %794, label %795, label %recoverPrepare.exit.thread.i107
@@ -14530,12 +14524,12 @@ recoverBitmapAlloc.exit.i:                        ; preds = %789
   br label %recoverPrepare.exit.i111
 
 recoverPrepare.exit.thread.i107:                  ; preds = %recoverBitmapAlloc.exit.i, %recoverBitmapAlloc.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %recoverLostAndFound1Init.exit
 
 recoverPrepare.exit.i111:                         ; preds = %797, %795
   %.pr14.i = load ptr, ptr %7, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i112 = icmp eq ptr %.pr14.i, null
   br i1 %.not.i112, label %recoverLostAndFound1Init.exit, label %801
 
@@ -14625,7 +14619,7 @@ recoverLostAndFound1Step.exit:                    ; preds = %807, %recoverFinali
 847:                                              ; preds = %843
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %849 = load ptr, ptr %848, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !31
   %850 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %851 = load i32, ptr %850, align 8, !tbaa !347
@@ -14645,7 +14639,7 @@ recoverLostAndFound1Step.exit:                    ; preds = %807, %recoverFinali
 
 recoverLostAndFound2Init.exit:                    ; preds = %847, %853, %855
   %859 = load ptr, ptr %6, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %860 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %859, ptr %860, align 8, !tbaa !414
   %861 = load ptr, ptr %848, align 8, !tbaa !364
@@ -14813,7 +14807,7 @@ recoverLostAndFound2Step.exit:                    ; preds = %recoverLostAndFound
 958:                                              ; preds = %954
   %959 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %960 = load ptr, ptr %959, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %961 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %962 = load i32, ptr %961, align 8, !tbaa !347
@@ -14833,7 +14827,7 @@ recoverLostAndFound2Step.exit:                    ; preds = %recoverLostAndFound
 
 recoverPrepare.exit.i.i122:                       ; preds = %966, %964, %958
   %970 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %971 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %972
 
@@ -15062,7 +15056,7 @@ recoverLostAndFoundInsert.exit.i:                 ; preds = %._crit_edge.i19.i, 
   %1061 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %1060, ptr %1061, align 8, !tbaa !425
   %1062 = load ptr, ptr %959, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   %1063 = load i32, ptr %961, align 8, !tbaa !347
   %1064 = icmp eq i32 %1063, 0
@@ -15081,7 +15075,7 @@ recoverLostAndFoundInsert.exit.i:                 ; preds = %._crit_edge.i19.i, 
 
 recoverPrepare.exit.i128:                         ; preds = %1067, %1065, %recoverLostAndFoundInsert.exit.i
   %1071 = load ptr, ptr %4, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1072 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %1071, ptr %1072, align 8, !tbaa !426
   %1073 = load i32, ptr %955, align 8, !tbaa !418
@@ -15167,7 +15161,7 @@ recoverBitmapQuery.exit.i142:                     ; preds = %1096
 1121:                                             ; preds = %1112
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %1123 = load ptr, ptr %1122, align 8, !tbaa !364
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %1124 = icmp eq i32 %.pre19.i, 0
   br i1 %1124, label %1125, label %recoverPrepare.exit.i.i.i
@@ -15185,7 +15179,7 @@ recoverBitmapQuery.exit.i142:                     ; preds = %1096
 
 recoverPrepare.exit.i.i.i:                        ; preds = %1127, %1125, %1121
   %1131 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %1131, ptr %1118, align 8, !tbaa !428
   %.pre.i161 = load i32, ptr %1084, align 8, !tbaa !347
   br label %1132
@@ -15490,7 +15484,7 @@ recoverLostAndFound3Step.exit:                    ; preds = %1254, %1251, %1249,
   %1261 = load ptr, ptr %1260, align 8, !tbaa !364
   %1262 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1263 = load i32, ptr %1262, align 8, !tbaa !353
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
   %1264 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1265 = load i32, ptr %1264, align 8, !tbaa !347
@@ -15498,7 +15492,7 @@ recoverLostAndFound3Step.exit:                    ; preds = %1254, %1251, %1249,
   br i1 %1266, label %1267, label %recoverPrepare.exit.thread.i162
 
 recoverPrepare.exit.thread.i162:                  ; preds = %1259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.split.i163
 
 1267:                                             ; preds = %1259
@@ -15516,7 +15510,7 @@ recoverPrepare.exit.thread.i162:                  ; preds = %1259
 
 recoverPrepare.exit.i168:                         ; preds = %1270, %1267
   %.pr.i169 = load ptr, ptr %2, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not17.i = icmp eq ptr %.pr.i169, null
   br i1 %.not17.i, label %.split.i163, label %.preheader.i170
 
@@ -15682,7 +15676,7 @@ recoverLostAndFound1Step.exit.thread:             ; preds = %.lr.ph110.i.i, %rec
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_recover_run(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3_recover_run(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -15712,7 +15706,7 @@ sqlite3_recover_errcode.exit:                     ; preds = %7, %.split, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @sqlite3_recover_finish(ptr noundef %0) local_unnamed_addr #2 {
+define i32 @sqlite3_recover_finish(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -15765,7 +15759,7 @@ define i32 @sqlite3_recover_finish(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverFinalCleanup(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @recoverFinalCleanup(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   tail call fastcc void @recoverWriteDataCleanup(ptr noundef %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !407
@@ -15830,12 +15824,12 @@ define internal fastcc void @recoverFinalCleanup(ptr noundef nonnull captures(no
   ret void
 }
 
-declare i32 @sqlite3_get_autocommit(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_get_autocommit(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @zSkipValidUtf8(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #15 {
+define ptr @zSkipValidUtf8(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #14 {
   %4 = icmp slt i32 %1, 0
   %5 = sub nsw i32 0, %1
   %6 = select i1 %4, i32 %5, i32 0
@@ -16022,10 +16016,10 @@ define ptr @zSkipValidUtf8(ptr noundef %0, i32 noundef %1, i64 noundef %2) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @deduceDatabaseType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @deduceDatabaseType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [100 x i8], align 16
   %4 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.54)
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %11
 
@@ -16106,29 +16100,29 @@ define range(i32 0, 4) i32 @deduceDatabaseType(ptr noundef %0, i32 noundef %1) l
 
 47:                                               ; preds = %7, %45, %16, %10
   %.035 = phi i32 [ 1, %10 ], [ 1, %16 ], [ %.0, %45 ], [ 3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.035
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15
 
-declare i32 @sqlite3_strlike(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_strlike(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) #16
+declare noundef i32 @fclose(ptr noundef captures(none)) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #16
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @close_db(ptr noundef %0) local_unnamed_addr #2 {
+define void @close_db(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @sqlite3_close(ptr noundef %0) #43
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %3
@@ -16144,21 +16138,21 @@ define void @close_db(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @shellDeleteFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define noundef i32 @shellDeleteFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = tail call i32 @unlink(ptr noundef %0) #43
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @shellReset(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @shellReset(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @sqlite3_reset(ptr noundef %1) #43
   %4 = load i32, ptr %0, align 4, !tbaa !36
   %5 = icmp eq i32 %4, 0
@@ -16183,19 +16177,19 @@ define void @shellReset(ptr noundef captures(none) %0, ptr noundef %1) local_unn
   ret void
 }
 
-declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_db_handle(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_db_handle(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ShellState, align 8
   %5 = alloca [100 x i8], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = load ptr, ptr @stderr, align 8, !tbaa !14
   %8 = tail call i32 @setvbuf(ptr noundef %7, ptr noundef null, i32 noundef 2, i64 noundef 0) #43
   %9 = tail call i32 @isatty(i32 noundef 0) #43
@@ -16217,7 +16211,7 @@ define i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   br i1 %.not361, label %27, label %17
 
 17:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr @stderr, align 8, !tbaa !14
   %19 = tail call i32 @getpid() #43
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.61, i32 noundef %19) #46
@@ -16236,7 +16230,7 @@ define i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   unreachable
 
 26:                                               ; preds = %23, %17
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %29
 
 27:                                               ; preds = %15, %13
@@ -16464,10 +16458,10 @@ cmdline_option_value.exit397:                     ; preds = %121
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %148
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !36
   %152 = call i32 (i32, ...) @sqlite3_config(i32 noundef 30, ptr noundef nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cmdline_option_value.exit
 
 153:                                              ; preds = %148
@@ -17949,22 +17943,22 @@ clearTempFile.exit:                               ; preds = %828, %834, %836
 
 vfstrace_unregister.exit:                         ; preds = %682, %714, %692, %679, %669, %579, %848, %845, %842, %clearTempFile.exit
   %.2 = phi i32 [ %.5304, %clearTempFile.exit ], [ %.5304, %842 ], [ %.5304, %845 ], [ %.5304, %848 ], [ 1, %714 ], [ 1, %692 ], [ %680, %679 ], [ %671, %669 ], [ 0, %579 ], [ %673, %682 ]
-  call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #18
+declare i32 @isatty(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare i32 @atexit(ptr noundef) local_unnamed_addr #16
+declare i32 @atexit(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @sayAbnormalExit() #17 {
+define internal void @sayAbnormalExit() #16 {
   %1 = load volatile i32, ptr @seenInterrupt, align 4, !tbaa !36
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %5, label %2
@@ -17979,25 +17973,25 @@ define internal void @sayAbnormalExit() #17 {
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #18
+declare i32 @getpid() local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #20
+declare void @exit(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #18
+declare i32 @raise(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #18
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define internal void @interrupt_handler(i32 %0) #2 {
+define internal void @interrupt_handler(i32 %0) #1 {
   %2 = load volatile i32, ptr @seenInterrupt, align 4, !tbaa !36
   %3 = add nsw i32 %2, 1
   store volatile i32 %3, ptr @seenInterrupt, align 4, !tbaa !36
@@ -18021,10 +18015,10 @@ define internal void @interrupt_handler(i32 %0) #2 {
   ret void
 }
 
-declare ptr @sqlite3_sourceid() local_unnamed_addr #3
+declare ptr @sqlite3_sourceid() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @verify_uninitialized() unnamed_addr #2 {
+define internal fastcc void @verify_uninitialized() unnamed_addr #1 {
   %1 = tail call i32 (i32, ...) @sqlite3_config(i32 noundef -1) #43
   %2 = icmp eq i32 %1, 21
   br i1 %2, label %3, label %6
@@ -18039,10 +18033,10 @@ define internal fastcc void @verify_uninitialized() unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #17 {
+define internal fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #16 {
   %4 = icmp eq i32 %2, %0
   br i1 %4, label %5, label %13
 
@@ -18065,7 +18059,7 @@ define internal fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @integerValue(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc i64 @integerValue(ptr noundef %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !tbaa !25
   %.not32 = icmp eq i8 %2, 45
   %3 = icmp eq i8 %2, 43
@@ -18186,18 +18180,18 @@ hexDigitValue.exit.thread:                        ; preds = %.lr.ph, %23, %hexDi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #22
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #23
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #24
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #23
 
-declare i32 @sqlite3_initialize() local_unnamed_addr #3
+declare i32 @sqlite3_initialize() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @vfstraceOut(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
+define internal noundef i32 @vfstraceOut(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !470
   %5 = tail call i32 @fputs(ptr noundef %0, ptr noundef %4)
@@ -18207,10 +18201,10 @@ define internal noundef i32 @vfstraceOut(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #16
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @open_db(ptr noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #2 {
+define internal fastcc void @open_db(ptr noundef nonnull %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -18573,7 +18567,7 @@ shell_check_oom.exit:                             ; preds = %210
   br label %351
 
 216:                                              ; preds = %sqlite3_sqlar_init.exit, %sqlite3_sqlar_init.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !36
   %217 = icmp eq i8 %209, 5
   br i1 %217, label %218, label %220
@@ -18583,17 +18577,17 @@ shell_check_oom.exit:                             ; preds = %210
   br label %333
 
 220:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %221 = load ptr, ptr %13, align 8, !tbaa !461
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !463
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #43
-  call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i116 = icmp eq ptr %223, null
   br i1 %.not.i116, label %230, label %224
 
@@ -18809,12 +18803,12 @@ shell_check_oom.exit.i:                           ; preds = %250
 
 readHexDb.exit:                                   ; preds = %227, %314, %316, %330
   %.048.i = phi ptr [ null, %227 ], [ null, %330 ], [ %256, %316 ], [ %256, %314 ]
-  call void @llvm.lifetime.end.p0(i64 1000, ptr nonnull %8) #43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %333
 
 333:                                              ; preds = %readHexDb.exit, %218
@@ -18847,11 +18841,11 @@ readHexDb.exit:                                   ; preds = %227, %314, %316, %3
   br label %349
 
 349:                                              ; preds = %342, %346
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %351
 
 350:                                              ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %363
 
 351:                                              ; preds = %349, %sqlite3_sqlar_init.exit, %shell_check_oom.exit
@@ -18883,12 +18877,12 @@ readHexDb.exit:                                   ; preds = %227, %314, %316, %3
   ret void
 }
 
-declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare ptr @sqlite3_snprintf(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @sqlite3_libversion() local_unnamed_addr #3
+declare ptr @sqlite3_libversion() local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage() unnamed_addr #25 {
+define internal fastcc void @usage() unnamed_addr #24 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !14
   %2 = load ptr, ptr @Argv0, align 8, !tbaa !29
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.700, ptr noundef %2) #46
@@ -18899,7 +18893,7 @@ define internal fastcc void @usage() unnamed_addr #25 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_meta_command(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc i32 @do_meta_command(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca [52 x ptr], align 16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -18949,7 +18943,7 @@ define internal fastcc i32 @do_meta_command(ptr noundef %0, ptr noundef nonnull 
   %49 = alloca ptr, align 8
   %50 = alloca ptr, align 8
   %51 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4704
   %53 = load ptr, ptr %52, align 8, !tbaa !483
   %.not = icmp eq ptr %53, null
@@ -19255,7 +19249,7 @@ clearTempFile.exit:                               ; preds = %126, %134, %137, %1
   br i1 %181, label %182, label %.critedge2777.thread.thread4677
 
 182:                                              ; preds = %178, %172
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.709, ptr noundef nonnull %127)
   %.not4212 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4212, label %._crit_edge3940.thread, label %.lr.ph3939.preheader
@@ -19393,11 +19387,11 @@ clearTempFile.exit:                               ; preds = %126, %134, %137, %1
   br label %close_db.exit
 
 close_db.exit.thread:                             ; preds = %._crit_edge3940.thread, %214, %227, %203, %196
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %._crit_edge.thread
 
 close_db.exit:                                    ; preds = %240, %237
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %test_breakpoint.exit
 
 244:                                              ; preds = %165
@@ -19821,7 +19815,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %460, label %461, label %.thread3228
 
 461:                                              ; preds = %457
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %462 = load ptr, ptr %1, align 8, !tbaa !485
   %463 = call i32 @sqlite3_prepare_v2(ptr noundef %462, ptr noundef nonnull @.str.220, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #43
@@ -19942,7 +19936,7 @@ shell_check_oom.exit:                             ; preds = %475
   %.521434575 = phi i32 [ %.52143.ph, %.loopexit.thread ], [ 0, %.loopexit ], [ 0, %511 ]
   %.022374574 = phi ptr [ null, %.loopexit.thread ], [ %.22239, %.loopexit ], [ %.22239, %511 ]
   call void @sqlite3_free(ptr noundef %.022374574) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %test_breakpoint.exit
 
 521:                                              ; preds = %.critedge2777.thread.thread4677, %.critedge2777.thread
@@ -19974,7 +19968,7 @@ shell_check_oom.exit:                             ; preds = %475
   br i1 %532, label %533, label %570
 
 533:                                              ; preds = %527
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2745 = icmp ne i32 %.02122.lcssa.ph, 1
   %534 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -20046,7 +20040,7 @@ shell_check_oom.exit:                             ; preds = %475
   br label %.thread3226
 
 .thread3226:                                      ; preds = %.thread3225, %564
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %test_breakpoint.exit
 
 570:                                              ; preds = %527
@@ -20513,7 +20507,7 @@ shell_check_oom.exit:                             ; preds = %475
   br i1 %793, label %794, label %943
 
 794:                                              ; preds = %790
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !23
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2728 = icmp eq i32 %.02122.lcssa.ph, 1
@@ -20685,7 +20679,7 @@ shell_check_oom.exit:                             ; preds = %475
   br label %937
 
 869:                                              ; preds = %857, %857
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not2734 = icmp eq i32 %.221243271, 3
   br i1 %.not2734, label %870, label %877
 
@@ -20701,11 +20695,11 @@ shell_check_oom.exit:                             ; preds = %475
 
 877:                                              ; preds = %869, %870
   %.12289 = phi i32 [ 2, %870 ], [ 0, %869 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %926
 
 878:                                              ; preds = %857, %857
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %879 = add nsw i32 %.221243271, -4
   %or.cond60 = icmp ult i32 %879, -2
   br i1 %or.cond60, label %892, label %880
@@ -20732,11 +20726,11 @@ shell_check_oom.exit:                             ; preds = %475
 
 892:                                              ; preds = %878, %886
   %.22290 = phi i32 [ 1, %886 ], [ 0, %878 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %926
 
 893:                                              ; preds = %857, %857
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not2733 = icmp eq i32 %.221243271, 2
   br i1 %.not2733, label %894, label %899
 
@@ -20750,11 +20744,11 @@ shell_check_oom.exit:                             ; preds = %475
 
 899:                                              ; preds = %893, %894
   %.32291 = phi i32 [ 1, %894 ], [ 0, %893 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %926
 
 900:                                              ; preds = %857
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %.not2731 = icmp eq i32 %.221243271, 2
   br i1 %.not2731, label %901, label %910
@@ -20776,11 +20770,11 @@ shell_check_oom.exit:                             ; preds = %475
 
 910:                                              ; preds = %901, %905, %900
   %.42292 = phi i32 [ 0, %900 ], [ 2, %905 ], [ 2, %901 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %926
 
 911:                                              ; preds = %857
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %912 = icmp sgt i32 %.221243271, 2
   br i1 %912, label %913, label %.thread3273.thread3640
 
@@ -20802,7 +20796,7 @@ shell_check_oom.exit:                             ; preds = %475
   %923 = load ptr, ptr %922, align 8, !tbaa !470
   %924 = load i32, ptr %12, align 4, !tbaa !36
   %925 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %923, ptr noundef nonnull @.str.834, i32 noundef %924) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit3774
 
 926:                                              ; preds = %857, %877, %892, %899, %910, %858, %854
@@ -20826,18 +20820,18 @@ shell_check_oom.exit:                             ; preds = %475
   br i1 %936, label %937, label %.loopexit3774
 
 937:                                              ; preds = %.thread3273.thread, %.thread3273
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %938 = load i64, ptr %7, align 8, !tbaa !23
   %939 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 100, ptr noundef nonnull %13, ptr noundef nonnull @.str.167, i64 noundef %938) #43
   %940 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %941 = load ptr, ptr %940, align 8, !tbaa !470
   %942 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %941, ptr noundef nonnull @.str.310, ptr noundef nonnull %13) #43
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit3774
 
 .loopexit3774:                                    ; preds = %827, %.thread3273.thread3640, %929, %937, %.thread3273, %848
   %.10 = phi i32 [ 1, %848 ], [ 1, %929 ], [ 0, %937 ], [ 0, %.thread3273 ], [ 0, %.thread3273.thread3640 ], [ 1, %827 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %test_breakpoint.exit
 
 943:                                              ; preds = %790
@@ -20846,7 +20840,7 @@ shell_check_oom.exit:                             ; preds = %475
   br i1 %945, label %946, label %.thread4609
 
 946:                                              ; preds = %943
-  call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %14) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %14, ptr noundef nonnull align 8 dereferenceable(4720) %1, i64 4720, i1 false)
   %947 = getelementptr inbounds nuw i8, ptr %14, i64 112
   store i32 0, ptr %947, align 8, !tbaa !475
@@ -20894,14 +20888,14 @@ optionMatch.exit:                                 ; preds = %950
   br i1 %964, label %965, label %.thread3286
 
 965:                                              ; preds = %961
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %966 = load ptr, ptr %1, align 8, !tbaa !485
   %967 = call i32 @sqlite3_prepare_v2(ptr noundef %966, ptr noundef nonnull @.str.840, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #43
   %968 = icmp eq i32 %967, 0
   br i1 %968, label %969, label %.thread3290
 
 .thread3290:                                      ; preds = %965
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread3286
 
 969:                                              ; preds = %965
@@ -20910,7 +20904,7 @@ optionMatch.exit:                                 ; preds = %950
   %.not3658 = icmp eq i32 %971, 100
   %972 = load ptr, ptr %15, align 8, !tbaa !31
   %973 = call i32 @sqlite3_finalize(ptr noundef %972) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %.not3658, label %977, label %.thread3286
 
 .thread3286:                                      ; preds = %961, %.thread3290, %969
@@ -20937,7 +20931,7 @@ optionMatch.exit:                                 ; preds = %950
 
 986:                                              ; preds = %.thread3286, %977, %.thread3280
   %.12 = phi i32 [ 1, %.thread3280 ], [ 0, %977 ], [ %.133289, %.thread3286 ]
-  call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %14) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %test_breakpoint.exit
 
 987:                                              ; preds = %679
@@ -21001,9 +20995,9 @@ optionMatch.exit:                                 ; preds = %950
   br i1 %1023, label %1024, label %1474
 
 1024:                                             ; preds = %1020
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %17) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.851)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, i8 0, i64 72, i1 false)
   %1025 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -21291,7 +21285,7 @@ sub_13690:                                        ; preds = %sub_03689
   br i1 %or.cond2795, label %1165, label %1179
 
 1165:                                             ; preds = %1162
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1166 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 0, ptr %1166, align 1, !tbaa !25
   %1167 = trunc nuw i32 %1146 to i8
@@ -21311,7 +21305,7 @@ sub_13690:                                        ; preds = %sub_03689
   call fastcc void @output_c_string(ptr noundef %1177, ptr noundef nonnull %18)
   %1178 = load ptr, ptr %1168, align 8, !tbaa !470
   %fputc2705 = call i32 @fputc(i32 10, ptr %1178)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %1179
 
 1179:                                             ; preds = %1162, %1165
@@ -21387,9 +21381,9 @@ import_cleanup.exit:                              ; preds = %1186, %1188, %1190
   br i1 %1209, label %1210, label %1279
 
 1210:                                             ; preds = %1205
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr null, ptr %19, align 8, !tbaa !221
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr null, ptr %20, align 8, !tbaa !29
   %1211 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.866, ptr noundef nonnull %1207, ptr noundef nonnull %.12339.ph) #43
   %1212 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -21536,14 +21530,14 @@ import_cleanup.exit2930:                          ; preds = %1267, %1273, %1275
   br label %.thread3323
 
 .thread3323:                                      ; preds = %import_cleanup.exit2924, %import_cleanup.exit2930
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %.thread3336
 
 1278:                                             ; preds = %1264
   call void @sqlite3_free(ptr noundef nonnull %1249) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %1279
 
 1279:                                             ; preds = %1278, %1205, %._crit_edge3985
@@ -21966,13 +21960,13 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
 
 .thread3336:                                      ; preds = %._crit_edge3977.thread, %1108, %1111, %1118, %.thread3320, %1159, %import_cleanup.exit2936, %import_cleanup.exit2943, %1465, %1463, %1042, %1084, %.thread3323
   %.14.ph = phi i32 [ 1, %.thread3323 ], [ 1, %1042 ], [ 1, %1084 ], [ %.17, %1463 ], [ %.17, %1465 ], [ 1, %import_cleanup.exit2943 ], [ 1, %import_cleanup.exit2936 ], [ 1, %1159 ], [ 1, %.thread3320 ], [ 1, %1118 ], [ 1, %1111 ], [ 1, %1108 ], [ 1, %._crit_edge3977.thread ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %test_breakpoint.exit
 
 1473:                                             ; preds = %1310
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %17) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %._crit_edge.thread
 
 1474:                                             ; preds = %1020
@@ -21981,7 +21975,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
   br i1 %1476, label %1477, label %.critedge2800
 
 1477:                                             ; preds = %1474
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %1478 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %1479 = load i32, ptr %1478, align 4, !tbaa !462
   %1480 = and i32 %1479, 1024
@@ -22061,7 +22055,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
   %.024463945.us3962 = phi i32 [ %.124473342.us, %1547 ], [ 0, %.lr.ph3949 ]
   %.024453946.us3961 = phi i32 [ %1524, %1547 ], [ 0, %.lr.ph3949 ]
   %.024363947.us3960 = phi ptr [ %.12437.us, %1547 ], [ null, %.lr.ph3949 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %1522 = load ptr, ptr %21, align 8, !tbaa !31
   %1523 = call ptr @sqlite3_column_text(ptr noundef %1522, i32 noundef 2) #43
   %1524 = add nuw nsw i32 %.024453946.us3961, 1
@@ -22114,7 +22108,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
 1547:                                             ; preds = %1545, %1541
   %.124473342.us = phi i32 [ %.12447.us, %1541 ], [ %.124473343.us, %1545 ]
   %.12437.us = phi ptr [ %1542, %1541 ], [ %1546, %1545 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %1548 = load ptr, ptr %21, align 8, !tbaa !31
   %1549 = call i32 @sqlite3_step(ptr noundef %1548) #43
   %1550 = icmp eq i32 %1549, 100
@@ -22186,7 +22180,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
 
 1588:                                             ; preds = %1587, %1555, %1493, %1490, %1481
   %.18 = phi i32 [ 0, %1493 ], [ 1, %1555 ], [ %.19, %1587 ], [ 1, %1490 ], [ 1, %1481 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %test_breakpoint.exit
 
 .critedge2800:                                    ; preds = %1474
@@ -22388,7 +22382,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
   br i1 %1691, label %1692, label %1715
 
 1692:                                             ; preds = %1688
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr null, ptr %23, align 8, !tbaa !29
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.916)
   %1693 = icmp eq i32 %.02122.lcssa.ph, 1
@@ -22427,7 +22421,7 @@ import_cleanup.exit2946:                          ; preds = %1451, %1453, %1455
 
 1714:                                             ; preds = %1702, %1709, %1699
   %.24 = phi i32 [ 1, %1699 ], [ 1, %1709 ], [ 0, %1702 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %test_breakpoint.exit
 
 1715:                                             ; preds = %1688
@@ -23670,7 +23664,7 @@ shell_check_oom.exit3048:                         ; preds = %shell_check_oom.exi
   br i1 %2273, label %2274, label %.critedge2816
 
 2274:                                             ; preds = %2271
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8, !tbaa !31
   %2275 = load ptr, ptr %1, align 8, !tbaa !485
   %2276 = call i32 @sqlite3_prepare_v2(ptr noundef %2275, ptr noundef nonnull @.str.984, i32 noundef -1, ptr noundef nonnull %24, ptr noundef null) #43
@@ -23728,7 +23722,7 @@ shell_check_oom.exit3048:                         ; preds = %shell_check_oom.exi
   br label %2307
 
 2307:                                             ; preds = %.critedge136, %2285
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %test_breakpoint.exit
 
 .critedge2816:                                    ; preds = %2271
@@ -23750,7 +23744,7 @@ shell_check_oom.exit3048:                         ; preds = %shell_check_oom.exi
   br i1 %2316, label %2317, label %.critedge2817.thread
 
 2317:                                             ; preds = %2311
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2318 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %2319 = load ptr, ptr %2318, align 16, !tbaa !29
   %2320 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -23814,7 +23808,7 @@ shell_check_oom.exit3056._crit_edge:              ; preds = %shell_check_oom.exi
   %2345 = call i32 @sqlite3_step(ptr noundef %2344) #43
   %2346 = load ptr, ptr %25, align 8, !tbaa !31
   %2347 = call i32 @sqlite3_finalize(ptr noundef %2346) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %test_breakpoint.exit
 
 2348:                                             ; preds = %2261
@@ -24163,7 +24157,7 @@ shell_strncpy.exit3073:                           ; preds = %.lr.ph.i3068, %2461
   br i1 %2513, label %2514, label %.critedge2823
 
 2514:                                             ; preds = %2511
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.1007)
   switch i32 %.02122.lcssa.ph, label %2523 [
     i32 2, label %2515
@@ -24265,12 +24259,12 @@ shell_strncpy.exit3073:                           ; preds = %.lr.ph.i3068, %2461
 .thread3483:                                      ; preds = %2528, %2536
   %2557 = load ptr, ptr %26, align 8, !tbaa !221
   call void @close_db(ptr noundef %2557)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %._crit_edge.thread
 
 2558:                                             ; preds = %2555, %2523
   %.46 = phi i32 [ %.47, %2555 ], [ 1, %2523 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %test_breakpoint.exit
 
 .critedge2823:                                    ; preds = %.thread3478, %2511
@@ -24347,9 +24341,9 @@ sub_13726:                                        ; preds = %sub_03725
   br i1 %2596, label %2597, label %.critedge2825
 
 2597:                                             ; preds = %2594
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #43
-  call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %28) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store ptr null, ptr %29, align 8, !tbaa !29
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %28, ptr noundef nonnull align 8 dereferenceable(4720) %1, i64 4720, i1 false)
@@ -24452,8 +24446,8 @@ optionMatch.exit3093:                             ; preds = %optionMatch.exit308
   br i1 %2634, label %.critedge2827, label %._crit_edge4155.thread
 
 .critedge2827:                                    ; preds = %2629, %2626, %2623, %2632
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2635 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1024, ptr noundef nonnull %.12334) #43
   store ptr %2635, ptr %30, align 16, !tbaa !29
   %2636 = icmp eq ptr %2635, null
@@ -24471,8 +24465,8 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   store ptr null, ptr %2639, align 8, !tbaa !29
   call fastcc void @shell_callback(ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull readonly %30, ptr noundef nonnull readonly %31, ptr noundef null)
   call void @sqlite3_free(ptr noundef nonnull %2635) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %._crit_edge4155.thread
 
 ._crit_edge4155.thread:                           ; preds = %2597, %._crit_edge4155, %shell_check_oom.exit3094, %2632
@@ -24480,7 +24474,7 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   %.02328.lcssa4647 = phi i1 [ %2621, %._crit_edge4155 ], [ %2621, %shell_check_oom.exit3094 ], [ %2621, %2632 ], [ true, %2597 ]
   %.02330.lcssa4646 = phi i1 [ %2622, %._crit_edge4155 ], [ %2622, %shell_check_oom.exit3094 ], [ %2622, %2632 ], [ true, %2597 ]
   %.02333.lcssa4645 = phi ptr [ null, %._crit_edge4155 ], [ %.12334, %shell_check_oom.exit3094 ], [ %.12334, %2632 ], [ null, %2597 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store ptr null, ptr %32, align 8, !tbaa !31
   %2640 = load ptr, ptr %1, align 8, !tbaa !485
   %2641 = call i32 @sqlite3_prepare_v2(ptr noundef %2640, ptr noundef nonnull @.str.1026, i32 noundef -1, ptr noundef nonnull %32, ptr noundef null) #43
@@ -24492,7 +24486,7 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   call fastcc void @shellDatabaseError(ptr noundef %2642)
   %2643 = load ptr, ptr %32, align 8, !tbaa !31
   %2644 = call i32 @sqlite3_finalize(ptr noundef %2643) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %2700
 
 2645:                                             ; preds = %._crit_edge4155.thread
@@ -24507,7 +24501,7 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   %.023354159 = phi ptr [ @.str.1028, %2656 ], [ @.str.662, %2645 ]
   %2649 = load ptr, ptr %32, align 8, !tbaa !31
   %2650 = call ptr @sqlite3_column_text(ptr noundef %2649, i32 noundef 0) #43
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %33) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %2651 = add nuw nsw i32 %.023324160, 1
   %2652 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %33, ptr noundef nonnull @.str.305, i32 noundef %2651) #43
   call fastcc void @appendText(ptr noundef nonnull %27, ptr noundef nonnull %.023354159, i8 noundef signext 0)
@@ -24533,7 +24527,7 @@ shell_check_oom.exit3094:                         ; preds = %.critedge2827
   %2657 = call fastcc signext i8 @quoteChar(ptr noundef %2650)
   call fastcc void @appendText(ptr noundef nonnull %27, ptr noundef %2650, i8 noundef signext %2657)
   call fastcc void @appendText(ptr noundef nonnull %27, ptr noundef nonnull @.str.1034, i8 noundef signext 0)
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %33) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %2658 = load ptr, ptr %32, align 8, !tbaa !31
   %2659 = call i32 @sqlite3_step(ptr noundef %2658) #43
   %2660 = icmp eq i32 %2659, 100
@@ -24628,7 +24622,7 @@ shell_check_oom.exit3095:                         ; preds = %2663
   %2690 = phi ptr [ %2682, %2679 ], [ %2686, %2684 ]
   %.51 = phi i1 [ true, %2679 ], [ %2688, %2684 ]
   call void @free(ptr noundef %2690) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %2691 = load ptr, ptr %29, align 8, !tbaa !29
   %.not2654 = icmp eq ptr %2691, null
   br i1 %.not2654, label %2696, label %2692
@@ -24650,9 +24644,9 @@ shell_check_oom.exit3095:                         ; preds = %2663
 
 2700:                                             ; preds = %.thread3495, %2692, %2697, %2696, %2617, %2612
   %.48 = phi i32 [ 1, %2612 ], [ 1, %2617 ], [ 1, %2692 ], [ 1, %2697 ], [ 0, %2696 ], [ 1, %.thread3495 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #43
-  call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %28) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %test_breakpoint.exit
 
 .critedge2825:                                    ; preds = %2594
@@ -24680,7 +24674,7 @@ shell_check_oom.exit3095:                         ; preds = %2663
   br i1 %2710, label %2711, label %2720
 
 2711:                                             ; preds = %2708, %2702
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %.not2645 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not2645, label %2717, label %2712
 
@@ -24695,7 +24689,7 @@ shell_check_oom.exit3095:                         ; preds = %2663
   %2718 = phi i32 [ %2716, %2712 ], [ -1, %2711 ]
   store i32 %2718, ptr %34, align 4, !tbaa !36
   %2719 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 1, ptr noundef nonnull %34) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %test_breakpoint.exit
 
 2720:                                             ; preds = %.thread3499, %2708, %.critedge2825.thread
@@ -24711,8 +24705,8 @@ shell_check_oom.exit3095:                         ; preds = %2663
   br i1 %2726, label %2727, label %2841
 
 2727:                                             ; preds = %2723
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store ptr null, ptr %36, align 8, !tbaa !31
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not4232 = icmp eq i32 %.02122.lcssa.ph, 1
@@ -24871,7 +24865,7 @@ sub_13731:                                        ; preds = %2732
   br i1 %2795, label %2796, label %.thread3511
 
 2796:                                             ; preds = %2793
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store ptr null, ptr %37, align 8, !tbaa !29
   store i32 0, ptr %2758, align 8, !tbaa !575
   %2797 = load ptr, ptr %35, align 8, !tbaa !572
@@ -24922,7 +24916,7 @@ sub_13731:                                        ; preds = %2732
 2825:                                             ; preds = %2814, %2818, %2809
   %.52299 = phi i32 [ %2810, %2809 ], [ %2819, %2818 ], [ %.122954139, %2814 ]
   %.62 = phi i32 [ 1, %2809 ], [ 1, %2818 ], [ 0, %2814 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %2828
 
 .thread3511:                                      ; preds = %2793
@@ -24961,8 +24955,8 @@ sub_13731:                                        ; preds = %2732
 
 2840:                                             ; preds = %.tail3729.thread, %2836, %2767
   %.55 = phi i32 [ 1, %.tail3729.thread ], [ 1, %2767 ], [ %.59, %2836 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %test_breakpoint.exit
 
 2841:                                             ; preds = %2723, %2720
@@ -25014,9 +25008,9 @@ sub_13731:                                        ; preds = %2732
   br i1 %2868, label %2869, label %3021
 
 2869:                                             ; preds = %2865
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not4231 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4231, label %._crit_edge4119, label %.lr.ph4118.preheader
@@ -25283,7 +25277,7 @@ shell_check_oom.exit3119:                         ; preds = %2965
 2986:                                             ; preds = %2982
   %2987 = load ptr, ptr %38, align 8, !tbaa !31
   %2988 = call ptr @sqlite3_column_text(ptr noundef %2987, i32 noundef 0) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %2989 = load ptr, ptr %1, align 8, !tbaa !485
   %2990 = call i32 @sqlite3_prepare_v2(ptr noundef %2989, ptr noundef %2988, i32 noundef -1, ptr noundef nonnull %41, ptr noundef null) #43
   br i1 %.02267.lcssa, label %2995, label %2991
@@ -25324,13 +25318,13 @@ shell_check_oom.exit3119:                         ; preds = %2965
   %3012 = call i32 @sqlite3_finalize(ptr noundef %3011) #43
   %3013 = load ptr, ptr %38, align 8, !tbaa !31
   %3014 = call i32 @sqlite3_finalize(ptr noundef %3013) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.thread3536
 
 3015:                                             ; preds = %2995
   %3016 = load ptr, ptr %38, align 8, !tbaa !31
   %3017 = call i32 @sqlite3_finalize(ptr noundef %3016) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %.thread3540
 
 .thread3540:                                      ; preds = %2975, %3015
@@ -25346,9 +25340,9 @@ shell_check_oom.exit3119:                         ; preds = %2965
 
 3020:                                             ; preds = %2900, %2907, %.thread3536
   %.66 = phi i32 [ %.673539, %.thread3536 ], [ 1, %2900 ], [ 1, %2907 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %test_breakpoint.exit
 
 3021:                                             ; preds = %2865, %2864
@@ -25672,8 +25666,8 @@ switch.lookup:                                    ; preds = %3124
   br i1 %3210, label %3211, label %3318
 
 3211:                                             ; preds = %3208, %3204, %3199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %3212 = load ptr, ptr %1, align 8, !tbaa !485
@@ -25952,14 +25946,14 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
 .thread3554:                                      ; preds = %3246, %.critedge3757, %3214
   %3316 = load ptr, ptr %1, align 8, !tbaa !485
   call fastcc void @shellDatabaseError(ptr noundef %3316)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %._crit_edge.thread
 
 3317:                                             ; preds = %._crit_edge4099, %3222
   %.71 = phi i32 [ 1, %3222 ], [ %.7335524655, %._crit_edge4099 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %test_breakpoint.exit
 
 3318:                                             ; preds = %3208, %3203
@@ -26009,7 +26003,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   br i1 %3342, label %3343, label %3790
 
 3343:                                             ; preds = %3339
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 0, ptr %44, align 4, !tbaa !36
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2588 = icmp eq i32 %.02122.lcssa.ph, 1
@@ -26161,7 +26155,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   ]
 
 3408:                                             ; preds = %3407
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %3409 = load ptr, ptr %1, align 8, !tbaa !485
   %3410 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 16, ptr noundef %3409, ptr noundef nonnull %45) #43
   %3411 = load i32, ptr %45, align 4, !tbaa !36
@@ -26279,8 +26273,8 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
 3468:                                             ; preds = %3454
   %3469 = load ptr, ptr @stderr, align 8, !tbaa !14
   %fputc2602 = call i32 @fputc(i32 10, ptr %3469)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %test_breakpoint.exit
 
 .thread3566:                                      ; preds = %3466, %3463, %.thread3559
@@ -26386,7 +26380,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   %3514 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %3515 = load ptr, ptr %3514, align 8, !tbaa !470
   %fputc = call i32 @fputc(i32 10, ptr %3515)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   br label %.thread3617
 
 3516:                                             ; preds = %3407
@@ -26431,7 +26425,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   br i1 %or.cond185, label %3541, label %3772
 
 3541:                                             ; preds = %3538
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %3542 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %3543 = load ptr, ptr %3542, align 16, !tbaa !29
   %3544 = tail call fastcc i64 @integerValue(ptr noundef %3543)
@@ -26466,7 +26460,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   %.02190 = phi ptr [ %3557, %3556 ], [ null, %3555 ]
   %3560 = load i32, ptr %46, align 4, !tbaa !36
   %3561 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 28, i32 noundef %3560, ptr noundef %.02190) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.thread3617
 
 3562:                                             ; preds = %3407, %3407
@@ -26517,7 +26511,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   br label %.thread3617
 
 3592:                                             ; preds = %3407
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 0, ptr %47, align 8, !tbaa !23
   %3593 = load ptr, ptr %1, align 8, !tbaa !485
   %3594 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 30, ptr noundef %3593, ptr noundef nonnull %47) #43
@@ -26526,7 +26520,7 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
   %3596 = load ptr, ptr %3595, align 8, !tbaa !470
   %3597 = load i64, ptr %47, align 8, !tbaa !23
   %3598 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3596, ptr noundef nonnull @.str.1203, i64 noundef %3597) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %.thread3617
 
 3599:                                             ; preds = %3407
@@ -26884,7 +26878,7 @@ sub_13751:                                        ; preds = %sub_03750
 
 .thread3617:                                      ; preds = %3376, %3398, %3781, %.thread3609, %3774, %3772, %.thread3573, %._crit_edge4064, %3768, %3601, %3592, %3581, %3576, %3571, %3559, %3532, %3527, %3518
   %.74.ph = phi i32 [ 0, %3781 ], [ 0, %.thread3609 ], [ 1, %3774 ], [ 1, %3398 ], [ 0, %3772 ], [ 0, %3518 ], [ 0, %3527 ], [ 0, %3532 ], [ 0, %3559 ], [ 0, %3571 ], [ 0, %3576 ], [ 0, %3581 ], [ 0, %3592 ], [ 0, %3601 ], [ %.823592, %3768 ], [ 0, %._crit_edge4064 ], [ 0, %.thread3573 ], [ 1, %3376 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %test_breakpoint.exit
 
 3790:                                             ; preds = %3339, %3337
@@ -27101,7 +27095,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
 3887:                                             ; preds = %3884
   %3888 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %3889 = load ptr, ptr %3888, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store ptr null, ptr %48, align 8, !tbaa !618
   %3890 = load ptr, ptr %1, align 8, !tbaa !485
   %.not2579 = icmp eq ptr %3890, null
@@ -27138,7 +27132,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   br label %3916
 
 3916:                                             ; preds = %3891, %3896, %3887
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %test_breakpoint.exit
 
 .critedge2850:                                    ; preds = %3884
@@ -27147,7 +27141,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   br i1 %3918, label %3919, label %.critedge2851
 
 3919:                                             ; preds = %.critedge2850
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store ptr null, ptr %49, align 8, !tbaa !618
   %3920 = load ptr, ptr %1, align 8, !tbaa !485
   %.not2576 = icmp eq ptr %3920, null
@@ -27199,7 +27193,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   br i1 %.not2577, label %._crit_edge4049, label %3926, !llvm.loop !620
 
 ._crit_edge4049:                                  ; preds = %3926, %3947, %3923
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %test_breakpoint.exit
 
 .critedge2851:                                    ; preds = %.critedge2850
@@ -27210,7 +27204,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
 3952:                                             ; preds = %.critedge2851
   %3953 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %3954 = load ptr, ptr %3953, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store ptr null, ptr %50, align 8, !tbaa !29
   %3955 = load ptr, ptr %1, align 8, !tbaa !485
   %.not2574 = icmp eq ptr %3955, null
@@ -27233,7 +27227,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   br label %3966
 
 3966:                                             ; preds = %3956, %3961, %3952
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %test_breakpoint.exit
 
 .critedge2852:                                    ; preds = %3867, %.critedge2851
@@ -27246,7 +27240,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   br i1 %3970, label %3971, label %3980
 
 3971:                                             ; preds = %3967
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %.not2573 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not2573, label %3977, label %3972
 
@@ -27261,7 +27255,7 @@ output_file_close.exit3184:                       ; preds = %3847, %3851
   %3978 = phi i32 [ %3976, %3972 ], [ -1, %3971 ]
   store i32 %3978, ptr %51, align 4, !tbaa !36
   %3979 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 3, ptr noundef nonnull %51) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %test_breakpoint.exit
 
 3980:                                             ; preds = %3967
@@ -27352,19 +27346,19 @@ test_breakpoint.exit:                             ; preds = %.thread3222, %.lr.p
 
 ._crit_edge.thread:                               ; preds = %55, %.thread3554, %.thread3483, %1473, %close_db.exit.thread, %._crit_edge, %4014, %1994
   %.02113 = phi i32 [ %.02138, %4014 ], [ 0, %1473 ], [ 0, %1994 ], [ 0, %._crit_edge ], [ 1, %close_db.exit.thread ], [ 1, %.thread3483 ], [ 1, %.thread3554 ], [ 0, %55 ]
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.02113
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @shell_exec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @shell_exec(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %0, align 8, !tbaa !485
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %9
@@ -27476,15 +27470,15 @@ define internal fastcc i32 @shell_exec(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %66, label %67, label %137
 
 67:                                               ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
   %68 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 0, ptr noundef nonnull @savedSelectTrace) #43
   %69 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 1, ptr noundef nonnull %4) #43
   %70 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 2, ptr noundef nonnull @savedWhereTrace) #43
   %71 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 3, ptr noundef nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %8, i32 noundef 1008, i32 noundef -1, ptr noundef nonnull %7) #43
   %73 = load i8, ptr %16, align 1, !tbaa !476
   %74 = icmp ugt i8 %73, 1
@@ -27615,7 +27609,7 @@ eqp_append.exit:                                  ; preds = %108, %110
   %133 = call i32 @sqlite3_stmt_explain(ptr noundef %132, i32 noundef 0) #43
   %134 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 1, ptr noundef nonnull @savedSelectTrace) #43
   %135 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 3, ptr noundef nonnull @savedWhereTrace) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %136 = icmp eq i32 %.3103, 7
   br label %137
 
@@ -27726,13 +27720,13 @@ eqp_append.exit:                                  ; preds = %108, %110
 
 .loopexit125:                                     ; preds = %.backedge, %33, %34, %.preheader, %26
   %.0 = phi i32 [ %30, %26 ], [ 0, %.preheader ], [ %32, %34 ], [ %32, %33 ], [ %.0100.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @arDotCommand(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @arDotCommand(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -27740,12 +27734,12 @@ define internal fastcc i32 @arDotCommand(ptr noundef nonnull %0, i32 noundef ran
   %9 = alloca i32, align 4
   %10 = alloca [13 x %struct.ArSwitch], align 16
   %11 = alloca %struct.ArCommand, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, i8 0, i64 72, i1 false)
   %12 = trunc nuw nsw i32 %1 to i8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 6
   store i8 %12, ptr %13, align 2, !tbaa !637
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %10, ptr noundef nonnull align 16 dereferenceable(208) @__const.arParseCommand.aSwitch, i64 208, i1 false)
   %14 = icmp slt i32 %3, 2
   br i1 %14, label %15, label %20
@@ -28240,11 +28234,11 @@ arProcessSwitch.exit.i:                           ; preds = %61
   br label %arParseCommand.exit.thread
 
 arParseCommand.exit.thread:                       ; preds = %15, %199, %192, %165, %170, %175, %arProcessSwitch.exit.i, %46, %51, %122, %111, %140
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %546
 
 204:                                              ; preds = %.critedge185.i
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %0, ptr %205, align 8, !tbaa !660
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -28437,9 +28431,9 @@ sqlite3_fileio_init.exit:                         ; preds = %254, %258, %261, %2
   br label %546
 
 302:                                              ; preds = %298
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %303 = call fastcc i32 @arCheckEntries(ptr noundef nonnull readonly %11)
   store i32 %303, ptr %9, align 4, !tbaa !36
   %304 = getelementptr inbounds nuw i8, ptr %11, i64 5
@@ -28657,14 +28651,14 @@ arExtractCommand.exit:                            ; preds = %arWhereClause.exit.
   call void @sqlite3_free(ptr noundef %.020.i) #43
   call void @sqlite3_free(ptr noundef %.019.i28.i) #43
   %408 = load i32, ptr %9, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %546
 
 409:                                              ; preds = %298
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %410 = call fastcc i32 @arCheckEntries(ptr noundef nonnull readonly %11)
   store i32 %410, ptr %7, align 4, !tbaa !36
   %411 = getelementptr inbounds nuw i8, ptr %11, i64 5
@@ -28808,8 +28802,8 @@ arWhereClause.exit.i65:                           ; preds = %423, %436, %421, %.
 arListCommand.exit:                               ; preds = %.critedge.shellFinalize.exit_crit_edge.i, %475, %480, %481
   %485 = phi i32 [ %.pre.i, %.critedge.shellFinalize.exit_crit_edge.i ], [ %478, %475 ], [ %477, %481 ], [ 0, %480 ]
   call void @sqlite3_free(ptr noundef %.019.i.i) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %546
 
 486:                                              ; preds = %298
@@ -28890,7 +28884,7 @@ arWhereClause.exit.thread.i:                      ; preds = %507, %505, %.prehea
   br label %arRemoveCommand.exit
 
 527:                                              ; preds = %arWhereClause.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !29
   %528 = load ptr, ptr %210, align 8, !tbaa !662
   %529 = call i32 @sqlite3_exec(ptr noundef %528, ptr noundef nonnull @.str.1843, ptr noundef null, ptr noundef null, ptr noundef null) #43
@@ -28927,7 +28921,7 @@ arWhereClause.exit.thread.i:                      ; preds = %507, %505, %.prehea
 
 .thread.i83:                                      ; preds = %540, %539, %527
   %.236.i = phi i32 [ %.2.ph.i, %540 ], [ %.2.ph.i, %539 ], [ %529, %527 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %arRemoveCommand.exit
 
 arRemoveCommand.exit:                             ; preds = %511, %494, %524, %.thread.i83
@@ -28965,24 +28959,24 @@ arRemoveCommand.exit:                             ; preds = %511, %494, %524, %.
   %557 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %558 = load ptr, ptr %557, align 8, !tbaa !663
   call void @sqlite3_free(ptr noundef %558) #43
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
-declare i32 @read_history(ptr noundef) local_unnamed_addr #3
+declare i32 @read_history(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @readline_completion(ptr noundef %0, i32 %1, i32 %2) #2 {
+define internal ptr @readline_completion(ptr noundef %0, i32 %1, i32 %2) #1 {
   store i32 1, ptr @rl_attempted_completion_over, align 4, !tbaa !36
   %4 = tail call ptr @rl_completion_matches(ptr noundef %0, ptr noundef nonnull @readline_completion_generator) #43
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_input(ptr noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @process_input(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !669
   %4 = icmp eq i32 %3, 25
@@ -29676,12 +29670,12 @@ echo_group_input.exit158:                         ; preds = %275, %278
   ret i32 %.0117
 }
 
-declare void @stifle_history(i32 noundef) local_unnamed_addr #3
+declare void @stifle_history(i32 noundef) local_unnamed_addr #2
 
-declare i32 @write_history(ptr noundef) local_unnamed_addr #3
+declare i32 @write_history(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @expertFinish(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @expertFinish(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4704
   %5 = load ptr, ptr %4, align 8, !tbaa !483
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -29833,7 +29827,7 @@ sqlite3_expert_report.exit70._crit_edge:          ; preds = %sqlite3_expert_repo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_table_name(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @set_table_name(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !484
   %.not = icmp eq ptr %4, null
@@ -29977,7 +29971,7 @@ shell_check_oom.exit:                             ; preds = %quoteChar.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_reset(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @output_reset(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i8, ptr %2, align 8, !tbaa !25
   %4 = icmp eq i8 %3, 124
@@ -30067,7 +30061,7 @@ output_file_close.exit:                           ; preds = %17, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memtraceMalloc(i32 noundef %0) #2 {
+define internal ptr @memtraceMalloc(i32 noundef %0) #1 {
   %2 = load ptr, ptr @memtraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -30085,7 +30079,7 @@ define internal ptr @memtraceMalloc(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @memtraceFree(ptr noundef %0) #2 {
+define internal void @memtraceFree(ptr noundef %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -30110,7 +30104,7 @@ define internal void @memtraceFree(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memtraceRealloc(ptr noundef %0, i32 noundef %1) #2 {
+define internal ptr @memtraceRealloc(ptr noundef %0, i32 noundef %1) #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %12
 
@@ -30172,35 +30166,35 @@ memtraceFree.exit:                                ; preds = %15, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memtraceSize(ptr noundef %0) #2 {
+define internal i32 @memtraceSize(ptr noundef %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memtraceBase, i64 24), align 8, !tbaa !684
   %3 = tail call i32 %2(ptr noundef %0) #43
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memtraceRoundup(i32 noundef %0) #2 {
+define internal i32 @memtraceRoundup(i32 noundef %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memtraceBase, i64 32), align 8, !tbaa !683
   %3 = tail call i32 %2(i32 noundef %0) #43
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memtraceInit(ptr noundef %0) #2 {
+define internal i32 @memtraceInit(ptr noundef %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memtraceBase, i64 40), align 8, !tbaa !687
   %3 = tail call i32 %2(ptr noundef %0) #43
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @memtraceShutdown(ptr noundef %0) #2 {
+define internal void @memtraceShutdown(ptr noundef %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @memtraceBase, i64 48), align 8, !tbaa !688
   tail call void %2(ptr noundef %0) #43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcachetraceInit(ptr noundef %0) #2 {
+define internal i32 @pcachetraceInit(ptr noundef %0) #1 {
   %2 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -30225,7 +30219,7 @@ define internal i32 @pcachetraceInit(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceShutdown(ptr noundef %0) #2 {
+define internal void @pcachetraceShutdown(ptr noundef %0) #1 {
   %2 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -30241,7 +30235,7 @@ define internal void @pcachetraceShutdown(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pcachetraceCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal ptr @pcachetraceCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -30266,7 +30260,7 @@ define internal ptr @pcachetraceCreate(i32 noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceCachesize(ptr noundef %0, i32 noundef %1) #2 {
+define internal void @pcachetraceCachesize(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -30282,7 +30276,7 @@ define internal void @pcachetraceCachesize(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pcachetracePagecount(ptr noundef %0) #2 {
+define internal i32 @pcachetracePagecount(ptr noundef %0) #1 {
   %2 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -30307,7 +30301,7 @@ define internal i32 @pcachetracePagecount(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @pcachetraceFetch(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
+define internal ptr @pcachetraceFetch(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -30332,7 +30326,7 @@ define internal ptr @pcachetraceFetch(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceUnpin(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal void @pcachetraceUnpin(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -30348,7 +30342,7 @@ define internal void @pcachetraceUnpin(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceRekey(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #2 {
+define internal void @pcachetraceRekey(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -30364,7 +30358,7 @@ define internal void @pcachetraceRekey(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceTruncate(ptr noundef %0, i32 noundef %1) #2 {
+define internal void @pcachetraceTruncate(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -30380,7 +30374,7 @@ define internal void @pcachetraceTruncate(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceDestroy(ptr noundef %0) #2 {
+define internal void @pcachetraceDestroy(ptr noundef %0) #1 {
   %2 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -30396,7 +30390,7 @@ define internal void @pcachetraceDestroy(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pcachetraceShrink(ptr noundef %0) #2 {
+define internal void @pcachetraceShrink(ptr noundef %0) #1 {
   %2 = load ptr, ptr @pcachetraceOut, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -30411,22 +30405,22 @@ define internal void @pcachetraceShrink(ptr noundef %0) #2 {
   ret void
 }
 
-declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_value_int(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_value_int(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_blob(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @SHA3Final(ptr noundef nonnull captures(ret: address, provenance) %0) unnamed_addr #26 {
+define internal fastcc nonnull ptr @SHA3Final(ptr noundef nonnull captures(ret: address, provenance) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %3 = load i32, ptr %2, align 4, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1600
@@ -30522,7 +30516,7 @@ SHA3Update.exit:                                  ; preds = %SHA3Update.exitthre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @KeccakF1600Step(ptr noundef nonnull captures(none) %0) unnamed_addr #26 {
+define internal fastcc void @KeccakF1600Step(ptr noundef nonnull captures(none) %0) unnamed_addr #25 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -31265,10 +31259,10 @@ define internal fastcc void @KeccakF1600Step(ptr noundef nonnull captures(none) 
   ret void
 }
 
-declare ptr @sqlite3_aggregate_context(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_aggregate_context(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sha3UpdateFromValue(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @sha3UpdateFromValue(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca [9 x i8], align 1
   %4 = alloca [9 x i8], align 1
   %5 = tail call i32 @sqlite3_value_type(ptr noundef %1) #43
@@ -31302,7 +31296,7 @@ define internal fastcc void @sha3UpdateFromValue(ptr noundef nonnull captures(no
   br label %SHA3Update.exit
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = tail call i64 @sqlite3_value_int64(ptr noundef %1) #43
   br label %20
 
@@ -31386,11 +31380,11 @@ define internal fastcc void @sha3UpdateFromValue(ptr noundef nonnull captures(no
   br i1 %exitcond.not.i38, label %SHA3Update.exit39, label %46, !llvm.loop !28
 
 SHA3Update.exit39:                                ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SHA3Update.exit
 
 62:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %63 = tail call double @sqlite3_value_double(ptr noundef %1) #43
   %64 = bitcast double %63 to i64
   br label %65
@@ -31475,7 +31469,7 @@ SHA3Update.exit39:                                ; preds = %59
   br i1 %exitcond.not.i47, label %SHA3Update.exit51, label %91, !llvm.loop !28
 
 SHA3Update.exit51:                                ; preds = %104
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %SHA3Update.exit
 
 107:                                              ; preds = %2
@@ -31672,16 +31666,16 @@ SHA3Update.exit:                                  ; preds = %209, %157, %.lr.ph3
   ret void
 }
 
-declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #3
+declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #2
 
-declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #3
+declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sha3_step_vformat(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @sha3_step_vformat(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [50 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call ptr @sqlite3_vsnprintf(i32 noundef 50, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -31771,29 +31765,29 @@ define internal void @sha3_step_vformat(ptr noundef nonnull captures(none) %0, p
   br i1 %exitcond, label %SHA3Update.exit, label %37, !llvm.loop !28
 
 SHA3Update.exit:                                  ; preds = %50, %.loopexit29.i
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @sqlite3_vsnprintf(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_vsnprintf(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_context_db_handle(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_context_db_handle(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_stmt_readonly(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_stmt_readonly(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_column_value(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_column_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @hash_finish(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #26 {
+define internal fastcc void @hash_finish(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #25 {
   %4 = alloca [8 x i8], align 8
   %5 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %7
 
@@ -31984,13 +31978,13 @@ hash_step.exit37:                                 ; preds = %._crit_edge, %68
   br label %102
 
 102:                                              ; preds = %100, %86
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @SHA1Transform(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
+define internal fastcc void @SHA1Transform(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -33017,11 +33011,11 @@ define internal fastcc void @SHA1Transform(ptr noundef nonnull captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hash_step_vformat(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @hash_step_vformat(ptr noundef nonnull captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [50 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call ptr @sqlite3_vsnprintf(i32 noundef 50, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -33087,28 +33081,28 @@ hash_step.exit:                                   ; preds = %.lr.ph.i, %24, %37
   %43 = sub i32 %7, %.1.i
   %44 = zext i32 %43 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %42, i64 %44, i1 false)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_text(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_text(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #27
+declare ptr @__ctype_b_loc() local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = tail call i32 @sqlite3_value_type(ptr noundef %1) #43
   %.not = icmp eq i32 %2, 0
   %5 = icmp eq i32 %4, 2
@@ -33179,9 +33173,9 @@ define internal fastcc ptr @decimal_new(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 
@@ -33345,12 +33339,12 @@ define internal fastcc void @decimal_result_sci(ptr noundef %0, ptr noundef read
   br label %79
 
 79:                                               ; preds = %72, %44, %12, %8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -33535,7 +33529,7 @@ define internal fastcc void @decimal_result(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 24) #43
   %cond = icmp eq ptr %3, null
   br i1 %cond, label %.thread188, label %4
@@ -33839,9 +33833,9 @@ define internal fastcc ptr @decimalNewFromText(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decimalFromDouble(double noundef %0) unnamed_addr #2 {
+define internal fastcc ptr @decimalFromDouble(double noundef %0) unnamed_addr #1 {
   %2 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = fcmp uge double %0, 0.000000e+00
   %4 = fneg double %0
   %.025 = select i1 %3, double %0, double %4
@@ -33904,19 +33898,19 @@ define internal fastcc ptr @decimalFromDouble(double noundef %0) unnamed_addr #2
 
 decimal_free.exit:                                ; preds = %31, %25, %.critedge
   %.0 = phi ptr [ null, %.critedge ], [ %29, %25 ], [ %29, %31 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare void @sqlite3_result_error_nomem(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_error_nomem(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_realloc64(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_realloc64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @decimalPow2(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc ptr @decimalPow2(i32 noundef %0) unnamed_addr #1 {
   %2 = add i32 %0, -20001
   %or.cond = icmp ult i32 %2, -40001
   br i1 %or.cond, label %decimal_free.exit39, label %3
@@ -33998,7 +33992,7 @@ decimal_free.exit39:                              ; preds = %decimal_free.exit39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimalMul(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @decimalMul(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
@@ -34185,12 +34179,12 @@ define internal fastcc void @decimalMul(ptr noundef captures(address_is_null) %0
   ret void
 }
 
-declare void @sqlite3_result_null(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_null(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @sqlite3_result_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_add(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @decimal_add(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -34365,7 +34359,7 @@ define internal fastcc void @decimal_add(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decimal_expand(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @decimal_expand(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = sub nsw i32 %2, %5
@@ -34431,13 +34425,13 @@ define internal fastcc void @decimal_expand(ptr noundef nonnull captures(none) %
   ret void
 }
 
-declare i32 @sqlite3_value_numeric_type(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_value_numeric_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @percentError(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @percentError(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -34454,14 +34448,14 @@ define internal void @percentError(ptr noundef %0, ptr noundef %1, ...) unnamed_
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef %10, i32 noundef -1) #43
   call void @sqlite3_free(ptr noundef %5) #43
   call void @sqlite3_free(ptr noundef %10) #43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @sqlite3_vmprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_vmprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @percentCompute(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
+define internal fastcc void @percentCompute(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %4 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 0) #43
   %5 = icmp eq ptr %4, null
@@ -34555,7 +34549,7 @@ define internal fastcc void @percentCompute(ptr noundef %0, i32 noundef range(i3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @percentSort(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #28 {
+define internal fastcc void @percentSort(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #27 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %67, %2
@@ -34708,20 +34702,20 @@ tailrecurse:                                      ; preds = %67, %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #29
+declare double @llvm.fmuladd.f64(double, double, double) #28
 
-declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #3
+declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_limit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_limit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_zeroblob(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @sqlite3_result_zeroblob(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @seriesConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #2 {
+define internal i32 @seriesConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = tail call i32 @sqlite3_declare_vtab(ptr noundef %0, ptr noundef nonnull @.str.191) #43
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %14
@@ -34743,9 +34737,9 @@ define internal i32 @seriesConnect(ptr noundef %0, ptr readnone captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 20) i32 @seriesBestIndex(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #2 {
+define internal range(i32 0, 20) i32 @seriesBestIndex(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = alloca [7 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -35022,18 +35016,18 @@ define internal range(i32 0, 20) i32 @seriesBestIndex(ptr noundef captures(none)
 
 130:                                              ; preds = %96, %127, %92
   %.0 = phi i32 [ 0, %127 ], [ 1, %92 ], [ 19, %96 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @seriesDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
+define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 80) #43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -35049,13 +35043,13 @@ define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesClose(ptr noundef %0) #2 {
+define internal noundef i32 @seriesClose(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesFilter(ptr noundef captures(none) initializes((8, 48)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #2 {
+define internal noundef i32 @seriesFilter(ptr noundef captures(none) initializes((8, 48)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = and i32 %1, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
@@ -35526,7 +35520,7 @@ setupSequence.exit:                               ; preds = %genSeqMember.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @seriesNext(ptr noundef captures(none) %0) #13 {
+define internal noundef i32 @seriesNext(ptr noundef captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8, !tbaa !771
   %.not.i = icmp eq i8 %3, 0
@@ -35585,7 +35579,7 @@ progressSequence.exit:                            ; preds = %10, %17, %22, %29, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @seriesEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 2) i32 @seriesEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8, !tbaa !778
   %.not = icmp eq i8 %3, 0
@@ -35594,7 +35588,7 @@ define internal range(i32 0, 2) i32 @seriesEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal noundef i32 @seriesColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %switch.tableidx = add i32 %2, -1
   %4 = icmp ult i32 %switch.tableidx, 3
   br i1 %4, label %switch.lookup, label %6
@@ -35614,7 +35608,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @seriesRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #13 {
+define internal noundef i32 @seriesRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !779
   %5 = add i64 %4, 1
@@ -35622,14 +35616,14 @@ define internal noundef i32 @seriesRowid(ptr noundef readonly captures(none) %0,
   ret i32 0
 }
 
-declare i32 @sqlite3_declare_vtab(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_declare_vtab(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_vtab_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #3
+declare i32 @sqlite3_vtab_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
-declare ptr @sqlite3_get_auxdata(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_get_auxdata(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sqlite3re_free(ptr noundef %0) #2 {
+define internal void @sqlite3re_free(ptr noundef %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -35647,10 +35641,10 @@ define internal void @sqlite3re_free(ptr noundef %0) #2 {
   ret void
 }
 
-declare void @sqlite3_set_auxdata(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_set_auxdata(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2097152) i32 @re_next_char_nocase(ptr noundef captures(none) %0) #30 {
+define internal range(i32 0, 2097152) i32 @re_next_char_nocase(ptr noundef captures(none) %0) #29 {
   %2 = tail call i32 @re_next_char(ptr noundef %0)
   %3 = add nsw i32 %2, -65
   %or.cond = icmp ult i32 %3, 26
@@ -35660,7 +35654,7 @@ define internal range(i32 0, 2097152) i32 @re_next_char_nocase(ptr noundef captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2097152) i32 @re_next_char(ptr noundef captures(none) %0) #30 {
+define internal range(i32 0, 2097152) i32 @re_next_char(ptr noundef captures(none) %0) #29 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !115
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -35816,7 +35810,7 @@ define internal range(i32 0, 2097152) i32 @re_next_char(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @re_subcompile_re(ptr noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc ptr @re_subcompile_re(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !106
   %4 = tail call fastcc ptr @re_subcompile_string(ptr noundef %0)
@@ -36017,7 +36011,7 @@ rePeek.exit.thread:                               ; preds = %re_append.exit, %re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @re_subcompile_string(ptr noundef nonnull %0) unnamed_addr #2 {
+define internal fastcc ptr @re_subcompile_string(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !99
   %4 = tail call i32 %3(ptr noundef nonnull %0) #43
@@ -37902,7 +37896,7 @@ rePeek.exit.thread:                               ; preds = %17, %rePeek.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -128, 65536) i32 @re_esc_char(ptr noundef nonnull captures(none) %0) unnamed_addr #31 {
+define internal fastcc range(i32 -128, 65536) i32 @re_esc_char(ptr noundef nonnull captures(none) %0) unnamed_addr #30 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -38154,10 +38148,10 @@ re_hex.exit:                                      ; preds = %53, %64, %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @readFileContents(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
+define internal fastcc void @readFileContents(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.54)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %24, label %5
@@ -38209,17 +38203,17 @@ define internal fastcc void @readFileContents(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #16
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #15
 
-declare void @sqlite3_result_error_code(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @sqlite3_result_error_code(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_blob64(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_blob64(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #1 {
   %6 = alloca %struct.stat, align 8
   %7 = alloca [2 x %struct.timeval], align 16
   %8 = trunc i32 %3 to i16
@@ -38246,7 +38240,7 @@ define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr nounde
   br i1 %.not60, label %52, label %18
 
 18:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = tail call ptr @__errno_location() #45
   %20 = load i32, ptr %19, align 4, !tbaa !36
   %.not61 = icmp eq i32 %20, 17
@@ -38276,11 +38270,11 @@ define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr nounde
   br i1 %.not64, label %33, label %.thread76
 
 .thread76:                                        ; preds = %31, %23, %21, %18
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 33:                                               ; preds = %28, %31
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %52
 
 34:                                               ; preds = %5
@@ -38330,7 +38324,7 @@ define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr nounde
   br i1 %53, label %.thread90, label %54
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8, !tbaa !788
@@ -38341,7 +38335,7 @@ define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr nounde
   store i64 %4, ptr %55, align 16, !tbaa !790
   %59 = call i32 @utimes(ptr noundef nonnull %1, ptr noundef nonnull %7) #43
   %.not66.not = icmp eq i32 %59, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not66.not, label %.thread90, label %.thread
 
 .thread90:                                        ; preds = %12, %54, %52
@@ -38353,44 +38347,44 @@ define internal fastcc range(i32 0, 3) i32 @writeFile(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #27
+declare ptr @__errno_location() local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
-define internal void @ctxErrorMsg(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @ctxErrorMsg(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef %4, i32 noundef -1) #43
   call void @sqlite3_free(ptr noundef %4) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #18
+declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #16
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #16
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #18
+declare i64 @time(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noundef i32 @utimes(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @fsdirConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #2 {
+define internal i32 @fsdirConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = tail call i32 @sqlite3_declare_vtab(ptr noundef %0, ptr noundef nonnull @.str.211) #43
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %14
@@ -38416,7 +38410,7 @@ define internal i32 @fsdirConnect(ptr noundef %0, ptr readnone captures(none) %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 20) i32 @fsdirBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #32 {
+define internal range(i32 0, 20) i32 @fsdirBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #31 {
   %3 = load i32, ptr %1, align 8, !tbaa !729
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.thread
@@ -38530,13 +38524,13 @@ define internal range(i32 0, 20) i32 @fsdirBestIndex(ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fsdirDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @fsdirDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @fsdirOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
+define internal range(i32 0, 8) i32 @fsdirOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 200) #43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -38554,7 +38548,7 @@ define internal range(i32 0, 8) i32 @fsdirOpen(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fsdirClose(ptr noundef %0) #2 {
+define internal noundef i32 @fsdirClose(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !792
   %.not18.i = icmp slt i32 %3, 0
@@ -38605,7 +38599,7 @@ fsdirResetCursor.exit:                            ; preds = %11, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @fsdirFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #2 {
+define internal range(i32 0, 8) i32 @fsdirFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !792
   %.not18.i = icmp slt i32 %7, 0
@@ -38726,7 +38720,7 @@ fsdirResetCursor.exit:                            ; preds = %15, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @fsdirNext(ptr noundef captures(none) %0) #2 {
+define internal range(i32 0, 8) i32 @fsdirNext(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !806
@@ -38890,7 +38884,7 @@ thread-pre-split:                                 ; preds = %59, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fsdirEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 2) i32 @fsdirEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !801
   %4 = icmp eq ptr %3, null
@@ -38899,7 +38893,7 @@ define internal range(i32 0, 2) i32 @fsdirEof(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca [64 x i8], align 16
   switch i32 %2, label %.critedge [
     i32 0, label %5
@@ -38946,7 +38940,7 @@ define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(n
   br label %.critedge
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %26
 
@@ -38985,12 +38979,12 @@ define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(n
   br label %.thread
 
 .thread:                                          ; preds = %37, %39
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 40:                                               ; preds = %33
   call void @sqlite3_result_error_nomem(ptr noundef %1) #43
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 41:                                               ; preds = %19
@@ -39005,7 +38999,7 @@ define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fsdirRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #13 {
+define internal noundef i32 @fsdirRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8, !tbaa !803
   store i64 %4, ptr %1, align 8, !tbaa !23
@@ -39013,35 +39007,35 @@ define internal noundef i32 @fsdirRowid(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal void @fsdirSetErrmsg(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @fsdirSetErrmsg(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   %5 = load ptr, ptr %0, align 8, !tbaa !809
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %6, align 8, !tbaa !745
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
-declare ptr @readdir64(ptr noundef) local_unnamed_addr #3
+declare ptr @readdir64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @completionConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #2 {
+define internal i32 @completionConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4, ptr readnone captures(none) %5) #1 {
   %7 = tail call i32 (ptr, i32, ...) @sqlite3_vtab_config(ptr noundef %0, i32 noundef 2) #43
   %8 = tail call i32 @sqlite3_declare_vtab(ptr noundef %0, ptr noundef nonnull @.str.218) #43
   %9 = icmp eq i32 %8, 0
@@ -39065,7 +39059,7 @@ define internal i32 @completionConnect(ptr noundef %0, ptr readnone captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @completionBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #32 {
+define internal noundef i32 @completionBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #31 {
   %3 = load i32, ptr %1, align 8, !tbaa !729
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.thread
@@ -39165,13 +39159,13 @@ define internal noundef i32 @completionBestIndex(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @completionDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @completionOpen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
+define internal range(i32 0, 8) i32 @completionOpen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 80) #43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
@@ -39191,7 +39185,7 @@ define internal range(i32 0, 8) i32 @completionOpen(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionClose(ptr noundef initializes((16, 24), (76, 80)) %0) #2 {
+define internal noundef i32 @completionClose(ptr noundef initializes((16, 24), (76, 80)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !815
   tail call void @sqlite3_free(ptr noundef %3) #43
@@ -39215,7 +39209,7 @@ define internal noundef i32 @completionClose(ptr noundef initializes((16, 24), (
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @completionFilter(ptr noundef initializes((16, 24), (76, 80)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #2 {
+define internal range(i32 0, 8) i32 @completionFilter(ptr noundef initializes((16, 24), (76, 80)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !815
   tail call void @sqlite3_free(ptr noundef %7) #43
@@ -39345,7 +39339,7 @@ define internal range(i32 0, 8) i32 @completionFilter(ptr noundef initializes((1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
+define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -39412,7 +39406,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   br i1 %33, label %34, label %.thread83
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %35 = load ptr, ptr %12, align 8, !tbaa !813
   %36 = call i32 @sqlite3_prepare_v2(ptr noundef %35, ptr noundef nonnull @.str.220, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #43
   br label %37
@@ -39433,7 +39427,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   br i1 %.not78, label %.thread, label %37, !llvm.loop !825
 
 .thread:                                          ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 44:                                               ; preds = %37
@@ -39441,7 +39435,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   %46 = load ptr, ptr %12, align 8, !tbaa !813
   %47 = call i32 @sqlite3_prepare_v2(ptr noundef %46, ptr noundef %.071, i32 noundef -1, ptr noundef nonnull %11, ptr noundef null) #43
   call void @sqlite3_free(ptr noundef %.071) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread83
 
 48:                                               ; preds = %15
@@ -39450,7 +39444,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   br i1 %50, label %51, label %.thread83
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = load ptr, ptr %12, align 8, !tbaa !813
   %53 = call i32 @sqlite3_prepare_v2(ptr noundef %52, ptr noundef nonnull @.str.220, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #43
   br label %54
@@ -39471,7 +39465,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   br i1 %.not76, label %.thread82, label %54, !llvm.loop !826
 
 .thread82:                                        ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 61:                                               ; preds = %54
@@ -39479,7 +39473,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
   %63 = load ptr, ptr %12, align 8, !tbaa !813
   %64 = call i32 @sqlite3_prepare_v2(ptr noundef %63, ptr noundef %.062, i32 noundef -1, ptr noundef nonnull %11, ptr noundef null) #43
   call void @sqlite3_free(ptr noundef %.062) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread83
 
 65:                                               ; preds = %15
@@ -39550,7 +39544,7 @@ define internal range(i32 0, 8) i32 @completionNext(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @completionEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 2) i32 @completionEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !tbaa !823
   %4 = icmp sgt i32 %3, 10
@@ -39559,7 +39553,7 @@ define internal range(i32 0, 2) i32 @completionEof(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal noundef i32 @completionColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   switch i32 %2, label %18 [
     i32 0, label %4
     i32 1, label %9
@@ -39598,21 +39592,21 @@ define internal noundef i32 @completionColumn(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @completionRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #13 {
+define internal noundef i32 @completionRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !822
   store i64 %4, ptr %1, align 8, !tbaa !23
   ret i32 0
 }
 
-declare i32 @sqlite3_keyword_count() local_unnamed_addr #3
+declare i32 @sqlite3_keyword_count() local_unnamed_addr #2
 
-declare i32 @sqlite3_keyword_name(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_keyword_name(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_strnicmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_strnicmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndOpen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define internal i32 @apndOpen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [25 x i8], align 16
   %7 = alloca [25 x i8], align 16
   %8 = alloca [16 x i8], align 16
@@ -39621,7 +39615,7 @@ define internal i32 @apndOpen(ptr noundef readonly captures(none) %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !136
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !23
   %14 = and i32 %3, 256
   %15 = icmp eq i32 %14, 0
@@ -39667,9 +39661,9 @@ define internal i32 @apndOpen(ptr noundef readonly captures(none) %0, ptr nounde
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %10, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #43
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = and i64 %39, 511
   %.not.i.i.i = icmp eq i64 %40, 25
   br i1 %.not.i.i.i, label %41, label %apndIsAppendvfsDatabase.exit.i
@@ -39720,7 +39714,7 @@ define internal i32 @apndOpen(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %or.cond12.i.i, label %apndReadMark.exit.i.i, label %apndIsAppendvfsDatabase.exit.thread17.i
 
 apndReadMark.exit.i.i:                            ; preds = %61
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = icmp sgt i64 %60, -1
   br i1 %65, label %66, label %apndIsOrdinaryDatabaseFile.exit.thread.sink.split
 
@@ -39732,12 +39726,12 @@ apndReadMark.exit.i.i:                            ; preds = %61
   br label %apndIsOrdinaryDatabaseFile.exit.thread.sink.split
 
 apndIsAppendvfsDatabase.exit.thread17.i:          ; preds = %61, %47, %41
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %apndIsOrdinaryDatabaseFile.exit.thread.sink.split
 
 apndIsAppendvfsDatabase.exit.i:                   ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not5.i = icmp eq i64 %40, 0
   br i1 %.not5.i, label %71, label %apndIsOrdinaryDatabaseFile.exit.thread
 
@@ -39750,17 +39744,17 @@ apndIsAppendvfsDatabase.exit.i:                   ; preds = %38
   br i1 %.not6.i, label %apndIsOrdinaryDatabaseFile.exit, label %apndIsOrdinaryDatabaseFile.exit.thread
 
 apndIsOrdinaryDatabaseFile.exit.thread.sink.split: ; preds = %66, %apndReadMark.exit.i.i, %apndIsAppendvfsDatabase.exit.thread17.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %apndIsOrdinaryDatabaseFile.exit.thread
 
 apndIsOrdinaryDatabaseFile.exit.thread:           ; preds = %apndIsOrdinaryDatabaseFile.exit.thread.sink.split, %71, %apndIsAppendvfsDatabase.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %80
 
 apndIsOrdinaryDatabaseFile.exit:                  ; preds = %71
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) @.str.56, i64 16)
   %.not7.i.not = icmp eq i32 %bcmp.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not7.i.not, label %76, label %80
 
 76:                                               ; preds = %apndIsOrdinaryDatabaseFile.exit
@@ -39772,7 +39766,7 @@ apndIsOrdinaryDatabaseFile.exit:                  ; preds = %71
 
 80:                                               ; preds = %apndIsOrdinaryDatabaseFile.exit.thread, %apndIsOrdinaryDatabaseFile.exit
   %81 = load i64, ptr %10, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %82 = and i64 %81, 511
   %.not.i = icmp eq i64 %82, 25
   br i1 %.not.i, label %83, label %apndReadMark.exit.thread
@@ -39823,13 +39817,13 @@ apndIsOrdinaryDatabaseFile.exit:                  ; preds = %71
   br i1 %or.cond, label %apndReadMark.exit, label %apndReadMark.exit.thread
 
 apndReadMark.exit.thread:                         ; preds = %80, %83, %89, %103
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 -1, ptr %107, align 8, !tbaa !832
   br label %113
 
 apndReadMark.exit:                                ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %102, ptr %108, align 8, !tbaa !832
   %109 = icmp sgt i64 %102, -1
@@ -39864,12 +39858,12 @@ apndReadMark.exit:                                ; preds = %103
 
 126:                                              ; preds = %117, %122, %110, %76, %37, %16
   %.042 = phi i32 [ %19, %16 ], [ %.0.ph, %37 ], [ 0, %76 ], [ 0, %110 ], [ 14, %117 ], [ 0, %122 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndDelete(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal i32 @apndDelete(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -39879,7 +39873,7 @@ define internal i32 @apndDelete(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndAccess(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal i32 @apndAccess(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -39889,7 +39883,7 @@ define internal i32 @apndAccess(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndFullPathname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal i32 @apndFullPathname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -39899,7 +39893,7 @@ define internal i32 @apndFullPathname(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @apndDlOpen(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @apndDlOpen(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -39909,7 +39903,7 @@ define internal ptr @apndDlOpen(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @apndDlError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal void @apndDlError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -39919,7 +39913,7 @@ define internal void @apndDlError(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @apndDlSym(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal ptr @apndDlSym(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -39929,7 +39923,7 @@ define internal ptr @apndDlSym(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @apndDlClose(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal void @apndDlClose(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -39939,7 +39933,7 @@ define internal void @apndDlClose(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndRandomness(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @apndRandomness(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -39949,7 +39943,7 @@ define internal i32 @apndRandomness(ptr noundef readonly captures(none) %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndSleep(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal i32 @apndSleep(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -39959,7 +39953,7 @@ define internal i32 @apndSleep(ptr noundef readonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndCurrentTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal i32 @apndCurrentTime(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -39969,7 +39963,7 @@ define internal i32 @apndCurrentTime(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndGetLastError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @apndGetLastError(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -39979,7 +39973,7 @@ define internal i32 @apndGetLastError(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndCurrentTimeInt64(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal i32 @apndCurrentTimeInt64(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -39989,7 +39983,7 @@ define internal i32 @apndCurrentTimeInt64(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndSetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal i32 @apndSetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -39999,7 +39993,7 @@ define internal i32 @apndSetSystemCall(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @apndGetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @apndGetSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -40009,7 +40003,7 @@ define internal ptr @apndGetSystemCall(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @apndNextSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal ptr @apndNextSystemCall(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -40019,7 +40013,7 @@ define internal ptr @apndNextSystemCall(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndClose(ptr noundef %0) #2 {
+define internal i32 @apndClose(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -40029,7 +40023,7 @@ define internal i32 @apndClose(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndRead(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal i32 @apndRead(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !314
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -40042,7 +40036,7 @@ define internal i32 @apndRead(ptr noundef %0, ptr noundef %1, i32 noundef %2, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal i32 @apndWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = alloca [25 x i8], align 16
   %6 = sext i32 %2 to i64
   %7 = add nsw i64 %3, %6
@@ -40063,7 +40057,7 @@ define internal i32 @apndWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 ._crit_edge:                                      ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %5, ptr noundef nonnull align 1 dereferenceable(17) @.str.57, i64 17, i1 false)
   br label %17
 
@@ -40090,12 +40084,12 @@ define internal i32 @apndWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
 
 apndWriteMark.exit.thread:                        ; preds = %23
   store i64 %24, ptr %11, align 8, !tbaa !829
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre25 = load i64, ptr %16, align 8, !tbaa !832
   br label %30
 
 apndWriteMark.exit:                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 30:                                               ; preds = %9, %apndWriteMark.exit.thread
@@ -40113,11 +40107,11 @@ apndWriteMark.exit:                               ; preds = %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndTruncate(ptr noundef %0, i64 noundef %1) #2 {
+define internal i32 @apndTruncate(ptr noundef %0, i64 noundef %1) #1 {
   %3 = alloca [25 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !832
-  call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %3, ptr noundef nonnull align 1 dereferenceable(17) @.str.57, i64 17, i1 false)
   br label %6
 
@@ -40144,13 +40138,13 @@ define internal i32 @apndTruncate(ptr noundef %0, i64 noundef %1) #2 {
   br i1 %19, label %20, label %apndWriteMark.exit
 
 apndWriteMark.exit:                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 20:                                               ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %14, ptr %21, align 8, !tbaa !829
-  call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = load ptr, ptr %13, align 8, !tbaa !314
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !320
@@ -40164,7 +40158,7 @@ apndWriteMark.exit:                               ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndSync(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @apndSync(ptr noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !314
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -40174,7 +40168,7 @@ define internal i32 @apndSync(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @apndFileSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #13 {
+define internal noundef i32 @apndFileSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !829
   %5 = icmp sgt i64 %4, -1
@@ -40193,7 +40187,7 @@ define internal noundef i32 @apndFileSize(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndLock(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @apndLock(ptr noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !314
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -40203,7 +40197,7 @@ define internal i32 @apndLock(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndUnlock(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @apndUnlock(ptr noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !314
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -40213,7 +40207,7 @@ define internal i32 @apndUnlock(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndCheckReservedLock(ptr noundef %0, ptr noundef %1) #2 {
+define internal i32 @apndCheckReservedLock(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !314
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -40223,7 +40217,7 @@ define internal i32 @apndCheckReservedLock(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndFileControl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @apndFileControl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq i32 %1, 5
   br i1 %5, label %6, label %11
@@ -40259,7 +40253,7 @@ define internal i32 @apndFileControl(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndSectorSize(ptr noundef %0) #2 {
+define internal i32 @apndSectorSize(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -40269,7 +40263,7 @@ define internal i32 @apndSectorSize(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndDeviceCharacteristics(ptr noundef %0) #2 {
+define internal i32 @apndDeviceCharacteristics(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -40279,7 +40273,7 @@ define internal i32 @apndDeviceCharacteristics(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndShmMap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define internal i32 @apndShmMap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !314
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
@@ -40289,7 +40283,7 @@ define internal i32 @apndShmMap(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndShmLock(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
+define internal i32 @apndShmLock(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !314
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -40299,7 +40293,7 @@ define internal i32 @apndShmLock(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @apndShmBarrier(ptr noundef %0) #2 {
+define internal void @apndShmBarrier(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !314
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -40309,7 +40303,7 @@ define internal void @apndShmBarrier(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndShmUnmap(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @apndShmUnmap(ptr noundef %0, i32 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !314
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -40319,7 +40313,7 @@ define internal i32 @apndShmUnmap(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndFetch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal i32 @apndFetch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !829
   %7 = icmp slt i64 %6, 0
@@ -40348,7 +40342,7 @@ define internal i32 @apndFetch(ptr noundef %0, i64 noundef %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @apndUnfetch(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
+define internal i32 @apndUnfetch(ptr noundef %0, i64 noundef %1, ptr noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !314
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -40361,7 +40355,7 @@ define internal i32 @apndUnfetch(ptr noundef %0, i64 noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zipfileConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #2 {
+define internal i32 @zipfileConnect(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = tail call i32 @sqlite3_stricmp(ptr noundef %8, ptr noundef nonnull @.str.228) #43
@@ -40492,7 +40486,7 @@ zipfileDequote.exit:                              ; preds = %.thread.i, %37, %31
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 20) i32 @zipfileBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #32 {
+define internal range(i32 0, 20) i32 @zipfileBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #31 {
   %3 = load i32, ptr %1, align 8, !tbaa !729
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.thread
@@ -40569,7 +40563,7 @@ define internal range(i32 0, 20) i32 @zipfileBestIndex(ptr readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zipfileDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @zipfileDisconnect(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !841
   %.not.i = icmp eq ptr %3, null
@@ -40606,7 +40600,7 @@ zipfileCleanupTransaction.exit:                   ; preds = %zipfileEntryFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @zipfileOpen(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
+define internal range(i32 0, 8) i32 @zipfileOpen(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 80) #43
   store ptr %3, ptr %1, align 8, !tbaa !758
   %4 = icmp eq ptr %3, null
@@ -40633,7 +40627,7 @@ define internal range(i32 0, 8) i32 @zipfileOpen(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zipfileClose(ptr noundef initializes((16, 17)) %0) #2 {
+define internal noundef i32 @zipfileClose(ptr noundef initializes((16, 17)) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !854
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8, !tbaa !855
@@ -40698,7 +40692,7 @@ zipfileResetCursor.exit:                          ; preds = %zipfileEntryFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @zipfileFilter(ptr noundef captures(none) initializes((16, 17)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #2 {
+define internal range(i32 0, 8) i32 @zipfileFilter(ptr noundef captures(none) initializes((16, 17)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !862
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40846,7 +40840,7 @@ zipfileReadEOCD.exit..thread_crit_edge:           ; preds = %zipfileReadEOCD.exi
 76:                                               ; preds = %88, %.lr.ph.i
   %.019.i = phi i64 [ %73, %.lr.ph.i ], [ %102, %88 ]
   %.01618.i = phi i32 [ 0, %.lr.ph.i ], [ %103, %88 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !865
   %77 = load ptr, ptr %40, align 8, !tbaa !841
   %78 = call fastcc i32 @zipfileGetEntry(ptr noundef nonnull %7, ptr noundef nonnull %spec.select, ptr noundef %77, i64 noundef %.019.i, ptr noundef %6)
@@ -40854,7 +40848,7 @@ zipfileReadEOCD.exit..thread_crit_edge:           ; preds = %zipfileReadEOCD.exi
   br i1 %79, label %80, label %.thread.i
 
 .thread.i:                                        ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipfileLoadDirectory.exit
 
 80:                                               ; preds = %76
@@ -40889,7 +40883,7 @@ zipfileReadEOCD.exit..thread_crit_edge:           ; preds = %zipfileReadEOCD.exi
   %100 = add i64 %99, %92
   %101 = add i64 %100, %95
   %102 = add i64 %101, %98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = add nuw nsw i32 %.01618.i, 1
   %exitcond.not = icmp eq i32 %103, %70
   br i1 %exitcond.not, label %.thread, label %76, !llvm.loop !870
@@ -40992,7 +40986,7 @@ thread-pre-split:                                 ; preds = %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @zipfileNext(ptr noundef captures(none) %0) #2 {
+define internal range(i32 0, 8) i32 @zipfileNext(ptr noundef captures(none) %0) #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !856
@@ -41031,7 +41025,7 @@ zipfileEntryFree.exit:                            ; preds = %5, %14
   br label %54
 
 21:                                               ; preds = %zipfileEntryFree.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !865
   %22 = load ptr, ptr %0, align 8, !tbaa !862
   %23 = load ptr, ptr %3, align 8, !tbaa !856
@@ -41060,7 +41054,7 @@ zipfileEntryFree.exit:                            ; preds = %5, %14
 
 41:                                               ; preds = %26, %21
   store ptr %.pre, ptr %12, align 8, !tbaa !857
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %54
 
 42:                                               ; preds = %1
@@ -41095,7 +41089,7 @@ zipfileEntryFree.exit:                            ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 256) i32 @zipfileEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 256) i32 @zipfileEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !855
   %4 = zext i8 %3 to i32
@@ -41103,7 +41097,7 @@ define internal range(i32 0, 256) i32 @zipfileEof(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @zipfileColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal range(i32 0, 8) i32 @zipfileColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !857
   switch i32 %2, label %83 [
@@ -41277,15 +41271,15 @@ define internal range(i32 0, 8) i32 @zipfileColumn(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 20) i32 @zipfileUpdate(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #2 {
+define internal range(i32 0, 20) i32 @zipfileUpdate(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i64, align 8
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8, !tbaa !841
@@ -41485,7 +41479,7 @@ zipfileComparePath.exit205.thread:                ; preds = %78, %15
   br label %.thread243
 
 114:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %116 = call fastcc i32 @zipfileDeflate(ptr noundef %101, i32 noundef %103, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %115)
   %117 = icmp eq i32 %116, 0
@@ -41498,14 +41492,14 @@ zipfileComparePath.exit205.thread:                ; preds = %78, %15
   %120 = load ptr, ptr %8, align 8
   %.3174.ph = select i1 %or.cond, ptr %120, ptr %101
   %.3170.ph = select i1 %or.cond, i32 %118, i32 %103
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %121 = tail call i64 @crc32(i64 noundef 0, ptr noundef %101, i32 noundef %103) #43
   %122 = trunc i64 %121 to i32
   %123 = select i1 %or.cond, i16 8, i16 0
   br label %.thread243
 
 124:                                              ; preds = %114
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %125 = tail call i64 @crc32(i64 noundef 0, ptr noundef %101, i32 noundef %103) #43
   br label %zipfileRemoveEntryFromList.exit225
 
@@ -41558,17 +41552,17 @@ zipfileComparePath.exit205.thread:                ; preds = %78, %15
   br i1 %.not.i.i, label %159, label %153
 
 153:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %154 = call i32 %152(ptr noundef nonnull %145, ptr noundef nonnull %5) #43
   %155 = load i64, ptr %5, align 8, !tbaa !23
   %156 = sdiv i64 %155, 1000
   %157 = trunc i64 %156 to i32
   %158 = add i32 %157, -413362496
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zipfileGetTime.exit
 
 159:                                              ; preds = %150, %147
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %160 = getelementptr inbounds nuw i8, ptr %145, i64 120
   %161 = load ptr, ptr %160, align 8, !tbaa !291
   %162 = call i32 %161(ptr noundef nonnull %145, ptr noundef nonnull %6) #43
@@ -41576,7 +41570,7 @@ zipfileComparePath.exit205.thread:                ; preds = %78, %15
   %164 = fadd double %163, 0xC1429EC5C0000000
   %165 = fmul double %164, 8.640000e+04
   %166 = fptoui double %165 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %zipfileGetTime.exit
 
 167:                                              ; preds = %141
@@ -42097,13 +42091,13 @@ zipfileRemoveEntryFromList.exit225:               ; preds = %.thread395, %.threa
 
 430:                                              ; preds = %13, %zipfileRemoveEntryFromList.exit225
   %.0141 = phi i32 [ %.12, %zipfileRemoveEntryFromList.exit225 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0141
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0) #2 {
+define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0) #1 {
   %2 = alloca %struct.ZipfileEOCD, align 4
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -42144,7 +42138,7 @@ define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0)
   store i64 %23, ptr %24, align 8, !tbaa !905
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %23, ptr %25, align 8, !tbaa !896
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %26 = load ptr, ptr %15, align 8, !tbaa !841
   %27 = call fastcc i32 @zipfileReadEOCD(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef %26, ptr noundef nonnull %2)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -42166,7 +42160,7 @@ define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0)
 39:                                               ; preds = %51, %.lr.ph.i
   %.019.i = phi i64 [ %36, %.lr.ph.i ], [ %64, %51 ]
   %.01618.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %51 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !865
   %40 = load ptr, ptr %15, align 8, !tbaa !841
   %41 = call fastcc i32 @zipfileGetEntry(ptr noundef nonnull %0, ptr noundef null, ptr noundef %40, i64 noundef %.019.i, ptr noundef %3)
@@ -42174,8 +42168,8 @@ define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0)
   br i1 %42, label %43, label %.thread26
 
 .thread26:                                        ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %67
 
 43:                                               ; preds = %39
@@ -42209,17 +42203,17 @@ define internal range(i32 0, 8) i32 @zipfileBegin(ptr noundef captures(none) %0)
   %62 = add i64 %61, %54
   %63 = add i64 %62, %57
   %64 = add i64 %63, %60
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = add nuw nsw i32 %.01618.i, 1
   %exitcond.not = icmp eq i32 %65, %30
   br i1 %exitcond.not, label %.thread23, label %39, !llvm.loop !870
 
 .thread23:                                        ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %79
 
 66:                                               ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %31, label %79, label %67
 
 67:                                               ; preds = %.thread26, %.thread, %66
@@ -42262,7 +42256,7 @@ zipfileCleanupTransaction.exit:                   ; preds = %zipfileEntryFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @zipfileCommit(ptr noundef captures(none) %0) #2 {
+define internal range(i32 0, 2) i32 @zipfileCommit(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !841
   %.not = icmp eq ptr %3, null
@@ -42513,13 +42507,13 @@ zipfileCleanupTransaction.exit:                   ; preds = %zipfileEntryFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @zipfileRollback(ptr noundef captures(none) %0) #2 {
+define internal range(i32 0, 2) i32 @zipfileRollback(ptr noundef captures(none) %0) #1 {
   %2 = tail call i32 @zipfileCommit(ptr noundef %0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @zipfileFindFunction(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #2 {
+define internal range(i32 0, 2) i32 @zipfileFindFunction(ptr noundef %0, i32 %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #1 {
   %6 = tail call i32 @sqlite3_stricmp(ptr noundef nonnull @.str.229, ptr noundef %2) #43
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
@@ -42534,10 +42528,10 @@ define internal range(i32 0, 2) i32 @zipfileFindFunction(ptr noundef %0, i32 %1,
   ret i32 %.0
 }
 
-declare i32 @sqlite3_overload_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_overload_function(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i64, align 8
   %5 = alloca double, align 8
   %6 = alloca %struct.ZipfileEntry, align 8
@@ -42545,11 +42539,11 @@ define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef re
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
   %11 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 40) #43
@@ -42641,7 +42635,7 @@ define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef re
   br i1 %or.cond7, label %54, label %60
 
 54:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !36
   %55 = call fastcc i32 @zipfileDeflate(ptr noundef %48, i32 noundef %49, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %8)
   %.not128 = icmp eq i32 %55, 0
@@ -42655,11 +42649,11 @@ define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef re
   %.3 = select i1 %or.cond, i32 8, i32 0
   %.2101 = select i1 %or.cond, ptr %58, ptr %48
   %.2 = select i1 %or.cond, i32 %56, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %60
 
 59:                                               ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre151 = load ptr, ptr %9, align 8, !tbaa !29
   br label %zipfileBufferGrow.exit
 
@@ -42701,17 +42695,17 @@ define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef re
   br i1 %.not.i.i, label %83, label %77
 
 77:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %78 = call i32 %76(ptr noundef nonnull %69, ptr noundef nonnull %4) #43
   %79 = load i64, ptr %4, align 8, !tbaa !23
   %80 = sdiv i64 %79, 1000
   %81 = trunc i64 %80 to i32
   %82 = add i32 %81, -413362496
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %zipfileGetTime.exit
 
 83:                                               ; preds = %74, %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 120
   %85 = load ptr, ptr %84, align 8, !tbaa !291
   %86 = call i32 %85(ptr noundef nonnull %69, ptr noundef nonnull %5) #43
@@ -42719,7 +42713,7 @@ define internal void @zipfileStep(ptr noundef %0, i32 noundef %1, ptr noundef re
   %88 = fadd double %87, 0xC1429EC5C0000000
   %89 = fmul double %88, 8.640000e+04
   %90 = fptoui double %89 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zipfileGetTime.exit
 
 91:                                               ; preds = %65
@@ -43034,15 +43028,15 @@ zipfileBufferGrow.exit:                           ; preds = %205, %59, %113, %24
   br label %265
 
 265:                                              ; preds = %3, %264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileFinal(ptr noundef %0) #2 {
+define internal void @zipfileFinal(ptr noundef %0) #1 {
   %2 = tail call ptr @sqlite3_aggregate_context(ptr noundef %0, i32 noundef 40) #43
   %3 = icmp eq ptr %2, null
   br i1 %3, label %48, label %4
@@ -43119,12 +43113,12 @@ define internal void @zipfileFinal(ptr noundef %0) #2 {
   ret void
 }
 
-declare i32 @sqlite3_stricmp(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_stricmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileCursorErr(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @zipfileCursorErr(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !854
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -43135,12 +43129,12 @@ define internal void @zipfileCursorErr(ptr noundef readonly captures(none) %0, p
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %7, ptr %9, align 8, !tbaa !745
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zipfileReadEOCD(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @zipfileReadEOCD(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !838
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -43259,7 +43253,7 @@ zipfileReadData.exit:                             ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %.thread
@@ -43614,7 +43608,7 @@ zipfileEntryFree.exit:                            ; preds = %.thread154, %36, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zipfileReadData(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @zipfileReadData(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #1 {
   %6 = tail call i32 @fseek(ptr noundef %0, i64 noundef %3, i32 noundef 0)
   %7 = sext i32 %2 to i64
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %7, ptr noundef %0)
@@ -43632,10 +43626,10 @@ define internal fastcc range(i32 0, 2) i32 @zipfileReadData(ptr noundef captures
   ret i32 %.0
 }
 
-declare i32 @sqlite3_vtab_nochange(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_vtab_nochange(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #2 {
+define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #1 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = tail call ptr @sqlite3_malloc(i32 noundef %3) #43
   %7 = icmp eq ptr %6, null
@@ -43646,7 +43640,7 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
   br label %22
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, i8 0, i64 104, i1 false)
   store ptr %1, ptr %5, align 8, !tbaa !931
@@ -43681,42 +43675,42 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
   %.0 = phi ptr [ %6, %15 ], [ %6, %18 ], [ null, %19 ]
   call void @sqlite3_free(ptr noundef %.0) #43
   %21 = call i32 @inflateEnd(ptr noundef nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %22
 
 22:                                               ; preds = %20, %8
   ret void
 }
 
-declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileCtxErrorMsg(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @zipfileCtxErrorMsg(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @sqlite3_result_error(ptr noundef %0, ptr noundef %4, i32 noundef -1) #43
   call void @sqlite3_free(ptr noundef %4) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileFree(ptr noundef %0) #2 {
+define internal void @zipfileFree(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret void
 }
 
-declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #3
+declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileTableErr(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @zipfileTableErr(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !864
@@ -43724,14 +43718,14 @@ define internal void @zipfileTableErr(ptr noundef captures(none) %0, ptr noundef
   %6 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   store ptr %6, ptr %4, align 8, !tbaa !864
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @zipfileDeflate(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 8) i32 @zipfileDeflate(ptr noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca %struct.z_stream_s, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, i8 0, i64 104, i1 false)
   store ptr %0, ptr %6, align 8, !tbaa !931
@@ -43775,14 +43769,14 @@ define internal fastcc range(i32 0, 8) i32 @zipfileDeflate(ptr noundef %0, i32 n
 
 28:                                               ; preds = %5, %26
   %.0 = phi i32 [ %.1, %26 ], [ 7, %5 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
-declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 20) i32 @zipfileGetMode(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 20) i32 @zipfileGetMode(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #1 {
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %0) #43
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -43877,18 +43871,18 @@ define internal fastcc range(i32 0, 20) i32 @zipfileGetMode(ptr noundef %0, i32 
   ret i32 %.030
 }
 
-declare i32 @sqlite3_vtab_on_conflict(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_vtab_on_conflict(ptr noundef) local_unnamed_addr #2
 
-declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #3
+declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @zipfileSerializeCDS(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 46)) %1) unnamed_addr #33 {
+define internal fastcc i32 @zipfileSerializeCDS(ptr noundef nonnull captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 46)) %1) unnamed_addr #32 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !907
   %5 = icmp eq ptr %4, null
@@ -44007,7 +44001,7 @@ define internal fastcc i32 @zipfileSerializeCDS(ptr noundef nonnull captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zipfileFunctionCds(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @zipfileFunctionCds(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i64 @sqlite3_value_int64(ptr noundef %5) #43
@@ -44092,7 +44086,7 @@ zipfileFindCursor.exit.thread:                    ; preds = %11, %3, %59, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @zipfileBufferGrow(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 8) i32 @zipfileBufferGrow(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !940
   %5 = add nsw i32 %4, %1
@@ -44132,18 +44126,18 @@ define internal fastcc range(i32 0, 8) i32 @zipfileBufferGrow(ptr noundef nonnul
   ret i32 %.1
 }
 
-declare i64 @compressBound(i64 noundef) local_unnamed_addr #3
+declare i64 @compressBound(i64 noundef) local_unnamed_addr #2
 
-declare i32 @compress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @compress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_value(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_value(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @expertConnect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #2 {
+define internal i32 @expertConnect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #1 {
   %.not = icmp eq i32 %2, 4
   br i1 %.not, label %9, label %7
 
@@ -44226,7 +44220,7 @@ idxMalloc.exit.thread:                            ; preds = %33, %29, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @expertBestIndex(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal range(i32 0, 8) i32 @expertBestIndex(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 56) #43
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %idxMalloc.exit.thread, label %4
@@ -44438,13 +44432,13 @@ idxMalloc.exit.thread:                            ; preds = %2, %._crit_edge94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @expertDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #43
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @expertOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 {
+define internal range(i32 0, 8) i32 @expertOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 16) #43
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %idxMalloc.exit, label %4
@@ -44460,7 +44454,7 @@ idxMalloc.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertClose(ptr noundef %0) #2 {
+define internal noundef i32 @expertClose(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !951
   %4 = tail call i32 @sqlite3_finalize(ptr noundef %3) #43
@@ -44469,7 +44463,7 @@ define internal noundef i32 @expertClose(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @expertFilter(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #2 {
+define internal i32 @expertFilter(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #1 {
   %6 = load ptr, ptr %0, align 8, !tbaa !862
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !942
@@ -44510,7 +44504,7 @@ expertNext.exit:                                  ; preds = %5, %26, %23, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @expertNext(ptr noundef captures(none) %0) #2 {
+define internal i32 @expertNext(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !951
   %4 = tail call i32 @sqlite3_step(ptr noundef %3) #43
@@ -44529,7 +44523,7 @@ define internal i32 @expertNext(ptr noundef captures(none) %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @expertEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 2) i32 @expertEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !951
   %4 = icmp eq ptr %3, null
@@ -44538,7 +44532,7 @@ define internal range(i32 0, 2) i32 @expertEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal noundef i32 @expertColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !951
   %6 = tail call ptr @sqlite3_column_value(ptr noundef %5, i32 noundef %2) #43
@@ -44554,29 +44548,29 @@ define internal noundef i32 @expertColumn(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @expertRowid(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #34 {
+define internal noundef i32 @expertRowid(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #33 {
   store i64 0, ptr %1, align 8, !tbaa !23
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @expertUpdate(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #6 {
+define internal noundef i32 @expertUpdate(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
   ret i32 0
 }
 
-declare ptr @sqlite3_vtab_collation(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_vtab_collation(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_table_column_metadata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_table_column_metadata(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address) %3) unnamed_addr #2 {
+define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !150
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = icmp ne ptr %2, null
   %12 = icmp ne ptr %3, null
   %or.cond = or i1 %11, %12
@@ -44586,7 +44580,7 @@ define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr
   %.val = load ptr, ptr %1, align 8, !tbaa !945
   %14 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %14, align 8, !tbaa !163
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %.not26.i = icmp eq ptr %2, null
   br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.i
@@ -44613,7 +44607,7 @@ define internal fastcc i32 @idxCreateFromCons(ptr noundef captures(none) %0, ptr
   br i1 %22, label %23, label %78
 
 23:                                               ; preds = %.lr.ph40.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !31
   %24 = load ptr, ptr %5, align 8, !tbaa !31
   %25 = call ptr @sqlite3_column_text(ptr noundef %24, i32 noundef 1) #43
@@ -44729,7 +44723,7 @@ idxFinalize.exit.i:                               ; preds = %.lr.ph38.i.preheade
 
 idxFinalize.exit.thread.thread.i:                 ; preds = %idxFinalize.exit.i, %.critedge2.thread14.i
   %.26.ph.i = phi i32 [ %30, %.critedge2.thread14.i ], [ %71, %idxFinalize.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.i
 
 idxFinalize.exit.thread.sink.split.i:             ; preds = %61, %58, %.preheader.i, %54
@@ -44739,7 +44733,7 @@ idxFinalize.exit.thread.sink.split.i:             ; preds = %61, %58, %.preheade
 
 idxFinalize.exit.thread.i:                        ; preds = %idxFinalize.exit.thread.sink.split.i, %23
   %.26.i = phi i32 [ 0, %23 ], [ %74, %idxFinalize.exit.thread.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = icmp eq i32 %.26.i, 0
   br i1 %75, label %.lr.ph40.i, label %.critedge.i
 
@@ -44757,14 +44751,14 @@ idxFinalize.exit.thread.i:                        ; preds = %idxFinalize.exit.th
 idxFindCompatible.exit:                           ; preds = %idxFinalize.exit.i
   %81 = load ptr, ptr %5, align 8, !tbaa !31
   %82 = call i32 @sqlite3_finalize(ptr noundef %81) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %143
 
 83:                                               ; preds = %.critedge.i, %78
   %.3.i = phi i32 [ %80, %78 ], [ %.0.lcssa.i, %.critedge.i ]
   store i32 %.3.i, ptr %7, align 4, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %84 = load ptr, ptr %1, align 8, !tbaa !945
   br i1 %.not26.i, label %.preheader, label %.lr.ph110
 
@@ -44847,7 +44841,7 @@ idxIdentifierRequiresQuotes.exit:                 ; preds = %.preheader.i79, %10
   %.063 = phi i32 [ 0, %idxIdentifierRequiresQuotes.exit ], [ %.164.lcssa, %128 ]
   %.059 = phi ptr [ null, %idxIdentifierRequiresQuotes.exit ], [ %121, %128 ]
   %.057 = phi i32 [ 0, %idxIdentifierRequiresQuotes.exit ], [ %129, %128 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !36
   %113 = load i8, ptr %.1.lcssa, align 1, !tbaa !25
   %.not70117 = icmp eq i8 %113, 0
@@ -44887,17 +44881,17 @@ idxIdentifierRequiresQuotes.exit:                 ; preds = %.preheader.i79, %10
 
 128:                                              ; preds = %123
   %129 = add nuw nsw i32 %.057, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %exitcond.not = icmp eq i32 %129, 50
   br i1 %exitcond.not, label %.thread85, label %112, !llvm.loop !962
 
 130:                                              ; preds = %._crit_edge122
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not71 = icmp eq i32 %.057, 0
   br i1 %.not71, label %132, label %.thread85
 
 .thread89:                                        ; preds = %123
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %131 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %.not72, ptr noundef nonnull %121, ptr noundef nonnull %100, ptr noundef nonnull %.1.lcssa) #43
   %.not73 = icmp eq ptr %131, null
   br i1 %.not73, label %133, label %134
@@ -44943,12 +44937,12 @@ idxIdentifierRequiresQuotes.exit:                 ; preds = %.preheader.i79, %10
 
 143:                                              ; preds = %idxFindCompatible.exit, %4, %142
   %144 = phi i32 [ 0, %idxFindCompatible.exit ], [ 0, %4 ], [ %.pre, %142 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %144
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @idxAppendColDefn(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr readonly captures(none) %.16.val, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc ptr @idxAppendColDefn(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr readonly captures(none) %.16.val, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !212
   %6 = sext i32 %5 to i64
@@ -45055,7 +45049,7 @@ define internal fastcc ptr @idxAppendColDefn(ptr noundef nonnull captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @countNonzeros(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #30 {
+define internal noundef i32 @countNonzeros(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #29 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %15
 
@@ -45082,7 +45076,7 @@ define internal noundef i32 @countNonzeros(ptr noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @idxHashAdd(ptr noundef nonnull writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc void @idxHashAdd(ptr noundef nonnull writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %6 = trunc i64 %5 to i32
   %7 = icmp sgt i32 %6, 0
@@ -45199,10 +45193,10 @@ idxMalloc.exit.thread:                            ; preds = %._crit_edge
   ret void
 }
 
-declare i32 @sqlite3_keyword_check(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_keyword_check(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @idxRemFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @idxRemFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i32 @sqlite3_value_int(ptr noundef %5) #43
@@ -45329,7 +45323,7 @@ define internal void @idxRemFunc(ptr noundef %0, i32 %1, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @idxSampleFunc(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #2 {
+define internal void @idxSampleFunc(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #1 {
   %4 = alloca i16, align 2
   %5 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -45347,7 +45341,7 @@ define internal void @idxSampleFunc(ptr noundef %0, i32 %1, ptr readnone capture
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @sqlite3_randomness(i32 noundef 2, ptr noundef nonnull %4) #43
   %17 = load i16, ptr %4, align 2, !tbaa !45
   %18 = urem i16 %17, 100
@@ -45355,7 +45349,7 @@ define internal void @idxSampleFunc(ptr noundef %0, i32 %1, ptr readnone capture
   %20 = load i32, ptr %5, align 8, !tbaa !227
   %21 = icmp sge i32 %20, %19
   %22 = zext i1 %21 to i32
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 23:                                               ; preds = %3, %9, %16
@@ -45372,15 +45366,15 @@ define internal void @idxSampleFunc(ptr noundef %0, i32 %1, ptr readnone capture
   ret void
 }
 
-declare ptr @sqlite3_realloc(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_realloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_randomness(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_randomness(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @intckPrepareFmt(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal ptr @intckPrepareFmt(ptr noundef captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %4) #43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -45392,12 +45386,12 @@ define internal ptr @intckPrepareFmt(ptr noundef captures(none) %0, ptr noundef 
 
 .thread:                                          ; preds = %2
   store i32 7, ptr %6, align 4, !tbaa !267
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   br label %intckPrepare.exit
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   br i1 %8, label %11, label %intckPrepare.exit
 
@@ -45423,17 +45417,17 @@ define internal ptr @intckPrepareFmt(ptr noundef captures(none) %0, ptr noundef 
 
 intckPrepare.exit:                                ; preds = %.thread, %10, %11, %14
   %22 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @sqlite3_free(ptr noundef %5) #43
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @intckExec(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @intckExec(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4, !tbaa !267
@@ -45441,7 +45435,7 @@ define internal fastcc void @intckExec(ptr noundef captures(none) %0, ptr nounde
   br i1 %6, label %7, label %intckPrepare.exit.thread9
 
 intckPrepare.exit.thread9:                        ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %intckStep.exit
 
 7:                                                ; preds = %2
@@ -45453,7 +45447,7 @@ intckPrepare.exit.thread9:                        ; preds = %2
 
 intckPrepare.exit.thread:                         ; preds = %7
   %10 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 intckPrepare.exit:                                ; preds = %7
@@ -45469,7 +45463,7 @@ intckPrepare.exit:                                ; preds = %7
   store ptr %17, ptr %13, align 8, !tbaa !257
   %.val.pr = load i32, ptr %4, align 4, !tbaa !267
   %18 = load ptr, ptr %3, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i6 = icmp eq i32 %.val.pr, 0
   br i1 %.not.i6, label %19, label %intckStep.exit
 
@@ -45504,12 +45498,12 @@ intckFinalize.exit:                               ; preds = %intckStep.exit, %27
   ret void
 }
 
-declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceClose(ptr noundef captures(none) %0) #2 {
+define internal noundef i32 @vfstraceClose(ptr noundef captures(none) %0) #1 {
   %2 = alloca [50 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !305
@@ -45530,7 +45524,7 @@ define internal noundef i32 @vfstraceClose(ptr noundef captures(none) %0) #2 {
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !317
   %19 = tail call i32 %18(ptr noundef nonnull %15) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %19)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %vfstrace_print_errcode.exit
@@ -45553,7 +45547,7 @@ define internal noundef i32 @vfstraceClose(ptr noundef captures(none) %0) #2 {
 vfstrace_print_errcode.exit:                      ; preds = %1, %25, %28
   %.0.i = phi ptr [ %20, %1 ], [ %2, %28 ], [ %2, %25 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %30 = icmp eq i32 %19, 0
   br i1 %30, label %31, label %33
 
@@ -45568,7 +45562,7 @@ vfstrace_print_errcode.exit:                      ; preds = %1, %25, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceRead(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal noundef i32 @vfstraceRead(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !305
@@ -45590,7 +45584,7 @@ define internal noundef i32 @vfstraceRead(ptr noundef readonly captures(none) %0
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !318
   %23 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2, i64 noundef %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %23)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %vfstrace_print_errcode.exit
@@ -45613,12 +45607,12 @@ define internal noundef i32 @vfstraceRead(ptr noundef readonly captures(none) %0
 vfstrace_print_errcode.exit:                      ; preds = %4, %29, %32
   %.0.i = phi ptr [ %24, %4 ], [ %5, %32 ], [ %5, %29 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceWrite(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal noundef i32 @vfstraceWrite(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !305
@@ -45640,7 +45634,7 @@ define internal noundef i32 @vfstraceWrite(ptr noundef readonly captures(none) %
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !319
   %23 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2, i64 noundef %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %23)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %vfstrace_print_errcode.exit
@@ -45663,12 +45657,12 @@ define internal noundef i32 @vfstraceWrite(ptr noundef readonly captures(none) %
 vfstrace_print_errcode.exit:                      ; preds = %4, %29, %32
   %.0.i = phi ptr [ %24, %4 ], [ %5, %32 ], [ %5, %29 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceTruncate(ptr noundef readonly captures(none) %0, i64 noundef %1) #2 {
+define internal noundef i32 @vfstraceTruncate(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !305
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -45694,11 +45688,11 @@ define internal noundef i32 @vfstraceTruncate(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceSync(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal noundef i32 @vfstraceSync(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca [100 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) @.str.353, i64 3, i1 false)
   %6 = and i32 %1, 3
   %.not = icmp eq i32 %6, 0
@@ -45784,12 +45778,12 @@ strappend.exit23:                                 ; preds = %.lr.ph.i18
   %45 = load ptr, ptr %44, align 8, !tbaa !321
   %46 = call i32 %45(ptr noundef nonnull %42, i32 noundef %1) #43
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef %5, ptr noundef nonnull @.str.352, i32 noundef %46)
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceFileSize(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal noundef i32 @vfstraceFileSize(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
@@ -45811,7 +45805,7 @@ define internal noundef i32 @vfstraceFileSize(ptr noundef readonly captures(none
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !322
   %21 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %1) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %vfstrace_print_errcode.exit
@@ -45834,14 +45828,14 @@ define internal noundef i32 @vfstraceFileSize(ptr noundef readonly captures(none
 vfstrace_print_errcode.exit:                      ; preds = %2, %27, %30
   %.0.i = phi ptr [ %22, %2 ], [ %3, %30 ], [ %3, %27 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.360, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i64, ptr %1, align 8, !tbaa !23
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.361, i64 noundef %32)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceLock(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal noundef i32 @vfstraceLock(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
@@ -45874,7 +45868,7 @@ lockName.exit:                                    ; preds = %2, %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8, !tbaa !323
   %25 = tail call i32 %24(ptr noundef nonnull %21, i32 noundef %1) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %25)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %vfstrace_print_errcode.exit
@@ -45897,12 +45891,12 @@ lockName.exit:                                    ; preds = %2, %16
 vfstrace_print_errcode.exit:                      ; preds = %lockName.exit, %31, %34
   %.0.i12 = phi ptr [ %26, %lockName.exit ], [ %3, %34 ], [ %3, %31 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i12)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceUnlock(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal noundef i32 @vfstraceUnlock(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
@@ -45935,7 +45929,7 @@ lockName.exit:                                    ; preds = %2, %16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !324
   %25 = tail call i32 %24(ptr noundef nonnull %21, i32 noundef %1) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %25)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %vfstrace_print_errcode.exit
@@ -45958,12 +45952,12 @@ lockName.exit:                                    ; preds = %2, %16
 vfstrace_print_errcode.exit:                      ; preds = %lockName.exit, %31, %34
   %.0.i12 = phi ptr [ %26, %lockName.exit ], [ %3, %34 ], [ %3, %31 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i12)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceCheckReservedLock(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
+define internal noundef i32 @vfstraceCheckReservedLock(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
@@ -45985,7 +45979,7 @@ define internal noundef i32 @vfstraceCheckReservedLock(ptr noundef readonly capt
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !325
   %21 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %1) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %vfstrace_print_errcode.exit
@@ -46008,22 +46002,22 @@ define internal noundef i32 @vfstraceCheckReservedLock(ptr noundef readonly capt
 vfstrace_print_errcode.exit:                      ; preds = %2, %27, %30
   %.0.i = phi ptr [ %22, %2 ], [ %3, %30 ], [ %3, %27 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.345, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %32 = load i32, ptr %1, align 4, !tbaa !36
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.371, i32 noundef %32)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vfstraceFileControl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @vfstraceFileControl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca [50 x i8], align 16
   %6 = alloca [100 x i8], align 16
   %7 = alloca [100 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !305
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6) #43
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !303
   %12 = lshr i32 %11, 9
@@ -46428,7 +46422,7 @@ thread-pre-split:                                 ; preds = %87, %thread-pre-spl
 
 .thread116:                                       ; preds = %161, %158, %166
   %.086119 = phi ptr [ %.086, %166 ], [ %7, %158 ], [ %7, %161 ]
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %167 = call fastcc ptr @vfstrace_errcode_name(i32 noundef 0)
   %168 = icmp eq ptr %167, null
   br i1 %168, label %169, label %vfstrace_print_errcode.exit
@@ -46440,12 +46434,12 @@ thread-pre-split:                                 ; preds = %87, %thread-pre-spl
 vfstrace_print_errcode.exit:                      ; preds = %.thread116, %169
   %.0.i = phi ptr [ %167, %.thread116 ], [ %5, %169 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %9, ptr noundef nonnull @.str.345, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull %9, ptr noundef nonnull @.str.447, ptr noundef nonnull %.086119)
   br label %181
 
 .thread112:                                       ; preds = %141, %153, %166
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %171 = call fastcc ptr @vfstrace_errcode_name(i32 noundef %151)
   %172 = icmp eq ptr %171, null
   br i1 %172, label %173, label %vfstrace_print_errcode.exit104
@@ -46468,17 +46462,17 @@ vfstrace_print_errcode.exit:                      ; preds = %.thread116, %169
 vfstrace_print_errcode.exit104:                   ; preds = %.thread112, %176, %179
   %.0.i102 = phi ptr [ %171, %.thread112 ], [ %4, %179 ], [ %4, %176 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %9, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i102)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %181
 
 181:                                              ; preds = %vfstrace_print_errcode.exit104, %vfstrace_print_errcode.exit
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %151
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceSectorSize(ptr noundef readonly captures(none) %0) #2 {
+define internal noundef i32 @vfstraceSectorSize(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !305
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46504,7 +46498,7 @@ define internal noundef i32 @vfstraceSectorSize(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceDeviceCharacteristics(ptr noundef readonly captures(none) %0) #2 {
+define internal noundef i32 @vfstraceDeviceCharacteristics(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !305
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46530,7 +46524,7 @@ define internal noundef i32 @vfstraceDeviceCharacteristics(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceShmMap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define internal noundef i32 @vfstraceShmMap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [50 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !305
@@ -46552,7 +46546,7 @@ define internal noundef i32 @vfstraceShmMap(ptr noundef readonly captures(none) 
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8, !tbaa !329
   %24 = tail call i32 %23(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %24)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %vfstrace_print_errcode.exit
@@ -46575,17 +46569,17 @@ define internal noundef i32 @vfstraceShmMap(ptr noundef readonly captures(none) 
 vfstrace_print_errcode.exit:                      ; preds = %5, %30, %33
   %.0.i = phi ptr [ %25, %5 ], [ %6, %33 ], [ %6, %30 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceShmLock(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
+define internal noundef i32 @vfstraceShmLock(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = alloca [100 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !305
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !303
   %11 = lshr i32 %10, 12
@@ -46746,7 +46740,7 @@ strappend.exit51:                                 ; preds = %.lr.ph.i46
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %74 = load ptr, ptr %73, align 8, !tbaa !330
   %75 = call i32 %74(ptr noundef nonnull %71, i32 noundef %1, i32 noundef %2, i32 noundef %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = call fastcc ptr @vfstrace_errcode_name(i32 noundef %75)
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %vfstrace_print_errcode.exit
@@ -46769,13 +46763,13 @@ strappend.exit51:                                 ; preds = %.lr.ph.i46
 vfstrace_print_errcode.exit:                      ; preds = %69, %81, %84
   %.0.i = phi ptr [ %76, %69 ], [ %5, %84 ], [ %5, %81 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %8, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @vfstraceShmBarrier(ptr noundef readonly captures(none) %0) #2 {
+define internal void @vfstraceShmBarrier(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !305
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -46800,7 +46794,7 @@ define internal void @vfstraceShmBarrier(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceShmUnmap(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
+define internal noundef i32 @vfstraceShmUnmap(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 {
   %3 = alloca [50 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !305
@@ -46822,7 +46816,7 @@ define internal noundef i32 @vfstraceShmUnmap(ptr noundef readonly captures(none
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8, !tbaa !332
   %21 = tail call i32 %20(ptr noundef nonnull %17, i32 noundef %1) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %vfstrace_print_errcode.exit
@@ -46845,12 +46839,12 @@ define internal noundef i32 @vfstraceShmUnmap(ptr noundef readonly captures(none
 vfstrace_print_errcode.exit:                      ; preds = %2, %27, %30
   %.0.i = phi ptr [ %22, %2 ], [ %3, %30 ], [ %3, %27 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceFetch(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
+define internal noundef i32 @vfstraceFetch(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = alloca [50 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !305
@@ -46873,7 +46867,7 @@ define internal noundef i32 @vfstraceFetch(ptr noundef readonly captures(none) %
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %23 = load ptr, ptr %22, align 8, !tbaa !333
   %24 = tail call i32 %23(ptr noundef nonnull %20, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %24)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %vfstrace_print_errcode.exit
@@ -46896,12 +46890,12 @@ define internal noundef i32 @vfstraceFetch(ptr noundef readonly captures(none) %
 vfstrace_print_errcode.exit:                      ; preds = %4, %30, %33
   %.0.i = phi ptr [ %25, %4 ], [ %5, %33 ], [ %5, %30 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vfstraceUnfetch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #2 {
+define internal noundef i32 @vfstraceUnfetch(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #1 {
   %4 = alloca [50 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !305
@@ -46923,7 +46917,7 @@ define internal noundef i32 @vfstraceUnfetch(ptr noundef readonly captures(none)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %21 = load ptr, ptr %20, align 8, !tbaa !334
   %22 = tail call i32 %21(ptr noundef nonnull %18, i64 noundef %1, ptr noundef %2) #43
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = tail call fastcc ptr @vfstrace_errcode_name(i32 noundef %22)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %vfstrace_print_errcode.exit
@@ -46946,12 +46940,12 @@ define internal noundef i32 @vfstraceUnfetch(ptr noundef readonly captures(none)
 vfstrace_print_errcode.exit:                      ; preds = %3, %28, %31
   %.0.i = phi ptr [ %23, %3 ], [ %4, %31 ], [ %4, %28 ]
   call void (ptr, ptr, ...) @vfstrace_printf(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.348, ptr noundef nonnull %.0.i)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef ptr @vfstrace_errcode_name(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc noundef ptr @vfstrace_errcode_name(i32 noundef %0) unnamed_addr #5 {
   switch i32 %0, label %53 [
     i32 0, label %2
     i32 2, label %3
@@ -47165,7 +47159,7 @@ define internal fastcc noundef ptr @vfstrace_errcode_name(i32 noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dbdataConnect(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr readnone captures(none) %5) #2 {
+define internal i32 @dbdataConnect(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr readnone captures(none) %5) #1 {
   %7 = icmp ne ptr %1, null
   %8 = select i1 %7, ptr @.str.542, ptr @.str.543
   %9 = tail call i32 @sqlite3_declare_vtab(ptr noundef %0, ptr noundef nonnull %8) #43
@@ -47195,7 +47189,7 @@ define internal i32 @dbdataConnect(ptr noundef %0, ptr noundef readnone captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 20) i32 @dbdataBestIndex(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #32 {
+define internal range(i32 0, 20) i32 @dbdataBestIndex(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #31 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !980
   %.not = icmp eq i32 %4, 0
@@ -47353,7 +47347,7 @@ define internal range(i32 0, 20) i32 @dbdataBestIndex(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataDisconnect(ptr noundef %0) #2 {
+define internal noundef i32 @dbdataDisconnect(ptr noundef %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -47369,7 +47363,7 @@ define internal noundef i32 @dbdataDisconnect(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @dbdataOpen(ptr noundef %0, ptr noundef writeonly captures(none) %1) #2 {
+define internal range(i32 0, 8) i32 @dbdataOpen(ptr noundef %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = tail call ptr @sqlite3_malloc64(i64 noundef 136) #43
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -47387,7 +47381,7 @@ define internal range(i32 0, 8) i32 @dbdataOpen(ptr noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataClose(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0) #2 {
+define internal noundef i32 @dbdataClose(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !983
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !982
@@ -47427,7 +47421,7 @@ dbdataResetCursor.exit:                           ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dbdataFilter(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #2 {
+define internal i32 @dbdataFilter(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -47493,7 +47487,7 @@ dbdataResetCursor.exit:                           ; preds = %15, %16
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8, !tbaa !983
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !31
   %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.038) #44
   %40 = icmp ugt i64 %39, 2
@@ -47532,7 +47526,7 @@ dbdataIsFunction.exit.thread.i:                   ; preds = %dbdataIsFunction.ex
   br i1 %57, label %.thread47, label %58
 
 .thread47:                                        ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread58
 
 58:                                               ; preds = %56
@@ -47560,7 +47554,7 @@ dbdataIsFunction.exit.thread.i:                   ; preds = %dbdataIsFunction.ex
   %72 = load ptr, ptr %8, align 8, !tbaa !31
   %73 = call i32 @sqlite3_finalize(ptr noundef %72) #43
   %spec.select.i = select i1 %62, i32 %73, i32 %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %74 = icmp eq i32 %spec.select.i, 0
   br i1 %74, label %75, label %.thread58
 
@@ -47632,8 +47626,8 @@ dbdataIsFunction.exit.thread:                     ; preds = %77, %80, %85, %dbda
   br i1 %107, label %108, label %.thread58
 
 108:                                              ; preds = %104
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.val.i = load ptr, ptr %13, align 8, !tbaa !986
   %109 = call fastcc i32 @dbdataLoadPage(ptr %.val.i, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %6)
   %110 = icmp eq i32 %109, 0
@@ -47665,14 +47659,14 @@ dbdataIsFunction.exit.thread:                     ; preds = %77, %80, %85, %dbda
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %130, ptr %131, align 8, !tbaa !994
   call void @sqlite3_free(ptr noundef %.pre.i) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %138
 
 132:                                              ; preds = %108
   call void @sqlite3_free(ptr noundef %.pre.i) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %110, label %138, label %.thread58
 
 .thread58:                                        ; preds = %.thread47, %91, %71, %102, %104, %132
@@ -47695,7 +47689,7 @@ dbdataIsFunction.exit.thread:                     ; preds = %77, %80, %85, %dbda
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dbdataNext(ptr noundef captures(none) %0) #2 {
+define internal i32 @dbdataNext(ptr noundef captures(none) %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8, !tbaa !862
@@ -48153,8 +48147,8 @@ dbdataGetVarint.exit:                             ; preds = %163, %167
 242:                                              ; preds = %.lr.ph, %247
   %.0170363 = phi i32 [ %239, %.lr.ph ], [ %270, %247 ]
   %.0171362 = phi i64 [ %218, %.lr.ph ], [ %253, %247 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.val240 = load ptr, ptr %13, align 8, !tbaa !986
   %243 = call fastcc i32 @dbdataLoadPage(ptr %.val240, i32 noundef %.0170363, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not227 = icmp eq i32 %243, 0
@@ -48166,8 +48160,8 @@ dbdataGetVarint.exit:                             ; preds = %163, %167
   br i1 %246, label %.thread296, label %247
 
 .thread296:                                       ; preds = %244
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread301
 
 247:                                              ; preds = %244
@@ -48198,8 +48192,8 @@ dbdataGetVarint.exit:                             ; preds = %163, %167
   %269 = zext i8 %268 to i32
   %270 = or disjoint i32 %266, %269
   tail call void @sqlite3_free(ptr noundef nonnull %245) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %271 = icmp sgt i64 %253, 0
   br i1 %271, label %242, label %.thread301
 
@@ -48209,8 +48203,8 @@ dbdataGetVarint.exit:                             ; preds = %163, %167
   br label %274
 
 273:                                              ; preds = %242
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 274:                                              ; preds = %.thread301, %210
@@ -48397,7 +48391,7 @@ dbdataValueBytes.exit:                            ; preds = %switch.lookup, %330
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @dbdataEof(ptr noundef readonly captures(none) %0) #14 {
+define internal range(i32 0, 2) i32 @dbdataEof(ptr noundef readonly captures(none) %0) #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !991
   %4 = icmp eq ptr %3, null
@@ -48406,7 +48400,7 @@ define internal range(i32 0, 2) i32 @dbdataEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 {
+define internal noundef i32 @dbdataColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !862
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !980
@@ -48784,7 +48778,7 @@ dbdataValueBytes.exit.i:                          ; preds = %switch.lookup, %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @dbdataRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #13 {
+define internal noundef i32 @dbdataRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !996
   store i64 %4, ptr %1, align 8, !tbaa !23
@@ -48792,7 +48786,7 @@ define internal noundef i32 @dbdataRowid(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dbdataLoadPage(ptr %.8.val, i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #2 {
+define internal fastcc i32 @dbdataLoadPage(ptr %.8.val, i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #1 {
   store ptr null, ptr %1, align 8, !tbaa !29
   store i32 0, ptr %2, align 4, !tbaa !36
   %.not = icmp eq i32 %0, 0
@@ -48842,14 +48836,14 @@ define internal fastcc i32 @dbdataLoadPage(ptr %.8.val, i32 noundef %0, ptr noun
   ret i32 %.0
 }
 
-declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_text16be(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_text16be(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_result_text16le(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_result_text16le(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverSqlCallback(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @recoverSqlCallback(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8, !tbaa !347
   %5 = icmp eq i32 %4, 0
@@ -48876,10 +48870,10 @@ define internal fastcc void @recoverSqlCallback(ptr noundef nonnull captures(non
   ret void
 }
 
-declare i32 @sqlite3_file_control(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_file_control(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverExec(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @recoverExec(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !347
   %6 = icmp eq i32 %5, 0
@@ -48901,7 +48895,7 @@ define internal fastcc void @recoverExec(ptr noundef nonnull captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverWriteDataCleanup(ptr noundef nonnull captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @recoverWriteDataCleanup(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8, !tbaa !397
   %4 = icmp sgt i32 %3, 0
@@ -48992,9 +48986,9 @@ recoverFinalize.exit16:                           ; preds = %recoverFinalize.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @recoverError(ptr noundef captures(none) initializes((96, 100)) %0, i32 noundef returned %1, ptr noundef %2, ...) unnamed_addr #2 {
+define internal noundef i32 @recoverError(ptr noundef captures(none) initializes((96, 100)) %0, i32 noundef returned %1, ptr noundef %2, ...) unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -49012,16 +49006,16 @@ define internal noundef i32 @recoverError(ptr noundef captures(none) initializes
   store ptr %.0, ptr %8, align 8, !tbaa !348
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %10, align 8, !tbaa !347
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %1
 }
 
-declare void @sqlite3_mutex_enter(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_mutex_enter(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_mutex_alloc(i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_mutex_alloc(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsClose(ptr noundef %0) #2 {
+define internal i32 @recoverVfsClose(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !314
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !317
@@ -49030,7 +49024,7 @@ define internal i32 @recoverVfsClose(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = alloca [108 x i8], align 16
   %6 = alloca i64, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !314
@@ -49059,7 +49053,7 @@ define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %or.cond3, label %20, label %147
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(108) %5, ptr noundef nonnull align 16 dereferenceable(108) @__const.recoverVfsRead.aHdr, i64 108, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i8, ptr %21, align 1, !tbaa !25
@@ -49090,7 +49084,7 @@ define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef 
   %45 = load i8, ptr %44, align 1, !tbaa !25
   %46 = zext i8 %45 to i32
   %47 = or disjoint i32 %43, %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !23
   %48 = load ptr, ptr @recover_g.1, align 8, !tbaa !358
   %49 = icmp eq i32 %26, 1
@@ -49266,8 +49260,8 @@ define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 146:                                              ; preds = %144, %140
   %.2 = phi i32 [ %.1, %140 ], [ %145, %144 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %147
 
 147:                                              ; preds = %16, %146, %15
@@ -49287,7 +49281,7 @@ define internal i32 @recoverVfsRead(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 {
+define internal i32 @recoverVfsWrite(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #1 {
   %5 = load ptr, ptr %0, align 8, !tbaa !314
   %6 = icmp eq ptr %5, @recover_methods
   br i1 %6, label %7, label %12
@@ -49313,7 +49307,7 @@ define internal i32 @recoverVfsWrite(ptr noundef %0, ptr noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsTruncate(ptr noundef %0, i64 noundef %1) #2 {
+define internal i32 @recoverVfsTruncate(ptr noundef %0, i64 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49339,7 +49333,7 @@ define internal i32 @recoverVfsTruncate(ptr noundef %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsSync(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @recoverVfsSync(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49365,7 +49359,7 @@ define internal i32 @recoverVfsSync(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsFileSize(ptr noundef %0, ptr noundef %1) #2 {
+define internal i32 @recoverVfsFileSize(ptr noundef %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49391,7 +49385,7 @@ define internal i32 @recoverVfsFileSize(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsLock(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @recoverVfsLock(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49417,7 +49411,7 @@ define internal i32 @recoverVfsLock(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsUnlock(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @recoverVfsUnlock(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49443,7 +49437,7 @@ define internal i32 @recoverVfsUnlock(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsCheckReservedLock(ptr noundef %0, ptr noundef %1) #2 {
+define internal i32 @recoverVfsCheckReservedLock(ptr noundef %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49469,7 +49463,7 @@ define internal i32 @recoverVfsCheckReservedLock(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsFileControl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #2 {
+define internal i32 @recoverVfsFileControl(ptr noundef %0, i32 noundef %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !314
   %5 = icmp eq ptr %4, @recover_methods
   br i1 %5, label %6, label %14
@@ -49507,7 +49501,7 @@ define internal i32 @recoverVfsFileControl(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsSectorSize(ptr noundef %0) #2 {
+define internal i32 @recoverVfsSectorSize(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !314
   %3 = icmp eq ptr %2, @recover_methods
   br i1 %3, label %4, label %9
@@ -49533,7 +49527,7 @@ define internal i32 @recoverVfsSectorSize(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsDeviceCharacteristics(ptr noundef %0) #2 {
+define internal i32 @recoverVfsDeviceCharacteristics(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !314
   %3 = icmp eq ptr %2, @recover_methods
   br i1 %3, label %4, label %9
@@ -49559,7 +49553,7 @@ define internal i32 @recoverVfsDeviceCharacteristics(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsShmMap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #2 {
+define internal i32 @recoverVfsShmMap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = load ptr, ptr %0, align 8, !tbaa !314
   %7 = icmp eq ptr %6, @recover_methods
   br i1 %7, label %8, label %13
@@ -49585,7 +49579,7 @@ define internal i32 @recoverVfsShmMap(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsShmLock(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #2 {
+define internal i32 @recoverVfsShmLock(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = load ptr, ptr %0, align 8, !tbaa !314
   %6 = icmp eq ptr %5, @recover_methods
   br i1 %6, label %7, label %12
@@ -49611,7 +49605,7 @@ define internal i32 @recoverVfsShmLock(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recoverVfsShmBarrier(ptr noundef %0) #2 {
+define internal void @recoverVfsShmBarrier(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !314
   %3 = icmp eq ptr %2, @recover_methods
   br i1 %3, label %4, label %8
@@ -49636,7 +49630,7 @@ define internal void @recoverVfsShmBarrier(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @recoverVfsShmUnmap(ptr noundef %0, i32 noundef %1) #2 {
+define internal i32 @recoverVfsShmUnmap(ptr noundef %0, i32 noundef %1) #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !314
   %4 = icmp eq ptr %3, @recover_methods
   br i1 %4, label %5, label %10
@@ -49662,18 +49656,18 @@ define internal i32 @recoverVfsShmUnmap(ptr noundef %0, i32 noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @recoverVfsFetch(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #34 {
+define internal noundef i32 @recoverVfsFetch(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #33 {
   store ptr null, ptr %3, align 8, !tbaa !392
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @recoverVfsUnfetch(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #6 {
+define internal noundef i32 @recoverVfsUnfetch(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #5 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recoverVfsDetectPagesize(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @recoverVfsDetectPagesize(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2, i64 noundef %3) unnamed_addr #1 {
   %5 = tail call ptr @sqlite3_malloc(i32 noundef 131072) #43
   %6 = icmp eq ptr %5, null
   br i1 %6, label %181, label %7
@@ -50071,7 +50065,7 @@ select.unfold:                                    ; preds = %recoverIsValidPage.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recoverGetPage(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @recoverGetPage(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i64 @sqlite3_value_int64(ptr noundef %5) #43
@@ -50191,7 +50185,7 @@ recoverReset.exit:                                ; preds = %14, %52, %48, %46, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recoverPageIsUsed(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @recoverPageIsUsed(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call i64 @sqlite3_value_int64(ptr noundef %5) #43
@@ -50222,7 +50216,7 @@ recoverBitmapQuery.exit:                          ; preds = %3, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recoverReadI32(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @recoverReadI32(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_bytes(ptr noundef %4) #43
   %6 = load ptr, ptr %2, align 8, !tbaa !18
@@ -50264,7 +50258,7 @@ define internal void @recoverReadI32(ptr noundef %0, i32 %1, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recoverEscapeCrlf(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @recoverEscapeCrlf(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [20 x i8], align 16
   %5 = alloca [20 x i8], align 16
   %6 = load ptr, ptr %2, align 8, !tbaa !18
@@ -50280,8 +50274,8 @@ define internal void @recoverEscapeCrlf(ptr noundef %0, i32 %1, ptr noundef read
 11:                                               ; preds = %8
   %12 = load ptr, ptr %2, align 8, !tbaa !18
   %13 = tail call i32 @sqlite3_value_bytes(ptr noundef %12) #43
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #43
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load i8, ptr %7, align 1, !tbaa !25
   %.not112119 = icmp eq i8 %14, 0
   br i1 %.not112119, label %._crit_edge, label %.lr.ph
@@ -50491,13 +50485,13 @@ recoverUnusedString.exit118:                      ; preds = %.preheader.i114, %3
   br label %102
 
 102:                                              ; preds = %59, %101
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 .critedge:                                        ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
 
 103:                                              ; preds = %.critedge, %8, %3
@@ -50509,10 +50503,10 @@ recoverUnusedString.exit118:                      ; preds = %.preheader.i114, %3
   ret void
 }
 
-declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recoverDbError(ptr noundef captures(none) initializes((96, 100)) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @recoverDbError(ptr noundef captures(none) initializes((96, 100)) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @sqlite3_errcode(ptr noundef %1) #43
   %4 = tail call ptr @sqlite3_errmsg(ptr noundef %1) #43
   %5 = tail call i32 (ptr, i32, ptr, ...) @recoverError(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.47, ptr noundef %4)
@@ -50520,7 +50514,7 @@ define internal fastcc void @recoverDbError(ptr noundef captures(none) initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @recoverPageCount(ptr noundef captures(none) %0) unnamed_addr #2 {
+define internal fastcc i64 @recoverPageCount(ptr noundef captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !347
   %4 = icmp eq i32 %3, 0
@@ -50572,7 +50566,7 @@ recoverFinalize.exit:                             ; preds = %recoverFinalize.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @recoverPreparePrintf(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #2 {
+define internal ptr @recoverPreparePrintf(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ...) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -50581,7 +50575,7 @@ define internal ptr @recoverPreparePrintf(ptr noundef captures(none) %0, ptr nou
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %10 = call ptr @sqlite3_vmprintf(ptr noundef %2, ptr noundef nonnull %5) #43
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -50593,7 +50587,7 @@ define internal ptr @recoverPreparePrintf(ptr noundef captures(none) %0, ptr nou
   br label %23
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   %14 = load i32, ptr %6, align 8, !tbaa !347
   %15 = icmp eq i32 %14, 0
@@ -50612,13 +50606,13 @@ define internal ptr @recoverPreparePrintf(ptr noundef captures(none) %0, ptr nou
 
 recoverPrepare.exit:                              ; preds = %13, %16, %18
   %22 = load ptr, ptr %4, align 8, !tbaa !31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @sqlite3_free(ptr noundef nonnull %10) #43
   br label %23
 
 23:                                               ; preds = %recoverPrepare.exit, %12
   %.1 = phi ptr [ null, %12 ], [ %22, %recoverPrepare.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %24
 
 24:                                               ; preds = %23, %3
@@ -50627,28 +50621,28 @@ recoverPrepare.exit:                              ; preds = %13, %16, %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_mutex_leave(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_mutex_leave(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_clear_bindings(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_clear_bindings(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_value_free(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_value_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_value_dup(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_value_dup(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_interrupt(ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_interrupt(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @shellLog(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #17 {
+define internal void @shellLog(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4424
   %5 = load ptr, ptr %4, align 8, !tbaa !551
   %6 = icmp eq ptr %5, null
@@ -50665,20 +50659,20 @@ define internal void @shellLog(ptr noundef readonly captures(none) %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @shell_out_of_memory() unnamed_addr #25 {
+define internal fastcc void @shell_out_of_memory() unnamed_addr #24 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !14
   %2 = tail call i64 @fwrite(ptr nonnull @.str.626, i64 21, i64 1, ptr %1) #50
   tail call void @exit(i32 noundef 1) #47
   unreachable
 }
 
-declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellStrtod(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellStrtod(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #43
   %6 = icmp eq ptr %5, null
@@ -50694,7 +50688,7 @@ define internal void @shellStrtod(ptr noundef %0, i32 %1, ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellDtostr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellDtostr(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca [400 x i8], align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !18
   %6 = tail call double @sqlite3_value_double(ptr noundef %5) #43
@@ -50711,15 +50705,15 @@ define internal void @shellDtostr(ptr noundef %0, i32 noundef %1, ptr noundef re
 
 14:                                               ; preds = %3, %8
   %spec.store.select = phi i32 [ %13, %8 ], [ 26, %3 ]
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 400, ptr noundef nonnull %4, ptr noundef nonnull @.str.649, i32 noundef %spec.store.select, double noundef %6) #43
   call void @sqlite3_result_text(ptr noundef %0, ptr noundef nonnull %4, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellAddSchemaName(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellAddSchemaName(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #43
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -50916,7 +50910,7 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i, %.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellModuleSchema(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellModuleSchema(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call ptr @sqlite3_value_text(ptr noundef %4) #43
   %.not = icmp eq ptr %5, null
@@ -50939,7 +50933,7 @@ define internal void @shellModuleSchema(ptr noundef %0, i32 %1, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellPutsFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellPutsFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = tail call ptr @sqlite3_user_data(ptr noundef %0) #43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !470
@@ -50952,7 +50946,7 @@ define internal void @shellPutsFunc(ptr noundef %0, i32 %1, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellUSleepFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellUSleepFunc(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8, !tbaa !18
   %5 = tail call i32 @sqlite3_value_int(ptr noundef %4) #43
   %6 = sdiv i32 %5, 1000
@@ -50962,10 +50956,10 @@ define internal void @shellUSleepFunc(ptr noundef %0, i32 %1, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = icmp eq i32 %1, 2
   br i1 %6, label %7, label %11
 
@@ -51007,7 +51001,7 @@ define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef reado
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !23
   call void @sqlite3_randomness(i32 noundef 8, ptr noundef nonnull %5) #43
   %27 = load i64, ptr %5, align 8, !tbaa !23
@@ -51018,11 +51012,11 @@ define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef reado
 
 29:                                               ; preds = %26
   call void @sqlite3_result_error_nomem(ptr noundef %0) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %108
 
 .critedge:                                        ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %30
 
 30:                                               ; preds = %.critedge, %21
@@ -51197,12 +51191,12 @@ define internal void @editFunc(ptr noundef %0, i32 noundef %1, ptr noundef reado
   br label %108
 
 108:                                              ; preds = %29, %.thread, %20, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %0, ptr noundef nonnull @.str.54)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %30, label %5
@@ -51260,10 +51254,10 @@ define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly captu
   ret ptr %.0
 }
 
-declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @safeModeAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #2 {
+define internal noundef i32 @safeModeAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   switch i32 %1, label %.loopexit [
     i32 24, label %7
     i32 31, label %.preheader
@@ -51295,10 +51289,10 @@ define internal noundef i32 @safeModeAuth(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #35
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #34
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 35) i8 @quoteChar(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc signext range(i8 0, 35) i8 @quoteChar(ptr noundef %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -51355,12 +51349,12 @@ define internal fastcc signext range(i8 0, 35) i8 @quoteChar(ptr noundef %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shellFakeSchema(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
+define internal fastcc ptr @shellFakeSchema(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.ShellText, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %1, null
   %6 = select i1 %.not, ptr @.str.45, ptr %1
   %7 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.663, ptr noundef nonnull %6, ptr noundef nonnull %2) #43
@@ -51700,13 +51694,13 @@ appendText.exit73:                                ; preds = %133, %138
 
 156:                                              ; preds = %155, %appendText.exit73
   %157 = phi ptr [ null, %155 ], [ %148, %appendText.exit73 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %157
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @appendText(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef signext range(i8 0, 40) %2) unnamed_addr #2 {
+define internal fastcc void @appendText(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef signext range(i8 0, 40) %2) unnamed_addr #1 {
   %strlen.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1)
   %4 = trunc i64 %strlen.i to i32
   %5 = and i32 %4, 1073741823
@@ -51835,18 +51829,18 @@ shell_check_oom.exit:                             ; preds = %26, %21
   ret void
 }
 
-declare i32 @sqlite3_sleep(i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_sleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #36
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #35
 
-declare void @sqlite3_result_text64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare void @sqlite3_result_text64(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal void @failIfSafeMode(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @failIfSafeMode(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %5 = load i8, ptr %4, align 1, !tbaa !480
@@ -51854,7 +51848,7 @@ define internal void @failIfSafeMode(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -51870,7 +51864,7 @@ define internal void @failIfSafeMode(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @resolve_backslashes(ptr noundef captures(none) %0) unnamed_addr #26 {
+define internal fastcc void @resolve_backslashes(ptr noundef captures(none) %0) unnamed_addr #25 {
   br label %2
 
 2:                                                ; preds = %4, %1
@@ -52072,7 +52066,7 @@ hexDigitValue.exit:                               ; preds = %34, %28, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @booleanValue(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc i32 @booleanValue(ptr noundef %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !tbaa !25
   %3 = icmp eq i8 %2, 48
   br i1 %3, label %4, label %.preheader29
@@ -52180,9 +52174,9 @@ hexDigitValue.exit:                               ; preds = %18, %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shellAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+define internal noundef i32 @shellAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
   %7 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 16, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %8, align 8, !tbaa !29
@@ -52257,12 +52251,12 @@ define internal noundef i32 @shellAuth(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not.i, label %safeModeAuth.exit, label %.preheader.i, !llvm.loop !1027
 
 safeModeAuth.exit:                                ; preds = %37, %31, %30, %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 0
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @shellDatabaseError(ptr noundef %0) unnamed_addr #37 {
+define internal fastcc void @shellDatabaseError(ptr noundef %0) unnamed_addr #36 {
   %2 = tail call ptr @sqlite3_errmsg(ptr noundef %0) #43
   %3 = load ptr, ptr @stderr, align 8, !tbaa !14
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.991, ptr noundef %2) #46
@@ -52270,10 +52264,10 @@ define internal fastcc void @shellDatabaseError(ptr noundef %0) unnamed_addr #37
 }
 
 ; Function Attrs: nounwind
-declare i32 @chdir(ptr noundef) local_unnamed_addr #18
+declare i32 @chdir(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @testcase_glob(ptr noundef readonly %0, ptr noundef nonnull readonly %1) unnamed_addr #38 {
+define internal fastcc range(i32 0, 2) i32 @testcase_glob(ptr noundef readonly %0, ptr noundef nonnull readonly %1) unnamed_addr #37 {
   %3 = load i8, ptr %0, align 1, !tbaa !25
   %.not161 = icmp eq i8 %3, 0
   %.pre196 = tail call ptr @__ctype_b_loc() #45
@@ -52560,9 +52554,9 @@ define internal fastcc range(i32 0, 2) i32 @testcase_glob(ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tryToClone(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @tryToClone(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !221
   %4 = tail call i32 @access(ptr noundef %1, i32 noundef 0) #43
   %5 = icmp eq i32 %4, 0
@@ -52613,25 +52607,25 @@ define internal fastcc void @tryToClone(ptr noundef nonnull %0, ptr noundef %1) 
   br label %close_db.exit
 
 close_db.exit:                                    ; preds = %30, %27, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_txn_state(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_txn_state(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_db_readonly(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_db_readonly(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @shell_dbinfo_command(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, ptr %.8.val) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @shell_dbinfo_command(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, ptr %.8.val) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = icmp sgt i32 %1, 1
   %spec.select = select i1 %6, ptr %.8.val, ptr @.str.45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call fastcc void @open_db(ptr noundef %0, i32 noundef 0)
   %7 = load ptr, ptr %0, align 8, !tbaa !485
   %8 = icmp eq ptr %7, null
@@ -52825,14 +52819,14 @@ shell_check_oom.exit:                             ; preds = %28
 
 130:                                              ; preds = %2, %124, %60, %11
   %.0 = phi i32 [ 1, %11 ], [ 0, %124 ], [ 1, %60 ], [ 1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc i32 @recoverDatabaseCmd(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %1, 1
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -53044,12 +53038,12 @@ sqlite3_recover_errcode.exit85:                   ; preds = %84, %sqlite3_recove
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @outputDumpWarning(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @outputDumpWarning(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   %5 = load ptr, ptr %0, align 8, !tbaa !485
   %.not = icmp eq ptr %1, null
@@ -53090,15 +53084,15 @@ define internal fastcc void @outputDumpWarning(ptr noundef nonnull readonly capt
   br label %shellFinalize.exit
 
 shellFinalize.exit:                               ; preds = %22, %17, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_schema_dump_query(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @run_schema_dump_query(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !29
   %4 = load ptr, ptr %0, align 8, !tbaa !485
   %5 = call i32 @sqlite3_exec(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @dump_callback, ptr noundef nonnull %0, ptr noundef nonnull %3) #43
@@ -53154,14 +53148,14 @@ define internal fastcc void @run_schema_dump_query(ptr noundef nonnull %0, ptr n
   br label %.critedge
 
 .critedge:                                        ; preds = %18, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_table_dump_query(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @run_table_dump_query(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !485
   %5 = call i32 @sqlite3_prepare_v2(ptr noundef %4, ptr noundef %1, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #43
   %6 = icmp eq i32 %5, 0
@@ -53319,17 +53313,17 @@ define internal fastcc void @run_table_dump_query(ptr noundef nonnull captures(n
   br label %81
 
 81:                                               ; preds = %.sink.split, %._crit_edge55, %71, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @shell_dbtotxt_command(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @shell_dbtotxt_command(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 46, i64 256, i1 false)
   br label %4
 
@@ -53577,15 +53571,15 @@ shell_check_oom.exit:                             ; preds = %49
   %.0833.sink = phi ptr [ %.0833, %.thread ], [ %50, %._crit_edge ]
   %.0 = phi i32 [ 1, %.thread ], [ 0, %._crit_edge ]
   call void @free(ptr noundef %.0833.sink) #43
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expertDotCommand(ptr noundef nonnull captures(none) initializes((4704, 4720)) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+define internal fastcc void @expertDotCommand(ptr noundef nonnull captures(none) initializes((4704, 4720)) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -53697,18 +53691,18 @@ define internal fastcc void @expertDotCommand(ptr noundef nonnull captures(none)
 ._crit_edge:                                      ; preds = %.critedge, %41, %31, %54, %59
   %61 = load ptr, ptr %4, align 8, !tbaa !29
   call void @sqlite3_free(ptr noundef %61) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #2 {
+define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #1 {
   tail call fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @showHelp(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @showHelp(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %cond = icmp eq ptr %1, null
   br i1 %cond, label %.split, label %3
 
@@ -53993,7 +53987,7 @@ shell_check_oom.exit92.preheader:                 ; preds = %70, %.critedge2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ascii_read_one_field(ptr noundef captures(none) initializes((32, 36)) %0) #2 {
+define internal ptr @ascii_read_one_field(ptr noundef captures(none) initializes((32, 36)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !527
   %4 = and i32 %3, 255
@@ -54113,7 +54107,7 @@ import_append_char.exit:                          ; preds = %.shell_check_oom.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @csv_read_one_field(ptr noundef captures(none) initializes((32, 36)) %0) #2 {
+define internal ptr @csv_read_one_field(ptr noundef captures(none) initializes((32, 36)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -54467,15 +54461,15 @@ import_append_char.exit133:                       ; preds = %.shell_check_oom.ex
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #16
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr noundef captures(none)) #16
+declare noundef i32 @pclose(ptr noundef captures(none)) #15
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_c_string(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #17 {
+define internal fastcc void @output_c_string(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #16 {
   %3 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) @__const.output_c_string.ace, i64 3, i1 false)
   %fputc = tail call i32 @fputc(i32 34, ptr %0)
   %4 = load i8, ptr %1, align 1, !tbaa !25
@@ -54642,12 +54636,12 @@ zSkipValidUtf8.exit:                              ; preds = %20, %24, %.loopexit
 
 .thread42:                                        ; preds = %69, %46, %2
   %fputc37 = tail call i32 @fputc(i32 34, ptr %0)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @import_append_char(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @import_append_char(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !1071
   %5 = add nsw i32 %4, 1
@@ -54695,11 +54689,11 @@ shell_check_oom.exit:                             ; preds = %.shell_check_oom.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @db_int(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal i32 @db_int(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %4) #43
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -54724,15 +54718,15 @@ define internal i32 @db_int(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2
   %.0 = phi i32 [ %12, %11 ], [ 0, %8 ], [ 0, %2 ]
   %15 = call i32 @sqlite3_finalize(ptr noundef %14) #43
   call void @sqlite3_free(ptr noundef %5) #43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zAutoColumn(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc ptr @zAutoColumn(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   %.not = icmp eq ptr %0, null
   %5 = load ptr, ptr %1, align 8, !tbaa !221
@@ -54905,18 +54899,18 @@ rc_err_oom_die.exit47:                            ; preds = %.critedge
 
 82:                                               ; preds = %29, %8, %77, %rc_err_oom_die.exit43
   %.0 = phi ptr [ null, %rc_err_oom_die.exit43 ], [ %.033, %77 ], [ null, %8 ], [ null, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_test_control(i32 noundef, ...) local_unnamed_addr #3
+declare i32 @sqlite3_test_control(i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @intckDatabaseCmd(ptr noundef nonnull readonly captures(none) %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #2 {
+define internal fastcc i32 @intckDatabaseCmd(ptr noundef nonnull readonly captures(none) %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8, !tbaa !485
   %5 = call i32 @sqlite3_intck_open(ptr noundef %4, ptr noundef nonnull @.str.45, ptr noundef nonnull %3)
   %6 = icmp eq i32 %5, 0
@@ -55032,12 +55026,12 @@ sqlite3_intck_message.exit.thread:                ; preds = %24, %sqlite3_intck_
 
 50:                                               ; preds = %46, %2
   %.0 = phi i32 [ %spec.select.i, %46 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = icmp sgt i32 %2, 1
@@ -55061,7 +55055,7 @@ define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly capture
   %.val = load ptr, ptr %0, align 8, !tbaa !485
   %16 = getelementptr i8, ptr %0, i64 72
   %.val10 = load ptr, ptr %16, align 8, !tbaa !470
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
   %.not11 = icmp eq i32 %2, 2
   br i1 %.not11, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -55138,7 +55132,7 @@ define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly capture
 
 46:                                               ; preds = %.thread6.i, %.lr.ph30.i
   %.08628.i = phi ptr [ null, %.lr.ph30.i ], [ %.288.i, %.thread6.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %47 = load ptr, ptr %4, align 8, !tbaa !31
   %48 = call ptr @sqlite3_column_text(ptr noundef %47, i32 noundef 0) #43
@@ -55237,7 +55231,7 @@ define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly capture
 
 .thread6.i:                                       ; preds = %97, %96, %94, %83, %46
   %.288.i = phi ptr [ %.08628.i, %46 ], [ %.389.i, %94 ], [ %.389.i, %97 ], [ %.389.i, %96 ], [ %.08628.i, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = load ptr, ptr %4, align 8, !tbaa !31
   %100 = call i32 @sqlite3_step(ptr noundef %99) #43
   %101 = icmp eq i32 %100, 100
@@ -55251,12 +55245,12 @@ define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly capture
 .loopexit.i:                                      ; preds = %80
   %102 = load ptr, ptr @stderr, align 8, !tbaa !14
   %103 = call i64 @fwrite(ptr nonnull @.str.1680, i64 21, i64 1, ptr %102) #50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @sqlite3_free(ptr noundef %.08628.i) #43
   br label %108
 
 104:                                              ; preds = %77, %61
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @sqlite3_free(ptr noundef %.08628.i) #43
   %105 = load ptr, ptr @stderr, align 8, !tbaa !14
   %106 = call ptr @sqlite3_errmsg(ptr noundef %.val) #43
@@ -55284,7 +55278,7 @@ define internal fastcc void @lintDotCommand(ptr noundef nonnull readonly capture
   br label %lintFkeyIndexes.exit
 
 lintFkeyIndexes.exit:                             ; preds = %.critedge.i, %108, %112, %.critedge109.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %126
 
 .thread:                                          ; preds = %3, %7, %13
@@ -55301,10 +55295,10 @@ lintFkeyIndexes.exit:                             ; preds = %.critedge.i, %108, 
   ret void
 }
 
-declare i32 @sqlite3_load_extension(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_load_extension(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @output_file_open(ptr noundef %0) unnamed_addr #17 {
+define internal fastcc ptr @output_file_open(ptr noundef %0) unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   %spec.store.select.i = select i1 %2, ptr @.str.44, ptr %0
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i, ptr noundef nonnull dereferenceable(7) @.str.921) #44
@@ -55345,7 +55339,7 @@ define internal fastcc ptr @output_file_open(ptr noundef %0) unnamed_addr #17 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @newTempFile(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @newTempFile(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8, !tbaa !490
@@ -55384,7 +55378,7 @@ clearTempFile.exit:                               ; preds = %2, %7, %10, %12
   br i1 %17, label %.thread, label %26
 
 .thread:                                          ; preds = %clearTempFile.exit, %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @sqlite3_randomness(i32 noundef 8, ptr noundef nonnull %3) #43
   %18 = call ptr @getenv(ptr noundef nonnull @.str.1689) #43
   %19 = icmp eq ptr %18, null
@@ -55401,7 +55395,7 @@ clearTempFile.exit:                               ; preds = %2, %7, %10, %12
   %24 = load i64, ptr %3, align 8, !tbaa !23
   %25 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1692, ptr noundef nonnull %spec.store.select, i64 noundef %24, ptr noundef %1) #43
   store ptr %25, ptr %4, align 8, !tbaa !490
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 26:                                               ; preds = %15
@@ -55423,7 +55417,7 @@ shell_check_oom.exit:                             ; preds = %28
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_redir(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #17 {
+define internal fastcc void @output_redir(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !470
   %5 = load ptr, ptr @stdout, align 8, !tbaa !14
@@ -55451,12 +55445,12 @@ define internal fastcc void @output_redir(ptr noundef nonnull captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bind_table_init(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @bind_table_init(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !36
   %4 = load ptr, ptr %0, align 8, !tbaa !485
   %5 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %4, i32 noundef 1010, i32 noundef -1, ptr noundef nonnull %3) #43
@@ -55474,16 +55468,16 @@ define internal fastcc void @bind_table_init(ptr noundef nonnull readonly captur
   %17 = load ptr, ptr %0, align 8, !tbaa !485
   %18 = load i32, ptr %3, align 4, !tbaa !36
   %19 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %17, i32 noundef 1010, i32 noundef %18, i32 noundef 0) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bind_prepared_stmt(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @bind_prepared_stmt(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [30 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %5 = tail call i32 @sqlite3_bind_parameter_count(ptr noundef %1) #43
   %6 = icmp eq i32 %5, 0
@@ -55512,7 +55506,7 @@ define internal fastcc void @bind_prepared_stmt(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %15, %63
   %.047 = phi i32 [ %66, %63 ], [ 1, %15 ]
-  call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call ptr @sqlite3_bind_parameter_name(ptr noundef %1, i32 noundef %.047) #43
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -55597,7 +55591,7 @@ define internal fastcc void @bind_prepared_stmt(ptr noundef readonly captures(no
 63:                                               ; preds = %53, %57, %35, %45, %61, %40, %28
   %64 = load ptr, ptr %3, align 8, !tbaa !31
   %65 = call i32 @sqlite3_reset(ptr noundef %64) #43
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = add nuw i32 %.047, 1
   %exitcond.not = icmp eq i32 %.047, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1082
@@ -55608,14 +55602,14 @@ define internal fastcc void @bind_prepared_stmt(ptr noundef readonly captures(no
   br label %69
 
 69:                                               ; preds = %2, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @sqlite3_progress_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_progress_handler(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @progress_handler(ptr noundef captures(none) %0) #17 {
+define internal range(i32 0, 2) i32 @progress_handler(ptr noundef captures(none) %0) #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8, !tbaa !566
   %4 = add i32 %3, 1
@@ -55668,9 +55662,9 @@ define internal range(i32 0, 2) i32 @progress_handler(ptr noundef captures(none)
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @openChrSource(ptr noundef readonly captures(none) %0) unnamed_addr #17 {
+define internal fastcc noalias noundef ptr @openChrSource(ptr noundef readonly captures(none) %0) unnamed_addr #16 {
   %2 = alloca %struct.stat, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   %3 = call i32 @stat64(ptr noundef %0, ptr noundef nonnull %2) #43
   %.not = icmp eq i32 %3, 0
@@ -55693,17 +55687,17 @@ define internal fastcc noalias noundef ptr @openChrSource(ptr noundef readonly c
 
 10:                                               ; preds = %4, %1, %8
   %.0 = phi ptr [ %9, %8 ], [ null, %1 ], [ null, %4 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @createSelftestTable(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc void @createSelftestTable(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !29
   %3 = load ptr, ptr %0, align 8, !tbaa !485
   %4 = call i32 @sqlite3_exec(ptr noundef %3, ptr noundef nonnull @.str.1707, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #43
@@ -55721,12 +55715,12 @@ define internal fastcc void @createSelftestTable(ptr noundef nonnull readonly ca
 10:                                               ; preds = %6, %1
   %11 = load ptr, ptr %0, align 8, !tbaa !485
   %12 = call i32 @sqlite3_exec(ptr noundef %11, ptr noundef nonnull @.str.1709, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #2 {
+define internal noundef i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.loopexit, label %6
 
@@ -55938,7 +55932,7 @@ appendText.exit30:                                ; preds = %.appendText.exit30_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = alloca [200 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -55962,8 +55956,8 @@ define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly 
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
   %25 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %26 = icmp eq ptr %1, null
   br i1 %26, label %261, label %27
 
@@ -55986,8 +55980,8 @@ define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly 
   br i1 %37, label %38, label %52
 
 38:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #43
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %25) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %39 = tail call i32 @sqlite3_column_count(ptr noundef nonnull %33) #43
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1710, ptr noundef nonnull @.str.1711, i32 noundef %39) #43
   %41 = icmp sgt i32 %39, 0
@@ -56009,8 +56003,8 @@ define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1084
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %25) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %52
 
 52:                                               ; preds = %._crit_edge, %34, %31
@@ -56030,11 +56024,11 @@ define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly 
   br label %261
 
 61:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 -1, ptr %19, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 -1, ptr %20, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %21) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %62 = call i32 @sqlite3_status64(i32 noundef 0, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 0) #43
   br label %63
 
@@ -56074,14 +56068,14 @@ define internal fastcc void @display_stats(ptr noundef %0, ptr noundef readonly 
 
 displayStatLine.exit:                             ; preds = %71, %75
   %78 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1716, ptr noundef nonnull %21) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %21) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 -1, ptr %16, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 -1, ptr %17, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %18) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %79 = call i32 @sqlite3_status64(i32 noundef 9, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef 0) #43
   br label %80
 
@@ -56121,9 +56115,9 @@ displayStatLine.exit:                             ; preds = %71, %75
 
 displayStatLine.exit116:                          ; preds = %88, %92
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1718, ptr noundef nonnull %18) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %18) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %97 = load i32, ptr %96, align 4, !tbaa !462
   %98 = and i32 %97, 1
@@ -56131,11 +56125,11 @@ displayStatLine.exit116:                          ; preds = %88, %92
   br i1 %.not107, label %117, label %99
 
 99:                                               ; preds = %displayStatLine.exit116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 -1, ptr %13, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 -1, ptr %14, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %15) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %100 = call i32 @sqlite3_status64(i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0) #43
   br label %101
 
@@ -56175,17 +56169,17 @@ displayStatLine.exit116:                          ; preds = %88, %92
 
 displayStatLine.exit121:                          ; preds = %109, %113
   %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1720, ptr noundef nonnull %15) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %15) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %117
 
 117:                                              ; preds = %displayStatLine.exit121, %displayStatLine.exit116
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 -1, ptr %10, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 -1, ptr %11, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %118 = call i32 @sqlite3_status64(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0) #43
   br label %119
 
@@ -56225,14 +56219,14 @@ displayStatLine.exit121:                          ; preds = %109, %113
 
 displayStatLine.exit126:                          ; preds = %127, %131
   %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1722, ptr noundef nonnull %12) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 -1, ptr %7, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %135 = call i32 @sqlite3_status64(i32 noundef 5, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0) #43
   br label %136
 
@@ -56272,14 +56266,14 @@ displayStatLine.exit126:                          ; preds = %127, %131
 
 displayStatLine.exit131:                          ; preds = %144, %148
   %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1723, ptr noundef nonnull %9) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %9) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 -1, ptr %4, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -1, ptr %5, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = call i32 @sqlite3_status64(i32 noundef 7, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0) #43
   br label %153
 
@@ -56319,9 +56313,9 @@ displayStatLine.exit131:                          ; preds = %144, %148
 
 displayStatLine.exit136:                          ; preds = %161, %165
   %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %29, ptr noundef nonnull @.str.1713, ptr noundef nonnull @.str.1725, ptr noundef nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not108 = icmp eq ptr %0, null
   br i1 %.not108, label %208, label %169
 
@@ -56439,7 +56433,7 @@ displayStatLine.exit136:                          ; preds = %161, %165
 
 241:                                              ; preds = %228, %208
   %242 = load ptr, ptr %28, align 8, !tbaa !470
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %243 = call i32 @getpid() #43
   %244 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 200, ptr noundef nonnull %3, ptr noundef nonnull @.str.1745, i32 noundef %243) #43
   %245 = call noalias ptr @fopen64(ptr noundef nonnull %3, ptr noundef nonnull @.str.54)
@@ -56487,20 +56481,20 @@ displayStatLine.exit136:                          ; preds = %161, %165
   br label %displayLinuxIoStats.exit
 
 displayLinuxIoStats.exit:                         ; preds = %241, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %261
 
 261:                                              ; preds = %56, %58, %2, %27, %displayLinuxIoStats.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #35
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #34
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @faultsim_callback(i32 noundef %0) #17 {
+define internal i32 @faultsim_callback(i32 noundef %0) #16 {
   %2 = load i32, ptr @faultsim_state.0, align 4, !tbaa !610
   %3 = icmp slt i32 %2, 1
   %.not = icmp eq i32 %2, %0
@@ -56568,14 +56562,14 @@ define internal i32 @faultsim_callback(i32 noundef %0) #17 {
   ret i32 %.0
 }
 
-declare i32 @sqlite3_strglob(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_strglob(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sql_trace_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #2 {
+define internal noundef i32 @sql_trace_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !616
   %7 = icmp eq ptr %6, null
@@ -56671,18 +56665,18 @@ define internal noundef i32 @sql_trace_callback(i32 noundef %0, ptr noundef read
   ret i32 0
 }
 
-declare ptr @zlibVersion() local_unnamed_addr #3
+declare ptr @zlibVersion() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #16
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tryToCloneSchema(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc void @tryToCloneSchema(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
   %7 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1294, ptr noundef %2) #43
   %8 = icmp eq ptr %7, null
@@ -56848,18 +56842,18 @@ shell_check_oom.exit60:                           ; preds = %39
   %84 = load ptr, ptr %5, align 8, !tbaa !31
   %85 = call i32 @sqlite3_finalize(ptr noundef %84) #43
   call void @sqlite3_free(ptr noundef nonnull %.0) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tryToCloneData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @tryToCloneData(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !31
   %strlen.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %2)
   %6 = trunc i64 %strlen.i to i32
@@ -57169,19 +57163,19 @@ shell_check_oom.exit79:                           ; preds = %.split
   %151 = call i32 @sqlite3_finalize(ptr noundef %150) #43
   call void @sqlite3_free(ptr noundef %.0) #43
   call void @sqlite3_free(ptr noundef %.069) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @sqlite3_extended_errcode(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_extended_errcode(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @recoverSqlCb(ptr noundef readonly captures(none) %0, ptr noundef %1) #17 {
+define internal noundef i32 @recoverSqlCb(ptr noundef readonly captures(none) %0, ptr noundef %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !470
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.311, ptr noundef %1) #43
@@ -57189,7 +57183,7 @@ define internal noundef i32 @recoverSqlCb(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellPreparePrintf(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull initializes((0, 8)) %2, ptr noundef %3, ...) unnamed_addr #2 {
+define internal void @shellPreparePrintf(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull initializes((0, 8)) %2, ptr noundef %3, ...) unnamed_addr #1 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %2, align 8, !tbaa !31
   %6 = load i32, ptr %1, align 4, !tbaa !36
@@ -57197,7 +57191,7 @@ define internal void @shellPreparePrintf(ptr noundef %0, ptr noundef nonnull cap
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %9 = call ptr @sqlite3_vmprintf(ptr noundef %3, ptr noundef nonnull %5) #43
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -57232,7 +57226,7 @@ shellPrepare.exit:                                ; preds = %12, %15, %17
   br label %22
 
 22:                                               ; preds = %shellPrepare.exit, %11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 23:                                               ; preds = %22, %4
@@ -57240,7 +57234,7 @@ shellPrepare.exit:                                ; preds = %12, %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #2 {
+define internal noundef i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ShellText, align 8
   %7 = alloca %struct.ShellText, align 8
@@ -57343,9 +57337,9 @@ shell_check_oom.exit:                             ; preds = %49
   br i1 %61, label %62, label %461
 
 62:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = load i32, ptr %19, align 4, !tbaa !462
   %64 = and i32 %63, 8
   %65 = icmp ne i32 %64, 0
@@ -57551,11 +57545,11 @@ freeColumnList.exit.i:                            ; preds = %.lr.ph.i.i, %121
   br i1 %exitcond106.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !1100
 
 152:                                              ; preds = %freeColumnList.exit.i, %._crit_edge.thread.i, %shell_check_oom.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.sink.split
 
 .loopexit:                                        ; preds = %151, %134, %.preheader._crit_edge.loopexit.i, %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %153 = tail call ptr @__ctype_b_loc() #45
   %154 = load ptr, ptr %153, align 8, !tbaa !43
@@ -58221,8 +58215,8 @@ quoteChar.exit225:                                ; preds = %.lr.ph.i214, %416, 
   br label %460
 
 460:                                              ; preds = %.sink.split, %456
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %461
 
 461:                                              ; preds = %460, %59, %34, %10, %4, %shell_check_oom.exit
@@ -58230,7 +58224,7 @@ quoteChar.exit225:                                ; preds = %.lr.ph.i214, %416, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @printSchemaLine(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @printSchemaLine(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -58309,12 +58303,12 @@ shell_check_oom.exit:                             ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @toggleSelectOrder(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @toggleSelectOrder(ptr noundef %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !31
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @sqlite3_prepare_v2(ptr noundef %0, ptr noundef nonnull @.str.1380, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #43
   %5 = load ptr, ptr %2, align 8, !tbaa !31
   %6 = call i32 @sqlite3_step(ptr noundef %5) #43
@@ -58334,15 +58328,15 @@ define internal fastcc void @toggleSelectOrder(ptr noundef %0) unnamed_addr #2 {
   %15 = call i32 @sqlite3_finalize(ptr noundef %14) #43
   %16 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 100, ptr noundef nonnull %3, ptr noundef nonnull @.str.1381, i32 noundef %.0) #43
   %17 = call i32 @sqlite3_exec(ptr noundef %0, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare i32 @sqlite3_complete(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_complete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @shell_error_context(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc ptr @shell_error_context(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -58458,13 +58452,13 @@ shell_check_oom.exit._crit_edge:                  ; preds = %shell_check_oom.exi
   ret ptr %.035
 }
 
-declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_error_offset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
   %6 = alloca [51 x i8], align 16
   %7 = alloca [50 x i8], align 16
   %8 = alloca [50 x i8], align 16
@@ -58614,7 +58608,7 @@ define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr 
   %67 = load ptr, ptr %50, align 8, !tbaa !470
   %68 = getelementptr inbounds nuw i32, ptr %.0562, i64 %indvars.iv834
   %69 = load i32, ptr %68, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %6, ptr noundef nonnull align 16 dereferenceable(51) @__const.print_dashes.zDash, i64 51, i1 false)
   %70 = icmp sgt i32 %69, 50
   br i1 %70, label %.lr.ph.i, label %print_dashes.exit
@@ -58629,7 +58623,7 @@ define internal fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr 
 print_dashes.exit:                                ; preds = %.lr.ph.i, %66
   %.0.lcssa.i = phi i32 [ %69, %66 ], [ %72, %.lr.ph.i ]
   %74 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i, ptr noundef nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %75 = icmp eq i64 %indvars.iv834, %52
   %76 = select i1 %75, ptr @.str.102, ptr @.str.1125
   %77 = load ptr, ptr %50, align 8, !tbaa !470
@@ -59601,7 +59595,7 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i
   br label %564
 
 524:                                              ; preds = %510
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %525 = load ptr, ptr %500, align 8, !tbaa !625
   %526 = trunc nuw nsw i64 %indvars.iv849 to i32
   %527 = call double @sqlite3_column_double(ptr noundef %525, i32 noundef %526) #43
@@ -59641,7 +59635,7 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i
   br label %546
 
 546:                                              ; preds = %532, %543, %529
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %564
 
 547:                                              ; preds = %510
@@ -59757,7 +59751,7 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i
   br label %629
 
 600:                                              ; preds = %594
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %601 = load ptr, ptr %582, align 8, !tbaa !625
   %602 = trunc nuw nsw i64 %indvars.iv902 to i32
   %603 = call double @sqlite3_column_double(ptr noundef %601, i32 noundef %602) #43
@@ -59784,7 +59778,7 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i
   br label %615
 
 615:                                              ; preds = %608, %611, %605
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %629
 
 616:                                              ; preds = %594
@@ -59942,14 +59936,14 @@ quoteChar.exit:                                   ; preds = %._crit_edge.i
   br label %702
 
 683:                                              ; preds = %673
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %684 = load ptr, ptr %663, align 8, !tbaa !625
   %685 = trunc nuw nsw i64 %indvars.iv912 to i32
   %686 = call double @sqlite3_column_double(ptr noundef %684, i32 noundef %685) #43
   %687 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 50, ptr noundef nonnull %9, ptr noundef nonnull @.str.1423, double noundef %686) #43
   %688 = load ptr, ptr %662, align 8, !tbaa !470
   %689 = call i32 @fputs(ptr noundef nonnull %9, ptr noundef %688)
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %702
 
 690:                                              ; preds = %673
@@ -60152,7 +60146,7 @@ eqp_append.exit:                                  ; preds = %126, %312, %32, %.p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @utf8_width_print(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #17 {
+define internal fastcc void @utf8_width_print(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #16 {
   %4 = icmp slt i32 %1, 0
   %5 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %6 = icmp eq ptr %2, null
@@ -60372,7 +60366,7 @@ cli_wcwidth.exit._crit_edge:                      ; preds = %115, %112, %cli_wcw
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @wsToEol(ptr noundef readonly captures(none) %0) unnamed_addr #38 {
+define internal fastcc range(i32 0, 2) i32 @wsToEol(ptr noundef readonly captures(none) %0) unnamed_addr #37 {
   br label %2
 
 2:                                                ; preds = %5, %1
@@ -60415,7 +60409,7 @@ define internal fastcc range(i32 0, 2) i32 @wsToEol(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_html_string(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #17 {
+define internal fastcc void @output_html_string(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #16 {
   %3 = icmp eq ptr %1, null
   %spec.store.select = select i1 %3, ptr @.str.44, ptr %1
   %4 = load i8, ptr %spec.store.select, align 1, !tbaa !25
@@ -60497,7 +60491,7 @@ define internal fastcc void @output_html_string(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_csv(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @output_csv(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %.preheader
 
@@ -60578,7 +60572,7 @@ shell_check_oom.exit:                             ; preds = %.thread
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_quoted_string(ptr captures(none) %.72.val, ptr noundef %0) unnamed_addr #17 {
+define internal fastcc void @output_quoted_string(ptr captures(none) %.72.val, ptr noundef %0) unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %29, label %.preheader1
 
@@ -60669,7 +60663,7 @@ define internal fastcc void @output_quoted_string(ptr captures(none) %.72.val, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_quoted_escaped_string(ptr captures(none) %.72.val, ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @output_quoted_escaped_string(ptr captures(none) %.72.val, ptr noundef %0) unnamed_addr #1 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [20 x i8], align 16
   br label %4
@@ -60694,8 +60688,8 @@ define internal fastcc void @output_quoted_escaped_string(ptr captures(none) %.7
   br label %70
 
 10:                                               ; preds = %4, %4, %4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #43
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %16, %10
@@ -60857,8 +60851,8 @@ unused_string.exit97:                             ; preds = %.preheader.i93, %34
   br label %69
 
 69:                                               ; preds = %67, %66
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %70
 
 70:                                               ; preds = %69, %8
@@ -60866,7 +60860,7 @@ unused_string.exit97:                             ; preds = %.preheader.i93, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_hex_blob(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @output_hex_blob(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #1 {
   %4 = shl nsw i32 %2, 1
   %5 = or disjoint i32 %4, 1
   %6 = tail call ptr @sqlite3_malloc(i32 noundef %5) #43
@@ -60922,7 +60916,7 @@ shell_check_oom.exit._crit_edge:                  ; preds = %shell_check_oom.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @isNumber(ptr noundef readonly captures(none) %0) unnamed_addr #38 {
+define internal fastcc range(i32 0, 2) i32 @isNumber(ptr noundef readonly captures(none) %0) unnamed_addr #37 {
   %2 = load i8, ptr %0, align 1, !tbaa !25
   switch i8 %2, label %5 [
     i8 45, label %3
@@ -61036,9 +61030,9 @@ define internal fastcc range(i32 0, 2) i32 @isNumber(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @output_json_string(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #17 {
+define internal fastcc void @output_json_string(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #16 {
   %4 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @__const.output_c_string.ace, i64 3, i1 false)
   %5 = icmp eq ptr %1, null
   %spec.store.select = select i1 %5, ptr @.str.44, ptr %1
@@ -61171,23 +61165,23 @@ anyOfInStr.exit:                                  ; preds = %20
 
 .thread56:                                        ; preds = %55, %37, %9
   %fputc51 = tail call i32 @fputc(i32 34, ptr %0)
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal void @shellFkeyCollateClause(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #2 {
+define internal void @shellFkeyCollateClause(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @sqlite3_context_db_handle(ptr noundef %0) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !29
   %7 = load ptr, ptr %2, align 8, !tbaa !18
   %8 = tail call ptr @sqlite3_value_text(ptr noundef %7) #43
@@ -61225,29 +61219,29 @@ define internal void @shellFkeyCollateClause(ptr noundef %0, i32 %1, ptr noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %27, %23, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_bind_parameter_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_bind_text64(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @sqlite3_bind_text64(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @sqlite3_column_decltype(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @sqlite3_column_decltype(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_stmt_status(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_stmt_status(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_db_status(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_db_status(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_status64(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_status64(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_expanded_sql(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_expanded_sql(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @save_err_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc ptr @save_err_msg(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = tail call ptr @sqlite3_str_new(ptr noundef null) #43
   %6 = tail call ptr @sqlite3_errmsg(ptr noundef %0) #43
   tail call void (ptr, ptr, ...) @sqlite3_str_appendf(ptr noundef %5, ptr noundef nonnull @.str.1768, ptr noundef %1, ptr noundef %6) #43
@@ -61281,12 +61275,12 @@ shell_check_oom.exit:                             ; preds = %12
   ret ptr %13
 }
 
-declare i32 @sqlite3_stmt_isexplain(ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_stmt_isexplain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @sqlite3_stmt_explain(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @sqlite3_stmt_explain(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @eqp_render(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @eqp_render(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4584
   %3 = load ptr, ptr %2, align 8, !tbaa !632
   %.not = icmp eq ptr %3, null
@@ -61353,7 +61347,7 @@ define internal fastcc void @eqp_render(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @explain_data_prepare(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @explain_data_prepare(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = tail call i32 @sqlite3_step(ptr noundef %1) #43
   %4 = icmp eq i32 %3, 100
   br i1 %4, label %.lr.ph93, label %._crit_edge
@@ -61523,7 +61517,7 @@ str_in_array.exit76.thread:                       ; preds = %.lr.ph89, %str_in_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_prepared_stmt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @exec_prepared_stmt(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca [51 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca [200 x i8], align 16
@@ -61686,7 +61680,7 @@ shell_check_oom.exit381.i:                        ; preds = %43
 
 .lr.ph432.i:                                      ; preds = %69, %82
   %.2331431.i = phi i64 [ %88, %82 ], [ 0, %69 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %76 = load ptr, ptr %66, align 8, !tbaa !491
   %77 = getelementptr inbounds nuw i32, ptr %76, i64 %.2331431.i
   %78 = load i32, ptr %77, align 4, !tbaa !36
@@ -61707,7 +61701,7 @@ shell_check_oom.exit381.i:                        ; preds = %43
   %86 = call fastcc ptr @translateForDisplayAndDup(ptr noundef nonnull %spec.store.select1.i, ptr noundef nonnull %4, i32 noundef %spec.select369.i, i8 noundef zeroext %11)
   %87 = getelementptr inbounds nuw ptr, ptr %21, i64 %.2331431.i
   store ptr %86, ptr %87, align 8, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %88 = add nuw nsw i64 %.2331431.i, 1
   %exitcond478.not.i = icmp eq i64 %88, %24
   br i1 %exitcond478.not.i, label %.critedge.preheader.i, label %.lr.ph432.i, !llvm.loop !1159
@@ -62036,7 +62030,7 @@ strlenChar.exit.i:                                ; preds = %.lr.ph.i384.i, %173
   %218 = load ptr, ptr %63, align 8, !tbaa !621
   %219 = getelementptr inbounds nuw i32, ptr %218, i64 %.6459.i
   %220 = load i32, ptr %219, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %3, ptr noundef nonnull align 16 dereferenceable(51) @__const.print_dashes.zDash, i64 51, i1 false)
   %221 = icmp sgt i32 %220, 50
   br i1 %221, label %.lr.ph.i388.i, label %print_dashes.exit.i
@@ -62051,7 +62045,7 @@ strlenChar.exit.i:                                ; preds = %.lr.ph.i384.i, %173
 print_dashes.exit.i:                              ; preds = %.lr.ph.i388.i, %.lr.ph460.i
   %.0.lcssa.i387.i = phi i32 [ %220, %.lr.ph460.i ], [ %223, %.lr.ph.i388.i ]
   %225 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %217, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i387.i, ptr noundef nonnull %3) #43
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %226 = icmp eq i64 %.6459.i, %199
   %227 = select i1 %226, ptr @.str.102, ptr @.str.1125
   %228 = load ptr, ptr %197, align 8, !tbaa !470
@@ -62520,28 +62514,28 @@ strlenChar.exit418.i:                             ; preds = %.lr.ph.i410.i, %293
   br label %exec_prepared_stmt_columnar.exit
 
 431:                                              ; preds = %.thread74
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not72 = icmp eq i64 %.063, 0
   %432 = select i1 %.not72, ptr @.str.44, ptr @.str.38
   %433 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 200, ptr noundef nonnull %5, ptr noundef nonnull @.str.1790, i64 noundef %405, ptr noundef nonnull %432) #43
   %434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %exec_prepared_stmt_columnar.exit
 
 exec_prepared_stmt_columnar.exit:                 ; preds = %._crit_edge473.i, %._crit_edge470.i, %8, %385, %423, %431, %427, %.thread74
   ret void
 }
 
-declare ptr @sqlite3_str_new(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_str_new(ptr noundef) local_unnamed_addr #2
 
-declare void @sqlite3_str_appendf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @sqlite3_str_appendf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @sqlite3_str_appendall(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @sqlite3_str_appendall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @sqlite3_str_finish(ptr noundef) local_unnamed_addr #3
+declare ptr @sqlite3_str_finish(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @eqp_render_level(ptr noundef %0, i32 noundef %1) unnamed_addr #17 {
+define internal fastcc void @eqp_render_level(ptr noundef %0, i32 noundef %1) unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #44
   %.fr33 = freeze i64 %4
@@ -62637,7 +62631,7 @@ eqp_next_row.exit30:                              ; preds = %.lr.ph.i24, %27, %.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @translateForDisplayAndDup(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, -2147483648) %2, i8 noundef zeroext %3) unnamed_addr #17 {
+define internal fastcc noalias noundef ptr @translateForDisplayAndDup(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, -2147483648) %2, i8 noundef zeroext %3) unnamed_addr #16 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -63259,7 +63253,7 @@ shell_check_oom.exit:                             ; preds = %330, %310, %cli_wcw
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_row_separator(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2) unnamed_addr #17 {
+define internal fastcc void @print_row_separator(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2) unnamed_addr #16 {
   %4 = alloca [51 x i8], align 16
   %5 = alloca [51 x i8], align 16
   %6 = icmp sgt i32 %1, 0
@@ -63274,7 +63268,7 @@ define internal fastcc void @print_row_separator(ptr noundef readonly captures(n
   %13 = load ptr, ptr %12, align 8, !tbaa !621
   %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = add nsw i32 %14, 2
-  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %5, ptr noundef nonnull align 16 dereferenceable(51) @__const.print_dashes.zDash, i64 51, i1 false)
   %16 = icmp sgt i32 %14, 48
   br i1 %16, label %.lr.ph.i, label %print_dashes.exit
@@ -63289,7 +63283,7 @@ define internal fastcc void @print_row_separator(ptr noundef readonly captures(n
 print_dashes.exit:                                ; preds = %.lr.ph.i, %7
   %.0.lcssa.i = phi i32 [ %15, %7 ], [ %18, %.lr.ph.i ]
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i, ptr noundef nonnull %5) #43
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -63306,7 +63300,7 @@ print_dashes.exit:                                ; preds = %.lr.ph.i, %7
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !36
   %27 = add nsw i32 %26, 2
-  call void @llvm.lifetime.start.p0(i64 51, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(51) %4, ptr noundef nonnull align 16 dereferenceable(51) @__const.print_dashes.zDash, i64 51, i1 false)
   %28 = icmp sgt i32 %26, 48
   br i1 %28, label %.lr.ph.i17, label %print_dashes.exit19
@@ -63321,7 +63315,7 @@ print_dashes.exit:                                ; preds = %.lr.ph.i, %7
 print_dashes.exit19:                              ; preds = %.lr.ph.i17, %.lr.ph
   %.0.lcssa.i16 = phi i32 [ %27, %.lr.ph ], [ %30, %.lr.ph.i17 ]
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i16, ptr noundef nonnull %4) #43
-  call void @llvm.lifetime.end.p0(i64 51, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1186
@@ -63339,7 +63333,7 @@ print_dashes.exit19:                              ; preds = %.lr.ph.i17, %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_box_row_separator(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #17 {
+define internal fastcc void @print_box_row_separator(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #16 {
   %6 = alloca [61 x i8], align 16
   %7 = alloca [61 x i8], align 16
   %8 = icmp sgt i32 %1, 0
@@ -63353,7 +63347,7 @@ define internal fastcc void @print_box_row_separator(ptr noundef readonly captur
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load ptr, ptr %14, align 8, !tbaa !621
   %16 = load i32, ptr %15, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(61) %7, ptr noundef nonnull align 16 dereferenceable(61) @__const.print_box_line.zDash, i64 61, i1 false)
   %17 = mul i32 %16, 3
   %18 = add i32 %17, 6
@@ -63370,7 +63364,7 @@ define internal fastcc void @print_box_row_separator(ptr noundef readonly captur
 print_box_line.exit:                              ; preds = %.lr.ph.i, %9
   %.0.lcssa.i = phi i32 [ %18, %9 ], [ %21, %.lr.ph.i ]
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i, ptr noundef nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -63386,7 +63380,7 @@ print_box_line.exit:                              ; preds = %.lr.ph.i, %9
   %27 = load ptr, ptr %14, align 8, !tbaa !621
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 61, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(61) %6, ptr noundef nonnull align 16 dereferenceable(61) @__const.print_box_line.zDash, i64 61, i1 false)
   %30 = mul i32 %29, 3
   %31 = add i32 %30, 6
@@ -63403,7 +63397,7 @@ print_box_line.exit:                              ; preds = %.lr.ph.i, %9
 print_box_line.exit19:                            ; preds = %.lr.ph.i17, %.lr.ph
   %.0.lcssa.i16 = phi i32 [ %31, %.lr.ph ], [ %34, %.lr.ph.i17 ]
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.219, i32 noundef %.0.lcssa.i16, ptr noundef nonnull %6) #43
-  call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1188
@@ -63420,10 +63414,10 @@ print_box_line.exit19:                            ; preds = %.lr.ph.i17, %.lr.ph
   ret void
 }
 
-declare void @sqlite3_str_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @sqlite3_str_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @arCreateOrUpdateCommand(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc i32 @arCreateOrUpdateCommand(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -63434,7 +63428,7 @@ define internal fastcc i32 @arCreateOrUpdateCommand(ptr noundef nonnull readonly
   %11 = alloca ptr, align 8
   %12 = alloca [50 x i8], align 16
   %13 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %15 = load i8, ptr %14, align 1, !tbaa !646
   %.not.i = icmp eq i8 %15, 0
@@ -63447,7 +63441,7 @@ define internal fastcc i32 @arCreateOrUpdateCommand(ptr noundef nonnull readonly
   br label %arExecSql.exit
 
 20:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !662
@@ -63464,7 +63458,7 @@ define internal fastcc i32 @arCreateOrUpdateCommand(ptr noundef nonnull readonly
   br label %29
 
 29:                                               ; preds = %25, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %arExecSql.exit
 
 arExecSql.exit:                                   ; preds = %16, %29
@@ -63479,7 +63473,7 @@ arExecSql.exit63.thread:                          ; preds = %arExecSql.exit
   br label %43
 
 34:                                               ; preds = %arExecSql.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !662
@@ -63496,7 +63490,7 @@ arExecSql.exit63.thread:                          ; preds = %arExecSql.exit
   br label %arExecSql.exit63
 
 arExecSql.exit63:                                 ; preds = %34, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %43, label %188
 
@@ -63514,7 +63508,7 @@ arExecSql.exit63:                                 ; preds = %34, %39
   br i1 %.not54, label %arExecSql.exit75, label %49
 
 49:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @sqlite3_randomness(i32 noundef 8, ptr noundef nonnull %13) #43
   %50 = load i64, ptr %13, align 8, !tbaa !23
   %51 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 50, ptr noundef nonnull %12, ptr noundef nonnull @.str.1844, i64 noundef %50) #43
@@ -63531,7 +63525,7 @@ arExecSql.exit63:                                 ; preds = %34, %39
   br label %arExecSql.exit67
 
 59:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !29
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %61 = load ptr, ptr %60, align 8, !tbaa !662
@@ -63548,13 +63542,13 @@ arExecSql.exit63:                                 ; preds = %34, %39
   br label %68
 
 68:                                               ; preds = %64, %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %arExecSql.exit67
 
 arExecSql.exit67:                                 ; preds = %55, %68
   %.0.i65 = phi i32 [ 0, %55 ], [ %62, %68 ]
   call void @sqlite3_free(ptr noundef %53) #43
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %arExecSql.exit75
 
 69:                                               ; preds = %43
@@ -63573,7 +63567,7 @@ arExecSql.exit71.thread:                          ; preds = %71
   br label %85
 
 76:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !29
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8, !tbaa !662
@@ -63590,7 +63584,7 @@ arExecSql.exit71.thread:                          ; preds = %71
   br label %arExecSql.exit71
 
 arExecSql.exit71:                                 ; preds = %76, %81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not53 = icmp eq i32 %79, 0
   br i1 %.not53, label %85, label %.thread
 
@@ -63606,7 +63600,7 @@ arExecSql.exit71:                                 ; preds = %76, %81
   br label %arExecSql.exit75
 
 91:                                               ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load ptr, ptr %92, align 8, !tbaa !662
@@ -63623,7 +63617,7 @@ arExecSql.exit71:                                 ; preds = %76, %81
   br label %100
 
 100:                                              ; preds = %96, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %arExecSql.exit75
 
 arExecSql.exit75:                                 ; preds = %100, %87, %46, %arExecSql.exit67
@@ -63683,7 +63677,7 @@ arExecSql.exit75:                                 ; preds = %100, %87, %46, %arE
   br label %arExecSql.exit79
 
 133:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !29
   %134 = load ptr, ptr %116, align 8, !tbaa !662
   %135 = call i32 @sqlite3_exec(ptr noundef %134, ptr noundef %128, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #43
@@ -63699,7 +63693,7 @@ arExecSql.exit75:                                 ; preds = %100, %87, %46, %arE
   br label %141
 
 141:                                              ; preds = %137, %133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %arExecSql.exit79
 
 arExecSql.exit79:                                 ; preds = %130, %141
@@ -63738,7 +63732,7 @@ arExecSql.exit79:                                 ; preds = %130, %141
   br label %arExecSql.exit83
 
 156:                                              ; preds = %150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !29
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 8, !tbaa !662
@@ -63755,7 +63749,7 @@ arExecSql.exit79:                                 ; preds = %130, %141
   br label %165
 
 165:                                              ; preds = %161, %156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %arExecSql.exit83
 
 arExecSql.exit83:                                 ; preds = %152, %165
@@ -63783,7 +63777,7 @@ arExecSql.exit83:                                 ; preds = %152, %165
   br label %arExecSql.exit87
 
 177:                                              ; preds = %170
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !29
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %179 = load ptr, ptr %178, align 8, !tbaa !662
@@ -63800,7 +63794,7 @@ arExecSql.exit83:                                 ; preds = %152, %165
   br label %186
 
 186:                                              ; preds = %182, %177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %arExecSql.exit87
 
 arExecSql.exit87:                                 ; preds = %173, %186
@@ -63815,14 +63809,14 @@ arExecSql.exit87:                                 ; preds = %173, %186
 
 188:                                              ; preds = %arExecSql.exit63, %187
   %.0 = phi i32 [ %.4, %187 ], [ %37, %arExecSql.exit63 ]
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal void @arErrorMsg(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #37 {
+define internal void @arErrorMsg(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #36 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -63844,15 +63838,15 @@ define internal void @arErrorMsg(ptr noundef nonnull readonly captures(none) %0,
 
 14:                                               ; preds = %12, %10
   call void @sqlite3_free(ptr noundef %4) #43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @arCheckEntries(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #2 {
+define internal fastcc i32 @arCheckEntries(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !653
@@ -63860,7 +63854,7 @@ define internal fastcc i32 @arCheckEntries(ptr noundef nonnull readonly captures
   br i1 %.not, label %64, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1, !tbaa !647
@@ -63974,26 +63968,26 @@ shellReset.exit:                                  ; preds = %._crit_edge
 
 shellFinalize.exit:                               ; preds = %58, %59, %._crit_edge32, %55
   %63 = phi i32 [ %.lcssa28, %._crit_edge32 ], [ %.lcssa28, %55 ], [ %57, %59 ], [ %57, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
 64:                                               ; preds = %shellFinalize.exit, %1
   %65 = phi i32 [ %63, %shellFinalize.exit ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %65
 }
 
-declare i32 @sqlite3_bind_parameter_index(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @sqlite3_bind_parameter_index(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @getuid() local_unnamed_addr #18
+declare i32 @getuid() local_unnamed_addr #17
 
-declare ptr @getpwuid(i32 noundef) local_unnamed_addr #3
+declare ptr @getpwuid(i32 noundef) local_unnamed_addr #2
 
-declare ptr @rl_completion_matches(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @rl_completion_matches(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @readline_completion_generator(ptr noundef %0, i32 noundef %1) #2 {
+define internal noalias ptr @readline_completion_generator(ptr noundef %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %12
 
@@ -64041,7 +64035,7 @@ shell_check_oom.exit:                             ; preds = %4
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @quickscan(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #39 {
+define internal fastcc i32 @quickscan(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #38 {
   %4 = trunc i32 %1 to i8
   %sext.mask = and i32 %1, 255
   %5 = icmp eq i32 %sext.mask, 0
@@ -64301,7 +64295,7 @@ thread-pre-split.loopexit.split.split.split.us.us: ; preds = %.split.us142, %thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -64313,7 +64307,7 @@ define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0
   %13 = alloca ptr, align 8
   %14 = alloca [100 x i8], align 16
   %15 = alloca [2000 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8, !tbaa !29
   tail call fastcc void @open_db(ptr noundef %0, i32 noundef 0)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -64345,7 +64339,7 @@ define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0
 
 28:                                               ; preds = %26
   %29 = tail call i32 @getrusage(i32 noundef 0, ptr noundef nonnull @sBegin) #43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %30 = load ptr, ptr @timeOfDay.clockVfs, align 8, !tbaa !618
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %.thread.i.i
@@ -64374,19 +64368,19 @@ define internal fastcc range(i32 0, 2) i32 @runOneSqlLine(ptr noundef nonnull %0
   br label %timeOfDay.exit.i
 
 43:                                               ; preds = %38, %.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 120
   %45 = load ptr, ptr %44, align 8, !tbaa !291
   %46 = call i32 %45(ptr noundef nonnull %35, ptr noundef nonnull %12) #43
   %47 = load double, ptr %12, align 8, !tbaa !78
   %48 = fmul double %47, 8.640000e+07
   %49 = fptosi double %48 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %timeOfDay.exit.i
 
 timeOfDay.exit.i:                                 ; preds = %43, %41, %32
   %.0.i.i = phi i64 [ 0, %32 ], [ %49, %43 ], [ %.pre.i.i, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i64 %.0.i.i, ptr @iBegin, align 8, !tbaa !23
   br label %beginTimer.exit
 
@@ -64399,7 +64393,7 @@ beginTimer.exit:                                  ; preds = %26, %timeOfDay.exit
   br i1 %.not.i30, label %endTimer.exit, label %54
 
 54:                                               ; preds = %beginTimer.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = load ptr, ptr @timeOfDay.clockVfs, align 8, !tbaa !618
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %.thread.i.i31
@@ -64428,20 +64422,20 @@ beginTimer.exit:                                  ; preds = %26, %timeOfDay.exit
   br label %timeOfDay.exit.i32
 
 68:                                               ; preds = %63, %.thread.i.i31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %70 = load ptr, ptr %69, align 8, !tbaa !291
   %71 = call i32 %70(ptr noundef nonnull %60, ptr noundef nonnull %9) #43
   %72 = load double, ptr %9, align 8, !tbaa !78
   %73 = fmul double %72, 8.640000e+07
   %74 = fptosi double %73 to i64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %timeOfDay.exit.i32
 
 timeOfDay.exit.i32:                               ; preds = %68, %66, %57
   %.0.i.i33 = phi i64 [ 0, %57 ], [ %74, %68 ], [ %.pre.i.i35, %66 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %75 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %10) #43
   %76 = load i64, ptr @iBegin, align 8, !tbaa !23
   %77 = sub nsw i64 %.0.i.i33, %76
@@ -64469,7 +64463,7 @@ timeOfDay.exit.i32:                               ; preds = %68, %66, %57
   %91 = sitofp i64 %90 to double
   %92 = call double @llvm.fmuladd.f64(double %89, double 0x3EB0C6F7A0B5ED8D, double %91)
   %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.1886, double noundef %79, double noundef %85, double noundef %92) #43
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %endTimer.exit
 
 endTimer.exit:                                    ; preds = %beginTimer.exit, %timeOfDay.exit.i32
@@ -64480,7 +64474,7 @@ endTimer.exit:                                    ; preds = %beginTimer.exit, %t
   br i1 %or.cond, label %97, label %122
 
 97:                                               ; preds = %endTimer.exit
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %14) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = icmp eq ptr %95, null
   br i1 %98, label %99, label %102
 
@@ -64528,7 +64522,7 @@ endTimer.exit:                                    ; preds = %beginTimer.exit, %t
   %120 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.1884, ptr noundef nonnull %14, ptr noundef %.024) #46
   %121 = load ptr, ptr %13, align 8, !tbaa !29
   call void @sqlite3_free(ptr noundef %121) #43
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %14) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %203
 
 122:                                              ; preds = %endTimer.exit
@@ -64538,7 +64532,7 @@ endTimer.exit:                                    ; preds = %beginTimer.exit, %t
   br i1 %.not28, label %133, label %125
 
 125:                                              ; preds = %122
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %15) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %126 = load ptr, ptr %0, align 8, !tbaa !485
   %127 = call i64 @sqlite3_changes64(ptr noundef %126) #43
   %128 = load ptr, ptr %0, align 8, !tbaa !485
@@ -64546,7 +64540,7 @@ endTimer.exit:                                    ; preds = %beginTimer.exit, %t
   %130 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 2000, ptr noundef nonnull %15, ptr noundef nonnull @.str.1885, i64 noundef %127, i64 noundef %129) #43
   %131 = load ptr, ptr %51, align 8, !tbaa !470
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.310, ptr noundef nonnull %15) #43
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %15) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %133
 
 133:                                              ; preds = %122, %125
@@ -64595,7 +64589,7 @@ doAutoDetectRestore.exit.thread42:                ; preds = %149
   br label %doAutoDetectRestore.exit.thread
 
 151:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %152 = load ptr, ptr %0, align 8, !tbaa !485
   store ptr null, ptr %5, align 8, !tbaa !31
   %153 = call i32 @sqlite3_prepare_v2(ptr noundef %152, ptr noundef nonnull @.str.1889, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #43
@@ -64638,12 +64632,12 @@ shellPrepare.exit.i:                              ; preds = %151
   br label %doAutoDetectRestore.exit.thread46
 
 172:                                              ; preds = %162
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %or.cond.i = and i1 %.not.i.i37, %163
   br i1 %or.cond.i, label %173, label %doAutoDetectRestore.exit
 
 .thread:                                          ; preds = %168
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %163, label %173, label %doAutoDetectRestore.exit.thread52
 
 doAutoDetectRestore.exit.thread52:                ; preds = %.thread
@@ -64651,9 +64645,9 @@ doAutoDetectRestore.exit.thread52:                ; preds = %.thread
   br label %doAutoDetectRestore.exit.thread
 
 173:                                              ; preds = %.thread, %172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !36
   %174 = load ptr, ptr %0, align 8, !tbaa !485
   %175 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %174, i32 noundef 1010, i32 noundef -1, ptr noundef nonnull %6) #43
@@ -64671,12 +64665,12 @@ doAutoDetectRestore.exit.thread52:                ; preds = %.thread
   %185 = select i1 %.not26.i, i8 0, i8 4
   %186 = or disjoint i8 %185, %183
   store i8 %186, ptr %134, align 1, !tbaa !1198
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %doAutoDetectRestore.exit.thread
 
 doAutoDetectRestore.exit.thread46:                ; preds = %165, %.thread44.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 7, ptr %134, align 1, !tbaa !1198
   br label %203
 
@@ -64722,23 +64716,29 @@ doAutoDetectRestore.exit.thread:                  ; preds = %doAutoDetectRestore
 
 203:                                              ; preds = %doAutoDetectRestore.exit.thread, %doAutoDetectRestore.exit, %doAutoDetectRestore.exit.thread46, %118
   %.025 = phi i32 [ 1, %118 ], [ 0, %doAutoDetectRestore.exit.thread ], [ 1, %doAutoDetectRestore.exit ], [ 1, %doAutoDetectRestore.exit.thread46 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %.025
 }
 
-declare ptr @readline(ptr noundef) local_unnamed_addr #3
+declare ptr @readline(ptr noundef) local_unnamed_addr #2
 
-declare void @add_history(ptr noundef) local_unnamed_addr #3
+declare void @add_history(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_tolower_loc() local_unnamed_addr #27
+declare ptr @__ctype_tolower_loc() local_unnamed_addr #26
 
-declare i64 @sqlite3_changes64(ptr noundef) local_unnamed_addr #3
+declare i64 @sqlite3_changes64(ptr noundef) local_unnamed_addr #2
 
-declare i64 @sqlite3_total_changes64(ptr noundef) local_unnamed_addr #3
+declare i64 @sqlite3_total_changes64(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #18
+declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #39
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #40
@@ -64795,45 +64795,45 @@ declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 declare i64 @llvm.umin.i64(i64, i64) #40
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { cold nofree noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #40 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #41 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #42 = { nofree nounwind }

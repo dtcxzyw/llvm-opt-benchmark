@@ -154,7 +154,7 @@ define noundef i32 @_ZN6icu_7715ChineseCalendar21handleGetExtendedYearER10UError
   br i1 %7, label %8, label %51
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = tail call noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 0, i32 noundef 1)
   %10 = tail call noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, i32 noundef %9)
   %11 = icmp eq i32 %10, 19
@@ -170,7 +170,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit: ; preds = %8
   br label %50
 
 _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12: ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8, !tbaa !23
   %20 = icmp sgt i8 %19, 0
@@ -185,7 +185,7 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12: ; preds = %8
   %28 = load i32, ptr %27, align 4
   %29 = select i1 %26, i32 %28, i32 1
   store i32 %29, ptr %3, align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = load ptr, ptr %0, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 456
   %32 = load ptr, ptr %31, align 8
@@ -224,19 +224,19 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12: ; preds = %8
   br label %.critedge
 
 49:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %3, align 4, !tbaa !20
   br label %50
 
 .critedge:                                        ; preds = %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12, %48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %50
 
 50:                                               ; preds = %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit, %49, %.critedge
   %.2 = phi i32 [ 0, %.critedge ], [ %.pre, %49 ], [ %17, %_ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 51:                                               ; preds = %2, %50
@@ -244,24 +244,18 @@ _ZNK6icu_778Calendar11internalGetE19UCalendarDateFieldsi.exit12: ; preds = %8
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
 declare noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 declare signext i8 @uprv_add32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare signext i8 @uprv_mul32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7715ChineseCalendar20handleGetMonthLengthEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.icu_77::ChineseCalendar::Setting", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 456
   %10 = load ptr, ptr %9, align 8
@@ -290,14 +284,14 @@ define noundef i32 @_ZNK6icu_7715ChineseCalendar20handleGetMonthLengthEiiR10UErr
 
 _ZNK6icu_7715ChineseCalendar28handleGetMonthLengthWithLeapEiibR10UErrorCode.exit: ; preds = %4, %13, %18
   %.0.i = phi i32 [ 0, %4 ], [ %25, %18 ], [ 0, %13 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7715ChineseCalendar28handleGetMonthLengthWithLeapEiibR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.icu_77::ChineseCalendar::Setting", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %9 = load ptr, ptr %8, align 8
@@ -325,7 +319,7 @@ define noundef i32 @_ZNK6icu_7715ChineseCalendar28handleGetMonthLengthWithLeapEi
 
 24:                                               ; preds = %16, %12, %5
   %.0 = phi i32 [ 0, %5 ], [ %23, %16 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -357,7 +351,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715ChineseCalen
   br label %72
 
 18:                                               ; preds = %14, %13
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = load ptr, ptr %0, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 456
   %21 = load ptr, ptr %20, align 8
@@ -367,7 +361,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715ChineseCalen
   br i1 %23, label %24, label %71
 
 24:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = load i32, ptr %6, align 4, !tbaa !20
   %26 = load i32, ptr %8, align 8, !tbaa !24
   %27 = add nsw i32 %26, -1
@@ -426,7 +420,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715ChineseCalen
 
 62:                                               ; preds = %55, %52
   %.023 = phi i32 [ %59, %55 ], [ %39, %52 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %63 = add nsw i32 %.023, -1
   %64 = call signext i8 @uprv_add32_overflow_77(i32 noundef %63, i32 noundef 2440588, ptr noundef nonnull %10)
   %.not32 = icmp eq i8 %64, 0
@@ -443,17 +437,17 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK6icu_7715ChineseCalen
 
 69:                                               ; preds = %66, %65
   %.5 = phi i64 [ 0, %65 ], [ %68, %66 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %70
 
 70:                                               ; preds = %30, %55, %42, %69, %29
   %.2 = phi i64 [ 0, %29 ], [ 0, %30 ], [ %.5, %69 ], [ 0, %42 ], [ 0, %55 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %71
 
 71:                                               ; preds = %18, %70
   %.1 = phi i64 [ %.2, %70 ], [ 0, %18 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %72
 
 72:                                               ; preds = %5, %71, %17
@@ -479,8 +473,8 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111newMoonNearEPKNS_8
   br i1 %.not11.i, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread, label %15
 
 15:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
@@ -495,8 +489,8 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %23 = add nsw i32 %22, %21
   %24 = sitofp i32 %23 to double
   %25 = fsub double %14, %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %27
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread: ; preds = %13
@@ -504,15 +498,15 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   br label %27
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
 27:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %.0.i17 = phi double [ %26, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %25, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %9, double noundef %.0.i17)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = invoke double @_ZN6icu_7718CalendarAstronomer8NEW_MOONEv()
           to label %29 unwind label %54
 
@@ -530,8 +524,8 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   br i1 %.not11.i, label %49, label %35
 
 35:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = load ptr, ptr %0, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
@@ -555,8 +549,8 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
 
 .noexc14:                                         ; preds = %41, %.noexc
   %.1.i13 = phi double [ 0.000000e+00, %.noexc ], [ %48, %41 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6icu_7712_GLOBAL__N_112millisToDaysEPKNS_8TimeZoneEdR10UErrorCode.exit
 
 49:                                               ; preds = %34
@@ -568,17 +562,17 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
 _ZN6icu_7712_GLOBAL__N_112millisToDaysEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %.noexc14, %31, %49
   %.0.i12 = phi double [ %.1.i13, %.noexc14 ], [ 0.000000e+00, %31 ], [ %52, %49 ]
   %53 = fptosi double %.0.i12 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %9) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %56
 
 54:                                               ; preds = %49, %41, %35, %29, %27
   %55 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %9) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %55
 
 56:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit, %_ZN6icu_7712_GLOBAL__N_112millisToDaysEPKNS_8TimeZoneEdR10UErrorCode.exit, %4
@@ -931,7 +925,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
   br i1 %.not, label %69, label %8
 
 8:                                                ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 456
   %11 = load ptr, ptr %10, align 8
@@ -949,7 +943,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load i8, ptr %21, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !20
   %.not29 = icmp eq i8 %22, 0
   %23 = add i32 %12, -2440587
@@ -1018,7 +1012,7 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
   br label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread
 
 _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i, %56, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread45.i
@@ -1029,7 +1023,7 @@ _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; pr
   %spec.select38.i = add nsw i32 %60, %58
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   %61 = icmp sgt i32 %.pre, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not28 = icmp eq i32 %spec.select38.i, %.031.i
   %or.cond = select i1 %61, i1 true, i1 %.not28
   br i1 %or.cond, label %67, label %62
@@ -1043,7 +1037,7 @@ _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; pr
   br label %67
 
 67:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit, %62, %8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %69
 
 68:                                               ; preds = %4
@@ -1075,7 +1069,7 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   br i1 %8, label %9, label %99
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = call signext i8 @uprv_add32_overflow_77(i32 noundef %1, i32 noundef -2440588, ptr noundef nonnull %4)
   %.not43 = icmp eq i8 %10, 0
   br i1 %.not43, label %12, label %11
@@ -1089,7 +1083,7 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %16 = load i8, ptr %15, align 8, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load ptr, ptr %0, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 456
   %19 = load ptr, ptr %18, align 8
@@ -1126,7 +1120,7 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   %.sroa.6.8.extract.trunc = trunc i64 %26 to i32
   %reass.sub = sub i32 %39, %.sroa.6.8.extract.trunc
   %40 = add i32 %reass.sub, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.038 = add i32 %14, -1
   %41 = add i32 %.038, %.038.v
   %42 = call noundef i32 @_ZN6icu_779ClockMath11floorDivideEiiPi(i32 noundef %41, i32 noundef 60, ptr noundef nonnull %6)
@@ -1233,15 +1227,15 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   br label %96
 
 96:                                               ; preds = %64, %74, %73, %49, %29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 97:                                               ; preds = %96, %22, %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %98
 
 98:                                               ; preds = %97, %11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %99
 
 99:                                               ; preds = %3, %98
@@ -1254,7 +1248,7 @@ declare noundef signext i8 @_ZNK6icu_778Calendar9isLenientEv(ptr noundef nonnull
 define void @_ZN6icu_7715ChineseCalendar11offsetMonthEiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.icu_77::ChineseCalendar::Setting", align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 456
   %10 = load ptr, ptr %9, align 8
@@ -1289,7 +1283,7 @@ define void @_ZN6icu_7715ChineseCalendar11offsetMonthEiiiR10UErrorCode(ptr nound
   br i1 %29, label %30, label %54
 
 30:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = call signext i8 @uprv_add32_overflow_77(i32 noundef %27, i32 noundef 2440587, ptr noundef nonnull %7)
   %.not24 = icmp eq i8 %31, 0
   br i1 %.not24, label %32, label %35
@@ -1338,16 +1332,16 @@ define void @_ZN6icu_7715ChineseCalendar11offsetMonthEiiiR10UErrorCode(ptr nound
   br label %53
 
 53:                                               ; preds = %52, %50, %43, %39, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %54
 
 54:                                               ; preds = %21, %53, %22, %5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
 declare void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1356,7 +1350,7 @@ declare void @_ZN6icu_778Calendar8completeER10UErrorCode(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7715ChineseCalendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %1)
   store i32 %4, ptr %3, align 4, !tbaa !20
   %5 = load i32, ptr %1, align 4, !tbaa !21
@@ -1378,7 +1372,7 @@ define noundef i32 @_ZNK6icu_7715ChineseCalendar14getRelatedYearER10UErrorCode(p
 
 12:                                               ; preds = %2, %10, %9
   %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1415,17 +1409,17 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %1 = alloca i32, align 4
   %2 = alloca %"class.icu_77::ChineseCalendar", align 8
   %3 = alloca %"class.icu_77::Locale", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_7715ChineseCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %2, ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %4 unwind label %7
 
 4:                                                ; preds = %0
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load i32, ptr %1, align 4, !tbaa !21
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %9, label %15
@@ -1434,7 +1428,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 9:                                                ; preds = %4
@@ -1464,8 +1458,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %_ZN6icu_7715Chinese
 
 15:                                               ; preds = %4, %14
   call void @_ZN6icu_7715ChineseCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(193) %2) #8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 16:                                               ; preds = %_ZN6icu_7715ChineseCalendar3addE19UCalendarDateFieldsiR10UErrorCode.exit, %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit, %11, %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit, %9
@@ -1476,8 +1470,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %_ZN6icu_7715Chinese
 
 18:                                               ; preds = %16, %7
   %.pn = phi { ptr, i32 } [ %17, %16 ], [ %8, %7 ]
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
 
@@ -1620,12 +1614,12 @@ define void @_ZN6icu_7715ChineseCalendar20setTemporalMonthCodeEPKcR10UErrorCode(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7715ChineseCalendar16internalGetMonthER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1784,13 +1778,13 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
   br i1 %.not.i.i, label %_ZN6icu_7712_GLOBAL__N_121getAstronomerTimeZoneEv.exit, label %10
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 160) #8
   %.not.i1.i = icmp eq ptr %11, null
   br i1 %.not.i1.i, label %.thread.i.i, label %12
 
 12:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.16, ptr %5, align 8, !tbaa !38
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %5, i32 noundef -1)
           to label %13 unwind label %15
@@ -1808,7 +1802,7 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #8
   %14 = load ptr, ptr %5, align 8, !tbaa !38
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #8, !srcloc !42
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i
 
 15:                                               ; preds = %12
@@ -1826,13 +1820,13 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
   %.pn.i.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
   %20 = load ptr, ptr %5, align 8, !tbaa !38
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #8, !srcloc !42
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #8
   resume { ptr, i32 } %.pn.i.i
 
 _ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i: ; preds = %.critedge15.i.i, %.thread.i.i
   call void @ucln_i18n_registerCleanup_77(i32 noundef 9, ptr noundef nonnull @_ZL24calendar_chinese_cleanupv)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL27gAstronomerTimeZoneInitOnce)
   br label %_ZN6icu_7712_GLOBAL__N_121getAstronomerTimeZoneEv.exit
 
@@ -1907,7 +1901,7 @@ _ZN6icu_7712LocalPointerINS_15ChineseCalendarEEC2EPS1_R10UErrorCode.exit.thread:
 
 31:                                               ; preds = %29
   %32 = icmp ne i32 %30, 0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 456
   %35 = load ptr, ptr %34, align 8
@@ -1944,7 +1938,7 @@ _ZN6icu_7712LocalPointerINS_15ChineseCalendarEEC2EPS1_R10UErrorCode.exit.thread:
 
 .thread:                                          ; preds = %.noexc30, %.noexc29, %.noexc
   %.0.i = phi i32 [ 0, %.noexc ], [ %49, %.noexc30 ], [ 0, %.noexc29 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 50:                                               ; preds = %25
@@ -2134,8 +2128,8 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN6icu_7712_GLOBAL__N_114m
   br i1 %.not11.i, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread, label %12
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
@@ -2150,8 +2144,8 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %20 = add nsw i32 %19, %18
   %21 = sitofp i32 %20 to double
   %22 = fsub double %11, %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %24
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread: ; preds = %9
@@ -2159,13 +2153,13 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   br label %24
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 24:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %.0.i18 = phi double [ %23, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %22, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i18)
   %25 = invoke noundef double @_ZN6icu_7718CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(57) %6)
           to label %26 unwind label %36
@@ -2178,7 +2172,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   %31 = add nsw i32 %30, 2
   %32 = srem i32 %31, 12
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load i32, ptr %2, align 4, !tbaa !21
   %34 = icmp slt i32 %32, 1
   %35 = add nsw i32 %32, 12
@@ -2191,7 +2185,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit, %26, %3
@@ -2219,8 +2213,8 @@ define internal fastcc noundef double @_ZN6icu_7712_GLOBAL__N_112millisToDaysEPK
   br i1 %.not10, label %24, label %9
 
 9:                                                ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
@@ -2241,8 +2235,8 @@ define internal fastcc noundef double @_ZN6icu_7712_GLOBAL__N_112millisToDaysEPK
 
 23:                                               ; preds = %9, %15
   %.1 = phi double [ %22, %15 ], [ 0.000000e+00, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 24:                                               ; preds = %8
@@ -2298,8 +2292,8 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   br i1 %.not11.i, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = load ptr, ptr %11, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
@@ -2314,8 +2308,8 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %34 = add nsw i32 %33, %32
   %35 = sitofp i32 %34 to double
   %36 = fsub double %25, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread: ; preds = %23
@@ -2323,13 +2317,13 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   br label %38
 
 _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
   %.0.i43 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %36, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i43)
   %39 = invoke noundef double @_ZN6icu_7718CalendarAstronomer15WINTER_SOLSTICEEv()
           to label %40 unwind label %47
@@ -2344,7 +2338,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
 
 44:                                               ; preds = %42
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %45 = load i32, ptr %2, align 4, !tbaa !21
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %49, label %.critedge
@@ -2353,7 +2347,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7718CalendarAstronomerD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %6) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %48
 
 49:                                               ; preds = %44
@@ -2459,14 +2453,20 @@ define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
   ret i8 1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

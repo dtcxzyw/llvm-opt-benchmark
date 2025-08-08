@@ -820,9 +820,6 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -831,9 +828,6 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -932,7 +926,7 @@ define internal fastcc void @dissect_v52_info(ptr noundef %0, ptr noundef readon
 42:                                               ; preds = %40
   %43 = add i32 %.0243283, 1
   %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %43)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %45 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %46 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %43)
   %47 = zext i8 %46 to i32
@@ -962,7 +956,7 @@ define internal fastcc void @dissect_v52_info(ptr noundef %0, ptr noundef readon
   br label %dissect_pstn_sequence_number.exit
 
 dissect_pstn_sequence_number.exit:                ; preds = %42, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %66 = zext i8 %44 to i32
   %67 = add i32 %.0243283, 2
   %68 = add i32 %67, %66
@@ -971,7 +965,7 @@ dissect_pstn_sequence_number.exit:                ; preds = %42, %56
 69:                                               ; preds = %40
   %70 = add i32 %.0243283, 1
   %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %70)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %73 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %70)
   %74 = zext i8 %73 to i32
@@ -1008,7 +1002,7 @@ dissect_pstn_sequence_number.exit:                ; preds = %42, %56
   br label %dissect_cadenced_ring.exit
 
 dissect_cadenced_ring.exit:                       ; preds = %69, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %98 = zext i8 %71 to i32
   %99 = add i32 %.0243283, 2
   %100 = add i32 %99, %98
@@ -1017,7 +1011,7 @@ dissect_cadenced_ring.exit:                       ; preds = %69, %88
 101:                                              ; preds = %40
   %102 = add i32 %.0243283, 1
   %103 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %102)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %104 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %102)
   %106 = zext i8 %105 to i32
@@ -1072,7 +1066,7 @@ dissect_cadenced_ring.exit:                       ; preds = %69, %88
   br label %dissect_pulsed_signal.exit
 
 dissect_pulsed_signal.exit:                       ; preds = %101, %121, %132, %137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %142 = zext i8 %103 to i32
   %143 = add i32 %.0243283, 2
   %144 = add i32 %143, %142
@@ -1081,7 +1075,7 @@ dissect_pulsed_signal.exit:                       ; preds = %101, %121, %132, %1
 145:                                              ; preds = %40
   %146 = add i32 %.0243283, 1
   %147 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %146)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %148 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %149 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %146)
   %150 = zext i8 %149 to i32
@@ -1121,7 +1115,7 @@ dissect_pulsed_signal.exit:                       ; preds = %101, %121, %132, %1
   br label %dissect_steady_signal.exit
 
 dissect_steady_signal.exit:                       ; preds = %145, %166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %176 = zext i8 %147 to i32
   %177 = add i32 %.0243283, 2
   %178 = add i32 %177, %176
@@ -1130,7 +1124,7 @@ dissect_steady_signal.exit:                       ; preds = %145, %166
 179:                                              ; preds = %40
   %180 = add i32 %.0243283, 1
   %181 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %180)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %182 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %183 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %180)
   %184 = zext i8 %183 to i32
@@ -1165,7 +1159,7 @@ dissect_steady_signal.exit:                       ; preds = %145, %166
   %210 = load ptr, ptr %39, align 8
   %211 = zext nneg i8 %200 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.424, i32 noundef %211)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %212 = zext i8 %181 to i32
   %213 = add i32 %.0243283, 2
   %214 = add i32 %213, %212
@@ -1174,7 +1168,7 @@ dissect_steady_signal.exit:                       ; preds = %145, %166
 215:                                              ; preds = %40
   %216 = add i32 %.0243283, 1
   %217 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %216)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %218 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %219 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %216)
   %220 = zext i8 %219 to i32
@@ -1222,7 +1216,7 @@ dissect_steady_signal.exit:                       ; preds = %145, %166
   br label %dissect_recognition_time.exit
 
 dissect_recognition_time.exit:                    ; preds = %215, %245
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %248 = zext i8 %217 to i32
   %249 = add i32 %.0243283, 2
   %250 = add i32 %249, %248
@@ -1231,7 +1225,7 @@ dissect_recognition_time.exit:                    ; preds = %215, %245
 251:                                              ; preds = %40
   %252 = add i32 %.0243283, 1
   %253 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %252)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %254 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %255 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %252)
   %256 = zext i8 %255 to i32
@@ -1314,7 +1308,7 @@ dissect_recognition_time.exit:                    ; preds = %215, %245
   br label %dissect_enable_auto_ack.exit
 
 dissect_enable_auto_ack.exit:                     ; preds = %251, %296, %298
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %303 = zext i8 %253 to i32
   %304 = add i32 %.0243283, 2
   %305 = add i32 %304, %303
@@ -1323,7 +1317,7 @@ dissect_enable_auto_ack.exit:                     ; preds = %251, %296, %298
 306:                                              ; preds = %40
   %307 = add i32 %.0243283, 1
   %308 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %307)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %309 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %310 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %307)
   %311 = zext i8 %310 to i32
@@ -1366,7 +1360,7 @@ dissect_enable_auto_ack.exit:                     ; preds = %251, %296, %298
   br label %dissect_disable_auto_ack.exit
 
 dissect_disable_auto_ack.exit:                    ; preds = %306, %332, %.sink.split.i252
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %336 = zext i8 %308 to i32
   %337 = add i32 %.0243283, 2
   %338 = add i32 %337, %336
@@ -1375,7 +1369,7 @@ dissect_disable_auto_ack.exit:                    ; preds = %306, %332, %.sink.s
 339:                                              ; preds = %40
   %340 = add i32 %.0243283, 1
   %341 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %340)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %342 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %343 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %340)
   %344 = zext i8 %343 to i32
@@ -1427,7 +1421,7 @@ dissect_disable_auto_ack.exit:                    ; preds = %306, %332, %.sink.s
   br label %dissect_cause.exit
 
 dissect_cause.exit:                               ; preds = %339, %360, %371
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %379 = zext i8 %341 to i32
   %380 = add i32 %.0243283, 2
   %381 = add i32 %380, %379
@@ -1436,7 +1430,7 @@ dissect_cause.exit:                               ; preds = %339, %360, %371
 382:                                              ; preds = %40
   %383 = add i32 %.0243283, 1
   %384 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %383)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %385 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %386 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %383)
   %387 = zext i8 %386 to i32
@@ -1468,14 +1462,14 @@ dissect_cause.exit:                               ; preds = %339, %360, %371
   br label %dissect_resource_unavailable.exit
 
 dissect_resource_unavailable.exit:                ; preds = %382, %397
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %407 = zext i8 %384 to i32
   %408 = add i32 %.0243283, 2
   %409 = add i32 %408, %407
   br label %.thread
 
 410:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %411 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %412 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %413 = load i32, ptr @ett_v52_info, align 4
@@ -1500,11 +1494,11 @@ dissect_resource_unavailable.exit:                ; preds = %382, %397
   br label %dissect_pulse_notification.exit
 
 dissect_pulse_notification.exit:                  ; preds = %410, %420
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %1081
 
 426:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %427 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %428 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %429 = load i32, ptr @ett_v52_info, align 4
@@ -1529,11 +1523,11 @@ dissect_pulse_notification.exit:                  ; preds = %410, %420
   br label %dissect_line_information.exit
 
 dissect_line_information.exit:                    ; preds = %426, %436
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %1081
 
 442:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %443 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %444 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %445 = load i32, ptr @ett_v52_info, align 4
@@ -1558,11 +1552,11 @@ dissect_line_information.exit:                    ; preds = %426, %436
   br label %dissect_state.exit
 
 dissect_state.exit:                               ; preds = %442, %452
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %1081
 
 458:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %459 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %460 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %461 = load i32, ptr @ett_v52_info, align 4
@@ -1587,11 +1581,11 @@ dissect_state.exit:                               ; preds = %442, %452
   br label %dissect_auto_sig_sequence.exit
 
 dissect_auto_sig_sequence.exit:                   ; preds = %458, %468
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1081
 
 474:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %475 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %476 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %477 = load i32, ptr @ett_v52_info, align 4
@@ -1616,13 +1610,13 @@ dissect_auto_sig_sequence.exit:                   ; preds = %458, %468
   br label %dissect_sequence_response.exit
 
 dissect_sequence_response.exit:                   ; preds = %474, %484
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %1081
 
 490:                                              ; preds = %40
   %491 = add i32 %.0243283, 1
   %492 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %491)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %493 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %494 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %491)
   %495 = zext i8 %494 to i32
@@ -1663,7 +1657,7 @@ dissect_sequence_response.exit:                   ; preds = %474, %484
   br label %dissect_control_function_element.exit
 
 dissect_control_function_element.exit:            ; preds = %508, %509
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %519 = zext i8 %492 to i32
   %520 = add i32 %.0243283, 2
   %521 = add i32 %520, %519
@@ -1672,7 +1666,7 @@ dissect_control_function_element.exit:            ; preds = %508, %509
 522:                                              ; preds = %40
   %523 = add i32 %.0243283, 1
   %524 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %523)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %525 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %526 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %523)
   %527 = zext i8 %526 to i32
@@ -1713,7 +1707,7 @@ dissect_control_function_element.exit:            ; preds = %508, %509
   br label %dissect_control_function_id.exit
 
 dissect_control_function_id.exit:                 ; preds = %540, %541
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %551 = zext i8 %524 to i32
   %552 = add i32 %.0243283, 2
   %553 = add i32 %552, %551
@@ -1722,7 +1716,7 @@ dissect_control_function_id.exit:                 ; preds = %540, %541
 554:                                              ; preds = %40
   %555 = add i32 %.0243283, 1
   %556 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %555)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %557 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %558 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %555)
   %559 = zext i8 %558 to i32
@@ -1752,7 +1746,7 @@ dissect_control_function_id.exit:                 ; preds = %540, %541
   br label %dissect_variant.exit
 
 dissect_variant.exit:                             ; preds = %554, %568
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %578 = zext i8 %556 to i32
   %579 = add i32 %.0243283, 2
   %580 = add i32 %579, %578
@@ -1761,7 +1755,7 @@ dissect_variant.exit:                             ; preds = %554, %568
 581:                                              ; preds = %40
   %582 = add i32 %.0243283, 1
   %583 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %582)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %584 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %585 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %582)
   %586 = zext i8 %585 to i32
@@ -1798,7 +1792,7 @@ dissect_variant.exit:                             ; preds = %554, %568
   br label %dissect_interface_id.exit
 
 dissect_interface_id.exit:                        ; preds = %581, %596
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %612 = zext i8 %583 to i32
   %613 = add i32 %.0243283, 2
   %614 = add i32 %613, %612
@@ -1807,7 +1801,7 @@ dissect_interface_id.exit:                        ; preds = %581, %596
 615:                                              ; preds = %40
   %616 = add i32 %.0243283, 1
   %617 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %616)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %618 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %619 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %616)
   %620 = zext i8 %619 to i32
@@ -1844,7 +1838,7 @@ dissect_interface_id.exit:                        ; preds = %581, %596
   br label %dissect_sequence_number.exit
 
 dissect_sequence_number.exit:                     ; preds = %615, %634
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %644 = zext i8 %617 to i32
   %645 = add i32 %.0243283, 2
   %646 = add i32 %645, %644
@@ -1853,7 +1847,7 @@ dissect_sequence_number.exit:                     ; preds = %615, %634
 647:                                              ; preds = %40
   %648 = add i32 %.0243283, 1
   %649 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %648)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %650 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %651 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %648)
   %652 = zext i8 %651 to i32
@@ -1886,7 +1880,7 @@ dissect_sequence_number.exit:                     ; preds = %615, %634
   br label %dissect_physical_c_channel_id.exit
 
 dissect_physical_c_channel_id.exit:               ; preds = %647, %662
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %674 = zext i8 %649 to i32
   %675 = add i32 %.0243283, 2
   %676 = add i32 %675, %674
@@ -1895,7 +1889,7 @@ dissect_physical_c_channel_id.exit:               ; preds = %647, %662
 677:                                              ; preds = %40
   %678 = add i32 %.0243283, 1
   %679 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %678)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %680 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %681 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %678)
   %682 = zext i8 %681 to i32
@@ -1928,7 +1922,7 @@ dissect_physical_c_channel_id.exit:               ; preds = %647, %662
   br label %dissect_pp_rejection_cause.exit
 
 dissect_pp_rejection_cause.exit:                  ; preds = %677, %693
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %703 = zext i8 %679 to i32
   %704 = add i32 %.0243283, 2
   %705 = add i32 %704, %703
@@ -1937,7 +1931,7 @@ dissect_pp_rejection_cause.exit:                  ; preds = %677, %693
 706:                                              ; preds = %40
   %707 = add i32 %.0243283, 1
   %708 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %707)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %709 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %710 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %707)
   %711 = zext i8 %710 to i32
@@ -1974,14 +1968,14 @@ dissect_pp_rejection_cause.exit:                  ; preds = %677, %693
   br label %dissect_protocol_error.exit
 
 dissect_protocol_error.exit:                      ; preds = %706, %722
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %736 = zext i8 %708 to i32
   %737 = add i32 %.0243283, 2
   %738 = add i32 %737, %736
   br label %.thread
 
 739:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %740 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %741 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %742 = load i32, ptr @ett_v52_info, align 4
@@ -2007,11 +2001,11 @@ dissect_protocol_error.exit:                      ; preds = %706, %722
   br label %dissect_performance_grading.exit
 
 dissect_performance_grading.exit:                 ; preds = %739, %750
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1081
 
 756:                                              ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %757 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %758 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0243283, i32 noundef 1)
   %759 = load i32, ptr @ett_v52_info, align 4
@@ -2037,13 +2031,13 @@ dissect_performance_grading.exit:                 ; preds = %739, %750
   br label %dissect_cp_rejection_cause.exit
 
 dissect_cp_rejection_cause.exit:                  ; preds = %756, %767
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %1081
 
 773:                                              ; preds = %40
   %774 = add i32 %.0243283, 1
   %775 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %774)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %776 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %777 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %774)
   %778 = zext i8 %777 to i32
@@ -2098,7 +2092,7 @@ dissect_cp_rejection_cause.exit:                  ; preds = %756, %767
   br label %dissect_user_port_identification.exit
 
 dissect_user_port_identification.exit:            ; preds = %792, %805
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %819 = zext i8 %775 to i32
   %820 = add i32 %.0243283, 2
   %821 = add i32 %820, %819
@@ -2107,7 +2101,7 @@ dissect_user_port_identification.exit:            ; preds = %792, %805
 822:                                              ; preds = %40
   %823 = add i32 %.0243283, 1
   %824 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %823)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %825 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %826 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %823)
   %827 = zext i8 %826 to i32
@@ -2139,7 +2133,7 @@ dissect_user_port_identification.exit:            ; preds = %792, %805
   br label %dissect_isdn_port_time_slot_identification.exit
 
 dissect_isdn_port_time_slot_identification.exit:  ; preds = %822, %837
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %847 = zext i8 %824 to i32
   %848 = add i32 %.0243283, 2
   %849 = add i32 %848, %847
@@ -2148,7 +2142,7 @@ dissect_isdn_port_time_slot_identification.exit:  ; preds = %822, %837
 850:                                              ; preds = %40
   %851 = add i32 %.0243283, 1
   %852 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %851)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %853 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %854 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %851)
   %855 = zext i8 %854 to i32
@@ -2189,7 +2183,7 @@ dissect_isdn_port_time_slot_identification.exit:  ; preds = %822, %837
   br label %dissect_v5_time_slot_identification.exit
 
 dissect_v5_time_slot_identification.exit:         ; preds = %850, %869
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %883 = zext i8 %852 to i32
   %884 = add i32 %.0243283, 2
   %885 = add i32 %884, %883
@@ -2198,7 +2192,7 @@ dissect_v5_time_slot_identification.exit:         ; preds = %850, %869
 886:                                              ; preds = %40
   %887 = add i32 %.0243283, 1
   %888 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %887)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %889 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %890 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %887)
   %891 = zext i8 %890 to i32
@@ -2304,7 +2298,7 @@ dissect_v5_time_slot_identification.exit:         ; preds = %850, %869
   br label %dissect_multi_slot_map.exit
 
 dissect_multi_slot_map.exit:                      ; preds = %886, %943, %945
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %948 = zext i8 %888 to i32
   %949 = add i32 %.0243283, 2
   %950 = add i32 %949, %948
@@ -2313,7 +2307,7 @@ dissect_multi_slot_map.exit:                      ; preds = %886, %943, %945
 951:                                              ; preds = %40
   %952 = add i32 %.0243283, 1
   %953 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %952)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %954 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %955 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %952)
   %956 = zext i8 %955 to i32
@@ -2346,7 +2340,7 @@ dissect_multi_slot_map.exit:                      ; preds = %886, %943, %945
   br label %dissect_bcc_rejct_cause.exit
 
 dissect_bcc_rejct_cause.exit:                     ; preds = %951, %967
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %977 = zext i8 %953 to i32
   %978 = add i32 %.0243283, 2
   %979 = add i32 %978, %977
@@ -2355,7 +2349,7 @@ dissect_bcc_rejct_cause.exit:                     ; preds = %951, %967
 980:                                              ; preds = %40
   %981 = add i32 %.0243283, 1
   %982 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %981)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %983 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %984 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %981)
   %985 = zext i8 %984 to i32
@@ -2405,7 +2399,7 @@ dissect_bcc_rejct_cause.exit:                     ; preds = %951, %967
   br label %dissect_bcc_protocol_error_cause.exit
 
 dissect_bcc_protocol_error_cause.exit:            ; preds = %980, %1010, %1012
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %1015 = zext i8 %982 to i32
   %1016 = add i32 %.0243283, 2
   %1017 = add i32 %1016, %1015
@@ -2414,7 +2408,7 @@ dissect_bcc_protocol_error_cause.exit:            ; preds = %980, %1010, %1012
 1018:                                             ; preds = %40
   %1019 = add i32 %.0243283, 1
   %1020 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1019)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1021 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %1022 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1019)
   %1023 = zext i8 %1022 to i32
@@ -2447,7 +2441,7 @@ dissect_bcc_protocol_error_cause.exit:            ; preds = %980, %1010, %1012
   br label %dissect_connection_incomplete.exit
 
 dissect_connection_incomplete.exit:               ; preds = %1018, %1034
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %1044 = zext i8 %1020 to i32
   %1045 = add i32 %.0243283, 2
   %1046 = add i32 %1045, %1044
@@ -2456,7 +2450,7 @@ dissect_connection_incomplete.exit:               ; preds = %1018, %1034
 1047:                                             ; preds = %40
   %1048 = add i32 %.0243283, 1
   %1049 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1048)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1050 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0243283)
   %1051 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1048)
   %1052 = zext i8 %1051 to i32
@@ -2497,7 +2491,7 @@ dissect_connection_incomplete.exit:               ; preds = %1018, %1034
   br label %dissect_link_control_function.exit
 
 dissect_link_control_function.exit:               ; preds = %1065, %1066
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1076 = zext i8 %1049 to i32
   %1077 = add i32 %.0243283, 2
   %1078 = add i32 %1077, %1076
@@ -2542,10 +2536,15 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

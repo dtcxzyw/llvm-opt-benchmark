@@ -202,8 +202,8 @@ if.else:                                          ; preds = %sw.bb45
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i16 %7, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8, !alias.scope !6
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -216,7 +216,7 @@ sw.default:                                       ; preds = %if.end
   store i64 22, ptr %leftSize_.i24.i.i, align 8, !alias.scope !6
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %rightSize_.i25.i.i, align 8, !alias.scope !6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i32 12, ptr %token_9, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %.in.i, align 8
@@ -232,9 +232,9 @@ sw.default:                                       ; preds = %if.end
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !9
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 return:                                           ; preds = %sw.default, %if.else, %if.then46, %sw.bb43, %sw.bb41, %sw.bb39, %sw.bb37, %sw.bb33, %sw.bb29, %sw.bb25, %sw.bb21, %sw.bb17, %sw.bb, %if.then
@@ -292,8 +292,8 @@ while.body:                                       ; preds = %_ZN6hermes11UTF16St
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i16 %6, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8, !alias.scope !12
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -306,7 +306,7 @@ if.then:                                          ; preds = %while.body
   store i64 22, ptr %leftSize_.i24.i.i, align 8, !alias.scope !12
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %rightSize_.i25.i.i, align 8, !alias.scope !12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %token_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i.i, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -323,9 +323,9 @@ if.then:                                          ; preds = %while.body
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !15
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %7, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -342,7 +342,7 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   br i1 %tobool10.not, label %if.end14, label %if.then11
 
 if.then11:                                        ; preds = %while.end
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i17)
   %token_.i32 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i32, align 8
   %runtime_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -359,7 +359,7 @@ if.then11:                                        ; preds = %while.end
   %rightSize_.i25.i.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 40
   store i64 23, ptr %rightSize_.i25.i.i27, align 8, !alias.scope !19
   %call.i19 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %9, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i17) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i17)
   br label %return
 
 if.end14:                                         ; preds = %if.end, %entry, %while.end
@@ -469,8 +469,8 @@ land.lhs.true26:                                  ; preds = %while.end
 
 if.then34:                                        ; preds = %land.lhs.true26
   %conv3782 = zext nneg i8 %15 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i16 %conv3782, ptr %ch.addr.i, align 2
   store ptr @.str.3, ptr %ref.tmp.i, align 8, !alias.scope !23
   %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -483,7 +483,7 @@ if.then34:                                        ; preds = %land.lhs.true26
   store i64 32, ptr %leftSize_.i24.i.i, align 8, !alias.scope !23
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %rightSize_.i25.i.i, align 8, !alias.scope !23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %token_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i.i, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -500,9 +500,9 @@ if.then34:                                        ; preds = %land.lhs.true26
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 33, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !26
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %17, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %cleanup
 
 if.end39:                                         ; preds = %land.lhs.true26, %while.end
@@ -536,8 +536,8 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22: ; preds = %if.end
 if.then45:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
   %24 = load i8, ptr %22, align 1
   %conv4785 = sext i8 %24 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i37)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i38)
   store i16 %conv4785, ptr %ch.addr.i37, align 2
   store ptr @.str.3, ptr %ref.tmp.i38, align 8, !alias.scope !29
   %leftKind_.i22.i.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 8
@@ -550,7 +550,7 @@ if.then45:                                        ; preds = %_ZN4llvh23SmallVect
   store i64 32, ptr %leftSize_.i24.i.i74, align 8, !alias.scope !29
   %rightSize_.i25.i.i75 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 40
   store i64 1, ptr %rightSize_.i25.i.i75, align 8, !alias.scope !29
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i36)
   %token_.i.i76 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i.i76, align 8
   %.in.i46 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -567,9 +567,9 @@ if.then45:                                        ; preds = %_ZN4llvh23SmallVect
   %rightSize_.i25.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 40
   store i64 33, ptr %rightSize_.i25.i.i.i51, align 8, !alias.scope !32
   %call.i.i52 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %25, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i36) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i37)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i38)
   br label %cleanup
 
 if.end49:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
@@ -683,7 +683,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %token_.i186 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i186, align 8
   %runtime_.i187 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -700,7 +700,7 @@ if.then27:                                        ; preds = %if.else
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 43, ptr %rightSize_.i25.i.i, align 8, !alias.scope !35
   %call.i7 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %10, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 if.end31:                                         ; preds = %if.else
@@ -768,7 +768,7 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit14.if.end51_crit_edge: ; preds = %_ZN6herm
   br label %if.end51
 
 if.then48:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i16)
   %token_.i17190 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i17190, align 8
   %runtime_.i18191 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -785,7 +785,7 @@ if.then48:                                        ; preds = %_ZN6hermes11UTF16St
   %rightSize_.i25.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 40
   store i64 23, ptr %rightSize_.i25.i.i43, align 8, !alias.scope !38
   %call.i25 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %20, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i16) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i16)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 if.end51:                                         ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit14.if.end51_crit_edge, %if.end43
@@ -1051,7 +1051,7 @@ if.end102:                                        ; preds = %if.end99, %sw.epilo
   br label %while.cond, !llvm.loop !41
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i152)
   %token_.i153194 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i153194, align 8
   %runtime_.i154195 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1068,7 +1068,7 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   %rightSize_.i25.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 40
   store i64 23, ptr %rightSize_.i25.i.i179, align 8, !alias.scope !42
   %call.i161 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %76, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i152) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i152)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 _ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit: ; preds = %sw.bb80, %cond.end, %while.end, %sw.default, %if.then48, %if.then27, %if.end
@@ -1156,7 +1156,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   store ptr %incdec.ptr.i6, ptr %this, align 8
   %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %runtime_, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %9 = and i64 %strRef.sroa.3.0, 4294901760
   %cmp.i.not.i = icmp eq i64 %9, 0
   br i1 %cmp.i.not.i, label %if.then.i, label %if.then.i.i.i.i
@@ -1204,7 +1204,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit: ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %13 = extractvalue { i32, i64 } %call3.pn.i, 0
   %cmp.i = icmp eq i32 %13, 0
   br i1 %cmp.i, label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit, label %if.end
@@ -1250,7 +1250,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i8)
   %token_.i189 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i189, align 8
   %runtime_.i190 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1267,7 +1267,7 @@ if.then30:                                        ; preds = %if.else
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 40
   store i64 43, ptr %rightSize_.i25.i.i, align 8, !alias.scope !48
   %call.i9 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %20, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i8) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i8)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 if.end34:                                         ; preds = %if.else
@@ -1335,7 +1335,7 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit16.if.end54_crit_edge: ; preds = %_ZN6herm
   br label %if.end54
 
 if.then51:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i18)
   %token_.i19193 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i19193, align 8
   %runtime_.i20194 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1352,7 +1352,7 @@ if.then51:                                        ; preds = %_ZN6hermes11UTF16St
   %rightSize_.i25.i.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 40
   store i64 23, ptr %rightSize_.i25.i.i45, align 8, !alias.scope !51
   %call.i27 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %30, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i18) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i18)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 if.end54:                                         ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit16.if.end54_crit_edge, %if.end46
@@ -1615,7 +1615,7 @@ if.end105:                                        ; preds = %if.end102, %sw.epil
   br label %while.cond, !llvm.loop !54
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i155)
   %token_.i156197 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i156197, align 8
   %runtime_.i157198 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1632,7 +1632,7 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
   %rightSize_.i25.i.i182 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 40
   store i64 23, ptr %rightSize_.i25.i.i182, align 8, !alias.scope !55
   %call.i164 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %86, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i155) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i155)
   br label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit
 
 _ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb0EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit: ; preds = %sw.bb83, %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit, %while.end, %sw.default, %if.then51, %if.then30, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit
@@ -1672,7 +1672,7 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10: ; preds = %entry
   store i32 1, ptr %rightKind_.i.i.i, align 8, !alias.scope !61
   %leftSize_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %token_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i13, align 8
   %runtime_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1708,7 +1708,7 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
   store i64 %add.i.i, ptr %leftSize_.i24.i, align 8, !alias.scope !58
   %rightSize_.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 1, ptr %rightSize_.i25.i, align 8, !alias.scope !58
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i, align 8
   %add.i16.i.i = add i64 %add.i.i, 1
@@ -1724,7 +1724,7 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
   store i64 1, ptr %ref.tmp2.sroa.42.0.ref.tmp.sroa_idx, align 8
   %ref.tmp2.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %ref.tmp2.sroa.5.0.ref.tmp.sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %token_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i6, align 8
   br label %6
@@ -1751,7 +1751,7 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
 _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10, %6
   %10 = phi ptr [ %1, %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10 ], [ %9, %6 ]
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %10, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   ret i32 %call.i
 }
 
@@ -1783,7 +1783,7 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge: ; preds = %_ZN6hermes11
   br label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %token_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i22, align 8
   %runtime_.i23 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1800,7 +1800,7 @@ if.then:                                          ; preds = %_ZN6hermes11UTF16St
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i, align 8, !alias.scope !70
   %call.i10 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge, %for.body
@@ -1821,8 +1821,8 @@ if.then11:                                        ; preds = %if.else
   br label %if.end19
 
 if.else13:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i11)
   store i16 %4, ptr %ch.addr.i, align 2
   store ptr @.str.2, ptr %ref.tmp.i11, align 8, !alias.scope !73
   %leftKind_.i22.i.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 8
@@ -1835,7 +1835,7 @@ if.else13:                                        ; preds = %if.else
   store i64 33, ptr %leftSize_.i24.i.i19, align 8, !alias.scope !73
   %rightSize_.i25.i.i20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 40
   store i64 1, ptr %rightSize_.i25.i.i20, align 8, !alias.scope !73
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %token_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i.i, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1852,9 +1852,9 @@ if.else13:                                        ; preds = %if.else
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 34, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !76
   %call.i.i12 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i11)
   br label %return
 
 if.end19:                                         ; preds = %if.end, %if.then11
@@ -1927,10 +1927,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -91,8 +91,8 @@ define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone captures(
   br i1 %35, label %36, label %53
 
 36:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i = icmp samesign ult i32 %.2, 4
   %37 = select i1 %.not.i, ptr @.str.6, ptr @.str.5
   %38 = and i32 %.2, 1
@@ -118,8 +118,8 @@ define hidden void @OGLBufImgOps_EnableConvolveOp(ptr noundef readnone captures(
 
 OGLBufImgOps_CreateConvolveProgram.exit.thread:   ; preds = %44
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.11) #6
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 0, ptr %33, align 4
   br label %107
 
@@ -132,8 +132,8 @@ OGLBufImgOps_CreateConvolveProgram.exit:          ; preds = %44
   call void %51(i32 noundef %50, i32 noundef 0) #6
   %52 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
   call void %52(i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 %46, ptr %33, align 4
   br label %53
 
@@ -280,7 +280,7 @@ define hidden void @OGLBufImgOps_EnableRescaleOp(ptr noundef readnone captures(a
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = select i1 %13, ptr @.str.7, ptr @.str.8
   %spec.select.i = select i1 %.not, ptr @.str.14, ptr @.str.15
   %spec.select15.i = select i1 %.not, ptr @.str.14, ptr @.str.16
@@ -291,7 +291,7 @@ define hidden void @OGLBufImgOps_EnableRescaleOp(ptr noundef readnone captures(a
 
 OGLBufImgOps_CreateRescaleProgram.exit.thread:    ; preds = %19
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.17) #6
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 0, ptr %16, align 4
   br label %52
 
@@ -304,7 +304,7 @@ OGLBufImgOps_CreateRescaleProgram.exit:           ; preds = %19
   call void %27(i32 noundef %26, i32 noundef 0) #6
   %28 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
   call void %28(i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 %22, ptr %16, align 4
   br label %29
 
@@ -385,7 +385,7 @@ define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone captures(ad
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = and i32 %.2, 1
   %.not.i = icmp eq i32 %25, 0
   %26 = select i1 %.not.i, ptr @.str.8, ptr @.str.7
@@ -402,7 +402,7 @@ define hidden void @OGLBufImgOps_EnableLookupOp(ptr noundef readnone captures(ad
 
 OGLBufImgOps_CreateLookupProgram.exit.thread:     ; preds = %24
   call void (i32, i8, ptr, ...) @J2dTraceImpl(i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull @.str.21) #6
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 0, ptr %21, align 4
   br label %90
 
@@ -419,7 +419,7 @@ OGLBufImgOps_CreateLookupProgram.exit:            ; preds = %24
   call void %37(i32 noundef %36, i32 noundef 1) #6
   %38 = load ptr, ptr @j2d_glUseProgramObjectARB, align 8
   call void %38(i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 %29, ptr %21, align 4
   br label %39
 
@@ -572,10 +572,10 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5

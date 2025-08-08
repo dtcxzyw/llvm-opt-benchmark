@@ -163,29 +163,29 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %13 = alloca %struct.doall_enc_ciphers, align 8
   %14 = alloca [200 x i8], align 16
   %15 = alloca [80 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = load ptr, ptr %1, align 8, !tbaa !13
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.33) #12
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.33) #11
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %2
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(4) @.str.87) #12
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(4) @.str.87) #11
   %.not = icmp eq i32 %20, 0
   %spec.select = select i1 %.not, ptr null, ptr %16
   br label %21
@@ -193,8 +193,8 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 21:                                               ; preds = %19, %2
   %.0350 = phi ptr [ null, %2 ], [ %spec.select, %19 ]
   %.0323 = phi i32 [ 1, %2 ], [ 0, %19 ]
-  tail call void @opt_set_unknown_name(ptr noundef nonnull @.str.88) #11
-  %22 = tail call ptr @opt_init(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @enc_options) #11
+  tail call void @opt_set_unknown_name(ptr noundef nonnull @.str.88) #12
+  %22 = tail call ptr @opt_init(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @enc_options) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %21
@@ -221,7 +221,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %.0285 = phi ptr [ null, %21 ], [ %.0285.be, %.critedge.backedge ]
   %.0283 = phi ptr [ null, %21 ], [ %.0283.be, %.critedge.backedge ]
   %.0264 = phi ptr [ null, %21 ], [ %.0264.be, %.critedge.backedge ]
-  %23 = call i32 @opt_next() #11
+  %23 = call i32 @opt_next() #12
   switch i32 %23, label %.critedge.backedge [
     i32 0, label %140
     i32 1601, label %138
@@ -292,43 +292,43 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .loopexit:                                        ; preds = %.critedge, %112, %82, %.thread, %158, %149, %140, %.preheader497._crit_edge, %91
   %24 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %25 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %24, ptr noundef nonnull @.str.89, ptr noundef %22) #11
+  %25 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %24, ptr noundef nonnull @.str.89, ptr noundef %22) #12
   br label %.thread469
 
 26:                                               ; preds = %.critedge
-  call void @opt_help(ptr noundef nonnull @enc_options) #11
+  call void @opt_help(ptr noundef nonnull @enc_options) #12
   br label %.thread469
 
 27:                                               ; preds = %.critedge
   %28 = load ptr, ptr @bio_out, align 8, !tbaa !19
-  %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.90) #11
+  %29 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.90) #12
   %30 = load ptr, ptr @bio_out, align 8, !tbaa !19
   store ptr %30, ptr %13, align 8, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %31, align 8, !tbaa !23
-  call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @show_ciphers, ptr noundef nonnull %13) #11
+  call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @show_ciphers, ptr noundef nonnull %13) #12
   %32 = load ptr, ptr @bio_out, align 8, !tbaa !19
-  %33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.91) #11
+  %33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.91) #12
   br label %.thread469
 
 34:                                               ; preds = %.critedge
   br label %.critedge.backedge
 
 35:                                               ; preds = %.critedge
-  %36 = call ptr @opt_arg() #11
+  %36 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 37:                                               ; preds = %.critedge
-  %38 = call ptr @opt_arg() #11
+  %38 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 39:                                               ; preds = %.critedge
-  %40 = call ptr @opt_arg() #11
+  %40 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 41:                                               ; preds = %.critedge
-  %42 = call ptr @opt_arg() #11
-  %43 = call ptr @setup_engine_methods(ptr noundef %42, i32 noundef -1, i32 noundef 0) #11
+  %42 = call ptr @opt_arg() #12
+  %43 = call ptr @setup_engine_methods(ptr noundef %42, i32 noundef -1, i32 noundef 0) #12
   br label %.critedge.backedge
 
 44:                                               ; preds = %.critedge
@@ -362,8 +362,8 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br label %.critedge.backedge
 
 54:                                               ; preds = %.critedge
-  %55 = call ptr @opt_arg() #11
-  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #12
+  %55 = call ptr @opt_arg() #12
+  %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #11
   %57 = trunc i64 %56 to i32
   %58 = icmp sgt i32 %57, 1
   br i1 %58, label %59, label %.thread
@@ -382,8 +382,8 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .thread:                                          ; preds = %54, %65, %59
   %66 = phi i1 [ true, %65 ], [ false, %59 ], [ false, %54 ]
-  %67 = call ptr @opt_arg() #11
-  %68 = call i32 @opt_long(ptr noundef %67, ptr noundef nonnull %12) #11
+  %67 = call ptr @opt_arg() #12
+  %68 = call i32 @opt_long(ptr noundef %67, ptr noundef nonnull %12) #12
   %69 = icmp eq i32 %68, 0
   %70 = load i64, ptr %12, align 8
   %71 = icmp slt i64 %70, 0
@@ -407,18 +407,18 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br label %.critedge.backedge
 
 80:                                               ; preds = %.critedge
-  %81 = call ptr @opt_arg() #11
+  %81 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 82:                                               ; preds = %.critedge
-  %83 = call ptr @opt_arg() #11
-  %84 = call ptr @bio_open_default(ptr noundef %83, i8 noundef signext 114, i32 noundef 32769) #11
+  %83 = call ptr @opt_arg() #12
+  %84 = call ptr @bio_open_default(ptr noundef %83, i8 noundef signext 114, i32 noundef 32769) #12
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.loopexit, label %86
 
 86:                                               ; preds = %82
-  %87 = call i32 @BIO_gets(ptr noundef nonnull %84, ptr noundef nonnull @enc_main.buf, i32 noundef 128) #11
-  %88 = call i32 @BIO_free(ptr noundef nonnull %84) #11
+  %87 = call i32 @BIO_gets(ptr noundef nonnull %84, ptr noundef nonnull @enc_main.buf, i32 noundef 128) #12
+  %88 = call i32 @BIO_free(ptr noundef nonnull %84) #12
   %89 = icmp slt i32 %87, 1
   br i1 %89, label %91, label %.preheader497
 
@@ -432,8 +432,8 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 91:                                               ; preds = %86
   %92 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %93 = call ptr @opt_arg() #11
-  %94 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.92, ptr noundef %22, ptr noundef %93) #11
+  %93 = call ptr @opt_arg() #12
+  %94 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %92, ptr noundef nonnull @.str.92, ptr noundef %22, ptr noundef %93) #12
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge5
@@ -453,36 +453,36 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .preheader497._crit_edge:                         ; preds = %.preheader497, %.critedge5
   %98 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %99 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %98, ptr noundef nonnull @.str.93, ptr noundef %22) #11
+  %99 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %98, ptr noundef nonnull @.str.93, ptr noundef %22) #12
   br label %.loopexit
 
 100:                                              ; preds = %.critedge
-  %101 = call ptr @opt_arg() #11
+  %101 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 102:                                              ; preds = %.critedge
-  %103 = call ptr @opt_arg() #11
+  %103 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 104:                                              ; preds = %.critedge
-  %105 = call ptr @opt_arg() #11
+  %105 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 106:                                              ; preds = %.critedge
-  %107 = call ptr @opt_arg() #11
+  %107 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 108:                                              ; preds = %.critedge
-  %109 = call ptr @opt_unknown() #11
+  %109 = call ptr @opt_unknown() #12
   br label %.critedge.backedge
 
 110:                                              ; preds = %.critedge
-  %111 = call i32 @opt_int_arg() #11
+  %111 = call i32 @opt_int_arg() #12
   br label %.critedge.backedge
 
 112:                                              ; preds = %.critedge
-  %113 = call ptr @opt_arg() #11
-  %114 = call i32 @opt_int(ptr noundef %113, ptr noundef nonnull %11) #11
+  %113 = call ptr @opt_arg() #12
+  %114 = call i32 @opt_int(ptr noundef %113, ptr noundef nonnull %11) #12
   %.not449 = icmp eq i32 %114, 0
   br i1 %.not449, label %.loopexit, label %115
 
@@ -509,44 +509,44 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %122
-  %125 = call ptr @OPENSSL_sk_new_null() #11
+  %125 = call ptr @OPENSSL_sk_new_null() #12
   %126 = icmp eq ptr %125, null
   br i1 %126, label %131, label %127
 
 127:                                              ; preds = %124, %122
   %.3288 = phi ptr [ %125, %124 ], [ %.0285, %122 ]
-  %128 = call ptr @opt_arg() #11
-  %129 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %.3288, ptr noundef %128) #11
+  %128 = call ptr @opt_arg() #12
+  %129 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %.3288, ptr noundef %128) #12
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %.critedge.backedge
 
 131:                                              ; preds = %127, %124
   %.4289 = phi ptr [ null, %124 ], [ %.3288, %127 ]
   %132 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %132, ptr noundef nonnull @.str.94, ptr noundef %22) #11
+  %133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %132, ptr noundef nonnull @.str.94, ptr noundef %22) #12
   br label %.thread469
 
 134:                                              ; preds = %.critedge
-  %135 = call ptr @opt_arg() #11
+  %135 = call ptr @opt_arg() #12
   br label %.critedge.backedge
 
 136:                                              ; preds = %.critedge, %.critedge
-  %137 = call i32 @opt_rand(i32 noundef %23) #11
+  %137 = call i32 @opt_rand(i32 noundef %23) #12
   %.not448 = icmp eq i32 %137, 0
   br i1 %.not448, label %.thread469, label %.critedge.backedge
 
 138:                                              ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  %139 = call i32 @opt_provider(i32 noundef %23) #11
+  %139 = call i32 @opt_provider(i32 noundef %23) #12
   %.not450 = icmp eq i32 %139, 0
   br i1 %.not450, label %.thread469, label %.critedge.backedge
 
 140:                                              ; preds = %.critedge
-  %141 = call i32 @opt_check_rest_arg(ptr noundef null) #11
+  %141 = call i32 @opt_check_rest_arg(ptr noundef null) #12
   %.not398 = icmp eq i32 %141, 0
   br i1 %.not398, label %.loopexit, label %142
 
 142:                                              ; preds = %140
-  %143 = call i32 @app_RAND_load() #11
+  %143 = call i32 @app_RAND_load() #12
   %.not399 = icmp eq i32 %143, 0
   br i1 %.not399, label %.thread469, label %144
 
@@ -562,7 +562,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br label %149
 
 149:                                              ; preds = %144, %148
-  %150 = call i32 @opt_cipher(ptr noundef %.1351, ptr noundef nonnull %4) #11
+  %150 = call i32 @opt_cipher(ptr noundef %.1351, ptr noundef nonnull %4) #12
   %.not400 = icmp eq i32 %150, 0
   br i1 %.not400, label %.loopexit, label %151
 
@@ -572,7 +572,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not401, label %156, label %153
 
 153:                                              ; preds = %151
-  %154 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %152) #11
+  %154 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %152) #12
   %.fr686 = freeze i32 %154
   %155 = icmp eq i32 %.fr686, 65538
   %not. = xor i1 %155, true
@@ -585,7 +585,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not402, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = call i32 @opt_md(ptr noundef nonnull %.0328, ptr noundef nonnull %5) #11
+  %159 = call i32 @opt_md(ptr noundef nonnull %.0328, ptr noundef nonnull %5) #12
   %.not403 = icmp eq i32 %159, 0
   br i1 %.not403, label %.loopexit, label %160
 
@@ -595,7 +595,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %160
-  %164 = call ptr @EVP_sha256() #11
+  %164 = call ptr @EVP_sha256() #12
   store ptr %164, ptr %5, align 8, !tbaa !11
   br label %165
 
@@ -609,7 +609,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 167:                                              ; preds = %165
   %168 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %169 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %168, ptr noundef nonnull @.str.95, i32 noundef %spec.store.select33) #11
+  %169 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %168, ptr noundef nonnull @.str.95, i32 noundef %spec.store.select33) #12
   br label %170
 
 170:                                              ; preds = %167, %165
@@ -618,7 +618,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %.0322 = select i1 %.not404, i32 2, i32 %.
   %171 = or i1 %.not404, %.not407
   %.0321 = select i1 %171, i32 2, i32 32771
-  %172 = call ptr @app_malloc(i64 noundef 512, ptr noundef nonnull @.str.96) #11
+  %172 = call ptr @app_malloc(i64 noundef 512, ptr noundef nonnull @.str.96) #12
   %173 = add nsw i32 %spec.store.select33, 2
   %174 = sdiv i32 %173, 3
   %175 = shl nsw i32 %174, 2
@@ -627,7 +627,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %178 = add nsw i32 %177, 82
   %179 = add i32 %178, %175
   %180 = sext i32 %179 to i64
-  %181 = call ptr @app_malloc(i64 noundef %180, ptr noundef nonnull @.str.97) #11
+  %181 = call ptr @app_malloc(i64 noundef %180, ptr noundef nonnull @.str.97) #12
   %182 = icmp eq ptr %.0365, null
   br i1 %182, label %183, label %190
 
@@ -638,15 +638,15 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 185:                                              ; preds = %183
   %186 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %186, ptr noundef nonnull @.str.98) #11
+  %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %186, ptr noundef nonnull @.str.98) #12
   br label %.thread469
 
 188:                                              ; preds = %183
-  %189 = call ptr @dup_bio_in(i32 noundef %.0322) #11
+  %189 = call ptr @dup_bio_in(i32 noundef %.0322) #12
   br label %192
 
 190:                                              ; preds = %170
-  %191 = call ptr @bio_open_default(ptr noundef nonnull %.0365, i8 noundef signext 114, i32 noundef %.0322) #11
+  %191 = call ptr @bio_open_default(ptr noundef nonnull %.0365, i8 noundef signext 114, i32 noundef %.0322) #12
   br label %192
 
 192:                                              ; preds = %190, %188
@@ -661,13 +661,13 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %or.cond14, label %197, label %204
 
 197:                                              ; preds = %194
-  %198 = call i32 @app_passwd(ptr noundef nonnull %.0354, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #11
+  %198 = call i32 @app_passwd(ptr noundef nonnull %.0354, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #12
   %.not408 = icmp eq i32 %198, 0
   br i1 %.not408, label %199, label %202
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %201 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %200, ptr noundef nonnull @.str.99) #11
+  %201 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %200, ptr noundef nonnull @.str.99) #12
   br label %.thread469
 
 202:                                              ; preds = %197
@@ -687,12 +687,12 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %or.cond20, label %.preheader, label %228
 
 .preheader:                                       ; preds = %204
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %14) #11
-  %210 = call ptr @EVP_CIPHER_get0_name(ptr noundef nonnull %206) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  %210 = call ptr @EVP_CIPHER_get0_name(ptr noundef nonnull %206) #12
   %211 = select i1 %.not407, ptr @.str.102, ptr @.str.101
-  %212 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.100, ptr noundef %210, ptr noundef nonnull %211) #11
+  %212 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.100, ptr noundef %210, ptr noundef nonnull %211) #12
   store i8 0, ptr %172, align 1, !tbaa !24
-  %213 = call i32 @EVP_read_pw_string(ptr noundef nonnull %172, i32 noundef 512, ptr noundef nonnull %14, i32 noundef %.0336) #11
+  %213 = call i32 @EVP_read_pw_string(ptr noundef nonnull %172, i32 noundef 512, ptr noundef nonnull %14, i32 noundef %.0336) #12
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %._crit_edge668, label %.lr.ph667
 
@@ -702,7 +702,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %216, label %.thread456, label %.thread459
 
 .thread459:                                       ; preds = %._crit_edge668
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %228
 
 .lr.ph667:                                        ; preds = %.preheader, %222
@@ -712,27 +712,27 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 219:                                              ; preds = %.lr.ph667
   %220 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %220, ptr noundef nonnull @.str.103) #11
+  %221 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %220, ptr noundef nonnull @.str.103) #12
   br label %.thread456
 
 .thread456:                                       ; preds = %219, %._crit_edge668
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.thread469
 
 222:                                              ; preds = %.lr.ph667
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %223 = load ptr, ptr %4, align 8, !tbaa !9
-  %224 = call ptr @EVP_CIPHER_get0_name(ptr noundef %223) #11
-  %225 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.100, ptr noundef %224, ptr noundef nonnull %211) #11
+  %224 = call ptr @EVP_CIPHER_get0_name(ptr noundef %223) #12
+  %225 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %14, i64 noundef 200, ptr noundef nonnull @.str.100, ptr noundef %224, ptr noundef nonnull %211) #12
   store i8 0, ptr %172, align 1, !tbaa !24
-  %226 = call i32 @EVP_read_pw_string(ptr noundef nonnull %172, i32 noundef 512, ptr noundef nonnull %14, i32 noundef %.0336) #11
+  %226 = call i32 @EVP_read_pw_string(ptr noundef nonnull %172, i32 noundef 512, ptr noundef nonnull %14, i32 noundef %.0336) #12
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %._crit_edge668, label %.lr.ph667
 
 228:                                              ; preds = %.thread459, %204
   %.3359 = phi ptr [ %.2358, %204 ], [ %172, %.thread459 ]
-  %229 = call ptr @bio_open_default(ptr noundef %.0363, i8 noundef signext 119, i32 noundef %.0321) #11
+  %229 = call ptr @bio_open_default(ptr noundef %.0363, i8 noundef signext 119, i32 noundef %.0321) #12
   %230 = icmp eq ptr %229, null
   br i1 %230, label %.thread469, label %231
 
@@ -741,20 +741,20 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not410, label %235, label %232
 
 232:                                              ; preds = %231
-  call void @BIO_set_callback_ex(ptr noundef %.4, ptr noundef nonnull @BIO_debug_callback_ex) #11
-  call void @BIO_set_callback_ex(ptr noundef nonnull %229, ptr noundef nonnull @BIO_debug_callback_ex) #11
+  call void @BIO_set_callback_ex(ptr noundef %.4, ptr noundef nonnull @BIO_debug_callback_ex) #12
+  call void @BIO_set_callback_ex(ptr noundef nonnull %229, ptr noundef nonnull @BIO_debug_callback_ex) #12
   %233 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @BIO_set_callback_arg(ptr noundef %.4, ptr noundef %233) #11
+  call void @BIO_set_callback_arg(ptr noundef %.4, ptr noundef %233) #12
   %234 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @BIO_set_callback_arg(ptr noundef nonnull %229, ptr noundef %234) #11
+  call void @BIO_set_callback_arg(ptr noundef nonnull %229, ptr noundef %234) #12
   br label %235
 
 235:                                              ; preds = %232, %231
   br i1 %.not404, label %250, label %236
 
 236:                                              ; preds = %235
-  %237 = call ptr @BIO_f_base64() #11
-  %238 = call ptr @BIO_new(ptr noundef %237) #11
+  %237 = call ptr @BIO_f_base64() #12
+  %238 = call ptr @BIO_new(ptr noundef %237) #12
   %239 = icmp eq ptr %238, null
   br i1 %239, label %.thread469, label %240
 
@@ -762,9 +762,9 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not410, label %243, label %241
 
 241:                                              ; preds = %240
-  call void @BIO_set_callback_ex(ptr noundef nonnull %238, ptr noundef nonnull @BIO_debug_callback_ex) #11
+  call void @BIO_set_callback_ex(ptr noundef nonnull %238, ptr noundef nonnull @BIO_debug_callback_ex) #12
   %242 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @BIO_set_callback_arg(ptr noundef nonnull %238, ptr noundef %242) #11
+  call void @BIO_set_callback_arg(ptr noundef nonnull %238, ptr noundef %242) #12
   br label %243
 
 243:                                              ; preds = %241, %240
@@ -772,18 +772,18 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not411, label %245, label %244
 
 244:                                              ; preds = %243
-  call void @BIO_set_flags(ptr noundef nonnull %238, i32 noundef 256) #11
+  call void @BIO_set_flags(ptr noundef nonnull %238, i32 noundef 256) #12
   br label %245
 
 245:                                              ; preds = %244, %243
   br i1 %.not407, label %248, label %246
 
 246:                                              ; preds = %245
-  %247 = call ptr @BIO_push(ptr noundef nonnull %238, ptr noundef nonnull %229) #11
+  %247 = call ptr @BIO_push(ptr noundef nonnull %238, ptr noundef nonnull %229) #12
   br label %250
 
 248:                                              ; preds = %245
-  %249 = call ptr @BIO_push(ptr noundef nonnull %238, ptr noundef %.4) #11
+  %249 = call ptr @BIO_push(ptr noundef nonnull %238, ptr noundef %.4) #12
   br label %250
 
 250:                                              ; preds = %246, %248, %235
@@ -799,7 +799,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not414, label %.thread888, label %253
 
 253:                                              ; preds = %252
-  %254 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3359) #12
+  %254 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3359) #11
   %.not415 = icmp eq i32 %.0338, 0
   br i1 %.not415, label %255, label %.thread464
 
@@ -815,7 +815,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 259:                                              ; preds = %256
   %260 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %261 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %260, ptr noundef nonnull @.str.104) #11
+  %261 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %260, ptr noundef nonnull @.str.104) #12
   br label %.thread469
 
 262:                                              ; preds = %255
@@ -823,13 +823,13 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 263:                                              ; preds = %262
   %264 = load i32, ptr %11, align 4, !tbaa !15
-  %265 = call i32 @RAND_bytes(ptr noundef nonnull %10, i32 noundef %264) #11
+  %265 = call i32 @RAND_bytes(ptr noundef nonnull %10, i32 noundef %264) #12
   %266 = icmp slt i32 %265, 1
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %263
   %268 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %269 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %268, ptr noundef nonnull @.str.105) #11
+  %269 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %268, ptr noundef nonnull @.str.105) #12
   br label %.thread469
 
 270:                                              ; preds = %263
@@ -837,30 +837,30 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not421, label %.thread464, label %271
 
 271:                                              ; preds = %270
-  %272 = call i32 @BIO_write(ptr noundef %.2315, ptr noundef nonnull @enc_main.magic, i32 noundef 8) #11
+  %272 = call i32 @BIO_write(ptr noundef %.2315, ptr noundef nonnull @enc_main.magic, i32 noundef 8) #12
   %.not422 = icmp eq i32 %272, 8
   br i1 %.not422, label %273, label %277
 
 273:                                              ; preds = %271
   %274 = load i32, ptr %11, align 4, !tbaa !15
-  %275 = call i32 @BIO_write(ptr noundef %.2315, ptr noundef nonnull %10, i32 noundef %274) #11
+  %275 = call i32 @BIO_write(ptr noundef %.2315, ptr noundef nonnull %10, i32 noundef %274) #12
   %276 = load i32, ptr %11, align 4, !tbaa !15
   %.not423 = icmp eq i32 %275, %276
   br i1 %.not423, label %.thread464, label %277
 
 277:                                              ; preds = %273, %271
   %278 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %279 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %278, ptr noundef nonnull @.str.106) #11
+  %279 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %278, ptr noundef nonnull @.str.106) #12
   br label %.thread469
 
 280:                                              ; preds = %262
-  %281 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef nonnull %7, i32 noundef 8) #11
+  %281 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef nonnull %7, i32 noundef 8) #12
   %.not419 = icmp eq i32 %281, 8
   br i1 %.not419, label %285, label %282
 
 282:                                              ; preds = %280
   %283 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %284 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %283, ptr noundef nonnull @.str.107) #11
+  %284 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %283, ptr noundef nonnull @.str.107) #12
   br label %.thread469
 
 285:                                              ; preds = %280
@@ -870,19 +870,19 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 287:                                              ; preds = %285
   %288 = load i32, ptr %11, align 4, !tbaa !15
-  %289 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef nonnull %10, i32 noundef %288) #11
+  %289 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef nonnull %10, i32 noundef %288) #12
   %290 = load i32, ptr %11, align 4, !tbaa !15
   %.not420 = icmp eq i32 %289, %290
   br i1 %.not420, label %.thread464, label %291
 
 291:                                              ; preds = %287
   %292 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %293 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %292, ptr noundef nonnull @.str.107) #11
+  %293 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %292, ptr noundef nonnull @.str.107) #12
   br label %.thread469
 
 294:                                              ; preds = %285
   %295 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %296 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %295, ptr noundef nonnull @.str.108) #11
+  %296 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %295, ptr noundef nonnull @.str.108) #12
   br label %.thread469
 
 .thread464:                                       ; preds = %256, %270, %273, %287, %253
@@ -891,25 +891,25 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not1283, label %314, label %297
 
 297:                                              ; preds = %.thread464
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %298 = load ptr, ptr %4, align 8, !tbaa !9
-  %299 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %298) #11
+  %299 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %298) #12
   %300 = load ptr, ptr %4, align 8, !tbaa !9
-  %301 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %300) #11
+  %301 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %300) #12
   %.not425 = icmp eq ptr %.0270, null
   %302 = load i32, ptr %11, align 4
   %303 = select i1 %.not425, i32 0, i32 %302
   %304 = trunc i64 %254 to i32
   %305 = load ptr, ptr %5, align 8, !tbaa !11
   %306 = add nsw i32 %301, %299
-  %307 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull %.3359, i32 noundef %304, ptr noundef %.0270, i32 noundef %303, i32 noundef %spec.store.select8, ptr noundef %305, i32 noundef %306, ptr noundef nonnull %15) #11
+  %307 = call i32 @PKCS5_PBKDF2_HMAC(ptr noundef nonnull %.3359, i32 noundef %304, ptr noundef %.0270, i32 noundef %303, i32 noundef %spec.store.select8, ptr noundef %305, i32 noundef %306, ptr noundef nonnull %15) #12
   %.not426.not = icmp eq i32 %307, 0
   br i1 %.not426.not, label %.thread465, label %310
 
 .thread465:                                       ; preds = %297
   %308 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %309 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %308, ptr noundef nonnull @.str.109) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #11
+  %309 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %308, ptr noundef nonnull @.str.109) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread469
 
 310:                                              ; preds = %297
@@ -918,28 +918,28 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %312 = getelementptr inbounds i8, ptr %15, i64 %311
   %313 = sext i32 %301 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %312, i64 %313, i1 false)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %324
 
 314:                                              ; preds = %.thread464
   %315 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %316 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %315, ptr noundef nonnull @.str.110) #11
+  %316 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %315, ptr noundef nonnull @.str.110) #12
   %317 = load ptr, ptr %4, align 8, !tbaa !9
   %318 = load ptr, ptr %5, align 8, !tbaa !11
   %319 = trunc i64 %254 to i32
-  %320 = call i32 @EVP_BytesToKey(ptr noundef %317, ptr noundef %318, ptr noundef %.0270, ptr noundef nonnull %.3359, i32 noundef %319, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  %320 = call i32 @EVP_BytesToKey(ptr noundef %317, ptr noundef %318, ptr noundef %.0270, ptr noundef nonnull %.3359, i32 noundef %319, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   %.not424 = icmp eq i32 %320, 0
   br i1 %.not424, label %321, label %324
 
 321:                                              ; preds = %314
   %322 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %323 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %322, ptr noundef nonnull @.str.111) #11
+  %323 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %322, ptr noundef nonnull @.str.111) #12
   br label %.thread469
 
 324:                                              ; preds = %310, %314
   %325 = icmp eq ptr %.3359, %172
   %.1092 = select i1 %325, i64 512, i64 %254
-  call void @OPENSSL_cleanse(ptr noundef nonnull %.3359, i64 noundef %.1092) #11
+  call void @OPENSSL_cleanse(ptr noundef nonnull %.3359, i64 noundef %.1092) #12
   %.not427 = icmp eq ptr %.0361, null
   br i1 %.not427, label %.thread475, label %326
 
@@ -950,13 +950,13 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 326:                                              ; preds = %.thread888, %324
   %.0306892 = phi i32 [ 0, %.thread888 ], [ 1, %324 ]
   %327 = load ptr, ptr %4, align 8, !tbaa !9
-  %328 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %327) #11
+  %328 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %327) #12
   %329 = icmp eq i32 %328, 0
   br i1 %329, label %330, label %333
 
 330:                                              ; preds = %326
   %331 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %332 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %331, ptr noundef nonnull @.str.112) #11
+  %332 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %331, ptr noundef nonnull @.str.112) #12
   br label %.thread475
 
 333:                                              ; preds = %326
@@ -966,19 +966,19 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 335:                                              ; preds = %333
   %336 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %337 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %336, ptr noundef nonnull @.str.113) #11
+  %337 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %336, ptr noundef nonnull @.str.113) #12
   br label %.thread469
 
 .thread897:                                       ; preds = %.thread888
   %338 = load ptr, ptr %4, align 8, !tbaa !9
-  %339 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %338) #11
+  %339 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %338) #12
   %340 = icmp ne i32 %339, 0
   %or.cond24 = and i1 %157, %340
   br i1 %or.cond24, label %341, label %.thread475
 
 341:                                              ; preds = %.thread897
   %342 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %343 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %342, ptr noundef nonnull @.str.114) #11
+  %343 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %342, ptr noundef nonnull @.str.114) #12
   br label %.thread469
 
 .thread475:                                       ; preds = %324, %333, %330, %.thread897
@@ -988,18 +988,18 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 344:                                              ; preds = %.thread475
   %345 = load ptr, ptr %4, align 8, !tbaa !9
-  %346 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %345) #11
+  %346 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %345) #12
   %347 = call fastcc i32 @set_hex(ptr noundef %.0348, ptr noundef %8, i32 noundef %346)
   %.not430 = icmp eq i32 %347, 0
   br i1 %.not430, label %348, label %351
 
 348:                                              ; preds = %344
   %349 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %350 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %349, ptr noundef nonnull @.str.115) #11
+  %350 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %349, ptr noundef nonnull @.str.115) #12
   br label %.thread469
 
 351:                                              ; preds = %344
-  call void @cleanse(ptr noundef nonnull %.0348) #11
+  call void @cleanse(ptr noundef nonnull %.0348) #12
   br label %352
 
 352:                                              ; preds = %351, %.thread475
@@ -1011,22 +1011,22 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 355:                                              ; preds = %352
   %356 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %357 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %356, ptr noundef nonnull @.str.116) #11
+  %357 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %356, ptr noundef nonnull @.str.116) #12
   br label %.thread469
 
 358:                                              ; preds = %352
-  %359 = call ptr @BIO_f_cipher() #11
-  %360 = call ptr @BIO_new(ptr noundef %359) #11
+  %359 = call ptr @BIO_f_cipher() #12
+  %360 = call ptr @BIO_new(ptr noundef %359) #12
   %361 = icmp eq ptr %360, null
   br i1 %361, label %.thread469, label %362
 
 362:                                              ; preds = %358
-  %363 = call i64 @BIO_ctrl(ptr noundef nonnull %360, i32 noundef 129, i64 noundef 0, ptr noundef nonnull %3) #11
+  %363 = call i64 @BIO_ctrl(ptr noundef nonnull %360, i32 noundef 129, i64 noundef 0, ptr noundef nonnull %3) #12
   br i1 %.fr, label %364, label %366
 
 364:                                              ; preds = %362
   %365 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @EVP_CIPHER_CTX_set_flags(ptr noundef %365, i32 noundef 1) #11
+  call void @EVP_CIPHER_CTX_set_flags(ptr noundef %365, i32 noundef 1) #12
   br label %366
 
 366:                                              ; preds = %364, %362
@@ -1038,48 +1038,48 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %369 = load ptr, ptr %4, align 8, !tbaa !9
   %or.cond28 = and i1 %.not427894, %.fr
   %370 = select i1 %or.cond28, ptr null, ptr %9
-  %371 = call i32 @EVP_CipherInit_ex(ptr noundef %368, ptr noundef %369, ptr noundef %.0264, ptr noundef nonnull %8, ptr noundef %370, i32 noundef %.0336) #11
+  %371 = call i32 @EVP_CipherInit_ex(ptr noundef %368, ptr noundef %369, ptr noundef %.0264, ptr noundef nonnull %8, ptr noundef %370, i32 noundef %.0336) #12
   %.not434 = icmp eq i32 %371, 0
   br i1 %.not434, label %372, label %420
 
 372:                                              ; preds = %367
   %373 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %374 = load ptr, ptr %4, align 8, !tbaa !9
-  %375 = call ptr @EVP_CIPHER_get0_name(ptr noundef %374) #11
-  %376 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %373, ptr noundef nonnull @.str.117, ptr noundef %375) #11
+  %375 = call ptr @EVP_CIPHER_get0_name(ptr noundef %374) #12
+  %376 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %373, ptr noundef nonnull @.str.117, ptr noundef %375) #12
   %377 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %377) #11
+  call void @ERR_print_errors(ptr noundef %377) #12
   br label %.thread469
 
 378:                                              ; preds = %366
-  %379 = call ptr @app_get0_libctx() #11
+  %379 = call ptr @app_get0_libctx() #12
   %.not432 = icmp eq ptr %.0283, null
   br i1 %.not432, label %380, label %383
 
 380:                                              ; preds = %378
   %381 = load ptr, ptr %4, align 8, !tbaa !9
-  %382 = call ptr @EVP_CIPHER_get0_name(ptr noundef %381) #11
+  %382 = call ptr @EVP_CIPHER_get0_name(ptr noundef %381) #12
   br label %383
 
 383:                                              ; preds = %378, %380
   %384 = phi ptr [ %382, %380 ], [ %.0283, %378 ]
-  %385 = call ptr @app_get0_propq() #11
-  %386 = call ptr @EVP_SKEYMGMT_fetch(ptr noundef %379, ptr noundef %384, ptr noundef %385) #11
+  %385 = call ptr @app_get0_propq() #12
+  %386 = call ptr @EVP_SKEYMGMT_fetch(ptr noundef %379, ptr noundef %384, ptr noundef %385) #12
   %387 = icmp eq ptr %386, null
   br i1 %387, label %.thread469, label %388
 
 388:                                              ; preds = %383
-  %389 = call ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef nonnull %386) #11
-  %390 = call ptr @app_params_new_from_opts(ptr noundef %.0285, ptr noundef %389) #11
+  %389 = call ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef nonnull %386) #12
+  %390 = call ptr @app_params_new_from_opts(ptr noundef %.0285, ptr noundef %389) #12
   %391 = icmp eq ptr %390, null
   br i1 %391, label %.thread469, label %392
 
 392:                                              ; preds = %388
-  %393 = call ptr @app_get0_libctx() #11
-  %394 = call ptr @EVP_SKEYMGMT_get0_name(ptr noundef nonnull %386) #11
-  %395 = call ptr @app_get0_propq() #11
-  %396 = call ptr @EVP_SKEY_import(ptr noundef %393, ptr noundef %394, ptr noundef %395, i32 noundef 3, ptr noundef nonnull %390) #11
-  call void @OSSL_PARAM_free(ptr noundef nonnull %390) #11
+  %393 = call ptr @app_get0_libctx() #12
+  %394 = call ptr @EVP_SKEYMGMT_get0_name(ptr noundef nonnull %386) #12
+  %395 = call ptr @app_get0_propq() #12
+  %396 = call ptr @EVP_SKEY_import(ptr noundef %393, ptr noundef %394, ptr noundef %395, i32 noundef 3, ptr noundef nonnull %390) #12
+  call void @OSSL_PARAM_free(ptr noundef nonnull %390) #12
   %397 = icmp eq ptr %396, null
   br i1 %397, label %398, label %407
 
@@ -1089,14 +1089,14 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 400:                                              ; preds = %398
   %401 = load ptr, ptr %4, align 8, !tbaa !9
-  %402 = call ptr @EVP_CIPHER_get0_name(ptr noundef %401) #11
+  %402 = call ptr @EVP_CIPHER_get0_name(ptr noundef %401) #12
   br label %403
 
 403:                                              ; preds = %398, %400
   %404 = phi ptr [ %402, %400 ], [ %.0283, %398 ]
-  %405 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %399, ptr noundef nonnull @.str.118, ptr noundef %404) #11
+  %405 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %399, ptr noundef nonnull @.str.118, ptr noundef %404) #12
   %406 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %406) #11
+  call void @ERR_print_errors(ptr noundef %406) #12
   br label %.thread469
 
 407:                                              ; preds = %392
@@ -1104,19 +1104,19 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %409 = load ptr, ptr %4, align 8, !tbaa !9
   %or.cond30 = and i1 %.not427894, %.fr
   %410 = select i1 %or.cond30, ptr null, ptr %9
-  %411 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %409) #11
+  %411 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %409) #12
   %412 = sext i32 %411 to i64
-  %413 = call i32 @EVP_CipherInit_SKEY(ptr noundef %408, ptr noundef %409, ptr noundef nonnull %396, ptr noundef %410, i64 noundef %412, i32 noundef %.0336, ptr noundef null) #11
+  %413 = call i32 @EVP_CipherInit_SKEY(ptr noundef %408, ptr noundef %409, ptr noundef nonnull %396, ptr noundef %410, i64 noundef %412, i32 noundef %.0336, ptr noundef null) #12
   %.not433 = icmp eq i32 %413, 0
   br i1 %.not433, label %414, label %420
 
 414:                                              ; preds = %407
   %415 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %416 = load ptr, ptr %4, align 8, !tbaa !9
-  %417 = call ptr @EVP_CIPHER_get0_name(ptr noundef %416) #11
-  %418 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %415, ptr noundef nonnull @.str.119, ptr noundef %417) #11
+  %417 = call ptr @EVP_CIPHER_get0_name(ptr noundef %416) #12
+  %418 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %415, ptr noundef nonnull @.str.119, ptr noundef %417) #12
   %419 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %419) #11
+  call void @ERR_print_errors(ptr noundef %419) #12
   br label %.thread469
 
 420:                                              ; preds = %407, %367
@@ -1127,16 +1127,16 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 421:                                              ; preds = %420
   %422 = load ptr, ptr %3, align 8, !tbaa !4
-  %423 = call i32 @EVP_CIPHER_CTX_set_padding(ptr noundef %422, i32 noundef 0) #11
+  %423 = call i32 @EVP_CIPHER_CTX_set_padding(ptr noundef %422, i32 noundef 0) #12
   br label %424
 
 424:                                              ; preds = %421, %420
   br i1 %.not410, label %427, label %425
 
 425:                                              ; preds = %424
-  call void @BIO_set_callback_ex(ptr noundef nonnull %360, ptr noundef nonnull @BIO_debug_callback_ex) #11
+  call void @BIO_set_callback_ex(ptr noundef nonnull %360, ptr noundef nonnull @BIO_debug_callback_ex) #12
   %426 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @BIO_set_callback_arg(ptr noundef nonnull %360, ptr noundef %426) #11
+  call void @BIO_set_callback_arg(ptr noundef nonnull %360, ptr noundef %426) #12
   br label %427
 
 427:                                              ; preds = %425, %424
@@ -1171,14 +1171,14 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 440:                                              ; preds = %._crit_edge672, %428
   %441 = load ptr, ptr %4, align 8, !tbaa !9
-  %442 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %441) #11
+  %442 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %441) #12
   %443 = icmp sgt i32 %442, 0
   br i1 %443, label %444, label %457
 
 444:                                              ; preds = %440
   %445 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.122)
   %446 = load ptr, ptr %4, align 8, !tbaa !9
-  %447 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %446) #11
+  %447 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %446) #12
   %448 = icmp sgt i32 %447, 0
   br i1 %448, label %.lr.ph675, label %._crit_edge676
 
@@ -1190,7 +1190,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %452 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, i32 noundef %451)
   %indvars.iv.next883 = add nuw nsw i64 %indvars.iv882, 1
   %453 = load ptr, ptr %4, align 8, !tbaa !9
-  %454 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %453) #11
+  %454 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %453) #12
   %455 = sext i32 %454 to i64
   %456 = icmp slt i64 %indvars.iv.next883, %455
   br i1 %456, label %.lr.ph675, label %._crit_edge676, !llvm.loop !29
@@ -1201,14 +1201,14 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 457:                                              ; preds = %._crit_edge676, %440
   %458 = load ptr, ptr %4, align 8, !tbaa !9
-  %459 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %458) #11
+  %459 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %458) #12
   %460 = icmp sgt i32 %459, 0
   br i1 %460, label %461, label %474
 
 461:                                              ; preds = %457
   %462 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.123)
   %463 = load ptr, ptr %4, align 8, !tbaa !9
-  %464 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %463) #11
+  %464 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %463) #12
   %465 = icmp sgt i32 %464, 0
   br i1 %465, label %.lr.ph679, label %._crit_edge680
 
@@ -1220,7 +1220,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %469 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.121, i32 noundef %468)
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %470 = load ptr, ptr %4, align 8, !tbaa !9
-  %471 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %470) #11
+  %471 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %470) #12
   %472 = sext i32 %471 to i64
   %473 = icmp slt i64 %indvars.iv.next886, %472
   br i1 %473, label %.lr.ph679, label %._crit_edge680, !llvm.loop !30
@@ -1234,7 +1234,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %475, label %.thread469, label %.thread489
 
 .thread489:                                       ; preds = %474, %427
-  %476 = call ptr @BIO_push(ptr noundef nonnull %360, ptr noundef %.2315) #11
+  %476 = call ptr @BIO_push(ptr noundef nonnull %360, ptr noundef %.2315) #12
   br label %.thread481
 
 .thread481:                                       ; preds = %250, %.thread489
@@ -1245,67 +1245,67 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.fr, label %.thread481.split.us, label %.thread481.split.split, !llvm.loop !31
 
 .thread481.split.us:                              ; preds = %.thread481
-  %477 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 10, i64 noundef 0, ptr noundef null) #11
+  %477 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 10, i64 noundef 0, ptr noundef null) #12
   %478 = and i64 %477, 4294967295
   %.not441.us = icmp eq i64 %478, 0
   br i1 %.not441.us, label %479, label %.critedge32.us
 
 479:                                              ; preds = %.thread481.split.us
-  %480 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
+  %480 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #12
   %481 = and i64 %480, 4294967295
   %.not442.us = icmp eq i64 %481, 0
   br i1 %.not442.us, label %.critedge32.us, label %.split.us
 
 .critedge32.us:                                   ; preds = %479, %.thread481.split.us
-  %482 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef %181, i32 noundef %spec.store.select33) #11
+  %482 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef %181, i32 noundef %spec.store.select33) #12
   %483 = icmp slt i32 %482, 1
   br i1 %483, label %.split.us, label %484
 
 484:                                              ; preds = %.critedge32.us
-  %485 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
+  %485 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #12
   %486 = and i64 %485, 4294967295
   %.not444.us = icmp eq i64 %486, 0
   br i1 %.not444.us, label %.split682.us, label %487
 
 487:                                              ; preds = %484
-  %488 = call i32 @BIO_write(ptr noundef %.3316, ptr noundef %181, i32 noundef %482) #11
+  %488 = call i32 @BIO_write(ptr noundef %.3316, ptr noundef %181, i32 noundef %482) #12
   %.not445.us = icmp eq i32 %488, %482
   br i1 %.not445.us, label %.split.us, label %.split684.us
 
 .thread481.split.split:                           ; preds = %.thread481, %496
-  %489 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 10, i64 noundef 0, ptr noundef null) #11
+  %489 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 10, i64 noundef 0, ptr noundef null) #12
   %490 = and i64 %489, 4294967295
   %.not441 = icmp eq i64 %490, 0
   br i1 %.not441, label %491, label %.critedge32
 
 491:                                              ; preds = %.thread481.split.split
-  %492 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #11
+  %492 = call i64 @BIO_ctrl(ptr noundef %.2298, i32 noundef 2, i64 noundef 0, ptr noundef null) #12
   %493 = and i64 %492, 4294967295
   %.not442 = icmp eq i64 %493, 0
   br i1 %.not442, label %.critedge32, label %.split.us
 
 .critedge32:                                      ; preds = %.thread481.split.split, %491
-  %494 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef %181, i32 noundef %spec.store.select33) #11
+  %494 = call i32 @BIO_read(ptr noundef %.2298, ptr noundef %181, i32 noundef %spec.store.select33) #12
   %495 = icmp slt i32 %494, 1
   br i1 %495, label %.split.us, label %496
 
 496:                                              ; preds = %.critedge32
-  %497 = call i32 @BIO_write(ptr noundef %.3316, ptr noundef %181, i32 noundef %494) #11
+  %497 = call i32 @BIO_write(ptr noundef %.3316, ptr noundef %181, i32 noundef %494) #12
   %.not445 = icmp eq i32 %497, %494
   br i1 %.not445, label %.thread481.split.split, label %.split684.us
 
 .split682.us:                                     ; preds = %484
   %498 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %499 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %498, ptr noundef nonnull @.str.98) #11
+  %499 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %498, ptr noundef nonnull @.str.98) #12
   br label %.thread469
 
 .split684.us:                                     ; preds = %496, %487
   %500 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %501 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %500, ptr noundef nonnull @.str.106) #11
+  %501 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %500, ptr noundef nonnull @.str.106) #12
   br label %.thread469
 
 .split.us:                                        ; preds = %491, %.critedge32, %479, %.critedge32.us, %487
-  %502 = call i64 @BIO_ctrl(ptr noundef %.3316, i32 noundef 11, i64 noundef 0, ptr noundef null) #11
+  %502 = call i64 @BIO_ctrl(ptr noundef %.3316, i32 noundef 11, i64 noundef 0, ptr noundef null) #12
   %503 = and i64 %502, 4294967295
   %.not446 = icmp eq i64 %503, 0
   br i1 %.not446, label %504, label %510
@@ -1315,11 +1315,11 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br i1 %.not407, label %508, label %506
 
 506:                                              ; preds = %504
-  %507 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %505, ptr noundef nonnull @.str.124) #11
+  %507 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %505, ptr noundef nonnull @.str.124) #12
   br label %.thread469
 
 508:                                              ; preds = %504
-  %509 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %505, ptr noundef nonnull @.str.125) #11
+  %509 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %505, ptr noundef nonnull @.str.125) #12
   br label %.thread469
 
 510:                                              ; preds = %.split.us
@@ -1327,11 +1327,11 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 511:                                              ; preds = %510
   %512 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %513 = call i64 @BIO_number_read(ptr noundef %.4) #11
-  %514 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %512, ptr noundef nonnull @.str.126, i64 noundef %513) #11
+  %513 = call i64 @BIO_number_read(ptr noundef %.4) #12
+  %514 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %512, ptr noundef nonnull @.str.126, i64 noundef %513) #12
   %515 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %516 = call i64 @BIO_number_written(ptr noundef %229) #11
-  %517 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %515, ptr noundef nonnull @.str.127, i64 noundef %516) #11
+  %516 = call i64 @BIO_number_written(ptr noundef %229) #12
+  %517 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %515, ptr noundef nonnull @.str.127, i64 noundef %516) #12
   br label %.thread469
 
 .thread469:                                       ; preds = %136, %138, %388, %383, %414, %403, %.thread465, %259, %294, %291, %282, %277, %267, %321, %.loopexit, %26, %27, %131, %185, %199, %341, %348, %355, %372, %.split682.us, %.split684.us, %142, %192, %228, %236, %358, %508, %506, %511, %510, %474, %.thread456, %335
@@ -1346,56 +1346,53 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %.0267 = phi ptr [ null, %.loopexit ], [ null, %26 ], [ null, %27 ], [ null, %131 ], [ null, %185 ], [ null, %192 ], [ null, %228 ], [ %229, %236 ], [ %229, %341 ], [ %229, %355 ], [ %229, %358 ], [ %229, %511 ], [ %229, %510 ], [ %229, %506 ], [ %229, %508 ], [ %229, %.split684.us ], [ %229, %.split682.us ], [ %229, %372 ], [ %229, %348 ], [ %229, %335 ], [ null, %199 ], [ null, %142 ], [ %229, %474 ], [ null, %.thread456 ], [ %229, %321 ], [ %229, %267 ], [ %229, %277 ], [ %229, %282 ], [ %229, %291 ], [ %229, %294 ], [ %229, %259 ], [ %229, %.thread465 ], [ %229, %403 ], [ %229, %414 ], [ %229, %383 ], [ %229, %388 ], [ null, %138 ], [ null, %136 ]
   %.3 = phi ptr [ null, %.loopexit ], [ null, %26 ], [ null, %27 ], [ null, %131 ], [ null, %185 ], [ null, %192 ], [ %.4, %228 ], [ %.4, %236 ], [ %.4, %341 ], [ %.4, %355 ], [ %.4, %358 ], [ %.4, %511 ], [ %.4, %510 ], [ %.4, %506 ], [ %.4, %508 ], [ %.4, %.split684.us ], [ %.4, %.split682.us ], [ %.4, %372 ], [ %.4, %348 ], [ %.4, %335 ], [ %.4, %199 ], [ null, %142 ], [ %.4, %474 ], [ %.4, %.thread456 ], [ %.4, %321 ], [ %.4, %267 ], [ %.4, %277 ], [ %.4, %282 ], [ %.4, %291 ], [ %.4, %294 ], [ %.4, %259 ], [ %.4, %.thread465 ], [ %.4, %403 ], [ %.4, %414 ], [ %.4, %383 ], [ %.4, %388 ], [ null, %138 ], [ null, %136 ]
   %518 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  call void @ERR_print_errors(ptr noundef %518) #11
-  call void @OPENSSL_sk_free(ptr noundef %.2287) #11
-  call void @EVP_SKEYMGMT_free(ptr noundef %.0276) #11
-  call void @EVP_SKEY_free(ptr noundef %.0279) #11
-  call void @CRYPTO_free(ptr noundef %.0353, ptr noundef nonnull @.str.128, i32 noundef 780) #11
-  call void @CRYPTO_free(ptr noundef %.0305, ptr noundef nonnull @.str.128, i32 noundef 781) #11
-  %519 = call i32 @BIO_free(ptr noundef %.3) #11
-  call void @BIO_free_all(ptr noundef %.0267) #11
-  %520 = call i32 @BIO_free(ptr noundef %.0292) #11
-  %521 = call i32 @BIO_free(ptr noundef %.0268) #11
+  call void @ERR_print_errors(ptr noundef %518) #12
+  call void @OPENSSL_sk_free(ptr noundef %.2287) #12
+  call void @EVP_SKEYMGMT_free(ptr noundef %.0276) #12
+  call void @EVP_SKEY_free(ptr noundef %.0279) #12
+  call void @CRYPTO_free(ptr noundef %.0353, ptr noundef nonnull @.str.128, i32 noundef 780) #12
+  call void @CRYPTO_free(ptr noundef %.0305, ptr noundef nonnull @.str.128, i32 noundef 781) #12
+  %519 = call i32 @BIO_free(ptr noundef %.3) #12
+  call void @BIO_free_all(ptr noundef %.0267) #12
+  %520 = call i32 @BIO_free(ptr noundef %.0292) #12
+  %521 = call i32 @BIO_free(ptr noundef %.0268) #12
   %522 = load ptr, ptr %5, align 8, !tbaa !11
-  call void @EVP_MD_free(ptr noundef %522) #11
+  call void @EVP_MD_free(ptr noundef %522) #12
   %523 = load ptr, ptr %4, align 8, !tbaa !9
-  call void @EVP_CIPHER_free(ptr noundef %523) #11
-  %524 = call i32 @BIO_free(ptr noundef null) #11
-  %525 = call i32 @BIO_free(ptr noundef null) #11
-  call void @release_engine(ptr noundef %.0264) #11
+  call void @EVP_CIPHER_free(ptr noundef %523) #12
+  %524 = call i32 @BIO_free(ptr noundef null) #12
+  %525 = call i32 @BIO_free(ptr noundef null) #12
+  call void @release_engine(ptr noundef %.0264) #12
   %526 = load ptr, ptr %6, align 8, !tbaa !13
-  call void @CRYPTO_free(ptr noundef %526, ptr noundef nonnull @.str.128, i32 noundef 794) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @CRYPTO_free(ptr noundef %526, ptr noundef nonnull @.str.128, i32 noundef 794) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0317
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #3
+declare void @opt_set_unknown_name(ptr noundef) local_unnamed_addr #2
 
-declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @opt_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @opt_next() local_unnamed_addr #3
+declare i32 @opt_next() local_unnamed_addr #2
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @opt_help(ptr noundef) local_unnamed_addr #3
+declare void @opt_help(ptr noundef) local_unnamed_addr #2
 
-declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @show_ciphers(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
@@ -1412,25 +1409,25 @@ define internal void @show_ciphers(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not, label %34, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call ptr @EVP_get_cipherbyname(ptr noundef nonnull %6) #11
+  %13 = tail call ptr @EVP_get_cipherbyname(ptr noundef nonnull %6) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %13) #11
+  %16 = tail call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %13) #12
   %17 = and i64 %16, 2097152
   %.not12 = icmp eq i64 %17, 0
   br i1 %.not12, label %18, label %34
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %13) #11
+  %19 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %13) #12
   %20 = icmp eq i32 %19, 65537
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %1, align 8, !tbaa !21
   %23 = load ptr, ptr %5, align 8, !tbaa !34
-  %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.129, ptr noundef %23) #11
+  %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.129, ptr noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !23
   %27 = add nsw i32 %26, 1
@@ -1440,92 +1437,89 @@ define internal void @show_ciphers(ptr noundef readonly captures(none) %0, ptr n
   br i1 %28, label %30, label %32
 
 30:                                               ; preds = %21
-  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.91) #11
+  %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.91) #12
   store i32 0, ptr %25, align 8, !tbaa !23
   br label %34
 
 32:                                               ; preds = %21
-  %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.130) #11
+  %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.130) #12
   br label %34
 
 34:                                               ; preds = %30, %32, %12, %15, %18, %2
   ret void
 }
 
-declare ptr @opt_arg() local_unnamed_addr #3
+declare ptr @opt_arg() local_unnamed_addr #2
 
-declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @setup_engine_methods(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare i32 @opt_long(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_long(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #3
+declare ptr @bio_open_default(ptr noundef, i8 noundef signext, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @opt_unknown() local_unnamed_addr #3
+declare ptr @opt_unknown() local_unnamed_addr #2
 
-declare i32 @opt_int_arg() local_unnamed_addr #3
+declare i32 @opt_int_arg() local_unnamed_addr #2
 
-declare i32 @opt_int(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #3
+declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2
 
-declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @opt_rand(i32 noundef) local_unnamed_addr #3
+declare i32 @opt_rand(i32 noundef) local_unnamed_addr #2
 
-declare i32 @opt_provider(i32 noundef) local_unnamed_addr #3
+declare i32 @opt_provider(i32 noundef) local_unnamed_addr #2
 
-declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #3
+declare i32 @opt_check_rest_arg(ptr noundef) local_unnamed_addr #2
 
-declare i32 @app_RAND_load() local_unnamed_addr #3
+declare i32 @app_RAND_load() local_unnamed_addr #2
 
-declare i32 @opt_cipher(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_cipher(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #2
 
-declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @opt_md(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_sha256() local_unnamed_addr #3
+declare ptr @EVP_sha256() local_unnamed_addr #2
 
-declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @dup_bio_in(i32 noundef) local_unnamed_addr #3
+declare ptr @dup_bio_in(i32 noundef) local_unnamed_addr #2
 
-declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @app_passwd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_CIPHER_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_debug_callback_ex(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) #2
 
-declare i64 @BIO_debug_callback_ex(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef) #3
+declare void @BIO_set_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @BIO_set_callback_arg(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @BIO_f_base64() local_unnamed_addr #2
 
-declare ptr @BIO_f_base64() local_unnamed_addr #3
-
-declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = shl nsw i32 %2, 1
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %6 = trunc i64 %5 to i32
   %7 = icmp slt i32 %4, %6
   br i1 %7, label %.sink.split, label %8
@@ -1538,7 +1532,7 @@ define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly
   %.str.132.sink = phi ptr [ @.str.131, %3 ], [ @.str.132, %8 ]
   %.0.ph = phi i32 [ %4, %3 ], [ %6, %8 ]
   %10 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull %.str.132.sink) #11
+  %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull %.str.132.sink) #12
   br label %12
 
 12:                                               ; preds = %.sink.split, %8
@@ -1567,11 +1561,11 @@ define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.133) #11
+  %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.133) #12
   br label %.loopexit
 
 27:                                               ; preds = %16
-  %28 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #11
+  %28 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #12
   %29 = and i32 %.02229, 1
   %.not27 = icmp eq i32 %29, 0
   br i1 %.not27, label %37, label %30
@@ -1605,91 +1599,97 @@ define internal fastcc range(i32 0, 2) i32 @set_hex(ptr noundef nonnull readonly
   ret i32 %.023
 }
 
-declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_get_key_length(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_get_key_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @EVP_BytesToKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_BytesToKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @cleanse(ptr noundef) local_unnamed_addr #3
+declare void @cleanse(ptr noundef) local_unnamed_addr #2
 
-declare ptr @BIO_f_cipher() local_unnamed_addr #3
+declare ptr @BIO_f_cipher() local_unnamed_addr #2
 
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_CIPHER_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @EVP_CIPHER_CTX_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #3
+declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_SKEYMGMT_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_SKEYMGMT_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @app_get0_libctx() local_unnamed_addr #3
+declare ptr @app_get0_libctx() local_unnamed_addr #2
 
-declare ptr @app_get0_propq() local_unnamed_addr #3
+declare ptr @app_get0_propq() local_unnamed_addr #2
 
-declare ptr @app_params_new_from_opts(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @app_params_new_from_opts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_SKEY_import(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_SKEY_import(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @EVP_SKEYMGMT_get0_name(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_SKEYMGMT_get0_name(ptr noundef) local_unnamed_addr #2
 
-declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #3
+declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CipherInit_SKEY(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @EVP_CipherInit_SKEY(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @EVP_CIPHER_CTX_set_padding(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
-declare i64 @BIO_number_read(ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_number_read(ptr noundef) local_unnamed_addr #2
 
-declare i64 @BIO_number_written(ptr noundef) local_unnamed_addr #3
+declare i64 @BIO_number_written(ptr noundef) local_unnamed_addr #2
 
-declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #3
+declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_SKEYMGMT_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_SKEYMGMT_free(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_SKEY_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_SKEY_free(ptr noundef) local_unnamed_addr #2
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @BIO_free_all(ptr noundef) local_unnamed_addr #3
+declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
-declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #3
+declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #2
 
-declare void @release_engine(ptr noundef) local_unnamed_addr #3
+declare void @release_engine(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #6
+declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
-declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #3
+declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #2
 
-declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #3
+declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #3
+declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
@@ -1704,18 +1704,18 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nofree nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind }
 attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -251,15 +251,15 @@ land.lhs.true:                                    ; preds = %if.then
   br i1 %tobool.not.i.i.i.not, label %return, label %_ZNKSt8functionIFvlbEEclElb.exit
 
 _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store i64 %call, ptr %__args.addr.i, align 8
   store i8 0, ptr %__args.addr2.i, align 1
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %2 = load ptr, ptr %_M_invoker.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %return
 
 if.end5:                                          ; preds = %entry
@@ -290,15 +290,15 @@ land.lhs.true10:                                  ; preds = %if.then8
   br i1 %tobool.not.i.i.i42.not, label %return, label %_ZNKSt8functionIFvlbEEclElb.exit50
 
 _ZNKSt8functionIFvlbEEclElb.exit50:               ; preds = %land.lhs.true10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i43)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i44)
   store i64 %call, ptr %__args.addr.i43, align 8
   store i8 0, ptr %__args.addr2.i44, align 1
   %_M_invoker.i48 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %8 = load ptr, ptr %_M_invoker.i48, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i43, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i43)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i44)
   br label %return
 
 if.end14:                                         ; preds = %if.end5
@@ -312,8 +312,8 @@ if.end.i57:                                       ; preds = %if.end14
   %conv18 = sext i32 %10 to i64
   %mul.i186 = shl nsw i64 %conv18, 12
   %sub = sub i64 %mul.i186, %call
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i53)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i54)
   store i64 %sub, ptr %__args.addr.i53, align 8
   store i8 1, ptr %__args.addr2.i54, align 1
   %_M_invoker.i58 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
@@ -322,8 +322,8 @@ if.end.i57:                                       ; preds = %if.end14
           to label %_ZNKSt8functionIFvlbEEclElb.exit62 unwind label %lpad
 
 _ZNKSt8functionIFvlbEEclElb.exit62:               ; preds = %if.end.i57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i53)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i54)
   br label %if.end55
 
 lpad:                                             ; preds = %if.end.i57
@@ -815,8 +815,8 @@ invoke.cont153:                                   ; preds = %invoke.cont151
 invoke.cont155:                                   ; preds = %invoke.cont153
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150) #21
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp137) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i100)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i101)
   store i64 %add, ptr %__args.addr.i100, align 8
   store i8 0, ptr %__args.addr2.i101, align 1
   %55 = load ptr, ptr %_M_manager.i.i.i51, align 8
@@ -837,8 +837,8 @@ if.end.i104:                                      ; preds = %invoke.cont155
           to label %_ZNKSt8functionIFvlbEEclElb.exit109 unwind label %lpad57.loopexit.split-lp
 
 _ZNKSt8functionIFvlbEEclElb.exit109:              ; preds = %if.end.i104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i100)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i101)
   br label %if.end161
 
 lpad139:                                          ; preds = %invoke.cont148, %invoke.cont146, %invoke.cont144, %invoke.cont142, %invoke.cont140, %invoke.cont138
@@ -883,7 +883,7 @@ if.then.i.i116:                                   ; preds = %if.end163
 
 invoke.cont164:                                   ; preds = %if.end163
   %mallocs_ = getelementptr inbounds nuw i8, ptr %this, i64 944
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i.i)
   store ptr %mallocs_, ptr %__node_gen.i.i, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %pages.sroa.0.1158214, %pages.sroa.10.0167213
   br i1 %cmp.i.not3.i.i.i, label %invoke.cont174, label %for.body.i.i.i
@@ -899,7 +899,7 @@ call3.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i, label %invoke.cont174, label %for.body.i.i.i, !llvm.loop !10
 
 invoke.cont174:                                   ; preds = %call3.i.i.i.i.noexc, %invoke.cont164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i.i)
   %call1.i.i.i120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mallocsMutex_) #21
   %60 = load i32, ptr %totalPages, align 4
   %conv177 = sext i32 %60 to i64
@@ -1037,7 +1037,7 @@ entry:
   store i64 %maxPages, ptr %maxPages.addr, align 8
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %mul.i = shl i64 %numPages, 12
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1)
   store ptr %result, ptr %agg.tmp1, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp1, i64 8
   store ptr %this, ptr %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx, align 8
@@ -1105,7 +1105,7 @@ if.else.i:                                        ; preds = %entry
   br label %"_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_15MallocAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit"
 
 "_ZN8facebook5velox6memory5Stats14recordAllocateIZNS1_15MallocAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmE3$_0EEvliT_.exit": ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.else.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1)
   %15 = load i8, ptr %result, align 1
   %tobool = trunc i8 %15 to i1
   ret i1 %tobool
@@ -1264,15 +1264,15 @@ land.lhs.true:                                    ; preds = %if.then46
   br i1 %tobool.not.i.i.i.not, label %return, label %_ZNKSt8functionIFvlbEEclElb.exit
 
 _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %land.lhs.true
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store i64 %mul.i126, ptr %__args.addr.i, align 8
   store i8 0, ptr %__args.addr2.i, align 1
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %12 = load ptr, ptr %_M_invoker.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %return
 
 if.end51:                                         ; preds = %if.end43
@@ -1299,15 +1299,15 @@ land.lhs.true56:                                  ; preds = %if.then54
   br i1 %tobool.not.i.i.i60.not, label %return, label %_ZNKSt8functionIFvlbEEclElb.exit67
 
 _ZNKSt8functionIFvlbEEclElb.exit67:               ; preds = %land.lhs.true56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i61)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i62)
   store i64 %mul.i126, ptr %__args.addr.i61, align 8
   store i8 0, ptr %__args.addr2.i62, align 1
   %_M_invoker.i65 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %17 = load ptr, ptr %_M_invoker.i65, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i61, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i61)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i62)
   br label %return
 
 if.end60:                                         ; preds = %if.end51
@@ -1319,8 +1319,8 @@ if.end60:                                         ; preds = %if.end51
 if.end.i:                                         ; preds = %if.end60
   %sub = sub i64 %numPages, %add
   %mul.i122 = shl i64 %sub, 12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i70)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i71)
   store i64 %mul.i122, ptr %__args.addr.i70, align 8
   store i8 1, ptr %__args.addr2.i71, align 1
   %_M_invoker.i74 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
@@ -1329,8 +1329,8 @@ if.end.i:                                         ; preds = %if.end60
           to label %_ZNKSt8functionIFvlbEEclElb.exit77 unwind label %lpad63
 
 _ZNKSt8functionIFvlbEEclElb.exit77:               ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i70)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i71)
   br label %seqcst.i135
 
 lpad63:                                           ; preds = %if.end.i
@@ -1918,15 +1918,15 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i.i.not, label %if.end6, label %_ZNKSt8functionIFvlbEEclElb.exit
 
 _ZNKSt8functionIFvlbEEclElb.exit:                 ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i)
   store i64 %mul, ptr %__args.addr.i, align 8
   store i8 1, ptr %__args.addr2.i, align 1
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
   %3 = load ptr, ptr %_M_invoker.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(32) %reservationCB, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 1 dereferenceable(1) %__args.addr2.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i)
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZNKSt8functionIFvlbEEclElb.exit, %if.end
@@ -1965,8 +1965,8 @@ invoke.cont13:                                    ; preds = %invoke.cont
   br i1 %tobool.not.i.i.i11.not, label %if.end19, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i12)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr2.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr2.i13)
   store i64 %mul, ptr %__args.addr.i12, align 8
   store i8 0, ptr %__args.addr2.i13, align 1
   %_M_invoker.i16 = getelementptr inbounds nuw i8, ptr %reservationCB, i64 24
@@ -1975,8 +1975,8 @@ if.end.i:                                         ; preds = %invoke.cont13
           to label %_ZNKSt8functionIFvlbEEclElb.exit19 unwind label %lpad
 
 _ZNKSt8functionIFvlbEEclElb.exit19:               ; preds = %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i12)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__args.addr2.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__args.addr2.i13)
   br label %if.end19
 
 lpad:                                             ; preds = %if.end.i, %if.then9
@@ -3641,10 +3641,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 declare i32 @llvm.eh.typeid.for.p0(ptr) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #25

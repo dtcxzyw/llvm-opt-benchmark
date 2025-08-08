@@ -573,7 +573,6 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17hf159
   br i1 %.not, label %10, label %11
 
 .split:                                           ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.f73ea008a35958fc1851826e5f85d092.1, i64 43, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.0, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.45) #9
   unreachable
 
@@ -582,7 +581,7 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17hf159
   unreachable
 
 11:                                               ; preds = %.split2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = tail call { i64, i64 } @"_ZN14ruff_text_size5range122_$LT$impl$u20$core..convert..From$LT$ruff_text_size..range..TextRange$GT$$u20$for$u20$core..ops..range..Range$LT$T$GT$$GT$4from17h1499bc8572f215f9E"(i32 %1, i32 %9)
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
@@ -607,7 +606,7 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17hb52c1e5b0d633c8cE.exit:
   store i64 %3, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -621,7 +620,7 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer11skip_trivia17h5
 define void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfbfc3c723da1f032E"(ptr writeonly sret([12 x i8]) align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN18ruff_python_trivia6cursor6Cursor11start_token17hea762179b9b9dd2dE(ptr nonnull align 8 %5), !noalias !3
   %6 = tail call i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17hf8e9b6b1bd63531eE(ptr nonnull align 8 %5), !noalias !3
@@ -1045,7 +1044,6 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c26
   br i1 %.not17.i, label %183, label %184
 
 .split.i:                                         ; preds = %173
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.f73ea008a35958fc1851826e5f85d092.1, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.0, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.45) #9, !noalias !3
   unreachable
 
@@ -1067,7 +1065,6 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c26
   br label %189
 
 .split8.i:                                        ; preds = %184
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !3
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.f73ea008a35958fc1851826e5f85d092.1, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.0, ptr nonnull align 8 @anon.f73ea008a35958fc1851826e5f85d092.45) #9, !noalias !3
   unreachable
 
@@ -1075,14 +1072,14 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17h7051e1c26
   %.sroa.7.0.ph = phi i8 [ %.sroa.02.0.i.i, %180 ], [ 89, %.split10.i ]
   %.sroa.4.0.ph = phi i32 [ %172, %180 ], [ %182, %.split10.i ]
   %.sroa.0.0.ph = phi i32 [ %171, %180 ], [ %175, %.split10.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.sroa.0.0.ph, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.4.0.ph, ptr %.sroa.4.0..sroa_idx, align 4
   br label %191
 
 190:                                              ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %191
 
 191:                                              ; preds = %190, %189
@@ -1823,10 +1820,10 @@ declare void @_ZN18ruff_python_trivia6cursor6Cursor14eat_back_while17h6d97632ab9
 declare { i32, i32 } @_ZN4core3str11validations15next_code_point17ha3232740f773dae9E(ptr align 8) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -434,7 +434,7 @@ define dso_local ptr @project_load() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(416) @default_build_target, i64 416, i1 false)
   call fastcc void @load_into_build_target(ptr noundef nonnull %6, ptr noundef nonnull @.str.151, ptr noundef nonnull %1, i1 noundef zeroext true)
   %16 = call ptr @json_obj_get(ptr noundef nonnull %6, ptr noundef nonnull @.str.69) #8
@@ -621,7 +621,7 @@ project_add_target.exit.i:                        ; preds = %97, %85, %75
   br i1 %104, label %25, label %project_add_targets.exit, !llvm.loop !11
 
 project_add_targets.exit:                         ; preds = %project_add_target.exit.i, %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %4
 }
 
@@ -2402,10 +2402,10 @@ declare i32 @str_findlist(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @update_build_target_with_opt_level(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

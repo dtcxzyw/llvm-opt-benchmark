@@ -21,7 +21,7 @@ define void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef re
 
 6:                                                ; preds = %2, %_ZN3url12CanonOutputTIcE9push_backEc.exit20
   %indvars.iv28 = phi i64 [ 0, %2 ], [ %indvars.iv.next29, %_ZN3url12CanonOutputTIcE9push_backEc.exit20 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv28
   %8 = load i8, ptr %7, align 1, !tbaa !3
   %9 = zext i8 %8 to i32
@@ -39,7 +39,7 @@ define void @_ZN3url17AppendIPv4AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef re
   br i1 %.not10, label %_ZN3url12CanonOutputTIcE9push_backEc.exit20.thread, label %32
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit20.thread: ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3url12CanonOutputTIcE9push_backEc.exit
@@ -133,17 +133,11 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i16: ; preds = %32, %40
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit20
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit20:      ; preds = %select.unfold.i.i13, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29, 4
   br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !18
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3url17AppendIPv6AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -308,7 +302,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28: ; preds = %_ZN3url12CanonOu
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %65, %68
   %70 = add nsw i32 %.01966, 2
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %69, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 noundef 5, i32 noundef 16)
   %72 = load i8, ptr %3, align 1, !tbaa !3
   %.not64 = icmp eq i8 %72, 0
@@ -413,7 +407,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48: ; preds = %93, %101
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit52
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit52:      ; preds = %select.unfold.i.i45, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit: ; preds = %select.unfold.i.i25, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, %_ZN3url12CanonOutputTIcE9push_backEc.exit52
@@ -423,7 +417,7 @@ _ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val3 = load i32, ptr %4, align 4, !tbaa !22
   %5 = icmp sgt i32 %.val3, 0
@@ -530,7 +524,7 @@ _ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val3 = load i32, ptr %4, align 4, !tbaa !22
   %5 = icmp sgt i32 %.val3, 0
@@ -957,14 +951,14 @@ _ZN3url12_GLOBAL__N_125DoCanonicalizeIPv4AddressIttEEbPKT_RKNS_9ComponentEPNS_12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
+define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [17 x i8], align 16
   %6 = alloca [4 x %"struct.url::Component"], align 16
   %7 = alloca [4 x i32], align 16
   %.val = load i32, ptr %1, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val4 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %9
 
 9:                                                ; preds = %9, %4
@@ -1076,7 +1070,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i: ; preds = %34
   br i1 %or.cond49.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i, %select.unfold.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %104, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i
@@ -1136,7 +1130,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
 .critedge.thread.i.i:                             ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %._crit_edge.i.i
 
 .critedge.loopexit.i.i:                           ; preds = %.lr.ph.i.i
@@ -1145,7 +1139,7 @@ _ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 .critedge.i.i:                                    ; preds = %.critedge.loopexit.i.i, %70
   %.142.lcssa.i.i = phi i32 [ %.041.i.i, %70 ], [ %76, %.critedge.loopexit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not9.i.i = icmp slt i32 %.142.lcssa.i.i, %56
   br i1 %.not9.i.i, label %.lr.ph12.preheader.i.i, label %._crit_edge.i.i
 
@@ -1223,7 +1217,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 .thread.i:                                        ; preds = %.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
   %.343.i = phi i1 [ %.04040.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %103 = add nsw i32 %.04539.i, 1
   br label %104
 
@@ -1235,7 +1229,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
   br i1 %exitcond.i, label %.thread12.i, label %53, !llvm.loop !41
 
 105:                                              ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread19.i
 
 .thread12.i:                                      ; preds = %104
@@ -1305,24 +1299,24 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %99
 
 .thread19.i:                                      ; preds = %.lr.ph.i, %124, %._crit_edge49.i, %.thread12.i, %105
   %.5.i = phi i32 [ 0, %105 ], [ 1, %.thread12.i ], [ 2, %124 ], [ 1, %._crit_edge49.i ], [ 1, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 _ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit: ; preds = %37, %39, %12, %31, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i, %.thread19.i
   %.038.i = phi i32 [ %.5.i, %.thread19.i ], [ 0, %_ZN3url18FindIPv4ComponentsEPKcRKNS_9ComponentEPS2_.exit.i ], [ 0, %12 ], [ 0, %31 ], [ 0, %39 ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.038.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
+define noundef range(i32 0, 3) i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [17 x i8], align 16
   %6 = alloca [4 x %"struct.url::Component"], align 16
   %7 = alloca [4 x i32], align 16
   %.val = load i32, ptr %1, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val4 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %9
 
 9:                                                ; preds = %9, %4
@@ -1434,7 +1428,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i: ; preds = %34
   br i1 %or.cond50.i.i.i, label %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.lr.ph.i.i.i, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i, %select.unfold.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %105, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i
@@ -1494,7 +1488,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
   br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .critedge.thread.i.i:                             ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %._crit_edge.i.i
 
 .critedge.loopexit.i.i:                           ; preds = %.lr.ph.i.i
@@ -1503,7 +1497,7 @@ _ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.thread3.i: ; preds = %.
 
 .critedge.i.i:                                    ; preds = %.critedge.loopexit.i.i, %70
   %.142.lcssa.i.i = phi i32 [ %.041.i.i, %70 ], [ %76, %.critedge.loopexit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not9.i.i = icmp slt i32 %.142.lcssa.i.i, %56
   br i1 %.not9.i.i, label %.lr.ph12.preheader.i.i, label %._crit_edge.i.i
 
@@ -1583,7 +1577,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 .thread.i:                                        ; preds = %.fold.split.i, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i
   %.343.i = phi i1 [ %.04040.i, %.fold.split.i ], [ true, %_ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = add nsw i32 %.04539.i, 1
   br label %105
 
@@ -1595,7 +1589,7 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
   br i1 %exitcond.i, label %.thread12.i, label %53, !llvm.loop !46
 
 106:                                              ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread19.i
 
 .thread12.i:                                      ; preds = %105
@@ -1665,17 +1659,17 @@ _ZN3url12_GLOBAL__N_111BaseForTypeENS_15SharedCharTypesE.exit.i.i: ; preds = %10
 
 .thread19.i:                                      ; preds = %.lr.ph.i, %125, %._crit_edge49.i, %.thread12.i, %106
   %.5.i = phi i32 [ 0, %106 ], [ 1, %.thread12.i ], [ 2, %125 ], [ 1, %._crit_edge49.i ], [ 1, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 _ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit: ; preds = %37, %39, %12, %31, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i, %.thread19.i
   %.038.i = phi i32 [ %.5.i, %.thread19.i ], [ 0, %_ZN3url18FindIPv4ComponentsEPKtRKNS_9ComponentEPS2_.exit.i ], [ 0, %12 ], [ 0, %31 ], [ 0, %39 ], [ 0, %37 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.038.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
   %6 = alloca i32, align 4
@@ -1702,7 +1696,7 @@ define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKcRKNS_9ComponentEPh(pt
   br i1 %.not36.i, label %19, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %20, %19
@@ -1933,7 +1927,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %104 = icmp sgt i32 %.val40.us.i, 0
   br i1 %104, label %.lr.ph.preheader.i.us.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us.i
 
@@ -1949,7 +1943,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
   %108 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %107
   store i8 0, ptr %108, align 1, !tbaa !3
   %109 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %110 = lshr i64 %109, 8
   %111 = trunc i64 %110 to i8
   %112 = sext i32 %.132.us.i to i64
@@ -1982,7 +1976,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.us
   %.val.i = load i32, ptr %119, align 4
   %120 = getelementptr i8, ptr %119, i64 4
   %.val40.i = load i32, ptr %120, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %121 = icmp sgt i32 %.val40.i, 0
   br i1 %121, label %.lr.ph.preheader.i.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i
 
@@ -1998,7 +1992,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
   %125 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %124
   store i8 0, ptr %125, align 1, !tbaa !3
   %126 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %127 = lshr i64 %126, 8
   %128 = trunc i64 %127 to i8
   %129 = sext i32 %.03116.i to i64
@@ -2017,12 +2011,12 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
   br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !55
 
 135:                                              ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %136 = sext i32 %.031.lcssa.i to i64
   %137 = getelementptr inbounds i8, ptr %2, i64 %136
   %138 = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKcRKNS_9ComponentEPhPi(ptr noundef readonly %0, ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef %137, ptr noundef nonnull %6)
   %.not38.i = icmp eq i32 %138, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not38.i, label %139, label %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 139:                                              ; preds = %135, %._crit_edge.i
@@ -2030,7 +2024,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberIcEEtPKT_RKNS_9ComponentE.exit.i:
 
 _ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i: ; preds = %.thread91.i.i, %64, %55, %44, %139, %135, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i, %79, %52, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i
   %.1.i = phi i1 [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %139 ], [ false, %135 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %52 ], [ false, %79 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread91.i.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit
 
 _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %3, %10, %14, %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
@@ -2039,7 +2033,7 @@ _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIchEEbPKT_RKNS_9ComponentEPh.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca %"struct.url::(anonymous namespace)::IPv6Parsed", align 4
   %6 = alloca i32, align 4
@@ -2066,7 +2060,7 @@ define noundef zeroext i1 @_ZN3url19IPv6AddressToNumberEPKtRKNS_9ComponentEPh(pt
   br i1 %.not36.i, label %19, label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 
 19:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %20
 
 20:                                               ; preds = %20, %19
@@ -2297,7 +2291,7 @@ _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.e
   %.val.us.i = load i32, ptr %102, align 4
   %103 = getelementptr i8, ptr %102, i64 4
   %.val40.us.i = load i32, ptr %103, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %104 = icmp sgt i32 %.val40.us.i, 0
   br i1 %104, label %.lr.ph.preheader.i.us.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us.i
 
@@ -2323,7 +2317,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   %110 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %109
   store i8 0, ptr %110, align 1, !tbaa !3
   %111 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %112 = lshr i64 %111, 8
   %113 = trunc i64 %112 to i8
   %114 = sext i32 %.132.us.i to i64
@@ -2356,7 +2350,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.us
   %.val.i = load i32, ptr %121, align 4
   %122 = getelementptr i8, ptr %121, i64 4
   %.val40.i = load i32, ptr %122, align 4
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %123 = icmp sgt i32 %.val40.i, 0
   br i1 %123, label %.lr.ph.preheader.i.i, label %_ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i
 
@@ -2382,7 +2376,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
   %129 = getelementptr inbounds [5 x i8], ptr %4, i64 0, i64 %128
   store i8 0, ptr %129, align 1, !tbaa !3
   %130 = call noundef i64 @strtoull(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 16) #9
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %131 = lshr i64 %130, 8
   %132 = trunc i64 %131 to i8
   %133 = sext i32 %.03116.i to i64
@@ -2401,12 +2395,12 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
   br i1 %exitcond38.not.i, label %._crit_edge.i, label %.lr.ph18.split.i, !llvm.loop !59
 
 139:                                              ; preds = %._crit_edge.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %140 = sext i32 %.031.lcssa.i to i64
   %141 = getelementptr inbounds i8, ptr %2, i64 %140
   %142 = call noundef i32 @_ZN3url19IPv4AddressToNumberEPKtRKNS_9ComponentEPhPi(ptr noundef readonly %0, ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef %141, ptr noundef nonnull %6)
   %.not38.i = icmp eq i32 %142, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not38.i, label %143, label %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 143:                                              ; preds = %139, %._crit_edge.i
@@ -2414,7 +2408,7 @@ _ZN3url12_GLOBAL__N_124IPv6HexComponentToNumberItEEtPKT_RKNS_9ComponentE.exit.i:
 
 _ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i: ; preds = %.thread91.i.i, %64, %55, %44, %143, %139, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i, %79, %52, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i
   %.1.i = phi i1 [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.i ], [ false, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread4.i ], [ true, %143 ], [ false, %139 ], [ false, %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i ], [ false, %52 ], [ false, %79 ], [ false, %44 ], [ false, %55 ], [ false, %64 ], [ false, %.thread91.i.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit
 
 _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ; preds = %3, %10, %14, %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
@@ -2423,12 +2417,18 @@ _ZN3url12_GLOBAL__N_121DoIPv6AddressToNumberIttEEbPKT_RKNS_9ComponentEPh.exit: ;
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -2437,12 +2437,12 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }

@@ -94,7 +94,7 @@ define hidden void @_ZN7nanogui11ColorPickerC2EPNS_6WidgetERKNS_5ColorE(ptr noun
           to label %.noexc31 unwind label %212
 
 .noexc31:                                         ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %28 unwind label %25
 
@@ -124,7 +124,7 @@ define hidden void @_ZN7nanogui11ColorPickerC2EPNS_6WidgetERKNS_5ColorE(ptr noun
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   invoke void @_ZN7nanogui11PopupButtonC2EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 0)
           to label %32 unwind label %214
 
@@ -190,7 +190,7 @@ thread-pre-split.i.i:                             ; preds = %47
 _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   %53 = phi ptr [ null, %39 ], [ %.pre113, %49 ]
   %54 = phi ptr [ null, %39 ], [ %.pre, %49 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 16, i1 false)
@@ -216,8 +216,8 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   unreachable
 
 "_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit": ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit, %59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 16, i1 false)
@@ -245,7 +245,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   unreachable
 
 "_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit": ; preds = %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_0EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit", %70
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %75 = invoke noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #20
           to label %76 unwind label %216
 
@@ -269,7 +269,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
           to label %.noexc34 unwind label %220
 
 .noexc34:                                         ; preds = %.noexc33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %82 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %86 unwind label %83
 
@@ -299,7 +299,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %49
   br label %.body35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %79, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 0)
           to label %90 unwind label %222
 
@@ -312,7 +312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %94 = load ptr, ptr %91, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -338,7 +338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
   %104 = fcmp olt float %102, 5.000000e-01
   %105 = select i1 %104, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %106
 
 106:                                              ; preds = %106, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i
@@ -358,8 +358,8 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %110, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %112, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %114, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %115 = getelementptr inbounds nuw i8, ptr %94, i64 208
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %115, align 8
   %.sroa.2109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 216
@@ -380,7 +380,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
           to label %.noexc39 unwind label %224
 
 .noexc39:                                         ; preds = %.noexc38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %121 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %125 unwind label %122
 
@@ -410,7 +410,7 @@ _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %97
   br label %.body40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %118, ptr noundef nonnull %37, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 0)
           to label %129 unwind label %226
 
@@ -423,7 +423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %133 = load ptr, ptr %130, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.2.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i43, align 4
   %.sroa.3.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -449,7 +449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49: ; preds = %136
   %143 = fcmp olt float %141, 5.000000e-01
   %144 = select i1 %143, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %145
 
 145:                                              ; preds = %145, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i49
@@ -469,8 +469,8 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   %.sroa.0.0.vec.insert.i52 = insertelement <2 x float> poison, float %148, i64 0
   %.sroa.0.4.vec.insert.i53 = insertelement <2 x float> %.sroa.0.0.vec.insert.i52, float %150, i64 1
   %.sroa.3.12.vec.insert.i54 = insertelement <2 x float> <float poison, float 1.000000e+00>, float %152, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %153 = getelementptr inbounds nuw i8, ptr %133, i64 208
   store <2 x float> %.sroa.0.4.vec.insert.i53, ptr %153, align 8
   %.sroa.2105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 216
@@ -480,17 +480,17 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   store i64 85899346020, ptr %155, align 8
   %156 = ptrtoint ptr %0 to i64
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %158 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, i8 0, i64 24, i1 false)
   store i64 %156, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %157, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %162 = load ptr, ptr %161, align 8
   store ptr %162, ptr %158, align 8
@@ -514,20 +514,20 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %145
   unreachable
 
 _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %165, %_ZNSt8functionIFvbEEC2ERKS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %170 = load ptr, ptr %78, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 160
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %172 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %174, i8 0, i64 24, i1 false)
   store i64 %156, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %171, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i61)
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 176
   %176 = load ptr, ptr %175, align 8
   store ptr %176, ptr %172, align 8
@@ -551,20 +551,20 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %165, %_ZNSt8f
   unreachable
 
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %179, %_ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %184 = load ptr, ptr %91, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %186 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %188, i8 0, i64 24, i1 false)
   store i64 %156, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i69)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %185, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i69, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i69)
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 240
   %190 = load ptr, ptr %189, align 8
   store ptr %190, ptr %186, align 8
@@ -588,20 +588,20 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %179, %_ZNSt8functio
   unreachable
 
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %193, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %198 = load ptr, ptr %130, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 224
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %201 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %202 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %202, i8 0, i64 24, i1 false)
   store i64 %156, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i77)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %199, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i77, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i77)
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 240
   %204 = load ptr, ptr %203, align 8
   store ptr %204, ptr %200, align 8
@@ -625,7 +625,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %193, %_ZNSt8functio
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit87:                  ; preds = %207, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 212:                                              ; preds = %.noexc, %3
@@ -835,7 +835,7 @@ define hidden void @_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE(ptr noundef 
   br i1 %7, label %42, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -861,7 +861,7 @@ define hidden void @_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE(ptr noundef 
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i: ; preds = %11
   %18 = fcmp olt float %16, 5.000000e-01
   %19 = select i1 %18, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %20
 
 20:                                               ; preds = %20, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i
@@ -881,8 +881,8 @@ _ZNK7nanogui5Color17contrasting_colorEv.exit:     ; preds = %20
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %23, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %25, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %27, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1174,7 +1174,7 @@ define internal void @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPN
   br i1 %14, label %_ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i, label %15
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1200,7 +1200,7 @@ define internal void @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPN
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %18
   %25 = fcmp olt float %23, 5.000000e-01
   %26 = select i1 %25, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %27
 
 27:                                               ; preds = %27, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i
@@ -1220,8 +1220,8 @@ _ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i.i: ; preds = %27
   %.sroa.0.0.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %30, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i, float %32, i64 1
   %.sroa.3.12.vec.insert.i.i.i.i.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %34, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i.i.i, ptr %35, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 216
@@ -1307,7 +1307,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11Colo
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %8 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1333,7 +1333,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11Colo
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i: ; preds = %11
   %18 = fcmp olt float %16, 5.000000e-01
   %19 = select i1 %18, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %20
 
 20:                                               ; preds = %20, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i
@@ -1353,8 +1353,8 @@ _ZNK7nanogui5Color17contrasting_colorEv.exit.i.i.i: ; preds = %20
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x float> poison, float %23, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i, float %25, i64 1
   %.sroa.3.12.vec.insert.i.i.i.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %27, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store <2 x float> %.sroa.0.4.vec.insert.i.i.i.i, ptr %28, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -1407,7 +1407,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
   %3 = alloca %"class.nanogui::Color", align 4
   %4 = alloca %"class.nanogui::Color", align 8
   %.val = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 184
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -1423,7 +1423,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
   %14 = extractvalue { <2 x float>, <2 x float> } %11, 1
   store <2 x float> %14, ptr %13, align 8
   store i8 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float 0x3FE2C8B440000000, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1449,7 +1449,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
 _ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i: ; preds = %17
   %24 = fcmp olt float %22, 5.000000e-01
   %25 = select i1 %24, float 1.000000e+00, float 0.000000e+00
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %26
 
 26:                                               ; preds = %26, %_ZN7nanogui3dotIfLm4EEET_RKNS_5ArrayIS1_XT0_EEES5_.exit.i.i.i.i.i
@@ -1469,8 +1469,8 @@ _ZN7nanogui11ColorPicker9set_colorERKNS_5ColorE.exit.i.i.i: ; preds = %26
   %.sroa.0.0.vec.insert.i.i.i.i.i = insertelement <2 x float> poison, float %29, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i, float %31, i64 1
   %.sroa.3.12.vec.insert.i.i.i.i.i = insertelement <2 x float> <float poison, float 1.000000e+00>, float %33, i64 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 208
@@ -1514,7 +1514,7 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %_ZN7nanogui1
   br label %"_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit"
 
 "_ZSt10__invoke_rIvRZN7nanogui11ColorPickerC1EPNS0_6WidgetERKNS0_5ColorEE3$_4JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit": ; preds = %1, %_ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1550,8 +1550,8 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPN
   %2 = alloca %"class.nanogui::Color", align 4
   %.sroa.0.i.i.i = alloca [4 x float], align 4
   %.val = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
@@ -1596,8 +1596,8 @@ _ZNKSt8functionIFvRKN7nanogui5ColorEEEclES3_.exit.i.i.i: ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 384
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(16) %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   ret void
 }
 
@@ -1627,10 +1627,10 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN7nanogui11Co
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

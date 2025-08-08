@@ -53,10 +53,7 @@ define internal ptr @hwloc_nvml_component_instantiate(ptr noundef %0, ptr nounde
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
@@ -76,8 +73,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
   %16 = alloca i32, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call i32 @hwloc_topology_get_type_filter(ptr noundef %18, i32 noundef 18, ptr noundef nonnull %4) #11
   %20 = load i32, ptr %4, align 4, !tbaa !14
   %21 = icmp eq i32 %20, 1
@@ -155,9 +152,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
 
 59:                                               ; preds = %.lr.ph, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %60 = trunc nuw i64 %indvars.iv to i32
   %61 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %60, ptr noundef nonnull %7) #11
   %62 = call ptr @hwloc_alloc_setup_object(ptr noundef %18, i32 noundef 18, i32 noundef -1) #11
@@ -224,9 +221,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
   br i1 %99, label %100, label %134
 
 100:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !14
   %101 = load ptr, ptr %7, align 8, !tbaa !30
   %102 = call i32 @nvmlDeviceGetCurrPcieLinkWidth(ptr noundef %101, ptr noundef nonnull %9) #11
@@ -272,8 +269,8 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %130 = load ptr, ptr %129, align 8, !tbaa !28
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 20
   store float %128, ptr %131, align 4, !tbaa !29
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %134
 
 132:                                              ; preds = %91, %87
@@ -286,9 +283,9 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %135 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   store ptr %62, ptr %135, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %136 = load i32, ptr %5, align 4, !tbaa !14
   %137 = zext i32 %136 to i64
   %138 = icmp samesign ult i64 %indvars.iv.next, %137
@@ -298,8 +295,8 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %indvars.iv271 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next272, %.loopexit221 ]
   %.0139240 = phi i32 [ 0, %.lr.ph242 ], [ %.1140227, %.loopexit221 ]
   %.0189239 = phi i32 [ %136, %.lr.ph242 ], [ %.1190229, %.loopexit221 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %140 = trunc nuw i64 %indvars.iv271 to i32
   %141 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %140, ptr noundef nonnull %11) #11
   %142 = mul nuw nsw i64 %indvars.iv271, 18
@@ -310,8 +307,8 @@ hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121
   %indvars.iv268 = phi i64 [ 0, %139 ], [ %indvars.iv.next269, %252 ]
   %.1140238 = phi i32 [ %.0139240, %139 ], [ %.3142.ph, %252 ]
   %.1190235 = phi i32 [ %.0189239, %139 ], [ %.3192.ph, %252 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %145 = trunc nuw nsw i64 %indvars.iv268 to i32
   %146 = add nuw i64 %142, %indvars.iv268
   %147 = and i64 %146, 4294967295
@@ -394,7 +391,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   br i1 %.not.i178, label %183, label %194
 
 183:                                              ; preds = %hwloc__nvml_get_peer_gpu_by_pci.exit.thread
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %184 = call i32 @hwloc_topology_get_type_filter(ptr noundef %18, i32 noundef 17, ptr noundef nonnull %3) #11
   %185 = load i32, ptr %3, align 4, !tbaa !14
   %.not26.i = icmp eq i32 %185, 1
@@ -417,7 +414,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 193:                                              ; preds = %190, %187, %186, %183
   %hwloc__nvml_get_peer_obj_by_pci.warned.20.sink.i = phi ptr [ @hwloc__nvml_get_peer_obj_by_pci.warned, %190 ], [ @hwloc__nvml_get_peer_obj_by_pci.warned, %187 ], [ @hwloc__nvml_get_peer_obj_by_pci.warned, %186 ], [ @hwloc__nvml_get_peer_obj_by_pci.warned.20, %183 ]
   store i1 true, ptr %hwloc__nvml_get_peer_obj_by_pci.warned.20.sink.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %252
 
 194:                                              ; preds = %hwloc__nvml_get_peer_gpu_by_pci.exit.thread
@@ -559,15 +556,15 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
   br label %252
 
 251:                                              ; preds = %144
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit221
 
 252:                                              ; preds = %240, %193, %198, %196, %151, %.thread206, %158
   %.3192.ph = phi i32 [ %.7195, %.thread206 ], [ %.1190235, %158 ], [ %.1190235, %151 ], [ %.1190235, %196 ], [ %.1190235, %198 ], [ %.1190235, %193 ], [ %.1190235, %240 ]
   %.3142.ph = phi i32 [ %154, %.thread206 ], [ %154, %158 ], [ %.1140238, %151 ], [ %154, %196 ], [ %154, %198 ], [ %154, %193 ], [ %154, %240 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next269, 18
   br i1 %exitcond.not, label %.loopexit221, label %144, !llvm.loop !46
@@ -575,8 +572,8 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 .loopexit221:                                     ; preds = %252, %251
   %.1190229 = phi i32 [ %.1190235, %251 ], [ %.3192.ph, %252 ]
   %.1140227 = phi i32 [ %.1140238, %251 ], [ %.3142.ph, %252 ]
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
   %253 = load i32, ptr %5, align 4, !tbaa !14
   %254 = zext i32 %253 to i64
@@ -602,7 +599,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 .lr.ph249:                                        ; preds = %._crit_edge, %300
   %.2248 = phi i32 [ %301, %300 ], [ 0, %._crit_edge ]
   %.5247 = phi i32 [ %.7, %300 ], [ 0, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %260 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %.2248, ptr noundef nonnull %15) #11
   %261 = mul i32 %.2248, 18
   %262 = mul i32 %.2248, %.0189.lcssa
@@ -611,7 +608,7 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %177, %162, %hwloc__
 263:                                              ; preds = %.lr.ph249, %299
   %indvars.iv274 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next275, %299 ]
   %.6246 = phi i32 [ %.5247, %.lr.ph249 ], [ %.7, %299 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %264 = trunc nuw nsw i64 %indvars.iv274 to i32
   %265 = add i32 %261, %264
   %266 = zext i32 %265 to i64
@@ -675,13 +672,13 @@ switch.lookup:                                    ; preds = %274
 
 299:                                              ; preds = %271, %263, %switch.lookup, %285
   %.7 = phi i32 [ %.6246, %285 ], [ %298, %switch.lookup ], [ %.6246, %263 ], [ %.6246, %271 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next275, 18
   br i1 %exitcond277.not, label %300, label %263, !llvm.loop !49
 
 300:                                              ; preds = %299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %301 = add nuw i32 %.2248, 1
   %302 = load i32, ptr %5, align 4, !tbaa !14
   %303 = icmp ult i32 %301, %302
@@ -734,73 +731,70 @@ switch.lookup:                                    ; preds = %274
 
 315:                                              ; preds = %._crit_edge250.thread, %312, %24, %27, %2, %55, %36
   %.0 = phi i32 [ -1, %55 ], [ 0, %36 ], [ 0, %2 ], [ -1, %27 ], [ -1, %24 ], [ 0, %312 ], [ 0, %._crit_edge250.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlInit_v2() local_unnamed_addr #2
 
-declare i32 @nvmlInit_v2() local_unnamed_addr #3
+declare i32 @hwloc_hide_errors() local_unnamed_addr #2
 
-declare i32 @hwloc_hide_errors() local_unnamed_addr #3
-
-declare ptr @nvmlErrorString(i32 noundef) local_unnamed_addr #3
+declare ptr @nvmlErrorString(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare i32 @nvmlDeviceGetCount_v2(ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetCount_v2(ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlShutdown() local_unnamed_addr #3
+declare i32 @nvmlShutdown() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_alloc_setup_object(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare i32 @nvmlDeviceGetName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetSerial(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetSerial(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetUUID(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetUUID(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetPciInfo_v3(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetPciInfo_v3(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-declare ptr @hwloc_pci_find_parent_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_pci_find_parent_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetCurrPcieLinkWidth(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetCurrPcieLinkWidth(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetCurrPcieLinkGeneration(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetCurrPcieLinkGeneration(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @hwloc_insert_object_by_parent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @hwloc_insert_object_by_parent(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetNvLinkState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetNvLinkState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetNvLinkRemoteDeviceType(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetNvLinkRemoteDeviceType(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @hwloc_topology_get_flags(ptr noundef) local_unnamed_addr #3
+declare i64 @hwloc_topology_get_flags(ptr noundef) local_unnamed_addr #2
 
-declare i32 @nvmlDeviceGetNvLinkVersion(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @nvmlDeviceGetNvLinkVersion(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hwloc__nvml_add_nvlink_bandwidth(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
@@ -829,35 +823,41 @@ define internal fastcc void @hwloc__nvml_add_nvlink_bandwidth(ptr noundef %0, i3
   ret void
 }
 
-declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @hwloc_modify_infos(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #3
+declare ptr @hwloc_topology_get_infos(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
-declare ptr @hwloc_pci_find_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hwloc_pci_find_by_busid(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
-declare ptr @hwloc_backend_distances_add_create(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @hwloc_backend_distances_add_create(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_backend_distances_add_values(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @hwloc_backend_distances_add_values(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @hwloc_backend_distances_add_commit(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @hwloc_backend_distances_add_commit(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { cold nounwind }
 attributes #13 = { nounwind allocsize(0,1) }

@@ -107,13 +107,10 @@ report.exit:                                      ; preds = %11, %13, %16
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @luaL_newstate() local_unnamed_addr #2
+declare ptr @luaL_newstate() local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @l_message(ptr noundef readonly captures(none) %0) unnamed_addr #3 {
+define internal fastcc void @l_message(ptr noundef readonly captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr @progname, align 8, !tbaa !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %3
@@ -137,7 +134,7 @@ define internal fastcc void @l_message(ptr noundef readonly captures(none) %0) u
   ret void
 }
 
-declare i32 @lua_cpcall(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lua_cpcall(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @pmain(ptr noundef %0) #0 {
@@ -700,24 +697,21 @@ handle_script.exit:                               ; preds = %194
   ret i32 0
 }
 
-declare void @lua_close(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lua_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare void @luaJIT_version_2_1_1736781742() local_unnamed_addr #2
+declare void @luaJIT_version_2_1_1736781742() local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @print_usage() unnamed_addr #3 {
+define internal fastcc void @print_usage() unnamed_addr #2 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !15
   %2 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 7, i64 1, ptr %1) #10
   %3 = load ptr, ptr @progname, align 8, !tbaa !4
@@ -730,13 +724,13 @@ define internal fastcc void @print_usage() unnamed_addr #3 {
   ret void
 }
 
-declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_pushboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lua_gc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_gc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @luaL_openlibs(ptr noundef) local_unnamed_addr #2
+declare void @luaL_openlibs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_jit_status(ptr noundef %0) unnamed_addr #0 {
@@ -788,7 +782,7 @@ define internal fastcc void @dotty(ptr noundef %0) unnamed_addr #0 {
 
 report.exit:                                      ; preds = %report.exit.backedge, %1
   call void @lua_settop(ptr noundef %0, i32 noundef 0) #9
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lua_getfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.31) #9
   %7 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #9
   %8 = icmp eq ptr %7, null
@@ -833,11 +827,11 @@ report.exit:                                      ; preds = %report.exit.backedg
   br label %.preheader.i
 
 pushline.exit23:                                  ; preds = %report.exit
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %loadline.exit.thread
 
 .preheader.i:                                     ; preds = %28, %26
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #9
   %30 = call i64 @lua_objlen(ptr noundef %0, i32 noundef 1) #9
   %31 = call i32 @luaL_loadbuffer(ptr noundef %0, ptr noundef %29, i64 noundef %30, ptr noundef nonnull @.str.29) #9
@@ -845,7 +839,7 @@ pushline.exit23:                                  ; preds = %report.exit
   br i1 %32, label %.lr.ph.i, label %loadline.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %33 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %4) #9
   %34 = load i64, ptr %4, align 8, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -855,14 +849,14 @@ pushline.exit23:                                  ; preds = %report.exit
   br i1 %38, label %39, label %loadline.exit.thread29
 
 loadline.exit.thread29:                           ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @lua_remove(ptr noundef %0, i32 noundef 1) #9
   br label %.thread
 
 39:                                               ; preds = %.lr.ph.i
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @lua_getfield(ptr noundef %0, i32 noundef -10002, ptr noundef nonnull @.str.32) #9
   %40 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #9
   %41 = icmp eq ptr %40, null
@@ -878,7 +872,7 @@ loadline.exit.thread29:                           ; preds = %.lr.ph.i
   br i1 %.not.i17, label %pushline.exit.thread, label %48
 
 pushline.exit.thread:                             ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %loadline.exit.thread
 
 48:                                               ; preds = %39
@@ -899,7 +893,7 @@ pushline.exit.thread:                             ; preds = %39
 
 56:                                               ; preds = %55, %50, %48
   call void @lua_pushstring(ptr noundef %0, ptr noundef nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @lua_pushlstring(ptr noundef %0, ptr noundef nonnull @.str.28, i64 noundef 1) #9
   call void @lua_insert(ptr noundef %0, i32 noundef -2) #9
   call void @lua_concat(ptr noundef %0, i32 noundef 3) #9
@@ -969,7 +963,7 @@ loadline.exit.thread:                             ; preds = %loadline.exit, %pus
 }
 
 ; Function Attrs: nounwind
-declare i32 @isatty(i32 noundef) local_unnamed_addr #5
+declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dofile(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -999,14 +993,14 @@ report.exit:                                      ; preds = %4, %.thread, %8
   ret void
 }
 
-declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_createtable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dostring(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -1038,10 +1032,10 @@ report.exit:                                      ; preds = %6, %.thread, %10
   ret i32 %13
 }
 
-declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @luaL_loadbuffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @docall(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
@@ -1065,9 +1059,9 @@ define internal fastcc i32 @docall(ptr noundef %0, i32 noundef %1, i32 noundef r
   ret i32 %7
 }
 
-declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #2
+declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #1
 
-declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_pushcclosure(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @traceback(ptr noundef %0) #0 {
@@ -1103,10 +1097,10 @@ define internal noundef i32 @traceback(ptr noundef %0) #0 {
   ret i32 1
 }
 
-declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_insert(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @laction(i32 noundef %0) #0 {
@@ -1116,21 +1110,21 @@ define internal void @laction(i32 noundef %0) #0 {
   ret void
 }
 
-declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_pcall(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_remove(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lua_isstring(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_isstring(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @luaL_callmeta(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @luaL_callmeta(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @luaL_traceback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @luaL_traceback(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lua_tolstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_sethook(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @lstop(ptr noundef %0, ptr readnone captures(none) %1) #0 {
@@ -1142,24 +1136,24 @@ define internal void @lstop(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   ret void
 }
 
-declare void @luaL_where(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @luaL_where(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @lua_error(ptr noundef) local_unnamed_addr #2
+declare i32 @lua_error(ptr noundef) local_unnamed_addr #1
 
-declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @lua_getfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_gettable(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_gettable(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @loadjitmodule(ptr noundef %0) unnamed_addr #0 {
@@ -1291,43 +1285,49 @@ report.exit:                                      ; preds = %20, %22, %25
   ret i32 %21
 }
 
-declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_concat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
-declare void @lua_pushnil(ptr noundef) local_unnamed_addr #2
+declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
 
-declare i32 @luaL_loadfile(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @luaL_loadfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_rawgeti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lua_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lua_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
-
-declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+
+declare i64 @lua_objlen(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nofree nounwind
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nounwind }
 attributes #10 = { cold }

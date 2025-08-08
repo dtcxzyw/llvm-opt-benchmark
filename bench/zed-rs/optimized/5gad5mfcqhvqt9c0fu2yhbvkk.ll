@@ -138,7 +138,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
   br label %22
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
@@ -156,7 +156,7 @@ define hidden noundef i32 @_ZN4core4sync6atomic11atomic_load17hc348a15d23e4e893E
   br label %22
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.6, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
@@ -413,8 +413,8 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 @anon.4ce821cccb13b5f39cf88dafdd3eeb0b.8, i64 noundef 6)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
@@ -436,7 +436,7 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 8), align 8, !alias.scope !5, !noalias !8, !nonnull !4, !noundef !4
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5paths20prompt_overrides_dir20PROMPT_TEMPLATES_DIR17h8a36df5215a812e0E, i64 16), align 8, !alias.scope !5, !noalias !8, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hdb85840e548ef903E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %19, i1 noundef zeroext false), !noalias !10
   %20 = load i64, ptr %6, align 8, !range !14, !noalias !10, !noundef !4
   %trunc.i.i = trunc nuw i64 %20 to i1
@@ -452,7 +452,7 @@ define void @_ZN5paths20prompt_overrides_dir17hdca139f96b1a3bfaE(ptr dead_on_unw
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08240e43705a0e48E.exit": ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h2fc3c80f5ecaee18E.exit"
   %26 = load ptr, ptr %23, align 8, !noalias !10, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %18, i64 %19, i1 false), !noalias !16
   store i64 %22, ptr %0, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -478,12 +478,12 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
           to label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit" unwind label %46
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hdc1ca73e95f24b40E.exit8": ; preds = %_ZN3std4path4Path4join17h66074a45924d7ba7E.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !17
   invoke void @_ZN3std3sys3pal4unix2fs4stat17h09c19a476af93005E(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %5, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %34)
           to label %.noexc unwind label %29
 
@@ -495,8 +495,8 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
 37:                                               ; preds = %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8, !noalias !17, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5), !noalias !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
   invoke void @_ZN3std2io5error14repr_bitpacked11decode_repr17he773bf179e87b08aE.llvm.8421480186215222565(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %39)
           to label %.noexc16 unwind label %29
 
@@ -511,18 +511,18 @@ _ZN3std4path4Path4join17h66074a45924d7ba7E.exit:  ; preds = %10
           to label %45 unwind label %29
 
 43:                                               ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5), !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %44
 
 44:                                               ; preds = %43, %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h08240e43705a0e48E.exit"
   ret void
 
 45:                                               ; preds = %41, %.noexc16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6a5f054d2eabc0fE.llvm.8421480186215222565"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %15
 
 46:                                               ; preds = %29, %27
@@ -652,12 +652,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() unnamed_addr #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN3std4path4Path5_join17hc64a8ee8d1be349fE(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #2
 
@@ -680,73 +674,79 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h
 declare void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef, i64) unnamed_addr #5
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h080ff4b545cc2f0cE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h080ff4b545cc2f0cE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h1443455f437d7a64E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h1443455f437d7a64E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h18286cb71ccfca2eE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h18286cb71ccfca2eE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h218e9bc479647e9cE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h218e9bc479647e9cE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h272b710d20361a22E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h272b710d20361a22E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h28823e2f0d70799dE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h28823e2f0d70799dE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h355689418d3dca23E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h355689418d3dca23E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h41b0fd7641ce9cfcE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h41b0fd7641ce9cfcE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h6def1200c2d9234eE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h6def1200c2d9234eE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h74e19ff49e57812eE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h74e19ff49e57812eE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h7a0f840ce100ebeeE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h7a0f840ce100ebeeE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h7ab58447a906a579E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h7ab58447a906a579E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h872abdb81cd326a0E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h872abdb81cd326a0E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h8d3116ed45de467fE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h8d3116ed45de467fE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h906b9f8c11b60229E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17h906b9f8c11b60229E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17ha44412d3a1d67d60E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17ha44412d3a1d67d60E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hac74d279d318b9cbE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hac74d279d318b9cbE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hb294a6d7d24f2ecbE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hb294a6d7d24f2ecbE"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd2b7488783a2bd34E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd2b7488783a2bd34E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd2d095e185bbba94E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd2d095e185bbba94E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd85e431888a43a80E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hd85e431888a43a80E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hf73d39272c1b4422E"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hf73d39272c1b4422E"(ptr noundef nonnull align 8) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hfbfbbbbe55e1b1feE"(ptr noundef nonnull align 8) unnamed_addr #9
+declare hidden void @"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize17hfbfbbbbe55e1b1feE"(ptr noundef nonnull align 8) unnamed_addr #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
@@ -759,8 +759,8 @@ attributes #4 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "targe
 attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { noreturn }
 attributes #12 = { cold noreturn nounwind }

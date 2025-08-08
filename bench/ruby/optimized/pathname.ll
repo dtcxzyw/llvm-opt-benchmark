@@ -521,7 +521,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @path_initialize(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq i64 %1, 0
   %5 = and i64 %1, 7
   %6 = icmp ne i64 %5, 0
@@ -582,7 +582,7 @@ RSTRING_PTR.exit:                                 ; preds = %17, %22
   store i64 %29, ptr %3, align 8, !tbaa !6
   %30 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %31 = call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %30, i64 noundef %29) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %0
 }
 
@@ -879,7 +879,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_sub(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %6 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %5) #7
   %7 = icmp eq i64 %6, 0
@@ -919,7 +919,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %storemerge, ptr %4, align 8, !tbaa !6
   %23 = tail call i64 @rb_obj_class(i64 noundef %2) #7
   %24 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %23) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %24
 }
 
@@ -950,8 +950,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
   %18 = load i64, ptr %12, align 8, !tbaa !10, !noalias !23
   %19 = and i64 %18, 8192
@@ -996,15 +996,15 @@ RSTRING_PTR.exit:                                 ; preds = %get_strpath.exit, %
   %39 = call i64 @rb_str_append(i64 noundef %37, i64 noundef %38) #7
   %40 = call i64 @rb_obj_class(i64 noundef %0) #7
   %41 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %40) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %41
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_realpath(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %8, label %.preheader.split.split
 
@@ -1050,14 +1050,14 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %23, ptr %4, align 8, !tbaa !6
   %24 = tail call i64 @rb_obj_class(i64 noundef %2) #7
   %25 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %24) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_realdirpath(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %8, label %.preheader.split.split
 
@@ -1103,7 +1103,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %23, ptr %4, align 8, !tbaa !6
   %24 = tail call i64 @rb_obj_class(i64 noundef %2) #7
   %25 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %24) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %25
 }
 
@@ -1111,7 +1111,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 define internal i64 @path_each_line(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1210,7 +1210,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 
 51:                                               ; preds = %49, %47
   %.0 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -1218,7 +1218,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 define internal i64 @path_read(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1304,7 +1304,7 @@ rb_scan_args_set.exit:                            ; preds = %37
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
   %46 = call i64 @rb_funcallv_kw(i64 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef nonnull %4, i32 noundef %45) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
@@ -1312,7 +1312,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 define internal i64 @path_binread(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1392,7 +1392,7 @@ rb_scan_args_set.exit:                            ; preds = %35
   %39 = load i64, ptr @id_binread, align 8, !tbaa !6
   %40 = add nuw nsw i32 %0, 1
   %41 = call i64 @rb_funcallv(i64 noundef %38, i64 noundef %39, i32 noundef %40, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %41
 }
 
@@ -1400,7 +1400,7 @@ rb_scan_args_set.exit:                            ; preds = %35
 define internal i64 @path_readlines(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1486,7 +1486,7 @@ rb_scan_args_set.exit:                            ; preds = %37
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
   %46 = call i64 @rb_funcallv_kw(i64 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef nonnull %4, i32 noundef %45) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
@@ -1494,7 +1494,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 define internal i64 @path_write(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1580,7 +1580,7 @@ rb_scan_args_set.exit:                            ; preds = %37
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
   %46 = call i64 @rb_funcallv_kw(i64 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef nonnull %4, i32 noundef %45) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
@@ -1588,7 +1588,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 define internal i64 @path_binwrite(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1674,7 +1674,7 @@ rb_scan_args_set.exit:                            ; preds = %37
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
   %46 = call i64 @rb_funcallv_kw(i64 noundef %40, i64 noundef %41, i32 noundef %42, ptr noundef nonnull %4, i32 noundef %45) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %46
 }
 
@@ -1682,7 +1682,7 @@ rb_scan_args_set.exit:                            ; preds = %37
 define internal i64 @path_sysopen(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [3 x i64], align 16
   %5 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -1762,7 +1762,7 @@ rb_scan_args_set.exit:                            ; preds = %35
   %39 = load i64, ptr @id_sysopen, align 8, !tbaa !6
   %40 = add nuw nsw i32 %0, 1
   %41 = call i64 @rb_funcallv(i64 noundef %38, i64 noundef %39, i32 noundef %40, ptr noundef nonnull %4) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %41
 }
 
@@ -2116,7 +2116,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 define internal i64 @path_open(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [4 x i64], align 16
   %5 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %7 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %6) #7
   %8 = icmp eq i64 %7, 0
@@ -2215,14 +2215,14 @@ rb_scan_args_set.exit:                            ; preds = %37
 
 51:                                               ; preds = %49, %47
   %.0 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_readlink(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @rb_cFile, align 8, !tbaa !6
   %4 = load i64, ptr @id_readlink, align 8, !tbaa !6
   %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
@@ -2250,7 +2250,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %16, ptr %2, align 8, !tbaa !6
   %17 = tail call i64 @rb_obj_class(i64 noundef %0) #7
   %18 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %17) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %18
 }
 
@@ -2460,7 +2460,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_basename(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %6 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %5) #7
   %7 = icmp eq i64 %6, 0
@@ -2513,14 +2513,14 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   store i64 %storemerge, ptr %4, align 8, !tbaa !6
   %28 = tail call i64 @rb_obj_class(i64 noundef %2) #7
   %29 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %28) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %29
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_dirname(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %4 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %3) #7
   %5 = icmp eq i64 %4, 0
@@ -2548,7 +2548,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %16, ptr %2, align 8, !tbaa !6
   %17 = tail call i64 @rb_obj_class(i64 noundef %0) #7
   %18 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %17) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %18
 }
 
@@ -2584,7 +2584,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_expand_path(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %6 = tail call i64 @rb_ivar_get(i64 noundef %2, i64 noundef %5) #7
   %7 = icmp eq i64 %6, 0
@@ -2637,7 +2637,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.split.sp
   store i64 %storemerge, ptr %4, align 8, !tbaa !6
   %28 = tail call i64 @rb_obj_class(i64 noundef %2) #7
   %29 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %28) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %29
 }
 
@@ -2666,8 +2666,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load i64, ptr @rb_cFile, align 8, !tbaa !6
   %16 = load i64, ptr @id_split, align 8, !tbaa !6
   %17 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %15, i64 noundef %16, i32 noundef 1, i64 noundef %5) #7
@@ -2701,8 +2701,8 @@ Check_Type.exit:                                  ; preds = %rbimpl_RB_TYPE_P_fa
   store i64 %31, ptr %3, align 8, !tbaa !6
   %32 = load i64, ptr %2, align 8, !tbaa !6
   %33 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %32, i64 noundef %31) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %33
 }
 
@@ -3445,7 +3445,7 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
   %4 = alloca [3 x i64], align 16
   %5 = alloca [3 x ptr], align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %7, align 8, !tbaa !26
@@ -3545,11 +3545,11 @@ rb_array_len.exit.thread:                         ; preds = %45
   br i1 %52, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %rb_array_const_ptr.exit
 
 53:                                               ; preds = %rb_array_len.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = load ptr, ptr %44, align 8, !tbaa !20
   br label %rb_array_const_ptr.exit
 
@@ -3561,33 +3561,33 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %53
   %57 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %6, i64 noundef %2) #7
   store i64 %57, ptr %6, align 8, !tbaa !6
   call void @rb_ary_store(i64 noundef %41, i64 noundef %.0, i64 noundef %57) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = add nuw nsw i64 %.0, 1
   br label %45, !llvm.loop !32
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rb_array_len.exit.thread, %37
   %.015 = phi i64 [ %38, %37 ], [ %41, %rb_array_len.exit.thread ], [ %41, %rb_array_len.exit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.015
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_s_getwd(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @rb_cDir, align 8, !tbaa !6
   %4 = load i64, ptr @id_getwd, align 8, !tbaa !6
   %5 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %4, i32 noundef 0) #7
   store i64 %5, ptr %2, align 8, !tbaa !6
   %6 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_glob(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = icmp slt i32 %0, 1
   br i1 %6, label %11, label %.preheader
@@ -3692,7 +3692,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 .loopexit:                                        ; preds = %rb_array_len.exit.thread, %rb_array_len.exit, %31
   %.0 = phi i64 [ %32, %31 ], [ %35, %rb_array_len.exit ], [ %35, %rb_array_len.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0
 }
 
@@ -3749,11 +3749,11 @@ rb_array_len.exit.thread:                         ; preds = %22
   br i1 %29, label %.thread, label %36
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %rb_array_const_ptr.exit
 
 30:                                               ; preds = %rb_array_len.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = load ptr, ptr %21, align 8, !tbaa !20
   br label %rb_array_const_ptr.exit
 
@@ -3765,7 +3765,7 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %30
   %34 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %3) #7
   store i64 %34, ptr %2, align 8, !tbaa !6
   call void @rb_ary_store(i64 noundef %18, i64 noundef %.0, i64 noundef %34) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %35 = add nuw nsw i64 %.0, 1
   br label %22, !llvm.loop !34
 
@@ -3859,7 +3859,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_opendir(i64 noundef %0) #0 {
   %2 = alloca [1 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i64, ptr @id_at_path, align 8, !tbaa !6
   %4 = tail call i64 @rb_ivar_get(i64 noundef %0, i64 noundef %3) #7
   %5 = icmp eq i64 %4, 0
@@ -3885,14 +3885,14 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
   %14 = load i64, ptr @rb_cDir, align 8, !tbaa !6
   %15 = load i64, ptr @id_open, align 8, !tbaa !6
   %16 = call i64 @rb_block_call(i64 noundef %14, i64 noundef %15, i32 noundef 1, ptr noundef nonnull %2, ptr noundef null, i64 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @path_each_entry(i64 noundef %0) #0 {
   %2 = alloca [1 x i64], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i32 @rb_block_given_p() #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %8
@@ -3934,7 +3934,7 @@ get_strpath.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 
 24:                                               ; preds = %get_strpath.exit, %4
   %.0 = phi i64 [ %23, %get_strpath.exit ], [ %7, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -4029,23 +4029,17 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
 
 declare i64 @rb_intern(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i64 @rb_check_funcall(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 declare i64 @rb_obj_dup(i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4086,7 +4080,7 @@ declare i64 @rb_str_append(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 declare i32 @rb_keyword_given_p() local_unnamed_addr #1
 
@@ -4095,12 +4089,12 @@ declare i64 @rb_block_call_kw(i64 noundef, i64 noundef, i32 noundef, ptr noundef
 declare i64 @rb_funcallv_kw(i64 noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @s_glob_i(i64 noundef %0, i64 noundef %1, i32 %2, ptr readnone captures(none) %3, i64 %4) #0 {
@@ -4163,13 +4157,19 @@ define internal i64 @unlink_rescue(i64 noundef %0, i64 %1) #0 {
   ret i64 %5
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn nounwind }

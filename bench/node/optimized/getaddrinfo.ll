@@ -403,7 +403,7 @@ declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_if_indextoiid(i32 noundef %ifindex, ptr noundef writeonly captures(address_is_null) %buffer, ptr noundef captures(address_is_null) %size) local_unnamed_addr #3 {
 entry:
   %ifname_buf.i = alloca [17 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %ifname_buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ifname_buf.i)
   %cmp.i = icmp eq ptr %buffer, null
   %cmp1.i = icmp eq ptr %size, null
   %or.cond.i = or i1 %cmp.i, %cmp1.i
@@ -445,7 +445,7 @@ if.end12.i:                                       ; preds = %if.end7.i
 
 uv_if_indextoname.exit:                           ; preds = %entry, %lor.lhs.false2.i, %if.then5.i, %if.then11.i, %if.end12.i
   %retval.0.i = phi i32 [ %sub.i, %if.then5.i ], [ -105, %if.then11.i ], [ 0, %if.end12.i ], [ -22, %lor.lhs.false2.i ], [ -22, %entry ]
-  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %ifname_buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ifname_buf.i)
   ret i32 %retval.0.i
 }
 
@@ -457,10 +457,10 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

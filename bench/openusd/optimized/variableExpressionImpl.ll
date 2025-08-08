@@ -3099,9 +3099,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl16
   %6 = alloca %"class.std::allocator.3", align 1
   %7 = alloca %"class.std::allocator.3", align 1
   %8 = alloca %"class.std::allocator.3", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_26Sdf_VariableExpressionImpl12_TypeVisitorEEEDaRKNS_7VtValueEOT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %9, label %40 [
     i32 3, label %10
     i32 1, label %16
@@ -22388,9 +22388,9 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayIiEEEER
   %49 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i11)
   %50 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE3endEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i11)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %49, ptr %3, align 8
   store ptr %50, ptr %4, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
@@ -22418,9 +22418,9 @@ common.resume:                                    ; preds = %.body, %56
   br label %common.resume
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC2IPKiEET_S5_PNSt9enable_ifIXntsr3std11is_integralIS5_EE5valueEvE4typeE.exit: ; preds = %.noexc.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7VtArrayIlEEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %58, align 8
   %59 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24
@@ -22606,8 +22606,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl11
   %43 = load ptr, ptr %42, align 8, !noalias !1788
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %45 = load ptr, ptr %44, align 8, !noalias !1788
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !1791
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !1791
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1791
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1791
   store ptr %31, ptr %6, align 8, !noalias !1794
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %33, ptr %46, align 8, !noalias !1794
@@ -22623,8 +22623,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl11
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %45, ptr %51, align 8, !noalias !1794
   call void @_ZSt9__find_ifISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_EN9__gnu_cxx5__ops16_Iter_equals_valIKS6_EEET_SF_SF_T0_St26random_access_iterator_tag(ptr dead_on_unwind nonnull writable sret(%"struct.std::_Deque_iterator") align 8 %8, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr nonnull align 8 dereferenceable(32) %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !1791
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1791
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1791
   %52 = load ptr, ptr %38, align 8, !noalias !1797
   %53 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %53, %52
@@ -22881,10 +22881,10 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 142:                                              ; preds = %3
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %143, ptr %5, align 8
   %144 = call { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS5_SL_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %145 = load ptr, ptr %1, align 8
   %146 = call { ptr, ptr } @_ZNK32pxrInternal_v0_24__pxrReserved__12VtDictionary4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %147 = extractvalue { ptr, ptr } %146, 0
@@ -22952,7 +22952,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, null
   %spec.select = select i1 %183, ptr %180, ptr %16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %184 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__12VtVisitValueINS_26Sdf_VariableExpressionImpl12_TypeVisitorEEEDaRKNS_7VtValueEOT_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %187 unwind label %185
 
@@ -22962,7 +22962,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %394
 
 187:                                              ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %188 = icmp eq i32 %184, 0
   br i1 %188, label %189, label %235
 
@@ -36662,7 +36662,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt8equal_toEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2795)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !2795
   %8 = icmp eq ptr %7, null
@@ -36696,7 +36696,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   store i8 1, ptr %0, align 8, !alias.scope !2798
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !2798
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -47115,7 +47115,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt12not_equal_toEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3387)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !3387
   %8 = icmp eq ptr %7, null
@@ -47149,7 +47149,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
   store i8 0, ptr %0, align 8, !alias.scope !3390
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !alias.scope !3390
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -57619,7 +57619,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt4lessEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !3989
   %8 = icmp eq ptr %7, null
@@ -57649,7 +57649,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDe
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt4lessEclERKNS_7VtValueE.exit: ; preds = %9, %.critedge.i
   %19 = phi ptr [ %10, %9 ], [ %.pre.i, %.critedge.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8_CompareISt4lessEENS0_10EvalResultERKNS_7VtValueES6_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -68176,7 +68176,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt10less_equalEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !4586
   %8 = icmp eq ptr %7, null
@@ -68206,7 +68206,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDe
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt10less_equalEclERKNS_7VtValueE.exit: ; preds = %9, %.critedge.i
   %19 = phi ptr [ %10, %9 ], [ %.pre.i, %.critedge.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8_CompareISt10less_equalEENS0_10EvalResultERKNS_7VtValueES6_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -78731,7 +78731,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt7greaterEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !5183
   %8 = icmp eq ptr %7, null
@@ -78761,7 +78761,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDe
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt7greaterEclERKNS_7VtValueE.exit: ; preds = %9, %.critedge.i
   %19 = phi ptr [ %10, %9 ], [ %.pre.i, %.critedge.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8_CompareISt7greaterEENS0_10EvalResultERKNS_7VtValueES6_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -89286,7 +89286,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonV
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDetail5VisitINS_7VtValueENS_26Sdf_VariableExpressionImpl18_ComparisonVisitorISt13greater_equalEENS3_10EvalResultEEEDaRKS2_OT0_i(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #1 comdat {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !5780
   %8 = icmp eq ptr %7, null
@@ -89316,7 +89316,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19Vt_ValueVisitDe
 _ZNK32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl18_ComparisonVisitorISt13greater_equalEclERKNS_7VtValueE.exit: ; preds = %9, %.critedge.i
   %19 = phi ptr [ %10, %9 ], [ %.pre.i, %.critedge.i ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl8_CompareISt13greater_equalEENS0_10EvalResultERKNS_7VtValueES6_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::Sdf_VariableExpressionImpl::EvalResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %19)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -102019,7 +102019,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiInterv
   br i1 %.not.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalC2ERKS0_.exit, label %25
 
 25:                                               ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_15GfMultiIntervalEEERKT_v.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
   %26 = call noundef ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE7_M_copyILb0ENS7_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS1_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %.noexc.i.i.i
@@ -102047,7 +102047,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10GfIntervalES1_St9_IdentityIS
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %22, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %26, ptr %19, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__15GfMultiIntervalC2ERKS0_.exit
 
@@ -102151,7 +102151,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exi
   br i1 %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread: ; preds = %15, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7VtArrayIbEEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS5_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbEC1EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %25)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9push_backEOb(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -102168,7 +102168,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitor
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayIbEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIbEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES8_EUlRS3_E_EENS7_IXsr3std7is_sameIS8_NS_17Vt_ValueGetStoredIS8_E4TypeEEE5valueEvE4typeEOT0_.exit: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitorclIbEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES4_ENKUlRNS_7VtArrayIbEEE_clES9_.exit.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit.thread3: ; preds = %22, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIbEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayIbEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIbEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES8_EUlRS3_E_EENS7_IXsr3std7is_sameIS8_NS_17Vt_ValueGetStoredIS8_E4TypeEEE5valueEvE4typeEOT0_.exit, %12
@@ -102344,7 +102344,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIbEENS_19TfDelegatedCountPtrINS0_8_CountedIS3_EEEENS0_15_RemoteTypeInfoIS3_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   store i8 1, ptr %4, align 8
@@ -102355,7 +102355,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %8 = load i64, ptr %2, align 8
   %9 = mul i64 %8, -7046029254386353067
   %10 = call noundef i64 @llvm.bswap.i64(i64 %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %10
 }
 
@@ -102431,12 +102431,12 @@ define linkonce_odr { i64, i64 } @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue1
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIbEENS_19TfDelegatedCountPtrINS0_8_CountedIS3_EEEENS0_15_RemoteTypeInfoIS3_EEE10_StreamOutERKNSt15aligned_storageILm8ELm8EE4typeERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<bool>::_Streamer", align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIbE9_StreamerC1EPKb(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5)
   %6 = call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIbE13_GetShapeDataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr nonnull %3, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRSoEE9_InvokeFnINS_7VtArrayIbE9_StreamerEEEvPKvS1_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %1
 }
 
@@ -102719,7 +102719,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exi
   br i1 %23, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread: ; preds = %14, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7VtArrayIlEEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERS5_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlEC1EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %24)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9push_backEOl(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -102736,7 +102736,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitor
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayIlEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIlEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES8_EUlRS3_E_EENS7_IXsr3std7is_sameIS8_NS_17Vt_ValueGetStoredIS8_E4TypeEEE5valueEvE4typeEOT0_.exit: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitorclIlEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES4_ENKUlRNS_7VtArrayIlEEE_clES9_.exit.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit.thread3: ; preds = %21, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayIlEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayIlEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIlEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeES8_EUlRS3_E_EENS7_IXsr3std7is_sameIS8_NS_17Vt_ValueGetStoredIS8_E4TypeEEE5valueEvE4typeEOT0_.exit, %11
@@ -102909,7 +102909,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIlEENS_19TfDelegatedCountPtrINS0_8_CountedIS3_EEEENS0_15_RemoteTypeInfoIS3_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   store i8 1, ptr %4, align 8
@@ -102921,7 +102921,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %9 = load i64, ptr %2, align 8
   %10 = mul i64 %9, -7046029254386353067
   %11 = call noundef i64 @llvm.bswap.i64(i64 %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %11
 }
 
@@ -102997,12 +102997,12 @@ define linkonce_odr { i64, i64 } @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue1
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayIlEENS_19TfDelegatedCountPtrINS0_8_CountedIS3_EEEENS0_15_RemoteTypeInfoIS3_EEE10_StreamOutERKNSt15aligned_storageILm8ELm8EE4typeERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<long>::_Streamer", align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIlE9_StreamerC1EPKl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5)
   %6 = call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE13_GetShapeDataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr nonnull %3, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRSoEE9_InvokeFnINS_7VtArrayIlE9_StreamerEEEvPKvS1_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %1
 }
 
@@ -103272,7 +103272,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx11
   br i1 %22, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread, label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread: ; preds = %13, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue11_GetMutableINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENSt9enable_ifIXntsr14VtIsValueProxyIT_EE5valueERSB_E4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EOS7_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %23)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -103289,7 +103289,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitor
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIS8_EENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeESE_EUlRS9_E_EENSD_IXsr3std7is_sameISE_NS_17Vt_ValueGetStoredISE_E4TypeEEE5valueEvE4typeEOT0_.exit: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__26Sdf_VariableExpressionImpl12_ListVisitorclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeESA_ENKUlRNS_7VtArrayIS8_EEE_clESF_.exit.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread3
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit.thread3: ; preds = %20, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEbv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue15UncheckedMutateINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_26Sdf_VariableExpressionImpl12_ListVisitorclIS8_EENSt9enable_ifIXsr21IsSupportedScalarTypeIT_EE5valueEbE4typeESE_EUlRS9_E_EENSD_IXsr3std7is_sameISE_NS_17Vt_ValueGetStoredISE_E4TypeEEE5valueEvE4typeEOT0_.exit, %10
@@ -103465,7 +103465,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_19TfDelegatedCountPtrINS0_8_CountedIS9_EEEENS0_15_RemoteTypeInfoIS9_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %4, align 8
@@ -103473,7 +103473,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %5 = load i64, ptr %2, align 8
   %6 = mul i64 %5, -7046029254386353067
   %7 = call noundef i64 @llvm.bswap.i64(i64 %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
 }
 
@@ -103549,12 +103549,12 @@ define linkonce_odr { i64, i64 } @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue1
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_19TfDelegatedCountPtrINS0_8_CountedIS9_EEEENS0_15_RemoteTypeInfoIS9_EEE10_StreamOutERKNSt15aligned_storageILm8ELm8EE4typeERSo(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #1 comdat align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<std::__cxx11::basic_string<char>>::_Streamer", align 8
   %4 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5cdataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_StreamerC1EPKS6_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %5)
   %6 = call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_GetShapeDataEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16VtStreamOutArrayERSoPKNS_12Vt_ShapeDataENS_13TfFunctionRefIFvS0_EEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %6, ptr nonnull %3, ptr nonnull @_ZN32pxrInternal_v0_24__pxrReserved__13TfFunctionRefIFvRSoEE9_InvokeFnINS_7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9_StreamerEEEvPKvS1_)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %1
 }
 
@@ -112748,7 +112748,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
 define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19TfDelegatedCountPtrINS0_8_CountedIS7_EEEENS0_15_RemoteTypeInfoIS7_EEE5_HashERKNSt15aligned_storageILm8ELm8EE4typeE(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat align 2 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %4, align 8
@@ -112758,7 +112758,7 @@ define linkonce_odr noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
   %7 = load i64, ptr %2, align 8
   %8 = mul i64 %7, -7046029254386353067
   %9 = call noundef i64 @llvm.bswap.i64(i64 %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %9
 }
 
@@ -117094,10 +117094,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21

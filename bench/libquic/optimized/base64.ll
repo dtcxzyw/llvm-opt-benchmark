@@ -335,11 +335,8 @@ EVP_EncodeBlock.exit77:                           ; preds = %139, %.lr.ph, %.thr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i64 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
@@ -452,9 +449,6 @@ define hidden i64 @EVP_EncodeBlock(ptr noundef writeonly captures(none) %0, ptr 
   store i8 0, ptr %.032.lcssa, align 1, !tbaa !14
   ret i64 %.0.lcssa
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @EVP_EncodeFinal(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
@@ -940,7 +934,7 @@ conv_ascii2bin.exit117.thread:                    ; preds = %22, %conv_ascii2bin
   %spec.select114138 = phi i32 [ 0, %71 ], [ 1, %70 ]
   %.3102127137 = phi i32 [ %.3102128, %71 ], [ %.3102, %70 ]
   %72 = zext i32 %.285 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %73 = load i8, ptr %8, align 1, !tbaa !14
   %74 = icmp slt i8 %73, 0
   br i1 %74, label %.preheader24.i, label %conv_ascii2bin.exit.i
@@ -1024,13 +1018,13 @@ EVP_DecodedLength.exit.i:                         ; preds = %.critedge.i
   br i1 %.not17.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i, !llvm.loop !24
 
 EVP_DecodeBlock.exit.thread:                      ; preds = %EVP_DecodedLength.exit.i, %103, %.critedge.i, %96
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.preheader.i
   %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %107, %.lr.ph31.i ]
   %110 = trunc i64 %.lcssa29.i to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %.loopexit, label %112
 
@@ -1092,7 +1086,7 @@ EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.prehe
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i32 @EVP_DecodeBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i8, ptr %1, align 1, !tbaa !14
   %6 = icmp slt i8 %5, 0
   br i1 %6, label %.preheader24, label %conv_ascii2bin.exit
@@ -1182,7 +1176,7 @@ EVP_DecodedLength.exit:                           ; preds = %.critedge
 
 EVP_DecodedLength.exit.thread:                    ; preds = %28, %.critedge, %35, %EVP_DecodedLength.exit, %._crit_edge
   %.015 = phi i32 [ %42, %._crit_edge ], [ -1, %EVP_DecodedLength.exit ], [ -1, %35 ], [ -1, %.critedge ], [ -1, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.015
 }
 
@@ -1197,7 +1191,7 @@ define hidden range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr noundef captures(none) %
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = zext i32 %5 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = load i8, ptr %7, align 1, !tbaa !14
   %10 = icmp slt i8 %9, 0
   br i1 %10, label %.preheader24.i, label %conv_ascii2bin.exit.i
@@ -1281,13 +1275,13 @@ EVP_DecodedLength.exit.i:                         ; preds = %.critedge.i
   br i1 %.not17.i, label %EVP_DecodeBlock.exit, label %.lr.ph31.i, !llvm.loop !24
 
 EVP_DecodeBlock.exit.thread:                      ; preds = %32, %EVP_DecodedLength.exit.i, %39, %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 EVP_DecodeBlock.exit:                             ; preds = %.lr.ph31.i, %.preheader.i
   %.lcssa29.i = phi i64 [ %.promoted.i, %.preheader.i ], [ %43, %.lr.ph31.i ]
   %46 = trunc i64 %.lcssa29.i to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %49, label %48
 
@@ -1319,11 +1313,16 @@ define hidden range(i32 0, 2) i32 @EVP_EncodedLength(ptr noundef writeonly captu
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

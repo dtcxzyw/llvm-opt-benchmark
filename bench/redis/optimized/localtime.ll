@@ -67,7 +67,7 @@ is_leap_year.exit.thread:                         ; preds = %25
   %34 = trunc i64 %.035 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %34, ptr %35, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) @__const.nolocks_localtime.mdays, i64 48, i1 false)
   br label %is_leap_year.exit43
 
@@ -81,7 +81,7 @@ is_leap_year.exit.thread:                         ; preds = %25
   %40 = trunc i64 %.035 to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %40, ptr %41, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) @__const.nolocks_localtime.mdays, i64 48, i1 false)
   %42 = urem i32 %storemerge54, 100
   %.not4.i40 = icmp eq i32 %42, 0
@@ -129,23 +129,22 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   store i32 %56, ptr %57, align 4, !tbaa !22
   %58 = add nsw i32 %storemerge54, -1900
   store i32 %58, ptr %54, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

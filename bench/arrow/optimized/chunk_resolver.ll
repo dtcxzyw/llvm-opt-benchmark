@@ -803,7 +803,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKhPNS_18TypedChunkLoca
   %.01314.i = phi i64 [ %44, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIhEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ 0, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.01314.i
   %18 = load i8, ptr %17, align 1, !tbaa !102
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i8 %18 to i64
   %20 = sext i32 %.015.i to i64
   %21 = getelementptr inbounds i64, ptr %9, i64 %20
@@ -853,7 +853,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIhEENS_18TypedChunkLocationIT_EEjPKmS3_
   %40 = sub i8 %18, %39
   call void @_ZN5arrow18TypedChunkLocationIhEC1Ehh(ptr noundef nonnull align 1 dereferenceable(2) %6, i8 noundef zeroext %38, i8 noundef zeroext %40)
   %41 = load i16, ptr %6, align 2
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.2", ptr %3, i64 %.01314.i
   store i16 %41, ptr %42, align 1
   %.sroa.0.0.extract.trunc.mask.i = and i16 %41, 255
@@ -886,7 +886,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKtPNS_18TypedChunkLoca
   %.01314.i = phi i64 [ %44, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ 0, %5 ]
   %17 = getelementptr inbounds nuw i16, ptr %2, i64 %.01314.i
   %18 = load i16, ptr %17, align 2, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i16 %18 to i64
   %20 = sext i32 %.015.i to i64
   %21 = getelementptr inbounds i64, ptr %9, i64 %20
@@ -936,7 +936,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineItEENS_18TypedChunkLocationIT_EEjPKmS3_
   %40 = sub i16 %18, %39
   call void @_ZN5arrow18TypedChunkLocationItEC1Ett(ptr noundef nonnull align 2 dereferenceable(4) %6, i16 noundef zeroext %38, i16 noundef zeroext %40)
   %41 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.3", ptr %3, i64 %.01314.i
   store i32 %41, ptr %42, align 2
   %43 = and i32 %41, 65535
@@ -968,7 +968,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKjPNS_18TypedChunkLoca
   %.01314.i = phi i64 [ %42, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ], [ 0, %5 ]
   %17 = getelementptr inbounds nuw i32, ptr %2, i64 %.01314.i
   %18 = load i32, ptr %17, align 4, !tbaa !107
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = zext i32 %18 to i64
   %20 = sext i32 %.015.i to i64
   %21 = getelementptr inbounds i64, ptr %9, i64 %20
@@ -1017,7 +1017,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineIjEENS_18TypedChunkLocationIT_EEjPKmS3_
   %39 = sub i32 %18, %38
   call void @_ZN5arrow18TypedChunkLocationIjEC1Ejj(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %.0.i.i, i32 noundef %39)
   %40 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.0.extract.trunc.i = trunc i64 %40 to i32
   %41 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.4", ptr %3, i64 %.01314.i
   store i64 %40, ptr %41, align 4
@@ -1053,7 +1053,7 @@ define void @_ZNK5arrow13ChunkResolver15ResolveManyImplElPKmPNS_18TypedChunkLoca
   %.01314.i = phi i64 [ 0, %.lr.ph.i ], [ %41, %_ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_ii.exit.i ]
   %18 = getelementptr inbounds nuw i64, ptr %2, i64 %.01314.i
   %19 = load i64, ptr %18, align 8, !tbaa !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = sext i32 %.015.i to i64
   %21 = getelementptr inbounds i64, ptr %9, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !44
@@ -1101,7 +1101,7 @@ _ZN5arrow12_GLOBAL__N_116ResolveOneInlineImEENS_18TypedChunkLocationIT_EEjPKmS3_
   call void @_ZN5arrow18TypedChunkLocationImEC1Emm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %.pre-phi.i.i, i64 noundef %38)
   %.fca.0.load.i.i = load i64, ptr %6, align 8
   %.fca.1.load.i.i = load i64, ptr %.fca.1.gep.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw %"struct.arrow::TypedChunkLocation.6", ptr %3, i64 %.01314.i
   store i64 %.fca.0.load.i.i, ptr %39, align 8, !tbaa !44
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -1115,26 +1115,26 @@ _ZN5arrow12_GLOBAL__N_117ResolveManyInlineImEEvjPKllPKT_PNS_18TypedChunkLocation
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
-
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -1150,11 +1150,11 @@ attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "
 attributes #2 = { cold nofree noreturn }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

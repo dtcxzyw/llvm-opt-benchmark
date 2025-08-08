@@ -699,7 +699,7 @@ define void @_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5
   %7 = tail call { i64, i32 } @_ZN4absl7debian23NowEv()
   %8 = extractvalue { i64, i32 } %7, 0
   %9 = extractvalue { i64, i32 } %7, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %8, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %9, ptr %10, align 8
@@ -707,7 +707,7 @@ define void @_ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5
   %.sroa.03.0.copyload.i.i = load i64, ptr %11, align 8
   %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.24.0.copyload.i.i = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = call noundef i64 @_ZN4absl7debian218ToInt64NanosecondsENS0_8DurationE(i64 %.sroa.03.0.copyload.i.i, i32 %.sroa.24.0.copyload.i.i) #19
   %13 = and i64 %12, 4294967295
   store i64 %13, ptr %6, align 8
@@ -750,7 +750,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %34 = lshr i64 %.018.i.i.i.i.i.i, 32
   %.0.i.i.i.i.i.i = trunc nuw i64 %34 to i32
   %35 = xor i32 %.0.i.i.i.i.i.i, -2147483648
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load ptr, ptr %1, align 8, !noalias !10
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8, !noalias !10
@@ -789,7 +789,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit6.i: ; pr
   resume { ptr, i32 } %46
 
 _ZN10open_spiel12EvaluateBotsERKNS_4GameERKSt6vectorIPNS_3BotESaIS5_EEi.exit: ; preds = %40, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -947,10 +947,10 @@ declare i64 @llvm.umin.i64(i64, i64) #12
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

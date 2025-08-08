@@ -518,7 +518,7 @@ _ZL22reserve_memory_specialPcmmmb.exit:           ; preds = %.preheader.split.sp
 
 .split54.us:                                      ; preds = %68, %62, %56, %50, %44
   %.us-phi55 = phi i64 [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %72 = load i8, ptr @UseLargePages, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %_ZL26log_on_large_pages_failurePcm.exit
@@ -546,7 +546,7 @@ _ZL21large_pages_requestedv.exit.thread.i:        ; preds = %_ZL21large_pages_re
   br label %_ZL26log_on_large_pages_failurePcm.exit
 
 _ZL26log_on_large_pages_failurePcm.exit:          ; preds = %.split54.us, %_ZL21large_pages_requestedv.exit.i, %79
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %81
 
 81:                                               ; preds = %_ZL26log_on_large_pages_failurePcm.exit, %14
@@ -1599,7 +1599,7 @@ thread-pre-split:                                 ; preds = %38, %42, %_ZN13Rese
   br i1 %.not16, label %50, label %46
 
 46:                                               ; preds = %thread-pre-split
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %48 = icmp sgt i32 %47, 1
   br i1 %48, label %49, label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
@@ -1611,7 +1611,7 @@ thread-pre-split:                                 ; preds = %38, %42, %_ZN13Rese
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %46, %49
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %50
 
 50:                                               ; preds = %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit, %thread-pre-split
@@ -1677,7 +1677,7 @@ define hidden void @_ZN17ReservedCodeSpaceC2Emmm(ptr noundef nonnull align 8 cap
   br i1 %8, label %_ZN13ReservedSpace10initializeEmmmPcb.exit.thread, label %_ZN13ReservedSpace10initializeEmmmPcb.exit
 
 _ZN13ReservedSpace10initializeEmmmPcb.exit.thread: ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %4
@@ -1685,7 +1685,7 @@ _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %4
   %10 = tail call noundef i64 @llvm.umax.i64(i64 %2, i64 %9)
   tail call void @_ZN13ReservedSpace7reserveEmmmPcb(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %10, i64 noundef %3, ptr noundef null, i1 noundef zeroext true)
   %.pre = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %12 = icmp sgt i32 %11, 1
   %13 = icmp ne ptr %.pre, null
@@ -1699,7 +1699,7 @@ _ZN13ReservedSpace10initializeEmmmPcb.exit:       ; preds = %4
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %_ZN13ReservedSpace10initializeEmmmPcb.exit.thread, %_ZN13ReservedSpace10initializeEmmmPcb.exit, %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2509,10 +2509,10 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

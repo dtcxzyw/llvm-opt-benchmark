@@ -91,7 +91,7 @@ define dso_local void @_ZN4node13CallbackScopeC2EPN2v87IsolateENS1_5LocalINS1_6O
 entry:
   %asyncContext.i = alloca %"struct.node::async_context", align 8
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
   %call.i = tail call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #13
   br i1 %call.i, label %if.end.i, label %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit
 
@@ -133,8 +133,8 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i: ; preds = %
 
 _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %entry, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i
   %retval.0.i = phi ptr [ %retval.0.i.i, %_ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit.i ], [ null, %entry ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %asyncContext.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %asyncContext.i)
   store double %async_context.coerce0, ptr %asyncContext.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %asyncContext.i, i64 8
   store double %async_context.coerce1, ptr %10, align 8
@@ -146,7 +146,7 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %entry, %_ZN4no
   %11 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v88TryCatchC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_.i, ptr noundef %11) #13
   call void @_ZN2v88TryCatch10SetVerboseEb(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_.i, i1 noundef zeroext true) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %asyncContext.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %asyncContext.i)
   ret void
 }
 
@@ -339,7 +339,7 @@ _ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RK
   br i1 %cmp.i, label %if.end39, label %do.body27
 
 do.body27:                                        ; preds = %if.then.i, %if.end.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
   %call.i = call noundef zeroext i1 @_ZN2v87Isolate9InContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br i1 %call.i, label %if.end.i21, label %do.body34.sink.split
 
@@ -374,7 +374,7 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
   %19 = inttoptr i64 %18 to ptr
   %20 = icmp eq ptr %env, %19
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #13
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br i1 %20, label %if.end39, label %do.body34
 
 do.body34.critedge22:                             ; preds = %if.end.i.i.i, %if.end.i21, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
@@ -382,7 +382,7 @@ do.body34.critedge22:                             ; preds = %if.end.i.i.i, %if.e
   br label %do.body34.sink.split
 
 do.body34.sink.split:                             ; preds = %do.body27, %do.body34.critedge22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   br label %do.body34
 
 do.body34:                                        ; preds = %do.body34.sink.split, %if.end.i.i
@@ -1309,10 +1309,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12

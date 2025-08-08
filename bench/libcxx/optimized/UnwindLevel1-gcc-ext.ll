@@ -136,9 +136,9 @@ define ptr @_Unwind_FindEnclosingFunction(ptr noundef %0) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %1, %6
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call i32 @__unw_getcontext(ptr noundef nonnull %3)
   %13 = call i32 @__unw_init_local(ptr noundef nonnull %2, ptr noundef nonnull %3)
   %14 = ptrtoint ptr %0 to i64
@@ -148,14 +148,11 @@ define ptr @_Unwind_FindEnclosingFunction(ptr noundef %0) local_unnamed_addr #0 
   %18 = load i64, ptr %4, align 8
   %19 = inttoptr i64 %18 to ptr
   %.0 = select i1 %17, ptr %19, ptr null
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @__unw_getcontext(ptr noundef) local_unnamed_addr #1
 
@@ -165,9 +162,6 @@ declare i32 @__unw_set_reg(ptr noundef, i32 noundef, i64 noundef) local_unnamed_
 
 declare i32 @__unw_get_proc_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 ; Function Attrs: uwtable
 define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.unw_cursor_t, align 8
@@ -175,8 +169,8 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
   %5 = alloca [512 x i8], align 16
   %6 = alloca %struct.unw_proc_info_t, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
   %9 = call i32 @__unw_init_local(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %10 = call zeroext i1 @logAPIs()
@@ -211,9 +205,9 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
   br i1 %21, label %27, label %39
 
 27:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = call i32 @__unw_get_proc_name(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef 512, ptr noundef nonnull %7)
   %29 = call i32 @__unw_get_proc_info(ptr noundef nonnull %3, ptr noundef nonnull %6)
   %30 = call zeroext i1 @logUnwinding()
@@ -229,9 +223,9 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
   br label %38
 
 38:                                               ; preds = %31, %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %38, %26
@@ -256,8 +250,8 @@ define range(i32 1, 0) i32 @_Unwind_Backtrace(ptr noundef %0, ptr noundef %1) lo
 
 48:                                               ; preds = %.sink.split, %22, %41
   %.1.ph = phi i32 [ %40, %41 ], [ 5, %22 ], [ %.1.ph.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1.ph
 }
 
@@ -272,9 +266,9 @@ define ptr @_Unwind_Find_FDE(ptr noundef %0, ptr noundef writeonly captures(none
   %3 = alloca %struct.unw_cursor_t, align 8
   %4 = alloca %struct.unw_context_t, align 8
   %5 = alloca %struct.unw_proc_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @__unw_getcontext(ptr noundef nonnull %4)
   %7 = call i32 @__unw_init_local(ptr noundef nonnull %3, ptr noundef nonnull %4)
   %8 = ptrtoint ptr %0 to i64
@@ -305,16 +299,16 @@ define ptr @_Unwind_Find_FDE(ptr noundef %0, ptr noundef writeonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %27 = load i64, ptr %26, align 8, !tbaa !20
   %28 = inttoptr i64 %27 to ptr
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %28
 }
 
 ; Function Attrs: uwtable
 define i64 @_Unwind_GetCFA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @__unw_get_reg(ptr noundef %0, i32 noundef -2, ptr noundef nonnull %2)
   %4 = call zeroext i1 @logAPIs()
   br i1 %4, label %5, label %11
@@ -329,7 +323,7 @@ define i64 @_Unwind_GetCFA(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %5, %1
   %12 = load i64, ptr %2, align 8, !tbaa !21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
 }
 
@@ -400,6 +394,12 @@ define void @__deregister_frame(ptr noundef %0) local_unnamed_addr #0 {
 
 declare void @__unw_remove_dynamic_fde(i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -408,7 +408,6 @@ attributes #4 = { cold noreturn uwtable "min-legal-vector-width"="0" "no-trappin
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold nounwind }
 attributes #7 = { noreturn nounwind }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

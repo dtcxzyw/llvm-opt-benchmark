@@ -327,7 +327,7 @@ is_obu_in_current_operating_point.exit.thread:    ; preds = %128, %123, %118
   br label %read_and_decode_one_tile_list.exit.thread
 
 141:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
-  call void @llvm.lifetime.start.p0(i64 1936, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %142 = load i32, ptr %45, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1936) %12, ptr noundef nonnull align 16 dereferenceable(1936) %69, i64 1936, i1 false)
   %143 = call signext i8 @av1_read_profile(ptr noundef nonnull %14) #9
@@ -682,13 +682,13 @@ aom_get_num_layers_from_operating_point_idc.exit.i: ; preds = %.loopexit.i.i, %2
 
 read_sequence_header_obu.exit.thread:             ; preds = %read_bitstream_level.exit.i, %145, %141, %read_bitstream_level.exit200.i
   store i32 5, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 1936, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %read_and_decode_one_tile_list.exit.thread
 
 read_sequence_header_obu.exit:                    ; preds = %279, %287
   %.0158.i.ph = phi i64 [ 0, %279 ], [ %291, %287 ]
   %.pr = load i32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 1936, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not165 = icmp eq i32 %.pr, 0
   br i1 %.not165, label %292, label %read_and_decode_one_tile_list.exit.thread
 
@@ -1002,9 +1002,9 @@ read_one_tile_group_obu.exit:                     ; preds = %367, %380, %383, %3
 
 419:                                              ; preds = %is_obu_in_current_operating_point.exit.thread
   %420 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %421 = call i32 @aom_uleb_decode(ptr noundef %112, i64 noundef %420, ptr noundef nonnull %10, ptr noundef nonnull %9) #9
   %422 = icmp slt i32 %421, 0
   br i1 %422, label %read_metadata.exit.thread, label %423
@@ -1307,17 +1307,17 @@ read_metadata_scalability.exit.i:                 ; preds = %._crit_edge.i.i.i, 
 
 read_metadata.exit.thread:                        ; preds = %419, %485, %486, %473, %474, %431
   store i32 7, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %read_and_decode_one_tile_list.exit.thread
 
 read_metadata.exit:                               ; preds = %486, %474, %432, %read_metadata_itut_t35.exit.i, %read_metadata_scalability.exit.i, %542
   %.0.i180.ph = phi i64 [ 0, %read_metadata_scalability.exit.i ], [ %547, %542 ], [ %420, %read_metadata_itut_t35.exit.i ], [ %420, %432 ], [ %420, %474 ], [ %420, %486 ]
   %.pr217 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not148 = icmp eq i32 %.pr217, 0
   br i1 %.not148, label %get_last_nonzero_byte.exit, label %read_and_decode_one_tile_list.exit.thread
 
@@ -1353,8 +1353,8 @@ read_metadata.exit:                               ; preds = %486, %474, %432, %r
   br label %read_and_decode_one_tile_list.exit.thread
 
 563:                                              ; preds = %551
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @av1_get_uniform_tile_size(ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %564 = load i32, ptr %7, align 4
   %565 = shl nsw i32 %564, 2
@@ -1390,8 +1390,8 @@ read_metadata.exit:                               ; preds = %486, %474, %432, %r
   br label %alloc_tile_list_buffer.exit.i
 
 alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %586 = load i32, ptr %54, align 8
   %.not82.i = icmp slt i32 %586, 0
   br i1 %.not82.i, label %read_and_decode_one_tile_list.exit, label %.lr.ph.i186
@@ -1468,8 +1468,8 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   %622 = trunc i64 %621 to i32
   %623 = add i32 %.06785.i, 5
   %624 = add i32 %623, %622
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @av1_get_uniform_tile_size(ptr noundef nonnull %17, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %625 = load i32, ptr %5, align 4
   %626 = shl nsw i32 %625, 2
@@ -1605,8 +1605,8 @@ yv12_tile_copy.exit.i.i:                          ; preds = %._crit_edge.us.i.i.
   br i1 %696, label %638, label %copy_decoded_tile_to_tile_list_buffer.exit.i, !llvm.loop !19
 
 copy_decoded_tile_to_tile_list_buffer.exit.i:     ; preds = %yv12_tile_copy.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %697 = add nuw nsw i32 %.06884.i, 1
   %698 = load i32, ptr %54, align 8
   %.not.not.i = icmp slt i32 %.06884.i, %698
@@ -1860,10 +1860,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

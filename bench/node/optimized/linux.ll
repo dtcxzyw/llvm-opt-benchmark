@@ -523,8 +523,8 @@ uv__platform_loop_init.exit:                      ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %uv__platform_loop_init.exit.thread, %uv__platform_loop_init.exit
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %tmp_watcher_list.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %queue.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp_watcher_list.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %queue.i)
   %cmp.i8 = icmp eq ptr %0, null
   br i1 %cmp.i8, label %uv__inotify_fork.exit, label %if.end.i9
 
@@ -765,8 +765,8 @@ while.body20.i:                                   ; preds = %while.cond16.i
 
 uv__inotify_fork.exit:                            ; preds = %while.cond16.i, %while.body20.i, %if.end
   %retval.0.i11 = phi i32 [ 0, %if.end ], [ %call25.i, %while.body20.i ], [ 0, %while.cond16.i ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %tmp_watcher_list.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %queue.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp_watcher_list.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %queue.i)
   br label %return
 
 return:                                           ; preds = %uv__platform_loop_init.exit, %uv__inotify_fork.exit
@@ -2400,7 +2400,7 @@ if.end40:                                         ; preds = %if.then39, %if.end3
   %call42 = call i32 @epoll_pwait(i32 noundef %4, ptr noundef nonnull %events, i32 noundef 1024, i32 noundef %timeout.addr.1, ptr noundef %sigmask.0) #18
   %call43 = tail call ptr @__errno_location() #20
   %25 = load i32, ptr %call43, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   %26 = load atomic i64, ptr @uv__hrtime.fast_clock_id monotonic, align 8
   %cmp1.not.i.i = icmp eq i64 %26, -1
   br i1 %cmp1.not.i.i, label %if.end3.i.i, label %done.i.i
@@ -2432,7 +2432,7 @@ if.end12.i.i:                                     ; preds = %done.i.i
 
 uv__update_time.exit:                             ; preds = %done.i.i, %if.end12.i.i
   %retval.0.i.i = phi i64 [ %30, %if.end12.i.i ], [ 0, %done.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
   store i64 %retval.0.i.i, ptr %time, align 8
   store i32 %25, ptr %call43, align 4
   %31 = add i32 %call42, 1
@@ -3874,8 +3874,8 @@ entry:
   %rc.i = alloca i64, align 8
   %buf.i = alloca [4096 x i8], align 16
   %info = alloca %struct.sysinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = call i32 @uv__slurp(ptr noundef nonnull @.str.27, ptr noundef nonnull %buf.i, i64 noundef 4096) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
@@ -3886,8 +3886,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
 uv__read_proc_meminfo.exit.thread:                ; preds = %entry, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end
 
 uv__read_proc_meminfo.exit:                       ; preds = %if.end.i
@@ -3896,8 +3896,8 @@ uv__read_proc_meminfo.exit:                       ; preds = %if.end.i
   %call6.i = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.28, ptr noundef nonnull %rc.i) #18
   %0 = load i64, ptr %rc.i, align 8
   %mul.i = shl i64 %0, 10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp.not = icmp eq i64 %mul.i, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -3929,8 +3929,8 @@ entry:
   %rc.i = alloca i64, align 8
   %buf.i = alloca [4096 x i8], align 16
   %info = alloca %struct.sysinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %call.i = call i32 @uv__slurp(ptr noundef nonnull @.str.27, ptr noundef nonnull %buf.i, i64 noundef 4096) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %uv__read_proc_meminfo.exit.thread
@@ -3941,8 +3941,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %uv__read_proc_meminfo.exit.thread, label %uv__read_proc_meminfo.exit
 
 uv__read_proc_meminfo.exit.thread:                ; preds = %entry, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end
 
 uv__read_proc_meminfo.exit:                       ; preds = %if.end.i
@@ -3951,8 +3951,8 @@ uv__read_proc_meminfo.exit:                       ; preds = %if.end.i
   %call6.i = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.28, ptr noundef nonnull %rc.i) #18
   %0 = load i64, ptr %rc.i, align 8
   %mul.i = shl i64 %0, 10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   %cmp.not = icmp eq i64 %mul.i, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -4014,7 +4014,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %filename.i)
   %call.i.i = tail call ptr @strchr(ptr noundef nonnull readonly align 1 dereferenceable(1024) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not10.i.i, label %if.end11.i, label %land.rhs.i.i
@@ -4040,8 +4040,8 @@ if.then.i:                                        ; preds = %land.rhs.i.i
   %call7.i.i = tail call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull @.str.14) #19
   %conv.i.i = trunc i64 %call7.i.i to i32
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i, i64 noundef 4097, ptr noundef nonnull @.str.29, i32 noundef %conv.i.i, ptr noundef nonnull %add.ptr.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i)
   store i64 0, ptr %rc.i.i, align 8
   %call.i12.i = call i32 @uv__slurp(ptr noundef nonnull %filename.i, ptr noundef nonnull %buf.i.i, i64 noundef 32) #18
   %cmp.i.i = icmp eq i32 %call.i12.i, 0
@@ -4063,11 +4063,11 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i
 
 uv__read_uint64.exit.i:                           ; preds = %if.then8.i.i, %if.then4.i.i, %if.then.i.i, %if.then.i
   %0 = load i64, ptr %rc.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i)
   %call5.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i, i64 noundef 4097, ptr noundef nonnull @.str.30, i32 noundef %conv.i.i, ptr noundef nonnull %add.ptr.i.i) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i15.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i16.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i15.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i16.i)
   store i64 0, ptr %rc.i16.i, align 8
   %call.i17.i = call i32 @uv__slurp(ptr noundef nonnull %filename.i, ptr noundef nonnull %buf.i15.i, i64 noundef 32) #18
   %cmp.i18.i = icmp eq i32 %call.i17.i, 0
@@ -4089,16 +4089,16 @@ if.then8.i25.i:                                   ; preds = %if.then4.i22.i
 
 uv__read_uint64.exit26.i:                         ; preds = %if.then8.i25.i, %if.then4.i22.i, %if.then.i19.i, %uv__read_uint64.exit.i
   %1 = load i64, ptr %rc.i16.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i15.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i16.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i15.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i16.i)
   %cmp8.not.i = icmp eq i64 %0, 0
   %cmp9.not.i = icmp eq i64 %1, 0
   %or.cond.i = select i1 %cmp8.not.i, i1 true, i1 %cmp9.not.i
   br i1 %or.cond.i, label %if.end11.i, label %update_limits.i
 
 if.end11.i:                                       ; preds = %if.end.i.i, %while.body.i.i, %uv__read_uint64.exit26.i, %if.then
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i27.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i28.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i27.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i28.i)
   store i64 0, ptr %rc.i28.i, align 8
   %call.i29.i = call i32 @uv__slurp(ptr noundef nonnull @.str.31, ptr noundef nonnull %buf.i27.i, i64 noundef 32) #18
   %cmp.i30.i = icmp eq i32 %call.i29.i, 0
@@ -4120,10 +4120,10 @@ if.then8.i37.i:                                   ; preds = %if.then4.i34.i
 
 uv__read_uint64.exit38.i:                         ; preds = %if.then8.i37.i, %if.then4.i34.i, %if.then.i31.i, %if.end11.i
   %2 = load i64, ptr %rc.i28.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i27.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i28.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i39.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i40.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i27.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i28.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i39.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i40.i)
   store i64 0, ptr %rc.i40.i, align 8
   %call.i41.i = call i32 @uv__slurp(ptr noundef nonnull @.str.32, ptr noundef nonnull %buf.i39.i, i64 noundef 32) #18
   %cmp.i42.i = icmp eq i32 %call.i41.i, 0
@@ -4145,8 +4145,8 @@ if.then8.i49.i:                                   ; preds = %if.then4.i46.i
 
 uv__read_uint64.exit50.i:                         ; preds = %if.then8.i49.i, %if.then4.i46.i, %if.then.i43.i, %uv__read_uint64.exit38.i
   %3 = load i64, ptr %rc.i40.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i39.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i40.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i39.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i40.i)
   br label %update_limits.i
 
 update_limits.i:                                  ; preds = %uv__read_uint64.exit50.i, %uv__read_uint64.exit26.i
@@ -4159,17 +4159,17 @@ update_limits.i:                                  ; preds = %uv__read_uint64.exi
   %spec.select = select i1 %cmp15.i, i64 -1, i64 %high.1
   %cmp18.i = icmp eq i64 %max.1, %and.i
   %max.2 = select i1 %cmp18.i, i64 -1, i64 %max.1
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %filename.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %filename.i)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %filename.i6)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 4
   %call.i = tail call i64 @strcspn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.14) #19
   %conv.i = trunc i64 %call.i to i32
   %call1.i7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i6, i64 noundef 4097, ptr noundef nonnull @.str.36, i32 noundef %conv.i, ptr noundef nonnull %add.ptr.i) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i5)
   store i64 0, ptr %rc.i.i5, align 8
   %call.i.i8 = call i32 @uv__slurp(ptr noundef nonnull %filename.i6, ptr noundef nonnull %buf.i.i4, i64 noundef 32) #18
   %cmp.i.i9 = icmp eq i32 %call.i.i8, 0
@@ -4191,11 +4191,11 @@ if.then8.i.i18:                                   ; preds = %if.then4.i.i15
 
 uv__read_uint64.exit.i10:                         ; preds = %if.then8.i.i18, %if.then4.i.i15, %if.then.i.i12, %if.else
   %4 = load i64, ptr %rc.i.i5, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i5)
   %call5.i11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i6, i64 noundef 4097, ptr noundef nonnull @.str.37, i32 noundef %conv.i, ptr noundef nonnull %add.ptr.i) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i4.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i5.i)
   store i64 0, ptr %rc.i5.i, align 8
   %call.i6.i = call i32 @uv__slurp(ptr noundef nonnull %filename.i6, ptr noundef nonnull %buf.i4.i, i64 noundef 32) #18
   %cmp.i7.i = icmp eq i32 %call.i6.i, 0
@@ -4217,9 +4217,9 @@ if.then8.i14.i:                                   ; preds = %if.then4.i11.i
 
 uv__get_cgroup2_memory_limits.exit:               ; preds = %uv__read_uint64.exit.i10, %if.then.i8.i, %if.then4.i11.i, %if.then8.i14.i
   %5 = load i64, ptr %rc.i5.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i4.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i5.i)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %filename.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %filename.i6)
   br label %if.end
 
 if.end:                                           ; preds = %uv__get_cgroup2_memory_limits.exit, %update_limits.i
@@ -4264,9 +4264,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %info.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %info.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
   %call.i.i = call i32 @uv__slurp(ptr noundef nonnull @.str.27, ptr noundef nonnull %buf.i.i, i64 noundef 4096) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %uv__read_proc_meminfo.exit.thread.i
@@ -4277,8 +4277,8 @@ if.end.i.i:                                       ; preds = %if.then3
   br i1 %cmp.i.i, label %uv__read_proc_meminfo.exit.thread.i, label %uv__read_proc_meminfo.exit.i
 
 uv__read_proc_meminfo.exit.thread.i:              ; preds = %if.end.i.i, %if.then3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   br label %if.end.i
 
 uv__read_proc_meminfo.exit.i:                     ; preds = %if.end.i.i
@@ -4287,8 +4287,8 @@ uv__read_proc_meminfo.exit.i:                     ; preds = %if.end.i.i
   %call6.i.i = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull @.str.28, ptr noundef nonnull %rc.i.i) #18
   %0 = load i64, ptr %rc.i.i, align 8
   %mul.i.i = shl i64 %0, 10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
   %cmp.not.i = icmp eq i64 %mul.i.i, 0
   br i1 %cmp.not.i, label %if.end.i, label %uv_get_free_memory.exit
 
@@ -4308,13 +4308,13 @@ if.then3.i:                                       ; preds = %if.end.i
 
 uv_get_free_memory.exit:                          ; preds = %uv__read_proc_meminfo.exit.i, %if.end.i, %if.then3.i
   %retval.0.i = phi i64 [ %mul.i, %if.then3.i ], [ %mul.i.i, %uv__read_proc_meminfo.exit.i ], [ 0, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %info.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %info.i)
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %info.i8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i6)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i.i7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %info.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i7)
   %call.i.i9 = call i32 @uv__slurp(ptr noundef nonnull @.str.27, ptr noundef nonnull %buf.i.i7, i64 noundef 4096) #18
   %tobool.not.i.i10 = icmp eq i32 %call.i.i9, 0
   br i1 %tobool.not.i.i10, label %if.end.i.i20, label %uv__read_proc_meminfo.exit.thread.i11
@@ -4325,8 +4325,8 @@ if.end.i.i20:                                     ; preds = %if.end5
   br i1 %cmp.i.i22, label %uv__read_proc_meminfo.exit.thread.i11, label %uv__read_proc_meminfo.exit.i23
 
 uv__read_proc_meminfo.exit.thread.i11:            ; preds = %if.end.i.i20, %if.end5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i7)
   br label %if.end.i12
 
 uv__read_proc_meminfo.exit.i23:                   ; preds = %if.end.i.i20
@@ -4335,8 +4335,8 @@ uv__read_proc_meminfo.exit.i23:                   ; preds = %if.end.i.i20
   %call6.i.i25 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %add.ptr.i.i24, ptr noundef nonnull @.str.28, ptr noundef nonnull %rc.i.i6) #18
   %3 = load i64, ptr %rc.i.i6, align 8
   %mul.i.i26 = shl i64 %3, 10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i6)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i7)
   %cmp.not.i27 = icmp eq i64 %mul.i.i26, 0
   br i1 %cmp.not.i27, label %if.end.i12, label %uv_get_total_memory.exit
 
@@ -4346,7 +4346,7 @@ if.end.i12:                                       ; preds = %uv__read_proc_memin
   br i1 %cmp2.i14, label %if.then3.i16, label %uv_get_total_memory.exit.thread
 
 uv_get_total_memory.exit.thread:                  ; preds = %if.end.i12
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %info.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %info.i8)
   br label %if.then8
 
 if.then3.i16:                                     ; preds = %if.end.i12
@@ -4360,14 +4360,14 @@ if.then3.i16:                                     ; preds = %if.end.i12
 
 uv_get_total_memory.exit:                         ; preds = %uv__read_proc_meminfo.exit.i23, %if.then3.i16
   %retval.0.i15 = phi i64 [ %mul.i19, %if.then3.i16 ], [ %mul.i.i26, %uv__read_proc_meminfo.exit.i23 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %info.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %info.i8)
   %cmp7 = icmp ugt i64 %call2, %retval.0.i15
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %uv_get_total_memory.exit.thread, %uv_get_total_memory.exit
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %info.i30)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i28)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buf.i.i29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %info.i30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i29)
   %call.i.i31 = call i32 @uv__slurp(ptr noundef nonnull @.str.27, ptr noundef nonnull %buf.i.i29, i64 noundef 4096) #18
   %tobool.not.i.i32 = icmp eq i32 %call.i.i31, 0
   br i1 %tobool.not.i.i32, label %if.end.i.i43, label %uv__read_proc_meminfo.exit.thread.i33
@@ -4378,8 +4378,8 @@ if.end.i.i43:                                     ; preds = %if.then8
   br i1 %cmp.i.i45, label %uv__read_proc_meminfo.exit.thread.i33, label %uv__read_proc_meminfo.exit.i46
 
 uv__read_proc_meminfo.exit.thread.i33:            ; preds = %if.end.i.i43, %if.then8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i28)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i29)
   br label %if.end.i34
 
 uv__read_proc_meminfo.exit.i46:                   ; preds = %if.end.i.i43
@@ -4388,8 +4388,8 @@ uv__read_proc_meminfo.exit.i46:                   ; preds = %if.end.i.i43
   %call6.i.i48 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %add.ptr.i.i47, ptr noundef nonnull @.str.28, ptr noundef nonnull %rc.i.i28) #18
   %6 = load i64, ptr %rc.i.i28, align 8
   %mul.i.i49 = shl i64 %6, 10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i28)
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %buf.i.i29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i29)
   %cmp.not.i50 = icmp eq i64 %mul.i.i49, 0
   br i1 %cmp.not.i50, label %if.end.i34, label %uv_get_free_memory.exit51
 
@@ -4409,7 +4409,7 @@ if.then3.i38:                                     ; preds = %if.end.i34
 
 uv_get_free_memory.exit51:                        ; preds = %uv__read_proc_meminfo.exit.i46, %if.end.i34, %if.then3.i38
   %retval.0.i37 = phi i64 [ %mul.i42, %if.then3.i38 ], [ %mul.i.i49, %uv__read_proc_meminfo.exit.i46 ], [ 0, %if.end.i34 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %info.i30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %info.i30)
   br label %return
 
 if.end10:                                         ; preds = %uv_get_total_memory.exit
@@ -4418,7 +4418,7 @@ if.end10:                                         ; preds = %uv_get_total_memory
   br i1 %.not, label %if.else, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %filename.i)
   %call.i.i54 = call ptr @strchr(ptr noundef nonnull readonly align 1 dereferenceable(1024) %buf, i32 noundef 58) #19
   %cmp.not10.i.i = icmp eq ptr %call.i.i54, null
   br i1 %cmp.not10.i.i, label %if.end6.i, label %land.rhs.i.i
@@ -4444,8 +4444,8 @@ if.then.i:                                        ; preds = %land.rhs.i.i
   %call7.i.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i.i59, ptr noundef nonnull @.str.14) #19
   %conv.i.i = trunc i64 %call7.i.i to i32
   %call1.i60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i, i64 noundef 4097, ptr noundef nonnull @.str.38, i32 noundef %conv.i.i, ptr noundef nonnull %add.ptr.i.i59) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i53)
   store i64 0, ptr %rc.i.i53, align 8
   %call.i3.i = call i32 @uv__slurp(ptr noundef nonnull %filename.i, ptr noundef nonnull %buf.i.i52, i64 noundef 32) #18
   %cmp.i.i61 = icmp eq i32 %call.i3.i, 0
@@ -4462,20 +4462,20 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
   br i1 %cmp7.i.i, label %uv__read_uint64.exit.thread.i, label %uv__read_uint64.exit.i
 
 uv__read_uint64.exit.thread.i:                    ; preds = %if.then4.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i53)
   br label %uv__get_cgroup1_current_memory.exit
 
 uv__read_uint64.exit.i:                           ; preds = %if.then4.i.i, %if.then.i.i, %if.then.i
   %.pr.i = load i64, ptr %rc.i.i53, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i53)
   %cmp4.not.i = icmp eq i64 %.pr.i, 0
   br i1 %cmp4.not.i, label %if.end6.i, label %uv__get_cgroup1_current_memory.exit
 
 if.end6.i:                                        ; preds = %if.end.i.i57, %while.body.i.i, %uv__read_uint64.exit.i, %if.then14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i6.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i7.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i7.i)
   store i64 0, ptr %rc.i7.i, align 8
   %call.i8.i = call i32 @uv__slurp(ptr noundef nonnull @.str.39, ptr noundef nonnull %buf.i6.i, i64 noundef 32) #18
   %cmp.i9.i = icmp eq i32 %call.i8.i, 0
@@ -4497,23 +4497,23 @@ if.then8.i16.i:                                   ; preds = %if.then4.i13.i
 
 uv__read_uint64.exit17.i:                         ; preds = %if.then8.i16.i, %if.then4.i13.i, %if.then.i10.i, %if.end6.i
   %9 = load i64, ptr %rc.i7.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i6.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i7.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i7.i)
   br label %uv__get_cgroup1_current_memory.exit
 
 uv__get_cgroup1_current_memory.exit:              ; preds = %uv__read_uint64.exit.thread.i, %uv__read_uint64.exit.i, %uv__read_uint64.exit17.i
   %retval.0.i58 = phi i64 [ %9, %uv__read_uint64.exit17.i ], [ %.pr.i, %uv__read_uint64.exit.i ], [ -1, %uv__read_uint64.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %filename.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %filename.i)
   br label %if.end19
 
 if.else:                                          ; preds = %if.end10
-  call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %filename.i64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %filename.i64)
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 4
   %call.i = call i64 @strcspn(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull @.str.14) #19
   %conv.i65 = trunc i64 %call.i to i32
   %call1.i66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %filename.i64, i64 noundef 4097, ptr noundef nonnull @.str.40, i32 noundef %conv.i65, ptr noundef nonnull %add.ptr.i) #18
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i62)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc.i.i63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %rc.i.i63)
   store i64 0, ptr %rc.i.i63, align 8
   %call.i.i67 = call i32 @uv__slurp(ptr noundef nonnull %filename.i64, ptr noundef nonnull %buf.i.i62, i64 noundef 32) #18
   %cmp.i.i68 = icmp eq i32 %call.i.i67, 0
@@ -4535,9 +4535,9 @@ if.then8.i.i:                                     ; preds = %if.then4.i.i73
 
 uv__get_cgroup2_current_memory.exit:              ; preds = %if.else, %if.then.i.i70, %if.then4.i.i73, %if.then8.i.i
   %10 = load i64, ptr %rc.i.i63, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i.i62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc.i.i63)
-  call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %filename.i64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %rc.i.i63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %filename.i64)
   br label %if.end19
 
 if.end19:                                         ; preds = %uv__get_cgroup2_current_memory.exit, %uv__get_cgroup1_current_memory.exit
@@ -6088,10 +6088,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15

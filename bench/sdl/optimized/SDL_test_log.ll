@@ -18,79 +18,73 @@ define dso_local void @SDLTest_Log(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [3584 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 3584, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3584) %4, i8 0, i64 3584, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call i32 @SDL_vsnprintf(ptr noundef nonnull %4, i64 noundef 3583, ptr noundef %0, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = call i64 @time(ptr noundef null) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) @SDLTest_TimestampToString.buffer, i8 0, i64 64, i1 false)
   store i64 %6, ptr %2, align 8
   %7 = call ptr @localtime(ptr noundef nonnull %2) #6
   %8 = call i64 @strftime(ptr noundef nonnull @SDLTest_TimestampToString.buffer, i64 noundef 64, ptr noundef nonnull @.str.4, ptr noundef %7) #6
   %9 = icmp eq i64 %8, 0
   %.str.5.SDLTest_TimestampToString.buffer.i = select i1 %9, ptr @.str.5, ptr @SDLTest_TimestampToString.buffer
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (i32, i32, ptr, ...) @SDL_LogMessage(i32 noundef 8, i32 noundef 4, ptr noundef nonnull @.str, ptr noundef nonnull %.str.5.SDLTest_TimestampToString.buffer.i, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 3584, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
-declare i32 @SDL_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @SDL_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
-declare void @SDL_LogMessage(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @SDL_LogMessage(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SDLTest_LogError(ptr noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [3584 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 3584, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3584) %4, i8 0, i64 3584, i1 false)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call i32 @SDL_vsnprintf(ptr noundef nonnull %4, i64 noundef 3583, ptr noundef %0, ptr noundef nonnull %3) #6
   call void @llvm.va_end.p0(ptr nonnull %3)
   %6 = call i64 @time(ptr noundef null) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) @SDLTest_TimestampToString.buffer, i8 0, i64 64, i1 false)
   store i64 %6, ptr %2, align 8
   %7 = call ptr @localtime(ptr noundef nonnull %2) #6
   %8 = call i64 @strftime(ptr noundef nonnull @SDLTest_TimestampToString.buffer, i64 noundef 64, ptr noundef nonnull @.str.4, ptr noundef %7) #6
   %9 = icmp eq i64 %8, 0
   %.str.5.SDLTest_TimestampToString.buffer.i = select i1 %9, ptr @.str.5, ptr @SDLTest_TimestampToString.buffer
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (i32, i32, ptr, ...) @SDL_LogMessage(i32 noundef 8, i32 noundef 6, ptr noundef nonnull @.str.1, ptr noundef nonnull %.str.5.SDLTest_TimestampToString.buffer.i, ptr noundef nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 3584, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3584 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 3584, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %100, label %5
 
@@ -286,26 +280,32 @@ define dso_local void @SDLTest_LogEscapedString(ptr noundef %0, ptr noundef read
 
 102:                                              ; preds = %92, %._crit_edge, %100
   call void (ptr, ...) @SDLTest_Log(ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 3584, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare i32 @SDL_isprint(i32 noundef) local_unnamed_addr #4
+declare i32 @SDL_isprint(i32 noundef) local_unnamed_addr #3
 
-declare i64 @SDL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
-
-; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #5
+declare i64 @SDL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @localtime(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

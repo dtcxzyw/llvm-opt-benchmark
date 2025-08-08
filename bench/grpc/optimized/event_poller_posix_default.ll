@@ -57,7 +57,7 @@ define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9Sched
   %7 = alloca %"class.std::shared_ptr.5", align 8
   %8 = alloca %"class.std::shared_ptr.11", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load atomic i64, ptr @_ZN9grpc_core10ConfigVars12config_vars_E acquire, align 8
   %.0.i.i.i = inttoptr i64 %9 to ptr
   %.not.i = icmp eq i64 %9, 0
@@ -78,7 +78,7 @@ define void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9Sched
   store ptr %14, ptr %.sroa.2.0..sroa_idx.i1.i, align 8, !tbaa !16, !alias.scope !13
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 44, ptr %17, align 8, !tbaa !17, !alias.scope !13
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !18, !alias.scope !25
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %18, align 8, !tbaa !28, !alias.scope !25
@@ -116,7 +116,7 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
   br i1 %33, label %34, label %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
 
 34:                                               ; preds = %31
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef %32, i64 noundef %16) #13
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef %32, i64 noundef %16) #12
           to label %.noexc16 unwind label %52
 
 .noexc16:                                         ; preds = %34
@@ -186,7 +186,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i: ; preds = %54
   br i1 %56, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.2") align 8 %5, ptr noundef %1)
           to label %57 unwind label %104
 
@@ -214,11 +214,11 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   %68 = load ptr, ptr %60, align 8, !tbaa !45
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
+  call void %70(ptr noundef nonnull align 8 dereferenceable(16) %60) #13
   %71 = load ptr, ptr %60, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
+  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %60) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split
 
 74:                                               ; preds = %61
@@ -241,7 +241,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %78, %7
   br i1 %80, label %81, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split, !prof !48
 
 81:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split: ; preds = %81, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %66
@@ -267,11 +267,11 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   %90 = load ptr, ptr %82, align 8, !tbaa !45
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
+  call void %92(ptr noundef nonnull align 8 dereferenceable(16) %82) #13
   %93 = load ptr, ptr %82, align 8, !tbaa !45
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
-  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
+  call void %95(ptr noundef nonnull align 8 dereferenceable(16) %82) #13
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread
 
 96:                                               ; preds = %83
@@ -294,17 +294,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %100, %98
   br i1 %102, label %103, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, !prof !48
 
 103:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %82) #13
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread
 
 104:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit
   %105 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %237
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread: ; preds = %103, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %88, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_12Epoll1PollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre78 = load ptr, ptr %0, align 8, !tbaa !49
   %106 = icmp eq ptr %.pre78, null
   br i1 %106, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.threadthread-pre-split, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
@@ -333,7 +333,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i20: ; preds = %_ZN17grpc_event_
   br i1 %108, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i36
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i20, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN17grpc_event_engine12experimental14MakePollPollerEPNS0_9SchedulerEb(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.5") align 8 %6, ptr noundef %1, i1 noundef zeroext false)
           to label %109 unwind label %156
 
@@ -361,11 +361,11 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   %120 = load ptr, ptr %112, align 8, !tbaa !45
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
+  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #13
   %123 = load ptr, ptr %112, align 8, !tbaa !45
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
+  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %112) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split
 
 126:                                              ; preds = %113
@@ -388,7 +388,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29: ; preds = %130,
   br i1 %132, label %133, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split, !prof !48
 
 133:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split: ; preds = %133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29, %118
@@ -414,11 +414,11 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   %142 = load ptr, ptr %134, align 8, !tbaa !45
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
-  call void %144(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
+  call void %144(ptr noundef nonnull align 8 dereferenceable(16) %134) #13
   %145 = load ptr, ptr %134, align 8, !tbaa !45
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
+  call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 148:                                              ; preds = %135
@@ -441,17 +441,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33: ; preds = %152, %15
   br i1 %154, label %155, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit, %140, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i33, %155
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
 156:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26
   %157 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %237
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
@@ -465,7 +465,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i36: ; preds = %_ZNSt11char_trai
   br i1 %159, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i36, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN17grpc_event_engine12experimental14MakePollPollerEPNS0_9SchedulerEb(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.5") align 8 %7, ptr noundef %1, i1 noundef zeroext true)
           to label %160 unwind label %207
 
@@ -493,11 +493,11 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   %171 = load ptr, ptr %163, align 8, !tbaa !45
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
-  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %163) #13
   %174 = load ptr, ptr %163, align 8, !tbaa !45
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
-  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
+  call void %176(ptr noundef nonnull align 8 dereferenceable(16) %163) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split
 
 177:                                              ; preds = %164
@@ -520,7 +520,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45: ; preds = %181,
   br i1 %183, label %184, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split, !prof !48
 
 184:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %163) #13
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split: ; preds = %184, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45, %169
@@ -546,11 +546,11 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_1
   %193 = load ptr, ptr %185, align 8, !tbaa !45
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load ptr, ptr %194, align 8
-  call void %195(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
+  call void %195(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %196 = load ptr, ptr %185, align 8, !tbaa !45
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
+  call void %198(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
 
 199:                                              ; preds = %186
@@ -573,17 +573,17 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50: ; preds = %203, %20
   br i1 %205, label %206, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, !prof !48
 
 206:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52: ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47, %191, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i50, %206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
 207:                                              ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42
   %208 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %237
 
 _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i36, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52
@@ -622,7 +622,7 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
   br i1 %223, label %224, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i
 
 224:                                              ; preds = %221
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef %222, i64 noundef %.sroa.0.0.copyload.i.i.i53) #13
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i64 noundef %222, i64 noundef %.sroa.0.0.copyload.i.i.i53) #12
           to label %.noexc57 unwind label %.loopexit.split-lp
 
 .noexc57:                                         ; preds = %224
@@ -667,12 +667,12 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
 
 237:                                              ; preds = %.loopexit, %.loopexit.split-lp, %207, %156, %104, %52
   %.pn = phi { ptr, i32 } [ %157, %156 ], [ %208, %207 ], [ %105, %104 ], [ %53, %52 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %277
 
 .critedge:                                        ; preds = %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit
   %238 = phi ptr [ %45, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit ], [ %23, %_ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE5beginEv.exit.thread ], [ %236, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEi.exit ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %239 = icmp eq ptr %238, null
   %240 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %spec.select.i.i = select i1 %239, ptr null, ptr %240
@@ -723,11 +723,11 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEve
   %261 = load ptr, ptr %253, align 8, !tbaa !45
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load ptr, ptr %262, align 8
-  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
+  call void %263(ptr noundef nonnull align 8 dereferenceable(16) %253) #13
   %264 = load ptr, ptr %253, align 8, !tbaa !45
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8
-  call void %266(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
+  call void %266(ptr noundef nonnull align 8 dereferenceable(16) %253) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 267:                                              ; preds = %254
@@ -750,33 +750,27 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62: ; preds = %271, %26
   br i1 %273, label %274, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 274:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %253) #12
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %253) #13
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %252, %259, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62, %274
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 275:                                              ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8ForkableEEC2INS1_16PosixEventPollerEvEERKS_IT_E.exit
   %276 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
+  call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
   br label %277
 
 277:                                              ; preds = %275, %237, %50
   %.pn.pn = phi { ptr, i32 } [ %.pn, %237 ], [ %276, %275 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
-  call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN17grpc_event_engine12experimental16MakeEpoll1PollerEPNS0_9SchedulerE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.2") align 8, ptr noundef) local_unnamed_addr #0
 
@@ -803,7 +797,7 @@ define internal void @_ZN17grpc_event_engine12experimental12_GLOBAL__N_125Poller
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8ForkableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i = icmp eq ptr %3, null
@@ -823,11 +817,11 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
   %11 = load ptr, ptr %3, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %14 = load ptr, ptr %3, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -850,7 +844,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -860,11 +854,11 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 declare noundef nonnull align 8 dereferenceable(280) ptr @_ZN9grpc_core10ConfigVars4LoadEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !45
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i = icmp eq i8 %6, 0
@@ -889,7 +883,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -903,15 +897,15 @@ declare void @_ZN17grpc_event_engine12experimental22ObjectGroupForkHandler14Post
 declare void @_ZN17grpc_event_engine12experimental22ObjectGroupForkHandler13PostforkChildEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare { i64, ptr } @_ZNK4absl12lts_202407226ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 1 dereferenceable(1), i64, ptr, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #8
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %.not.i = icmp eq ptr %3, null
@@ -931,11 +925,11 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN17grpc_event_engine12experimental
   %11 = load ptr, ptr %3, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   %14 = load ptr, ptr %3, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -958,7 +952,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !48
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -966,12 +960,18 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_event_poller_posix_default.cc() #9 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_event_poller_posix_default.cc() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZN17grpc_event_engine12experimental12_GLOBAL__N_121g_poller_fork_managerE, i8 0, i64 32, i1 false)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -983,16 +983,16 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn }
+attributes #12 = { noreturn }
+attributes #13 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

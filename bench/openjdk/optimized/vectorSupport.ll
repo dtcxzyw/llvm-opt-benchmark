@@ -486,7 +486,7 @@ declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_ad
 define hidden noundef ptr @_ZN13VectorSupport30allocate_vector_payload_helperEP13InstanceKlassP5frameP11RegisterMap8LocationP10JavaThread(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = alloca %class.fieldDescriptor, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %8, i8 0, i64 22, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -517,8 +517,8 @@ _ZN13VectorSupport12klass2lengthEP13InstanceKlass.exit: ; preds = %5, %19
   %26 = inttoptr i64 %25 to ptr
   %27 = load i32, ptr %26, align 4
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %28, i8 0, i64 22, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -553,7 +553,7 @@ _ZNK5Klass11java_mirrorEv.exit.i:                 ; preds = %38
 _ZN13VectorSupport8klass2btEP13InstanceKlass.exit: ; preds = %_ZN13VectorSupport12klass2lengthEP13InstanceKlass.exit, %38, %_ZNK5Klass11java_mirrorEv.exit.i
   %.0.i = phi i8 [ %47, %_ZNK5Klass11java_mirrorEv.exit.i ], [ 8, %_ZN13VectorSupport12klass2lengthEP13InstanceKlass.exit ], [ 4, %38 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %29) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = zext i8 %.0.i to i64
   %49 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
@@ -3356,10 +3356,10 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

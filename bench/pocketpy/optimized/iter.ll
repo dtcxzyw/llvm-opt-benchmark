@@ -409,7 +409,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9RangeIter9_registerEPNS_
   br i1 %.not.i, label %13, label %"_ZZN4pkpy9RangeIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit"
 
 13:                                               ; preds = %12, %11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %8, ptr %3, align 8
   %or.cond.i.i = icmp ult i64 %8, 1152921504606846976
   br i1 %or.cond.i.i, label %14, label %18
@@ -427,7 +427,7 @@ define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy9RangeIter9_registerEPNS_
 
 _ZN4pkpy6py_varIRlEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %18, %14
   %.0.i.i = phi ptr [ %17, %14 ], [ %20, %18 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 264296
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -866,7 +866,7 @@ define internal noundef ptr @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObj
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @"_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_EN3$_18__invokeES2_S4_"(ptr noundef nonnull %0, ptr noundef captures(none) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i16 @_ZN4pkpy2VM28_find_type_in_cxx_typeid_mapINS_10StringIterEEENS_4TypeEv(ptr noundef nonnull align 8 dereferenceable(264913) %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -909,7 +909,7 @@ _ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i: ; preds = %12
 
 "_ZZN4pkpy10StringIter9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_1clES2_S4_.exit": ; preds = %2, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i
   %.0.i = phi i32 [ 1, %_ZN4pkpy6py_varINS_3StrEEEPNS_8PyObjectEPNS_2VMEOT_.exit.i ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -1750,10 +1750,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

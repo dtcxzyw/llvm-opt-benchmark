@@ -3026,8 +3026,8 @@ set_planes_to_neutral_grey.exit:                  ; preds = %.loopexit41.i, %._c
   br i1 %or.cond.not, label %824, label %702
 
 702:                                              ; preds = %697
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %703
 
 703:                                              ; preds = %739, %702
@@ -3277,8 +3277,8 @@ get_ref_frame_map_idx.exit.i70.i:                 ; preds = %823, %800
 
 setup_frame_size_with_refs.exit:                  ; preds = %823
   call fastcc void @setup_buffer_pool(ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %825
 
 824:                                              ; preds = %697
@@ -6043,11 +6043,11 @@ row_mt_frame_init.exit.i:                         ; preds = %.thread73.i.i, %268
 
 reset_dec_workers.exit.thread.i:                  ; preds = %row_mt_frame_init.exit.i
   %274 = tail call ptr @aom_get_worker_interface() #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %275 = tail call ptr @aom_get_worker_interface() #16
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 47824
   store i32 0, ptr %276, align 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %345
 
 .lr.ph.i185.i:                                    ; preds = %row_mt_frame_init.exit.i
@@ -6142,7 +6142,7 @@ launch_dec_workers.exit.i:                        ; preds = %.lr.ph218.i, %reset
   %.lcssa.i = phi ptr [ %316, %reset_dec_workers.exit.i ], [ %325, %.lr.ph218.i ]
   %331 = load ptr, ptr %314, align 8
   tail call void %331(ptr noundef nonnull %.lcssa.i) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %332 = tail call ptr @aom_get_worker_interface() #16
   store i32 0, ptr %9, align 4
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
@@ -6166,7 +6166,7 @@ sync_dec_workers.exit.i:                          ; preds = %334
   %.pre.i197.i = load i32, ptr %9, align 4
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 47824
   store i32 %.pre.i197.i, ptr %342, align 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not171.i = icmp eq i32 %.pre.i197.i, 0
   br i1 %.not171.i, label %345, label %343
 
@@ -6407,11 +6407,11 @@ decoder_alloc_tile_data.exit.i145:                ; preds = %.lr.ph.i.i165, %441
 
 reset_dec_workers.exit.thread.i146:               ; preds = %._crit_edge144.i
   %461 = tail call ptr @aom_get_worker_interface() #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %462 = tail call ptr @aom_get_worker_interface() #16
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 47824
   store i32 0, ptr %463, align 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %532
 
 .lr.ph.i129.i:                                    ; preds = %._crit_edge144.i
@@ -6506,7 +6506,7 @@ launch_dec_workers.exit.i154:                     ; preds = %.lr.ph.i153, %reset
   %.lcssa.i155 = phi ptr [ %503, %reset_dec_workers.exit.i152 ], [ %512, %.lr.ph.i153 ]
   %518 = load ptr, ptr %501, align 8
   tail call void %518(ptr noundef nonnull %.lcssa.i155) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %519 = tail call ptr @aom_get_worker_interface() #16
   store i32 0, ptr %8, align 4
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 16
@@ -6530,7 +6530,7 @@ sync_dec_workers.exit.i156:                       ; preds = %521
   %.pre.i.i157 = load i32, ptr %8, align 4
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 47824
   store i32 %.pre.i.i157, ptr %529, align 16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not127.i = icmp eq i32 %.pre.i.i157, 0
   br i1 %.not127.i, label %532, label %530
 
@@ -10289,7 +10289,7 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %31
   br i1 %.not.not, label %31, label %51, !llvm.loop !102
 
 51:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.val.i = load i8, ptr %20, align 1
   %.not.i.i = icmp eq i8 %.val.i, 0
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -10385,21 +10385,21 @@ is_interintra_pred.exit.thread.i:                 ; preds = %100, %is_interintra
   br i1 %112, label %68, label %dec_build_inter_predictor.exit, !llvm.loop !103
 
 dec_build_inter_predictor.exit:                   ; preds = %69, %is_interintra_pred.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %113 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %114 = load i8, ptr %113, align 8
   %115 = icmp eq i8 %114, 1
   br i1 %115, label %116, label %370
 
 116:                                              ; preds = %dec_build_inter_predictor.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.val.i38 = load i8, ptr %20, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) @__const.dec_build_obmc_inter_predictors_sb.dst_height2, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) @__const.dec_build_obmc_inter_predictors_sb.dst_height2, i64 12, i1 false)
@@ -10408,7 +10408,7 @@ dec_build_inter_predictor.exit:                   ; preds = %69, %is_interintra_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) @__const.dec_build_obmc_inter_predictors_sb.dst_height2, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %15, ptr noundef nonnull align 4 dereferenceable(12) @__const.dec_build_obmc_inter_predictors_sb.dst_height2, i64 12, i1 false)
   call void @av1_setup_obmc_dst_bufs(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 7872
   %118 = load i8, ptr %117, align 16
   %119 = trunc i8 %118 to i1
@@ -10526,7 +10526,7 @@ is_neighbor_overlappable.exit.thread.i.i.i:       ; preds = %is_neighbor_overlap
   %191 = sub nsw i32 %.1.i.i.i, %148
   %192 = load i8, ptr %157, align 4
   %..040.i.i.i = call i8 @llvm.umin.i8(i8 %192, i8 %.040.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %193 = load i32, ptr %23, align 4
   %194 = add nsw i32 %193, %191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull readonly align 8 dereferenceable(184) %185, i64 184, i1 false)
@@ -10578,7 +10578,7 @@ is_neighbor_overlappable.exit.thread.i.i.i:       ; preds = %is_neighbor_overlap
 
 dec_build_prediction_by_above_pred.exit.i.i:      ; preds = %226
   %227 = add nsw i32 %.0412.i.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %228
 
 228:                                              ; preds = %dec_build_prediction_by_above_pred.exit.i.i, %is_neighbor_overlappable.exit.i.i.i
@@ -10612,8 +10612,8 @@ foreach_overlappable_nb_above.exit.i.i:           ; preds = %foreach_overlappabl
 
 dec_build_prediction_by_above_preds.exit.i:       ; preds = %foreach_overlappable_nb_above.exit.i.i, %116
   %.pre43 = phi ptr [ %.pre43.pre, %foreach_overlappable_nb_above.exit.i.i ], [ %.pre43.pre44, %116 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 7873
   %240 = load i8, ptr %239, align 1
   %241 = trunc i8 %240 to i1
@@ -10735,7 +10735,7 @@ is_neighbor_overlappable.exit.thread.i.i28.i:     ; preds = %is_neighbor_overlap
   %313 = sub nsw i32 %.1.i.i25.i, %.pre.i
   %314 = load i8, ptr %277, align 1
   %..042.i.i.i = call i8 @llvm.umin.i8(i8 %314, i8 %.042.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %315 = load i32, ptr %1, align 16
   %316 = add nsw i32 %315, %313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %4, ptr noundef nonnull readonly align 8 dereferenceable(184) %307, i64 184, i1 false)
@@ -10787,7 +10787,7 @@ is_neighbor_overlappable.exit.thread.i.i28.i:     ; preds = %is_neighbor_overlap
 
 dec_build_prediction_by_left_pred.exit.i.i:       ; preds = %348
   %349 = add nsw i32 %.0433.i.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %350
 
 350:                                              ; preds = %dec_build_prediction_by_left_pred.exit.i.i, %is_neighbor_overlappable.exit.i.i36.i
@@ -10824,7 +10824,7 @@ dec_build_obmc_inter_predictors_sb.exit:          ; preds = %dec_build_predictio
   %362 = phi i32 [ %.pre.i, %dec_build_prediction_by_above_preds.exit.i ], [ %358, %foreach_overlappable_nb_left.exit.i.i ]
   %.not.i.i39 = icmp eq i8 %.val.i38, 0
   %363 = select i1 %.not.i.i39, i32 3, i32 1
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %364 = load i32, ptr %23, align 4
   %365 = load ptr, ptr %361, align 8
   %366 = load i8, ptr %365, align 8
@@ -10833,14 +10833,14 @@ dec_build_obmc_inter_predictors_sb.exit:          ; preds = %dec_build_predictio
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 1312
   call void @av1_setup_dst_planes(ptr noundef nonnull %55, i8 noundef zeroext %366, ptr noundef nonnull %369, i32 noundef %362, i32 noundef %364, i32 noundef 0, i32 noundef %363) #16
   call void @av1_build_obmc_inter_prediction(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %370
 
 370:                                              ; preds = %dec_build_obmc_inter_predictors_sb.exit, %dec_build_inter_predictor.exit
@@ -11041,7 +11041,7 @@ declare void @av1_build_inter_predictors(ptr noundef, ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal void @dec_calc_subpel_params_and_extend(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7, ptr noundef writeonly captures(none) initializes((0, 16)) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9) #0 {
   %11 = alloca %struct.mv, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -11291,7 +11291,7 @@ dec_calc_subpel_params.exit:                      ; preds = %av1_is_scaled.exit.
   store ptr %203, ptr %7, align 8
   %204 = load i32, ptr %197, align 8
   store i32 %204, ptr %9, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %205 = load ptr, ptr %12, align 8
   %206 = load i32, ptr %1, align 8
   %207 = icmp eq i32 %206, 1
@@ -12424,8 +12424,8 @@ loop_restoration_read_sb_coeffs.exit:             ; preds = %79, %aom_read_symbo
   br i1 %382, label %get_partition.exit.thread, label %383
 
 383:                                              ; preds = %381
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %384 = or i1 %32, %36
   br i1 %384, label %385, label %read_partition.exit
 
@@ -12618,8 +12618,8 @@ partition_gather_horz_alike.exit.i:               ; preds = %495, %484
 
 read_partition.exit:                              ; preds = %383, %aom_read_symbol_.exit.i315, %partition_gather_vert_alike.exit.i, %partition_gather_horz_alike.exit.i
   %.0.i305 = phi i8 [ %455, %aom_read_symbol_.exit.i315 ], [ %483, %partition_gather_vert_alike.exit.i ], [ %505, %partition_gather_horz_alike.exit.i ], [ 3, %383 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %get_partition.exit
 
 506:                                              ; preds = %37
@@ -15736,10 +15736,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13

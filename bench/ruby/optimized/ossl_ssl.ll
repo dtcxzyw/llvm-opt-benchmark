@@ -1002,7 +1002,7 @@ define internal i64 @ossl_sslctx_get_ciphers(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_sslctx_set_ciphers(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq i64 %0, 0
   %5 = and i64 %0, 7
   %6 = icmp ne i64 %5, 0
@@ -1053,14 +1053,14 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 24:                                               ; preds = %17, %rb_check_frozen_inline.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_sslctx_set_ciphersuites(i64 noundef %0, i64 noundef returned %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp eq i64 %0, 0
   %5 = and i64 %0, 7
   %6 = icmp ne i64 %5, 0
@@ -1111,7 +1111,7 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 24:                                               ; preds = %17, %rb_check_frozen_inline.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %1
 }
 
@@ -1320,9 +1320,9 @@ define internal range(i64 1, -7) i64 @ossl_sslctx_add_certificate(i32 noundef %0
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_sslctx_type) #9
   store ptr %4, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1474,16 +1474,16 @@ rb_check_frozen_inline.exit:                      ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 63:                                               ; preds = %59, %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 4, 21) i64 @ossl_sslctx_setup(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -2094,7 +2094,7 @@ RSTRING_LENINT.exit108:                           ; preds = %RSTRING_PTR.exit106
 
 RB_OBJ_FROZEN.exit.thread:                        ; preds = %1, %RB_FL_ABLE.exit.i, %307, %314, %311
   %.0 = phi i64 [ 20, %311 ], [ 20, %314 ], [ 20, %307 ], [ 4, %RB_FL_ABLE.exit.i ], [ 4, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3384,7 +3384,7 @@ define internal i64 @ossl_ssl_set_hostname(i64 noundef %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_get_finished(i64 noundef %0) #0 {
   %2 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3407,14 +3407,14 @@ define internal i64 @ossl_ssl_get_finished(i64 noundef %0) #0 {
 
 13:                                               ; preds = %6, %9
   %.0 = phi i64 [ %12, %9 ], [ 4, %6 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_get_peer_finished(i64 noundef %0) #0 {
   %2 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3437,14 +3437,14 @@ define internal i64 @ossl_ssl_get_peer_finished(i64 noundef %0) #0 {
 
 13:                                               ; preds = %6, %9
   %.0 = phi i64 [ %12, %9 ], [ 4, %6 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ssl_tmp_key(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #9
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
@@ -3466,7 +3466,7 @@ define internal i64 @ossl_ssl_tmp_key(i64 noundef %0) #0 {
 
 11:                                               ; preds = %6, %8
   %.0 = phi i64 [ %10, %8 ], [ 4, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3474,8 +3474,8 @@ define internal i64 @ossl_ssl_tmp_key(i64 noundef %0) #0 {
 define internal i64 @ossl_ssl_alpn_protocol(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
@@ -3499,8 +3499,8 @@ define internal i64 @ossl_ssl_alpn_protocol(i64 noundef %0) #0 {
 
 13:                                               ; preds = %7, %9
   %.0 = phi i64 [ %12, %9 ], [ 4, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
@@ -3510,9 +3510,9 @@ define internal i64 @ossl_ssl_export_keying_material(i32 noundef %0, ptr noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %4, ptr %7, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !26
@@ -3663,9 +3663,9 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit28
   unreachable
 
 66:                                               ; preds = %RSTRING_LENINT.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %33
 }
 
@@ -3673,8 +3673,8 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit28
 define internal i64 @ossl_ssl_npn_protocol(i64 noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ssl_type) #9
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
@@ -3698,22 +3698,16 @@ define internal i64 @ossl_ssl_npn_protocol(i64 noundef %0) #0 {
 
 13:                                               ; preds = %7, %9
   %.0 = phi i64 [ %12, %9 ], [ 4, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #1
 
 declare ptr @SSL_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @SSL_free(ptr noundef) local_unnamed_addr #1
 
@@ -3870,7 +3864,7 @@ declare void @rb_error_frozen_object(i64 noundef) local_unnamed_addr #2
 declare void @rb_str_modify(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc i32 @rb_num2int_inline(i64 noundef %0) unnamed_addr #4 {
+define internal fastcc i32 @rb_num2int_inline(i64 noundef %0) unnamed_addr #3 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %5, label %3
@@ -3894,7 +3888,7 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -3918,7 +3912,7 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ossl_ssl_cipher_to_ary(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @rb_ary_new_capa(i64 noundef 4) #9
   %4 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %0) #9
   %5 = tail call i64 @rb_str_new_cstr(ptr noundef %4) #9
@@ -3936,7 +3930,7 @@ define internal fastcc i64 @ossl_ssl_cipher_to_ary(ptr noundef %0) unnamed_addr 
   %17 = shl nsw i64 %16, 1
   %18 = or disjoint i64 %17, 1
   %19 = call i64 @rb_ary_push(i64 noundef %3, i64 noundef %18) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %3
 }
 
@@ -3951,7 +3945,7 @@ declare i32 @SSL_CIPHER_get_bits(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @build_cipher_string(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -4050,7 +4044,7 @@ rbimpl_RB_TYPE_P_fastpath.exit16.thread:          ; preds = %1, %rbimpl_RB_TYPE_
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rbimpl_RB_TYPE_P_fastpath.exit16.thread
   %50 = phi i64 [ %.pre, %rbimpl_RB_TYPE_P_fastpath.exit16.thread ], [ %12, %rb_array_len.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %50
 }
 
@@ -4061,7 +4055,7 @@ declare ptr @rb_string_value_cstr(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @rb_ary_entry(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @rb_String(i64 noundef) local_unnamed_addr #1
 
@@ -4118,8 +4112,8 @@ declare void @SSL_CTX_set_tmp_dh_callback(ptr noundef, ptr noundef) local_unname
 define internal ptr @ossl_tmp_dh_callback(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.tmp_dh_callback_args, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4, !tbaa !6
   %7 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %6) #9
   %8 = ptrtoint ptr %7 to i64
@@ -4158,8 +4152,8 @@ define internal ptr @ossl_tmp_dh_callback(ptr noundef %0, i32 noundef %1, i32 no
 
 27:                                               ; preds = %24, %25, %18
   %.0 = phi ptr [ null, %18 ], [ %26, %25 ], [ null, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -4205,7 +4199,7 @@ declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_un
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @ossl_ssl_verify_callback(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @SSL_get_ex_data_X509_STORE_CTX_idx() #9
   %5 = tail call ptr @X509_STORE_CTX_get_ex_data(ptr noundef %1, i32 noundef %4) #9
   %6 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4, !tbaa !6
@@ -4265,7 +4259,7 @@ define internal i32 @ossl_ssl_verify_callback(i32 noundef %0, ptr noundef %1) #0
 
 35:                                               ; preds = %33, %25
   %.0 = phi i32 [ %34, %33 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -4382,8 +4376,8 @@ define internal range(i32 0, 3) i32 @ssl_npn_select_cb(ptr noundef %0, ptr nound
   %9 = ptrtoint ptr %5 to i64
   %10 = load i64, ptr @id_i_npn_select_cb, align 8, !tbaa !10
   %11 = tail call i64 @rb_attr_get(i64 noundef %9, i64 noundef %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %11, ptr %8, align 8, !tbaa !79
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %12, align 8, !tbaa !81
@@ -4430,8 +4424,8 @@ RSTRING_PTR.exit.i:                               ; preds = %32, %27
 
 ssl_npn_select_cb_common.exit:                    ; preds = %17, %RSTRING_PTR.exit.i
   %.0.i = phi i32 [ 2, %17 ], [ 0, %RSTRING_PTR.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -4446,8 +4440,8 @@ define internal range(i32 0, 3) i32 @ssl_alpn_select_cb(ptr noundef %0, ptr noun
   %9 = ptrtoint ptr %5 to i64
   %10 = load i64, ptr @id_i_alpn_select_cb, align 8, !tbaa !10
   %11 = tail call i64 @rb_attr_get(i64 noundef %9, i64 noundef %10) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %11, ptr %8, align 8, !tbaa !79
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %12, align 8, !tbaa !81
@@ -4494,8 +4488,8 @@ RSTRING_PTR.exit.i:                               ; preds = %32, %27
 
 ssl_npn_select_cb_common.exit:                    ; preds = %17, %RSTRING_PTR.exit.i
   %.0.i = phi i32 [ 2, %17 ], [ 0, %RSTRING_PTR.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0.i
 }
 
@@ -4508,7 +4502,7 @@ declare void @SSL_CTX_sess_set_get_cb(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @ossl_sslctx_session_get_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !6
   %6 = load i64, ptr @dOSSL, align 8, !tbaa !10
   %7 = icmp eq i64 %6, 20
@@ -4567,7 +4561,7 @@ define internal ptr @ossl_sslctx_session_get_cb(ptr noundef %0, ptr noundef %1, 
 
 40:                                               ; preds = %32, %39, %26
   %.0 = phi ptr [ null, %26 ], [ %36, %39 ], [ null, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -4576,7 +4570,7 @@ declare void @SSL_CTX_sess_set_new_cb(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @ossl_sslctx_session_new_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !6
   %4 = load i64, ptr @dOSSL, align 8, !tbaa !10
   %5 = icmp eq i64 %4, 20
@@ -4618,7 +4612,7 @@ define internal noundef i32 @ossl_sslctx_session_new_cb(ptr noundef %0, ptr noun
   br label %33
 
 33:                                               ; preds = %27, %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 0
 }
 
@@ -4627,7 +4621,7 @@ declare void @SSL_CTX_sess_set_remove_cb(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_sslctx_session_remove_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !6
   %4 = tail call i32 @rb_during_gc() #12
   %.not = icmp eq i32 %4, 0
@@ -4664,7 +4658,7 @@ define internal void @ossl_sslctx_session_remove_cb(ptr noundef %0, ptr noundef 
   br label %28
 
 28:                                               ; preds = %2, %15
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4673,7 +4667,7 @@ declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 3) i32 @ssl_servername_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = ptrtoint ptr %0 to i64
   %6 = call i64 @rb_protect(ptr noundef nonnull @ossl_call_servername_cb, i64 noundef %5, ptr noundef nonnull %4) #9
   %7 = load i32, ptr %4, align 4, !tbaa !6
@@ -4694,7 +4688,7 @@ define internal range(i32 0, 3) i32 @ssl_servername_cb(ptr noundef %0, ptr readn
 
 18:                                               ; preds = %3, %8
   %.0 = phi i32 [ 2, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4704,8 +4698,8 @@ declare void @SSL_CTX_set_keylog_callback(ptr noundef, ptr noundef) local_unname
 define internal void @ossl_sslctx_keylog_cb(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.ossl_call_keylog_cb_args, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !6
   %5 = load i64, ptr @dOSSL, align 8, !tbaa !10
   %6 = icmp eq i64 %5, 20
@@ -4742,8 +4736,8 @@ define internal void @ossl_sslctx_keylog_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %28
 
 28:                                               ; preds = %22, %14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4904,7 +4898,7 @@ declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) loc
 declare i64 @rb_ary_new_from_args(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #7
+declare void @rb_unexpected_type(i64 noundef, i32 noundef) local_unnamed_addr #6
 
 declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 
@@ -4924,7 +4918,7 @@ define internal noundef i64 @ssl_npn_encode_protocol_i(i64 noundef %0, i64 nound
 
 RSTRING_LENINT.exit:                              ; preds = %5
   %12 = trunc nsw i64 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = add i32 %12, -256
   %or.cond = icmp ult i32 %13, -255
   br i1 %or.cond, label %14, label %16
@@ -4952,7 +4946,7 @@ RSTRING_PTR.exit:                                 ; preds = %16, %22
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %22 ], [ %21, %16 ]
   %23 = and i64 %9, 4294967295
   %24 = call i64 @rb_str_cat(i64 noundef %1, ptr noundef %.sroa.2.0.i, i64 noundef %23) #9
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 4
 }
 
@@ -4967,8 +4961,8 @@ define internal i64 @npn_select_cb_common_i(i64 noundef %0) #0 {
   %8 = load i32, ptr %7, align 8, !tbaa !82
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call i64 @rb_ary_new() #9
   store i64 %11, ptr %3, align 8, !tbaa !10
   %.not = icmp eq i32 %8, 0
@@ -5005,15 +4999,15 @@ define internal i64 @npn_select_cb_common_i(i64 noundef %0) #0 {
   unreachable
 
 30:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %23
 }
 
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn
-declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #7
+declare void @rb_out_of_int(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_call_session_get_cb(i64 noundef %0) #0 {
@@ -5120,7 +5114,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %Check_Ty
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @rb_during_gc() local_unnamed_addr #6
+declare i32 @rb_during_gc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_call_session_remove_cb(i64 noundef %0) #0 {
@@ -5176,7 +5170,7 @@ define internal noundef i64 @ossl_call_servername_cb(i64 noundef %0) #0 {
   %10 = tail call i64 @rb_attr_get(i64 noundef %8, i64 noundef %9) #9
   %11 = load i64, ptr @id_i_servername_cb, align 8, !tbaa !10
   %12 = tail call i64 @rb_attr_get(i64 noundef %10, i64 noundef %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %4) #9
   %14 = tail call i64 @rb_assoc_new(i64 noundef %8, i64 noundef %13) #9
   store i64 %14, ptr %2, align 8, !tbaa !10
@@ -5214,7 +5208,7 @@ define internal noundef i64 @ossl_call_servername_cb(i64 noundef %0) #0 {
   unreachable
 
 32:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %33
 
 33:                                               ; preds = %1, %32
@@ -5265,7 +5259,7 @@ declare i64 @rb_hash_new() local_unnamed_addr #1
 declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #8
+declare i64 @time(ptr noundef) local_unnamed_addr #7
 
 declare void @SSL_CTX_flush_sessions(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5296,7 +5290,7 @@ define internal void @ssl_info_cb(ptr noundef %0, i32 noundef %1, i32 %2) #0 {
   br i1 %or.cond, label %19, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i32, ptr @ossl_ssl_ex_ptr_idx, align 4, !tbaa !6
   %9 = tail call ptr @SSL_get_ex_data(ptr noundef %0, i32 noundef %8) #9
   %10 = ptrtoint ptr %9 to i64
@@ -5314,7 +5308,7 @@ define internal void @ssl_info_cb(ptr noundef %0, i32 noundef %1, i32 %2) #0 {
   br label %ssl_renegotiation_cb.exit
 
 ssl_renegotiation_cb.exit:                        ; preds = %7, %16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 19:                                               ; preds = %ssl_renegotiation_cb.exit, %3
@@ -5677,7 +5671,7 @@ declare i32 @SSL_accept(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ossl_ssl_read_internal(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %rb_scan_args_n_opt.exit73
 
@@ -6056,7 +6050,7 @@ io_wait_writable.exit:                            ; preds = %150, %127
 
 no_exception_p.exit.thread103:                    ; preds = %171, %105, %no_exception_p.exit86, %no_exception_p.exit81, %92, %65
   %.0 = phi i64 [ %67, %65 ], [ 4, %171 ], [ 4, %105 ], [ %147, %no_exception_p.exit86 ], [ %124, %no_exception_p.exit81 ], [ %95, %92 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0
 }
 
@@ -6076,7 +6070,7 @@ declare void @rb_eof_error() local_unnamed_addr #2
 declare i64 @ERR_peek_error() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @rb_str_capacity(i64 noundef) local_unnamed_addr #6
+declare i64 @rb_str_capacity(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ossl_ssl_write_internal(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
@@ -6084,13 +6078,13 @@ define internal fastcc i64 @ossl_ssl_write_internal(i64 noundef %0, i64 noundef 
   %5 = alloca [3 x i64], align 16
   %6 = alloca i32, align 4
   store i64 %1, ptr %4, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %0, ptr %5, align 16, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %8, align 16, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call i64 @rb_string_value(ptr noundef nonnull %4) #9
   store i64 %9, ptr %4, align 8, !tbaa !10
   %10 = icmp eq i64 %9, 0
@@ -6134,8 +6128,8 @@ RB_FL_ABLE.exit.i:                                ; preds = %3
   unreachable
 
 31:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %28
 }
 
@@ -6387,15 +6381,21 @@ declare void @SSL_get0_next_proto_negotiated(ptr noundef, ptr noundef, ptr nound
 
 declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { cold noreturn nounwind }

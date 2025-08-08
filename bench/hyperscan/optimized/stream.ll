@@ -188,7 +188,7 @@ partial_load_u64a.exit:                           ; preds = %17, %27, %29, %42, 
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
   %115 = zext i32 %97 to i64
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 %115
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = icmp ugt i32 %108, 256
   br i1 %117, label %204, label %118
 
@@ -1204,7 +1204,7 @@ mmbit_sparse_iter_next.exit:                      ; preds = %mmbit_mask_index.ex
   br i1 %.not89.i, label %._crit_edge964, label %288
 
 ._crit_edge964:                                   ; preds = %201, %248, %595, %mmbit_sparse_iter_next.exit, %710, %mmbit_sparse_iter_next.exit.loopexit854, %149, %204, %mmbit_get_flat_block.exit, %mmbit_sparse_iter_begin.exit
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %runEagerPrefixesStream.exit
 
 runEagerPrefixesStream.exit:                      ; preds = %95, %98, %._crit_edge964
@@ -2552,7 +2552,7 @@ roseSaveNfaStreamState.exit:                      ; preds = %.thread625, %mmbit_
   %1444 = getelementptr inbounds nuw i8, ptr %0, i64 %1443
   %1445 = zext i32 %1433 to i64
   %1446 = getelementptr inbounds nuw i8, ptr %0, i64 %1445
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1447 = icmp ugt i32 %1440, 256
   br i1 %1447, label %1534, label %1448
 
@@ -3007,7 +3007,7 @@ fatbit_isset.exit.i.thread:                       ; preds = %1693, %fatbit_isset
   %.not.i385680 = phi i1 [ false, %fatbit_isset.exit.i.thread681 ], [ true, %fatbit_isset.exit.i ], [ true, %1693 ]
   %1727 = phi i64 [ %1726, %fatbit_isset.exit.i.thread681 ], [ 0, %fatbit_isset.exit.i ], [ 0, %1693 ]
   %1728 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1729 = zext i32 %1683 to i64
   %1730 = getelementptr inbounds nuw i8, ptr %0, i64 %1729
   %1731 = getelementptr inbounds nuw i8, ptr %1617, i64 4
@@ -3420,7 +3420,7 @@ mmbit_set_i.exit.i390:                            ; preds = %.thread692, %.lr.ph
   br label %.sink.split
 
 roseCatchUpLeftfix.exit.thread745:                ; preds = %1849, %q_skip_forward_to.exit, %1787
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %roseCatchUpLeftfix.exit.thread742
 
 .sink.split:                                      ; preds = %1962, %1822
@@ -3429,7 +3429,7 @@ roseCatchUpLeftfix.exit.thread745:                ; preds = %1849, %q_skip_forwa
   br label %1973
 
 1973:                                             ; preds = %.sink.split, %.thread687
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre1296 = load ptr, ptr %86, align 8
   br label %1974
 
@@ -4004,7 +4004,7 @@ reduceInfixQueue.exit:                            ; preds = %2272, %._crit_edge1
   br label %mmbit_unset.exit.i267
 
 roseCatchUpLeftfix.exit:                          ; preds = %1856, %1852
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %mmbit_unset.exit.i267
 
 roseCatchUpLeftfix.exit.thread742:                ; preds = %reduceInfixQueue.exit, %infixTooOld.exit, %roseCatchUpLeftfix.exit.thread745
@@ -4334,7 +4334,7 @@ mmbit_sparse_iter_next.exit.i:                    ; preds = %mmbit_mask_index.ex
   br i1 %.not27.i261, label %._crit_edge1052, label %1615
 
 ._crit_edge1052:                                  ; preds = %1531, %1578, %2368, %mmbit_sparse_iter_next.exit.i, %2482, %mmbit_sparse_iter_next.exit.i.loopexit848, %1479, %1534, %mmbit_get_flat_block.exit.i274, %mmbit_sparse_iter_begin.exit.i
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %roseCatchUpLeftfixes.exit
 
 roseCatchUpLeftfixes.exit:                        ; preds = %roseSaveNfaStreamState.exit, %._crit_edge1052
@@ -4360,7 +4360,7 @@ roseCatchUpLeftfixes.exit:                        ; preds = %roseSaveNfaStreamSt
   %2508 = load i32, ptr %2507, align 8
   %2509 = load ptr, ptr %18, align 8
   %2510 = getelementptr inbounds nuw i8, ptr %2509, i64 1
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %2511 = icmp ugt i32 %2508, 256
   br i1 %2511, label %2662, label %2512
 
@@ -4795,7 +4795,7 @@ mmbit_mask_index.exit.i463:                       ; preds = %2677
   br label %2674
 
 mmbit_sparse_iter_unset.exit:                     ; preds = %2654, %2721, %2577, %mmbit_get_flat_block.exit.i456, %2622, %2623, %2631, %2636, %2641, %2643, %2648, %2651, %2662, %mmbit_get_flat_block.exit45.i, %2545, %2546, %2554, %2559, %2564, %2566, %2571, %2574
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %roseFlushLastByteHistory.exit
 
 roseFlushLastByteHistory.exit:                    ; preds = %roseCatchUpLeftfixes.exit, %2498, %mmbit_sparse_iter_unset.exit
@@ -4895,7 +4895,7 @@ partial_store_u64a.exit467:                       ; preds = %roseFlushLastByteHi
   br i1 %.not33.i294, label %3250, label %2806
 
 2806:                                             ; preds = %2796
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %2807 = icmp ult i64 %2802, %2801
   br i1 %2807, label %2808, label %2904
 
@@ -5658,7 +5658,7 @@ cmpForward.exit.thread:                           ; preds = %.lr.ph1086, %.lr.ph
 
 checkHashTable.exit:                              ; preds = %cmpForward.exit.thread, %3116, %confirmLongLiteral.exit505, %3060, %checkHashTable.exit479
   %.030.i = phi i64 [ 0, %3060 ], [ 0, %checkHashTable.exit479 ], [ %3244, %confirmLongLiteral.exit505 ], [ 0, %3116 ], [ 0, %cmpForward.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %3250
 
 3250:                                             ; preds = %checkHashTable.exit, %2796
@@ -5866,20 +5866,14 @@ cleanUpDelayed.exit.thread:                       ; preds = %.lr.ph1111, %mmbit_
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @streamInitSufPQ(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @streamInitSufPQ(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @hwlmExecStreaming(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @hwlmExecStreaming(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @roseFloatingCallback(i64 noundef, i32 noundef, ptr noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @roseFloatingCallback(i64 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @roseStreamEodExec(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @roseStreamEodExec(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %.not = icmp ne i32 %5, -1
@@ -6021,57 +6015,57 @@ partial_load_u64a.exit:                           ; preds = %11, %20, %22, %35, 
   ret void
 }
 
-declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare i64 @roseRunProgram(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare signext i8 @nfaInAnyAcceptState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaInAnyAcceptState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueExecToMatch(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExecToMatch(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #6
+declare i64 @llvm.ctpop.i64(i64) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
-declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-declare void @nfaExecMcClellan8_SimpStream(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @nfaExecMcClellan8_SimpStream(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @roseAnchoredCallback(i64 noundef, i64 noundef, i32 noundef, ptr noundef) #2
+declare i32 @roseAnchoredCallback(i64 noundef, i64 noundef, i32 noundef, ptr noundef) #1
 
-declare void @nfaExecMcClellan16_SimpStream(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @nfaExecMcClellan16_SimpStream(ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @hwlmExec(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @hwlmExec(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @roseDelayRebuildCallback(i64 noundef, i32 noundef, ptr noundef) #2
+declare i64 @roseDelayRebuildCallback(i64 noundef, i32 noundef, ptr noundef) #1
 
-declare i64 @flushQueuedLiterals_i(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @flushQueuedLiterals_i(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @roseRunFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @roseRunFlushCombProgram(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @roseCatchUpAll(i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @roseCatchUpMPV_i(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueCompressState(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueCompressState(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare signext i8 @nfaQueueExecRose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @nfaQueueExecRose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nfaGetZombieStatus(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @nfaGetZombieStatus(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #6 {
   %.sroa.0147 = alloca <2 x i64>, align 16
   %.sroa.0146 = alloca <2 x i64>, align 16
   %.sroa.0145 = alloca <2 x i64>, align 16
@@ -6141,7 +6135,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   br i1 %.not45.i, label %roseCountingMiracleScan.exit.thread, label %46
 
 46:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %47 = add i8 %22, 1
   %.sroa.0.0.zext = zext i8 %47 to i64
   %.sroa.0.0.isplat = mul nuw i64 %.sroa.0.0.zext, 72340172838076673
@@ -6159,7 +6153,7 @@ define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nounde
   %54 = zext nneg i16 %53 to i32
   %55 = add i32 %.040.i, %54
   %.not46.i = icmp ult i32 %55, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br i1 %.not46.i, label %roseCountingMiracleScan.exit.thread, label %roseCountingMiracleScan.exit
 
 roseCountingMiracleScan.exit.loopexit:            ; preds = %37
@@ -6217,7 +6211,7 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   br i1 %.not45.i120, label %.thread, label %82
 
 82:                                               ; preds = %81
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0145)
   %83 = add i8 %22, 1
   %.sroa.0145.0.zext = zext i8 %83 to i64
   %.sroa.0145.0.isplat = mul nuw i64 %.sroa.0145.0.zext, 72340172838076673
@@ -6235,7 +6229,7 @@ roseCountingMiracleScan.exit.thread:              ; preds = %46, %45, %20
   %90 = zext nneg i16 %89 to i32
   %91 = add i32 %.040.i115, %90
   %.not46.i121 = icmp ult i32 %91, %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0145)
   br i1 %.not46.i121, label %.thread, label %roseCountingMiracleScan.exit124
 
 roseCountingMiracleScan.exit124.loopexit:         ; preds = %73
@@ -6306,7 +6300,7 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   br i1 %.not60.i, label %roseCountingMiracleScanShufti.exit.thread, label %133
 
 133:                                              ; preds = %132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0146)
   %.sroa.0146.0.zext = zext i8 %100 to i64
   %.sroa.0146.0.isplat = mul nuw i64 %.sroa.0146.0.zext, 72340172838076673
   %.sroa.0146.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0146.0.isplat, i64 0
@@ -6332,7 +6326,7 @@ roseCountingMiracleScan.exit124:                  ; preds = %82, %roseCountingMi
   %149 = zext nneg i16 %148 to i32
   %150 = add i32 %.053.i, %149
   %.not61.i = icmp ult i32 %150, %111
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0146)
   br i1 %.not61.i, label %roseCountingMiracleScanShufti.exit.thread, label %roseCountingMiracleScanShufti.exit
 
 roseCountingMiracleScanShufti.exit.loopexit:      ; preds = %115
@@ -6399,7 +6393,7 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   br i1 %.not60.i134, label %.thread, label %186
 
 186:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0147)
   %.sroa.0147.0.zext = zext i8 %100 to i64
   %.sroa.0147.0.isplat = mul nuw i64 %.sroa.0147.0.zext, 72340172838076673
   %.sroa.0147.0.vsplat.splatinsert = insertelement <2 x i64> poison, i64 %.sroa.0147.0.isplat, i64 0
@@ -6425,7 +6419,7 @@ roseCountingMiracleScanShufti.exit.thread:        ; preds = %133, %132, %94
   %202 = zext nneg i16 %201 to i32
   %203 = add i32 %.053.i129, %202
   %.not61.i135 = icmp ult i32 %203, %164
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0147)
   br i1 %.not61.i135, label %.thread, label %roseCountingMiracleScanShufti.exit138
 
 roseCountingMiracleScanShufti.exit138.loopexit:   ; preds = %168
@@ -6450,10 +6444,16 @@ roseCountingMiracleScanShufti.exit138:            ; preds = %186, %roseCountingM
   ret i32 %.0
 }
 
-declare signext i8 @nfaInitCompressedState(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare signext i8 @nfaInitCompressedState(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #8
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
@@ -6483,14 +6483,14 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #9
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

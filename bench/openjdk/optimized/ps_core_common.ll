@@ -388,20 +388,20 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
   br label %.loopexit
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = inttoptr i64 %10 to ptr
   %15 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %4, i64 noundef 1) #8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void (ptr, ...) @print_error(ptr noundef nonnull @.str.6) #8
   br label %.loopexit
 
 18:                                               ; preds = %13
   %19 = load i8, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %22
 
@@ -419,20 +419,20 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
   br label %.loopexit
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = inttoptr i64 %23 to ptr
   %28 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull %3, i64 noundef 8) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ...) @print_error(ptr noundef nonnull @.str.10) #8
   br label %.loopexit
 
 31:                                               ; preds = %26
   %32 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = call i64 @lookup_symbol(ptr noundef %0, ptr noundef nonnull %.04889, ptr noundef nonnull @.str.11) #8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %35, label %36
@@ -442,20 +442,20 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
   br label %.loopexit
 
 36:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %37 = inttoptr i64 %33 to ptr
   %38 = call i32 @ps_pdread(ptr noundef %0, ptr noundef nonnull %37, ptr noundef nonnull %2, i64 noundef 8) #8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, ...) @print_error(ptr noundef nonnull @.str.13, i64 noundef %33) #8
   br label %.loopexit
 
 41:                                               ; preds = %36
   %42 = load i64, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 0, ptr %5, align 16
   %43 = call i32 @read_string(ptr noundef %0, i64 noundef %42, ptr noundef nonnull %5, i64 noundef 4096)
   %.not60.not = icmp eq i32 %43, 0
@@ -626,10 +626,10 @@ allocate_init_map.exit.thread:                    ; preds = %4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

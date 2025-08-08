@@ -240,12 +240,6 @@ _ZNK5clang13OpenCLOptions11isSupportedEN4llvm9StringRefERKNS_11LangOptionsE.exit
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang13OpenCLOptions11isSupportedEN4llvm9StringRefERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(849) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %1, i64 %2) #11
@@ -604,7 +598,7 @@ define dso_local void @_ZN5clang13OpenCLOptionsC2Ev(ptr noundef nonnull align 8 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 32, ptr %40, align 4, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 1, ptr %2, align 4, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 100, ptr %41, align 4, !tbaa !8
@@ -630,8 +624,8 @@ define dso_local void @_ZN5clang13OpenCLOptionsC2Ev(ptr noundef nonnull align 8 
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit: ; preds = %1, %49
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 4, !tbaa !22
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 100, ptr %52, align 4, !tbaa !8
@@ -657,8 +651,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit77
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit77: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit, %60
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 4, !tbaa !22
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 100, ptr %63, align 4, !tbaa !8
@@ -684,8 +678,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit80
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit80: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit77, %71
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 4, !tbaa !22
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 100, ptr %74, align 4, !tbaa !8
@@ -711,8 +705,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit83
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit83: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit80, %82
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 4, !tbaa !22
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 100, ptr %85, align 4, !tbaa !8
@@ -738,8 +732,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit86
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit86: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit83, %93
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 4, !tbaa !22
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 100, ptr %96, align 4, !tbaa !8
@@ -765,8 +759,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit89
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit89: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit86, %104
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 4, !tbaa !22
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 100, ptr %107, align 4, !tbaa !8
@@ -786,8 +780,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit92
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit92: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit89, %112
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 4, !tbaa !22
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 100, ptr %115, align 4, !tbaa !8
@@ -807,8 +801,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit95
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit95: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit92, %120
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 4, !tbaa !22
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 100, ptr %123, align 4, !tbaa !8
@@ -828,8 +822,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit98
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit98: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit95, %128
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 4, !tbaa !22
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 100, ptr %131, align 4, !tbaa !8
@@ -855,8 +849,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit101
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit101: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit98, %139
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i8 1, ptr %12, align 4, !tbaa !22
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 110, ptr %142, align 4, !tbaa !8
@@ -876,8 +870,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit104
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit104: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit101, %147
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i8 1, ptr %13, align 4, !tbaa !22
   %150 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 120, ptr %150, align 4, !tbaa !8
@@ -897,8 +891,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit107
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit107: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit104, %155
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %13) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i8 1, ptr %14, align 4, !tbaa !22
   %158 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 120, ptr %158, align 4, !tbaa !8
@@ -918,8 +912,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit110
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit110: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit107, %163
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 1, ptr %15, align 4, !tbaa !22
   %166 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 200, ptr %166, align 4, !tbaa !8
@@ -939,8 +933,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit113
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit113: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit110, %171
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 1, ptr %16, align 4, !tbaa !22
   %174 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 200, ptr %174, align 4, !tbaa !8
@@ -960,8 +954,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit116
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit116: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit113, %179
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %16) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i8 1, ptr %17, align 4, !tbaa !22
   %182 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 200, ptr %182, align 4, !tbaa !8
@@ -981,8 +975,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit119
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit119: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit116, %187
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %17) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %18) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i8 1, ptr %18, align 4, !tbaa !22
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 200, ptr %190, align 4, !tbaa !8
@@ -1002,8 +996,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit122
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit122: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit119, %195
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %18) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 1, ptr %19, align 4, !tbaa !22
   %198 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 100, ptr %198, align 4, !tbaa !8
@@ -1023,8 +1017,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit125
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit125: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit122, %203
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 1, ptr %20, align 4, !tbaa !22
   %206 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 100, ptr %206, align 4, !tbaa !8
@@ -1044,8 +1038,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit128
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit128: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit125, %211
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %21) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 1, ptr %21, align 4, !tbaa !22
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 100, ptr %214, align 4, !tbaa !8
@@ -1065,8 +1059,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit131
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit131: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit128, %219
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %21) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %22) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 1, ptr %22, align 4, !tbaa !22
   %222 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 100, ptr %222, align 4, !tbaa !8
@@ -1086,8 +1080,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit134
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit134: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit131, %227
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %22) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 1, ptr %23, align 4, !tbaa !22
   %230 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 100, ptr %230, align 4, !tbaa !8
@@ -1107,8 +1101,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit137
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit137: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit134, %235
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %24) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 1, ptr %24, align 4, !tbaa !22
   %238 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 100, ptr %238, align 4, !tbaa !8
@@ -1128,8 +1122,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit140
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit140: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit137, %243
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %24) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %25) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 1, ptr %25, align 4, !tbaa !22
   %246 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 100, ptr %246, align 4, !tbaa !8
@@ -1149,8 +1143,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit143
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit143: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit140, %251
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %25) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %26) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 1, ptr %26, align 4, !tbaa !22
   %254 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 120, ptr %254, align 4, !tbaa !8
@@ -1170,8 +1164,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit146
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit146: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit143, %259
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %26) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 1, ptr %27, align 4, !tbaa !22
   %262 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 120, ptr %262, align 4, !tbaa !8
@@ -1191,8 +1185,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit149
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit149: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit146, %267
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %27) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %28) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i8 1, ptr %28, align 4, !tbaa !22
   %270 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 120, ptr %270, align 4, !tbaa !8
@@ -1212,8 +1206,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit152
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit152: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit149, %275
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %28) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %29) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i8 0, ptr %29, align 4, !tbaa !22
   %278 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 300, ptr %278, align 4, !tbaa !8
@@ -1239,8 +1233,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit155
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit155: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit152, %286
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %29) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %30) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 0, ptr %30, align 4, !tbaa !22
   %289 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 300, ptr %289, align 4, !tbaa !8
@@ -1266,8 +1260,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit158
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit158: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit155, %297
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %30) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %31) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 0, ptr %31, align 4, !tbaa !22
   %300 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 300, ptr %300, align 4, !tbaa !8
@@ -1293,8 +1287,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit161
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit161: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit158, %308
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %31) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %32) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i8 0, ptr %32, align 4, !tbaa !22
   %311 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 300, ptr %311, align 4, !tbaa !8
@@ -1320,8 +1314,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit164
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit164: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit161, %319
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %32) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %33) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 0, ptr %33, align 4, !tbaa !22
   %322 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 300, ptr %322, align 4, !tbaa !8
@@ -1347,8 +1341,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit167
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit167: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit164, %330
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %33) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %34) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 0, ptr %34, align 4, !tbaa !22
   %333 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 300, ptr %333, align 4, !tbaa !8
@@ -1374,8 +1368,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit170
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit170: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit167, %341
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %34) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %35) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i8 0, ptr %35, align 4, !tbaa !22
   %344 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 300, ptr %344, align 4, !tbaa !8
@@ -1401,8 +1395,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit173
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit173: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit170, %352
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %35) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %36) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 0, ptr %36, align 4, !tbaa !22
   %355 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 300, ptr %355, align 4, !tbaa !8
@@ -1428,8 +1422,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit176
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit176: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit173, %363
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %36) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %37) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i8 0, ptr %37, align 4, !tbaa !22
   %366 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 300, ptr %366, align 4, !tbaa !8
@@ -1455,8 +1449,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit179
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit179: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit176, %374
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %37) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %38) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i8 0, ptr %38, align 4, !tbaa !22
   %377 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 300, ptr %377, align 4, !tbaa !8
@@ -1482,8 +1476,8 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit182
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit182: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit179, %385
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %38) #11
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %39) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i8 0, ptr %39, align 4, !tbaa !22
   %388 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 300, ptr %388, align 4, !tbaa !8
@@ -1509,7 +1503,7 @@ _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocator
   br label %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit185
 
 _ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit185: ; preds = %_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE16insert_or_assignIS3_EESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEOT_.exit182, %396
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %39) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   ret void
 }
 
@@ -1612,7 +1606,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIbEEKNS_14StringMapEntryI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang13OpenCLOptions10disableAllEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang13OpenCLOptions10disableAllEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !30
@@ -1675,7 +1669,7 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN5clang13OpenCLOptions16OpenC
 define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions38diagnoseUnsupportedFeatureDependenciesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringMap.13", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
@@ -1814,7 +1808,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %51, %2, %12
 _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %74, %60, %64
   %75 = load ptr, ptr %3, align 8, !tbaa !29
   call void @free(ptr noundef %75) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.1
 
 76:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, %105
@@ -1842,7 +1836,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %74, %60, %64
   br i1 %86, label %105, label %87
 
 87:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %1, i32 0, i32 noundef 48) #11
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %.sroa.024.0.copyload, i64 %.sroa.525.0.copyload)
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %.sroa.0.0.copyload22, i64 %.sroa.5.0.copyload)
@@ -1892,7 +1886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %102, %104
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 105:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %82, %76
@@ -1906,7 +1900,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 define dso_local noundef zeroext i1 @_ZN5clang13OpenCLOptions35diagnoseFeatureExtensionDifferencesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringMap.13", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
@@ -2045,7 +2039,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit: ; preds = %51, %2, %12
 _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %74, %60, %64
   %75 = load ptr, ptr %3, align 8, !tbaa !29
   call void @free(ptr noundef %75) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.1
 
 76:                                               ; preds = %_ZN4llvm9StringMapIbNS_15MallocAllocatorEEC2ERKS2_.exit, %105
@@ -2071,7 +2065,7 @@ _ZN4llvm9StringMapIbNS_15MallocAllocatorEED2Ev.exit: ; preds = %74, %60, %64
   br i1 %86, label %87, label %105
 
 87:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %1, i32 0, i32 noundef 47) #11
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload)
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
@@ -2121,7 +2115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %102, %104
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %105
 
 105:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %76
@@ -2131,17 +2125,17 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   br i1 %.not, label %60, label %76
 }
 
-declare noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849)) local_unnamed_addr #4
+declare noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef, i32, i32 noundef) unnamed_addr #4
+declare void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef, i32, i32 noundef) unnamed_addr #3
 
-declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248), ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #4
+declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248), ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -2268,11 +2262,11 @@ _ZN5clang17DiagnosticStorageD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #4
+declare noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr, i64) local_unnamed_addr #3
 
-declare noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -2361,11 +2355,11 @@ _ZN4llvm17StringMapIteratorIN5clang13OpenCLOptions16OpenCLOptionInfoEEC2EPPNS_18
   ret { ptr, i8 } %.pn
 }
 
-declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32 noundef) local_unnamed_addr #3
 
-declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #3
 
-declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIN5clang13OpenCLOptions16OpenCLOptionInfoENS_15MallocAllocatorEE21try_emplace_with_hashIJS3_EEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(18) %4) local_unnamed_addr #0 comdat align 2 {
@@ -2450,9 +2444,9 @@ _ZN4llvm17StringMapIteratorIN5clang13OpenCLOptions16OpenCLOptionInfoEEC2EPPNS_18
   ret { ptr, i8 } %.pn
 }
 
-declare void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #4
+declare void @_ZN4llvm13StringMapImpl4initEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #3
 
-declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) local_unnamed_addr #0 comdat align 2 {
@@ -2569,7 +2563,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %54 = zext i8 %53 to i64
   %55 = getelementptr inbounds nuw [10 x i8], ptr %52, i64 0, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !42
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %56, ptr %5, align 8, !tbaa !86
   %57 = icmp eq ptr %1, null
@@ -2582,7 +2576,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   unreachable
 
 60:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !49
   %61 = icmp ugt i64 %2, 15
   br i1 %61, label %62, label %._crit_edge.i.i.i.i
@@ -2617,7 +2611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %71 = load ptr, ptr %5, align 8, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %69
   store i8 0, ptr %72, align 1, !tbaa !42
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %73 = load ptr, ptr %0, align 8, !tbaa !65
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load i8, ptr %73, align 8, !tbaa !74
@@ -2726,31 +2720,37 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { builtin nounwind }

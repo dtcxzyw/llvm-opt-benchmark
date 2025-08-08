@@ -178,15 +178,15 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModelC2ENS_6legacy8track
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !6
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i64 4294967295, ptr %32, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #24
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
   %33 = invoke noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #25
           to label %34 unwind label %200
@@ -352,7 +352,7 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl3tld11TLDDetectorELN9__gnu_cxx12_Lock_poli
   store i32 0, ptr %98, align 8, !tbaa !29
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 0, ptr %99, align 4, !tbaa !78
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 2147483648225, i32 noundef 0)
           to label %100 unwind label %202
 
@@ -362,8 +362,8 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl3tld11TLDDetectorELN9__gnu_cxx12_Lock_poli
 
 102:                                              ; preds = %100
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #24
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 2147483648225, i32 noundef 0)
           to label %103 unwind label %207
 
@@ -373,7 +373,7 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl3tld11TLDDetectorELN9__gnu_cxx12_Lock_poli
 
 105:                                              ; preds = %103
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %106 = load ptr, ptr %22, align 8, !tbaa !21
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   store ptr %98, ptr %107, align 8, !tbaa !79
@@ -394,8 +394,8 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl3tld11TLDDetectorELN9__gnu_cxx12_Lock_poli
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 88
   store ptr %115, ptr %116, align 8, !tbaa !105
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %117 = load <2 x double>, ptr %2, align 8
   %118 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %117)
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -427,8 +427,8 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %105
 129:                                              ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
   store double %128, ptr %115, align 8, !tbaa !106
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %130 = load double, ptr %122, align 8, !tbaa !107
   %131 = sitofp i32 %.sroa.057.0.extract.trunc to double
   %132 = fdiv double %130, %131
@@ -441,7 +441,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %105
           to label %138 unwind label %217
 
 138:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %139 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %139, align 8, !tbaa !108
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -449,7 +449,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %105
   store i32 16842752, ptr %14, align 8, !tbaa !110
   %141 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %141, align 8, !tbaa !112
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %142 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %143, align 8
@@ -460,8 +460,8 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %105
           to label %144 unwind label %219
 
 144:                                              ; preds = %138
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %146 = load i32, ptr %145, align 8, !tbaa !113
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -491,7 +491,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %105
           to label %162 unwind label %217
 
 162:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.sroa.6.0.extract.trunc, i32 noundef %.sroa.057.0.extract.trunc, i32 noundef 0)
           to label %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit unwind label %221
 
@@ -603,7 +603,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 206:                                              ; preds = %204, %202
   %.pn = phi { ptr, i32 } [ %205, %204 ], [ %203, %202 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
 207:                                              ; preds = %102
@@ -619,7 +619,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 211:                                              ; preds = %209, %207
   %.pn96 = phi { ptr, i32 } [ %210, %209 ], [ %208, %207 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.body
 
 212:                                              ; preds = %105
@@ -635,8 +635,8 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 216:                                              ; preds = %214, %212
   %.pn98 = phi { ptr, i32 } [ %215, %214 ], [ %213, %212 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.body
 
 217:                                              ; preds = %149, %144, %129
@@ -647,8 +647,8 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 219:                                              ; preds = %138
   %220 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.body
 
 221:                                              ; preds = %162
@@ -674,7 +674,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 234:                                              ; preds = %.preheader213, %._crit_edge221
   %.093222 = phi i64 [ 0, %.preheader213 ], [ %373, %._crit_edge221 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %18, i32 noundef 15, i32 noundef 15, i32 noundef 0)
           to label %235 unwind label %328
 
@@ -767,7 +767,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
   %320 = fmul double %319, 0x3BF0000000000000
   %321 = call noundef double @llvm.fmuladd.f64(double %320, double 2.000000e+01, double -1.000000e+01)
   %322 = fptrunc double %321 to float
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %19) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store float %258, ptr %19, align 4
   store float %278, ptr %.sroa_idx193, align 4
   store float %293, ptr %190, align 4
@@ -777,7 +777,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
           to label %323 unwind label %332
 
 323:                                              ; preds = %235
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %324 = load i32, ptr %192, align 8, !tbaa !113
   %325 = icmp sgt i32 %324, 0
   %326 = load i32, ptr %195, align 4
@@ -786,7 +786,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
   br i1 %or.cond, label %.lr.ph217.split, label %._crit_edge218
 
 ._crit_edge218:                                   ; preds = %._crit_edge, %323
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %20) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %258, ptr %20, align 4
   store float %278, ptr %.sroa_idx195, align 4
   store float %293, ptr %196, align 4
@@ -808,7 +808,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 332:                                              ; preds = %235
   %333 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %391
 
 .lr.ph217.split:                                  ; preds = %323, %._crit_edge
@@ -863,7 +863,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
   br label %391
 
 362:                                              ; preds = %._crit_edge218
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   invoke void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKNS_4Mat_IhEEb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(96) %18, i1 noundef zeroext true)
           to label %.preheader212 unwind label %330
 
@@ -882,7 +882,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 ._crit_edge221:                                   ; preds = %378, %.preheader212
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %373 = add nuw nsw i64 %.093222, 1
   %exitcond.not = icmp eq i64 %373, 20
   br i1 %exitcond.not, label %225, label %234, !llvm.loop !141
@@ -890,7 +890,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 374:                                              ; preds = %._crit_edge218
   %375 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %20) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %391
 
 .lr.ph220:                                        ; preds = %.preheader212, %378
@@ -927,7 +927,7 @@ _ZNSt6vectorIN2cv4Mat_IhEESaIS2_EE7reserveEm.exit: ; preds = %165, %_ZNSt12_Vect
 
 392:                                              ; preds = %391, %328
   %.pn110.pn.pn = phi { ptr, i32 } [ %.pn110.pn, %391 ], [ %329, %328 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %18) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit142
 
 393:                                              ; preds = %._crit_edge224
@@ -1050,7 +1050,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.ex
   br i1 %447, label %448, label %.critedge
 
 448:                                              ; preds = %446
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %21) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   invoke void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %21, i32 noundef 15, i32 noundef 15, i32 noundef 0)
           to label %_ZN2cv4Mat_IhEC2Eii.exit136 unwind label %467
 
@@ -1085,7 +1085,7 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
 
 ._crit_edge227:                                   ; preds = %473, %.preheader
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.critedge
 
 465:                                              ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiET_S7_S7_RKT0_.exit.thread
@@ -1137,7 +1137,7 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
 
 487:                                              ; preds = %486, %467
   %.pn105.pn = phi { ptr, i32 } [ %.pn105, %486 ], [ %468, %467 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit142
 
 .critedge:                                        ; preds = %._crit_edge227, %446
@@ -1153,13 +1153,13 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %496 = load ptr, ptr %6, align 8, !tbaa !126
   %.not.i.i.i138 = icmp eq ptr %496, null
   br i1 %.not.i.i.i138, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit, label %497
@@ -1169,7 +1169,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge, %_ZNSt12
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %497
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %498 = load ptr, ptr %5, align 8, !tbaa !126
   %.not.i.i.i139 = icmp eq ptr %498, null
   br i1 %.not.i.i.i139, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit140, label %499
@@ -1179,7 +1179,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit140
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit140:  ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit, %499
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %487, %465, %392, %223
@@ -1189,17 +1189,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %487, %465, %392, %2
 
 500:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit142, %221
   %.pn110.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit142 ], [ %222, %221 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.body
 
 .body:                                            ; preds = %200, %41, %217, %219, %500, %216, %211, %206
   %.pn110.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98, %216 ], [ %.pn96, %211 ], [ %.pn, %206 ], [ %.pn110.pn.pn.pn.pn, %500 ], [ %218, %217 ], [ %220, %219 ], [ %201, %200 ], [ %42, %41 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %501 = load ptr, ptr %6, align 8, !tbaa !126
   %.not.i.i.i143 = icmp eq ptr %501, null
   br i1 %.not.i.i.i143, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit144, label %502
@@ -1209,7 +1209,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %487, %465, %392, %2
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit144
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit144:  ; preds = %.body, %502
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %503 = load ptr, ptr %5, align 8, !tbaa !126
   %.not.i.i.i145 = icmp eq ptr %503, null
   br i1 %.not.i.i.i145, label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit146, label %504
@@ -1219,7 +1219,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit144:  ; preds = %.body, %502
   br label %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit146
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit146:  ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EED2Ev.exit144, %504
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %505 = load ptr, ptr %29, align 8, !tbaa !145
   %.not.i.i.i147 = icmp eq ptr %505, null
   br i1 %.not.i.i.i147, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %506
@@ -1367,17 +1367,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96), i64, i32 noundef) unnamed_addr #0
 
@@ -1623,9 +1617,9 @@ declare void @_ZN2cv6detail8tracking12TrackerModelD2Ev(ptr noundef nonnull align
 define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel18integrateRelabeledERNS_3MatES5_RKSt6vectorINS2_11TLDDetector12LabeledPatchESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat_", align 8
   %6 = alloca %"class.cv::Mat_", align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN2cv3MatC2Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 15, i32 noundef 15, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
@@ -1652,9 +1646,9 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit.preheader:    ; preds = %4
 
 _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit._crit_edge:   ; preds = %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit, %_ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit.preheader
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 18:                                               ; preds = %4
@@ -1764,9 +1758,9 @@ _ZN2cv4Mat_IhEC2ENS_5Size_IiEE.exit:              ; preds = %56, %.preheader, %3
 
 78:                                               ; preds = %77, %18
   %.pn.pn = phi { ptr, i32 } [ %.pn, %77 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #24
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1823,12 +1817,12 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel19integrateAddition
 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %.pre-phi64 = phi i64 [ %.pre63, %26 ], [ %13, %28 ], [ %13, %30 ], [ %13, %32 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = trunc i64 %.pre-phi64 to i32
   store i32 0, ptr %5, align 4, !tbaa !166
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %33, ptr %34, align 4, !tbaa !168
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #24
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN2cv8tracking4impl3tld22CalcSrParallelLoopBodyE, i64 16), ptr %6, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %35, align 8, !tbaa !169
@@ -1839,8 +1833,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
 
 37:                                               ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = load ptr, ptr %7, align 8, !tbaa !120
   %39 = load ptr, ptr %1, align 8, !tbaa !119
   %40 = ptrtoint ptr %38 to i64
@@ -1859,8 +1853,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %48
 
 49:                                               ; preds = %.lr.ph47, %.loopexit
@@ -2988,6 +2982,12 @@ define internal void @_GLOBAL__sub_I_tldModel.cpp() #20 section ".text.startup" 
   %2 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN2cv8tracking4impl3tldL19GaussBlurKernelSizeE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

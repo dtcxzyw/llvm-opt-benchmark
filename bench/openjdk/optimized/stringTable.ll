@@ -1463,11 +1463,11 @@ define hidden noundef ptr @_ZN11StringTable6internEPKcP10JavaThread(ptr noundef 
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 1
   %20 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i32 noundef 0) #17
@@ -1605,9 +1605,9 @@ _ZNK6HandleclEv.exit:                             ; preds = %20, %22
   %31 = load ptr, ptr @_ZN11StringTable12_oop_storageE, align 8
   call void @_ZN10WeakHandleC1EP10OopStorage6Handle(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %31, ptr %.sroa.0.0) #17
   %32 = load ptr, ptr @_ZL12_local_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %33 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE19internal_insert_getI20StringTableLookupOopZNS2_6insertIS4_EEbP6ThreadRT_RK10WeakHandlePbSD_E3NOPEEbS7_S9_SC_RT0_SD_SD_(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull %10, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %33, label %34, label %47
 
 34:                                               ; preds = %30
@@ -1731,8 +1731,8 @@ _ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i: ; preds = %12, %5
   br label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit
 
 _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS2_.exit: ; preds = %_ZN13GlobalCounter22critical_section_beginEP6Thread.exit.i, %18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %6, align 1
   store i64 0, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1780,8 +1780,8 @@ _ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit.i
 
 _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE12internal_getI20StringTableLookupOopEEP10WeakHandleP6ThreadRT_Pb.exit: ; preds = %_ZNK19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE10get_bucketEm.exit.i, %41
   %.not.i10 = icmp ne ptr %40, null
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i10, label %47, label %69
 
 47:                                               ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE12internal_getI20StringTableLookupOopEEP10WeakHandleP6ThreadRT_Pb.exit
@@ -2278,7 +2278,7 @@ define hidden void @_ZN11StringTable18do_concurrent_workEP10JavaThread(ptr nound
   br i1 %4, label %5, label %27
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE149ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -2327,7 +2327,7 @@ _ZN11StringTable11should_growEv.exit.thread.i:    ; preds = %_ZN11StringTable11s
 
 _ZN11StringTable18maybe_rehash_tableEv.exit.thread: ; preds = %22, %24, %19, %21
   store volatile i8 0, ptr @_ZN11StringTable16_needs_rehashingE, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %27
 
 25:                                               ; preds = %_ZN11StringTable11should_growEv.exit.thread.i
@@ -2335,7 +2335,7 @@ _ZN11StringTable18maybe_rehash_tableEv.exit.thread: ; preds = %22, %24, %19, %21
   store ptr null, ptr %26, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV20VM_RehashStringTable, i64 16), ptr %2, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %2) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   br label %47
 
@@ -2565,7 +2565,7 @@ define linkonce_odr hidden void @_ZN19ConcurrentHashTableI17StringTableConfigL8M
 
 _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit: ; preds = %.lr.ph, %25
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %30 = call noundef ptr %29(ptr noundef %28) #17
@@ -2644,12 +2644,12 @@ _ZL11hash_stringPKtib.exit.i:                     ; preds = %.lr.ph.i.i.i, %52, 
   unreachable
 
 _ZN17StringTableConfig8get_hashERK10WeakHandlePb.exit: ; preds = %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket9cas_firstEPNS2_4NodeES5_.exit22
 
 69:                                               ; preds = %64, %66
   %.0.i1726 = zext i32 %61 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %70 = load volatile ptr, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -10447,7 +10447,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE8ScopedCSC2EP6ThreadPS
 36:                                               ; preds = %29
   %37 = load ptr, ptr %2, align 8
   %38 = load ptr, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %40 = sext i32 %39 to i64
   %41 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -10537,7 +10537,7 @@ _ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i: ; preds = %_ZN16java_lang_
 
 _ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %87, %89
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %38) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11PrintStringclEP10WeakHandle.exit.i
 
 _ZN11PrintStringclEP10WeakHandle.exit.i:          ; preds = %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit, %29
@@ -11017,7 +11017,7 @@ define linkonce_odr hidden void @_ZN17PrintSharedString8do_valueEP7oopDesc(ptr n
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %10 = sext i32 %9 to i64
   %11 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -11107,7 +11107,7 @@ _ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i: ; preds = %_ZN16java_lang_
 
 _ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit: ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread.i, %57, %59
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
 60:                                               ; preds = %2, %_ZL12print_stringP6ThreadP12outputStreamP7oopDesc.exit
@@ -11169,10 +11169,10 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

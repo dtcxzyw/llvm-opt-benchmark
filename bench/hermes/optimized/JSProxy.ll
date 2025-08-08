@@ -170,7 +170,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 "_ZZN6hermes2vm6detail8findTrapENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_10Predefined3StrEENK3$_0clEv.exit": ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
   store ptr %runtime, ptr %gcScope.i, align 8
   %prevScope_.i.i = getelementptr inbounds nuw i8, ptr %gcScope.i, i64 8
   %topGCScope_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
@@ -197,7 +197,7 @@ if.then:                                          ; preds = %entry
   store i64 %or.i.i.i.i.i.i, ptr %inlineStorage_.i.i, align 8
   %call.i.i8 = call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr nonnull %inlineStorage_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name, ptr nonnull %inlineStorage_.i.i, i32 0, ptr noundef null) #13
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #13
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   %4 = extractvalue { i32, i64 } %call.i.i8, 0
   %5 = extractvalue { i32, i64 } %call.i.i8, 1
   %cmp.i = icmp eq i32 %4, 0
@@ -243,8 +243,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.then29
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %10, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %rightKind_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -261,8 +261,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %13, align 8
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   br label %return
 
 if.end39:                                         ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit
@@ -3998,8 +3998,8 @@ if.end.i.i.i.i.i.i101:                            ; preds = %if.then80
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i104, %if.end.i.i.i.i.i.i101
   %retval.0.i.i.i.i.i.i103 = phi ptr [ %14, %if.then.i.i.i.i.i.i104 ], [ %call7.i.i.i.i.i.i102, %if.end.i.i.i.i.i.i101 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %rightKind_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -4016,8 +4016,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %17 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %17, align 8
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr %retval.0.i.i.i.i.i.i103, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   br label %cleanup307
 
 if.end90:                                         ; preds = %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit
@@ -6049,8 +6049,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %rightKind_.i3.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i3.i.i, align 8
   %leftSize_.i4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
@@ -6067,8 +6067,8 @@ if.then:                                          ; preds = %_ZN6hermes2vm15Hand
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store i32 3, ptr %5, align 8
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime22raiseTypeErrorForValueERKNS0_11TwineChar16ENS0_6HandleINS0_11HermesValueEEES4_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr nonnull %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i) #13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -6134,10 +6134,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

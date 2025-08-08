@@ -69,9 +69,9 @@ define range(i32 -2, 2) i32 @ossl_md5_sha1_ctrl(ptr noundef %0, i32 noundef %1, 
   %5 = alloca [48 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %1, 29
   br i1 %.not, label %8, label %ossl_md5_sha1_update.exit.thread
 
@@ -156,27 +156,27 @@ ossl_md5_sha1_init.exit:                          ; preds = %23
 
 ossl_md5_sha1_update.exit.thread:                 ; preds = %23, %10, %35, %33, %31, %29, %26, %ossl_md5_sha1_init.exit, %21, %19, %17, %15, %ossl_md5_sha1_update.exit, %8, %4, %37
   %.0 = phi i32 [ 1, %37 ], [ -2, %4 ], [ 0, %8 ], [ 0, %ossl_md5_sha1_update.exit ], [ 0, %15 ], [ 0, %17 ], [ 0, %19 ], [ 0, %21 ], [ 0, %ossl_md5_sha1_init.exit ], [ 0, %26 ], [ 0, %29 ], [ 0, %31 ], [ 0, %33 ], [ 0, %35 ], [ 0, %10 ], [ 0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

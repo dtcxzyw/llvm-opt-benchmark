@@ -79,14 +79,8 @@ define dso_local noalias noundef ptr @geoArrayCreate() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @geoArrayAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -131,7 +125,7 @@ define dso_local noundef ptr @geoArrayAppend(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geoArrayFree(ptr noundef %0) local_unnamed_addr #0 {
@@ -158,9 +152,9 @@ define dso_local void @geoArrayFree(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @sdsfree(ptr noundef) local_unnamed_addr #4
+declare void @sdsfree(ptr noundef) local_unnamed_addr #3
 
-declare void @zfree(ptr noundef) local_unnamed_addr #4
+declare void @zfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @decodeGeohash(double noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -170,9 +164,9 @@ define dso_local i32 @decodeGeohash(double noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare i32 @geohashDecodeToLongLatWGS84(i64, i8, ptr noundef) local_unnamed_addr #4
+declare i32 @geohashDecodeToLongLatWGS84(i64, i8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -211,14 +205,14 @@ define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %0, ptr
   ret i32 %.014
 }
 
-declare i32 @getDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @getDoubleFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double 0.000000e+00, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !28
@@ -236,11 +230,11 @@ define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %0, ptr nou
 
 13:                                               ; preds = %9, %3
   %.0 = phi i32 [ -1, %3 ], [ %., %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef double @extractUnitOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -275,14 +269,14 @@ define dso_local noundef double @extractUnitOrReply(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr %1, align 8, !tbaa !26
   %7 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #14
   %.not = icmp eq i32 %7, 0
@@ -344,7 +338,7 @@ extractUnitOrReply.exit:                          ; preds = %24
 
 28:                                               ; preds = %extractUnitOrReply.exit, %27, %26, %4, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %4 ], [ -1, %extractUnitOrReply.exit ], [ 0, %27 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -352,8 +346,8 @@ extractUnitOrReply.exit:                          ; preds = %24
 define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = alloca double, align 8
   %7 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr %1, align 8, !tbaa !26
   %9 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #14
   %.not = icmp eq i32 %9, 0
@@ -433,25 +427,25 @@ extractUnitOrReply.exit:                          ; preds = %34
 
 38:                                               ; preds = %extractUnitOrReply.exit, %37, %36, %5, %10, %19
   %.0 = phi i32 [ -1, %19 ], [ -1, %10 ], [ -1, %5 ], [ -1, %extractUnitOrReply.exit ], [ 0, %37 ], [ 0, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @addReplyDoubleDistance(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @fixedpoint_d2string(ptr noundef nonnull %3, i64 noundef 128, double noundef %1, i32 noundef 4) #14
   %5 = sext i32 %4 to i64
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %5) #14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @fixedpoint_d2string(ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @fixedpoint_d2string(ptr noundef, i64 noundef, double noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -512,9 +506,9 @@ define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captu
   ret i32 %.0
 }
 
-declare i32 @geohashGetDistanceIfInRadiusWGS84(double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @geohashGetDistanceIfInRadiusWGS84(double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @geohashGetDistanceIfInRectangle(double noundef, double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @geohashGetDistanceIfInRectangle(double noundef, double noundef, double noundef, double noundef, double noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
@@ -527,7 +521,7 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   %13 = alloca double, align 8
   %14 = alloca [2 x double], align 16
   %15 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store double %1, ptr %7, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %2, ptr %16, align 8, !tbaa !37
@@ -548,11 +542,11 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
 24:                                               ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !41
   %27 = call ptr @zzlFirstInRange(ptr noundef %26, ptr noundef nonnull %7) #14
   store ptr %27, ptr %8, align 8, !tbaa !43
@@ -568,8 +562,8 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   br label %32
 
 32:                                               ; preds = %.preheader, %73
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store double 0.000000e+00, ptr %13, align 8, !tbaa !14
   %33 = load ptr, ptr %9, align 8, !tbaa !43
   %34 = call double @zzlGetScore(ptr noundef %33) #14
@@ -648,23 +642,23 @@ geoArrayAppend.exit:                              ; preds = %50, %56
   br i1 %.not93, label %.thread, label %73
 
 .thread:                                          ; preds = %32, %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
 73:                                               ; preds = %71
   call void @zzlNext(ptr noundef %26, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %74 = load ptr, ptr %8, align 8
   %.not62 = icmp eq ptr %74, null
   br i1 %.not62, label %.loopexit, label %32
 
 .loopexit:                                        ; preds = %73, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit95
 
 75:                                               ; preds = %6
@@ -684,8 +678,8 @@ geoArrayAppend.exit:                              ; preds = %50, %56
 
 84:                                               ; preds = %.preheader94, %117
   %.096 = phi ptr [ %80, %.preheader94 ], [ %119, %117 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store double 0.000000e+00, ptr %15, align 8, !tbaa !14
   %85 = getelementptr inbounds nuw i8, ptr %.096, i64 8
   %86 = load double, ptr %85, align 8, !tbaa !14
@@ -750,15 +744,15 @@ geoArrayAppend.exit76:                            ; preds = %92, %100
   br i1 %.not89, label %.thread82, label %117
 
 .thread82:                                        ; preds = %84, %115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit95
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %.096, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not = icmp eq ptr %119, null
   br i1 %.not, label %.loopexit95, label %84
 
@@ -769,37 +763,37 @@ geoArrayAppend.exit76:                            ; preds = %92, %100
   br label %.critedge71
 
 .critedge:                                        ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge71
 
 .critedge71:                                      ; preds = %75, %.critedge, %.loopexit95
   %.147 = phi i32 [ %122, %.loopexit95 ], [ 0, %.critedge ], [ 0, %75 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.147
 }
 
-declare ptr @zzlFirstInRange(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zzlFirstInRange(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare double @zzlGetScore(ptr noundef) local_unnamed_addr #4
+declare double @zzlGetScore(ptr noundef) local_unnamed_addr #3
 
-declare i32 @zslValueLteMax(double noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @zslValueLteMax(double noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #4
+declare ptr @sdsfromlonglong(i64 noundef) local_unnamed_addr #3
 
-declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @zzlNext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @zzlNext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @zslNthInRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @zslNthInRange(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @sdsdup(ptr noundef) local_unnamed_addr #4
+declare ptr @sdsdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scoresOfGeoHashBox(i64 %0, i8 %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
@@ -811,7 +805,7 @@ define dso_local void @scoresOfGeoHashBox(i64 %0, i8 %1, ptr noundef writeonly c
   ret void
 }
 
-declare i64 @geohashAlign52Bits(i64, i8) local_unnamed_addr #4
+declare i64 @geohashAlign52Bits(i64, i8) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @membersOfGeoHashBox(ptr noundef readonly captures(none) %0, i64 %1, i8 %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
@@ -827,7 +821,7 @@ define dso_local i32 @membersOfGeoHashBox(ptr noundef readonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [9 x %struct.GeoHashBits], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !52
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -918,12 +912,12 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
 
 57:                                               ; preds = %43, %56
   %.069.lcssa = phi i32 [ %.06984, %43 ], [ %.1, %56 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.069.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -1044,7 +1038,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %.lr.ph109, %70
   %indvars.iv120 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next121, %70 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = load ptr, ptr %40, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %41
   %53 = mul nuw nsw i64 %indvars.iv120, 3
@@ -1104,11 +1098,11 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
 
 .thread91:                                        ; preds = %69, %extractLongLatOrReply.exit
   call void @zfree(ptr noundef nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %82
 
 70:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %71 = call i32 @geohashEncodeWGS84(double noundef %62, double noundef %.pre.i, i8 noundef zeroext 26, ptr noundef nonnull %3) #14
   %72 = load i64, ptr %3, align 8
   %73 = load i8, ptr %42, align 8
@@ -1125,8 +1119,8 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %gep146 = getelementptr inbounds nuw ptr, ptr %invariant.gep145, i64 %81
   store ptr %80, ptr %gep146, align 8, !tbaa !26
   call void @incrRefCount(ptr noundef %80) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
   br i1 %exitcond124.not, label %._crit_edge, label %50, !llvm.loop !76
@@ -1140,24 +1134,24 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   ret void
 }
 
-declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @createRawStringObject(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @createRawStringObject(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @incrRefCount(ptr noundef) local_unnamed_addr #4
+declare void @incrRefCount(ptr noundef) local_unnamed_addr #3
 
-declare void @decrRefCount(ptr noundef) local_unnamed_addr #4
+declare void @decrRefCount(ptr noundef) local_unnamed_addr #3
 
-declare i32 @geohashEncodeWGS84(double noundef, double noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare i32 @geohashEncodeWGS84(double noundef, double noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
-declare ptr @createStringObjectFromLongLongWithSds(i64 noundef) local_unnamed_addr #4
+declare ptr @createStringObjectFromLongLongWithSds(i64 noundef) local_unnamed_addr #3
 
-declare void @replaceClientCommandVector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @replaceClientCommandVector(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @zaddCommand(ptr noundef) local_unnamed_addr #4
+declare void @zaddCommand(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1179,7 +1173,7 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not, label %18, label %372
 
 18:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 80, i1 false)
   %19 = and i32 %2, 1
   %.not370 = icmp eq i32 %19, 0
@@ -1244,7 +1238,7 @@ extractLongLatOrReply.exit:                       ; preds = %31
   %46 = load ptr, ptr %11, align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double 0.000000e+00, ptr %5, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !28
@@ -1253,7 +1247,7 @@ extractLongLatOrReply.exit:                       ; preds = %31
   br i1 %52, label %longLatFromMember.exit.thread, label %longLatFromMember.exit
 
 longLatFromMember.exit.thread:                    ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 longLatFromMember.exit:                           ; preds = %45
@@ -1262,7 +1256,7 @@ longLatFromMember.exit:                           ; preds = %45
   %55 = fptoui double %54 to i64
   %56 = call i32 @geohashDecodeToLongLatWGS84(i64 %55, i8 26, ptr noundef nonnull %53) #14
   %.not.i420 = icmp eq i32 %56, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not.i420, label %.critedge, label %57
 
 .critedge:                                        ; preds = %longLatFromMember.exit.thread, %longLatFromMember.exit
@@ -1301,7 +1295,7 @@ longLatFromMember.exit:                           ; preds = %45
 72:                                               ; preds = %40, %67, %65, %57, %extractLongLatOrReply.exit
   %.0291 = phi i32 [ 6, %extractLongLatOrReply.exit ], [ 5, %57 ], [ 3, %67 ], [ 2, %65 ], [ 5, %40 ]
   %.0 = phi ptr [ null, %extractLongLatOrReply.exit ], [ null, %57 ], [ %70, %67 ], [ null, %65 ], [ null, %40 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !41
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %74 = load i32, ptr %73, align 8, !tbaa !57
@@ -1675,7 +1669,7 @@ longLatFromMember.exit:                           ; preds = %45
 
 246:                                              ; preds = %229
   %247 = icmp ne i32 %.0336, 0
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind nonnull writable sret(%struct.GeoHashRadius) align 8 %8, ptr noundef nonnull %6) #14
   %248 = call noalias noundef dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
@@ -1770,11 +1764,11 @@ longLatFromMember.exit:                           ; preds = %45
 
 288:                                              ; preds = %285
   %289 = load double, ptr %281, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %290 = call i32 @fixedpoint_d2string(ptr noundef nonnull %4, i64 noundef 128, double noundef %289, i32 noundef 4) #14
   %291 = sext i32 %290 to i64
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %291) #14
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %292
 
 292:                                              ; preds = %288, %285
@@ -1948,39 +1942,39 @@ sdslen.exit:                                      ; preds = %321, %329, %332, %3
 
 .loopexit:                                        ; preds = %302, %371, %271, %255
   call void @geoArrayFree(ptr noundef nonnull %248)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread450
 
 .thread450:                                       ; preds = %113, %158, %172, %186, %120, %150, %193, %242, %244, %.loopexit, %228, %219, %213, %207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %extractLongLatOrReply.exit.thread
 
 extractLongLatOrReply.exit.thread:                ; preds = %25, %._crit_edge.i, %.critedge, %extractLongLatOrReply.exit, %57, %.thread450, %71
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %372
 
 372:                                              ; preds = %3, %extractLongLatOrReply.exit.thread
   ret void
 }
 
-declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dbDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @notifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReply(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8, ptr noundef) local_unnamed_addr #4
+declare void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind writable sret(%struct.GeoHashRadius) align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1993,7 +1987,7 @@ define internal range(i32 -1, 2) i32 @sort_gp_asc(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
+define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2006,32 +2000,32 @@ define internal range(i32 -1, 2) i32 @sort_gp_desc(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-declare void @pqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @pqsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @addReplyBulkSds(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @addReplyBulkSds(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @addReplyDouble(ptr noundef, double noundef) local_unnamed_addr #4
+declare void @addReplyDouble(ptr noundef, double noundef) local_unnamed_addr #3
 
-declare ptr @createZsetObject() local_unnamed_addr #4
+declare ptr @createZsetObject() local_unnamed_addr #3
 
-declare ptr @zslInsert(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @zslInsert(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #10
+declare void @abort() local_unnamed_addr #9
 
-declare void @zsetConvertToListpackIfNeeded(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare void @zsetConvertToListpackIfNeeded(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @setKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @setKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @georadiusCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2108,9 +2102,9 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.02530.us = phi i32 [ %27, %.lr.ph.split.us ], [ 2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @addReplyNull(ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = add nuw nsw i32 %.02530.us, 1
   %28 = load i32, ptr %16, align 8, !tbaa !57
   %29 = icmp slt i32 %27, %28
@@ -2118,7 +2112,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %59 ], [ 2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = load ptr, ptr %9, align 8, !tbaa !71
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv35
   %32 = load ptr, ptr %31, align 8, !tbaa !26
@@ -2133,7 +2127,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %59
 
 38:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = load double, ptr %2, align 8, !tbaa !14
   %40 = fptoui double %39 to i64
   %41 = call i32 @geohashDecodeToLongLatWGS84(i64 %40, i8 26, ptr noundef nonnull %3) #14
@@ -2145,8 +2139,8 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %58
 
 43:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store double -1.800000e+02, ptr %4, align 16, !tbaa !111
   store double 1.800000e+02, ptr %22, align 8, !tbaa !113
   store double -9.000000e+01, ptr %23, align 16, !tbaa !111
@@ -2154,7 +2148,7 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %44 = load double, ptr %3, align 16, !tbaa !14
   %45 = load double, ptr %25, align 8, !tbaa !14
   %46 = call i32 @geohashEncode(ptr noundef nonnull %4, ptr noundef nonnull %23, double noundef %44, double noundef %45, i8 noundef zeroext 26, ptr noundef nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %47 = load i64, ptr %5, align 8
   br label %48
 
@@ -2177,17 +2171,17 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 57:                                               ; preds = %48
   store i8 0, ptr %26, align 1, !tbaa !33
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 11) #14
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 58:                                               ; preds = %57, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 59:                                               ; preds = %58, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %60 = load i32, ptr %16, align 8, !tbaa !57
   %61 = sext i32 %60 to i64
@@ -2198,9 +2192,9 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @addReplyNull(ptr noundef) local_unnamed_addr #4
+declare void @addReplyNull(ptr noundef) local_unnamed_addr #3
 
-declare i32 @geohashEncode(ptr noundef, ptr noundef, double noundef, double noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare i32 @geohashEncode(ptr noundef, ptr noundef, double noundef, double noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2234,9 +2228,9 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.01822.us = phi i32 [ %20, %.lr.ph.split.us ], [ 2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @addReplyNullArray(ptr noundef nonnull %0) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = add nuw nsw i32 %.01822.us, 1
   %21 = load i32, ptr %13, align 8, !tbaa !57
   %22 = icmp slt i32 %20, %21
@@ -2244,7 +2238,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %23 = load ptr, ptr %6, align 8, !tbaa !71
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
@@ -2259,7 +2253,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %40
 
 31:                                               ; preds = %.lr.ph.split
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = load double, ptr %2, align 8, !tbaa !14
   %33 = fptoui double %32 to i64
   %34 = call i32 @geohashDecodeToLongLatWGS84(i64 %33, i8 26, ptr noundef nonnull %3) #14
@@ -2279,11 +2273,11 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %36, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
 40:                                               ; preds = %39, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %13, align 8, !tbaa !57
   %42 = sext i32 %41 to i64
@@ -2294,7 +2288,7 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #4
+declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geodistCommand(ptr noundef %0) local_unnamed_addr #0 {
@@ -2371,9 +2365,9 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   br i1 %.not, label %39, label %76
 
 39:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %40 = load ptr, ptr %27, align 8, !tbaa !71
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
@@ -2429,18 +2423,24 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   br label %75
 
 75:                                               ; preds = %65, %66, %55
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %76
 
 76:                                               ; preds = %extractUnitOrReply.exit, %75, %37, %extractUnitOrReply.exit.thread, %24
   ret void
 }
 
-declare ptr @lookupKeyReadOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lookupKeyReadOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare double @geohashGetDistance(double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #4
+declare double @geohashGetDistance(double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #11
@@ -2455,16 +2455,16 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind allocsize(0) }
 attributes #13 = { nounwind allocsize(1) }

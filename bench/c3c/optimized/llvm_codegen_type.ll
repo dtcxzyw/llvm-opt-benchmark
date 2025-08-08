@@ -138,14 +138,14 @@ define dso_local ptr @llvm_update_prototype_abi(ptr noundef captures(none) %0, p
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %56)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %54, ptr %5, align 16
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @LLVMStructTypeInContext(ptr noundef %60, ptr noundef nonnull %5, i32 noundef 2, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %107
 
 62:                                               ; preds = %3
@@ -196,14 +196,14 @@ llvm_abi_type.exit:                               ; preds = %70, %72
 
 llvm_abi_type.exit83:                             ; preds = %82, %84
   %.0.i82 = phi ptr [ %83, %82 ], [ %89, %84 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.0.i81, ptr %4, align 16
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.i82, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @LLVMStructTypeInContext(ptr noundef %92, ptr noundef nonnull %4, i32 noundef 2, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %107
 
 94:                                               ; preds = %3
@@ -2016,14 +2016,14 @@ llvm_abi_type.exit:                               ; preds = %23, %25
 
 llvm_abi_type.exit20:                             ; preds = %35, %37
   %.0.i19 = phi ptr [ %36, %35 ], [ %42, %37 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.0.i, ptr %3, align 16
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i19, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr @LLVMStructTypeInContext(ptr noundef %45, ptr noundef nonnull %3, i32 noundef 2, i32 noundef 0) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %49
 
 47:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
@@ -3118,10 +3118,10 @@ declare i32 @LLVMPreferredAlignmentOfGlobal(ptr noundef, ptr noundef) local_unna
 declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

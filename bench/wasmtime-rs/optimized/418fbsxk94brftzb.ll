@@ -38,13 +38,13 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr wri
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !3
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd8b5d608c6ee7b01E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %10, i64 0, i64 %12)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !7
   store i64 0, ptr %6, align 8, !noalias !10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %13, align 8, !noalias !10
@@ -101,10 +101,10 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr wri
   store i64 %27, ptr %.sroa.0.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
   %.sroa.0.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i64 %28, ptr %.sroa.0.sroa.3.0..sroa_idx.i.i, align 8, !alias.scope !4, !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load i64, ptr %32, align 8, !noalias !7, !noundef !3
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17he6df57171838da96E"(ptr nonnull align 8 %8, i64 %33, i8 0)
@@ -157,8 +157,8 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr wri
 
 45:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(176) %7, i64 176, i1 false)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -227,9 +227,9 @@ define hidden { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partiti
   %9 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %9)
   %10 = call i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %2, i64 %3, ptr nonnull align 8 %1, ptr nonnull align 2 %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %7, ptr align 8 %2, i64 %3, i64 %10, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
   %11 = load ptr, ptr %7, align 8, !nonnull !3, !align !11, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -258,9 +258,9 @@ define hidden { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partiti
 _ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit: ; preds = %4, %24
   %.0.i = phi i64 [ %26, %24 ], [ %10, %4 ]
   %27 = icmp ne i64 %10, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %28 = insertvalue { i64, i1 } poison, i64 %.0.i, 0
   %29 = insertvalue { i64, i1 } %28, i1 %27, 1
   ret { i64, i1 } %29
@@ -275,10 +275,10 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_bl
   %7 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !11, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h97de457c020ab7c5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 8 %1), !noalias !12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h89e1fd56140dfd7cE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %5, ptr nonnull align 8 %10)
@@ -337,10 +337,10 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_bl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %9, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %7, i64 120, i1 false)
@@ -416,7 +416,6 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
   %31 = call { i16, i16 } @"_ZN93_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17h08bb0ddc19646a26E"(i64 %30)
   %32 = extractvalue { i16, i16 } %31, 0
   %33 = extractvalue { i16, i16 } %31, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   %34 = icmp eq i16 %32, 0
   br i1 %34, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heba2a2d3f6652dceE.exit", label %35
 
@@ -425,7 +424,6 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heba2a2d3f6652dceE.exit": ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   %36 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %33)
   %37 = load i64, ptr %17, align 8, !noundef !3
   %38 = icmp ult i64 %36, %37
@@ -461,8 +459,8 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
   br i1 %54, label %55, label %.backedge
 
 55:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %56 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %33)
   %57 = load i64, ptr %17, align 8, !noundef !3
   %58 = icmp ult i64 %56, %57
@@ -500,8 +498,8 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_b
 
 _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit: ; preds = %59, %65
   store i8 1, ptr %61, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 }
 
@@ -691,39 +689,39 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17
   %.sroa.7.0122 = phi i16 [ undef, %4 ], [ %.sroa.7.1, %370 ]
   %.sroa.7.0 = phi i64 [ %3, %4 ], [ %236, %370 ]
   %.sroa.0.0 = phi ptr [ %2, %4 ], [ %235, %370 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %147 = icmp eq i64 %.sroa.7.0, 0
   br i1 %147, label %.thread380, label %148
 
 .thread380:                                       ; preds = %146
   store i64 0, ptr %74, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %.loopexit384
 
 148:                                              ; preds = %146
@@ -864,15 +862,15 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17
   %.sroa.424.0.insert.shift.i = shl nuw nsw i48 %.sroa.424.0.insert.ext.i, 16
   %.sroa.424.0.insert.insert.i = or disjoint i48 %.sroa.6.0.insert.shift.i, %.sroa.424.0.insert.shift.i
   %.sroa.023.0.insert.insert.i = or disjoint i48 %.sroa.424.0.insert.insert.i, 1
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i48 %.sroa.023.0.insert.insert.i, ptr %47, align 8
   %193 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %192, ptr nonnull align 2 %47)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc61:                                         ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %46, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %193, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -901,10 +899,10 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17
 
 _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit.i: ; preds = %202, %.noexc63
   %.0.i.i.i = phi i64 [ %193, %.noexc63 ], [ %204, %202 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %205 = load i8, ptr %178, align 8, !range !17, !noundef !3
   %206 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %207 = load i8, ptr %206, align 8, !range !17, !noundef !3
@@ -971,20 +969,20 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 214:                                              ; preds = %._crit_edge.i
   %215 = load i16, ptr %92, align 8, !range !21, !noundef !3
   %.sroa.257.0.copyload.i = load i32, ptr %.sroa.257.0..sroa_idx.i, align 2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   %.not = icmp eq i16 %215, 3
   br i1 %.not, label %.loopexit384, label %216
 
@@ -994,15 +992,15 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   %.sroa.0.0.insert.ext.i = zext nneg i16 %215 to i48
   %.sroa.0.0.insert.insert.i = or disjoint i48 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %217 = load ptr, ptr %69, align 8, !nonnull !3, !align !11, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i48 %.sroa.0.0.insert.insert.i, ptr %43, align 8
   %218 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %217, ptr nonnull align 2 %43)
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc67:                                         ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %42, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %218, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
           to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1036,10 +1034,10 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 231:                                              ; preds = %.noexc69, %227
   %.0.i.i = phi i64 [ %218, %.noexc69 ], [ %229, %227 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %67, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %.0.i.i, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.9)
           to label %232 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1048,28 +1046,28 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   %234 = load i64, ptr %98, align 8, !noundef !3
   %235 = load ptr, ptr %99, align 8, !nonnull !3, !align !11, !noundef !3
   %236 = load i64, ptr %100, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %.sroa.24.0.extract.trunc.i = trunc i32 %.sroa.257.0.copyload.i to i16
   %.sroa.3.0.extract.shift.i = lshr i32 %.sroa.257.0.copyload.i, 16
   %.sroa.3.0.extract.trunc.i = trunc nuw i32 %.sroa.3.0.extract.shift.i to i16
@@ -1165,12 +1163,12 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 253:                                              ; preds = %247
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %254 = load ptr, ptr %69, align 8, !noalias !22, !nonnull !3, !align !11, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !22
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !22
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h97de457c020ab7c5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %10, ptr nonnull align 8 %1)
           to label %.noexc116 unwind label %.loopexit158
 
@@ -1223,10 +1221,10 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %118, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !22
   store ptr %254, ptr %119, align 8, !alias.scope !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
   store i64 0, ptr %120, align 8, !alias.scope !22
@@ -1234,10 +1232,10 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx.i, i8 0, i64 16, i1 false), !alias.scope !22
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.01.sroa.2.0..sroa_idx.i, align 8, !alias.scope !22
   store i64 0, ptr %.sroa.01.sroa.3.0..sroa_idx.i, align 8, !alias.scope !22
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %268 = load i16, ptr %39, align 2, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %269 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %268)
           to label %.noexc111 unwind label %.thread.loopexit
 
@@ -1300,8 +1298,8 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 282:                                              ; preds = %272, %.noexc113
   store i8 3, ptr %274, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i71 = icmp eq i64 %249, 0
   br i1 %.not.i71, label %.invoke487, label %283, !prof !31
 
@@ -1382,8 +1380,8 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 305:                                              ; preds = %300
   %306 = getelementptr inbounds nuw i8, ptr %296, i64 2
   %307 = load i16, ptr %306, align 2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %308 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %307)
           to label %.noexc98 unwind label %.loopexit148.loopexit.split-lp
 
@@ -1430,8 +1428,8 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit102: ; preds = %.noexc100, %311
   store i8 2, ptr %313, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.outer
 
 .loopexit148.loopexit:                            ; preds = %295
@@ -1554,8 +1552,8 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc84:                                         ; preds = %.noexc83
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %345 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %.sroa.24.0.extract.trunc.i)
           to label %.noexc497 unwind label %.loopexit178.loopexit
 
@@ -1607,10 +1605,10 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 357:                                              ; preds = %348, %.noexc499
   store i8 3, ptr %350, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %358 = invoke i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %328)
           to label %.noexc86 unwind label %.loopexit178.loopexit
 
@@ -1657,8 +1655,8 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 368:                                              ; preds = %361, %.noexc88
   store i8 2, ptr %363, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %21)
           to label %369 unwind label %.loopexit178.loopexit
 
@@ -1692,28 +1690,28 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   %.sroa.7.1 = phi i16 [ %.sroa.7.0122, %251 ], [ %.sroa.3.0.extract.trunc.i, %322 ], [ %.sroa.7.0122, %369 ]
   %.sroa.4.0 = phi i16 [ %252, %251 ], [ %.sroa.24.0.extract.trunc.i, %322 ], [ %328, %369 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %139, i64 24, i1 false)
   store i64 0, ptr %139, align 8
   store ptr inttoptr (i64 2 to ptr), ptr %.sroa.226.0..sroa_idx, align 8
@@ -1862,8 +1860,8 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
   ret void
 
 17:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = tail call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %1)
   %19 = load i64, ptr %7, align 8, !noundef !3
   %20 = icmp ult i64 %18, %19
@@ -1912,8 +1910,8 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_ex
 
 _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit: ; preds = %21, %27
   store i8 2, ptr %23, align 1
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !11, !noundef !3
   %36 = call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %1)
@@ -2460,14 +2458,14 @@ declare void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c5173
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr align 8, ptr align 1, i64, ptr align 8) unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
@@ -2492,8 +2490,8 @@ attributes #4 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "
 attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { cold }

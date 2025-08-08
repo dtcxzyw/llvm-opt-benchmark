@@ -51,8 +51,8 @@ define internal range(i32 0, 2) i32 @stbl_module_init(ptr noundef %0, ptr nounde
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !10
   %16 = call i32 @OBJ_sn2nid(ptr noundef %15) #5
   %17 = icmp eq i32 %16, 0
@@ -188,8 +188,8 @@ define internal range(i32 0, 2) i32 @stbl_module_init(ptr noundef %0, ptr nounde
 74:                                               ; preds = %65, %70, %73
   %.03671.i.ph = phi ptr [ %21, %73 ], [ null, %70 ], [ %21, %65 ]
   call void @OPENSSL_sk_pop_free(ptr noundef %.03671.i.ph, ptr noundef nonnull @X509V3_conf_free) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 35, ptr noundef nonnull @__func__.stbl_module_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 219, ptr noundef null) #5
@@ -197,8 +197,8 @@ define internal range(i32 0, 2) i32 @stbl_module_init(ptr noundef %0, ptr nounde
 
 75:                                               ; preds = %._crit_edge.i
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %21, ptr noundef nonnull @X509V3_conf_free) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %76 = add nuw nsw i32 %.01027, 1
   %77 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %6) #5
   %78 = icmp slt i32 %76, %77
@@ -215,9 +215,6 @@ define internal void @stbl_module_finish(ptr readnone captures(none) %0) #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @CONF_imodule_get_value(ptr noundef) local_unnamed_addr #1
 
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -232,9 +229,6 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #1
 
 declare i32 @OBJ_ln2nid(ptr noundef) local_unnamed_addr #1
@@ -242,10 +236,10 @@ declare i32 @OBJ_ln2nid(ptr noundef) local_unnamed_addr #1
 declare ptr @X509V3_parse_list(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @ASN1_str2mask(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -257,11 +251,17 @@ declare void @X509V3_conf_free(ptr noundef) #1
 
 declare void @ASN1_STRING_TABLE_cleanup() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

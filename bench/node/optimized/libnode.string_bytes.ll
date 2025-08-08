@@ -826,10 +826,10 @@ entry:
   br i1 %cmp, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.33, i64 noundef 4294967296) #18
   %call2.i = call ptr @_ZN4node20ERR_BUFFER_TOO_LARGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i)
   store ptr %call2.i, ptr %error, align 8
   br label %return
 
@@ -1219,10 +1219,10 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i16, label %if.then.i, label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE17NewSimpleFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE.exit
 
 if.then.i:                                        ; preds = %if.then7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i.i)
   %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i.i)
   store ptr %call2.i.i, ptr %error, align 8
   br label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcE17NewSimpleFromCopyEPNS2_7IsolateEPKcmPNS2_5LocalINS2_5ValueEEE.exit
 
@@ -1255,10 +1255,10 @@ delete.notnull:                                   ; preds = %if.end13
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %call14) #18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i)
   %call.i19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef nonnull %isolate, ptr noundef nonnull %message.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i)
   store ptr %call2.i, ptr %error, align 8
   br label %return
 
@@ -1291,10 +1291,10 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i.i)
   %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i.i)
   store ptr %call2.i.i, ptr %error, align 8
   br label %return
 
@@ -1538,10 +1538,10 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i16, label %if.then.i, label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE17NewSimpleFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE.exit
 
 if.then.i:                                        ; preds = %if.then7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i.i)
   %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i.i)
   store ptr %call2.i.i, ptr %error, align 8
   br label %_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtE17NewSimpleFromCopyEPNS2_7IsolateEPKtmPNS2_5LocalINS2_5ValueEEE.exit
 
@@ -1575,10 +1575,10 @@ delete.notnull:                                   ; preds = %if.end13
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %call14) #18
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i)
   %call.i19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef nonnull %isolate, ptr noundef nonnull %message.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i)
   store ptr %call2.i, ptr %error, align 8
   br label %return
 
@@ -1611,10 +1611,10 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i.i)
   %call.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i.i, i64 noundef 128, ptr noundef nonnull @.str.45, i32 noundef 536870888) #18
   %call2.i.i = call ptr @_ZN4node19ERR_STRING_TOO_LONGIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i.i)
   store ptr %call2.i.i, ptr %error, align 8
   br label %return
 
@@ -1664,10 +1664,10 @@ do.body:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %do.body
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %message.i, i64 noundef 128, ptr noundef nonnull @.str.33, i64 noundef 4294967296) #18
   %call2.i = call ptr @_ZN4node20ERR_BUFFER_TOO_LARGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %isolate, ptr noundef nonnull %message.i)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %message.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message.i)
   store ptr %call2.i, ptr %error, align 8
   br label %return
 
@@ -2733,10 +2733,10 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

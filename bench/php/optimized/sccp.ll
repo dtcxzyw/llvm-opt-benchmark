@@ -66,7 +66,7 @@ define hidden i32 @sccp_optimize_op_array(ptr noundef %0, ptr noundef %1, ptr no
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._sccp_ctx, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %0, align 8, !tbaa !4
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -93,7 +93,7 @@ define hidden i32 @sccp_optimize_op_array(ptr noundef %0, ptr noundef %1, ptr no
   %25 = ptrtoint ptr %9 to i64
   %26 = sub i64 %18, %25
   %..i.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %26)
-  %27 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #13
+  %27 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #12
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %15
   store ptr %29, ptr %27, align 8, !tbaa !13
@@ -168,8 +168,8 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   store ptr @sccp_visit_phi, ptr %60, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr @sccp_mark_feasible_successors, ptr %61, align 8, !tbaa !57
-  call void @scdf_init(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
-  call void @scdf_solve(ptr noundef nonnull %8, ptr noundef nonnull @.str) #12
+  call void @scdf_init(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %2) #13
+  call void @scdf_solve(ptr noundef nonnull %8, ptr noundef nonnull @.str) #13
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i64, ptr %62, align 8, !tbaa !58
   %64 = and i64 %63, 536870912
@@ -205,7 +205,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
 78:                                               ; preds = %77
   %79 = load ptr, ptr @stderr, align 8, !tbaa !59
   %80 = call i64 @fwrite(ptr nonnull @.str.1, i64 18, i64 1, ptr %79) #14
-  call void @zend_dump_op_array_name(ptr noundef nonnull %1) #12
+  call void @zend_dump_op_array_name(ptr noundef nonnull %1) #13
   %81 = load ptr, ptr @stderr, align 8, !tbaa !59
   %82 = call i64 @fwrite(ptr nonnull @.str.2, i64 3, i64 1, ptr %81) #14
   br label %83
@@ -217,7 +217,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   %87 = load ptr, ptr %69, align 8, !tbaa !54
   %88 = getelementptr inbounds %struct._zend_ssa_var, ptr %87, i64 %indvars.iv
   %89 = load i32, ptr %88, align 8, !tbaa !61
-  call void @zend_dump_var(ptr noundef nonnull %1, i8 noundef zeroext 8, i32 noundef %89) #12
+  call void @zend_dump_var(ptr noundef nonnull %1, i8 noundef zeroext 8, i32 noundef %89) #13
   %90 = load ptr, ptr @stderr, align 8, !tbaa !59
   %91 = call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %90) #14
   %92 = load i8, ptr %75, align 8, !tbaa !41
@@ -245,7 +245,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   %102 = select i1 %101, ptr @.str.11, ptr @.str.12
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.10, ptr noundef nonnull %102) #15
   %104 = load ptr, ptr %74, align 8, !tbaa !41
-  call void @zend_dump_ht(ptr noundef %104) #12
+  call void @zend_dump_ht(ptr noundef %104) #13
   %105 = load ptr, ptr @stderr, align 8, !tbaa !59
   %fputc9.i = call i32 @fputc(i32 93, ptr %105)
   br label %scp_dump_value.exit
@@ -254,13 +254,13 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   %107 = load ptr, ptr @stderr, align 8, !tbaa !59
   %108 = call i64 @fwrite(ptr nonnull @.str.14, i64 2, i64 1, ptr %107) #14
   %109 = load ptr, ptr %74, align 8, !tbaa !41
-  call void @zend_dump_ht(ptr noundef %109) #12
+  call void @zend_dump_ht(ptr noundef %109) #13
   %110 = load ptr, ptr @stderr, align 8, !tbaa !59
   %fputc.i = call i32 @fputc(i32 125, ptr %110)
   br label %scp_dump_value.exit
 
 111:                                              ; preds = %83
-  call void @zend_dump_const(ptr noundef nonnull %74) #12
+  call void @zend_dump_const(ptr noundef nonnull %74) #13
   br label %scp_dump_value.exit
 
 scp_dump_value.exit:                              ; preds = %93, %96, %99, %106, %111
@@ -278,11 +278,11 @@ scp_dump_value.exit:                              ; preds = %93, %96, %99, %106,
   br i1 %116, label %71, label %.loopexit
 
 .loopexit:                                        ; preds = %113, %65, %sccp_context_init.exit
-  %117 = call i32 @scdf_remove_unreachable_blocks(ptr noundef nonnull %8) #12
+  %117 = call i32 @scdf_remove_unreachable_blocks(ptr noundef nonnull %8) #13
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !65
   %120 = load ptr, ptr %8, align 8, !tbaa !66
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %122 = load i32, ptr %121, align 8, !tbaa !27
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 92
@@ -291,7 +291,7 @@ scp_dump_value.exit:                              ; preds = %93, %96, %99, %106,
   br i1 %.not.not107.i, label %.lr.ph111.i, label %replace_constant_operands.exit.thread
 
 replace_constant_operands.exit.thread:            ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %sccp_context_free.exit
 
 .lr.ph111.i:                                      ; preds = %.loopexit
@@ -335,7 +335,7 @@ replace_constant_operands.exit.thread:            ; preds = %.loopexit
 
 149:                                              ; preds = %141
   %150 = load ptr, ptr %137, align 8, !tbaa !41
-  call void @zend_array_destroy(ptr noundef %150) #12
+  call void @zend_array_destroy(ptr noundef %150) #13
   %.pre115.i = load ptr, ptr %33, align 8, !tbaa !40
   br label %151
 
@@ -490,7 +490,7 @@ can_replace_op1.exit.i.i:                         ; preds = %184
   br i1 %spec.select.i.i.i, label %204, label %try_replace_op1.exit.thread.i
 
 204:                                              ; preds = %can_replace_op1.exit.i.i, %can_replace_op1.exit.thread.i.i, %195, %191
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %205 = load ptr, ptr %.082.i, align 8, !tbaa !41
   %206 = load i32, ptr %171, align 8, !tbaa !41
   store ptr %205, ptr %6, align 8, !tbaa !41
@@ -506,7 +506,7 @@ can_replace_op1.exit.i.i:                         ; preds = %184
   br label %211
 
 211:                                              ; preds = %208, %204
-  %212 = call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %188, ptr noundef nonnull %187, ptr noundef nonnull %6) #12
+  %212 = call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %188, ptr noundef nonnull %187, ptr noundef nonnull %6) #13
   br i1 %212, label %222, label %213
 
 213:                                              ; preds = %211
@@ -526,15 +526,15 @@ can_replace_op1.exit.i.i:                         ; preds = %184
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %221) #12
+  call void @rc_dtor_func(ptr noundef %221) #13
   br label %try_replace_op1.exit.thread99.i
 
 try_replace_op1.exit.thread99.i:                  ; preds = %220, %215, %213
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %try_replace_op1.exit.thread.i
 
 222:                                              ; preds = %211
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %223 = load i8, ptr %189, align 4, !tbaa !77
   %224 = icmp eq i8 %223, 0
   %225 = zext i1 %224 to i32
@@ -550,7 +550,7 @@ try_replace_op1.exit.thread99.i:                  ; preds = %220, %215, %213
   br i1 %.not87.i, label %233, label %232
 
 232:                                              ; preds = %222
-  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %119, i32 noundef %.083103.i, i32 noundef %229) #12
+  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %119, i32 noundef %.083103.i, i32 noundef %229) #13
   br label %236
 
 233:                                              ; preds = %222
@@ -584,7 +584,7 @@ try_replace_op1.exit.thread.i:                    ; preds = %zend_ssa_next_use.e
   ]
 
 242:                                              ; preds = %240
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %243 = load ptr, ptr %.082.i, align 8, !tbaa !41
   %244 = load i32, ptr %171, align 8, !tbaa !41
   store ptr %243, ptr %5, align 8, !tbaa !41
@@ -601,7 +601,7 @@ try_replace_op1.exit.thread.i:                    ; preds = %zend_ssa_next_use.e
 
 249:                                              ; preds = %246, %242
   %250 = load ptr, ptr %8, align 8, !tbaa !66
-  %251 = call zeroext i1 @zend_optimizer_update_op2_const(ptr noundef %250, ptr noundef nonnull %237, ptr noundef nonnull %5) #12
+  %251 = call zeroext i1 @zend_optimizer_update_op2_const(ptr noundef %250, ptr noundef nonnull %237, ptr noundef nonnull %5) #13
   br i1 %251, label %261, label %252
 
 252:                                              ; preds = %249
@@ -621,15 +621,15 @@ try_replace_op1.exit.thread.i:                    ; preds = %zend_ssa_next_use.e
 
 259:                                              ; preds = %254
   %260 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %260) #12
+  call void @rc_dtor_func(ptr noundef %260) #13
   br label %try_replace_op2.exit.thread102.i
 
 try_replace_op2.exit.thread102.i:                 ; preds = %259, %254, %252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %try_replace_op2.exit.thread.i
 
 261:                                              ; preds = %249
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %262 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %263 = load i32, ptr %262, align 4, !tbaa !84
   %264 = icmp eq i32 %263, -1
@@ -640,7 +640,7 @@ try_replace_op2.exit.thread102.i:                 ; preds = %259, %254, %252
   br i1 %.not88.i, label %268, label %267
 
 267:                                              ; preds = %261
-  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %119, i32 noundef %.083103.i, i32 noundef %265) #12
+  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %119, i32 noundef %.083103.i, i32 noundef %265) #13
   br label %268
 
 268:                                              ; preds = %267, %261
@@ -866,13 +866,13 @@ try_replace_op2.exit.thread.i:                    ; preds = %268, %try_replace_o
 
 367:                                              ; preds = %361
   %368 = icmp eq i8 %292, -49
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #13
   br i1 %368, label %369, label %372
 
 369:                                              ; preds = %367
   %370 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %371 = getelementptr inbounds nuw i8, ptr %286, i64 36
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %370, ptr noundef nonnull %371) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %370, ptr noundef nonnull %371) #13
   br label %372
 
 372:                                              ; preds = %369, %367, %365
@@ -894,7 +894,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %268, %try_replace_o
 
 379:                                              ; preds = %375, %372
   %380 = load ptr, ptr %8, align 8, !tbaa !66
-  %381 = call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %380, ptr noundef nonnull %283, ptr noundef nonnull %.082.sink.i) #12
+  %381 = call zeroext i1 @zend_optimizer_update_op1_const(ptr noundef %380, ptr noundef nonnull %283, ptr noundef nonnull %.082.sink.i) #13
   br label %try_remove_definition.exit
 
 382:                                              ; preds = %352
@@ -990,13 +990,13 @@ try_replace_op2.exit.thread.i:                    ; preds = %268, %try_replace_o
 
 432:                                              ; preds = %416
   %433 = icmp eq i8 %292, -49
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #13
   br i1 %433, label %434, label %try_remove_definition.exit
 
 434:                                              ; preds = %432
   %435 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %436 = getelementptr inbounds nuw i8, ptr %286, i64 36
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %435, ptr noundef nonnull %436) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %435, ptr noundef nonnull %436) #13
   br label %try_remove_definition.exit
 
 437:                                              ; preds = %279
@@ -1080,7 +1080,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %268, %try_replace_o
   br i1 %474, label %try_remove_definition.exit, label %475
 
 475:                                              ; preds = %471, %446
-  %476 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %283, ptr noundef nonnull %286, ptr noundef nonnull %275, ptr noundef nonnull %274) #12
+  %476 = call zeroext i1 @zend_may_throw(ptr noundef nonnull %283, ptr noundef nonnull %286, ptr noundef nonnull %275, ptr noundef nonnull %274) #13
   br i1 %476, label %try_remove_definition.exit, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %475
@@ -1155,7 +1155,7 @@ try_replace_op2.exit.thread.i:                    ; preds = %268, %try_replace_o
 
 518:                                              ; preds = %513
   %519 = load ptr, ptr %510, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %519) #12
+  call void @rc_dtor_func(ptr noundef %519) #13
   %.pre248.i = load ptr, ptr %505, align 8, !tbaa !90
   br label %zval_ptr_dtor_nogc.exit.i48
 
@@ -1180,7 +1180,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
 
 530:                                              ; preds = %528
   %531 = load i32, ptr %276, align 8, !tbaa !85
-  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %274, i32 noundef %531, i32 noundef %526) #12
+  call void @zend_ssa_unlink_use_chain(ptr noundef nonnull %274, i32 noundef %531, i32 noundef %526) #13
   br label %532
 
 532:                                              ; preds = %530, %528
@@ -1202,7 +1202,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
 .sink.split.i45:                                  ; preds = %534, %534, %534, %534, %534
   %536 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %537 = getelementptr inbounds nuw i8, ptr %286, i64 36
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %536, ptr noundef nonnull %537) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %536, ptr noundef nonnull %537) #13
   br label %538
 
 538:                                              ; preds = %.sink.split.i45, %534
@@ -1212,7 +1212,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
 539:                                              ; preds = %538
   store i8 22, ptr %442, align 4, !tbaa !77
   store i8 1, ptr %501, align 2, !tbaa !88
-  %540 = call i32 @zend_optimizer_add_literal(ptr noundef nonnull %275, ptr noundef nonnull %.082.sink.i) #12
+  %540 = call i32 @zend_optimizer_add_literal(ptr noundef nonnull %275, ptr noundef nonnull %.082.sink.i) #13
   %541 = getelementptr inbounds nuw i8, ptr %283, i64 12
   store i32 %540, ptr %541, align 4, !tbaa !41
   %542 = getelementptr inbounds nuw i8, ptr %.082.sink.i, i64 9
@@ -1243,7 +1243,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
 556:                                              ; preds = %553, %548
   %557 = load i32, ptr %438, align 4, !tbaa !81
   %558 = load i32, ptr %286, align 4, !tbaa !72
-  call void @zend_ssa_rename_var_uses(ptr noundef nonnull %274, i32 noundef %557, i32 noundef %558, i1 noundef zeroext true) #12
+  call void @zend_ssa_rename_var_uses(ptr noundef nonnull %274, i32 noundef %557, i32 noundef %558, i1 noundef zeroext true) #13
   br label %559
 
 559:                                              ; preds = %556, %553
@@ -1266,7 +1266,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
   call void @llvm.assume(i1 %.not.i229.i)
   store i32 -1, ptr %565, align 8, !tbaa !85
   store i32 -1, ptr %438, align 4, !tbaa !81
-  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #12
+  call void @zend_ssa_remove_instr(ptr noundef nonnull %274, ptr noundef nonnull %283, ptr noundef nonnull %286) #13
   br label %try_remove_definition.exit
 
 573:                                              ; preds = %.sink.split.i
@@ -1288,7 +1288,7 @@ zval_ptr_dtor_nogc.exit.i48:                      ; preds = %518, %513, %504
   br i1 %583, label %584, label %try_remove_definition.exit
 
 584:                                              ; preds = %580
-  call void @zend_ssa_remove_phi(ptr noundef %274, ptr noundef nonnull %575) #12
+  call void @zend_ssa_remove_phi(ptr noundef %274, ptr noundef nonnull %575) #13
   br label %try_remove_definition.exit
 
 try_remove_definition.exit:                       ; preds = %294, %298, %302, %324, %328, %332, %333, %347, %347, %347, %347, %347, %347, %347, %347, %347, %347, %355, %356, %360, %360, %360, %360, %360, %360, %360, %379, %386, %401, %402, %430, %432, %434, %437, %441, %451, %459, %467, %471, %475, %497, %539, %544, %559, %573, %576, %580, %584
@@ -1311,7 +1311,7 @@ replace_constant_operands.exit:                   ; preds = %586
   %.phi.trans.insert68 = getelementptr inbounds nuw i8, ptr %.pre67, i64 40
   %.pre69 = load i32, ptr %.phi.trans.insert68, align 8, !tbaa !27
   %589 = icmp slt i32 %.pre66, %.pre69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %589, label %.lr.ph.i38, label %sccp_context_free.exit
 
 .lr.ph.i38:                                       ; preds = %replace_constant_operands.exit
@@ -1340,7 +1340,7 @@ replace_constant_operands.exit:                   ; preds = %586
 
 602:                                              ; preds = %597
   %603 = load ptr, ptr %594, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %603) #12
+  call void @rc_dtor_func(ptr noundef %603) #13
   %.pre.i42 = load ptr, ptr %118, align 8, !tbaa !65
   br label %zval_ptr_dtor_nogc.exit.i
 
@@ -1367,7 +1367,7 @@ sccp_context_free.exit:                           ; preds = %zval_ptr_dtor_nogc.
   %.0.i63 = phi ptr [ %614, %.critedge.i ], [ %609, %sccp_context_free.exit ]
   %613 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 16
   %614 = load ptr, ptr %613, align 8, !tbaa !38
-  call void @_efree(ptr noundef nonnull %.0.i63) #12
+  call void @_efree(ptr noundef nonnull %.0.i63) #13
   store ptr %614, ptr %0, align 8, !tbaa !39
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 8
   %616 = load ptr, ptr %615, align 8, !tbaa !36
@@ -1380,12 +1380,9 @@ zend_arena_release.exit:                          ; preds = %.critedge.i, %sccp_
   %.0.i.lcssa = phi ptr [ %609, %sccp_context_free.exit ], [ %614, %.critedge.i ]
   %618 = add nsw i32 %.081.lcssa.i72, %117
   store ptr %10, ptr %.0.i.lcssa, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %618
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @sccp_visit_instr(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #0 {
@@ -1396,7 +1393,7 @@ define internal void @sccp_visit_instr(ptr noundef readonly %0, ptr noundef %1, 
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca [3 x ptr], align 16
   %10 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %12 = load i8, ptr %11, align 1, !tbaa !89
   %13 = icmp eq i8 %12, 1
@@ -1656,7 +1653,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 155:                                              ; preds = %151
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %156, align 8, !tbaa !41
-  %157 = tail call ptr @_zend_new_array_0() #12
+  %157 = tail call ptr @_zend_new_array_0() #13
   store ptr %157, ptr %4, align 8, !tbaa !41
   %158 = load i32, ptr %152, align 4, !tbaa !81
   %159 = icmp sgt i32 %158, -1
@@ -1683,7 +1680,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 167:                                              ; preds = %.thread1711
   %168 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %168) #12
+  tail call void @rc_dtor_func(ptr noundef %168) #13
   br label %.critedge1289
 
 .critedge:                                        ; preds = %141, %140
@@ -1734,14 +1731,14 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %187 = phi ptr [ %183, %.thread ], [ %180, %186 ]
   %188 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %188, align 8, !tbaa !41
-  %189 = tail call ptr @_zend_new_array_0() #12
+  %189 = tail call ptr @_zend_new_array_0() #13
   br label %194
 
 190:                                              ; preds = %186
   %191 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %191, align 8, !tbaa !41
   %192 = load ptr, ptr %spec.select, align 8, !tbaa !41
-  %193 = tail call ptr @zend_array_dup(ptr noundef %192) #12
+  %193 = tail call ptr @zend_array_dup(ptr noundef %192) #13
   br label %194
 
 194:                                              ; preds = %190, %.thread1632
@@ -1805,7 +1802,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 221:                                              ; preds = %216
   %222 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %222) #12
+  tail call void @rc_dtor_func(ptr noundef %222) #13
   br label %.critedge1289
 
 223:                                              ; preds = %177
@@ -1829,7 +1826,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %231, align 8, !tbaa !41
   %232 = load ptr, ptr %spec.select, align 8, !tbaa !41
-  %233 = tail call ptr @zend_array_dup(ptr noundef %232) #12
+  %233 = tail call ptr @zend_array_dup(ptr noundef %232) #13
   store ptr %233, ptr %4, align 8, !tbaa !41
   br label %242
 
@@ -1966,7 +1963,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 300:                                              ; preds = %295
   %301 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %301) #12
+  tail call void @rc_dtor_func(ptr noundef %301) #13
   br label %.critedge1289
 
 302:                                              ; preds = %get_op2_value.exit
@@ -2118,7 +2115,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 385:                                              ; preds = %382, %378
   %386 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %386, align 8, !tbaa !41
-  %387 = tail call ptr @_zend_new_array_0() #12
+  %387 = tail call ptr @_zend_new_array_0() #13
   store ptr %387, ptr %4, align 8, !tbaa !41
   %388 = load i32, ptr %303, align 4, !tbaa !81
   %389 = icmp sgt i32 %388, -1
@@ -2145,7 +2142,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 397:                                              ; preds = %.thread1716
   %398 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %398) #12
+  tail call void @rc_dtor_func(ptr noundef %398) #13
   br label %.critedge1289
 
 399:                                              ; preds = %375
@@ -2177,14 +2174,14 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 .thread1634:                                      ; preds = %408, %408
   %410 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %410, align 8, !tbaa !41
-  %411 = tail call ptr @_zend_new_array_0() #12
+  %411 = tail call ptr @_zend_new_array_0() #13
   br label %416
 
 412:                                              ; preds = %408
   %413 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %413, align 8, !tbaa !41
   %414 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %415 = tail call ptr @zend_array_dup(ptr noundef %414) #12
+  %415 = tail call ptr @zend_array_dup(ptr noundef %414) #13
   br label %416
 
 416:                                              ; preds = %412, %.thread1634
@@ -2230,7 +2227,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 433:                                              ; preds = %.thread1719
   %434 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %434) #12
+  tail call void @rc_dtor_func(ptr noundef %434) #13
   br label %.critedge1289
 
 435:                                              ; preds = %408
@@ -2253,7 +2250,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   %444 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %444, align 8, !tbaa !41
   %445 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %446 = tail call ptr @zend_array_dup(ptr noundef %445) #12
+  %446 = tail call ptr @zend_array_dup(ptr noundef %445) #13
   store ptr %446, ptr %4, align 8, !tbaa !41
   br label %455
 
@@ -2341,7 +2338,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 487:                                              ; preds = %482
   %488 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %488) #12
+  tail call void @rc_dtor_func(ptr noundef %488) #13
   br label %.critedge1289
 
 489:                                              ; preds = %302, %306
@@ -2528,7 +2525,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 592:                                              ; preds = %588
   %593 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %593, align 8, !tbaa !41
-  %594 = tail call ptr @_zend_new_array_0() #12
+  %594 = tail call ptr @_zend_new_array_0() #13
   store ptr %594, ptr %4, align 8, !tbaa !41
   %595 = load i32, ptr %589, align 4, !tbaa !86
   %596 = icmp sgt i32 %595, -1
@@ -2555,7 +2552,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 604:                                              ; preds = %.thread1721
   %605 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %605) #12
+  tail call void @rc_dtor_func(ptr noundef %605) #13
   br label %.critedge1289
 
 606:                                              ; preds = %577, %576
@@ -2599,7 +2596,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 627:                                              ; preds = %626
   %628 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %628, align 8, !tbaa !41
-  %629 = tail call ptr @_zend_new_array_0() #12
+  %629 = tail call ptr @_zend_new_array_0() #13
   br label %634
 
 630:                                              ; preds = %626
@@ -2670,7 +2667,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 660:                                              ; preds = %655
   %661 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %661) #12
+  tail call void @rc_dtor_func(ptr noundef %661) #13
   br label %.critedge1289
 
 662:                                              ; preds = %611
@@ -2686,7 +2683,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   br label %671
 
 668:                                              ; preds = %662
-  %669 = tail call ptr @_zend_new_array_0() #12
+  %669 = tail call ptr @_zend_new_array_0() #13
   %670 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 775, ptr %670, align 8, !tbaa !41
   br label %671
@@ -2789,7 +2786,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 718:                                              ; preds = %713
   %719 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %719) #12
+  tail call void @rc_dtor_func(ptr noundef %719) #13
   br label %.critedge1289
 
 720:                                              ; preds = %get_op2_value.exit
@@ -2891,7 +2888,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 773:                                              ; preds = %768
   %774 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %774) #12
+  tail call void @rc_dtor_func(ptr noundef %774) #13
   br label %.critedge1289
 
 775:                                              ; preds = %get_op2_value.exit
@@ -2915,7 +2912,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 789:                                              ; preds = %779
   %790 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %790, align 8, !tbaa !41
-  %791 = tail call ptr @_zend_new_array_0() #12
+  %791 = tail call ptr @_zend_new_array_0() #13
   store ptr %791, ptr %4, align 8, !tbaa !41
   %792 = load i32, ptr %776, align 4, !tbaa !86
   %793 = icmp sgt i32 %792, -1
@@ -2942,7 +2939,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
 
 801:                                              ; preds = %.thread1723
   %802 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %802) #12
+  tail call void @rc_dtor_func(ptr noundef %802) #13
   br label %.critedge1289
 
 803:                                              ; preds = %779
@@ -3171,7 +3168,7 @@ get_op1_value.exit1601:                           ; preds = %320, %328, %331
   br i1 %or.cond1663, label %ct_eval_binary_op.exit.thread, label %ct_eval_binary_op.exit
 
 ct_eval_binary_op.exit:                           ; preds = %879
-  %882 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #12
+  %882 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
   %883 = icmp eq i32 %882, 0
   br i1 %883, label %884, label %ct_eval_binary_op.exit.thread
 
@@ -3205,7 +3202,7 @@ ct_eval_binary_op.exit:                           ; preds = %879
 
 898:                                              ; preds = %893
   %899 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %899) #12
+  call void @rc_dtor_func(ptr noundef %899) #13
   br label %.critedge1289
 
 ct_eval_binary_op.exit.thread:                    ; preds = %879, %ct_eval_binary_op.exit
@@ -3261,7 +3258,7 @@ ct_eval_binary_op.exit.thread:                    ; preds = %879, %ct_eval_binar
   br i1 %927, label %ct_eval_binary_op.exit1604.thread, label %ct_eval_binary_op.exit1604
 
 ct_eval_binary_op.exit1604:                       ; preds = %924
-  %928 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %920, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #12
+  %928 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %920, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
   %929 = icmp eq i32 %928, 0
   br i1 %929, label %930, label %ct_eval_binary_op.exit1604.thread
 
@@ -3307,7 +3304,7 @@ ct_eval_binary_op.exit1604:                       ; preds = %924
 
 950:                                              ; preds = %945
   %951 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %951) #12
+  call void @rc_dtor_func(ptr noundef %951) #13
   br label %.critedge1289
 
 952:                                              ; preds = %916
@@ -3326,7 +3323,7 @@ ct_eval_binary_op.exit1604:                       ; preds = %924
   br i1 %or.cond8, label %959, label %ct_eval_binary_op.exit1604.thread
 
 959:                                              ; preds = %955
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %960 = getelementptr inbounds nuw i8, ptr %.010761645, i64 61
   %961 = load i8, ptr %960, align 1, !tbaa !89
   %962 = icmp eq i8 %961, 1
@@ -3376,7 +3373,7 @@ get_op1_value.exit1607:                           ; preds = %963, %971, %974
   %989 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %989, align 8, !tbaa !41
   %990 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %991 = tail call ptr @zend_array_dup(ptr noundef %990) #12
+  %991 = tail call ptr @zend_array_dup(ptr noundef %990) #13
   store ptr %991, ptr %4, align 8, !tbaa !41
   %992 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1595)
   %993 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
@@ -3420,7 +3417,7 @@ get_op1_value.exit1607:                           ; preds = %963, %971, %974
 
 1012:                                             ; preds = %1007
   %1013 = load ptr, ptr %5, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1013) #12
+  tail call void @rc_dtor_func(ptr noundef %1013) #13
   br label %zval_ptr_dtor_nogc.exit1340
 
 zval_ptr_dtor_nogc.exit1340:                      ; preds = %1004, %1007, %1012
@@ -3441,7 +3438,7 @@ zval_ptr_dtor_nogc.exit1340:                      ; preds = %1004, %1007, %1012
 
 1021:                                             ; preds = %1016
   %1022 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1022) #12
+  tail call void @rc_dtor_func(ptr noundef %1022) #13
   br label %zval_ptr_dtor_nogc.exit1343.thread
 
 1023:                                             ; preds = %985
@@ -3456,7 +3453,7 @@ ct_eval_binary_op.exit1609:                       ; preds = %1023
   %1028 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
   %1029 = load i32, ptr %1028, align 4, !tbaa !79
   %1030 = trunc i32 %1029 to i8
-  %1031 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %5, i8 noundef zeroext %1030, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1606) #12
+  %1031 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %5, i8 noundef zeroext %1030, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1606) #13
   %1032 = icmp eq i32 %1031, -1
   br i1 %1032, label %ct_eval_binary_op.exit1609.thread, label %1055
 
@@ -3503,7 +3500,7 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1023, %ct_eval_bina
 
 1053:                                             ; preds = %1048
   %1054 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1054) #12
+  call void @rc_dtor_func(ptr noundef %1054) #13
   br label %zval_ptr_dtor_nogc.exit1343.thread
 
 1055:                                             ; preds = %ct_eval_binary_op.exit1609
@@ -3515,7 +3512,7 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1023, %ct_eval_bina
   %1059 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %1059, align 8, !tbaa !41
   %1060 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %1061 = call ptr @zend_array_dup(ptr noundef %1060) #12
+  %1061 = call ptr @zend_array_dup(ptr noundef %1060) #13
   store ptr %1061, ptr %4, align 8, !tbaa !41
   br label %1070
 
@@ -3581,7 +3578,7 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1023, %ct_eval_bina
 
 1092:                                             ; preds = %1087
   %1093 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1093) #12
+  call void @rc_dtor_func(ptr noundef %1093) #13
   br label %zval_ptr_dtor_nogc.exit1349
 
 zval_ptr_dtor_nogc.exit1349:                      ; preds = %1084, %1087, %1092
@@ -3602,7 +3599,7 @@ zval_ptr_dtor_nogc.exit1349:                      ; preds = %1084, %1087, %1092
 
 1101:                                             ; preds = %1096
   %1102 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1102) #12
+  call void @rc_dtor_func(ptr noundef %1102) #13
   br label %zval_ptr_dtor_nogc.exit1343.thread
 
 1103:                                             ; preds = %1070
@@ -3623,7 +3620,7 @@ zval_ptr_dtor_nogc.exit1349:                      ; preds = %1084, %1087, %1092
 
 1111:                                             ; preds = %1106
   %1112 = load ptr, ptr %5, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1112) #12
+  call void @rc_dtor_func(ptr noundef %1112) #13
   br label %zval_ptr_dtor_nogc.exit1355
 
 zval_ptr_dtor_nogc.exit1355:                      ; preds = %1103, %1106, %1111
@@ -3644,15 +3641,15 @@ zval_ptr_dtor_nogc.exit1355:                      ; preds = %1103, %1106, %1111
 
 1120:                                             ; preds = %1115
   %1121 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1121) #12
+  call void @rc_dtor_func(ptr noundef %1121) #13
   br label %zval_ptr_dtor_nogc.exit1343
 
 zval_ptr_dtor_nogc.exit1343.thread:               ; preds = %get_op1_value.exit1607, %zval_ptr_dtor_nogc.exit1340, %1016, %1021, %1045, %1048, %1053, %zval_ptr_dtor_nogc.exit1349, %1096, %1101
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge1289
 
 zval_ptr_dtor_nogc.exit1343:                      ; preds = %1120, %1115, %zval_ptr_dtor_nogc.exit1355, %982
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ct_eval_binary_op.exit1604.thread
 
 1122:                                             ; preds = %916
@@ -3685,7 +3682,7 @@ zval_ptr_dtor_nogc.exit1343:                      ; preds = %1120, %1115, %zval_
   br i1 %1141, label %1142, label %ct_eval_binary_op.exit1604.thread
 
 1142:                                             ; preds = %1132
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %1143 = getelementptr inbounds nuw i8, ptr %.010761645, i64 61
   %1144 = load i8, ptr %1143, align 1, !tbaa !89
   %1145 = icmp eq i8 %1144, 1
@@ -3735,7 +3732,7 @@ get_op1_value.exit1612:                           ; preds = %1146, %1154, %1157
   %1172 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %1172, align 8, !tbaa !41
   %1173 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %1174 = tail call ptr @zend_array_dup(ptr noundef %1173) #12
+  %1174 = tail call ptr @zend_array_dup(ptr noundef %1173) #13
   store ptr %1174, ptr %4, align 8, !tbaa !41
   %1175 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %1174, ptr noundef %.0.i1595)
   %1176 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
@@ -3779,7 +3776,7 @@ get_op1_value.exit1612:                           ; preds = %1146, %1154, %1157
 
 1195:                                             ; preds = %1190
   %1196 = load ptr, ptr %6, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1196) #12
+  tail call void @rc_dtor_func(ptr noundef %1196) #13
   br label %zval_ptr_dtor_nogc.exit1361
 
 zval_ptr_dtor_nogc.exit1361:                      ; preds = %1187, %1190, %1195
@@ -3800,7 +3797,7 @@ zval_ptr_dtor_nogc.exit1361:                      ; preds = %1187, %1190, %1195
 
 1204:                                             ; preds = %1199
   %1205 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1205) #12
+  tail call void @rc_dtor_func(ptr noundef %1205) #13
   br label %zval_ptr_dtor_nogc.exit1364.thread
 
 1206:                                             ; preds = %1168
@@ -3815,7 +3812,7 @@ ct_eval_binary_op.exit1614:                       ; preds = %1206
   %1211 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
   %1212 = load i32, ptr %1211, align 4, !tbaa !79
   %1213 = trunc i32 %1212 to i8
-  %1214 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %6, i8 noundef zeroext %1213, ptr noundef nonnull %6, ptr noundef nonnull %.0.i1611) #12
+  %1214 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %6, i8 noundef zeroext %1213, ptr noundef nonnull %6, ptr noundef nonnull %.0.i1611) #13
   %1215 = icmp eq i32 %1214, -1
   br i1 %1215, label %ct_eval_binary_op.exit1614.thread, label %1238
 
@@ -3862,14 +3859,14 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1206, %ct_eval_bina
 
 1236:                                             ; preds = %1231
   %1237 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1237) #12
+  call void @rc_dtor_func(ptr noundef %1237) #13
   br label %zval_ptr_dtor_nogc.exit1364.thread
 
 1238:                                             ; preds = %ct_eval_binary_op.exit1614
   %1239 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %1239, align 8, !tbaa !41
   %1240 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %1241 = call ptr @zend_array_dup(ptr noundef %1240) #12
+  %1241 = call ptr @zend_array_dup(ptr noundef %1240) #13
   store ptr %1241, ptr %4, align 8, !tbaa !41
   %1242 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %6, ptr noundef %.0.i1595)
   %1243 = icmp eq i32 %1242, 0
@@ -3916,7 +3913,7 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1206, %ct_eval_bina
 
 1263:                                             ; preds = %1258
   %1264 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1264) #12
+  call void @rc_dtor_func(ptr noundef %1264) #13
   br label %zval_ptr_dtor_nogc.exit1370
 
 zval_ptr_dtor_nogc.exit1370:                      ; preds = %1255, %1258, %1263
@@ -3937,7 +3934,7 @@ zval_ptr_dtor_nogc.exit1370:                      ; preds = %1255, %1258, %1263
 
 1272:                                             ; preds = %1267
   %1273 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1273) #12
+  call void @rc_dtor_func(ptr noundef %1273) #13
   br label %zval_ptr_dtor_nogc.exit1364.thread
 
 1274:                                             ; preds = %1238
@@ -3958,7 +3955,7 @@ zval_ptr_dtor_nogc.exit1370:                      ; preds = %1255, %1258, %1263
 
 1282:                                             ; preds = %1277
   %1283 = load ptr, ptr %6, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1283) #12
+  call void @rc_dtor_func(ptr noundef %1283) #13
   br label %zval_ptr_dtor_nogc.exit1376
 
 zval_ptr_dtor_nogc.exit1376:                      ; preds = %1274, %1277, %1282
@@ -3979,15 +3976,15 @@ zval_ptr_dtor_nogc.exit1376:                      ; preds = %1274, %1277, %1282
 
 1291:                                             ; preds = %1286
   %1292 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1292) #12
+  call void @rc_dtor_func(ptr noundef %1292) #13
   br label %zval_ptr_dtor_nogc.exit1364
 
 zval_ptr_dtor_nogc.exit1364.thread:               ; preds = %get_op1_value.exit1612, %zval_ptr_dtor_nogc.exit1361, %1199, %1204, %1228, %1231, %1236, %zval_ptr_dtor_nogc.exit1370, %1267, %1272
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge1289
 
 zval_ptr_dtor_nogc.exit1364:                      ; preds = %1291, %1286, %zval_ptr_dtor_nogc.exit1376, %1165
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ct_eval_binary_op.exit1604.thread
 
 ct_eval_binary_op.exit1604.thread:                ; preds = %952, %917, %924, %zval_ptr_dtor_nogc.exit1364, %zval_ptr_dtor_nogc.exit1343, %ct_eval_binary_op.exit1604, %1122, %1132, %1128, %1124, %955
@@ -4054,8 +4051,8 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %952, %917, %924, %z
   br i1 %1330, label %1331, label %1390
 
 1331:                                             ; preds = %1321
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1332 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %7, ptr noundef %.0.i, ptr noundef nonnull %.0.i1595)
   %1333 = icmp eq i32 %1332, 0
   br i1 %1333, label %1334, label %zval_ptr_dtor_nogc.exit1388.thread
@@ -4070,7 +4067,7 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %952, %917, %924, %z
   %1339 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %1339, align 8, !tbaa !41
   %1340 = load ptr, ptr %.0.i, align 8, !tbaa !41
-  %1341 = call ptr @zend_array_dup(ptr noundef %1340) #12
+  %1341 = call ptr @zend_array_dup(ptr noundef %1340) #13
   store ptr %1341, ptr %4, align 8, !tbaa !41
   %1342 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1595)
   %1343 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
@@ -4105,7 +4102,7 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %952, %917, %924, %z
   br i1 %.not3.i1381, label %1357, label %zval_ptr_dtor_nogc.exit1382
 
 1357:                                             ; preds = %1352
-  call void @rc_dtor_func(ptr noundef nonnull %1353) #12
+  call void @rc_dtor_func(ptr noundef nonnull %1353) #13
   br label %zval_ptr_dtor_nogc.exit1382
 
 zval_ptr_dtor_nogc.exit1382:                      ; preds = %1349, %1352, %1357
@@ -4126,7 +4123,7 @@ zval_ptr_dtor_nogc.exit1382:                      ; preds = %1349, %1352, %1357
 
 1365:                                             ; preds = %1360
   %1366 = load ptr, ptr %8, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1366) #12
+  call void @rc_dtor_func(ptr noundef %1366) #13
   br label %zval_ptr_dtor_nogc.exit1385
 
 zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.exit1382, %1360, %1365
@@ -4158,7 +4155,7 @@ zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.
 
 1379:                                             ; preds = %1374
   %1380 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1380) #12
+  call void @rc_dtor_func(ptr noundef %1380) #13
   br label %zval_ptr_dtor_nogc.exit1388
 
 1381:                                             ; preds = %1334
@@ -4178,17 +4175,17 @@ zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.
   br i1 %.not3.i1390, label %1389, label %zval_ptr_dtor_nogc.exit1388.thread
 
 1389:                                             ; preds = %1384
-  call void @rc_dtor_func(ptr noundef nonnull %1385) #12
+  call void @rc_dtor_func(ptr noundef nonnull %1385) #13
   br label %zval_ptr_dtor_nogc.exit1388.thread
 
 zval_ptr_dtor_nogc.exit1388.thread:               ; preds = %1331, %1381, %1384, %1389
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1390
 
 zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge1289
 
 1390:                                             ; preds = %zval_ptr_dtor_nogc.exit1388.thread, %1306, %1321, %1317, %1315
@@ -4270,7 +4267,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 
 1431:                                             ; preds = %1426
   %1432 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1432) #12
+  call void @rc_dtor_func(ptr noundef %1432) #13
   br label %.critedge1289
 
 1433:                                             ; preds = %1408
@@ -4351,7 +4348,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 
 1472:                                             ; preds = %1467
   %1473 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1473) #12
+  call void @rc_dtor_func(ptr noundef %1473) #13
   br label %.critedge1289
 
 1474:                                             ; preds = %1454
@@ -4386,7 +4383,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
   br label %.critedge1289
 
 1488:                                             ; preds = %1478
-  %1489 = call i32 @zend_optimizer_eval_unary_op(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i) #12
+  %1489 = call i32 @zend_optimizer_eval_unary_op(ptr noundef nonnull %4, i8 noundef zeroext %870, ptr noundef nonnull %.0.i) #13
   %1490 = icmp eq i32 %1489, 0
   %1491 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
   %1492 = load i32, ptr %1491, align 4, !tbaa !86
@@ -4420,7 +4417,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 
 1505:                                             ; preds = %1500
   %1506 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1506) #12
+  call void @rc_dtor_func(ptr noundef %1506) #13
   br label %.critedge1289
 
 1507:                                             ; preds = %1488
@@ -4457,7 +4454,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 1521:                                             ; preds = %1511
   %1522 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
   %1523 = load i32, ptr %1522, align 4, !tbaa !79
-  %1524 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef %1523, ptr noundef nonnull %.0.i) #12
+  %1524 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef %1523, ptr noundef nonnull %.0.i) #13
   %1525 = icmp eq i32 %1524, 0
   %1526 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
   %1527 = load i32, ptr %1526, align 4, !tbaa !86
@@ -4491,7 +4488,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 
 1540:                                             ; preds = %1535
   %1541 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1541) #12
+  call void @rc_dtor_func(ptr noundef %1541) #13
   br label %.critedge1289
 
 1542:                                             ; preds = %1521
@@ -4520,7 +4517,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
   br i1 %1553, label %ct_eval_bool_cast.exit, label %1557
 
 1554:                                             ; preds = %1546
-  %1555 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %.0.i) #12
+  %1555 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %.0.i) #13
   %1556 = select i1 %1555, i32 3, i32 2
   br label %1557
 
@@ -4554,7 +4551,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1379, %1374, %1371
 
 1570:                                             ; preds = %1565
   %1571 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1571) #12
+  tail call void @rc_dtor_func(ptr noundef %1571) #13
   br label %.critedge1289
 
 ct_eval_bool_cast.exit:                           ; preds = %1549
@@ -4577,7 +4574,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
   br i1 %1581, label %.critedge1289, label %1582
 
 1582:                                             ; preds = %1578
-  %1583 = call i32 @zend_optimizer_eval_strlen(ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #12
+  %1583 = call i32 @zend_optimizer_eval_strlen(ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #13
   %1584 = icmp eq i32 %1583, 0
   %1585 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
   %1586 = load i32, ptr %1585, align 4, !tbaa !86
@@ -4611,7 +4608,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1599:                                             ; preds = %1594
   %1600 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1600) #12
+  call void @rc_dtor_func(ptr noundef %1600) #13
   br label %.critedge1289
 
 1601:                                             ; preds = %1582
@@ -4708,7 +4705,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1647:                                             ; preds = %1642
   %1648 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1648) #12
+  tail call void @rc_dtor_func(ptr noundef %1648) #13
   br label %.critedge1289
 
 1649:                                             ; preds = %1627
@@ -4773,7 +4770,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1683:                                             ; preds = %1678
   %1684 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1684) #12
+  tail call void @rc_dtor_func(ptr noundef %1684) #13
   br label %.critedge1289
 
 1685:                                             ; preds = %1664
@@ -4833,7 +4830,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1714:                                             ; preds = %1709
   %1715 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1715) #12
+  tail call void @rc_dtor_func(ptr noundef %1715) #13
   br label %.critedge1289
 
 1716:                                             ; preds = %1697
@@ -4895,7 +4892,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1747:                                             ; preds = %1742
   %1748 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1748) #12
+  tail call void @rc_dtor_func(ptr noundef %1748) #13
   br label %.critedge1289
 
 1749:                                             ; preds = %1728
@@ -4957,7 +4954,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1780:                                             ; preds = %1775
   %1781 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1781) #12
+  tail call void @rc_dtor_func(ptr noundef %1781) #13
   br label %.critedge1289
 
 1782:                                             ; preds = %1761
@@ -5020,7 +5017,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1812:                                             ; preds = %1807
   %1813 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1813) #12
+  tail call void @rc_dtor_func(ptr noundef %1813) #13
   br label %.critedge1289
 
 1814:                                             ; preds = %1786, %1795
@@ -5088,7 +5085,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1549
 
 1849:                                             ; preds = %1844
   %1850 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1850) #12
+  tail call void @rc_dtor_func(ptr noundef %1850) #13
   br label %.critedge1289
 
 1851:                                             ; preds = %1821, %1830
@@ -5189,7 +5186,7 @@ switch.lookup:                                    ; preds = %868
 
 1902:                                             ; preds = %1897
   %1903 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1903) #12
+  tail call void @rc_dtor_func(ptr noundef %1903) #13
   br label %.critedge1289
 
 1904:                                             ; preds = %1883
@@ -5248,7 +5245,7 @@ switch.lookup:                                    ; preds = %868
 
 1932:                                             ; preds = %1927
   %1933 = load ptr, ptr %4, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %1933) #12
+  tail call void @rc_dtor_func(ptr noundef %1933) #13
   br label %.critedge1289
 
 1934:                                             ; preds = %868
@@ -5293,7 +5290,7 @@ switch.lookup:                                    ; preds = %868
   br label %.critedge1289
 
 1955:                                             ; preds = %1945
-  %1956 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %.0.i1595) #12
+  %1956 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %.0.i1595) #13
   %1957 = icmp eq i32 %1956, 0
   %1958 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
   %1959 = load i32, ptr %1958, align 4, !tbaa !86
@@ -5327,7 +5324,7 @@ switch.lookup:                                    ; preds = %868
 
 1972:                                             ; preds = %1967
   %1973 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %1973) #12
+  call void @rc_dtor_func(ptr noundef %1973) #13
   br label %.critedge1289
 
 1974:                                             ; preds = %1955
@@ -5359,7 +5356,7 @@ switch.lookup:                                    ; preds = %868
   br i1 %or.cond1666, label %ct_eval_binary_op.exit1619.thread, label %ct_eval_binary_op.exit1619
 
 ct_eval_binary_op.exit1619:                       ; preds = %1986
-  %1989 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext 8, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #12
+  %1989 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext 8, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
   %1990 = icmp eq i32 %1989, 0
   br i1 %1990, label %1991, label %ct_eval_binary_op.exit1619.thread
 
@@ -5393,7 +5390,7 @@ ct_eval_binary_op.exit1619:                       ; preds = %1986
 
 2005:                                             ; preds = %2000
   %2006 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %2006) #12
+  call void @rc_dtor_func(ptr noundef %2006) #13
   br label %.critedge1289
 
 ct_eval_binary_op.exit1619.thread:                ; preds = %1986, %ct_eval_binary_op.exit1619
@@ -5410,7 +5407,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1986, %ct_eval_bina
   br label %.critedge1289
 
 2013:                                             ; preds = %868
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %2014 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2015 = load ptr, ptr %2014, align 8, !tbaa !16
@@ -5606,7 +5603,7 @@ get_op1_value.exit1622:                           ; preds = %2081, %2096
 
 2120:                                             ; preds = %2115
   %2121 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %2121) #12
+  call void @rc_dtor_func(ptr noundef %2121) #13
   br label %.critedge1295
 
 2122:                                             ; preds = %2104
@@ -5624,7 +5621,7 @@ get_op1_value.exit1622:                           ; preds = %2081, %2096
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2100, %.loopexit.sink.split
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge1289
 
 2126:                                             ; preds = %868, %868, %868, %868
@@ -5643,7 +5640,7 @@ get_op1_value.exit1622:                           ; preds = %2081, %2096
   br i1 %2136, label %.critedge1289, label %2137
 
 2137:                                             ; preds = %2130
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %2138 = load ptr, ptr @zend_flf_functions, align 8, !tbaa !127
   %2139 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
@@ -5869,7 +5866,7 @@ get_op1_value.exit1631:                           ; preds = %2210, %2217, %2230
 
 2261:                                             ; preds = %2256
   %2262 = load ptr, ptr %4, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %2262) #12
+  call void @rc_dtor_func(ptr noundef %2262) #13
   br label %zval_ptr_dtor_nogc.exit1448
 
 2263:                                             ; preds = %.critedge1297
@@ -5882,7 +5879,7 @@ get_op1_value.exit1631:                           ; preds = %2210, %2217, %2230
   br label %zval_ptr_dtor_nogc.exit1448
 
 zval_ptr_dtor_nogc.exit1448:                      ; preds = %2261, %2256, %2253, %2263, %2264
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
 2266:                                             ; preds = %868
@@ -5925,7 +5922,7 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2261, %2256, %2253,
   br label %.critedge1289
 
 .critedge1295:                                    ; preds = %2120, %2115, %2112, %2122, %2123, %._crit_edge, %2070, %2023, %2044, %2016, %2020
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge1289
 
 .critedge1299.sink.split:                         ; preds = %2242, %2236
@@ -5935,11 +5932,11 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2261, %2256, %2253,
   br label %.critedge1299
 
 .critedge1299:                                    ; preds = %2239, %.critedge1299.sink.split, %2236, %2242
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
 .critedge1289:                                    ; preds = %1912, %1630, %1557, %179, %.thread, %1945, %1627, %1605, %1546, %1511, %1478, %533, %375, %357, %141, %get_op1_value.exit1598, %2005, %2000, %1997, %1972, %1967, %1964, %1932, %1927, %1924, %1902, %1897, %1894, %1849, %1844, %1841, %1812, %1807, %1804, %1780, %1775, %1772, %1747, %1742, %1739, %1714, %1709, %1706, %1683, %1678, %1675, %1647, %1642, %1639, %1599, %1594, %1591, %1570, %1565, %1562, %1540, %1535, %1532, %1505, %1500, %1497, %1472, %1467, %1464, %1431, %1426, %1423, %zval_ptr_dtor_nogc.exit1388, %zval_ptr_dtor_nogc.exit1364.thread, %zval_ptr_dtor_nogc.exit1343.thread, %950, %945, %942, %898, %893, %890, %775, %801, %.thread1723, %794, %773, %768, %765, %718, %713, %710, %660, %655, %652, %604, %.thread1721, %597, %487, %482, %479, %433, %.thread1719, %426, %397, %.thread1716, %390, %300, %295, %292, %221, %216, %213, %167, %.thread1711, %160, %zval_ptr_dtor_nogc.exit1448, %502, %522, %519, %505, %.thread1714, %350, %.thread1715, %364, %371, %903, %ct_eval_binary_op.exit.thread, %1303, %1299, %1401, %1397, %1441, %1437, %1475, %1474, %1485, %1481, %1508, %1507, %1518, %1514, %1543, %1542, %1575, %ct_eval_bool_cast.exit, %1602, %1601, %1618, %1613, %1624, %1620, %1653, %1649, %1686, %1685, %1717, %1716, %1750, %1749, %1783, %1782, %1818, %1814, %1855, %1851, %1862, %1858, %1871, %switch.lookup, %1877, %1873, %1905, %1904, %1943, %1938, %1952, %1948, %1975, %1974, %2010, %ct_eval_binary_op.exit1619.thread, %2130, %2126, %2284, %2280, %.critedge1295, %.critedge1299, %.loopexit, %1982, %1978, %1934, %1908, %1879, %1826, %1822, %1791, %1787, %1757, %1753, %1724, %1720, %1693, %1689, %1660, %1656, %1578, %1444, %1404, %1311, %1307, %912, %907, %875, %871, %861, %865, %803, %738, %734, %740, %749, %745, %552, %548, %555, %560, %573, %569, %588, %622, %499, %496, %435, %438, %133, %129, %136, %151, %225, %223, %75, %71, %88, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5973,7 +5970,7 @@ define internal void @sccp_visit_phi(ptr noundef readonly captures(none) %0, ptr
   %25 = load i32, ptr %24, align 4, !tbaa !138
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i32, ptr %23, i64 %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 255, ptr %28, align 8, !tbaa !41
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6133,11 +6130,11 @@ scdf_is_edge_feasible.exit38:                     ; preds = %91
 
 128:                                              ; preds = %123
   %129 = load ptr, ptr %3, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %129) #12
+  call void @rc_dtor_func(ptr noundef %129) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %.loopexit, %123, %128
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %130
 
 130:                                              ; preds = %zval_ptr_dtor_nogc.exit, %2
@@ -6147,7 +6144,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %.loopexit, %123, %1
 ; Function Attrs: nounwind uwtable
 define internal void @sccp_mark_feasible_successors(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %8 = load i8, ptr %7, align 4, !tbaa !77
   switch i8 %8, label %15 [
@@ -6161,11 +6158,11 @@ define internal void @sccp_mark_feasible_successors(ptr noundef %0, i32 noundef 
 9:                                                ; preds = %5, %5, %5, %5, %5
   %10 = load ptr, ptr %2, align 8, !tbaa !147
   %11 = load i32, ptr %10, align 4, !tbaa !75
-  tail call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %11) #12
+  tail call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %11) #13
   %12 = load ptr, ptr %2, align 8, !tbaa !147
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !75
-  tail call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %14) #12
+  tail call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %14) #13
   br label %.critedge117
 
 15:                                               ; preds = %5
@@ -6233,7 +6230,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %45 = load ptr, ptr %2, align 8, !tbaa !147
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv135
   %47 = load i32, ptr %46, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %47) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %47) #13
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %48 = load i32, ptr %42, align 4, !tbaa !148
   %49 = sext i32 %48 to i64
@@ -6274,18 +6271,18 @@ get_op1_value.exit:                               ; preds = %19, %27
   br i1 %61, label %65, label %71
 
 62:                                               ; preds = %55
-  %63 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0125) #12
+  %63 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0125) #13
   %64 = select i1 %63, i32 3, i32 2
   br label %71
 
 65:                                               ; preds = %57
   %66 = load ptr, ptr %2, align 8, !tbaa !147
   %67 = load i32, ptr %66, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %67) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %67) #13
   %68 = load ptr, ptr %2, align 8, !tbaa !147
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %70) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %70) #13
   br label %.critedge117
 
 71:                                               ; preds = %62, %57
@@ -6308,18 +6305,18 @@ get_op1_value.exit:                               ; preds = %19, %27
   br i1 %81, label %85, label %91
 
 82:                                               ; preds = %75
-  %83 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0125) #12
+  %83 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0125) #13
   %84 = select i1 %83, i32 3, i32 2
   br label %91
 
 85:                                               ; preds = %77
   %86 = load ptr, ptr %2, align 8, !tbaa !147
   %87 = load i32, ptr %86, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %87) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %87) #13
   %88 = load ptr, ptr %2, align 8, !tbaa !147
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %90) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %90) #13
   br label %.critedge117
 
 91:                                               ; preds = %82, %77
@@ -6347,11 +6344,11 @@ get_op1_value.exit:                               ; preds = %19, %27
 102:                                              ; preds = %101
   %103 = load ptr, ptr %2, align 8, !tbaa !147
   %104 = load i32, ptr %103, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %104) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %104) #13
   %105 = load ptr, ptr %2, align 8, !tbaa !147
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %107) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %107) #13
   br label %.critedge117
 
 108:                                              ; preds = %101
@@ -6424,7 +6421,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %155 = phi ptr [ %120, %.critedge.thread ], [ %145, %.critedge ]
   %156 = phi ptr [ %118, %.critedge.thread ], [ %143, %.critedge ]
   %157 = load i64, ptr %.0125, align 8, !tbaa !41
-  %158 = call ptr @zend_hash_index_find(ptr noundef %154, i64 noundef %157) #12
+  %158 = call ptr @zend_hash_index_find(ptr noundef %154, i64 noundef %157) #13
   br label %165
 
 159:                                              ; preds = %.critedge.thread128, %.critedge
@@ -6432,7 +6429,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %161 = phi ptr [ %133, %.critedge.thread128 ], [ %145, %.critedge ]
   %162 = phi ptr [ %131, %.critedge.thread128 ], [ %143, %.critedge ]
   %163 = load ptr, ptr %.0125, align 8, !tbaa !41
-  %164 = call ptr @zend_hash_find(ptr noundef %160, ptr noundef %163) #12
+  %164 = call ptr @zend_hash_find(ptr noundef %160, ptr noundef %163) #13
   br label %165
 
 165:                                              ; preds = %159, %153
@@ -6467,7 +6464,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %185 = ashr exact i64 %184, 3
   %186 = getelementptr inbounds i8, ptr %170, i64 %185
   %.0112 = load i32, ptr %186, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0112) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0112) #13
   br label %.critedge117
 
 187:                                              ; preds = %141
@@ -6491,7 +6488,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %203 = ashr exact i64 %202, 3
   %204 = getelementptr inbounds i8, ptr %193, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %205) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %205) #13
   br label %.critedge117
 
 206:                                              ; preds = %187
@@ -6505,7 +6502,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %210 = load ptr, ptr %2, align 8, !tbaa !147
   %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv
   %212 = load i32, ptr %211, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %212) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %212) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %213 = load i32, ptr %52, align 4, !tbaa !148
   %214 = sext i32 %213 to i64
@@ -6518,34 +6515,31 @@ get_op1_value.exit:                               ; preds = %19, %27
   %218 = sext i32 %.1 to i64
   %219 = getelementptr inbounds i32, ptr %217, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %220) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %220) #13
   br label %.critedge117
 
 .critedge117:                                     ; preds = %.lr.ph, %.lr.ph132, %.preheader, %41, %.thread, %181, %188, %216, %102, %85, %65, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @scdf_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @scdf_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @scdf_solve(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @scdf_solve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare void @zend_dump_op_array_name(ptr noundef) local_unnamed_addr #2
+declare void @zend_dump_op_array_name(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_dump_var(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare void @zend_dump_var(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @scdf_remove_unreachable_blocks(ptr noundef) local_unnamed_addr #1
 
-declare i32 @scdf_remove_unreachable_blocks(ptr noundef) local_unnamed_addr #2
-
-declare noalias ptr @_emalloc_32() local_unnamed_addr #2
+declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_value(ptr noundef readonly captures(none) %0, ptr captures(none) %.104.val, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -6586,7 +6580,7 @@ define internal fastcc void @set_value(ptr noundef readonly captures(none) %0, p
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %5, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %25) #12
+  tail call void @rc_dtor_func(ptr noundef %25) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %16, %19, %24
@@ -6766,7 +6760,7 @@ zend_ssa_next_use_phi.exit.i:                     ; preds = %86, %91, %82, %.pre
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr %5, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %125) #12
+  tail call void @rc_dtor_func(ptr noundef %125) #13
   br label %zval_ptr_dtor_nogc.exit42
 
 zval_ptr_dtor_nogc.exit42:                        ; preds = %116, %119, %124
@@ -6914,7 +6908,7 @@ scdf_add_to_worklist.exit:                        ; preds = %zend_ssa_next_use_p
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #4 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !41
@@ -6930,23 +6924,23 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr noundef 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !41
   %8 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
-  %9 = tail call i32 @zend_hash_del(ptr noundef %7, ptr noundef %8) #12
+  %9 = tail call i32 @zend_hash_del(ptr noundef %7, ptr noundef %8) #13
   br label %.thread
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8, !tbaa !41
-  %12 = tail call i32 @zend_hash_index_del(ptr noundef %11, i64 noundef 0) #12
+  %12 = tail call i32 @zend_hash_index_del(ptr noundef %11, i64 noundef 0) #13
   br label %.thread
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %0, align 8, !tbaa !41
-  %15 = tail call i32 @zend_hash_index_del(ptr noundef %14, i64 noundef 1) #12
+  %15 = tail call i32 @zend_hash_index_del(ptr noundef %14, i64 noundef 1) #13
   br label %.thread
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %0, align 8, !tbaa !41
   %18 = load i64, ptr %1, align 8, !tbaa !41
-  %19 = tail call i32 @zend_hash_index_del(ptr noundef %17, i64 noundef %18) #12
+  %19 = tail call i32 @zend_hash_index_del(ptr noundef %17, i64 noundef %18) #13
   br label %.thread
 
 20:                                               ; preds = %2
@@ -6962,7 +6956,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_array_elem(ptr noundef 
   br i1 %or.cond.i, label %27, label %29
 
 27:                                               ; preds = %24
-  %28 = tail call i64 @zend_dval_to_lval_slow(double noundef %21) #12
+  %28 = tail call i64 @zend_dval_to_lval_slow(double noundef %21) #13
   %.pre = load double, ptr %1, align 8, !tbaa !41
   br label %zend_dval_to_lval.exit
 
@@ -6979,13 +6973,13 @@ zend_dval_to_lval.exit:                           ; preds = %20, %27, %29
 
 34:                                               ; preds = %zend_dval_to_lval.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !41
-  %36 = tail call i32 @zend_hash_index_del(ptr noundef %35, i64 noundef %.0.i) #12
+  %36 = tail call i32 @zend_hash_index_del(ptr noundef %35, i64 noundef %.0.i) #13
   br label %.thread
 
 37:                                               ; preds = %2
   %38 = load ptr, ptr %0, align 8, !tbaa !41
   %39 = load ptr, ptr %1, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !155
@@ -7009,20 +7003,20 @@ zend_dval_to_lval.exit:                           ; preds = %20, %27, %29
   br i1 %or.cond.i17, label %_zend_handle_numeric_str.exit.thread, label %_zend_handle_numeric_str.exit
 
 _zend_handle_numeric_str.exit:                    ; preds = %45, %48
-  %52 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %3) #12
+  %52 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %3) #13
   br i1 %52, label %53, label %_zend_handle_numeric_str.exit.thread
 
 53:                                               ; preds = %_zend_handle_numeric_str.exit
   %54 = load i64, ptr %3, align 8, !tbaa !144
-  %55 = call i32 @zend_hash_index_del(ptr noundef %38, i64 noundef %54) #12
+  %55 = call i32 @zend_hash_index_del(ptr noundef %38, i64 noundef %54) #13
   br label %zend_symtable_del.exit
 
 _zend_handle_numeric_str.exit.thread:             ; preds = %48, %47, %37, %_zend_handle_numeric_str.exit
-  %56 = call i32 @zend_hash_del(ptr noundef %38, ptr noundef nonnull %39) #12
+  %56 = call i32 @zend_hash_del(ptr noundef %38, ptr noundef nonnull %39) #13
   br label %zend_symtable_del.exit
 
 zend_symtable_del.exit:                           ; preds = %53, %_zend_handle_numeric_str.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 .thread:                                          ; preds = %zend_dval_to_lval.exit, %6, %10, %13, %16, %zend_symtable_del.exit, %34, %2
@@ -7031,7 +7025,7 @@ zend_symtable_del.exit:                           ; preds = %53, %_zend_handle_n
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !41
   switch i8 %5, label %10 [
@@ -7042,7 +7036,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonn
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = tail call ptr @_zend_new_array_0() #12
+  %7 = tail call ptr @_zend_new_array_0() #13
   store ptr %7, ptr %0, align 8, !tbaa !41
   store i32 775, ptr %4, align 8, !tbaa !41
   br label %8
@@ -7057,7 +7051,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_dim(ptr noundef nonn
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, ptr noundef readonly captures(none) %0) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !41
@@ -7066,7 +7060,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, p
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !155
@@ -7090,20 +7084,20 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_del_obj_prop(ptr %.0.val, p
   br i1 %or.cond.i, label %_zend_handle_numeric_str.exit.thread, label %_zend_handle_numeric_str.exit
 
 _zend_handle_numeric_str.exit:                    ; preds = %12, %15
-  %19 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %2) #12
+  %19 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %7, i64 noundef %9, ptr noundef nonnull %2) #13
   br i1 %19, label %20, label %_zend_handle_numeric_str.exit.thread
 
 20:                                               ; preds = %_zend_handle_numeric_str.exit
   %21 = load i64, ptr %2, align 8, !tbaa !144
-  %22 = call i32 @zend_hash_index_del(ptr noundef %.0.val, i64 noundef %21) #12
+  %22 = call i32 @zend_hash_index_del(ptr noundef %.0.val, i64 noundef %21) #13
   br label %zend_symtable_del.exit
 
 _zend_handle_numeric_str.exit.thread:             ; preds = %15, %14, %5, %_zend_handle_numeric_str.exit
-  %23 = call i32 @zend_hash_del(ptr noundef %.0.val, ptr noundef nonnull %6) #12
+  %23 = call i32 @zend_hash_del(ptr noundef %.0.val, ptr noundef nonnull %6) #13
   br label %zend_symtable_del.exit
 
 zend_symtable_del.exit:                           ; preds = %20, %_zend_handle_numeric_str.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %24
 
 24:                                               ; preds = %1, %zend_symtable_del.exit
@@ -7112,7 +7106,7 @@ zend_symtable_del.exit:                           ; preds = %20, %_zend_handle_n
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !41
@@ -7124,7 +7118,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonn
 
 7:                                                ; preds = %3, %3
   store i32 508, ptr %5, align 8, !tbaa !41
-  %8 = tail call ptr @_zend_new_array_0() #12
+  %8 = tail call ptr @_zend_new_array_0() #13
   store ptr %8, ptr %0, align 8, !tbaa !41
   br label %9
 
@@ -7137,7 +7131,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonn
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8, !tbaa !41
   %14 = load ptr, ptr %2, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !155
@@ -7161,21 +7155,21 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_assign_obj(ptr noundef nonn
   br i1 %or.cond.i.i.i, label %_zend_handle_numeric_str.exit.i.thread.i, label %_zend_handle_numeric_str.exit.i.i
 
 _zend_handle_numeric_str.exit.i.i:                ; preds = %23, %20
-  %27 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %4) #12
+  %27 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %4) #13
   br i1 %27, label %28, label %_zend_handle_numeric_str.exit.i.thread.i
 
 28:                                               ; preds = %_zend_handle_numeric_str.exit.i.i
   %29 = load i64, ptr %4, align 8, !tbaa !144
-  %30 = call ptr @zend_hash_index_update(ptr noundef %13, i64 noundef %29, ptr noundef %1) #12
+  %30 = call ptr @zend_hash_index_update(ptr noundef %13, i64 noundef %29, ptr noundef %1) #13
   br label %zend_symtable_update.exit.i
 
 _zend_handle_numeric_str.exit.i.thread.i:         ; preds = %_zend_handle_numeric_str.exit.i.i, %23, %22, %12
-  %31 = call ptr @zend_hash_update(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1) #12
+  %31 = call ptr @zend_hash_update(ptr noundef %13, ptr noundef nonnull %14, ptr noundef %1) #13
   br label %zend_symtable_update.exit.i
 
 zend_symtable_update.exit.i:                      ; preds = %_zend_handle_numeric_str.exit.i.thread.i, %28
   %.0.i.i = phi ptr [ %30, %28 ], [ %31, %_zend_handle_numeric_str.exit.i.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 9
   %33 = load i8, ptr %32, align 1, !tbaa !41
   %.not.i = icmp eq i8 %33, 0
@@ -7193,10 +7187,10 @@ ct_eval_add_obj_prop.exit:                        ; preds = %34, %zend_symtable_
   ret i32 %.0
 }
 
-declare ptr @_zend_new_array_0() local_unnamed_addr #2
+declare ptr @_zend_new_array_0() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %23
@@ -7208,7 +7202,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr noundef 
   br i1 %8, label %9, label %zend_gc_try_delref.exit, !prof !37
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @zend_array_dup(ptr noundef nonnull %6) #12
+  %10 = tail call ptr @zend_array_dup(ptr noundef nonnull %6) #13
   store ptr %10, ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %11, align 8, !tbaa !41
@@ -7227,7 +7221,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr noundef 
 
 zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
   %18 = phi ptr [ %.pre124, %15 ], [ %10, %9 ], [ %6, %5 ]
-  %19 = tail call ptr @zend_hash_next_index_insert(ptr noundef %18, ptr noundef %1) #12
+  %19 = tail call ptr @zend_hash_next_index_insert(ptr noundef %18, ptr noundef %1) #13
   %.not97 = icmp eq ptr %19, null
   br i1 %.not97, label %.thread, label %20
 
@@ -7256,7 +7250,7 @@ zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
   br i1 %29, label %30, label %zend_gc_try_delref.exit102, !prof !37
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @zend_array_dup(ptr noundef nonnull %27) #12
+  %31 = tail call ptr @zend_array_dup(ptr noundef nonnull %27) #13
   store ptr %31, ptr %0, align 8, !tbaa !41
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %32, align 8, !tbaa !41
@@ -7276,7 +7270,7 @@ zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
 zend_gc_try_delref.exit102:                       ; preds = %36, %30, %26
   %39 = phi ptr [ %.pre123, %36 ], [ %31, %30 ], [ %27, %26 ]
   %40 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
-  %41 = tail call ptr @zend_hash_update(ptr noundef %39, ptr noundef %40, ptr noundef %1) #12
+  %41 = tail call ptr @zend_hash_update(ptr noundef %39, ptr noundef %40, ptr noundef %1) #13
   br label %150
 
 42:                                               ; preds = %23
@@ -7286,7 +7280,7 @@ zend_gc_try_delref.exit102:                       ; preds = %36, %30, %26
   br i1 %45, label %46, label %zend_gc_try_delref.exit104, !prof !37
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @zend_array_dup(ptr noundef nonnull %43) #12
+  %47 = tail call ptr @zend_array_dup(ptr noundef nonnull %43) #13
   store ptr %47, ptr %0, align 8, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %48, align 8, !tbaa !41
@@ -7305,7 +7299,7 @@ zend_gc_try_delref.exit102:                       ; preds = %36, %30, %26
 
 zend_gc_try_delref.exit104:                       ; preds = %52, %46, %42
   %55 = phi ptr [ %.pre122, %52 ], [ %47, %46 ], [ %43, %42 ]
-  %56 = tail call ptr @zend_hash_index_update(ptr noundef %55, i64 noundef 0, ptr noundef %1) #12
+  %56 = tail call ptr @zend_hash_index_update(ptr noundef %55, i64 noundef 0, ptr noundef %1) #13
   br label %150
 
 57:                                               ; preds = %23
@@ -7315,7 +7309,7 @@ zend_gc_try_delref.exit104:                       ; preds = %52, %46, %42
   br i1 %60, label %61, label %zend_gc_try_delref.exit106, !prof !37
 
 61:                                               ; preds = %57
-  %62 = tail call ptr @zend_array_dup(ptr noundef nonnull %58) #12
+  %62 = tail call ptr @zend_array_dup(ptr noundef nonnull %58) #13
   store ptr %62, ptr %0, align 8, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %63, align 8, !tbaa !41
@@ -7334,7 +7328,7 @@ zend_gc_try_delref.exit104:                       ; preds = %52, %46, %42
 
 zend_gc_try_delref.exit106:                       ; preds = %67, %61, %57
   %70 = phi ptr [ %.pre121, %67 ], [ %62, %61 ], [ %58, %57 ]
-  %71 = tail call ptr @zend_hash_index_update(ptr noundef %70, i64 noundef 1, ptr noundef %1) #12
+  %71 = tail call ptr @zend_hash_index_update(ptr noundef %70, i64 noundef 1, ptr noundef %1) #13
   br label %150
 
 72:                                               ; preds = %23
@@ -7344,7 +7338,7 @@ zend_gc_try_delref.exit106:                       ; preds = %67, %61, %57
   br i1 %75, label %76, label %zend_gc_try_delref.exit108, !prof !37
 
 76:                                               ; preds = %72
-  %77 = tail call ptr @zend_array_dup(ptr noundef nonnull %73) #12
+  %77 = tail call ptr @zend_array_dup(ptr noundef nonnull %73) #13
   store ptr %77, ptr %0, align 8, !tbaa !41
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %78, align 8, !tbaa !41
@@ -7364,7 +7358,7 @@ zend_gc_try_delref.exit106:                       ; preds = %67, %61, %57
 zend_gc_try_delref.exit108:                       ; preds = %82, %76, %72
   %85 = phi ptr [ %.pre120, %82 ], [ %77, %76 ], [ %73, %72 ]
   %86 = load i64, ptr %2, align 8, !tbaa !41
-  %87 = tail call ptr @zend_hash_index_update(ptr noundef %85, i64 noundef %86, ptr noundef %1) #12
+  %87 = tail call ptr @zend_hash_index_update(ptr noundef %85, i64 noundef %86, ptr noundef %1) #13
   br label %150
 
 88:                                               ; preds = %23
@@ -7380,7 +7374,7 @@ zend_gc_try_delref.exit108:                       ; preds = %82, %76, %72
   br i1 %or.cond.i, label %95, label %97
 
 95:                                               ; preds = %92
-  %96 = tail call i64 @zend_dval_to_lval_slow(double noundef %89) #12
+  %96 = tail call i64 @zend_dval_to_lval_slow(double noundef %89) #13
   %.pre118 = load double, ptr %2, align 8, !tbaa !41
   br label %zend_dval_to_lval.exit
 
@@ -7402,7 +7396,7 @@ zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
   br i1 %105, label %106, label %115, !prof !37
 
 106:                                              ; preds = %102
-  %107 = tail call ptr @zend_array_dup(ptr noundef nonnull %103) #12
+  %107 = tail call ptr @zend_array_dup(ptr noundef nonnull %103) #13
   store ptr %107, ptr %0, align 8, !tbaa !41
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %108, align 8, !tbaa !41
@@ -7421,7 +7415,7 @@ zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
 
 115:                                              ; preds = %102, %106, %112
   %116 = phi ptr [ %103, %102 ], [ %107, %106 ], [ %.pre119, %112 ]
-  %117 = tail call ptr @zend_hash_index_update(ptr noundef %116, i64 noundef %.0.i, ptr noundef %1) #12
+  %117 = tail call ptr @zend_hash_index_update(ptr noundef %116, i64 noundef %.0.i, ptr noundef %1) #13
   br label %150
 
 118:                                              ; preds = %23
@@ -7431,7 +7425,7 @@ zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
   br i1 %121, label %122, label %zend_gc_try_delref.exit112, !prof !37
 
 122:                                              ; preds = %118
-  %123 = tail call ptr @zend_array_dup(ptr noundef nonnull %119) #12
+  %123 = tail call ptr @zend_array_dup(ptr noundef nonnull %119) #13
   store ptr %123, ptr %0, align 8, !tbaa !41
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %124, align 8, !tbaa !41
@@ -7451,7 +7445,7 @@ zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
 zend_gc_try_delref.exit112:                       ; preds = %128, %122, %118
   %131 = phi ptr [ %.pre, %128 ], [ %123, %122 ], [ %119, %118 ]
   %132 = load ptr, ptr %2, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %135 = load i64, ptr %134, align 8, !tbaa !155
@@ -7475,21 +7469,21 @@ zend_gc_try_delref.exit112:                       ; preds = %128, %122, %118
   br i1 %or.cond.i.i, label %_zend_handle_numeric_str.exit.i.thread, label %_zend_handle_numeric_str.exit.i
 
 _zend_handle_numeric_str.exit.i:                  ; preds = %138, %141
-  %145 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %133, i64 noundef %135, ptr noundef nonnull %4) #12
+  %145 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %133, i64 noundef %135, ptr noundef nonnull %4) #13
   br i1 %145, label %146, label %_zend_handle_numeric_str.exit.i.thread
 
 146:                                              ; preds = %_zend_handle_numeric_str.exit.i
   %147 = load i64, ptr %4, align 8, !tbaa !144
-  %148 = call ptr @zend_hash_index_update(ptr noundef %131, i64 noundef %147, ptr noundef %1) #12
+  %148 = call ptr @zend_hash_index_update(ptr noundef %131, i64 noundef %147, ptr noundef %1) #13
   br label %zend_symtable_update.exit
 
 _zend_handle_numeric_str.exit.i.thread:           ; preds = %141, %140, %zend_gc_try_delref.exit112, %_zend_handle_numeric_str.exit.i
-  %149 = call ptr @zend_hash_update(ptr noundef %131, ptr noundef nonnull %132, ptr noundef %1) #12
+  %149 = call ptr @zend_hash_update(ptr noundef %131, ptr noundef nonnull %132, ptr noundef %1) #13
   br label %zend_symtable_update.exit
 
 zend_symtable_update.exit:                        ; preds = %146, %_zend_handle_numeric_str.exit.i.thread
   %.0.i100 = phi ptr [ %148, %146 ], [ %149, %_zend_handle_numeric_str.exit.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %150
 
 150:                                              ; preds = %115, %zend_gc_try_delref.exit102, %zend_gc_try_delref.exit104, %zend_gc_try_delref.exit106, %zend_gc_try_delref.exit108, %zend_symtable_update.exit
@@ -7513,7 +7507,7 @@ zend_symtable_update.exit:                        ; preds = %146, %_zend_handle_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !41
   %.not = icmp eq i8 %4, 7
@@ -7526,7 +7520,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_unpack(ptr nounde
   br i1 %8, label %9, label %zend_gc_try_delref.exit, !prof !37
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @zend_array_dup(ptr noundef nonnull %6) #12
+  %10 = tail call ptr @zend_array_dup(ptr noundef nonnull %6) #13
   store ptr %10, ptr %0, align 8, !tbaa !41
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 775, ptr %11, align 8, !tbaa !41
@@ -7588,11 +7582,11 @@ zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
   br i1 %.not55, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call ptr @zend_hash_update(ptr noundef %37, ptr noundef nonnull %.152, ptr noundef nonnull %.04765) #12
+  %39 = tail call ptr @zend_hash_update(ptr noundef %37, ptr noundef nonnull %.152, ptr noundef nonnull %.04765) #13
   br label %42
 
 40:                                               ; preds = %36
-  %41 = tail call ptr @zend_hash_next_index_insert(ptr noundef %37, ptr noundef nonnull %.04765) #12
+  %41 = tail call ptr @zend_hash_next_index_insert(ptr noundef %37, ptr noundef nonnull %.04765) #13
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -7624,7 +7618,7 @@ zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7635,7 +7629,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnu
   ]
 
 9:                                                ; preds = %4, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call fastcc i32 @fetch_array_elem(ptr noundef %5, ptr noundef nonnull %1, ptr noundef %2)
   %11 = icmp eq i32 %10, 0
   %12 = load ptr, ptr %5, align 8
@@ -7666,11 +7660,11 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnu
   br label %26
 
 .thread:                                          ; preds = %14, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 26:                                               ; preds = %18, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %61
 
 27:                                               ; preds = %4
@@ -7680,7 +7674,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnu
   br i1 %or.cond43, label %29, label %61
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !41
   switch i8 %31, label %.thread39 [
@@ -7703,7 +7697,7 @@ zval_to_string_offset.exit.thread36:              ; preds = %29
 zval_to_string_offset.exit:                       ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !155
-  %40 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %39, ptr noundef nonnull %6, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #12
+  %40 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %39, ptr noundef nonnull %6, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #13
   %.fr.i = freeze i8 %40
   %.not44 = icmp eq i8 %.fr.i, 4
   br i1 %.not44, label %thread-pre-split, label %.thread39
@@ -7727,7 +7721,7 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %51 = getelementptr inbounds nuw [1 x i8], ptr %50, i64 0, i64 %42
-  %52 = call noalias ptr @_emalloc_32() #12
+  %52 = call noalias ptr @_emalloc_32() #13
   store i32 1, ptr %52, align 4, !tbaa !67
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 22, ptr %53, align 4, !tbaa !41
@@ -7747,11 +7741,11 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
 
 .thread39:                                        ; preds = %49, %zval_to_string_offset.exit, %29, %33
   %.2.ph = phi i32 [ -1, %zval_to_string_offset.exit ], [ 0, %49 ], [ -1, %29 ], [ -1, %33 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 60:                                               ; preds = %41, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 61:                                               ; preds = %27, %.thread, %60, %.thread39, %26
@@ -7760,7 +7754,7 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !41
@@ -7776,7 +7770,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr noundef nonnu
 11:                                               ; preds = %8
   %12 = load ptr, ptr %1, align 8, !tbaa !41
   %13 = load ptr, ptr %2, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !155
@@ -7800,21 +7794,21 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_obj(ptr noundef nonnu
   br i1 %or.cond.i.i.i, label %_zend_handle_numeric_str.exit.i.thread.i, label %_zend_handle_numeric_str.exit.i.i
 
 _zend_handle_numeric_str.exit.i.i:                ; preds = %22, %19
-  %26 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %14, i64 noundef %16, ptr noundef nonnull %4) #12
+  %26 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %14, i64 noundef %16, ptr noundef nonnull %4) #13
   br i1 %26, label %27, label %_zend_handle_numeric_str.exit.i.thread.i
 
 27:                                               ; preds = %_zend_handle_numeric_str.exit.i.i
   %28 = load i64, ptr %4, align 8, !tbaa !144
-  %29 = call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %28) #12
+  %29 = call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef %28) #13
   br label %fetch_obj_prop.exit
 
 _zend_handle_numeric_str.exit.i.thread.i:         ; preds = %_zend_handle_numeric_str.exit.i.i, %22, %21, %11
-  %30 = call ptr @zend_hash_find(ptr noundef %12, ptr noundef nonnull %13) #12
+  %30 = call ptr @zend_hash_find(ptr noundef %12, ptr noundef nonnull %13) #13
   br label %fetch_obj_prop.exit
 
 fetch_obj_prop.exit:                              ; preds = %27, %_zend_handle_numeric_str.exit.i.thread.i
   %.0.i.i = phi ptr [ %29, %27 ], [ %30, %_zend_handle_numeric_str.exit.i.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not23 = icmp eq ptr %.0.i.i, null
   br i1 %.not23, label %.thread, label %31
 
@@ -7846,7 +7840,7 @@ fetch_obj_prop.exit:                              ; preds = %27, %_zend_handle_n
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8, !tbaa !41
   switch i8 %5, label %23 [
@@ -7880,7 +7874,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull 
   ]
 
 15:                                               ; preds = %14, %14, %14, %14
-  %16 = tail call i32 @increment_function(ptr noundef nonnull %0) #12
+  %16 = tail call i32 @increment_function(ptr noundef nonnull %0) #13
   br label %23
 
 17:                                               ; preds = %14
@@ -7889,11 +7883,11 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull 
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #12
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #13
   br label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @decrement_function(ptr noundef nonnull %0) #12
+  %22 = tail call i32 @decrement_function(ptr noundef nonnull %0) #13
   br label %23
 
 23:                                               ; preds = %3, %15, %21, %20
@@ -7901,14 +7895,14 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_incdec(ptr noundef nonnull 
   ret i32 %.0
 }
 
-declare i32 @zend_optimizer_eval_unary_op(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_eval_unary_op(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_optimizer_eval_cast(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_eval_cast(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_optimizer_eval_strlen(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_eval_strlen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !41
@@ -7924,7 +7918,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8, !tbaa !41
-  %15 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %14) #12
+  %15 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %14) #13
   %.fr52 = freeze ptr %15
   %.not53 = icmp eq ptr %.fr52, null
   br i1 %.not53, label %.thread43, label %52
@@ -7939,7 +7933,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %2, align 8, !tbaa !41
-  %21 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %20) #12
+  %21 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %20) #13
   %.fr = freeze ptr %21
   %.not49 = icmp eq ptr %.fr, null
   br i1 %.not49, label %.thread43, label %52
@@ -7950,13 +7944,13 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
-  %26 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %25) #12
+  %26 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %25) #13
   %.fr50 = freeze ptr %26
   %.not51 = icmp eq ptr %.fr50, null
   br i1 %.not51, label %.thread43, label %52
 
 27:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -7973,7 +7967,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   br i1 %.not3654, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread43
 
 .lr.ph:                                           ; preds = %27
@@ -7997,7 +7991,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   %.not37 = icmp eq i32 %47, 0
   %48 = select i1 %.not37, i32 262, i32 6
   store i32 %48, ptr %37, align 8, !tbaa !41
-  %49 = call i32 @zend_compare(ptr noundef %2, ptr noundef nonnull %5) #12
+  %49 = call i32 @zend_compare(ptr noundef %2, ptr noundef nonnull %5) #13
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge, label %.thread
 
@@ -8007,11 +8001,11 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   br i1 %.not36, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread43
 
 .critedge:                                        ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %52
 
 52:                                               ; preds = %.critedge, %24, %19, %13
@@ -8029,9 +8023,9 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !41
   switch i8 %6, label %24 [
@@ -8078,12 +8072,12 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_array_key_exists(ptr nounde
 
 24:                                               ; preds = %7, %3, %16, %17, %10, %21
   %.0 = phi i32 [ 0, %21 ], [ -1, %10 ], [ -1, %17 ], [ -1, %16 ], [ -1, %3 ], [ -1, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !41
@@ -8094,7 +8088,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr noundef nonnu
   ]
 
 8:                                                ; preds = %4, %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call fastcc i32 @fetch_array_elem(ptr noundef %5, ptr noundef nonnull %2, ptr noundef %3)
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %ct_eval_isset_isempty.exit, label %11
@@ -8148,7 +8142,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_dim(ptr noundef nonnu
   br i1 %35, label %ct_eval_isset_isempty.exit, label %ct_eval_bool_cast.exit.sink.split.i
 
 36:                                               ; preds = %27
-  %37 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %.pre) #12
+  %37 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %.pre) #13
   %38 = select i1 %37, i32 2, i32 3
   br label %ct_eval_bool_cast.exit.sink.split.i
 
@@ -8160,7 +8154,7 @@ ct_eval_bool_cast.exit.sink.split.i:              ; preds = %36, %31, %26, %22, 
 
 ct_eval_isset_isempty.exit:                       ; preds = %ct_eval_bool_cast.exit.sink.split.i, %31, %14, %15, %8
   %.0 = phi i32 [ -1, %8 ], [ -1, %15 ], [ -1, %14 ], [ -1, %31 ], [ 0, %ct_eval_bool_cast.exit.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 40:                                               ; preds = %4
@@ -8176,7 +8170,7 @@ ct_eval_isset_isempty.exit:                       ; preds = %ct_eval_bool_cast.e
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !41
@@ -8192,7 +8186,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr noundef nonnu
 12:                                               ; preds = %9
   %13 = load ptr, ptr %2, align 8, !tbaa !41
   %14 = load ptr, ptr %3, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !155
@@ -8216,21 +8210,21 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_obj(ptr noundef nonnu
   br i1 %or.cond.i.i.i, label %_zend_handle_numeric_str.exit.i.thread.i, label %_zend_handle_numeric_str.exit.i.i
 
 _zend_handle_numeric_str.exit.i.i:                ; preds = %23, %20
-  %27 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %5) #12
+  %27 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %15, i64 noundef %17, ptr noundef nonnull %5) #13
   br i1 %27, label %28, label %_zend_handle_numeric_str.exit.i.thread.i
 
 28:                                               ; preds = %_zend_handle_numeric_str.exit.i.i
   %29 = load i64, ptr %5, align 8, !tbaa !144
-  %30 = call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %29) #12
+  %30 = call ptr @zend_hash_index_find(ptr noundef %13, i64 noundef %29) #13
   br label %32
 
 _zend_handle_numeric_str.exit.i.thread.i:         ; preds = %_zend_handle_numeric_str.exit.i.i, %23, %22, %12
-  %31 = call ptr @zend_hash_find(ptr noundef %13, ptr noundef nonnull %14) #12
+  %31 = call ptr @zend_hash_find(ptr noundef %13, ptr noundef nonnull %14) #13
   br label %32
 
 32:                                               ; preds = %_zend_handle_numeric_str.exit.i.thread.i, %28
   %.0.i.i = phi ptr [ %30, %28 ], [ %31, %_zend_handle_numeric_str.exit.i.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %.0.i.i, null
   br i1 %.not, label %ct_eval_isset_isempty.exit, label %33
 
@@ -8262,7 +8256,7 @@ _zend_handle_numeric_str.exit.i.thread.i:         ; preds = %_zend_handle_numeri
   br i1 %47, label %ct_eval_isset_isempty.exit, label %ct_eval_isset_isempty.exit.sink.split
 
 48:                                               ; preds = %41
-  %49 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0.i.i) #12
+  %49 = call zeroext i1 @zend_is_true(ptr noundef nonnull %.0.i.i) #13
   %50 = select i1 %49, i32 2, i32 3
   br label %ct_eval_isset_isempty.exit.sink.split
 
@@ -8283,7 +8277,7 @@ ct_eval_isset_isempty.exit:                       ; preds = %ct_eval_isset_isemp
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_isempty(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_isempty(ptr noundef nonnull writeonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
   %.not9 = icmp eq ptr %2, null
@@ -8316,7 +8310,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_isset_isempty(ptr noundef n
   br i1 %19, label %ct_eval_bool_cast.exit, label %ct_eval_bool_cast.exit.sink.split
 
 20:                                               ; preds = %11
-  %21 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %2) #12
+  %21 = tail call zeroext i1 @zend_is_true(ptr noundef nonnull %2) #13
   %22 = select i1 %21, i32 2, i32 3
   br label %ct_eval_bool_cast.exit.sink.split
 
@@ -8332,12 +8326,12 @@ ct_eval_bool_cast.exit:                           ; preds = %ct_eval_bool_cast.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #4 {
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 56), align 8, !tbaa !162
-  %7 = tail call ptr @zend_hash_find(ptr noundef %6, ptr noundef %2) #12
+  %7 = tail call ptr @zend_hash_find(ptr noundef %6, ptr noundef %2) #13
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %zend_hash_find_ptr.exit.thread, label %8
 
@@ -8357,7 +8351,7 @@ zend_hash_find_ptr.exit.thread:                   ; preds = %5, %8, %11
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #4 {
   %6 = alloca %struct._zend_execute_data, align 8
   %7 = alloca %struct._zend_op, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8374,7 +8368,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_func_call_ex(ptr noundef %0
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %12, align 8, !tbaa !41
-  %18 = tail call i32 @zend_optimizer_eval_special_func_call(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %17) #12
+  %18 = tail call i32 @zend_optimizer_eval_special_func_call(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %17) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %can_ct_eval_func_call.exit.thread, label %20
 
@@ -8440,8 +8434,8 @@ can_ct_eval_func_call.exit:                       ; preds = %36
 
 can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_equals_cstr.exit.i, %can_ct_eval_func_call.exit
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !176
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %52, i8 0, i64 72, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -8451,7 +8445,7 @@ can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_eq
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i8 60, ptr %54, align 4, !tbaa !77
   %55 = zext i32 %3 to i64
-  %56 = call noalias ptr @_safe_emalloc(i64 noundef %55, i64 noundef 16, i64 noundef 80) #12
+  %56 = call noalias ptr @_safe_emalloc(i64 noundef %55, i64 noundef 16, i64 noundef 80) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %56, i8 0, i64 80, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store ptr %6, ptr %57, align 8, !tbaa !200
@@ -8472,7 +8466,7 @@ can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_eq
   store i32 1, ptr %62, align 8, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %64 = load ptr, ptr %63, align 8, !tbaa !41
-  call void %64(ptr noundef nonnull %56, ptr noundef nonnull %1) #12
+  call void %64(ptr noundef nonnull %56, ptr noundef nonnull %1) #13
   br label %._crit_edge61
 
 .lr.ph:                                           ; preds = %can_ct_eval_func_call.exit.thread55, %79
@@ -8509,7 +8503,7 @@ can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_eq
   store i32 1, ptr %81, align 8, !tbaa !41
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !41
-  call void %83(ptr noundef nonnull %56, ptr noundef nonnull %1) #12
+  call void %83(ptr noundef nonnull %56, ptr noundef nonnull %1) #13
   br label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %zval_ptr_dtor_nogc.exit
@@ -8534,7 +8528,7 @@ can_ct_eval_func_call.exit.thread55:              ; preds = %20, %zend_string_eq
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %86, align 8, !tbaa !41
-  call void @rc_dtor_func(ptr noundef %95) #12
+  call void @rc_dtor_func(ptr noundef %95) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %.lr.ph60, %89, %94
@@ -8548,8 +8542,8 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %.lr.ph60, %89, %94
   br i1 %.not, label %99, label %98
 
 98:                                               ; preds = %._crit_edge61
-  call void @zval_ptr_dtor(ptr noundef nonnull %1) #12
-  call void @zend_clear_exception() #12
+  call void @zval_ptr_dtor(ptr noundef nonnull %1) #13
+  call void @zend_clear_exception() #13
   br label %99
 
 99:                                               ; preds = %98, %._crit_edge61
@@ -8559,16 +8553,16 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %.lr.ph60, %89, %94
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %99
-  call void @zval_ptr_dtor(ptr noundef nonnull %1) #12
+  call void @zval_ptr_dtor(ptr noundef nonnull %1) #13
   br label %103
 
 103:                                              ; preds = %102, %99
   %.1 = phi i32 [ -1, %102 ], [ %.0, %99 ]
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 844), align 4, !tbaa !201
-  call void @_efree(ptr noundef nonnull %56) #12
+  call void @_efree(ptr noundef nonnull %56) #13
   store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !176
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %can_ct_eval_func_call.exit.thread
 
 can_ct_eval_func_call.exit.thread:                ; preds = %31, %36, %zend_string_equals_cstr.exit.thread.i, %zend_string_equals_cstr.exit10.i, %zend_string_equals_cstr.exit.i, %can_ct_eval_func_call.exit, %16, %103
@@ -8576,31 +8570,31 @@ can_ct_eval_func_call.exit.thread:                ; preds = %31, %36, %zend_stri
   ret i32 %.048
 }
 
-declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #2
+declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
-declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #2
+declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_hash_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #2
+declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_optimizer_eval_binary_op(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_eval_binary_op(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !41
@@ -8616,23 +8610,23 @@ define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr noundef nonnul
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !41
   %9 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
-  %10 = tail call ptr @zend_hash_find(ptr noundef %8, ptr noundef %9) #12
+  %10 = tail call ptr @zend_hash_find(ptr noundef %8, ptr noundef %9) #13
   br label %.sink.split
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %1, align 8, !tbaa !41
-  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef 0) #12
+  %13 = tail call ptr @zend_hash_index_find(ptr noundef %12, i64 noundef 0) #13
   br label %.sink.split
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %1, align 8, !tbaa !41
-  %16 = tail call ptr @zend_hash_index_find(ptr noundef %15, i64 noundef 1) #12
+  %16 = tail call ptr @zend_hash_index_find(ptr noundef %15, i64 noundef 1) #13
   br label %.sink.split
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %1, align 8, !tbaa !41
   %19 = load i64, ptr %2, align 8, !tbaa !41
-  %20 = tail call ptr @zend_hash_index_find(ptr noundef %18, i64 noundef %19) #12
+  %20 = tail call ptr @zend_hash_index_find(ptr noundef %18, i64 noundef %19) #13
   br label %.sink.split
 
 21:                                               ; preds = %3
@@ -8648,7 +8642,7 @@ define internal fastcc range(i32 -1, 1) i32 @fetch_array_elem(ptr noundef nonnul
   br i1 %or.cond.i, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call i64 @zend_dval_to_lval_slow(double noundef %22) #12
+  %29 = tail call i64 @zend_dval_to_lval_slow(double noundef %22) #13
   %.pre = load double, ptr %2, align 8, !tbaa !41
   br label %zend_dval_to_lval.exit
 
@@ -8665,13 +8659,13 @@ zend_dval_to_lval.exit:                           ; preds = %21, %28, %30
 
 35:                                               ; preds = %zend_dval_to_lval.exit
   %36 = load ptr, ptr %1, align 8, !tbaa !41
-  %37 = tail call ptr @zend_hash_index_find(ptr noundef %36, i64 noundef %.0.i) #12
+  %37 = tail call ptr @zend_hash_index_find(ptr noundef %36, i64 noundef %.0.i) #13
   br label %.sink.split
 
 38:                                               ; preds = %3
   %39 = load ptr, ptr %1, align 8, !tbaa !41
   %40 = load ptr, ptr %2, align 8, !tbaa !41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !155
@@ -8695,21 +8689,21 @@ zend_dval_to_lval.exit:                           ; preds = %21, %28, %30
   br i1 %or.cond.i.i, label %_zend_handle_numeric_str.exit.i.thread, label %_zend_handle_numeric_str.exit.i
 
 _zend_handle_numeric_str.exit.i:                  ; preds = %46, %49
-  %53 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %4) #12
+  %53 = call zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %4) #13
   br i1 %53, label %54, label %_zend_handle_numeric_str.exit.i.thread
 
 54:                                               ; preds = %_zend_handle_numeric_str.exit.i
   %55 = load i64, ptr %4, align 8, !tbaa !144
-  %56 = call ptr @zend_hash_index_find(ptr noundef %39, i64 noundef %55) #12
+  %56 = call ptr @zend_hash_index_find(ptr noundef %39, i64 noundef %55) #13
   br label %zend_symtable_find.exit
 
 _zend_handle_numeric_str.exit.i.thread:           ; preds = %49, %48, %38, %_zend_handle_numeric_str.exit.i
-  %57 = call ptr @zend_hash_find(ptr noundef %39, ptr noundef nonnull %40) #12
+  %57 = call ptr @zend_hash_find(ptr noundef %39, ptr noundef nonnull %40) #13
   br label %zend_symtable_find.exit
 
 zend_symtable_find.exit:                          ; preds = %54, %_zend_handle_numeric_str.exit.i.thread
   %.0.i19 = phi ptr [ %56, %54 ], [ %57, %_zend_handle_numeric_str.exit.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %11, %14, %17, %zend_symtable_find.exit, %35
@@ -8722,29 +8716,29 @@ zend_symtable_find.exit:                          ; preds = %54, %_zend_handle_n
   ret i32 %.0
 }
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @increment_function(ptr noundef) local_unnamed_addr #2
+declare i32 @increment_function(ptr noundef) local_unnamed_addr #1
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
-declare i32 @decrement_function(ptr noundef) local_unnamed_addr #2
+declare i32 @decrement_function(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_compare(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_optimizer_eval_special_func_call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_eval_special_func_call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @zend_clear_exception() local_unnamed_addr #2
+declare void @zend_clear_exception() local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @join_phi_values(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -8781,7 +8775,7 @@ define internal fastcc void @join_phi_values(ptr noundef nonnull %0, ptr noundef
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %22) #12
+  tail call void @rc_dtor_func(ptr noundef %22) #13
   br label %zval_ptr_dtor_nogc.exit46
 
 zval_ptr_dtor_nogc.exit46:                        ; preds = %13, %16, %21
@@ -8821,7 +8815,7 @@ zval_ptr_dtor_nogc.exit46:                        ; preds = %13, %16, %21
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %40) #12
+  tail call void @rc_dtor_func(ptr noundef %40) #13
   br label %zval_ptr_dtor_nogc.exit43
 
 zval_ptr_dtor_nogc.exit43:                        ; preds = %31, %34, %39
@@ -8847,7 +8841,7 @@ zval_ptr_dtor_nogc.exit43:                        ; preds = %31, %34, %39
   ]
 
 .thread47:                                        ; preds = %45, %46, %46
-  %47 = tail call ptr @_zend_new_array_0() #12
+  %47 = tail call ptr @_zend_new_array_0() #13
   %48 = load ptr, ptr %0, align 8, !tbaa !41
   %49 = load ptr, ptr %1, align 8, !tbaa !41
   tail call fastcc void @join_hash_tables(ptr noundef %47, ptr noundef %48, ptr noundef %49)
@@ -8868,7 +8862,7 @@ zval_ptr_dtor_nogc.exit43:                        ; preds = %31, %34, %39
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %58) #12
+  tail call void @rc_dtor_func(ptr noundef %58) #13
   br label %join_partial_arrays.exit
 
 join_partial_arrays.exit:                         ; preds = %.thread47, %52, %57
@@ -8894,7 +8888,7 @@ join_partial_arrays.exit:                         ; preds = %.thread47, %52, %57
 
 67:                                               ; preds = %62
   %68 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %68) #12
+  tail call void @rc_dtor_func(ptr noundef %68) #13
   br label %zval_ptr_dtor_nogc.exit40
 
 zval_ptr_dtor_nogc.exit40:                        ; preds = %59, %62, %67
@@ -8933,7 +8927,7 @@ zval_ptr_dtor_nogc.exit40:                        ; preds = %59, %62, %67
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %85) #12
+  tail call void @rc_dtor_func(ptr noundef %85) #13
   br label %zval_ptr_dtor_nogc.exit37
 
 zval_ptr_dtor_nogc.exit37:                        ; preds = %76, %79, %84
@@ -8941,7 +8935,7 @@ zval_ptr_dtor_nogc.exit37:                        ; preds = %76, %79, %84
   br label %101
 
 86:                                               ; preds = %69
-  %87 = tail call zeroext i1 @zend_is_identical(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
+  %87 = tail call zeroext i1 @zend_is_identical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   br i1 %87, label %101, label %88
 
 88:                                               ; preds = %86
@@ -8967,7 +8961,7 @@ zval_ptr_dtor_nogc.exit37:                        ; preds = %76, %79, %84
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %100) #12
+  tail call void @rc_dtor_func(ptr noundef %100) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %91, %94, %99
@@ -8996,7 +8990,7 @@ define internal fastcc range(i32 -1, 1) i32 @join_partial_arrays(ptr noundef non
   ]
 
 8:                                                ; preds = %5, %5
-  %9 = tail call ptr @_zend_new_array_0() #12
+  %9 = tail call ptr @_zend_new_array_0() #13
   %10 = load ptr, ptr %0, align 8, !tbaa !41
   %11 = load ptr, ptr %1, align 8, !tbaa !41
   tail call fastcc void @join_hash_tables(ptr noundef %9, ptr noundef %10, ptr noundef %11)
@@ -9017,7 +9011,7 @@ define internal fastcc range(i32 -1, 1) i32 @join_partial_arrays(ptr noundef non
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %20) #12
+  tail call void @rc_dtor_func(ptr noundef %20) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %8, %14, %19
@@ -9044,7 +9038,7 @@ define internal fastcc range(i32 -1, 1) i32 @join_partial_objects(ptr noundef no
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @_zend_new_array_0() #12
+  %11 = tail call ptr @_zend_new_array_0() #13
   %12 = load ptr, ptr %0, align 8, !tbaa !41
   %13 = load ptr, ptr %1, align 8, !tbaa !41
   tail call fastcc void @join_hash_tables(ptr noundef %11, ptr noundef %12, ptr noundef %13)
@@ -9065,7 +9059,7 @@ define internal fastcc range(i32 -1, 1) i32 @join_partial_objects(ptr noundef no
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8, !tbaa !41
-  tail call void @rc_dtor_func(ptr noundef %22) #12
+  tail call void @rc_dtor_func(ptr noundef %22) #13
   br label %zval_ptr_dtor_nogc.exit
 
 zval_ptr_dtor_nogc.exit:                          ; preds = %10, %16, %21
@@ -9078,7 +9072,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %10, %16, %21
   ret i32 %.0
 }
 
-declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_is_identical(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @join_hash_tables(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
@@ -9132,11 +9126,11 @@ define internal fastcc void @join_hash_tables(ptr noundef %0, ptr noundef readon
   br i1 %.not48, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call ptr @zend_hash_find(ptr noundef %2, ptr noundef nonnull %.144) #12
+  %27 = tail call ptr @zend_hash_find(ptr noundef %2, ptr noundef nonnull %.144) #13
   br label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @zend_hash_index_find(ptr noundef %2, i64 noundef %.040) #12
+  %29 = tail call ptr @zend_hash_index_find(ptr noundef %2, i64 noundef %.040) #13
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -9145,18 +9139,18 @@ define internal fastcc void @join_hash_tables(ptr noundef %0, ptr noundef readon
   br i1 %.not49, label %45, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call zeroext i1 @zend_is_identical(ptr noundef nonnull %.04254, ptr noundef nonnull %.039) #12
+  %32 = tail call zeroext i1 @zend_is_identical(ptr noundef nonnull %.04254, ptr noundef nonnull %.039) #13
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %31
   br i1 %.not48, label %36, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call ptr @zend_hash_add_new(ptr noundef %0, ptr noundef nonnull %.144, ptr noundef nonnull %.04254) #12
+  %35 = tail call ptr @zend_hash_add_new(ptr noundef %0, ptr noundef nonnull %.144, ptr noundef nonnull %.04254) #13
   br label %38
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %.040, ptr noundef nonnull %.04254) #12
+  %37 = tail call ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %.040, ptr noundef nonnull %.04254) #13
   br label %38
 
 38:                                               ; preds = %34, %36
@@ -9182,14 +9176,14 @@ define internal fastcc void @join_hash_tables(ptr noundef %0, ptr noundef readon
   ret void
 }
 
-declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @scdf_mark_edge_feasible(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @scdf_mark_edge_feasible(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @value_from_type_and_range(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #8 {
+define internal fastcc noundef ptr @value_from_type_and_range(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(ret: address, provenance) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -9319,13 +9313,13 @@ define internal fastcc noundef ptr @value_from_type_and_range(ptr noundef readon
   ret ptr %.0
 }
 
-declare void @zend_dump_ht(ptr noundef) local_unnamed_addr #2
+declare void @zend_dump_ht(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_dump_const(ptr noundef) local_unnamed_addr #2
+declare void @zend_dump_const(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #2
+declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_ssa_unlink_use_chain(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_ssa_unlink_use_chain(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -9346,7 +9340,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
   %18 = load ptr, ptr %17, align 8, !tbaa !113
   %19 = icmp eq ptr %18, %1
   tail call void @llvm.assume(i1 %19)
-  tail call void @zend_ssa_remove_instr(ptr noundef %5, ptr noundef %1, ptr noundef %2) #12
+  tail call void @zend_ssa_remove_instr(ptr noundef %5, ptr noundef %1, ptr noundef %2) #13
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !117
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -9357,7 +9351,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 5
   %29 = getelementptr inbounds %struct._zend_ssa_op, ptr %23, i64 %28
-  tail call void @zend_ssa_remove_instr(ptr noundef %5, ptr noundef %21, ptr noundef %29) #12
+  tail call void @zend_ssa_remove_instr(ptr noundef %5, ptr noundef %21, ptr noundef %29) #13
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %31 = load i32, ptr %30, align 8, !tbaa !118
   %32 = icmp sgt i32 %31, 0
@@ -9378,7 +9372,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 5
   %43 = getelementptr inbounds %struct._zend_ssa_op, ptr %37, i64 %42
-  tail call void @zend_ssa_remove_instr(ptr noundef nonnull %5, ptr noundef %36, ptr noundef %43) #12
+  tail call void @zend_ssa_remove_instr(ptr noundef nonnull %5, ptr noundef %36, ptr noundef %43) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %30, align 8, !tbaa !118
   %45 = sext i32 %44 to i64
@@ -9393,19 +9387,25 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @remove_call(ptr 
   ret i32 %48
 }
 
-declare void @zend_ssa_remove_instr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_ssa_remove_instr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_optimizer_update_op1_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_optimizer_update_op1_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_may_throw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_may_throw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_optimizer_add_literal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_optimizer_add_literal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @zend_ssa_rename_var_uses(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @zend_ssa_rename_var_uses(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @zend_ssa_remove_phi(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_ssa_remove_phi(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_optimizer_update_op2_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_optimizer_update_op2_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
@@ -9423,19 +9423,19 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(0) }
+attributes #12 = { nounwind allocsize(0) }
+attributes #13 = { nounwind }
 attributes #14 = { cold }
 attributes #15 = { cold nounwind }
 attributes #16 = { nounwind memory(read) }

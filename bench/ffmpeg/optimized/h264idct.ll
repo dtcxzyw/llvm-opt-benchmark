@@ -139,14 +139,8 @@ define void @ff_h264_idct_add_8_c(ptr noundef captures(none) %0, ptr noundef cap
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_idct8_add_8_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -764,7 +758,7 @@ ff_h264_idct8_dc_add_8_c.exit:                    ; preds = %32, %7, %35
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_8_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = shl nsw i32 %3, 1
   %7 = mul nsw i32 %3, 3
   %8 = sext i32 %3 to i64
@@ -985,7 +979,7 @@ ff_h264_idct_dc_add_8_c.exit:                     ; preds = %122, %ff_h264_idct_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_422_8_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = shl nsw i32 %3, 1
   %7 = mul nsw i32 %3, 3
   %8 = sext i32 %3 to i64
@@ -1417,7 +1411,7 @@ ff_h264_idct_dc_add_8_c.exit96:                   ; preds = %237, %ff_h264_idct_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_luma_dc_dequant_idct_8_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -1511,14 +1505,14 @@ define void @ff_h264_luma_dc_dequant_idct_8_c(ptr noundef writeonly captures(non
   br i1 %exitcond68.not, label %76, label %.preheader, !llvm.loop !33
 
 76:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_chroma422_dc_dequant_idct_8_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
@@ -1595,12 +1589,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_8_c(ptr noundef captures(none) %0
   br i1 %17, label %.preheader, label %59, !llvm.loop !35
 
 59:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_h264_chroma_dc_dequant_idct_8_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ff_h264_chroma_dc_dequant_idct_8_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i16, ptr %0, align 2, !tbaa !4
   %4 = sext i16 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2320,7 +2314,7 @@ ff_h264_idct8_dc_add_9_c.exit:                    ; preds = %34, %8, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_9_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_9_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -2522,7 +2516,7 @@ ff_h264_idct_dc_add_9_c.exit:                     ; preds = %117, %ff_h264_idct_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_422_9_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_422_9_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -2915,7 +2909,7 @@ ff_h264_idct_dc_add_9_c.exit79:                   ; preds = %226, %ff_h264_idct_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_luma_dc_dequant_idct_9_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -3001,14 +2995,14 @@ define void @ff_h264_luma_dc_dequant_idct_9_c(ptr noundef writeonly captures(non
   br i1 %exitcond68.not, label %68, label %.preheader, !llvm.loop !54
 
 68:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_chroma422_dc_dequant_idct_9_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
@@ -3079,12 +3073,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_9_c(ptr noundef captures(none) %0
   br i1 %15, label %.preheader, label %53, !llvm.loop !56
 
 53:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_h264_chroma_dc_dequant_idct_9_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ff_h264_chroma_dc_dequant_idct_9_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 4, !tbaa !18
@@ -3796,7 +3790,7 @@ ff_h264_idct8_dc_add_10_c.exit:                   ; preds = %34, %8, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_10_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_10_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -3998,7 +3992,7 @@ ff_h264_idct_dc_add_10_c.exit:                    ; preds = %117, %ff_h264_idct_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_422_10_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_422_10_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -4391,7 +4385,7 @@ ff_h264_idct_dc_add_10_c.exit79:                  ; preds = %226, %ff_h264_idct_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_luma_dc_dequant_idct_10_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -4477,14 +4471,14 @@ define void @ff_h264_luma_dc_dequant_idct_10_c(ptr noundef writeonly captures(no
   br i1 %exitcond68.not, label %68, label %.preheader, !llvm.loop !75
 
 68:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_chroma422_dc_dequant_idct_10_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
@@ -4555,12 +4549,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_10_c(ptr noundef captures(none) %
   br i1 %15, label %.preheader, label %53, !llvm.loop !77
 
 53:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_h264_chroma_dc_dequant_idct_10_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ff_h264_chroma_dc_dequant_idct_10_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 4, !tbaa !18
@@ -5272,7 +5266,7 @@ ff_h264_idct8_dc_add_12_c.exit:                   ; preds = %34, %8, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_12_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_12_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -5474,7 +5468,7 @@ ff_h264_idct_dc_add_12_c.exit:                    ; preds = %117, %ff_h264_idct_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_422_12_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_422_12_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -5867,7 +5861,7 @@ ff_h264_idct_dc_add_12_c.exit79:                  ; preds = %226, %ff_h264_idct_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_luma_dc_dequant_idct_12_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -5953,14 +5947,14 @@ define void @ff_h264_luma_dc_dequant_idct_12_c(ptr noundef writeonly captures(no
   br i1 %exitcond68.not, label %68, label %.preheader, !llvm.loop !96
 
 68:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_chroma422_dc_dequant_idct_12_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
@@ -6031,12 +6025,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_12_c(ptr noundef captures(none) %
   br i1 %15, label %.preheader, label %53, !llvm.loop !98
 
 53:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_h264_chroma_dc_dequant_idct_12_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ff_h264_chroma_dc_dequant_idct_12_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 4, !tbaa !18
@@ -6748,7 +6742,7 @@ ff_h264_idct8_dc_add_14_c.exit:                   ; preds = %34, %8, %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_14_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_14_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -6950,7 +6944,7 @@ ff_h264_idct_dc_add_14_c.exit:                    ; preds = %117, %ff_h264_idct_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @ff_h264_idct_add8_422_14_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 {
+define void @ff_h264_idct_add8_422_14_c(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = ashr i32 %3, 1
   %7 = and i32 %3, -2
   %8 = mul nsw i32 %6, 3
@@ -7343,7 +7337,7 @@ ff_h264_idct_dc_add_14_c.exit79:                  ; preds = %226, %ff_h264_idct_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_luma_dc_dequant_idct_14_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
 5:                                                ; preds = %3, %5
@@ -7429,14 +7423,14 @@ define void @ff_h264_luma_dc_dequant_idct_14_c(ptr noundef writeonly captures(no
   br i1 %exitcond68.not, label %68, label %.preheader, !llvm.loop !117
 
 68:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_h264_chroma422_dc_dequant_idct_14_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [8 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %indvars.iv46.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %4
 
@@ -7507,12 +7501,12 @@ define void @ff_h264_chroma422_dc_dequant_idct_14_c(ptr noundef captures(none) %
   br i1 %15, label %.preheader, label %53, !llvm.loop !119
 
 53:                                               ; preds = %.preheader
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ff_h264_chroma_dc_dequant_idct_14_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ff_h264_chroma_dc_dequant_idct_14_c(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 4, !tbaa !18
@@ -7543,6 +7537,12 @@ define void @ff_h264_chroma_dc_dequant_idct_14_c(ptr noundef captures(none) %0, 
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
@@ -7550,12 +7550,11 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

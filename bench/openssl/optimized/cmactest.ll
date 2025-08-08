@@ -161,8 +161,8 @@ define internal range(i32 0, 2) i32 @test_cmac_bad() #0 {
 define internal range(i32 0, 2) i32 @test_cmac_run() #0 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @CMAC_CTX_new() #6
   br label %4
 
@@ -633,8 +633,8 @@ pt.exit117:                                       ; preds = %.lr.ph.i113, %71
 285:                                              ; preds = %280, %260, %268, %275, %255, %235, %243, %250, %230, %210, %218, %225, %205, %185, %193, %200, %180, %160, %168, %175, %155, %130, %136, %143, %150, %125, %108, %113, %120, %103, %84, %91, %98, %pt.exit117, %51, %59, %66, %pt.exit, %18, %26, %33
   %.066 = phi i32 [ 0, %275 ], [ 0, %268 ], [ 0, %260 ], [ 0, %255 ], [ 0, %250 ], [ 0, %243 ], [ 0, %235 ], [ 0, %230 ], [ 0, %225 ], [ 0, %218 ], [ 0, %210 ], [ 0, %205 ], [ 0, %200 ], [ 0, %193 ], [ 0, %185 ], [ 0, %180 ], [ 0, %175 ], [ 0, %168 ], [ 0, %160 ], [ 0, %155 ], [ 0, %150 ], [ 0, %143 ], [ 0, %136 ], [ 0, %130 ], [ 0, %125 ], [ 0, %120 ], [ 0, %113 ], [ 0, %108 ], [ 0, %103 ], [ 0, %98 ], [ 0, %91 ], [ 0, %84 ], [ 0, %pt.exit117 ], [ 0, %66 ], [ 0, %59 ], [ 0, %51 ], [ 0, %pt.exit ], [ 0, %33 ], [ 0, %26 ], [ 0, %18 ], [ %spec.select, %280 ]
   call void @CMAC_CTX_free(ptr noundef %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.066
 }
 
@@ -642,8 +642,8 @@ pt.exit117:                                       ; preds = %.lr.ph.i113, %71
 define internal range(i32 0, 2) i32 @test_cmac_copy() #0 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @CMAC_CTX_new() #6
   %4 = tail call ptr @CMAC_CTX_new() #6
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 309, ptr noundef nonnull @.str.4, ptr noundef %3) #6
@@ -728,13 +728,10 @@ pt.exit:                                          ; preds = %.lr.ph.i, %33
   %.0 = phi i32 [ 0, %28 ], [ 0, %23 ], [ 0, %16 ], [ 0, %8 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %pt.exit ]
   call void @CMAC_CTX_free(ptr noundef %4) #6
   call void @CMAC_CTX_free(ptr noundef %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @CMAC_CTX_new() local_unnamed_addr #1
 
@@ -754,14 +751,11 @@ declare ptr @EVP_aes_128_xts() local_unnamed_addr #1
 
 declare void @CMAC_CTX_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @CMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -807,14 +801,20 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 
 declare i32 @CMAC_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

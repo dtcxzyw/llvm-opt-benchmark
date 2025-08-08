@@ -150,7 +150,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
   %6 = alloca [24 x i8], align 8
   %7 = alloca [32 x i8], align 8
   %8 = alloca [384 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %9 = icmp ult i64 %1, 2
@@ -281,7 +281,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
 
 .lr.ph16.i:                                       ; preds = %99, %24, %19
   %.sroa.0.0.i = phi i64 [ 8, %19 ], [ 4, %24 ], [ 1, %99 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !23
   %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !23
   %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -334,8 +334,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
 
 ._crit_edge.i:                                    ; preds = %.loopexit4.i
   call void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$GT$$u3b$$u20$N$u5d$$u20$as$u20$core..array..iter..iter_inner..PartialDrop$GT$12partial_drop17h308f9d906410cb29E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.519.0..sroa_idx.i, i64 noundef %108, i64 noundef %108)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !23
   store ptr %8, ptr %6, align 8, !noalias !23
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %124, align 8, !noalias !23
@@ -438,7 +438,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
           to label %"_ZN4core3ptr71drop_in_place$LT$core..array..iter..IntoIter$LT$usize$C$2_usize$GT$$GT$17haceee9c99a25c0a9E.exit.i" unwind label %156
 
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h757914fe08141beaE.exit.i: ; preds = %151
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !23
   br label %_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h06317e254dae1f95E.exit
 
 156:                                              ; preds = %155, %.body.i
@@ -467,13 +467,13 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h757914fe08141beaE.ex
   br i1 %163, label %164, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00815d20dc81e6bdE.exit.i
 
 164:                                              ; preds = %.noexc29.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !23
   %165 = load i32, ptr %159, align 8, !alias.scope !21, !noalias !18, !noundef !3
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %167 = load i32, ptr %166, align 4, !alias.scope !21, !noalias !18, !noundef !3
   store i32 %165, ptr %5, align 4, !noalias !23
   store i32 %167, ptr %105, align 4, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !23
   store ptr %5, ptr %4, align 8, !noalias !23
   store ptr %159, ptr %106, align 8, !noalias !23
   store i64 1, ptr %107, align 8, !noalias !23
@@ -508,8 +508,8 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h757914fe08141beaE.ex
           to label %.noexc30.i unwind label %110
 
 .noexc30.i:                                       ; preds = %179
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00815d20dc81e6bdE.exit.i
 
 180:                                              ; preds = %175
@@ -525,7 +525,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h00815d20dc81e6bdE.exit.i: ; 
   br i1 %182, label %.lr.ph.i, label %.loopexit4.loopexit.i
 
 _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h06317e254dae1f95E.exit: ; preds = %3, %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h757914fe08141beaE.exit.i
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -564,13 +564,13 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   br i1 %18, label %19, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00815d20dc81e6bdE.exit
 
 19:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load i32, ptr %.sroa.0.05, align 4, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 4
   %22 = load i32, ptr %21, align 4, !noundef !3
   store i32 %20, ptr %6, align 4
   store i32 %22, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %6, ptr %5, align 8
   store ptr %.sroa.0.05, ptr %13, align 8
   store i64 1, ptr %14, align 8
@@ -602,8 +602,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
 
 34:                                               ; preds = %32, %23
   call void @"_ZN4core3ptr98drop_in_place$LT$core..slice..sort..shared..smallsort..CopyOnDrop$LT$pingora_ketama..Point$GT$$GT$17h7d11d5f7b398c2c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00815d20dc81e6bdE.exit
 
 35:                                               ; preds = %30
@@ -643,10 +643,10 @@ declare void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h6cd
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

@@ -37,7 +37,7 @@ define void @BZ2_blockSort(ptr noundef captures(none) %0) local_unnamed_addr #0 
   %19 = load i32, ptr %18, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i32, ptr %20, align 8, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %22 = icmp slt i32 %17, 10000
   br i1 %22, label %.sink.split, label %23
 
@@ -55,16 +55,16 @@ define void @BZ2_blockSort(ptr noundef captures(none) %0) local_unnamed_addr #0 
   %.zext = zext nneg i8 %28 to i32
   %29 = mul nuw nsw i32 %17, %.zext
   store i32 %29, ptr %9, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = icmp sgt i32 %19, 3
   br i1 %30, label %31, label %.lr.ph.preheader.i
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 33, i64 1, ptr %32) #10
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 33, i64 1, ptr %32) #9
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %31, %23
@@ -179,7 +179,7 @@ define void @BZ2_blockSort(ptr noundef captures(none) %0) local_unnamed_addr #0 
 
 102:                                              ; preds = %101
   %103 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %104 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 27, i64 1, ptr %103) #10
+  %104 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 27, i64 1, ptr %103) #9
   br label %105
 
 105:                                              ; preds = %102, %101
@@ -412,13 +412,13 @@ split.i:                                          ; preds = %208, %192
   %228 = load ptr, ptr @stderr, align 8, !tbaa !18
   %229 = sub i32 %223, %218
   %230 = trunc nuw nsw i64 %indvars.iv525.i to i32
-  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.7, i32 noundef %212, i32 noundef %230, i32 noundef %.1294419.i, i32 noundef %229) #11
+  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str.7, i32 noundef %212, i32 noundef %230, i32 noundef %.1294419.i, i32 noundef %229) #10
   br label %232
 
 232:                                              ; preds = %227, %226
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %218, ptr %2, align 16, !tbaa !17
   store i32 %224, ptr %3, align 16, !tbaa !17
   store i32 2, ptr %4, align 16, !tbaa !17
@@ -440,7 +440,7 @@ split.i:                                          ; preds = %208, %192
   br i1 %233, label %241, label %240
 
 240:                                              ; preds = %239
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1001) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1001) #11
   br label %241
 
 241:                                              ; preds = %240, %239
@@ -918,16 +918,16 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 
 .loopexit.thread.i:                               ; preds = %mainSimpleSort.exit.i.i, %split.i.i.i
   %452 = phi i32 [ %307, %split.i.i.i ], [ %.pre.pre.i199, %mainSimpleSort.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %mainSort.exit
 
 .loopexit.i:                                      ; preds = %.outer247.backedge.i.i
   %453 = icmp sgt i32 %.pre.pre.i, -1
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %453, label %.loopexit..thread_crit_edge.i, label %mainSort.exit
 
 .loopexit..thread_crit_edge.i:                    ; preds = %.loopexit.i
@@ -962,7 +962,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br i1 %.not316.i, label %465, label %464
 
 464:                                              ; preds = %460
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1006) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1006) #11
   br label %465
 
 465:                                              ; preds = %464, %460
@@ -1101,7 +1101,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br i1 %or.cond.i, label %.preheader, label %540
 
 540:                                              ; preds = %537
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1007) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1007) #11
   br label %.preheader
 
 .preheader:                                       ; preds = %540, %537, %._crit_edge433.i
@@ -1180,7 +1180,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   br i1 %574, label %576, label %575
 
 575:                                              ; preds = %._crit_edge439.i
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1002) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1002) #11
   br label %576
 
 576:                                              ; preds = %575, %._crit_edge439.i
@@ -1193,19 +1193,19 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
 mainSort.exit.thread:                             ; preds = %.thread554.i
   %577 = load ptr, ptr @stderr, align 8, !tbaa !18
   %578 = sub nsw i32 %17, %.5298.i
-  %579 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %577, ptr noundef nonnull @.str.8, i32 noundef range(i32 10000, -2147483648) %17, i32 noundef %.5298.i, i32 noundef %578) #11
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #9
+  %579 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %577, ptr noundef nonnull @.str.8, i32 noundef range(i32 10000, -2147483648) %17, i32 noundef %.5298.i, i32 noundef %578) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %582
 
 mainSort.exit:                                    ; preds = %.loopexit.i, %.loopexit.thread.i, %.thread554.i
   %580 = phi i32 [ %452, %.loopexit.thread.i ], [ %.pre.pre.i195, %.thread554.i ], [ %.pre.pre.i, %.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %581 = icmp sgt i32 %19, 2
   br i1 %581, label %582, label %591
 
@@ -1217,7 +1217,7 @@ mainSort.exit:                                    ; preds = %.loopexit.i, %.loop
   %587 = uitofp nneg i32 %17 to float
   %588 = fdiv float %586, %587
   %589 = fpext float %588 to double
-  %590 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %584, ptr noundef nonnull @.str, i32 noundef %585, i32 noundef %17, double noundef %589) #11
+  %590 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %584, ptr noundef nonnull @.str, i32 noundef %585, i32 noundef %17, double noundef %589) #10
   br label %591
 
 591:                                              ; preds = %582, %mainSort.exit
@@ -1231,7 +1231,7 @@ mainSort.exit:                                    ; preds = %.loopexit.i, %.loop
 
 596:                                              ; preds = %594
   %597 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %598 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 53, i64 1, ptr %597) #10
+  %598 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 53, i64 1, ptr %597) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %594, %596, %1
@@ -1271,16 +1271,13 @@ mainSort.exit:                                    ; preds = %.loopexit.i, %.loop
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %611, %603
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1003) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1003) #11
   br label %612
 
 612:                                              ; preds = %.thread, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -1288,14 +1285,14 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   %7 = alloca [100 x i32], align 16
   %8 = alloca [257 x i32], align 16
   %9 = alloca [256 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp sgt i32 %4, 3
   br i1 %10, label %11, label %.preheader198
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 27, i64 1, ptr %12) #10
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 27, i64 1, ptr %12) #9
   br label %.preheader198
 
 .preheader198:                                    ; preds = %11, %5
@@ -1432,7 +1429,7 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
 
 67:                                               ; preds = %.backedge
   %68 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.3, i32 noundef %.0) #11
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.3, i32 noundef %.0) #10
   br label %70
 
 70:                                               ; preds = %67, %.backedge
@@ -1578,8 +1575,8 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   %143 = add i32 %.0148.ph, 1
   %144 = sub i32 %143, %.2159
   %145 = add i32 %144, %.6163
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %141, ptr %6, align 16, !tbaa !17
   store i32 %142, ptr %7, align 16, !tbaa !17
   br label %.lr.ph.i
@@ -1596,7 +1593,7 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   br i1 %148, label %150, label %149
 
 149:                                              ; preds = %147
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1004) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1004) #11
   br label %150
 
 150:                                              ; preds = %149, %147
@@ -1994,8 +1991,8 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br label %.outer191.backedge.i
 
 fallbackQSort3.exit:                              ; preds = %.outer191.backedge.i, %fallbackSimpleSort.exit.i
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not178.not266.not = icmp sgt i32 %.2159, %.6163
   br i1 %.not178.not266.not, label %.preheader191.outer.backedge, label %.lr.ph269.preheader
 
@@ -2041,7 +2038,7 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
 
 338:                                              ; preds = %337
   %339 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %340 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.4, i32 noundef %.0148.ph) #11
+  %340 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %339, ptr noundef nonnull @.str.4, i32 noundef %.0148.ph) #10
   %341 = shl nsw i32 %.0, 1
   %342 = icmp sgt i32 %341, %3
   %343 = icmp eq i32 %.0148.ph, 0
@@ -2061,7 +2058,7 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
 
 347:                                              ; preds = %338
   %348 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %349 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %348) #10
+  %349 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 33, i64 1, ptr %348) #9
   br label %.thread182
 
 .thread182:                                       ; preds = %.thread, %347
@@ -2105,25 +2102,22 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
   br i1 %363, label %._crit_edge273.thread, label %364
 
 364:                                              ; preds = %._crit_edge273
-  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1005) #9
+  tail call void @BZ2_bz__AssertH__fail(i32 noundef 1005) #11
   br label %._crit_edge273.thread
 
 ._crit_edge273.thread:                            ; preds = %.thread182, %364, %._crit_edge273
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 10000, -2147483648) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #4 {
+define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 10000, -2147483648) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #3 {
   %7 = zext i32 %0 to i64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !20
@@ -2566,6 +2560,12 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   ret i8 %.0276
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
@@ -2597,17 +2597,17 @@ declare i8 @llvm.umax.i8(i8, i8) #5
 declare i8 @llvm.umin.i8(i8, i8) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { cold }
-attributes #11 = { cold nounwind }
+attributes #9 = { cold }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

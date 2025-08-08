@@ -576,7 +576,7 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
 
 21:                                               ; preds = %20
   tail call void @_ZN9Assembler3movE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %6, i32 %3) #5
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %22, align 4
@@ -587,7 +587,7 @@ define hidden void @_ZN17C1_MacroAssembler17initialize_objectE8RegisterS0_S0_iS0
   tail call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %6, i32 noundef 16) #5
   tail call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %1, i32 %6, i32 noundef 16, i32 %5) #5
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %9) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 25:                                               ; preds = %20
@@ -755,13 +755,13 @@ define hidden void @_ZN17C1_MacroAssembler14allocate_arrayE8RegisterS0_S0_S0_iN7
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 0, ptr %26, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 21, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %28 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 8 dereferenceable(40) %27) #5
   call void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, ptr noundef nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %29 = load i32, ptr @MinObjAlignmentInBytesMask, align 4
   %30 = xor i32 %29, -1
   call void @_ZN14MacroAssembler6andptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %4, i32 noundef %30) #5
@@ -784,7 +784,7 @@ _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = 
 35:                                               ; preds = %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
   %36 = add i32 %5, 7
   %37 = and i32 %36, -8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 -1, ptr %11, align 8
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %38, align 4
@@ -795,7 +795,7 @@ _ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit: ; preds = 
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %4, i32 noundef %37) #5
   call void @_ZN14MacroAssembler11zero_memoryE8RegisterS0_iS0_(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 %1, i32 %4, i32 noundef %37, i32 %2) #5
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(33) %11) #5
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %41
 
 41:                                               ; preds = %35, %_ZN17C1_MacroAssembler12try_allocateE8RegisterS0_iS0_S0_R5Label.exit
@@ -929,10 +929,10 @@ declare void @_ZN9Assembler3leaE8Register7Address(ptr noundef nonnull align 8 de
 declare void @_ZN14MacroAssembler10incrementqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40), i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

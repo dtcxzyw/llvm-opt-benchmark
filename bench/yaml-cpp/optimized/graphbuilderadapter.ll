@@ -171,11 +171,8 @@ _ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %45, %66, %71,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %2, align 8, !tbaa !3
@@ -316,9 +313,6 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3to
 42:                                               ; preds = %36, %35, %29, %8
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 {
@@ -577,7 +571,7 @@ _ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5s
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.0.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %30, ptr %6, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE, ptr %31, align 8, !tbaa !43
@@ -601,7 +595,7 @@ _ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5s
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %36, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %41
 
@@ -659,7 +653,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3po
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 496
   %17 = load ptr, ptr %16, align 8, !tbaa !17
-  tail call void @_ZdlPv(ptr noundef %5) #13
+  tail call void @_ZdlPv(ptr noundef %5) #12
   %18 = load ptr, ptr %12, align 8, !tbaa !69
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   store ptr %19, ptr %12, align 8, !tbaa !15
@@ -781,7 +775,7 @@ _ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5s
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.0.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load ptr, ptr %31, align 8, !tbaa !44
   store ptr %30, ptr %6, align 8, !tbaa !17
@@ -807,7 +801,7 @@ _ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5s
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %38, %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr null, ptr %31, align 8, !tbaa !44
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %43
@@ -874,7 +868,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3po
   %22 = load ptr, ptr %21, align 8, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %22, ptr %23, align 8, !tbaa !44
-  tail call void @_ZdlPv(ptr noundef %5) #13
+  tail call void @_ZdlPv(ptr noundef %5) #12
   %24 = load ptr, ptr %15, align 8, !tbaa !69
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
   store ptr %25, ptr %15, align 8, !tbaa !15
@@ -960,7 +954,7 @@ _ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %33, %56, %62,
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !37
@@ -968,7 +962,7 @@ define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull 
   br i1 %.not.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   br label %_ZN4YAML10AnchorDictIPvED2Ev.exit
 
 _ZN4YAML10AnchorDictIPvED2Ev.exit:                ; preds = %1, %4
@@ -989,7 +983,7 @@ _ZN4YAML10AnchorDictIPvED2Ev.exit:                ; preds = %1, %4
 .lr.ph.i.i.i.i:                                   ; preds = %7, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %10, %7 ]
   %14 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %14) #13
+  tail call void @_ZdlPv(ptr noundef %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %16 = icmp ult ptr %.06.i.i.i.i, %11
   br i1 %16, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !85
@@ -1000,7 +994,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_dest
 
 _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, %7
   %17 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i ], [ %6, %7 ]
-  tail call void @_ZdlPv(ptr noundef %17) #13
+  tail call void @_ZdlPv(ptr noundef %17) #12
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit
 
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
@@ -1008,7 +1002,7 @@ _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2E
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !37
@@ -1016,7 +1010,7 @@ define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull 
   br i1 %.not.i.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
   br label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i
 
 _ZN4YAML10AnchorDictIPvED2Ev.exit.i:              ; preds = %4, %1
@@ -1037,7 +1031,7 @@ _ZN4YAML10AnchorDictIPvED2Ev.exit.i:              ; preds = %4, %1
 .lr.ph.i.i.i.i.i:                                 ; preds = %7, %.lr.ph.i.i.i.i.i
   %.06.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %10, %7 ]
   %14 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !16
-  tail call void @_ZdlPv(ptr noundef %14) #13
+  tail call void @_ZdlPv(ptr noundef %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
   %16 = icmp ult ptr %.06.i.i.i.i.i, %11
   br i1 %16, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !85
@@ -1048,33 +1042,33 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_dest
 
 _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, %7
   %17 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i ], [ %6, %7 ]
-  tail call void @_ZdlPv(ptr noundef %17) #13
+  tail call void @_ZdlPv(ptr noundef %17) #12
   br label %_ZN4YAML19GraphBuilderAdapterD2Ev.exit
 
 _ZN4YAML19GraphBuilderAdapterD2Ev.exit:           ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #3 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 comdat align 2 {
+define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 comdat align 2 {
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1112,7 +1106,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #13
   unreachable
 
 34:                                               ; preds = %2
@@ -1133,7 +1127,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
 
 _ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
-  %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #15
+  %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #14
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !16
   %47 = load ptr, ptr %3, align 8, !tbaa !63
@@ -1151,10 +1145,10 @@ _ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1220,16 +1214,16 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFram
   br i1 %44, label %.noexc.i, label %.noexc3.i
 
 .noexc.i:                                         ; preds = %43
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #14
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
 .noexc3.i:                                        ; preds = %43
-  tail call void @_ZSt17__throw_bad_allocv() #14
+  tail call void @_ZSt17__throw_bad_allocv() #13
   unreachable
 
 _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %39
   %45 = shl nuw nsw i64 %41, 3
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #15
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #14
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
   %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
@@ -1247,7 +1241,7 @@ _ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allo
 
 _ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, %53
   %56 = load ptr, ptr %0, align 8, !tbaa !83
-  tail call void @_ZdlPv(ptr noundef %56) #13
+  tail call void @_ZdlPv(ptr noundef %56) #12
   store ptr %46, ptr %0, align 8, !tbaa !83
   store i64 %41, ptr %14, align 8, !tbaa !87
   br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
@@ -1274,16 +1268,16 @@ _ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1336,7 +1330,7 @@ _ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, 
   br i1 %27, label %28, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
 
 28:                                               ; preds = %26
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #13
   unreachable
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
@@ -1344,7 +1338,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
   %29 = add nuw nsw i64 %.sroa.speculated.i, %10
   %30 = tail call i64 @llvm.umin.i64(i64 %29, i64 1152921504606846975)
   %31 = shl nuw nsw i64 %30, 3
-  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #15
+  %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
   store ptr null, ptr %33, align 8, !tbaa !38
   %34 = icmp eq i64 %1, 1
@@ -1370,7 +1364,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
   br i1 %.not.i35, label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36, label %40
 
 40:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %6) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #12
   br label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36
 
 _ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %40
@@ -1385,6 +1379,12 @@ _ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vec
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
@@ -1398,21 +1398,20 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

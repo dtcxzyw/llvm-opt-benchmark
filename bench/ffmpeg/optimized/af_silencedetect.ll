@@ -68,8 +68,8 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 20:                                               ; preds = %14
   %21 = load i64, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = srem i32 %22, %15
   %24 = zext nneg i32 %23 to i64
@@ -107,8 +107,8 @@ update.exit:                                      ; preds = %20, %32
   store i64 0, ptr %37, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i64, ptr %35, i64 %24
   store i64 -9223372036854775808, ptr %38, align 8, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %39
 
 39:                                               ; preds = %14, %update.exit
@@ -330,23 +330,17 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef readonly 
   ret i32 %.034
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #2
+
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #3
+declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
-
-declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
-
-declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 %4) #1 {
@@ -384,12 +378,12 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   %30 = fcmp nsz uge double %29, %16
   %31 = fcmp nsz ule double %29, %19
   %narrow.not = or i1 %30, %31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %32 = load i32, ptr %20, align 8, !tbaa !20
   %33 = srem i32 %.034, %32
   %34 = load ptr, ptr %21, align 8, !tbaa !26
@@ -434,7 +428,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %59 = load i64, ptr %36, align 8, !tbaa !27
   %60 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %59, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not68.i, label %64, label %61
 
 61:                                               ; preds = %44
@@ -448,7 +442,7 @@ define internal void @silencedetect_dbl(ptr noundef %0, ptr noundef %1, i32 noun
 
 set_meta.exit:                                    ; preds = %61, %64
   %66 = call i32 @av_dict_set(ptr noundef nonnull %27, ptr noundef nonnull %8, ptr noundef %60, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %67 = load i32, ptr %26, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %67, 0
   br i1 %.not69.i, label %69, label %68
@@ -486,7 +480,7 @@ set_meta.exit:                                    ; preds = %61, %64
   %85 = add nuw nsw i32 %33, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %86 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %82, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not64.i, label %89, label %87
 
 87:                                               ; preds = %75
@@ -499,12 +493,12 @@ set_meta.exit:                                    ; preds = %61, %64
 
 set_meta.exit23:                                  ; preds = %87, %89
   %91 = call i32 @av_dict_set(ptr noundef nonnull %27, ptr noundef nonnull %7, ptr noundef %86, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %92 = load i32, ptr %26, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %92, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %93 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %83, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not65.i, label %96, label %94
 
 94:                                               ; preds = %set_meta.exit23
@@ -517,7 +511,7 @@ set_meta.exit23:                                  ; preds = %87, %89
 
 98:                                               ; preds = %96, %94
   %99 = call i32 @av_dict_set(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noundef %93, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %100 = load i32, ptr %26, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %100, 0
   br i1 %.not66.i, label %102, label %101
@@ -545,12 +539,12 @@ set_meta.exit23:                                  ; preds = %87, %89
   br label %update.exit
 
 update.exit:                                      ; preds = %38, %39, %69, %105
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %110 = add nuw nsw i32 %.034, 1
   %111 = getelementptr inbounds nuw i8, ptr %.01333, i64 8
   %exitcond.not = icmp eq i32 %110, %2
@@ -597,12 +591,12 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   %31 = fcmp nsz uge float %30, %17
   %32 = fcmp nsz ule float %30, %20
   %narrow.not = or i1 %31, %32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %33 = load i32, ptr %21, align 8, !tbaa !20
   %34 = srem i32 %.034, %33
   %35 = load ptr, ptr %22, align 8, !tbaa !26
@@ -647,7 +641,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %60 = load i64, ptr %37, align 8, !tbaa !27
   %61 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %60, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not68.i, label %65, label %62
 
 62:                                               ; preds = %45
@@ -661,7 +655,7 @@ define internal void @silencedetect_flt(ptr noundef %0, ptr noundef %1, i32 noun
 
 set_meta.exit:                                    ; preds = %62, %65
   %67 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %8, ptr noundef %61, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %68 = load i32, ptr %27, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %68, 0
   br i1 %.not69.i, label %70, label %69
@@ -699,7 +693,7 @@ set_meta.exit:                                    ; preds = %62, %65
   %86 = add nuw nsw i32 %34, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %87 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %83, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not64.i, label %90, label %88
 
 88:                                               ; preds = %76
@@ -712,12 +706,12 @@ set_meta.exit:                                    ; preds = %62, %65
 
 set_meta.exit23:                                  ; preds = %88, %90
   %92 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %87, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %93 = load i32, ptr %27, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %93, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %94 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %84, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not65.i, label %97, label %95
 
 95:                                               ; preds = %set_meta.exit23
@@ -730,7 +724,7 @@ set_meta.exit23:                                  ; preds = %88, %90
 
 99:                                               ; preds = %97, %95
   %100 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %6, ptr noundef %94, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %101 = load i32, ptr %27, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %101, 0
   br i1 %.not66.i, label %103, label %102
@@ -758,12 +752,12 @@ set_meta.exit23:                                  ; preds = %88, %90
   br label %update.exit
 
 update.exit:                                      ; preds = %39, %40, %70, %106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %111 = add nuw nsw i32 %.034, 1
   %112 = getelementptr inbounds nuw i8, ptr %.01333, i64 4
   %exitcond.not = icmp eq i32 %111, %2
@@ -810,12 +804,12 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   %31 = icmp sge i32 %30, %17
   %32 = icmp sle i32 %30, %20
   %narrow.not = select i1 %31, i1 true, i1 %32
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %33 = load i32, ptr %21, align 8, !tbaa !20
   %34 = srem i32 %.034, %33
   %35 = load ptr, ptr %22, align 8, !tbaa !26
@@ -860,7 +854,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %60 = load i64, ptr %37, align 8, !tbaa !27
   %61 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %60, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not68.i, label %65, label %62
 
 62:                                               ; preds = %45
@@ -874,7 +868,7 @@ define internal void @silencedetect_s32(ptr noundef %0, ptr noundef %1, i32 noun
 
 set_meta.exit:                                    ; preds = %62, %65
   %67 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %8, ptr noundef %61, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %68 = load i32, ptr %27, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %68, 0
   br i1 %.not69.i, label %70, label %69
@@ -912,7 +906,7 @@ set_meta.exit:                                    ; preds = %62, %65
   %86 = add nuw nsw i32 %34, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %87 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %83, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not64.i, label %90, label %88
 
 88:                                               ; preds = %76
@@ -925,12 +919,12 @@ set_meta.exit:                                    ; preds = %62, %65
 
 set_meta.exit23:                                  ; preds = %88, %90
   %92 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %87, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %93 = load i32, ptr %27, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %93, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %94 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %84, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not65.i, label %97, label %95
 
 95:                                               ; preds = %set_meta.exit23
@@ -943,7 +937,7 @@ set_meta.exit23:                                  ; preds = %88, %90
 
 99:                                               ; preds = %97, %95
   %100 = call i32 @av_dict_set(ptr noundef nonnull %28, ptr noundef nonnull %6, ptr noundef %94, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %101 = load i32, ptr %27, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %101, 0
   br i1 %.not66.i, label %103, label %102
@@ -971,12 +965,12 @@ set_meta.exit23:                                  ; preds = %88, %90
   br label %update.exit
 
 update.exit:                                      ; preds = %39, %40, %70, %106
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %111 = add nuw nsw i32 %.034, 1
   %112 = getelementptr inbounds nuw i8, ptr %.01333, i64 4
   %exitcond.not = icmp eq i32 %111, %2
@@ -1025,12 +1019,12 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   %33 = sext i16 %31 to i32
   %34 = icmp sle i32 %33, %21
   %narrow.not = select i1 %32, i1 true, i1 %34
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %35 = load i32, ptr %22, align 8, !tbaa !20
   %36 = srem i32 %.034, %35
   %37 = load ptr, ptr %23, align 8, !tbaa !26
@@ -1075,7 +1069,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %62 = load i64, ptr %39, align 8, !tbaa !27
   %63 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %62, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %.not68.i, label %67, label %64
 
 64:                                               ; preds = %47
@@ -1089,7 +1083,7 @@ define internal void @silencedetect_s16(ptr noundef %0, ptr noundef %1, i32 noun
 
 set_meta.exit:                                    ; preds = %64, %67
   %69 = call i32 @av_dict_set(ptr noundef nonnull %29, ptr noundef nonnull %8, ptr noundef %63, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %70 = load i32, ptr %28, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %70, 0
   br i1 %.not69.i, label %72, label %71
@@ -1127,7 +1121,7 @@ set_meta.exit:                                    ; preds = %64, %67
   %88 = add nuw nsw i32 %36, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %89 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %85, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not64.i, label %92, label %90
 
 90:                                               ; preds = %78
@@ -1140,12 +1134,12 @@ set_meta.exit:                                    ; preds = %64, %67
 
 set_meta.exit23:                                  ; preds = %90, %92
   %94 = call i32 @av_dict_set(ptr noundef nonnull %29, ptr noundef nonnull %7, ptr noundef %89, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %95 = load i32, ptr %28, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %95, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %96 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %86, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %.not65.i, label %99, label %97
 
 97:                                               ; preds = %set_meta.exit23
@@ -1158,7 +1152,7 @@ set_meta.exit23:                                  ; preds = %90, %92
 
 101:                                              ; preds = %99, %97
   %102 = call i32 @av_dict_set(ptr noundef nonnull %29, ptr noundef nonnull %6, ptr noundef %96, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %103 = load i32, ptr %28, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %103, 0
   br i1 %.not66.i, label %105, label %104
@@ -1186,12 +1180,12 @@ set_meta.exit23:                                  ; preds = %90, %92
   br label %update.exit
 
 update.exit:                                      ; preds = %41, %42, %72, %108
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %113 = add nuw nsw i32 %.034, 1
   %114 = getelementptr inbounds nuw i8, ptr %.01333, i64 2
   %exitcond.not = icmp eq i32 %113, %2
@@ -1269,12 +1263,12 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   %44 = fcmp nsz ule double %42, %22
   %narrow.not = or i1 %43, %44
   %45 = add i64 %indvars.iv, %35
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %46 = load i32, ptr %23, align 8, !tbaa !20
   %47 = trunc i64 %45 to i32
   %48 = srem i32 %47, %46
@@ -1321,7 +1315,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %75 = load i64, ptr %51, align 8, !tbaa !27
   %76 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %75, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i3143 = icmp eq i32 %74, 0
   %.not.i31 = select i1 %.not68.i, i1 true, i1 %.not.i3143
   br i1 %.not.i31, label %79, label %77
@@ -1336,7 +1330,7 @@ define internal void @silencedetect_dblp(ptr noundef %0, ptr noundef %1, i32 nou
 
 set_meta.exit:                                    ; preds = %77, %79
   %81 = call i32 @av_dict_set(ptr noundef nonnull %30, ptr noundef nonnull %8, ptr noundef %76, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %82 = load i32, ptr %29, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %82, 0
   br i1 %.not69.i, label %84, label %83
@@ -1374,7 +1368,7 @@ set_meta.exit:                                    ; preds = %77, %79
   %100 = add nsw i32 %48, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %101 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %97, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i3244 = icmp eq i32 %100, 0
   %.not.i32 = select i1 %.not64.i, i1 true, i1 %.not.i3244
   br i1 %.not.i32, label %104, label %102
@@ -1389,12 +1383,12 @@ set_meta.exit:                                    ; preds = %77, %79
 
 set_meta.exit33:                                  ; preds = %102, %104
   %106 = call i32 @av_dict_set(ptr noundef nonnull %30, ptr noundef nonnull %7, ptr noundef %101, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %107 = load i32, ptr %29, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %107, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %108 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %98, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i34 = select i1 %.not65.i, i1 true, i1 %.not.i3244
   br i1 %.not.i34, label %111, label %109
 
@@ -1408,7 +1402,7 @@ set_meta.exit33:                                  ; preds = %102, %104
 
 113:                                              ; preds = %111, %109
   %114 = call i32 @av_dict_set(ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef %108, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %115 = load i32, ptr %29, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %115, 0
   br i1 %.not66.i, label %117, label %116
@@ -1436,12 +1430,12 @@ set_meta.exit33:                                  ; preds = %102, %104
   br label %update.exit
 
 update.exit:                                      ; preds = %53, %54, %84, %120
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = load i32, ptr %15, align 4, !tbaa !71
   %126 = sext i32 %125 to i64
@@ -1518,12 +1512,12 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   %45 = fcmp nsz ule float %43, %23
   %narrow.not = or i1 %44, %45
   %46 = add i64 %indvars.iv, %36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %47 = load i32, ptr %24, align 8, !tbaa !20
   %48 = trunc i64 %46 to i32
   %49 = srem i32 %48, %47
@@ -1570,7 +1564,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %76 = load i64, ptr %52, align 8, !tbaa !27
   %77 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %76, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i3143 = icmp eq i32 %75, 0
   %.not.i31 = select i1 %.not68.i, i1 true, i1 %.not.i3143
   br i1 %.not.i31, label %80, label %78
@@ -1585,7 +1579,7 @@ define internal void @silencedetect_fltp(ptr noundef %0, ptr noundef %1, i32 nou
 
 set_meta.exit:                                    ; preds = %78, %80
   %82 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %8, ptr noundef %77, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %83 = load i32, ptr %30, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %83, 0
   br i1 %.not69.i, label %85, label %84
@@ -1623,7 +1617,7 @@ set_meta.exit:                                    ; preds = %78, %80
   %101 = add nsw i32 %49, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %102 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %98, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i3244 = icmp eq i32 %101, 0
   %.not.i32 = select i1 %.not64.i, i1 true, i1 %.not.i3244
   br i1 %.not.i32, label %105, label %103
@@ -1638,12 +1632,12 @@ set_meta.exit:                                    ; preds = %78, %80
 
 set_meta.exit33:                                  ; preds = %103, %105
   %107 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %7, ptr noundef %102, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %108 = load i32, ptr %30, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %108, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %99, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i34 = select i1 %.not65.i, i1 true, i1 %.not.i3244
   br i1 %.not.i34, label %112, label %110
 
@@ -1657,7 +1651,7 @@ set_meta.exit33:                                  ; preds = %103, %105
 
 114:                                              ; preds = %112, %110
   %115 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef %109, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %116 = load i32, ptr %30, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %116, 0
   br i1 %.not66.i, label %118, label %117
@@ -1685,12 +1679,12 @@ set_meta.exit33:                                  ; preds = %103, %105
   br label %update.exit
 
 update.exit:                                      ; preds = %54, %55, %85, %121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %15, align 4, !tbaa !71
   %127 = sext i32 %126 to i64
@@ -1767,12 +1761,12 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   %45 = icmp sle i32 %43, %23
   %narrow.not = select i1 %44, i1 true, i1 %45
   %46 = add i64 %indvars.iv, %36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %47 = load i32, ptr %24, align 8, !tbaa !20
   %48 = trunc i64 %46 to i32
   %49 = srem i32 %48, %47
@@ -1819,7 +1813,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %76 = load i64, ptr %52, align 8, !tbaa !27
   %77 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %76, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i3143 = icmp eq i32 %75, 0
   %.not.i31 = select i1 %.not68.i, i1 true, i1 %.not.i3143
   br i1 %.not.i31, label %80, label %78
@@ -1834,7 +1828,7 @@ define internal void @silencedetect_s32p(ptr noundef %0, ptr noundef %1, i32 nou
 
 set_meta.exit:                                    ; preds = %78, %80
   %82 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %8, ptr noundef %77, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %83 = load i32, ptr %30, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %83, 0
   br i1 %.not69.i, label %85, label %84
@@ -1872,7 +1866,7 @@ set_meta.exit:                                    ; preds = %78, %80
   %101 = add nsw i32 %49, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %102 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %98, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i3244 = icmp eq i32 %101, 0
   %.not.i32 = select i1 %.not64.i, i1 true, i1 %.not.i3244
   br i1 %.not.i32, label %105, label %103
@@ -1887,12 +1881,12 @@ set_meta.exit:                                    ; preds = %78, %80
 
 set_meta.exit33:                                  ; preds = %103, %105
   %107 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %7, ptr noundef %102, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %108 = load i32, ptr %30, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %108, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %109 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %99, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i34 = select i1 %.not65.i, i1 true, i1 %.not.i3244
   br i1 %.not.i34, label %112, label %110
 
@@ -1906,7 +1900,7 @@ set_meta.exit33:                                  ; preds = %103, %105
 
 114:                                              ; preds = %112, %110
   %115 = call i32 @av_dict_set(ptr noundef nonnull %31, ptr noundef nonnull %6, ptr noundef %109, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %116 = load i32, ptr %30, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %116, 0
   br i1 %.not66.i, label %118, label %117
@@ -1934,12 +1928,12 @@ set_meta.exit33:                                  ; preds = %103, %105
   br label %update.exit
 
 update.exit:                                      ; preds = %54, %55, %85, %121
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %126 = load i32, ptr %15, align 4, !tbaa !71
   %127 = sext i32 %126 to i64
@@ -2018,12 +2012,12 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   %47 = icmp sle i32 %46, %24
   %narrow.not = select i1 %45, i1 true, i1 %47
   %48 = add i64 %indvars.iv, %37
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %49 = load i32, ptr %25, align 8, !tbaa !20
   %50 = trunc i64 %48 to i32
   %51 = srem i32 %50, %49
@@ -2070,7 +2064,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %78 = load i64, ptr %54, align 8, !tbaa !27
   %79 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %9, i64 noundef %78, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not.i3143 = icmp eq i32 %77, 0
   %.not.i31 = select i1 %.not68.i, i1 true, i1 %.not.i3143
   br i1 %.not.i31, label %82, label %80
@@ -2085,7 +2079,7 @@ define internal void @silencedetect_s16p(ptr noundef %0, ptr noundef %1, i32 nou
 
 set_meta.exit:                                    ; preds = %80, %82
   %84 = call i32 @av_dict_set(ptr noundef nonnull %32, ptr noundef nonnull %8, ptr noundef %79, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %85 = load i32, ptr %31, align 8, !tbaa !29
   %.not69.i = icmp eq i32 %85, 0
   br i1 %.not69.i, label %87, label %86
@@ -2123,7 +2117,7 @@ set_meta.exit:                                    ; preds = %80, %82
   %103 = add nsw i32 %51, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %104 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %11, i64 noundef %100, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not.i3244 = icmp eq i32 %103, 0
   %.not.i32 = select i1 %.not64.i, i1 true, i1 %.not.i3244
   br i1 %.not.i32, label %107, label %105
@@ -2138,12 +2132,12 @@ set_meta.exit:                                    ; preds = %80, %82
 
 set_meta.exit33:                                  ; preds = %105, %107
   %109 = call i32 @av_dict_set(ptr noundef nonnull %32, ptr noundef nonnull %7, ptr noundef %104, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %110 = load i32, ptr %31, align 8, !tbaa !29
   %.not65.i = icmp eq i32 %110, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %111 = call ptr @av_ts_make_time_string2(ptr noundef nonnull %12, i64 noundef %101, i64 %4) #7
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i34 = select i1 %.not65.i, i1 true, i1 %.not.i3244
   br i1 %.not.i34, label %114, label %112
 
@@ -2157,7 +2151,7 @@ set_meta.exit33:                                  ; preds = %105, %107
 
 116:                                              ; preds = %114, %112
   %117 = call i32 @av_dict_set(ptr noundef nonnull %32, ptr noundef nonnull %6, ptr noundef %111, i32 noundef 0) #7
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %118 = load i32, ptr %31, align 8, !tbaa !29
   %.not66.i = icmp eq i32 %118, 0
   br i1 %.not66.i, label %120, label %119
@@ -2185,12 +2179,12 @@ set_meta.exit33:                                  ; preds = %105, %107
   br label %update.exit
 
 update.exit:                                      ; preds = %56, %57, %87, %123
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = load i32, ptr %15, align 4, !tbaa !71
   %129 = sext i32 %128 to i64
@@ -2199,28 +2193,34 @@ update.exit:                                      ; preds = %56, %57, %87, %123
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
-declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @av_dict_set(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @av_ts_make_time_string2(ptr noundef, i64 noundef, i64) local_unnamed_addr #4
+declare ptr @av_ts_make_time_string2(ptr noundef, i64 noundef, i64) local_unnamed_addr #3
 
-declare ptr @av_default_item_name(ptr noundef) #4
+declare ptr @av_default_item_name(ptr noundef) #3
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #4
+declare void @av_freep(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(none) }
 

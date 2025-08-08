@@ -109,7 +109,7 @@ define { ptr, i64 } @_ZN18ruff_python_trivia14comment_ranges13CommentRanges17com
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h374b431b166cecb6E"(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = icmp ugt i64 %11, %10
   br i1 %12, label %19, label %13, !prof !14
 
@@ -154,7 +154,7 @@ define { ptr, i64 } @_ZN18ruff_python_trivia14comment_ranges13CommentRanges17com
   %.pn6 = phi i64 [ %29, %28 ], [ %21, %24 ]
   %.pn = insertvalue { ptr, i64 } poison, ptr %14, 0
   %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn6, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret { ptr, i64 } %.merged
 }
 
@@ -167,13 +167,13 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %9 = alloca [32 x i8], align 8
   %10 = alloca [24 x i8], align 8
   %11 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %14, align 8
@@ -229,8 +229,8 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   br label %38
 
 38:                                               ; preds = %._crit_edge.thread, %47
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
 .thread116.loopexit:                              ; preds = %95, %34, %48, %51, %53, %74, %139, %107, %117, %160
@@ -263,7 +263,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 41:                                               ; preds = %._crit_edge
   %.sroa.0102.0.copyload = load i64, ptr %10, align 8
   %.sroa.4103.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i32, ptr %.sroa.4103.0.copyload, i64 %.pre
   %43 = icmp sgt i64 %.sroa.0102.0.copyload, -1
   call void @llvm.assume(i1 %43)
@@ -278,7 +278,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %47 unwind label %.thread123.loopexit.split-lp
 
 47:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %38
 
@@ -331,7 +331,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 66:                                               ; preds = %57
   %.sroa.0.0.copyload = load i64, ptr %10, align 8
   %.sroa.4.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %67 = getelementptr inbounds nuw i32, ptr %.sroa.4.0.copyload, i64 %58
   %68 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %68)
@@ -343,7 +343,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %69 unwind label %.thread123.loopexit
 
 69:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %62
 
 .backedge:                                        ; preds = %147, %125, %115, %62, %168
@@ -415,7 +415,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 96:                                               ; preds = %89
   %.sroa.096.0.copyload = load i64, ptr %10, align 8
   %.sroa.497.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %97 = getelementptr inbounds nuw i32, ptr %.sroa.497.0.copyload, i64 %84
   %98 = icmp sgt i64 %.sroa.096.0.copyload, -1
   call void @llvm.assume(i1 %98)
@@ -427,7 +427,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %99 unwind label %.thread123.loopexit
 
 99:                                               ; preds = %96
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %100
 
 100:                                              ; preds = %99, %89
@@ -492,7 +492,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 128:                                              ; preds = %85
   %.sroa.099.0.copyload = load i64, ptr %10, align 8
   %.sroa.4100.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %129 = getelementptr inbounds nuw i32, ptr %.sroa.4100.0.copyload, i64 %86
   %130 = icmp sgt i64 %.sroa.099.0.copyload, -1
   call void @llvm.assume(i1 %130)
@@ -504,7 +504,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %131 unwind label %.thread123.loopexit
 
 131:                                              ; preds = %128
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %132
 
 132:                                              ; preds = %131, %85
@@ -552,7 +552,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 149:                                              ; preds = %78
   %.sroa.093.0.copyload = load i64, ptr %10, align 8
   %.sroa.494.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %150 = getelementptr inbounds nuw i32, ptr %.sroa.494.0.copyload, i64 %79
   %151 = icmp sgt i64 %.sroa.093.0.copyload, -1
   call void @llvm.assume(i1 %151)
@@ -564,7 +564,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
           to label %152 unwind label %.thread123.loopexit
 
 152:                                              ; preds = %149
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %153
 
 153:                                              ; preds = %152, %78
@@ -633,14 +633,14 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 define internal fastcc noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRanges8is_empty17h30534b67a44904f7E(i32 noundef %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %0, ptr %6, align 4
   %7 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %1, ptr %5, align 4
   %8 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp ugt i64 %7, %8
   br i1 %.not.i, label %101, label %9
 
@@ -823,14 +823,14 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRange
   unreachable
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %6, ptr %5, align 4
   %9 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %0, ptr %4, align 4
   %10 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp ugt i64 %9, %10
   br i1 %.not.i, label %73, label %11
 
@@ -962,11 +962,11 @@ define { ptr, i64 } @"_ZN93_$LT$ruff_python_trivia..comment_ranges..CommentRange
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN86_$LT$ruff_python_trivia..comment_ranges..CommentRanges$u20$as$u20$core..fmt..Debug$GT$3fmt17h73d42f175ef5005eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4core3fmt9Formatter11debug_tuple17ha4d9e34ce973ef45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.93335a6b989a7586c20d5234425d9b57.49, i64 noundef 13)
   %4 = call noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTuple5field17h090e461c162ae9ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.93335a6b989a7586c20d5234425d9b57.50)
   %5 = call noundef zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17h84c7b5697523884aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -1064,10 +1064,10 @@ declare noundef align 8 dereferenceable(24) ptr @_ZN4core3fmt8builders10DebugTup
 declare noundef zeroext i1 @_ZN4core3fmt8builders10DebugTuple6finish17h84c7b5697523884aE(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

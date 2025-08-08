@@ -808,14 +808,8 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat9ArenaDtorEPv(ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -836,7 +830,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %0, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers12NumberFormat5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !51
   %4 = icmp sgt i32 %3, 0
@@ -1675,7 +1669,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh.exit: ; preds = %133
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #14 align 2 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFieldsByteSizeFallbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
   %4 = and i32 %3, 1
@@ -1729,7 +1723,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat30RequiredFie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLongEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZNK4i18n12phonenumbers12NumberFormat12ByteSizeLongEv(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %0) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
   %4 = and i32 %3, 3
@@ -2334,7 +2328,7 @@ _ZN4i18n12phonenumbers12NumberFormat5ClearEv.exit: ; preds = %49, %_ZN6google8pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers12NumberFormat13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #16 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers12NumberFormat13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
   %4 = and i32 %3, 3
@@ -2447,7 +2441,7 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 30, ptr %2, align 8, !tbaa !104
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !61
@@ -2459,7 +2453,7 @@ define dso_local void @_ZNK4i18n12phonenumbers12NumberFormat11GetTypeNameB5cxx11
   %7 = load ptr, ptr %0, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2825,7 +2819,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc9ArenaDtorEPv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -2846,7 +2840,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %0, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 28), (40, 44)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(72) initializes((24, 28), (40, 44)) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8, !tbaa !107
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4015,7 +4009,7 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 33, ptr %2, align 8, !tbaa !104
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !61
@@ -4026,12 +4020,12 @@ define dso_local void @_ZNK4i18n12phonenumbers15PhoneNumberDesc11GetTypeNameB5cx
   store i64 %5, ptr %6, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   store i8 0, ptr %7, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInstanceEv() local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInstanceEv() local_unnamed_addr #17 align 2 {
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 136), align 8, !tbaa !28
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 144), align 8, !tbaa !32
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 152), align 8, !tbaa !33
@@ -4053,119 +4047,119 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12general_descEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12general_descEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !28
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10fixed_lineEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10fixed_lineEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8, !tbaa !32
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal6mobileEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal6mobileEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9toll_freeEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9toll_freeEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12premium_rateEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12premium_rateEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal11shared_costEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal11shared_costEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !36
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal15personal_numberEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal15personal_numberEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !37
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal4voipEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal4voipEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal5pagerEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal5pagerEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal3uanEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal3uanEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8, !tbaa !40
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9emergencyEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9emergencyEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9voicemailEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal9voicemailEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8, !tbaa !42
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10short_codeEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal10short_codeEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal13standard_rateEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal13standard_rateEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal16carrier_specificEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal16carrier_specificEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12sms_servicesEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal12sms_servicesEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal25no_international_diallingEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phonenumbers13PhoneMetadata9_Internal25no_international_diallingEPKS1_(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   ret ptr %3
@@ -5377,7 +5371,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -5917,7 +5911,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata9ArenaDtorEPv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -7210,7 +7204,7 @@ _ZN6google8protobuf8internal16InternalMetadata5ClearINSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4i18n12phonenumbers13PhoneMetadata14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -13792,7 +13786,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata8CopyFromERKS1_(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !62
   %4 = and i32 %3, 1
@@ -14046,7 +14040,7 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 31, ptr %2, align 8, !tbaa !104
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !61
@@ -14058,7 +14052,7 @@ define dso_local void @_ZNK4i18n12phonenumbers13PhoneMetadata11GetTypeNameB5cxx1
   %7 = load ptr, ptr %0, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   store i8 0, ptr %8, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -14400,7 +14394,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection9ArenaDtor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -15088,7 +15082,7 @@ _ZN4i18n12phonenumbers23PhoneMetadataCollection5ClearEv.exit: ; preds = %_ZN6goo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers23PhoneMetadataCollection13IsInitializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !51
   %4 = icmp slt i32 %3, 1
@@ -15240,7 +15234,7 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !92
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 41, ptr %2, align 8, !tbaa !104
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !61
@@ -15251,12 +15245,12 @@ define dso_local void @_ZNK4i18n12phonenumbers23PhoneMetadataCollection11GetType
   store i64 %5, ptr %6, align 8, !tbaa !56
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   store i8 0, ptr %7, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers12NumberFormatEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %11
 
@@ -15340,7 +15334,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers12NumberFor
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers15PhoneNumberDescEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers15PhoneNumberDescEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %12
 
@@ -15424,7 +15418,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers15PhoneNumb
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers13PhoneMetadataEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 
@@ -15460,7 +15454,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN4i18n12phonenumbers13PhoneMeta
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers23PhoneMetadataCollectionEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers23PhoneMetadataCollectionEJEEEPT_PS1_DpOT0_(ptr noundef %0) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %10
 
@@ -15618,7 +15612,7 @@ declare void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef
 declare void @_ZN6google8protobuf8internal14DestroyMessageEPKv(ptr noundef) #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr14CreateInstanceEPNS0_5ArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %1, null
@@ -15631,7 +15625,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   %10 = load ptr, ptr %2, align 8, !tbaa !61
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !104
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
@@ -15669,7 +15663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %22 = load ptr, ptr %8, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 24:                                               ; preds = %.noexc.i
@@ -15695,7 +15689,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %26, %29
   %32 = load ptr, ptr %2, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %34, ptr %4, align 8, !tbaa !104
   %35 = icmp ugt i64 %34, 15
   br i1 %35, label %.noexc.i5, label %._crit_edge.i.i4
@@ -15730,7 +15724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6: ; preds = %
   %44 = load ptr, ptr %30, align 8, !tbaa !61
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store i8 0, ptr %45, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena14CreateInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEPT_PS1_DpOT0_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit6
@@ -15790,15 +15784,15 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFal
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream16WriteRawFallbackEPKviPh(ptr noundef nonnull align 8 dereferenceable(59), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #22
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #21
 
 declare void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
+declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 1
@@ -16107,7 +16101,7 @@ declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14Interna
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #24
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 
 declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream18WriteStringOutlineEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(59), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -16226,23 +16220,29 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFor
 declare { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #21 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers12NumberFormatEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
   tail call void @_ZN4i18n12phonenumbers12NumberFormat9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #21 comdat align 2 {
+define linkonce_odr dso_local void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMetadataEE5MergeERKS5_PS5_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #20 comdat align 2 {
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadata9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(280) %0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_phonemetadata.pb.cc() #25 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_phonemetadata.pb.cc() #24 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
@@ -16261,21 +16261,21 @@ attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "
 attributes #8 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn }
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #23 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #28 = { nounwind }

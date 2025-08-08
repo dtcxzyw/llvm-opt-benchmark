@@ -1691,8 +1691,8 @@ entry:
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { ptr, ptr } %0(ptr noundef nonnull align 8 dereferenceable(16) %message)
   %1 = extractvalue { ptr, ptr } %call.i, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message_data.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %sub_input.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %message_data.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %sub_input.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_data.i) #23
   %buffer_end_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
   %buffer_end_.i29.i = getelementptr inbounds nuw i8, ptr %sub_input.i, i64 8
@@ -2002,8 +2002,8 @@ _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAn
 _ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit: ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %invoke.cont1.i, %invoke.cont26.i, %invoke.cont33.i, %invoke.cont49.i, %invoke.cont61.i, %call.i32.i.noexc, %call5.i81.i.noexc, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit, %cleanup.i
   %retval.1.i = phi i1 [ false, %cleanup.i ], [ true, %_ZN6google8protobuf8internal23ParseMessageSetItemImplIZNS1_10WireFormat27ParseAndMergeMessageSetItemEPNS0_2io16CodedInputStreamEPNS0_7MessageEE12MSReflectiveEEbS6_T_.exit.loopexit ], [ false, %call5.i81.i.noexc ], [ false, %call.i32.i.noexc ], [ false, %invoke.cont61.i ], [ false, %invoke.cont49.i ], [ false, %invoke.cont33.i ], [ false, %invoke.cont26.i ], [ false, %invoke.cont1.i ], [ false, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_data.i) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %message_data.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %sub_input.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %message_data.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %sub_input.i)
   ret i1 %retval.1.i
 }
 
@@ -5394,9 +5394,9 @@ define internal fastcc noundef ptr @"_ZN6google8protobuf8internal18EpsCopyInputS
 entry:
   %buf.i = alloca [26 x i8], align 16
   %agg.tmp1 = alloca %class.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %add, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %0 = load i8, ptr %ptr, align 1
   %conv.i.i = zext i8 %0 to i32
   %cmp.i.i = icmp sgt i8 %0, -1
@@ -5502,8 +5502,8 @@ while.end66.i:                                    ; preds = %if.end58.i, %if.end
 
 "_ZN6google8protobuf8internal18EpsCopyInputStream16ReadPackedVarintIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0ZNS2_16ReadPackedVarintISH_EES8_S8_T_EUliE_EES8_S8_SJ_T0_.exit": ; preds = %while.body.i, %if.end44.i, %if.end54.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %while.end.i, %if.end37.i, %while.end66.i
   %retval.0.i = phi ptr [ %add.ptr43.i, %if.end37.i ], [ %cond.i, %while.end66.i ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %while.end.i ], [ null, %if.end54.i ], [ null, %if.end44.i ], [ null, %while.body.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1)
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   ret ptr %retval.0.i
 }
 
@@ -9883,7 +9883,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp20 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -9913,7 +9913,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -9982,7 +9982,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -10012,7 +10012,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -10081,7 +10081,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -10111,7 +10111,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -10180,7 +10180,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -10210,7 +10210,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -10279,7 +10279,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -10309,7 +10309,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -10379,7 +10379,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -10409,7 +10409,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -14773,7 +14773,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr n
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -14803,7 +14803,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %type_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %type_.i7, align 8
   %cmp.i8 = icmp eq i32 %2, %0
@@ -14929,10 +14929,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal12MapKeySorter16MapKeyComparatorEEEEvT_SG_RT0_(ptr %__first.coerce, ptr %storemerge10, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then, %while.body.i.i
@@ -14945,7 +14945,7 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal12MapKeySorter16MapKeyComparatorEEEEvT_SG_SG_T0_.exit, !llvm.loop !100
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal12MapKeySorter16MapKeyComparatorEEEEvT_SG_SG_T0_.exit: ; preds = %while.body.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
@@ -15249,7 +15249,7 @@ _ZN6google8protobuf6MapKeyD2Ev.exit29:            ; preds = %lpad, %if.then.i28
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12MapKeySorter16MapKeyComparatorclERKNS0_6MapKeyES6_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(36) %a, ptr noundef nonnull align 8 dereferenceable(36) %b) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -15279,7 +15279,7 @@ lpad.i:                                           ; preds = %invoke.cont4.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   switch i32 %0, label %return [
     i32 9, label %sw.bb
     i32 2, label %sw.bb5
@@ -15362,7 +15362,7 @@ if.then:                                          ; preds = %entry
   br i1 %call4.i1, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i)
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %__tmp.i.i, i64 32
   store i32 0, ptr %type_.i.i.i, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15400,7 +15400,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   resume { ptr, i32 } %common.resume.op
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit: ; preds = %invoke.cont1.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i)
   br label %if.end62
 
 if.else:                                          ; preds = %if.then
@@ -15408,7 +15408,7 @@ if.else:                                          ; preds = %if.then
   br i1 %call4.i2, label %if.then22, label %if.else27
 
 if.then22:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i3)
   %type_.i.i.i4 = getelementptr inbounds nuw i8, ptr %__tmp.i.i3, i64 32
   store i32 0, ptr %type_.i.i.i4, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i3, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15436,11 +15436,11 @@ lpad.i.i5:                                        ; preds = %invoke.cont.i.i9, %
   br i1 %cmp.i6.i.i6, label %common.resume.sink.split, label %common.resume
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit13: ; preds = %invoke.cont1.i.i10, %if.then.i.i.i12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i3)
   br label %if.end62
 
 if.else27:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i14)
   %type_.i.i.i15 = getelementptr inbounds nuw i8, ptr %__tmp.i.i14, i64 32
   store i32 0, ptr %type_.i.i.i15, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i14, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15468,7 +15468,7 @@ lpad.i.i16:                                       ; preds = %invoke.cont.i.i20, 
   br i1 %cmp.i6.i.i17, label %common.resume.sink.split, label %common.resume
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit24: ; preds = %invoke.cont1.i.i21, %if.then.i.i.i23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i14)
   br label %if.end62
 
 if.else33:                                        ; preds = %entry
@@ -15476,7 +15476,7 @@ if.else33:                                        ; preds = %entry
   br i1 %call4.i25, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %if.else33
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i26)
   %type_.i.i.i27 = getelementptr inbounds nuw i8, ptr %__tmp.i.i26, i64 32
   store i32 0, ptr %type_.i.i.i27, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i26, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15504,7 +15504,7 @@ lpad.i.i28:                                       ; preds = %invoke.cont.i.i32, 
   br i1 %cmp.i6.i.i29, label %common.resume.sink.split, label %common.resume
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit36: ; preds = %invoke.cont1.i.i33, %if.then.i.i.i35
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i26)
   br label %if.end62
 
 if.else44:                                        ; preds = %if.else33
@@ -15512,7 +15512,7 @@ if.else44:                                        ; preds = %if.else33
   br i1 %call4.i37, label %if.then50, label %if.else55
 
 if.then50:                                        ; preds = %if.else44
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i38)
   %type_.i.i.i39 = getelementptr inbounds nuw i8, ptr %__tmp.i.i38, i64 32
   store i32 0, ptr %type_.i.i.i39, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i38, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15540,11 +15540,11 @@ lpad.i.i40:                                       ; preds = %invoke.cont.i.i44, 
   br i1 %cmp.i6.i.i41, label %common.resume.sink.split, label %common.resume
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit48: ; preds = %invoke.cont1.i.i45, %if.then.i.i.i47
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i38)
   br label %if.end62
 
 if.else55:                                        ; preds = %if.else44
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i49)
   %type_.i.i.i50 = getelementptr inbounds nuw i8, ptr %__tmp.i.i49, i64 32
   store i32 0, ptr %type_.i.i.i50, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i49, ptr noundef nonnull align 8 dereferenceable(36) %__result.coerce)
@@ -15572,7 +15572,7 @@ lpad.i.i51:                                       ; preds = %invoke.cont.i.i55, 
   br i1 %cmp.i6.i.i52, label %common.resume.sink.split, label %common.resume
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit59: ; preds = %invoke.cont1.i.i56, %if.then.i.i.i58
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i49)
   br label %if.end62
 
 if.end62:                                         ; preds = %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit36, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit59, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit48, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit24, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit13
@@ -15612,7 +15612,7 @@ if.then:                                          ; preds = %while.end18
   ret ptr %__first.sroa.0.1
 
 if.end:                                           ; preds = %while.end18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__tmp.i.i)
   store i32 0, ptr %type_.i.i.i, align 8
   call void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(36) %__first.sroa.0.1)
   invoke void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %__first.sroa.0.1, ptr noundef nonnull align 8 dereferenceable(36) %__last.sroa.0.1)
@@ -15646,7 +15646,7 @@ _ZN6google8protobuf6MapKeyD2Ev.exit8.i.i:         ; preds = %if.then.i7.i.i, %lp
   resume { ptr, i32 } %1
 
 _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf6MapKeyESt6vectorIS4_SaIS4_EEEES9_EvT_T0_.exit: ; preds = %invoke.cont1.i.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__tmp.i.i)
   br label %while.body, !llvm.loop !106
 }
 
@@ -15820,7 +15820,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -15849,7 +15849,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -15918,7 +15918,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -15947,7 +15947,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16016,7 +16016,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16045,7 +16045,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16114,7 +16114,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16143,7 +16143,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16212,7 +16212,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16241,7 +16241,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16311,7 +16311,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16340,7 +16340,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 8
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16409,7 +16409,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16438,7 +16438,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 5
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16507,7 +16507,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16536,7 +16536,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 6
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16605,7 +16605,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16634,7 +16634,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16702,7 +16702,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -16731,7 +16731,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 10
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -16900,7 +16900,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   %cmp.i.i = icmp eq ptr %__first.coerce, %__last.coerce
   %__i.sroa.0.09.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
@@ -16930,7 +16930,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 
 if.else.i:                                        ; preds = %for.body.i
   %agg.tmp26.sroa.0.0.copyload.i = load ptr, ptr %__comp.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   store ptr %agg.tmp26.sroa.0.0.copyload.i, ptr %__comp.i.i, align 8
   %3 = load ptr, ptr %__i.sroa.0.012.i, align 8
   %4 = load ptr, ptr %__first.coerce.pn11.i, align 8
@@ -16950,7 +16950,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i: ; preds = %while.body.i.i, %if.else.i
   %__last.sroa.0.0.lcssa.i.i = phi ptr [ %__i.sroa.0.012.i, %if.else.i ], [ %__next.sroa.0.010.i.i, %while.body.i.i ]
   store ptr %3, ptr %__last.sroa.0.0.lcssa.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
@@ -16959,7 +16959,7 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
   br i1 %cmp.i1.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit, label %for.body.i, !llvm.loop !111
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit: ; preds = %for.inc.i, %if.then
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %common.ret21
 
 common.ret21:                                     ; preds = %if.end, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit
@@ -17079,7 +17079,7 @@ if.end17:                                         ; preds = %if.end
 if.then19:                                        ; preds = %if.end17
   %div = sdiv i64 %__len1, 2
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce to i64
@@ -17111,7 +17111,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit, %if.then19
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then19 ]
   %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %__middle.coerce, %if.then19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   br label %if.end64
@@ -17119,7 +17119,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 if.else:                                          ; preds = %if.end17
   %div41 = sdiv i64 %__len2, 2
   %add.ptr.i.i.i19 = getelementptr inbounds ptr, ptr %__middle.coerce, i64 %div41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i26)
   store ptr %__comp.coerce, ptr %__comp.i26, align 8
   %sub.ptr.lhs.cast.i.i.i.i27 = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i28 = ptrtoint ptr %__first.coerce to i64
@@ -17151,7 +17151,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i.i48.pre-phi = phi i64 [ %.pre56, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i28, %if.else ]
   %__first.sroa.0.0.lcssa.i32 = phi ptr [ %__first.sroa.0.1.i45, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %__first.coerce, %if.else ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i26)
   %sub.ptr.sub.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i48.pre-phi, %sub.ptr.rhs.cast.i.i.i.i28
   %sub.ptr.div.i.i.i51 = ashr exact i64 %sub.ptr.sub.i.i.i50, 3
   br label %if.end64
@@ -17489,7 +17489,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.thread, label %land.rhs.i.preheader
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.thread: ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   br label %_ZSt21__move_merge_adaptiveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEESB_NS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit
 
 land.rhs.i.preheader:                             ; preds = %if.then
@@ -17498,7 +17498,7 @@ land.rhs.i.preheader:                             ; preds = %if.then
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__buffer, i64 %sub.ptr.sub.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %coerce.val.ip, ptr %__comp.i, align 8
   br label %land.rhs.i
 
@@ -17532,7 +17532,7 @@ _ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vect
   br label %_ZSt21__move_merge_adaptiveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEESB_NS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit
 
 _ZSt21__move_merge_adaptiveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEESB_NS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit: ; preds = %while.body.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.thread, %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   br label %if.end113
 
 if.else:                                          ; preds = %entry
@@ -17547,12 +17547,12 @@ if.then19:                                        ; preds = %if.else
   br i1 %tobool.not.i.i.i.i.i29, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit32, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit32.thread
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit32: ; preds = %if.then19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i33)
   br label %_ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_SB_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit32.thread: ; preds = %if.then19
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__buffer, ptr align 8 %__middle.coerce, i64 %sub.ptr.sub.i.i.i.i.i28, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i33)
   store ptr %coerce.val.ip, ptr %__comp.i33, align 8
   %cmp.i.i108 = icmp eq ptr %__first.coerce, %__middle.coerce
   br i1 %cmp.i.i108, label %if.then.i.i.i.i.i.i, label %if.end9.i
@@ -17617,7 +17617,7 @@ if.end33.i:                                       ; preds = %if.else28.i
   br label %while.body.i34, !llvm.loop !120
 
 _ZSt30__move_merge_adaptive_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_SB_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_SI_T1_T2_.exit: ; preds = %if.else28.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit32, %if.then.i.i.i.i.i.i, %if.then19.i, %if.then.i.i.i.i.i14.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i33)
   br label %if.end113
 
 if.else35:                                        ; preds = %if.else
@@ -17626,7 +17626,7 @@ if.else35:                                        ; preds = %if.else
 if.then37:                                        ; preds = %if.else35
   %div = sdiv i64 %__len1, 2
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %div
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i40)
   store ptr %coerce.val.ip, ptr %__comp.i40, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__middle.coerce to i64
@@ -17658,7 +17658,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit, %if.then37
   %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then37 ]
   %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.1.i, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %__middle.coerce, %if.then37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i40)
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   br label %if.end
@@ -17666,7 +17666,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 if.else59:                                        ; preds = %if.else35
   %div60 = sdiv i64 %__len2, 2
   %add.ptr.i.i.i50 = getelementptr inbounds ptr, ptr %__middle.coerce, i64 %div60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i57)
   store ptr %coerce.val.ip, ptr %__comp.i57, align 8
   %sub.ptr.lhs.cast.i.i.i.i58 = ptrtoint ptr %__middle.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i59 = ptrtoint ptr %__first.coerce to i64
@@ -17698,7 +17698,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit, %if.else59
   %sub.ptr.lhs.cast.i.i.i79.pre-phi = phi i64 [ %.pre105, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i59, %if.else59 ]
   %__first.sroa.0.0.lcssa.i63 = phi ptr [ %__first.sroa.0.1.i76, %_ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET_SH_SH_RKT0_T1_.exit.loopexit ], [ %__first.coerce, %if.else59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i57)
   %sub.ptr.sub.i.i.i81 = sub i64 %sub.ptr.lhs.cast.i.i.i79.pre-phi, %sub.ptr.rhs.cast.i.i.i.i59
   %sub.ptr.div.i.i.i82 = ashr exact i64 %sub.ptr.sub.i.i.i81, 3
   br label %if.end
@@ -17844,7 +17844,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.ptr.rhs.cast.i45 = phi i64 [ %sub.ptr.rhs.cast.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i40, %while.body.lr.ph ]
   %__first.sroa.0.044 = phi ptr [ %add.ptr.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit ], [ %__first.coerce, %while.body.lr.ph ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.044, i64 %add.ptr.i.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   %__i.sroa.0.09.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044, i64 8
   br label %for.body.i
@@ -17871,7 +17871,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 
 if.else.i:                                        ; preds = %for.body.i
   %agg.tmp26.sroa.0.0.copyload.i = load ptr, ptr %__comp.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i)
   store ptr %agg.tmp26.sroa.0.0.copyload.i, ptr %__comp.i.i, align 8
   %3 = load ptr, ptr %__i.sroa.0.012.i, align 8
   %4 = load ptr, ptr %__first.coerce.pn11.i, align 8
@@ -17891,7 +17891,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i: ; preds = %while.body.i.i, %if.else.i
   %__last.sroa.0.0.lcssa.i.i = phi ptr [ %__i.sroa.0.012.i, %if.else.i ], [ %__next.sroa.0.010.i.i, %while.body.i.i ]
   store ptr %3, ptr %__last.sroa.0.0.lcssa.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i
@@ -17900,7 +17900,7 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
   br i1 %cmp.i1.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit, label %for.body.i, !llvm.loop !111
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit: ; preds = %for.inc.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -17910,7 +17910,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7Messa
 while.end:                                        ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit, %while.body.us, %entry
   %__first.sroa.0.0.lcssa = phi ptr [ %__first.coerce, %entry ], [ %add.ptr.i.us, %while.body.us ], [ %add.ptr.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit ]
   %sub.ptr.rhs.cast.i.lcssa = phi i64 [ %sub.ptr.rhs.cast.i40, %entry ], [ %sub.ptr.rhs.cast.i.us, %while.body.us ], [ %sub.ptr.rhs.cast.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit.loopexit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i5)
   store ptr %__comp.coerce, ptr %__comp.i5, align 8
   %cmp.i.i6 = icmp eq ptr %__first.sroa.0.0.lcssa, %__last.coerce
   %__i.sroa.0.09.i8 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa, i64 8
@@ -17940,7 +17940,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageE
 
 if.else.i16:                                      ; preds = %for.body.i12
   %agg.tmp26.sroa.0.0.copyload.i17 = load ptr, ptr %__comp.i5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i.i4)
   store ptr %agg.tmp26.sroa.0.0.copyload.i17, ptr %__comp.i.i4, align 8
   %10 = load ptr, ptr %__i.sroa.0.012.i13, align 8
   %11 = load ptr, ptr %__first.coerce.pn11.i14, align 8
@@ -17960,7 +17960,7 @@ while.body.i.i24:                                 ; preds = %if.else.i16, %while
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i19: ; preds = %while.body.i.i24, %if.else.i16
   %__last.sroa.0.0.lcssa.i.i20 = phi ptr [ %__i.sroa.0.012.i13, %if.else.i16 ], [ %__next.sroa.0.010.i.i25, %while.body.i.i24 ]
   store ptr %10, ptr %__last.sroa.0.0.lcssa.i.i20, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i.i4)
   br label %for.inc.i21
 
 for.inc.i21:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_T0_.exit.i19, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i29
@@ -17969,7 +17969,7 @@ for.inc.i21:                                      ; preds = %_ZSt25__unguarded_l
   br i1 %cmp.i1.not.i23, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit36, label %for.body.i12, !llvm.loop !111
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEEvT_SH_T0_.exit36: ; preds = %for.inc.i21, %while.end
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i5)
   ret void
 }
 
@@ -18000,7 +18000,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %__result.addr.068.us = phi ptr [ %add.ptr.i.i.i.i.i11.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__result, %while.body.us.preheader ]
   %__first.sroa.0.067.us = phi ptr [ %add.ptr.i.us, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__first.coerce, %while.body.us.preheader ]
   %add.ptr.i.us = getelementptr inbounds i8, ptr %__first.sroa.0.067.us, i64 %add.ptr.i.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   br i1 %tobool.not.i.i.i.i.i.i.us, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, label %if.then.i.i.i.i.i.i.us
 
 if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
@@ -18010,7 +18010,7 @@ if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us: ; preds = %while.body.us, %if.then.i.i.i.i.i.i.us
   %add.ptr.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__result.addr.068.us, i64 %add.ptr.i.idx
   %add.ptr.i.i.i.i.i11.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.us, i64 %add.ptr.i.idx
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.rhs.cast.i.us = ptrtoint ptr %add.ptr.i.us to i64
   %sub.ptr.sub.i.us = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.us
   %sub.ptr.div.i.us = ashr exact i64 %sub.ptr.sub.i.us, 3
@@ -18022,7 +18022,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__first.sroa.0.067 = phi ptr [ %add.ptr.i5, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__first.coerce, %while.body.lr.ph ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.067, i64 %add.ptr.i.idx
   %add.ptr.i5 = getelementptr inbounds i8, ptr %__first.sroa.0.067, i64 %add.ptr.i5.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   br label %while.body.i
 
@@ -18071,7 +18071,7 @@ if.then.i.i.i.i.i10.i:                            ; preds = %_ZSt4moveIN9__gnu_c
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i, %if.then.i.i.i.i.i10.i
   %add.ptr.i.i.i.i.i11.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i8.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.lhs.cast.i.i.i.i.i6.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp.not = icmp slt i64 %sub.ptr.div.i, %mul
@@ -18084,7 +18084,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.i.lcssa)
   %add.ptr.i11.idx = shl nsw i64 %.sroa.speculated, 3
   %add.ptr.i11 = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa, i64 %add.ptr.i11.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i13)
   store ptr %__comp.coerce, ptr %__comp.i13, align 8
   %cmp.i17.i14 = icmp ne i64 %.sroa.speculated, 0
   %cmp.i418.i15 = icmp ne ptr %add.ptr.i11, %__last.coerce
@@ -18137,7 +18137,7 @@ if.then.i.i.i.i.i10.i32:                          ; preds = %_ZSt4moveIN9__gnu_c
   br label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_NS0_5__ops15_Iter_comp_iterINS3_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf7MessageESt6vectorIS6_SaIS6_EEEES7_ET0_T_SD_SC_.exit.i26, %if.then.i.i.i.i.i10.i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i13)
   ret void
 }
 
@@ -18168,7 +18168,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   %__result.sroa.0.058.us = phi ptr [ %add.ptr.i.i.i.i.i16.i.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__result.coerce, %while.body.us.preheader ]
   %__first.addr.057.us = phi ptr [ %add.ptr.us, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us ], [ %__first, %while.body.us.preheader ]
   %add.ptr.us = getelementptr inbounds i8, ptr %__first.addr.057.us, i64 %add.ptr.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   br i1 %tobool.not.i.i.i.i.i.i.us, label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us, label %if.then.i.i.i.i.i.i.us
 
 if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
@@ -18178,7 +18178,7 @@ if.then.i.i.i.i.i.i.us:                           ; preds = %while.body.us
 _ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit.us: ; preds = %while.body.us, %if.then.i.i.i.i.i.i.us
   %add.ptr.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %__result.sroa.0.058.us, i64 %add.ptr.idx
   %add.ptr.i.i.i.i.i16.i.us = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.us, i64 %add.ptr.idx
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
   %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 3
@@ -18190,7 +18190,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__first.addr.057 = phi ptr [ %add.ptr4, %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit ], [ %__first, %while.body.lr.ph ]
   %add.ptr = getelementptr inbounds i8, ptr %__first.addr.057, i64 %add.ptr.idx
   %add.ptr4 = getelementptr inbounds i8, ptr %__first.addr.057, i64 %add.ptr4.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i)
   store ptr %__comp.coerce, ptr %__comp.i, align 8
   br label %while.body.i
 
@@ -18239,7 +18239,7 @@ if.then.i.i.i.i.i15.i:                            ; preds = %_ZSt4moveIPPKN6goog
 
 _ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit: ; preds = %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i, %if.then.i.i.i.i.i15.i
   %add.ptr.i.i.i.i.i16.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i13.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i)
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i11.i
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %cmp.not = icmp slt i64 %sub.ptr.div, %mul
@@ -18252,7 +18252,7 @@ while.end:                                        ; preds = %_ZSt12__move_mergeI
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %__step_size, i64 %sub.ptr.div.lcssa)
   %add.ptr17.idx = shl nsw i64 %.sroa.speculated, 3
   %add.ptr17 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 %add.ptr17.idx
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__comp.i15)
   store ptr %__comp.coerce, ptr %__comp.i15, align 8
   %cmp20.i16 = icmp ne i64 %.sroa.speculated, 0
   %cmp321.i17 = icmp ne ptr %add.ptr17, %__last
@@ -18305,7 +18305,7 @@ if.then.i.i.i.i.i15.i33:                          ; preds = %_ZSt4moveIPPKN6goog
   br label %_ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49
 
 _ZSt12__move_mergeIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEENS6_5__ops15_Iter_comp_iterINS1_16DynamicMapSorter25MapEntryMessageComparatorEEEET0_T_SI_SI_SI_SH_T1_.exit49: ; preds = %_ZSt4moveIPPKN6google8protobuf7MessageEN9__gnu_cxx17__normal_iteratorIS5_St6vectorIS4_SaIS4_EEEEET0_T_SD_SC_.exit.i27, %if.then.i.i.i.i.i15.i33
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__comp.i15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__comp.i15)
   ret void
 }
 
@@ -19471,10 +19471,10 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

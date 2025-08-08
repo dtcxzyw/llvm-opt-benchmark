@@ -141,16 +141,13 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolver(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolGetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
-
-declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
@@ -203,12 +200,12 @@ define internal range(i32 -20, 2) i32 @idaNlsResidual(ptr noundef %0, ptr nounde
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetConvTestFn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) #0 {
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %5, null
   br i1 %8, label %9, label %10
 
@@ -266,14 +263,11 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTest(ptr noundef %0, ptr read
 
 37:                                               ; preds = %33, %22, %17, %10, %9
   %.0 = phi i32 [ -20, %9 ], [ -20, %10 ], [ 0, %17 ], [ 902, %22 ], [ %., %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -20, 1) i32 @IDASetNlsResFn(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -393,7 +387,7 @@ define range(i32 -15, 1) i32 @idaNlsInit(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %.013
 }
 
-declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetLSetupFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 {
@@ -446,7 +440,7 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetup(i32 %0, ptr noundef writeonl
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetLSolveFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -20, 4) i32 @idaNlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
@@ -482,21 +476,27 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolve(ptr noundef %0, ptr noundef 
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare double @N_VWrmsNorm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolGetCurIter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #2
+declare double @SUNRpowerR(double noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

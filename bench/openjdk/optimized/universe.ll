@@ -3995,8 +3995,8 @@ define hidden noundef zeroext i1 @_Z18universe_post_initv() local_unnamed_addr #
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
   store ptr %10, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4026,9 +4026,9 @@ define hidden noundef zeroext i1 @_Z18universe_post_initv() local_unnamed_addr #
   br i1 %19, label %_ZL20reinitialize_vtablesv.exit, label %15, !llvm.loop !24
 
 _ZL20reinitialize_vtablesv.exit:                  ; preds = %15, %9
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %20 = load ptr, ptr @ClassLoaderDataGraph_lock, align 8
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, label %21
@@ -4046,7 +4046,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %_Z
   br label %_ZL20reinitialize_itablesv.exit
 
 _ZL20reinitialize_itablesv.exit:                  ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %22
 
 22:                                               ; preds = %_ZL20reinitialize_itablesv.exit, %0
@@ -4373,7 +4373,7 @@ define hidden void @_ZN8Universe22print_heap_at_SIGBREAKEv() local_unnamed_addr 
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @tty, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %6 = load ptr, ptr @Heap_lock, align 8
   call void @_ZN13GCMutexLockerC1EP5Mutex(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef %6) #16
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.53) #16
@@ -4393,7 +4393,7 @@ define hidden void @_ZN8Universe22print_heap_at_SIGBREAKEv() local_unnamed_addr 
   br label %_ZN8Universe8print_onEP12outputStream.exit
 
 _ZN8Universe8print_onEP12outputStream.exit:       ; preds = %4, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %16 = load ptr, ptr @tty, align 8
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %16) #16
   %17 = load ptr, ptr @tty, align 8
@@ -9400,10 +9400,10 @@ declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 deref
 declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

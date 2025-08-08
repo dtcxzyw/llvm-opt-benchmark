@@ -32,7 +32,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %13 = load double, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %13, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call noundef zeroext i1 @_ZN3igl14normalize_quatIdEEbPKT_PS1_(ptr noundef nonnull %0, ptr noundef nonnull %4)
   br i1 %15, label %.preheader55, label %.loopexit
 
@@ -88,7 +88,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 
 34:                                               ; preds = %17
   %35 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, double noundef %.251) #6
+  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, double noundef %.251) #5
   br label %37
 
 37:                                               ; preds = %34, %17
@@ -109,25 +109,19 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 
 .loopexit:                                        ; preds = %.preheader, %37, %3
   %.052 = phi i1 [ false, %3 ], [ false, %37 ], [ true, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.052
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare noundef zeroext i1 @_ZN3igl14normalize_quatIdEEbPKT_PS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN3igl14normalize_quatIdEEbPKT_PS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_quatIfEEbPKT_S1_PS1_(ptr noundef %0, float noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat {
@@ -146,7 +140,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %13 = load float, ptr %12, align 4, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %13, ptr %14, align 4, !tbaa !16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call noundef zeroext i1 @_ZN3igl14normalize_quatIfEEbPKT_PS1_(ptr noundef nonnull %0, ptr noundef nonnull %4)
   br i1 %15, label %.preheader55, label %.loopexit
 
@@ -209,7 +203,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 40:                                               ; preds = %17
   %41 = load ptr, ptr @stderr, align 8, !tbaa !12
   %42 = fpext float %.251 to double
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, double noundef %42) #6
+  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, double noundef %42) #5
   br label %44
 
 44:                                               ; preds = %40, %17
@@ -232,13 +226,13 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 
 .loopexit:                                        ; preds = %.preheader, %44, %3
   %.052 = phi i1 [ false, %3 ], [ false, %44 ], [ true, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.052
 }
 
-declare noundef zeroext i1 @_ZN3igl14normalize_quatIfEEbPKT_PS1_(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN3igl14normalize_quatIfEEbPKT_PS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_quatIffEEbRKN5Eigen10QuaternionIT_Li0EEEdRNS2_IT0_Li0EEE(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 16 dereferenceable(16) %2) local_unnamed_addr #0 comdat {
@@ -253,13 +247,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   ret i1 %4
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

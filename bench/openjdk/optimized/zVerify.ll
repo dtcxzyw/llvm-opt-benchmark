@@ -663,8 +663,8 @@ define hidden void @_ZN7ZVerify7objectsEb(i1 noundef zeroext %0) local_unnamed_a
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(61) %2, ptr noundef %9) #10
@@ -675,8 +675,8 @@ define hidden void @_ZN7ZVerify7objectsEb(i1 noundef zeroext %0) local_unnamed_a
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN7ZVerify24threads_start_processingEvE22StartProcessingClosure, i64 16), ptr %3, align 8
   call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(61) %2, ptr noundef nonnull %3) #10
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %2) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = zext i1 %0 to i8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZVerifyObjectClosure, i64 16), ptr %4, align 8
@@ -728,14 +728,14 @@ define hidden void @_ZN7ZVerify10after_markEv() local_unnamed_addr #0 align 2 {
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %_ZN7ZVerify7objectsEb.exit, label %13
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %15 = load ptr, ptr %14, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %15) #10
@@ -746,8 +746,8 @@ define hidden void @_ZN7ZVerify10after_markEv() local_unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN7ZVerify24threads_start_processingEvE22StartProcessingClosure, i64 16), ptr %2, align 8
   call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef nonnull %2) #10
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %1) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZVerifyObjectClosure, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZVerifyObjectClosure, i64 48), ptr %18, align 8
@@ -760,7 +760,7 @@ define hidden void @_ZN7ZVerify10after_markEv() local_unnamed_addr #0 align 2 {
   br label %_ZN7ZVerify7objectsEb.exit
 
 _ZN7ZVerify7objectsEb.exit:                       ; preds = %10, %13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %22 = load i64, ptr @zverify_broken_object, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %26, label %24
@@ -798,14 +798,14 @@ define hidden void @_ZN7ZVerify21after_weak_processingEv() local_unnamed_addr #0
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %_ZN7ZVerify7objectsEb.exit, label %13
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %15 = load ptr, ptr %14, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef %15) #10
@@ -816,8 +816,8 @@ define hidden void @_ZN7ZVerify21after_weak_processingEv() local_unnamed_addr #0
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTVZN7ZVerify24threads_start_processingEvE22StartProcessingClosure, i64 16), ptr %2, align 8
   call void @_ZN20ZJavaThreadsIterator5applyEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(61) %1, ptr noundef nonnull %2) #10
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(61) %1) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20ZVerifyObjectClosure, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV20ZVerifyObjectClosure, i64 48), ptr %18, align 8
@@ -830,7 +830,7 @@ define hidden void @_ZN7ZVerify21after_weak_processingEv() local_unnamed_addr #0
   br label %_ZN7ZVerify7objectsEb.exit
 
 _ZN7ZVerify7objectsEb.exit:                       ; preds = %10, %13
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %_ZN7ZVerify7objectsEb.exit, %7
@@ -2240,7 +2240,7 @@ define linkonce_odr hidden void @_ZN20ZVerifyObjectClosure9do_objectEP7oopDesc(p
   br i1 %21, label %22, label %68
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
@@ -2320,7 +2320,7 @@ _ZN7oopDesc11oop_iterateI20ZVerifyOldOopClosureEEvPT_.exit.i.i: ; preds = %61, %
   br label %_ZN20ZVerifyObjectClosure18verify_live_objectEP7oopDesc.exit
 
 _ZN20ZVerifyObjectClosure18verify_live_objectEP7oopDesc.exit: ; preds = %_ZN9ZIterator25is_invisible_object_arrayEP7oopDesc.exit.i.i, %_ZN7oopDesc11oop_iterateI20ZVerifyOldOopClosureEEvPT_.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN20ZVerifyObjectClosure15log_dead_objectE8zaddress.exit
 
 68:                                               ; preds = %19
@@ -3438,9 +3438,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosu
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop20ZVerifyOldOopClosureEEvP7oopDescPT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop20ZVerifyOldOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3495,9 +3495,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI20ZVerifyOldOopClosu
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc20ZVerifyOldOopClosureEEvS2_PT0_.exit, !llvm.loop !26
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc20ZVerifyOldOopClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc20ZVerifyOldOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5905,9 +5905,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBefor
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop29ZVerifyRemsetBeforeOopClosureEEvP7oopDescPT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop29ZVerifyRemsetBeforeOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5962,9 +5962,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI29ZVerifyRemsetBefor
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc29ZVerifyRemsetBeforeOopClosureEEvS2_PT0_.exit, !llvm.loop !44
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc29ZVerifyRemsetBeforeOopClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc29ZVerifyRemsetBeforeOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7030,9 +7030,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfter
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop28ZVerifyRemsetAfterOopClosureEEvP7oopDescPT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop28ZVerifyRemsetAfterOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7087,9 +7087,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28ZVerifyRemsetAfter
   br i1 %31, label %19, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc28ZVerifyRemsetAfterOopClosureEEvS2_PT0_.exit, !llvm.loop !59
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc28ZVerifyRemsetAfterOopClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc28ZVerifyRemsetAfterOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -8011,10 +8011,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

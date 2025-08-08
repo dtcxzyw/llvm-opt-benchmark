@@ -72,12 +72,6 @@ define void @ff_acelp_reorder_lsf(ptr noundef captures(none) %0, i32 noundef %1,
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_set_min_dist_lsf(ptr noundef captures(none) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
@@ -177,15 +171,15 @@ define void @ff_acelp_lsf2lspd(ptr noundef writeonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.cos.f64(double) #2
+declare double @llvm.cos.f64(double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_amrwb_lsp2lpc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [11 x double], align 16
   %5 = alloca [11 x double], align 16
   %6 = ashr i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 0.000000e+00, ptr %4, align 16, !tbaa !16
   store double 1.000000e+00, ptr %5, align 16, !tbaa !16
@@ -364,15 +358,15 @@ lsp2polyf.exit53.._crit_edge_crit_edge:           ; preds = %3
   %99 = fptrunc nsz double %90 to float
   %100 = getelementptr inbounds float, ptr %1, i64 %.pre-phi
   store float %99, ptr %100, align 4, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @ff_acelp_lp_decode(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [20 x i16], align 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -401,7 +395,7 @@ define void @ff_acelp_lp_decode(ptr noundef writeonly captures(none) %0, ptr nou
   %18 = ashr i32 %4, 1
   call fastcc void @acelp_lsp2lpc(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %18)
   tail call fastcc void @acelp_lsp2lpc(ptr noundef %1, ptr noundef %2, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -409,8 +403,8 @@ define void @ff_acelp_lp_decode(ptr noundef writeonly captures(none) %0, ptr nou
 define internal fastcc void @acelp_lsp2lpc(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #0 {
   %4 = alloca [11 x i32], align 16
   %5 = alloca [11 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 4194304, ptr %4, align 16, !tbaa !23
   %6 = load i16, ptr %1, align 2, !tbaa !4
   %7 = sext i16 %6 to i32
@@ -571,8 +565,8 @@ lsp2poly.exit32:                                  ; preds = %65, %lsp2poly.exit.
   br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %74, %lsp2poly.exit32
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -580,8 +574,8 @@ lsp2poly.exit32:                                  ; preds = %65, %lsp2poly.exit.
 define void @ff_acelp_lspd2lpc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [11 x double], align 16
   %5 = alloca [11 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #4
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i32 %2, 1
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds float, ptr %1, i64 %7
@@ -741,8 +735,8 @@ lsp2polyf.exit32:                                 ; preds = %._crit_edge.i25, %l
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lsp2polyf.exit32
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #4
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -786,7 +780,13 @@ define void @ff_sort_nearly_sorted_floats(ptr noundef captures(none) %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
@@ -795,10 +795,9 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

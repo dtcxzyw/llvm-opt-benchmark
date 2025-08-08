@@ -816,7 +816,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions57computeRequestedRenderingDataCo
 32:                                               ; preds = %19, %122
   %.02847 = phi i64 [ 0, %19 ], [ %123, %122 ]
   %33 = trunc nuw nsw i64 %.02847 to i32
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = load ptr, ptr %24, align 8
   %35 = load ptr, ptr %23, align 8
   %36 = ptrtoint ptr %34 to i64
@@ -859,7 +859,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br i1 %exitcond.not.i10.i, label %51, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, !llvm.loop !15
 
 51:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %52 = tail call noundef zeroext i1 @_ZNK9MeshModel11hasDataMaskEi(ptr noundef nonnull align 8 dereferenceable(1288) %0, i32 noundef 1)
   %53 = load i8, ptr %5, align 1
   %54 = and i8 %53, 1
@@ -941,7 +941,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br label %122
 
 112:                                              ; preds = %32
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %113 = tail call ptr @__cxa_allocate_exception(i64 24) #24
   %114 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.6, i32 noundef 84)
           to label %115 unwind label %.thread40
@@ -1939,7 +1939,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %1
   %185 = phi i8 [ %.promoted25, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %245, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   %186 = phi i8 [ %.promoted24, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %246, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   %187 = phi i8 [ %.promoted, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit ], [ %247, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i = icmp ugt i64 %179, %indvars.iv
   br i1 %.not.i, label %188, label %199
 
@@ -1976,11 +1976,11 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br i1 %exitcond.not.i10.i, label %200, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, !llvm.loop !15
 
 199:                                              ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
 
 200:                                              ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %201 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %201, label %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit [
     i32 0, label %202
@@ -2143,7 +2143,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i: ; pred
 
 _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i
   call void @_ZN29MLPoliciesStandAloneFunctions45maskMeaninglessAttributesPerPrimitiveModalityEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERNS1_13RenderingAttsINS1_9ATT_NAMESEEE(i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(7) %5)
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = zext i32 %1 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2250,7 +2250,7 @@ _ZNSt6bitsetILm4EE3setEmb.exit.i:                 ; preds = %57, %54
   br label %61
 
 61:                                               ; preds = %_ZNSt6bitsetILm4EE3setEmb.exit.i, %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEC2ERKS3_.exit
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.not.i
 }
 
@@ -2876,7 +2876,7 @@ _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE5resetEb.exit: ; preds = %._crit_edge.
   store i8 1, ptr %35, align 1
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 5
   store i8 1, ptr %36, align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 6, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i
 
@@ -2898,7 +2898,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   store i8 0, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 0, ptr %43, align 1
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -2953,8 +2953,8 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i: ; preds = %_ZN3
 
 65:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i, %.noexc
   %66 = phi ptr [ %60, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i ], [ %47, %.noexc ]
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %68 = load i32, ptr %67, align 8
   %69 = icmp sgt i32 %68, 0
@@ -3023,7 +3023,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i8 1, ptr %98, align 1
   store i8 1, ptr %36, align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30
 
@@ -3039,7 +3039,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30: ; 
   br i1 %exitcond.not.i.i33, label %.noexc51, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30, !llvm.loop !20
 
 .noexc51:                                         ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i30
-  call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %103 = load ptr, ptr %45, align 8
   %104 = load ptr, ptr %44, align 8
   %105 = ptrtoint ptr %103 to i64
@@ -3110,8 +3110,8 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i47: ; preds = %_Z
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52
 
 _ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE.exit52: ; preds = %.noexc51, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsaSEOS1_.exit.i.i47
-  call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr = load i32, ptr %67, align 8
   br label %139
 
@@ -3513,7 +3513,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i:                ; preds = %27, %24
   br i1 %.not12.i, label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS3_9ATT_NAMESEb.exit, label %32
 
 32:                                               ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !26
   br label %33
@@ -3559,7 +3559,7 @@ _ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMI
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %53 = zext i1 %51 to i8
   store i8 %53, ptr %52, align 1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS3_9ATT_NAMESEb.exit
 
 _ZN3vcg11PerViewDataI18MLPerViewGLOptionsE3setENS_20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS3_9ATT_NAMESEb.exit: ; preds = %3, %_ZNKSt6bitsetILm4EE4testEm.exit.i, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts19setIndexingIfNeededENS0_18PRIMITIVE_MODALITYE.exit.i
@@ -3670,7 +3670,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i15:            ; preds = %_ZN15MLRenderingDat
   br i1 %57, label %60, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 60:                                               ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i15
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false), !alias.scope !29
   br label %61
@@ -3704,7 +3704,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 %77, ptr %74, align 1
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 26
   store i8 0, ptr %78, align 1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 79:                                               ; preds = %24, %20, %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
@@ -3772,7 +3772,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i43:            ; preds = %_ZN15MLRenderingDat
   br i1 %109, label %112, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 112:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i43
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !32
   br label %113
@@ -3806,7 +3806,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 %129, ptr %126, align 1
   %130 = getelementptr inbounds nuw i8, ptr %106, i64 26
   store i8 0, ptr %130, align 1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit27
 
 131:                                              ; preds = %88
@@ -3828,7 +3828,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i57:            ; preds = %131
   br i1 %136, label %139, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
 
 139:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i57
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false), !alias.scope !35
   br label %140
@@ -3862,7 +3862,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 %156, ptr %153, align 1
   %157 = getelementptr inbounds nuw i8, ptr %133, i64 26
   store i8 0, ptr %157, align 1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre139 = load ptr, ptr %80, align 8
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit69
 
@@ -3916,7 +3916,7 @@ _ZNKSt6bitsetILm4EE4testEm.exit.i.i85:            ; preds = %173
   br i1 %178, label %181, label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
 
 181:                                              ; preds = %_ZNKSt6bitsetILm4EE4testEm.exit.i.i85
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false), !alias.scope !38
   br label %182
@@ -3950,7 +3950,7 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   store i8 %198, ptr %195, align 1
   %199 = getelementptr inbounds nuw i8, ptr %175, i64 26
   store i8 0, ptr %199, align 1
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %80, align 8
   br label %_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEb.exit97
 
@@ -4086,7 +4086,7 @@ define void @_ZN29MLPoliciesStandAloneFunctions49disableRedundatRenderingDataAcc
 12:                                               ; preds = %1, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %4, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -4150,7 +4150,7 @@ _ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit: ; preds = %_Z
   %39 = phi i8 [ %32, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit.loopexit ], [ 0, %12 ]
   %40 = phi i8 [ %35, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit.loopexit ], [ 0, %12 ]
   %41 = phi i8 [ %38, %_ZN3vcg20GLMeshAttributesInfo4nextENS0_18PRIMITIVE_MODALITYE.exit.loopexit ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 %39, ptr %7, align 1
   store i8 %40, ptr %9, align 1
   store i8 %41, ptr %11, align 1
@@ -4486,7 +4486,7 @@ define noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo1
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %6 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %7 = zext i1 %3 to i8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4532,11 +4532,11 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br i1 %exitcond.not.i10.i, label %29, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, !llvm.loop !15
 
 28:                                               ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 29:                                               ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i7 = icmp ult i32 %2, 7
   br i1 %.not.i7, label %33, label %30
 
@@ -4798,9 +4798,9 @@ define internal void @_GLOBAL__sub_I_ml_shared_data_context.cpp() #19 section ".
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -6320,9 +6320,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #23
   call void @_ZdlPv(ptr noundef nonnull %8) #23
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6333,10 +6333,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

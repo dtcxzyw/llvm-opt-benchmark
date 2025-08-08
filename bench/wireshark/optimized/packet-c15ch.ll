@@ -4204,7 +4204,7 @@ define internal i32 @dissect_c15ch_hbeat(ptr noundef %0, ptr noundef readonly ca
   %13 = load i32, ptr @ett_c15ch_hbeat, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @hf_c15ch_hbeat_clli, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = tail call ptr @wmem_packet_scope()
   %17 = call ptr @tvb_get_stringz_enc(ptr noundef %16, ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6, i32 noundef 0)
   %18 = load i32, ptr %6, align 4
@@ -4222,13 +4222,13 @@ define internal i32 @dissect_c15ch_hbeat(ptr noundef %0, ptr noundef readonly ca
 add_string_field.exit:                            ; preds = %10, %20, %22
   %.sink.i = phi ptr [ @.str.1480, %10 ], [ %17, %22 ], [ %17, %20 ]
   %24 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef 10, i32 noundef 25, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = load i32, ptr @hf_c15ch_hbeat_primary, align 4
   %26 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %25, ptr noundef %0, i32 noundef 35, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_c15ch_hbeat_secondary, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %27, ptr noundef %0, i32 noundef 36, i32 noundef 1, i32 noundef 0)
   %29 = load i32, ptr @hf_c15ch_hbeat_interface, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = call ptr @wmem_packet_scope()
   %31 = call ptr @tvb_get_stringz_enc(ptr noundef %30, ptr noundef %0, i32 noundef 37, ptr noundef nonnull %5, i32 noundef 0)
   %32 = load i32, ptr %5, align 4
@@ -4246,7 +4246,7 @@ add_string_field.exit:                            ; preds = %10, %20, %22
 add_string_field.exit16:                          ; preds = %add_string_field.exit, %34, %36
   %.sink.i15 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %31, %36 ], [ %31, %34 ]
   %38 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %29, ptr noundef %0, i32 noundef 37, i32 noundef 25, ptr noundef %.sink.i15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %add_string_field.exit16, %4
@@ -4666,9 +4666,6 @@ define hidden void @proto_reg_handoff_c15ch() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4941,9 +4938,9 @@ define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr noundef readonl
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %17, ptr noundef nonnull @.str.3213)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %19 = load ptr, ptr %16, align 8
   %20 = call ptr @tvb_get_stringz_enc(ptr noundef %19, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 0)
   %21 = load ptr, ptr %16, align 8
@@ -5056,7 +5053,7 @@ define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr noundef readonl
 
 85:                                               ; preds = %63
   %86 = load i32, ptr @hf_c15ch_nitnxlate_sitestring, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %87 = call ptr @wmem_packet_scope()
   %88 = call ptr @tvb_get_stringz_enc(ptr noundef %87, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %12, i32 noundef 0)
   %89 = load i32, ptr %12, align 4
@@ -5074,7 +5071,7 @@ define internal i32 @dissect_c15ch_nitnxlate(ptr noundef %0, ptr noundef readonl
 add_string_field.exit:                            ; preds = %85, %91, %93
   %.sink.i = phi ptr [ @.str.1480, %85 ], [ %88, %93 ], [ %88, %91 ]
   %95 = call ptr @proto_tree_add_string(ptr noundef %82, i32 noundef %86, ptr noundef %0, i32 noundef 12, i32 noundef 5, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %96
 
 96:                                               ; preds = %add_string_field.exit, %63
@@ -5084,7 +5081,7 @@ add_string_field.exit:                            ; preds = %85, %91, %93
 
 99:                                               ; preds = %96
   %100 = load i32, ptr @hf_c15ch_nitnxlate_subsitestring, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %101 = call ptr @wmem_packet_scope()
   %102 = call ptr @tvb_get_stringz_enc(ptr noundef %101, ptr noundef %0, i32 noundef 17, ptr noundef nonnull %11, i32 noundef 0)
   %103 = load i32, ptr %11, align 4
@@ -5102,7 +5099,7 @@ add_string_field.exit:                            ; preds = %85, %91, %93
 add_string_field.exit156:                         ; preds = %99, %105, %107
   %.sink.i155 = phi ptr [ @.str.1480, %99 ], [ %102, %107 ], [ %102, %105 ]
   %109 = call ptr @proto_tree_add_string(ptr noundef %82, i32 noundef %100, ptr noundef %0, i32 noundef 17, i32 noundef 5, ptr noundef %.sink.i155)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %110
 
 110:                                              ; preds = %add_string_field.exit156, %96
@@ -5112,7 +5109,7 @@ add_string_field.exit156:                         ; preds = %99, %105, %107
 
 113:                                              ; preds = %110
   %114 = load i32, ptr @hf_c15ch_nitnxlate_equipname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %115 = call ptr @wmem_packet_scope()
   %116 = call ptr @tvb_get_stringz_enc(ptr noundef %115, ptr noundef %0, i32 noundef 22, ptr noundef nonnull %10, i32 noundef 0)
   %117 = load i32, ptr %10, align 4
@@ -5130,7 +5127,7 @@ add_string_field.exit156:                         ; preds = %99, %105, %107
 add_string_field.exit158:                         ; preds = %113, %119, %121
   %.sink.i157 = phi ptr [ @.str.1480, %113 ], [ %116, %121 ], [ %116, %119 ]
   %123 = call ptr @proto_tree_add_string(ptr noundef %82, i32 noundef %114, ptr noundef %0, i32 noundef 22, i32 noundef 5, ptr noundef %.sink.i157)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %124
 
 124:                                              ; preds = %add_string_field.exit158, %110
@@ -5232,7 +5229,7 @@ add_string_field.exit158:                         ; preds = %113, %119, %121
 
 183:                                              ; preds = %178
   %184 = load i32, ptr @hf_c15ch_nitnxlate_user_tid, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %185 = call ptr @wmem_packet_scope()
   %186 = call ptr @tvb_get_stringz_enc(ptr noundef %185, ptr noundef %0, i32 noundef 51, ptr noundef nonnull %9, i32 noundef 0)
   %187 = load i32, ptr %9, align 4
@@ -5250,7 +5247,7 @@ add_string_field.exit158:                         ; preds = %113, %119, %121
 add_string_field.exit160:                         ; preds = %183, %189, %191
   %.sink.i159 = phi ptr [ @.str.1480, %183 ], [ %186, %191 ], [ %186, %189 ]
   %193 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %184, ptr noundef %0, i32 noundef 51, i32 noundef 65, ptr noundef %.sink.i159)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %194
 
 194:                                              ; preds = %add_string_field.exit160, %178
@@ -5265,7 +5262,7 @@ add_string_field.exit160:                         ; preds = %183, %189, %191
 
 196:                                              ; preds = %194, %194
   %197 = load i32, ptr @hf_c15ch_nitnxlate_host, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %198 = call ptr @wmem_packet_scope()
   %199 = call ptr @tvb_get_stringz_enc(ptr noundef %198, ptr noundef %0, i32 noundef 116, ptr noundef nonnull %8, i32 noundef 0)
   %200 = load i32, ptr %8, align 4
@@ -5283,9 +5280,9 @@ add_string_field.exit160:                         ; preds = %183, %189, %191
 add_string_field.exit162:                         ; preds = %196, %202, %204
   %.sink.i161 = phi ptr [ @.str.1480, %196 ], [ %199, %204 ], [ %199, %202 ]
   %206 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %197, ptr noundef %0, i32 noundef 116, i32 noundef 65, ptr noundef %.sink.i161)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %207 = load i32, ptr @hf_c15ch_nitnxlate_mgcp_line_id, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %208 = call ptr @wmem_packet_scope()
   %209 = call ptr @tvb_get_stringz_enc(ptr noundef %208, ptr noundef %0, i32 noundef 185, ptr noundef nonnull %7, i32 noundef 0)
   %210 = load i32, ptr %7, align 4
@@ -5303,12 +5300,12 @@ add_string_field.exit162:                         ; preds = %196, %202, %204
 add_string_field.exit164:                         ; preds = %add_string_field.exit162, %212, %214
   %.sink.i163 = phi ptr [ @.str.1480, %add_string_field.exit162 ], [ %209, %214 ], [ %209, %212 ]
   %216 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %207, ptr noundef %0, i32 noundef 185, i32 noundef 5, ptr noundef %.sink.i163)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %238
 
 217:                                              ; preds = %194, %194, %194
   %218 = load i32, ptr @hf_c15ch_nitnxlate_sip_call_id_64, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %219 = call ptr @wmem_packet_scope()
   %220 = call ptr @tvb_get_stringz_enc(ptr noundef %219, ptr noundef %0, i32 noundef 116, ptr noundef nonnull %6, i32 noundef 0)
   %221 = load i32, ptr %6, align 4
@@ -5326,9 +5323,9 @@ add_string_field.exit164:                         ; preds = %add_string_field.ex
 add_string_field.exit166:                         ; preds = %217, %223, %225
   %.sink.i165 = phi ptr [ @.str.1480, %217 ], [ %220, %225 ], [ %220, %223 ]
   %227 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %218, ptr noundef %0, i32 noundef 116, i32 noundef 65, ptr noundef %.sink.i165)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %228 = load i32, ptr @hf_c15ch_nitnxlate_host, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %229 = call ptr @wmem_packet_scope()
   %230 = call ptr @tvb_get_stringz_enc(ptr noundef %229, ptr noundef %0, i32 noundef 116, ptr noundef nonnull %5, i32 noundef 0)
   %231 = load i32, ptr %5, align 4
@@ -5346,7 +5343,7 @@ add_string_field.exit166:                         ; preds = %217, %223, %225
 add_string_field.exit168:                         ; preds = %add_string_field.exit166, %233, %235
   %.sink.i167 = phi ptr [ @.str.1480, %add_string_field.exit166 ], [ %230, %235 ], [ %230, %233 ]
   %237 = call ptr @proto_tree_add_string(ptr noundef %67, i32 noundef %228, ptr noundef %0, i32 noundef 116, i32 noundef 65, ptr noundef %.sink.i167)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %238
 
 238:                                              ; preds = %add_string_field.exit164, %194, %add_string_field.exit168
@@ -5361,9 +5358,9 @@ add_string_field.exit168:                         ; preds = %add_string_field.ex
 
 243:                                              ; preds = %238, %240, %58
   %244 = call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 %244
 }
 
@@ -5627,7 +5624,7 @@ define internal i32 @dissect_c15ch_ntwk_conn(ptr noundef %0, ptr noundef readonl
   %25 = load i32, ptr @hf_c15ch_ntwk_conn_fromoptimized, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_c15ch_ntwk_conn_fromsite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %28 = tail call ptr @wmem_packet_scope()
   %29 = call ptr @tvb_get_stringz_enc(ptr noundef %28, ptr noundef %0, i32 noundef 3, ptr noundef nonnull %6, i32 noundef 0)
   %30 = load i32, ptr %6, align 4
@@ -5645,7 +5642,7 @@ define internal i32 @dissect_c15ch_ntwk_conn(ptr noundef %0, ptr noundef readonl
 add_string_field.exit:                            ; preds = %16, %32, %34
   %.sink.i = phi ptr [ @.str.1480, %16 ], [ %29, %34 ], [ %29, %32 ]
   %36 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef 3, i32 noundef 5, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
   %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
   %39 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
@@ -5684,7 +5681,7 @@ add_string_field.exit:                            ; preds = %16, %32, %34
   %72 = load i32, ptr @hf_c15ch_ntwk_conn_tooptimized, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %72, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %74 = load i32, ptr @hf_c15ch_ntwk_conn_tosite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %75 = call ptr @wmem_packet_scope()
   %76 = call ptr @tvb_get_stringz_enc(ptr noundef %75, ptr noundef %0, i32 noundef 26, ptr noundef nonnull %5, i32 noundef 0)
   %77 = load i32, ptr %5, align 4
@@ -5702,7 +5699,7 @@ add_string_field.exit:                            ; preds = %16, %32, %34
 add_string_field.exit82:                          ; preds = %add_string_field.exit, %79, %81
   %.sink.i81 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %76, %81 ], [ %76, %79 ]
   %83 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %74, ptr noundef %0, i32 noundef 26, i32 noundef 5, ptr noundef %.sink.i81)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 31)
   %85 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 32)
   %86 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 33)
@@ -5786,7 +5783,7 @@ define internal i32 @dissect_c15ch_pathfind(ptr noundef %0, ptr readnone capture
   %22 = load i32, ptr @hf_c15ch_pathfind_fromoptimized, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)
   %24 = load i32, ptr @hf_c15ch_pathfind_fromsite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = tail call ptr @wmem_packet_scope()
   %26 = call ptr @tvb_get_stringz_enc(ptr noundef %25, ptr noundef %0, i32 noundef 10, ptr noundef nonnull %6, i32 noundef 0)
   %27 = load i32, ptr %6, align 4
@@ -5804,7 +5801,7 @@ define internal i32 @dissect_c15ch_pathfind(ptr noundef %0, ptr readnone capture
 add_string_field.exit:                            ; preds = %7, %29, %31
   %.sink.i = phi ptr [ @.str.1480, %7 ], [ %26, %31 ], [ %26, %29 ]
   %33 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 5, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %34 = load i32, ptr @hf_c15ch_pathfind_frompm, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %34, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
   %36 = load i32, ptr @hf_c15ch_pathfind_frompc, align 4
@@ -5834,7 +5831,7 @@ add_string_field.exit:                            ; preds = %7, %29, %31
   %60 = load i32, ptr @hf_c15ch_pathfind_tooptimized, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %60, ptr noundef %0, i32 noundef 45, i32 noundef 1, i32 noundef 0)
   %62 = load i32, ptr @hf_c15ch_pathfind_tosite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = call ptr @wmem_packet_scope()
   %64 = call ptr @tvb_get_stringz_enc(ptr noundef %63, ptr noundef %0, i32 noundef 46, ptr noundef nonnull %5, i32 noundef 0)
   %65 = load i32, ptr %5, align 4
@@ -5852,7 +5849,7 @@ add_string_field.exit:                            ; preds = %7, %29, %31
 add_string_field.exit67:                          ; preds = %add_string_field.exit, %67, %69
   %.sink.i66 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %64, %69 ], [ %64, %67 ]
   %71 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %62, ptr noundef %0, i32 noundef 46, i32 noundef 5, ptr noundef %.sink.i66)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = load i32, ptr @hf_c15ch_pathfind_topm, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %72, ptr noundef %0, i32 noundef 51, i32 noundef 1, i32 noundef 0)
   %74 = load i32, ptr @hf_c15ch_pathfind_topc, align 4
@@ -5905,7 +5902,7 @@ define internal i32 @dissect_c15ch_pathidle(ptr noundef %0, ptr readnone capture
   %24 = load i32, ptr @hf_c15ch_pathidle_fromgwetn, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef 7, i32 noundef 4, i32 noundef 0)
   %26 = load i32, ptr @hf_c15ch_pathidle_fromsite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = tail call ptr @wmem_packet_scope()
   %28 = call ptr @tvb_get_stringz_enc(ptr noundef %27, ptr noundef %0, i32 noundef 11, ptr noundef nonnull %6, i32 noundef 0)
   %29 = load i32, ptr %6, align 4
@@ -5923,7 +5920,7 @@ define internal i32 @dissect_c15ch_pathidle(ptr noundef %0, ptr readnone capture
 add_string_field.exit:                            ; preds = %7, %31, %33
   %.sink.i = phi ptr [ @.str.1480, %7 ], [ %28, %33 ], [ %28, %31 ]
   %35 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef 11, i32 noundef 5, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = load i32, ptr @hf_c15ch_pathidle_frompm, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %36, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   %38 = load i32, ptr @hf_c15ch_pathidle_frompc, align 4
@@ -5951,7 +5948,7 @@ add_string_field.exit:                            ; preds = %7, %31, %33
   %60 = load i32, ptr @hf_c15ch_pathidle_togwetn, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %60, ptr noundef %0, i32 noundef 42, i32 noundef 4, i32 noundef 0)
   %62 = load i32, ptr @hf_c15ch_pathidle_tosite, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = call ptr @wmem_packet_scope()
   %64 = call ptr @tvb_get_stringz_enc(ptr noundef %63, ptr noundef %0, i32 noundef 46, ptr noundef nonnull %5, i32 noundef 0)
   %65 = load i32, ptr %5, align 4
@@ -5969,7 +5966,7 @@ add_string_field.exit:                            ; preds = %7, %31, %33
 add_string_field.exit67:                          ; preds = %add_string_field.exit, %67, %69
   %.sink.i66 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %64, %69 ], [ %64, %67 ]
   %71 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %62, ptr noundef %0, i32 noundef 46, i32 noundef 5, ptr noundef %.sink.i66)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = load i32, ptr @hf_c15ch_pathidle_topm, align 4
   %73 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %72, ptr noundef %0, i32 noundef 51, i32 noundef 1, i32 noundef 0)
   %74 = load i32, ptr @hf_c15ch_pathidle_topc, align 4
@@ -6320,7 +6317,7 @@ define internal i32 @dissect_c15ch_ama(ptr noundef %0, ptr noundef readonly capt
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %18 = load i32, ptr @hf_c15ch_ama_orig_digits, align 4
   %19 = tail call ptr @wmem_packet_scope()
-  %20 = tail call noalias dereferenceable_or_null(11) ptr @wmem_alloc(ptr noundef %19, i64 noundef 11) #5
+  %20 = tail call noalias dereferenceable_or_null(11) ptr @wmem_alloc(ptr noundef %19, i64 noundef 11) #4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %10
@@ -6472,7 +6469,7 @@ define internal i32 @dissect_c15ch_qos(ptr noundef %0, ptr noundef readonly capt
   %59 = load i32, ptr @hf_c15ch_qos_ep_type, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %59, ptr noundef %0, i32 noundef 76, i32 noundef 1, i32 noundef 0)
   %61 = load i32, ptr @hf_c15ch_qos_dn_or_tg, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = tail call ptr @wmem_packet_scope()
   %63 = call ptr @tvb_get_stringz_enc(ptr noundef %62, ptr noundef %0, i32 noundef 77, ptr noundef nonnull %5, i32 noundef 0)
   %64 = load i32, ptr %5, align 4
@@ -6490,7 +6487,7 @@ define internal i32 @dissect_c15ch_qos(ptr noundef %0, ptr noundef readonly capt
 add_string_field.exit:                            ; preds = %12, %66, %68
   %.sink.i = phi ptr [ @.str.1480, %12 ], [ %63, %68 ], [ %63, %66 ]
   %70 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %61, ptr noundef %0, i32 noundef 77, i32 noundef 13, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %71 = load i32, ptr @hf_c15ch_qos_pm, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %71, ptr noundef %0, i32 noundef 90, i32 noundef 1, i32 noundef 0)
   %73 = load i32, ptr @hf_c15ch_qos_pc, align 4
@@ -6746,7 +6743,7 @@ define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr noundef readonly cap
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @tvb_get_stringz_enc(ptr noundef %9, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 0)
@@ -6773,7 +6770,7 @@ define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr noundef readonly cap
   %21 = load i32, ptr @ett_c15ch_second_level, align 4
   %22 = call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
   %23 = load i32, ptr @hf_c15ch_clli_clli_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = call ptr @wmem_packet_scope()
   %25 = call ptr @tvb_get_stringz_enc(ptr noundef %24, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0)
   %26 = load i32, ptr %6, align 4
@@ -6791,13 +6788,13 @@ define internal i32 @dissect_c15ch_clli(ptr noundef %0, ptr noundef readonly cap
 add_string_field.exit:                            ; preds = %18, %28, %30
   %.sink.i = phi ptr [ @.str.1480, %18 ], [ %25, %30 ], [ %25, %28 ]
   %32 = call ptr @proto_tree_add_string(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 25, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load i32, ptr @hf_c15ch_clli_active_core, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %33, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_c15ch_clli_inactive_core, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %35, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
   %37 = load i32, ptr @hf_c15ch_clli_interface_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = call ptr @wmem_packet_scope()
   %39 = call ptr @tvb_get_stringz_enc(ptr noundef %38, ptr noundef %0, i32 noundef 27, ptr noundef nonnull %5, i32 noundef 0)
   %40 = load i32, ptr %5, align 4
@@ -6815,7 +6812,7 @@ add_string_field.exit:                            ; preds = %18, %28, %30
 add_string_field.exit24:                          ; preds = %add_string_field.exit, %42, %44
   %.sink.i23 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %39, %44 ], [ %39, %42 ]
   %46 = call ptr @proto_tree_add_string(ptr noundef %22, i32 noundef %37, ptr noundef %0, i32 noundef 27, i32 noundef 25, ptr noundef %.sink.i23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %47 = load i32, ptr @hf_c15ch_clli_seconds, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %47, ptr noundef %0, i32 noundef 52, i32 noundef 4, i32 noundef 0)
   %49 = load i32, ptr @hf_c15ch_clli_microseconds, align 4
@@ -6824,7 +6821,7 @@ add_string_field.exit24:                          ; preds = %add_string_field.ex
 
 51:                                               ; preds = %add_string_field.exit24, %17
   %52 = call i32 @tvb_reported_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %52
 }
 
@@ -6843,7 +6840,7 @@ define internal i32 @dissect_c15ch_c15_info(ptr noundef %0, ptr readnone capture
   %12 = load i32, ptr @hf_c15ch_c15_info_level, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_c15ch_c15_info_code, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = tail call ptr @wmem_packet_scope()
   %16 = call ptr @tvb_get_stringz_enc(ptr noundef %15, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %6, i32 noundef 0)
   %17 = load i32, ptr %6, align 4
@@ -6861,9 +6858,9 @@ define internal i32 @dissect_c15ch_c15_info(ptr noundef %0, ptr readnone capture
 add_string_field.exit:                            ; preds = %7, %19, %21
   %.sink.i = phi ptr [ @.str.1480, %7 ], [ %16, %21 ], [ %16, %19 ]
   %23 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 1, i32 noundef 9, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = load i32, ptr @hf_c15ch_c15_info_text, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = call ptr @wmem_packet_scope()
   %26 = call ptr @tvb_get_stringz_enc(ptr noundef %25, ptr noundef %0, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 0)
   %27 = load i32, ptr %5, align 4
@@ -6881,7 +6878,7 @@ add_string_field.exit:                            ; preds = %7, %19, %21
 add_string_field.exit12:                          ; preds = %add_string_field.exit, %29, %31
   %.sink.i11 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %26, %31 ], [ %26, %29 ]
   %33 = call ptr @proto_tree_add_string(ptr noundef %11, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 256, ptr noundef %.sink.i11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %add_string_field.exit12, %4
@@ -6943,7 +6940,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_1(ptr noundef %0, ptr noundef
   %51 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_field_5, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %51, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef 0)
   %53 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = tail call ptr @wmem_packet_scope()
   %55 = call ptr @tvb_get_stringz_enc(ptr noundef %54, ptr noundef %0, i32 noundef 76, ptr noundef nonnull %5, i32 noundef 0)
   %56 = load i32, ptr %5, align 4
@@ -6961,7 +6958,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_1(ptr noundef %0, ptr noundef
 add_string_field.exit:                            ; preds = %8, %58, %60
   %.sink.i = phi ptr [ @.str.1480, %8 ], [ %55, %60 ], [ %55, %58 ]
   %62 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 76, i32 noundef 1232, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %63
 
 63:                                               ; preds = %add_string_field.exit, %4
@@ -7082,7 +7079,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_3(ptr noundef %0, ptr noundef
   %51 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_field_5, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %51, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef 0)
   %53 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = tail call ptr @wmem_packet_scope()
   %55 = call ptr @tvb_get_stringz_enc(ptr noundef %54, ptr noundef %0, i32 noundef 76, ptr noundef nonnull %5, i32 noundef 0)
   %56 = load i32, ptr %5, align 4
@@ -7100,7 +7097,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_3(ptr noundef %0, ptr noundef
 add_string_field.exit:                            ; preds = %8, %58, %60
   %.sink.i = phi ptr [ @.str.1480, %8 ], [ %55, %60 ], [ %55, %58 ]
   %62 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 76, i32 noundef 616, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_data_large, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %63, ptr noundef %0, i32 noundef 692, i32 noundef 616, i32 noundef 0)
   br label %65
@@ -7163,7 +7160,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_4(ptr noundef %0, ptr noundef
   %51 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_field_5, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %51, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef 0)
   %53 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = tail call ptr @wmem_packet_scope()
   %55 = call ptr @tvb_get_stringz_enc(ptr noundef %54, ptr noundef %0, i32 noundef 76, ptr noundef nonnull %5, i32 noundef 0)
   %56 = load i32, ptr %5, align 4
@@ -7181,7 +7178,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_4(ptr noundef %0, ptr noundef
 add_string_field.exit:                            ; preds = %8, %58, %60
   %.sink.i = phi ptr [ @.str.1480, %8 ], [ %55, %60 ], [ %55, %58 ]
   %62 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 76, i32 noundef 924, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_data_large, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %63, ptr noundef %0, i32 noundef 1000, i32 noundef 308, i32 noundef 0)
   br label %65
@@ -7244,7 +7241,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_5(ptr noundef %0, ptr noundef
   %51 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_field_5, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %51, ptr noundef %0, i32 noundef 72, i32 noundef 4, i32 noundef 0)
   %53 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_msg_string, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = tail call ptr @wmem_packet_scope()
   %55 = call ptr @tvb_get_stringz_enc(ptr noundef %54, ptr noundef %0, i32 noundef 76, ptr noundef nonnull %5, i32 noundef 0)
   %56 = load i32, ptr %5, align 4
@@ -7262,7 +7259,7 @@ define internal i32 @dissect_c15ch_c15_generic_msg_5(ptr noundef %0, ptr noundef
 add_string_field.exit:                            ; preds = %8, %58, %60
   %.sink.i = phi ptr [ @.str.1480, %8 ], [ %55, %60 ], [ %55, %58 ]
   %62 = call ptr @proto_tree_add_string(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 76, i32 noundef 308, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %63 = load i32, ptr @hf_c15ch_c15_generic_msg_gen_data_large, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %63, ptr noundef %0, i32 noundef 384, i32 noundef 924, i32 noundef 0)
   br label %65
@@ -7310,7 +7307,7 @@ define internal i32 @dissect_c15ch_c15_correlate_msg(ptr noundef %0, ptr noundef
   %36 = load i32, ptr @hf_c15ch_c15_generic_msg_cr_ptr_val, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %36, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef 0)
   %38 = load i32, ptr @hf_c15ch_c15_opt_string_parm_8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = tail call ptr @wmem_packet_scope()
   %40 = call ptr @tvb_get_stringz_enc(ptr noundef %39, ptr noundef %0, i32 noundef 44, ptr noundef nonnull %6, i32 noundef 0)
   %41 = load i32, ptr %6, align 4
@@ -7328,9 +7325,9 @@ define internal i32 @dissect_c15ch_c15_correlate_msg(ptr noundef %0, ptr noundef
 add_string_field.exit:                            ; preds = %9, %43, %45
   %.sink.i = phi ptr [ @.str.1480, %9 ], [ %40, %45 ], [ %40, %43 ]
   %47 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef 44, i32 noundef 129, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %48 = load i32, ptr @hf_c15ch_c15_opt_string_parm_9, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = call ptr @wmem_packet_scope()
   %50 = call ptr @tvb_get_stringz_enc(ptr noundef %49, ptr noundef %0, i32 noundef 173, ptr noundef nonnull %5, i32 noundef 0)
   %51 = load i32, ptr %5, align 4
@@ -7348,7 +7345,7 @@ add_string_field.exit:                            ; preds = %9, %43, %45
 add_string_field.exit35:                          ; preds = %add_string_field.exit, %53, %55
   %.sink.i34 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %50, %55 ], [ %50, %53 ]
   %57 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef 173, i32 noundef 129, ptr noundef %.sink.i34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 58:                                               ; preds = %add_string_field.exit35, %4
@@ -7359,7 +7356,7 @@ add_string_field.exit35:                          ; preds = %add_string_field.ex
 define internal i32 @dissect_c15ch_c15_sip_reg_subs_report(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %57
@@ -7376,7 +7373,7 @@ define internal i32 @dissect_c15ch_c15_sip_reg_subs_report(ptr noundef %0, ptr n
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @tvb_get_stringz_enc(ptr noundef %17, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 0)
   %19 = load i32, ptr @hf_c15ch_c15_sip_report_type, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = call ptr @wmem_packet_scope()
   %21 = call ptr @tvb_get_stringz_enc(ptr noundef %20, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %22 = load i32, ptr %5, align 4
@@ -7394,7 +7391,7 @@ define internal i32 @dissect_c15ch_c15_sip_reg_subs_report(ptr noundef %0, ptr n
 add_string_field.exit:                            ; preds = %9, %24, %26
   %.sink.i = phi ptr [ @.str.1480, %9 ], [ %21, %26 ], [ %21, %24 ]
   %28 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 12, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %29 = load i32, ptr @hf_c15ch_c15_rate, align 4
   %30 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   %31 = load i32, ptr @hf_c15ch_c15_hour, align 4
@@ -7444,7 +7441,7 @@ add_string_field.exit:                            ; preds = %9, %24, %26
   br label %57
 
 57:                                               ; preds = %add_string_field.exit, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
@@ -7468,7 +7465,7 @@ define internal i32 @dissect_c15ch_c15_sys_alarm(ptr noundef %0, ptr noundef rea
   %17 = load i32, ptr @ett_c15ch_second_level, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %17)
   %19 = load i32, ptr @hf_c15ch_c15_omm_tag_code, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %20 = tail call ptr @wmem_packet_scope()
   %21 = call ptr @tvb_get_stringz_enc(ptr noundef %20, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 0)
   %22 = load i32, ptr %9, align 4
@@ -7486,9 +7483,9 @@ define internal i32 @dissect_c15ch_c15_sys_alarm(ptr noundef %0, ptr noundef rea
 add_string_field.exit:                            ; preds = %12, %24, %26
   %.sink.i = phi ptr [ @.str.1480, %12 ], [ %21, %26 ], [ %21, %24 ]
   %28 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 7, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %29 = load i32, ptr @hf_c15ch_c15_alarm_class, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = call ptr @wmem_packet_scope()
   %31 = call ptr @tvb_get_stringz_enc(ptr noundef %30, ptr noundef %0, i32 noundef 7, ptr noundef nonnull %8, i32 noundef 0)
   %32 = load i32, ptr %8, align 4
@@ -7506,9 +7503,9 @@ add_string_field.exit:                            ; preds = %12, %24, %26
 add_string_field.exit19:                          ; preds = %add_string_field.exit, %34, %36
   %.sink.i18 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %31, %36 ], [ %31, %34 ]
   %38 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %29, ptr noundef %0, i32 noundef 7, i32 noundef 5, ptr noundef %.sink.i18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %39 = load i32, ptr @hf_c15ch_c15_alarm_status, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = call ptr @wmem_packet_scope()
   %41 = call ptr @tvb_get_stringz_enc(ptr noundef %40, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %7, i32 noundef 0)
   %42 = load i32, ptr %7, align 4
@@ -7526,9 +7523,9 @@ add_string_field.exit19:                          ; preds = %add_string_field.ex
 add_string_field.exit21:                          ; preds = %add_string_field.exit19, %44, %46
   %.sink.i20 = phi ptr [ @.str.1480, %add_string_field.exit19 ], [ %41, %46 ], [ %41, %44 ]
   %48 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %39, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef %.sink.i20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = load i32, ptr @hf_c15ch_c15_site_name, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = call ptr @wmem_packet_scope()
   %51 = call ptr @tvb_get_stringz_enc(ptr noundef %50, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %6, i32 noundef 0)
   %52 = load i32, ptr %6, align 4
@@ -7546,9 +7543,9 @@ add_string_field.exit21:                          ; preds = %add_string_field.ex
 add_string_field.exit23:                          ; preds = %add_string_field.exit21, %54, %56
   %.sink.i22 = phi ptr [ @.str.1480, %add_string_field.exit21 ], [ %51, %56 ], [ %51, %54 ]
   %58 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %49, ptr noundef %0, i32 noundef 16, i32 noundef 5, ptr noundef %.sink.i22)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %59 = load i32, ptr @hf_c15ch_c15_system, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call ptr @wmem_packet_scope()
   %61 = call ptr @tvb_get_stringz_enc(ptr noundef %60, ptr noundef %0, i32 noundef 21, ptr noundef nonnull %5, i32 noundef 0)
   %62 = load i32, ptr %5, align 4
@@ -7566,7 +7563,7 @@ add_string_field.exit23:                          ; preds = %add_string_field.ex
 add_string_field.exit25:                          ; preds = %add_string_field.exit23, %64, %66
   %.sink.i24 = phi ptr [ @.str.1480, %add_string_field.exit23 ], [ %61, %66 ], [ %61, %64 ]
   %68 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %59, ptr noundef %0, i32 noundef 21, i32 noundef 5, ptr noundef %.sink.i24)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %69
 
 69:                                               ; preds = %add_string_field.exit25, %4
@@ -7601,7 +7598,7 @@ define internal i32 @dissect_c15ch_c15_tty_msg(ptr noundef %0, ptr noundef reado
   %25 = load i32, ptr @hf_c15ch_c15_tty_int_parm_4, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %25, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   %27 = load i32, ptr @hf_c15ch_c15_omm_msg_tag, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %28 = tail call ptr @wmem_packet_scope()
   %29 = call ptr @tvb_get_stringz_enc(ptr noundef %28, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %9, i32 noundef 0)
   %30 = load i32, ptr %9, align 4
@@ -7619,9 +7616,9 @@ define internal i32 @dissect_c15ch_c15_tty_msg(ptr noundef %0, ptr noundef reado
 add_string_field.exit:                            ; preds = %12, %32, %34
   %.sink.i = phi ptr [ @.str.1480, %12 ], [ %29, %34 ], [ %29, %32 ]
   %36 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %27, ptr noundef %0, i32 noundef 16, i32 noundef 8, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %37 = load i32, ptr @hf_c15ch_c15_text_location, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %38 = call ptr @wmem_packet_scope()
   %39 = call ptr @tvb_get_stringz_enc(ptr noundef %38, ptr noundef %0, i32 noundef 24, ptr noundef nonnull %8, i32 noundef 0)
   %40 = load i32, ptr %8, align 4
@@ -7639,9 +7636,9 @@ add_string_field.exit:                            ; preds = %12, %32, %34
 add_string_field.exit27:                          ; preds = %add_string_field.exit, %42, %44
   %.sink.i26 = phi ptr [ @.str.1480, %add_string_field.exit ], [ %39, %44 ], [ %39, %42 ]
   %46 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %37, ptr noundef %0, i32 noundef 24, i32 noundef 40, ptr noundef %.sink.i26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %47 = load i32, ptr @hf_c15ch_c15_tty_text_parm_1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = call ptr @wmem_packet_scope()
   %49 = call ptr @tvb_get_stringz_enc(ptr noundef %48, ptr noundef %0, i32 noundef 64, ptr noundef nonnull %7, i32 noundef 0)
   %50 = load i32, ptr %7, align 4
@@ -7659,9 +7656,9 @@ add_string_field.exit27:                          ; preds = %add_string_field.ex
 add_string_field.exit29:                          ; preds = %add_string_field.exit27, %52, %54
   %.sink.i28 = phi ptr [ @.str.1480, %add_string_field.exit27 ], [ %49, %54 ], [ %49, %52 ]
   %56 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %47, ptr noundef %0, i32 noundef 64, i32 noundef 40, ptr noundef %.sink.i28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = load i32, ptr @hf_c15ch_c15_tty_text_parm_2, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = call ptr @wmem_packet_scope()
   %59 = call ptr @tvb_get_stringz_enc(ptr noundef %58, ptr noundef %0, i32 noundef 104, ptr noundef nonnull %6, i32 noundef 0)
   %60 = load i32, ptr %6, align 4
@@ -7679,9 +7676,9 @@ add_string_field.exit29:                          ; preds = %add_string_field.ex
 add_string_field.exit31:                          ; preds = %add_string_field.exit29, %62, %64
   %.sink.i30 = phi ptr [ @.str.1480, %add_string_field.exit29 ], [ %59, %64 ], [ %59, %62 ]
   %66 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %57, ptr noundef %0, i32 noundef 104, i32 noundef 40, ptr noundef %.sink.i30)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %67 = load i32, ptr @hf_c15ch_c15_tty_text_parm_3, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = call ptr @wmem_packet_scope()
   %69 = call ptr @tvb_get_stringz_enc(ptr noundef %68, ptr noundef %0, i32 noundef 144, ptr noundef nonnull %5, i32 noundef 0)
   %70 = load i32, ptr %5, align 4
@@ -7699,7 +7696,7 @@ add_string_field.exit31:                          ; preds = %add_string_field.ex
 add_string_field.exit33:                          ; preds = %add_string_field.exit31, %72, %74
   %.sink.i32 = phi ptr [ @.str.1480, %add_string_field.exit31 ], [ %69, %74 ], [ %69, %72 ]
   %76 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %67, ptr noundef %0, i32 noundef 144, i32 noundef 40, ptr noundef %.sink.i32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %77
 
 77:                                               ; preds = %add_string_field.exit33, %4
@@ -8586,7 +8583,7 @@ define internal i32 @dissect_c15ch_out_gwe_digit_scan(ptr noundef %0, ptr readno
   %11 = load i32, ptr @hf_c15ch_out_gwe_digit_scan_voip_dgmp_override, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %13 = load i32, ptr @hf_c15ch_out_gwe_digit_scan_actv_dgmp, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call ptr @wmem_packet_scope()
   %15 = call ptr @tvb_get_stringz_enc(ptr noundef %14, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
   %16 = load i32, ptr %5, align 4
@@ -8604,7 +8601,7 @@ define internal i32 @dissect_c15ch_out_gwe_digit_scan(ptr noundef %0, ptr readno
 add_string_field.exit:                            ; preds = %6, %18, %20
   %.sink.i = phi ptr [ @.str.1480, %6 ], [ %15, %20 ], [ %15, %18 ]
   %22 = call ptr @proto_tree_add_string(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 1, i32 noundef 250, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = load i32, ptr @hf_c15ch_out_gwe_digit_scan_op_gwe_digit_scan_tone, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %23, ptr noundef %0, i32 noundef 251, i32 noundef 1, i32 noundef 0)
   %25 = load i32, ptr @hf_c15ch_out_gwe_digit_scan_op_gwe_tone_type, align 4
@@ -8942,7 +8939,7 @@ define internal i32 @dissect_c15ch_out_gwe_ring_line(ptr noundef %0, ptr readnon
   %11 = load i32, ptr @hf_c15ch_out_gwe_ring_line_op_gwe_display, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %13 = load i32, ptr @hf_c15ch_out_gwe_ring_line_op_gwe_display_chars, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call ptr @wmem_packet_scope()
   %15 = call ptr @tvb_get_stringz_enc(ptr noundef %14, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 0)
   %16 = load i32, ptr %5, align 4
@@ -8960,7 +8957,7 @@ define internal i32 @dissect_c15ch_out_gwe_ring_line(ptr noundef %0, ptr readnon
 add_string_field.exit:                            ; preds = %6, %18, %20
   %.sink.i = phi ptr [ @.str.1480, %6 ], [ %15, %20 ], [ %15, %18 ]
   %22 = call ptr @proto_tree_add_string(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 1, i32 noundef 100, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
 23:                                               ; preds = %add_string_field.exit, %4
@@ -9049,7 +9046,7 @@ define internal i32 @dissect_c15ch_out_gwe_sac_list_entry(ptr noundef %0, ptr re
   %9 = load i32, ptr @ett_c15ch_third_level_out_gwe, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
   %11 = load i32, ptr @hf_c15ch_out_gwe_sac_list_entry_op_gwe_med_uri, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = tail call ptr @wmem_packet_scope()
   %13 = call ptr @tvb_get_stringz_enc(ptr noundef %12, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 0)
   %14 = load i32, ptr %5, align 4
@@ -9067,7 +9064,7 @@ define internal i32 @dissect_c15ch_out_gwe_sac_list_entry(ptr noundef %0, ptr re
 add_string_field.exit:                            ; preds = %6, %16, %18
   %.sink.i = phi ptr [ @.str.1480, %6 ], [ %13, %18 ], [ %13, %16 ]
   %20 = call ptr @proto_tree_add_string(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 72, ptr noundef %.sink.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %21
 
 21:                                               ; preds = %add_string_field.exit, %4
@@ -9204,9 +9201,6 @@ define internal i32 @dissect_c15ch_out_gwe_sip_refer(ptr noundef %0, ptr readnon
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -9292,7 +9286,7 @@ define internal fastcc void @add_digits_string_info_col(ptr noundef %0, i32 noun
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %2, 1
   %8 = zext i32 %7 to i64
-  %9 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef %8) #5
+  %9 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef %8) #4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -9369,7 +9363,7 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
   %11 = tail call ptr @wmem_packet_scope()
   %12 = add nuw nsw i32 %4, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %13) #5
+  %14 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %13) #4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -9442,7 +9436,7 @@ define internal fastcc void @add_digits_string(i32 noundef %0, ptr noundef %1, p
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -9456,12 +9450,17 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { allocsize(1) }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

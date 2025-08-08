@@ -149,7 +149,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h68a1e9323c619c49E
   br label %22
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.7, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %9, align 8
@@ -167,7 +167,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h68a1e9323c619c49E
   br label %22
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.11, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %16, align 8
@@ -213,7 +213,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h60f04a6283dbf73aE.llvm.
   br label %20
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.14, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %10, align 8
@@ -227,7 +227,7 @@ define hidden void @_ZN4core4sync6atomic12atomic_store17h60f04a6283dbf73aE.llvm.
   unreachable
 
 14:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.17, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %15, align 8
@@ -379,7 +379,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h707f
   br label %20
 
 47:                                               ; preds = %13, %12, %11, %10, %9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.20, ptr %6, align 8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %48, align 8
@@ -393,7 +393,7 @@ define hidden { i32, i32 } @_ZN4core4sync6atomic23atomic_compare_exchange17h707f
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.74dad4fb65e4c9a3dddc5726c8bf9f74.23, ptr %7, align 8
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %53, align 8
@@ -425,7 +425,7 @@ define hidden { ptr, i1 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h15fa37
   ret { ptr, i1 } %12
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !5, !align !9, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -533,7 +533,7 @@ define void @_ZN18wasmtime_jit_debug11gdb_jit_int23GdbJitImageRegistration8regis
   store ptr %6, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %7, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %18 = invoke noundef nonnull align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hc82d5e65ebdf7b17E.llvm.11936780926584757335"(ptr noundef nonnull align 8 @_ZN18wasmtime_jit_debug11gdb_jit_int16GDB_REGISTRATION17h7e355d8a3d6061b9E.llvm.5328983435487870688, ptr noundef nonnull align 8 @_ZN18wasmtime_jit_debug11gdb_jit_int16GDB_REGISTRATION17h7e355d8a3d6061b9E.llvm.5328983435487870688)
           to label %.noexc8 unwind label %63
 
@@ -575,7 +575,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328
   br i1 %.not.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h15fa371309062639E.llvm.5328983435487870688.exit.i", label %30
 
 30:                                               ; preds = %.noexc12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !25
   store ptr %18, ptr %3, align 8, !noalias !25
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.0.i.i.i.i, ptr %31, align 8, !noalias !25
@@ -680,7 +680,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5328983435487870688.exit.
   br label %12
 
 65:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5328983435487870688.exit.i.i.i, %60
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %66)
   store ptr %9, ptr %0, align 8
@@ -709,7 +709,7 @@ define { ptr, i64 } @_ZN18wasmtime_jit_debug11gdb_jit_int23GdbJitImageRegistrati
 define hidden void @_ZN18wasmtime_jit_debug11gdb_jit_int24unregister_gdb_jit_image17h73eb32ee7f689efaE(ptr noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %3 = alloca { ptr, i8, [7 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef nonnull align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hc82d5e65ebdf7b17E.llvm.11936780926584757335"(ptr noundef nonnull align 8 @_ZN18wasmtime_jit_debug11gdb_jit_int16GDB_REGISTRATION17h7e355d8a3d6061b9E.llvm.5328983435487870688, ptr noundef nonnull align 8 @_ZN18wasmtime_jit_debug11gdb_jit_int16GDB_REGISTRATION17h7e355d8a3d6061b9E.llvm.5328983435487870688)
   %5 = cmpxchg ptr %4, i32 0, i32 1 acquire monotonic, align 4
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %5, 1
@@ -739,7 +739,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.5328
   br i1 %.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h15fa371309062639E.llvm.5328983435487870688.exit", label %16
 
 16:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17he042abf7ed139935E.exit"
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !48
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !48
   store ptr %4, ptr %2, align 8, !noalias !48
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.0.i.i.i, ptr %17, align 8, !noalias !48
@@ -842,7 +842,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5328983435487870688.exit.
   br label %"_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17haf7e29471382207aE.llvm.5328983435487870688.exit"
 
 "_ZN4core3ptr65drop_in_place$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$17haf7e29471382207aE.llvm.5328983435487870688.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.5328983435487870688.exit.i.i, %53
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 54:                                               ; preds = %26
@@ -894,17 +894,11 @@ declare noundef ptr @wasmtime_jit_debug_descriptor_21_0_0() unnamed_addr #2
 ; Function Attrs: nonlazybind uwtable
 declare void @__jit_debug_register_code() unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr103drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$$LP$$RP$$GT$$GT$$GT$17hf75e07a65d75fa56E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #11
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #10
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h90603e889e3aed8bE.llvm.7941628235115526403(ptr noundef, i8 noundef) unnamed_addr #0
@@ -914,6 +908,12 @@ declare hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h68a1e9323c619c49
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef nonnull align 4 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hc82d5e65ebdf7b17E.llvm.11936780926584757335"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
@@ -931,8 +931,8 @@ attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { noreturn }

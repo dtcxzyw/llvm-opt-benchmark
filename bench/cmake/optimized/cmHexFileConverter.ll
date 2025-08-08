@@ -23,7 +23,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17DetermineFileTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call noundef ptr @_ZN5cmsys11SystemTools5FopenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
@@ -52,7 +52,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18cmHexFileConverter17Determine
   %.017 = phi i32 [ 2, %10 ], [ 1, %7 ]
   %.016 = phi i32 [ 10, %10 ], [ 11, %7 ]
   %.015 = phi i32 [ 526, %10 ], [ 523, %7 ]
-  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #10
+  %12 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #9
   %13 = trunc i64 %12 to i32
   %14 = add i64 %12, 4294967295
   %15 = and i64 %14, 4294967295
@@ -102,32 +102,26 @@ _ZL11ChompStrlenPKc.exit:                         ; preds = %20, %25
   %29 = getelementptr inbounds nuw [1024 x i8], ptr %2, i64 0, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1, !tbaa !4
   %31 = sext i8 %30 to i32
-  %32 = call i32 @isxdigit(i32 noundef %31) #10
+  %32 = call i32 @isxdigit(i32 noundef %31) #9
   %.not23 = icmp eq i32 %32, 0
   br i1 %.not23, label %.loopexit, label %28
 
 .loopexit:                                        ; preds = %.lr.ph, %28, %7, %_ZL11ChompStrlenPKc.exit, %1
   %.014 = phi i32 [ 0, %1 ], [ 0, %7 ], [ 0, %_ZL11ChompStrlenPKc.exit ], [ 0, %.lr.ph ], [ %.017, %28 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.014
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare noundef ptr @_ZN5cmsys11SystemTools5FopenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isxdigit(i32 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare i32 @isxdigit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
@@ -165,7 +159,7 @@ define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7_
   br label %115
 
 23:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -187,7 +181,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread72: ; preds = %50, %50, 
   br i1 %.not.us, label %.split54.us, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread72
-  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #10
+  %33 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
   %34 = trunc i64 %33 to i32
   %35 = add i64 %33, 4294967295
   %36 = and i64 %35, 4294967295
@@ -249,9 +243,9 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %46, %41
 54:                                               ; preds = %53, %52, %50
   %.0.i.us = phi i32 [ 10, %53 ], [ 12, %52 ], [ 8, %50 ]
   %55 = add nsw i32 %.1.i.i.us, -2
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %29, align 1, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = icmp samesign ult i32 %.0.i.us, %55
   br i1 %56, label %.lr.ph.i.i.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us
 
@@ -273,16 +267,16 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %46, %41
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !4
   store i8 %66, ptr %30, align 1, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !11
-  %67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #9
+  %67 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #10
   %.not.i.i.us = icmp eq i32 %67, 1
   br i1 %.not.i.i.us, label %68, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread74
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread74: ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge
 
 68:                                               ; preds = %62
@@ -291,7 +285,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread74: ; preds = %62
   %71 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv30.i.i.us
   store i8 %70, ptr %71, align 1, !tbaa !4
   %indvars.iv.next31.i.i.us = add nuw nsw i64 %indvars.iv30.i.i.us, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 2
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next31.i.i.us, %wide.trip.count.i.i.us
   br i1 %exitcond.not.i.i.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us, label %62, !llvm.loop !13
@@ -300,8 +294,8 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us: ; preds = %68, %54
   %.016.lcssa.i.i.us = phi i64 [ 0, %54 ], [ %wide.trip.count.i.i.us, %68 ]
   %72 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 1, i64 noundef %.016.lcssa.i.i.us, ptr noundef nonnull %14)
   %73 = icmp eq i64 %72, %.016.lcssa.i.i.us
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %73, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread72, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge, !llvm.loop !9
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge: ; preds = %50, %_ZL11ChompStrlenPKc.exit.i.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread74
@@ -316,7 +310,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread78: ; preds = %94, %94
   br i1 %.not.us57, label %.split54.us, label %.lr.ph65, !llvm.loop !14
 
 .lr.ph65:                                         ; preds = %.split.us55, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread78
-  %75 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #10
+  %75 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
   %76 = trunc i64 %75 to i32
   %77 = add i64 %75, 4294967295
   %78 = and i64 %77, 4294967295
@@ -372,9 +366,9 @@ _ZL11ChompStrlenPKc.exit.i28.us:                  ; preds = %88, %83
   ]
 
 96:                                               ; preds = %94, %94
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %26, align 1, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %97 = add nsw i32 %.1.i.i29.us, -12
   %98 = icmp ult i32 %97, -10
   br i1 %98, label %.lr.ph.i.i38.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58
@@ -394,16 +388,16 @@ _ZL11ChompStrlenPKc.exit.i28.us:                  ; preds = %88, %83
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !4
   store i8 %105, ptr %27, align 1, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !11
-  %106 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #9
+  %106 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #10
   %.not.i.i42.us = icmp eq i32 %106, 1
   br i1 %.not.i.i42.us, label %107, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread80
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread80: ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge
 
 107:                                              ; preds = %101
@@ -412,7 +406,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread80: ; preds = %101
   %110 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv30.i.i40.us
   store i8 %109, ptr %110, align 1, !tbaa !4
   %indvars.iv.next31.i.i44.us = add nuw nsw i64 %indvars.iv30.i.i40.us, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i.i45.us = add nuw nsw i64 %indvars.iv.i.i41.us, 2
   %exitcond.not.i.i46.us = icmp eq i64 %indvars.iv.next31.i.i44.us, %wide.trip.count.i.i39.us
   br i1 %exitcond.not.i.i46.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58, label %101, !llvm.loop !13
@@ -421,8 +415,8 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58: ; preds = %107, %96
   %.016.lcssa.i.i35.us = phi i64 [ 0, %96 ], [ %wide.trip.count.i.i39.us, %107 ]
   %111 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %.016.lcssa.i.i35.us, ptr noundef nonnull %14)
   %112 = icmp eq i64 %111, %.016.lcssa.i.i35.us
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %112, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread78, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, !llvm.loop !14
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge: ; preds = %94, %_ZL11ChompStrlenPKc.exit.i28.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread80
@@ -432,7 +426,7 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge:
   %.us-phi = phi i1 [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge ], [ false, %.split.us ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge ], [ false, %.split.us55 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread72 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread78 ]
   %113 = call i32 @fclose(ptr noundef nonnull %13)
   %114 = call i32 @fclose(ptr noundef nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %115
 
 115:                                              ; preds = %.split54.us, %21, %20, %2
@@ -441,32 +435,38 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_cmHexFileConverter.cxx() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_cmHexFileConverter.cxx() #7 section ".text.startup" {
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #9
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #10
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -201,7 +201,7 @@ define ptr @OSSL_CMP_CTX_get0_untrusted(ptr noundef readonly captures(address_is
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_CTX_set1_untrusted(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !29
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
@@ -232,19 +232,13 @@ define range(i32 0, 2) i32 @OSSL_CMP_CTX_set1_untrusted(ptr noundef captures(add
 
 14:                                               ; preds = %12, %8, %5
   %.0 = phi i32 [ 0, %5 ], [ 1, %8 ], [ 0, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare i32 @ossl_x509_add_certs_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @OSSL_CMP_CTX_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -624,8 +618,8 @@ declare i32 @OSSL_HTTP_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 define i32 @ossl_cmp_print_log(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr readnone captures(none) %5, ptr noundef %6, ...) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   %9 = alloca [2048 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %1, null
   br i1 %10, label %30, label %11
 
@@ -667,8 +661,8 @@ define i32 @ossl_cmp_print_log(i32 noundef %0, ptr noundef readonly captures(add
 
 30:                                               ; preds = %19, %15, %7, %11, %29
   %.017 = phi i32 [ %.0, %29 ], [ 1, %11 ], [ 1, %7 ], [ 1, %15 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.017
 }
 
@@ -1095,12 +1089,12 @@ define ptr @OSSL_CMP_CTX_get_certConf_cb_arg(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 declare i32 @BIO_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_CTX_set_log_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1176,7 +1170,7 @@ declare i32 @ossl_cmp_asn1_octet_string_set1_bytes(ptr noundef, ptr noundef, i32
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !85
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -1215,7 +1209,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef captures(a
 
 20:                                               ; preds = %7, %18, %6
   %.0 = phi i32 [ 0, %6 ], [ 1, %18 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -2863,10 +2857,16 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

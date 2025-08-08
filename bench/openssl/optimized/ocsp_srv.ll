@@ -133,9 +133,6 @@ define ptr @OCSP_response_create(i32 noundef %0, ptr noundef %1) local_unnamed_a
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare ptr @OCSP_RESPONSE_new() local_unnamed_addr #1
 
 declare i32 @ASN1_ENUMERATED_set(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -149,9 +146,6 @@ declare ptr @ASN1_item_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @OCSP_BASICRESP_it() local_unnamed_addr #1
 
 declare void @OCSP_RESPONSE_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_basic_add1_status(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -425,7 +419,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key(ptr noundef writeonly capture
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %9 = load ptr, ptr %8, align 8, !tbaa !74
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = tail call ptr @EVP_MD_fetch(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef %9) #6
   %11 = icmp eq ptr %10, null
   br i1 %11, label %OCSP_RESPID_set_by_key_ex.exit, label %12
@@ -462,7 +456,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key(ptr noundef writeonly capture
 
 OCSP_RESPID_set_by_key_ex.exit:                   ; preds = %5, %22
   %.013.i = phi i32 [ %.0.i, %22 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %2, %OCSP_RESPID_set_by_key_ex.exit
@@ -497,7 +491,7 @@ declare ptr @OCSP_RESPDATA_it() local_unnamed_addr #1
 define range(i32 0, 2) i32 @OCSP_basic_sign(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = tail call ptr @EVP_MD_CTX_new() #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !75
   %9 = icmp eq ptr %8, null
   br i1 %9, label %19, label %10
@@ -523,7 +517,7 @@ define range(i32 0, 2) i32 @OCSP_basic_sign(ptr noundef %0, ptr noundef %1, ptr 
 
 19:                                               ; preds = %.sink.split, %6
   %.0 = phi i32 [ 0, %6 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -542,7 +536,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key_ex(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @EVP_MD_fetch(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %3) #6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -579,7 +573,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_set_by_key_ex(ptr noundef writeonly capt
 
 19:                                               ; preds = %4, %18
   %.013 = phi i32 [ %.0, %18 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.013
 }
 
@@ -605,7 +599,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_match_ex(ptr noundef readonly captures(n
   ]
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call ptr @EVP_MD_fetch(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef %3) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %25, label %10
@@ -637,7 +631,7 @@ define range(i32 0, 2) i32 @OCSP_RESPID_match_ex(ptr noundef readonly captures(n
 
 25:                                               ; preds = %16, %20, %14, %10, %7
   %.016 = phi i32 [ 0, %7 ], [ 0, %10 ], [ 0, %14 ], [ 0, %16 ], [ %24, %20 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 26:                                               ; preds = %4
@@ -687,6 +681,12 @@ define range(i32 0, 2) i32 @OCSP_RESPID_match(ptr noundef readonly captures(none
   %.0 = phi i32 [ %9, %4 ], [ 0, %2 ]
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5

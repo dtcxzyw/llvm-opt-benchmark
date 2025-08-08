@@ -170,12 +170,6 @@ php_base64_encode_impl.exit:                      ; preds = %._crit_edge, %67, %
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @php_base64_decode_ex_avx512_vbmi(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #0 {
 zend_string_alloc.exit:
@@ -486,7 +480,7 @@ default.unreachable:                              ; preds = %.loopexit77
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_encode_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #2 {
+define dso_local noundef ptr @php_base64_encode_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #1 {
   %4 = add i64 %1, 2
   %5 = udiv i64 %4, 3
   %6 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, 6148914691236517206) %5, i64 noundef 4, i64 noundef 32) #11
@@ -658,10 +652,10 @@ php_base64_encode_impl.exit:                      ; preds = %._crit_edge, %79, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #3
+declare <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32>, <16 x i32>, <16 x i32>, i32 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_decode_ex_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #2 {
+define dso_local noundef ptr @php_base64_decode_ex_avx512(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #1 {
 zend_string_alloc.exit:
   %3 = and i64 %1, -8
   %4 = add i64 %3, 32
@@ -983,7 +977,7 @@ default.unreachable:                              ; preds = %.loopexit116
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_encode_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #4 {
+define dso_local noundef ptr @php_base64_encode_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #3 {
   %4 = add i64 %1, 2
   %5 = udiv i64 %4, 3
   %6 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, 6148914691236517206) %5, i64 noundef 4, i64 noundef 32) #11
@@ -1180,7 +1174,7 @@ php_base64_encode_impl.exit:                      ; preds = %._crit_edge, %101, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_encode_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #5 {
+define dso_local noundef ptr @php_base64_encode_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #4 {
   %4 = add i64 %1, 2
   %5 = udiv i64 %4, 3
   %6 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, 6148914691236517206) %5, i64 noundef 4, i64 noundef 32) #11
@@ -1350,7 +1344,7 @@ php_base64_encode_impl.exit:                      ; preds = %._crit_edge, %76, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_decode_ex_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #4 {
+define dso_local noundef ptr @php_base64_decode_ex_avx2(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #3 {
 zend_string_alloc.exit:
   %3 = and i64 %1, -8
   %4 = add i64 %3, 32
@@ -1666,7 +1660,7 @@ default.unreachable:                              ; preds = %.loopexit95
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @php_base64_decode_ex_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #5 {
+define dso_local noundef ptr @php_base64_decode_ex_ssse3(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #4 {
 zend_string_alloc.exit:
   %3 = and i64 %1, -8
   %4 = add i64 %3, 32
@@ -1980,7 +1974,7 @@ default.unreachable:                              ; preds = %.loopexit55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_base64_encode_default(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #6 {
+define hidden noundef ptr @php_base64_encode_default(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) #5 {
   %4 = add i64 %1, 2
   %5 = udiv i64 %4, 3
   %6 = tail call noalias ptr @_safe_emalloc(i64 noundef range(i64 0, 6148914691236517206) %5, i64 noundef 4, i64 noundef 32) #11
@@ -2114,7 +2108,7 @@ php_base64_encode_impl.exit:                      ; preds = %._crit_edge, %57, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @php_base64_decode_ex_default(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #6 {
+define hidden noundef ptr @php_base64_decode_ex_default(ptr noundef readonly captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) #5 {
 zend_string_alloc.exit:
   %3 = and i64 %1, -8
   %4 = add i64 %3, 32
@@ -2380,7 +2374,7 @@ default.unreachable:                              ; preds = %.loopexit13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
+define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -2393,7 +2387,7 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr noundef writeonly capt
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8, !tbaa !9
   %10 = icmp eq i8 %9, 6
@@ -2404,7 +2398,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %6
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %13
 
 13:                                               ; preds = %12, %.thread
@@ -2421,7 +2415,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call ptr @php_base64_encode_ex(ptr noundef nonnull %15, i64 noundef %17, i64 noundef 0) #11
   store ptr %18, ptr %1, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -2437,15 +2431,15 @@ zend_parse_arg_str_ex.exit:                       ; preds = %6
   ret void
 }
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #7
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
+define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !9
@@ -2459,7 +2453,7 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr noundef writeonly capt
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !9
   %13 = icmp eq i8 %12, 6
@@ -2470,7 +2464,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %9
   br i1 %14, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_string.exit, !prof !37
 
 zend_parse_arg_string.exit:                       ; preds = %zend_parse_arg_str_ex.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread87
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_ex.exit, %9
@@ -2479,7 +2473,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = icmp eq i32 %6, 1
   br i1 %19, label %.critedge, label %20, !prof !38
 
@@ -2541,12 +2535,12 @@ zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool
   br label %36
 
 36:                                               ; preds = %.thread87, %34, %28
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal nonnull ptr @resolve_base64_encode() #8 {
+define internal nonnull ptr @resolve_base64_encode() #7 {
   tail call void @__cpu_indicator_init() #11
   tail call void @__cpu_indicator_init() #11
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
@@ -2584,7 +2578,7 @@ define internal nonnull ptr @resolve_base64_encode() #8 {
 declare dso_local void @__cpu_indicator_init() local_unnamed_addr
 
 ; Function Attrs: disable_sanitizer_instrumentation nounwind uwtable
-define internal nonnull ptr @resolve_base64_decode() #8 {
+define internal nonnull ptr @resolve_base64_decode() #7 {
   tail call void @__cpu_indicator_init() #11
   tail call void @__cpu_indicator_init() #11
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @__cpu_model, i64 12), align 4
@@ -2619,82 +2613,88 @@ define internal nonnull ptr @resolve_base64_decode() #8 {
   ret ptr %.0
 }
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8>, <64 x i8>) #3
+declare <64 x i8> @llvm.x86.avx512.permvar.qi.512(<64 x i8>, <64 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.pmultishift.qb.512(<64 x i8>, <64 x i8>) #3
+declare <64 x i8> @llvm.x86.avx512.pmultishift.qb.512(<64 x i8>, <64 x i8>) #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.vpermi2var.qi.512(<64 x i8>, <64 x i8>, <64 x i8>) #3
+declare <64 x i8> @llvm.x86.avx512.vpermi2var.qi.512(<64 x i8>, <64 x i8>, <64 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8>, <64 x i8>) #3
+declare <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8>, <64 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16>, <32 x i16>) #3
+declare <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16>, <32 x i16>) #2
 
-declare void @_efree(ptr noundef) local_unnamed_addr #7
+declare void @_efree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #3
+declare <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8>, <64 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #10
+declare <64 x i8> @llvm.usub.sat.v64i8(<64 x i8>, <64 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i16> @llvm.x86.avx2.pmulhu.w(<16 x i16>, <16 x i16>) #3
+declare <16 x i16> @llvm.x86.avx2.pmulhu.w(<16 x i16>, <16 x i16>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #10
+declare <32 x i8> @llvm.usub.sat.v32i8(<32 x i8>, <32 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #3
+declare <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16>, <8 x i16>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #10
+declare <16 x i8> @llvm.usub.sat.v16i8(<16 x i8>, <16 x i8>) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #3
+declare <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8>, <32 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #3
+declare i32 @llvm.x86.avx.ptestz.256(<4 x i64>, <4 x i64>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8>, <32 x i8>) #3
+declare <16 x i16> @llvm.x86.avx2.pmadd.ub.sw(<32 x i8>, <32 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16>, <16 x i16>) #3
+declare <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16>, <16 x i16>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #3
+declare <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #3
+declare <8 x i16> @llvm.x86.ssse3.pmadd.ub.sw.128(<16 x i8>, <16 x i8>) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #3
+declare <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16>, <8 x i16>) #2
 
-declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
-declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vbmi,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { disable_sanitizer_instrumentation nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="512" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+cmov,+crc32,+cx8,+evex512,+f16c,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { disable_sanitizer_instrumentation nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind allocsize(0) }
 

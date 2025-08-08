@@ -204,7 +204,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
 .thread:                                          ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h87773786221da012E.exit.thread", %27
   %.sroa.021.04149 = phi i64 [ %16, %27 ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h87773786221da012E.exit.thread" ]
   %.sroa.625.04348 = phi ptr [ %.sroa.625.0, %27 ], [ %22, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h87773786221da012E.exit.thread" ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @"_ZN72_$LT$F$u20$as$u20$itertools..merge_join..OrderingOrBool$LT$T$C$T$GT$$GT$5merge17h14a761f6c5e50538E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef nonnull align 1 %31, i64 noundef %.sroa.01.0, ptr noundef %.sroa.52.0, i64 noundef %.sroa.021.04149, ptr noundef %.sroa.625.04348)
   %.sroa.03.0.copyload = load i64, ptr %2, align 8
@@ -216,7 +216,7 @@ define hidden { i64, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$
   %33 = load i64, ptr %32, align 8, !range !21, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load ptr, ptr %34, align 8, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not33 = icmp eq i64 %.sroa.03.0.copyload, 2
   br i1 %.not33, label %.thread50, label %36
 
@@ -240,12 +240,12 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %6 = load ptr, ptr %5, align 8, !alias.scope !23, !noalias !26, !nonnull !4, !align !22, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !28
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !28
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !28
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %11, ptr %3, align 8, !noalias !28
   store ptr %7, ptr %4, align 8, !noalias !28
@@ -272,8 +272,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr @anon.18c5e338d87d633564fbd81ea35d7b0a.94, ptr %22, align 8, !noalias !28
   %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_fields_finish17h85682fbd450c8232E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.100, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 @anon.18c5e338d87d633564fbd81ea35d7b0a.99, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 6), !noalias !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !28
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !28
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !28
   ret i1 %23
 }
 
@@ -288,10 +288,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !38
   store ptr %4, ptr %3, align 8, !noalias !38
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.8, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !38
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6196835c8f6f1662E.exit"
 
 9:                                                ; preds = %2
@@ -327,11 +327,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !22, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !39
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !39
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   store ptr %6, ptr %3, align 8, !noalias !39
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h7abd1bdbbed7ecd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.79, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.80, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.76, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.81, i64 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(40) %.val, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.77, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.82, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.78)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !39
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !39
   ret i1 %7
 }
 
@@ -345,10 +345,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !50
   store ptr %4, ptr %3, align 8, !noalias !50
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.8, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17ha4a1782196120077E.exit"
 
 8:                                                ; preds = %2
@@ -366,10 +366,10 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !22, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !51
   store ptr %.val, ptr %3, align 8, !noalias !51
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.121, i64 noundef 17, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.80, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.76, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.122, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.120)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !51
   ret i1 %6
 }
 
@@ -416,66 +416,66 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   unreachable
 
 17:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !70
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %18, ptr %10, align 8, !noalias !70
   %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.105, i64 noundef 10, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.104)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !70
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %21, ptr %9, align 8, !noalias !70
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.107, i64 noundef 14, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 23:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !70
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %24, ptr %8, align 8, !noalias !70
   %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.109, i64 noundef 13, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 26:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !70
   store ptr %.val, ptr %7, align 8, !noalias !70
   %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.111, i64 noundef 12, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.110)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !70
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %29, ptr %6, align 8, !noalias !70
   %30 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.113, i64 noundef 10, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.112)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 31:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !70
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %32, ptr %5, align 8, !noalias !70
   %33 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.115, i64 noundef 9, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.114)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 34:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !70
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %35, ptr %4, align 8, !noalias !70
   %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.117, i64 noundef 7, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.116)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 37:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !70
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %38, ptr %3, align 8, !noalias !70
   %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.119, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.118)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !70
   br label %"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit"
 
 "_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0cb0e44da8faca67E.exit": ; preds = %17, %20, %23, %26, %28, %31, %34, %37
@@ -493,10 +493,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !76
   store ptr %4, ptr %3, align 8, !noalias !76
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.8, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !76
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h025c95648d9982eaE.exit"
 
 8:                                                ; preds = %2
@@ -524,11 +524,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !22, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !77
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !77
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %6, ptr %3, align 8, !noalias !77
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17h7abd1bdbbed7ecd3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.85, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.80, i64 noundef 5, ptr noundef nonnull readonly align 8 dereferenceable(48) %.val, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.76, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.86, i64 noundef 4, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.83, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.87, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.84)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !77
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !77
   ret i1 %7
 }
 
@@ -553,10 +553,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !94
   store ptr %4, ptr %3, align 8, !noalias !94
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.8, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !94
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hced1885f62506467E.exit"
 
 8:                                                ; preds = %2
@@ -574,10 +574,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !22, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !95
   store ptr %.val, ptr %3, align 8, !noalias !95
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.102, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.80, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.76, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.103, i64 noundef 11, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.101)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !95
   ret i1 %6
 }
 
@@ -861,10 +861,10 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.8, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %9
 
 7:                                                ; preds = %2
@@ -890,12 +890,12 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$
   %3 = alloca [8 x i8], align 8
   %4 = alloca [96 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !22, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !102
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !102
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !102
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !102
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %10, ptr %3, align 8, !noalias !102
   store ptr %6, ptr %4, align 8, !noalias !102
@@ -922,8 +922,8 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr @anon.18c5e338d87d633564fbd81ea35d7b0a.94, ptr %21, align 8, !noalias !102
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_fields_finish17h85682fbd450c8232E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.100, i64 noundef 10, ptr noalias noundef nonnull readonly align 8 @anon.18c5e338d87d633564fbd81ea35d7b0a.99, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !102
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !102
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !102
   ret i1 %22
 }
 
@@ -1011,259 +1011,259 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 37:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !106
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %38, ptr %34, align 8, !noalias !106
   %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.13, i64 noundef 6, ptr noundef nonnull align 1 %34, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 40:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !106
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %41, ptr %33, align 8, !noalias !106
   %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.15, i64 noundef 5, ptr noundef nonnull align 1 %33, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 43:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !106
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %44, ptr %32, align 8, !noalias !106
   %45 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.17, i64 noundef 5, ptr noundef nonnull align 1 %32, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 46:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !106
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %47, ptr %31, align 8, !noalias !106
   %48 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.19, i64 noundef 7, ptr noundef nonnull align 1 %31, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 49:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !106
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %50, ptr %30, align 8, !noalias !106
   %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.21, i64 noundef 6, ptr noundef nonnull align 1 %30, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 52:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !106
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %53, ptr %29, align 8, !noalias !106
   %54 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.23, i64 noundef 2, ptr noundef nonnull align 1 %29, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.22)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 55:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !106
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %56, ptr %28, align 8, !noalias !106
   %57 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.25, i64 noundef 4, ptr noundef nonnull align 1 %28, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 58:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !106
   %59 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %59, ptr %27, align 8, !noalias !106
   %60 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.27, i64 noundef 3, ptr noundef nonnull align 1 %27, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.26)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 61:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !106
   %62 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %62, ptr %26, align 8, !noalias !106
   %63 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.29, i64 noundef 8, ptr noundef nonnull align 1 %26, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 64:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !106
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %65, ptr %25, align 8, !noalias !106
   %66 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.31, i64 noundef 7, ptr noundef nonnull align 1 %25, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.30)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 67:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !106
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %68, ptr %24, align 8, !noalias !106
   %69 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.33, i64 noundef 8, ptr noundef nonnull align 1 %24, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.32)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 70:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !106
   %71 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %71, ptr %23, align 8, !noalias !106
   %72 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.35, i64 noundef 9, ptr noundef nonnull align 1 %23, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.34)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 73:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !106
   %74 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %74, ptr %22, align 8, !noalias !106
   %75 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.37, i64 noundef 5, ptr noundef nonnull align 1 %22, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 76:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !106
   %77 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %77, ptr %21, align 8, !noalias !106
   %78 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.39, i64 noundef 5, ptr noundef nonnull align 1 %21, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 79:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !106
   %80 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %80, ptr %20, align 8, !noalias !106
   %81 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.41, i64 noundef 9, ptr noundef nonnull align 1 %20, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 82:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !106
   %83 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %83, ptr %19, align 8, !noalias !106
   %84 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.43, i64 noundef 7, ptr noundef nonnull align 1 %19, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 85:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !106
   %86 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %86, ptr %18, align 8, !noalias !106
   %87 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.45, i64 noundef 4, ptr noundef nonnull align 1 %18, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.44)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 88:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !106
   %89 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %89, ptr %17, align 8, !noalias !106
   %90 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.47, i64 noundef 7, ptr noundef nonnull align 1 %17, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 91:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !106
   %92 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %92, ptr %16, align 8, !noalias !106
   %93 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.49, i64 noundef 13, ptr noundef nonnull align 1 %16, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.48)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 94:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !106
   %95 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %95, ptr %15, align 8, !noalias !106
   %96 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.51, i64 noundef 12, ptr noundef nonnull align 1 %15, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 97:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !106
   %98 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %98, ptr %14, align 8, !noalias !106
   %99 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.53, i64 noundef 13, ptr noundef nonnull align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.52)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 100:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !106
   %101 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store ptr %101, ptr %13, align 8, !noalias !106
   %102 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.55, i64 noundef 14, ptr noundef nonnull align 1 %13, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 103:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !106
   %104 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store ptr %104, ptr %12, align 8, !noalias !106
   %105 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.57, i64 noundef 11, ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 106:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !106
   %107 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store ptr %107, ptr %11, align 8, !noalias !106
   %108 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.59, i64 noundef 15, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 109:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !106
   %110 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %110, ptr %10, align 8, !noalias !106
   %111 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.61, i64 noundef 9, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.60)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 112:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !106
   %113 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %113, ptr %9, align 8, !noalias !106
   %114 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.63, i64 noundef 9, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.62)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 115:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !106
   %116 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %116, ptr %8, align 8, !noalias !106
   %117 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.65, i64 noundef 7, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 118:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !106
   %119 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %119, ptr %7, align 8, !noalias !106
   %120 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.67, i64 noundef 4, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.66)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 121:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !106
   %122 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %122, ptr %6, align 8, !noalias !106
   %123 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.69, i64 noundef 4, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.68)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 124:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !106
   %125 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %125, ptr %5, align 8, !noalias !106
   %126 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.71, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.70)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 127:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !106
   %128 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %128, ptr %4, align 8, !noalias !106
   %129 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.73, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.72)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 130:                                              ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !106
   %131 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %131, ptr %3, align 8, !noalias !106
   %132 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.75, i64 noundef 16, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.74)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !106
   br label %"_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit"
 
 "_ZN69_$LT$ruff_python_ast..generated..Expr$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cc2d53cf3afa28E.exit": ; preds = %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103, %106, %109, %112, %115, %118, %121, %124, %127, %130
@@ -1293,10 +1293,10 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$
 define internal noundef zeroext i1 @"_ZN71_$LT$ruff_python_ast..nodes..Identifier$u20$as$u20$core..fmt..Debug$GT$3fmt17h47a237f854817caeE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17h562079a96f37f57fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.90, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.91, i64 noundef 2, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.88, ptr noalias noundef nonnull readonly align 1 @anon.18c5e338d87d633564fbd81ea35d7b0a.80, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.18c5e338d87d633564fbd81ea35d7b0a.89)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %5
 }
 
@@ -1688,10 +1688,10 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8ee3c3db19ce215fE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

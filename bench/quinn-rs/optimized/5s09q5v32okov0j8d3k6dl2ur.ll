@@ -8,7 +8,7 @@ define hidden void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17
   %6 = alloca [4 x i8], align 4
   %7 = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %4, ptr %6, align 4, !noalias !3
   %.val.i = load i32, ptr %1, align 4, !range !6, !alias.scope !3, !noundef !7
   %8 = call noundef i32 @setsockopt(i32 noundef %.val.i, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 4) #5, !noalias !3
@@ -16,7 +16,7 @@ define hidden void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17
   br i1 %9, label %_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E.exit.thread, label %_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E.exit
 
 _ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E.exit.thread: ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %10, align 1
   store i8 0, ptr %0, align 8
@@ -29,7 +29,7 @@ _ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E.exit: ; preds = %5
   %14 = shl nsw i64 %13, 32
   %15 = getelementptr i8, ptr null, i64 %14
   %16 = getelementptr i8, ptr %15, i64 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %17 = ptrtoint ptr %16 to i64
   %.mask = and i64 %17, -4294967296
   %18 = icmp eq i64 %.mask, 395136991232
@@ -45,13 +45,13 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit: ; preds 
   br label %19
 
 21:                                               ; preds = %_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %16, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %22, align 1
   store i8 0, ptr %0, align 8
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb858fcf5550044c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %19
 }
 
@@ -114,10 +114,10 @@ declare noundef i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr nound
 declare noundef ptr @__errno_location() unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #4

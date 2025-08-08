@@ -290,8 +290,8 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %.not.i, label %png_do_shift.exit, label %133
 
 133:                                              ; preds = %126
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %134 = and i8 %132, 2
   %.not125.i49 = icmp eq i8 %134, 0
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 17
@@ -502,8 +502,8 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   br i1 %exitcond.not.i51, label %.loopexit.i, label %.lr.ph137.i, !llvm.loop !50
 
 .loopexit.i:                                      ; preds = %._crit_edge.i50, %._crit_edge142.i, %._crit_edge152.us.i, %214, %195, %.lr.ph157.split.preheader.i, %170
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre118 = load i32, ptr %7, align 4, !tbaa !3
   br label %png_do_shift.exit
 
@@ -777,10 +777,10 @@ declare void @png_do_bgr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @png_do_invert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3

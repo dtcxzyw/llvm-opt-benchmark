@@ -765,14 +765,14 @@ lor.rhs:                                          ; preds = %entry
 if.then:                                          ; preds = %entry, %lor.rhs
   %Parser = getelementptr inbounds nuw i8, ptr %this, i64 176
   %Default.i1 = getelementptr inbounds nuw i8, ptr %this, i64 160
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds nuw i8, ptr %OV.i, i64 12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes3hbc12BytecodeFormEEE, i64 16), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds nuw i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
   call void @_ZNK4llvh2cl19generic_parser_base22printGenericOptionDiffERKNS0_6OptionERKNS0_18GenericOptionValueES7_m(ptr noundef nonnull align 8 dereferenceable(16) %Parser, ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef nonnull align 8 dereferenceable(16) %OV.i, ptr noundef nonnull align 8 dereferenceable(16) %Default.i1, i64 noundef %GlobalWidth) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %OV.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %OV.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.rhs
@@ -1320,9 +1320,9 @@ entry:
   %ref.tmp.i = alloca %"class.llvh::cl::ValuesClass", align 8
   %ref.tmp5.i = alloca i32, align 4
   %ref.tmp6.i = alloca %"struct.llvh::cl::desc", align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp6.i)
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !25
   %Size.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
@@ -1386,9 +1386,9 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 __cxx_global_var_init.exit:                       ; preds = %entry, %if.then.i.i.i.i
   %1 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optIN6hermes3hbc12BytecodeFormELb0ENS0_6parserIS4_EEED2Ev, ptr nonnull @_ZL4Form, ptr nonnull @__dso_handle) #18
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp5.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp5.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr @_ZL13InputFilenameB5cxx11, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 8), align 8
   %bf.load.i.i.i1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL13InputFilenameB5cxx11, i64 12), align 4
@@ -1458,10 +1458,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

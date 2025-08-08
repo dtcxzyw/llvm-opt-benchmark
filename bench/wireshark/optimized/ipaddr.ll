@@ -159,9 +159,6 @@ define internal noundef i32 @semcheck_ip_special_name(ptr noundef %0, ptr nounde
   ret i32 26
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @fvalue_new(i32 noundef) local_unnamed_addr #1
 
@@ -170,9 +167,6 @@ declare void @fvalue_set_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @df_cell_append(ptr noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @df_cell_is_empty(ptr noundef) local_unnamed_addr #1
@@ -193,7 +187,7 @@ declare ptr @ws_iana_ipv6_special_block_lookup(ptr noundef) local_unnamed_addr #
 declare ptr @fvalue_get_ipv6(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 %3, i64 %4, i32 noundef range(i32 1, 4) %5) unnamed_addr #0 {
@@ -208,8 +202,8 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   %15 = alloca %struct.except_stacknode, align 8
   %16 = alloca %struct.except_catch, align 8
   %17 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i8 0, ptr %8, align 1
   switch i32 %5, label %default.unreachable77 [
     i32 1, label %85
@@ -218,14 +212,14 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 18:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store volatile i32 0, ptr %10, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @check_ip_field.catch_spec, i64 noundef 1)
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %20 = call i32 @_setjmp(ptr noundef nonnull %19) #9
+  %20 = call i32 @_setjmp(ptr noundef nonnull %19) #8
   %.not = icmp eq i32 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink = select i1 %.not, ptr null, ptr %21
@@ -304,24 +298,24 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   %47 = load volatile ptr, ptr %46, align 8
   call void @except_free(ptr noundef %47)
   %48 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.0..0..0..0.26 = load volatile i8, ptr %8, align 1, !range !8, !noundef !9
   %49 = trunc nuw i8 %.0..0..0..0.26 to i1
   br i1 %49, label %50, label %check_which.exit
 
 50:                                               ; preds = %45
   call void @df_error_free(ptr noundef %0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store volatile i32 0, ptr %14, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @except_setup_try(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @check_ip_field.catch_spec.5, i64 noundef 1)
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %52 = call i32 @_setjmp(ptr noundef nonnull %51) #9
+  %52 = call i32 @_setjmp(ptr noundef nonnull %51) #8
   %.not63 = icmp eq i32 %52, 0
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sink78 = select i1 %.not63, ptr null, ptr %53
@@ -382,7 +376,7 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   %75 = extractvalue { i64, i64 } %73, 1
   %76 = call ptr @stnode_tostr(ptr noundef %17, i1 noundef zeroext true)
   call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %74, i64 %75, ptr noundef nonnull @.str.6, ptr noundef %76, ptr noundef nonnull @.str.10)
-  call void @__longjmp_chk(ptr noundef nonnull %51, i32 noundef 1) #10
+  call void @__longjmp_chk(ptr noundef nonnull %51, i32 noundef 1) #9
   unreachable
 
 77:                                               ; preds = %67, %66, %64
@@ -406,10 +400,10 @@ define internal fastcc void @check_ip_field(ptr noundef %0, ptr noundef %1, ptr 
   %83 = load volatile ptr, ptr %82, align 8
   call void @except_free(ptr noundef %83)
   %84 = call ptr @except_pop()
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %check_which.exit
 
 default.unreachable77:                            ; preds = %6
@@ -436,8 +430,8 @@ check_which.exit:                                 ; preds = %81, %45
   br i1 %92, label %93, label %print_which.exit
 
 93:                                               ; preds = %88, %85, %check_which.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
 print_which.exit:                                 ; preds = %check_which.exit, %88, %85
@@ -456,10 +450,10 @@ declare i32 @df_semcheck_param(ptr noundef, ptr noundef, i32 noundef, ptr nounde
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
@@ -480,10 +474,10 @@ declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #1
 declare ptr @stnode_tostr(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind null_pointer_is_valid
-declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @__longjmp_chk(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @dfilter_fail_throw(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #4
+declare void @dfilter_fail_throw(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @df_func_ip_special_mask(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) #0 {
@@ -798,8 +792,8 @@ define internal noundef i32 @semcheck_is_ipv4_field(ptr noundef %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i8 0, ptr %8, align 1
   %10 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 32, ptr noundef %9, i64 %4, i64 %5)
   store volatile i32 %10, ptr %7, align 4
@@ -815,8 +809,8 @@ print_which.exit.i:                               ; preds = %6
   unreachable
 
 check_ip_field.exit:                              ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 2
 }
 
@@ -881,8 +875,8 @@ define internal noundef i32 @semcheck_is_ipv6_field(ptr noundef %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store volatile i8 0, ptr %8, align 1
   %10 = tail call i32 @df_semcheck_param(ptr noundef %0, ptr noundef %1, i32 noundef 33, ptr noundef %9, i64 %4, i64 %5)
   store volatile i32 %10, ptr %7, align 4
@@ -898,25 +892,30 @@ print_which.exit.i:                               ; preds = %6
   unreachable
 
 check_ip_field.exit:                              ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 2
 }
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @df_func_deregister(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind returns_twice }
-attributes #10 = { noreturn nounwind }
+attributes #8 = { nounwind returns_twice }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

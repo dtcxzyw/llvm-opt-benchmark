@@ -722,7 +722,7 @@ threadState.exit:                                 ; preds = %14, %19
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @findThread(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
@@ -750,7 +750,7 @@ define internal fastcc ptr @findThread(ptr noundef readnone captures(address) %0
   ]
 
 getThreadLocalStorage.exit.thread:                ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %21
 
 16:                                               ; preds = %9
@@ -762,7 +762,7 @@ getThreadLocalStorage.exit.thread:                ; preds = %9
 
 getThreadLocalStorage.exit:                       ; preds = %9, %16
   %19 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %nonTlsSearch.exit69
 
@@ -4455,10 +4455,10 @@ declare void @stepControl_clearRequest(ptr noundef, ptr noundef) local_unnamed_a
 declare void @invoker_detach(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5

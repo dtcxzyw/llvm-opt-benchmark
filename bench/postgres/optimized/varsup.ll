@@ -42,7 +42,7 @@ define dso_local noundef i64 @VarsupShmemSize() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @VarsupShmemInit() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 72, ptr noundef nonnull %1) #8
   store ptr %2, ptr @TransamVariables, align 8
   %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
@@ -54,20 +54,14 @@ define dso_local void @VarsupShmemInit() local_unnamed_addr #1 {
   br label %6
 
 6:                                                ; preds = %0, %5
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_addr #1 {
@@ -303,40 +297,40 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   ret i64 %.sroa.032.0
 }
 
-declare zeroext i1 @IsInParallelMode() local_unnamed_addr #3
+declare zeroext i1 @IsInParallelMode() local_unnamed_addr #2
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #3
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
-declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #3
+declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #2
 
-declare ptr @get_database_name(i32 noundef) local_unnamed_addr #3
+declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @ExtendCLOG(i32 noundef) local_unnamed_addr #3
+declare void @ExtendCLOG(i32 noundef) local_unnamed_addr #2
 
-declare void @ExtendCommitTs(i32 noundef) local_unnamed_addr #3
+declare void @ExtendCommitTs(i32 noundef) local_unnamed_addr #2
 
-declare void @ExtendSUBTRANS(i32 noundef) local_unnamed_addr #3
+declare void @ExtendSUBTRANS(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ReadNextFullTransactionId() local_unnamed_addr #1 {
@@ -420,7 +414,7 @@ define dso_local void @AdvanceOldestClogXid(i32 noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -531,7 +525,7 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   ret void
 }
 
-declare zeroext i1 @IsTransactionState() local_unnamed_addr #3
+declare zeroext i1 @IsTransactionState() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr #1 {
@@ -571,7 +565,7 @@ define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr 
   ret i1 %.0
 }
 
-declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
@@ -641,7 +635,7 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
   ret i32 %30
 }
 
-declare void @XLogPutNextOid(i32 noundef) local_unnamed_addr #3
+declare void @XLogPutNextOid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @StopGeneratingPinnedObjectIds() local_unnamed_addr #1 {
@@ -685,6 +679,12 @@ SetNextObjectId.exit:                             ; preds = %6
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
 
@@ -693,10 +693,10 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

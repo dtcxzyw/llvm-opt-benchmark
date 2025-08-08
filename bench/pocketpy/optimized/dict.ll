@@ -312,8 +312,8 @@ define void @_ZN4pkpy4Dict7_rehashEv(ptr noundef nonnull align 8 dereferenceable
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = load i32, ptr %15, align 8
   %40 = load i32, ptr %19, align 4
   %.not.i = icmp slt i32 %39, %40
@@ -369,8 +369,8 @@ _ZN4pkpy4Dict3setEPNS_8PyObjectES2_.exit:         ; preds = %_ZN4pkpy4Dict3setEP
   %64 = sext i32 %62 to i64
   %65 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %63, i64 %64, i32 1
   store ptr %38, ptr %65, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %7, i64 %34, i32 1
   %67 = load i32, ptr %66, align 4
   %.not = icmp eq i32 %67, -1
@@ -556,8 +556,8 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = load i32, ptr %7, align 8
   %22 = load i32, ptr %8, align 4
   %.not.i.i.i = icmp slt i32 %21, %22
@@ -613,8 +613,8 @@ define void @_ZN4pkpy4Dict6updateERKS0_(ptr noundef nonnull align 8 dereferencea
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds %"struct.pkpy::Dict::Item", ptr %45, i64 %46, i32 1
   store ptr %20, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %48 = load ptr, ptr %13, align 8
   %49 = getelementptr inbounds %"struct.pkpy::Dict::ItemNode", ptr %48, i64 %16, i32 1
   %.0.i = load i32, ptr %49, align 4
@@ -1405,10 +1405,10 @@ define internal void @_GLOBAL__sub_I_dict.cpp() #15 section ".text.startup" {
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

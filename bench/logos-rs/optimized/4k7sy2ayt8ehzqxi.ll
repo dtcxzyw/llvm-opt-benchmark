@@ -190,17 +190,17 @@ define hidden void @_ZN13logos_codegen6parser6Parser15try_parse_logos17hefce7405
   ret void
 
 28:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %29 = load i64, ptr %1, align 8, !noalias !3
   %30 = icmp eq i64 %29, 40
   br i1 %30, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread
 
 _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread: ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %33
 
 _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds = %28
@@ -212,9 +212,9 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   %.sroa.0.0.copyload39 = load i64, ptr %3, align 8
   %.sroa.4.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx40, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp eq i64 %.sroa.0.0.copyload39, 2
   br i1 %32, label %33, label %36
 
@@ -602,17 +602,17 @@ define hidden void @_ZN13logos_codegen6parser6Parser16parse_definition17h8b3e7e0
   %21 = alloca [32 x i8], align 8
   %.sroa.4 = alloca [32 x i8], align 8
   %22 = alloca [40 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = load i64, ptr %2, align 8, !noalias !7
   %24 = icmp eq i64 %23, 40
   br i1 %24, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit, label %_ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread
 
 _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit.thread: ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds = %3
@@ -624,9 +624,9 @@ _ZN13logos_codegen6parser6Parser10parse_attr17hd63c16d38a2161f9E.exit: ; preds =
   %.sroa.0.0.copyload29 = load i64, ptr %4, align 8
   %.sroa.4.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx30, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = icmp eq i64 %.sroa.0.0.copyload29, 2
   br i1 %26, label %27, label %28
 
@@ -1438,10 +1438,10 @@ declare void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

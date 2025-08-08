@@ -112,8 +112,8 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden ptr @X509V3_EXT_get_nid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.v3_ext_method, align 8
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %bsearch.exit, label %5
 
@@ -165,20 +165,14 @@ define hidden ptr @X509V3_EXT_get_nid(i32 noundef %0) local_unnamed_addr #0 {
 
 bsearch.exit:                                     ; preds = %13, %20, %18, %1, %22
   %.0 = phi ptr [ %25, %22 ], [ null, %1 ], [ null, %18 ], [ null, %20 ], [ %10, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @sk_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -190,8 +184,8 @@ define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_
   br i1 %6, label %30, label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp slt i32 %5, 0
   br i1 %8, label %X509V3_EXT_get_nid.exit, label %9
 
@@ -243,8 +237,8 @@ define hidden ptr @X509V3_EXT_get(ptr noundef readonly captures(none) %0) local_
 
 X509V3_EXT_get_nid.exit:                          ; preds = %17, %7, %22, %24, %26
   %.0.i = phi ptr [ %29, %26 ], [ null, %7 ], [ null, %22 ], [ null, %24 ], [ %14, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 30:                                               ; preds = %1, %X509V3_EXT_get_nid.exit
@@ -258,8 +252,8 @@ declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 define hidden range(i32 0, 2) i32 @X509V3_EXT_free(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.v3_ext_method, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %X509V3_EXT_get_nid.exit.thread, label %6
 
@@ -284,8 +278,8 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_free(i32 noundef %0, ptr noundef %
   br i1 %.not.i.i, label %X509V3_EXT_get_nid.exit.thread13, label %15
 
 X509V3_EXT_get_nid.exit.thread13:                 ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 
 15:                                               ; preds = %14
@@ -309,16 +303,16 @@ X509V3_EXT_get_nid.exit.thread13:                 ; preds = %14
   br i1 %.not8.i, label %X509V3_EXT_get_nid.exit.thread, label %X509V3_EXT_get_nid.exit
 
 X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 X509V3_EXT_get_nid.exit:                          ; preds = %21
   %23 = load ptr, ptr @ext_list, align 8, !tbaa !6
   %24 = load i64, ptr %4, align 8, !tbaa !20
   %25 = call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -385,8 +379,8 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_list(ptr noundef %0) local_unn
 define hidden range(i32 0, 2) i32 @X509V3_EXT_add_alias(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.v3_ext_method, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %X509V3_EXT_get_nid.exit.thread, label %6
 
@@ -411,8 +405,8 @@ define hidden range(i32 0, 2) i32 @X509V3_EXT_add_alias(i32 noundef %0, i32 noun
   br i1 %.not.i.i, label %X509V3_EXT_get_nid.exit.thread12, label %15
 
 X509V3_EXT_get_nid.exit.thread12:                 ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %27
 
 15:                                               ; preds = %14
@@ -436,16 +430,16 @@ X509V3_EXT_get_nid.exit.thread12:                 ; preds = %14
   br i1 %.not8.i, label %X509V3_EXT_get_nid.exit.thread, label %X509V3_EXT_get_nid.exit
 
 X509V3_EXT_get_nid.exit.thread:                   ; preds = %2, %19, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %26
 
 X509V3_EXT_get_nid.exit:                          ; preds = %21
   %23 = load ptr, ptr @ext_list, align 8, !tbaa !6
   %24 = load i64, ptr %4, align 8, !tbaa !20
   %25 = call ptr @sk_value(ptr noundef %23, i64 noundef %24) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %27
 
@@ -479,10 +473,10 @@ X509V3_EXT_get_nid.exit:                          ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @X509V3_EXT_cleanup() local_unnamed_addr #0 {
@@ -495,7 +489,7 @@ define hidden void @X509V3_EXT_cleanup() local_unnamed_addr #0 {
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @X509V3_add_standard_extensions() local_unnamed_addr #7 {
+define hidden noundef i32 @X509V3_add_standard_extensions() local_unnamed_addr #6 {
   ret i32 1
 }
 
@@ -504,15 +498,15 @@ define hidden ptr @X509V3_EXT_d2i(ptr noundef readonly captures(none) %0) local_
   %2 = alloca %struct.v3_ext_method, align 8
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = tail call i32 @OBJ_obj2nid(ptr noundef %5) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %X509V3_EXT_get.exit.thread, label %8
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = icmp slt i32 %6, 0
   br i1 %9, label %X509V3_EXT_get.exit.thread13, label %10
 
@@ -537,8 +531,8 @@ define hidden ptr @X509V3_EXT_d2i(ptr noundef readonly captures(none) %0) local_
   br i1 %.not.i.i.i, label %X509V3_EXT_get.exit.thread16, label %19
 
 X509V3_EXT_get.exit.thread16:                     ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 19:                                               ; preds = %18
@@ -562,16 +556,16 @@ X509V3_EXT_get.exit.thread16:                     ; preds = %18
   br i1 %.not8.i.i, label %X509V3_EXT_get.exit.thread13, label %X509V3_EXT_get.exit
 
 X509V3_EXT_get.exit.thread13:                     ; preds = %8, %23, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %X509V3_EXT_get.exit.thread
 
 X509V3_EXT_get.exit:                              ; preds = %25
   %27 = load ptr, ptr @ext_list, align 8, !tbaa !6
   %28 = load i64, ptr %3, align 8, !tbaa !20
   %29 = call ptr @sk_value(ptr noundef %27, i64 noundef %28) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %X509V3_EXT_get.exit.thread, label %30
 
@@ -603,7 +597,7 @@ X509V3_EXT_get.exit:                              ; preds = %25
 
 X509V3_EXT_get.exit.thread:                       ; preds = %1, %X509V3_EXT_get.exit.thread13, %X509V3_EXT_get.exit, %41, %37
   %.0 = phi ptr [ %40, %37 ], [ %46, %41 ], [ null, %X509V3_EXT_get.exit ], [ null, %X509V3_EXT_get.exit.thread13 ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -846,7 +840,13 @@ declare ptr @sk_set(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sk_new_null() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9
@@ -855,11 +855,11 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0) }

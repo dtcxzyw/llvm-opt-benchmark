@@ -789,9 +789,9 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE8ScopedCSC2EP6T
   %125 = load ptr, ptr @_ZN19ResolvedMethodTable12_oop_storageE, align 8
   call void @_ZN10WeakHandleC1EP10OopStorage6Handle(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %125, ptr %1) #13
   %126 = load ptr, ptr @_ZL12_local_table, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %127 = call noundef zeroext i1 @_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE19internal_insert_getI25ResolvedMethodTableLookupZNS2_6insertIS4_EEbP6ThreadRT_RK10WeakHandlePbSD_E3NOPEEbS7_S9_SC_RT0_SD_SD_(ptr noundef nonnull align 8 dereferenceable(88) %126, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %127, label %128, label %105, !llvm.loop !10
 
 128:                                              ; preds = %124
@@ -5270,10 +5270,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

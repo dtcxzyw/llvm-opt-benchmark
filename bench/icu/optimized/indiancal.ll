@@ -264,13 +264,7 @@ _ZN6icu_77L10IndianToJDEiii.exit:                 ; preds = %_ZN6icu_77L15isGreg
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
 declare signext i8 @uprv_add32_overflow_77(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6icu_7714IndianCalendar21handleGetExtendedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #0 align 2 {
@@ -456,7 +450,7 @@ declare double @uprv_floor_77(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7714IndianCalendar14getRelatedYearER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 19, ptr noundef nonnull align 4 dereferenceable(4) %1)
   store i32 %4, ptr %3, align 4, !tbaa !6
   %5 = load i32, ptr %1, align 4, !tbaa !9
@@ -478,7 +472,7 @@ define noundef i32 @_ZNK6icu_7714IndianCalendar14getRelatedYearER10UErrorCode(pt
 
 12:                                               ; preds = %2, %10, %9
   %.0 = phi i32 [ 0, %9 ], [ %11, %10 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -519,17 +513,17 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %1 = alloca i32, align 4
   %2 = alloca %"class.icu_77::IndianCalendar", align 8
   %3 = alloca %"class.icu_77::Locale", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef null)
   invoke void @_ZN6icu_7714IndianCalendarC1ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef nonnull align 8 dereferenceable(217) %3, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %4 unwind label %7
 
 4:                                                ; preds = %0
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = load i32, ptr %1, align 4, !tbaa !9
   %6 = icmp slt i32 %5, 1
   br i1 %6, label %9, label %16
@@ -538,7 +532,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_130initializeSystemDefaultCe
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %3) #8
-  call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 9:                                                ; preds = %4
@@ -568,8 +562,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
 
 16:                                               ; preds = %4, %15
   call void @_ZN6icu_7714IndianCalendarD1Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #8
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
 17:                                               ; preds = %12, %11, %_ZNK6icu_778Calendar7getTimeER10UErrorCode.exit, %_ZN6icu_778Calendar7setTimeEdR10UErrorCode.exit, %9
@@ -580,8 +574,8 @@ _ZNK6icu_778Calendar7getTimeER10UErrorCode.exit:  ; preds = %12
 
 19:                                               ; preds = %17, %7
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %8, %7 ]
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
 
@@ -720,6 +714,12 @@ declare noundef double @_ZN6icu_778Calendar6getNowEv() local_unnamed_addr #2
 declare void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), double noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 declare noundef double @_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

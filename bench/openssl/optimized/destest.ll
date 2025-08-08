@@ -188,12 +188,12 @@ define internal range(i32 0, 2) i32 @test_des_ecb(i32 noundef %0) #0 {
   %5 = alloca [8 x i8], align 8
   %6 = alloca [20 x i8], align 16
   %7 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = sext i32 %0 to i64
   %9 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %8
   call void @DES_set_key_unchecked(ptr noundef nonnull %9, ptr noundef nonnull %2) #6
@@ -324,12 +324,12 @@ pt.exit20:                                        ; preds = %60
 
 76:                                               ; preds = %44, %pt.exit20, %pt.exit12
   %.0 = phi i32 [ 0, %pt.exit20 ], [ 0, %pt.exit12 ], [ 1, %44 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -341,10 +341,10 @@ define internal i32 @test_des_cbc() #0 {
   %2 = alloca [40 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %6 = call i32 @DES_set_key_checked(ptr noundef nonnull @cbc_key, ptr noundef nonnull %4) #6
   %7 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 380, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %6, i32 noundef 0) #6
@@ -371,10 +371,10 @@ define internal i32 @test_des_cbc() #0 {
 
 15:                                               ; preds = %8, %0, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %0 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -386,12 +386,12 @@ define internal i32 @test_ede_cbc() #0 {
   %4 = alloca %struct.DES_ks, align 4
   %5 = alloca [40 x i8], align 16
   %6 = alloca [40 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %8 = add i64 %7, 1
   %9 = and i64 %7, -8
@@ -435,12 +435,12 @@ define internal i32 @test_ede_cbc() #0 {
 
 27:                                               ; preds = %19, %16, %13, %0, %24
   %.0 = phi i32 [ %26, %24 ], [ 0, %0 ], [ 0, %13 ], [ 0, %16 ], [ 0, %19 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -454,14 +454,14 @@ define internal range(i32 0, 2) i32 @test_des_ede_ecb(i32 noundef %0) #0 {
   %7 = alloca %struct.DES_ks, align 4
   %8 = alloca [20 x i8], align 16
   %9 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = sext i32 %0 to i64
   %11 = getelementptr inbounds [34 x [8 x i8]], ptr @key_data, i64 0, i64 %10
   call void @DES_set_key_unchecked(ptr noundef nonnull %11, ptr noundef nonnull %5) #6
@@ -598,14 +598,14 @@ pt.exit22:                                        ; preds = %67
 
 82:                                               ; preds = %51, %pt.exit22, %pt.exit14
   %.0 = phi i32 [ 0, %pt.exit22 ], [ 0, %pt.exit14 ], [ 1, %51 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -615,10 +615,10 @@ define internal i32 @test_des_ede_cbc() #0 {
   %2 = alloca %struct.DES_ks, align 4
   %3 = alloca [40 x i8], align 16
   %4 = alloca [40 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %6 = add i64 %5, 1
   %7 = call i32 @DES_set_key_checked(ptr noundef nonnull @cbc_key, ptr noundef nonnull %2) #6
@@ -645,10 +645,10 @@ define internal i32 @test_des_ede_cbc() #0 {
 
 15:                                               ; preds = %9, %0, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %0 ], [ 0, %9 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -657,9 +657,9 @@ define internal i32 @test_des_pcbc() #0 {
   %1 = alloca [40 x i8], align 16
   %2 = alloca [40 x i8], align 16
   %3 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %5 = call i32 @DES_set_key_checked(ptr noundef nonnull @cbc_key, ptr noundef nonnull %3) #6
   %6 = call i32 @test_int_eq(ptr noundef nonnull @.str.24, i32 noundef 504, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %5, i32 noundef 0) #6
@@ -684,9 +684,9 @@ define internal i32 @test_des_pcbc() #0 {
 
 13:                                               ; preds = %7, %0, %11
   %.0 = phi i32 [ %12, %11 ], [ 0, %0 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -718,8 +718,8 @@ define internal i32 @test_des_cfb48() #0 {
 define internal i32 @test_des_cfb64() #0 {
   %1 = alloca %struct.DES_ks, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call fastcc i32 @cfb_test(i32 noundef 64, ptr noundef nonnull @cfb_cipher64)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %23, label %4
@@ -780,8 +780,8 @@ define internal i32 @test_des_cfb64() #0 {
 
 23:                                               ; preds = %14, %7, %4, %0, %21
   %.09 = phi i32 [ %22, %21 ], [ 0, %0 ], [ 0, %4 ], [ 0, %7 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.09
 }
 
@@ -789,8 +789,8 @@ define internal i32 @test_des_cfb64() #0 {
 define internal i32 @test_des_ede_cfb64() #0 {
   %1 = alloca %struct.DES_ks, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @DES_set_key_checked(ptr noundef nonnull @cfb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   store i32 0, ptr %2, align 4, !tbaa !9
@@ -810,15 +810,15 @@ define internal i32 @test_des_ede_cfb64() #0 {
 
 7:                                                ; preds = %0, %5
   %.0 = phi i32 [ %6, %5 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_des_ofb() #0 {
   %1 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call i32 @DES_set_key_checked(ptr noundef nonnull @ofb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
   call void @DES_ofb_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @ofb_buf1, i32 noundef 64, i64 noundef 3, ptr noundef nonnull %1, ptr noundef nonnull @ofb_tmp) #6
@@ -834,7 +834,7 @@ define internal i32 @test_des_ofb() #0 {
 
 6:                                                ; preds = %0, %4
   %.0 = phi i32 [ %5, %4 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -842,8 +842,8 @@ define internal i32 @test_des_ofb() #0 {
 define internal i32 @test_des_ofb64() #0 {
   %1 = alloca %struct.DES_ks, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @DES_set_key_checked(ptr noundef nonnull @ofb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf1, i8 0, i64 24, i1 false)
@@ -874,8 +874,8 @@ define internal i32 @test_des_ofb64() #0 {
 
 12:                                               ; preds = %8, %10
   %.05 = phi i32 [ %11, %10 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.05
 }
 
@@ -883,8 +883,8 @@ define internal i32 @test_des_ofb64() #0 {
 define internal i32 @test_des_ede_ofb64() #0 {
   %1 = alloca %struct.DES_ks, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @DES_set_key_checked(ptr noundef nonnull @ofb_key, ptr noundef nonnull %1) #6
   store i64 -1167088091436534766, ptr @ofb_tmp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @ofb_buf1, i8 0, i64 24, i1 false)
@@ -915,8 +915,8 @@ define internal i32 @test_des_ede_ofb64() #0 {
 
 12:                                               ; preds = %8, %10
   %.05 = phi i32 [ %11, %10 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.05
 }
 
@@ -924,8 +924,8 @@ define internal i32 @test_des_ede_ofb64() #0 {
 define internal i32 @test_des_cbc_cksum() #0 {
   %1 = alloca %struct.DES_ks, align 4
   %2 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @DES_set_key_checked(ptr noundef nonnull @cbc_key, ptr noundef nonnull %1) #6
   %4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %5 = call i32 @DES_cbc_cksum(ptr noundef nonnull @cbc_data, ptr noundef nonnull %2, i64 noundef %4, ptr noundef nonnull %1, ptr noundef nonnull @cbc_iv) #6
@@ -939,15 +939,15 @@ define internal i32 @test_des_cbc_cksum() #0 {
 
 9:                                                ; preds = %0, %7
   %.0 = phi i32 [ %8, %7 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_des_quad_cksum() #0 {
   %1 = alloca [4 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   %3 = call i32 @DES_quad_cksum(ptr noundef nonnull @cbc_data, ptr noundef nonnull %1, i64 noundef %2, i32 noundef 2, ptr noundef nonnull @cbc_iv) #6
   %4 = call i32 @test_uint_eq(ptr noundef nonnull @.str.24, i32 noundef 699, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.59, i32 noundef %3, i32 noundef 1893180986) #6
@@ -984,7 +984,7 @@ define internal range(i32 0, 2) i32 @test_des_quad_cksum() #0 {
 
 20:                                               ; preds = %16, %12, %8, %5, %0
   %.0 = phi i32 [ 0, %0 ], [ 0, %5 ], [ 0, %8 ], [ 0, %12 ], [ %., %16 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -1030,9 +1030,9 @@ define internal range(i32 0, 2) i32 @test_input_align(i32 noundef %0) #0 {
   %2 = alloca [40 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
   %6 = getelementptr inbounds i8, ptr @cbc_data, i64 %5
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
@@ -1051,9 +1051,9 @@ define internal range(i32 0, 2) i32 @test_input_align(i32 noundef %0) #0 {
 
 13:                                               ; preds = %1, %11
   %.0 = phi i32 [ 1, %11 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1062,9 +1062,9 @@ define internal range(i32 0, 2) i32 @test_output_align(i32 noundef %0) #0 {
   %2 = alloca [40 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @cbc_data) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %6 = load i64, ptr @cbc_iv, align 8
@@ -1083,9 +1083,9 @@ define internal range(i32 0, 2) i32 @test_output_align(i32 noundef %0) #0 {
 
 13:                                               ; preds = %1, %9
   %.0 = phi i32 [ 1, %9 ], [ 0, %1 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1103,14 +1103,14 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %11 = getelementptr inbounds [6 x i32], ptr @test_des_key_wrap_sizes, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !9
   %.fr = freeze i32 %12
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #6
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #6
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %13 = sext i32 %.fr to i64
   %14 = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.24, i32 noundef 731, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i64 noundef %13, i64 noundef 100) #6
   %.not = icmp eq i32 %14, 0
@@ -1268,14 +1268,14 @@ define internal range(i32 0, 2) i32 @test_des_key_wrap(i32 noundef %0) #0 {
   %.0 = phi i32 [ 0, %83 ], [ 0, %77 ], [ 0, %70 ], [ 0, %67 ], [ 0, %58 ], [ 0, %49 ], [ 0, %44 ], [ 0, %._crit_edge ], [ 0, %30 ], [ 0, %25 ], [ 0, %21 ], [ 0, %18 ], [ 0, %15 ], [ 0, %1 ], [ %spec.select, %92 ]
   call void @EVP_CIPHER_free(ptr noundef %.031) #6
   call void @EVP_CIPHER_CTX_free(ptr noundef %.030) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #6
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1304,7 +1304,7 @@ define internal i32 @test_des_check_bad_parity(i32 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_des_two_key() #0 {
   %1 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call ptr @EVP_CIPHER_fetch(ptr noundef null, ptr noundef nonnull @.str.108, ptr noundef null) #6
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 860, ptr noundef nonnull @.str.107, ptr noundef %2) #6
   %.not = icmp eq i32 %3, 0
@@ -1337,17 +1337,14 @@ define internal range(i32 0, 2) i32 @test_des_two_key() #0 {
   %.0 = phi ptr [ %5, %9 ], [ %5, %7 ], [ %5, %4 ], [ null, %0 ], [ %5, %11 ]
   call void @EVP_CIPHER_free(ptr noundef %2) #6
   call void @EVP_CIPHER_CTX_free(ptr noundef %.0) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.06
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @DES_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1355,11 +1352,8 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1378,7 +1372,7 @@ declare void @DES_pcbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cfb_test(i32 noundef range(i32 8, 65) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.DES_ks, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @DES_set_key_checked(ptr noundef nonnull @cfb_key, ptr noundef nonnull %3) #6
   store i64 -1167088091436534766, ptr @cfb_tmp, align 8
   call void @DES_cfb_encrypt(ptr noundef nonnull @plain, ptr noundef nonnull @cfb_buf1, i32 noundef %0, i64 noundef 24, ptr noundef nonnull %3, ptr noundef nonnull @cfb_tmp, i32 noundef 1) #6
@@ -1394,7 +1388,7 @@ define internal fastcc i32 @cfb_test(i32 noundef range(i32 8, 65) %0, ptr nounde
 
 8:                                                ; preds = %2, %6
   %.0 = phi i32 [ %7, %6 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1464,14 +1458,20 @@ declare i32 @EVP_CIPHER_CTX_set_key_length(ptr noundef, i32 noundef) local_unnam
 
 declare i32 @EVP_CIPHER_CTX_rand_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(read) }

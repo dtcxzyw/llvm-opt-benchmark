@@ -81,7 +81,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
 38:                                               ; preds = %34, %._crit_edge.i, %15
   %.177.ph = phi ptr [ %4, %15 ], [ %37, %34 ], [ %4, %._crit_edge.i ]
   %.172.ph = phi i32 [ 0, %15 ], [ %.24551.i, %34 ], [ 0, %._crit_edge.i ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !tbaa !16
   %.not99 = icmp eq ptr %.177.ph, %6
   br i1 %.not99, label %._crit_edge108, label %.lr.ph107
@@ -200,7 +200,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %88 = udiv i32 %67, %78
   %89 = add i32 %88, %.046103
   %90 = urem i32 %67, %78
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %91 = zext i32 %89 to i64
   call void @_ZN4absl18debugging_internal16Utf8ForCodePointC1Em(ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %91)
   %92 = load i32, ptr %39, align 4, !tbaa !20
@@ -305,7 +305,7 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr nonnull align 4 %3, i64 %144, i1 false)
   %148 = add i32 %92, %.040105
   %149 = add nuw nsw i32 %90, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %46, %6
   br i1 %.not, label %._crit_edge108, label %40, !llvm.loop !25
 
@@ -316,12 +316,12 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   br label %.critedge
 
 .critedge.critedge:                               ; preds = %93, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %40, %56, %60, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i, %69, %.critedge.critedge, %._crit_edge108
   %.3 = phi ptr [ %151, %._crit_edge108 ], [ null, %.critedge.critedge ], [ null, %69 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i ], [ null, %60 ], [ null, %56 ], [ null, %40 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 
 _ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit: ; preds = %23, %.critedge, %28, %30, %1
@@ -329,22 +329,22 @@ _ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_Pc
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_ZN4absl18debugging_internal16Utf8ForCodePointC1Em(ptr noundef nonnull align 4 dereferenceable(8), i64 noundef) unnamed_addr #2
+declare void @_ZN4absl18debugging_internal16Utf8ForCodePointC1Em(ptr noundef nonnull align 4 dereferenceable(8), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #4
+declare i64 @llvm.ctpop.i64(i64) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
@@ -359,13 +359,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

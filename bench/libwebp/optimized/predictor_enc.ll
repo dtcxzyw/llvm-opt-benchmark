@@ -205,14 +205,8 @@ define hidden void @VP8LOptimizeSampling(ptr noundef captures(none) %0, i32 noun
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef captures(none) %14) local_unnamed_addr #2 {
+define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef captures(none) %14) local_unnamed_addr #1 {
   %16 = alloca [512 x i32], align 16
   %17 = alloca [10 x ptr], align 16
   %18 = alloca [10 x i32], align 16
@@ -248,8 +242,8 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !15
 
 33:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #11
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.not84102 = icmp sgt i32 %2, %3
   br i1 %.not84102, label %._crit_edge107, label %.lr.ph106
 
@@ -383,7 +377,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %107 = icmp slt i32 %60, %101
   %108 = zext i1 %107 to i32
   %109 = add nsw i32 %106, %108
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %16) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %110 = icmp sgt i32 %98, 0
   %111 = icmp sgt i32 %100, 0
   %112 = sext i32 %105 to i64
@@ -597,7 +591,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %exitcond.not.i.i, label %ComputeResidualsForTile.exit.i, label %.split.split.us.i.i, !llvm.loop !27
 
 ComputeResidualsForTile.exit.i:                   ; preds = %.split.split.us.i.i, %._crit_edge127.us.i.i, %.split.i.i
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %16) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %214 = icmp eq i32 %.0151181.i, %91
   %215 = sub i32 2147483646, %.0145184.i
   %216 = icmp eq i32 %.0150182.i, %92
@@ -971,8 +965,8 @@ GetBestPredictorsAndSubSampling.exit.thread:      ; preds = %._crit_edge112, %Ge
   %408 = shl nuw nsw i64 %407, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %.2.ph, i64 %408, i1 false)
   call void @WebPSafeFree(ptr noundef nonnull %49) #11
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.pre = load i32, ptr %14, align 4, !tbaa !3
   %.pre132 = shl nuw i32 1, %.pre
   %.pre134 = add i32 %.pre132, %61
@@ -1107,8 +1101,8 @@ CopyImageWithPrediction.exit:                     ; preds = %PredictBatch.exit.i
   br label %472
 
 .critedge:                                        ; preds = %._crit_edge107, %GetBestPredictorsAndSubSampling.exit.thread
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #11
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %472
 
 472:                                              ; preds = %.critedge, %CopyImageWithPrediction.exit
@@ -1116,17 +1110,17 @@ CopyImageWithPrediction.exit:                     ; preds = %PredictBatch.exit.i
   ret i32 %.1
 }
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef writeonly captures(none) %9) local_unnamed_addr #1 {
   %11 = alloca %struct.VP8LMultipliers, align 4
   %12 = alloca [256 x i32], align 16
   %13 = alloca [256 x i32], align 16
@@ -1137,9 +1131,9 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %18 = add i32 %15, %1
   %19 = lshr i32 %18, %2
   %20 = load i32, ptr %8, align 4, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
   %21 = icmp sgt i32 %19, 0
   br i1 %21, label %.preheader.lr.ph, label %._crit_edge193
@@ -1267,7 +1261,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %.sroa.8133.0.insert.shift.us = shl nuw i24 %.sroa.8133.0.insert.ext.us, 8
   %.sroa.0126.0.insert.ext.us = zext i8 %.sink219.off0 to i24
   %.sroa.0126.0.insert.insert.us = or disjoint i24 %.sroa.8133.0.insert.shift.us, %.sroa.0126.0.insert.ext.us
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i24 %.sroa.0126.0.insert.insert.us, ptr %11, align 4
   %63 = sub nsw i32 %0, %39
   %64 = call noundef i32 @llvm.smin.i32(i32 %14, i32 %63)
@@ -1290,7 +1284,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   br i1 %72, label %68, label %CopyTileWithColorTransform.exit.us, !llvm.loop !38
 
 CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %36, label %.lr.ph170.us, label %._crit_edge171.us
 
 ._crit_edge171.us:                                ; preds = %._crit_edge.us, %CopyTileWithColorTransform.exit.us
@@ -1426,16 +1420,16 @@ CopyTileWithColorTransform.exit.us:               ; preds = %68, %56
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge180.us, %._crit_edge193
   %.0 = phi i32 [ 1, %._crit_edge193 ], [ 0, %._crit_edge180.us ], [ 0, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #11
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 noundef %1, i32 noundef %2, i24 %3, i24 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10) unnamed_addr #2 {
+define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 noundef %1, i32 noundef %2, i24 %3, i24 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %10) unnamed_addr #1 {
   %12 = alloca [256 x i32], align 16
   %13 = alloca [256 x i32], align 16
   %14 = alloca [256 x i32], align 16
@@ -1454,7 +1448,7 @@ define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 nou
   %27 = getelementptr inbounds i32, ptr %10, i64 %26
   %28 = sext i32 %18 to i64
   %29 = getelementptr inbounds i32, ptr %27, i64 %28
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %15, i8 0, i64 1024, i1 false)
   %30 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8, !tbaa !29
   call void %30(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, ptr noundef nonnull %15) #11
@@ -1538,7 +1532,7 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %68, %65
   %72 = zext nneg i24 %71 to i32
   %73 = and i24 %4, 255
   %74 = zext nneg i24 %73 to i32
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %75 = icmp sgt i32 %63, -4
   br i1 %75, label %.lr.ph72.preheader.i, label %GetBestGreenToRed.exit
 
@@ -1568,7 +1562,7 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %68, %65
   %.04066.i = phi i32 [ %84, %.lr.ph.i ], [ %136, %GetPredictionCostCrossColorRed.exit62.i ]
   %.14265.i = phi i64 [ %.04169.i, %.lr.ph.i ], [ %spec.select.i, %GetPredictionCostCrossColorRed.exit62.i ]
   %87 = add nsw i32 %.04066.i, %.167.i
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
   %88 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8, !tbaa !29
   call void %88(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %87, ptr noundef nonnull %14) #11
@@ -1657,7 +1651,7 @@ GetPredictionCostCrossColorRed.exit62.i:          ; preds = %124, %121
   %133 = icmp eq i32 %87, 0
   %134 = add nsw i64 %.1.i61.i, -25165824
   %.2.i.i = select i1 %133, i64 %134, i64 %.1.i61.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %135 = icmp slt i64 %.2.i.i, %.14265.i
   %spec.select.i = call i64 @llvm.smin.i64(i64 %.2.i.i, i64 %.14265.i)
   %spec.select46.i = select i1 %135, i32 %87, i32 %.167.i
@@ -1676,7 +1670,7 @@ GetPredictionCostCrossColorRed.exit62.i:          ; preds = %124, %121
 
 GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCrossColorRed.exit.i, %._crit_edge73.loopexit.i
   %.0.lcssa.i = phi i8 [ 0, %GetPredictionCostCrossColorRed.exit.i ], [ %138, %._crit_edge73.loopexit.i ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
   %139 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !29
   call void %139(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12) #11
@@ -1781,7 +1775,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %193 = add nsw i64 %.2.i, -25165824
   %.3.i = select i1 %192, i64 %193, i64 %.2.i
   %194 = add nsw i64 %.3.i, -50331648
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %198
 
 195:                                              ; preds = %270
@@ -1817,7 +1811,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %211 = sext i8 %210 to i32
   %212 = mul nsw i32 %211, %201
   %213 = add nsw i32 %212, %.26274.i
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
   %214 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !29
   call void %214(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef %208, i32 noundef %213, ptr noundef nonnull %13) #11
@@ -1916,7 +1910,7 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %250, %247
   %266 = icmp eq i32 %213, 0
   %267 = add nsw i64 %.4.i.i, -25165824
   %.5.i.i = select i1 %266, i64 %267, i64 %.4.i.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %268 = icmp slt i64 %.5.i.i, %.16773.i
   %.369.i = call i64 @llvm.smin.i64(i64 %.5.i.i, i64 %.16773.i)
   %.464.i = select i1 %268, i32 %213, i32 %.26274.i
@@ -1949,10 +1943,10 @@ GetBestGreenRedToBlue.exit:                       ; preds = %195, %270
   ret i24 %.sroa.0.0.insert.insert
 }
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #6 {
+define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #5 {
   %6 = icmp slt i32 %0, 3
   br i1 %6, label %.loopexit, label %7
 
@@ -2129,7 +2123,7 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -2147483648, 256) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #7 {
+define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -2147483648, 256) %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) unnamed_addr #6 {
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %39, label %14
 
@@ -2647,7 +2641,13 @@ PredictBatch.exit:                                ; preds = %292, %130, %102, %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #8
+declare i32 @llvm.abs.i32(i32, i1 immarg) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
@@ -2665,14 +2665,14 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

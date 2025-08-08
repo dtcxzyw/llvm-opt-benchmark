@@ -28,14 +28,14 @@ define internal noundef i32 @mpeg4_unpack_bframes_init(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %.lr.ph40.i, label %scan_buffer.exit.thread
 
 scan_buffer.exit.thread:                          ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
 .lr.ph40.i:                                       ; preds = %7
@@ -89,7 +89,7 @@ scan_buffer.exit.thread:                          ; preds = %7
   br i1 %37, label %.lr.ph40.split.us.i, label %scan_buffer.exit, !llvm.loop !25
 
 scan_buffer.exit:                                 ; preds = %.loopexit.us.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %38 = icmp sgt i32 %.1, -1
   br i1 %38, label %39, label %46
 
@@ -122,14 +122,14 @@ define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1)
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph40.i, label %.thread107
 
 .thread107:                                       ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef 0) #3
   br label %91
 
@@ -204,7 +204,7 @@ define internal i32 @mpeg4_unpack_bframes_filter(ptr noundef %0, ptr noundef %1)
   br i1 %47, label %.lr.ph40.split.split.i, label %scan_buffer.exit, !llvm.loop !33
 
 scan_buffer.exit:                                 ; preds = %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.2, i32 noundef %.163) #3
   %48 = icmp sgt i32 %.1, -1
   br i1 %48, label %49, label %64
@@ -323,29 +323,29 @@ define internal void @mpeg4_unpack_bframes_close_flush(ptr noundef readonly capt
   ret void
 }
 
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @ff_bsf_get_packet_ref(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #1
+
+declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #1
+
+declare i32 @av_packet_make_writable(ptr noundef) local_unnamed_addr #1
+
+declare void @av_packet_unref(ptr noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @avpriv_find_start_code(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @ff_bsf_get_packet_ref(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @av_buffer_unref(ptr noundef) local_unnamed_addr #2
-
-declare ptr @av_buffer_ref(ptr noundef) local_unnamed_addr #2
-
-declare i32 @av_packet_make_writable(ptr noundef) local_unnamed_addr #2
-
-declare void @av_packet_unref(ptr noundef) local_unnamed_addr #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

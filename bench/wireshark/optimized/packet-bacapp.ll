@@ -4111,26 +4111,23 @@ define hidden void @proto_register_bacapp() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
@@ -4182,9 +4179,9 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %50 = alloca ptr, align 8
   %51 = alloca i32, align 4
   %52 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %51) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i32 0, ptr %51, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store ptr null, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -4400,13 +4397,13 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 174:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %175 = call fastcc i32 @fStartConfirmed(ptr noundef nonnull %0, ptr noundef %168, i8 noundef zeroext 0, ptr noundef nonnull %49, ptr noundef nonnull %50)
   %176 = load i32, ptr %49, align 4
   tail call fastcc void @fContinueConfirmedRequestPDU(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %175, i32 noundef %176)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %do_the_dissection.exit.thread
 
 177:                                              ; preds = %172
@@ -4515,9 +4512,9 @@ define internal i32 @dissect_bacapp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i.i.i.i, label %.preheader.i.i.i, label %do_the_dissection.exit.thread, !llvm.loop !8
 
 223:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   br label %224
 
 224:                                              ; preds = %fDevice_Instance.exit.i.i.i, %223
@@ -4600,9 +4597,9 @@ fUnsigned32.exit.sink.split.i.i.i.i:              ; preds = %254, %252, %249, %2
 fUnsigned32.exit.i.i.i.i:                         ; preds = %fUnsigned32.exit.sink.split.i.i.i.i, %243, %230
   %hf_Device_Instance_Range_High_Limit.sink.i.i.i.i = phi ptr [ @hf_Device_Instance_Range_Low_Limit, %230 ], [ @hf_Device_Instance_Range_High_Limit, %243 ], [ %hf_Device_Instance_Range_High_Limit.sink.ph.i.i.i.i, %fUnsigned32.exit.sink.split.i.i.i.i ]
   %257 = load i32, ptr %hf_Device_Instance_Range_High_Limit.sink.i.i.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %258 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef range(i32 2, 0) %.026.i.i.i.i, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39)
   %259 = load i32, ptr %39, align 4
   %..i.i.i.i = tail call i32 @llvm.umin.i32(i32 %259, i32 4)
@@ -4621,16 +4618,16 @@ fDevice_Instance.exit.i.i.i:                      ; preds = %262, %fUnsigned32.e
   %266 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %265, i32 noundef range(i32 2, 0) %.026.i.i.i.i, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39)
   %267 = load i32, ptr %39, align 4
   %268 = add i32 %267, %260
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %.not.i68.i.i.i = icmp ugt i32 %268, %.026.i.i.i.i
   br i1 %.not.i68.i.i.i, label %224, label %fWhoIsRequest.exit.i.i.i, !llvm.loop !10
 
 fWhoIsRequest.exit.i.i.i:                         ; preds = %fDevice_Instance.exit.i.i.i, %227, %224
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %do_the_dissection.exit.thread
 
 269:                                              ; preds = %185
@@ -4646,9 +4643,9 @@ fWhoIsRequest.exit.i.i.i:                         ; preds = %fDevice_Instance.ex
   br label %do_the_dissection.exit.thread
 
 277:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %44) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %278 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef 2)
   %279 = icmp sgt i32 %278, 0
   br i1 %279, label %.lr.ph95.i.i.i.i, label %fWriteGroupRequest.exit.i.i.i
@@ -4784,9 +4781,9 @@ fWhoIsRequest.exit.i.i.i:                         ; preds = %fDevice_Instance.ex
   br i1 %.not78.i.i.i.i, label %.backedge.i.i.i.i, label %fWriteGroupRequest.exit.i.i.i
 
 fWriteGroupRequest.exit.i.i.i:                    ; preds = %.loopexit.i.i.i.i, %288, %.backedge.i.i.i.i, %.thread.i.i.i.i, %277
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %do_the_dissection.exit.thread
 
 333:                                              ; preds = %185
@@ -4811,9 +4808,9 @@ fWriteGroupRequest.exit.i.i.i:                    ; preds = %.loopexit.i.i.i.i, 
   br i1 %.not.i74.i.i.i, label %.preheader81.i.i.i, label %do_the_dissection.exit.thread, !llvm.loop !13
 
 343:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   br label %344
 
 344:                                              ; preds = %366, %343
@@ -4858,9 +4855,9 @@ fWriteGroupRequest.exit.i.i.i:                    ; preds = %.loopexit.i.i.i.i, 
   br i1 %.not.i79.i.i.i, label %344, label %fYouAreRequest.exit.i.i.i, !llvm.loop !14
 
 fYouAreRequest.exit.i.i.i:                        ; preds = %366, %344
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %do_the_dissection.exit.thread
 
 367:                                              ; preds = %172
@@ -4873,13 +4870,13 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %366, %344
   br label %do_the_dissection.exit.thread
 
 374:                                              ; preds = %172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %375 = call fastcc i32 @fStartConfirmed(ptr noundef nonnull %0, ptr noundef %168, i8 noundef zeroext 1, ptr noundef nonnull %35, ptr noundef nonnull %36)
   %376 = load i32, ptr %35, align 4
   tail call fastcc void @fContinueComplexAckPDU(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %375, i32 noundef %376)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %do_the_dissection.exit.thread
 
 377:                                              ; preds = %172
@@ -4932,9 +4929,9 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %366, %344
   br label %do_the_dissection.exit.thread
 
 405:                                              ; preds = %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %406 = load ptr, ptr %53, align 8
   tail call void @col_set_writable(ptr noundef %406, i32 noundef 25, i1 noundef zeroext false)
   br label %407
@@ -4954,17 +4951,17 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %366, %344
   ]
 
 413:                                              ; preds = %410
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %414 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %.0.i.i.i.i, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %31)
   %415 = add i32 %414, %.0.i.i.i.i
   %416 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %415)
   %417 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %416, ptr noundef nonnull %30, ptr noundef nonnull %29, ptr noundef nonnull %31)
   %418 = add i32 %417, %416
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %425
 
 419:                                              ; preds = %410
@@ -4981,15 +4978,15 @@ fYouAreRequest.exit.i.i.i:                        ; preds = %366, %344
   br i1 %.not.i.i.i46.i, label %407, label %fWritePropertyMultipleError.exit.i.i.i, !llvm.loop !15
 
 fWritePropertyMultipleError.exit.i.i.i:           ; preds = %425, %410, %407
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %do_the_dissection.exit.thread
 
 426:                                              ; preds = %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br label %427
 
 427:                                              ; preds = %481, %426
@@ -5012,17 +5009,17 @@ fWritePropertyMultipleError.exit.i.i.i:           ; preds = %425, %410, %407
   ]
 
 433:                                              ; preds = %430
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %434 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i33.i.i.i, i32 noundef %.050.i.i.i.i, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %25)
   %435 = add i32 %434, %.050.i.i.i.i
   %436 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i33.i.i.i, i32 noundef %435)
   %437 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i33.i.i.i, i32 noundef %436, ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %25)
   %438 = add i32 %437, %436
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %481
 
 439:                                              ; preds = %430
@@ -5126,31 +5123,31 @@ fUnsigned32.exit56.i.i.i.i:                       ; preds = %465, %463, %460, %4
   br i1 %.not.i35.i.i.i, label %427, label %fConfirmedPrivateTransferError.exit.i.i.i, !llvm.loop !16
 
 fConfirmedPrivateTransferError.exit.i.i.i:        ; preds = %481, %469, %430, %427
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %do_the_dissection.exit.thread
 
 482:                                              ; preds = %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %483 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef 3)
   %484 = icmp ult i8 %483, 16
   br i1 %484, label %485, label %fVTCloseError.exit.i.i.i
 
 485:                                              ; preds = %482
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %486 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef 3, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %19)
   %487 = add nuw nsw i32 %486, 3
   %488 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %487)
   %489 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %488, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %19)
   %490 = add i32 %489, %488
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %491 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %490)
   %.mask.i.i.i.i = and i8 %491, -16
   %492 = icmp eq i8 %.mask.i.i.i.i, 16
@@ -5178,15 +5175,15 @@ fVtCloseRequest.exit.i.i.i.i:                     ; preds = %499, %496
   br label %fVTCloseError.exit.i.i.i
 
 fVTCloseError.exit.i.i.i:                         ; preds = %fVtCloseRequest.exit.i.i.i.i, %485, %482
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %do_the_dissection.exit.thread
 
 502:                                              ; preds = %392
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %503
 
 503:                                              ; preds = %.loopexit.i.i.i40.i, %502
@@ -5218,17 +5215,17 @@ fVTCloseError.exit.i.i.i:                         ; preds = %fVtCloseRequest.exi
   br i1 %516, label %517, label %523
 
 517:                                              ; preds = %515
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %518 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %.067.i.i.i.i, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %519 = add i32 %518, %.067.i.i.i.i
   %520 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %519)
   %521 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %520, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %13)
   %522 = add i32 %521, %520
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit.i.i.i40.i
 
 523:                                              ; preds = %515
@@ -5281,9 +5278,9 @@ fVTCloseError.exit.i.i.i:                         ; preds = %fVtCloseRequest.exi
   %548 = add i32 %547, %.387.i.i.i.i
   %549 = load ptr, ptr %53, align 8
   tail call void @col_set_writable(ptr noundef %549, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.i.i.i.i.i
 
@@ -5322,9 +5319,9 @@ fVTCloseError.exit.i.i.i:                         ; preds = %fVtCloseRequest.exi
 
 fPropertyReference.exit.i.i.i.i:                  ; preds = %562, %556, %552, %.split.i.i.i.i.i
   %.us-phi.i.i.i.i.i = phi i32 [ %.3.i.i.i.i.i, %562 ], [ %.023.i.i.i.i.i, %.split.i.i.i.i.i ], [ %.023.i.i.i.i.i, %556 ], [ %.023.i.i.i.i.i, %552 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %563 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %.us-phi.i.i.i.i.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %564 = add i32 %563, %.us-phi.i.i.i.i.i
   br label %572
@@ -5334,17 +5331,17 @@ fPropertyReference.exit.i.i.i.i:                  ; preds = %562, %556, %552, %.
   br label %fSubscribeCOVPropertyMultipleError.exit.i.i.i
 
 566:                                              ; preds = %540
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %567 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %.387.i.i.i.i, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %568 = add i32 %567, %.387.i.i.i.i
   %569 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %568)
   %570 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, i32 noundef %569, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10)
   %571 = add i32 %570, %569
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %572
 
 572:                                              ; preds = %566, %fPropertyReference.exit.i.i.i.i, %542
@@ -5362,9 +5359,9 @@ fPropertyReference.exit.i.i.i.i:                  ; preds = %562, %556, %552, %.
   br i1 %.not70.i.i.i.i, label %503, label %fSubscribeCOVPropertyMultipleError.exit.i.i.i, !llvm.loop !20
 
 fSubscribeCOVPropertyMultipleError.exit.i.i.i:    ; preds = %.loopexit.i.i.i40.i, %513, %503, %540, %.thread73.i.i.i.i, %511
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %do_the_dissection.exit.thread
 
 573:                                              ; preds = %392
@@ -5433,55 +5430,52 @@ do_the_dissection.exit.thread:                    ; preds = %.preheader81.i.i.i,
   %607 = load i32, ptr @bacapp_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %607, ptr noundef %1, ptr noundef nonnull @bacinfo)
   %608 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   ret i32 %608
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
@@ -5557,16 +5551,16 @@ define internal fastcc range(i32 3, 7) i32 @fStartConfirmed(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @fContinueConfirmedRequestPDU(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef %4) unnamed_addr #0 {
@@ -5851,9 +5845,9 @@ define internal fastcc void @fContinueComplexAckPDU(ptr noundef nonnull %0, ptr 
   br label %fConfirmedServiceAck.exit
 
 59:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 -1, ptr @propertyArrayIndex, align 4
   %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3)
   %61 = icmp sgt i32 %60, 0
@@ -5908,9 +5902,9 @@ define internal fastcc void @fContinueComplexAckPDU(ptr noundef nonnull %0, ptr 
   br i1 %.not.i72.i, label %.backedge.i.i, label %fReadPropertyAck.exit.i
 
 fReadPropertyAck.exit.i:                          ; preds = %80, %70, %.backedge.i.i, %59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %fConfirmedServiceAck.exit
 
 81:                                               ; preds = %26
@@ -5964,9 +5958,9 @@ fReadPropertyAck.exit.i:                          ; preds = %80, %70, %.backedge
   br label %fConfirmedServiceAck.exit
 
 103:                                              ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 -1, ptr @propertyArrayIndex, align 4
   %104 = tail call fastcc i32 @fBACnetObjectPropertyReference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3)
   %105 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %104, ptr noundef nonnull @.str.3927, ptr noundef nonnull @BACnetResultFlags, i1 noundef zeroext false)
@@ -6002,15 +5996,15 @@ fReadPropertyAck.exit.i:                          ; preds = %80, %70, %.backedge
   br label %fReadRangeAck.exit.i
 
 fReadRangeAck.exit.i:                             ; preds = %124, %121
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %fConfirmedServiceAck.exit
 
 126:                                              ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %127
 
 127:                                              ; preds = %209, %126
@@ -6030,9 +6024,9 @@ fReadRangeAck.exit.i:                             ; preds = %124, %121
 133:                                              ; preds = %130
   %134 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i78.i, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %135 = add i32 %134, %.0.i78.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %136
 
 136:                                              ; preds = %204, %133
@@ -6171,9 +6165,9 @@ fTagHeaderTree.exit.i.i:                          ; preds = %169, %165
 
 flistOfEventSummaries.exit.i.i:                   ; preds = %204, %173, %fTagHeaderTree.exit.i.i, %136
   %.081.i.i.i = phi i32 [ %.0.i.i.i, %173 ], [ %.0.i.i.i, %fTagHeaderTree.exit.i.i ], [ %.2.i.i.i, %204 ], [ %.0.i.i.i, %136 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %205 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.081.i.i.i, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %206 = add i32 %205, %.081.i.i.i
   br label %209
@@ -6188,15 +6182,15 @@ flistOfEventSummaries.exit.i.i:                   ; preds = %204, %173, %fTagHea
   br i1 %.not.i80.i, label %127, label %fGetEventInformationACK.exit.i, !llvm.loop !26
 
 fGetEventInformationACK.exit.i:                   ; preds = %209, %130, %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %fConfirmedServiceAck.exit
 
 210:                                              ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %211
 
 211:                                              ; preds = %249, %210
@@ -6224,9 +6218,9 @@ fGetEventInformationACK.exit.i:                   ; preds = %209, %130, %127
   %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0.i81.i, ptr noundef nonnull %0, i32 noundef %.036.i.i, i32 noundef 1, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.3941)
   %222 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %221, i32 noundef %.036.i.i, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %223 = add i32 %222, %.036.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %224
 
 224:                                              ; preds = %244, %219
@@ -6270,9 +6264,9 @@ fGetEventInformationACK.exit.i:                   ; preds = %209, %130, %127
 
 fAuditLogRecordResult.exit.i.i:                   ; preds = %244, %232, %227, %224
   %.032.i.i.i = phi i32 [ %.0.i.i85.i, %232 ], [ %.0.i.i85.i, %227 ], [ %.2.i.i86.i, %244 ], [ %.0.i.i85.i, %224 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %245 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %221, i32 noundef %.032.i.i.i, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %246 = add i32 %245, %.032.i.i.i
   br label %249
@@ -6288,9 +6282,9 @@ fAuditLogRecordResult.exit.i.i:                   ; preds = %244, %232, %227, %2
   br i1 %.not.i84.i, label %211, label %fAuditLogQueryAck.exit.i, !llvm.loop !28
 
 fAuditLogQueryAck.exit.i:                         ; preds = %249, %214, %211
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %fConfirmedServiceAck.exit
 
 fConfirmedServiceAck.exit:                        ; preds = %.preheader91.i, %93, %100, %.preheader88.i, %47, %.preheader.i, %29, %5, %26, %48, %51, %57, %fReadPropertyAck.exit.i, %81, %83, %87, %89, %101, %fReadRangeAck.exit.i, %fGetEventInformationACK.exit.i, %fAuditLogQueryAck.exit.i
@@ -6298,16 +6292,16 @@ fConfirmedServiceAck.exit:                        ; preds = %.preheader91.i, %93
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fVendorIdentifier(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -6315,10 +6309,10 @@ define internal fastcc i32 @fVendorIdentifier(ptr noundef nonnull %0, ptr nounde
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %10 = add i32 %9, %3
   %11 = load i32, ptr %7, align 4
@@ -6381,10 +6375,10 @@ fUnsigned32.exit:                                 ; preds = %4
 
 40:                                               ; preds = %37, %34
   %.028 = add i32 %32, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.028
 }
 
@@ -6393,9 +6387,9 @@ define internal fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %52
@@ -6491,9 +6485,9 @@ define internal fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef nonnull
 
 52:                                               ; preds = %13, %17, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19, %7
   %.0 = phi i32 [ %3, %13 ], [ %3, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %51, %45 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -6502,16 +6496,16 @@ define internal fastcc noundef i32 @fNullTag(ptr noundef nonnull %0, ptr noundef
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_bacapp_tag, align 4
   %10 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef %4)
   %11 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %10, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %12 = add i32 %3, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
@@ -6520,9 +6514,9 @@ define internal fastcc noundef i32 @fBooleanTag(ptr noundef nonnull %0, ptr noun
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = load i8, ptr %7, align 1
   %11 = icmp ne i8 %10, 0
@@ -6546,9 +6540,9 @@ define internal fastcc noundef i32 @fBooleanTag(ptr noundef nonnull %0, ptr noun
   %23 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.0, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.2606, ptr noundef %4, ptr noundef nonnull %22)
   %24 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %23, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %25 = add i32 %.0, %3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
@@ -6557,9 +6551,9 @@ define internal fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1,
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = load i32, ptr %8, align 4
@@ -6596,9 +6590,9 @@ fUnsigned64.exit:                                 ; preds = %5
   %26 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %27 = load i32, ptr %8, align 4
   %28 = add i32 %27, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %28
 }
 
@@ -6607,9 +6601,9 @@ define internal fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, p
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = load i32, ptr %8, align 4
@@ -6656,9 +6650,9 @@ fSigned64.exit:                                   ; preds = %5
   %31 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %32 = load i32, ptr %8, align 4
   %33 = add i32 %32, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %33
 }
 
@@ -6667,9 +6661,9 @@ define internal fastcc noundef i32 @fRealTag(ptr noundef nonnull %0, ptr noundef
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %10)
@@ -6679,9 +6673,9 @@ define internal fastcc noundef i32 @fRealTag(ptr noundef nonnull %0, ptr noundef
   %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef %4, double noundef %14)
   %16 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %17 = add i32 %10, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %17
 }
 
@@ -6690,9 +6684,9 @@ define internal fastcc noundef i32 @fDoubleTag(ptr noundef nonnull %0, ptr nound
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %10)
@@ -6701,9 +6695,9 @@ define internal fastcc noundef i32 @fDoubleTag(ptr noundef nonnull %0, ptr nound
   %14 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.2614, ptr noundef %4, double noundef %11)
   %15 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %14, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %16 = add i32 %10, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -6712,8 +6706,8 @@ define internal fastcc i32 @fOctetString(ptr noundef nonnull %0, ptr noundef %1,
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %10 = add i32 %9, %3
   %11 = load i32, ptr %6, align 4
@@ -6733,8 +6727,8 @@ define internal fastcc i32 @fOctetString(ptr noundef nonnull %0, ptr noundef %1,
   %.019 = phi i32 [ %18, %12 ], [ %10, %5 ]
   %.0 = phi ptr [ %17, %12 ], [ %2, %5 ]
   %20 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.019
 }
 
@@ -6743,9 +6737,9 @@ define internal fastcc i32 @fEnumeratedTagSplit(ptr noundef nonnull %0, ptr noun
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %12 = add i32 %11, %3
   %13 = load i32, ptr %10, align 4
@@ -6803,9 +6797,9 @@ fUnsigned32.exit:                                 ; preds = %7
   %37 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %38 = load i32, ptr %10, align 4
   %39 = add i32 %38, %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %39
 }
 
@@ -6814,9 +6808,9 @@ define internal fastcc i32 @fDate(ptr noundef nonnull %0, ptr noundef %1, ptr no
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %10)
@@ -6873,9 +6867,9 @@ define internal fastcc i32 @fDate(ptr noundef nonnull %0, ptr noundef %1, ptr no
   %48 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %49 = load i32, ptr %8, align 4
   %50 = add i32 %49, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %50
 }
 
@@ -6884,9 +6878,9 @@ define internal fastcc i32 @fTime(ptr noundef nonnull %0, ptr noundef %1, ptr no
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %10 = add i32 %9, %3
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %10)
@@ -6933,9 +6927,9 @@ define internal fastcc i32 @fTime(ptr noundef nonnull %0, ptr noundef %1, ptr no
   %42 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %43 = load i32, ptr %6, align 4
   %44 = add i32 %43, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %44
 }
 
@@ -6944,9 +6938,9 @@ define internal fastcc noundef i32 @fObjectIdentifier(ptr noundef nonnull %0, pt
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %10 = add i32 %9, %3
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %0, i32 noundef %10)
@@ -6983,19 +6977,19 @@ define internal fastcc noundef i32 @fObjectIdentifier(ptr noundef nonnull %0, pt
   %35 = load i32, ptr @hf_bacapp_instanceNumber, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %35, ptr noundef nonnull %0, i32 noundef %10, i32 noundef 4, i32 noundef 0)
   %37 = add i32 %10, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((0, 1)) %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5, ptr noundef captures(none) initializes((0, 4)) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %3)
   store i8 0, ptr %5, align 1
@@ -7172,48 +7166,48 @@ define internal fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %
   br label %98
 
 98:                                               ; preds = %93, %89
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare float @tvb_get_ntohieee_float(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare float @tvb_get_ntohieee_float(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare double @tvb_get_ntohieee_double(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @tvb_get_ntohieee_double(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fCharacterStringBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %53
@@ -7296,20 +7290,20 @@ switch.lookup:                                    ; preds = %25
 
 53:                                               ; preds = %46, %50, %7
   %.0 = phi i32 [ %45, %50 ], [ %45, %46 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
@@ -7317,10 +7311,10 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = alloca [257 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %13 = load i32, ptr %10, align 4
   %14 = add i32 %13, -1
@@ -7493,33 +7487,33 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
 98:                                               ; preds = %89, %._crit_edge109
   %99 = load i32, ptr %10, align 4
   %100 = add i32 %99, %15
-  call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %100
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_boolean_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fConfirmedCOVNotificationRequest(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
@@ -7595,9 +7589,9 @@ define internal fastcc i32 @fConfirmedCOVNotificationRequest(ptr noundef nonnull
 
 .loopexit:                                        ; preds = %19, %38, %.backedge, %4, %.thread
   %.048 = phi i32 [ %.04956, %.thread ], [ %3, %4 ], [ %.04956, %19 ], [ %.2, %38 ], [ %.049.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.048
 }
 
@@ -7606,9 +7600,9 @@ define internal fastcc i32 @fProcessId(ptr noundef nonnull %0, ptr noundef %1, p
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %9 = add i32 %8, %3
   %10 = load i32, ptr %5, align 4
@@ -7657,9 +7651,9 @@ fUnsigned32.exit:                                 ; preds = %4
   %31 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %9, %32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %33
 }
 
@@ -7668,9 +7662,9 @@ define internal fastcc i32 @fTimeSpan(ptr noundef nonnull %0, ptr noundef %1, pt
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %10 = add i32 %9, %3
   %11 = load i32, ptr %6, align 4
@@ -7725,9 +7719,9 @@ fUnsigned32.exit:                                 ; preds = %5
   %36 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %37 = load i32, ptr %6, align 4
   %38 = add i32 %37, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %38
 }
 
@@ -7739,9 +7733,9 @@ define internal fastcc i32 @fBACnetPropertyValue(ptr noundef nonnull %0, ptr nou
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %11
 
 11:                                               ; preds = %70, %4
@@ -7751,9 +7745,9 @@ define internal fastcc i32 @fBACnetPropertyValue(ptr noundef nonnull %0, ptr nou
   br i1 %13, label %14, label %71
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.us.i
 
@@ -7854,9 +7848,9 @@ fPropertyReference.exit:                          ; preds = %.split.us.i, %fTagH
 
 fPropertyIdentifierValue.exit:                    ; preds = %fPropertyReference.exit, %53, %57
   %.0.i = phi i32 [ %59, %57 ], [ %.us-phi.i, %53 ], [ %.us-phi.i, %fPropertyReference.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %60 = icmp ugt i32 %.0.i, %.0
   br i1 %60, label %61, label %70
 
@@ -7881,22 +7875,22 @@ fPropertyIdentifierValue.exit:                    ; preds = %fPropertyReference.
 
 71:                                               ; preds = %70, %11
   %.1 = phi i32 [ %.2, %70 ], [ %.0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fPropertyValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = and i8 %4, 7
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %20
@@ -7921,8 +7915,8 @@ define internal fastcc i32 @fPropertyValue(ptr noundef nonnull %0, ptr noundef %
 
 23:                                               ; preds = %11, %17, %20
   %.0 = phi i32 [ %19, %17 ], [ %14, %11 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -7931,9 +7925,9 @@ define internal fastcc i32 @fPropertyIdentifier(ptr noundef nonnull %0, ptr noun
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr @propertyIdentifier, align 4
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = add i32 %8, %3
@@ -7989,9 +7983,9 @@ define internal fastcc i32 @fPropertyIdentifier(ptr noundef nonnull %0, ptr noun
 
 fUnsigned32.exit:                                 ; preds = %4, %21
   %.0 = phi i32 [ %37, %21 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -8000,9 +7994,9 @@ define internal fastcc i32 @fPropertyArrayIndex(ptr noundef nonnull %0, ptr noun
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = add i32 %8, %3
   %10 = load i32, ptr %7, align 4
@@ -8050,9 +8044,9 @@ fUnsigned32.exit:                                 ; preds = %4
   %29 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %30 = load i32, ptr %7, align 4
   %31 = add i32 %30, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %31
 }
 
@@ -8265,10 +8259,10 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   %209 = alloca i8, align 1
   %210 = alloca i32, align 4
   %211 = alloca [256 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %208) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %209) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %210) #6
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %211) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
+  call void @llvm.lifetime.start.p0(ptr nonnull %209)
+  call void @llvm.lifetime.start.p0(ptr nonnull %210)
+  call void @llvm.lifetime.start.p0(ptr nonnull %211)
   %212 = load i32, ptr @propertyIdentifier, align 4
   %213 = icmp sgt i32 %212, -1
   br i1 %213, label %214, label %218
@@ -8506,9 +8500,9 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   br i1 %.not1026, label %293, label %238
 
 238:                                              ; preds = %236
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %205) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %206) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %207) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   %239 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %.lr.ph1240, label %fActionList.exit
@@ -8556,9 +8550,9 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
   br i1 %cond.i, label %258, label %292
 
 258:                                              ; preds = %256
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 -1, ptr @propertyArrayIndex, align 4
   %259 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.2.i)
   %260 = icmp sgt i32 %259, 0
@@ -8643,9 +8637,9 @@ define internal fastcc i32 @fAbstractSyntaxNType(ptr noundef nonnull %0, ptr nou
 
 fActionCommand.exit:                              ; preds = %291, %272, %266, %.backedge, %258
   %.052.i1007 = phi i32 [ %.2.i, %258 ], [ %.2.i1008, %291 ], [ %.053.i10061227, %272 ], [ %.053.i10061227, %266 ], [ %.053.i1006.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %292
 
 292:                                              ; preds = %fActionCommand.exit, %256
@@ -8655,9 +8649,9 @@ fActionCommand.exit:                              ; preds = %291, %272, %266, %.
 
 fActionList.exit:                                 ; preds = %292, %244, %.backedge1028, %238
   %.030.i = phi i32 [ %.0808, %238 ], [ %.3.i, %292 ], [ %.031.i1237, %244 ], [ %.031.i.be, %.backedge1028 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %207) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %206) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %205) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
   br label %fDestination.exit.thread
 
 293:                                              ; preds = %236
@@ -8792,9 +8786,9 @@ fActionList.exit:                                 ; preds = %292, %244, %.backed
   br label %fDestination.exit.thread
 
 354:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %202) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %203) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %204) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   %355 = load ptr, ptr %222, align 8
   call void @col_set_writable(ptr noundef %355, i32 noundef 25, i1 noundef zeroext false)
   br label %356
@@ -8819,15 +8813,15 @@ fActionList.exit:                                 ; preds = %292, %244, %.backed
 
 fLOPR.exit:                                       ; preds = %356, %359, %364
   %.1.i828 = phi i32 [ %.0.i827, %359 ], [ %365, %364 ], [ %.0.i827, %356 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %204) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %203) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %202) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
   br label %fDestination.exit.thread
 
 366:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %199)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %200) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %201) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   %367 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %200, ptr noundef nonnull %201, ptr noundef nonnull %199)
   %368 = add i32 %367, %.0808
   %369 = load i32, ptr %199, align 4
@@ -8846,9 +8840,9 @@ fSessionKey.exit:                                 ; preds = %366, %370
   %.019.i.i = phi i32 [ %375, %370 ], [ %368, %366 ]
   %.0.i.i = phi ptr [ %374, %370 ], [ %2, %366 ]
   %376 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i, i32 noundef %.0808, ptr noundef nonnull %200, ptr noundef nonnull %201, ptr noundef nonnull %199)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %201) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %200) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
   %377 = call fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.019.i.i)
   br label %fDestination.exit.thread.thread
 
@@ -8905,10 +8899,10 @@ fSessionKey.exit:                                 ; preds = %366, %370
   br label %fDestination.exit.thread
 
 408:                                              ; preds = %403
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %195) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %196) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %197) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %198) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %409 = icmp sgt i32 %404, 0
   %410 = trunc i32 %404 to i8
   %spec.select.i = select i1 %409, i8 %410, i8 1
@@ -8992,10 +8986,10 @@ fSessionKey.exit:                                 ; preds = %366, %370
 
 fPriorityArray.exit:                              ; preds = %411, %454
   %.173.i = phi i32 [ %.2.i832, %454 ], [ %.072.i, %411 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %198) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %197) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %196) #6
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %195) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
   br label %fDestination.exit.thread
 
 456:                                              ; preds = %232
@@ -9013,9 +9007,9 @@ fPriorityArray.exit:                              ; preds = %411, %454
   br label %fDestination.exit.thread
 
 464:                                              ; preds = %459
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %465
 
 465:                                              ; preds = %507, %464
@@ -9063,9 +9057,9 @@ fPriorityArray.exit:                              ; preds = %411, %454
 487:                                              ; preds = %485
   %488 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %489 = add i32 %488, %.0.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %490
 
 490:                                              ; preds = %498, %487
@@ -9089,9 +9083,9 @@ fPriorityArray.exit:                              ; preds = %411, %454
 
 fTimeValue.exit.i:                                ; preds = %498, %493, %490
   %.018.i.i1356 = phi i32 [ %.0.i.i1355, %493 ], [ %500, %498 ], [ %.0.i.i1355, %490 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %501 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.018.i.i1356, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %502 = add i32 %501, %.018.i.i1356
   br label %507
@@ -9111,9 +9105,9 @@ fTimeValue.exit.i:                                ; preds = %498, %493, %490
 
 fSpecialEvent.exit:                               ; preds = %465, %468, %473, %475, %507, %503
   %.048.i = phi i32 [ %.0.i, %503 ], [ %.0.i, %473 ], [ %.0.i, %468 ], [ %.2.i1353, %507 ], [ %.0.i, %465 ], [ %.0.i, %475 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %fDestination.exit.thread
 
 508:                                              ; preds = %232, %232, %232, %232, %232
@@ -9147,9 +9141,9 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   br label %fDestination.exit.thread
 
 526:                                              ; preds = %521
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %spec.select.i1358 = call i32 @llvm.smax.i32(i32 %522, i32 1)
   br label %527
 
@@ -9172,9 +9166,9 @@ fSpecialEvent.exit:                               ; preds = %465, %468, %473, %4
   %537 = add i32 %.1.i1360, 1
   %538 = call ptr @val_to_str(i32 noundef %.1.i1360, ptr noundef nonnull @day_of_week, ptr noundef nonnull @.str.3061)
   %539 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.019.i1359, i32 noundef 0, i32 noundef %536, ptr noundef null, ptr noundef %538)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %540 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.019.i1359, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %541 = load i8, ptr %6, align 1
   %542 = and i8 %541, 7
@@ -9282,9 +9276,9 @@ fTimeValue.exit.i.i:                              ; preds = %589, %fTagHeaderTre
   br i1 %or.cond4.i.i, label %.loopexit.sink.split.i.i, label %fDailySchedule.exit.thread.i
 
 fDailySchedule.exit.thread.i:                     ; preds = %592
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %fWeeklySchedule.exit
 
 .loopexit.sink.split.i.i:                         ; preds = %552, %592
@@ -9295,17 +9289,17 @@ fDailySchedule.exit.thread.i:                     ; preds = %592
 
 fDailySchedule.exit.i:                            ; preds = %fTimeValue.exit.i.i, %549, %.loopexit.sink.split.i.i
   %.036.i.i = phi i32 [ %596, %.loopexit.sink.split.i.i ], [ %.0.i.i1363, %549 ], [ %.018.i.i.i, %fTimeValue.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i1362 = icmp ugt i32 %.036.i.i, %.019.i1359
   br i1 %.not.i1362, label %527, label %fWeeklySchedule.exit, !llvm.loop !49
 
 fWeeklySchedule.exit:                             ; preds = %527, %530, %fDailySchedule.exit.i, %fDailySchedule.exit.thread.i
   %.021.i = phi i32 [ %.019.i1359, %fDailySchedule.exit.thread.i ], [ %.019.i1359, %530 ], [ %.036.i.i, %fDailySchedule.exit.i ], [ %.019.i1359, %527 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fDestination.exit.thread
 
 597:                                              ; preds = %232
@@ -9342,9 +9336,9 @@ fWeeklySchedule.exit:                             ; preds = %527, %530, %fDailyS
   br label %fDestination.exit.thread
 
 612:                                              ; preds = %232, %232, %232, %232, %232, %232, %232, %232, %232, %232, %232, %232, %232, %232, %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %192) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %193) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %194) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
   br label %613
 
 613:                                              ; preds = %624, %612
@@ -9378,16 +9372,16 @@ fWeeklySchedule.exit:                             ; preds = %527, %530, %fDailyS
 
 fDeviceObjectReference.exit:                      ; preds = %613, %616, %621, %624
   %.018.i = phi i32 [ %.0.i835, %621 ], [ %.0.i835, %616 ], [ %625, %624 ], [ %.0.i835, %613 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %194) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %193) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %192) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %fDestination.exit.thread
 
 626:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %188) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %189) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %190) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %191) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
   %627 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %188, ptr noundef nonnull %189, ptr noundef nonnull %190)
   %628 = add i32 %627, %.0808
   %629 = load i32, ptr %190, align 4
@@ -9449,10 +9443,10 @@ fUnsigned32.exit.i:                               ; preds = %626
 
 fRestartReason.exit:                              ; preds = %651, %654
   %.027.i = add i32 %650, %628
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %191) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %190) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %189) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %188) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %fDestination.exit.thread
 
 657:                                              ; preds = %.preheader1606, %677
@@ -9479,9 +9473,9 @@ fRestartReason.exit:                              ; preds = %651, %654
   br label %677
 
 667:                                              ; preds = %660
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %185) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %186) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %187) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   %668 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i839, ptr noundef nonnull %185, ptr noundef nonnull %186, ptr noundef nonnull %187)
   %669 = add i32 %668, %.0.i839
   %670 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %669)
@@ -9491,9 +9485,9 @@ fRestartReason.exit:                              ; preds = %651, %654
   %674 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0.i839, i32 noundef %671, i32 noundef %672, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3260, double noundef %673)
   %675 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %674, i32 noundef %.0.i839, ptr noundef nonnull %185, ptr noundef nonnull %186, ptr noundef nonnull %187)
   %676 = add i32 %669, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %187) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %186) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %185) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   br label %677
 
 677:                                              ; preds = %667, %665, %663
@@ -9502,9 +9496,9 @@ fRestartReason.exit:                              ; preds = %651, %654
   br i1 %.not.i841, label %657, label %fDestination.exit.thread, !llvm.loop !51
 
 678:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %182) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %183) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %184) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   br label %679
 
 679:                                              ; preds = %722, %678
@@ -9564,9 +9558,9 @@ fRestartReason.exit:                              ; preds = %651, %654
   br label %722
 
 712:                                              ; preds = %687
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %179) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %180) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %181) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   %713 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.063.i, ptr noundef nonnull %179, ptr noundef nonnull %180, ptr noundef nonnull %181)
   %714 = add i32 %713, %.063.i
   %715 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %714)
@@ -9576,9 +9570,9 @@ fRestartReason.exit:                              ; preds = %651, %654
   %719 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.065.i, ptr noundef nonnull %0, i32 noundef %.063.i, i32 noundef %716, i32 noundef %717, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3266, double noundef %718)
   %720 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %719, i32 noundef %.063.i, ptr noundef nonnull %179, ptr noundef nonnull %180, ptr noundef nonnull %181)
   %721 = add i32 %714, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %181) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %180) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %179) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   br label %722
 
 722:                                              ; preds = %712, %710, %708, %700, %689
@@ -9590,9 +9584,9 @@ fRestartReason.exit:                              ; preds = %651, %654
 
 fCOVSubscription.exit:                            ; preds = %679, %682, %687, %722
   %.062.i = phi i32 [ %.063.i, %682 ], [ %.2.i843, %722 ], [ %.063.i, %679 ], [ %.063.i, %687 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %184) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %183) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %182) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   br label %fDestination.exit.thread
 
 723:                                              ; preds = %232
@@ -9604,9 +9598,9 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
   br label %fDestination.exit.thread
 
 727:                                              ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %176) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %177) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %178) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %728 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %176, ptr noundef nonnull %177, ptr noundef nonnull %178)
   %729 = load i32, ptr @ett_bacapp_value, align 4
   %730 = load i8, ptr %176, align 1
@@ -10648,9 +10642,9 @@ fCOVSubscription.exit:                            ; preds = %679, %682, %687, %7
 
 fEventParameter.exit:                             ; preds = %.lr.ph1183, %727, %.thread
   %.0651.i = phi i32 [ %1240, %.thread ], [ %735, %727 ], [ %.16626.i1182, %.lr.ph1183 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %178) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %177) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %176) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %fDestination.exit.thread
 
 1241:                                             ; preds = %232
@@ -10777,9 +10771,9 @@ fEventParameter.exit:                             ; preds = %.lr.ph1183, %727, %
   br label %fDestination.exit.thread
 
 1303:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %173) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %174) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %175) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   br label %1304
 
 1304:                                             ; preds = %1315, %1303
@@ -10813,15 +10807,15 @@ fEventParameter.exit:                             ; preds = %.lr.ph1183, %727, %
 
 fPrescale.exit:                                   ; preds = %1304, %1307, %1312, %1315
   %.019.i = phi i32 [ %.0.i854, %1307 ], [ %.0.i854, %1312 ], [ %1316, %1315 ], [ %.0.i854, %1304 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %175) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %174) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %173) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   br label %fDestination.exit.thread
 
 1317:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %170) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %171) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %172) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   br label %1318
 
 1318:                                             ; preds = %1340, %1317
@@ -10845,9 +10839,9 @@ fPrescale.exit:                                   ; preds = %1304, %1307, %1312,
   ]
 
 1328:                                             ; preds = %1326
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %167) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %168) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %169) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   %1329 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i856, ptr noundef nonnull %167, ptr noundef nonnull %168, ptr noundef nonnull %169)
   %1330 = add i32 %1329, %.0.i856
   %1331 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %1330)
@@ -10857,9 +10851,9 @@ fPrescale.exit:                                   ; preds = %1304, %1307, %1312,
   %1335 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0.i856, i32 noundef %1332, i32 noundef %1333, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3430, double noundef %1334)
   %1336 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1335, i32 noundef %.0.i856, ptr noundef nonnull %167, ptr noundef nonnull %168, ptr noundef nonnull %169)
   %1337 = add i32 %1330, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %169) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %168) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %167) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
   br label %1340
 
 1338:                                             ; preds = %1326
@@ -10873,9 +10867,9 @@ fPrescale.exit:                                   ; preds = %1304, %1307, %1312,
 
 fScale.exit:                                      ; preds = %1318, %1321, %1326, %1340
   %.019.i857 = phi i32 [ %.0.i856, %1321 ], [ %.0.i856, %1326 ], [ %.2.i858, %1340 ], [ %.0.i856, %1318 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %172) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %171) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %170) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
   br label %fDestination.exit.thread
 
 1341:                                             ; preds = %232
@@ -10895,9 +10889,9 @@ fScale.exit:                                      ; preds = %1318, %1321, %1326,
   br label %fDestination.exit.thread
 
 1351:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %164) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %165) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %166) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   br label %1352
 
 1352:                                             ; preds = %1377, %1351
@@ -10952,9 +10946,9 @@ fScale.exit:                                      ; preds = %1318, %1321, %1326,
 
 fLoggingRecord.exit:                              ; preds = %1352, %1355, %1360, %1377
   %.037.i = phi i32 [ %.0.i862, %1355 ], [ %.0.i862, %1360 ], [ %.2.i863, %1377 ], [ %.0.i862, %1352 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %166) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %165) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %164) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %fDestination.exit.thread
 
 1378:                                             ; preds = %232
@@ -10966,9 +10960,9 @@ fLoggingRecord.exit:                              ; preds = %1352, %1355, %1360,
   br label %fDestination.exit.thread
 
 1382:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %161) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %162) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %163) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   br label %1383
 
 1383:                                             ; preds = %fDeviceObjectReference.exit.i, %1382
@@ -11059,9 +11053,9 @@ fTagHeaderTree.exit.i:                            ; preds = %1419, %1416
 
 1426:                                             ; preds = %1425, %1424
   %.str.2598.sink.i.i = phi ptr [ @.str.2598, %1425 ], [ @.str.2675, %1424 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %158) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %159) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %160) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   %1427 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.0.i.i866)
   %1428 = and i8 %1427, 7
   %1429 = zext nneg i8 %1428 to i32
@@ -11164,9 +11158,9 @@ fTagHeaderTree.exit22.i:                          ; preds = %1460, %1456
   %1486 = load i32, ptr @hf_bacapp_instanceNumber, align 4
   %1487 = call ptr @proto_tree_add_item(ptr noundef %1471, i32 noundef %1486, ptr noundef nonnull %0, i32 noundef %1463, i32 noundef 4, i32 noundef 0)
   %1488 = add i32 %1463, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %160) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %159) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %158) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %.not.i.i869 = icmp ugt i32 %1488, %.0.i.i866
   br i1 %.not.i.i869, label %.preheader.i, label %fDeviceObjectReference.exit.i, !llvm.loop !50
 
@@ -11177,15 +11171,15 @@ fDeviceObjectReference.exit.i:                    ; preds = %fTagHeaderTree.exit
 
 fDoorMembers.exit:                                ; preds = %1383, %1386, %fDeviceObjectReference.exit.i
   %.014.i = phi i32 [ %.0.i865, %1386 ], [ %.018.i.i, %fDeviceObjectReference.exit.i ], [ %.0.i865, %1383 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %163) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %162) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %161) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
   br label %fDestination.exit.thread
 
 1489:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %155) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %156) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %157) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   br label %1490
 
 1490:                                             ; preds = %1498, %1489
@@ -11208,9 +11202,9 @@ fDoorMembers.exit:                                ; preds = %1383, %1386, %fDevi
 
 fSequenceOfEnums.exit:                            ; preds = %1490, %1493, %1498
   %.0.i870 = phi i32 [ %.016.i, %1493 ], [ %1499, %1498 ], [ %.016.i, %1490 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %157) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %156) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %155) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
   br label %fDestination.exit.thread
 
 1500:                                             ; preds = %232
@@ -11223,9 +11217,9 @@ fSequenceOfEnums.exit:                            ; preds = %1490, %1493, %1498
 
 1504:                                             ; preds = %232
   %1505 = load i32, ptr @object_type, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %152) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %153) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %154) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   br label %1506
 
 1506:                                             ; preds = %1514, %1504
@@ -11248,9 +11242,9 @@ fSequenceOfEnums.exit:                            ; preds = %1490, %1493, %1498
 
 fListOfGroupMembers.exit:                         ; preds = %1506, %1509, %1514
   %.014.i873 = phi i32 [ %.0.i872, %1509 ], [ %1515, %1514 ], [ %.0.i872, %1506 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %154) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %153) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %152) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
   store i32 %1505, ptr @object_type, align 4
   br label %fDestination.exit.thread
 
@@ -11271,9 +11265,9 @@ fListOfGroupMembers.exit:                         ; preds = %1506, %1509, %1514
   br label %fDestination.exit.thread
 
 1524:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %149) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %150) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %151) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   %1525 = load i32, ptr @ett_bacapp_tag, align 4
   %1526 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef 1, i32 noundef %1525, ptr noundef null, ptr noundef nonnull @.str.3464)
   %1527 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
@@ -11332,9 +11326,9 @@ fListOfGroupMembers.exit:                         ; preds = %1506, %1509, %1514
 1559:                                             ; preds = %1557
   %1560 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1526, i32 noundef %.06364.i, ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151)
   %1561 = add i32 %1560, %.06364.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %146) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %147) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %148) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %1562 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %1561)
   %1563 = icmp sgt i32 %1562, 0
   %1564 = icmp ne i32 %1561, 0
@@ -11370,9 +11364,9 @@ fListOfGroupMembers.exit:                         ; preds = %1506, %1509, %1514
 
 fKeyIdentifier.exit.i:                            ; preds = %1573, %1570, %.lr.ph.i.i, %1559
   %.019.lcssa.i.i = phi i32 [ %1561, %1559 ], [ %.01921.i.i, %.lr.ph.i.i ], [ %.01921.i.i, %1570 ], [ %1574, %1573 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %148) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %147) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %146) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
   %1579 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1526, i32 noundef %.019.lcssa.i.i, ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151)
   %1580 = add i32 %1579, %.019.lcssa.i.i
   br label %1583
@@ -11391,15 +11385,15 @@ fKeyIdentifier.exit.i:                            ; preds = %1573, %1570, %.lr.p
 
 fSecurityKeySet.exit:                             ; preds = %.lr.ph.i, %1535, %1583, %1524
   %.063.lcssa.i = phi i32 [ %.0808, %1524 ], [ %.1.i875, %1583 ], [ %.06364.i, %1535 ], [ %.06364.i, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %151) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %150) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %149) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
   br label %fDestination.exit.thread
 
 1588:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %143) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %144) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %145) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   %1589 = load i32, ptr @ett_bacapp_tag, align 4
   %1590 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef 1, i32 noundef %1589, ptr noundef null, ptr noundef nonnull @.str.3470)
   %1591 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
@@ -11441,9 +11435,9 @@ fSecurityKeySet.exit:                             ; preds = %.lr.ph.i, %1535, %1
 
 fNetworkSecurityPolicy.exit:                      ; preds = %.lr.ph.i876, %1599, %1605, %1588
   %.023.lcssa.i = phi i32 [ %.0808, %1588 ], [ %.1.i877, %1605 ], [ %.02324.i, %1599 ], [ %.02324.i, %.lr.ph.i876 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %145) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %144) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %143) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
   br label %fDestination.exit.thread
 
 1610:                                             ; preds = %232
@@ -11475,9 +11469,9 @@ fNetworkSecurityPolicy.exit:                      ; preds = %.lr.ph.i876, %1599,
   br label %fDestination.exit.thread
 
 1622:                                             ; preds = %232, %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %140) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %141) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %142) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   br label %1623
 
 1623:                                             ; preds = %1663, %1622
@@ -11522,9 +11516,9 @@ fNetworkSecurityPolicy.exit:                      ; preds = %.lr.ph.i876, %1599,
 1643:                                             ; preds = %1631
   %1644 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i878, ptr noundef nonnull %140, ptr noundef nonnull %141, ptr noundef nonnull %142)
   %1645 = add i32 %1644, %.0.i878
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %137) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %138) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %139) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   br label %1646
 
 1646:                                             ; preds = %1657, %1643
@@ -11558,9 +11552,9 @@ fNetworkSecurityPolicy.exit:                      ; preds = %.lr.ph.i876, %1599,
 
 fDeviceObjectReference.exit.i883:                 ; preds = %1657, %1654, %1649, %1646
   %.018.i.i884 = phi i32 [ %.0.i.i882, %1654 ], [ %.0.i.i882, %1649 ], [ %1658, %1657 ], [ %.0.i.i882, %1646 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %139) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %138) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %137) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   %1659 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.018.i.i884, ptr noundef nonnull %140, ptr noundef nonnull %141, ptr noundef nonnull %142)
   %1660 = add i32 %1659, %.018.i.i884
   br label %1663
@@ -11576,15 +11570,15 @@ fDeviceObjectReference.exit.i883:                 ; preds = %1657, %1654, %1649,
 
 fAccessRule.exit:                                 ; preds = %1623, %1626, %1631, %1663
   %.1.i879 = phi i32 [ %.0.i878, %1626 ], [ %.2.i880, %1663 ], [ %.0.i878, %1623 ], [ %.0.i878, %1631 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %142) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %141) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %140) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %fDestination.exit.thread
 
 1664:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %134) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %135) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %136) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   br label %1665
 
 1665:                                             ; preds = %1681, %1664
@@ -11627,9 +11621,9 @@ fAccessRule.exit:                                 ; preds = %1623, %1626, %1631,
 
 fAuthenticationFactorFormat.exit:                 ; preds = %1665, %1668, %1673, %1681
   %.1.i888 = phi i32 [ %.0.i887, %1668 ], [ %.2.i889, %1681 ], [ %.0.i887, %1665 ], [ %.0.i887, %1673 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %136) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %135) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %134) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
   br label %fDestination.exit.thread
 
 1682:                                             ; preds = %232
@@ -11637,9 +11631,9 @@ fAuthenticationFactorFormat.exit:                 ; preds = %1665, %1668, %1673,
   br label %fDestination.exit.thread
 
 1684:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %131) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %132) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %133) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   br label %1685
 
 1685:                                             ; preds = %1693, %1684
@@ -11662,15 +11656,15 @@ fAuthenticationFactorFormat.exit:                 ; preds = %1665, %1668, %1673,
 
 fSequenceOfEnums.exit894:                         ; preds = %1685, %1688, %1693
   %.0.i892 = phi i32 [ %.016.i891, %1688 ], [ %1694, %1693 ], [ %.016.i891, %1685 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %133) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %132) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %131) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
   br label %fDestination.exit.thread
 
 1695:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %128) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %129) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %130) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %1696 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %128, ptr noundef nonnull %129, ptr noundef nonnull %130)
   %1697 = load i32, ptr @ett_bacapp_value, align 4
   %1698 = load i8, ptr %128, align 1
@@ -12010,9 +12004,9 @@ fSequenceOfEnums.exit894:                         ; preds = %1685, %1688, %1693
 
 fFaultParameter.exit:                             ; preds = %1695, %.loopexit.i
   %.0252.i = phi i32 [ %1876, %.loopexit.i ], [ %1703, %1695 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %130) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %129) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %128) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %fDestination.exit.thread
 
 1877:                                             ; preds = %232
@@ -12020,9 +12014,9 @@ fFaultParameter.exit:                             ; preds = %1695, %.loopexit.i
   br label %fDestination.exit.thread
 
 1879:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %125) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %126) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %127) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %1880 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
   %1881 = icmp sgt i32 %1880, 0
   %1882 = icmp ne i32 %.0808, 0
@@ -12085,9 +12079,9 @@ fFaultParameter.exit:                             ; preds = %1695, %.loopexit.i
 
 fEventNotificationSubscription.exit:              ; preds = %.lr.ph.i903, %1888, %1907, %1879
   %.047.lcssa.i = phi i32 [ %.0808, %1879 ], [ %.148.i, %1907 ], [ %.04752.i, %1888 ], [ %.04752.i, %.lr.ph.i903 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %127) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %126) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %125) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
   br label %fDestination.exit.thread
 
 1912:                                             ; preds = %232
@@ -12126,9 +12120,9 @@ fEventNotificationSubscription.exit:              ; preds = %.lr.ph.i903, %1888,
   br label %fDestination.exit.thread
 
 1929:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %122) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %123) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %124) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   br label %1930
 
 1930:                                             ; preds = %.loopexit.i907, %1929
@@ -12264,9 +12258,9 @@ fTagHeaderTree.exit.i918:                         ; preds = %1989, %1986
 
 1996:                                             ; preds = %1995, %1994
   %.str.2598.sink.i.i919 = phi ptr [ @.str.2598, %1995 ], [ @.str.2675, %1994 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %119) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %120) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %121) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %1997 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.0.i.i913)
   %1998 = and i8 %1997, 7
   %1999 = zext nneg i8 %1998 to i32
@@ -12369,9 +12363,9 @@ fTagHeaderTree.exit60.i:                          ; preds = %2030, %2026
   %2056 = load i32, ptr @hf_bacapp_instanceNumber, align 4
   %2057 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2056, ptr noundef nonnull %0, i32 noundef %2033, i32 noundef 4, i32 noundef 0)
   %2058 = add i32 %2033, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %121) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %120) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %119) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
   %.not.i.i923 = icmp ugt i32 %2058, %.0.i.i913
   br i1 %.not.i.i923, label %1960, label %fDeviceObjectReference.exit.i914, !llvm.loop !50
 
@@ -12409,9 +12403,9 @@ fDeviceObjectReference.exit.i914:                 ; preds = %fTagHeaderTree.exit
 
 fAuthenticationPolicy.exit:                       ; preds = %1930, %1933, %1938, %.loopexit.i907, %1955
   %.153.i = phi i32 [ %.277.i, %1955 ], [ %.052.i, %1938 ], [ %.052.i, %1930 ], [ %.4.i908, %.loopexit.i907 ], [ %.052.i, %1933 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %124) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %123) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %122) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
   br label %fDestination.exit.thread
 
 2068:                                             ; preds = %232
@@ -12419,9 +12413,9 @@ fAuthenticationPolicy.exit:                       ; preds = %1930, %1933, %1938,
   br label %fDestination.exit.thread
 
 2070:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %116) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %117) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %118) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %2071 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
   %2072 = icmp sgt i32 %2071, 0
   %2073 = icmp ne i32 %.0808, 0
@@ -12451,16 +12445,16 @@ fAuthenticationPolicy.exit:                       ; preds = %1930, %1933, %1938,
   ]
 
 2083:                                             ; preds = %2081
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %2084 = load i32, ptr @ett_bacapp_tag, align 4
   %2085 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.050.i1094, i32 noundef 1, i32 noundef %2084, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3547)
   %2086 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2085, i32 noundef %.050.i1094, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %2087 = add i32 %.050.i1094, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2109
 
 2088:                                             ; preds = %2081
@@ -12504,9 +12498,9 @@ fAuthenticationPolicy.exit:                       ; preds = %1930, %1933, %1938,
 
 fTimerStateChangeValue.exit:                      ; preds = %2081, %.lr.ph, %2109, %2070
   %.050.i.lcssa = phi i32 [ %.0808, %2070 ], [ %.050.i1094, %2081 ], [ %.050.i1094, %.lr.ph ], [ %.1.i924, %2109 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %118) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %117) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %116) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %fDestination.exit.thread
 
 2114:                                             ; preds = %232
@@ -12522,9 +12516,9 @@ fTimerStateChangeValue.exit:                      ; preds = %2081, %.lr.ph, %210
   br label %fDestination.exit.thread
 
 2120:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %113) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %114) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %115) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   %2121 = load i32, ptr @ett_bacapp_value, align 4
   %2122 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef 0, i32 noundef %2121, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef nonnull %211)
   %2123 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
@@ -12557,9 +12551,9 @@ fTimerStateChangeValue.exit:                      ; preds = %2081, %.lr.ph, %210
   br label %2150
 
 2139:                                             ; preds = %2131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %110)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %111) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %112) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   %2140 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.03536.i, ptr noundef nonnull %111, ptr noundef nonnull %112, ptr noundef nonnull %110)
   %2141 = add i32 %2140, %.03536.i
   %2142 = load i32, ptr %110, align 4
@@ -12578,9 +12572,9 @@ fOctetString.exit.i:                              ; preds = %2143, %2139
   %.019.i.i927 = phi i32 [ %2148, %2143 ], [ %2141, %2139 ]
   %.0.i.i928 = phi ptr [ %2147, %2143 ], [ %2122, %2139 ]
   %2149 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i928, i32 noundef %.03536.i, ptr noundef nonnull %111, ptr noundef nonnull %112, ptr noundef nonnull %110)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %112) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %111) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %2150
 
 2150:                                             ; preds = %fOctetString.exit.i, %2133
@@ -12593,15 +12587,15 @@ fOctetString.exit.i:                              ; preds = %2143, %2139
 
 fBDTEntry.exit:                                   ; preds = %.lr.ph.i925, %2131, %2150, %2120
   %.035.lcssa.i = phi i32 [ %.0808, %2120 ], [ %.1.i929, %2150 ], [ %.03536.i, %2131 ], [ %.03536.i, %.lr.ph.i925 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %115) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %114) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %113) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
   br label %fDestination.exit.thread
 
 2155:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %107) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %108) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %109) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   %2156 = load i32, ptr @ett_bacapp_value, align 4
   %2157 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef 0, i32 noundef %2156, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef nonnull %211)
   %2158 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.0808)
@@ -12627,9 +12621,9 @@ fBDTEntry.exit:                                   ; preds = %.lr.ph.i925, %2131,
   ]
 
 2168:                                             ; preds = %2166
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %104)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %105) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %106) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   %2169 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.02930.i, ptr noundef nonnull %105, ptr noundef nonnull %106, ptr noundef nonnull %104)
   %2170 = add i32 %2169, %.02930.i
   %2171 = load i32, ptr %104, align 4
@@ -12648,9 +12642,9 @@ fOctetString.exit.i933:                           ; preds = %2172, %2168
   %.019.i.i934 = phi i32 [ %2177, %2172 ], [ %2170, %2168 ]
   %.0.i.i935 = phi ptr [ %2176, %2172 ], [ %2157, %2168 ]
   %2178 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i935, i32 noundef %.02930.i, ptr noundef nonnull %105, ptr noundef nonnull %106, ptr noundef nonnull %104)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %106) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %105) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %2183
 
 2179:                                             ; preds = %2166
@@ -12671,9 +12665,9 @@ fOctetString.exit.i933:                           ; preds = %2172, %2168
 
 fFDTEntry.exit:                                   ; preds = %.lr.ph.i930, %2166, %2183, %2155
   %.029.lcssa.i = phi i32 [ %.0808, %2155 ], [ %.1.i931, %2183 ], [ %.02930.i, %2166 ], [ %.02930.i, %.lr.ph.i930 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %109) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %108) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %107) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
   br label %fDestination.exit.thread
 
 2188:                                             ; preds = %232
@@ -12689,9 +12683,9 @@ fFDTEntry.exit:                                   ; preds = %.lr.ph.i930, %2166,
   br label %fDestination.exit.thread
 
 2194:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %101) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %102) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %103) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   br label %2195
 
 2195:                                             ; preds = %2222, %2194
@@ -12721,9 +12715,9 @@ fFDTEntry.exit:                                   ; preds = %.lr.ph.i930, %2166,
   br label %2222
 
 2207:                                             ; preds = %2203
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %98)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %99) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %100) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   %2208 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i936, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %98)
   %2209 = add i32 %2208, %.0.i936
   %2210 = load i32, ptr %98, align 4
@@ -12742,9 +12736,9 @@ fOctetString.exit.i940:                           ; preds = %2211, %2207
   %.019.i.i941 = phi i32 [ %2216, %2211 ], [ %2209, %2207 ]
   %.0.i.i942 = phi ptr [ %2215, %2211 ], [ %2, %2207 ]
   %2217 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i942, i32 noundef %.0.i936, ptr noundef nonnull %99, ptr noundef nonnull %100, ptr noundef nonnull %98)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %100) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %99) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   br label %2222
 
 2218:                                             ; preds = %2203
@@ -12762,15 +12756,15 @@ fOctetString.exit.i940:                           ; preds = %2211, %2207
 
 fRouterEntry.exit:                                ; preds = %2195, %2198, %2203, %2222
   %.026.i = phi i32 [ %.0.i936, %2203 ], [ %.0.i936, %2198 ], [ %.2.i937, %2222 ], [ %.0.i936, %2195 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %103) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %102) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
   br label %fDestination.exit.thread
 
 2223:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %95) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %96) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %97) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   br label %2224
 
 2224:                                             ; preds = %2256, %2223
@@ -12794,9 +12788,9 @@ fRouterEntry.exit:                                ; preds = %2195, %2198, %2203,
   ]
 
 2234:                                             ; preds = %2232
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %92)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %93) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %94) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %2235 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i943, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %92)
   %2236 = add i32 %2235, %.0.i943
   %2237 = load i32, ptr %92, align 4
@@ -12815,15 +12809,15 @@ fOctetString.exit.i948:                           ; preds = %2238, %2234
   %.019.i.i949 = phi i32 [ %2243, %2238 ], [ %2236, %2234 ]
   %.0.i.i950 = phi ptr [ %2242, %2238 ], [ %2, %2234 ]
   %2244 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i950, i32 noundef %.0.i943, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %92)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %94) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %93) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %2256
 
 2245:                                             ; preds = %2232
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %90) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %91) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %2246 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i943, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %89)
   %2247 = add i32 %2246, %.0.i943
   %2248 = load i32, ptr %89, align 4
@@ -12842,9 +12836,9 @@ fOctetString.exit22.i:                            ; preds = %2249, %2245
   %.019.i20.i = phi i32 [ %2254, %2249 ], [ %2247, %2245 ]
   %.0.i21.i = phi ptr [ %2253, %2249 ], [ %2, %2245 ]
   %2255 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i21.i, i32 noundef %.0.i943, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %89)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %91) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %90) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
   br label %2256
 
 2256:                                             ; preds = %fOctetString.exit22.i, %fOctetString.exit.i948
@@ -12854,9 +12848,9 @@ fOctetString.exit22.i:                            ; preds = %2249, %2245
 
 fVMACEntry.exit:                                  ; preds = %2224, %2227, %2232, %2256
   %.018.i944 = phi i32 [ %.0.i943, %2232 ], [ %.0.i943, %2227 ], [ %.2.i945, %2256 ], [ %.0.i943, %2224 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %97) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %96) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %95) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %fDestination.exit.thread
 
 2257:                                             ; preds = %232
@@ -12894,9 +12888,9 @@ fVMACEntry.exit:                                  ; preds = %2224, %2227, %2232,
   br label %fDestination.exit.thread
 
 2275:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %86) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %87) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %2276 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0808, ptr noundef nonnull %86, ptr noundef nonnull %87, ptr noundef nonnull %88)
   %2277 = add i32 %2276, %.0808
   br label %2278
@@ -12942,9 +12936,9 @@ fVMACEntry.exit:                                  ; preds = %2224, %2227, %2232,
 
 fAssignedLandingCalls.exit:                       ; preds = %2286, %2293
   %.028.i = phi i32 [ %2295, %2293 ], [ %.0.i951, %2286 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %87) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %86) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
   br label %fDestination.exit.thread
 
 2296:                                             ; preds = %232, %232
@@ -13020,9 +13014,9 @@ fAssignedLandingCalls.exit:                       ; preds = %2286, %2293
   br label %fDestination.exit.thread
 
 2334:                                             ; preds = %2329
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %83) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %84) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %85) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %2335 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0808, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85)
   %2336 = add i32 %2335, %.0808
   br label %2337
@@ -13068,9 +13062,9 @@ fAssignedLandingCalls.exit:                       ; preds = %2286, %2293
 
 fLandingDoorStatus.exit:                          ; preds = %2345, %2352
   %.028.i959 = phi i32 [ %2354, %2352 ], [ %.0.i956, %2345 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %85) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %84) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %83) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
   br label %fDestination.exit.thread
 
 2355:                                             ; preds = %232
@@ -13087,9 +13081,9 @@ fLandingDoorStatus.exit:                          ; preds = %2345, %2352
   br label %fDestination.exit.thread
 
 2362:                                             ; preds = %2357
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %80) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %81) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %82) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   br label %2363
 
 2363:                                             ; preds = %2451, %2362
@@ -13199,9 +13193,9 @@ fLandingDoorStatus.exit:                          ; preds = %2345, %2352
   %2417 = add i32 %2416, %.6115.i
   %2418 = load ptr, ptr %222, align 8
   call void @col_set_writable(ptr noundef %2418, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %74) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %75) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %76) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.us.i.i
 
@@ -13236,17 +13230,17 @@ fLandingDoorStatus.exit:                          ; preds = %2345, %2352
 
 fPropertyReference.exit.i:                        ; preds = %2428, %2425, %2421, %.split.us.i.i, %.thread30.i.i
   %.us-phi.i.i = phi i32 [ %2427, %.thread30.i.i ], [ %.023.us.i.i, %2421 ], [ %.023.us.i.i, %2425 ], [ %.023.us.i.i, %.split.us.i.i ], [ %2429, %2428 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %75) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %74) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
   %2431 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.us-phi.i.i, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull %82)
   %2432 = add i32 %2431, %.us-phi.i.i
   br label %2445
 
 2433:                                             ; preds = %2413
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %77) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %78) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %79) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %2434 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.6115.i, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79)
   %2435 = add i32 %2434, %.6115.i
   %2436 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %2435)
@@ -13256,9 +13250,9 @@ fPropertyReference.exit.i:                        ; preds = %2428, %2425, %2421,
   %2440 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.6115.i, i32 noundef %2437, i32 noundef %2438, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3666, double noundef %2439)
   %2441 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2440, i32 noundef %.6115.i, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79)
   %2442 = add i32 %2435, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %79) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %78) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %77) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   br label %2445
 
 2443:                                             ; preds = %2413
@@ -13304,9 +13298,9 @@ fPropertyReference.exit.i:                        ; preds = %2428, %2425, %2421,
 
 fCOVMultipleSubscription.exit:                    ; preds = %2363, %2366, %2371, %2451, %2397, %2413
   %.0106.i = phi i32 [ %.6115.i, %2413 ], [ %.3103123.i, %2397 ], [ %.0100.i, %2363 ], [ %.2102.i, %2451 ], [ %.0100.i, %2366 ], [ %.0100.i, %2371 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %82) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %81) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %80) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %fDestination.exit.thread
 
 2452:                                             ; preds = %232
@@ -13349,9 +13343,9 @@ fCOVMultipleSubscription.exit:                    ; preds = %2363, %2366, %2371,
   br label %fDestination.exit.thread
 
 2473:                                             ; preds = %2468
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %71) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %72) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %2474 = load i32, ptr @ett_bacapp_value, align 4
   %2475 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef 0, i32 noundef %2474, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef nonnull @.str.3672)
   %2476 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2475, i32 noundef %.0808, ptr noundef nonnull %71, ptr noundef nonnull %72, ptr noundef nonnull %73)
@@ -13382,9 +13376,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   %.026.lcssa.i = phi i32 [ %2477, %2473 ], [ %.02627.i, %.lr.ph.i972 ], [ %2487, %2486 ]
   %2492 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2475, i32 noundef %.026.lcssa.i, ptr noundef nonnull %71, ptr noundef nonnull %72, ptr noundef nonnull %73)
   %2493 = add i32 %2492, %.026.lcssa.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %72) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %fDestination.exit.thread
 
 2494:                                             ; preds = %232
@@ -13419,9 +13413,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   br i1 %2510, label %fDestination.exit.thread.thread, label %2511
 
 2511:                                             ; preds = %2508
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %68) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   %2512 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70)
   %2513 = add i32 %2512, %.0808
   %2514 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %2513)
@@ -13431,9 +13425,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   %2518 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0808, i32 noundef %2515, i32 noundef %2516, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3702, double noundef %2517)
   %2519 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2518, i32 noundef %.0808, ptr noundef nonnull %68, ptr noundef nonnull %69, ptr noundef nonnull %70)
   %2520 = add i32 %2513, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %69) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %68) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %2521 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2520)
   %2522 = icmp slt i32 %2521, 1
   br i1 %2522, label %fDestination.exit.thread, label %2523
@@ -13445,9 +13439,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   br i1 %2526, label %fDestination.exit.thread, label %2527
 
 2527:                                             ; preds = %2523
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %65) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %2528 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %2524, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67)
   %2529 = add i32 %2528, %2524
   %2530 = call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %2529)
@@ -13457,9 +13451,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   %2534 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %2524, i32 noundef %2531, i32 noundef %2532, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3107, double noundef %2533)
   %2535 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2534, i32 noundef %2524, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %67)
   %2536 = add i32 %2529, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %fDestination.exit.thread
 
 2537:                                             ; preds = %232
@@ -13484,9 +13478,9 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   br label %fDestination.exit.thread
 
 2548:                                             ; preds = %2543
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %63) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   br label %2549
 
 2549:                                             ; preds = %2568, %2548
@@ -13511,16 +13505,16 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
   ]
 
 2559:                                             ; preds = %2557
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %59) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %60) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %2560 = load i32, ptr @ett_bacapp_tag, align 4
   %2561 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0.i974, i32 noundef 1, i32 noundef %2560, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3741)
   %2562 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2561, i32 noundef %.0.i974, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61)
   %2563 = add i32 %.0.i974, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %59) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   br label %2568
 
 2564:                                             ; preds = %2557
@@ -13538,15 +13532,15 @@ fNameValueCollection.exit:                        ; preds = %.lr.ph.i972, %2486,
 
 fObjectSelector.exit:                             ; preds = %2549, %2552, %2557, %2568
   %.1.i975 = phi i32 [ %.0.i974, %2552 ], [ %.2.i976, %2568 ], [ %.0.i974, %2549 ], [ %.0.i974, %2557 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %63) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %62) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
   br label %fDestination.exit.thread
 
 2569:                                             ; preds = %232, %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %56) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %57) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   br label %2570
 
 2570:                                             ; preds = %2599, %2569
@@ -13605,15 +13599,15 @@ fObjectSelector.exit:                             ; preds = %2549, %2552, %2557,
 
 fHealth.exit:                                     ; preds = %2570, %2573, %2578, %2599
   %.047.i = phi i32 [ %.0.i978, %2573 ], [ %.0.i978, %2578 ], [ %.2.i979, %2599 ], [ %.0.i978, %2570 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %57) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %56) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %fDestination.exit.thread
 
 2600:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %53) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %54) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   br label %2601
 
 2601:                                             ; preds = %2669, %2600
@@ -13682,9 +13676,9 @@ fHealth.exit:                                     ; preds = %2570, %2573, %2578,
   br label %2669
 
 2639:                                             ; preds = %2609
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %52) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %2640 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i981, ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %50)
   %2641 = add i32 %2640, %.0.i981
   %2642 = load i32, ptr %50, align 4
@@ -13703,15 +13697,15 @@ fOctetString.exit.i985:                           ; preds = %2643, %2639
   %.019.i.i986 = phi i32 [ %2648, %2643 ], [ %2641, %2639 ]
   %.0.i.i987 = phi ptr [ %2647, %2643 ], [ %2, %2639 ]
   %2649 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i987, i32 noundef %.0.i981, ptr noundef nonnull %51, ptr noundef nonnull %52, ptr noundef nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %52) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %2669
 
 2650:                                             ; preds = %2609
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %49) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %2651 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i981, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %47)
   %2652 = add i32 %2651, %.0.i981
   %2653 = load i32, ptr %47, align 4
@@ -13730,9 +13724,9 @@ fOctetString.exit91.i:                            ; preds = %2654, %2650
   %.019.i89.i = phi i32 [ %2659, %2654 ], [ %2652, %2650 ]
   %.0.i90.i = phi ptr [ %2658, %2654 ], [ %2, %2650 ]
   %2660 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i90.i, i32 noundef %.0.i981, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %2669
 
 2661:                                             ; preds = %2609
@@ -13754,15 +13748,15 @@ fOctetString.exit91.i:                            ; preds = %2654, %2650
 
 fSCDirectConnection.exit:                         ; preds = %2601, %2604, %2609, %2669
   %.087.i = phi i32 [ %.0.i981, %2604 ], [ %.0.i981, %2609 ], [ %.2.i982, %2669 ], [ %.0.i981, %2601 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %54) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %53) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %fDestination.exit.thread
 
 2670:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %44) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %45) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   br label %2671
 
 2671:                                             ; preds = %2726, %2670
@@ -13809,9 +13803,9 @@ fSCDirectConnection.exit:                         ; preds = %2601, %2604, %2609,
   br label %2726
 
 2696:                                             ; preds = %2679
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %2697 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i988, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %41)
   %2698 = add i32 %2697, %.0.i988
   %2699 = load i32, ptr %41, align 4
@@ -13830,15 +13824,15 @@ fOctetString.exit.i993:                           ; preds = %2700, %2696
   %.019.i.i994 = phi i32 [ %2705, %2700 ], [ %2698, %2696 ]
   %.0.i.i995 = phi ptr [ %2704, %2700 ], [ %2, %2696 ]
   %2706 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i995, i32 noundef %.0.i988, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %2726
 
 2707:                                             ; preds = %2679
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %2708 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i988, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %38)
   %2709 = add i32 %2708, %.0.i988
   %2710 = load i32, ptr %38, align 4
@@ -13857,9 +13851,9 @@ fOctetString.exit69.i:                            ; preds = %2711, %2707
   %.019.i67.i = phi i32 [ %2716, %2711 ], [ %2709, %2707 ]
   %.0.i68.i = phi ptr [ %2715, %2711 ], [ %2, %2707 ]
   %2717 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i68.i, i32 noundef %.0.i988, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %2726
 
 2718:                                             ; preds = %2679
@@ -13881,15 +13875,15 @@ fOctetString.exit69.i:                            ; preds = %2711, %2707
 
 fSCFailedConnectionRequest.exit:                  ; preds = %2671, %2674, %2679, %2726
   %.065.i989 = phi i32 [ %.0.i988, %2674 ], [ %.0.i988, %2679 ], [ %.2.i990, %2726 ], [ %.0.i988, %2671 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %45) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %44) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %fDestination.exit.thread
 
 2727:                                             ; preds = %232, %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   br label %2728
 
 2728:                                             ; preds = %2766, %2727
@@ -13960,9 +13954,9 @@ fSCFailedConnectionRequest.exit:                  ; preds = %2671, %2674, %2679,
 
 fSCHubConnection.exit:                            ; preds = %2728, %2731, %2736, %2766
   %.061.i = phi i32 [ %.0.i996, %2731 ], [ %.0.i996, %2736 ], [ %.2.i997, %2766 ], [ %.0.i996, %2728 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %fDestination.exit.thread
 
 2767:                                             ; preds = %232
@@ -13970,9 +13964,9 @@ fSCHubConnection.exit:                            ; preds = %2728, %2731, %2736,
   br label %fDestination.exit.thread
 
 2769:                                             ; preds = %232
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   br label %2770
 
 2770:                                             ; preds = %2836, %2769
@@ -14036,9 +14030,9 @@ fSCHubConnection.exit:                            ; preds = %2728, %2731, %2736,
   br label %2836
 
 2806:                                             ; preds = %2778
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %2807 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i999, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %29)
   %2808 = add i32 %2807, %.0.i999
   %2809 = load i32, ptr %29, align 4
@@ -14057,15 +14051,15 @@ fOctetString.exit.i1003:                          ; preds = %2810, %2806
   %.019.i.i1004 = phi i32 [ %2815, %2810 ], [ %2808, %2806 ]
   %.0.i.i1005 = phi ptr [ %2814, %2810 ], [ %2, %2806 ]
   %2816 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i1005, i32 noundef %.0.i999, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %2836
 
 2817:                                             ; preds = %2778
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %2818 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0.i999, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %26)
   %2819 = add i32 %2818, %.0.i999
   %2820 = load i32, ptr %26, align 4
@@ -14084,9 +14078,9 @@ fOctetString.exit87.i:                            ; preds = %2821, %2817
   %.019.i85.i = phi i32 [ %2826, %2821 ], [ %2819, %2817 ]
   %.0.i86.i = phi ptr [ %2825, %2821 ], [ %2, %2817 ]
   %2827 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i86.i, i32 noundef %.0.i999, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %2836
 
 2828:                                             ; preds = %2778
@@ -14108,9 +14102,9 @@ fOctetString.exit87.i:                            ; preds = %2821, %2817
 
 fSCHubFunctionConnection.exit:                    ; preds = %2770, %2773, %2778, %2836
   %.083.i = phi i32 [ %.0.i999, %2773 ], [ %.0.i999, %2778 ], [ %.2.i1000, %2836 ], [ %.0.i999, %2770 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %fDestination.exit.thread
 
 2837:                                             ; preds = %232
@@ -14223,9 +14217,9 @@ fDestination.exit.thread1297:                     ; preds = %2865, %fDestination
   br label %fDestination.exit.thread
 
 2884:                                             ; preds = %fDestination.exit.thread1297
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %2885 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0808, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %2886 = add i32 %2885, %.0808
   %2887 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %2886)
@@ -14238,9 +14232,9 @@ fDestination.exit.thread1297:                     ; preds = %2865, %fDestination
   %2893 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2892, i32 noundef %.0808, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %2894 = load i32, ptr %25, align 4
   %2895 = add i32 %2894, %2886
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %fDestination.exit.thread
 
 2896:                                             ; preds = %fDestination.exit
@@ -14256,30 +14250,30 @@ fDestination.exit.thread:                         ; preds = %677, %660, %657, %2
 fDestination.exit.thread.thread:                  ; preds = %456, %518, %2866, %1292, %1614, %1914, %384, %597, %1246, %2508, %226, %223, %fDestination.exit.thread, %fSessionKey.exit
   %.1 = phi i32 [ %.0808, %fSessionKey.exit ], [ %.0808, %226 ], [ %.3, %fDestination.exit.thread ], [ %.0808, %223 ], [ %.0808, %2508 ], [ %.0808, %1246 ], [ %.0808, %597 ], [ %.0808, %384 ], [ %.0808, %1914 ], [ %.0808, %1614 ], [ %.0808, %1292 ], [ %.0808, %2866 ], [ %.0808, %518 ], [ %.0808, %456 ]
   call void @decrement_dissection_depth(ptr noundef %1)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %211) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %210) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %209) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %208) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %211)
+  call void @llvm.lifetime.end.p0(ptr nonnull %210)
+  call void @llvm.lifetime.end.p0(ptr nonnull %209)
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fContextTaggedValue(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = add i32 %8, %3
   %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %9)
@@ -14292,9 +14286,9 @@ define internal fastcc i32 @fContextTaggedValue(ptr noundef nonnull %0, ptr noun
   %16 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %15, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %17 = load i32, ptr %7, align 4
   %18 = add i32 %17, %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %18
 }
 
@@ -14303,9 +14297,9 @@ define internal fastcc i32 @fEventType(ptr noundef nonnull %0, ptr noundef %1, p
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %9 = add i32 %8, %3
   %10 = load i32, ptr %5, align 4
@@ -14354,9 +14348,9 @@ fUnsigned32.exit:                                 ; preds = %4
   %31 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %9, %32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %33
 }
 
@@ -14365,9 +14359,9 @@ define internal fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %26, %4
@@ -14415,9 +14409,9 @@ define internal fastcc i32 @fDeviceObjectPropertyReference(ptr noundef nonnull %
 
 27:                                               ; preds = %8, %26, %16, %11
   %.027 = phi i32 [ %.0, %11 ], [ %.0, %16 ], [ %.2, %26 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.027
 }
 
@@ -14443,9 +14437,9 @@ define internal fastcc i32 @fBACnetObjectPropertyReference(ptr noundef nonnull %
   ]
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.us.i
 
@@ -14480,9 +14474,9 @@ define internal fastcc i32 @fBACnetObjectPropertyReference(ptr noundef nonnull %
 
 fPropertyReference.exit:                          ; preds = %.split.us.i, %17, %21, %24, %.thread30.i
   %.us-phi.i = phi i32 [ %23, %.thread30.i ], [ %.023.us.i, %17 ], [ %.023.us.i, %21 ], [ %.023.us.i, %.split.us.i ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_writable(ptr noundef %28, i32 noundef 25, i1 noundef zeroext false)
@@ -14506,9 +14500,9 @@ define internal fastcc i32 @fAuditLogRecord(ptr noundef nonnull %0, ptr noundef 
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %11
 
 11:                                               ; preds = %51, %4
@@ -14564,9 +14558,9 @@ define internal fastcc i32 @fAuditLogRecord(ptr noundef nonnull %0, ptr noundef 
   br label %51
 
 41:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %28, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %43 = add i32 %42, %28
   %44 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %43)
@@ -14576,9 +14570,9 @@ define internal fastcc i32 @fAuditLogRecord(ptr noundef nonnull %0, ptr noundef 
   %48 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %28, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3065, double noundef %47)
   %49 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %48, i32 noundef %28, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %50 = add i32 %43, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %51
 
 51:                                               ; preds = %31, %33, %41, %21
@@ -14590,9 +14584,9 @@ define internal fastcc i32 @fAuditLogRecord(ptr noundef nonnull %0, ptr noundef 
 
 54:                                               ; preds = %11, %14, %51, %19, %26
   %.068 = phi i32 [ %28, %26 ], [ %.0, %19 ], [ %.0, %14 ], [ %53, %51 ], [ %.0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.068
 }
 
@@ -14604,9 +14598,9 @@ define internal fastcc i32 @fEventLogRecord(ptr noundef nonnull %0, ptr noundef 
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %11
 
 11:                                               ; preds = %47, %4
@@ -14656,9 +14650,9 @@ define internal fastcc i32 @fEventLogRecord(ptr noundef nonnull %0, ptr noundef 
   br label %47
 
 37:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %39 = add i32 %38, %24
   %40 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %39)
@@ -14668,9 +14662,9 @@ define internal fastcc i32 @fEventLogRecord(ptr noundef nonnull %0, ptr noundef 
   %44 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %24, i32 noundef %41, i32 noundef %42, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3065, double noundef %43)
   %45 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %44, i32 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %46 = add i32 %39, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
 47:                                               ; preds = %27, %29, %37, %17
@@ -14682,9 +14676,9 @@ define internal fastcc i32 @fEventLogRecord(ptr noundef nonnull %0, ptr noundef 
 
 50:                                               ; preds = %11, %47, %14, %22
   %.066 = phi i32 [ %24, %22 ], [ %.0, %14 ], [ %49, %47 ], [ %.0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.066
 }
 
@@ -14702,9 +14696,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %17
 
 17:                                               ; preds = %101, %4
@@ -14777,9 +14771,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   br label %84
 
 48:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %49 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.4132, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %50 = add i32 %49, %.4132
   %51 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %50)
@@ -14789,9 +14783,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   %55 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.4132, i32 noundef %52, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3248, double noundef %54)
   %56 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %55, i32 noundef %.4132, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %57 = add i32 %50, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %84
 
 58:                                               ; preds = %44
@@ -14811,16 +14805,16 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   br label %84
 
 66:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %67 = load i32, ptr @ett_bacapp_tag, align 4
   %68 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.4132, i32 noundef 1, i32 noundef %67, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3253)
   %69 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %68, i32 noundef %.4132, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %70 = add i32 %.4132, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %84
 
 71:                                               ; preds = %44
@@ -14858,9 +14852,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   br label %101
 
 91:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %92 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %93 = add i32 %92, %30
   %94 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %93)
@@ -14870,9 +14864,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
   %98 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %30, i32 noundef %95, i32 noundef %96, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3065, double noundef %97)
   %99 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %98, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %100 = add i32 %93, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 101:                                              ; preds = %33, %._crit_edge, %91, %23
@@ -14885,9 +14879,9 @@ define internal fastcc i32 @fLogMultipleRecord(ptr noundef nonnull %0, ptr nound
 
 .loopexit:                                        ; preds = %17, %101, %20, %28, %44
   %.0 = phi i32 [ %.4132, %44 ], [ %.0126, %17 ], [ %103, %101 ], [ %.0126, %20 ], [ %30, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
@@ -14905,9 +14899,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %17
 
 17:                                               ; preds = %90, %4
@@ -14962,9 +14956,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   br label %85
 
 39:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %40 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %41 = add i32 %40, %32
   %42 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %41)
@@ -14974,9 +14968,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   %46 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %32, i32 noundef %43, i32 noundef %44, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3248, double noundef %45)
   %47 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %46, i32 noundef %32, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %48 = add i32 %41, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %85
 
 49:                                               ; preds = %30
@@ -14996,16 +14990,16 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   br label %85
 
 57:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %58 = load i32, ptr @ett_bacapp_tag, align 4
   %59 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %32, i32 noundef 1, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3253)
   %60 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %59, i32 noundef %32, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %61 = add i32 %32, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %85
 
 62:                                               ; preds = %30
@@ -15017,9 +15011,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   br label %85
 
 68:                                               ; preds = %30
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %70 = add i32 %69, %32
   %71 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %70)
@@ -15029,9 +15023,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
   %75 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %32, i32 noundef %72, i32 noundef %73, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3254, double noundef %74)
   %76 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %75, i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %77 = add i32 %70, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 78:                                               ; preds = %30
@@ -15062,9 +15056,9 @@ define internal fastcc i32 @fLogRecord(ptr noundef nonnull %0, ptr noundef %1, p
 
 91:                                               ; preds = %17, %90, %20, %30
   %.0 = phi i32 [ %32, %30 ], [ %.0109, %20 ], [ %.2, %90 ], [ %.0109, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.0
 }
 
@@ -15076,9 +15070,9 @@ define internal fastcc i32 @fCalendarEntry(ptr noundef nonnull %0, ptr noundef %
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %3)
   %12 = lshr i8 %11, 4
   switch i8 %12, label %46 [
@@ -15110,9 +15104,9 @@ fDateRange.exit:                                  ; preds = %15, %20
   br label %46
 
 25:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %27 = add i32 %26, %3
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %27)
@@ -15133,16 +15127,16 @@ fDateRange.exit:                                  ; preds = %15, %20
   %43 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %42, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %44 = load i32, ptr %7, align 4
   %45 = add i32 %44, %27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 46:                                               ; preds = %13, %fDateRange.exit, %25, %4
   %.026 = phi i32 [ %3, %4 ], [ %14, %13 ], [ %24, %fDateRange.exit ], [ %45, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.026
 }
 
@@ -15151,9 +15145,9 @@ define internal fastcc i32 @fRecipient(ptr noundef nonnull %0, ptr noundef %1, p
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = load i8, ptr %5, align 1
   %10 = icmp ult i8 %9, 2
@@ -15177,9 +15171,9 @@ define internal fastcc i32 @fRecipient(ptr noundef nonnull %0, ptr noundef %1, p
 
 21:                                               ; preds = %13, %15, %4
   %.0 = phi i32 [ %14, %13 ], [ %20, %15 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -15188,9 +15182,9 @@ define internal fastcc i32 @fNotifyType(ptr noundef nonnull %0, ptr noundef %1, 
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %9 = add i32 %8, %3
   %10 = load i32, ptr %5, align 4
@@ -15239,9 +15233,9 @@ fUnsigned32.exit:                                 ; preds = %4
   %31 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %32 = load i32, ptr %5, align 4
   %33 = add i32 %9, %32
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %33
 }
 
@@ -15250,9 +15244,9 @@ define internal fastcc i32 @fTimeStamp(ptr noundef nonnull %0, ptr noundef %1, p
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %30
@@ -15293,9 +15287,9 @@ define internal fastcc i32 @fTimeStamp(ptr noundef nonnull %0, ptr noundef %1, p
 
 30:                                               ; preds = %5, %20, %17, %14, %11
   %.0 = phi i32 [ %3, %11 ], [ %16, %14 ], [ %19, %17 ], [ %29, %20 ], [ %3, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -15317,9 +15311,9 @@ define internal fastcc noundef i32 @fXyColor(ptr noundef nonnull %0, ptr noundef
 
 15:                                               ; preds = %12, %5
   %.0 = phi ptr [ %14, %12 ], [ %2, %5 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %16 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %17 = add i32 %16, %3
   %18 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %17)
@@ -15329,12 +15323,12 @@ define internal fastcc noundef i32 @fXyColor(ptr noundef nonnull %0, ptr noundef
   %22 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3423, double noundef %21)
   %23 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %22, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %24 = add i32 %17, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %26 = add i32 %25, %24
   %27 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %26)
@@ -15344,9 +15338,9 @@ define internal fastcc noundef i32 @fXyColor(ptr noundef nonnull %0, ptr noundef
   %31 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0, ptr noundef nonnull %0, i32 noundef %24, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3424, double noundef %30)
   %32 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %33 = add i32 %26, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %33
 }
 
@@ -15375,9 +15369,9 @@ define internal fastcc i32 @fAuthenticationFactor(ptr noundef nonnull %0, ptr no
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %12
 
@@ -15411,9 +15405,9 @@ define internal fastcc i32 @fAuthenticationFactor(ptr noundef nonnull %0, ptr no
   br label %37
 
 26:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %28 = add i32 %27, %.0
   %29 = load i32, ptr %5, align 4
@@ -15432,9 +15426,9 @@ fOctetString.exit:                                ; preds = %26, %30
   %.019.i = phi i32 [ %35, %30 ], [ %28, %26 ]
   %.0.i = phi ptr [ %34, %30 ], [ %2, %26 ]
   %36 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 37:                                               ; preds = %fOctetString.exit, %24, %22
@@ -15444,9 +15438,9 @@ fOctetString.exit:                                ; preds = %26, %30
 
 .thread:                                          ; preds = %20, %37, %15, %12
   %.1 = phi i32 [ %.0, %15 ], [ %.2, %37 ], [ %.0, %12 ], [ %.0, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
@@ -15464,9 +15458,9 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
   %15 = alloca i8, align 1
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = load i32, ptr @ett_bacapp_value, align 4
   %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef %4)
   %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
@@ -15499,9 +15493,9 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
   br label %66
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %33 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.04142, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %34 = add i32 %33, %.04142
   %35 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %34)
@@ -15511,15 +15505,15 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
   %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef nonnull %0, i32 noundef %.04142, i32 noundef %36, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3531, double noundef %38)
   %40 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %39, i32 noundef %.04142, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %41 = add i32 %34, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %66
 
 42:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %43 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.04142, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %44 = add i32 %43, %.04142
   %45 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %44)
@@ -15529,15 +15523,15 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
   %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef nonnull %0, i32 noundef %.04142, i32 noundef %46, i32 noundef %47, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3532, double noundef %48)
   %50 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %49, i32 noundef %.04142, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %51 = add i32 %44, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %66
 
 52:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %53 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.04142, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %54 = add i32 %53, %.04142
   %55 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %54)
@@ -15547,9 +15541,9 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
   %59 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef nonnull %0, i32 noundef %.04142, i32 noundef %56, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3533, double noundef %58)
   %60 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %59, i32 noundef %.04142, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %61 = add i32 %54, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %66
 
 62:                                               ; preds = %28
@@ -15570,9 +15564,9 @@ define internal fastcc noundef i32 @fLightingCommand(ptr noundef nonnull %0, ptr
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28, %66, %5
   %.041.lcssa = phi i32 [ %3, %5 ], [ %.1, %66 ], [ %.04142, %28 ], [ %.04142, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.041.lcssa
 }
 
@@ -15590,9 +15584,9 @@ define internal fastcc noundef i32 @fHostNPort(ptr noundef nonnull %0, ptr nound
   %15 = alloca i8, align 1
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = load i32, ptr @ett_bacapp_value, align 4
   %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 0, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef %4)
   %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
@@ -15623,9 +15617,9 @@ define internal fastcc noundef i32 @fHostNPort(ptr noundef nonnull %0, ptr nound
 32:                                               ; preds = %30
   %33 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %.03536, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %34 = add i32 %33, %.03536
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %34)
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %fHostAddress.exit
@@ -15640,22 +15634,22 @@ define internal fastcc noundef i32 @fHostNPort(ptr noundef nonnull %0, ptr nound
   ]
 
 40:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %41 = load i32, ptr @ett_bacapp_tag, align 4
   %42 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef nonnull %0, i32 noundef %34, i32 noundef 1, i32 noundef %41, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3547)
   %43 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %42, i32 noundef %34, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %44 = add i32 %34, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %fHostAddress.exit
 
 45:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %46 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %34, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %47 = add i32 %46, %34
   %48 = load i32, ptr %6, align 4
@@ -15674,9 +15668,9 @@ fOctetString.exit.i:                              ; preds = %49, %45
   %.019.i.i = phi i32 [ %54, %49 ], [ %47, %45 ]
   %.0.i.i = phi ptr [ %53, %49 ], [ %19, %45 ]
   %55 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i.i, i32 noundef %34, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %fHostAddress.exit
 
 56:                                               ; preds = %37
@@ -15685,9 +15679,9 @@ fOctetString.exit.i:                              ; preds = %49, %45
 
 fHostAddress.exit:                                ; preds = %32, %37, %40, %fOctetString.exit.i, %56
   %.019.i = phi i32 [ %34, %37 ], [ %44, %40 ], [ %.019.i.i, %fOctetString.exit.i ], [ %57, %56 ], [ %34, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %58 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %19, i32 noundef %.019.i, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %59 = add i32 %58, %.019.i
   br label %62
@@ -15706,9 +15700,9 @@ fHostAddress.exit:                                ; preds = %32, %37, %40, %fOct
 
 ._crit_edge:                                      ; preds = %25, %30, %62, %5
   %.035.lcssa = phi i32 [ %3, %5 ], [ %.1, %62 ], [ %.03536, %30 ], [ %.03536, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.035.lcssa
 }
 
@@ -15723,9 +15717,9 @@ define internal fastcc i32 @fValueSource(ptr noundef nonnull %0, ptr noundef %1,
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %48
@@ -15740,24 +15734,24 @@ define internal fastcc i32 @fValueSource(ptr noundef nonnull %0, ptr noundef %1,
   ]
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = load i32, ptr @ett_bacapp_tag, align 4
   %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.2605, ptr noundef nonnull @.str.3547)
   %22 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %23 = add i32 %3, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %48
 
 24:                                               ; preds = %16
   %25 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %26 = add i32 %25, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %27
 
 27:                                               ; preds = %38, %24
@@ -15791,9 +15785,9 @@ define internal fastcc i32 @fValueSource(ptr noundef nonnull %0, ptr noundef %1,
 
 fDeviceObjectReference.exit:                      ; preds = %27, %30, %35, %38
   %.018.i = phi i32 [ %.0.i, %35 ], [ %.0.i, %30 ], [ %39, %38 ], [ %.0.i, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %40 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.018.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %41 = add i32 %40, %.018.i
   br label %48
@@ -15808,9 +15802,9 @@ fDeviceObjectReference.exit:                      ; preds = %27, %30, %35, %38
 
 48:                                               ; preds = %4, %42, %fDeviceObjectReference.exit, %19, %16
   %.039 = phi i32 [ %3, %16 ], [ %23, %19 ], [ %41, %fDeviceObjectReference.exit ], [ %47, %42 ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.039
 }
 
@@ -15819,9 +15813,9 @@ define internal fastcc i32 @fLandingCallStatus(ptr noundef nonnull %0, ptr nound
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %26, %4
@@ -15869,9 +15863,9 @@ define internal fastcc i32 @fLandingCallStatus(ptr noundef nonnull %0, ptr nound
 
 27:                                               ; preds = %8, %11, %26, %16
   %.026 = phi i32 [ %.0, %16 ], [ %.0, %11 ], [ %.2, %26 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.026
 }
 
@@ -15880,9 +15874,9 @@ define internal fastcc i32 @fNameValue(ptr noundef nonnull %0, ptr noundef %1, p
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %35, %4
@@ -15940,9 +15934,9 @@ define internal fastcc i32 @fNameValue(ptr noundef nonnull %0, ptr noundef %1, p
 
 36:                                               ; preds = %35, %11, %8
   %.1 = phi i32 [ %.0, %11 ], [ %.2, %35 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -15951,9 +15945,9 @@ define internal fastcc noundef i32 @fColorCommand(ptr noundef nonnull %0, ptr no
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_bacapp_value, align 4
   %10 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 0, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.3530, ptr noundef %4)
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
@@ -16019,9 +16013,9 @@ define internal fastcc noundef i32 @fColorCommand(ptr noundef nonnull %0, ptr no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19, %37, %5
   %.051.lcssa = phi i32 [ %3, %5 ], [ %.1, %37 ], [ %.05152, %19 ], [ %.05152, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.051.lcssa
 }
 
@@ -16036,9 +16030,9 @@ define internal fastcc i32 @fReadAccessResult(ptr noundef nonnull %0, ptr nounde
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.thread77
@@ -16117,12 +16111,12 @@ define internal fastcc i32 @fReadAccessResult(ptr noundef nonnull %0, ptr nounde
   br label %81
 
 51:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.us.i.i
 
@@ -16157,9 +16151,9 @@ define internal fastcc i32 @fReadAccessResult(ptr noundef nonnull %0, ptr nounde
 
 fPropertyReference.exit.i:                        ; preds = %61, %58, %54, %.split.us.i.i, %.thread30.i.i
   %.us-phi.i.i = phi i32 [ %60, %.thread30.i.i ], [ %.023.us.i.i, %54 ], [ %.023.us.i.i, %58 ], [ %.023.us.i.i, %.split.us.i.i ], [ %62, %61 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %64 = icmp ugt i32 %.us-phi.i.i, %.07086
   br i1 %64, label %65, label %fPropertyIdentifierValue.exit
 
@@ -16176,9 +16170,9 @@ fPropertyReference.exit.i:                        ; preds = %61, %58, %54, %.spl
 
 fPropertyIdentifierValue.exit:                    ; preds = %fPropertyReference.exit.i, %65, %69
   %.0.i = phi i32 [ %71, %69 ], [ %.us-phi.i.i, %65 ], [ %.us-phi.i.i, %fPropertyReference.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %81
 
 72:                                               ; preds = %40
@@ -16206,9 +16200,9 @@ fPropertyIdentifierValue.exit:                    ; preds = %fPropertyReference.
 
 .thread77:                                        ; preds = %28, %32, %40, %81, %.backedge, %.thread77.sink.split, %4
   %.069 = phi i32 [ %3, %4 ], [ %.07086, %.thread77.sink.split ], [ %21, %28 ], [ %21, %32 ], [ %.07086, %40 ], [ %.272, %81 ], [ %.070.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.069
 }
 
@@ -16217,9 +16211,9 @@ define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
   switch i32 %5, label %default.unreachable167 [
     i32 0, label %11
@@ -16491,9 +16485,9 @@ default.unreachable167:                           ; preds = %6
 
 .thread:                                          ; preds = %128, %126, %124, %93, %91, %147, %145
   %.0163 = phi i32 [ %.0, %147 ], [ %.0, %145 ], [ %144, %128 ], [ %127, %126 ], [ %125, %124 ], [ %94, %93 ], [ %92, %91 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0163
 }
 
@@ -16505,9 +16499,9 @@ define internal fastcc i32 @fChannelValue(ptr noundef nonnull %0, ptr noundef %1
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %58
@@ -16561,9 +16555,9 @@ define internal fastcc i32 @fChannelValue(ptr noundef nonnull %0, ptr noundef %1
   br i1 %.not, label %56, label %44
 
 44:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %45 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %46 = add i32 %45, %3
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %46)
@@ -16576,9 +16570,9 @@ define internal fastcc i32 @fChannelValue(ptr noundef nonnull %0, ptr noundef %1
   %53 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %52, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %54 = load i32, ptr %8, align 4
   %55 = add i32 %54, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %58
 
 56:                                               ; preds = %43
@@ -16587,9 +16581,9 @@ define internal fastcc i32 @fChannelValue(ptr noundef nonnull %0, ptr noundef %1
 
 58:                                               ; preds = %21, %37, %56, %44, %29, %5
   %.0 = phi i32 [ %26, %21 ], [ %34, %29 ], [ %42, %37 ], [ %55, %44 ], [ %57, %56 ], [ %3, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -16598,9 +16592,9 @@ define internal fastcc i32 @fPropertyAccessResult(ptr noundef nonnull %0, ptr no
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @object_type, align 4
   %9 = load i32, ptr @propertyIdentifier, align 4
   br label %10
@@ -16686,14 +16680,14 @@ define internal fastcc i32 @fPropertyAccessResult(ptr noundef nonnull %0, ptr no
   %.1 = phi i32 [ %.0, %13 ], [ %.2, %42 ], [ %.0, %10 ], [ %.0, %18 ]
   store i32 %8, ptr @object_type, align 4
   store i32 %9, ptr @propertyIdentifier, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -16703,9 +16697,9 @@ define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = tail call fastcc i32 @fUnsignedTag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.645)
   %12 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %13 = load i32, ptr %10, align 4
@@ -16719,9 +16713,9 @@ define internal fastcc i32 @fAddress(ptr noundef nonnull %0, ptr noundef %1, ptr
   br label %45
 
 19:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %21 = add i32 %20, %11
   %22 = load i32, ptr %5, align 4
@@ -16760,21 +16754,21 @@ fMacAddress.exit:                                 ; preds = %25, %31, %37
   %.0.i = phi ptr [ %24, %25 ], [ %24, %31 ], [ %42, %37 ]
   %43 = add i32 %22, %21
   %44 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %fMacAddress.exit, %15
   %.0 = phi i32 [ %18, %15 ], [ %43, %fMacAddress.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fAuditNotificationInfo(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -16790,9 +16784,9 @@ define internal fastcc i32 @fAuditNotificationInfo(ptr noundef nonnull %0, ptr n
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %17
 
 17:                                               ; preds = %192, %4
@@ -16936,9 +16930,9 @@ fUnsigned32.exit:                                 ; preds = %53, %56, %59, %61, 
   %88 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.0, i32 noundef 1, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.3082)
   %89 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %90 = add i32 %89, %.0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.us.i
 
@@ -16973,9 +16967,9 @@ fUnsigned32.exit:                                 ; preds = %53, %56, %59, %61, 
 
 fPropertyReference.exit:                          ; preds = %.split.us.i, %93, %97, %100, %.thread30.i
   %.us-phi.i = phi i32 [ %99, %.thread30.i ], [ %101, %100 ], [ %.023.us.i, %.split.us.i ], [ %.023.us.i, %97 ], [ %.023.us.i, %93 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %103 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.us-phi.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %104 = add i32 %103, %.us-phi.i
   br label %192
@@ -17011,9 +17005,9 @@ fPropertyReference.exit:                          ; preds = %.split.us.i, %93, %
 120:                                              ; preds = %115
   %121 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %122 = add i32 %121, %.0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %123
 
 123:                                              ; preds = %137, %120
@@ -17051,9 +17045,9 @@ fPropertyReference.exit:                          ; preds = %.split.us.i, %93, %
 
 fLifeSafetyInfo.exit:                             ; preds = %123, %126, %131, %137
   %.1.i = phi i32 [ %.0.i, %126 ], [ %.2.i, %137 ], [ %.0.i, %123 ], [ %.0.i, %131 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %138 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.1.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %139 = add i32 %138, %.1.i
   br label %192
@@ -17081,9 +17075,9 @@ fLifeSafetyInfo.exit:                             ; preds = %123, %126, %131, %1
 152:                                              ; preds = %147
   %153 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %154 = add i32 %153, %.0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %155
 
 155:                                              ; preds = %173, %152
@@ -17125,9 +17119,9 @@ fLifeSafetyInfo.exit:                             ; preds = %123, %126, %131, %1
 
 fAcknowledgeAlarmInfo.exit:                       ; preds = %155, %158, %163, %173
   %.1.i222 = phi i32 [ %.0.i221, %158 ], [ %.2.i223, %173 ], [ %.0.i221, %155 ], [ %.0.i221, %163 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %174 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %109, i32 noundef %.1.i222, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %175 = add i32 %174, %.1.i222
   br label %192
@@ -17164,9 +17158,9 @@ fAcknowledgeAlarmInfo.exit:                       ; preds = %155, %158, %163, %1
 
 .thread:                                          ; preds = %25, %192, %20, %17
   %.1 = phi i32 [ %.0, %20 ], [ %.2, %192 ], [ %.0, %17 ], [ %.0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.1
 }
 
@@ -17178,9 +17172,9 @@ define internal fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr n
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
   %10 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %12 = add i32 %11, %3
   %13 = load i32, ptr %8, align 4
@@ -17229,12 +17223,12 @@ fErrorClass.exit:                                 ; preds = %24, %fUnsigned32.ex
   %33 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %34 = load i32, ptr %8, align 4
   %35 = add i32 %34, %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %37 = add i32 %36, %35
   %38 = load i32, ptr %5, align 4
@@ -17283,9 +17277,9 @@ fErrorCode.exit:                                  ; preds = %49, %fUnsigned32.ex
   %58 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i8, i32 noundef %35, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %59 = load i32, ptr %5, align 4
   %60 = add i32 %59, %37
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %60
 }
 
@@ -17339,9 +17333,9 @@ define internal fastcc i32 @fConfirmedEventNotificationRequest(ptr noundef nonnu
   %50 = alloca i8, align 1
   %51 = alloca i8, align 1
   %52 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   br label %53
 
 53:                                               ; preds = %647, %4
@@ -17420,9 +17414,9 @@ define internal fastcc i32 @fConfirmedEventNotificationRequest(ptr noundef nonnu
   br label %647
 
 87:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %49) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %88 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %47)
   %89 = add i32 %88, %.0
   %90 = load i32, ptr %47, align 4
@@ -17471,15 +17465,15 @@ fFromState.exit:                                  ; preds = %101, %fUnsigned32.e
   %110 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i, i32 noundef %.0, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %47)
   %111 = load i32, ptr %47, align 4
   %112 = add i32 %111, %89
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %49) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %647
 
 113:                                              ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %45) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %114 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.0, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %44)
   %115 = add i32 %114, %.0
   %116 = load i32, ptr %44, align 4
@@ -17528,17 +17522,17 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %136 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.0.i81, i32 noundef %.0, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %44)
   %137 = load i32, ptr %44, align 4
   %138 = add i32 %137, %115
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %46) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %45) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %647
 
 139:                                              ; preds = %61
   %140 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %52)
   %141 = add i32 %140, %.0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %42) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %142 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %141, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %143 = load i32, ptr @ett_bacapp_value, align 4
   %144 = load i8, ptr %41, align 1
@@ -17652,9 +17646,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   br label %199
 
 187:                                              ; preds = %180
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %188 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %182, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %189 = add i32 %188, %182
   %190 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %189)
@@ -17664,9 +17658,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %194 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %182, i32 noundef %191, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3102, double noundef %193)
   %195 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %194, i32 noundef %182, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %196 = add i32 %189, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %199
 
 197:                                              ; preds = %177
@@ -17739,9 +17733,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   ]
 
 228:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %229 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.10.i, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %230 = add i32 %229, %.10.i
   %231 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %230)
@@ -17751,9 +17745,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %235 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.10.i, i32 noundef %232, i32 noundef %233, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3103, double noundef %234)
   %236 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %235, i32 noundef %.10.i, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %237 = add i32 %230, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %260
 
 238:                                              ; preds = %225
@@ -17761,9 +17755,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   br label %260
 
 240:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %241 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.10.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %242 = add i32 %241, %.10.i
   %243 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %242)
@@ -17773,15 +17767,15 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %247 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.10.i, i32 noundef %244, i32 noundef %245, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3104, double noundef %246)
   %248 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %247, i32 noundef %.10.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %249 = add i32 %242, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %260
 
 250:                                              ; preds = %225
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %251 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.10.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %252 = add i32 %251, %.10.i
   %253 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %252)
@@ -17791,9 +17785,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %257 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.10.i, i32 noundef %254, i32 noundef %255, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3105, double noundef %256)
   %258 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %257, i32 noundef %.10.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %259 = add i32 %252, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %fNotificationParameters.exit
 
 260:                                              ; preds = %240, %238, %228
@@ -17818,9 +17812,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   ]
 
 266:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %267 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.12.i, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %268 = add i32 %267, %.12.i
   %269 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %268)
@@ -17830,9 +17824,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %273 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.12.i, i32 noundef %270, i32 noundef %271, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3106, double noundef %272)
   %274 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %273, i32 noundef %.12.i, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
   %275 = add i32 %268, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %298
 
 276:                                              ; preds = %263
@@ -17840,9 +17834,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   br label %298
 
 278:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %279 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.12.i, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
   %280 = add i32 %279, %.12.i
   %281 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %280)
@@ -17852,15 +17846,15 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %285 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.12.i, i32 noundef %282, i32 noundef %283, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3107, double noundef %284)
   %286 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %285, i32 noundef %.12.i, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22)
   %287 = add i32 %280, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %298
 
 288:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %289 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.12.i, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %290 = add i32 %289, %.12.i
   %291 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %290)
@@ -17870,9 +17864,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
   %295 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.12.i, i32 noundef %292, i32 noundef %293, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3108, double noundef %294)
   %296 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %295, i32 noundef %.12.i, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
   %297 = add i32 %290, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %fNotificationParameters.exit
 
 298:                                              ; preds = %278, %276, %266
@@ -18025,9 +18019,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
 364:                                              ; preds = %360
   %365 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef %.21.i, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %366 = add i32 %365, %.21.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   br label %367
 
 367:                                              ; preds = %391, %364
@@ -18084,9 +18078,9 @@ fToState.exit:                                    ; preds = %127, %fUnsigned32.e
 
 fDeviceObjectPropertyValue.exit:                  ; preds = %367, %370, %375, %391
   %.041.i = phi i32 [ %.0.i88, %370 ], [ %.0.i88, %375 ], [ %.2.i89, %391 ], [ %.0.i88, %367 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %392 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef %.041.i, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %393 = add i32 %392, %.041.i
   br label %396
@@ -18220,9 +18214,9 @@ fDeviceObjectPropertyValue.exit:                  ; preds = %367, %370, %375, %3
 445:                                              ; preds = %430
   %446 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef %.29.i, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %447 = add i32 %446, %.29.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %29) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   br label %448
 
 448:                                              ; preds = %459, %445
@@ -18256,9 +18250,9 @@ fDeviceObjectPropertyValue.exit:                  ; preds = %367, %370, %375, %3
 
 fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %459
   %.018.i = phi i32 [ %.0.i86, %456 ], [ %.0.i86, %451 ], [ %460, %459 ], [ %.0.i86, %448 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %461 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef %.018.i, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %462 = add i32 %461, %.018.i
   br label %469
@@ -18293,9 +18287,9 @@ fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %4
   ]
 
 475:                                              ; preds = %472
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %32) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %476 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.31.i, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
   %477 = add i32 %476, %.31.i
   %478 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %477)
@@ -18304,9 +18298,9 @@ fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %4
   %481 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.31.i, i32 noundef %479, i32 noundef %480, ptr noundef null, ptr noundef nonnull @.str.2614, ptr noundef nonnull @.str.3106, double noundef %478)
   %482 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %481, i32 noundef %.31.i, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
   %483 = add i32 %477, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %33) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %32) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %504
 
 484:                                              ; preds = %472
@@ -18314,9 +18308,9 @@ fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %4
   br label %504
 
 486:                                              ; preds = %472
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %36) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %487 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.31.i, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37)
   %488 = add i32 %487, %.31.i
   %489 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %488)
@@ -18325,15 +18319,15 @@ fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %4
   %492 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.31.i, i32 noundef %490, i32 noundef %491, ptr noundef null, ptr noundef nonnull @.str.2614, ptr noundef nonnull @.str.3107, double noundef %489)
   %493 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %492, i32 noundef %.31.i, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37)
   %494 = add i32 %488, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %36) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %35) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %504
 
 495:                                              ; preds = %472
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %38) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %39) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %496 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.31.i, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40)
   %497 = add i32 %496, %.31.i
   %498 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %497)
@@ -18342,9 +18336,9 @@ fDeviceObjectReference.exit:                      ; preds = %448, %451, %456, %4
   %501 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %147, ptr noundef nonnull %0, i32 noundef %.31.i, i32 noundef %499, i32 noundef %500, ptr noundef null, ptr noundef nonnull @.str.2614, ptr noundef nonnull @.str.3108, double noundef %498)
   %502 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %501, i32 noundef %.31.i, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40)
   %503 = add i32 %497, 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %fNotificationParameters.exit
 
 504:                                              ; preds = %486, %484, %475
@@ -18656,9 +18650,9 @@ fNotificationParameters.exit:                     ; preds = %.preheader247, %640
   %.42.i.lcssa366.sink384 = phi i32 [ %642, %641 ], [ %149, %139 ], [ %157, %156 ], [ %167, %166 ], [ %198, %197 ], [ %221, %216 ], [ %259, %250 ], [ %297, %288 ], [ %329, %321 ], [ %343, %342 ], [ %398, %.thread129 ], [ %414, %413 ], [ %426, %425 ], [ %468, %463 ], [ %503, %495 ], [ %517, %516 ], [ %531, %530 ], [ %543, %542 ], [ %561, %560 ], [ %.1.i, %153 ], [ %.1.i, %.preheader ], [ %159, %158 ], [ %.3.i, %163 ], [ %.3.i, %.preheader190 ], [ %173, %168 ], [ %.5.i, %177 ], [ %.5.i, %.preheader193 ], [ %201, %199 ], [ %.8.i, %205 ], [ %.8.i, %.preheader196 ], [ %.9.i, %222 ], [ %.10.i, %225 ], [ %.10.i, %.preheader199 ], [ %.11.i, %260 ], [ %.12.i, %263 ], [ %.12.i, %.preheader202 ], [ %.13.i, %298 ], [ %.14.i, %.preheader205 ], [ %302, %301 ], [ %.15.i, %305 ], [ %.15.i, %.preheader208 ], [ %.16.i, %330 ], [ %.17.i, %333 ], [ %.17.i, %.preheader211 ], [ %.18.i, %344 ], [ %.19.i, %347 ], [ %.19.i, %.preheader214 ], [ %.20.i, %399 ], [ %.25.i, %402 ], [ %.25.i, %.preheader217 ], [ %.26.i, %415 ], [ %.27.i, %418 ], [ %.27.i, %.preheader220 ], [ %.28.i, %427 ], [ %.29.i, %430 ], [ %.29.i, %.preheader223 ], [ %.30.i, %469 ], [ %.31.i, %472 ], [ %.31.i, %.preheader226 ], [ %.32.i, %504 ], [ %.33.i, %507 ], [ %.33.i, %.preheader229 ], [ %.34.i, %518 ], [ %.35.i, %521 ], [ %.35.i, %.preheader232 ], [ %.36.i, %532 ], [ %.37.i, %535 ], [ %.37.i, %.preheader235 ], [ %.38.i, %544 ], [ %.39.i, %547 ], [ %.39.i, %.preheader238 ], [ %564, %562 ], [ %.42.i, %575 ], [ %.42.i, %568 ], [ %.42.i, %.preheader241 ], [ %.43.i, %588 ], [ %.44.i, %591 ], [ %.44.i, %.preheader244 ], [ %.46.i, %617 ], [ %.47.i, %620 ], [ %.47.i, %.preheader247 ], [ %.48.i, %640 ]
   %643 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %147, i32 noundef %.42.i.lcssa366.sink384, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43)
   %644 = add i32 %643, %.42.i.lcssa366.sink384
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %42) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %645 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %644, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef nonnull %52)
   %646 = add i32 %645, %644
   br label %647
@@ -18670,9 +18664,9 @@ fNotificationParameters.exit:                     ; preds = %.preheader247, %640
 
 .thread186:                                       ; preds = %61, %647, %56, %53
   %.1 = phi i32 [ %.0, %56 ], [ %.2, %647 ], [ %.0, %53 ], [ %.0, %61 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %51) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   ret i32 %.1
 }
 
@@ -18681,9 +18675,9 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
@@ -18746,9 +18740,9 @@ define internal fastcc i32 @fBACnetPropertyStates(ptr noundef nonnull %0, ptr no
 
 35:                                               ; preds = %.thread, %33, %21, %19, %17, %15
   %.041 = phi i32 [ %32, %.thread ], [ %34, %33 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.041
 }
 
@@ -18757,9 +18751,9 @@ define internal fastcc i32 @fRecipientProcess(ptr noundef nonnull %0, ptr nounde
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_bacapp_value, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.3267)
   br label %10
@@ -18795,9 +18789,9 @@ define internal fastcc i32 @fRecipientProcess(ptr noundef nonnull %0, ptr nounde
 
 .thread:                                          ; preds = %13, %18, %10, %16
   %.1 = phi i32 [ %17, %16 ], [ %.0, %13 ], [ %.0, %10 ], [ %25, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -18809,9 +18803,9 @@ define internal fastcc i32 @fReadAccessSpecification(ptr noundef nonnull %0, ptr
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
@@ -18849,9 +18843,9 @@ define internal fastcc i32 @fReadAccessSpecification(ptr noundef nonnull %0, ptr
   %27 = add i32 %26, %.034
   %28 = load ptr, ptr %11, align 8
   tail call void @col_set_writable(ptr noundef %28, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.i
 
@@ -18890,9 +18884,9 @@ define internal fastcc i32 @fReadAccessSpecification(ptr noundef nonnull %0, ptr
 
 fPropertyReference.exit:                          ; preds = %.split.i, %31, %35, %41
   %.us-phi.i = phi i32 [ %.3.i, %41 ], [ %.023.i, %.split.i ], [ %.023.i, %35 ], [ %.023.i, %31 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 42:                                               ; preds = %20
@@ -18908,32 +18902,32 @@ fPropertyReference.exit:                          ; preds = %.split.i, %31, %35,
 
 46:                                               ; preds = %20, %12, %45, %15
   %.036 = phi i32 [ %.034, %15 ], [ %.2, %45 ], [ %.034, %12 ], [ %.034, %20 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.036
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fConfirmedPrivateTransferRequest(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %9 = add nuw nsw i32 %8, %3
   %10 = load i32, ptr %7, align 4
@@ -19084,26 +19078,26 @@ fUnsigned32.exit57:                               ; preds = %45, %48, %51, %53, 
 
 .loopexit:                                        ; preds = %.outer, %64, %.lr.ph._crit_edge, %.lr.ph101, %37, %.thread, %27
   %.0 = phi i32 [ %29, %27 ], [ %.05174.lcssa, %.thread ], [ %38, %37 ], [ %.05174100, %.lr.ph101 ], [ %.051.ph, %.outer ], [ %.05174.lcssa, %.lr.ph._crit_edge ], [ %.2, %64 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @fConfirmedTextMessageRequest(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %32, %4
@@ -19165,9 +19159,9 @@ define internal fastcc i32 @fConfirmedTextMessageRequest(ptr noundef nonnull %0,
 
 33:                                               ; preds = %8, %32, %11
   %.041 = phi i32 [ %.0, %11 ], [ %.2, %32 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.041
 }
 
@@ -19176,9 +19170,9 @@ define internal fastcc i32 @fConfirmedCOVNotificationMultipleRequest(ptr noundef
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit135, %4
@@ -19380,9 +19374,9 @@ define internal fastcc i32 @fConfirmedCOVNotificationMultipleRequest(ptr noundef
 
 .thread129:                                       ; preds = %.outer, %.loopexit135, %.lr.ph._crit_edge, %.lr.ph308, %57, %80, %.thread129.sink.split
   %.0122 = phi i32 [ %.0122.ph, %.thread129.sink.split ], [ %.5168, %80 ], [ %.3121175, %57 ], [ %15, %.lr.ph308 ], [ %.0118.ph, %.outer ], [ %.0118165.lcssa, %.lr.ph._crit_edge ], [ %.2120, %.loopexit135 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0122
 }
 
@@ -19391,9 +19385,9 @@ define internal fastcc i32 @fConfirmedAuditNotificationRequest(ptr noundef nonnu
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %25, %4
@@ -19435,9 +19429,9 @@ define internal fastcc i32 @fConfirmedAuditNotificationRequest(ptr noundef nonnu
 
 .loopexit:                                        ; preds = %25, %8, %16
   %.125 = phi i32 [ %18, %16 ], [ %.024, %8 ], [ %26, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.125
 }
 
@@ -19463,17 +19457,17 @@ define internal fastcc void @fCreateObjectError(ptr noundef nonnull %0, ptr noun
   ]
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %15 = add i32 %14, %.0
   %16 = tail call fastcc i32 @fError(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %15)
   %17 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %18 = add i32 %17, %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %21
 
 19:                                               ; preds = %10
@@ -19514,10 +19508,10 @@ define internal fastcc i32 @fAcknowledgeAlarmRequest(ptr noundef nonnull %0, ptr
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -19578,9 +19572,9 @@ define internal fastcc i32 @fAcknowledgeAlarmRequest(ptr noundef nonnull %0, ptr
 
 35:                                               ; preds = %8, %34, %11
   %.053 = phi i32 [ %.0, %11 ], [ %.2, %34 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.053
 }
 
@@ -19589,9 +19583,9 @@ define internal fastcc i32 @fGetEnrollmentSummaryRequest(ptr noundef nonnull %0,
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %35, %4
@@ -19652,9 +19646,9 @@ define internal fastcc i32 @fGetEnrollmentSummaryRequest(ptr noundef nonnull %0,
 
 36:                                               ; preds = %8, %35, %11
   %.057 = phi i32 [ %.0, %11 ], [ %.2, %35 ], [ %.0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.057
 }
 
@@ -19663,9 +19657,9 @@ define internal fastcc i32 @fAtomicReadFileRequest(ptr noundef nonnull %0, ptr n
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.2598)
   %9 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %10 = load i8, ptr %6, align 1
@@ -19693,9 +19687,9 @@ define internal fastcc i32 @fAtomicReadFileRequest(ptr noundef nonnull %0, ptr n
 
 29:                                               ; preds = %13, %4
   %.0 = phi i32 [ %28, %13 ], [ %8, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -19711,9 +19705,9 @@ define internal fastcc i32 @fAddListElementRequest(ptr noundef nonnull %0, ptr n
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_writable(ptr noundef %9, i32 noundef 25, i1 noundef zeroext false)
@@ -19777,9 +19771,9 @@ define internal fastcc i32 @fAddListElementRequest(ptr noundef nonnull %0, ptr n
 
 .loopexit:                                        ; preds = %20, %34, %.backedge, %4, %.thread
   %.037 = phi i32 [ %.03845, %.thread ], [ %3, %4 ], [ %.03845, %20 ], [ %.2, %34 ], [ %.038.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.037
 }
 
@@ -19788,9 +19782,9 @@ define internal fastcc i32 @fCreateObjectRequest(ptr noundef nonnull %0, ptr nou
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %34, %4
@@ -19853,9 +19847,9 @@ define internal fastcc i32 @fCreateObjectRequest(ptr noundef nonnull %0, ptr nou
 
 .thread:                                          ; preds = %11, %34, %8
   %.1 = phi i32 [ %36, %34 ], [ %.0, %8 ], [ %.0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.1
 }
 
@@ -19873,9 +19867,9 @@ define internal fastcc i32 @fReadPropertyConditionalRequest(ptr noundef nonnull 
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %18
 
@@ -19905,9 +19899,9 @@ define internal fastcc i32 @fReadPropertyConditionalRequest(ptr noundef nonnull 
   ]
 
 32:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %33
 
 33:                                               ; preds = %109, %32
@@ -19941,9 +19935,9 @@ define internal fastcc i32 @fReadPropertyConditionalRequest(ptr noundef nonnull 
 47:                                               ; preds = %45
   %48 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %49 = add i32 %48, %.0.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %50
 
 50:                                               ; preds = %105, %47
@@ -20065,9 +20059,9 @@ fTagHeaderTree.exit:                              ; preds = %83, %87
 
 fSelectionCriteria.exit.i:                        ; preds = %105, %90, %fTagHeaderTree.exit, %50
   %.038.i.i = phi i32 [ %.0.i.i, %90 ], [ %.0.i.i, %fTagHeaderTree.exit ], [ %.2.i.i, %105 ], [ %.0.i.i, %50 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %106 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %.038.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %107 = add i32 %106, %.038.i.i
   br label %109
@@ -20083,17 +20077,17 @@ fSelectionCriteria.exit.i:                        ; preds = %105, %90, %fTagHead
 
 fObjectSelectionCriteria.exit:                    ; preds = %33, %36, %41, %109, %.thread.i
   %.030.i = phi i32 [ %.0.i, %.thread.i ], [ %.0.i, %41 ], [ %.0.i, %36 ], [ %.2.i, %109 ], [ %.0.i, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %125
 
 110:                                              ; preds = %28
   %111 = load ptr, ptr %17, align 8
   tail call void @col_set_writable(ptr noundef %111, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.i
 
@@ -20132,9 +20126,9 @@ fObjectSelectionCriteria.exit:                    ; preds = %33, %36, %41, %109,
 
 fPropertyReference.exit:                          ; preds = %.split.i, %114, %118, %124
   %.us-phi.i = phi i32 [ %.3.i, %124 ], [ %.023.i, %.split.i ], [ %.023.i, %118 ], [ %.023.i, %114 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %125
 
 125:                                              ; preds = %fObjectSelectionCriteria.exit, %fPropertyReference.exit
@@ -20146,9 +20140,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %114, %11
 
 .thread:                                          ; preds = %21, %18, %125, %28
   %.030 = phi i32 [ %30, %28 ], [ %127, %125 ], [ %.0, %18 ], [ %.0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.030
 }
 
@@ -20166,9 +20160,9 @@ define internal fastcc i32 @fWritePropertyRequest(ptr noundef nonnull %0, ptr no
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %8
 
@@ -20222,9 +20216,9 @@ define internal fastcc i32 @fWritePropertyRequest(ptr noundef nonnull %0, ptr no
 
 29:                                               ; preds = %8, %11, %28, %16
   %.0 = phi i32 [ %.031, %16 ], [ %.031, %11 ], [ %.2, %28 ], [ %.031, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -20241,9 +20235,9 @@ define internal fastcc i32 @fWritePropertyMultipleRequest(ptr noundef nonnull %0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_writable(ptr noundef %11, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef range(i32 0, 7) %3)
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i, label %fWriteAccessSpecification.exit
@@ -20298,9 +20292,9 @@ define internal fastcc i32 @fWritePropertyMultipleRequest(ptr noundef nonnull %0
 
 fWriteAccessSpecification.exit:                   ; preds = %.backedge.i, %22, %33, %9, %.thread.i
   %.0.i = phi i32 [ %.02731.i, %.thread.i ], [ %3, %9 ], [ %.027.be.i, %.backedge.i ], [ %.2.i, %33 ], [ %.02731.i, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %34
 
 34:                                               ; preds = %4, %fWriteAccessSpecification.exit
@@ -20458,9 +20452,9 @@ define internal fastcc i32 @fRequestKeyRequest(ptr noundef nonnull %0, ptr nound
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call fastcc i32 @fObjectIdentifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.2675)
   %9 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %10 = add i32 %9, %8
@@ -20473,9 +20467,9 @@ define internal fastcc i32 @fRequestKeyRequest(ptr noundef nonnull %0, ptr nound
   %17 = tail call fastcc i32 @fAddress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16)
   %18 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %19 = add i32 %18, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %19
 }
 
@@ -20484,9 +20478,9 @@ define internal fastcc i32 @fReadRangeRequest(ptr noundef nonnull %0, ptr nounde
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call fastcc i32 @fBACnetObjectPropertyReference(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %8)
   %10 = icmp sgt i32 %9, 0
@@ -20548,9 +20542,9 @@ define internal fastcc i32 @fReadRangeRequest(ptr noundef nonnull %0, ptr nounde
 
 46:                                               ; preds = %11, %43, %4
   %.0 = phi i32 [ %45, %43 ], [ %8, %11 ], [ %8, %4 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -20559,9 +20553,9 @@ define internal fastcc i32 @fLifeSafetyOperationRequest(ptr noundef nonnull %0, 
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
 8:                                                ; preds = %22, %4
@@ -20603,9 +20597,9 @@ define internal fastcc i32 @fLifeSafetyOperationRequest(ptr noundef nonnull %0, 
 
 23:                                               ; preds = %8, %22, %11
   %.032 = phi i32 [ %.033, %11 ], [ %.2, %22 ], [ %.033, %8 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.032
 }
 
@@ -20620,9 +20614,9 @@ define internal fastcc i32 @fSubscribeCOVPropertyRequest(ptr noundef nonnull %0,
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %3)
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.loopexit
@@ -20689,9 +20683,9 @@ define internal fastcc i32 @fSubscribeCOVPropertyRequest(ptr noundef nonnull %0,
   %42 = add i32 %41, %.05461
   %43 = load ptr, ptr %16, align 8
   tail call void @col_set_writable(ptr noundef %43, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.i
 
@@ -20730,9 +20724,9 @@ define internal fastcc i32 @fSubscribeCOVPropertyRequest(ptr noundef nonnull %0,
 
 fPropertyReference.exit:                          ; preds = %.split.i, %46, %50, %56
   %.us-phi.i = phi i32 [ %.3.i, %56 ], [ %.023.i, %.split.i ], [ %.023.i, %50 ], [ %.023.i, %46 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.us-phi.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %58 = add i32 %57, %.us-phi.i
   br label %70
@@ -20742,9 +20736,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %46, %50,
   br label %.loopexit
 
 60:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.05461, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %62 = add i32 %61, %.05461
   %63 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %62)
@@ -20754,9 +20748,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %46, %50,
   %67 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %.05461, i32 noundef %64, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3266, double noundef %66)
   %68 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %67, i32 noundef %.05461, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %69 = add i32 %62, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %70
 
 70:                                               ; preds = %fPropertyReference.exit, %60, %34, %32, %30, %28
@@ -20767,9 +20761,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %46, %50,
 
 .loopexit:                                        ; preds = %26, %70, %.backedge, %4, %.thread
   %.053 = phi i32 [ %.05461, %.thread ], [ %3, %4 ], [ %.05461, %26 ], [ %.2, %70 ], [ %.054.be, %.backedge ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.053
 }
 
@@ -20804,9 +20798,9 @@ define internal fastcc i32 @fSubscribeCOVPropertyMultipleRequest(ptr noundef non
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.outer
 
@@ -20960,9 +20954,9 @@ define internal fastcc i32 @fSubscribeCOVPropertyMultipleRequest(ptr noundef non
   %86 = add i32 %85, %.5182
   %87 = load ptr, ptr %14, align 8
   tail call void @col_set_writable(ptr noundef %87, i32 noundef 25, i1 noundef zeroext false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr @propertyArrayIndex, align 4
   br label %.split.i
 
@@ -21001,17 +20995,17 @@ define internal fastcc i32 @fSubscribeCOVPropertyMultipleRequest(ptr noundef non
 
 fPropertyReference.exit:                          ; preds = %.split.i, %90, %94, %100
   %.us-phi.i = phi i32 [ %.3.i, %100 ], [ %.023.i, %.split.i ], [ %.023.i, %94 ], [ %.023.i, %90 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %101 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.us-phi.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %102 = add i32 %101, %.us-phi.i
   br label %115
 
 103:                                              ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %104 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %.5182, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %105 = add i32 %104, %.5182
   %106 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %105)
@@ -21021,9 +21015,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %90, %94,
   %110 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %65, ptr noundef nonnull %0, i32 noundef %.5182, i32 noundef %107, i32 noundef %108, ptr noundef null, ptr noundef nonnull @.str.2613, ptr noundef nonnull @.str.3266, double noundef %109)
   %111 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %110, i32 noundef %.5182, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %112 = add i32 %105, 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %115
 
 113:                                              ; preds = %80
@@ -21064,9 +21058,9 @@ fPropertyReference.exit:                          ; preds = %.split.i, %90, %94,
 
 .thread125.thread:                                ; preds = %.outer, %.thread125, %.lr.ph._crit_edge, %.lr.ph350, %57, %80, %.thread125.thread.sink.split
   %.0120 = phi i32 [ %.0120.ph, %.thread125.thread.sink.split ], [ %.5182, %80 ], [ %.3119189, %57 ], [ %22, %.lr.ph350 ], [ %.0116.ph, %.outer ], [ %.0116179.lcssa, %.lr.ph._crit_edge ], [ %.2118, %.thread125 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0120
 }
 
@@ -21084,9 +21078,9 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef nonnull %0, ptr no
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br label %17
 
 17:                                               ; preds = %181, %4
@@ -21115,9 +21109,9 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef nonnull %0, ptr no
   %27 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef nonnull %0, i32 noundef %.040, i32 noundef 1, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.3907)
   %28 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %27, i32 noundef %.040, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %29 = add i32 %28, %.040
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %30
 
 30:                                               ; preds = %174, %25
@@ -21146,9 +21140,9 @@ define internal fastcc i32 @fAuditLogQueryRequest(ptr noundef nonnull %0, ptr no
   %42 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef nonnull %0, i32 noundef %.045.i, i32 noundef 1, i32 noundef %41, ptr noundef null, ptr noundef nonnull @.str.3910)
   %43 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %42, i32 noundef %.045.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %44 = add i32 %43, %.045.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br label %45
 
 45:                                               ; preds = %107, %40
@@ -21289,9 +21283,9 @@ fTagHeaderTree.exit49:                            ; preds = %79, %83
 
 fAuditLogQueryByTargetParameters.exit.i:          ; preds = %107, %86, %fTagHeaderTree.exit49, %45
   %.052.i.i = phi i32 [ %.0.i.i, %86 ], [ %.0.i.i, %fTagHeaderTree.exit49 ], [ %.2.i.i, %107 ], [ %.0.i.i, %45 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %108 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %42, i32 noundef %.052.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %109 = add i32 %108, %.052.i.i
   br label %174
@@ -21301,9 +21295,9 @@ fAuditLogQueryByTargetParameters.exit.i:          ; preds = %107, %86, %fTagHead
   %112 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef nonnull %0, i32 noundef %.045.i, i32 noundef 1, i32 noundef %111, ptr noundef null, ptr noundef nonnull @.str.3911)
   %113 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %112, i32 noundef %.045.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %114 = add i32 %113, %.045.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %115
 
 115:                                              ; preds = %171, %110
@@ -21429,9 +21423,9 @@ fTagHeaderTree.exit:                              ; preds = %149, %153
 
 fAuditLogQueryBySourceParameters.exit.i:          ; preds = %171, %156, %fTagHeaderTree.exit, %115
   %.040.i.i = phi i32 [ %.0.i48.i, %156 ], [ %.0.i48.i, %fTagHeaderTree.exit ], [ %.2.i49.i, %171 ], [ %.0.i48.i, %115 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = call fastcc i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %112, i32 noundef %.040.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %173 = add i32 %172, %.040.i.i
   br label %174
@@ -21444,9 +21438,9 @@ fAuditLogQueryBySourceParameters.exit.i:          ; preds = %171, %156, %fTagHea
 
 fAuditLogQueryParameters.exit:                    ; preds = %30, %33, %38, %174
   %.047.i = phi i32 [ %.045.i, %38 ], [ %.045.i, %33 ], [ %.2.i, %174 ], [ %.045.i, %30 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %175 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %27, i32 noundef %.047.i, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
   %176 = add i32 %175, %.047.i
   br label %181
@@ -21467,9 +21461,9 @@ fAuditLogQueryParameters.exit:                    ; preds = %30, %33, %38, %174
 
 182:                                              ; preds = %17, %181, %20
   %.042 = phi i32 [ %.040, %20 ], [ %.2, %181 ], [ %.040, %17 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret i32 %.042
 }
 
@@ -21478,9 +21472,9 @@ define internal fastcc i32 @fAccessMethod(ptr noundef nonnull %0, ptr noundef %1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %9 = load i8, ptr %7, align 1
   %10 = and i8 %9, 7
@@ -21541,14 +21535,14 @@ define internal fastcc i32 @fAccessMethod(ptr noundef nonnull %0, ptr noundef %1
 
 47:                                               ; preds = %.loopexit, %44, %39, %4
   %.036 = phi i32 [ %46, %44 ], [ %.1, %39 ], [ %.1, %.loopexit ], [ %3, %4 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.036
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @bacapp_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
@@ -21746,19 +21740,25 @@ define internal void @bacapp_instanceid_stats_tree_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
@@ -21770,9 +21770,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

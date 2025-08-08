@@ -424,20 +424,17 @@ define hidden void @proto_register_s5066() local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_s5066_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -475,7 +472,7 @@ define internal i32 @dissect_s5066_tcp(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_s5066() #0 {
@@ -497,25 +494,22 @@ define hidden void @proto_reg_handoff_s5066() #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 4, 65541) i32 @get_s5066_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -533,7 +527,7 @@ define internal range(i32 4, 65541) i32 @get_s5066_pdu_len(ptr readnone captures
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_s5066_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %.b120 = load i1, ptr @s5066_header_size, align 4
   %6 = select i1 %.b120, i32 4, i32 5
@@ -669,7 +663,7 @@ dissect_s5066_06.exit:                            ; preds = %30
   %91 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %84)
   %92 = load i32, ptr @hf_s5066_ad_address, align 4
   %93 = and i32 %91, 536870911
-  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #5, !srcloc !8
+  %94 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %93) #4, !srcloc !8
   %95 = tail call ptr @proto_tree_add_ipv4(ptr noundef %86, i32 noundef %92, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef %94)
   %96 = or disjoint i32 %.0, 8
   br label %601
@@ -684,7 +678,7 @@ dissect_s5066_07.exit:                            ; preds = %30
   %103 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 5, 7) %36)
   %104 = load i32, ptr @hf_s5066_ad_address, align 4
   %105 = and i32 %103, 536870911
-  %106 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %105) #5, !srcloc !8
+  %106 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %105) #4, !srcloc !8
   %107 = tail call ptr @proto_tree_add_ipv4(ptr noundef %98, i32 noundef %104, ptr noundef %0, i32 noundef range(i32 5, 7) %36, i32 noundef 4, i32 noundef %106)
   %108 = add nuw nsw i32 %.0, 7
   br label %601
@@ -709,7 +703,7 @@ dissect_s5066_08.exit:                            ; preds = %30
   %125 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %118)
   %126 = load i32, ptr @hf_s5066_ad_address, align 4
   %127 = and i32 %125, 536870911
-  %128 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %127) #5, !srcloc !8
+  %128 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %127) #4, !srcloc !8
   %129 = tail call ptr @proto_tree_add_ipv4(ptr noundef %120, i32 noundef %126, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef %128)
   %130 = add nuw nsw i32 %.0, 9
   br label %601
@@ -734,7 +728,7 @@ dissect_s5066_09.exit:                            ; preds = %30
   %147 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %140)
   %148 = load i32, ptr @hf_s5066_ad_address, align 4
   %149 = and i32 %147, 536870911
-  %150 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %149) #5, !srcloc !8
+  %150 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %149) #4, !srcloc !8
   %151 = tail call ptr @proto_tree_add_ipv4(ptr noundef %142, i32 noundef %148, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef %150)
   %152 = add nuw nsw i32 %.0, 9
   br label %601
@@ -759,7 +753,7 @@ dissect_s5066_10.exit:                            ; preds = %30
   %169 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %162)
   %170 = load i32, ptr @hf_s5066_ad_address, align 4
   %171 = and i32 %169, 536870911
-  %172 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %171) #5, !srcloc !8
+  %172 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %171) #4, !srcloc !8
   %173 = tail call ptr @proto_tree_add_ipv4(ptr noundef %164, i32 noundef %170, ptr noundef %0, i32 noundef %162, i32 noundef 4, i32 noundef %172)
   %174 = add nuw nsw i32 %.0, 9
   br label %601
@@ -784,7 +778,7 @@ dissect_s5066_11.exit:                            ; preds = %30
   %191 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %184)
   %192 = load i32, ptr @hf_s5066_ad_address, align 4
   %193 = and i32 %191, 536870911
-  %194 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %193) #5, !srcloc !8
+  %194 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %193) #4, !srcloc !8
   %195 = tail call ptr @proto_tree_add_ipv4(ptr noundef %186, i32 noundef %192, ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef %194)
   %196 = add nuw nsw i32 %.0, 9
   br label %601
@@ -806,7 +800,7 @@ dissect_s5066_12.exit:                            ; preds = %30
   %210 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %203)
   %211 = load i32, ptr @hf_s5066_ad_address, align 4
   %212 = and i32 %210, 536870911
-  %213 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %212) #5, !srcloc !8
+  %213 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %212) #4, !srcloc !8
   %214 = tail call ptr @proto_tree_add_ipv4(ptr noundef %205, i32 noundef %211, ptr noundef %0, i32 noundef %203, i32 noundef 4, i32 noundef %213)
   %215 = or disjoint i32 %.0, 8
   br label %601
@@ -831,7 +825,7 @@ dissect_s5066_13.exit:                            ; preds = %30
   %232 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %225)
   %233 = load i32, ptr @hf_s5066_ad_address, align 4
   %234 = and i32 %232, 536870911
-  %235 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %234) #5, !srcloc !8
+  %235 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %234) #4, !srcloc !8
   %236 = tail call ptr @proto_tree_add_ipv4(ptr noundef %227, i32 noundef %233, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef %235)
   %237 = add nuw nsw i32 %.0, 9
   br label %601
@@ -879,7 +873,7 @@ dissect_s5066_20.exit:                            ; preds = %30
   %271 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %264)
   %272 = load i32, ptr @hf_s5066_ad_address, align 4
   %273 = and i32 %271, 536870911
-  %274 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273) #5, !srcloc !8
+  %274 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %273) #4, !srcloc !8
   %275 = and i8 %261, 15
   %276 = tail call ptr @proto_tree_add_ipv4(ptr noundef %266, i32 noundef %272, ptr noundef %0, i32 noundef %264, i32 noundef 4, i32 noundef %274)
   %277 = or disjoint i32 %.0, 8
@@ -921,7 +915,7 @@ dissect_s5066_address.exit.i:                     ; preds = %30
   %310 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %303)
   %311 = load i32, ptr @hf_s5066_ad_address, align 4
   %312 = and i32 %310, 536870911
-  %313 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %312) #5, !srcloc !8
+  %313 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %312) #4, !srcloc !8
   %314 = tail call ptr @proto_tree_add_ipv4(ptr noundef %305, i32 noundef %311, ptr noundef %0, i32 noundef %303, i32 noundef 4, i32 noundef %313)
   %315 = or disjoint i32 %.0, 8
   %316 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %315)
@@ -941,7 +935,7 @@ dissect_s5066_address.exit.i:                     ; preds = %30
   %329 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %322)
   %330 = load i32, ptr @hf_s5066_ad_address, align 4
   %331 = and i32 %329, 536870911
-  %332 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %331) #5, !srcloc !8
+  %332 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %331) #4, !srcloc !8
   %333 = tail call ptr @proto_tree_add_ipv4(ptr noundef %324, i32 noundef %330, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef %332)
   %334 = add nuw nsw i32 %.0, 13
   %335 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %334)
@@ -1039,7 +1033,7 @@ dissect_s5066_22.exit:                            ; preds = %30
   %386 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %379)
   %387 = load i32, ptr @hf_s5066_ad_address, align 4
   %388 = and i32 %386, 536870911
-  %389 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %388) #5, !srcloc !8
+  %389 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %388) #4, !srcloc !8
   %390 = and i8 %376, 15
   %391 = tail call ptr @proto_tree_add_ipv4(ptr noundef %381, i32 noundef %387, ptr noundef %0, i32 noundef %379, i32 noundef 4, i32 noundef %389)
   %392 = or disjoint i32 %.0, 8
@@ -1070,7 +1064,7 @@ dissect_s5066_23.exit:                            ; preds = %30
   %414 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %407)
   %415 = load i32, ptr @hf_s5066_ad_address, align 4
   %416 = and i32 %414, 536870911
-  %417 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %416) #5, !srcloc !8
+  %417 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %416) #4, !srcloc !8
   %418 = and i8 %404, 15
   %419 = tail call ptr @proto_tree_add_ipv4(ptr noundef %409, i32 noundef %415, ptr noundef %0, i32 noundef %407, i32 noundef 4, i32 noundef %417)
   %420 = or disjoint i32 %.0, 8
@@ -1101,7 +1095,7 @@ dissect_s5066_24.exit:                            ; preds = %30
   %442 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %435)
   %443 = load i32, ptr @hf_s5066_ad_address, align 4
   %444 = and i32 %442, 536870911
-  %445 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %444) #5, !srcloc !8
+  %445 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %444) #4, !srcloc !8
   %446 = and i8 %432, 15
   %447 = tail call ptr @proto_tree_add_ipv4(ptr noundef %437, i32 noundef %443, ptr noundef %0, i32 noundef %435, i32 noundef 4, i32 noundef %445)
   %448 = or disjoint i32 %.0, 8
@@ -1143,7 +1137,7 @@ dissect_s5066_address.exit.i137:                  ; preds = %30
   %481 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %474)
   %482 = load i32, ptr @hf_s5066_ad_address, align 4
   %483 = and i32 %481, 536870911
-  %484 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %483) #5, !srcloc !8
+  %484 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %483) #4, !srcloc !8
   %485 = tail call ptr @proto_tree_add_ipv4(ptr noundef %476, i32 noundef %482, ptr noundef %0, i32 noundef %474, i32 noundef 4, i32 noundef %484)
   %486 = or disjoint i32 %.0, 8
   %487 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %486)
@@ -1163,7 +1157,7 @@ dissect_s5066_address.exit.i137:                  ; preds = %30
   %500 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %493)
   %501 = load i32, ptr @hf_s5066_ad_address, align 4
   %502 = and i32 %500, 536870911
-  %503 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %502) #5, !srcloc !8
+  %503 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %502) #4, !srcloc !8
   %504 = tail call ptr @proto_tree_add_ipv4(ptr noundef %495, i32 noundef %501, ptr noundef %0, i32 noundef %493, i32 noundef 4, i32 noundef %503)
   %505 = add nuw nsw i32 %.0, 13
   %506 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %505)
@@ -1261,7 +1255,7 @@ dissect_s5066_26.exit:                            ; preds = %30
   %557 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %550)
   %558 = load i32, ptr @hf_s5066_ad_address, align 4
   %559 = and i32 %557, 536870911
-  %560 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %559) #5, !srcloc !8
+  %560 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %559) #4, !srcloc !8
   %561 = and i8 %547, 15
   %562 = tail call ptr @proto_tree_add_ipv4(ptr noundef %552, i32 noundef %558, ptr noundef %0, i32 noundef %550, i32 noundef 4, i32 noundef %560)
   %563 = or disjoint i32 %.0, 8
@@ -1292,7 +1286,7 @@ dissect_s5066_27.exit:                            ; preds = %30
   %585 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %578)
   %586 = load i32, ptr @hf_s5066_ad_address, align 4
   %587 = and i32 %585, 536870911
-  %588 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %587) #5, !srcloc !8
+  %588 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %587) #4, !srcloc !8
   %589 = and i8 %575, 15
   %590 = tail call ptr @proto_tree_add_ipv4(ptr noundef %580, i32 noundef %586, ptr noundef %0, i32 noundef %578, i32 noundef 4, i32 noundef %588)
   %591 = or disjoint i32 %.0, 8
@@ -1327,51 +1321,51 @@ dissect_s5066_27.exit:                            ; preds = %30
 
 613:                                              ; preds = %611, %601
   %614 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %614
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 16) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
@@ -1408,15 +1402,20 @@ define internal fastcc noundef i32 @dissect_s5066_client_transport_header(ptr no
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind memory(none) }
+attributes #4 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

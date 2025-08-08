@@ -59,7 +59,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not34, label %18, label %.critedge
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %19 = call i32 @threadControl_suspendCount(ptr noundef %10, ptr noundef nonnull %8) #3
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -70,7 +70,7 @@ define internal noundef zeroext i8 @getValues(ptr noundef %0, ptr noundef %1) #0
   br i1 %23, label %24, label %validateThreadFrame.exit.thread
 
 validateThreadFrame.exit.thread:                  ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge.sink.split
 
 24:                                               ; preds = %21
@@ -83,7 +83,7 @@ validateThreadFrame.exit.thread:                  ; preds = %21
 
 validateThreadFrame.exit:                         ; preds = %24, %26
   %.0.i = phi i16 [ %25, %24 ], [ %27, %26 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not35 = icmp eq i16 %.0.i, 0
   br i1 %.not35, label %28, label %.critedge.sink.split
 
@@ -117,11 +117,11 @@ validateThreadFrame.exit:                         ; preds = %24, %26
 
 40:                                               ; preds = %37
   %41 = call i32 @getFrameNumber(i64 noundef %13) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = call zeroext i8 @isObjectTag(i8 noundef signext %38) #3
   %.not.i = icmp eq i8 %42, 0
   br i1 %.not.i, label %75, label %43
@@ -198,11 +198,11 @@ validateThreadFrame.exit:                         ; preds = %24, %26
   ]
 
 writeVariableValue.exit.thread:                   ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.sink.split
 
 77:                                               ; preds = %75
@@ -412,11 +412,11 @@ writeVariableValue.exit.thread:                   ; preds = %75
 writeVariableValue.exit:                          ; preds = %70, %83, %99, %115, %130, %145, %160, %175, %191
   %.0.i40 = phi i32 [ %55, %70 ], [ %89, %83 ], [ %105, %99 ], [ %121, %115 ], [ %136, %130 ], [ %151, %145 ], [ %166, %160 ], [ %181, %175 ], [ %197, %191 ]
   %201 = call zeroext i16 @map2jdwpError(i32 noundef %.0.i40) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not39 = icmp eq i16 %201, 0
   br i1 %.not39, label %31, label %.critedge.sink.split
 
@@ -451,7 +451,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not34, label %13, label %.critedge.thread
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = call i32 @threadControl_suspendCount(ptr noundef %5, ptr noundef nonnull %3) #3
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
@@ -462,7 +462,7 @@ define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr noundef %1) #0
   br i1 %18, label %19, label %validateThreadFrame.exit.thread
 
 validateThreadFrame.exit.thread:                  ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.thread.sink.split
 
 19:                                               ; preds = %16
@@ -475,7 +475,7 @@ validateThreadFrame.exit.thread:                  ; preds = %16
 
 validateThreadFrame.exit:                         ; preds = %19, %21
   %.0.i = phi i16 [ %20, %19 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not35 = icmp eq i16 %.0.i, 0
   br i1 %.not35, label %.preheader, label %.critedge.thread.sink.split
 
@@ -779,7 +779,7 @@ define internal noundef zeroext i8 @thisObject(ptr noundef %0, ptr noundef %1) #
   br i1 %.not37, label %14, label %81
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i32 @threadControl_suspendCount(ptr noundef %9, ptr noundef nonnull %3) #3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %22
@@ -790,7 +790,7 @@ define internal noundef zeroext i8 @thisObject(ptr noundef %0, ptr noundef %1) #
   br i1 %19, label %20, label %validateThreadFrame.exit.thread
 
 validateThreadFrame.exit.thread:                  ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split48
 
 20:                                               ; preds = %17
@@ -803,7 +803,7 @@ validateThreadFrame.exit.thread:                  ; preds = %17
 
 validateThreadFrame.exit:                         ; preds = %20, %22
   %.0.i = phi i16 [ %21, %20 ], [ %23, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not38 = icmp eq i16 %.0.i, 0
   br i1 %.not38, label %24, label %.sink.split48
 
@@ -935,7 +935,7 @@ define internal noundef zeroext i8 @popFrames(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not18, label %10, label %27
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = call i32 @threadControl_suspendCount(ptr noundef %5, ptr noundef nonnull %3) #3
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %18
@@ -946,7 +946,7 @@ define internal noundef zeroext i8 @popFrames(ptr noundef %0, ptr noundef %1) #0
   br i1 %15, label %16, label %validateThreadFrame.exit.thread
 
 validateThreadFrame.exit.thread:                  ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split
 
 16:                                               ; preds = %13
@@ -959,7 +959,7 @@ validateThreadFrame.exit.thread:                  ; preds = %13
 
 validateThreadFrame.exit:                         ; preds = %16, %18
   %.0.i = phi i16 [ %17, %16 ], [ %19, %18 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not19 = icmp eq i16 %.0.i, 0
   br i1 %.not19, label %20, label %.sink.split
 
@@ -1060,10 +1060,10 @@ declare zeroext i8 @threadControl_isDebugThread(ptr noundef) local_unnamed_addr 
 declare i32 @threadControl_popFrames(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

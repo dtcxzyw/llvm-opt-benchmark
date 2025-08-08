@@ -171,31 +171,25 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   ret i32 %104
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #2
+declare dso_local i32 @ieee80211_hdrlen(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @michael_mic(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @michael_mic(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_verify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !annotation !12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -382,15 +376,15 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 
 124:                                              ; preds = %122, %81, %63, %53, %46, %33, %29, %25, %21, %18, %1
   %125 = phi i32 [ 65568, %122 ], [ 1, %81 ], [ 1, %1 ], [ 1, %25 ], [ 1, %21 ], [ 1, %18 ], [ 1, %33 ], [ 1, %29 ], [ 65566, %46 ], [ 65567, %53 ], [ 65545, %63 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %125
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @cfg80211_michael_mic_failure(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local void @cfg80211_michael_mic_failure(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -506,7 +500,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ieee80211_tx_set_protected(ptr noundef) local_unnamed_addr #3
+declare dso_local void @ieee80211_tx_set_protected(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -602,13 +596,13 @@ define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @ieee80211_tkip_decrypt_data(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
@@ -637,8 +631,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   br i1 %23, label %.loopexit, label %.lr.ph
 
 .critedge:                                        ; preds = %82, %77, %37, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.backedge
 
 .lr.ph:                                           ; preds = %2, %.backedge
@@ -646,9 +640,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -713,8 +707,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   call void asm sideeffect "803: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 803b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 803) #10, !srcloc !20
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 453, i32 2305, i64 12) #10, !srcloc !21
   call void asm sideeffect "804: nop\0A\09.pushsection .discard.instr_end\0A\09.long 804b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 804) #10, !srcloc !22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 71:                                               ; preds = %63
@@ -844,8 +838,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %155 = zext i16 %154 to i64
   %156 = call i32 @aead_encrypt(ptr noundef %150, ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %155, ptr noundef %110, i64 noundef %151, ptr noundef %152) #10
   %157 = icmp slt i32 %156, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %157, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %142, %.critedge
@@ -869,7 +863,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load i16, ptr %9, align 2
   %13 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %12) #9
   %14 = and i16 %12, 12
@@ -1036,10 +1030,10 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   br i1 %115, label %116, label %173
 
 116:                                              ; preds = %113
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %117, i8 0, i64 16, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
   %118 = load i16, ptr %79, align 2
   %119 = and i16 %118, 12
@@ -1121,8 +1115,8 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   %170 = zext nneg i16 %139 to i64
   %171 = call i32 @aead_decrypt(ptr noundef %162, ptr noundef nonnull %5, ptr noundef nonnull %141, i64 noundef %170, ptr noundef %163, i64 noundef %164, ptr noundef %169) #10
   %172 = icmp eq i32 %171, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %172, label %173, label %209
 
 173:                                              ; preds = %ccmp_special_blocks.exit, %113
@@ -1185,15 +1179,15 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
 
 209:                                              ; preds = %109, %ccmp_special_blocks.exit, %204, %191, %60, %57, %44, %42, %26, %26, %26, %26, %26, %26, %26, %26, %20, %16
   %210 = phi i32 [ 1, %204 ], [ 65571, %44 ], [ 65545, %57 ], [ 65571, %60 ], [ 65572, %191 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %26 ], [ 1, %16 ], [ 65571, %42 ], [ 1, %20 ], [ 65538, %109 ], [ 65537, %ccmp_special_blocks.exit ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %210
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -1223,8 +1217,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br i1 %23, label %.loopexit, label %.lr.ph
 
 .critedge:                                        ; preds = %97, %92, %37, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge
 
 .lr.ph:                                           ; preds = %1, %.backedge
@@ -1232,9 +1226,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
@@ -1299,8 +1293,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   call void asm sideeffect "805: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 805b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 805) #10, !srcloc !24
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 652, i32 2305, i64 12) #10, !srcloc !25
   call void asm sideeffect "806: nop\0A\09.pushsection .discard.instr_end\0A\09.long 806b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 806) #10, !srcloc !26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 71:                                               ; preds = %63
@@ -1442,8 +1436,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %165 = zext i16 %164 to i64
   %166 = call i32 @aead_encrypt(ptr noundef %160, ptr noundef nonnull %3, ptr noundef nonnull %15, i64 noundef %165, ptr noundef %125, i64 noundef %161, ptr noundef %162) #10
   %167 = icmp slt i32 %166, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %167, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %158, %.critedge
@@ -1467,7 +1461,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = load i16, ptr %8, align 2
   %12 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %11) #9
   %13 = and i16 %11, 12
@@ -1634,10 +1628,10 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   br i1 %114, label %115, label %169
 
 115:                                              ; preds = %112
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %116, i8 0, i64 16, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %117 = getelementptr inbounds nuw i8, ptr %78, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %117, i64 6, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 6
@@ -1716,8 +1710,8 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
   %166 = zext nneg i16 %143 to i64
   %167 = call i32 @aead_decrypt(ptr noundef %160, ptr noundef nonnull %4, ptr noundef nonnull %145, i64 noundef %166, ptr noundef %161, i64 noundef %162, ptr noundef %165) #10
   %168 = icmp eq i32 %167, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %168, label %169, label %205
 
 169:                                              ; preds = %gcmp_special_blocks.exit, %112
@@ -1780,7 +1774,7 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
 
 205:                                              ; preds = %108, %gcmp_special_blocks.exit, %200, %187, %59, %56, %43, %41, %25, %25, %25, %25, %25, %25, %25, %25, %19, %15
   %206 = phi i32 [ 1, %200 ], [ 65573, %43 ], [ 65545, %56 ], [ 65573, %59 ], [ 65574, %187 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %15 ], [ 65573, %41 ], [ 1, %19 ], [ 65538, %108 ], [ 65537, %gcmp_special_blocks.exit ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %206
 }
 
@@ -1789,7 +1783,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -1901,19 +1895,19 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
 
 78:                                               ; preds = %63, %34, %33, %17, %8
   %79 = phi i32 [ 0, %63 ], [ 1, %8 ], [ 0, %17 ], [ 1, %33 ], [ 0, %34 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %79
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ieee80211_aes_cmac(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @ieee80211_aes_cmac(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -2013,12 +2007,12 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encr
 
 70:                                               ; preds = %29, %28, %9, %8
   %71 = phi i32 [ 0, %29 ], [ 1, %8 ], [ 0, %9 ], [ 1, %28 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %71
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @ieee80211_aes_cmac_256(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local void @ieee80211_aes_cmac_256(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decrypt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
@@ -2029,11 +2023,11 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !annotation !12
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
@@ -2137,9 +2131,9 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
 
 77:                                               ; preds = %74, %70, %49, %24, %18, %14, %1
   %78 = phi i32 [ 65538, %49 ], [ 1, %74 ], [ 65537, %70 ], [ 1, %1 ], [ 65575, %14 ], [ 65539, %24 ], [ 65539, %18 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %78
 }
 
@@ -2152,11 +2146,11 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
@@ -2260,9 +2254,9 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
 
 77:                                               ; preds = %74, %70, %49, %24, %18, %14, %1
   %78 = phi i32 [ 65538, %49 ], [ 1, %74 ], [ 65537, %70 ], [ 1, %1 ], [ 65576, %14 ], [ 65539, %24 ], [ 65539, %18 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %78
 }
 
@@ -2272,8 +2266,8 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
   %3 = alloca [12 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -2388,13 +2382,13 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
 
 80:                                               ; preds = %30, %29, %10, %9
   %81 = phi i32 [ 1, %9 ], [ 0, %10 ], [ 1, %29 ], [ %79, %30 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %81
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ieee80211_aes_gmac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @ieee80211_aes_gmac(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decrypt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
@@ -2405,10 +2399,10 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
@@ -2534,54 +2528,60 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
 
 89:                                               ; preds = %86, %81, %58, %49, %24, %18, %14, %1
   %90 = phi i32 [ 65538, %49 ], [ 1, %86 ], [ 65537, %81 ], [ 1, %1 ], [ 65577, %14 ], [ 65539, %24 ], [ 65539, %18 ], [ 65545, %58 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %90
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
+declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @__crypto_memneq(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i64 @__crypto_memneq(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @ieee80211_tkip_add_iv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local ptr @ieee80211_tkip_add_iv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare dso_local i32 @ieee80211_tkip_encrypt_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @aead_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @aead_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #7
+declare i16 @llvm.bswap.i16(i16) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @aead_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare dso_local i32 @aead_decrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @___pskb_trim(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare dso_local i32 @___pskb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(2) }

@@ -61,17 +61,14 @@ define dso_local range(i32 -1, 1) i32 @zend_load_extension(ptr noundef %0) local
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @dlerror() local_unnamed_addr #2
+declare ptr @dlerror() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @zend_load_extension_handle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -208,7 +205,7 @@ zend_get_extension.exit:                          ; preds = %61
   br label %98
 
 zend_get_extension.exit.thread:                   ; preds = %60, %33
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull readonly align 8 dereferenceable(208) %.036, i64 208, i1 false), !tbaa.struct !22
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %0, ptr %68, align 8, !tbaa !26
@@ -274,7 +271,7 @@ zend_get_extension.exit.thread:                   ; preds = %60, %33
   br label %zend_register_extension.exit
 
 zend_register_extension.exit:                     ; preds = %92, %95
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %98
 
 98:                                               ; preds = %zend_register_extension.exit, %zend_get_extension.exit, %52, %34, %28, %14
@@ -282,20 +279,17 @@ zend_register_extension.exit:                     ; preds = %92, %95
   ret i32 %.037
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: nounwind
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind
-declare i32 @dlclose(ptr noundef) local_unnamed_addr #2
+declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_get_extension(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local ptr @zend_get_extension(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %3, %1
@@ -323,7 +317,7 @@ define dso_local ptr @zend_get_extension(ptr noundef readonly captures(none) %0)
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_register_extension(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zend_extension, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %0, i64 208, i1 false), !tbaa.struct !22
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %1, ptr %4, align 8, !tbaa !26
@@ -389,12 +383,12 @@ define dso_local void @zend_register_extension(ptr noundef readonly captures(non
   br label %34
 
 34:                                               ; preds = %31, %28
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_extension_dispatch_message(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -402,7 +396,7 @@ define dso_local void @zend_extension_dispatch_message(i32 noundef %0, ptr nound
   ret void
 }
 
-declare void @zend_llist_add_element(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @zend_llist_add_element(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_startup_extensions_mechanism() local_unnamed_addr #0 {
@@ -413,7 +407,7 @@ define hidden void @zend_startup_extensions_mechanism() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #7
+declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_extension_dtor(ptr noundef readonly captures(none) %0) #0 {
@@ -441,7 +435,7 @@ define hidden void @zend_startup_extensions() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @zend_llist_apply_with_del(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @zend_llist_apply_with_del(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @zend_extension_startup(ptr noundef %0) #0 {
@@ -471,7 +465,7 @@ define hidden void @zend_shutdown_extensions() local_unnamed_addr #0 {
   ret void
 }
 
-declare void @zend_llist_apply(ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @zend_llist_apply(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_extension_shutdown(ptr noundef %0) #0 {
@@ -488,12 +482,12 @@ define internal void @zend_extension_shutdown(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #7
+declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
-declare void @zend_llist_apply_with_arguments(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #7
+declare void @zend_llist_apply_with_arguments(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_extension_message_dispatcher(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #0 {
@@ -575,7 +569,7 @@ define dso_local i32 @zend_get_resource_handle(ptr noundef %0) local_unnamed_add
   ret i32 %.0
 }
 
-declare i32 @zend_add_system_entropy(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @zend_add_system_entropy(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @zend_get_op_array_extension_handle(ptr noundef %0) local_unnamed_addr #0 {
@@ -614,7 +608,7 @@ define dso_local i32 @zend_get_internal_function_extension_handles(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 -17179869184, 17179869177) i64 @zend_internal_run_time_cache_reserved_size() local_unnamed_addr #9 {
+define dso_local range(i64 -17179869184, 17179869177) i64 @zend_internal_run_time_cache_reserved_size() local_unnamed_addr #8 {
   %1 = load i32, ptr @zend_internal_function_extension_handles, align 4, !tbaa !25
   %2 = sext i32 %1 to i64
   %3 = shl nsw i64 %2, 3
@@ -851,13 +845,13 @@ define dso_local void @zend_init_internal_run_time_cache() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @zend_reset_internal_run_time_cache() local_unnamed_addr #12 {
+define dso_local void @zend_reset_internal_run_time_cache() local_unnamed_addr #11 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 576), align 8, !tbaa !61
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %2
@@ -873,7 +867,7 @@ define dso_local void @zend_reset_internal_run_time_cache() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @zend_extensions_op_array_persist_calc(ptr noundef %0) local_unnamed_addr #0 {
@@ -884,13 +878,13 @@ define dso_local i64 @zend_extensions_op_array_persist_calc(ptr noundef %0) loca
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @zend_llist_apply_with_argument(ptr noundef nonnull @zend_extensions, ptr noundef nonnull @zend_extension_op_array_persist_calc_handler, ptr noundef nonnull %2) #14
   %7 = load i64, ptr %6, align 8, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -898,7 +892,7 @@ define dso_local i64 @zend_extensions_op_array_persist_calc(ptr noundef %0) loca
   ret i64 %.0
 }
 
-declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
+declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal void @zend_extension_op_array_persist_calc_handler(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
@@ -929,7 +923,7 @@ define dso_local i64 @zend_extensions_op_array_persist(ptr noundef %0, ptr nound
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %7, align 8, !tbaa !73
@@ -937,7 +931,7 @@ define dso_local i64 @zend_extensions_op_array_persist(ptr noundef %0, ptr nound
   store ptr %1, ptr %8, align 8, !tbaa !74
   call void @zend_llist_apply_with_argument(ptr noundef nonnull @zend_extensions, ptr noundef nonnull @zend_extension_op_array_persist_handler, ptr noundef nonnull %3) #14
   %9 = load i64, ptr %7, align 8, !tbaa !73
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -974,22 +968,28 @@ define internal void @zend_extension_op_array_persist_handler(ptr noundef readon
   ret void
 }
 
-declare void @zend_append_version_info(ptr noundef) local_unnamed_addr #7
+declare void @zend_append_version_info(ptr noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { cold nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

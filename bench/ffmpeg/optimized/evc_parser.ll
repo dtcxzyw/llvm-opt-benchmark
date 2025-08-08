@@ -286,20 +286,14 @@ define internal void @evc_parser_close(ptr noundef readonly captures(none) %0) #
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 2147483644) %3) unnamed_addr #0 {
   %5 = alloca %struct.GetBitContext, align 8
   %6 = alloca %struct.EVCParserSliceHeader, align 4
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = icmp slt i32 %3, 1
   br i1 %8, label %9, label %10
 
@@ -387,7 +381,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_nal_unit(ptr noundef
   br label %142
 
 50:                                               ; preds = %34, %34
-  call void @llvm.lifetime.start.p0(i64 908, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = call i32 @ff_evc_parse_slice_header(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %7, i32 noundef %31) #5
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %54
@@ -538,36 +532,42 @@ switch.lookup128:                                 ; preds = %121
 
 .thread:                                          ; preds = %53, %132
   %.1.ph = phi i32 [ %137, %132 ], [ %51, %53 ]
-  call void @llvm.lifetime.end.p0(i64 908, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %142
 
 139:                                              ; preds = %132
   %140 = load i32, ptr %136, align 8, !tbaa !87
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %140, ptr %141, align 4, !tbaa !88
-  call void @llvm.lifetime.end.p0(i64 908, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %142
 
 142:                                              ; preds = %42, %46, %34, %139, %.thread, %10, %49, %45, %33, %25, %9
   %.0 = phi i32 [ -1094995529, %9 ], [ -1094995529, %25 ], [ -1094995529, %33 ], [ %43, %45 ], [ %47, %49 ], [ -1094995529, %10 ], [ %.1.ph, %.thread ], [ 0, %139 ], [ 0, %34 ], [ 0, %46 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #3
+declare void @abort() local_unnamed_addr #2
 
-declare i32 @ff_evc_parse_sps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_evc_parse_sps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_evc_parse_pps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ff_evc_parse_pps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_evc_parse_slice_header(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_evc_parse_slice_header(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_reduce(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ff_evc_derive_poc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_evc_derive_poc(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ff_evc_ps_free(ptr noundef) local_unnamed_addr #2
+declare void @ff_evc_ps_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #4
@@ -582,9 +582,9 @@ declare i32 @llvm.bswap.i32(i32) #4
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold nofree noreturn nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }

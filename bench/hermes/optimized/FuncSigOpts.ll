@@ -221,12 +221,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %worklist.sroa.19.275 = phi ptr [ %worklist.sroa.19.1, %while.body.lr.ph ], [ %worklist.sroa.19.8, %_ZL10performFSOPN6hermes8FunctionERSt6vectorIS1_SaIS1_EE.exit ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %worklist.sroa.7.276, i64 -8
   %8 = load ptr, ptr %add.ptr.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %builder.i)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %callsites.i)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %args.i)
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %unusedParams.i)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %toRedo.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp122.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %builder.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %callsites.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %args.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unusedParams.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %toRedo.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp122.i)
   %Next.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 88
   %BasicBlockList.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
   %__begin1.sroa.0.019.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
@@ -755,12 +755,12 @@ _ZL10performFSOPN6hermes8FunctionERSt6vectorIS1_SaIS1_EE.exit: ; preds = %for.bo
   %worklist.sroa.7.8 = phi ptr [ %worklist.sroa.7.4, %cleanup.i ], [ %worklist.sroa.7.4, %if.then.i.i91.i ], [ %add.ptr.i.i, %if.end.i ], [ %add.ptr.i.i, %if.end.i ], [ %add.ptr.i.i, %if.then15.i.i ], [ %add.ptr.i.i, %for.body11.i.i ]
   %worklist.sroa.0.8 = phi ptr [ %worklist.sroa.0.4, %cleanup.i ], [ %worklist.sroa.0.4, %if.then.i.i91.i ], [ %worklist.sroa.0.277, %if.end.i ], [ %worklist.sroa.0.277, %if.end.i ], [ %worklist.sroa.0.277, %if.then15.i.i ], [ %worklist.sroa.0.277, %for.body11.i.i ]
   %retval.0.i = phi i1 [ %retval.1.i, %cleanup.i ], [ %retval.1.i, %if.then.i.i91.i ], [ false, %if.end.i ], [ false, %if.end.i ], [ false, %if.then15.i.i ], [ false, %for.body11.i.i ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %builder.i)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %callsites.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %args.i)
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %unusedParams.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %toRedo.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp122.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %builder.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callsites.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %args.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unusedParams.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %toRedo.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp122.i)
   %or5 = or i1 %changed.078, %retval.0.i
   %tobool9.not = icmp eq ptr %worklist.sroa.7.8, %worklist.sroa.0.8
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !16
@@ -1148,10 +1148,10 @@ declare void @llvm.assume(i1 noundef) #9
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

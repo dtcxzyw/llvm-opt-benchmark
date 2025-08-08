@@ -555,7 +555,7 @@ define void @ggml_abort(ptr noundef %0, i32 noundef %1, ptr noundef readonly cap
   %6 = tail call i32 @fflush(ptr noundef %5)
   %7 = load ptr, ptr @stderr, align 8, !tbaa !3
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef %0, i32 noundef %1) #41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %9 = load ptr, ptr @stderr, align 8, !tbaa !3
   %10 = call i32 @vfprintf(ptr noundef %9, ptr noundef %2, ptr noundef nonnull %4) #41
@@ -563,7 +563,7 @@ define void @ggml_abort(ptr noundef %0, i32 noundef %1, ptr noundef readonly cap
   %11 = load ptr, ptr @stderr, align 8, !tbaa !3
   %fputc = call i32 @fputc(i32 10, ptr %11)
   call fastcc void @ggml_print_backtrace()
-  call void @abort() #43
+  call void @abort() #42
   unreachable
 }
 
@@ -573,59 +573,56 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_print_backtrace() unnamed_addr #4 {
+define internal fastcc void @ggml_print_backtrace() unnamed_addr #3 {
   %1 = alloca [100 x ptr], align 16
   %2 = alloca [32 x i8], align 16
   %3 = alloca i32, align 4
-  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.219) #42
+  %4 = tail call ptr @getenv(ptr noundef nonnull @.str.219) #43
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #42
-  %6 = tail call i32 @getpid() #42
-  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.220, i32 noundef %6) #42
-  %8 = tail call i32 @fork() #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  %6 = tail call i32 @getpid() #43
+  %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 32, ptr noundef nonnull @.str.220, i32 noundef %6) #43
+  %8 = tail call i32 @fork() #43
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.223, ptr noundef nonnull %2, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.227, ptr noundef null) #42
-  %12 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.231, ptr noundef nonnull %2, ptr noundef null) #42
+  %11 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.224, ptr noundef nonnull @.str.223, ptr noundef nonnull %2, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.225, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.226, ptr noundef nonnull @.str.223, ptr noundef nonnull @.str.227, ptr noundef null) #43
+  %12 = call i32 (ptr, ptr, ...) @execlp(ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.231, ptr noundef nonnull %2, ptr noundef null) #43
   call void @exit(i32 noundef 1) #44
   unreachable
 
 13:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #42
-  %14 = call i32 @waitpid(i32 noundef %8, ptr noundef nonnull %3, i32 noundef 0) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %14 = call i32 @waitpid(i32 noundef %8, ptr noundef nonnull %3, i32 noundef 0) #43
   %15 = load i32, ptr %3, align 4, !tbaa !8
   %16 = and i32 %15, 65407
   %or.cond = icmp eq i32 %16, 256
   br i1 %or.cond, label %17, label %19
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %1) #42
-  %18 = call i32 @backtrace(ptr noundef nonnull %1, i32 noundef 100) #42
-  call void @backtrace_symbols_fd(ptr noundef nonnull %1, i32 noundef %18, i32 noundef 2) #42
-  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %1) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %18 = call i32 @backtrace(ptr noundef nonnull %1, i32 noundef 100) #43
+  call void @backtrace_symbols_fd(ptr noundef nonnull %1, i32 noundef %18, i32 noundef 2) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %19
 
 19:                                               ; preds = %17, %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #42
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %20
 
 20:                                               ; preds = %0, %19
@@ -633,63 +630,60 @@ define internal fastcc void @ggml_print_backtrace() unnamed_addr #4 {
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #5
+declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_log_internal(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #4 {
+define void @ggml_log_internal(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %1, null
   br i1 %6, label %ggml_log_internal_v.exit, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #42
-  %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull readonly %1, ptr noundef nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %8 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 128, ptr noundef nonnull readonly %1, ptr noundef nonnull %5) #43
   %9 = icmp slt i32 %8, 128
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @g_logger_state.0, align 8, !tbaa !10
   %12 = load ptr, ptr @g_logger_state.1, align 8, !tbaa !12
-  call void %11(i32 noundef %0, ptr noundef nonnull %4, ptr noundef %12) #42
+  call void %11(i32 noundef %0, ptr noundef nonnull %4, ptr noundef %12) #43
   br label %22
 
 13:                                               ; preds = %7
   %14 = add nuw nsw i32 %8, 1
   %15 = zext nneg i32 %14 to i64
   %16 = call noalias ptr @calloc(i64 noundef %15, i64 noundef 1) #45
-  %17 = call i32 @vsnprintf(ptr noundef %16, i64 noundef %15, ptr noundef nonnull readonly %1, ptr noundef nonnull %3) #42
+  %17 = call i32 @vsnprintf(ptr noundef %16, i64 noundef %15, ptr noundef nonnull readonly %1, ptr noundef nonnull %3) #43
   %18 = zext nneg i32 %8 to i64
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !13
   %20 = load ptr, ptr @g_logger_state.0, align 8, !tbaa !10
   %21 = load ptr, ptr @g_logger_state.1, align 8, !tbaa !12
-  call void %20(i32 noundef %0, ptr noundef %16, ptr noundef %21) #42
-  call void @free(ptr noundef %16) #42
+  call void %20(i32 noundef %0, ptr noundef %16, ptr noundef %21) #43
+  call void @free(ptr noundef %16) #43
   br label %22
 
 22:                                               ; preds = %13, %10
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #42
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ggml_log_internal_v.exit
 
 ggml_log_internal_v.exit:                         ; preds = %2, %22
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: cold nofree nounwind uwtable
-define void @ggml_log_callback_default(i32 %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #6 {
+define void @ggml_log_callback_default(i32 %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = load ptr, ptr @stderr, align 8, !tbaa !3
   %5 = tail call i32 @fputs(ptr noundef %1, ptr noundef %4) #46
   %6 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -701,7 +695,7 @@ define void @ggml_log_callback_default(i32 %0, ptr noundef readonly captures(non
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #4 {
+define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %5
@@ -711,9 +705,9 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #4 {
   br label %15
 
 5:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !14
-  %6 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 64, i64 noundef %0) #42
+  %6 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 64, i64 noundef %0) #43
   switch i32 %6, label %9 [
     i32 0, label %12
     i32 22, label %7
@@ -739,7 +733,7 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #4 {
 
 14:                                               ; preds = %12, %9
   %.1 = phi ptr [ null, %9 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
 15:                                               ; preds = %14, %4
@@ -751,16 +745,16 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #4 {
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @ggml_aligned_free(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
-  tail call void @free(ptr noundef %0) #42
+define void @ggml_aligned_free(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #6 {
+  tail call void @free(ptr noundef %0) #43
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @ggml_status_to_string(i32 noundef %0) local_unnamed_addr #9 {
+define noundef nonnull ptr @ggml_status_to_string(i32 noundef %0) local_unnamed_addr #8 {
   %switch.tableidx = add i32 %0, 2
   %2 = icmp ult i32 %switch.tableidx, 4
   br i1 %2, label %switch.lookup, label %4
@@ -777,7 +771,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @ggml_fp16_to_fp32(i16 noundef zeroext %0) local_unnamed_addr #10 {
+define float @ggml_fp16_to_fp32(i16 noundef zeroext %0) local_unnamed_addr #9 {
   %2 = zext i16 %0 to i64
   %3 = getelementptr inbounds nuw [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %2
   %4 = load float, ptr %3, align 4, !tbaa !15
@@ -785,7 +779,7 @@ define float @ggml_fp16_to_fp32(i16 noundef zeroext %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i16 @ggml_fp32_to_fp16(float noundef %0) local_unnamed_addr #9 {
+define zeroext i16 @ggml_fp32_to_fp16(float noundef %0) local_unnamed_addr #8 {
   %2 = tail call float @llvm.fabs.f32(float %0)
   %3 = fmul float %2, 0x46F0000000000000
   %4 = fmul float %3, 0x3910000000000000
@@ -812,7 +806,7 @@ define zeroext i16 @ggml_fp32_to_fp16(float noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define float @ggml_bf16_to_fp32(i16 %0) local_unnamed_addr #9 {
+define float @ggml_bf16_to_fp32(i16 %0) local_unnamed_addr #8 {
   %2 = zext i16 %0 to i32
   %3 = shl nuw i32 %2, 16
   %4 = bitcast i32 %3 to float
@@ -820,7 +814,7 @@ define float @ggml_bf16_to_fp32(i16 %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i16 @ggml_fp32_to_bf16(float noundef %0) local_unnamed_addr #9 {
+define i16 @ggml_fp32_to_bf16(float noundef %0) local_unnamed_addr #8 {
   %2 = bitcast float %0 to i32
   %3 = tail call float @llvm.fabs.f32(float %0)
   %4 = bitcast float %3 to i32
@@ -847,7 +841,7 @@ ggml_compute_fp32_to_bf16.exit:                   ; preds = %7, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_fp16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
+define void @ggml_fp16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #10 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -869,7 +863,7 @@ define void @ggml_fp16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ggml_fp32_to_fp16_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #12 {
+define void @ggml_fp32_to_fp16_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -910,7 +904,7 @@ define void @ggml_fp32_to_fp16_row(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ggml_bf16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #12 {
+define void @ggml_bf16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -931,7 +925,7 @@ define void @ggml_bf16_to_fp32_row(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ggml_fp32_to_bf16_row_ref(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #12 {
+define void @ggml_fp32_to_bf16_row_ref(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #11 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -972,10 +966,10 @@ ggml_compute_fp32_to_bf16.exit:                   ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ggml_fp32_to_bf16_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #12 {
+define void @ggml_fp32_to_bf16_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = icmp sgt i64 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1016,66 +1010,66 @@ ggml_compute_fp32_to_bf16.exit:                   ; preds = %13, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_guid_matches(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
+define zeroext i1 @ggml_guid_matches(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 16)
   %3 = icmp eq i32 %bcmp, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @ggml_time_init() local_unnamed_addr #9 {
+define void @ggml_time_init() local_unnamed_addr #8 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_time_ms() local_unnamed_addr #4 {
+define i64 @ggml_time_ms() local_unnamed_addr #3 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #42
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #43
   %3 = load i64, ptr %1, align 8, !tbaa !25
   %4 = mul nsw i64 %3, 1000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = sdiv i64 %6, 1000000
   %8 = add nsw i64 %7, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %8
 }
 
 ; Function Attrs: nounwind
-declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_time_us() local_unnamed_addr #4 {
+define i64 @ggml_time_us() local_unnamed_addr #3 {
   %1 = alloca %struct.timespec, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #42
-  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #43
   %3 = load i64, ptr %1, align 8, !tbaa !25
   %4 = mul nsw i64 %3, 1000000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = sdiv i64 %6, 1000
   %8 = add nsw i64 %7, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_cycles() local_unnamed_addr #4 {
-  %1 = tail call i64 @clock() #42
+define i64 @ggml_cycles() local_unnamed_addr #3 {
+  %1 = tail call i64 @clock() #43
   ret i64 %1
 }
 
 ; Function Attrs: nounwind
-declare i64 @clock() local_unnamed_addr #15
+declare i64 @clock() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ggml_cycles_per_ms() local_unnamed_addr #9 {
+define noundef i64 @ggml_cycles_per_ms() local_unnamed_addr #8 {
   ret i64 1000
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @ggml_fopen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
+define noalias noundef ptr @ggml_fopen(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
@@ -1084,7 +1078,7 @@ define noalias noundef ptr @ggml_fopen(ptr noundef readonly captures(none) %0, p
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @ggml_get_type_traits(i32 noundef %0) local_unnamed_addr #4 {
+define nonnull ptr @ggml_get_type_traits(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 39
   br i1 %2, label %4, label %3
 
@@ -1099,7 +1093,7 @@ define nonnull ptr @ggml_get_type_traits(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_print_object(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define void @ggml_print_object(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !29
   %4 = load i64, ptr %0, align 8, !tbaa !32
@@ -1112,7 +1106,7 @@ define void @ggml_print_object(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_print_objects(ptr noundef %0) local_unnamed_addr #4 {
+define void @ggml_print_objects(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull @__func__.ggml_print_objects, ptr noundef %0)
@@ -1139,7 +1133,7 @@ define void @ggml_print_objects(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_nelements(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i64 @ggml_nelements(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1155,7 +1149,7 @@ define i64 @ggml_nelements(ptr noundef readonly captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_nrows(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i64 @ggml_nrows(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1168,7 +1162,7 @@ define i64 @ggml_nrows(ptr noundef readonly captures(none) %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @ggml_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define i64 @ggml_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 1
@@ -1226,7 +1220,7 @@ define i64 @ggml_nbytes(ptr noundef readonly captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ggml_blck_size(i32 noundef %0) local_unnamed_addr #9 {
+define i64 @ggml_blck_size(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %2, i32 1
   %4 = load i64, ptr %3, align 8, !tbaa !44
@@ -1234,7 +1228,7 @@ define i64 @ggml_blck_size(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ggml_type_size(i32 noundef %0) local_unnamed_addr #9 {
+define i64 @ggml_type_size(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %2, i32 3
   %4 = load i64, ptr %3, align 8, !tbaa !47
@@ -1242,7 +1236,7 @@ define i64 @ggml_type_size(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 0, -15) i64 @ggml_nbytes_pad(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define range(i64 0, -15) i64 @ggml_nbytes_pad(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 1
@@ -1302,7 +1296,7 @@ ggml_nbytes.exit:                                 ; preds = %27, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @ggml_row_size(i32 noundef %0, i64 noundef %1) local_unnamed_addr #9 {
+define i64 @ggml_row_size(i32 noundef %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
   %5 = load i64, ptr %4, align 8, !tbaa !47
@@ -1314,7 +1308,7 @@ define i64 @ggml_row_size(i32 noundef %0, i64 noundef %1) local_unnamed_addr #9 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define double @ggml_type_sizef(i32 noundef %0) local_unnamed_addr #9 {
+define double @ggml_type_sizef(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1328,7 +1322,7 @@ define double @ggml_type_sizef(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ggml_type_name(i32 noundef %0) local_unnamed_addr #9 {
+define ptr @ggml_type_name(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp ult i32 %0, 39
   br i1 %2, label %3, label %7
 
@@ -1344,7 +1338,7 @@ define ptr @ggml_type_name(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @ggml_is_quantized(i32 noundef %0) local_unnamed_addr #9 {
+define zeroext i1 @ggml_is_quantized(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %2, i32 4
   %4 = load i8, ptr %3, align 8, !tbaa !51, !range !52, !noundef !53
@@ -1353,7 +1347,7 @@ define zeroext i1 @ggml_is_quantized(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ggml_op_name(i32 noundef %0) local_unnamed_addr #9 {
+define ptr @ggml_op_name(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [83 x ptr], ptr @GGML_OP_NAME, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !54
@@ -1361,7 +1355,7 @@ define ptr @ggml_op_name(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ggml_op_symbol(i32 noundef %0) local_unnamed_addr #9 {
+define ptr @ggml_op_symbol(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [83 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !54
@@ -1369,7 +1363,7 @@ define ptr @ggml_op_symbol(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ggml_unary_op_name(i32 noundef %0) local_unnamed_addr #9 {
+define ptr @ggml_unary_op_name(i32 noundef %0) local_unnamed_addr #8 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [14 x ptr], ptr @GGML_UNARY_OP_NAME, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !54
@@ -1377,7 +1371,7 @@ define ptr @ggml_unary_op_name(i32 noundef %0) local_unnamed_addr #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_op_desc(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define ptr @ggml_op_desc(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = icmp eq i32 %3, 71
@@ -1402,7 +1396,7 @@ ggml_get_unary_op.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ggml_get_unary_op(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @ggml_get_unary_op(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = icmp eq i32 %3, 71
@@ -1419,7 +1413,7 @@ define i32 @ggml_get_unary_op(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_element_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i64 @ggml_element_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
@@ -1428,7 +1422,7 @@ define i64 @ggml_element_size(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_scalar(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_scalar(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 1
@@ -1458,7 +1452,7 @@ define zeroext i1 @ggml_is_scalar(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_vector(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_vector(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 1
@@ -1482,7 +1476,7 @@ define zeroext i1 @ggml_is_vector(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_matrix(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_matrix(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 1
@@ -1500,7 +1494,7 @@ define zeroext i1 @ggml_is_matrix(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_3d(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_3d(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 1
@@ -1508,7 +1502,7 @@ define zeroext i1 @ggml_is_3d(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 1, 0) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define range(i32 1, 0) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -1535,7 +1529,7 @@ define range(i32 1, 0) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 31) i32 @ggml_ftype_to_ggml_type(i32 noundef %0) local_unnamed_addr #4 {
+define range(i32 0, 31) i32 @ggml_ftype_to_ggml_type(i32 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i32 %0, 25
   %switch.shifted = lshr i32 33554319, %0
   %switch.lobit = trunc i32 %switch.shifted to i1
@@ -1554,12 +1548,12 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @ggml_tensor_overhead() local_unnamed_addr #9 {
+define noundef i64 @ggml_tensor_overhead() local_unnamed_addr #8 {
   ret i64 368
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_transposed(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_transposed(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1569,7 +1563,7 @@ define zeroext i1 @ggml_is_transposed(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ggml_is_contiguous(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define noundef zeroext i1 @ggml_is_contiguous(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
@@ -1623,7 +1617,7 @@ ggml_is_contiguous_0.exit:                        ; preds = %20, %25, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ggml_is_contiguous_0(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define noundef zeroext i1 @ggml_is_contiguous_0(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
@@ -1677,7 +1671,7 @@ ggml_is_contiguous_n.exit:                        ; preds = %20, %25, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ggml_is_contiguous_1(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define noundef zeroext i1 @ggml_is_contiguous_1(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
@@ -1739,7 +1733,7 @@ ggml_is_contiguous_n.exit:                        ; preds = %24, %29, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ggml_is_contiguous_2(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define noundef zeroext i1 @ggml_is_contiguous_2(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = load i32, ptr %0, align 8, !tbaa !40
   %3 = zext i32 %2 to i64
   %4 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %3, i32 3
@@ -1801,7 +1795,7 @@ ggml_is_contiguous_n.exit:                        ; preds = %24, %29, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_permuted(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_is_permuted(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1827,7 +1821,7 @@ define zeroext i1 @ggml_is_permuted(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @ggml_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #18 {
+define zeroext i1 @ggml_is_empty(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -1846,7 +1840,7 @@ define zeroext i1 @ggml_is_empty(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_are_same_shape(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define zeroext i1 @ggml_are_same_shape(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1884,7 +1878,7 @@ define zeroext i1 @ggml_are_same_shape(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_are_same_stride(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define zeroext i1 @ggml_are_same_stride(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1922,7 +1916,7 @@ define zeroext i1 @ggml_are_same_stride(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @ggml_can_repeat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define zeroext i1 @ggml_can_repeat(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
@@ -1990,9 +1984,9 @@ ggml_is_empty.exit14:                             ; preds = %.preheader, %12, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ggml_init(ptr noundef readonly byval(%struct.ggml_init_params) align 8 captures(none) %0) local_unnamed_addr #4 {
+define noalias noundef ptr @ggml_init(ptr noundef readonly byval(%struct.ggml_init_params) align 8 captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
-  tail call void @ggml_critical_section_start() #42
+  tail call void @ggml_critical_section_start() #43
   %.b = load i1, ptr @ggml_init.is_first_call, align 1
   br i1 %.b, label %20, label %.preheader
 
@@ -2026,7 +2020,7 @@ define noalias noundef ptr @ggml_init(ptr noundef readonly byval(%struct.ggml_in
   br i1 %exitcond.not, label %3, label %.preheader, !llvm.loop !59
 
 20:                                               ; preds = %3, %1
-  tail call void @ggml_critical_section_end() #42
+  tail call void @ggml_critical_section_end() #43
   %21 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #48
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %ggml_malloc.exit
@@ -2057,9 +2051,9 @@ ggml_malloc.exit:                                 ; preds = %20
   br label %ggml_aligned_malloc.exit
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !14
-  %35 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 64, i64 noundef %29) #42
+  %35 = call i32 @posix_memalign(ptr noundef nonnull %2, i64 noundef 64, i64 noundef %29) #43
   switch i32 %35, label %38 [
     i32 0, label %41
     i32 22, label %36
@@ -2085,7 +2079,7 @@ ggml_malloc.exit:                                 ; preds = %20
 
 43:                                               ; preds = %41, %38
   %.1.i = phi ptr [ null, %38 ], [ %42, %41 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ggml_aligned_malloc.exit
 
 ggml_aligned_malloc.exit:                         ; preds = %43, %33, %ggml_malloc.exit
@@ -2123,15 +2117,15 @@ ggml_aligned_malloc.exit:                         ; preds = %43, %33, %ggml_mall
   ret ptr %21
 }
 
-declare void @ggml_critical_section_start() local_unnamed_addr #19
+declare void @ggml_critical_section_start() local_unnamed_addr #18
 
-declare void @ggml_critical_section_end() local_unnamed_addr #19
+declare void @ggml_critical_section_end() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_reset(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #21 {
+define void @ggml_reset(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2145,7 +2139,7 @@ define void @ggml_reset(ptr noundef writeonly captures(address_is_null) %0) loca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ggml_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #22 {
+define void @ggml_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #21 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -2158,11 +2152,11 @@ define void @ggml_free(ptr noundef captures(address_is_null) %0) local_unnamed_a
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !66
-  tail call void @free(ptr noundef %9) #42
+  tail call void @free(ptr noundef %9) #43
   br label %10
 
 10:                                               ; preds = %7, %3
-  tail call void @free(ptr noundef nonnull %0) #42
+  tail call void @free(ptr noundef nonnull %0) #43
   br label %11
 
 11:                                               ; preds = %1, %10
@@ -2170,7 +2164,7 @@ define void @ggml_free(ptr noundef captures(address_is_null) %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @ggml_used_mem(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
+define i64 @ggml_used_mem(ptr noundef readonly captures(none) %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !67
   %4 = icmp eq ptr %3, null
@@ -2189,7 +2183,7 @@ define i64 @ggml_used_mem(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_get_no_alloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define zeroext i1 @ggml_get_no_alloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1, !tbaa !68, !range !52, !noundef !53
   %4 = trunc nuw i8 %3 to i1
@@ -2197,7 +2191,7 @@ define zeroext i1 @ggml_get_no_alloc(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_set_no_alloc(ptr noundef writeonly captures(none) initializes((17, 18)) %0, i1 noundef zeroext %1) local_unnamed_addr #21 {
+define void @ggml_set_no_alloc(ptr noundef writeonly captures(none) initializes((17, 18)) %0, i1 noundef zeroext %1) local_unnamed_addr #20 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %3, ptr %4, align 1, !tbaa !68
@@ -2205,20 +2199,20 @@ define void @ggml_set_no_alloc(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_get_mem_buffer(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define ptr @ggml_get_mem_buffer(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !66
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_get_mem_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i64 @ggml_get_mem_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = load i64, ptr %0, align 8, !tbaa !69
   ret i64 %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @ggml_get_max_tensor_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
+define i64 @ggml_get_max_tensor_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !66
@@ -2326,7 +2320,7 @@ ggml_nbytes.exit:                                 ; preds = %35, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_get_first_tensor(ptr noundef readonly captures(none) %0) local_unnamed_addr #24 {
+define ptr @ggml_get_first_tensor(ptr noundef readonly captures(none) %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !66
@@ -2358,7 +2352,7 @@ define ptr @ggml_get_first_tensor(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_get_next_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #24 {
+define ptr @ggml_get_next_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #23 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !66
@@ -2390,13 +2384,13 @@ define ptr @ggml_get_next_tensor(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_tensor(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_new_tensor(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, i64 noundef 0)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i64 noundef %5) unnamed_addr #3 {
   %.sroa.3 = alloca [44 x i8], align 4
   %7 = icmp ult i32 %1, 39
   br i1 %7, label %9, label %8
@@ -2676,7 +2670,7 @@ ggml_nbytes.exit:                                 ; preds = %62, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_tensor_1d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_new_tensor_1d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8, !tbaa !39
   %5 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %1, i32 noundef 1, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -2684,35 +2678,35 @@ define noundef ptr @ggml_new_tensor_1d(ptr noundef captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_tensor_2d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_new_tensor_2d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 16, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8, !tbaa !39
   %7 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_tensor_3d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_new_tensor_3d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %2, ptr %6, align 16, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %7, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %4, ptr %8, align 16, !tbaa !39
   %9 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %1, i32 noundef 3, ptr noundef nonnull readonly %6, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_tensor_4d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_new_tensor_4d(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 16, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8, !tbaa !39
@@ -2721,12 +2715,12 @@ define noundef ptr @ggml_new_tensor_4d(ptr noundef captures(none) %0, i32 nounde
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %5, ptr %10, align 8, !tbaa !39
   %11 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %1, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_new_buffer(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define ptr @ggml_new_buffer(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !67
   %5 = icmp eq ptr %4, null
@@ -2797,7 +2791,7 @@ ggml_new_object.exit:                             ; preds = %31, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_dup_tensor(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_dup_tensor(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -2805,7 +2799,7 @@ define noundef ptr @ggml_dup_tensor(ptr noundef captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_unravel_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #25 {
+define void @ggml_unravel_index(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #24 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -2859,27 +2853,27 @@ define void @ggml_unravel_index(ptr noundef readonly captures(none) %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_get_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define ptr @ggml_get_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !77
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_get_data_f32(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define ptr @ggml_get_data_f32(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !77
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ggml_get_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
+define nonnull ptr @ggml_get_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   ret ptr %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ggml_set_name(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define noundef ptr @ggml_set_name(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %4
 
@@ -2905,14 +2899,14 @@ define noundef ptr @ggml_set_name(ptr noundef returned writeonly captures(ret: a
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @ggml_format_name(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #16 {
+define noundef ptr @ggml_format_name(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #15 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef %1, ptr noundef nonnull %3) #42
+  %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef %1, ptr noundef nonnull %3) #43
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
@@ -2920,7 +2914,7 @@ define noundef ptr @ggml_format_name(ptr noundef returned captures(ret: address,
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_view_tensor(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_view_tensor(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -2945,7 +2939,7 @@ define noundef ptr @ggml_view_tensor(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_get_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #26 {
+define ptr @ggml_get_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #25 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !66
@@ -2980,10 +2974,10 @@ define ptr @ggml_get_tensor(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #27
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_dup(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_dup(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -2995,7 +2989,7 @@ define noundef ptr @ggml_dup(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_dup_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_dup_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -3024,13 +3018,13 @@ ggml_dup_impl.exit:                               ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_add(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_add_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_add_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_add_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
 
@@ -3137,13 +3131,13 @@ ggml_view_tensor.exit:                            ; preds = %48, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_add_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_add_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add_cast(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_add_cast(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3238,13 +3232,13 @@ ggml_add_cast_impl.exit:                          ; preds = %37, %43, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add1(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_add1(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_add1_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_add1_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_add1_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = icmp eq i64 %6, 1
@@ -3343,19 +3337,19 @@ ggml_view_tensor.exit:                            ; preds = %49, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add1_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_add1_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_add1_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_acc(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_acc(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = tail call fastcc ptr @ggml_acc_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext false)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_acc_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_acc_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3508,19 +3502,19 @@ ggml_set_op_params.exit:                          ; preds = %67, %ggml_view_tens
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_acc_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_acc_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = tail call fastcc ptr @ggml_acc_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext true)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sub(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_sub(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_sub_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_sub_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_sub_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
 
@@ -3627,19 +3621,19 @@ ggml_view_tensor.exit:                            ; preds = %48, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sub_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_sub_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_sub_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_mul(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_mul(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_mul_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_mul_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_mul_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
 
@@ -3746,19 +3740,19 @@ ggml_view_tensor.exit:                            ; preds = %48, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_mul_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_mul_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_mul_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_div(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_div(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_div_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_div_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_div_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %6
 
@@ -3865,13 +3859,13 @@ ggml_view_tensor.exit:                            ; preds = %48, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_div_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_div_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call fastcc ptr @ggml_div_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sqr(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sqr(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -3883,7 +3877,7 @@ define noundef ptr @ggml_sqr(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sqr_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sqr_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -3912,7 +3906,7 @@ ggml_sqr_impl.exit:                               ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sqrt(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sqrt(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -3924,7 +3918,7 @@ define noundef ptr @ggml_sqrt(ptr noundef captures(none) %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sqrt_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sqrt_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -3953,7 +3947,7 @@ ggml_sqrt_impl.exit:                              ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_log(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_log(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -3965,7 +3959,7 @@ define noundef ptr @ggml_log(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_log_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_log_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -3994,7 +3988,7 @@ ggml_log_impl.exit:                               ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sin(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sin(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -4006,7 +4000,7 @@ define noundef ptr @ggml_sin(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sin_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sin_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -4035,7 +4029,7 @@ ggml_sin_impl.exit:                               ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cos(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_cos(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -4047,7 +4041,7 @@ define noundef ptr @ggml_cos(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cos_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_cos_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -4076,13 +4070,13 @@ ggml_cos_impl.exit:                               ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sum(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sum(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 8, !tbaa !39
   %5 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 1, ptr noundef nonnull readonly %3, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 13, ptr %6, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 152
@@ -4091,9 +4085,9 @@ define noundef ptr @ggml_sum(ptr noundef captures(none) %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sum_rows(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sum_rows(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) @__const.ggml_sum_rows.ne, i64 16, i1 false)
   %scevgep = getelementptr inbounds nuw i8, ptr %3, i64 8
   %scevgep11 = getelementptr nuw i8, ptr %1, i64 24
@@ -4104,14 +4098,14 @@ define noundef ptr @ggml_sum_rows(ptr noundef captures(none) %0, ptr noundef %1)
   store i32 14, ptr %6, align 8, !tbaa !55
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %1, ptr %7, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_mean(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_mean(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 16, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4130,12 +4124,12 @@ define noundef ptr @ggml_mean(ptr noundef captures(none) %0, ptr noundef %1) loc
   store i32 15, ptr %14, align 8, !tbaa !55
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 152
   store ptr %1, ptr %15, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_argmax(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_argmax(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8, !tbaa !39
@@ -4165,10 +4159,10 @@ ggml_is_matrix.exit.thread:                       ; preds = %2, %ggml_is_matrix.
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %17, ptr %3, align 8, !tbaa !39
   %18 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 26, i32 noundef 1, ptr noundef nonnull readonly %3, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i32 16, ptr %19, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 152
@@ -4177,7 +4171,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %2, %ggml_is_matrix.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_count_equal(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_count_equal(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -4215,10 +4209,10 @@ ggml_are_same_shape.exit.thread:                  ; preds = %3, %10, %16, %ggml_
   unreachable
 
 27:                                               ; preds = %ggml_are_same_shape.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 1, ptr %4, align 8, !tbaa !39
   %28 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 27, i32 noundef 1, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store i32 17, ptr %29, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 152
@@ -4229,7 +4223,7 @@ ggml_are_same_shape.exit.thread:                  ; preds = %3, %10, %16, %ggml_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_repeat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_repeat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
@@ -4309,7 +4303,7 @@ ggml_can_repeat.exit.thread:                      ; preds = %13, %18, %25, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_repeat_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_repeat_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %5
 
@@ -4389,7 +4383,7 @@ ggml_can_repeat.exit.thread:                      ; preds = %13, %18, %25, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_concat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_concat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %or.cond = icmp ult i32 %3, 4
   br i1 %or.cond, label %7, label %6
@@ -4399,7 +4393,7 @@ define noundef ptr @ggml_concat(ptr noundef captures(none) %0, ptr noundef %1, p
   unreachable
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = zext nneg i32 %3 to i64
@@ -4419,7 +4413,7 @@ define noundef ptr @ggml_concat(ptr noundef captures(none) %0, ptr noundef %1, p
   store ptr %1, ptr %19, align 8, !tbaa !81
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store ptr %2, ptr %20, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %16
 
 21:                                               ; preds = %7, %36
@@ -4458,7 +4452,7 @@ define noundef ptr @ggml_concat(ptr noundef captures(none) %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_abs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_abs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -4530,7 +4524,7 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_unary(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_unary(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %5, i32 3
@@ -4602,13 +4596,13 @@ ggml_unary_impl.exit:                             ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_abs_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_abs_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_unary_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_unary_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %5, i32 3
@@ -4696,7 +4690,7 @@ ggml_unary_impl.exit:                             ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sgn(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sgn(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -4768,13 +4762,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sgn_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sgn_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_neg(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_neg(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -4846,13 +4840,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_neg_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_neg_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_step(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_step(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -4924,13 +4918,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_step_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_step_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 3)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_tanh(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_tanh(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5002,13 +4996,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_tanh_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_tanh_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 4)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_elu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_elu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5080,13 +5074,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_elu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_elu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 5)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_relu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_relu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5158,13 +5152,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_relu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_relu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 6)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_leaky_relu(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_leaky_relu(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %3, label %7, label %ggml_view_tensor.exit
@@ -5208,7 +5202,7 @@ ggml_set_op_params.exit:                          ; preds = %13, %ggml_view_tens
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sigmoid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sigmoid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5280,13 +5274,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_sigmoid_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_sigmoid_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 7)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_gelu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_gelu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5358,13 +5352,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_gelu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_gelu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 8)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_gelu_quick(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_gelu_quick(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5436,13 +5430,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_gelu_quick_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_gelu_quick_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 9)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_silu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_silu(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5514,13 +5508,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_silu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_silu_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 10)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_silu_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_silu_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -5534,7 +5528,7 @@ define noundef ptr @ggml_silu_back(ptr noundef captures(none) %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_hardswish(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_hardswish(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5606,7 +5600,7 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_hardsigmoid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_hardsigmoid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5678,7 +5672,7 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_exp(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_exp(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = zext i32 %3 to i64
   %5 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %4, i32 3
@@ -5750,13 +5744,13 @@ ggml_unary.exit:                                  ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_exp_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_exp_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call ptr @ggml_unary_inplace(ptr noundef %0, ptr noundef %1, i32 noundef 13)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_norm(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_norm(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -5778,7 +5772,7 @@ ggml_norm_impl.exit:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -5809,7 +5803,7 @@ ggml_norm_impl.exit:                              ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rms_norm(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_rms_norm(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -5831,7 +5825,7 @@ ggml_rms_norm_impl.exit:                          ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rms_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_rms_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -5862,7 +5856,7 @@ ggml_rms_norm_impl.exit:                          ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rms_norm_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_rms_norm_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %6, ptr noundef null, i64 noundef 0)
@@ -5886,7 +5880,7 @@ ggml_set_op_params.exit:                          ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_group_norm(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_group_norm(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %6, ptr noundef null, i64 noundef 0)
@@ -5902,7 +5896,7 @@ define noundef ptr @ggml_group_norm(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_group_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_group_norm_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %1, i64 noundef 0)
@@ -5935,7 +5929,7 @@ ggml_group_norm_impl.exit:                        ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_mul_mat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_mul_mat(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -5979,7 +5973,7 @@ ggml_can_mul_mat.exit.thread:                     ; preds = %3, %10, %ggml_can_m
   unreachable
 
 30:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i64, ptr %31, align 8, !tbaa !39
   store i64 %32, ptr %4, align 16, !tbaa !39
@@ -5998,12 +5992,12 @@ ggml_can_mul_mat.exit.thread:                     ; preds = %3, %10, %ggml_can_m
   store ptr %1, ptr %40, align 8, !tbaa !81
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 160
   store ptr %2, ptr %41, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_mul_mat_set_prec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ggml_mul_mat_set_prec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8, !tbaa !55
   %5 = icmp eq i32 %4, 26
@@ -6020,7 +6014,7 @@ define void @ggml_mul_mat_set_prec(ptr noundef captures(none) %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_mul_mat_id(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_mul_mat_id(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8, !tbaa !39
@@ -6116,7 +6110,7 @@ define noundef ptr @ggml_mul_mat_id(ptr noundef captures(none) %0, ptr noundef %
   unreachable
 
 57:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load i64, ptr %58, align 8, !tbaa !39
   store i64 %59, ptr %5, align 16, !tbaa !39
@@ -6135,12 +6129,12 @@ define noundef ptr @ggml_mul_mat_id(ptr noundef captures(none) %0, ptr noundef %
   store ptr %2, ptr %66, align 8, !tbaa !81
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 168
   store ptr %3, ptr %67, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %63
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_out_prod(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_out_prod(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -6184,7 +6178,7 @@ ggml_can_out_prod.exit.thread:                    ; preds = %3, %10, %ggml_can_o
   unreachable
 
 30:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !39
   store i64 %32, ptr %4, align 16, !tbaa !39
@@ -6203,12 +6197,12 @@ ggml_can_out_prod.exit.thread:                    ; preds = %3, %10, %ggml_can_o
   store ptr %1, ptr %40, align 8, !tbaa !81
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 160
   store ptr %2, ptr %41, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_scale(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_scale(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = load i32, ptr %1, align 8, !tbaa !40
@@ -6263,7 +6257,7 @@ ggml_scale_impl.exit:                             ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_scale_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_scale_inplace(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = load i32, ptr %1, align 8, !tbaa !40
@@ -6326,13 +6320,13 @@ ggml_scale_impl.exit:                             ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_set(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = tail call fastcc ptr @ggml_set_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext false)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_set_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_set_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #3 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6431,13 +6425,13 @@ ggml_set_op_params.exit:                          ; preds = %49
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 {
   %8 = tail call fastcc ptr @ggml_set_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext true)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -6449,7 +6443,7 @@ define noundef ptr @ggml_set_1d(ptr noundef captures(none) %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_1d_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_1d_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -6461,7 +6455,7 @@ define noundef ptr @ggml_set_1d_inplace(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_2d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_2d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6471,7 +6465,7 @@ define noundef ptr @ggml_set_2d(ptr noundef captures(none) %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_2d_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_2d_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6481,7 +6475,7 @@ define noundef ptr @ggml_set_2d_inplace(ptr noundef captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cpy(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_cpy(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6555,7 +6549,7 @@ ggml_cpy_impl.exit:                               ; preds = %40, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cast(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_cast(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %2, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -6570,7 +6564,7 @@ define noundef ptr @ggml_cast(ptr noundef captures(none) %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cont(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_cont(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
@@ -6584,7 +6578,7 @@ define noundef ptr @ggml_cont(ptr noundef captures(none) %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cont_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_cont_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -6606,7 +6600,7 @@ define noundef ptr @ggml_cont_1d(ptr noundef captures(none) %0, ptr noundef %1, 
 
 ggml_cont_4d.exit:                                ; preds = %3
   %18 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 16, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %19, align 8, !tbaa !39
@@ -6615,7 +6609,7 @@ ggml_cont_4d.exit:                                ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %21, align 8, !tbaa !39
   %22 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %18, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %24 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %22, ptr noundef nonnull @.str.45, ptr noundef nonnull %23)
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 80
@@ -6626,7 +6620,7 @@ ggml_cont_4d.exit:                                ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cont_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_cont_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -6651,7 +6645,7 @@ define noundef ptr @ggml_cont_4d(ptr noundef captures(none) %0, ptr noundef %1, 
 
 24:                                               ; preds = %6
   %25 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 16, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %26, align 8, !tbaa !39
@@ -6660,7 +6654,7 @@ define noundef ptr @ggml_cont_4d(ptr noundef captures(none) %0, ptr noundef %1, 
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %5, ptr %28, align 8, !tbaa !39
   %29 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %25, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %31 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %29, ptr noundef nonnull @.str.45, ptr noundef nonnull %30)
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 80
@@ -6671,7 +6665,7 @@ define noundef ptr @ggml_cont_4d(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cont_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_cont_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
@@ -6694,7 +6688,7 @@ define noundef ptr @ggml_cont_2d(ptr noundef captures(none) %0, ptr noundef %1, 
 
 ggml_cont_4d.exit:                                ; preds = %4
   %20 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 16, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %21, align 8, !tbaa !39
@@ -6703,7 +6697,7 @@ ggml_cont_4d.exit:                                ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %23, align 8, !tbaa !39
   %24 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %20, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %26 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %24, ptr noundef nonnull @.str.45, ptr noundef nonnull %25)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 80
@@ -6714,7 +6708,7 @@ ggml_cont_4d.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cont_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_cont_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [4 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
@@ -6738,7 +6732,7 @@ define noundef ptr @ggml_cont_3d(ptr noundef captures(none) %0, ptr noundef %1, 
 
 ggml_cont_4d.exit:                                ; preds = %5
   %22 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %2, ptr %6, align 16, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %23, align 8, !tbaa !39
@@ -6747,7 +6741,7 @@ ggml_cont_4d.exit:                                ; preds = %5
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %25, align 8, !tbaa !39
   %26 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %22, i32 noundef 4, ptr noundef nonnull readonly %6, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %28 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %26, ptr noundef nonnull @.str.45, ptr noundef nonnull %27)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 80
@@ -6758,7 +6752,7 @@ ggml_cont_4d.exit:                                ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_reshape(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_reshape(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %5, i32 3
@@ -6850,7 +6844,7 @@ ggml_is_contiguous.exit:                          ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_reshape_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_reshape_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [1 x i64], align 8
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = zext i32 %5 to i64
@@ -6921,7 +6915,7 @@ ggml_is_contiguous.exit:                          ; preds = %28
   unreachable
 
 40:                                               ; preds = %ggml_is_contiguous.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %2, ptr %4, align 8, !tbaa !39
   %41 = call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 256
@@ -6930,12 +6924,12 @@ ggml_is_contiguous.exit:                          ; preds = %28
   store i32 33, ptr %44, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 152
   store ptr %1, ptr %45, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %41
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_reshape_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_reshape_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [2 x i64], align 16
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = zext i32 %6 to i64
@@ -7007,7 +7001,7 @@ ggml_is_contiguous.exit:                          ; preds = %29
   unreachable
 
 42:                                               ; preds = %ggml_is_contiguous.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 16, !tbaa !39
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %43, align 8, !tbaa !39
@@ -7018,12 +7012,12 @@ ggml_is_contiguous.exit:                          ; preds = %29
   store i32 33, ptr %47, align 8, !tbaa !55
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 152
   store ptr %1, ptr %48, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %44
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_reshape_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_reshape_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [3 x i64], align 16
   %7 = load i32, ptr %1, align 8, !tbaa !40
   %8 = zext i32 %7 to i64
@@ -7096,7 +7090,7 @@ ggml_is_contiguous.exit:                          ; preds = %30
   unreachable
 
 44:                                               ; preds = %ggml_is_contiguous.exit
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %2, ptr %6, align 16, !tbaa !39
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %45, align 8, !tbaa !39
@@ -7109,12 +7103,12 @@ ggml_is_contiguous.exit:                          ; preds = %30
   store i32 33, ptr %50, align 8, !tbaa !55
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 152
   store ptr %1, ptr %51, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %47
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_reshape_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_reshape_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
   %8 = load i32, ptr %1, align 8, !tbaa !40
   %9 = zext i32 %8 to i64
@@ -7188,7 +7182,7 @@ ggml_is_contiguous.exit:                          ; preds = %31
   unreachable
 
 46:                                               ; preds = %ggml_is_contiguous.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 16, !tbaa !39
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %47, align 8, !tbaa !39
@@ -7203,12 +7197,12 @@ ggml_is_contiguous.exit:                          ; preds = %31
   store i32 33, ptr %53, align 8, !tbaa !55
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 152
   store ptr %1, ptr %54, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %50
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_view_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_view_1d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   store i64 %2, ptr %5, align 8, !tbaa !39
   %6 = load i32, ptr %1, align 8, !tbaa !40
@@ -7233,9 +7227,9 @@ ggml_view_impl.exit:                              ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_view_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_view_2d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [2 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %2, ptr %7, align 16, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8, !tbaa !39
@@ -7264,14 +7258,14 @@ ggml_view_impl.exit:                              ; preds = %6
   store i64 %18, ptr %19, align 8, !tbaa !39
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 %18, ptr %20, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_view_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #4 {
+define noundef ptr @ggml_view_3d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) local_unnamed_addr #3 {
   %9 = alloca [3 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %2, ptr %9, align 16, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %3, ptr %10, align 8, !tbaa !39
@@ -7302,14 +7296,14 @@ ggml_view_impl.exit:                              ; preds = %8
   %22 = mul i64 %6, %4
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i64 %22, ptr %23, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_view_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #4 {
+define noundef ptr @ggml_view_4d(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9) local_unnamed_addr #3 {
   %11 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %2, ptr %11, align 16, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %3, ptr %12, align 8, !tbaa !39
@@ -7341,12 +7335,12 @@ ggml_view_impl.exit:                              ; preds = %10
   store i64 %7, ptr %24, align 8, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store i64 %8, ptr %25, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_permute(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_permute(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i32], align 16
   %8 = alloca [4 x i32], align 16
   %or.cond = icmp ult i32 %2, 4
@@ -7450,8 +7444,8 @@ define noundef ptr @ggml_permute(ptr noundef captures(none) %0, ptr noundef %1, 
 
 ggml_set_op_params.exit:                          ; preds = %36
   %40 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef nonnull %31, ptr noundef nonnull @.str.63, ptr noundef nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %41 = load i64, ptr %30, align 8, !tbaa !39
   %42 = trunc i64 %41 to i32
   %43 = zext nneg i32 %2 to i64
@@ -7543,13 +7537,13 @@ ggml_set_op_params.exit:                          ; preds = %36
   store i32 %4, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i32 %5, ptr %.sroa.6.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %31
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_transpose(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_transpose(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %3, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %1, i64 noundef 0)
@@ -7592,7 +7586,7 @@ ggml_view_tensor.exit:                            ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_get_rows(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_get_rows(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -7634,7 +7628,7 @@ define noundef ptr @ggml_get_rows(ptr noundef captures(none) %0, ptr noundef %1,
   %26 = load i64, ptr %23, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %25, ptr %4, align 16, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %26, ptr %29, align 8, !tbaa !39
@@ -7643,7 +7637,7 @@ define noundef ptr @ggml_get_rows(ptr noundef captures(none) %0, ptr noundef %1,
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %28, ptr %31, align 8, !tbaa !39
   %32 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %spec.select, i32 noundef 4, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i32 37, ptr %33, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 152
@@ -7654,7 +7648,7 @@ define noundef ptr @ggml_get_rows(ptr noundef captures(none) %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_get_rows_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_get_rows_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = alloca [2 x i64], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !39
@@ -7721,12 +7715,12 @@ ggml_is_matrix.exit15.thread:                     ; preds = %26, %33, %ggml_is_m
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %35, ptr %5, align 16, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %41, ptr %42, align 8, !tbaa !39
   %43 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   store i32 38, ptr %44, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 152
@@ -7737,7 +7731,7 @@ ggml_is_matrix.exit15.thread:                     ; preds = %26, %33, %ggml_is_m
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_diag(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_diag(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [4 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !39
@@ -7750,7 +7744,7 @@ define noundef ptr @ggml_diag(ptr noundef captures(none) %0, ptr noundef %1) loc
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load i64, ptr %9, align 8, !tbaa !39
   store i64 %10, ptr %3, align 16, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7769,12 +7763,12 @@ define noundef ptr @ggml_diag(ptr noundef captures(none) %0, ptr noundef %1) loc
   store i32 39, ptr %20, align 8, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 152
   store ptr %1, ptr %21, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_diag_mask_inf(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_diag_mask_inf(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -7796,7 +7790,7 @@ ggml_diag_mask_inf_impl.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_diag_mask_inf_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_diag_mask_inf_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -7827,7 +7821,7 @@ ggml_diag_mask_inf_impl.exit:                     ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_diag_mask_zero(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_diag_mask_zero(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -7849,7 +7843,7 @@ ggml_diag_mask_zero_impl.exit:                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_diag_mask_zero_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_diag_mask_zero_inplace(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -7880,13 +7874,13 @@ ggml_diag_mask_zero_impl.exit:                    ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_soft_max(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_soft_max(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call fastcc ptr @ggml_soft_max_impl(ptr noundef %0, ptr noundef %1, ptr noundef null, float noundef 1.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext false)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_soft_max_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_soft_max_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext %5) unnamed_addr #3 {
   %7 = load i32, ptr %1, align 8, !tbaa !40
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %8, i32 3
@@ -8091,19 +8085,19 @@ ggml_set_op_params.exit:                          ; preds = %81, %ggml_view_tens
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_soft_max_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_soft_max_inplace(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call fastcc ptr @ggml_soft_max_impl(ptr noundef %0, ptr noundef %1, ptr noundef null, float noundef 1.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext true)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_soft_max_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_soft_max_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = tail call fastcc ptr @ggml_soft_max_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, i1 noundef zeroext false)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_soft_max_ext_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_soft_max_ext_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
@@ -8121,7 +8115,7 @@ define noundef ptr @ggml_soft_max_ext_back(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_soft_max_ext_back_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_soft_max_ext_back_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef 0)
@@ -8156,13 +8150,13 @@ ggml_soft_max_ext_back_impl.exit:                 ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef 0, float noundef 1.000000e+04, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext false)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_rope_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, i1 noundef zeroext %13) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_rope_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, i1 noundef zeroext %13) unnamed_addr #3 {
   %.sroa.13 = alloca [4 x i32], align 4
   %15 = and i32 %5, 1
   %16 = icmp eq i32 %15, 0
@@ -8264,13 +8258,13 @@ ggml_is_vector.exit.thread:                       ; preds = %18, %22, %ggml_is_v
   br i1 %exitcond.not.i, label %ggml_view_tensor.exit.thread, label %60, !llvm.loop !86
 
 ggml_view_tensor.exit.thread:                     ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.13, i8 0, i64 16, i1 false)
   br label %ggml_set_op_params.exit
 
 ggml_view_tensor.exit:                            ; preds = %51
   %64 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %52, i32 noundef 4, ptr noundef nonnull readonly %53, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.13, i8 0, i64 16, i1 false)
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %65, label %ggml_set_op_params.exit
@@ -8313,12 +8307,12 @@ ggml_set_op_params.exit:                          ; preds = %ggml_view_tensor.ex
   store ptr %2, ptr %70, align 8, !tbaa !81
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 168
   store ptr %3, ptr %71, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   ret ptr %66
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_multi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_multi(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #3 {
   %.sroa.13 = alloca [4 x i32], align 4
   %15 = and i32 %6, 1
   %16 = icmp eq i32 %15, 0
@@ -8401,7 +8395,7 @@ ggml_is_vector.exit.thread:                       ; preds = %18, %22, %ggml_is_v
   %53 = load i32, ptr %1, align 8, !tbaa !40
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %53, i32 noundef 4, ptr noundef nonnull readonly %54, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.13, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %56, label %ggml_set_op_params.exit
@@ -8443,59 +8437,59 @@ ggml_set_op_params.exit:                          ; preds = %52
   store ptr %2, ptr %60, align 8, !tbaa !81
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 168
   store ptr %3, ptr %61, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
   ret ptr %55
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef 0, float noundef 1.000000e+04, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i1 noundef zeroext true)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #3 {
   %14 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, i1 noundef zeroext false)
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_ext_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_ext_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #3 {
   %14 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, i1 noundef zeroext true)
   ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_custom(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_custom(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #3 {
   %13 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, i1 noundef zeroext false)
   ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_custom_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_custom_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11) local_unnamed_addr #3 {
   %13 = tail call fastcc ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, i1 noundef zeroext true)
   ret ptr %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
-define void @ggml_rope_yarn_corr_dims(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #28 {
+define void @ggml_rope_yarn_corr_dims(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #27 {
   %7 = sitofp i32 %0 to float
   %8 = sitofp i32 %1 to float
   %9 = fmul float %3, 2.000000e+00
   %10 = fmul float %9, 0x400921FB60000000
   %11 = fdiv float %8, %10
-  %12 = tail call float @logf(float noundef %11) #42, !tbaa !8
+  %12 = tail call float @logf(float noundef %11) #43, !tbaa !8
   %13 = fmul float %12, %7
-  %14 = tail call float @logf(float noundef %2) #42, !tbaa !8
+  %14 = tail call float @logf(float noundef %2) #43, !tbaa !8
   %15 = fmul float %14, 2.000000e+00
   %16 = fdiv float %13, %15
   %17 = tail call float @llvm.floor.f32(float %16)
   %18 = fmul float %4, 2.000000e+00
   %19 = fmul float %18, 0x400921FB60000000
   %20 = fdiv float %8, %19
-  %21 = tail call float @logf(float noundef %20) #42, !tbaa !8
+  %21 = tail call float @logf(float noundef %20) #43, !tbaa !8
   %22 = fmul float %21, %7
-  %23 = tail call float @logf(float noundef %2) #42, !tbaa !8
+  %23 = tail call float @logf(float noundef %2) #43, !tbaa !8
   %24 = fmul float %23, 2.000000e+00
   %25 = fdiv float %22, %24
   %26 = tail call float @llvm.ceil.f32(float %25)
@@ -8512,13 +8506,13 @@ define void @ggml_rope_yarn_corr_dims(i32 noundef %0, i32 noundef %1, float noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #29
+declare float @llvm.floor.f32(float) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #29
+declare float @llvm.ceil.f32(float) #28
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_ext_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_ext_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12) local_unnamed_addr #3 {
   %14 = tail call fastcc noundef ptr @ggml_rope_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, i1 noundef zeroext false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store i32 45, ptr %15, align 8, !tbaa !55
@@ -8526,7 +8520,7 @@ define noundef ptr @ggml_rope_ext_back(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rope_multi_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #4 {
+define noundef ptr @ggml_rope_multi_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13) local_unnamed_addr #3 {
   %15 = tail call ptr @ggml_rope_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, float noundef %13)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i32 45, ptr %16, align 8, !tbaa !55
@@ -8534,7 +8528,7 @@ define noundef ptr @ggml_rope_multi_back(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_clamp(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_clamp(ptr noundef captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %1, i64 noundef 0)
@@ -8567,7 +8561,7 @@ ggml_set_op_params.exit:                          ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_im2col(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, i32 noundef %10) local_unnamed_addr #4 {
+define noundef ptr @ggml_im2col(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext %9, i32 noundef %10) local_unnamed_addr #3 {
   %12 = alloca [4 x i64], align 16
   br i1 %9, label %13, label %20
 
@@ -8658,7 +8652,7 @@ define noundef ptr @ggml_im2col(ptr noundef captures(none) %0, ptr noundef %1, p
   unreachable
 
 71:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %9, label %.critedge, label %72
 
 72:                                               ; preds = %71
@@ -8717,12 +8711,12 @@ ggml_set_op_params.exit:                          ; preds = %82
   store ptr %1, ptr %92, align 8, !tbaa !81
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 160
   store ptr %2, ptr %93, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret ptr %87
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_im2col_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10) local_unnamed_addr #4 {
+define noundef ptr @ggml_im2col_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10) local_unnamed_addr #3 {
   %12 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef readonly %3, ptr noundef null, i64 noundef 0)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %ggml_set_op_params.exit
@@ -8757,7 +8751,7 @@ ggml_set_op_params.exit:                          ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = tail call ptr @ggml_im2col(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %4, i32 noundef 0, i32 noundef %5, i32 noundef 0, i1 noundef zeroext false, i32 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -8784,7 +8778,7 @@ define noundef ptr @ggml_conv_1d(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_1d_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_1d_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = sdiv i64 %7, 2
@@ -8814,7 +8808,7 @@ define noundef ptr @ggml_conv_1d_ph(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_1d_dw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_1d_dw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8838,7 +8832,7 @@ define noundef ptr @ggml_conv_1d_dw(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_1d_dw_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_1d_dw_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = sdiv i64 %7, 2
@@ -8864,7 +8858,7 @@ define noundef ptr @ggml_conv_1d_dw_ph(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_transpose_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_transpose_1d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -8922,7 +8916,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %6, %ggml_is_matrix.
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load i64, ptr %34, align 8, !tbaa !39
   %36 = load i64, ptr %33, align 8, !tbaa !39
   %37 = add nsw i64 %35, -1
@@ -8959,12 +8953,12 @@ ggml_set_op_params.exit:                          ; preds = %32
   store ptr %1, ptr %50, align 8, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 160
   store ptr %2, ptr %51, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %46
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_2d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_2d(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 {
   %10 = load i32, ptr %1, align 8, !tbaa !40
   %11 = tail call ptr @ggml_im2col(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i1 noundef zeroext true, i32 noundef %10)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -9009,7 +9003,7 @@ define noundef ptr @ggml_conv_2d(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_2d_sk_p0(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_2d_sk_p0(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = trunc i64 %5 to i32
@@ -9021,7 +9015,7 @@ define noundef ptr @ggml_conv_2d_sk_p0(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_2d_s1_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_2d_s1_ph(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = sdiv i64 %5, 2
@@ -9035,7 +9029,7 @@ define noundef ptr @ggml_conv_2d_s1_ph(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_2d_dw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_2d_dw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #3 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9087,7 +9081,7 @@ define noundef ptr @ggml_conv_2d_dw(ptr noundef captures(none) %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_conv_transpose_2d_p0(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_conv_transpose_2d_p0(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !39
@@ -9103,7 +9097,7 @@ define noundef ptr @ggml_conv_transpose_2d_p0(ptr noundef captures(none) %0, ptr
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load i64, ptr %13, align 8, !tbaa !39
   %16 = load i64, ptr %14, align 8, !tbaa !39
   %17 = add nsw i64 %15, -1
@@ -9137,14 +9131,14 @@ define noundef ptr @ggml_conv_transpose_2d_p0(ptr noundef captures(none) %0, ptr
   store ptr %1, ptr %38, align 8, !tbaa !81
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 160
   store ptr %2, ptr %39, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %35
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_pool_1d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_pool_1d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
   %10 = sitofp i32 %5 to float
@@ -9190,14 +9184,14 @@ ggml_set_op_params.exit:                          ; preds = %6
   store i32 51, ptr %31, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 152
   store ptr %1, ptr %32, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %28
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_pool_2d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #4 {
+define noundef ptr @ggml_pool_2d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #3 {
   %10 = alloca [4 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !39
   %13 = sitofp i64 %12 to float
@@ -9258,12 +9252,12 @@ ggml_set_op_params.exit:                          ; preds = %9
   store i32 52, ptr %43, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 152
   store ptr %1, ptr %44, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_pool_2d_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #4 {
+define noundef ptr @ggml_pool_2d_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9) local_unnamed_addr #3 {
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %11, ptr noundef null, i64 noundef 0)
   %.not.i = icmp eq ptr %12, null
@@ -9300,7 +9294,7 @@ ggml_set_op_params.exit:                          ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_upscale(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_upscale(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = trunc i64 %5 to i32
@@ -9320,7 +9314,7 @@ define noundef ptr @ggml_upscale(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_upscale_impl(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_upscale_impl(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
@@ -9367,7 +9361,7 @@ define internal fastcc noundef ptr @ggml_upscale_impl(ptr noundef captures(none)
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %10, ptr %7, align 16, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %15, ptr %29, align 8, !tbaa !39
@@ -9376,7 +9370,7 @@ define internal fastcc noundef ptr @ggml_upscale_impl(ptr noundef captures(none)
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %25, ptr %31, align 8, !tbaa !39
   %32 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %28, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i32 54, ptr %33, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 152
@@ -9385,13 +9379,13 @@ define internal fastcc noundef ptr @ggml_upscale_impl(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_upscale_ext(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_upscale_ext(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = tail call fastcc ptr @ggml_upscale_impl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_pad(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_pad(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i64], align 16
   %8 = load i32, ptr %1, align 8, !tbaa !40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9410,7 +9404,7 @@ define noundef ptr @ggml_pad(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %22 = load i64, ptr %21, align 8, !tbaa !39
   %23 = sext i32 %5 to i64
   %24 = add nsw i64 %22, %23
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %12, ptr %7, align 16, !tbaa !39
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %16, ptr %25, align 8, !tbaa !39
@@ -9419,7 +9413,7 @@ define noundef ptr @ggml_pad(ptr noundef captures(none) %0, ptr noundef %1, i32 
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %24, ptr %27, align 8, !tbaa !39
   %28 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %8, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   store i32 55, ptr %29, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 152
@@ -9428,7 +9422,7 @@ define noundef ptr @ggml_pad(ptr noundef captures(none) %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_pad_reflect_1d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_pad_reflect_1d(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = icmp sgt i32 %2, -1
   br i1 %6, label %8, label %7
@@ -9532,7 +9526,7 @@ ggml_is_contiguous.exit:                          ; preds = %43
   %52 = load i64, ptr %51, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %54 = load i64, ptr %53, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %48, ptr %5, align 16, !tbaa !39
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %50, ptr %55, align 8, !tbaa !39
@@ -9541,7 +9535,7 @@ ggml_is_contiguous.exit:                          ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %54, ptr %57, align 8, !tbaa !39
   %58 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %59, label %ggml_set_op_params.exit
 
@@ -9562,7 +9556,7 @@ ggml_set_op_params.exit:                          ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_arange(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_arange(ptr noundef captures(none) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = fcmp ogt float %2, %1
   br i1 %6, label %8, label %7
@@ -9576,10 +9570,10 @@ define noundef ptr @ggml_arange(ptr noundef captures(none) %0, float noundef %1,
   %10 = fdiv float %9, %3
   %11 = tail call float @llvm.ceil.f32(float %10)
   %12 = fptosi float %11 to i64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %12, ptr %5, align 8, !tbaa !39
   %13 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 84
   store float %1, ptr %14, align 4, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 88
@@ -9592,19 +9586,19 @@ define noundef ptr @ggml_arange(ptr noundef captures(none) %0, float noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_timestep_embedding(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_timestep_embedding(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [2 x i64], align 16
   %6 = and i32 %2, 1
   %spec.select = add nsw i32 %6, %2
   %7 = sext i32 %spec.select to i64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %7, ptr %5, align 16, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %9, ptr %10, align 8, !tbaa !39
   %11 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 84
   store i32 %2, ptr %12, align 4, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -9617,7 +9611,7 @@ define noundef ptr @ggml_timestep_embedding(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_argsort(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_argsort(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !39
   %6 = icmp slt i64 %5, 2147483648
@@ -9639,7 +9633,7 @@ define noundef ptr @ggml_argsort(ptr noundef captures(none) %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_top_k(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_top_k(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -9679,7 +9673,7 @@ ggml_argsort.exit:                                ; preds = %9
   %25 = load i64, ptr %24, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %27 = load i64, ptr %26, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %7, ptr %4, align 16, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %17, ptr %28, align 8, !tbaa !39
@@ -9711,12 +9705,12 @@ ggml_view_4d.exit:                                ; preds = %ggml_argsort.exit
   store i64 %25, ptr %40, align 8, !tbaa !39
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 72
   store i64 %27, ptr %41, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_flash_attn_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #4 {
+define noundef ptr @ggml_flash_attn_ext(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #3 {
   %9 = alloca [4 x i64], align 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !39
@@ -9852,7 +9846,7 @@ ggml_is_contiguous.exit:                          ; preds = %53
 
 .thread:                                          ; preds = %..thread_crit_edge, %63
   %74 = phi i64 [ %.pre, %..thread_crit_edge ], [ %67, %63 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %11, ptr %9, align 16, !tbaa !39
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %17, ptr %75, align 8, !tbaa !39
@@ -9885,12 +9879,12 @@ ggml_set_op_params.exit:                          ; preds = %.thread
   store ptr %3, ptr %84, align 8, !tbaa !81
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 176
   store ptr %4, ptr %85, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret ptr %78
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_flash_attn_ext_set_prec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @ggml_flash_attn_ext_set_prec(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8, !tbaa !55
   %5 = icmp eq i32 %4, 61
@@ -9907,7 +9901,7 @@ define void @ggml_flash_attn_ext_set_prec(ptr noundef captures(none) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ggml_flash_attn_ext_get_prec(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define i32 @ggml_flash_attn_ext_get_prec(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8, !tbaa !55
   %4 = icmp eq i32 %3, 61
@@ -9930,7 +9924,7 @@ define noalias noundef nonnull ptr @ggml_flash_attn_back(ptr noundef readnone ca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_ssm_conv(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_ssm_conv(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [3 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -9986,14 +9980,14 @@ ggml_is_matrix.exit.thread:                       ; preds = %9, %ggml_is_matrix.
 
 33:                                               ; preds = %30
   %34 = add nsw i64 %23, 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %20, ptr %4, align 16, !tbaa !39
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %34, ptr %35, align 8, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %25, ptr %36, align 16, !tbaa !39
   %37 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 3, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   store i32 63, ptr %38, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 152
@@ -10004,7 +9998,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %9, %ggml_is_matrix.
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_ssm_scan(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_ssm_scan(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca i64, align 8
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
@@ -10412,10 +10406,10 @@ ggml_are_same_shape.exit84.thread:                ; preds = %158, %164, %170, %g
   %210 = mul i64 %14, %38
   %211 = mul i64 %210, %149
   %212 = add nsw i64 %209, %211
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %212, ptr %8, align 8, !tbaa !39
   %213 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull readonly %8, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 80
   store i32 64, ptr %214, align 8, !tbaa !55
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 152
@@ -10434,7 +10428,7 @@ ggml_are_same_shape.exit84.thread:                ; preds = %158, %164, %170, %g
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_win_part(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_win_part(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [4 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -10471,7 +10465,7 @@ define noundef ptr @ggml_win_part(ptr noundef captures(none) %0, ptr noundef %1,
   %27 = sdiv i64 %26, %15
   %28 = add nsw i64 %25, %22
   %29 = sdiv i64 %28, %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load i64, ptr %14, align 8, !tbaa !39
   store i64 %30, ptr %4, align 16, !tbaa !39
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10504,12 +10498,12 @@ ggml_set_op_params.exit:                          ; preds = %13
   store i32 65, ptr %41, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 152
   store ptr %1, ptr %42, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %36
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_win_unpart(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_win_unpart(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [4 x i64], align 16
   %7 = load i32, ptr %1, align 8, !tbaa !40
   %8 = icmp eq i32 %7, 0
@@ -10520,7 +10514,7 @@ define noundef ptr @ggml_win_unpart(ptr noundef captures(none) %0, ptr noundef %
   unreachable
 
 10:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !39
   store i64 %12, ptr %6, align 16, !tbaa !39
@@ -10547,12 +10541,12 @@ ggml_set_op_params.exit:                          ; preds = %10
   store i32 66, ptr %21, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 152
   store ptr %1, ptr %22, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_get_rel_pos(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_get_rel_pos(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = icmp eq i32 %2, %3
   br i1 %6, label %8, label %7
@@ -10576,7 +10570,7 @@ define noundef ptr @ggml_get_rel_pos(ptr noundef captures(none) %0, ptr noundef 
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load i64, ptr %17, align 8, !tbaa !39
   store i64 %18, ptr %5, align 16, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10591,18 +10585,18 @@ define noundef ptr @ggml_get_rel_pos(ptr noundef captures(none) %0, ptr noundef 
   store i32 67, ptr %24, align 8, !tbaa !55
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 152
   store ptr %1, ptr %25, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %23
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add_rel_pos(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_add_rel_pos(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = tail call fastcc ptr @ggml_add_rel_pos_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ggml_add_rel_pos_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc noundef ptr @ggml_add_rel_pos_impl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -10877,13 +10871,13 @@ ggml_view_tensor.exit:                            ; preds = %123, %127
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_add_rel_pos_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_add_rel_pos_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = tail call fastcc ptr @ggml_add_rel_pos_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_rwkv_wkv6(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_rwkv_wkv6(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = alloca [4 x i64], align 16
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
@@ -11281,7 +11275,7 @@ ggml_is_contiguous.exit108:                       ; preds = %152
   unreachable
 
 204:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %205 = mul nsw i64 %154, %14
   store i64 %205, ptr %8, align 16, !tbaa !39
   %206 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -11307,12 +11301,12 @@ ggml_is_contiguous.exit108:                       ; preds = %152
   store ptr %5, ptr %217, align 8, !tbaa !81
   %218 = getelementptr inbounds nuw i8, ptr %211, i64 192
   store ptr %6, ptr %218, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %211
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_gated_linear_attn(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, float noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_gated_linear_attn(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, float noundef %6) local_unnamed_addr #3 {
   %8 = alloca [4 x i64], align 16
   %9 = load i32, ptr %1, align 8, !tbaa !40
   %10 = zext i32 %9 to i64
@@ -11658,7 +11652,7 @@ ggml_is_contiguous.exit96:                        ; preds = %128
   unreachable
 
 180:                                              ; preds = %167
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %181 = mul nsw i64 %130, %14
   store i64 %181, ptr %8, align 16, !tbaa !39
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -11684,12 +11678,12 @@ ggml_is_contiguous.exit96:                        ; preds = %128
   store ptr %4, ptr %193, align 8, !tbaa !81
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 184
   store ptr %5, ptr %194, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %187
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_unary_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_unary_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -11711,7 +11705,7 @@ ggml_map_unary_impl_f32.exit:                     ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_unary_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_unary_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -11742,7 +11736,7 @@ ggml_map_unary_impl_f32.exit:                     ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_binary_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_binary_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11801,7 +11795,7 @@ ggml_map_binary_impl_f32.exit:                    ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_binary_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_binary_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11869,7 +11863,7 @@ ggml_map_binary_impl_f32.exit:                    ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom1_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom1_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull readonly %5, ptr noundef null, i64 noundef 0)
@@ -11891,7 +11885,7 @@ ggml_map_custom1_impl_f32.exit:                   ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom1_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom1_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 8, !tbaa !40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %4, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef 0)
@@ -11922,7 +11916,7 @@ ggml_map_custom1_impl_f32.exit:                   ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom2_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom2_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull readonly %6, ptr noundef null, i64 noundef 0)
@@ -11946,7 +11940,7 @@ ggml_map_custom2_impl_f32.exit:                   ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom2_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom2_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %1, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %5, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %1, i64 noundef 0)
@@ -11979,7 +11973,7 @@ ggml_map_custom2_impl_f32.exit:                   ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom3_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom3_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %6, i32 noundef 4, ptr noundef nonnull readonly %7, ptr noundef null, i64 noundef 0)
@@ -12005,7 +11999,7 @@ ggml_map_custom3_impl_f32.exit:                   ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom3_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom3_inplace_f32(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %1, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = tail call fastcc ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %6, i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %1, i64 noundef 0)
@@ -12040,7 +12034,7 @@ ggml_map_custom3_impl_f32.exit:                   ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom1(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom1(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = icmp eq i32 %3, -1
   %7 = icmp sgt i32 %3, 0
   %or.cond.i = or i1 %6, %7
@@ -12078,7 +12072,7 @@ ggml_map_custom1_impl.exit:                       ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom1_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom1_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = icmp eq i32 %3, -1
   %7 = icmp sgt i32 %3, 0
   %or.cond.i = or i1 %6, %7
@@ -12125,7 +12119,7 @@ ggml_map_custom1_impl.exit:                       ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom2(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom2(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = icmp eq i32 %4, -1
   %8 = icmp sgt i32 %4, 0
   %or.cond.i = or i1 %7, %8
@@ -12165,7 +12159,7 @@ ggml_map_custom2_impl.exit:                       ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom2_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom2_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = icmp eq i32 %4, -1
   %8 = icmp sgt i32 %4, 0
   %or.cond.i = or i1 %7, %8
@@ -12214,7 +12208,7 @@ ggml_map_custom2_impl.exit:                       ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom3(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom3(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %5, -1
   %9 = icmp sgt i32 %5, 0
   %or.cond.i = or i1 %8, %9
@@ -12256,7 +12250,7 @@ ggml_map_custom3_impl.exit:                       ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_map_custom3_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define noundef ptr @ggml_map_custom3_inplace(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = icmp eq i32 %5, -1
   %9 = icmp sgt i32 %5, 0
   %or.cond.i = or i1 %8, %9
@@ -12307,7 +12301,7 @@ ggml_map_custom3_impl.exit:                       ; preds = %19
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cross_entropy_loss(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define noundef ptr @ggml_cross_entropy_loss(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
@@ -12346,10 +12340,10 @@ ggml_are_same_shape.exit.thread:                  ; preds = %3, %10, %16, %ggml_
 
 27:                                               ; preds = %ggml_are_same_shape.exit
   %28 = load i32, ptr %1, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 1, ptr %4, align 8, !tbaa !39
   %29 = call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %0, i32 noundef %28, i32 noundef 1, ptr noundef nonnull readonly %4, ptr noundef null, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store i32 80, ptr %30, align 8, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 152
@@ -12360,7 +12354,7 @@ ggml_are_same_shape.exit.thread:                  ; preds = %3, %10, %16, %ggml_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_cross_entropy_loss_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ggml_cross_entropy_loss_back(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = icmp eq i64 %6, 1
@@ -12439,7 +12433,7 @@ ggml_are_same_shape.exit.thread:                  ; preds = %19, %25, %31, %ggml
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_opt_step_adamw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define noundef ptr @ggml_opt_step_adamw(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %8 = load i32, ptr %7, align 4, !tbaa !89
   %9 = and i32 %8, 4
@@ -12606,7 +12600,7 @@ ggml_view_tensor.exit:                            ; preds = %89
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_hash_set_new(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_hash_set) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
+define void @ggml_hash_set_new(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_hash_set) align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -12690,7 +12684,7 @@ ggml_calloc.exit:                                 ; preds = %31, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @ggml_hash_size(i64 noundef %0) local_unnamed_addr #30 {
+define i64 @ggml_hash_size(i64 noundef %0) local_unnamed_addr #29 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -12726,7 +12720,7 @@ define i64 @ggml_hash_size(i64 noundef %0) local_unnamed_addr #30 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_hash_set_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #31 {
+define void @ggml_hash_set_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #30 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !97
   %4 = load i64, ptr %0, align 8, !tbaa !91
@@ -12738,18 +12732,18 @@ define void @ggml_hash_set_reset(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @ggml_hash_set_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #22 {
+define void @ggml_hash_set_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !97
-  tail call void @free(ptr noundef %3) #42
+  tail call void @free(ptr noundef %3) #43
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !96
-  tail call void @free(ptr noundef %5) #42
+  tail call void @free(ptr noundef %5) #43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_build_forward_expand(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @ggml_build_forward_expand(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !98
   tail call fastcc void @ggml_visit_parents(ptr noundef %0, ptr noundef %1)
@@ -12776,7 +12770,7 @@ ggml_build_forward_impl.exit:                     ; preds = %2, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_build_backward_expand(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #4 {
+define void @ggml_build_backward_expand(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = alloca [4 x i64], align 16
   %6 = alloca [4 x i64], align 16
   %7 = alloca [4 x i64], align 16
@@ -12919,7 +12913,7 @@ define void @ggml_build_backward_expand(ptr noundef captures(none) %0, ptr nound
   %83 = and i32 %81, 8
   %84 = and i32 %81, 12
   %.not189 = icmp eq i32 %84, 0
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %11) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %11, i8 0, i64 10, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 80
   %86 = load i32, ptr %85, align 8, !tbaa !55
@@ -13124,7 +13118,7 @@ ggml_hash_find.exit105.thread:                    ; preds = %ggml_hash_find.exit
   br label %174
 
 174:                                              ; preds = %132, %172
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %11) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %175
 
 175:                                              ; preds = %73, %174
@@ -13133,7 +13127,7 @@ ggml_hash_find.exit105.thread:                    ; preds = %ggml_hash_find.exit
   br i1 %exitcond427.not, label %.lr.ph307, label %73, !llvm.loop !107
 
 ._crit_edge308:                                   ; preds = %ggml_compute_backward.exit
-  tail call void @free(ptr noundef %31) #42
+  tail call void @free(ptr noundef %31) #43
   ret void
 
 176:                                              ; preds = %.lr.ph307, %ggml_compute_backward.exit
@@ -13492,7 +13486,7 @@ ggml_are_same_shape.exit.thread.i:                ; preds = %ggml_are_same_shape
   br i1 %309, label %360, label %1246
 
 360:                                              ; preds = %359
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 1, ptr %5, align 16, !tbaa !39
   %361 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %362 = load i64, ptr %361, align 8, !tbaa !39
@@ -13508,7 +13502,7 @@ ggml_are_same_shape.exit.thread.i:                ; preds = %ggml_are_same_shape
   store i32 15, ptr %368, align 8, !tbaa !55
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 152
   store ptr %206, ptr %369, align 8, !tbaa !81
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call fastcc void @ggml_add_or_set(ptr noundef %1, ptr noundef %2, i64 noundef %257, ptr noundef %367)
   br label %1246
 
@@ -13540,7 +13534,7 @@ ggml_are_same_shape.exit.thread.i:                ; preds = %ggml_are_same_shape
   %388 = load i64, ptr %387, align 8, !tbaa !39
   %389 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %390 = load i64, ptr %389, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %384, ptr %6, align 16, !tbaa !39
   store i64 %386, ptr %67, align 8, !tbaa !39
   store i64 %388, ptr %68, align 16, !tbaa !39
@@ -13572,7 +13566,7 @@ ggml_view_4d.exit162:                             ; preds = %373
   store i64 %397, ptr %403, align 8, !tbaa !39
   %404 = getelementptr inbounds nuw i8, ptr %392, i64 72
   store i64 %396, ptr %404, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %405 = load i32, ptr %392, align 8, !tbaa !40
   %406 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %407 = tail call fastcc noundef ptr @ggml_new_tensor_impl(ptr noundef %1, i32 noundef %405, i32 noundef 4, ptr noundef nonnull readonly %406, ptr noundef null, i64 noundef 0)
@@ -14026,7 +14020,7 @@ ggml_are_same_shape.exit666.i:                    ; preds = %622
   %639 = load i64, ptr %638, align 8, !tbaa !39
   %640 = getelementptr inbounds nuw i8, ptr %610, i64 56
   %641 = load i64, ptr %640, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %612, ptr %7, align 16, !tbaa !39
   store i64 %618, ptr %64, align 8, !tbaa !39
   store i64 %626, ptr %65, align 16, !tbaa !39
@@ -14056,7 +14050,7 @@ ggml_view_4d.exit150:                             ; preds = %636
   store i64 %647, ptr %652, align 8, !tbaa !39
   %653 = getelementptr inbounds nuw i8, ptr %643, i64 72
   store i64 %639, ptr %653, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %654 = tail call ptr @ggml_repeat_back(ptr noundef %1, ptr noundef nonnull %643, ptr noundef nonnull %209)
   br label %655
 
@@ -14237,7 +14231,7 @@ ggml_scale_impl.exit:                             ; preds = %707
   %753 = load i64, ptr %752, align 8, !tbaa !39
   %754 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %755 = load i64, ptr %754, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %749, ptr %8, align 16, !tbaa !39
   store i64 %751, ptr %61, align 8, !tbaa !39
   store i64 %753, ptr %62, align 16, !tbaa !39
@@ -14265,7 +14259,7 @@ ggml_view_4d.exit:                                ; preds = %747
   store i64 %720, ptr %764, align 8, !tbaa !39
   %765 = getelementptr inbounds nuw i8, ptr %756, i64 72
   store i64 %723, ptr %765, align 8, !tbaa !39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %766
 
 766:                                              ; preds = %ggml_view_4d.exit, %714
@@ -14794,7 +14788,7 @@ ggml_scale.exit.i:                                ; preds = %1006
   %1044 = getelementptr inbounds nuw i8, ptr %180, i64 96
   %1045 = load i32, ptr %1044, align 4, !tbaa !8
   %1046 = and i32 %1045, 3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %1047 = zext nneg i32 %1040 to i64
   %1048 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %1047
@@ -14811,7 +14805,7 @@ ggml_scale.exit.i:                                ; preds = %1006
   %1056 = load i32, ptr %60, align 4, !tbaa !8
   %1057 = tail call ptr @ggml_permute(ptr noundef %1, ptr noundef nonnull %206, i32 noundef %1053, i32 noundef %1054, i32 noundef %1055, i32 noundef %1056)
   tail call fastcc void @ggml_add_or_set(ptr noundef %1, ptr noundef %2, i64 noundef %235, ptr noundef %1057)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread674.i
 
 1058:                                             ; preds = %323
@@ -14961,7 +14955,7 @@ ggml_diag_mask_zero_impl.exit:                    ; preds = %1098
   %1127 = load i32, ptr %1126, align 4, !tbaa !8
   %1128 = getelementptr inbounds nuw i8, ptr %180, i64 100
   %1129 = load i32, ptr %1128, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1130 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %.0.copyload43.i = load float, ptr %1130, align 4
   %1131 = getelementptr inbounds nuw i8, ptr %180, i64 108
@@ -14996,7 +14990,7 @@ ggml_diag_mask_zero_impl.exit:                    ; preds = %1098
   %1147 = getelementptr inbounds nuw i8, ptr %.sink690.i, i64 80
   store i32 45, ptr %1147, align 8, !tbaa !55
   tail call fastcc void @ggml_add_or_set(ptr noundef %1, ptr noundef %2, i64 noundef %235, ptr noundef nonnull %.sink690.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %1148
 
 1148:                                             ; preds = %1146, %1122
@@ -15352,10 +15346,10 @@ ggml_compute_backward.exit:                       ; preds = %186, %198, %ggml_ha
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #32
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define range(i64 32, 17) i64 @ggml_graph_overhead_custom(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #30 {
+define range(i64 32, 17) i64 @ggml_graph_overhead_custom(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #29 {
   %3 = shl i64 %0, 1
   br label %4
 
@@ -15411,7 +15405,7 @@ ggml_graph_nbytes.exit:                           ; preds = %14, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define range(i64 32, 17) i64 @ggml_graph_overhead() local_unnamed_addr #30 {
+define range(i64 32, 17) i64 @ggml_graph_overhead() local_unnamed_addr #29 {
   br label %1
 
 1:                                                ; preds = %1, %0
@@ -15451,7 +15445,7 @@ ggml_graph_overhead_custom.exit:                  ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_new_graph_custom(ptr noundef captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define ptr @ggml_new_graph_custom(ptr noundef captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = shl i64 %1, 1
   br label %5
 
@@ -15663,13 +15657,13 @@ ggml_hash_size.exit:                              ; preds = %78, %81
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_new_graph(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define ptr @ggml_new_graph(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call ptr @ggml_new_graph_custom(ptr noundef %0, i64 noundef 2048, i1 noundef zeroext false)
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_graph_view(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_cgraph) align 8 captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #25 {
+define void @ggml_graph_view(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_cgraph) align 8 captures(none) initializes((0, 80)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #24 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = sub nsw i32 %3, %2
@@ -15688,7 +15682,7 @@ define void @ggml_graph_view(ptr dead_on_unwind noalias writable writeonly sret(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_cpy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
+define void @ggml_graph_cpy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !113
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !114
@@ -16055,7 +16049,7 @@ ggml_hash_find.exit88:                            ; preds = %149, %157, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_graph_dup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define noundef ptr @ggml_graph_dup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8, !tbaa !113
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -16067,7 +16061,7 @@ define noundef ptr @ggml_graph_dup(ptr noundef captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_set_zero(ptr noundef returned %0) local_unnamed_addr #4 {
+define noundef ptr @ggml_set_zero(ptr noundef returned %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
@@ -16142,7 +16136,7 @@ ggml_is_empty.exit:                               ; preds = %3
 
 ggml_nbytes.exit:                                 ; preds = %34, %20
   %.1.i = phi i64 [ %27, %20 ], [ %41, %34 ]
-  tail call void @ggml_backend_tensor_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 0, i64 noundef %.1.i) #42
+  tail call void @ggml_backend_tensor_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 0, i64 noundef %.1.i) #43
   br label %78
 
 42:                                               ; preds = %7
@@ -16214,10 +16208,10 @@ ggml_nbytes.exit23:                               ; preds = %70, %56
   ret ptr %0
 }
 
-declare void @ggml_backend_tensor_memset(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef) local_unnamed_addr #19
+declare void @ggml_backend_tensor_memset(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define void @ggml_graph_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca float, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !101
@@ -16363,7 +16357,7 @@ ggml_is_scalar.exit.thread:                       ; preds = %65, %69, %73, %ggml
   unreachable
 
 80:                                               ; preds = %ggml_is_scalar.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store float 1.000000e+00, ptr %2, align 4, !tbaa !15
   %81 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !122
@@ -16371,7 +16365,7 @@ ggml_is_scalar.exit.thread:                       ; preds = %65, %69, %73, %ggml
   br i1 %.not23, label %84, label %83
 
 83:                                               ; preds = %80
-  call void @ggml_backend_tensor_set(ptr noundef nonnull %45, ptr noundef nonnull %2, i64 noundef 0, i64 noundef 4) #42
+  call void @ggml_backend_tensor_set(ptr noundef nonnull %45, ptr noundef nonnull %2, i64 noundef 0, i64 noundef 4) #43
   br label %89
 
 84:                                               ; preds = %80
@@ -16389,7 +16383,7 @@ ggml_is_scalar.exit.thread:                       ; preds = %65, %69, %73, %ggml
   br label %89
 
 89:                                               ; preds = %88, %83
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %92
 
 90:                                               ; preds = %57
@@ -16405,7 +16399,7 @@ ggml_is_scalar.exit.thread:                       ; preds = %65, %69, %73, %ggml
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_graph_get_grad_acc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #24 {
+define ptr @ggml_graph_get_grad_acc(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 4
@@ -16463,10 +16457,10 @@ ggml_hash_find.exit.thread:                       ; preds = %23, %11, %ggml_hash
   ret ptr %34
 }
 
-declare void @ggml_backend_tensor_set(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #19
+declare void @ggml_backend_tensor_set(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_graph_clear(ptr noundef captures(none) initializes((4, 12)) %0) local_unnamed_addr #31 {
+define void @ggml_graph_clear(ptr noundef captures(none) initializes((4, 12)) %0) local_unnamed_addr #30 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !114
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -16483,13 +16477,13 @@ define void @ggml_graph_clear(ptr noundef captures(none) initializes((4, 12)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ggml_graph_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i32 @ggml_graph_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = load i32, ptr %0, align 8, !tbaa !113
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ggml_graph_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @ggml_graph_node(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %1, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !98
@@ -16523,21 +16517,21 @@ define ptr @ggml_graph_node(ptr noundef readonly captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_graph_nodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define ptr @ggml_graph_nodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !100
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ggml_graph_n_nodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define i32 @ggml_graph_n_nodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !98
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_add_node(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @ggml_graph_add_node(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8, !tbaa !113
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !98
@@ -16560,7 +16554,7 @@ define void @ggml_graph_add_node(ptr noundef captures(none) %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_graph_get_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #26 {
+define ptr @ggml_graph_get_tensor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #25 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !114
   %5 = icmp sgt i32 %4, 0
@@ -16618,7 +16612,7 @@ define ptr @ggml_graph_get_tensor(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_graph_get_grad(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #24 {
+define ptr @ggml_graph_get_grad(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 4
@@ -16677,7 +16671,7 @@ ggml_hash_find.exit.thread:                       ; preds = %23, %11, %ggml_hash
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_print(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define void @ggml_graph_print(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 2, ptr noundef nonnull @.str.178)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !98
@@ -16818,11 +16812,11 @@ ggml_graph_get_grad.exit:                         ; preds = %52, %40, %59, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #4 {
+define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call noalias noundef ptr @fopen(ptr noundef readonly %2, ptr noundef nonnull @.str.187)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %9
@@ -17042,7 +17036,7 @@ ggml_graph_find.exit:                             ; preds = %100, %.preheader.i
   br label %106
 
 106:                                              ; preds = %105, %ggml_graph_find.exit, %.loopexit, %95
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, ptr noundef %33, ptr noundef nonnull %4) #42
+  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, ptr noundef %33, ptr noundef nonnull %4) #43
   %108 = getelementptr inbounds nuw i8, ptr %33, i64 256
   %char0121 = load i8, ptr %108, align 1
   %.not122 = icmp eq i8 %char0121, 0
@@ -17061,7 +17055,7 @@ ggml_graph_find.exit:                             ; preds = %100, %.preheader.i
 
 ggml_type_name.exit:                              ; preds = %111, %112
   %116 = phi ptr [ %115, %112 ], [ @.str.18, %111 ]
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %108, ptr noundef %116) #42
+  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %108, ptr noundef %116) #43
   br label %125
 
 118:                                              ; preds = %106
@@ -17075,7 +17069,7 @@ ggml_type_name.exit:                              ; preds = %111, %112
 
 ggml_type_name.exit130:                           ; preds = %118, %119
   %123 = phi ptr [ %122, %119 ], [ @.str.18, %118 ]
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %123) #42
+  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %123) #43
   br label %125
 
 125:                                              ; preds = %ggml_type_name.exit130, %ggml_type_name.exit
@@ -17101,7 +17095,7 @@ ggml_is_matrix.exit:                              ; preds = %125
   %140 = getelementptr inbounds nuw [83 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !54
   %142 = trunc nuw nsw i64 %indvars.iv to i32
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.199, i32 noundef %142, i64 noundef %134, i64 noundef %136, ptr noundef %141) #42
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.199, i32 noundef %142, i64 noundef %134, i64 noundef %136, ptr noundef %141) #43
   br label %155
 
 ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matrix.exit
@@ -17115,7 +17109,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matri
   %151 = getelementptr inbounds nuw [83 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !54
   %153 = trunc nuw nsw i64 %indvars.iv to i32
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.200, i32 noundef %153, i64 noundef %145, i64 noundef %147, i64 noundef %127, ptr noundef %152) #42
+  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.200, i32 noundef %153, i64 noundef %145, i64 noundef %147, i64 noundef %127, ptr noundef %152) #43
   br label %155
 
 155:                                              ; preds = %ggml_is_matrix.exit.thread, %132
@@ -17128,7 +17122,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matri
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw [83 x ptr], ptr @GGML_OP_SYMBOL, i64 0, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !54
-  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.201, ptr noundef %161) #42
+  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.201, ptr noundef %161) #43
   br label %165
 
 163:                                              ; preds = %155
@@ -17166,7 +17160,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matri
   %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv169
   %180 = load ptr, ptr %179, align 8, !tbaa !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.203, i64 5, i1 false)
-  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.204, ptr noundef %180, ptr noundef nonnull %4) #42
+  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.204, ptr noundef %180, ptr noundef nonnull %4) #43
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 256
   %char0 = load i8, ptr %182, align 1
   %.not115 = icmp eq i8 %char0, 0
@@ -17185,7 +17179,7 @@ ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matri
 
 ggml_type_name.exit131:                           ; preds = %185, %186
   %190 = phi ptr [ %189, %186 ], [ @.str.18, %185 ]
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %182, ptr noundef %190) #42
+  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %182, ptr noundef %190) #43
   br label %199
 
 192:                                              ; preds = %177
@@ -17199,7 +17193,7 @@ ggml_type_name.exit131:                           ; preds = %185, %186
 
 ggml_type_name.exit132:                           ; preds = %192, %193
   %197 = phi ptr [ %196, %193 ], [ @.str.18, %192 ]
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %197) #42
+  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %197) #43
   br label %199
 
 199:                                              ; preds = %ggml_type_name.exit132, %ggml_type_name.exit131
@@ -17208,7 +17202,7 @@ ggml_type_name.exit132:                           ; preds = %192, %193
   %202 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %203 = load i64, ptr %202, align 8, !tbaa !39
   %204 = trunc nuw nsw i64 %indvars.iv169 to i32
-  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.205, i32 noundef %204, i64 noundef %201, i64 noundef %203) #42
+  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.205, i32 noundef %204, i64 noundef %201, i64 noundef %203) #43
   %206 = load i64, ptr %200, align 8, !tbaa !39
   %207 = load i64, ptr %202, align 8, !tbaa !39
   %208 = mul nsw i64 %207, %206
@@ -17318,9 +17312,9 @@ ggml_type_name.exit132:                           ; preds = %192, %193
   br i1 %.not114, label %337, label %262
 
 262:                                              ; preds = %259
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %263 = trunc nuw nsw i64 %indvars.iv172 to i32
-  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %263) #42
+  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %263) #43
   %265 = load ptr, ptr %260, align 8, !tbaa !81
   %266 = load i32, ptr %13, align 4, !tbaa !98
   %.not1517.i.i = icmp sgt i32 %266, 0
@@ -17468,8 +17462,8 @@ ggml_graph_dump_dot_node_edge.exit:               ; preds = %300, %ggml_graph_ge
   %333 = select i1 %.not16.i, ptr @.str.181, ptr @.str.182
   %334 = select i1 %.not16.i, ptr @.str.523, ptr @.str.522
   %335 = select i1 %.not16.i, ptr @.str.525, ptr @.str.524
-  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.521, ptr noundef %330, ptr noundef nonnull %331, ptr noundef %332, ptr noundef nonnull %333, ptr noundef nonnull %334, ptr noundef nonnull %335, ptr noundef nonnull %5) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #42
+  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.521, ptr noundef %330, ptr noundef nonnull %331, ptr noundef %332, ptr noundef nonnull %333, ptr noundef nonnull %334, ptr noundef nonnull %335, ptr noundef nonnull %5) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %337
 
 337:                                              ; preds = %259, %ggml_graph_dump_dot_node_edge.exit
@@ -17481,7 +17475,7 @@ ggml_graph_dump_dot_node_edge.exit:               ; preds = %300, %ggml_graph_ge
   %338 = call i64 @fwrite(ptr nonnull @.str.211, i64 2, i64 1, ptr nonnull %7)
   %339 = call i32 @fclose(ptr noundef nonnull %7)
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 2, ptr noundef nonnull @.str.212, ptr noundef nonnull @__func__.ggml_graph_dump_dot, ptr noundef %2, ptr noundef %2, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #42
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 340:                                              ; preds = %.lr.ph158, %345
@@ -17507,12 +17501,12 @@ ggml_graph_dump_dot_node_edge.exit:               ; preds = %300, %ggml_graph_ge
   br i1 %.not113, label %357, label %352
 
 352:                                              ; preds = %349
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #42
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %353 = trunc nuw nsw i64 %indvars.iv178 to i32
-  %354 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %353) #42
+  %354 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %353) #43
   %355 = load ptr, ptr %350, align 8, !tbaa !81
-  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.526, ptr noundef %355, ptr noundef nonnull @.str.181, ptr noundef nonnull %343, ptr noundef nonnull @.str.181, ptr noundef nonnull %6) #42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #42
+  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.526, ptr noundef %355, ptr noundef nonnull @.str.181, ptr noundef nonnull %343, ptr noundef nonnull @.str.181, ptr noundef nonnull %6) #43
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %357
 
 357:                                              ; preds = %349, %352
@@ -17528,7 +17522,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_set_input(ptr noundef captures(none) %0) local_unnamed_addr #25 {
+define void @ggml_set_input(ptr noundef captures(none) %0) local_unnamed_addr #24 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !89
   %4 = or i32 %3, 1
@@ -17537,7 +17531,7 @@ define void @ggml_set_input(ptr noundef captures(none) %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_set_output(ptr noundef captures(none) %0) local_unnamed_addr #25 {
+define void @ggml_set_output(ptr noundef captures(none) %0) local_unnamed_addr #24 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4, !tbaa !89
   %4 = or i32 %3, 2
@@ -17546,7 +17540,7 @@ define void @ggml_set_output(ptr noundef captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_set_param(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #25 {
+define void @ggml_set_param(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %4 = load i32, ptr %3, align 4, !tbaa !89
   %5 = or i32 %4, 4
@@ -17555,7 +17549,7 @@ define void @ggml_set_param(ptr noundef readnone captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_set_loss(ptr noundef captures(none) %0) local_unnamed_addr #4 {
+define void @ggml_set_loss(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !39
   %4 = icmp eq i64 %3, 1
@@ -17601,8 +17595,8 @@ ggml_is_scalar.exit.thread:                       ; preds = %1, %5, %9, %ggml_is
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_quantize_init(i32 noundef %0) local_unnamed_addr #4 {
-  tail call void @ggml_critical_section_start() #42
+define void @ggml_quantize_init(i32 noundef %0) local_unnamed_addr #3 {
+  tail call void @ggml_critical_section_start() #43
   switch i32 %0, label %5 [
     i32 16, label %2
     i32 17, label %2
@@ -17614,43 +17608,43 @@ define void @ggml_quantize_init(i32 noundef %0) local_unnamed_addr #4 {
   ]
 
 2:                                                ; preds = %1, %1, %1, %1, %1
-  tail call void @iq2xs_init_impl(i32 noundef %0) #42
+  tail call void @iq2xs_init_impl(i32 noundef %0) #43
   br label %5
 
 3:                                                ; preds = %1
-  tail call void @iq3xs_init_impl(i32 noundef 256) #42
+  tail call void @iq3xs_init_impl(i32 noundef 256) #43
   br label %5
 
 4:                                                ; preds = %1
-  tail call void @iq3xs_init_impl(i32 noundef 512) #42
+  tail call void @iq3xs_init_impl(i32 noundef 512) #43
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  tail call void @ggml_critical_section_end() #42
+  tail call void @ggml_critical_section_end() #43
   ret void
 }
 
-declare void @iq2xs_init_impl(i32 noundef) local_unnamed_addr #19
+declare void @iq2xs_init_impl(i32 noundef) local_unnamed_addr #18
 
-declare void @iq3xs_init_impl(i32 noundef) local_unnamed_addr #19
+declare void @iq3xs_init_impl(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_quantize_free() local_unnamed_addr #4 {
-  tail call void @ggml_critical_section_start() #42
-  tail call void @iq2xs_free_impl(i32 noundef 16) #42
-  tail call void @iq2xs_free_impl(i32 noundef 17) #42
-  tail call void @iq2xs_free_impl(i32 noundef 19) #42
-  tail call void @iq3xs_free_impl(i32 noundef 256) #42
-  tail call void @ggml_critical_section_end() #42
+define void @ggml_quantize_free() local_unnamed_addr #3 {
+  tail call void @ggml_critical_section_start() #43
+  tail call void @iq2xs_free_impl(i32 noundef 16) #43
+  tail call void @iq2xs_free_impl(i32 noundef 17) #43
+  tail call void @iq2xs_free_impl(i32 noundef 19) #43
+  tail call void @iq3xs_free_impl(i32 noundef 256) #43
+  tail call void @ggml_critical_section_end() #43
   ret void
 }
 
-declare void @iq2xs_free_impl(i32 noundef) local_unnamed_addr #19
+declare void @iq2xs_free_impl(i32 noundef) local_unnamed_addr #18
 
-declare void @iq3xs_free_impl(i32 noundef) local_unnamed_addr #19
+declare void @iq3xs_free_impl(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @ggml_quantize_requires_imatrix(i32 noundef %0) local_unnamed_addr #9 {
+define noundef zeroext i1 @ggml_quantize_requires_imatrix(i32 noundef %0) local_unnamed_addr #8 {
   %2 = and i32 %0, -2
   %or.cond = icmp eq i32 %2, 16
   %3 = icmp eq i32 %0, 19
@@ -17659,7 +17653,7 @@ define noundef zeroext i1 @ggml_quantize_requires_imatrix(i32 noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_quantize_chunk(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #4 {
+define i64 @ggml_quantize_chunk(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = mul nsw i64 %5, %4
   %9 = and i32 %0, -2
   %or.cond.i = icmp eq i32 %9, 16
@@ -17696,7 +17690,7 @@ define i64 @ggml_quantize_chunk(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   unreachable
 
 25:                                               ; preds = %20
-  tail call void @ggml_critical_section_start() #42
+  tail call void @ggml_critical_section_start() #43
   switch i32 %0, label %ggml_quantize_init.exit [
     i32 16, label %26
     i32 17, label %26
@@ -17708,12 +17702,12 @@ define i64 @ggml_quantize_chunk(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
   ]
 
 26:                                               ; preds = %25, %25, %25, %25, %25
-  tail call void @iq2xs_init_impl(i32 noundef %0) #42
+  tail call void @iq2xs_init_impl(i32 noundef %0) #43
   br label %ggml_quantize_init.exit
 
 ggml_quantize_init.exit.thread:                   ; preds = %25
-  tail call void @iq3xs_init_impl(i32 noundef 256) #42
-  tail call void @ggml_critical_section_end() #42
+  tail call void @iq3xs_init_impl(i32 noundef 256) #43
+  tail call void @ggml_critical_section_end() #43
   %27 = sdiv i64 %3, %5
   %28 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %14, i32 3
   %29 = load i64, ptr %28, align 8, !tbaa !47
@@ -17722,8 +17716,8 @@ ggml_quantize_init.exit.thread:                   ; preds = %25
   br label %111
 
 ggml_quantize_init.exit.thread211:                ; preds = %25
-  tail call void @iq3xs_init_impl(i32 noundef 512) #42
-  tail call void @ggml_critical_section_end() #42
+  tail call void @iq3xs_init_impl(i32 noundef 512) #43
+  tail call void @ggml_critical_section_end() #43
   %32 = sdiv i64 %3, %5
   %33 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %14, i32 3
   %34 = load i64, ptr %33, align 8, !tbaa !47
@@ -17732,7 +17726,7 @@ ggml_quantize_init.exit.thread211:                ; preds = %25
   br label %118
 
 ggml_quantize_init.exit:                          ; preds = %25, %26
-  tail call void @ggml_critical_section_end() #42
+  tail call void @ggml_critical_section_end() #43
   %37 = getelementptr inbounds nuw [39 x %struct.ggml_type_traits], ptr @type_traits, i64 0, i64 %14, i32 3
   %38 = load i64, ptr %37, align 8, !tbaa !47
   %39 = mul i64 %38, %5
@@ -17768,98 +17762,98 @@ ggml_quantize_init.exit:                          ; preds = %25, %26
   %42 = getelementptr inbounds float, ptr %1, i64 %3
   %43 = mul i64 %40, %22
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
-  %45 = tail call i64 @quantize_q4_0(ptr noundef %42, ptr noundef %44, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %45 = tail call i64 @quantize_q4_0(ptr noundef %42, ptr noundef %44, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 46:                                               ; preds = %ggml_quantize_init.exit
   %47 = getelementptr inbounds float, ptr %1, i64 %3
   %48 = mul i64 %40, %22
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 %48
-  %50 = tail call i64 @quantize_q4_1(ptr noundef %47, ptr noundef %49, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %50 = tail call i64 @quantize_q4_1(ptr noundef %47, ptr noundef %49, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 51:                                               ; preds = %ggml_quantize_init.exit
   %52 = getelementptr inbounds float, ptr %1, i64 %3
   %53 = mul i64 %40, %22
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %53
-  %55 = tail call i64 @quantize_q5_0(ptr noundef %52, ptr noundef %54, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %55 = tail call i64 @quantize_q5_0(ptr noundef %52, ptr noundef %54, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 56:                                               ; preds = %ggml_quantize_init.exit
   %57 = getelementptr inbounds float, ptr %1, i64 %3
   %58 = mul i64 %40, %22
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 %58
-  %60 = tail call i64 @quantize_q5_1(ptr noundef %57, ptr noundef %59, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %60 = tail call i64 @quantize_q5_1(ptr noundef %57, ptr noundef %59, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 61:                                               ; preds = %ggml_quantize_init.exit
   %62 = getelementptr inbounds float, ptr %1, i64 %3
   %63 = mul i64 %40, %22
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 %63
-  %65 = tail call i64 @quantize_q8_0(ptr noundef %62, ptr noundef %64, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %65 = tail call i64 @quantize_q8_0(ptr noundef %62, ptr noundef %64, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 66:                                               ; preds = %ggml_quantize_init.exit
   %67 = getelementptr inbounds float, ptr %1, i64 %3
   %68 = mul i64 %40, %22
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 %68
-  %70 = tail call i64 @quantize_q2_K(ptr noundef %67, ptr noundef %69, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %70 = tail call i64 @quantize_q2_K(ptr noundef %67, ptr noundef %69, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 71:                                               ; preds = %ggml_quantize_init.exit
   %72 = getelementptr inbounds float, ptr %1, i64 %3
   %73 = mul i64 %40, %22
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 %73
-  %75 = tail call i64 @quantize_q3_K(ptr noundef %72, ptr noundef %74, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %75 = tail call i64 @quantize_q3_K(ptr noundef %72, ptr noundef %74, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 76:                                               ; preds = %ggml_quantize_init.exit
   %77 = getelementptr inbounds float, ptr %1, i64 %3
   %78 = mul i64 %40, %22
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 %78
-  %80 = tail call i64 @quantize_q4_K(ptr noundef %77, ptr noundef %79, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %80 = tail call i64 @quantize_q4_K(ptr noundef %77, ptr noundef %79, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 81:                                               ; preds = %ggml_quantize_init.exit
   %82 = getelementptr inbounds float, ptr %1, i64 %3
   %83 = mul i64 %40, %22
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 %83
-  %85 = tail call i64 @quantize_q5_K(ptr noundef %82, ptr noundef %84, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %85 = tail call i64 @quantize_q5_K(ptr noundef %82, ptr noundef %84, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 86:                                               ; preds = %ggml_quantize_init.exit
   %87 = getelementptr inbounds float, ptr %1, i64 %3
   %88 = mul i64 %40, %22
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 %88
-  %90 = tail call i64 @quantize_q6_K(ptr noundef %87, ptr noundef %89, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %90 = tail call i64 @quantize_q6_K(ptr noundef %87, ptr noundef %89, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 91:                                               ; preds = %ggml_quantize_init.exit
   %92 = getelementptr inbounds float, ptr %1, i64 %3
   %93 = mul i64 %40, %22
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 %93
-  %95 = tail call i64 @quantize_tq1_0(ptr noundef %92, ptr noundef %94, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %95 = tail call i64 @quantize_tq1_0(ptr noundef %92, ptr noundef %94, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 96:                                               ; preds = %ggml_quantize_init.exit
   %97 = getelementptr inbounds float, ptr %1, i64 %3
   %98 = mul i64 %40, %22
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 %98
-  %100 = tail call i64 @quantize_tq2_0(ptr noundef %97, ptr noundef %99, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %100 = tail call i64 @quantize_tq2_0(ptr noundef %97, ptr noundef %99, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 101:                                              ; preds = %ggml_quantize_init.exit
   %102 = getelementptr inbounds float, ptr %1, i64 %3
   %103 = mul i64 %40, %22
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 %103
-  %105 = tail call i64 @quantize_iq2_xxs(ptr noundef %102, ptr noundef %104, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %105 = tail call i64 @quantize_iq2_xxs(ptr noundef %102, ptr noundef %104, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 106:                                              ; preds = %ggml_quantize_init.exit
   %107 = getelementptr inbounds float, ptr %1, i64 %3
   %108 = mul i64 %40, %22
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 %108
-  %110 = tail call i64 @quantize_iq2_xs(ptr noundef %107, ptr noundef %109, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %110 = tail call i64 @quantize_iq2_xs(ptr noundef %107, ptr noundef %109, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 111:                                              ; preds = %ggml_quantize_init.exit.thread, %ggml_quantize_init.exit
@@ -17868,7 +17862,7 @@ ggml_quantize_init.exit:                          ; preds = %25, %26
   %114 = getelementptr inbounds float, ptr %1, i64 %3
   %115 = mul i64 %113, %112
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 %115
-  %117 = tail call i64 @quantize_iq3_xxs(ptr noundef %114, ptr noundef %116, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %117 = tail call i64 @quantize_iq3_xxs(ptr noundef %114, ptr noundef %116, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 118:                                              ; preds = %ggml_quantize_init.exit.thread211, %ggml_quantize_init.exit
@@ -17877,42 +17871,42 @@ ggml_quantize_init.exit:                          ; preds = %25, %26
   %121 = getelementptr inbounds float, ptr %1, i64 %3
   %122 = mul i64 %120, %119
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
-  %124 = tail call i64 @quantize_iq3_s(ptr noundef %121, ptr noundef %123, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %124 = tail call i64 @quantize_iq3_s(ptr noundef %121, ptr noundef %123, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 125:                                              ; preds = %ggml_quantize_init.exit
   %126 = getelementptr inbounds float, ptr %1, i64 %3
   %127 = mul i64 %40, %22
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 %127
-  %129 = tail call i64 @quantize_iq2_s(ptr noundef %126, ptr noundef %128, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %129 = tail call i64 @quantize_iq2_s(ptr noundef %126, ptr noundef %128, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 130:                                              ; preds = %ggml_quantize_init.exit
   %131 = getelementptr inbounds float, ptr %1, i64 %3
   %132 = mul i64 %40, %22
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 %132
-  %134 = tail call i64 @quantize_iq1_s(ptr noundef %131, ptr noundef %133, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %134 = tail call i64 @quantize_iq1_s(ptr noundef %131, ptr noundef %133, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 135:                                              ; preds = %ggml_quantize_init.exit
   %136 = getelementptr inbounds float, ptr %1, i64 %3
   %137 = mul i64 %40, %22
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 %137
-  %139 = tail call i64 @quantize_iq1_m(ptr noundef %136, ptr noundef %138, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %139 = tail call i64 @quantize_iq1_m(ptr noundef %136, ptr noundef %138, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 140:                                              ; preds = %ggml_quantize_init.exit
   %141 = getelementptr inbounds float, ptr %1, i64 %3
   %142 = mul i64 %40, %22
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 %142
-  %144 = tail call i64 @quantize_iq4_nl(ptr noundef %141, ptr noundef %143, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %144 = tail call i64 @quantize_iq4_nl(ptr noundef %141, ptr noundef %143, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 145:                                              ; preds = %ggml_quantize_init.exit
   %146 = getelementptr inbounds float, ptr %1, i64 %3
   %147 = mul i64 %40, %22
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 %147
-  %149 = tail call i64 @quantize_iq4_xs(ptr noundef %146, ptr noundef %148, i64 noundef %4, i64 noundef %5, ptr noundef %6) #42
+  %149 = tail call i64 @quantize_iq4_xs(ptr noundef %146, ptr noundef %148, i64 noundef %4, i64 noundef %5, ptr noundef %6) #43
   br label %207
 
 150:                                              ; preds = %ggml_quantize_init.exit
@@ -18022,50 +18016,50 @@ ggml_fp32_to_bf16_row_ref.exit:                   ; preds = %ggml_compute_fp32_t
   ret i64 %.0
 }
 
-declare i64 @quantize_q4_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q4_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q4_1(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q4_1(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q5_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q5_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q5_1(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q5_1(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q8_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q8_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q2_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q2_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q3_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q3_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q4_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q4_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q5_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q5_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_q6_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_q6_K(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_tq1_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_tq1_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_tq2_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_tq2_0(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq2_xxs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq2_xxs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq2_xs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq2_xs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq3_xxs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq3_xxs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq3_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq3_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq2_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq2_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq1_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq1_s(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq1_m(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq1_m(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq4_nl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq4_nl(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
-declare i64 @quantize_iq4_xs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #19
+declare i64 @quantize_iq4_xs(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @ggml_log_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #33 {
+define void @ggml_log_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #32 {
   %.not = icmp eq ptr %0, null
   %3 = select i1 %.not, ptr @ggml_log_callback_default, ptr %0
   store ptr %3, ptr @g_logger_state.0, align 8, !tbaa !10
@@ -18074,7 +18068,7 @@ define void @ggml_log_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_threadpool_params_init(ptr noundef writeonly captures(none) initializes((0, 526)) %0, i32 noundef %1) local_unnamed_addr #21 {
+define void @ggml_threadpool_params_init(ptr noundef writeonly captures(none) initializes((0, 526)) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %1, ptr %3, align 4, !tbaa !137
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -18090,7 +18084,7 @@ define void @ggml_threadpool_params_init(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_threadpool_params_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_threadpool_params) align 4 captures(none) initializes((0, 526)) %0, i32 noundef %1) local_unnamed_addr #21 {
+define void @ggml_threadpool_params_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ggml_threadpool_params) align 4 captures(none) initializes((0, 526)) %0, i32 noundef %1) local_unnamed_addr #20 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %1, ptr %3, align 4, !tbaa !137
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -18106,7 +18100,7 @@ define void @ggml_threadpool_params_default(ptr dead_on_unwind noalias writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_threadpool_params_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
+define zeroext i1 @ggml_threadpool_params_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i32, ptr %3, align 4, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 512
@@ -18149,10 +18143,10 @@ define zeroext i1 @ggml_threadpool_params_match(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #34
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #33
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #15
+declare i32 @getpid() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #1
@@ -18161,110 +18155,110 @@ declare i32 @fork() local_unnamed_addr #1
 declare i32 @execlp(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #35
+declare void @exit(i32 noundef) local_unnamed_addr #34
 
-declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #19
+declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #18
 
-declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #19
+declare i32 @backtrace(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #15
+declare void @backtrace_symbols_fd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #3
+declare void @llvm.va_copy.p0(ptr, ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #29
+declare float @llvm.fabs.f32(float) #28
 
-declare void @dequantize_row_q4_0(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q4_0(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q4_0_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q4_0_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q4_1(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q4_1(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q4_1_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q4_1_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q5_0(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q5_0(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q5_0_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q5_0_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q5_1(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q5_1(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q5_1_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q5_1_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q8_0(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q8_0(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q8_0_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q8_0_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q8_1_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q8_1_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q2_K(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q2_K(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q2_K_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q2_K_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q3_K(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q3_K(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q3_K_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q3_K_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q4_K(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q4_K(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q4_K_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q4_K_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q5_K(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q5_K(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q5_K_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q5_K_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_q6_K(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_q6_K(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_q6_K_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_q6_K_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq2_xxs(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq2_xxs(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq2_xs(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq2_xs(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq3_xxs(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq3_xxs(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_iq3_xxs_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_iq3_xxs_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq1_s(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq1_s(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq4_nl(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq4_nl(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_iq4_nl_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_iq4_nl_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq3_s(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq3_s(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_iq3_s_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_iq3_s_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq2_s(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq2_s(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_iq2_s_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_iq2_s_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq4_xs(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq4_xs(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_iq4_xs_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_iq4_xs_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_iq1_m(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_iq1_m(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_tq1_0(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_tq1_0(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_tq1_0_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_tq1_0_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @dequantize_row_tq2_0(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @dequantize_row_tq2_0(ptr noundef, ptr noundef, i64 noundef) #18
 
-declare void @quantize_row_tq2_0_ref(ptr noundef, ptr noundef, i64 noundef) #19
+declare void @quantize_row_tq2_0_ref(ptr noundef, ptr noundef, i64 noundef) #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #36
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @logf(float noundef) local_unnamed_addr #37
+declare float @logf(float noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #29
+declare float @llvm.fmuladd.f32(float, float, float) #28
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_visit_parents(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @ggml_visit_parents(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = ptrtoint ptr %1 to i64
   %5 = lshr i64 %4, 4
@@ -18428,7 +18422,7 @@ ggml_hash_insert.exit.thread:                     ; preds = %19, %ggml_hash_inse
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_add_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @ggml_add_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !108
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %2
@@ -18497,7 +18491,7 @@ ggml_build_forward_expand.exit:                   ; preds = %25, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_sub_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @ggml_sub_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !108
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %2
@@ -18632,7 +18626,7 @@ ggml_build_forward_expand.exit:                   ; preds = %55, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_add1_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc void @ggml_add1_or_set(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !108
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %2
@@ -18700,6 +18694,12 @@ ggml_build_forward_expand.exit:                   ; preds = %24, %36
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #37
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #37
+
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #38
 
@@ -18717,48 +18717,48 @@ declare i64 @llvm.umax.i64(i64, i64) #39
 
 attributes #0 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #31 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #31 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #32 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #38 = { nofree nounwind }
 attributes #39 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #40 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #41 = { cold nounwind }
-attributes #42 = { nounwind }
-attributes #43 = { noreturn nounwind }
+attributes #42 = { noreturn nounwind }
+attributes #43 = { nounwind }
 attributes #44 = { cold noreturn nounwind }
 attributes #45 = { nounwind allocsize(0,1) }
 attributes #46 = { cold }

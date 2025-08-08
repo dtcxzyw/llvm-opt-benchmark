@@ -290,7 +290,7 @@ entry:
 if.then:                                          ; preds = %entry
   %env_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %env_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %search.i.i)
   store ptr @_ZN4node15TimerWrapHandle11CleanupHookEPv, ptr %search.i.i, align 8
   %arg_.i.i.i = getelementptr inbounds nuw i8, ptr %search.i.i, i64 8
   store ptr %this, ptr %arg_.i.i.i, align 8
@@ -298,7 +298,7 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr %insertion_order_counter_.i.i.i, align 8
   %cleanup_hooks_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2568
   %call.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %search.i.i)
   %2 = load ptr, ptr %timer_, align 8
   %timer_.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %timer_.i, align 8
@@ -336,7 +336,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %env_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %search.i.i.i)
   store ptr @_ZN4node15TimerWrapHandle11CleanupHookEPv, ptr %search.i.i.i, align 8
   %arg_.i.i.i.i = getelementptr inbounds nuw i8, ptr %search.i.i.i, i64 8
   store ptr %data, ptr %arg_.i.i.i.i, align 8
@@ -344,7 +344,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %insertion_order_counter_.i.i.i.i, align 8
   %cleanup_hooks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2568
   %call.i.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %search.i.i.i)
   %2 = load ptr, ptr %timer_.i, align 8
   %timer_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %timer_.i.i, align 8
@@ -568,7 +568,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %env_.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %search.i.i.i)
   store ptr @_ZN4node15TimerWrapHandle11CleanupHookEPv, ptr %search.i.i.i, align 8
   %arg_.i.i.i.i = getelementptr inbounds nuw i8, ptr %search.i.i.i, i64 8
   store ptr %this, ptr %arg_.i.i.i.i, align 8
@@ -576,7 +576,7 @@ if.then.i:                                        ; preds = %entry
   store i64 0, ptr %insertion_order_counter_.i.i.i.i, align 8
   %cleanup_hooks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2568
   %call.i.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %search.i.i.i)
   %2 = load ptr, ptr %timer_.i, align 8
   %timer_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %timer_.i.i, align 8
@@ -615,7 +615,7 @@ entry:
 if.then.i.i:                                      ; preds = %entry
   %env_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %env_.i.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %search.i.i.i.i)
   store ptr @_ZN4node15TimerWrapHandle11CleanupHookEPv, ptr %search.i.i.i.i, align 8
   %arg_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %search.i.i.i.i, i64 8
   store ptr %this, ptr %arg_.i.i.i.i.i, align 8
@@ -623,7 +623,7 @@ if.then.i.i:                                      ; preds = %entry
   store i64 0, ptr %insertion_order_counter_.i.i.i.i.i, align 8
   %cleanup_hooks_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2568
   %call.i.i.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %search.i.i.i.i)
   %2 = load ptr, ptr %timer_.i.i, align 8
   %timer_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %timer_.i.i.i, align 8
@@ -973,7 +973,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit17:   ; preds = %_ZNK4node13MemoryTr
   br label %cleanup
 
 if.end12:                                         ; preds = %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   %call.i = call noundef ptr @_ZN4node13MemoryTracker7AddNodeEPKNS_14MemoryRetainerEPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %retainer, ptr noundef %edge_name)
   store ptr %call.i, ptr %n.i, align 8
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -999,7 +999,7 @@ if.else.i.i.i:                                    ; preds = %if.end12
 
 _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %29 = phi ptr [ %call.i, %if.then.i.i.i ], [ %.pre.i, %if.else.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable14 = load ptr, ptr %retainer, align 8
   %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %30 = load ptr, ptr %vfn15, align 8
@@ -1885,10 +1885,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

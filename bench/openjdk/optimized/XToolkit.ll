@@ -530,7 +530,7 @@ define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr noundef
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
   %7 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
   %9 = load i64, ptr %7, align 8
   %10 = mul nsw i64 %9, 1000
@@ -538,7 +538,7 @@ define void @Java_sun_awt_X11_XToolkit_waitForEvents(ptr noundef %0, ptr noundef
   %12 = load i64, ptr %11, align 8
   %13 = sdiv i64 %12, 1000
   %14 = add nsw i64 %13, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %15 = load i32, ptr @curPollTimeout, align 4
   %16 = load i32, ptr @awt_poll_alg, align 4
   switch i32 %16, label %get_poll_timeout.exit.i.i [
@@ -687,7 +687,7 @@ get_poll_timeout.exit.i.i:                        ; preds = %47, %43, %3
   br i1 %.not35.i.i, label %102, label %94
 
 94:                                               ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %95 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #13
   %96 = load i64, ptr %6, align 8
   %97 = mul nsw i64 %96, 1000
@@ -695,7 +695,7 @@ get_poll_timeout.exit.i.i:                        ; preds = %47, %43, %3
   %99 = load i64, ptr %98, align 8
   %100 = sdiv i64 %99, 1000
   %101 = add nsw i64 %100, %97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %101, ptr @poll_sleep_time, align 8
   br label %102
 
@@ -706,12 +706,12 @@ get_poll_timeout.exit.i.i:                        ; preds = %47, %43, %3
   br i1 %.not36.i.i, label %.thread.i.i, label %105
 
 105:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #13
   %107 = load i64, ptr %5, align 8
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %109 = load i64, ptr %108, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr.i.i = load i32, ptr @tracing, align 4
   %.not37.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %.not37.i.i, label %.thread.i.i, label %110
@@ -914,7 +914,7 @@ performPoll.exit.i:                               ; preds = %205, %update_poll_t
   br i1 %209, label %210, label %waitForEvents.exit
 
 210:                                              ; preds = %performPoll.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %211 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #13
   %212 = load i64, ptr %4, align 8
   %213 = mul nsw i64 %212, 1000
@@ -922,7 +922,7 @@ performPoll.exit.i:                               ; preds = %205, %update_poll_t
   %215 = load i64, ptr %214, align 8
   %216 = sdiv i64 %215, 1000
   %217 = add nsw i64 %216, %213
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %218 = load i64, ptr @awt_next_flush_time, align 8
   %.not.i = icmp slt i64 %217, %218
   br i1 %.not.i, label %waitForEvents.exit, label %219
@@ -1105,7 +1105,7 @@ define hidden void @awt_output_flush() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr @jvm_xawt, align 8
   %6 = tail call ptr @JNU_GetEnv(ptr noundef %5, i32 noundef 65538) #13
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #13
   %8 = load i64, ptr %1, align 8
   %9 = mul nsw i64 %8, 1000
@@ -1113,7 +1113,7 @@ define hidden void @awt_output_flush() local_unnamed_addr #0 {
   %11 = load i64, ptr %10, align 8
   %12 = sdiv i64 %11, 1000
   %13 = add nsw i64 %12, %9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %14 = load i64, ptr @awt_last_flush_time, align 8
   %15 = load i32, ptr @AWT_FLUSH_TIMEOUT, align 4
   %16 = zext i32 %15 to i64
@@ -1658,10 +1658,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

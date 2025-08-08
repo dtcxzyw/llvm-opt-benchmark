@@ -69,7 +69,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   br i1 %.not.us, label %.critedge, label %8
 
 8:                                                ; preds = %.split.us
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 2147483647, ptr %5, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %.01831.us, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !27
@@ -83,7 +83,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   %14 = load i64, ptr %5, align 8
   %15 = trunc i64 %14 to i32
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %.01831.us, i64 16
   %17 = icmp eq i32 %15, -1
   %18 = select i1 %.not24.us, i1 true, i1 %17
@@ -96,7 +96,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   br i1 %.not, label %.critedge, label %20
 
 20:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 2147483647, ptr %5, align 8, !tbaa !26
   %21 = load ptr, ptr %3, align 8, !tbaa !31
   %22 = icmp eq ptr %21, null
@@ -119,13 +119,13 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
 .thread:                                          ; preds = %28
   %31 = sub nsw i32 2147483647, %30
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %25) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge28
 
 32:                                               ; preds = %28, %26
   %.221 = phi i32 [ -1, %26 ], [ %30, %28 ]
   call void @OSSL_ENCODER_CTX_free(ptr noundef nonnull %25) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = getelementptr inbounds nuw i8, ptr %.01831, i64 16
   %34 = icmp eq i32 %.221, -1
   br i1 %34, label %.split, label %.critedge28, !llvm.loop !32
@@ -137,7 +137,7 @@ define internal fastcc i32 @i2d_provided(ptr noundef %0, i32 noundef range(i32 1
   br label %.critedge28
 
 .critedge27:                                      ; preds = %20, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge28
 
 .critedge28:                                      ; preds = %32, %12, %.thread, %.critedge, %.critedge27
@@ -213,17 +213,11 @@ define i32 @i2d_PrivateKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   ret i32 %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare ptr @EVP_PKEY2PKCS8(ptr noundef) local_unnamed_addr #1
 
 declare i32 @i2d_PKCS8_PRIV_KEY_INFO(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @PKCS8_PRIV_KEY_INFO_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @i2d_PublicKey(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -289,6 +283,12 @@ declare ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef, i32 noundef, ptr noundef
 declare i32 @OSSL_ENCODER_to_data(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @OSSL_ENCODER_CTX_free(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

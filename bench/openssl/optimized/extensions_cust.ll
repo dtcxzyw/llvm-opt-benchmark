@@ -72,14 +72,8 @@ define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %0, i32 
   ret ptr %.016
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @custom_ext_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define void @custom_ext_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !3
   %.not = icmp eq i64 %3, 0
@@ -104,9 +98,9 @@ define void @custom_ext_init(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @custom_ext_parse(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %10 = load ptr, ptr %9, align 8, !tbaa !23
@@ -237,27 +231,27 @@ custom_ext_find.exit:                             ; preds = %32, %.lr.ph.split.u
 
 custom_ext_find.exit.thread:                      ; preds = %37, %26, %.thread, %13, %61, %57, %custom_ext_find.exit, %68, %50
   %.026 = phi i32 [ 0, %50 ], [ 0, %68 ], [ 1, %custom_ext_find.exit ], [ 1, %57 ], [ 1, %61 ], [ 1, %13 ], [ 1, %.thread ], [ 1, %26 ], [ 1, %37 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.026
 }
 
-declare i32 @extension_is_relevant(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @extension_is_relevant(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ERR_new() local_unnamed_addr #4
+declare void @ERR_new() local_unnamed_addr #3
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = and i32 %1, 32768
   %.not = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 136
@@ -275,9 +269,9 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 20:                                               ; preds = %.lr.ph, %.thread88
   %.06193 = phi i64 [ 0, %.lr.ph ], [ %103, %.thread88 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !88
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !18
   %21 = load ptr, ptr %12, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw %struct.custom_ext_method, ptr %21, i64 %.06193
@@ -443,13 +437,13 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread88
 
 .thread85:                                        ; preds = %72, %71, %90, %89, %45, %44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .thread88:                                        ; preds = %47, %93, %96, %35, %27, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %103 = add nuw i64 %.06193, 1
   %104 = load i64, ptr %14, align 8, !tbaa !3
   %105 = icmp ult i64 %103, %104
@@ -457,22 +451,22 @@ define range(i32 0, 2) i32 @custom_ext_add(ptr noundef %0, i32 noundef %1, ptr n
 
 .loopexit:                                        ; preds = %.thread88, %6, %.thread85
   %.4 = phi i32 [ 0, %.thread85 ], [ 1, %6 ], [ 1, %.thread88 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.4
 }
 
-declare i32 @should_add_extension(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @should_add_extension(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #4
+declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !tbaa !9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
@@ -551,7 +545,7 @@ custom_ext_find.exit.thread:                      ; preds = %25, %15, %custom_ex
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
   %.not = icmp eq i64 %4, 0
@@ -680,10 +674,10 @@ custom_exts_free.exit:                            ; preds = %._crit_edge.thread4
   ret i32 %.0
 }
 
-declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #3 {
+define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #2 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !97
   %12 = icmp eq ptr %11, null
@@ -700,7 +694,7 @@ define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @custom_exts_free(ptr noundef captures(none) %0) local_unnamed_addr #3 {
+define void @custom_exts_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !3
@@ -744,10 +738,10 @@ define void @custom_exts_free(ptr noundef captures(none) %0) local_unnamed_addr 
   ret void
 }
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -787,7 +781,7 @@ custom_ext_find.exit:                             ; preds = %12, %16, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #2 {
   %11 = icmp eq ptr %5, null
   %12 = icmp ne ptr %6, null
   %or.cond = and i1 %11, %12
@@ -914,10 +908,10 @@ custom_ext_find.exit:                             ; preds = %45, %.lr.ph.split.u
   ret i32 %.0
 }
 
-declare i32 @SSL_CTX_ct_is_enabled(ptr noundef) local_unnamed_addr #4
+declare i32 @SSL_CTX_ct_is_enabled(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %0) local_unnamed_addr #6 {
   switch i32 %0, label %2 [
     i32 16, label %3
     i32 11, label %3
@@ -956,13 +950,13 @@ define range(i32 0, 2) i32 @SSL_extension_supported(i32 noundef %0) local_unname
   ret i32 %.0
 }
 
-declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 434) #9
   %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 436) #9
   %10 = icmp eq ptr %8, null
@@ -996,7 +990,7 @@ add_old_custom_ext.exit:                          ; preds = %12, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_CTX_add_server_custom_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #2 {
   %8 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 434) #9
   %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 436) #9
   %10 = icmp eq ptr %8, null
@@ -1030,15 +1024,15 @@ add_old_custom_ext.exit:                          ; preds = %12, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_add_custom_ext(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_CTX_add_custom_ext(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = tail call i32 @ossl_tls_add_custom_ext_intern(ptr noundef %0, ptr noundef null, i32 noundef 2, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @custom_ext_free_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #3 {
+define internal void @custom_ext_free_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !115
   %8 = icmp eq ptr %7, null
@@ -1054,7 +1048,7 @@ define internal void @custom_ext_free_old_cb_wrap(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #3 {
+define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef %7, ptr noundef readonly captures(none) %8) #2 {
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !118
   %12 = icmp eq ptr %11, null
@@ -1070,15 +1064,21 @@ define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %0, i32 noundef %1
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

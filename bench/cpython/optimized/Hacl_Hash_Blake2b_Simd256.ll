@@ -27,17 +27,11 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_init(ptr noundef wr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 %3, i64 %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 %3, i64 %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #2 {
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -67,7 +61,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi(i32 no
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @update_block(ptr noundef captures(none) initializes((0, 128)) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 %4, i64 %5, ptr noundef readonly captures(none) %6) unnamed_addr #4 {
+define internal fastcc void @update_block(ptr noundef captures(none) initializes((0, 128)) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 %4, i64 %5, ptr noundef readonly captures(none) %6) unnamed_addr #3 {
   %.val2753 = load i64, ptr %6, align 1
   %8 = getelementptr i8, ptr %6, i64 8
   %.val2752 = load i64, ptr %8, align 1
@@ -817,9 +811,9 @@ define internal fastcc void @update_block(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_last(i32 noundef %0, ptr noundef captures(none) initializes((0, 128)) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3, i64 %4, i64 %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #5 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_last(i32 noundef %0, ptr noundef captures(none) initializes((0, 128)) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3, i64 %4, i64 %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #4 {
   %9 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   %10 = zext i32 %0 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -834,19 +828,19 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_update_last(i32 nou
   %19 = add i64 %18, %5
   call fastcc void @update_block(ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %3, i64 %15, i64 %19, ptr noundef nonnull %9)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare void @Lib_Memzero0_memzero0(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @Lib_Memzero0_memzero0(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_finish(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_finish(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr i8, ptr %2, i64 32
   %7 = load <4 x i64>, ptr %2, align 32, !tbaa !3
@@ -856,12 +850,12 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_finish(i32 noundef 
   %9 = zext i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %9, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 64) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_load_state256b_from_state32(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_load_state256b_from_state32(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 64
   %5 = getelementptr i8, ptr %0, i64 96
@@ -920,7 +914,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_load_state256b_from
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_store_state256b_to_state32(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_store_state256b_to_state32(ptr noundef writeonly captures(none) initializes((0, 128)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr i8, ptr %1, i64 32
   %4 = getelementptr i8, ptr %1, i64 64
   %5 = getelementptr i8, ptr %1, i64 96
@@ -979,17 +973,17 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_store_state256b_to_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_key() local_unnamed_addr #10 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_key() local_unnamed_addr #9 {
   %1 = tail call noalias align 32 dereferenceable_or_null(128) ptr @aligned_alloc(i64 noundef 32, i64 noundef 128) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
   %.sroa.02.0.copyload = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !3
@@ -1086,16 +1080,16 @@ malloc_raw.exit:                                  ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_key0(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #13 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_key0(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #12 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.Hacl_Hash_Blake2b_blake2_params_s, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 64, ptr %5, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1111,23 +1105,23 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !14
   %6 = call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %0)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc() local_unnamed_addr #13 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc() local_unnamed_addr #12 {
   %1 = alloca [16 x i8], align 16
   %2 = alloca [16 x i8], align 16
   %3 = alloca %struct.Hacl_Hash_Blake2b_blake2_params_s, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 18
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.11.0..sroa_idx.i, i8 0, i64 6, i1 false)
   store i8 64, ptr %3, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -1143,21 +1137,21 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %2, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !14
   %4 = call noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key_and_params(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #14 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key_and_params(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #13 {
   %.sroa.8109.i = alloca [13 x i8], align 1
   %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8109.i)
   %.sroa.6117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1226,19 +1220,19 @@ reset_raw.exit:                                   ; preds = %3, %7
   store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
   store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
   store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8109.i)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #14 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %.sroa.8109.i = alloca [13 x i8], align 1
   %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8109.i)
   %.sroa.6117.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1280,12 +1274,12 @@ reset_raw.exit:                                   ; preds = %2, %4
   store ptr %.sroa.7118.0.copyload.i, ptr %.sroa.7118.0..sroa_idx.i, align 8, !tbaa !12
   store ptr %.sroa.8119.0.copyload.i, ptr %.sroa.8119.0..sroa_idx.i, align 8, !tbaa !14
   store i64 %..i, ptr %.sroa.9120.0..sroa_idx.i, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8109.i)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset(ptr noundef captures(none) initializes((32, 40)) %0) local_unnamed_addr #15 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_reset(ptr noundef captures(none) initializes((32, 40)) %0) local_unnamed_addr #14 {
 python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key.exit:
   %.sroa.8109.i.i = alloca [13 x i8], align 1
   %.sroa.0.0.copyload.i.i = load i8, ptr %0, align 8, !tbaa !3
@@ -1293,7 +1287,7 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key.exit:
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !3
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i.i = load i8, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8109.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8109.i.i)
   %.sroa.6117.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8109.i.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6117.0..sroa_idx.i.i, i64 13, i1 false)
   %.sroa.7118.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1320,12 +1314,12 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_reset_with_key.exit:
   store ptr %.sroa.7118.0.copyload.i.i, ptr %.sroa.7118.0..sroa_idx.i.i, align 8, !tbaa !12
   store ptr %.sroa.8119.0.copyload.i.i, ptr %.sroa.8119.0..sroa_idx.i.i, align 8, !tbaa !14
   store i64 0, ptr %.sroa.9120.0..sroa_idx.i.i, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8109.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8109.i.i)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
+define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 {
   %.sroa.0130 = alloca %struct.Hacl_Hash_Blake2b_Simd256_block_state_t_s, align 8
   %.sroa.053 = alloca %struct.Hacl_Hash_Blake2b_Simd256_block_state_t_s, align 8
   %.sroa.3153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1504,7 +1498,7 @@ python_hashlib_Hacl_Hash_Blake2b_Simd256_update_multi.exit223: ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
+define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca [4 x <4 x i64>], align 32
@@ -1525,8 +1519,8 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr no
   %or.cond = and i1 %9, %8
   %10 = trunc nuw nsw i64 %7 to i32
   %.0 = select i1 %or.cond, i32 128, i32 %10
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(128) %6, ptr noundef nonnull align 32 dereferenceable(128) %.sroa.450.0.copyload, i64 128, i1 false)
   %11 = and i32 %.0, 127
   %12 = icmp eq i32 %11, 0
@@ -1540,7 +1534,7 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr no
   %18 = getelementptr i8, ptr %.sroa.551.0.copyload, i64 %15
   %19 = sub nsw i64 0, %.067
   %20 = getelementptr i8, ptr %18, i64 %19
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %20, i64 %15, i1 false)
   %21 = xor i64 %.sroa.652.0.copyload, -1
@@ -1548,8 +1542,8 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr no
   %23 = lshr i64 %22, 63
   call fastcc void @update_block(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext %17, i64 %.sroa.652.0.copyload, i64 %23, ptr noundef nonnull %4)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #25
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %26 = load <4 x i64>, ptr %6, align 32, !tbaa !3
@@ -1559,15 +1553,15 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr no
   %28 = zext i8 %.sroa.460.0.copyload to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %3, i64 %28, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %3, i64 noundef 64) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.4.0.copyload = load i8, ptr %.sroa.460.0..sroa_idx, align 1, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i8 %.sroa.4.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i24 0, 131072) i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define hidden range(i24 0, 131072) i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %.sroa.0.0.copyload = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !3
@@ -1585,7 +1579,7 @@ define hidden range(i24 0, 131072) i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef captures(none) %0) local_unnamed_addr #18 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef captures(none) %0) local_unnamed_addr #17 {
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.44.0.copyload = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1600,10 +1594,10 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #19
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %.sroa.024.0.copyload = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.425.0.copyload = load i8, ptr %.sroa.425.0..sroa_idx, align 1, !tbaa !3
@@ -1642,18 +1636,18 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #8 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #7 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca [4 x <4 x i64>], align 32
   %9 = alloca [4 x <4 x i64>], align 32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 96
@@ -1670,7 +1664,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key(ptr n
   store <4 x i64> %20, ptr %8, align 32, !tbaa !3
   store <4 x i64> <i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809>, ptr %10, align 32, !tbaa !3
   call fastcc void @update(ptr noundef %9, ptr noundef %8, i32 noundef %5, ptr noundef %4, i32 noundef %3, ptr noundef %2)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %22 = load <4 x i64>, ptr %8, align 32, !tbaa !3
   store <4 x i64> %22, ptr %7, align 16, !tbaa !3
@@ -1679,16 +1673,16 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key(ptr n
   %24 = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %24, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 128) #25
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @update(ptr noundef nonnull captures(none) initializes((0, 128)) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #22 {
+define internal fastcc void @update(ptr noundef nonnull captures(none) initializes((0, 128)) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #21 {
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
   %9 = alloca [128 x i8], align 16
@@ -1696,7 +1690,7 @@ define internal fastcc void @update(ptr noundef nonnull captures(none) initializ
   br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = zext i32 %2 to i64
   %12 = icmp ugt i32 %2, 127
   %13 = sub nsw i64 128, %11
@@ -1707,7 +1701,7 @@ define internal fastcc void @update(ptr noundef nonnull captures(none) initializ
   %16 = icmp eq i32 %4, 0
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %16, i1 noundef zeroext false, i64 128, i64 0, ptr noundef nonnull %9)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %16, label %53, label %17
 
 17:                                               ; preds = %10
@@ -1739,7 +1733,7 @@ define internal fastcc void @update(ptr noundef nonnull captures(none) initializ
   br i1 %exitcond.not.i.i, label %update_blocks.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 update_blocks.exit:                               ; preds = %.lr.ph.i.i, %17
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 0, i64 128, i1 false)
   %29 = zext i32 %4 to i64
   %30 = getelementptr i8, ptr %5, i64 %29
@@ -1751,7 +1745,7 @@ update_blocks.exit:                               ; preds = %.lr.ph.i.i, %17
   %35 = add nuw nsw i64 %29, 128
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, i64 %35, i64 0, ptr noundef nonnull %8)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
 36:                                               ; preds = %6
@@ -1782,7 +1776,7 @@ update_blocks.exit:                               ; preds = %.lr.ph.i.i, %17
   br i1 %exitcond.not.i.i24, label %update_blocks.exit25, label %.lr.ph.i.i21, !llvm.loop !6
 
 update_blocks.exit25:                             ; preds = %.lr.ph.i.i21, %36
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %47 = zext i32 %4 to i64
   %48 = getelementptr i8, ptr %5, i64 %47
@@ -1793,7 +1787,7 @@ update_blocks.exit25:                             ; preds = %.lr.ph.i.i21, %36
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr readonly align 1 %52, i64 %50, i1 false)
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, i64 %47, i64 0, ptr noundef nonnull %7)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
 53:                                               ; preds = %10, %update_blocks.exit25, %update_blocks.exit
@@ -1801,12 +1795,12 @@ update_blocks.exit25:                             ; preds = %.lr.ph.i.i21, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_params(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%struct.Hacl_Hash_Blake2b_blake2_params_s) align 8 captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #8 {
+define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_params(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%struct.Hacl_Hash_Blake2b_blake2_params_s) align 8 captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #7 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca [4 x <4 x i64>], align 32
   %8 = alloca [4 x <4 x i64>], align 32
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #25
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -1867,7 +1861,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   store <4 x i64> %58, ptr %9, align 32, !tbaa !3
   %59 = zext i8 %13 to i32
   call fastcc void @update(ptr noundef %8, ptr noundef %7, i32 noundef %59, ptr noundef %4, i32 noundef %2, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %61 = load <4 x i64>, ptr %7, align 32, !tbaa !3
   store <4 x i64> %61, ptr %6, align 16, !tbaa !3
@@ -1875,13 +1869,19 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   store <4 x i64> %62, ptr %60, align 16, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %6, i64 %21, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 64) #25
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #25
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 128) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #23
@@ -1890,28 +1890,28 @@ declare <4 x i64> @llvm.fshl.v4i64(<4 x i64>, <4 x i64>, <4 x i64>) #23
 declare void @llvm.assume(i1 noundef) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #22 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #21 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nounwind }

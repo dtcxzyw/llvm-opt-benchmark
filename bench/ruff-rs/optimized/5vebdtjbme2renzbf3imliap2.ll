@@ -15,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN70_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Debug$GT$3fmt17he1c88064cb6e0bd4E"(ptr noalias noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %4 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h6bfa745e4cc30e90E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.8, i64 noundef 15, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -40,7 +40,6 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor3new17h266684f77946ca74E(ptr d
   ret void
 
 .split:                                           ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.6, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.11) #10
   unreachable
 }
@@ -325,7 +324,6 @@ define noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor8text_len17h47e4e4382f9
   ret i32 %11
 
 .split:                                           ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.6, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.11) #10
   unreachable
 }
@@ -346,7 +344,6 @@ define noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba9
   br i1 %11, label %.split.i, label %_ZN18ruff_python_trivia6cursor6Cursor8text_len17h47e4e4382f976efdE.exit
 
 .split.i:                                         ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !19
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.6, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.11) #10, !noalias !19
   unreachable
 
@@ -371,7 +368,6 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor11start_token17hbfdf1c1dac81a8
   br i1 %9, label %.split.i, label %_ZN18ruff_python_trivia6cursor6Cursor8text_len17h47e4e4382f976efdE.exit
 
 .split.i:                                         ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !22
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.6, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8c3d9dc92c52b581f4f7c3265a58f3f3.11) #10, !noalias !22
   unreachable
 
@@ -1209,10 +1205,10 @@ declare noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i
 declare void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

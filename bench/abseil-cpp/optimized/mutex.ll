@@ -200,7 +200,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__
   br label %22
 
 14:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !22
   %15 = icmp eq i32 %0, %8
   br i1 %15, label %16, label %21
@@ -217,7 +217,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %14
@@ -226,7 +226,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16: ; preds = %_ZN4absl12_GLOBAL__
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %17, %21
   %.1 = phi i32 [ %18, %17 ], [ 0, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 22:                                               ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit, %12
@@ -234,16 +234,13 @@ _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit: ; preds = %17, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4, !tbaa !22
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3, !prof !19
@@ -265,9 +262,6 @@ define linkonce_odr dso_local void @_ZN4absl13base_internal15SchedulingGuard12Sc
   tail call void @__clang_call_terminate(ptr %8) #28
   unreachable
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl5Mutex17IncrementSynchSemEPS0_PNS_13base_internal14PerThreadSynchE(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -296,7 +290,7 @@ define dso_local void @_ZN4absl5Mutex45InternalAttemptToUseMutexInFatalSignalHan
   ret void
 }
 
-declare noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv() local_unnamed_addr #5
+declare noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl5Mutex14EnableDebugLogEPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -344,9 +338,9 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %18, %_ZN4absl13base
   br label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
 _ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile { i64, i64 } { i64 ptrtoint (ptr @_ZN4absl5Mutex4DtorEv to i64), i64 0 }, ptr %3, align 8, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -502,7 +496,7 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit:   ; preds = %55, %59
 }
 
 ; Function Attrs: alwaysinline mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl5Mutex4DtorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl5Mutex4DtorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #5 comdat align 2 {
   ret void
 }
 
@@ -576,7 +570,7 @@ define dso_local void @_ZN4absl29SetMutexDeadlockDetectionModeENS_15OnDeadlockCy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex9TryRemoveEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(address) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr %0 monotonic, align 8
   %4 = and i64 %3, 77
   %5 = icmp eq i64 %4, 4
@@ -847,7 +841,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
+define internal fastcc noundef zeroext i1 @_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = load ptr, ptr %4, align 8, !tbaa !58
@@ -961,7 +955,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %18, %_ZN4absl12_G
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 22:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !22
   %23 = icmp eq i32 %.015, %16
   br i1 %23, label %24, label %29
@@ -978,7 +972,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %18, %_ZN4absl12_G
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %22
@@ -987,7 +981,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %18, %_ZN4absl12_G
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %29, %25
   %.1.i = phi i32 [ %26, %25 ], [ 0, %29 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %20, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
@@ -1031,7 +1025,7 @@ _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %20, %_ZN4absl
   ret void
 }
 
-declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThreadSynchE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
@@ -1044,12 +1038,12 @@ define dso_local noundef ptr @_ZN4absl5Mutex6WakeupEPNS_13base_internal14PerThre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl5Mutex18ForgetDeadlockInfoEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4absl5Mutex13AssertNotHeldEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZNK4absl5Mutex13AssertNotHeldEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -1102,7 +1096,7 @@ _ZN4abslL22TryAcquireWithSpinningEPSt6atomicIlE.exit: ; preds = %_ZNSt13__atomic
 }
 
 ; Function Attrs: cold mustprogress noinline optsize uwtable
-define dso_local void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 4) monotonic, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.sink.split, label %9, !prof !85
@@ -1197,7 +1191,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
 
 26:                                               ; preds = %22, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, %5
   %.020 = phi i1 [ false, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit ], [ false, %5 ], [ true, %22 ]
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit, !prof !85
@@ -1271,7 +1265,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
 
 59:                                               ; preds = %55, %52
   %60 = phi i1 [ true, %52 ], [ %58, %55 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
 61:                                               ; preds = %20, %22, %59
@@ -1292,7 +1286,7 @@ define dso_local noundef zeroext i1 @_ZN4absl5Mutex11AwaitCommonERKNS_9Condition
   %10 = and i64 %9, 8
   %.not = icmp eq i64 %10, 0
   %11 = select i1 %.not, ptr @_ZN4abslL8kSharedSE, ptr @_ZN4abslL11kExclusiveSE
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit, !prof !85
@@ -1361,7 +1355,7 @@ _ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_in
 
 .critedge:                                        ; preds = %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit, %35, %38
   %40 = phi i1 [ true, %35 ], [ false, %38 ], [ true, %_ZN4absl15SynchWaitParamsC2EPKNS_6MuHowSEPKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEPNS_5MutexEPNS_13base_internal14PerThreadSynchEPSt6atomicIlE.exit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %3, %.critedge
@@ -1378,7 +1372,7 @@ define dso_local noundef zeroext i1 @_ZNK4absl9Condition4EvalEv(ptr noundef nonn
 }
 
 ; Function Attrs: cold mustprogress noinline optsize uwtable
-define dso_local void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = load atomic i64, ptr %0 monotonic, align 8
   tail call void @_ZNK4absl5Mutex16AssertReaderHeldEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -1395,7 +1389,7 @@ define dso_local void @_ZN4absl5Mutex10UnlockSlowEPNS_15SynchWaitParamsE(ptr nou
   br label %9
 
 9:                                                ; preds = %6, %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !98
   %10 = icmp eq ptr %1, null
   br i1 %10, label %.outer.preheader, label %11
@@ -2050,7 +2044,7 @@ _ZNK4absl13base_internal10AtomicHookIPFvPKcPKvlEEclIJRA13_S2_PNS_5MutexERlEEEvDp
   br label %_ZNK4absl13base_internal10AtomicHookIPFvlEEclIJRlEEEvDpOT_.exit
 
 _ZNK4absl13base_internal10AtomicHookIPFvlEEclIJRlEEEvDpOT_.exit: ; preds = %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit217, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit216, %_ZNK4absl13base_internal10AtomicHookIPFvPKcPKvlEEclIJRA13_S2_PNS_5MutexERlEEEvDpOT_.exit, %288, %.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2355,7 +2349,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %148, %_ZN4absl12_
   br label %.critedge
 
 152:                                              ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !22
   %153 = icmp eq i32 %.558, %146
   br i1 %153, label %154, label %158
@@ -2372,7 +2366,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %148, %_ZN4absl12_
   %157 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %157
 
 158:                                              ; preds = %152
@@ -2381,7 +2375,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %148, %_ZN4absl12_
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %158, %155
   %.1.i = phi i32 [ %156, %155 ], [ 0, %158 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge.backedge
 
 159:                                              ; preds = %101, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit104, %_ZN4abslL22EvalConditionAnnotatedEPKNS_9ConditionEPNS_5MutexEbbb.exit, %50
@@ -2446,7 +2440,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit: ; 
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef zeroext i1 @_ZN4absl5Mutex11TryLockSlowEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl5Mutex11TryLockSlowEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #10 align 2 {
   %2 = load atomic i64, ptr %0 monotonic, align 8
   %3 = and i64 %2, 9
   %4 = icmp eq i64 %3, 0
@@ -2540,9 +2534,9 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   br i1 %29, label %30, label %.thread48
 
 30:                                               ; preds = %26, %_ZN4abslL13GetSynchEventEPKv.exit
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = call noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef nonnull %3, i32 noundef 40, i32 noundef 1)
-  call void @llvm.lifetime.start.p0(i64 960, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) @.str.50, i64 3, i1 false)
   %.not53 = icmp eq i32 %31, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
@@ -2579,8 +2573,8 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %46 = getelementptr inbounds nuw i8, ptr %.011.i, i64 41
   %47 = select i1 %25, ptr @.str.35, ptr %46
   call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 120), i32 noundef 452, ptr noundef nonnull @.str.52, ptr noundef %45, ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 960, ptr nonnull %4) #27
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw [14 x %struct.anon], ptr @_ZN4abslL16event_propertiesE, i64 0, i64 %43
   %49 = load i32, ptr %48, align 16, !tbaa !115
   %50 = and i32 %49, 2
@@ -2697,7 +2691,7 @@ define dso_local noundef zeroext i1 @_ZN4absl5Mutex13ReaderTryLockEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define dso_local noundef zeroext i1 @_ZN4absl5Mutex17ReaderTryLockSlowEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl5Mutex17ReaderTryLockSlowEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #10 align 2 {
   %2 = load atomic i64, ptr %0 monotonic, align 8
   br label %3
 
@@ -2784,7 +2778,7 @@ _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thr
   ret void
 }
 
-declare noundef i32 @_ZN4absl13base_internal7NumCPUsEv() local_unnamed_addr #5
+declare noundef i32 @_ZN4absl13base_internal7NumCPUsEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN4abslL23CheckForMutexCorruptionElPKc(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -2876,7 +2870,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %21, %_ZN4absl12
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge
 
 25:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !22
   %26 = icmp eq i32 %.0.i, %19
   br i1 %26, label %27, label %32
@@ -2893,7 +2887,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %21, %_ZN4absl12
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %25
@@ -2902,7 +2896,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %21, %_ZN4absl12
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i.i: ; preds = %32, %28
   %.1.i.i = phi i32 [ %29, %28 ], [ 0, %32 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i.i, %23
@@ -3009,8 +3003,8 @@ _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %74, %80
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %_ZN4absl13base_internal10CycleClock3NowEv.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %86 = tail call i64 @pthread_self() #31
   %87 = call i32 @pthread_getschedparam(i64 noundef %86, ptr noundef nonnull %6, ptr noundef nonnull %7) #27
   %.not97 = icmp eq i32 %87, 0
@@ -3032,8 +3026,8 @@ _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %74, %80
   br label %96
 
 96:                                               ; preds = %89, %88
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 97:                                               ; preds = %_ZN4absl13base_internal10CycleClock3NowEv.exit, %96, %.critedge
@@ -3439,7 +3433,7 @@ define dso_local void @_ZNK4absl5Mutex16AssertReaderHeldEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
   tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef null, i32 noundef 3) #29
   ret void
 }
@@ -3579,7 +3573,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_G
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 62:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !22
   %63 = icmp eq i32 %.057, %56
   br i1 %63, label %64, label %68
@@ -3596,7 +3590,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_G
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %67
 
 68:                                               ; preds = %62
@@ -3605,7 +3599,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %58, %_ZN4absl12_G
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %68, %65
   %.1.i = phi i32 [ %66, %65 ], [ 0, %68 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i, %60
@@ -3839,7 +3833,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.backedge
 
 33:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !22
   %34 = icmp eq i32 %.0, %27
   br i1 %34, label %35, label %39
@@ -3856,7 +3850,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %33
@@ -3865,7 +3859,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %39, %36
   %.1.i = phi i32 [ %37, %36 ], [ 0, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.backedge
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit.backedge: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i, %31
@@ -3894,7 +3888,7 @@ define dso_local noundef zeroext i1 @_ZN4absl7CondVar10WaitCommonEPNS_5MutexENS_
   br label %13
 
 13:                                               ; preds = %12, %3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = tail call noundef ptr @_ZN4absl13base_internal30CurrentThreadIdentityIfPresentEv()
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %_ZN4abslL27Synch_GetPerThreadAnnotatedEPNS_5MutexE.exit, !prof !85
@@ -4030,7 +4024,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %64, %_ZN4absl12
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge
 
 68:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !22
   %69 = icmp eq i32 %.0.i, %62
   br i1 %69, label %70, label %74
@@ -4047,7 +4041,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %64, %_ZN4absl12
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %73
 
 74:                                               ; preds = %68
@@ -4056,7 +4050,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i.i: ; preds = %64, %_ZN4absl12
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i.i: ; preds = %74, %71
   %.1.i.i = phi i32 [ %72, %71 ], [ 0, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit.i.backedge: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i.i, %66
@@ -4104,7 +4098,7 @@ _ZN4absl7CondVar6RemoveEPNS_13base_internal14PerThreadSynchE.exit: ; preds = %49
 
 89:                                               ; preds = %88, %86
   call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %8, ptr noundef null, i32 noundef 3) #29
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.lcssa
 }
 
@@ -4202,7 +4196,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %32, %_ZN4absl12_G
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 36:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !22
   %37 = icmp eq i32 %.01746, %30
   br i1 %37, label %38, label %42
@@ -4219,7 +4213,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %32, %_ZN4absl12_G
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %41
 
 42:                                               ; preds = %36
@@ -4228,7 +4222,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %32, %_ZN4absl12_G
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %42, %39
   %.1.i = phi i32 [ %40, %39 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i, %34
@@ -4326,7 +4320,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 33:                                               ; preds = %_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !22
   %34 = icmp eq i32 %.0924, %27
   br i1 %34, label %35, label %40
@@ -4343,7 +4337,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %2) #27
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %33
@@ -4352,7 +4346,7 @@ _ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv.exit16.i: ; preds = %29, %_ZN4absl12_G
 
 _ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i: ; preds = %40, %36
   %.1.i = phi i32 [ %37, %36 ], [ 0, %40 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %31, %_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev.exit.i
@@ -4398,12 +4392,12 @@ _ZN4absl5Mutex6UnlockEv.exit:                     ; preds = %_ZNSt13__atomic_bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl9Condition10AlwaysTrueEPKS0_(ptr noundef %0) #13 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl9Condition10AlwaysTrueEPKS0_(ptr noundef %0) #12 comdat align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPFbPvES1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8
@@ -4424,7 +4418,7 @@ define dso_local noundef zeroext i1 @_ZN4absl9Condition19CallVoidPtrFunctionEPKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl9ConditionC2EPKb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4absl9ConditionC2EPKb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
@@ -4436,14 +4430,14 @@ define dso_local void @_ZN4absl9ConditionC2EPKb(ptr noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN4abslL11DereferenceEPv(ptr noundef readonly captures(none) %0) #15 {
+define internal noundef zeroext i1 @_ZN4abslL11DereferenceEPv(ptr noundef readonly captures(none) %0) #14 {
   %2 = load i8, ptr %0, align 1, !tbaa !137, !range !81, !noundef !82
   %3 = trunc nuw i8 %2 to i1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #15 align 2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -4480,7 +4474,7 @@ define dso_local noundef zeroext i1 @_ZN4absl9Condition15GuaranteedEqualEPKS0_S2
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #17 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #16 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #27
   tail call void @_ZSt9terminatev() #28
   unreachable
@@ -4489,23 +4483,23 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #18
+declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #19
+declare i32 @sched_yield() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvlEE13DummyFunctionEl(i64 noundef %0) #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvlEE13DummyFunctionEl(i64 noundef %0) #12 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvPKcPKvlEE13DummyFunctionES3_S5_l(ptr noundef %0, ptr noundef %1, i64 noundef %2) #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvPKcPKvlEE13DummyFunctionES3_S5_l(ptr noundef %0, ptr noundef %1, i64 noundef %2) #12 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvPKcPKvEE13DummyFunctionES3_S5_(ptr noundef %0, ptr noundef %1) #13 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFvPKcPKvEE13DummyFunctionES3_S5_(ptr noundef %0, ptr noundef %1) #12 comdat align 2 {
   ret void
 }
 
@@ -4546,7 +4540,7 @@ _ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i: ; preds = %_ZNSt13__atomic_ba
   %14 = tail call { i64, i32 } @_ZN4absl3NowEv()
   %.fca.0.extract9.i.i.i.i.i = extractvalue { i64, i32 } %14, 0
   %.fca.1.extract10.i.i.i.i.i = extractvalue { i64, i32 } %14, 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.fca.0.extract9.i.i.i.i.i, ptr %3, align 8
   %.sroa.210.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.fca.1.extract10.i.i.i.i.i, ptr %.sroa.210.0..sroa_idx.i.i.i.i.i.i.i, align 8
@@ -4554,8 +4548,8 @@ _ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i: ; preds = %_ZNSt13__atomic_ba
   %.sroa.011.0.copyload.i.i.i.i.i.i.i = load i64, ptr %15, align 4
   %.sroa.212.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.212.0.copyload.i.i.i.i.i.i.i = load i32, ptr %.sroa.212.0..sroa_idx.i.i.i.i.i.i.i, align 4, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %.sroa.011.0.copyload.i.i.i.i.i.i.i, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.sroa.212.0.copyload.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
@@ -4563,10 +4557,10 @@ _ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i: ; preds = %_ZNSt13__atomic_ba
   %.sroa.03.0.copyload.i.i.i.i.i = load i64, ptr %16, align 4
   %.sroa.24.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.24.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.24.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i64 %.sroa.03.0.copyload.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   store i32 %.sroa.24.0.copyload.i.i.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #27
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %.sroa.24.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4000000, ptr %.sroa.24.0..sroa_idx.i.i.i.i, align 8
@@ -4576,8 +4570,8 @@ _ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i: ; preds = %_ZNSt13__atomic_ba
   %19 = select i1 %.not.i.i.i.i.i.i, i1 %18, i1 %17
   %..i.i.i.i.i = select i1 %19, ptr %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %..i.i.i.i.i, i64 12, i1 false), !tbaa.struct !138
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #27
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 40000, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
@@ -4589,7 +4583,7 @@ _ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i: ; preds = %_ZNSt13__atomic_ba
   %22 = select i1 %.not.i.i31.i.i.i.i, i1 %21, i1 %20
   %..i32.i.i.i.i = select i1 %22, ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), ptr noundef nonnull align 8 dereferenceable(12) %..i32.i.i.i.i, i64 12, i1 false), !tbaa.struct !138
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #27
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZSt6invokeIZN4absl12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.exit"
 
 "_ZSt6invokeIZN4absl12_GLOBAL__N_115GetMutexGlobalsEvE3$_0JEENSt13invoke_resultIT_JDpT0_EE4typeEOS4_DpOS5_.exit": ; preds = %_ZSt3minIN4absl8DurationEERKT_S4_S4_.exit.i.i.i.i, %12
@@ -4605,52 +4599,58 @@ _ZN4absl13base_internal12SpinLockWakeEPSt6atomicIjEb.exit: ; preds = %25, %"_ZSt
   ret void
 }
 
-declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12), i64 noundef) local_unnamed_addr #5
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12), i64 noundef) local_unnamed_addr #4
 
-declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #5
+declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #4
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #5
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #4
 
-declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
+declare void @AbslInternalSpinLockWake(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @AbslInternalSleepFor(i64, i32) local_unnamed_addr #5
+declare void @AbslInternalSleepFor(i64, i32) local_unnamed_addr #4
 
-declare void @AbslInternalPerThreadSemPost(ptr noundef) local_unnamed_addr #5
+declare void @AbslInternalPerThreadSemPost(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @AbslInternalPerThreadSemWait(i64) local_unnamed_addr #5
+declare zeroext i1 @AbslInternalPerThreadSemWait(i64) local_unnamed_addr #4
 
-declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) local_unnamed_addr #5 section "malloc_hook"
+declare void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
-declare noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef) local_unnamed_addr #5 section "malloc_hook"
+declare noundef ptr @_ZN4absl13base_internal13LowLevelAlloc5AllocEm(i64 noundef) local_unnamed_addr #4 section "malloc_hook"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #21
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #22
+declare void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #21
 
 ; Function Attrs: cold
-declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #22
+declare void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #21
 
-declare noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv() local_unnamed_addr #5
+declare noundef ptr @_ZN4absl24synchronization_internal20CreateThreadIdentityEv() local_unnamed_addr #4
 
-declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #23
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
-declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #19
+declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #24
+declare i64 @pthread_self() local_unnamed_addr #23
 
-declare noundef double @_ZN4absl13base_internal18UnscaledCycleClock9FrequencyEv() local_unnamed_addr #5
+declare noundef double @_ZN4absl13base_internal18UnscaledCycleClock9FrequencyEv() local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
@@ -4660,29 +4660,29 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold mustprogress noinline optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { cold nofree noreturn }
-attributes #19 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold mustprogress noinline optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { cold nofree noreturn }
+attributes #18 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #26 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #27 = { nounwind }

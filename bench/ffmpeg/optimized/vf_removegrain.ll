@@ -39,7 +39,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !33
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 44
@@ -144,7 +144,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 82:                                               ; preds = %._crit_edge, %17
   %.054 = phi i32 [ %81, %._crit_edge ], [ -12, %17 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.054
 }
 
@@ -324,21 +324,18 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ff_get_video_buffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @av_frame_free(ptr noundef) local_unnamed_addr #1
 
-declare void @av_frame_free(ptr noundef) local_unnamed_addr #2
+declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_frame_copy_props(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @av_image_copy_plane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
@@ -515,19 +512,16 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #4
+declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #2
-
-declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #2
+declare i32 @av_pix_fmt_count_planes(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mode01(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal noundef i32 @mode01(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %. = tail call i32 @llvm.smin.i32(i32 %10, i32 %11)
@@ -549,10 +543,10 @@ define internal noundef i32 @mode01(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @mode02(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
+define internal i32 @mode02(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
   %10 = alloca [8 x i32], align 16
   %11 = alloca [64 x [2 x ptr]], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %1, ptr %10, align 16, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %2, ptr %12, align 4, !tbaa !39
@@ -568,7 +562,7 @@ define internal i32 @mode02(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 %7, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %8, ptr %18, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %10, ptr %11, align 16, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !53
@@ -799,21 +793,21 @@ define internal i32 @mode02(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %.not, label %95, label %20, !llvm.loop !62
 
 95:                                               ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %96 = load i32, ptr %12, align 4, !tbaa !39
   %97 = load i32, ptr %17, align 8, !tbaa !39
   %98 = icmp slt i32 %0, %96
   %..i = call i32 @llvm.smin.i32(i32 %0, i32 %97)
   %.0.i = select i1 %98, i32 %96, i32 %..i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @mode03(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
+define internal i32 @mode03(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
   %10 = alloca [8 x i32], align 16
   %11 = alloca [64 x [2 x ptr]], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %1, ptr %10, align 16, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %2, ptr %12, align 4, !tbaa !39
@@ -829,7 +823,7 @@ define internal i32 @mode03(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 %7, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %8, ptr %18, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %10, ptr %11, align 16, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !53
@@ -1060,21 +1054,21 @@ define internal i32 @mode03(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %.not, label %95, label %20, !llvm.loop !67
 
 95:                                               ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %96 = load i32, ptr %13, align 8, !tbaa !39
   %97 = load i32, ptr %16, align 4, !tbaa !39
   %98 = icmp slt i32 %0, %96
   %..i = call i32 @llvm.smin.i32(i32 %0, i32 %97)
   %.0.i = select i1 %98, i32 %96, i32 %..i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal i32 @mode04(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #6 {
+define internal i32 @mode04(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
   %10 = alloca [8 x i32], align 16
   %11 = alloca [64 x [2 x ptr]], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %1, ptr %10, align 16, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %2, ptr %12, align 4, !tbaa !39
@@ -1090,7 +1084,7 @@ define internal i32 @mode04(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 %7, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %8, ptr %18, align 4, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %10, ptr %11, align 16, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !53
@@ -1321,18 +1315,18 @@ define internal i32 @mode04(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %.not, label %95, label %20, !llvm.loop !72
 
 95:                                               ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %96 = load i32, ptr %14, align 4, !tbaa !39
   %97 = load i32, ptr %15, align 16, !tbaa !39
   %98 = icmp slt i32 %0, %96
   %..i = call i32 @llvm.smin.i32(i32 %0, i32 %97)
   %.0.i = select i1 %98, i32 %96, i32 %..i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode05(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode05(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1382,7 +1376,7 @@ define internal i32 @mode05(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1466,7 +1460,7 @@ define internal i32 @mode06(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode07(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode07(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1524,7 +1518,7 @@ define internal i32 @mode07(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1608,7 +1602,7 @@ define internal i32 @mode08(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode09(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode09(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1647,7 +1641,7 @@ define internal i32 @mode09(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode10(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode10(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = sub nsw i32 %0, %1
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = sub nsw i32 %0, %2
@@ -1705,7 +1699,7 @@ define internal i32 @mode10(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -134217728, 134217728) i32 @mode1112(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -134217728, 134217728) i32 @mode1112(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = shl nsw i32 %0, 2
   %11 = add nsw i32 %4, %2
   %12 = add nsw i32 %11, %5
@@ -1722,7 +1716,7 @@ define internal range(i32 -134217728, 134217728) i32 @mode1112(i32 noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -1073741824, 1073741824) i32 @mode1314(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -1073741824, 1073741824) i32 @mode1314(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = sub nsw i32 %1, %8
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = sub nsw i32 %2, %7
@@ -1758,7 +1752,7 @@ define internal range(i32 -1073741824, 1073741824) i32 @mode1314(i32 %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode1516(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode1516(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = sub nsw i32 %1, %8
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = sub nsw i32 %2, %7
@@ -1807,7 +1801,7 @@ define internal i32 @mode1516(i32 %0, i32 noundef %1, i32 noundef %2, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode17(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode17(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -1831,7 +1825,7 @@ define internal i32 @mode17(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mode18(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal noundef i32 @mode18(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = sub nsw i32 %0, %1
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = sub nsw i32 %0, %8
@@ -1896,7 +1890,7 @@ define internal noundef i32 @mode18(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -268435456, 268435456) i32 @mode19(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -268435456, 268435456) i32 @mode19(i32 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = add i32 %1, 4
   %11 = add i32 %10, %2
   %12 = add i32 %11, %3
@@ -1910,7 +1904,7 @@ define internal range(i32 -268435456, 268435456) i32 @mode19(i32 %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -238609293, 238609295) i32 @mode20(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -238609293, 238609295) i32 @mode20(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = add i32 %0, 4
   %11 = add i32 %10, %1
   %12 = add i32 %11, %2
@@ -1925,7 +1919,7 @@ define internal range(i32 -238609293, 238609295) i32 @mode20(i32 noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -2147483648, 1073741824) i32 @mode21(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -2147483648, 1073741824) i32 @mode21(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = add nsw i32 %8, %1
   %11 = ashr i32 %10, 1
   %12 = add nsw i32 %7, %2
@@ -1955,7 +1949,7 @@ define internal range(i32 -2147483648, 1073741824) i32 @mode21(i32 noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -2147483648, 1073741824) i32 @mode22(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal range(i32 -2147483648, 1073741824) i32 @mode22(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = add i32 %1, 1
   %11 = add i32 %10, %8
   %12 = ashr i32 %11, 1
@@ -1981,7 +1975,7 @@ define internal range(i32 -2147483648, 1073741824) i32 @mode22(i32 noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode23(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode23(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -2024,7 +2018,7 @@ define internal i32 @mode23(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @mode24(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #5 {
+define internal i32 @mode24(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #4 {
   %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %8)
   %11 = tail call i32 @llvm.smin.i32(i32 %1, i32 %8)
   %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 %7)
@@ -2074,7 +2068,13 @@ define internal i32 @mode24(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 
   ret i32 %54
 }
 
-declare ptr @av_default_item_name(ptr noundef) #2
+declare ptr @av_default_item_name(ptr noundef) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -2095,12 +2095,12 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }

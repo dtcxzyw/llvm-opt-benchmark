@@ -37,25 +37,22 @@ define ptr @OCSP_cert_to_id(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   ret ptr %14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @EVP_sha1() local_unnamed_addr #1
 
-declare ptr @EVP_sha1() local_unnamed_addr #2
+declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get0_serialNumber(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #2
-
-declare ptr @X509_get0_pubkey_bitstr(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_get0_pubkey_bitstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_cert_id_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @OCSP_CERTID_new() #3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %43, label %9
@@ -137,39 +134,36 @@ define ptr @OCSP_cert_id_new(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 44:                                               ; preds = %37, %38, %43
   %.0 = phi ptr [ null, %43 ], [ %7, %38 ], [ %7, %37 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @OCSP_CERTID_new() local_unnamed_addr #1
 
-declare ptr @OCSP_CERTID_new() local_unnamed_addr #2
+declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
-declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
+declare ptr @ASN1_TYPE_new() local_unnamed_addr #1
 
-declare ptr @ASN1_TYPE_new() local_unnamed_addr #2
+declare i32 @X509_NAME_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_NAME_digest(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_OCTET_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @OCSP_CERTID_free(ptr noundef) local_unnamed_addr #2
+declare void @OCSP_CERTID_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_id_issuer_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -197,9 +191,9 @@ define i32 @OCSP_id_issuer_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %.0
 }
 
-declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_OCTET_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_id_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -234,7 +228,7 @@ OCSP_id_issuer_cmp.exit.thread:                   ; preds = %6, %2, %OCSP_id_iss
   ret i32 %.0
 }
 
-declare i32 @ASN1_INTEGER_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_INTEGER_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @OCSP_CERTID_dup(ptr noundef %0) local_unnamed_addr #0 {
@@ -243,13 +237,19 @@ define ptr @OCSP_CERTID_dup(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %3
 }
 
-declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OCSP_CERTID_it() local_unnamed_addr #2
+declare ptr @OCSP_CERTID_it() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

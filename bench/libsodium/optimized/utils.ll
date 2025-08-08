@@ -34,7 +34,7 @@ define weak hidden void @_sodium_dummy_symbol_to_prevent_memcmp_lto(ptr noundef 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @sodium_memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i8 0, ptr %4, align 1
   tail call void @_sodium_dummy_symbol_to_prevent_memcmp_lto(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %.not = icmp eq i64 %2, 0
@@ -61,15 +61,9 @@ define dso_local range(i32 -1, 1) i32 @sodium_memcmp(ptr noundef %0, ptr noundef
   %14 = lshr i32 %13, 8
   %15 = and i32 %14, 1
   %16 = add nsw i32 %15, -1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %16
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind ssp uwtable
 define weak hidden void @_sodium_dummy_symbol_to_prevent_compare_lto(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -80,9 +74,9 @@ define weak hidden void @_sodium_dummy_symbol_to_prevent_compare_lto(ptr noundef
 define dso_local range(i32 -1, 765) i32 @sodium_compare(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store volatile i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i8 1, ptr %5, align 1
   tail call void @_sodium_dummy_symbol_to_prevent_compare_lto(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %.not21 = icmp eq i64 %2, 0
@@ -125,15 +119,15 @@ define dso_local range(i32 -1, 765) i32 @sodium_compare(ptr noundef %0, ptr noun
   %26 = add nsw i32 %23, -1
   %27 = add nsw i32 %26, %24
   %28 = add nsw i32 %27, %25
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %28
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store volatile i8 0, ptr %3, align 1
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -155,7 +149,7 @@ define dso_local range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captur
   %9 = add nuw nsw i32 %8, 511
   %10 = lshr i32 %9, 8
   %11 = and i32 %10, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %11
 }
 
@@ -306,12 +300,12 @@ thread-pre-split:                                 ; preds = %0
 }
 
 ; Function Attrs: nounwind
-declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
+declare i64 @sysconf(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @sodium_misuse() local_unnamed_addr #4
+declare void @sodium_misuse() local_unnamed_addr #3
 
-declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @sodium_mlock(ptr noundef nonnull %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -321,10 +315,10 @@ define dso_local i32 @sodium_mlock(ptr noundef nonnull %0, i64 noundef %1) local
 }
 
 ; Function Attrs: nounwind
-declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local i32 @sodium_munlock(ptr noundef nonnull %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -335,7 +329,7 @@ define dso_local i32 @sodium_munlock(ptr noundef nonnull %0, i64 noundef %1) loc
 }
 
 ; Function Attrs: nounwind
-declare i32 @munlock(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @munlock(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local noalias noundef ptr @sodium_malloc(i64 noundef %0) local_unnamed_addr #0 {
@@ -432,7 +426,7 @@ define dso_local noalias noundef ptr @sodium_allocarray(i64 noundef %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind ssp uwtable
 define dso_local void @sodium_free(ptr noundef %0) local_unnamed_addr #0 {
@@ -462,7 +456,7 @@ _unprotected_ptr_from_user_ptr.exit:              ; preds = %4
   %15 = mul i64 %6, 3
   %16 = add i64 %15, %14
   %17 = tail call i32 @mprotect(ptr noundef nonnull %13, i64 noundef %16, i32 noundef 3) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store volatile i8 0, ptr %2, align 1
   tail call void @_sodium_dummy_symbol_to_prevent_memcmp_lto(ptr noundef %5, ptr noundef nonnull @canary, i64 noundef 16)
   br label %.lr.ph.i
@@ -485,7 +479,7 @@ sodium_memcmp.exit:                               ; preds = %.lr.ph.i
   %.0..0..0..0..0..0.1.i = load volatile i8, ptr %2, align 1
   %25 = zext i8 %.0..0..0..0..0..0.1.i to i32
   %26 = add nuw nsw i32 %25, 511
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = and i32 %26, 256
   %.not.not = icmp eq i32 %27, 0
   br i1 %.not.not, label %28, label %29
@@ -506,7 +500,7 @@ sodium_memcmp.exit:                               ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: cold noreturn nounwind ssp uwtable
-define internal fastcc void @_out_of_bounds() unnamed_addr #7 {
+define internal fastcc void @_out_of_bounds() unnamed_addr #6 {
   %1 = tail call i32 @raise(i32 noundef 11) #14
   tail call void @abort() #15
   unreachable
@@ -587,7 +581,7 @@ _sodium_mprotect.exit:                            ; preds = %1
 ; Function Attrs: nounwind ssp uwtable
 define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -660,14 +654,14 @@ define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures
 
 .loopexit:                                        ; preds = %26, %19, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %19 ], [ 0, %26 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @sodium_unpad(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define dso_local range(i32 -1, 1) i32 @sodium_unpad(ptr noundef writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store volatile i64 0, ptr %5, align 8
   %6 = add i64 %3, -1
   %or.cond.not = icmp ult i64 %6, %2
@@ -719,27 +713,33 @@ define dso_local range(i32 -1, 1) i32 @sodium_unpad(ptr noundef writeonly captur
 
 33:                                               ; preds = %4, %._crit_edge
   %.0 = phi i32 [ %31, %._crit_edge ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind
-declare void @__explicit_bzero_chk(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare void @__explicit_bzero_chk(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @raise(i32 noundef) local_unnamed_addr #3
+declare i32 @raise(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #9
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #10
@@ -757,15 +757,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nounwind ssp memory(argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold noreturn nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nounwind ssp memory(argmem: read, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold noreturn nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind ssp memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }

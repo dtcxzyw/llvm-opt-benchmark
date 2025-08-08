@@ -65,17 +65,14 @@ define ptr @Abc_NtkDsdGlobal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @Abc_NtkBuildGlobalBdds(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkBuildGlobalBdds(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
-declare i32 @Cudd_ReadKeys(ptr noundef) local_unnamed_addr #2
+declare i32 @Cudd_ReadKeys(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Cudd_ReadDead(ptr noundef) local_unnamed_addr #2
+declare i32 @Cudd_ReadDead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Abc_NtkDsdInternal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
@@ -324,7 +321,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
   %121 = load i32, ptr %120, align 8, !tbaa !44
   %122 = add nsw i32 %121, -1
   %123 = tail call ptr @Cudd_bddIthVar(ptr noundef %119, i32 noundef %122) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %124 = tail call ptr @Abc_NtkCreateNodeConst1(ptr noundef %117) #10
   %125 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #10
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 64
@@ -446,7 +443,7 @@ Vec_PtrFree.exit64:                               ; preds = %113, %115
   br i1 %181, label %.lr.ph60.i, label %Abc_NtkDsdConstruct.exit, !llvm.loop !67
 
 Abc_NtkDsdConstruct.exit:                         ; preds = %178, %151
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @Abc_NtkFinalize(ptr noundef nonnull %0, ptr noundef %117) #10
   %182 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %117, i32 noundef 0) #10
   %.not = icmp eq i32 %2, 0
@@ -492,16 +489,13 @@ Abc_NtkDsdConstruct.exit:                         ; preds = %178, %151
   ret ptr %.047
 }
 
-declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #2
+declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkDup(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 
-declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_NtkDsdLocal(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -509,7 +503,7 @@ define range(i32 0, 2) i32 @Abc_NtkDsdLocal(ptr noundef %0, i32 noundef %1, i32 
   %5 = alloca [11 x i32], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %5, i8 0, i64 44, i1 false)
   %8 = tail call i32 @Abc_NtkMinimumBase(ptr noundef %0) #10
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 136
@@ -646,7 +640,7 @@ Abc_NtkCollectNodesForDsd.exit:                   ; preds = %60
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
   %75 = load ptr, ptr %74, align 8, !tbaa !43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %77 = load ptr, ptr %76, align 8, !tbaa !58
   %78 = call ptr @Dsd_DecomposeOne(ptr noundef %11, ptr noundef %77) #10
@@ -996,7 +990,7 @@ Vec_PtrPush.exit112.i:                            ; preds = %Vec_PtrPush.exit112
 
 Abc_NodeDecompDsdAndMux.exit:                     ; preds = %152, %238
   %248 = phi i32 [ %.pre, %152 ], [ %239, %238 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %249 = sext i32 %248 to i64
   %250 = icmp slt i64 %indvars.iv.next, %249
@@ -1048,18 +1042,18 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge, %252
 
 266:                                              ; preds = %263, %265
   %.021 = phi i32 [ 0, %265 ], [ 1, %263 ]
-  call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @Abc_NtkMinimumBase(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NtkMinimumBase(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_ManagerStart(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dsd_ManagerStart(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Dsd_ManagerStop(ptr noundef) local_unnamed_addr #2
+declare void @Dsd_ManagerStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Extra_bddComputeSum(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1094,13 +1088,13 @@ define noundef ptr @Extra_bddComputeSum(ptr noundef %0, ptr noundef readonly cap
   ret ptr %.013.lcssa
 }
 
-declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Cudd_bddOr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_NtkSparsifyInternalOne(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -1168,12 +1162,12 @@ Extra_bddComputeSum.exit:                         ; preds = %.lr.ph.i
   ret ptr %27
 }
 
-declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @Cudd_CountMinterm(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_bddPickArbitraryMinterms(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Cudd_bddPickArbitraryMinterms(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #0 {
@@ -1417,27 +1411,27 @@ define ptr @Abc_NtkSparsifyInternal(ptr noundef readonly captures(none) %0, i32 
   ret ptr %4
 }
 
-declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateNodeConst0(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateNodeConst1(ptr noundef) local_unnamed_addr #1
 
-declare void @Cudd_Srandom(i64 noundef) local_unnamed_addr #2
+declare void @Cudd_Srandom(i64 noundef) local_unnamed_addr #1
 
-declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_NtkSparsify(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1460,37 +1454,37 @@ define ptr @Abc_NtkSparsify(ptr noundef readonly captures(none) %0, i32 noundef 
   ret ptr %.0
 }
 
-declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #2
+declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #1
 
-declare void @Dsd_Decompose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Dsd_Decompose(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkFreeGlobalBdds(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkFreeGlobalBdds(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkStartFrom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkStartFrom(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Abc_NtkFinalize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Abc_NtkFinalize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCollectCioNames(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCollectCioNames(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Dsd_TreePrint(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @Dsd_TreePrint(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @Dsd_TreePrint2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @Dsd_TreePrint2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
-declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 
-declare void @Dsd_NodeSetMark(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Dsd_NodeSetMark(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_ManagerReadConst1(ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_ManagerReadConst1(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_ManagerReadInput(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dsd_ManagerReadInput(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_TreeCollectNodesDfs(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_TreeCollectNodesDfs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
@@ -1631,41 +1625,47 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   ret ptr %7
 }
 
-declare ptr @Dsd_ManagerReadRoot(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dsd_ManagerReadRoot(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @Dsd_NodeReadMark(ptr noundef) local_unnamed_addr #2
+declare i64 @Dsd_NodeReadMark(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_ManagerReadDd(ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_ManagerReadDd(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Dsd_NodeReadType(ptr noundef) local_unnamed_addr #2
+declare i32 @Dsd_NodeReadType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @Dsd_NodeReadDecsNum(ptr noundef) local_unnamed_addr #2
+declare i32 @Dsd_NodeReadDecsNum(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_NodeReadDec(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Dsd_NodeReadDec(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_bddXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Cudd_bddXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_TreeGetPrimeFunction(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_TreeGetPrimeFunction(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Extra_TransferLevelByLevel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Extra_TransferLevelByLevel(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_DecomposeOne(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_DecomposeOne(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Dsd_TreeCollectNodesDfsOne(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Abc_ObjRemoveFanins(ptr noundef) local_unnamed_addr #2
+declare void @Abc_ObjRemoveFanins(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Abc_NtkCloneObj(ptr noundef) local_unnamed_addr #2
+declare ptr @Abc_NtkCloneObj(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Abc_NodeMinimumBase(ptr noundef) local_unnamed_addr #2
+declare i32 @Abc_NodeMinimumBase(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Cudd_bddIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
@@ -1677,13 +1677,13 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nofree nounwind }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

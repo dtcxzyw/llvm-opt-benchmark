@@ -117,7 +117,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 identity_matrix.exit.i:                           ; preds = %43
   %48 = fadd nsz float %36, 1.000000e+00
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store float %48, ptr %30, align 16, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -134,7 +134,7 @@ identity_matrix.exit.i:                           ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %57, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   br label %.preheader34.i.i.i
 
 .preheader34.i.i.i:                               ; preds = %67, %identity_matrix.exit.i
@@ -178,8 +178,8 @@ identity_matrix.exit.i:                           ; preds = %43
 colorscale_matrix.exit.i:                         ; preds = %67
   %82 = fadd nsz float %38, 1.000000e+00
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %29, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %83 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %84 = load float, ptr %83, align 8, !tbaa !40
   %85 = getelementptr inbounds nuw i8, ptr %34, i64 28
@@ -193,7 +193,7 @@ colorscale_matrix.exit.i:                         ; preds = %67
   %93 = tail call nsz float @llvm.fmuladd.f32(float %89, float %86, float %82)
   %94 = fmul nsz float %89, %88
   %95 = tail call nsz float @llvm.fmuladd.f32(float %89, float %88, float %82)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store float %90, ptr %28, align 16, !tbaa !36
   %96 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store float %91, ptr %96, align 4, !tbaa !36
@@ -220,7 +220,7 @@ colorscale_matrix.exit.i:                         ; preds = %67
   %108 = getelementptr inbounds nuw i8, ptr %28, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %108, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   br label %.preheader34.i.i23.i
 
 .preheader34.i.i23.i:                             ; preds = %118, %colorscale_matrix.exit.i
@@ -263,15 +263,15 @@ colorscale_matrix.exit.i:                         ; preds = %67
 
 saturation_matrix.exit.i:                         ; preds = %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %27, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %133 = getelementptr inbounds nuw i8, ptr %34, i64 36
   %134 = load i32, ptr %133, align 4, !tbaa !43
   %.not.i = icmp eq i32 %134, 0
   br i1 %.not.i, label %435, label %135
 
 135:                                              ; preds = %saturation_matrix.exit.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float 1.000000e+00, ptr %26, align 16, !tbaa !36
   %136 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %137 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -293,7 +293,7 @@ saturation_matrix.exit.i:                         ; preds = %118
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %144, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %146, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br label %.preheader34.i.i.i.i
 
 .preheader34.i.i.i.i:                             ; preds = %156, %135
@@ -336,9 +336,9 @@ saturation_matrix.exit.i:                         ; preds = %118
 
 x_rotate_matrix.exit.i.i:                         ; preds = %156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %25, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %25) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store float 0x3FEA20BD80000000, ptr %24, align 16, !tbaa !36
   %171 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0.000000e+00, ptr %171, align 4, !tbaa !36
@@ -365,7 +365,7 @@ x_rotate_matrix.exit.i.i:                         ; preds = %156
   %183 = getelementptr inbounds nuw i8, ptr %24, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %181, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %183, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   br label %.preheader34.i.i31.i.i
 
 .preheader34.i.i31.i.i:                           ; preds = %193, %x_rotate_matrix.exit.i.i
@@ -408,8 +408,8 @@ x_rotate_matrix.exit.i.i:                         ; preds = %156
 
 y_rotate_matrix.exit.i.i:                         ; preds = %193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %23, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %208 = load float, ptr %41, align 4, !tbaa !36
   %209 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %210 = load float, ptr %209, align 4, !tbaa !36
@@ -447,7 +447,7 @@ y_rotate_matrix.exit.i.i:                         ; preds = %193
   %242 = fadd nsz float %241, %239
   %243 = fdiv nsz float %218, %242
   %244 = fdiv nsz float %230, %242
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store float 1.000000e+00, ptr %22, align 16, !tbaa !36
   %245 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store float 0.000000e+00, ptr %245, align 4, !tbaa !36
@@ -474,7 +474,7 @@ y_rotate_matrix.exit.i.i:                         ; preds = %193
   %257 = getelementptr inbounds nuw i8, ptr %22, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %255, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %257, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   br label %.preheader34.i.i38.i.i
 
 .preheader34.i.i38.i.i:                           ; preds = %267, %y_rotate_matrix.exit.i.i
@@ -517,15 +517,15 @@ y_rotate_matrix.exit.i.i:                         ; preds = %193
 
 z_shear_matrix.exit.i.i:                          ; preds = %267
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %21, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %282 = fpext nsz float %40 to double
   %283 = fmul nsz double %282, 0x400921FB54442D18
   %284 = fdiv nsz double %283, 1.800000e+02
   %285 = fptrunc nsz double %284 to float
   %286 = tail call nsz float @llvm.sin.f32(float %285)
   %287 = tail call nsz float @llvm.cos.f32(float %285)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float %287, ptr %20, align 16, !tbaa !36
   %288 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %286, ptr %288, align 4, !tbaa !36
@@ -548,7 +548,7 @@ z_shear_matrix.exit.i.i:                          ; preds = %267
   %299 = getelementptr inbounds nuw i8, ptr %20, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %297, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %299, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   br label %.preheader34.i.i45.i.i
 
 .preheader34.i.i45.i.i:                           ; preds = %309, %z_shear_matrix.exit.i.i
@@ -591,11 +591,11 @@ z_shear_matrix.exit.i.i:                          ; preds = %267
 
 z_rotate_matrix.exit.i.i:                         ; preds = %309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %19, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %324 = fneg nsz float %243
   %325 = fneg nsz float %244
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store float 1.000000e+00, ptr %18, align 16, !tbaa !36
   %326 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store float 0.000000e+00, ptr %326, align 4, !tbaa !36
@@ -622,7 +622,7 @@ z_rotate_matrix.exit.i.i:                         ; preds = %309
   %338 = getelementptr inbounds nuw i8, ptr %18, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %336, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %338, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br label %.preheader34.i.i52.i.i
 
 .preheader34.i.i52.i.i:                           ; preds = %348, %z_rotate_matrix.exit.i.i
@@ -665,9 +665,9 @@ z_rotate_matrix.exit.i.i:                         ; preds = %309
 
 z_shear_matrix.exit59.i.i:                        ; preds = %348
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %17, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store float 0x3FEA20BD80000000, ptr %16, align 16, !tbaa !36
   %363 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float 0.000000e+00, ptr %363, align 4, !tbaa !36
@@ -694,7 +694,7 @@ z_shear_matrix.exit59.i.i:                        ; preds = %348
   %375 = getelementptr inbounds nuw i8, ptr %16, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %373, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %375, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br label %.preheader34.i.i60.i.i
 
 .preheader34.i.i60.i.i:                           ; preds = %385, %z_shear_matrix.exit59.i.i
@@ -737,9 +737,9 @@ z_shear_matrix.exit59.i.i:                        ; preds = %348
 
 y_rotate_matrix.exit67.i.i:                       ; preds = %385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %15, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 1.000000e+00, ptr %14, align 16, !tbaa !36
   %400 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %401 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -761,7 +761,7 @@ y_rotate_matrix.exit67.i.i:                       ; preds = %385
   %410 = getelementptr inbounds nuw i8, ptr %14, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %408, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %410, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br label %.preheader34.i.i68.i.i
 
 .preheader34.i.i68.i.i:                           ; preds = %420, %y_rotate_matrix.exit67.i.i
@@ -804,12 +804,12 @@ y_rotate_matrix.exit67.i.i:                       ; preds = %385
 
 hue_rotate_matrix.exit.i:                         ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %13, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %622
 
 435:                                              ; preds = %saturation_matrix.exit.i
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store float 1.000000e+00, ptr %12, align 16, !tbaa !36
   %436 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %437 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -831,7 +831,7 @@ hue_rotate_matrix.exit.i:                         ; preds = %420
   %446 = getelementptr inbounds nuw i8, ptr %12, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %444, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %446, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %.preheader34.i.i.i30.i
 
 .preheader34.i.i.i30.i:                           ; preds = %456, %435
@@ -874,9 +874,9 @@ hue_rotate_matrix.exit.i:                         ; preds = %420
 
 x_rotate_matrix.exit.i37.i:                       ; preds = %456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %11, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0x3FEA20BD80000000, ptr %10, align 16, !tbaa !36
   %471 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float 0.000000e+00, ptr %471, align 4, !tbaa !36
@@ -903,7 +903,7 @@ x_rotate_matrix.exit.i37.i:                       ; preds = %456
   %483 = getelementptr inbounds nuw i8, ptr %10, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %481, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %483, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %.preheader34.i.i21.i.i
 
 .preheader34.i.i21.i.i:                           ; preds = %493, %x_rotate_matrix.exit.i37.i
@@ -946,15 +946,15 @@ x_rotate_matrix.exit.i37.i:                       ; preds = %456
 
 y_rotate_matrix.exit.i38.i:                       ; preds = %493
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %508 = fpext nsz float %40 to double
   %509 = fmul nsz double %508, 0x400921FB54442D18
   %510 = fdiv nsz double %509, 1.800000e+02
   %511 = fptrunc nsz double %510 to float
   %512 = tail call nsz float @llvm.sin.f32(float %511)
   %513 = tail call nsz float @llvm.cos.f32(float %511)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %513, ptr %8, align 16, !tbaa !36
   %514 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %512, ptr %514, align 4, !tbaa !36
@@ -977,7 +977,7 @@ y_rotate_matrix.exit.i38.i:                       ; preds = %493
   %525 = getelementptr inbounds nuw i8, ptr %8, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %523, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %525, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %.preheader34.i.i28.i.i
 
 .preheader34.i.i28.i.i:                           ; preds = %535, %y_rotate_matrix.exit.i38.i
@@ -1020,9 +1020,9 @@ y_rotate_matrix.exit.i38.i:                       ; preds = %493
 
 z_rotate_matrix.exit.i39.i:                       ; preds = %535
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %7, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0x3FEA20BD80000000, ptr %6, align 16, !tbaa !36
   %550 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %550, align 4, !tbaa !36
@@ -1049,7 +1049,7 @@ z_rotate_matrix.exit.i39.i:                       ; preds = %535
   %562 = getelementptr inbounds nuw i8, ptr %6, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %560, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %562, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.preheader34.i.i35.i.i
 
 .preheader34.i.i35.i.i:                           ; preds = %572, %z_rotate_matrix.exit.i39.i
@@ -1092,9 +1092,9 @@ z_rotate_matrix.exit.i39.i:                       ; preds = %535
 
 y_rotate_matrix.exit42.i.i:                       ; preds = %572
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %5, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 1.000000e+00, ptr %4, align 16, !tbaa !36
   %587 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %588 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1116,7 +1116,7 @@ y_rotate_matrix.exit42.i.i:                       ; preds = %572
   %597 = getelementptr inbounds nuw i8, ptr %4, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %595, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %597, align 4, !tbaa !36
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %.preheader34.i.i43.i.i
 
 .preheader34.i.i43.i.i:                           ; preds = %607, %y_rotate_matrix.exit42.i.i
@@ -1159,8 +1159,8 @@ y_rotate_matrix.exit42.i.i:                       ; preds = %572
 
 shue_rotate_matrix.exit.i:                        ; preds = %607
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %41, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false), !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %622
 
 622:                                              ; preds = %shue_rotate_matrix.exit.i, %hue_rotate_matrix.exit.i
@@ -1210,13 +1210,13 @@ init_matrix.exit:                                 ; preds = %626
   %645 = load ptr, ptr %644, align 8, !tbaa !50
   %646 = getelementptr inbounds nuw i8, ptr %34, i64 68
   %647 = load i32, ptr %646, align 4, !tbaa !51
-  %648 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %32) #11
+  %648 = tail call i32 @ff_filter_get_nb_threads(ptr noundef %32) #10
   %. = tail call i32 @llvm.smin.i32(i32 %647, i32 %648)
-  %649 = tail call i32 @ff_filter_execute(ptr noundef %32, ptr noundef %645, ptr noundef %1, ptr noundef null, i32 noundef %.) #10
+  %649 = tail call i32 @ff_filter_execute(ptr noundef %32, ptr noundef %645, ptr noundef %1, ptr noundef null, i32 noundef %.) #11
   %650 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %651 = load ptr, ptr %650, align 8, !tbaa !52
   %652 = load ptr, ptr %651, align 8, !tbaa !53
-  %653 = tail call i32 @ff_filter_frame(ptr noundef %652, ptr noundef %1) #10
+  %653 = tail call i32 @ff_filter_frame(ptr noundef %652, ptr noundef %1) #11
   ret i32 %653
 }
 
@@ -1228,7 +1228,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !55
-  %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #10
+  %8 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -1236,7 +1236,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %12 = ashr i32 %10, 3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store i32 %12, ptr %13, align 8, !tbaa !59
-  %14 = tail call i32 @av_get_padded_bits_per_pixel(ptr noundef %8) #10
+  %14 = tail call i32 @av_get_padded_bits_per_pixel(ptr noundef %8) #11
   %15 = load i32, ptr %13, align 8, !tbaa !59
   %16 = icmp eq i32 %15, 2
   %17 = select i1 %16, i32 4, i32 3
@@ -1245,7 +1245,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   store i32 %18, ptr %19, align 4, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %21 = load i32, ptr %6, align 4, !tbaa !55
-  %22 = tail call i32 @ff_fill_rgba_map(ptr noundef nonnull %20, i32 noundef %21) #10
+  %22 = tail call i32 @ff_fill_rgba_map(ptr noundef nonnull %20, i32 noundef %21) #11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !61
   %25 = sub nsw i32 0, %24
@@ -1293,30 +1293,24 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   ret i32 0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @ff_filter_execute(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #4
+declare i32 @ff_filter_get_nb_threads(ptr noundef) local_unnamed_addr #3
 
 declare i32 @ff_filter_frame(ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #5
+declare float @llvm.sin.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sin.f32(float) #5
+declare float @llvm.cos.f32(float) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.cos.f32(float) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.lrint.i64.f32(float) #5
+declare i64 @llvm.lrint.i64.f32(float) #4
 
 declare ptr @av_pix_fmt_desc_get(i32 noundef) local_unnamed_addr #0
 
@@ -1325,7 +1319,7 @@ declare i32 @av_get_padded_bits_per_pixel(ptr noundef) local_unnamed_addr #0
 declare i32 @ff_fill_rgba_map(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #6 {
+define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -1581,7 +1575,7 @@ define internal noundef i32 @do_slice_8_0(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #6 {
+define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
@@ -1841,7 +1835,7 @@ define internal noundef i32 @do_slice_16_0(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @do_slice_8_1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #6 {
+define internal noundef i32 @do_slice_8_1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 276
@@ -1979,7 +1973,7 @@ define internal noundef i32 @do_slice_8_1(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @do_slice_16_1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #6 {
+define internal noundef i32 @do_slice_16_1(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 276
@@ -2119,6 +2113,12 @@ define internal noundef i32 @do_slice_16_1(ptr noundef readonly captures(none) %
 
 declare ptr @av_default_item_name(ptr noundef) #0
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
 
@@ -2140,15 +2140,15 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

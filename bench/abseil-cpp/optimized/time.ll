@@ -108,13 +108,13 @@ define dso_local void @_ZNK4absl4Time2InENS_8TimeZoneE(ptr dead_on_unwind noalia
   br label %96
 
 _ZN4absl12_GLOBAL__N_110MapWeekdayERKNS_13time_internal4cctz6detail7weekdayE.exit: ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.032.0.copyload, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.052.0.copyload = load i64, ptr %5, align 8, !tbaa !32
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.553.0.copyload = load i64, ptr %.sroa.553.0..sroa_idx, align 8
@@ -213,8 +213,8 @@ _ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second
   %94 = load ptr, ptr %93, align 8, !tbaa !42
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %94, ptr %95, align 8, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
 96:                                               ; preds = %_ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second_tagEEE.exit, %24, %9
@@ -224,18 +224,12 @@ _ZN4absl13time_internal4cctz6detail11get_yeardayERKNS2_10civil_timeINS2_10second
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
+declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i32 } @_ZN4absl9FromUDateEd(double noundef %0) local_unnamed_addr #4 {
+define dso_local { i64, i32 } @_ZN4absl9FromUDateEd(double noundef %0) local_unnamed_addr #3 {
   %2 = alloca %"class.absl::Duration", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 4000000, ptr %.sroa.22.0..sroa_idx.i.i, align 8
@@ -245,12 +239,12 @@ define dso_local { i64, i32 } @_ZN4absl9FromUDateEd(double noundef %0) local_unn
   %.sroa.24.0.copyload.i.i = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 4, !tbaa !4
   %.fca.0.insert.i.i = insertvalue { i64, i32 } poison, i64 %.sroa.03.0.copyload.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i32 } %.fca.0.insert.i.i, i32 %.sroa.24.0.copyload.i.i, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { i64, i32 } %.fca.1.insert.i.i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i32 } @_ZN4absl13FromUniversalEl(i64 noundef %0) local_unnamed_addr #4 {
+define dso_local { i64, i32 } @_ZN4absl13FromUniversalEl(i64 noundef %0) local_unnamed_addr #3 {
   %2 = alloca %"class.absl::Time", align 8
   %3 = alloca %"class.absl::Duration", align 8
   %4 = sdiv i64 %0, 1000000000
@@ -262,7 +256,7 @@ define dso_local { i64, i32 } @_ZN4absl13FromUniversalEl(i64 noundef %0) local_u
   %.lobit.i.i.i = ashr i64 %5, 61
   %.pn17.i.i.i = add nsw i64 %.lobit.i.i.i, %4
   %.pn15.i.i.i = select i1 %6, i32 %8, i32 %7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.pn17.i.i.i, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.pn15.i.i.i, ptr %.sroa.22.0..sroa_idx.i, align 8
@@ -270,8 +264,8 @@ define dso_local { i64, i32 } @_ZN4absl13FromUniversalEl(i64 noundef %0) local_u
   %.sroa.03.0.copyload.i = load i64, ptr %9, align 4
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.24.0.copyload.i = load i32, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 -62135596800, ptr %2, align 8
   %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %.sroa.210.0..sroa_idx.i, align 8
@@ -280,12 +274,12 @@ define dso_local { i64, i32 } @_ZN4absl13FromUniversalEl(i64 noundef %0) local_u
   %.sroa.212.0.copyload.i = load i32, ptr %.sroa.210.0..sroa_idx.i, align 8, !tbaa !4
   %.fca.0.insert.i29 = insertvalue { i64, i32 } poison, i64 %.sroa.011.0.copyload.i, 0
   %.fca.1.insert.i30 = insertvalue { i64, i32 } %.fca.0.insert.i29, i32 %.sroa.212.0.copyload.i, 1
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret { i64, i32 } %.fca.1.insert.i30
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 {
   %3 = alloca %"class.absl::Duration", align 8
   %4 = icmp ult i64 %0, 8589934592
   br i1 %4, label %5, label %10
@@ -298,7 +292,7 @@ define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) lo
   br label %18
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %11, align 8, !tbaa !43
@@ -311,7 +305,7 @@ define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) lo
   %16 = add nsw i64 %12, -1
   %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
   %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 18:                                               ; preds = %10, %5
@@ -320,7 +314,7 @@ define dso_local noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64 %0, i32 %1) lo
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 {
   %3 = alloca %"class.absl::Duration", align 8
   %4 = icmp ult i64 %0, 8796093022208
   br i1 %4, label %5, label %10
@@ -333,7 +327,7 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) l
   br label %18
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %11, align 8, !tbaa !43
@@ -346,7 +340,7 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) l
   %16 = add nsw i64 %12, -1
   %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
   %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 18:                                               ; preds = %10, %5
@@ -355,7 +349,7 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMicrosENS_4TimeE(i64 %0, i32 %1) l
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 {
   %3 = alloca %"class.absl::Duration", align 8
   %4 = icmp ult i64 %0, 9007199254740992
   br i1 %4, label %5, label %10
@@ -368,7 +362,7 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) l
   br label %18
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %11, align 8, !tbaa !43
@@ -381,7 +375,7 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) l
   %16 = add nsw i64 %12, -1
   %spec.select.i = select i1 %15, i64 -9223372036854775808, i64 %16
   %17 = select i1 %or.cond.i, i64 %12, i64 %spec.select.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 
 18:                                               ; preds = %10, %5
@@ -390,12 +384,12 @@ define dso_local noundef i64 @_ZN4absl12ToUnixMillisENS_4TimeE(i64 %0, i32 %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl13ToUnixSecondsENS_4TimeE(i64 returned %0, i32 %1) local_unnamed_addr #5 {
+define dso_local noundef i64 @_ZN4absl13ToUnixSecondsENS_4TimeE(i64 returned %0, i32 %1) local_unnamed_addr #4 {
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl7ToTimeTENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #5 {
+define dso_local noundef i64 @_ZN4absl7ToTimeTENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, -1
   %4 = icmp sgt i64 %0, -1
   %spec.select.i = select i1 %4, i64 9223372036854775807, i64 -9223372036854775808
@@ -404,7 +398,7 @@ define dso_local noundef i64 @_ZN4absl7ToTimeTENS_4TimeE(i64 %0, i32 %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @_ZN4absl10ToTimespecENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @_ZN4absl10ToTimespecENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
 _ZN4abslgeENS_8DurationES0_.exit.thread:
   %2 = icmp eq i32 %1, -1
   %3 = lshr i32 %1, 2
@@ -420,19 +414,19 @@ _ZN4abslgeENS_8DurationES0_.exit.thread:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef double @_ZN4absl7ToUDateENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
+define dso_local noundef double @_ZN4absl7ToUDateENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 {
   %3 = tail call noundef double @_ZN4absl12FDivDurationENS_8DurationES0_(i64 %0, i32 %1, i64 0, i32 4000000) #14
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare noundef double @_ZN4absl12FDivDurationENS_8DurationES0_(i64, i32, i64, i32) local_unnamed_addr #6
+declare noundef double @_ZN4absl12FDivDurationENS_8DurationES0_(i64, i32, i64, i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
+define dso_local noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 {
   %3 = alloca %"class.absl::Duration", align 8
   %4 = alloca %"class.absl::Duration", align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %0, ptr %4, align 8
   %.sroa.210.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %.sroa.210.0..sroa_idx.i.i, align 8
@@ -440,8 +434,8 @@ define dso_local noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64 %0, i32 %1) lo
   %.sroa.011.0.copyload.i.i = load i64, ptr %5, align 4
   %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.212.0.copyload.i.i = load i32, ptr %.sroa.212.0..sroa_idx.i.i, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %6, align 8, !tbaa !43
@@ -454,30 +448,30 @@ define dso_local noundef i64 @_ZN4absl11ToUniversalENS_4TimeE(i64 %0, i32 %1) lo
   %11 = add nsw i64 %7, -1
   %spec.select.i = select i1 %10, i64 -9223372036854775808, i64 %11
   %12 = select i1 %or.cond.i, i64 %7, i64 %spec.select.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i32 } @_ZN4absl16TimeFromTimespecE8timespec(i64 %0, i64 %1) local_unnamed_addr #4 {
+define dso_local { i64, i32 } @_ZN4absl16TimeFromTimespecE8timespec(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = tail call { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64 %0, i64 %1) #14
   ret { i64, i32 } %3
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #6
+declare { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i32 } @_ZN4absl15TimeFromTimevalE7timeval(i64 %0, i64 %1) local_unnamed_addr #4 {
+define dso_local { i64, i32 } @_ZN4absl15TimeFromTimevalE7timeval(i64 %0, i64 %1) local_unnamed_addr #3 {
   %3 = tail call { i64, i32 } @_ZN4absl19DurationFromTimevalE7timeval(i64 %0, i64 %1) #14
   ret { i64, i32 } %3
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i32 } @_ZN4absl19DurationFromTimevalE7timeval(i64, i64) local_unnamed_addr #6
+declare { i64, i32 } @_ZN4absl19DurationFromTimevalE7timeval(i64, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #5 {
+define dso_local { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 {
   %3 = icmp eq i32 %1, -1
   %4 = lshr i32 %1, 2
   %5 = icmp sgt i64 %0, -1
@@ -493,7 +487,7 @@ define dso_local { i64, i64 } @_ZN4absl9ToTimevalENS_4TimeE(i64 %0, i32 %1) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0_3_V212system_clockENS0_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !tbaa !32
   %2 = sdiv i64 %.sroa.0.0.copyload.i.i, 1000000000
   %3 = srem i64 %.sroa.0.0.copyload.i.i, 1000000000
@@ -510,7 +504,7 @@ define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define dso_local i64 @_ZN4absl12ToChronoTimeENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN4absl12ToChronoTimeENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::Duration", align 8
   %.not.i = icmp eq i64 %0, 0
   br i1 %.not.i, label %_ZN4abslltENS_8DurationES0_.exit.thread.thread, label %_ZN4abslltENS_8DurationES0_.exit
@@ -555,12 +549,12 @@ _ZN4abslltENS_8DurationES0_.exit.thread.thread:   ; preds = %2
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit
 
 17:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.038.0.fr, ptr %3, align 8
   %.sroa.212.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.7.0, ptr %.sroa.212.0..sroa_idx.i.i.i.i, align 8
   %18 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.038.0.fr, i32 %.sroa.7.0, i64 0, i32 4, ptr noundef nonnull %3) #13
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit
 
 _ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit: ; preds = %9, %_ZN4abslltENS_8DurationES0_.exit.thread.thread, %.thread, %17
@@ -569,7 +563,7 @@ _ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl10
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64, i32, i64, i32) local_unnamed_addr #6
+declare { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64, i32, i64, i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.absl::TimeZone::CivilInfo") align 8 captures(none) initializes((0, 13), (16, 33), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, i32 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -623,9 +617,9 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
   br label %40
 
 27:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -650,8 +644,8 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %38, ptr %39, align 8, !tbaa !51
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 40:                                               ; preds = %27, %20, %9
@@ -662,12 +656,12 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_4TimeE(ptr dead_on_unwind noalia
 define dso_local void @_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.absl::TimeZone::TimeInfo") align 4 captures(none) initializes((4, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %6 = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %2, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %3 to i40
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %7 = load i32, ptr %6, align 8, !tbaa !55
   %switch = icmp ult i32 %7, 3
@@ -702,12 +696,12 @@ define dso_local void @_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civ
   store i64 %.fca.0.extract, ptr %17, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
+declare void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -715,16 +709,16 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
   %5 = alloca %"class.std::chrono::time_point", align 8
   %6 = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
   %7 = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 9223372036854775807, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 -9223372036854775808, ptr %5, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !tbaa !32
   %8 = icmp eq i64 %.sroa.0.0.copyload.i.i, 9223372036854775807
   br i1 %8, label %9, label %52
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %10 = load i64, ptr %6, align 8, !tbaa !64
   %11 = load i64, ptr %1, align 8, !tbaa !64
@@ -784,11 +778,11 @@ define internal fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflo
   br i1 %46, label %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, label %.thread4
 
 .thread:                                          ; preds = %39, %31, %23, %15, %9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %97
 
 .thread4:                                         ; preds = %45, %37, %29, %21, %13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %thread-pre-split
 
 _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit: ; preds = %45
@@ -797,7 +791,7 @@ _ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %50 = load i8, ptr %49, align 4, !tbaa !69
   %51 = icmp slt i8 %48, %50
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %51, label %97, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit, %.thread4
@@ -810,7 +804,7 @@ thread-pre-split:                                 ; preds = %_ZN4absl13time_inte
   br i1 %53, label %54, label %97
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %55 = load i64, ptr %1, align 8, !tbaa !64
   %56 = load i64, ptr %7, align 8, !tbaa !64
@@ -878,19 +872,19 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
   br i1 %96, label %.thread7, label %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6
 
 .thread7:                                         ; preds = %54, %60, %68, %76, %84, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %97
 
 _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6: ; preds = %90, %82, %74, %66, %58, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i.i37.pre = load i64, ptr %0, align 8, !tbaa !32
   br label %97
 
 97:                                               ; preds = %52, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6, %.thread7, %.thread, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit
   %.sroa.032.2 = phi i64 [ 9223372036854775807, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ 9223372036854775807, %.thread ], [ -9223372036854775808, %.thread7 ], [ %.sroa.0.0.copyload.i.i37.pre, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6 ], [ %.sroa.0.0.copyload.i.i35, %52 ]
   %.sroa.4.2 = phi i32 [ -1, %_ZN4absl13time_internal4cctz6detailgtINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit ], [ -1, %.thread ], [ -1, %.thread7 ], [ 0, %_ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread6 ], [ 0, %52 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.032.2, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.4.2, 1
   ret { i64, i32 } %.fca.1.insert
@@ -900,9 +894,9 @@ _ZN4absl13time_internal4cctz6detailltINS2_10second_tagES4_EEbRKNS2_10civil_timeI
 define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14NextTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::chrono::time_point", align 8
   %6 = alloca %"struct.absl::time_internal::cctz::time_zone::civil_transition", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1970, ptr %6, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %7, align 8, !tbaa !71
@@ -946,20 +940,20 @@ define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14NextTransitionENS_4Time
   br label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
 _ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit: ; preds = %4, %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %18
 }
 
-declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15next_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15next_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14PrevTransitionENS_4TimeEPNS0_15CivilTransitionE(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::chrono::time_point", align 8
   %6 = alloca %"struct.absl::time_internal::cctz::time_zone::civil_transition", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %1, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 1970, ptr %6, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %7, align 8, !tbaa !71
@@ -1003,12 +997,12 @@ define dso_local noundef zeroext i1 @_ZNK4absl8TimeZone14PrevTransitionENS_4Time
   br label %_ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit
 
 _ZN4absl12_GLOBAL__N_114FindTransitionERKNS_13time_internal4cctz9time_zoneEMS3_KFbRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEPNS3_16civil_transitionEENS_4TimeEPNS_8TimeZone15CivilTransitionE.exit: ; preds = %4, %19
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %18
 }
 
-declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15prev_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
+declare noundef zeroext i1 @_ZNK4absl13time_internal4cctz9time_zone15prev_transitionERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEEPNS2_16civil_transitionE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl15ConvertDateTimeEliiiiiNS_8TimeZoneE(ptr dead_on_unwind noalias writable sret(%"struct.absl::TimeConversion") align 4 captures(none) initializes((24, 36)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i64 %7) local_unnamed_addr #0 {
@@ -1062,11 +1056,11 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %.fca.0.extract.i = extractvalue { i64, i64 } %31, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %31, 1
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.fca.1.extract.i to i40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13, !noalias !87
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !87
   store i64 %.fca.0.extract.i, ptr %9, align 8, !noalias !87
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !87
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #13, !noalias !87
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !87
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !87
   %32 = load i32, ptr %10, align 8, !tbaa !55, !noalias !87
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1081,8 +1075,8 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %38 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(8) %11), !noalias !87
   %.fca.0.extract.i20 = extractvalue { i64, i32 } %38, 0
   %.fca.1.extract.i21 = extractvalue { i64, i32 } %38, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #13, !noalias !87
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13, !noalias !87
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !87
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !87
   store i64 %.fca.0.extract8.i, ptr %0, align 4
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.fca.1.extract9.i, ptr %.sroa.6.4..sroa_idx, align 4, !tbaa !4
@@ -1144,7 +1138,7 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local { i64, i32 } @_ZN4absl6FromTMERK2tmNS_8TimeZoneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr %1) local_unnamed_addr #8 {
+define dso_local { i64, i32 } @_ZN4absl6FromTMERK2tmNS_8TimeZoneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr %1) local_unnamed_addr #7 {
 _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE.exit:
   %2 = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %3 = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
@@ -1177,11 +1171,11 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %.fca.0.extract.i = extractvalue { i64, i64 } %27, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %27, 1
   %.sroa.2.0.extract.trunc.i.i = trunc i64 %.fca.1.extract.i to i40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !97
   store i64 %.fca.0.extract.i, ptr %2, align 8, !noalias !97
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i40 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !97
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !97
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %2) #13, !noalias !97
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !97
@@ -1193,8 +1187,8 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
   %33 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %4) #13, !noalias !97
   %.fca.0.extract.i22 = extractvalue { i64, i32 } %33, 0
   %.fca.1.extract.i23 = extractvalue { i64, i32 } %33, 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13, !noalias !97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !97
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !100
   %36 = icmp eq i32 %35, 0
@@ -1206,7 +1200,7 @@ _ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_ta
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind noalias writable writeonly sret(%struct.tm) align 8 captures(none) initializes((0, 56)) %0, i64 %1, i32 %2, ptr %3) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind noalias writable writeonly sret(%struct.tm) align 8 captures(none) initializes((0, 56)) %0, i64 %1, i32 %2, ptr %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::chrono::time_point", align 8
   %6 = alloca %"struct.absl::time_internal::cctz::time_zone::absolute_lookup", align 8
   %7 = alloca %"class.absl::TimeZone", align 8
@@ -1230,17 +1224,17 @@ define dso_local void @_ZN4absl4ToTMENS_4TimeENS_8TimeZoneE(ptr dead_on_unwind n
   br i1 %spec.select.i.i53.i, label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, label %16
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13, !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !106
   store i64 %1, ptr %5, align 8, !noalias !106
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13, !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !106
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5) #13, !noalias !106
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !32, !noalias !106
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !106
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %18 = load i8, ptr %17, align 4, !tbaa !39, !range !40, !noalias !106, !noundef !41
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #13, !noalias !106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13, !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !106
   %19 = zext nneg i8 %18 to i32
   br label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
 
@@ -1346,18 +1340,18 @@ _ZN4absl10GetYearDayENS_13time_internal4cctz6detail10civil_timeINS0_10second_tag
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #2
 
-declare noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #3
+declare noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64, i32, i64, i32, ptr noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12), i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %or.cond = icmp ult i64 %5, 60
   br i1 %or.cond, label %7, label %72
 
@@ -1597,7 +1591,7 @@ _ZN4absl13time_internal4cctz6detail4impl5n_minElllllla.exit104: ; preds = %72, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %0, i8 noundef signext %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef %0, i8 noundef signext %1, i64 noundef %2, i64 noundef %3, i8 noundef signext %4, i8 noundef signext %5, i8 noundef signext %6) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %8 = srem i64 %0, 400
   %9 = sdiv i64 %3, 146097
   %10 = mul nsw i64 %9, 400
@@ -1825,25 +1819,31 @@ _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %.pr
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(ptr noundef nonnull align 4 dereferenceable(12), double noundef) local_unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEd(ptr noundef nonnull align 4 dereferenceable(12), double noundef) local_unnamed_addr #2
 
-declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12), i64 noundef) local_unnamed_addr #3
+declare noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12), i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind willreturn memory(none) }

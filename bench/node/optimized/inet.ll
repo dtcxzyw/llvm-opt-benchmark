@@ -22,7 +22,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %src, i64 1
@@ -47,12 +47,12 @@ if.end.i:                                         ; preds = %sw.bb
 
 inet_ntop4.exit:                                  ; preds = %sw.bb, %if.end.i
   %retval.0.i = phi i32 [ 0, %if.end.i ], [ -28, %sw.bb ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %tmp.i4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %words.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %words.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %words.i, i8 0, i64 32, i1 false)
   br label %for.body.i
 
@@ -282,7 +282,7 @@ if.then121.i:                                     ; preds = %land.lhs.true101.i,
   %sub.ptr.lhs.cast.i = ptrtoint ptr %.us-phi to i64
   %sub.ptr.sub.neg.i = sub i64 %sub.ptr.rhs.cast131.i, %sub.ptr.lhs.cast.i
   %sub123.i = add i64 %sub.ptr.sub.neg.i, 46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   %16 = load i8, ptr %add.ptr.i, align 1
   %conv.i.i = zext i8 %16 to i32
   %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %src, i64 13
@@ -302,12 +302,12 @@ if.then121.i:                                     ; preds = %land.lhs.true101.i,
   br i1 %or.cond.i.i, label %if.end125.i, label %inet_ntop4.exit.i
 
 inet_ntop4.exit.i:                                ; preds = %if.then121.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %inet_ntop6.exit
 
 if.end125.i:                                      ; preds = %if.then121.i
   %call12.i.i = call i64 @uv__strscpy(ptr noundef nonnull %.us-phi, ptr noundef nonnull %tmp.i.i, i64 noundef %sub123.i) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   %call126.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.us-phi) #10
   %add.ptr127.i = getelementptr inbounds i8, ptr %.us-phi, i64 %call126.i
   br label %for.end140.i
@@ -355,8 +355,8 @@ if.end162.i:                                      ; preds = %if.end153.i
 
 inet_ntop6.exit:                                  ; preds = %inet_ntop4.exit.i, %if.end153.i, %if.end162.i
   %retval.0.i8 = phi i32 [ 0, %if.end162.i ], [ -28, %inet_ntop4.exit.i ], [ -28, %if.end153.i ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %tmp.i4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %words.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %words.i)
   br label %return
 
 return:                                           ; preds = %entry, %inet_ntop6.exit, %inet_ntop4.exit
@@ -383,7 +383,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   store i8 0, ptr %tmp.i, align 4
   %0 = load i8, ptr %src, align 1
   %cmp.not16.i = icmp eq i8 %0, 0
@@ -462,7 +462,7 @@ if.end39.i:                                       ; preds = %while.end.i
 
 inet_pton4.exit:                                  ; preds = %if.then.i, %if.then17.i, %if.else.i, %sw.bb, %while.end.i, %if.end39.i
   %retval.0.i = phi i32 [ 0, %if.end39.i ], [ -22, %while.end.i ], [ -22, %sw.bb ], [ -22, %if.else.i ], [ -22, %if.then17.i ], [ -22, %if.then.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
@@ -488,7 +488,7 @@ if.end9:                                          ; preds = %if.then5
 
 if.end11:                                         ; preds = %if.end9, %sw.bb2
   %s.0 = phi ptr [ %tmp, %if.end9 ], [ %src, %sw.bb2 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tmp.i13, i8 0, i64 16, i1 false)
   %add.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %tmp.i13, i64 16
   %9 = load i8, ptr %s.0, align 1
@@ -589,7 +589,7 @@ land.lhs.true.i:                                  ; preds = %if.end25.i
   br i1 %cmp57.not.i, label %inet_pton6.exit, label %if.then59.i
 
 if.then59.i:                                      ; preds = %land.lhs.true.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   store i8 0, ptr %tmp.i.i, align 4
   %14 = load i8, ptr %curtok.0.ph62.i, align 1
   %cmp.not16.i.i = icmp eq i8 %14, 0
@@ -662,13 +662,13 @@ while.end.i.i:                                    ; preds = %if.end35.i.i
   br i1 %21, label %inet_pton4.exit.thread.i, label %while.end.thread.i
 
 inet_pton4.exit.thread.i:                         ; preds = %if.else.i.i, %if.then17.i.i, %if.then.i.i, %while.end.i.i, %if.then59.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %inet_pton6.exit
 
 while.end.thread.i:                               ; preds = %while.end.i.i
   %22 = load i32, ptr %tmp.i.i, align 4
   store i32 %22, ptr %tp.0.ptr.ptr.le.i, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %if.end85.i
 
 while.end.i22:                                    ; preds = %while.cond.i
@@ -737,7 +737,7 @@ if.end110.i:                                      ; preds = %for.body.i, %if.end
 
 inet_pton6.exit:                                  ; preds = %if.then29.i, %if.end25.i, %if.else.i21, %if.then18.i, %if.then.i23, %land.lhs.true.i, %inet_pton4.exit.thread.i, %if.then68.i, %if.then88.i, %if.end106.i, %if.end110.i
   %retval.0.i19 = phi i32 [ 0, %if.end110.i ], [ -22, %if.then.i23 ], [ -22, %land.lhs.true.i ], [ -22, %if.then68.i ], [ -22, %if.then88.i ], [ -22, %if.end106.i ], [ -22, %inet_pton4.exit.thread.i ], [ -22, %if.then18.i ], [ -22, %if.else.i21 ], [ -22, %if.end25.i ], [ -22, %if.then29.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i13)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then5, %entry, %inet_pton6.exit, %inet_pton4.exit
@@ -766,10 +766,10 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

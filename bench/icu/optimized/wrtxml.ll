@@ -117,7 +117,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader24
 
 .preheader24:                                     ; preds = %3, %12
@@ -167,18 +167,12 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.022.lcssa = phi i32 [ %2, %.preheader ], [ %20, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.022.lcssa
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.icu_77::UnicodeString", align 8
   %7 = alloca [256 x i8], align 16
   %8 = alloca %"class.icu_77::UnicodeString", align 8
@@ -268,15 +262,15 @@ define dso_local void @_Z13res_write_xmlP9SResourcePKcS2_aP10UErrorCode(ptr noun
   ]
 
 79:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %72)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i32 0, ptr %68, align 4, !tbaa !6
   %80 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull %4)
   %81 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %82 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i = icmp slt i32 %82, 0
   br i1 %.not4.i.i, label %_ZL10write_tabsP11_FileStream.exit.i, label %.lr.ph.i.i
@@ -310,7 +304,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %83
 
 _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i, %79
   %88 = phi ptr [ %.pre.i, %_ZL10write_tabsP11_FileStream.exit.loopexit.i ], [ %81, %79 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull @.str.42)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %88, ptr noundef %69)
           to label %89 unwind label %110
@@ -379,7 +373,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %97, %95, %89
   %120 = add nsw i32 %119, -1
   store i32 %120, ptr @_ZL8tabCount, align 4, !tbaa !6
   %121 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %.not4.i18.i = icmp slt i32 %119, 1
   br i1 %.not4.i18.i, label %_ZL10write_tabsP11_FileStream.exit22.i, label %.lr.ph.i19.i
 
@@ -408,7 +402,7 @@ _ZL10write_tabsP11_FileStream.exit22.loopexit.i:  ; preds = %122
 
 _ZL10write_tabsP11_FileStream.exit22.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit22.loopexit.i, %117
   %127 = phi ptr [ %.pre3.i, %_ZL10write_tabsP11_FileStream.exit22.loopexit.i ], [ %121, %117 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull @.str.54)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %127, ptr noundef %72)
           to label %128 unwind label %133
@@ -420,11 +414,11 @@ _ZL10write_tabsP11_FileStream.exit22.i:           ; preds = %_ZL10write_tabsP11_
 .sink.split.i:                                    ; preds = %128, %_ZNK18StringBaseResource9getBufferEv.exit.i
   call void @uprv_free_77(ptr noundef %107)
   call void @uprv_free_77(ptr noundef %80)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %70)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %661
 
 129:                                              ; preds = %112
@@ -446,19 +440,19 @@ _ZL10write_tabsP11_FileStream.exit22.i:           ; preds = %_ZL10write_tabsP11_
   %.sink.i = phi ptr [ %72, %133 ], [ %71, %131 ], [ %70, %129 ], [ %69, %110 ]
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %111, %110 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %common.resume
 
 136:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %62)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %64)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store i32 0, ptr %61, align 4, !tbaa !6
   %137 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull %4)
   %138 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %139 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i33 = icmp slt i32 %139, 0
   br i1 %.not4.i.i33, label %_ZL10write_tabsP11_FileStream.exit.i41, label %.lr.ph.i.i34
@@ -488,7 +482,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i39:  ; preds = %140
 
 _ZL10write_tabsP11_FileStream.exit.i41:           ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i39, %136
   %145 = phi ptr [ %.pre.i40, %_ZL10write_tabsP11_FileStream.exit.loopexit.i39 ], [ %138, %136 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull @.str.42)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %145, ptr noundef %62)
           to label %146 unwind label %167
@@ -557,7 +551,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i45:    ; preds = %154, %152, %146
   %177 = add nsw i32 %176, -1
   store i32 %177, ptr @_ZL8tabCount, align 4, !tbaa !6
   %178 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %.not4.i14.i = icmp slt i32 %176, 1
   br i1 %.not4.i14.i, label %_ZL10write_tabsP11_FileStream.exit18.i, label %.lr.ph.i15.i
 
@@ -586,7 +580,7 @@ _ZL10write_tabsP11_FileStream.exit18.loopexit.i:  ; preds = %179
 
 _ZL10write_tabsP11_FileStream.exit18.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit18.loopexit.i, %174
   %184 = phi ptr [ %.pre3.i47, %_ZL10write_tabsP11_FileStream.exit18.loopexit.i ], [ %178, %174 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull @.str.54)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %184, ptr noundef %65)
           to label %185 unwind label %190
@@ -614,29 +608,29 @@ _ZL10write_tabsP11_FileStream.exit18.i:           ; preds = %_ZL10write_tabsP11_
   %.sink.i42 = phi ptr [ %65, %190 ], [ %64, %188 ], [ %63, %186 ], [ %62, %167 ]
   %.pn.i43 = phi { ptr, i32 } [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %168, %167 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i42) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %common.resume
 
 _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18StringBaseResource9getBufferEv.exit.i45, %185
   call void @uprv_free_77(ptr noundef %164)
   call void @uprv_free_77(ptr noundef %137)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %62)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %64)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   br label %661
 
 193:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %56)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %58)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %49) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %49, i8 0, i64 256, i1 false)
   store i8 48, ptr %49, align 16
   %194 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull %4)
@@ -664,7 +658,7 @@ _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18S
 210:                                              ; preds = %338, %.lr.ph.i
   %211 = phi i64 [ 0, %.lr.ph.i ], [ %340, %338 ]
   %.0191.i = phi i32 [ 0, %.lr.ph.i ], [ %339, %338 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %50) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %50, i8 0, i64 256, i1 false)
   %212 = call i32 @itostr(ptr noundef nonnull %50, i32 noundef %.0191.i, i32 noundef 10, i32 noundef 0)
   %213 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %194, ptr noundef nonnull %50)
@@ -673,7 +667,7 @@ _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18S
   %216 = load i32, ptr %215, align 4, !tbaa !6
   %217 = call i32 @itostr(ptr noundef nonnull %49, i32 noundef %216, i32 noundef 10, i32 noundef 0)
   %218 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %219 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i49 = icmp slt i32 %219, 0
   br i1 %.not4.i.i49, label %_ZL10write_tabsP11_FileStream.exit.i60, label %.lr.ph.i.i50
@@ -681,9 +675,9 @@ _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18S
 .lr.ph.i.i50:                                     ; preds = %210, %248
   %.05.i.i51 = phi i32 [ %249, %248 ], [ 0, %210 ]
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull @.str.93)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %43) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i32 0, ptr %43, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 0, ptr %44, align 4, !tbaa !6
   %220 = load i16, ptr %198, align 8, !tbaa !11
   %221 = and i16 %220, 17
@@ -740,8 +734,8 @@ _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18S
           to label %248 unwind label %251
 
 248:                                              ; preds = %.noexc41.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %48) #13
   %249 = add nuw nsw i32 %.05.i.i51, 1
   %250 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
@@ -760,7 +754,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i58:  ; preds = %248
 
 _ZL10write_tabsP11_FileStream.exit.i60:           ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i58, %210
   %253 = phi ptr [ %.pre.i59, %_ZL10write_tabsP11_FileStream.exit.loopexit.i58 ], [ %218, %210 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull @.str.25)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %253, ptr noundef %51)
           to label %254 unwind label %343
@@ -787,16 +781,16 @@ _ZL10write_tabsP11_FileStream.exit.i60:           ; preds = %_ZL10write_tabsP11_
   %260 = add nsw i32 %259, 1
   store i32 %260, ptr @_ZL8tabCount, align 4, !tbaa !6
   %261 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %.not4.i24.i = icmp slt i32 %259, -1
   br i1 %.not4.i24.i, label %_ZL10write_tabsP11_FileStream.exit28.i, label %.lr.ph.i25.i
 
 .lr.ph.i25.i:                                     ; preds = %258, %290
   %.05.i26.i = phi i32 [ %291, %290 ], [ 0, %258 ]
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull @.str.93)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i32 0, ptr %41, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i32 0, ptr %42, align 4, !tbaa !6
   %262 = load i16, ptr %202, align 8, !tbaa !11
   %263 = and i16 %262, 17
@@ -853,8 +847,8 @@ _ZL10write_tabsP11_FileStream.exit.i60:           ; preds = %_ZL10write_tabsP11_
           to label %290 unwind label %293
 
 290:                                              ; preds = %.noexc54.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %47) #13
   %291 = add nuw nsw i32 %.05.i26.i, 1
   %292 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
@@ -873,7 +867,7 @@ _ZL10write_tabsP11_FileStream.exit28.loopexit.i:  ; preds = %290
 
 _ZL10write_tabsP11_FileStream.exit28.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit28.loopexit.i, %258
   %295 = phi ptr [ %.pre7.i, %_ZL10write_tabsP11_FileStream.exit28.loopexit.i ], [ %261, %258 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull @.str.42)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %295, ptr noundef %54)
           to label %296 unwind label %349
@@ -898,16 +892,16 @@ _ZL10write_tabsP11_FileStream.exit28.i:           ; preds = %_ZL10write_tabsP11_
   %302 = add nsw i32 %301, -1
   store i32 %302, ptr @_ZL8tabCount, align 4, !tbaa !6
   %303 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %.not4.i29.i = icmp slt i32 %301, 1
   br i1 %.not4.i29.i, label %_ZL10write_tabsP11_FileStream.exit33.i, label %.lr.ph.i30.i
 
 .lr.ph.i30.i:                                     ; preds = %300, %332
   %.05.i31.i = phi i32 [ %333, %332 ], [ 0, %300 ]
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull @.str.93)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 0, ptr %39, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 0, ptr %40, align 4, !tbaa !6
   %304 = load i16, ptr %206, align 8, !tbaa !11
   %305 = and i16 %304, 17
@@ -964,8 +958,8 @@ _ZL10write_tabsP11_FileStream.exit28.i:           ; preds = %_ZL10write_tabsP11_
           to label %332 unwind label %335
 
 332:                                              ; preds = %.noexc68.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %46) #13
   %333 = add nuw nsw i32 %.05.i31.i, 1
   %334 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
@@ -984,7 +978,7 @@ _ZL10write_tabsP11_FileStream.exit33.loopexit.i:  ; preds = %332
 
 _ZL10write_tabsP11_FileStream.exit33.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit33.loopexit.i, %300
   %337 = phi ptr [ %.pre8.i, %_ZL10write_tabsP11_FileStream.exit33.loopexit.i ], [ %303, %300 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull @.str.54)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %337, ptr noundef %57)
           to label %338 unwind label %355
@@ -992,7 +986,7 @@ _ZL10write_tabsP11_FileStream.exit33.i:           ; preds = %_ZL10write_tabsP11_
 338:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit33.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %57) #13
   call void @uprv_free_77(ptr noundef nonnull %213)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %50) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %339 = add i32 %.0191.i, 1
   %340 = zext i32 %339 to i64
   %341 = load i64, ptr %195, align 8, !tbaa !25
@@ -1038,7 +1032,7 @@ _ZL10write_tabsP11_FileStream.exit33.i:           ; preds = %_ZL10write_tabsP11_
   %.sink.i61 = phi ptr [ %57, %355 ], [ %56, %353 ], [ %55, %351 ], [ %54, %349 ], [ %53, %347 ], [ %52, %345 ], [ %51, %343 ]
   %.pn.i62 = phi { ptr, i32 } [ %356, %355 ], [ %354, %353 ], [ %352, %351 ], [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i61) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %50) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %369
 
 ._crit_edge.i:                                    ; preds = %338, %193
@@ -1046,7 +1040,7 @@ _ZL10write_tabsP11_FileStream.exit33.i:           ; preds = %_ZL10write_tabsP11_
   %359 = add nsw i32 %358, -1
   store i32 %359, ptr @_ZL8tabCount, align 4, !tbaa !6
   %360 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %.not4.i34.i = icmp slt i32 %358, 1
   br i1 %.not4.i34.i, label %_ZL10write_tabsP11_FileStream.exit38.i, label %.lr.ph.i35.i
 
@@ -1075,7 +1069,7 @@ _ZL10write_tabsP11_FileStream.exit38.loopexit.i:  ; preds = %361
 
 _ZL10write_tabsP11_FileStream.exit38.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit38.loopexit.i, %._crit_edge.i
   %366 = phi ptr [ %.pre9.i, %_ZL10write_tabsP11_FileStream.exit38.loopexit.i ], [ %360, %._crit_edge.i ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull @.str.59)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %366, ptr noundef %58)
           to label %_ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit unwind label %367
@@ -1088,37 +1082,37 @@ _ZL10write_tabsP11_FileStream.exit38.i:           ; preds = %_ZL10write_tabsP11_
 
 369:                                              ; preds = %367, %357
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i62, %357 ], [ %368, %367 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %49) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   br label %common.resume
 
 _ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit38.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %58) #13
   call void @uprv_free_77(ptr noundef %194)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %49) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %661
 
 370:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %25) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %25, i8 0, i64 1024, i1 false)
   %371 = load ptr, ptr @_ZL6outDir, align 8, !tbaa !31
   %372 = icmp eq ptr %371, null
@@ -1224,7 +1218,7 @@ _ZL19intvector_write_xmlP17IntVectorResourcePKcS2_P10UErrorCode.exit: ; preds = 
   %.055.i = phi ptr [ @.str.73, %427 ], [ @.str.78, %424 ], [ @.str.64, %403 ], [ @.str.64, %400 ], [ @.str.64, %397 ], [ @.str.67, %409 ], [ @.str.67, %406 ], [ @.str.71, %418 ], [ @.str.71, %415 ], [ @.str.71, %412 ]
   %429 = call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull %.055.i, ptr noundef readonly %1, ptr noundef nonnull %4)
   %430 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %431 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i64 = icmp slt i32 %431, 0
   br i1 %.not4.i.i64, label %_ZL10write_tabsP11_FileStream.exit.i72, label %.lr.ph.i.i65
@@ -1254,7 +1248,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i70:  ; preds = %432
 
 _ZL10write_tabsP11_FileStream.exit.i72:           ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i70, %428
   %437 = phi ptr [ %.pre.i71, %_ZL10write_tabsP11_FileStream.exit.loopexit.i70 ], [ %430, %428 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull @.str.81)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %437, ptr noundef %26)
           to label %438 unwind label %472
@@ -1265,7 +1259,7 @@ _ZL10write_tabsP11_FileStream.exit.i72:           ; preds = %_ZL10write_tabsP11_
   %440 = add nsw i32 %439, 1
   store i32 %440, ptr @_ZL8tabCount, align 4, !tbaa !6
   %441 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %.not4.i67.i = icmp slt i32 %439, -1
   br i1 %.not4.i67.i, label %_ZL10write_tabsP11_FileStream.exit71.i, label %.lr.ph.i68.i
 
@@ -1294,7 +1288,7 @@ _ZL10write_tabsP11_FileStream.exit71.loopexit.i:  ; preds = %442
 
 _ZL10write_tabsP11_FileStream.exit71.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit71.loopexit.i, %438
   %447 = phi ptr [ %.pre14.i, %_ZL10write_tabsP11_FileStream.exit71.loopexit.i ], [ %441, %438 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull @.str.82)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %447, ptr noundef %27)
           to label %448 unwind label %474
@@ -1313,7 +1307,7 @@ _ZL10write_tabsP11_FileStream.exit71.i:           ; preds = %_ZL10write_tabsP11_
   %452 = add nsw i32 %451, -1
   store i32 %452, ptr @_ZL8tabCount, align 4, !tbaa !6
   %453 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %.not4.i72.i = icmp slt i32 %451, 1
   br i1 %.not4.i72.i, label %_ZL10write_tabsP11_FileStream.exit76.i, label %.lr.ph.i73.i
 
@@ -1342,7 +1336,7 @@ _ZL10write_tabsP11_FileStream.exit76.loopexit.i:  ; preds = %454
 
 _ZL10write_tabsP11_FileStream.exit76.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit76.loopexit.i, %450
   %459 = phi ptr [ %.pre15.i, %_ZL10write_tabsP11_FileStream.exit76.loopexit.i ], [ %453, %450 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull @.str.83)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %459, ptr noundef %29)
           to label %460 unwind label %478
@@ -1355,7 +1349,7 @@ _ZL10write_tabsP11_FileStream.exit76.i:           ; preds = %_ZL10write_tabsP11_
   %463 = add nsw i32 %462, -1
   store i32 %463, ptr @_ZL8tabCount, align 4, !tbaa !6
   %464 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %.not4.i77.i = icmp slt i32 %462, 1
   br i1 %.not4.i77.i, label %_ZL10write_tabsP11_FileStream.exit81.i, label %.lr.ph.i78.i
 
@@ -1384,7 +1378,7 @@ _ZL10write_tabsP11_FileStream.exit81.loopexit.i:  ; preds = %465
 
 _ZL10write_tabsP11_FileStream.exit81.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit81.loopexit.i, %460
   %470 = phi ptr [ %.pre16.i, %_ZL10write_tabsP11_FileStream.exit81.loopexit.i ], [ %464, %460 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull @.str.84)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %470, ptr noundef %30)
           to label %471 unwind label %480
@@ -1424,11 +1418,11 @@ _ZL10write_tabsP11_FileStream.exit81.i:           ; preds = %_ZL10write_tabsP11_
   br label %586
 
 482:                                              ; preds = %383
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %31) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %31, i8 0, i64 256, i1 false)
   %483 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.78, ptr noundef readonly %1, ptr noundef nonnull %4)
   %484 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %485 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i82.i = icmp slt i32 %485, 0
   br i1 %.not4.i82.i, label %_ZL10write_tabsP11_FileStream.exit86.i, label %.lr.ph.i83.i
@@ -1458,7 +1452,7 @@ _ZL10write_tabsP11_FileStream.exit86.loopexit.i:  ; preds = %486
 
 _ZL10write_tabsP11_FileStream.exit86.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit86.loopexit.i, %482
   %491 = phi ptr [ %.pre17.i, %_ZL10write_tabsP11_FileStream.exit86.loopexit.i ], [ %484, %482 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull @.str.81)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %491, ptr noundef %32)
           to label %492 unwind label %532
@@ -1469,7 +1463,7 @@ _ZL10write_tabsP11_FileStream.exit86.i:           ; preds = %_ZL10write_tabsP11_
   %494 = add nsw i32 %493, 1
   store i32 %494, ptr @_ZL8tabCount, align 4, !tbaa !6
   %495 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %.not4.i87.i = icmp slt i32 %493, -1
   br i1 %.not4.i87.i, label %_ZL10write_tabsP11_FileStream.exit91.i, label %.lr.ph.i88.i
 
@@ -1498,7 +1492,7 @@ _ZL10write_tabsP11_FileStream.exit91.loopexit.i:  ; preds = %496
 
 _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit91.loopexit.i, %492
   %501 = phi ptr [ %.pre18.i, %_ZL10write_tabsP11_FileStream.exit91.loopexit.i ], [ %495, %492 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull @.str.85)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %501, ptr noundef %33)
           to label %502 unwind label %534
@@ -1523,7 +1517,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   %509 = load i8, ptr %508, align 1, !tbaa !11
   %510 = zext i8 %509 to i32
   %511 = call i32 @itostr(ptr noundef nonnull %31, i32 noundef %510, i32 noundef 16, i32 noundef 2)
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   br label %.preheader24.i.i
 
 .preheader24.i.i:                                 ; preds = %519, %506
@@ -1573,7 +1567,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
 
 computeCRC.exit.i:                                ; preds = %.lr.ph.i92.i, %.preheader.i.i
   %.022.lcssa.i.i = phi i32 [ %.0562.i, %.preheader.i.i ], [ %527, %.lr.ph.i92.i ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %529 = load i32, ptr %503, align 8, !tbaa !37
   %530 = zext i32 %529 to i64
@@ -1651,7 +1645,7 @@ computeCRC.exit.i:                                ; preds = %.lr.ph.i92.i, %.pre
   %559 = add nsw i32 %558, -2
   store i32 %559, ptr @_ZL8tabCount, align 4, !tbaa !6
   %560 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %.not4.i93.i = icmp slt i32 %558, 2
   br i1 %.not4.i93.i, label %_ZL10write_tabsP11_FileStream.exit97.i, label %.lr.ph.i94.i
 
@@ -1680,7 +1674,7 @@ _ZL10write_tabsP11_FileStream.exit97.loopexit.i:  ; preds = %561
 
 _ZL10write_tabsP11_FileStream.exit97.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit97.loopexit.i, %557
   %566 = phi ptr [ %.pre19.i, %_ZL10write_tabsP11_FileStream.exit97.loopexit.i ], [ %560, %557 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull @.str.83)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %566, ptr noundef %37)
           to label %567 unwind label %581
@@ -1693,7 +1687,7 @@ _ZL10write_tabsP11_FileStream.exit97.i:           ; preds = %_ZL10write_tabsP11_
   %570 = add nsw i32 %569, -1
   store i32 %570, ptr @_ZL8tabCount, align 4, !tbaa !6
   %571 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.not4.i98.i = icmp slt i32 %569, 1
   br i1 %.not4.i98.i, label %_ZL10write_tabsP11_FileStream.exit102.i, label %.lr.ph.i99.i
 
@@ -1722,7 +1716,7 @@ _ZL10write_tabsP11_FileStream.exit102.loopexit.i: ; preds = %572
 
 _ZL10write_tabsP11_FileStream.exit102.i:          ; preds = %_ZL10write_tabsP11_FileStream.exit102.loopexit.i, %567
   %577 = phi ptr [ %.pre20.i, %_ZL10write_tabsP11_FileStream.exit102.loopexit.i ], [ %571, %567 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull @.str.84)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %577, ptr noundef %38)
           to label %578 unwind label %583
@@ -1730,7 +1724,7 @@ _ZL10write_tabsP11_FileStream.exit102.i:          ; preds = %_ZL10write_tabsP11_
 578:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit102.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %38) #13
   call void @uprv_free_77(ptr noundef %483)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %_ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit
 
 579:                                              ; preds = %._crit_edge7.i
@@ -1752,41 +1746,41 @@ _ZL10write_tabsP11_FileStream.exit102.i:          ; preds = %_ZL10write_tabsP11_
   %.sink.i73 = phi ptr [ %38, %583 ], [ %37, %581 ], [ %36, %579 ], [ %35, %554 ], [ %34, %552 ], [ %33, %534 ], [ %32, %532 ]
   %.pn.i74 = phi { ptr, i32 } [ %584, %583 ], [ %582, %581 ], [ %580, %579 ], [ %555, %554 ], [ %553, %552 ], [ %535, %534 ], [ %533, %532 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i73) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %31) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %586
 
 586:                                              ; preds = %585, %480, %478, %476, %474, %472
   %.pn65.i = phi { ptr, i32 } [ %481, %480 ], [ %479, %478 ], [ %477, %476 ], [ %475, %474 ], [ %473, %472 ], [ %.pn.i74, %585 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %25) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %common.resume
 
 _ZL13bin_write_xmlP14BinaryResourcePKcS2_P10UErrorCode.exit: ; preds = %471, %578
   call void @uprv_free_77(ptr noundef nonnull %386)
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %25) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %661
 
 587:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %11, i8 0, i64 256, i1 false)
   %588 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef readonly %1, ptr noundef nonnull %4)
   %589 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %590 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i77 = icmp slt i32 %590, 0
   br i1 %.not4.i.i77, label %_ZL10write_tabsP11_FileStream.exit.i85, label %.lr.ph.i.i78
@@ -1816,7 +1810,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i83:  ; preds = %591
 
 _ZL10write_tabsP11_FileStream.exit.i85:           ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i83, %587
   %596 = phi ptr [ %.pre.i84, %_ZL10write_tabsP11_FileStream.exit.loopexit.i83 ], [ %589, %587 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull @.str.42)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %596, ptr noundef %12)
           to label %597 unwind label %615
@@ -1846,7 +1840,7 @@ _ZL10write_tabsP11_FileStream.exit.i85:           ; preds = %_ZL10write_tabsP11_
   %607 = add nsw i32 %606, -1
   store i32 %607, ptr @_ZL8tabCount, align 4, !tbaa !6
   %608 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not4.i11.i = icmp slt i32 %606, 1
   br i1 %.not4.i11.i, label %_ZL10write_tabsP11_FileStream.exit15.i, label %.lr.ph.i12.i
 
@@ -1875,7 +1869,7 @@ _ZL10write_tabsP11_FileStream.exit15.loopexit.i:  ; preds = %609
 
 _ZL10write_tabsP11_FileStream.exit15.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit15.loopexit.i, %604
   %614 = phi ptr [ %.pre1.i, %_ZL10write_tabsP11_FileStream.exit15.loopexit.i ], [ %608, %604 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull @.str.54)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %614, ptr noundef %15)
           to label %_ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit unwind label %621
@@ -1904,21 +1898,21 @@ _ZL10write_tabsP11_FileStream.exit15.i:           ; preds = %_ZL10write_tabsP11_
   %.sink.i86 = phi ptr [ %15, %621 ], [ %14, %619 ], [ %13, %617 ], [ %12, %615 ]
   %.pn.i87 = phi { ptr, i32 } [ %622, %621 ], [ %620, %619 ], [ %618, %617 ], [ %616, %615 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink.i86) #13
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
 _ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_tabsP11_FileStream.exit15.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %15) #13
   call void @uprv_free_77(ptr noundef %588)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %661
 
 624:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %625 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef %1, ptr noundef nonnull %4)
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %627 = load ptr, ptr %626, align 8, !tbaa !43
@@ -1928,7 +1922,7 @@ _ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_
 .lr.ph99:                                         ; preds = %624, %632
   %.0.i97 = phi i32 [ %633, %632 ], [ 0, %624 ]
   %.021.i96 = phi ptr [ %635, %632 ], [ %627, %624 ]
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %628 = call i32 @itostr(ptr noundef nonnull %7, i32 noundef %.0.i97, i32 noundef 10, i32 noundef 0)
   %629 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %625, ptr noundef nonnull %7)
@@ -1940,14 +1934,14 @@ _ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_
 
 .thread:                                          ; preds = %.lr.ph99
   call void @uprv_free_77(ptr noundef %625)
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit
 
 632:                                              ; preds = %.lr.ph99
   %633 = add nuw nsw i32 %.0.i97, 1
   %634 = getelementptr inbounds nuw i8, ptr %.021.i96, i64 32
   %635 = load ptr, ptr %634, align 8, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i88 = icmp eq ptr %635, null
   br i1 %.not.i88, label %._crit_edge100, label %.lr.ph99, !llvm.loop !46
 
@@ -1974,11 +1968,11 @@ _ZL13int_write_xmlP11IntResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZL10write_
   br label %common.resume
 
 _ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit: ; preds = %.thread, %640
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %661
 
 643:                                              ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %644 = tail call fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.88, ptr noundef null, ptr noundef %1, ptr noundef nonnull %4)
   %.not17.i = icmp eq i8 %3, 0
   br i1 %.not17.i, label %646, label %645
@@ -2033,7 +2027,7 @@ _ZL15array_write_xmlP13ArrayResourcePKcS2_P10UErrorCode.exit: ; preds = %.thread
   br label %common.resume
 
 _ZL15table_write_xmlP13TableResourcePKcS2_aP10UErrorCode.exit: ; preds = %652, %657
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %661
 
 660:                                              ; preds = %76, %75
@@ -2045,7 +2039,7 @@ _ZL15table_write_xmlP13TableResourcePKcS2_aP10UErrorCode.exit: ; preds = %652, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @bundle_write_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local void @bundle_write_xml(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = alloca %"class.icu_77::UnicodeString", align 8
   %12 = alloca %"class.icu_77::UnicodeString", align 8
@@ -2075,8 +2069,8 @@ define dso_local void @bundle_write_xml(ptr noundef %0, ptr noundef %1, ptr noun
   %36 = alloca %"class.icu_77::UnicodeString", align 8
   %37 = alloca %"class.icu_77::UnicodeString", align 8
   %38 = alloca %"class.icu_77::UnicodeString", align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %20) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store ptr %1, ptr @_ZL6outDir, align 8, !tbaa !31
   store ptr %0, ptr @_ZL8srBundle, align 8, !tbaa !49
   %39 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 92) #15
@@ -2140,7 +2134,7 @@ define dso_local void @bundle_write_xml(ptr noundef %0, ptr noundef %1, ptr noun
   %sext.i = add i64 %82, 4294967296
   %83 = ashr exact i64 %sext.i, 32
   %84 = tail call noalias ptr @uprv_malloc_77(i64 noundef %83) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !13
   %85 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %80, i32 noundef 46) #15
   %.not.i = icmp eq ptr %85, null
@@ -2195,11 +2189,11 @@ define dso_local void @bundle_write_xml(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not.i.i, label %_ZL13parseFilenamePKcPc.exit.thread, label %.lr.ph.i.i, !llvm.loop !58
 
 _ZL13parseFilenamePKcPc.exit.thread:              ; preds = %108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %120
 
 _ZL13parseFilenamePKcPc.exit:                     ; preds = %102
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %109 = icmp eq ptr %93, null
   br i1 %109, label %110, label %120
 
@@ -2367,7 +2361,7 @@ _ZL13parseFilenamePKcPc.exit:                     ; preds = %102
 202:                                              ; preds = %200
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %22) #13
   %203 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %204 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i = icmp slt i32 %204, 0
   br i1 %.not4.i, label %_ZL10write_tabsP11_FileStream.exit, label %.lr.ph.i
@@ -2401,7 +2395,7 @@ _ZL10write_tabsP11_FileStream.exit.loopexit:      ; preds = %205
 
 _ZL10write_tabsP11_FileStream.exit:               ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit, %202
   %210 = phi ptr [ %.pre, %_ZL10write_tabsP11_FileStream.exit.loopexit ], [ %203, %202 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull @.str.2)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %210, ptr noundef %23)
           to label %211 unwind label %222
@@ -2490,7 +2484,7 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %_ZL10write_tabsP11_
   %243 = add nsw i32 %242, 1
   store i32 %243, ptr @_ZL8tabCount, align 4, !tbaa !6
   %244 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %.not4.i125 = icmp slt i32 %242, -1
   br i1 %.not4.i125, label %_ZL10write_tabsP11_FileStream.exit129, label %.lr.ph.i126
 
@@ -2519,7 +2513,7 @@ _ZL10write_tabsP11_FileStream.exit129.loopexit:   ; preds = %245
 
 _ZL10write_tabsP11_FileStream.exit129:            ; preds = %_ZL10write_tabsP11_FileStream.exit129.loopexit, %241
   %250 = phi ptr [ %.pre163, %_ZL10write_tabsP11_FileStream.exit129.loopexit ], [ %244, %241 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull @.str.7)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %250, ptr noundef %31)
           to label %251 unwind label %335
@@ -2530,7 +2524,7 @@ _ZL10write_tabsP11_FileStream.exit129:            ; preds = %_ZL10write_tabsP11_
   %253 = add nsw i32 %252, 1
   store i32 %253, ptr @_ZL8tabCount, align 4, !tbaa !6
   %254 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %.not4.i130 = icmp slt i32 %252, -1
   br i1 %.not4.i130, label %_ZL10write_tabsP11_FileStream.exit134, label %.lr.ph.i131
 
@@ -2559,7 +2553,7 @@ _ZL10write_tabsP11_FileStream.exit134.loopexit:   ; preds = %255
 
 _ZL10write_tabsP11_FileStream.exit134:            ; preds = %_ZL10write_tabsP11_FileStream.exit134.loopexit, %251
   %260 = phi ptr [ %.pre164, %_ZL10write_tabsP11_FileStream.exit134.loopexit ], [ %254, %251 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull @.str.11)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %260, ptr noundef %32)
           to label %261 unwind label %337
@@ -2579,7 +2573,7 @@ _ZL10write_tabsP11_FileStream.exit134:            ; preds = %_ZL10write_tabsP11_
   %265 = add nsw i32 %264, -1
   store i32 %265, ptr @_ZL8tabCount, align 4, !tbaa !6
   %266 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.not4.i135 = icmp slt i32 %264, 1
   br i1 %.not4.i135, label %_ZL10write_tabsP11_FileStream.exit139, label %.lr.ph.i136
 
@@ -2608,7 +2602,7 @@ _ZL10write_tabsP11_FileStream.exit139.loopexit:   ; preds = %267
 
 _ZL10write_tabsP11_FileStream.exit139:            ; preds = %_ZL10write_tabsP11_FileStream.exit139.loopexit, %263
   %272 = phi ptr [ %.pre165, %_ZL10write_tabsP11_FileStream.exit139.loopexit ], [ %266, %263 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull @.str.8)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %272, ptr noundef %34)
           to label %273 unwind label %341
@@ -2616,7 +2610,7 @@ _ZL10write_tabsP11_FileStream.exit139:            ; preds = %_ZL10write_tabsP11_
 273:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit139
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %34) #13
   %274 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %275 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i140 = icmp slt i32 %275, 0
   br i1 %.not4.i140, label %_ZL10write_tabsP11_FileStream.exit144, label %.lr.ph.i141
@@ -2647,7 +2641,7 @@ _ZL10write_tabsP11_FileStream.exit144.loopexit:   ; preds = %276
 _ZL10write_tabsP11_FileStream.exit144:            ; preds = %_ZL10write_tabsP11_FileStream.exit144.loopexit, %273
   %281 = phi ptr [ %.pre166, %_ZL10write_tabsP11_FileStream.exit144.loopexit ], [ %274, %273 ]
   %282 = phi i32 [ %278, %_ZL10write_tabsP11_FileStream.exit144.loopexit ], [ %275, %273 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %283 = add nsw i32 %282, 1
   store i32 %283, ptr @_ZL8tabCount, align 4, !tbaa !6
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %35, ptr noundef nonnull @.str.9)
@@ -2664,7 +2658,7 @@ _ZL10write_tabsP11_FileStream.exit144:            ; preds = %_ZL10write_tabsP11_
   %289 = add nsw i32 %288, -1
   store i32 %289, ptr @_ZL8tabCount, align 4, !tbaa !6
   %290 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not4.i145 = icmp slt i32 %288, 1
   br i1 %.not4.i145, label %_ZL10write_tabsP11_FileStream.exit149, label %.lr.ph.i146
 
@@ -2693,7 +2687,7 @@ _ZL10write_tabsP11_FileStream.exit149.loopexit:   ; preds = %291
 
 _ZL10write_tabsP11_FileStream.exit149:            ; preds = %_ZL10write_tabsP11_FileStream.exit149.loopexit, %284
   %296 = phi ptr [ %.pre167, %_ZL10write_tabsP11_FileStream.exit149.loopexit ], [ %290, %284 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull @.str.10)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %296, ptr noundef %36)
           to label %297 unwind label %345
@@ -2704,7 +2698,7 @@ _ZL10write_tabsP11_FileStream.exit149:            ; preds = %_ZL10write_tabsP11_
   %299 = add nsw i32 %298, -1
   store i32 %299, ptr @_ZL8tabCount, align 4, !tbaa !6
   %300 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not4.i150 = icmp slt i32 %298, 1
   br i1 %.not4.i150, label %_ZL10write_tabsP11_FileStream.exit154, label %.lr.ph.i151
 
@@ -2733,7 +2727,7 @@ _ZL10write_tabsP11_FileStream.exit154.loopexit:   ; preds = %301
 
 _ZL10write_tabsP11_FileStream.exit154:            ; preds = %_ZL10write_tabsP11_FileStream.exit154.loopexit, %297
   %306 = phi ptr [ %.pre168, %_ZL10write_tabsP11_FileStream.exit154.loopexit ], [ %300, %297 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull @.str.6)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %306, ptr noundef %37)
           to label %307 unwind label %347
@@ -2744,7 +2738,7 @@ _ZL10write_tabsP11_FileStream.exit154:            ; preds = %_ZL10write_tabsP11_
   %309 = add nsw i32 %308, -1
   store i32 %309, ptr @_ZL8tabCount, align 4, !tbaa !6
   %310 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not4.i155 = icmp slt i32 %308, 1
   br i1 %.not4.i155, label %_ZL10write_tabsP11_FileStream.exit159, label %.lr.ph.i156
 
@@ -2773,7 +2767,7 @@ _ZL10write_tabsP11_FileStream.exit159.loopexit:   ; preds = %311
 
 _ZL10write_tabsP11_FileStream.exit159:            ; preds = %_ZL10write_tabsP11_FileStream.exit159.loopexit, %307
   %316 = phi ptr [ %.pre169, %_ZL10write_tabsP11_FileStream.exit159.loopexit ], [ %310, %307 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull @.str.94)
   invoke fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %316, ptr noundef %38)
           to label %317 unwind label %349
@@ -2791,8 +2785,8 @@ _ZL10write_tabsP11_FileStream.exit159:            ; preds = %_ZL10write_tabsP11_
   call void @uprv_free_77(ptr noundef nonnull %.0102)
   call void @uprv_free_77(ptr noundef nonnull %.0100161)
   call void @uprv_free_77(ptr noundef nonnull %.0103)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret void
 
 321:                                              ; preds = %224
@@ -2874,52 +2868,52 @@ _ZL10write_tabsP11_FileStream.exit159:            ; preds = %_ZL10write_tabsP11_
   %.sink = phi ptr [ %38, %349 ], [ %37, %347 ], [ %36, %345 ], [ %35, %343 ], [ %34, %341 ], [ %33, %339 ], [ %32, %337 ], [ %31, %335 ], [ %30, %333 ], [ %29, %331 ], [ %28, %329 ], [ %27, %327 ], [ %26, %325 ], [ %25, %323 ], [ %24, %321 ], [ %23, %222 ], [ %22, %220 ], [ %21, %198 ]
   %.pn = phi { ptr, i32 } [ %350, %349 ], [ %348, %347 ], [ %346, %345 ], [ %344, %343 ], [ %342, %341 ], [ %340, %339 ], [ %338, %337 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %330, %329 ], [ %328, %327 ], [ %326, %325 ], [ %324, %323 ], [ %322, %321 ], [ %223, %222 ], [ %221, %220 ], [ %199, %198 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink) #13
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %20) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #9
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
-declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @T_FileStream_open(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZL15write_utf8_fileP11_FileStreamN6icu_7713UnicodeStringE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i16, ptr %5, align 8, !tbaa !11
@@ -2989,22 +2983,22 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit7:     ; preds = %_ZNK6icu_7713Unicod
   %43 = load i32, ptr %4, align 4, !tbaa !6
   %44 = call i32 @T_FileStream_write(ptr noundef %0, ptr noundef %25, i32 noundef %43)
   call void @uprv_free_77(ptr noundef %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #8
+declare void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #7
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #10
+declare void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #9
 
-declare ptr @ucnv_open_77(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @ucnv_open_77(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %0) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.icu_77::UnicodeString", align 8
   %3 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4 = icmp slt i32 %3, 0
@@ -3034,16 +3028,16 @@ define internal fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #10
+declare i64 @time(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare ptr @gmtime(ptr noundef) local_unnamed_addr #10
+declare ptr @gmtime(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14printAttributePKcS0_i(ptr noundef %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14printAttributePKcS0_i(ptr noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_77::UnicodeString", align 8
   %4 = alloca %"class.icu_77::UnicodeString", align 8
   %5 = alloca %"class.icu_77::UnicodeString", align 8
@@ -3118,12 +3112,12 @@ define internal fastcc void @_ZL14printAttributePKcS0_i(ptr noundef %0, ptr noun
   resume { ptr, i32 } %.pn
 }
 
-declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #8
+declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #7
 
-declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #8
+declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::UnicodeString", align 8
@@ -3141,7 +3135,7 @@ define internal fastcc noundef ptr @_ZL14printContainerP9SResourcePKcS2_S2_S2_P1
   %21 = alloca %"class.icu_77::UnicodeString", align 8
   %22 = alloca %"class.icu_77::UnicodeString", align 8
   %23 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %24 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i = icmp slt i32 %24, 0
   br i1 %.not4.i, label %_ZL10write_tabsP11_FileStream.exit, label %.lr.ph.i
@@ -3170,7 +3164,7 @@ common.resume:                                    ; preds = %49, %51, %143, %133
   br label %common.resume
 
 _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %30 = load ptr, ptr @_ZL8srBundle, align 8, !tbaa !49
   %31 = call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %30)
   %.not = icmp eq ptr %31, null
@@ -3257,9 +3251,9 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
 
 63:                                               ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %65 = icmp eq ptr %5, null
   br i1 %65, label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit, label %66
 
@@ -3270,14 +3264,14 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
 
 69:                                               ; preds = %66
   %70 = add nuw nsw i32 %61, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %71 = shl nuw nsw i32 %70, 1
   %72 = zext nneg i32 %71 to i64
   %73 = call noalias ptr @uprv_malloc_77(i64 noundef %72) #14
   store ptr %73, ptr %14, align 8, !tbaa !63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %74 = call noalias ptr @uprv_malloc_77(i64 noundef %72) #14
   store ptr %74, ptr %15, align 8, !tbaa !63
   %75 = icmp eq ptr %73, null
@@ -3313,11 +3307,11 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
 93:                                               ; preds = %88
   %94 = load i32, ptr %13, align 4, !tbaa !6
   call void @_ZN6icu_7713UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %90, i32 noundef %94, ptr noundef nonnull @.str.24)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %95 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
   invoke void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull @.str.36)
           to label %.noexc.i unwind label %117
@@ -3399,11 +3393,11 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
 
 115:                                              ; preds = %.noexc38.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #13
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #13
   %116 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull @.str.30)
@@ -3442,7 +3436,7 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %129 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i.i = icmp slt i32 %129, 0
   br i1 %.not4.i.i, label %_ZL10write_tabsP11_FileStream.exit.i, label %.lr.ph.i.i
@@ -3467,7 +3461,7 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %25, %6
   br label %common.resume
 
 _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %130, %127
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %135 = load ptr, ptr %14, align 8, !tbaa !63
   call fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef %135, i32 noundef %83, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull %5)
   br label %136
@@ -3481,24 +3475,24 @@ _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %130, %127
 139:                                              ; preds = %136, %77
   %.sink = phi ptr [ %138, %136 ], [ %74, %77 ]
   call void @uprv_free_77(ptr noundef %.sink)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit
 
 .body.i:                                          ; preds = %123, %119, %117, %114
   %.sink1.i = phi ptr [ %18, %123 ], [ %17, %119 ], [ %16, %114 ], [ %16, %117 ]
   %.pn.i = phi { ptr, i32 } [ %124, %123 ], [ %120, %119 ], [ %.pn.i.i, %114 ], [ %118, %117 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink1.i) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
 _ZL13printCommentsP7UStringPKcaP10UErrorCode.exit: ; preds = %63, %66, %139
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %145
 
 140:                                              ; preds = %57
@@ -3522,7 +3516,7 @@ _ZL13printCommentsP7UStringPKcaP10UErrorCode.exit: ; preds = %63, %66, %139
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr %.0.val, i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCode(ptr %.0.val, i32 noundef range(i32 0, -2147483648) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
   %6 = icmp eq ptr %4, null
   br i1 %6, label %167, label %7
 
@@ -3860,15 +3854,15 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   ret ptr %.0
 }
 
-declare void @_ZN6icu_7713UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #8
+declare void @_ZN6icu_7713UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !65
   %9 = shl nsw i32 %8, 1
@@ -3917,7 +3911,7 @@ define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr n
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
   %.not4.i = icmp slt i32 %35, 0
   br i1 %.not4.i, label %_ZL10write_tabsP11_FileStream.exit, label %.lr.ph.i
@@ -3925,9 +3919,9 @@ define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr n
 .lr.ph.i:                                         ; preds = %33, %64
   %.05.i = phi i32 [ %65, %64 ], [ 0, %33 ]
   call void @_ZN6icu_7713UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull @.str.93)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !6
   %36 = load i16, ptr %18, align 8, !tbaa !11
   %37 = and i16 %36, 17
@@ -3984,8 +3978,8 @@ define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr n
           to label %64 unwind label %67
 
 64:                                               ; preds = %.noexc23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   %65 = add nuw nsw i32 %.05.i, 1
   %66 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !6
@@ -3999,7 +3993,7 @@ define internal fastcc void @_ZL17printNoteElementsPK7UStringP10UErrorCode(ptr n
   resume { ptr, i32 } %68
 
 _ZL10write_tabsP11_FileStream.exit:               ; preds = %64, %33
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = load ptr, ptr %6, align 8, !tbaa !63
   call fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef %69, i32 noundef %26, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, ptr noundef nonnull %1)
   br label %70
@@ -4019,14 +4013,14 @@ _ZL10write_tabsP11_FileStream.exit:               ; preds = %64, %33
   br label %73
 
 73:                                               ; preds = %._crit_edge, %29, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   br i1 %3, label %5, label %11
@@ -4070,21 +4064,21 @@ define internal fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef readonly captu
   ret ptr %.0
 }
 
-declare i32 @removeCmtText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @removeCmtText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @getDescription(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @getDescription(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @getTranslate(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @getTranslate(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5printPDsiPKcS1_P10UErrorCode(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::UnicodeString", align 8
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = shl nsw i32 %1, 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !6
   %12 = load i32, ptr %4, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
@@ -4200,59 +4194,65 @@ _ZL4trimPPcPi.exit:                               ; preds = %25, %._crit_edge.i
   br label %54
 
 53:                                               ; preds = %21, %44, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 54:                                               ; preds = %51, %49, %47, %45
   %.sink = phi ptr [ %10, %51 ], [ %9, %49 ], [ %8, %47 ], [ %7, %45 ]
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
+declare void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
-declare i32 @getCount(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @getCount(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @getAt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @getAt(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @itostr(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @itostr(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @_ZN6icu_7713UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #8
+declare void @_ZN6icu_7713UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-declare i32 @uloc_canonicalize_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @uloc_canonicalize_77(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #8
+declare ptr @u_errorName_77(i32 noundef) local_unnamed_addr #7
 
-declare ptr @u_strToUTF8_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @u_strToUTF8_77(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
-declare i32 @T_FileStream_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @T_FileStream_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nofree nounwind }
 attributes #13 = { nounwind }
 attributes #14 = { allocsize(0) }

@@ -3827,8 +3827,8 @@ define void @_ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE(ptr 
   %12 = alloca %"class.std::allocator.4", align 1
   %13 = alloca %"struct.glslang::TSampler", align 4
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3852,8 +3852,8 @@ define void @_ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE(ptr 
   br label %_ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionE.exit
 
 _ZN7glslang9TBuiltIns17addTabledBuiltinsEi8EProfileRKNS_10SpvVersionE.exit: ; preds = %19, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %24, ptr %7, align 8
@@ -57149,7 +57149,7 @@ _ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciPKS2_.exit2810: ; preds = %
 
 2442:                                             ; preds = %2438
   call fastcc void @_ZN7glslangL16SpecialQualifierEPKcNS_17TStorageQualifierENS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef nonnull @.str.621, i32 noundef 3, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %2443 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %2444 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %2443, ptr %7, align 8
@@ -57195,7 +57195,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %_ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2813
 
 _ZN7glslangL20ModifyFlatDecorationEPKcbRNS_12TSymbolTableE.exit2813: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit.i2811, %2456
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %2469
 
 2468:                                             ; preds = %2438
@@ -79812,10 +79812,10 @@ declare i64 @llvm.smax.i64(i64, i64) #13
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

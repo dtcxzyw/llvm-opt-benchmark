@@ -44,7 +44,7 @@ define internal i32 @randombytes_internal_random() #1 {
 
 9:                                                ; preds = %5
   %10 = load i32, ptr @global.5, align 4
-  %11 = tail call i32 @getpid() #7
+  %11 = tail call i32 @getpid() #6
   %.not.i = icmp eq i32 %10, %11
   br i1 %.not.i, label %randombytes_internal_random_stir_if_needed.exit, label %12
 
@@ -56,7 +56,7 @@ randombytes_internal_random_stir_if_needed.exit:  ; preds = %8, %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = tail call i32 @crypto_stream_chacha20(ptr noundef nonnull %13, i64 noundef 512, ptr noundef nonnull %14, ptr noundef nonnull %15) #7
+  %16 = tail call i32 @crypto_stream_chacha20(ptr noundef nonnull %13, i64 noundef 512, ptr noundef nonnull %14, ptr noundef nonnull %15) #6
   store i64 480, ptr %2, align 8
   %17 = load i32, ptr @global.4, align 4
   %18 = icmp eq i32 %17, 0
@@ -90,7 +90,7 @@ randombytes_internal_random_xorhwrand.exit:       ; preds = %randombytes_interna
   br i1 %exitcond.not.i, label %randombytes_internal_random_xorkey.exit, label %27, !llvm.loop !4
 
 randombytes_internal_random_xorkey.exit:          ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %26, i8 noundef 0, i64 noundef 32, i1 noundef false) #6
   %34 = load i64, ptr %14, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %14, align 8
@@ -114,8 +114,8 @@ define internal void @randombytes_internal_random_stir() #1 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca [16 x i8], align 16
   %4 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #6
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %sodium_hrtime.exit, label %6
 
@@ -129,12 +129,12 @@ sodium_hrtime.exit:                               ; preds = %0
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %8, %10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 560
   store i64 %11, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %14, i8 noundef 0, i64 noundef 512, i1 noundef false) #7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %14, i8 noundef 0, i64 noundef 512, i1 noundef false) #6
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %15, align 8
   %.b = load i1, ptr @global.0, align 4
@@ -143,25 +143,25 @@ sodium_hrtime.exit:                               ; preds = %0
 16:                                               ; preds = %sodium_hrtime.exit
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 @sodium_runtime_has_rdrand() #7
+  %19 = tail call i32 @sodium_runtime_has_rdrand() #6
   store i32 %19, ptr @global.4, align 4
   store i1 false, ptr @global.2, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  %20 = call i32 @getentropy(ptr noundef nonnull %3, i64 noundef 16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %20 = call i32 @getentropy(ptr noundef nonnull %3, i64 noundef 16) #6
   %.not.i.not.i.i = icmp eq i32 %20, 0
   br i1 %.not.i.not.i.i, label %21, label %.critedge.i
 
 21:                                               ; preds = %16
   store i1 true, ptr @global.2, align 4
   store i32 %18, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %randombytes_internal_random_init.exit
 
 .critedge.i:                                      ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  %22 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.3, i32 noundef 0) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %22 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.3, i32 noundef 0) #6
   %23 = icmp eq i32 %22, -1
   br i1 %23, label %.critedge.i.i, label %24
 
@@ -171,7 +171,7 @@ sodium_hrtime.exit:                               ; preds = %0
   store i16 1, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 0, ptr %26, align 2
-  %27 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #7
+  %27 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #6
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.lr.ph.i.i.i, label %.critedge.i.i.i
 
@@ -183,7 +183,7 @@ sodium_hrtime.exit:                               ; preds = %0
   ]
 
 .critedge2.backedge.i.i.i:                        ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %30 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #7
+  %30 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #6
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.lr.ph.i.i.i, label %.critedge.i.i.i
 
@@ -193,19 +193,19 @@ sodium_hrtime.exit:                               ; preds = %0
   br i1 %.not.i.i.i, label %randombytes_block_on_dev_random.exit.i.i, label %randombytes_block_on_dev_random.exit.thread.i.i
 
 randombytes_block_on_dev_random.exit.thread.i.i:  ; preds = %.lr.ph.i.i.i, %.critedge.i.i.i
-  %32 = call i32 @close(i32 noundef %22) #7
+  %32 = call i32 @close(i32 noundef %22) #6
   store i32 5, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %56
 
 randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
-  %33 = call i32 @close(i32 noundef %22) #7
+  %33 = call i32 @close(i32 noundef %22) #6
   %34 = icmp eq i32 %33, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %34, label %.preheader.i.i, label %56
 
 .critedge.i.i:                                    ; preds = %.critedge.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge.i.i, %randombytes_block_on_dev_random.exit.i.i
@@ -215,12 +215,12 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
 36:                                               ; preds = %53, %.preheader.i.i
   %37 = phi ptr [ %54, %53 ], [ @.str.2, %.preheader.i.i ]
   %.09.i.i = phi ptr [ %.1.i.i, %53 ], [ @randombytes_internal_random_random_dev_open.devices, %.preheader.i.i ]
-  %38 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %37, i32 noundef 0) #7
+  %38 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %37, i32 noundef 0) #6
   %.not11.i.i = icmp eq i32 %38, -1
   br i1 %.not11.i.i, label %48, label %39
 
 39:                                               ; preds = %36
-  %40 = call i32 @fstat(i32 noundef %38, ptr noundef nonnull %2) #7
+  %40 = call i32 @fstat(i32 noundef %38, ptr noundef nonnull %2) #6
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %46
 
@@ -231,7 +231,7 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   br i1 %45, label %57, label %46
 
 46:                                               ; preds = %42, %39
-  %47 = call i32 @close(i32 noundef %38) #7
+  %47 = call i32 @close(i32 noundef %38) #6
   br label %51
 
 48:                                               ; preds = %36
@@ -255,15 +255,15 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   br label %56
 
 56:                                               ; preds = %55, %randombytes_block_on_dev_random.exit.i.i, %randombytes_block_on_dev_random.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @sodium_misuse() #12
   unreachable
 
 57:                                               ; preds = %42
-  %58 = call i32 (i32, i32, ...) @fcntl(i32 noundef %38, i32 noundef 1) #7
+  %58 = call i32 (i32, i32, ...) @fcntl(i32 noundef %38, i32 noundef 1) #6
   %59 = or i32 %58, 1
-  %60 = call i32 (i32, i32, ...) @fcntl(i32 noundef %38, i32 noundef 2, i32 noundef %59) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #7
+  %60 = call i32 (i32, i32, ...) @fcntl(i32 noundef %38, i32 noundef 2, i32 noundef %59) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 %18, ptr %17, align 4
   br label %randombytes_internal_random_init.exit
 
@@ -272,14 +272,14 @@ randombytes_internal_random_init.exit:            ; preds = %21, %57
   br label %61
 
 61:                                               ; preds = %randombytes_internal_random_init.exit, %sodium_hrtime.exit
-  %62 = call i32 @getpid() #7
+  %62 = call i32 @getpid() #6
   store i32 %62, ptr @global.5, align 4
   %.b1 = load i1, ptr @global.2, align 4
   br i1 %.b1, label %63, label %randombytes_getentropy.exit.thread
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %65 = call i32 @getentropy(ptr noundef nonnull %64, i64 noundef 32) #7
+  %65 = call i32 @getentropy(ptr noundef nonnull %64, i64 noundef 32) #6
   %.not.i.not.i = icmp eq i32 %65, 0
   br i1 %.not.i.not.i, label %randombytes_getentropy.exit.thread, label %randombytes_getentropy.exit
 
@@ -307,7 +307,7 @@ define internal void @randombytes_internal_random_buf(ptr noundef %0, i64 nounde
 
 8:                                                ; preds = %2
   %9 = load i32, ptr @global.5, align 4
-  %10 = tail call i32 @getpid() #7
+  %10 = tail call i32 @getpid() #6
   %.not.i = icmp eq i32 %9, %10
   br i1 %.not.i, label %randombytes_internal_random_stir_if_needed.exit, label %11
 
@@ -318,7 +318,7 @@ define internal void @randombytes_internal_random_buf(ptr noundef %0, i64 nounde
 randombytes_internal_random_stir_if_needed.exit:  ; preds = %7, %8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %14 = tail call i32 @crypto_stream_chacha20(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
+  %14 = tail call i32 @crypto_stream_chacha20(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %15
 
 15:                                               ; preds = %randombytes_internal_random_stir_if_needed.exit, %15
@@ -351,7 +351,7 @@ randombytes_internal_random_xorhwrand.exit:       ; preds = %22, %25
   %31 = load i64, ptr %12, align 8
   %32 = add i64 %31, 1
   store i64 %32, ptr %12, align 8
-  %33 = tail call i32 @crypto_stream_chacha20_xor(ptr noundef nonnull %13, ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
+  %33 = tail call i32 @crypto_stream_chacha20_xor(ptr noundef nonnull %13, ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   ret void
 }
 
@@ -361,70 +361,70 @@ define internal range(i32 -1, 1) i32 @randombytes_internal_random_close() #1 {
   %not..b = xor i1 %.b, true
   %spec.store.select = sext i1 %not..b to i32
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stream)
-  tail call void @sodium_memzero(ptr noundef nonnull %1, i64 noundef 568) #7
+  tail call void @sodium_memzero(ptr noundef nonnull %1, i64 noundef 568) #6
   ret i32 %spec.store.select
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 
-declare i32 @crypto_stream_chacha20(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @crypto_stream_chacha20(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #5
+declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @sodium_misuse() local_unnamed_addr #6
+declare void @sodium_misuse() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare { i32, i32 } @llvm.x86.rdrand.32() #7
+declare { i32, i32 } @llvm.x86.rdrand.32() #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #9
+declare ptr @__errno_location() local_unnamed_addr #8
 
-declare extern_weak i32 @sodium_runtime_has_rdrand() local_unnamed_addr #4
+declare extern_weak i32 @sodium_runtime_has_rdrand() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @getentropy(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @getentropy(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @crypto_stream_chacha20_xor(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @crypto_stream_chacha20_xor(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn nounwind }
 attributes #13 = { nounwind willreturn memory(none) }

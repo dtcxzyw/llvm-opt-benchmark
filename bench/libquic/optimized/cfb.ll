@@ -212,12 +212,6 @@ define hidden void @CRYPTO_cfb128_encrypt(ptr noundef readonly captures(none) %0
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define hidden void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca [33 x i8], align 16
@@ -242,7 +236,7 @@ define hidden void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) 
   %19 = and i32 %18, %14
   %.not.us = icmp eq i32 %19, 0
   %20 = select i1 %.not.us, i8 0, i8 -128
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %21 = load i8, ptr %4, align 1, !tbaa !10
@@ -263,7 +257,7 @@ define hidden void @CRYPTO_cfb128_1_encrypt(ptr noundef readonly captures(none) 
   br i1 %exitcond.not.i.us, label %cfbr_encrypt_block.exit.us, label %22, !llvm.loop !22
 
 cfbr_encrypt_block.exit.us:                       ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %30 = load i8, ptr %29, align 1, !tbaa !10
   %31 = zext i8 %30 to i32
@@ -293,7 +287,7 @@ cfbr_encrypt_block.exit.us:                       ; preds = %22
   %48 = and i32 %47, %43
   %.not = icmp eq i32 %48, 0
   %49 = select i1 %.not, i8 0, i8 -128
-  call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %50 = load i8, ptr %4, align 1, !tbaa !10
@@ -315,7 +309,7 @@ cfbr_encrypt_block.exit.us:                       ; preds = %22
   br i1 %exitcond.not.i, label %cfbr_encrypt_block.exit, label %52, !llvm.loop !22
 
 cfbr_encrypt_block.exit:                          ; preds = %52
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   %60 = load i8, ptr %59, align 1, !tbaa !10
   %61 = zext i8 %60 to i32
@@ -351,7 +345,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   %.010.us = phi i64 [ %14, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.us
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.us
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %11 = load i8, ptr %9, align 1, !tbaa !10
@@ -360,7 +354,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   store i8 %13, ptr %10, align 1, !tbaa !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.0.1..sroa_idx, i64 15, i1 false)
   store i8 %11, ptr %.sroa.4.1..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %14 = add nuw i64 %.010.us, 1
   %exitcond12.not = icmp eq i64 %14, %2
   br i1 %exitcond12.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
@@ -369,7 +363,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   %.010 = phi i64 [ %20, %.lr.ph.split ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.010
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(16) %4, i64 16, i1 false)
   tail call void %7(ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef %3) #4
   %17 = load i8, ptr %15, align 1, !tbaa !10
@@ -378,7 +372,7 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
   store i8 %19, ptr %16, align 1, !tbaa !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.0.1..sroa_idx, i64 15, i1 false)
   store i8 %19, ptr %.sroa.4.1..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %20 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %20, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
@@ -388,14 +382,20 @@ define hidden void @CRYPTO_cfb128_8_encrypt(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

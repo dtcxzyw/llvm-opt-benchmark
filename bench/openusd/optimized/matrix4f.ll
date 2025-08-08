@@ -812,7 +812,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKSt6vectorIfSa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKNS_10GfRotationERKNS_7GfVec3fE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load double, ptr %5, align 8, !noalias !17
@@ -821,7 +821,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKNS_10GfRotati
   %.sroa.4.8.copyload.i.i.i = load double, ptr %.sroa.4.8..sroa_idx.i.i.i, align 8
   %.sroa.5.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.8.copyload.i.i.i = load double, ptr %.sroa.5.8..sroa_idx.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %7 = fptrunc double %6 to float
   %8 = fptrunc double %.sroa.2.8.copyload.i.i.i to float
   %9 = fptrunc double %.sroa.4.8.copyload.i.i.i to float
@@ -902,7 +902,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC2ERKNS_10GfRotati
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4f12SetTransformERKNS_10GfRotationERKNS_7GfVec3fE(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load double, ptr %5, align 8, !noalias !20
@@ -911,7 +911,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %.sroa.4.8.copyload.i.i = load double, ptr %.sroa.4.8..sroa_idx.i.i, align 8
   %.sroa.5.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.8.copyload.i.i = load double, ptr %.sroa.5.8..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %7 = fptrunc double %6 to float
   %8 = fptrunc double %.sroa.2.8.copyload.i.i to float
   %9 = fptrunc double %.sroa.4.8.copyload.i.i to float
@@ -1567,7 +1567,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f12GetTransposeEv(
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4f9SetRotateERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load double, ptr %4, align 8, !noalias !23
@@ -1576,7 +1576,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %.sroa.4.8.copyload.i = load double, ptr %.sroa.4.8..sroa_idx.i, align 8
   %.sroa.5.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.8.copyload.i = load double, ptr %.sroa.5.8..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = fptrunc double %5 to float
   %7 = fptrunc double %.sroa.2.8.copyload.i to float
   %8 = fptrunc double %.sroa.4.8.copyload.i to float
@@ -3168,7 +3168,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4f13SetRotateOnlyERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(64) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load double, ptr %4, align 8, !noalias !26
@@ -3177,7 +3177,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZN32pxrInternal_v0_24__
   %.sroa.4.8.copyload = load double, ptr %.sroa.4.8..sroa_idx, align 8
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.8.copyload = load double, ptr %.sroa.5.8..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %6 = fptrunc double %5 to float
   %7 = fptrunc double %.sroa.2.8.copyload to float
   %8 = fptrunc double %.sroa.4.8.copyload to float
@@ -3498,7 +3498,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds =
   %33 = fneg float %10
   %34 = fneg float %8
   %35 = fneg float %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5), !noalias !32
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = load double, ptr %36, align 8, !noalias !32
@@ -3507,7 +3507,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds =
   %.sroa.4.8.copyload.i.i = load double, ptr %.sroa.4.8..sroa_idx.i.i, align 8
   %.sroa.5.8..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.8.copyload.i.i = load double, ptr %.sroa.5.8..sroa_idx.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %38 = fptrunc double %37 to float
   %39 = fptrunc double %.sroa.2.8.copyload.i.i to float
   %40 = fptrunc double %.sroa.4.8.copyload.i.i to float
@@ -4314,8 +4314,8 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = tail call { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4f19ExtractRotationQuatEv(ptr noundef nonnull readonly align 4 dereferenceable(64) %0), !noalias !46
   %13 = extractvalue { <2 x float>, <2 x float> } %12, 0
   store <2 x float> %13, ptr %6, align 8, !noalias !46
@@ -4324,8 +4324,8 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4
   store <2 x float> %15, ptr %14, align 8, !noalias !46
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC1ERKNS_7GfQuatfE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(16) %6), !noalias !46
   %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation7SetQuatERKNS_7GfQuatdE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %17 = load float, ptr %1, align 4
   %18 = fpext float %17 to double
   store double %18, ptr %9, align 8
@@ -4536,10 +4536,10 @@ define internal void @_GLOBAL__sub_I_matrix4f.cpp() #19 section ".text.startup" 
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #22

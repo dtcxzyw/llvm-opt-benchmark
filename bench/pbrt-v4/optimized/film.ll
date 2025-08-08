@@ -70,13 +70,7 @@ $_ZTSZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_ = comdat any
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt23WavefrontPathIntegrator10UpdateFilmEv(ptr noundef nonnull align 8 dereferenceable(648) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
@@ -84,7 +78,7 @@ define dso_local void @_ZN4pbrt23WavefrontPathIntegrator10UpdateFilmEv(ptr nound
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i32, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %8 = load i8, ptr %7, align 2, !tbaa !54, !range !57, !noundef !58
@@ -105,7 +99,7 @@ define dso_local void @_ZN4pbrt23WavefrontPathIntegrator10UpdateFilmEv(ptr nound
   store i64 %12, ptr %3, align 8, !tbaa !59
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator10UpdateFilmEvE3$_0E9_M_invokeERKSt9_Any_dataOl", ptr %15, align 8, !tbaa !61
   store ptr @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegrator10UpdateFilmEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %14, align 8, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -152,7 +146,7 @@ define dso_local void @_ZN4pbrt23WavefrontPathIntegrator10UpdateFilmEv(ptr nound
   unreachable
 
 36:                                               ; preds = %23, %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %37 = load ptr, ptr %14, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %"_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_10UpdateFilmEvE3$_0EEvPKciOT_.exit", label %38
@@ -188,7 +182,7 @@ _ZNSt14_Function_baseD2Ev.exit4.i:                ; preds = %44, %.body.i
   resume { ptr, i32 } %29
 
 "_ZN4pbrt23WavefrontPathIntegrator11ParallelForIZNS0_10UpdateFilmEvE3$_0EEvPKciOT_.exit": ; preds = %36, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -241,7 +235,7 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvllEZN4pbrt11Paral
 .lr.ph.i.i.i:                                     ; preds = %3, %_ZNKSt8functionIFvlEEclEl.exit.i.i.i
   %.05.i.i.i = phi i64 [ %14, %_ZNKSt8functionIFvlEEclEl.exit.i.i.i ], [ %5, %3 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !70
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.05.i.i.i, ptr %4, align 8, !tbaa !69
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !64
@@ -256,7 +250,7 @@ _ZNKSt8functionIFvlEEclEl.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !61
   call void %13(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = add i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %14, %6
   br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIvRZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_JllEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES7_E4typeEOS8_DpOS9_.exit, label %.lr.ph.i.i.i, !llvm.loop !72
@@ -367,7 +361,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %35, align 16
   %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %.sroa.2.0..0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 232
   %37 = load ptr, ptr %36, align 8, !tbaa !83
   %38 = getelementptr inbounds %"struct.pbrt::Float4", ptr %37, i64 %19
@@ -377,7 +371,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i23.i.i.i, ptr %14, align 8
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i25.i.i.i, ptr %39, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i.i.i.i, ptr %13, align 8
   %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !tbaa !84
@@ -398,9 +392,9 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt23WavefrontPathIntegr
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   %.sroa.0.0.copyload.i.i.i.i = load <2 x float>, ptr %13, align 8
   %.sroa.2.0.copyload.i.i.i.i = load <2 x float>, ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
@@ -432,7 +426,7 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   br i1 %58, label %59, label %155
 
 59:                                               ; preds = %_ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %60 = getelementptr inbounds nuw i8, ptr %.val, i64 256
   %61 = load ptr, ptr %60, align 8, !tbaa !105, !noalias !102
@@ -557,17 +551,17 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, ptr %146, align 8, !alias.scope !102
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 80
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !84, !alias.scope !102
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %8, align 8
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i, ptr %9, align 8
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i, ptr %147, align 8
   store ptr %16, ptr %10, align 8, !tbaa !132
   store float %56, ptr %11, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %8, ptr %12, align 8, !tbaa !134
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %148, align 8, !tbaa !136
@@ -581,26 +575,26 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   %153 = trunc nuw nsw i64 %152 to i32
   %154 = add nsw i32 %153, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4Film9AddSampleENS_6Point2IiEENS_15SampledSpectrumERKNS_18SampledWavelengthsEPKNS_14VisibleSurfaceEfEUlT_E_vNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OSC_Pvi(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull %29, i32 noundef %154)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %164
 
 155:                                              ; preds = %_ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %3, align 8
   store <2 x float> %.sroa.0.0.copyload.i.i.i.i, ptr %4, align 8
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %.sroa.2.0.copyload.i.i.i.i, ptr %156, align 8
   store ptr null, ptr %5, align 8, !tbaa !132
   store float %56, ptr %6, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %3, ptr %7, align 8, !tbaa !134
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %157, align 8, !tbaa !136
@@ -614,15 +608,15 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit.i.i.i:    ; preds = %40
   %162 = trunc nuw nsw i64 %161 to i32
   %163 = add nsw i32 %162, -1
   call void @_ZN4pbrt6detail8DispatchIRZNS_4Film9AddSampleENS_6Point2IiEENS_15SampledSpectrumERKNS_18SampledWavelengthsEPKNS_14VisibleSurfaceEfEUlT_E_vNS_7RGBFilmENS_11GBufferFilmENS_12SpectralFilmEEET0_OSC_Pvi(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %29, i32 noundef %163)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %164
 
 164:                                              ; preds = %155, %59
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %"_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator10UpdateFilmEvE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit"
 
 "_ZSt10__invoke_rIvRZN4pbrt23WavefrontPathIntegrator10UpdateFilmEvE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %2, %164
@@ -680,7 +674,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNS_4Film9AddSampl
   %16 = tail call { <2 x float>, float } @_ZNK4pbrt11PixelSensor11ToSensorRGBENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(164) %15, <2 x float> %.sroa.0.0.copyload.i11, <2 x float> %.sroa.2.0.copyload.i13, ptr noundef nonnull align 4 dereferenceable(32) %9)
   %.fca.0.extract.i.i = extractvalue { <2 x float>, float } %16, 0
   %.fca.1.extract.i.i = extractvalue { <2 x float>, float } %16, 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.fca.0.extract.i.i, i64 0
   store float %.sroa.0.0.vec.extract.i.i, ptr %4, align 4, !tbaa !85
   %.ptr40.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -705,7 +699,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNS_4Film9AddSampl
 
 _ZSt3maxIfET_St16initializer_listIS0_E.exit.i.i:  ; preds = %.lr.ph.i.i.i.i
   %22 = load float, ptr %spec.select.i.i.i.i, align 4, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = load float, ptr %23, align 8, !tbaa !159
   %25 = fcmp ogt float %22, %24
@@ -814,9 +808,9 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZNK4pbrt11PixelSensor11To
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %19, align 4, !tbaa !85
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.3.0.copyload.i = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x float> %1, ptr %12, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store <2 x float> %2, ptr %20, align 8
@@ -851,16 +845,16 @@ _ZN4pbrt7SafeDivENS_15SampledSpectrumES0_.exit:   ; preds = %30
   %.fca.0.load.i = load <2 x float>, ptr %11, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store <2 x float> %.fca.0.load.i, ptr %14, align 8
   store <2 x float> %.fca.1.load.i, ptr %18, align 8, !tbaa !84
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %34 = load float, ptr %33, align 8, !tbaa !176
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !tbaa !85
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i64, ptr %36, align 8
@@ -901,8 +895,8 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
   %.fca.0.load.i21 = load <2 x float>, ptr %10, align 8
   %.fca.1.gep.i23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.fca.1.load.i24 = load <2 x float>, ptr %.fca.1.gep.i23, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x float> %.fca.0.load.i21, ptr %9, align 8
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store <2 x float> %.fca.1.load.i24, ptr %.sroa.485.0..sroa_idx, align 8, !tbaa !84
@@ -923,7 +917,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; pred
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %55
   %.sroa.0.0.copyload.i26 = load <2 x float>, ptr %9, align 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.485.0..sroa_idx, align 8, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store <2 x float> %.sroa.0.0.copyload.i26, ptr %15, align 8
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %61, align 8
@@ -941,9 +935,9 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit:          ; preds = %55
   br i1 %exitcond.not.i31, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit, label %63, !llvm.loop !183
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit:        ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !tbaa !85
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %69 = load i64, ptr %68, align 8
@@ -984,8 +978,8 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit42: ; pr
   %.fca.0.load.i37 = load <2 x float>, ptr %8, align 8
   %.fca.1.gep.i39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.fca.1.load.i40 = load <2 x float>, ptr %.fca.1.gep.i39, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x float> %.fca.0.load.i37, ptr %7, align 8
   %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store <2 x float> %.fca.1.load.i40, ptr %.sroa.483.0..sroa_idx, align 8, !tbaa !84
@@ -1006,7 +1000,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit42: ; pr
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit51:        ; preds = %87
   %.sroa.0.0.copyload.i46 = load <2 x float>, ptr %7, align 8
   %.sroa.2.0.copyload.i48 = load <2 x float>, ptr %.sroa.483.0..sroa_idx, align 8, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store <2 x float> %.sroa.0.0.copyload.i46, ptr %16, align 8
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store <2 x float> %.sroa.2.0.copyload.i48, ptr %93, align 8
@@ -1024,9 +1018,9 @@ _ZNK4pbrt15SampledSpectrummlERKS0_.exit51:        ; preds = %87
   br i1 %exitcond.not.i55, label %_ZNK4pbrt15SampledSpectrum7AverageEv.exit56, label %95, !llvm.loop !183
 
 _ZNK4pbrt15SampledSpectrum7AverageEv.exit56:      ; preds = %95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !tbaa !85
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %101 = load i64, ptr %100, align 8
@@ -1067,8 +1061,8 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit67: ; pr
   %.fca.0.load.i62 = load <2 x float>, ptr %6, align 8
   %.fca.1.gep.i64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.fca.1.load.i65 = load <2 x float>, ptr %.fca.1.gep.i64, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x float> %.fca.0.load.i62, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store <2 x float> %.fca.1.load.i65, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
@@ -1089,7 +1083,7 @@ _ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit67: ; pr
 _ZNK4pbrt15SampledSpectrummlERKS0_.exit76:        ; preds = %119
   %.sroa.0.0.copyload.i71 = load <2 x float>, ptr %5, align 8
   %.sroa.2.0.copyload.i73 = load <2 x float>, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store <2 x float> %.sroa.0.0.copyload.i71, ptr %17, align 8
   %125 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store <2 x float> %.sroa.2.0.copyload.i73, ptr %125, align 8
@@ -1117,9 +1111,9 @@ _ZNK4pbrt15SampledSpectrum7AverageEv.exit81:      ; preds = %127
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %135, i64 1
   %.fca.0.insert.i.i = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert.i.i, 0
   %.fca.1.insert.i.i = insertvalue { <2 x float>, float } %.fca.0.insert.i.i, float %136, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret { <2 x float>, float } %.fca.1.insert.i.i
 }
 
@@ -1140,7 +1134,7 @@ define linkonce_odr dso_local void @_ZN4pbrt12SpectralFilm9AddSampleENS_6Point2I
   %13 = tail call { <2 x float>, float } @_ZNK4pbrt11PixelSensor11ToSensorRGBENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull align 8 dereferenceable(164) %12, <2 x float> %2, <2 x float> %3, ptr noundef nonnull align 4 dereferenceable(32) %4)
   %.fca.0.extract = extractvalue { <2 x float>, float } %13, 0
   %.fca.1.extract = extractvalue { <2 x float>, float } %13, 1
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 0
   store float %.sroa.0.0.vec.extract, ptr %9, align 4, !tbaa !85
   %.ptr61 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1166,7 +1160,7 @@ define linkonce_odr dso_local void @_ZN4pbrt12SpectralFilm9AddSampleENS_6Point2I
 
 _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %20 = load float, ptr %spec.select.i.i, align 4, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %22 = load float, ptr %21, align 4, !tbaa !184
   %23 = fcmp ogt float %20, %22
@@ -1347,6 +1341,12 @@ define internal void @_GLOBAL__sub_I_film.cpp() #12 section ".text.startup" {
   tail call void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1) @_ZN4pbrtL25STATS_REGnBufferCacheHitsE, ptr noundef nonnull @"_ZN4pbrt3$_18__invokeERNS_16StatsAccumulatorE", ptr noundef null)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

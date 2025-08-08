@@ -2067,8 +2067,8 @@ _ZN6hermes6parser7JSLexer10decodeUTF8Ev.exit:     ; preds = %if.then.i.i124, %if
 if.then714:                                       ; preds = %_ZN6hermes6parser7JSLexer10decodeUTF8Ev.exit
   %tmpStorage_715 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i32 0, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i126 = icmp ult i32 %retval.0.i.i123, 65536
   br i1 %cmp.i.i126, label %if.end.i.i127, label %if.else.i.i
@@ -2124,8 +2124,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %66 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %65, %66
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   switch i32 %grammarContext, label %if.else4.i131 [
     i32 2, label %if.then.i130
     i32 3, label %if.then3.i129
@@ -2259,7 +2259,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %output.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %output.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output.i) #20
   call void @_ZN6hermes47convertUTF8WithSurrogatesToUTF8WithReplacementsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %output.i, ptr %str.coerce0, i64 %str.coerce1) #20
   %strTab_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2268,7 +2268,7 @@ if.then:                                          ; preds = %entry
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %output.i) #20
   %call.i = call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %call.i.i, i64 %call2.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output.i) #20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %output.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %output.i)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2286,7 +2286,7 @@ return:                                           ; preds = %if.end, %if.then
 define hidden void @_ZN6hermes6parser7JSLexer15scanLineCommentEPKc(ptr noundef nonnull align 8 dereferenceable(1128) %this, ptr noundef %start) local_unnamed_addr #1 align 2 {
 entry:
   %cur.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cur.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %cur.i)
   %add.ptr.i31 = getelementptr inbounds nuw i8, ptr %start, i64 2
   store ptr %add.ptr.i31, ptr %cur.i, align 8
   %bufferEnd_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -2360,7 +2360,7 @@ _ZN6hermes6parser7JSLexer17lineCommentHelperEPKc.exit: ; preds = %sw.bb.i, %endL
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cur.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %cur.i)
   %storeComments_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   %7 = load i8, ptr %storeComments_, align 1
   %tobool = trunc i8 %7 to i1
@@ -2863,8 +2863,8 @@ sw.epilog46:                                      ; preds = %_ZN4llvh23SmallVect
 if.then50:                                        ; preds = %sw.bb31, %sw.bb19, %_ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit8, %_ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit, %sw.epilog46
   %26 = phi ptr [ %25, %sw.epilog46 ], [ %2, %sw.bb31 ], [ %incdec.ptr12, %sw.bb19 ], [ %2, %_ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit8 ], [ %incdec.ptr12, %_ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit ]
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -2917,8 +2917,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %32 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %31, %32
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %if.end57
 
 if.else:                                          ; preds = %for.cond, %sw.bb25, %sw.bb15, %sw.bb7, %sw.bb, %sw.epilog46
@@ -3613,7 +3613,7 @@ if.then253:                                       ; preds = %if.then244
   br label %done
 
 if.else256:                                       ; preds = %if.then240
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %47 = load ptr, ptr %curCharPtr_, align 8
   %cmp.not7.i = icmp eq ptr %start.3, %47
   br i1 %cmp.not7.i, label %"_ZZN6hermes6parser7JSLexer10scanNumberENS1_14GrammarContextEENK3$_1clEv.exit", label %for.body.i92
@@ -3647,11 +3647,11 @@ if.end.i93:                                       ; preds = %for.body.i92
   store ptr @.str.422, ptr %ref.tmp.i, align 8
   store i8 3, ptr %LHSKind.i.i, align 8
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh5SMLocENS2_7SMRangeERKNS2_5TwineENS_7WarningENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %49, i32 noundef 1, ptr %retval.sroa.0.0.copyload.i.i, ptr %retval.sroa.0.0.copyload.i.i, ptr %47, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i, i32 noundef 4, i32 noundef 0) #20
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %if.end273
 
 "_ZZN6hermes6parser7JSLexer10scanNumberENS1_14GrammarContextEENK3$_1clEv.exit": ; preds = %for.cond.i, %for.body.i92, %for.body.i92, %if.else256
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %cmp257.not = icmp eq i32 %radix.3, 10
   br i1 %cmp257.not, label %if.end273, label %if.then259
 
@@ -4015,7 +4015,7 @@ if.end.i.i204:                                    ; preds = %_ZN4llvhplERKNS_5Tw
   br label %done
 
 if.then399:                                       ; preds = %if.end381
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i207)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i207)
   br label %for.body.i210
 
 for.cond.i221:                                    ; preds = %if.end.i212
@@ -4053,7 +4053,7 @@ if.then11.i216:                                   ; preds = %if.end.i212
 "_ZZN6hermes6parser7JSLexer10scanNumberENS1_14GrammarContextEENK3$_1clEv.exit224": ; preds = %for.cond.i221, %for.body.i210, %for.body.i210, %if.then11.i216
   %.pre323 = phi ptr [ %.pre323.pre, %if.then11.i216 ], [ %102, %for.body.i210 ], [ %102, %for.body.i210 ], [ %102, %for.cond.i221 ]
   %radix.7 = phi i32 [ 10, %if.then11.i216 ], [ %radix.3, %for.body.i210 ], [ %radix.3, %for.body.i210 ], [ %radix.3, %for.cond.i221 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i207)
   %tobool400 = trunc nuw i8 %seenSeparator.3 to i1
   br i1 %tobool400, label %if.then402, label %if.end411
 
@@ -4178,7 +4178,7 @@ if.then18:                                        ; preds = %if.end
   br label %return
 
 if.end25:                                         ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end15.i, %if.end25
@@ -4237,7 +4237,7 @@ if.end15.i:                                       ; preds = %if.then7.i, %if.the
 
 _ZN6hermes6parser7JSLexer10consumeHexEjb.exit:    ; preds = %if.end15.i, %if.else9.i, %if.end.i.i
   %retval.sroa.2.0.i = phi i32 [ 65533, %if.end.i.i ], [ 65533, %if.else9.i ], [ %add.i, %if.end15.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 return:                                           ; preds = %_ZN6hermes6parser7JSLexer10consumeHexEjb.exit, %if.then18, %if.end.i, %if.then
@@ -4315,8 +4315,8 @@ entry:
   %buf.i = alloca [8 x i8], align 1
   %d.i = alloca ptr, align 8
   %tmpStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   store ptr %buf.i, ptr %d.i, align 8
   %cmp.i = icmp ult i32 %cp, 65536
   br i1 %cmp.i, label %if.end.i, label %if.else.i
@@ -4373,8 +4373,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
   %5 = trunc i64 %sub.ptr.sub.i.i.i.i to i32
   %conv.i12.i.i = add i32 %4, %5
   store i32 %conv.i12.i.i, ptr %Size.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   ret void
 }
 
@@ -4776,8 +4776,8 @@ sw.bb82:                                          ; preds = %_ZN4llvh23SmallVect
 
 if.then92:                                        ; preds = %sw.bb82
   store ptr %arrayidx84, ptr %curCharPtr_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef 0) #20
   %65 = load ptr, ptr %d.i.i, align 8
@@ -4815,8 +4815,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %70 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %69, %70
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %if.end236
 
 sw.bb96:                                          ; preds = %sw.bb82, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26
@@ -4864,14 +4864,14 @@ if.end15.i:                                       ; preds = %if.then7.i, %if.the
   br i1 %cmp.not.i113, label %cond.end, label %for.body.i, !llvm.loop !59
 
 cond.end.thread:                                  ; preds = %if.else.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i117)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i118)
   store ptr %buf.i.i117, ptr %d.i.i118, align 8
   br label %if.end.i.i
 
 cond.end:                                         ; preds = %if.end15.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i117)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i117)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i118)
   store ptr %buf.i.i117, ptr %d.i.i118, align 8
   %cmp.i.i = icmp ult i32 %add.i112, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -4925,8 +4925,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit141: ; preds = %if.end.i
   %80 = trunc i64 %sub.ptr.sub.i.i.i.i.i122 to i32
   %conv.i12.i.i.i136 = add i32 %79, %80
   store i32 %conv.i12.i.i.i136, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i117)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i118)
   %81 = load ptr, ptr %curCharPtr_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %81 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr101 to i64
@@ -4979,8 +4979,8 @@ if.then122:                                       ; preds = %sw.bb113
   br label %if.end236
 
 if.end124:                                        ; preds = %sw.bb113
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i149)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i150)
   store ptr %buf.i.i149, ptr %d.i.i150, align 8
   %cmp.i.i152 = icmp ult i32 %codepoint.sroa.0.0.extract.trunc, 65536
   br i1 %cmp.i.i152, label %if.end.i.i160, label %if.else.i.i153
@@ -5033,8 +5033,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit183: ; preds = %if.end.i
   %92 = trunc i64 %sub.ptr.sub.i.i.i.i.i164 to i32
   %conv.i12.i.i.i178 = add i32 %91, %92
   store i32 %conv.i12.i.i.i178, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i149)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i150)
   %93 = load ptr, ptr %curCharPtr_, align 8
   %sub.ptr.lhs.cast129 = ptrtoint ptr %93 to i64
   %sub.ptr.rhs.cast130 = ptrtoint ptr %add.ptr116 to i64
@@ -5109,8 +5109,8 @@ _ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit: ; p
   %104 = load i32, ptr %Size.i.i15, align 8
   %sub.i205 = add i32 %104, -1
   store i32 %sub.i205, ptr %Size.i.i15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   store ptr %buf.i, ptr %d.i, align 8
   %cmp.i206 = icmp ult i32 %call.i, 65536
   br i1 %cmp.i206, label %if.end.i, label %if.else.i207
@@ -5163,13 +5163,13 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
   %110 = trunc i64 %sub.ptr.sub.i.i.i.i to i32
   %conv.i12.i.i222 = add i32 %109, %110
   store i32 %conv.i12.i.i222, ptr %Size.i.i15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   br i1 %103, label %if.end236, label %if.then154
 
 if.then154:                                       ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i226)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i227)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i226)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i227)
   store ptr %buf.i.i226, ptr %d.i.i227, align 8
   br i1 %cmp.i206, label %if.end.i.i237, label %if.else.i.i230
 
@@ -5221,8 +5221,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit260: ; preds = %if.end.i
   %116 = trunc i64 %sub.ptr.sub.i.i.i.i.i241 to i32
   %conv.i12.i.i.i255 = add i32 %115, %116
   store i32 %conv.i12.i.i.i255, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i226)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i227)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i226)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i227)
   br label %if.end236
 
 sw.default:                                       ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit26
@@ -5231,8 +5231,8 @@ sw.default:                                       ; preds = %_ZN4llvh23SmallVect
 
 if.then159:                                       ; preds = %sw.default
   %call.i262 = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i263)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i264)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i263)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i264)
   store ptr %buf.i.i263, ptr %d.i.i264, align 8
   %cmp.i.i266 = icmp ult i32 %call.i262, 65536
   br i1 %cmp.i.i266, label %if.end.i.i274, label %if.else.i.i267
@@ -5285,13 +5285,13 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit297: ; preds = %if.end.i
   %122 = trunc i64 %sub.ptr.sub.i.i.i.i.i278 to i32
   %conv.i12.i.i.i292 = add i32 %121, %122
   store i32 %conv.i12.i.i.i292, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i263)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i264)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i263)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i264)
   %123 = load i32, ptr %Size.i.i15, align 8
   %sub.i299 = add i32 %123, -1
   store i32 %sub.i299, ptr %Size.i.i15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i300)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i301)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i300)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i301)
   store ptr %buf.i300, ptr %d.i301, align 8
   br i1 %cmp.i.i266, label %if.end.i310, label %if.else.i303
 
@@ -5343,8 +5343,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
   %129 = trunc i64 %sub.ptr.sub.i.i.i.i314 to i32
   %conv.i12.i.i328 = add i32 %128, %129
   store i32 %conv.i12.i.i328, ptr %Size.i.i15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i300)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i301)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i300)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i301)
   br label %if.end236
 
 if.else165:                                       ; preds = %sw.default
@@ -5468,8 +5468,8 @@ if.else216:                                       ; preds = %if.else
 
 if.then220:                                       ; preds = %if.else216
   %call.i383 = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i384)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i385)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i384)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i385)
   store ptr %buf.i.i384, ptr %d.i.i385, align 8
   %cmp.i.i387 = icmp ult i32 %call.i383, 65536
   br i1 %cmp.i.i387, label %if.end.i.i395, label %if.else.i.i388
@@ -5522,10 +5522,10 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit418: ; preds = %if.end.i
   %160 = trunc i64 %sub.ptr.sub.i.i.i.i.i399 to i32
   %conv.i12.i.i.i413 = add i32 %159, %160
   store i32 %conv.i12.i.i.i413, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i384)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i385)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i419)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i420)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i384)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i385)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i419)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i420)
   store ptr %buf.i419, ptr %d.i420, align 8
   br i1 %cmp.i.i387, label %if.end.i429, label %if.else.i422
 
@@ -5577,8 +5577,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
   %166 = trunc i64 %sub.ptr.sub.i.i.i.i433 to i32
   %conv.i12.i.i447 = add i32 %165, %166
   store i32 %conv.i12.i.i447, ptr %Size.i.i15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i419)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i420)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i419)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i420)
   br label %if.end236
 
 if.else225:                                       ; preds = %land.rhs, %land.lhs.true, %if.else216
@@ -5771,8 +5771,8 @@ for.cond18:                                       ; preds = %for.cond18.backedge
 
 if.then22:                                        ; preds = %for.cond18
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -5825,10 +5825,10 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %10 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %9, %10
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   store ptr %buf.i, ptr %d.i, align 8
   br i1 %cmp.i.i, label %if.end.i, label %if.else.i
 
@@ -5880,8 +5880,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i to i32
   %conv.i12.i.i = add i32 %15, %16
   store i32 %conv.i12.i.i, ptr %Size.i.i6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i)
   br label %for.cond18.backedge
 
 for.cond18.backedge:                              ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEjRN4llvh15SmallVectorImplIcEE.exit, %_ZN4llvh11SmallStringILj256EE6appendENS_9StringRefE.exit, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit83
@@ -5903,8 +5903,8 @@ if.then28:                                        ; preds = %if.else
   br i1 %tobool.i.not, label %if.end60, label %if.then32
 
 if.then32:                                        ; preds = %if.then28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i13)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i14)
   store ptr %buf.i.i13, ptr %d.i.i14, align 8
   %cmp.i.i16 = icmp ult i32 %codePoint.sroa.0.0.extract.trunc, 65536
   br i1 %cmp.i.i16, label %if.end.i.i24, label %if.else.i.i17
@@ -5957,8 +5957,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit47: ; preds = %if.end.i.
   %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i28 to i32
   %conv.i12.i.i.i42 = add i32 %21, %22
   store i32 %conv.i12.i.i.i42, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i14)
   %23 = load ptr, ptr %curCharPtr_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
@@ -6216,7 +6216,7 @@ if.then88:                                        ; preds = %for.body
   store ptr %add.ptr90, ptr %ref.tmp, align 8
   %Length.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %idx.ext, ptr %Length.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %TheBucket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %TheBucket.i)
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i)
   br i1 %call.i, label %if.then.i, label %if.end.i
 
@@ -6234,7 +6234,7 @@ if.end.i:                                         ; preds = %if.then88
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit: ; preds = %if.then.i, %if.end.i
   %.pn2.i = phi ptr [ %7, %if.then.i ], [ %add.ptr.i.i.i, %if.end.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %TheBucket.i)
   %10 = load ptr, ptr %htmlEntities_, align 8
   %11 = load ptr, ptr %10, align 8
   %NumBuckets.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -6478,11 +6478,11 @@ sw.default:                                       ; preds = %for.cond
   br i1 %cmp.i21, label %if.then48, label %return
 
 if.then48:                                        ; preds = %sw.bb24, %land.lhs.true, %sw.bb20, %sw.default
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %ptr.0, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
   %20 = load ptr, ptr %at.addr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   %call50 = call noundef zeroext i1 @_ZN6hermes18isUnicodeOnlySpaceEj(i32 noundef %call.i) #20
   br i1 %call50, label %for.condthread-pre-split.backedge, label %return
 
@@ -7255,14 +7255,14 @@ if.end.i.i39:                                     ; preds = %_ZN4llvhplERKNS_5Tw
   br label %return
 
 if.else.thread:                                   ; preds = %if.then18, %if.then18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i40
 
 if.else:                                          ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i, %_ZN6hermes16isUnicodeIDStartEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call21, 65536
   br i1 %cmp.i.i, label %if.end.i.i40, label %if.else.i.i
@@ -7318,8 +7318,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %21 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %20, %21
   store i32 %conv.i12.i.i.i, ptr %Size.i.i5, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %return
 
 if.end33:                                         ; preds = %if.end
@@ -7327,11 +7327,11 @@ if.end33:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.end33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i.i)
   store ptr %0, ptr %at.addr.i.i, align 8
   %call.i.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i.i)
   %22 = load ptr, ptr %at.addr.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i.i)
   switch i32 %call.i.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i44 [
     i32 95, label %if.then41.thread
     i32 36, label %if.then41.thread
@@ -7350,16 +7350,16 @@ _ZN6hermes16isUnicodeIDStartEj.exit48:            ; preds = %_ZN6hermes22isASCII
 if.then41.thread:                                 ; preds = %if.end38, %if.end38
   %Size.i.i4987 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 0, ptr %Size.i.i4987, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i51)
   store ptr %buf.i.i50, ptr %d.i.i51, align 8
   br label %if.end.i.i61
 
 if.then41:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i44, %_ZN6hermes16isUnicodeIDStartEj.exit48
   %Size.i.i49 = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i32 0, ptr %Size.i.i49, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i50)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i51)
   store ptr %buf.i.i50, ptr %d.i.i51, align 8
   %cmp.i.i53 = icmp ult i32 %call.i.i, 65536
   br i1 %cmp.i.i53, label %if.end.i.i61, label %if.else.i.i54
@@ -7417,8 +7417,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit84: ; preds = %if.end.i.
   %30 = trunc i64 %sub.ptr.sub.i.i.i.i.i65 to i32
   %conv.i12.i.i.i79 = add i32 %29, %30
   store i32 %conv.i12.i.i.i79, ptr %Size.i.i.i.i68, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i50)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i51)
   store ptr %22, ptr %curCharPtr_, align 8
   br label %return
 
@@ -7584,7 +7584,7 @@ entry:
   %bufId.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %bufId, ptr %bufId.addr, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !82
   %tobool.not.i.i = icmp eq ptr %url.coerce0, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -7599,7 +7599,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !82
   %sourceUrls_ = getelementptr inbounds nuw i8, ptr %this, i64 376
   %0 = load ptr, ptr %sourceUrls_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -7669,7 +7669,7 @@ entry:
   %bufId.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %bufId, ptr %bufId.addr, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !89
   %tobool.not.i.i = icmp eq ptr %url.coerce0, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -7684,7 +7684,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !89
   %sourceMappingUrls_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load ptr, ptr %sourceMappingUrls_, align 8
   %NumBuckets.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 368
@@ -7838,14 +7838,14 @@ if.end.i.i34:                                     ; preds = %_ZN4llvhplERKNS_5Tw
   br label %for.cond.backedge
 
 if.else16.thread:                                 ; preds = %if.then2, %if.then2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i35
 
 if.else16:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call5, 65536
   br i1 %cmp.i.i, label %if.end.i.i35, label %if.else.i.i
@@ -7898,8 +7898,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %15, %16
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN4llvhplERKNS_5TwineES2_.exit33, %if.end.i.i34, %for.cond
@@ -8440,11 +8440,11 @@ if.else:                                          ; preds = %lor.rhs
   br i1 %cmp.i, label %if.then20, label %if.end27
 
 if.then20:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
   %8 = load ptr, ptr %at.addr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then23
     i32 36, label %if.then23
@@ -8504,8 +8504,8 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit41: ; preds = %if.then23, 
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i29 to i32
   %conv.i12.i.i.i37 = add i32 %.pre.i.i.i36, %16
   store i32 %conv.i12.i.i.i37, ptr %Size.i.i.i26, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -8560,8 +8560,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i45 to i32
   %conv.i12.i.i.i53 = add i32 %21, %22
   store i32 %conv.i12.i.i.i53, ptr %Size.i.i.i26, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_25 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %8, ptr %curCharPtr_25, align 8
   call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE0EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
@@ -8711,11 +8711,11 @@ if.else:                                          ; preds = %lor.lhs.false4
   br i1 %cmp.i, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i.i)
   store ptr %0, ptr %at.addr.i.i, align 8
   %call.i.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i.i)
   %11 = load ptr, ptr %at.addr.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i.i)
   switch i32 %call.i.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then21.thread
     i32 36, label %if.then21.thread
@@ -8747,14 +8747,14 @@ _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   br i1 %spec.select.i, label %if.then21, label %return
 
 if.then21.thread:                                 ; preds = %if.then18, %if.then18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i
 
 if.then21:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -8812,8 +8812,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %21 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %20, %21
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   store ptr %11, ptr %curCharPtr_, align 8
   br label %return
 
@@ -8853,10 +8853,10 @@ entry:
   %0 = getelementptr inbounds nuw i8, ptr %name, i64 8
   store i64 %name.coerce1, ptr %0, align 8
   %strMap_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(16) %name, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %1 = load ptr, ptr %ConstFoundBucket.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i)
   %2 = load ptr, ptr %strMap_, align 8
   %NumBuckets.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %NumBuckets.i.i.i.i, align 8
@@ -8966,10 +8966,10 @@ _ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefER
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i, i64 16, i1 false)
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   store ptr %retval.0.i.i, ptr %second.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !109
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !109
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %strMap_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !109
   %26 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !109
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !109
   br i1 %call.i.i.i, label %return, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN6hermes13zeroTerminateINS_28BacktrackingBumpPtrAllocatorEEEN4llvh9StringRefERT_S3_.exit
@@ -9529,10 +9529,10 @@ entry:
   store i64 4, ptr %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i32 34, ptr %second.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !114
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !114
   %call.i.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i), !noalias !114
   %0 = load ptr, ptr %ConstFoundBucket.i.i.i, align 8, !noalias !114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i), !noalias !114
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i), !noalias !114
   br i1 %call.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -9549,10 +9549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp4.sroa.2.0.ref.tmp3.sroa_idx, align 8
   %second.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store i32 38, ptr %second.i3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i4), !noalias !119
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i4), !noalias !119
   %call.i.i.i5 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i4), !noalias !119
   %2 = load ptr, ptr %ConstFoundBucket.i.i.i4, align 8, !noalias !119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i4), !noalias !119
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i4), !noalias !119
   br i1 %call.i.i.i5, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit14, label %if.end.i.i6
 
 if.end.i.i6:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit
@@ -9569,10 +9569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp8.sroa.2.0.ref.tmp7.sroa_idx, align 8
   %second.i16 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
   store i32 39, ptr %second.i16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i17), !noalias !124
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i17), !noalias !124
   %call.i.i.i18 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i17), !noalias !124
   %4 = load ptr, ptr %ConstFoundBucket.i.i.i17, align 8, !noalias !124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i17), !noalias !124
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i17), !noalias !124
   br i1 %call.i.i.i18, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit27, label %if.end.i.i19
 
 if.end.i.i19:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit14
@@ -9589,10 +9589,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp12.sroa.2.0.ref.tmp11.sroa_idx, align 8
   %second.i29 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   store i32 60, ptr %second.i29, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i30), !noalias !129
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i30), !noalias !129
   %call.i.i.i31 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i30), !noalias !129
   %6 = load ptr, ptr %ConstFoundBucket.i.i.i30, align 8, !noalias !129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i30), !noalias !129
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i30), !noalias !129
   br i1 %call.i.i.i31, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit40, label %if.end.i.i32
 
 if.end.i.i32:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit27
@@ -9609,10 +9609,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp16.sroa.2.0.ref.tmp15.sroa_idx, align 8
   %second.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
   store i32 62, ptr %second.i42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i43), !noalias !134
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i43), !noalias !134
   %call.i.i.i44 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i43), !noalias !134
   %8 = load ptr, ptr %ConstFoundBucket.i.i.i43, align 8, !noalias !134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i43), !noalias !134
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i43), !noalias !134
   br i1 %call.i.i.i44, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit53, label %if.end.i.i45
 
 if.end.i.i45:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit40
@@ -9629,10 +9629,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp20.sroa.2.0.ref.tmp19.sroa_idx, align 8
   %second.i55 = getelementptr inbounds nuw i8, ptr %ref.tmp19, i64 16
   store i32 160, ptr %second.i55, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i56), !noalias !139
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i56), !noalias !139
   %call.i.i.i57 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i56), !noalias !139
   %10 = load ptr, ptr %ConstFoundBucket.i.i.i56, align 8, !noalias !139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i56), !noalias !139
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i56), !noalias !139
   br i1 %call.i.i.i57, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit66, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit53
@@ -9649,10 +9649,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp24.sroa.2.0.ref.tmp23.sroa_idx, align 8
   %second.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
   store i32 161, ptr %second.i68, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i69), !noalias !144
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i69), !noalias !144
   %call.i.i.i70 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i69), !noalias !144
   %12 = load ptr, ptr %ConstFoundBucket.i.i.i69, align 8, !noalias !144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i69), !noalias !144
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i69), !noalias !144
   br i1 %call.i.i.i70, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit79, label %if.end.i.i71
 
 if.end.i.i71:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit66
@@ -9669,10 +9669,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp28.sroa.2.0.ref.tmp27.sroa_idx, align 8
   %second.i81 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
   store i32 162, ptr %second.i81, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i82), !noalias !149
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i82), !noalias !149
   %call.i.i.i83 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i82), !noalias !149
   %14 = load ptr, ptr %ConstFoundBucket.i.i.i82, align 8, !noalias !149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i82), !noalias !149
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i82), !noalias !149
   br i1 %call.i.i.i83, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit92, label %if.end.i.i84
 
 if.end.i.i84:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit79
@@ -9689,10 +9689,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp32.sroa.2.0.ref.tmp31.sroa_idx, align 8
   %second.i94 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
   store i32 163, ptr %second.i94, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i95), !noalias !154
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i95), !noalias !154
   %call.i.i.i96 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i95), !noalias !154
   %16 = load ptr, ptr %ConstFoundBucket.i.i.i95, align 8, !noalias !154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i95), !noalias !154
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i95), !noalias !154
   br i1 %call.i.i.i96, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit105, label %if.end.i.i97
 
 if.end.i.i97:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit92
@@ -9709,10 +9709,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp36.sroa.2.0.ref.tmp35.sroa_idx, align 8
   %second.i107 = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 16
   store i32 164, ptr %second.i107, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i108), !noalias !159
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i108), !noalias !159
   %call.i.i.i109 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i108), !noalias !159
   %18 = load ptr, ptr %ConstFoundBucket.i.i.i108, align 8, !noalias !159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i108), !noalias !159
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i108), !noalias !159
   br i1 %call.i.i.i109, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit118, label %if.end.i.i110
 
 if.end.i.i110:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit105
@@ -9729,10 +9729,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp40.sroa.2.0.ref.tmp39.sroa_idx, align 8
   %second.i120 = getelementptr inbounds nuw i8, ptr %ref.tmp39, i64 16
   store i32 165, ptr %second.i120, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i121), !noalias !164
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i121), !noalias !164
   %call.i.i.i122 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i121), !noalias !164
   %20 = load ptr, ptr %ConstFoundBucket.i.i.i121, align 8, !noalias !164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i121), !noalias !164
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i121), !noalias !164
   br i1 %call.i.i.i122, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit131, label %if.end.i.i123
 
 if.end.i.i123:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit118
@@ -9749,10 +9749,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp44.sroa.2.0.ref.tmp43.sroa_idx, align 8
   %second.i133 = getelementptr inbounds nuw i8, ptr %ref.tmp43, i64 16
   store i32 166, ptr %second.i133, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i134), !noalias !169
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i134), !noalias !169
   %call.i.i.i135 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i134), !noalias !169
   %22 = load ptr, ptr %ConstFoundBucket.i.i.i134, align 8, !noalias !169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i134), !noalias !169
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i134), !noalias !169
   br i1 %call.i.i.i135, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit144, label %if.end.i.i136
 
 if.end.i.i136:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit131
@@ -9769,10 +9769,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp48.sroa.2.0.ref.tmp47.sroa_idx, align 8
   %second.i146 = getelementptr inbounds nuw i8, ptr %ref.tmp47, i64 16
   store i32 167, ptr %second.i146, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i147), !noalias !174
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i147), !noalias !174
   %call.i.i.i148 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i147), !noalias !174
   %24 = load ptr, ptr %ConstFoundBucket.i.i.i147, align 8, !noalias !174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i147), !noalias !174
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i147), !noalias !174
   br i1 %call.i.i.i148, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit157, label %if.end.i.i149
 
 if.end.i.i149:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit144
@@ -9789,10 +9789,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp52.sroa.2.0.ref.tmp51.sroa_idx, align 8
   %second.i159 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 16
   store i32 168, ptr %second.i159, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i160), !noalias !179
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i160), !noalias !179
   %call.i.i.i161 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i160), !noalias !179
   %26 = load ptr, ptr %ConstFoundBucket.i.i.i160, align 8, !noalias !179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i160), !noalias !179
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i160), !noalias !179
   br i1 %call.i.i.i161, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit170, label %if.end.i.i162
 
 if.end.i.i162:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit157
@@ -9809,10 +9809,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp56.sroa.2.0.ref.tmp55.sroa_idx, align 8
   %second.i172 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 16
   store i32 169, ptr %second.i172, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i173), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i173), !noalias !184
   %call.i.i.i174 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i173), !noalias !184
   %28 = load ptr, ptr %ConstFoundBucket.i.i.i173, align 8, !noalias !184
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i173), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i173), !noalias !184
   br i1 %call.i.i.i174, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit183, label %if.end.i.i175
 
 if.end.i.i175:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit170
@@ -9829,10 +9829,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp60.sroa.2.0.ref.tmp59.sroa_idx, align 8
   %second.i185 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 16
   store i32 170, ptr %second.i185, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i186), !noalias !189
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i186), !noalias !189
   %call.i.i.i187 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp59, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i186), !noalias !189
   %30 = load ptr, ptr %ConstFoundBucket.i.i.i186, align 8, !noalias !189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i186), !noalias !189
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i186), !noalias !189
   br i1 %call.i.i.i187, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit196, label %if.end.i.i188
 
 if.end.i.i188:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit183
@@ -9849,10 +9849,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp64.sroa.2.0.ref.tmp63.sroa_idx, align 8
   %second.i198 = getelementptr inbounds nuw i8, ptr %ref.tmp63, i64 16
   store i32 171, ptr %second.i198, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i199), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i199), !noalias !194
   %call.i.i.i200 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i199), !noalias !194
   %32 = load ptr, ptr %ConstFoundBucket.i.i.i199, align 8, !noalias !194
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i199), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i199), !noalias !194
   br i1 %call.i.i.i200, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit209, label %if.end.i.i201
 
 if.end.i.i201:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit196
@@ -9869,10 +9869,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp68.sroa.2.0.ref.tmp67.sroa_idx, align 8
   %second.i211 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 16
   store i32 172, ptr %second.i211, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i212), !noalias !199
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i212), !noalias !199
   %call.i.i.i213 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i212), !noalias !199
   %34 = load ptr, ptr %ConstFoundBucket.i.i.i212, align 8, !noalias !199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i212), !noalias !199
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i212), !noalias !199
   br i1 %call.i.i.i213, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit222, label %if.end.i.i214
 
 if.end.i.i214:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit209
@@ -9889,10 +9889,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp72.sroa.2.0.ref.tmp71.sroa_idx, align 8
   %second.i224 = getelementptr inbounds nuw i8, ptr %ref.tmp71, i64 16
   store i32 173, ptr %second.i224, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i225), !noalias !204
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i225), !noalias !204
   %call.i.i.i226 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i225), !noalias !204
   %36 = load ptr, ptr %ConstFoundBucket.i.i.i225, align 8, !noalias !204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i225), !noalias !204
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i225), !noalias !204
   br i1 %call.i.i.i226, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit235, label %if.end.i.i227
 
 if.end.i.i227:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit222
@@ -9909,10 +9909,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp76.sroa.2.0.ref.tmp75.sroa_idx, align 8
   %second.i237 = getelementptr inbounds nuw i8, ptr %ref.tmp75, i64 16
   store i32 174, ptr %second.i237, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i238), !noalias !209
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i238), !noalias !209
   %call.i.i.i239 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp75, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i238), !noalias !209
   %38 = load ptr, ptr %ConstFoundBucket.i.i.i238, align 8, !noalias !209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i238), !noalias !209
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i238), !noalias !209
   br i1 %call.i.i.i239, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit248, label %if.end.i.i240
 
 if.end.i.i240:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit235
@@ -9929,10 +9929,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp80.sroa.2.0.ref.tmp79.sroa_idx, align 8
   %second.i250 = getelementptr inbounds nuw i8, ptr %ref.tmp79, i64 16
   store i32 175, ptr %second.i250, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i251), !noalias !214
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i251), !noalias !214
   %call.i.i.i252 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i251), !noalias !214
   %40 = load ptr, ptr %ConstFoundBucket.i.i.i251, align 8, !noalias !214
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i251), !noalias !214
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i251), !noalias !214
   br i1 %call.i.i.i252, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit261, label %if.end.i.i253
 
 if.end.i.i253:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit248
@@ -9949,10 +9949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp84.sroa.2.0.ref.tmp83.sroa_idx, align 8
   %second.i263 = getelementptr inbounds nuw i8, ptr %ref.tmp83, i64 16
   store i32 176, ptr %second.i263, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i264), !noalias !219
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i264), !noalias !219
   %call.i.i.i265 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i264), !noalias !219
   %42 = load ptr, ptr %ConstFoundBucket.i.i.i264, align 8, !noalias !219
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i264), !noalias !219
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i264), !noalias !219
   br i1 %call.i.i.i265, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit274, label %if.end.i.i266
 
 if.end.i.i266:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit261
@@ -9969,10 +9969,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp88.sroa.2.0.ref.tmp87.sroa_idx, align 8
   %second.i276 = getelementptr inbounds nuw i8, ptr %ref.tmp87, i64 16
   store i32 177, ptr %second.i276, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i277), !noalias !224
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i277), !noalias !224
   %call.i.i.i278 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp87, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i277), !noalias !224
   %44 = load ptr, ptr %ConstFoundBucket.i.i.i277, align 8, !noalias !224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i277), !noalias !224
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i277), !noalias !224
   br i1 %call.i.i.i278, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit287, label %if.end.i.i279
 
 if.end.i.i279:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit274
@@ -9989,10 +9989,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp92.sroa.2.0.ref.tmp91.sroa_idx, align 8
   %second.i289 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 16
   store i32 178, ptr %second.i289, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i290), !noalias !229
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i290), !noalias !229
   %call.i.i.i291 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i290), !noalias !229
   %46 = load ptr, ptr %ConstFoundBucket.i.i.i290, align 8, !noalias !229
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i290), !noalias !229
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i290), !noalias !229
   br i1 %call.i.i.i291, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit300, label %if.end.i.i292
 
 if.end.i.i292:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit287
@@ -10009,10 +10009,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp96.sroa.2.0.ref.tmp95.sroa_idx, align 8
   %second.i302 = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 16
   store i32 179, ptr %second.i302, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i303), !noalias !234
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i303), !noalias !234
   %call.i.i.i304 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i303), !noalias !234
   %48 = load ptr, ptr %ConstFoundBucket.i.i.i303, align 8, !noalias !234
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i303), !noalias !234
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i303), !noalias !234
   br i1 %call.i.i.i304, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit313, label %if.end.i.i305
 
 if.end.i.i305:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit300
@@ -10029,10 +10029,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp100.sroa.2.0.ref.tmp99.sroa_idx, align 8
   %second.i315 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 16
   store i32 180, ptr %second.i315, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i316), !noalias !239
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i316), !noalias !239
   %call.i.i.i317 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i316), !noalias !239
   %50 = load ptr, ptr %ConstFoundBucket.i.i.i316, align 8, !noalias !239
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i316), !noalias !239
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i316), !noalias !239
   br i1 %call.i.i.i317, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit326, label %if.end.i.i318
 
 if.end.i.i318:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit313
@@ -10049,10 +10049,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp104.sroa.2.0.ref.tmp103.sroa_idx, align 8
   %second.i328 = getelementptr inbounds nuw i8, ptr %ref.tmp103, i64 16
   store i32 181, ptr %second.i328, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i329), !noalias !244
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i329), !noalias !244
   %call.i.i.i330 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i329), !noalias !244
   %52 = load ptr, ptr %ConstFoundBucket.i.i.i329, align 8, !noalias !244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i329), !noalias !244
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i329), !noalias !244
   br i1 %call.i.i.i330, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit339, label %if.end.i.i331
 
 if.end.i.i331:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit326
@@ -10069,10 +10069,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp108.sroa.2.0.ref.tmp107.sroa_idx, align 8
   %second.i341 = getelementptr inbounds nuw i8, ptr %ref.tmp107, i64 16
   store i32 182, ptr %second.i341, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i342), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i342), !noalias !249
   %call.i.i.i343 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i342), !noalias !249
   %54 = load ptr, ptr %ConstFoundBucket.i.i.i342, align 8, !noalias !249
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i342), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i342), !noalias !249
   br i1 %call.i.i.i343, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit352, label %if.end.i.i344
 
 if.end.i.i344:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit339
@@ -10089,10 +10089,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp112.sroa.2.0.ref.tmp111.sroa_idx, align 8
   %second.i354 = getelementptr inbounds nuw i8, ptr %ref.tmp111, i64 16
   store i32 183, ptr %second.i354, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i355), !noalias !254
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i355), !noalias !254
   %call.i.i.i356 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i355), !noalias !254
   %56 = load ptr, ptr %ConstFoundBucket.i.i.i355, align 8, !noalias !254
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i355), !noalias !254
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i355), !noalias !254
   br i1 %call.i.i.i356, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit365, label %if.end.i.i357
 
 if.end.i.i357:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit352
@@ -10109,10 +10109,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp116.sroa.2.0.ref.tmp115.sroa_idx, align 8
   %second.i367 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 16
   store i32 184, ptr %second.i367, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i368), !noalias !259
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i368), !noalias !259
   %call.i.i.i369 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i368), !noalias !259
   %58 = load ptr, ptr %ConstFoundBucket.i.i.i368, align 8, !noalias !259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i368), !noalias !259
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i368), !noalias !259
   br i1 %call.i.i.i369, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit378, label %if.end.i.i370
 
 if.end.i.i370:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit365
@@ -10129,10 +10129,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp120.sroa.2.0.ref.tmp119.sroa_idx, align 8
   %second.i380 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
   store i32 185, ptr %second.i380, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i381), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i381), !noalias !264
   %call.i.i.i382 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i381), !noalias !264
   %60 = load ptr, ptr %ConstFoundBucket.i.i.i381, align 8, !noalias !264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i381), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i381), !noalias !264
   br i1 %call.i.i.i382, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit391, label %if.end.i.i383
 
 if.end.i.i383:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit378
@@ -10149,10 +10149,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp124.sroa.2.0.ref.tmp123.sroa_idx, align 8
   %second.i393 = getelementptr inbounds nuw i8, ptr %ref.tmp123, i64 16
   store i32 186, ptr %second.i393, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i394), !noalias !269
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i394), !noalias !269
   %call.i.i.i395 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp123, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i394), !noalias !269
   %62 = load ptr, ptr %ConstFoundBucket.i.i.i394, align 8, !noalias !269
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i394), !noalias !269
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i394), !noalias !269
   br i1 %call.i.i.i395, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit404, label %if.end.i.i396
 
 if.end.i.i396:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit391
@@ -10169,10 +10169,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp128.sroa.2.0.ref.tmp127.sroa_idx, align 8
   %second.i406 = getelementptr inbounds nuw i8, ptr %ref.tmp127, i64 16
   store i32 187, ptr %second.i406, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i407), !noalias !274
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i407), !noalias !274
   %call.i.i.i408 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i407), !noalias !274
   %64 = load ptr, ptr %ConstFoundBucket.i.i.i407, align 8, !noalias !274
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i407), !noalias !274
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i407), !noalias !274
   br i1 %call.i.i.i408, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit417, label %if.end.i.i409
 
 if.end.i.i409:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit404
@@ -10189,10 +10189,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp132.sroa.2.0.ref.tmp131.sroa_idx, align 8
   %second.i419 = getelementptr inbounds nuw i8, ptr %ref.tmp131, i64 16
   store i32 188, ptr %second.i419, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i420), !noalias !279
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i420), !noalias !279
   %call.i.i.i421 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i420), !noalias !279
   %66 = load ptr, ptr %ConstFoundBucket.i.i.i420, align 8, !noalias !279
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i420), !noalias !279
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i420), !noalias !279
   br i1 %call.i.i.i421, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit430, label %if.end.i.i422
 
 if.end.i.i422:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit417
@@ -10209,10 +10209,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp136.sroa.2.0.ref.tmp135.sroa_idx, align 8
   %second.i432 = getelementptr inbounds nuw i8, ptr %ref.tmp135, i64 16
   store i32 189, ptr %second.i432, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i433), !noalias !284
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i433), !noalias !284
   %call.i.i.i434 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp135, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i433), !noalias !284
   %68 = load ptr, ptr %ConstFoundBucket.i.i.i433, align 8, !noalias !284
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i433), !noalias !284
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i433), !noalias !284
   br i1 %call.i.i.i434, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit443, label %if.end.i.i435
 
 if.end.i.i435:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit430
@@ -10229,10 +10229,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp140.sroa.2.0.ref.tmp139.sroa_idx, align 8
   %second.i445 = getelementptr inbounds nuw i8, ptr %ref.tmp139, i64 16
   store i32 190, ptr %second.i445, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i446), !noalias !289
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i446), !noalias !289
   %call.i.i.i447 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp139, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i446), !noalias !289
   %70 = load ptr, ptr %ConstFoundBucket.i.i.i446, align 8, !noalias !289
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i446), !noalias !289
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i446), !noalias !289
   br i1 %call.i.i.i447, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit456, label %if.end.i.i448
 
 if.end.i.i448:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit443
@@ -10249,10 +10249,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp144.sroa.2.0.ref.tmp143.sroa_idx, align 8
   %second.i458 = getelementptr inbounds nuw i8, ptr %ref.tmp143, i64 16
   store i32 191, ptr %second.i458, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i459), !noalias !294
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i459), !noalias !294
   %call.i.i.i460 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i459), !noalias !294
   %72 = load ptr, ptr %ConstFoundBucket.i.i.i459, align 8, !noalias !294
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i459), !noalias !294
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i459), !noalias !294
   br i1 %call.i.i.i460, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit469, label %if.end.i.i461
 
 if.end.i.i461:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit456
@@ -10269,10 +10269,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp148.sroa.2.0.ref.tmp147.sroa_idx, align 8
   %second.i471 = getelementptr inbounds nuw i8, ptr %ref.tmp147, i64 16
   store i32 192, ptr %second.i471, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i472), !noalias !299
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i472), !noalias !299
   %call.i.i.i473 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i472), !noalias !299
   %74 = load ptr, ptr %ConstFoundBucket.i.i.i472, align 8, !noalias !299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i472), !noalias !299
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i472), !noalias !299
   br i1 %call.i.i.i473, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit482, label %if.end.i.i474
 
 if.end.i.i474:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit469
@@ -10289,10 +10289,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp152.sroa.2.0.ref.tmp151.sroa_idx, align 8
   %second.i484 = getelementptr inbounds nuw i8, ptr %ref.tmp151, i64 16
   store i32 193, ptr %second.i484, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i485), !noalias !304
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i485), !noalias !304
   %call.i.i.i486 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp151, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i485), !noalias !304
   %76 = load ptr, ptr %ConstFoundBucket.i.i.i485, align 8, !noalias !304
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i485), !noalias !304
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i485), !noalias !304
   br i1 %call.i.i.i486, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit495, label %if.end.i.i487
 
 if.end.i.i487:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit482
@@ -10309,10 +10309,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp156.sroa.2.0.ref.tmp155.sroa_idx, align 8
   %second.i497 = getelementptr inbounds nuw i8, ptr %ref.tmp155, i64 16
   store i32 194, ptr %second.i497, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i498), !noalias !309
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i498), !noalias !309
   %call.i.i.i499 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i498), !noalias !309
   %78 = load ptr, ptr %ConstFoundBucket.i.i.i498, align 8, !noalias !309
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i498), !noalias !309
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i498), !noalias !309
   br i1 %call.i.i.i499, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit508, label %if.end.i.i500
 
 if.end.i.i500:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit495
@@ -10329,10 +10329,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp160.sroa.2.0.ref.tmp159.sroa_idx, align 8
   %second.i510 = getelementptr inbounds nuw i8, ptr %ref.tmp159, i64 16
   store i32 195, ptr %second.i510, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i511), !noalias !314
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i511), !noalias !314
   %call.i.i.i512 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i511), !noalias !314
   %80 = load ptr, ptr %ConstFoundBucket.i.i.i511, align 8, !noalias !314
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i511), !noalias !314
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i511), !noalias !314
   br i1 %call.i.i.i512, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit521, label %if.end.i.i513
 
 if.end.i.i513:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit508
@@ -10349,10 +10349,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp164.sroa.2.0.ref.tmp163.sroa_idx, align 8
   %second.i523 = getelementptr inbounds nuw i8, ptr %ref.tmp163, i64 16
   store i32 196, ptr %second.i523, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i524), !noalias !319
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i524), !noalias !319
   %call.i.i.i525 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i524), !noalias !319
   %82 = load ptr, ptr %ConstFoundBucket.i.i.i524, align 8, !noalias !319
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i524), !noalias !319
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i524), !noalias !319
   br i1 %call.i.i.i525, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit534, label %if.end.i.i526
 
 if.end.i.i526:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit521
@@ -10369,10 +10369,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp168.sroa.2.0.ref.tmp167.sroa_idx, align 8
   %second.i536 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
   store i32 197, ptr %second.i536, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i537), !noalias !324
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i537), !noalias !324
   %call.i.i.i538 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp167, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i537), !noalias !324
   %84 = load ptr, ptr %ConstFoundBucket.i.i.i537, align 8, !noalias !324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i537), !noalias !324
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i537), !noalias !324
   br i1 %call.i.i.i538, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit547, label %if.end.i.i539
 
 if.end.i.i539:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit534
@@ -10389,10 +10389,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp172.sroa.2.0.ref.tmp171.sroa_idx, align 8
   %second.i549 = getelementptr inbounds nuw i8, ptr %ref.tmp171, i64 16
   store i32 198, ptr %second.i549, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i550), !noalias !329
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i550), !noalias !329
   %call.i.i.i551 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i550), !noalias !329
   %86 = load ptr, ptr %ConstFoundBucket.i.i.i550, align 8, !noalias !329
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i550), !noalias !329
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i550), !noalias !329
   br i1 %call.i.i.i551, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit560, label %if.end.i.i552
 
 if.end.i.i552:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit547
@@ -10409,10 +10409,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp176.sroa.2.0.ref.tmp175.sroa_idx, align 8
   %second.i562 = getelementptr inbounds nuw i8, ptr %ref.tmp175, i64 16
   store i32 199, ptr %second.i562, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i563), !noalias !334
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i563), !noalias !334
   %call.i.i.i564 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i563), !noalias !334
   %88 = load ptr, ptr %ConstFoundBucket.i.i.i563, align 8, !noalias !334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i563), !noalias !334
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i563), !noalias !334
   br i1 %call.i.i.i564, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit573, label %if.end.i.i565
 
 if.end.i.i565:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit560
@@ -10429,10 +10429,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp180.sroa.2.0.ref.tmp179.sroa_idx, align 8
   %second.i575 = getelementptr inbounds nuw i8, ptr %ref.tmp179, i64 16
   store i32 200, ptr %second.i575, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i576), !noalias !339
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i576), !noalias !339
   %call.i.i.i577 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp179, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i576), !noalias !339
   %90 = load ptr, ptr %ConstFoundBucket.i.i.i576, align 8, !noalias !339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i576), !noalias !339
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i576), !noalias !339
   br i1 %call.i.i.i577, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit586, label %if.end.i.i578
 
 if.end.i.i578:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit573
@@ -10449,10 +10449,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp184.sroa.2.0.ref.tmp183.sroa_idx, align 8
   %second.i588 = getelementptr inbounds nuw i8, ptr %ref.tmp183, i64 16
   store i32 201, ptr %second.i588, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i589), !noalias !344
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i589), !noalias !344
   %call.i.i.i590 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i589), !noalias !344
   %92 = load ptr, ptr %ConstFoundBucket.i.i.i589, align 8, !noalias !344
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i589), !noalias !344
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i589), !noalias !344
   br i1 %call.i.i.i590, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit599, label %if.end.i.i591
 
 if.end.i.i591:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit586
@@ -10469,10 +10469,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp188.sroa.2.0.ref.tmp187.sroa_idx, align 8
   %second.i601 = getelementptr inbounds nuw i8, ptr %ref.tmp187, i64 16
   store i32 202, ptr %second.i601, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i602), !noalias !349
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i602), !noalias !349
   %call.i.i.i603 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i602), !noalias !349
   %94 = load ptr, ptr %ConstFoundBucket.i.i.i602, align 8, !noalias !349
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i602), !noalias !349
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i602), !noalias !349
   br i1 %call.i.i.i603, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit612, label %if.end.i.i604
 
 if.end.i.i604:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit599
@@ -10489,10 +10489,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp192.sroa.2.0.ref.tmp191.sroa_idx, align 8
   %second.i614 = getelementptr inbounds nuw i8, ptr %ref.tmp191, i64 16
   store i32 203, ptr %second.i614, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i615), !noalias !354
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i615), !noalias !354
   %call.i.i.i616 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i615), !noalias !354
   %96 = load ptr, ptr %ConstFoundBucket.i.i.i615, align 8, !noalias !354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i615), !noalias !354
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i615), !noalias !354
   br i1 %call.i.i.i616, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit625, label %if.end.i.i617
 
 if.end.i.i617:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit612
@@ -10509,10 +10509,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp196.sroa.2.0.ref.tmp195.sroa_idx, align 8
   %second.i627 = getelementptr inbounds nuw i8, ptr %ref.tmp195, i64 16
   store i32 204, ptr %second.i627, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i628), !noalias !359
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i628), !noalias !359
   %call.i.i.i629 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i628), !noalias !359
   %98 = load ptr, ptr %ConstFoundBucket.i.i.i628, align 8, !noalias !359
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i628), !noalias !359
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i628), !noalias !359
   br i1 %call.i.i.i629, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit638, label %if.end.i.i630
 
 if.end.i.i630:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit625
@@ -10529,10 +10529,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp200.sroa.2.0.ref.tmp199.sroa_idx, align 8
   %second.i640 = getelementptr inbounds nuw i8, ptr %ref.tmp199, i64 16
   store i32 205, ptr %second.i640, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i641), !noalias !364
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i641), !noalias !364
   %call.i.i.i642 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp199, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i641), !noalias !364
   %100 = load ptr, ptr %ConstFoundBucket.i.i.i641, align 8, !noalias !364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i641), !noalias !364
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i641), !noalias !364
   br i1 %call.i.i.i642, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit651, label %if.end.i.i643
 
 if.end.i.i643:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit638
@@ -10549,10 +10549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp204.sroa.2.0.ref.tmp203.sroa_idx, align 8
   %second.i653 = getelementptr inbounds nuw i8, ptr %ref.tmp203, i64 16
   store i32 206, ptr %second.i653, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i654), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i654), !noalias !369
   %call.i.i.i655 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp203, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i654), !noalias !369
   %102 = load ptr, ptr %ConstFoundBucket.i.i.i654, align 8, !noalias !369
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i654), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i654), !noalias !369
   br i1 %call.i.i.i655, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit664, label %if.end.i.i656
 
 if.end.i.i656:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit651
@@ -10569,10 +10569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp208.sroa.2.0.ref.tmp207.sroa_idx, align 8
   %second.i666 = getelementptr inbounds nuw i8, ptr %ref.tmp207, i64 16
   store i32 207, ptr %second.i666, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i667), !noalias !374
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i667), !noalias !374
   %call.i.i.i668 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i667), !noalias !374
   %104 = load ptr, ptr %ConstFoundBucket.i.i.i667, align 8, !noalias !374
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i667), !noalias !374
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i667), !noalias !374
   br i1 %call.i.i.i668, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit677, label %if.end.i.i669
 
 if.end.i.i669:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit664
@@ -10589,10 +10589,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp212.sroa.2.0.ref.tmp211.sroa_idx, align 8
   %second.i679 = getelementptr inbounds nuw i8, ptr %ref.tmp211, i64 16
   store i32 208, ptr %second.i679, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i680), !noalias !379
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i680), !noalias !379
   %call.i.i.i681 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp211, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i680), !noalias !379
   %106 = load ptr, ptr %ConstFoundBucket.i.i.i680, align 8, !noalias !379
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i680), !noalias !379
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i680), !noalias !379
   br i1 %call.i.i.i681, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit690, label %if.end.i.i682
 
 if.end.i.i682:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit677
@@ -10609,10 +10609,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp216.sroa.2.0.ref.tmp215.sroa_idx, align 8
   %second.i692 = getelementptr inbounds nuw i8, ptr %ref.tmp215, i64 16
   store i32 209, ptr %second.i692, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i693), !noalias !384
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i693), !noalias !384
   %call.i.i.i694 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp215, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i693), !noalias !384
   %108 = load ptr, ptr %ConstFoundBucket.i.i.i693, align 8, !noalias !384
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i693), !noalias !384
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i693), !noalias !384
   br i1 %call.i.i.i694, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit703, label %if.end.i.i695
 
 if.end.i.i695:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit690
@@ -10629,10 +10629,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp220.sroa.2.0.ref.tmp219.sroa_idx, align 8
   %second.i705 = getelementptr inbounds nuw i8, ptr %ref.tmp219, i64 16
   store i32 210, ptr %second.i705, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i706), !noalias !389
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i706), !noalias !389
   %call.i.i.i707 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp219, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i706), !noalias !389
   %110 = load ptr, ptr %ConstFoundBucket.i.i.i706, align 8, !noalias !389
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i706), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i706), !noalias !389
   br i1 %call.i.i.i707, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit716, label %if.end.i.i708
 
 if.end.i.i708:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit703
@@ -10649,10 +10649,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp224.sroa.2.0.ref.tmp223.sroa_idx, align 8
   %second.i718 = getelementptr inbounds nuw i8, ptr %ref.tmp223, i64 16
   store i32 211, ptr %second.i718, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i719), !noalias !394
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i719), !noalias !394
   %call.i.i.i720 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i719), !noalias !394
   %112 = load ptr, ptr %ConstFoundBucket.i.i.i719, align 8, !noalias !394
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i719), !noalias !394
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i719), !noalias !394
   br i1 %call.i.i.i720, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit729, label %if.end.i.i721
 
 if.end.i.i721:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit716
@@ -10669,10 +10669,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp228.sroa.2.0.ref.tmp227.sroa_idx, align 8
   %second.i731 = getelementptr inbounds nuw i8, ptr %ref.tmp227, i64 16
   store i32 212, ptr %second.i731, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i732), !noalias !399
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i732), !noalias !399
   %call.i.i.i733 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp227, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i732), !noalias !399
   %114 = load ptr, ptr %ConstFoundBucket.i.i.i732, align 8, !noalias !399
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i732), !noalias !399
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i732), !noalias !399
   br i1 %call.i.i.i733, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit742, label %if.end.i.i734
 
 if.end.i.i734:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit729
@@ -10689,10 +10689,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp232.sroa.2.0.ref.tmp231.sroa_idx, align 8
   %second.i744 = getelementptr inbounds nuw i8, ptr %ref.tmp231, i64 16
   store i32 213, ptr %second.i744, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i745), !noalias !404
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i745), !noalias !404
   %call.i.i.i746 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp231, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i745), !noalias !404
   %116 = load ptr, ptr %ConstFoundBucket.i.i.i745, align 8, !noalias !404
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i745), !noalias !404
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i745), !noalias !404
   br i1 %call.i.i.i746, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit755, label %if.end.i.i747
 
 if.end.i.i747:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit742
@@ -10709,10 +10709,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp236.sroa.2.0.ref.tmp235.sroa_idx, align 8
   %second.i757 = getelementptr inbounds nuw i8, ptr %ref.tmp235, i64 16
   store i32 214, ptr %second.i757, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i758), !noalias !409
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i758), !noalias !409
   %call.i.i.i759 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp235, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i758), !noalias !409
   %118 = load ptr, ptr %ConstFoundBucket.i.i.i758, align 8, !noalias !409
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i758), !noalias !409
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i758), !noalias !409
   br i1 %call.i.i.i759, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit768, label %if.end.i.i760
 
 if.end.i.i760:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit755
@@ -10729,10 +10729,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp240.sroa.2.0.ref.tmp239.sroa_idx, align 8
   %second.i770 = getelementptr inbounds nuw i8, ptr %ref.tmp239, i64 16
   store i32 215, ptr %second.i770, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i771), !noalias !414
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i771), !noalias !414
   %call.i.i.i772 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp239, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i771), !noalias !414
   %120 = load ptr, ptr %ConstFoundBucket.i.i.i771, align 8, !noalias !414
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i771), !noalias !414
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i771), !noalias !414
   br i1 %call.i.i.i772, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit781, label %if.end.i.i773
 
 if.end.i.i773:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit768
@@ -10749,10 +10749,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp244.sroa.2.0.ref.tmp243.sroa_idx, align 8
   %second.i783 = getelementptr inbounds nuw i8, ptr %ref.tmp243, i64 16
   store i32 216, ptr %second.i783, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i784), !noalias !419
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i784), !noalias !419
   %call.i.i.i785 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp243, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i784), !noalias !419
   %122 = load ptr, ptr %ConstFoundBucket.i.i.i784, align 8, !noalias !419
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i784), !noalias !419
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i784), !noalias !419
   br i1 %call.i.i.i785, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit794, label %if.end.i.i786
 
 if.end.i.i786:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit781
@@ -10769,10 +10769,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp248.sroa.2.0.ref.tmp247.sroa_idx, align 8
   %second.i796 = getelementptr inbounds nuw i8, ptr %ref.tmp247, i64 16
   store i32 217, ptr %second.i796, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i797), !noalias !424
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i797), !noalias !424
   %call.i.i.i798 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp247, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i797), !noalias !424
   %124 = load ptr, ptr %ConstFoundBucket.i.i.i797, align 8, !noalias !424
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i797), !noalias !424
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i797), !noalias !424
   br i1 %call.i.i.i798, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit807, label %if.end.i.i799
 
 if.end.i.i799:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit794
@@ -10789,10 +10789,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp252.sroa.2.0.ref.tmp251.sroa_idx, align 8
   %second.i809 = getelementptr inbounds nuw i8, ptr %ref.tmp251, i64 16
   store i32 218, ptr %second.i809, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i810), !noalias !429
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i810), !noalias !429
   %call.i.i.i811 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp251, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i810), !noalias !429
   %126 = load ptr, ptr %ConstFoundBucket.i.i.i810, align 8, !noalias !429
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i810), !noalias !429
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i810), !noalias !429
   br i1 %call.i.i.i811, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit820, label %if.end.i.i812
 
 if.end.i.i812:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit807
@@ -10809,10 +10809,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp256.sroa.2.0.ref.tmp255.sroa_idx, align 8
   %second.i822 = getelementptr inbounds nuw i8, ptr %ref.tmp255, i64 16
   store i32 219, ptr %second.i822, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i823), !noalias !434
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i823), !noalias !434
   %call.i.i.i824 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp255, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i823), !noalias !434
   %128 = load ptr, ptr %ConstFoundBucket.i.i.i823, align 8, !noalias !434
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i823), !noalias !434
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i823), !noalias !434
   br i1 %call.i.i.i824, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit833, label %if.end.i.i825
 
 if.end.i.i825:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit820
@@ -10829,10 +10829,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp260.sroa.2.0.ref.tmp259.sroa_idx, align 8
   %second.i835 = getelementptr inbounds nuw i8, ptr %ref.tmp259, i64 16
   store i32 220, ptr %second.i835, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i836), !noalias !439
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i836), !noalias !439
   %call.i.i.i837 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp259, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i836), !noalias !439
   %130 = load ptr, ptr %ConstFoundBucket.i.i.i836, align 8, !noalias !439
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i836), !noalias !439
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i836), !noalias !439
   br i1 %call.i.i.i837, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit846, label %if.end.i.i838
 
 if.end.i.i838:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit833
@@ -10849,10 +10849,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp264.sroa.2.0.ref.tmp263.sroa_idx, align 8
   %second.i848 = getelementptr inbounds nuw i8, ptr %ref.tmp263, i64 16
   store i32 221, ptr %second.i848, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i849), !noalias !444
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i849), !noalias !444
   %call.i.i.i850 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp263, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i849), !noalias !444
   %132 = load ptr, ptr %ConstFoundBucket.i.i.i849, align 8, !noalias !444
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i849), !noalias !444
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i849), !noalias !444
   br i1 %call.i.i.i850, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit859, label %if.end.i.i851
 
 if.end.i.i851:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit846
@@ -10869,10 +10869,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp268.sroa.2.0.ref.tmp267.sroa_idx, align 8
   %second.i861 = getelementptr inbounds nuw i8, ptr %ref.tmp267, i64 16
   store i32 222, ptr %second.i861, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i862), !noalias !449
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i862), !noalias !449
   %call.i.i.i863 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp267, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i862), !noalias !449
   %134 = load ptr, ptr %ConstFoundBucket.i.i.i862, align 8, !noalias !449
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i862), !noalias !449
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i862), !noalias !449
   br i1 %call.i.i.i863, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit872, label %if.end.i.i864
 
 if.end.i.i864:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit859
@@ -10889,10 +10889,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp272.sroa.2.0.ref.tmp271.sroa_idx, align 8
   %second.i874 = getelementptr inbounds nuw i8, ptr %ref.tmp271, i64 16
   store i32 223, ptr %second.i874, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i875), !noalias !454
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i875), !noalias !454
   %call.i.i.i876 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp271, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i875), !noalias !454
   %136 = load ptr, ptr %ConstFoundBucket.i.i.i875, align 8, !noalias !454
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i875), !noalias !454
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i875), !noalias !454
   br i1 %call.i.i.i876, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit885, label %if.end.i.i877
 
 if.end.i.i877:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit872
@@ -10909,10 +10909,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp276.sroa.2.0.ref.tmp275.sroa_idx, align 8
   %second.i887 = getelementptr inbounds nuw i8, ptr %ref.tmp275, i64 16
   store i32 224, ptr %second.i887, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i888), !noalias !459
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i888), !noalias !459
   %call.i.i.i889 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp275, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i888), !noalias !459
   %138 = load ptr, ptr %ConstFoundBucket.i.i.i888, align 8, !noalias !459
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i888), !noalias !459
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i888), !noalias !459
   br i1 %call.i.i.i889, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit898, label %if.end.i.i890
 
 if.end.i.i890:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit885
@@ -10929,10 +10929,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp280.sroa.2.0.ref.tmp279.sroa_idx, align 8
   %second.i900 = getelementptr inbounds nuw i8, ptr %ref.tmp279, i64 16
   store i32 225, ptr %second.i900, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i901), !noalias !464
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i901), !noalias !464
   %call.i.i.i902 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i901), !noalias !464
   %140 = load ptr, ptr %ConstFoundBucket.i.i.i901, align 8, !noalias !464
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i901), !noalias !464
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i901), !noalias !464
   br i1 %call.i.i.i902, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit911, label %if.end.i.i903
 
 if.end.i.i903:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit898
@@ -10949,10 +10949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp284.sroa.2.0.ref.tmp283.sroa_idx, align 8
   %second.i913 = getelementptr inbounds nuw i8, ptr %ref.tmp283, i64 16
   store i32 226, ptr %second.i913, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i914), !noalias !469
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i914), !noalias !469
   %call.i.i.i915 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp283, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i914), !noalias !469
   %142 = load ptr, ptr %ConstFoundBucket.i.i.i914, align 8, !noalias !469
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i914), !noalias !469
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i914), !noalias !469
   br i1 %call.i.i.i915, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit924, label %if.end.i.i916
 
 if.end.i.i916:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit911
@@ -10969,10 +10969,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp288.sroa.2.0.ref.tmp287.sroa_idx, align 8
   %second.i926 = getelementptr inbounds nuw i8, ptr %ref.tmp287, i64 16
   store i32 227, ptr %second.i926, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i927), !noalias !474
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i927), !noalias !474
   %call.i.i.i928 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp287, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i927), !noalias !474
   %144 = load ptr, ptr %ConstFoundBucket.i.i.i927, align 8, !noalias !474
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i927), !noalias !474
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i927), !noalias !474
   br i1 %call.i.i.i928, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit937, label %if.end.i.i929
 
 if.end.i.i929:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit924
@@ -10989,10 +10989,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp292.sroa.2.0.ref.tmp291.sroa_idx, align 8
   %second.i939 = getelementptr inbounds nuw i8, ptr %ref.tmp291, i64 16
   store i32 228, ptr %second.i939, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i940), !noalias !479
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i940), !noalias !479
   %call.i.i.i941 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i940), !noalias !479
   %146 = load ptr, ptr %ConstFoundBucket.i.i.i940, align 8, !noalias !479
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i940), !noalias !479
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i940), !noalias !479
   br i1 %call.i.i.i941, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit950, label %if.end.i.i942
 
 if.end.i.i942:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit937
@@ -11009,10 +11009,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp296.sroa.2.0.ref.tmp295.sroa_idx, align 8
   %second.i952 = getelementptr inbounds nuw i8, ptr %ref.tmp295, i64 16
   store i32 229, ptr %second.i952, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i953), !noalias !484
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i953), !noalias !484
   %call.i.i.i954 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp295, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i953), !noalias !484
   %148 = load ptr, ptr %ConstFoundBucket.i.i.i953, align 8, !noalias !484
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i953), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i953), !noalias !484
   br i1 %call.i.i.i954, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit963, label %if.end.i.i955
 
 if.end.i.i955:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit950
@@ -11029,10 +11029,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp300.sroa.2.0.ref.tmp299.sroa_idx, align 8
   %second.i965 = getelementptr inbounds nuw i8, ptr %ref.tmp299, i64 16
   store i32 230, ptr %second.i965, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i966), !noalias !489
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i966), !noalias !489
   %call.i.i.i967 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i966), !noalias !489
   %150 = load ptr, ptr %ConstFoundBucket.i.i.i966, align 8, !noalias !489
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i966), !noalias !489
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i966), !noalias !489
   br i1 %call.i.i.i967, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit976, label %if.end.i.i968
 
 if.end.i.i968:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit963
@@ -11049,10 +11049,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp304.sroa.2.0.ref.tmp303.sroa_idx, align 8
   %second.i978 = getelementptr inbounds nuw i8, ptr %ref.tmp303, i64 16
   store i32 231, ptr %second.i978, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i979), !noalias !494
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i979), !noalias !494
   %call.i.i.i980 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp303, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i979), !noalias !494
   %152 = load ptr, ptr %ConstFoundBucket.i.i.i979, align 8, !noalias !494
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i979), !noalias !494
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i979), !noalias !494
   br i1 %call.i.i.i980, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit989, label %if.end.i.i981
 
 if.end.i.i981:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit976
@@ -11069,10 +11069,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp308.sroa.2.0.ref.tmp307.sroa_idx, align 8
   %second.i991 = getelementptr inbounds nuw i8, ptr %ref.tmp307, i64 16
   store i32 232, ptr %second.i991, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i992), !noalias !499
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i992), !noalias !499
   %call.i.i.i993 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp307, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i992), !noalias !499
   %154 = load ptr, ptr %ConstFoundBucket.i.i.i992, align 8, !noalias !499
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i992), !noalias !499
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i992), !noalias !499
   br i1 %call.i.i.i993, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1002, label %if.end.i.i994
 
 if.end.i.i994:                                    ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit989
@@ -11089,10 +11089,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp312.sroa.2.0.ref.tmp311.sroa_idx, align 8
   %second.i1004 = getelementptr inbounds nuw i8, ptr %ref.tmp311, i64 16
   store i32 233, ptr %second.i1004, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1005), !noalias !504
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1005), !noalias !504
   %call.i.i.i1006 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1005), !noalias !504
   %156 = load ptr, ptr %ConstFoundBucket.i.i.i1005, align 8, !noalias !504
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1005), !noalias !504
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1005), !noalias !504
   br i1 %call.i.i.i1006, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1015, label %if.end.i.i1007
 
 if.end.i.i1007:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1002
@@ -11109,10 +11109,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp316.sroa.2.0.ref.tmp315.sroa_idx, align 8
   %second.i1017 = getelementptr inbounds nuw i8, ptr %ref.tmp315, i64 16
   store i32 234, ptr %second.i1017, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1018), !noalias !509
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1018), !noalias !509
   %call.i.i.i1019 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp315, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1018), !noalias !509
   %158 = load ptr, ptr %ConstFoundBucket.i.i.i1018, align 8, !noalias !509
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1018), !noalias !509
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1018), !noalias !509
   br i1 %call.i.i.i1019, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1028, label %if.end.i.i1020
 
 if.end.i.i1020:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1015
@@ -11129,10 +11129,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp320.sroa.2.0.ref.tmp319.sroa_idx, align 8
   %second.i1030 = getelementptr inbounds nuw i8, ptr %ref.tmp319, i64 16
   store i32 235, ptr %second.i1030, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1031), !noalias !514
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1031), !noalias !514
   %call.i.i.i1032 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp319, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1031), !noalias !514
   %160 = load ptr, ptr %ConstFoundBucket.i.i.i1031, align 8, !noalias !514
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1031), !noalias !514
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1031), !noalias !514
   br i1 %call.i.i.i1032, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1041, label %if.end.i.i1033
 
 if.end.i.i1033:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1028
@@ -11149,10 +11149,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp324.sroa.2.0.ref.tmp323.sroa_idx, align 8
   %second.i1043 = getelementptr inbounds nuw i8, ptr %ref.tmp323, i64 16
   store i32 236, ptr %second.i1043, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1044), !noalias !519
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1044), !noalias !519
   %call.i.i.i1045 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp323, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1044), !noalias !519
   %162 = load ptr, ptr %ConstFoundBucket.i.i.i1044, align 8, !noalias !519
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1044), !noalias !519
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1044), !noalias !519
   br i1 %call.i.i.i1045, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1054, label %if.end.i.i1046
 
 if.end.i.i1046:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1041
@@ -11169,10 +11169,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp328.sroa.2.0.ref.tmp327.sroa_idx, align 8
   %second.i1056 = getelementptr inbounds nuw i8, ptr %ref.tmp327, i64 16
   store i32 237, ptr %second.i1056, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1057), !noalias !524
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1057), !noalias !524
   %call.i.i.i1058 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp327, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1057), !noalias !524
   %164 = load ptr, ptr %ConstFoundBucket.i.i.i1057, align 8, !noalias !524
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1057), !noalias !524
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1057), !noalias !524
   br i1 %call.i.i.i1058, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1067, label %if.end.i.i1059
 
 if.end.i.i1059:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1054
@@ -11189,10 +11189,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp332.sroa.2.0.ref.tmp331.sroa_idx, align 8
   %second.i1069 = getelementptr inbounds nuw i8, ptr %ref.tmp331, i64 16
   store i32 238, ptr %second.i1069, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1070), !noalias !529
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1070), !noalias !529
   %call.i.i.i1071 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp331, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1070), !noalias !529
   %166 = load ptr, ptr %ConstFoundBucket.i.i.i1070, align 8, !noalias !529
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1070), !noalias !529
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1070), !noalias !529
   br i1 %call.i.i.i1071, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1080, label %if.end.i.i1072
 
 if.end.i.i1072:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1067
@@ -11209,10 +11209,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp336.sroa.2.0.ref.tmp335.sroa_idx, align 8
   %second.i1082 = getelementptr inbounds nuw i8, ptr %ref.tmp335, i64 16
   store i32 239, ptr %second.i1082, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1083), !noalias !534
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1083), !noalias !534
   %call.i.i.i1084 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp335, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1083), !noalias !534
   %168 = load ptr, ptr %ConstFoundBucket.i.i.i1083, align 8, !noalias !534
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1083), !noalias !534
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1083), !noalias !534
   br i1 %call.i.i.i1084, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1093, label %if.end.i.i1085
 
 if.end.i.i1085:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1080
@@ -11229,10 +11229,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp340.sroa.2.0.ref.tmp339.sroa_idx, align 8
   %second.i1095 = getelementptr inbounds nuw i8, ptr %ref.tmp339, i64 16
   store i32 240, ptr %second.i1095, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1096), !noalias !539
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1096), !noalias !539
   %call.i.i.i1097 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp339, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1096), !noalias !539
   %170 = load ptr, ptr %ConstFoundBucket.i.i.i1096, align 8, !noalias !539
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1096), !noalias !539
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1096), !noalias !539
   br i1 %call.i.i.i1097, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1106, label %if.end.i.i1098
 
 if.end.i.i1098:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1093
@@ -11249,10 +11249,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp344.sroa.2.0.ref.tmp343.sroa_idx, align 8
   %second.i1108 = getelementptr inbounds nuw i8, ptr %ref.tmp343, i64 16
   store i32 241, ptr %second.i1108, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1109), !noalias !544
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1109), !noalias !544
   %call.i.i.i1110 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp343, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1109), !noalias !544
   %172 = load ptr, ptr %ConstFoundBucket.i.i.i1109, align 8, !noalias !544
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1109), !noalias !544
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1109), !noalias !544
   br i1 %call.i.i.i1110, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1119, label %if.end.i.i1111
 
 if.end.i.i1111:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1106
@@ -11269,10 +11269,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp348.sroa.2.0.ref.tmp347.sroa_idx, align 8
   %second.i1121 = getelementptr inbounds nuw i8, ptr %ref.tmp347, i64 16
   store i32 242, ptr %second.i1121, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1122), !noalias !549
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1122), !noalias !549
   %call.i.i.i1123 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp347, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1122), !noalias !549
   %174 = load ptr, ptr %ConstFoundBucket.i.i.i1122, align 8, !noalias !549
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1122), !noalias !549
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1122), !noalias !549
   br i1 %call.i.i.i1123, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1132, label %if.end.i.i1124
 
 if.end.i.i1124:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1119
@@ -11289,10 +11289,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp352.sroa.2.0.ref.tmp351.sroa_idx, align 8
   %second.i1134 = getelementptr inbounds nuw i8, ptr %ref.tmp351, i64 16
   store i32 243, ptr %second.i1134, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1135), !noalias !554
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1135), !noalias !554
   %call.i.i.i1136 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp351, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1135), !noalias !554
   %176 = load ptr, ptr %ConstFoundBucket.i.i.i1135, align 8, !noalias !554
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1135), !noalias !554
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1135), !noalias !554
   br i1 %call.i.i.i1136, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1145, label %if.end.i.i1137
 
 if.end.i.i1137:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1132
@@ -11309,10 +11309,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp356.sroa.2.0.ref.tmp355.sroa_idx, align 8
   %second.i1147 = getelementptr inbounds nuw i8, ptr %ref.tmp355, i64 16
   store i32 244, ptr %second.i1147, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1148), !noalias !559
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1148), !noalias !559
   %call.i.i.i1149 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp355, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1148), !noalias !559
   %178 = load ptr, ptr %ConstFoundBucket.i.i.i1148, align 8, !noalias !559
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1148), !noalias !559
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1148), !noalias !559
   br i1 %call.i.i.i1149, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1158, label %if.end.i.i1150
 
 if.end.i.i1150:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1145
@@ -11329,10 +11329,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp360.sroa.2.0.ref.tmp359.sroa_idx, align 8
   %second.i1160 = getelementptr inbounds nuw i8, ptr %ref.tmp359, i64 16
   store i32 245, ptr %second.i1160, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1161), !noalias !564
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1161), !noalias !564
   %call.i.i.i1162 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp359, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1161), !noalias !564
   %180 = load ptr, ptr %ConstFoundBucket.i.i.i1161, align 8, !noalias !564
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1161), !noalias !564
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1161), !noalias !564
   br i1 %call.i.i.i1162, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1171, label %if.end.i.i1163
 
 if.end.i.i1163:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1158
@@ -11349,10 +11349,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp364.sroa.2.0.ref.tmp363.sroa_idx, align 8
   %second.i1173 = getelementptr inbounds nuw i8, ptr %ref.tmp363, i64 16
   store i32 246, ptr %second.i1173, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1174), !noalias !569
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1174), !noalias !569
   %call.i.i.i1175 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp363, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1174), !noalias !569
   %182 = load ptr, ptr %ConstFoundBucket.i.i.i1174, align 8, !noalias !569
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1174), !noalias !569
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1174), !noalias !569
   br i1 %call.i.i.i1175, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1184, label %if.end.i.i1176
 
 if.end.i.i1176:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1171
@@ -11369,10 +11369,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp368.sroa.2.0.ref.tmp367.sroa_idx, align 8
   %second.i1186 = getelementptr inbounds nuw i8, ptr %ref.tmp367, i64 16
   store i32 247, ptr %second.i1186, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1187), !noalias !574
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1187), !noalias !574
   %call.i.i.i1188 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp367, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1187), !noalias !574
   %184 = load ptr, ptr %ConstFoundBucket.i.i.i1187, align 8, !noalias !574
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1187), !noalias !574
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1187), !noalias !574
   br i1 %call.i.i.i1188, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1197, label %if.end.i.i1189
 
 if.end.i.i1189:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1184
@@ -11389,10 +11389,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp372.sroa.2.0.ref.tmp371.sroa_idx, align 8
   %second.i1199 = getelementptr inbounds nuw i8, ptr %ref.tmp371, i64 16
   store i32 248, ptr %second.i1199, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1200), !noalias !579
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1200), !noalias !579
   %call.i.i.i1201 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp371, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1200), !noalias !579
   %186 = load ptr, ptr %ConstFoundBucket.i.i.i1200, align 8, !noalias !579
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1200), !noalias !579
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1200), !noalias !579
   br i1 %call.i.i.i1201, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1210, label %if.end.i.i1202
 
 if.end.i.i1202:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1197
@@ -11409,10 +11409,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp376.sroa.2.0.ref.tmp375.sroa_idx, align 8
   %second.i1212 = getelementptr inbounds nuw i8, ptr %ref.tmp375, i64 16
   store i32 249, ptr %second.i1212, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1213), !noalias !584
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1213), !noalias !584
   %call.i.i.i1214 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp375, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1213), !noalias !584
   %188 = load ptr, ptr %ConstFoundBucket.i.i.i1213, align 8, !noalias !584
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1213), !noalias !584
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1213), !noalias !584
   br i1 %call.i.i.i1214, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1223, label %if.end.i.i1215
 
 if.end.i.i1215:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1210
@@ -11429,10 +11429,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp380.sroa.2.0.ref.tmp379.sroa_idx, align 8
   %second.i1225 = getelementptr inbounds nuw i8, ptr %ref.tmp379, i64 16
   store i32 250, ptr %second.i1225, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1226), !noalias !589
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1226), !noalias !589
   %call.i.i.i1227 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp379, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1226), !noalias !589
   %190 = load ptr, ptr %ConstFoundBucket.i.i.i1226, align 8, !noalias !589
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1226), !noalias !589
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1226), !noalias !589
   br i1 %call.i.i.i1227, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1236, label %if.end.i.i1228
 
 if.end.i.i1228:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1223
@@ -11449,10 +11449,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp384.sroa.2.0.ref.tmp383.sroa_idx, align 8
   %second.i1238 = getelementptr inbounds nuw i8, ptr %ref.tmp383, i64 16
   store i32 251, ptr %second.i1238, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1239), !noalias !594
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1239), !noalias !594
   %call.i.i.i1240 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp383, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1239), !noalias !594
   %192 = load ptr, ptr %ConstFoundBucket.i.i.i1239, align 8, !noalias !594
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1239), !noalias !594
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1239), !noalias !594
   br i1 %call.i.i.i1240, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1249, label %if.end.i.i1241
 
 if.end.i.i1241:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1236
@@ -11469,10 +11469,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp388.sroa.2.0.ref.tmp387.sroa_idx, align 8
   %second.i1251 = getelementptr inbounds nuw i8, ptr %ref.tmp387, i64 16
   store i32 252, ptr %second.i1251, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1252), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1252), !noalias !599
   %call.i.i.i1253 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp387, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1252), !noalias !599
   %194 = load ptr, ptr %ConstFoundBucket.i.i.i1252, align 8, !noalias !599
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1252), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1252), !noalias !599
   br i1 %call.i.i.i1253, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1262, label %if.end.i.i1254
 
 if.end.i.i1254:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1249
@@ -11489,10 +11489,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp392.sroa.2.0.ref.tmp391.sroa_idx, align 8
   %second.i1264 = getelementptr inbounds nuw i8, ptr %ref.tmp391, i64 16
   store i32 253, ptr %second.i1264, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1265), !noalias !604
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1265), !noalias !604
   %call.i.i.i1266 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp391, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1265), !noalias !604
   %196 = load ptr, ptr %ConstFoundBucket.i.i.i1265, align 8, !noalias !604
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1265), !noalias !604
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1265), !noalias !604
   br i1 %call.i.i.i1266, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1275, label %if.end.i.i1267
 
 if.end.i.i1267:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1262
@@ -11509,10 +11509,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp396.sroa.2.0.ref.tmp395.sroa_idx, align 8
   %second.i1277 = getelementptr inbounds nuw i8, ptr %ref.tmp395, i64 16
   store i32 254, ptr %second.i1277, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1278), !noalias !609
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1278), !noalias !609
   %call.i.i.i1279 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp395, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1278), !noalias !609
   %198 = load ptr, ptr %ConstFoundBucket.i.i.i1278, align 8, !noalias !609
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1278), !noalias !609
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1278), !noalias !609
   br i1 %call.i.i.i1279, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1288, label %if.end.i.i1280
 
 if.end.i.i1280:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1275
@@ -11529,10 +11529,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp400.sroa.2.0.ref.tmp399.sroa_idx, align 8
   %second.i1290 = getelementptr inbounds nuw i8, ptr %ref.tmp399, i64 16
   store i32 255, ptr %second.i1290, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1291), !noalias !614
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1291), !noalias !614
   %call.i.i.i1292 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp399, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1291), !noalias !614
   %200 = load ptr, ptr %ConstFoundBucket.i.i.i1291, align 8, !noalias !614
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1291), !noalias !614
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1291), !noalias !614
   br i1 %call.i.i.i1292, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1301, label %if.end.i.i1293
 
 if.end.i.i1293:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1288
@@ -11549,10 +11549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp404.sroa.2.0.ref.tmp403.sroa_idx, align 8
   %second.i1303 = getelementptr inbounds nuw i8, ptr %ref.tmp403, i64 16
   store i32 338, ptr %second.i1303, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1304), !noalias !619
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1304), !noalias !619
   %call.i.i.i1305 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp403, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1304), !noalias !619
   %202 = load ptr, ptr %ConstFoundBucket.i.i.i1304, align 8, !noalias !619
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1304), !noalias !619
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1304), !noalias !619
   br i1 %call.i.i.i1305, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1314, label %if.end.i.i1306
 
 if.end.i.i1306:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1301
@@ -11569,10 +11569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp408.sroa.2.0.ref.tmp407.sroa_idx, align 8
   %second.i1316 = getelementptr inbounds nuw i8, ptr %ref.tmp407, i64 16
   store i32 339, ptr %second.i1316, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1317), !noalias !624
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1317), !noalias !624
   %call.i.i.i1318 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp407, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1317), !noalias !624
   %204 = load ptr, ptr %ConstFoundBucket.i.i.i1317, align 8, !noalias !624
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1317), !noalias !624
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1317), !noalias !624
   br i1 %call.i.i.i1318, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1327, label %if.end.i.i1319
 
 if.end.i.i1319:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1314
@@ -11589,10 +11589,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp412.sroa.2.0.ref.tmp411.sroa_idx, align 8
   %second.i1329 = getelementptr inbounds nuw i8, ptr %ref.tmp411, i64 16
   store i32 352, ptr %second.i1329, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1330), !noalias !629
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1330), !noalias !629
   %call.i.i.i1331 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp411, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1330), !noalias !629
   %206 = load ptr, ptr %ConstFoundBucket.i.i.i1330, align 8, !noalias !629
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1330), !noalias !629
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1330), !noalias !629
   br i1 %call.i.i.i1331, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1340, label %if.end.i.i1332
 
 if.end.i.i1332:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1327
@@ -11609,10 +11609,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp416.sroa.2.0.ref.tmp415.sroa_idx, align 8
   %second.i1342 = getelementptr inbounds nuw i8, ptr %ref.tmp415, i64 16
   store i32 353, ptr %second.i1342, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1343), !noalias !634
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1343), !noalias !634
   %call.i.i.i1344 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp415, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1343), !noalias !634
   %208 = load ptr, ptr %ConstFoundBucket.i.i.i1343, align 8, !noalias !634
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1343), !noalias !634
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1343), !noalias !634
   br i1 %call.i.i.i1344, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1353, label %if.end.i.i1345
 
 if.end.i.i1345:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1340
@@ -11629,10 +11629,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp420.sroa.2.0.ref.tmp419.sroa_idx, align 8
   %second.i1355 = getelementptr inbounds nuw i8, ptr %ref.tmp419, i64 16
   store i32 376, ptr %second.i1355, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1356), !noalias !639
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1356), !noalias !639
   %call.i.i.i1357 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp419, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1356), !noalias !639
   %210 = load ptr, ptr %ConstFoundBucket.i.i.i1356, align 8, !noalias !639
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1356), !noalias !639
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1356), !noalias !639
   br i1 %call.i.i.i1357, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1366, label %if.end.i.i1358
 
 if.end.i.i1358:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1353
@@ -11649,10 +11649,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp424.sroa.2.0.ref.tmp423.sroa_idx, align 8
   %second.i1368 = getelementptr inbounds nuw i8, ptr %ref.tmp423, i64 16
   store i32 402, ptr %second.i1368, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1369), !noalias !644
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1369), !noalias !644
   %call.i.i.i1370 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp423, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1369), !noalias !644
   %212 = load ptr, ptr %ConstFoundBucket.i.i.i1369, align 8, !noalias !644
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1369), !noalias !644
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1369), !noalias !644
   br i1 %call.i.i.i1370, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1379, label %if.end.i.i1371
 
 if.end.i.i1371:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1366
@@ -11669,10 +11669,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp428.sroa.2.0.ref.tmp427.sroa_idx, align 8
   %second.i1381 = getelementptr inbounds nuw i8, ptr %ref.tmp427, i64 16
   store i32 710, ptr %second.i1381, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1382), !noalias !649
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1382), !noalias !649
   %call.i.i.i1383 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp427, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1382), !noalias !649
   %214 = load ptr, ptr %ConstFoundBucket.i.i.i1382, align 8, !noalias !649
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1382), !noalias !649
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1382), !noalias !649
   br i1 %call.i.i.i1383, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1392, label %if.end.i.i1384
 
 if.end.i.i1384:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1379
@@ -11689,10 +11689,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp432.sroa.2.0.ref.tmp431.sroa_idx, align 8
   %second.i1394 = getelementptr inbounds nuw i8, ptr %ref.tmp431, i64 16
   store i32 732, ptr %second.i1394, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1395), !noalias !654
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1395), !noalias !654
   %call.i.i.i1396 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp431, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1395), !noalias !654
   %216 = load ptr, ptr %ConstFoundBucket.i.i.i1395, align 8, !noalias !654
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1395), !noalias !654
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1395), !noalias !654
   br i1 %call.i.i.i1396, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1405, label %if.end.i.i1397
 
 if.end.i.i1397:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1392
@@ -11709,10 +11709,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp436.sroa.2.0.ref.tmp435.sroa_idx, align 8
   %second.i1407 = getelementptr inbounds nuw i8, ptr %ref.tmp435, i64 16
   store i32 913, ptr %second.i1407, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1408), !noalias !659
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1408), !noalias !659
   %call.i.i.i1409 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp435, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1408), !noalias !659
   %218 = load ptr, ptr %ConstFoundBucket.i.i.i1408, align 8, !noalias !659
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1408), !noalias !659
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1408), !noalias !659
   br i1 %call.i.i.i1409, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1418, label %if.end.i.i1410
 
 if.end.i.i1410:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1405
@@ -11729,10 +11729,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp440.sroa.2.0.ref.tmp439.sroa_idx, align 8
   %second.i1420 = getelementptr inbounds nuw i8, ptr %ref.tmp439, i64 16
   store i32 914, ptr %second.i1420, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1421), !noalias !664
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1421), !noalias !664
   %call.i.i.i1422 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp439, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1421), !noalias !664
   %220 = load ptr, ptr %ConstFoundBucket.i.i.i1421, align 8, !noalias !664
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1421), !noalias !664
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1421), !noalias !664
   br i1 %call.i.i.i1422, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1431, label %if.end.i.i1423
 
 if.end.i.i1423:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1418
@@ -11749,10 +11749,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp444.sroa.2.0.ref.tmp443.sroa_idx, align 8
   %second.i1433 = getelementptr inbounds nuw i8, ptr %ref.tmp443, i64 16
   store i32 915, ptr %second.i1433, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1434), !noalias !669
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1434), !noalias !669
   %call.i.i.i1435 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp443, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1434), !noalias !669
   %222 = load ptr, ptr %ConstFoundBucket.i.i.i1434, align 8, !noalias !669
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1434), !noalias !669
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1434), !noalias !669
   br i1 %call.i.i.i1435, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1444, label %if.end.i.i1436
 
 if.end.i.i1436:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1431
@@ -11769,10 +11769,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp448.sroa.2.0.ref.tmp447.sroa_idx, align 8
   %second.i1446 = getelementptr inbounds nuw i8, ptr %ref.tmp447, i64 16
   store i32 916, ptr %second.i1446, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1447), !noalias !674
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1447), !noalias !674
   %call.i.i.i1448 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp447, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1447), !noalias !674
   %224 = load ptr, ptr %ConstFoundBucket.i.i.i1447, align 8, !noalias !674
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1447), !noalias !674
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1447), !noalias !674
   br i1 %call.i.i.i1448, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1457, label %if.end.i.i1449
 
 if.end.i.i1449:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1444
@@ -11789,10 +11789,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp452.sroa.2.0.ref.tmp451.sroa_idx, align 8
   %second.i1459 = getelementptr inbounds nuw i8, ptr %ref.tmp451, i64 16
   store i32 917, ptr %second.i1459, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1460), !noalias !679
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1460), !noalias !679
   %call.i.i.i1461 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp451, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1460), !noalias !679
   %226 = load ptr, ptr %ConstFoundBucket.i.i.i1460, align 8, !noalias !679
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1460), !noalias !679
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1460), !noalias !679
   br i1 %call.i.i.i1461, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1470, label %if.end.i.i1462
 
 if.end.i.i1462:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1457
@@ -11809,10 +11809,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp456.sroa.2.0.ref.tmp455.sroa_idx, align 8
   %second.i1472 = getelementptr inbounds nuw i8, ptr %ref.tmp455, i64 16
   store i32 918, ptr %second.i1472, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1473), !noalias !684
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1473), !noalias !684
   %call.i.i.i1474 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp455, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1473), !noalias !684
   %228 = load ptr, ptr %ConstFoundBucket.i.i.i1473, align 8, !noalias !684
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1473), !noalias !684
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1473), !noalias !684
   br i1 %call.i.i.i1474, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1483, label %if.end.i.i1475
 
 if.end.i.i1475:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1470
@@ -11829,10 +11829,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp460.sroa.2.0.ref.tmp459.sroa_idx, align 8
   %second.i1485 = getelementptr inbounds nuw i8, ptr %ref.tmp459, i64 16
   store i32 919, ptr %second.i1485, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1486), !noalias !689
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1486), !noalias !689
   %call.i.i.i1487 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp459, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1486), !noalias !689
   %230 = load ptr, ptr %ConstFoundBucket.i.i.i1486, align 8, !noalias !689
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1486), !noalias !689
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1486), !noalias !689
   br i1 %call.i.i.i1487, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1496, label %if.end.i.i1488
 
 if.end.i.i1488:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1483
@@ -11849,10 +11849,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp464.sroa.2.0.ref.tmp463.sroa_idx, align 8
   %second.i1498 = getelementptr inbounds nuw i8, ptr %ref.tmp463, i64 16
   store i32 920, ptr %second.i1498, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1499), !noalias !694
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1499), !noalias !694
   %call.i.i.i1500 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp463, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1499), !noalias !694
   %232 = load ptr, ptr %ConstFoundBucket.i.i.i1499, align 8, !noalias !694
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1499), !noalias !694
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1499), !noalias !694
   br i1 %call.i.i.i1500, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1509, label %if.end.i.i1501
 
 if.end.i.i1501:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1496
@@ -11869,10 +11869,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp468.sroa.2.0.ref.tmp467.sroa_idx, align 8
   %second.i1511 = getelementptr inbounds nuw i8, ptr %ref.tmp467, i64 16
   store i32 921, ptr %second.i1511, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1512), !noalias !699
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1512), !noalias !699
   %call.i.i.i1513 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp467, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1512), !noalias !699
   %234 = load ptr, ptr %ConstFoundBucket.i.i.i1512, align 8, !noalias !699
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1512), !noalias !699
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1512), !noalias !699
   br i1 %call.i.i.i1513, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1522, label %if.end.i.i1514
 
 if.end.i.i1514:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1509
@@ -11889,10 +11889,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp472.sroa.2.0.ref.tmp471.sroa_idx, align 8
   %second.i1524 = getelementptr inbounds nuw i8, ptr %ref.tmp471, i64 16
   store i32 922, ptr %second.i1524, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1525), !noalias !704
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1525), !noalias !704
   %call.i.i.i1526 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp471, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1525), !noalias !704
   %236 = load ptr, ptr %ConstFoundBucket.i.i.i1525, align 8, !noalias !704
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1525), !noalias !704
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1525), !noalias !704
   br i1 %call.i.i.i1526, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1535, label %if.end.i.i1527
 
 if.end.i.i1527:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1522
@@ -11909,10 +11909,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp476.sroa.2.0.ref.tmp475.sroa_idx, align 8
   %second.i1537 = getelementptr inbounds nuw i8, ptr %ref.tmp475, i64 16
   store i32 923, ptr %second.i1537, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1538), !noalias !709
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1538), !noalias !709
   %call.i.i.i1539 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp475, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1538), !noalias !709
   %238 = load ptr, ptr %ConstFoundBucket.i.i.i1538, align 8, !noalias !709
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1538), !noalias !709
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1538), !noalias !709
   br i1 %call.i.i.i1539, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1548, label %if.end.i.i1540
 
 if.end.i.i1540:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1535
@@ -11929,10 +11929,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp480.sroa.2.0.ref.tmp479.sroa_idx, align 8
   %second.i1550 = getelementptr inbounds nuw i8, ptr %ref.tmp479, i64 16
   store i32 924, ptr %second.i1550, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1551), !noalias !714
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1551), !noalias !714
   %call.i.i.i1552 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp479, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1551), !noalias !714
   %240 = load ptr, ptr %ConstFoundBucket.i.i.i1551, align 8, !noalias !714
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1551), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1551), !noalias !714
   br i1 %call.i.i.i1552, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1561, label %if.end.i.i1553
 
 if.end.i.i1553:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1548
@@ -11949,10 +11949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp484.sroa.2.0.ref.tmp483.sroa_idx, align 8
   %second.i1563 = getelementptr inbounds nuw i8, ptr %ref.tmp483, i64 16
   store i32 925, ptr %second.i1563, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1564), !noalias !719
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1564), !noalias !719
   %call.i.i.i1565 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp483, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1564), !noalias !719
   %242 = load ptr, ptr %ConstFoundBucket.i.i.i1564, align 8, !noalias !719
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1564), !noalias !719
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1564), !noalias !719
   br i1 %call.i.i.i1565, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1574, label %if.end.i.i1566
 
 if.end.i.i1566:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1561
@@ -11969,10 +11969,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp488.sroa.2.0.ref.tmp487.sroa_idx, align 8
   %second.i1576 = getelementptr inbounds nuw i8, ptr %ref.tmp487, i64 16
   store i32 926, ptr %second.i1576, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1577), !noalias !724
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1577), !noalias !724
   %call.i.i.i1578 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp487, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1577), !noalias !724
   %244 = load ptr, ptr %ConstFoundBucket.i.i.i1577, align 8, !noalias !724
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1577), !noalias !724
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1577), !noalias !724
   br i1 %call.i.i.i1578, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1587, label %if.end.i.i1579
 
 if.end.i.i1579:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1574
@@ -11989,10 +11989,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp492.sroa.2.0.ref.tmp491.sroa_idx, align 8
   %second.i1589 = getelementptr inbounds nuw i8, ptr %ref.tmp491, i64 16
   store i32 927, ptr %second.i1589, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1590), !noalias !729
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1590), !noalias !729
   %call.i.i.i1591 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp491, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1590), !noalias !729
   %246 = load ptr, ptr %ConstFoundBucket.i.i.i1590, align 8, !noalias !729
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1590), !noalias !729
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1590), !noalias !729
   br i1 %call.i.i.i1591, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1600, label %if.end.i.i1592
 
 if.end.i.i1592:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1587
@@ -12009,10 +12009,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp496.sroa.2.0.ref.tmp495.sroa_idx, align 8
   %second.i1602 = getelementptr inbounds nuw i8, ptr %ref.tmp495, i64 16
   store i32 928, ptr %second.i1602, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1603), !noalias !734
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1603), !noalias !734
   %call.i.i.i1604 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp495, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1603), !noalias !734
   %248 = load ptr, ptr %ConstFoundBucket.i.i.i1603, align 8, !noalias !734
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1603), !noalias !734
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1603), !noalias !734
   br i1 %call.i.i.i1604, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1613, label %if.end.i.i1605
 
 if.end.i.i1605:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1600
@@ -12029,10 +12029,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp500.sroa.2.0.ref.tmp499.sroa_idx, align 8
   %second.i1615 = getelementptr inbounds nuw i8, ptr %ref.tmp499, i64 16
   store i32 929, ptr %second.i1615, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1616), !noalias !739
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1616), !noalias !739
   %call.i.i.i1617 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp499, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1616), !noalias !739
   %250 = load ptr, ptr %ConstFoundBucket.i.i.i1616, align 8, !noalias !739
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1616), !noalias !739
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1616), !noalias !739
   br i1 %call.i.i.i1617, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1626, label %if.end.i.i1618
 
 if.end.i.i1618:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1613
@@ -12049,10 +12049,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp504.sroa.2.0.ref.tmp503.sroa_idx, align 8
   %second.i1628 = getelementptr inbounds nuw i8, ptr %ref.tmp503, i64 16
   store i32 931, ptr %second.i1628, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1629), !noalias !744
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1629), !noalias !744
   %call.i.i.i1630 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp503, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1629), !noalias !744
   %252 = load ptr, ptr %ConstFoundBucket.i.i.i1629, align 8, !noalias !744
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1629), !noalias !744
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1629), !noalias !744
   br i1 %call.i.i.i1630, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1639, label %if.end.i.i1631
 
 if.end.i.i1631:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1626
@@ -12069,10 +12069,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp508.sroa.2.0.ref.tmp507.sroa_idx, align 8
   %second.i1641 = getelementptr inbounds nuw i8, ptr %ref.tmp507, i64 16
   store i32 932, ptr %second.i1641, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1642), !noalias !749
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1642), !noalias !749
   %call.i.i.i1643 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp507, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1642), !noalias !749
   %254 = load ptr, ptr %ConstFoundBucket.i.i.i1642, align 8, !noalias !749
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1642), !noalias !749
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1642), !noalias !749
   br i1 %call.i.i.i1643, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1652, label %if.end.i.i1644
 
 if.end.i.i1644:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1639
@@ -12089,10 +12089,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp512.sroa.2.0.ref.tmp511.sroa_idx, align 8
   %second.i1654 = getelementptr inbounds nuw i8, ptr %ref.tmp511, i64 16
   store i32 933, ptr %second.i1654, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1655), !noalias !754
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1655), !noalias !754
   %call.i.i.i1656 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp511, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1655), !noalias !754
   %256 = load ptr, ptr %ConstFoundBucket.i.i.i1655, align 8, !noalias !754
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1655), !noalias !754
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1655), !noalias !754
   br i1 %call.i.i.i1656, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1665, label %if.end.i.i1657
 
 if.end.i.i1657:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1652
@@ -12109,10 +12109,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp516.sroa.2.0.ref.tmp515.sroa_idx, align 8
   %second.i1667 = getelementptr inbounds nuw i8, ptr %ref.tmp515, i64 16
   store i32 934, ptr %second.i1667, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1668), !noalias !759
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1668), !noalias !759
   %call.i.i.i1669 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp515, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1668), !noalias !759
   %258 = load ptr, ptr %ConstFoundBucket.i.i.i1668, align 8, !noalias !759
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1668), !noalias !759
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1668), !noalias !759
   br i1 %call.i.i.i1669, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1678, label %if.end.i.i1670
 
 if.end.i.i1670:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1665
@@ -12129,10 +12129,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp520.sroa.2.0.ref.tmp519.sroa_idx, align 8
   %second.i1680 = getelementptr inbounds nuw i8, ptr %ref.tmp519, i64 16
   store i32 935, ptr %second.i1680, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1681), !noalias !764
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1681), !noalias !764
   %call.i.i.i1682 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp519, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1681), !noalias !764
   %260 = load ptr, ptr %ConstFoundBucket.i.i.i1681, align 8, !noalias !764
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1681), !noalias !764
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1681), !noalias !764
   br i1 %call.i.i.i1682, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1691, label %if.end.i.i1683
 
 if.end.i.i1683:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1678
@@ -12149,10 +12149,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp524.sroa.2.0.ref.tmp523.sroa_idx, align 8
   %second.i1693 = getelementptr inbounds nuw i8, ptr %ref.tmp523, i64 16
   store i32 936, ptr %second.i1693, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1694), !noalias !769
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1694), !noalias !769
   %call.i.i.i1695 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp523, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1694), !noalias !769
   %262 = load ptr, ptr %ConstFoundBucket.i.i.i1694, align 8, !noalias !769
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1694), !noalias !769
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1694), !noalias !769
   br i1 %call.i.i.i1695, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1704, label %if.end.i.i1696
 
 if.end.i.i1696:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1691
@@ -12169,10 +12169,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp528.sroa.2.0.ref.tmp527.sroa_idx, align 8
   %second.i1706 = getelementptr inbounds nuw i8, ptr %ref.tmp527, i64 16
   store i32 937, ptr %second.i1706, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1707), !noalias !774
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1707), !noalias !774
   %call.i.i.i1708 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp527, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1707), !noalias !774
   %264 = load ptr, ptr %ConstFoundBucket.i.i.i1707, align 8, !noalias !774
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1707), !noalias !774
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1707), !noalias !774
   br i1 %call.i.i.i1708, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1717, label %if.end.i.i1709
 
 if.end.i.i1709:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1704
@@ -12189,10 +12189,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp532.sroa.2.0.ref.tmp531.sroa_idx, align 8
   %second.i1719 = getelementptr inbounds nuw i8, ptr %ref.tmp531, i64 16
   store i32 945, ptr %second.i1719, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1720), !noalias !779
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1720), !noalias !779
   %call.i.i.i1721 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp531, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1720), !noalias !779
   %266 = load ptr, ptr %ConstFoundBucket.i.i.i1720, align 8, !noalias !779
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1720), !noalias !779
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1720), !noalias !779
   br i1 %call.i.i.i1721, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1730, label %if.end.i.i1722
 
 if.end.i.i1722:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1717
@@ -12209,10 +12209,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp536.sroa.2.0.ref.tmp535.sroa_idx, align 8
   %second.i1732 = getelementptr inbounds nuw i8, ptr %ref.tmp535, i64 16
   store i32 946, ptr %second.i1732, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1733), !noalias !784
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1733), !noalias !784
   %call.i.i.i1734 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp535, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1733), !noalias !784
   %268 = load ptr, ptr %ConstFoundBucket.i.i.i1733, align 8, !noalias !784
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1733), !noalias !784
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1733), !noalias !784
   br i1 %call.i.i.i1734, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1743, label %if.end.i.i1735
 
 if.end.i.i1735:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1730
@@ -12229,10 +12229,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp540.sroa.2.0.ref.tmp539.sroa_idx, align 8
   %second.i1745 = getelementptr inbounds nuw i8, ptr %ref.tmp539, i64 16
   store i32 947, ptr %second.i1745, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1746), !noalias !789
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1746), !noalias !789
   %call.i.i.i1747 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp539, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1746), !noalias !789
   %270 = load ptr, ptr %ConstFoundBucket.i.i.i1746, align 8, !noalias !789
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1746), !noalias !789
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1746), !noalias !789
   br i1 %call.i.i.i1747, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1756, label %if.end.i.i1748
 
 if.end.i.i1748:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1743
@@ -12249,10 +12249,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp544.sroa.2.0.ref.tmp543.sroa_idx, align 8
   %second.i1758 = getelementptr inbounds nuw i8, ptr %ref.tmp543, i64 16
   store i32 948, ptr %second.i1758, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1759), !noalias !794
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1759), !noalias !794
   %call.i.i.i1760 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp543, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1759), !noalias !794
   %272 = load ptr, ptr %ConstFoundBucket.i.i.i1759, align 8, !noalias !794
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1759), !noalias !794
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1759), !noalias !794
   br i1 %call.i.i.i1760, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1769, label %if.end.i.i1761
 
 if.end.i.i1761:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1756
@@ -12269,10 +12269,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp548.sroa.2.0.ref.tmp547.sroa_idx, align 8
   %second.i1771 = getelementptr inbounds nuw i8, ptr %ref.tmp547, i64 16
   store i32 949, ptr %second.i1771, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1772), !noalias !799
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1772), !noalias !799
   %call.i.i.i1773 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp547, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1772), !noalias !799
   %274 = load ptr, ptr %ConstFoundBucket.i.i.i1772, align 8, !noalias !799
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1772), !noalias !799
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1772), !noalias !799
   br i1 %call.i.i.i1773, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1782, label %if.end.i.i1774
 
 if.end.i.i1774:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1769
@@ -12289,10 +12289,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp552.sroa.2.0.ref.tmp551.sroa_idx, align 8
   %second.i1784 = getelementptr inbounds nuw i8, ptr %ref.tmp551, i64 16
   store i32 950, ptr %second.i1784, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1785), !noalias !804
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1785), !noalias !804
   %call.i.i.i1786 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp551, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1785), !noalias !804
   %276 = load ptr, ptr %ConstFoundBucket.i.i.i1785, align 8, !noalias !804
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1785), !noalias !804
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1785), !noalias !804
   br i1 %call.i.i.i1786, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1795, label %if.end.i.i1787
 
 if.end.i.i1787:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1782
@@ -12309,10 +12309,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp556.sroa.2.0.ref.tmp555.sroa_idx, align 8
   %second.i1797 = getelementptr inbounds nuw i8, ptr %ref.tmp555, i64 16
   store i32 951, ptr %second.i1797, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1798), !noalias !809
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1798), !noalias !809
   %call.i.i.i1799 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp555, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1798), !noalias !809
   %278 = load ptr, ptr %ConstFoundBucket.i.i.i1798, align 8, !noalias !809
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1798), !noalias !809
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1798), !noalias !809
   br i1 %call.i.i.i1799, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1808, label %if.end.i.i1800
 
 if.end.i.i1800:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1795
@@ -12329,10 +12329,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp560.sroa.2.0.ref.tmp559.sroa_idx, align 8
   %second.i1810 = getelementptr inbounds nuw i8, ptr %ref.tmp559, i64 16
   store i32 952, ptr %second.i1810, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1811), !noalias !814
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1811), !noalias !814
   %call.i.i.i1812 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp559, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1811), !noalias !814
   %280 = load ptr, ptr %ConstFoundBucket.i.i.i1811, align 8, !noalias !814
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1811), !noalias !814
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1811), !noalias !814
   br i1 %call.i.i.i1812, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1821, label %if.end.i.i1813
 
 if.end.i.i1813:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1808
@@ -12349,10 +12349,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp564.sroa.2.0.ref.tmp563.sroa_idx, align 8
   %second.i1823 = getelementptr inbounds nuw i8, ptr %ref.tmp563, i64 16
   store i32 953, ptr %second.i1823, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1824), !noalias !819
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1824), !noalias !819
   %call.i.i.i1825 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp563, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1824), !noalias !819
   %282 = load ptr, ptr %ConstFoundBucket.i.i.i1824, align 8, !noalias !819
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1824), !noalias !819
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1824), !noalias !819
   br i1 %call.i.i.i1825, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1834, label %if.end.i.i1826
 
 if.end.i.i1826:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1821
@@ -12369,10 +12369,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp568.sroa.2.0.ref.tmp567.sroa_idx, align 8
   %second.i1836 = getelementptr inbounds nuw i8, ptr %ref.tmp567, i64 16
   store i32 954, ptr %second.i1836, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1837), !noalias !824
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1837), !noalias !824
   %call.i.i.i1838 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp567, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1837), !noalias !824
   %284 = load ptr, ptr %ConstFoundBucket.i.i.i1837, align 8, !noalias !824
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1837), !noalias !824
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1837), !noalias !824
   br i1 %call.i.i.i1838, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1847, label %if.end.i.i1839
 
 if.end.i.i1839:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1834
@@ -12389,10 +12389,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp572.sroa.2.0.ref.tmp571.sroa_idx, align 8
   %second.i1849 = getelementptr inbounds nuw i8, ptr %ref.tmp571, i64 16
   store i32 955, ptr %second.i1849, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1850), !noalias !829
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1850), !noalias !829
   %call.i.i.i1851 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp571, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1850), !noalias !829
   %286 = load ptr, ptr %ConstFoundBucket.i.i.i1850, align 8, !noalias !829
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1850), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1850), !noalias !829
   br i1 %call.i.i.i1851, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1860, label %if.end.i.i1852
 
 if.end.i.i1852:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1847
@@ -12409,10 +12409,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp576.sroa.2.0.ref.tmp575.sroa_idx, align 8
   %second.i1862 = getelementptr inbounds nuw i8, ptr %ref.tmp575, i64 16
   store i32 956, ptr %second.i1862, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1863), !noalias !834
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1863), !noalias !834
   %call.i.i.i1864 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp575, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1863), !noalias !834
   %288 = load ptr, ptr %ConstFoundBucket.i.i.i1863, align 8, !noalias !834
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1863), !noalias !834
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1863), !noalias !834
   br i1 %call.i.i.i1864, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1873, label %if.end.i.i1865
 
 if.end.i.i1865:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1860
@@ -12429,10 +12429,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp580.sroa.2.0.ref.tmp579.sroa_idx, align 8
   %second.i1875 = getelementptr inbounds nuw i8, ptr %ref.tmp579, i64 16
   store i32 957, ptr %second.i1875, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1876), !noalias !839
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1876), !noalias !839
   %call.i.i.i1877 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp579, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1876), !noalias !839
   %290 = load ptr, ptr %ConstFoundBucket.i.i.i1876, align 8, !noalias !839
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1876), !noalias !839
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1876), !noalias !839
   br i1 %call.i.i.i1877, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1886, label %if.end.i.i1878
 
 if.end.i.i1878:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1873
@@ -12449,10 +12449,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp584.sroa.2.0.ref.tmp583.sroa_idx, align 8
   %second.i1888 = getelementptr inbounds nuw i8, ptr %ref.tmp583, i64 16
   store i32 958, ptr %second.i1888, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1889), !noalias !844
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1889), !noalias !844
   %call.i.i.i1890 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp583, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1889), !noalias !844
   %292 = load ptr, ptr %ConstFoundBucket.i.i.i1889, align 8, !noalias !844
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1889), !noalias !844
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1889), !noalias !844
   br i1 %call.i.i.i1890, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1899, label %if.end.i.i1891
 
 if.end.i.i1891:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1886
@@ -12469,10 +12469,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp588.sroa.2.0.ref.tmp587.sroa_idx, align 8
   %second.i1901 = getelementptr inbounds nuw i8, ptr %ref.tmp587, i64 16
   store i32 959, ptr %second.i1901, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1902), !noalias !849
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1902), !noalias !849
   %call.i.i.i1903 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp587, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1902), !noalias !849
   %294 = load ptr, ptr %ConstFoundBucket.i.i.i1902, align 8, !noalias !849
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1902), !noalias !849
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1902), !noalias !849
   br i1 %call.i.i.i1903, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1912, label %if.end.i.i1904
 
 if.end.i.i1904:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1899
@@ -12489,10 +12489,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp592.sroa.2.0.ref.tmp591.sroa_idx, align 8
   %second.i1914 = getelementptr inbounds nuw i8, ptr %ref.tmp591, i64 16
   store i32 960, ptr %second.i1914, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1915), !noalias !854
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1915), !noalias !854
   %call.i.i.i1916 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp591, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1915), !noalias !854
   %296 = load ptr, ptr %ConstFoundBucket.i.i.i1915, align 8, !noalias !854
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1915), !noalias !854
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1915), !noalias !854
   br i1 %call.i.i.i1916, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1925, label %if.end.i.i1917
 
 if.end.i.i1917:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1912
@@ -12509,10 +12509,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp596.sroa.2.0.ref.tmp595.sroa_idx, align 8
   %second.i1927 = getelementptr inbounds nuw i8, ptr %ref.tmp595, i64 16
   store i32 961, ptr %second.i1927, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1928), !noalias !859
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1928), !noalias !859
   %call.i.i.i1929 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp595, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1928), !noalias !859
   %298 = load ptr, ptr %ConstFoundBucket.i.i.i1928, align 8, !noalias !859
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1928), !noalias !859
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1928), !noalias !859
   br i1 %call.i.i.i1929, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1938, label %if.end.i.i1930
 
 if.end.i.i1930:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1925
@@ -12529,10 +12529,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp600.sroa.2.0.ref.tmp599.sroa_idx, align 8
   %second.i1940 = getelementptr inbounds nuw i8, ptr %ref.tmp599, i64 16
   store i32 962, ptr %second.i1940, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1941), !noalias !864
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1941), !noalias !864
   %call.i.i.i1942 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp599, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1941), !noalias !864
   %300 = load ptr, ptr %ConstFoundBucket.i.i.i1941, align 8, !noalias !864
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1941), !noalias !864
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1941), !noalias !864
   br i1 %call.i.i.i1942, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1951, label %if.end.i.i1943
 
 if.end.i.i1943:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1938
@@ -12549,10 +12549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp604.sroa.2.0.ref.tmp603.sroa_idx, align 8
   %second.i1953 = getelementptr inbounds nuw i8, ptr %ref.tmp603, i64 16
   store i32 963, ptr %second.i1953, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1954), !noalias !869
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1954), !noalias !869
   %call.i.i.i1955 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp603, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1954), !noalias !869
   %302 = load ptr, ptr %ConstFoundBucket.i.i.i1954, align 8, !noalias !869
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1954), !noalias !869
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1954), !noalias !869
   br i1 %call.i.i.i1955, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1964, label %if.end.i.i1956
 
 if.end.i.i1956:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1951
@@ -12569,10 +12569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp608.sroa.2.0.ref.tmp607.sroa_idx, align 8
   %second.i1966 = getelementptr inbounds nuw i8, ptr %ref.tmp607, i64 16
   store i32 964, ptr %second.i1966, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1967), !noalias !874
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1967), !noalias !874
   %call.i.i.i1968 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp607, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1967), !noalias !874
   %304 = load ptr, ptr %ConstFoundBucket.i.i.i1967, align 8, !noalias !874
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1967), !noalias !874
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1967), !noalias !874
   br i1 %call.i.i.i1968, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1977, label %if.end.i.i1969
 
 if.end.i.i1969:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1964
@@ -12589,10 +12589,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp612.sroa.2.0.ref.tmp611.sroa_idx, align 8
   %second.i1979 = getelementptr inbounds nuw i8, ptr %ref.tmp611, i64 16
   store i32 965, ptr %second.i1979, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1980), !noalias !879
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1980), !noalias !879
   %call.i.i.i1981 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp611, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1980), !noalias !879
   %306 = load ptr, ptr %ConstFoundBucket.i.i.i1980, align 8, !noalias !879
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1980), !noalias !879
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1980), !noalias !879
   br i1 %call.i.i.i1981, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1990, label %if.end.i.i1982
 
 if.end.i.i1982:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1977
@@ -12609,10 +12609,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp616.sroa.2.0.ref.tmp615.sroa_idx, align 8
   %second.i1992 = getelementptr inbounds nuw i8, ptr %ref.tmp615, i64 16
   store i32 966, ptr %second.i1992, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1993), !noalias !884
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i1993), !noalias !884
   %call.i.i.i1994 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp615, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i1993), !noalias !884
   %308 = load ptr, ptr %ConstFoundBucket.i.i.i1993, align 8, !noalias !884
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i1993), !noalias !884
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i1993), !noalias !884
   br i1 %call.i.i.i1994, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2003, label %if.end.i.i1995
 
 if.end.i.i1995:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit1990
@@ -12629,10 +12629,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp620.sroa.2.0.ref.tmp619.sroa_idx, align 8
   %second.i2005 = getelementptr inbounds nuw i8, ptr %ref.tmp619, i64 16
   store i32 967, ptr %second.i2005, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2006), !noalias !889
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2006), !noalias !889
   %call.i.i.i2007 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp619, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2006), !noalias !889
   %310 = load ptr, ptr %ConstFoundBucket.i.i.i2006, align 8, !noalias !889
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2006), !noalias !889
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2006), !noalias !889
   br i1 %call.i.i.i2007, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2016, label %if.end.i.i2008
 
 if.end.i.i2008:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2003
@@ -12649,10 +12649,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp624.sroa.2.0.ref.tmp623.sroa_idx, align 8
   %second.i2018 = getelementptr inbounds nuw i8, ptr %ref.tmp623, i64 16
   store i32 968, ptr %second.i2018, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2019), !noalias !894
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2019), !noalias !894
   %call.i.i.i2020 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp623, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2019), !noalias !894
   %312 = load ptr, ptr %ConstFoundBucket.i.i.i2019, align 8, !noalias !894
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2019), !noalias !894
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2019), !noalias !894
   br i1 %call.i.i.i2020, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2029, label %if.end.i.i2021
 
 if.end.i.i2021:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2016
@@ -12669,10 +12669,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp628.sroa.2.0.ref.tmp627.sroa_idx, align 8
   %second.i2031 = getelementptr inbounds nuw i8, ptr %ref.tmp627, i64 16
   store i32 969, ptr %second.i2031, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2032), !noalias !899
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2032), !noalias !899
   %call.i.i.i2033 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp627, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2032), !noalias !899
   %314 = load ptr, ptr %ConstFoundBucket.i.i.i2032, align 8, !noalias !899
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2032), !noalias !899
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2032), !noalias !899
   br i1 %call.i.i.i2033, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2042, label %if.end.i.i2034
 
 if.end.i.i2034:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2029
@@ -12689,10 +12689,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 8, ptr %ref.tmp632.sroa.2.0.ref.tmp631.sroa_idx, align 8
   %second.i2044 = getelementptr inbounds nuw i8, ptr %ref.tmp631, i64 16
   store i32 977, ptr %second.i2044, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2045), !noalias !904
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2045), !noalias !904
   %call.i.i.i2046 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp631, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2045), !noalias !904
   %316 = load ptr, ptr %ConstFoundBucket.i.i.i2045, align 8, !noalias !904
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2045), !noalias !904
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2045), !noalias !904
   br i1 %call.i.i.i2046, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2055, label %if.end.i.i2047
 
 if.end.i.i2047:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2042
@@ -12709,10 +12709,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp636.sroa.2.0.ref.tmp635.sroa_idx, align 8
   %second.i2057 = getelementptr inbounds nuw i8, ptr %ref.tmp635, i64 16
   store i32 978, ptr %second.i2057, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2058), !noalias !909
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2058), !noalias !909
   %call.i.i.i2059 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp635, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2058), !noalias !909
   %318 = load ptr, ptr %ConstFoundBucket.i.i.i2058, align 8, !noalias !909
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2058), !noalias !909
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2058), !noalias !909
   br i1 %call.i.i.i2059, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2068, label %if.end.i.i2060
 
 if.end.i.i2060:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2055
@@ -12729,10 +12729,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp640.sroa.2.0.ref.tmp639.sroa_idx, align 8
   %second.i2070 = getelementptr inbounds nuw i8, ptr %ref.tmp639, i64 16
   store i32 982, ptr %second.i2070, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2071), !noalias !914
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2071), !noalias !914
   %call.i.i.i2072 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp639, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2071), !noalias !914
   %320 = load ptr, ptr %ConstFoundBucket.i.i.i2071, align 8, !noalias !914
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2071), !noalias !914
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2071), !noalias !914
   br i1 %call.i.i.i2072, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2081, label %if.end.i.i2073
 
 if.end.i.i2073:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2068
@@ -12749,10 +12749,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp644.sroa.2.0.ref.tmp643.sroa_idx, align 8
   %second.i2083 = getelementptr inbounds nuw i8, ptr %ref.tmp643, i64 16
   store i32 8194, ptr %second.i2083, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2084), !noalias !919
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2084), !noalias !919
   %call.i.i.i2085 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp643, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2084), !noalias !919
   %322 = load ptr, ptr %ConstFoundBucket.i.i.i2084, align 8, !noalias !919
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2084), !noalias !919
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2084), !noalias !919
   br i1 %call.i.i.i2085, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2094, label %if.end.i.i2086
 
 if.end.i.i2086:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2081
@@ -12769,10 +12769,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp648.sroa.2.0.ref.tmp647.sroa_idx, align 8
   %second.i2096 = getelementptr inbounds nuw i8, ptr %ref.tmp647, i64 16
   store i32 8195, ptr %second.i2096, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2097), !noalias !924
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2097), !noalias !924
   %call.i.i.i2098 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp647, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2097), !noalias !924
   %324 = load ptr, ptr %ConstFoundBucket.i.i.i2097, align 8, !noalias !924
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2097), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2097), !noalias !924
   br i1 %call.i.i.i2098, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2107, label %if.end.i.i2099
 
 if.end.i.i2099:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2094
@@ -12789,10 +12789,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp652.sroa.2.0.ref.tmp651.sroa_idx, align 8
   %second.i2109 = getelementptr inbounds nuw i8, ptr %ref.tmp651, i64 16
   store i32 8201, ptr %second.i2109, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2110), !noalias !929
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2110), !noalias !929
   %call.i.i.i2111 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp651, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2110), !noalias !929
   %326 = load ptr, ptr %ConstFoundBucket.i.i.i2110, align 8, !noalias !929
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2110), !noalias !929
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2110), !noalias !929
   br i1 %call.i.i.i2111, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2120, label %if.end.i.i2112
 
 if.end.i.i2112:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2107
@@ -12809,10 +12809,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp656.sroa.2.0.ref.tmp655.sroa_idx, align 8
   %second.i2122 = getelementptr inbounds nuw i8, ptr %ref.tmp655, i64 16
   store i32 8204, ptr %second.i2122, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2123), !noalias !934
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2123), !noalias !934
   %call.i.i.i2124 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp655, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2123), !noalias !934
   %328 = load ptr, ptr %ConstFoundBucket.i.i.i2123, align 8, !noalias !934
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2123), !noalias !934
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2123), !noalias !934
   br i1 %call.i.i.i2124, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2133, label %if.end.i.i2125
 
 if.end.i.i2125:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2120
@@ -12829,10 +12829,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp660.sroa.2.0.ref.tmp659.sroa_idx, align 8
   %second.i2135 = getelementptr inbounds nuw i8, ptr %ref.tmp659, i64 16
   store i32 8205, ptr %second.i2135, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2136), !noalias !939
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2136), !noalias !939
   %call.i.i.i2137 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp659, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2136), !noalias !939
   %330 = load ptr, ptr %ConstFoundBucket.i.i.i2136, align 8, !noalias !939
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2136), !noalias !939
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2136), !noalias !939
   br i1 %call.i.i.i2137, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2146, label %if.end.i.i2138
 
 if.end.i.i2138:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2133
@@ -12849,10 +12849,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp664.sroa.2.0.ref.tmp663.sroa_idx, align 8
   %second.i2148 = getelementptr inbounds nuw i8, ptr %ref.tmp663, i64 16
   store i32 8206, ptr %second.i2148, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2149), !noalias !944
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2149), !noalias !944
   %call.i.i.i2150 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp663, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2149), !noalias !944
   %332 = load ptr, ptr %ConstFoundBucket.i.i.i2149, align 8, !noalias !944
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2149), !noalias !944
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2149), !noalias !944
   br i1 %call.i.i.i2150, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2159, label %if.end.i.i2151
 
 if.end.i.i2151:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2146
@@ -12869,10 +12869,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp668.sroa.2.0.ref.tmp667.sroa_idx, align 8
   %second.i2161 = getelementptr inbounds nuw i8, ptr %ref.tmp667, i64 16
   store i32 8207, ptr %second.i2161, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2162), !noalias !949
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2162), !noalias !949
   %call.i.i.i2163 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp667, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2162), !noalias !949
   %334 = load ptr, ptr %ConstFoundBucket.i.i.i2162, align 8, !noalias !949
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2162), !noalias !949
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2162), !noalias !949
   br i1 %call.i.i.i2163, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2172, label %if.end.i.i2164
 
 if.end.i.i2164:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2159
@@ -12889,10 +12889,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp672.sroa.2.0.ref.tmp671.sroa_idx, align 8
   %second.i2174 = getelementptr inbounds nuw i8, ptr %ref.tmp671, i64 16
   store i32 8211, ptr %second.i2174, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2175), !noalias !954
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2175), !noalias !954
   %call.i.i.i2176 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp671, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2175), !noalias !954
   %336 = load ptr, ptr %ConstFoundBucket.i.i.i2175, align 8, !noalias !954
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2175), !noalias !954
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2175), !noalias !954
   br i1 %call.i.i.i2176, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2185, label %if.end.i.i2177
 
 if.end.i.i2177:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2172
@@ -12909,10 +12909,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp676.sroa.2.0.ref.tmp675.sroa_idx, align 8
   %second.i2187 = getelementptr inbounds nuw i8, ptr %ref.tmp675, i64 16
   store i32 8212, ptr %second.i2187, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2188), !noalias !959
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2188), !noalias !959
   %call.i.i.i2189 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp675, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2188), !noalias !959
   %338 = load ptr, ptr %ConstFoundBucket.i.i.i2188, align 8, !noalias !959
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2188), !noalias !959
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2188), !noalias !959
   br i1 %call.i.i.i2189, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2198, label %if.end.i.i2190
 
 if.end.i.i2190:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2185
@@ -12929,10 +12929,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp680.sroa.2.0.ref.tmp679.sroa_idx, align 8
   %second.i2200 = getelementptr inbounds nuw i8, ptr %ref.tmp679, i64 16
   store i32 8216, ptr %second.i2200, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2201), !noalias !964
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2201), !noalias !964
   %call.i.i.i2202 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp679, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2201), !noalias !964
   %340 = load ptr, ptr %ConstFoundBucket.i.i.i2201, align 8, !noalias !964
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2201), !noalias !964
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2201), !noalias !964
   br i1 %call.i.i.i2202, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2211, label %if.end.i.i2203
 
 if.end.i.i2203:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2198
@@ -12949,10 +12949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp684.sroa.2.0.ref.tmp683.sroa_idx, align 8
   %second.i2213 = getelementptr inbounds nuw i8, ptr %ref.tmp683, i64 16
   store i32 8217, ptr %second.i2213, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2214), !noalias !969
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2214), !noalias !969
   %call.i.i.i2215 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp683, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2214), !noalias !969
   %342 = load ptr, ptr %ConstFoundBucket.i.i.i2214, align 8, !noalias !969
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2214), !noalias !969
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2214), !noalias !969
   br i1 %call.i.i.i2215, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2224, label %if.end.i.i2216
 
 if.end.i.i2216:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2211
@@ -12969,10 +12969,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp688.sroa.2.0.ref.tmp687.sroa_idx, align 8
   %second.i2226 = getelementptr inbounds nuw i8, ptr %ref.tmp687, i64 16
   store i32 8218, ptr %second.i2226, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2227), !noalias !974
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2227), !noalias !974
   %call.i.i.i2228 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp687, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2227), !noalias !974
   %344 = load ptr, ptr %ConstFoundBucket.i.i.i2227, align 8, !noalias !974
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2227), !noalias !974
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2227), !noalias !974
   br i1 %call.i.i.i2228, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2237, label %if.end.i.i2229
 
 if.end.i.i2229:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2224
@@ -12989,10 +12989,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp692.sroa.2.0.ref.tmp691.sroa_idx, align 8
   %second.i2239 = getelementptr inbounds nuw i8, ptr %ref.tmp691, i64 16
   store i32 8220, ptr %second.i2239, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2240), !noalias !979
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2240), !noalias !979
   %call.i.i.i2241 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp691, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2240), !noalias !979
   %346 = load ptr, ptr %ConstFoundBucket.i.i.i2240, align 8, !noalias !979
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2240), !noalias !979
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2240), !noalias !979
   br i1 %call.i.i.i2241, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2250, label %if.end.i.i2242
 
 if.end.i.i2242:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2237
@@ -13009,10 +13009,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp696.sroa.2.0.ref.tmp695.sroa_idx, align 8
   %second.i2252 = getelementptr inbounds nuw i8, ptr %ref.tmp695, i64 16
   store i32 8221, ptr %second.i2252, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2253), !noalias !984
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2253), !noalias !984
   %call.i.i.i2254 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp695, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2253), !noalias !984
   %348 = load ptr, ptr %ConstFoundBucket.i.i.i2253, align 8, !noalias !984
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2253), !noalias !984
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2253), !noalias !984
   br i1 %call.i.i.i2254, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2263, label %if.end.i.i2255
 
 if.end.i.i2255:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2250
@@ -13029,10 +13029,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp700.sroa.2.0.ref.tmp699.sroa_idx, align 8
   %second.i2265 = getelementptr inbounds nuw i8, ptr %ref.tmp699, i64 16
   store i32 8222, ptr %second.i2265, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2266), !noalias !989
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2266), !noalias !989
   %call.i.i.i2267 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp699, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2266), !noalias !989
   %350 = load ptr, ptr %ConstFoundBucket.i.i.i2266, align 8, !noalias !989
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2266), !noalias !989
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2266), !noalias !989
   br i1 %call.i.i.i2267, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2276, label %if.end.i.i2268
 
 if.end.i.i2268:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2263
@@ -13049,10 +13049,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp704.sroa.2.0.ref.tmp703.sroa_idx, align 8
   %second.i2278 = getelementptr inbounds nuw i8, ptr %ref.tmp703, i64 16
   store i32 8224, ptr %second.i2278, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2279), !noalias !994
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2279), !noalias !994
   %call.i.i.i2280 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp703, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2279), !noalias !994
   %352 = load ptr, ptr %ConstFoundBucket.i.i.i2279, align 8, !noalias !994
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2279), !noalias !994
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2279), !noalias !994
   br i1 %call.i.i.i2280, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2289, label %if.end.i.i2281
 
 if.end.i.i2281:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2276
@@ -13069,10 +13069,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp708.sroa.2.0.ref.tmp707.sroa_idx, align 8
   %second.i2291 = getelementptr inbounds nuw i8, ptr %ref.tmp707, i64 16
   store i32 8225, ptr %second.i2291, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2292), !noalias !999
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2292), !noalias !999
   %call.i.i.i2293 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp707, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2292), !noalias !999
   %354 = load ptr, ptr %ConstFoundBucket.i.i.i2292, align 8, !noalias !999
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2292), !noalias !999
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2292), !noalias !999
   br i1 %call.i.i.i2293, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2302, label %if.end.i.i2294
 
 if.end.i.i2294:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2289
@@ -13089,10 +13089,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp712.sroa.2.0.ref.tmp711.sroa_idx, align 8
   %second.i2304 = getelementptr inbounds nuw i8, ptr %ref.tmp711, i64 16
   store i32 8226, ptr %second.i2304, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2305), !noalias !1004
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2305), !noalias !1004
   %call.i.i.i2306 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp711, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2305), !noalias !1004
   %356 = load ptr, ptr %ConstFoundBucket.i.i.i2305, align 8, !noalias !1004
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2305), !noalias !1004
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2305), !noalias !1004
   br i1 %call.i.i.i2306, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2315, label %if.end.i.i2307
 
 if.end.i.i2307:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2302
@@ -13109,10 +13109,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp716.sroa.2.0.ref.tmp715.sroa_idx, align 8
   %second.i2317 = getelementptr inbounds nuw i8, ptr %ref.tmp715, i64 16
   store i32 8230, ptr %second.i2317, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2318), !noalias !1009
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2318), !noalias !1009
   %call.i.i.i2319 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp715, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2318), !noalias !1009
   %358 = load ptr, ptr %ConstFoundBucket.i.i.i2318, align 8, !noalias !1009
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2318), !noalias !1009
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2318), !noalias !1009
   br i1 %call.i.i.i2319, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2328, label %if.end.i.i2320
 
 if.end.i.i2320:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2315
@@ -13129,10 +13129,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp720.sroa.2.0.ref.tmp719.sroa_idx, align 8
   %second.i2330 = getelementptr inbounds nuw i8, ptr %ref.tmp719, i64 16
   store i32 8240, ptr %second.i2330, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2331), !noalias !1014
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2331), !noalias !1014
   %call.i.i.i2332 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp719, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2331), !noalias !1014
   %360 = load ptr, ptr %ConstFoundBucket.i.i.i2331, align 8, !noalias !1014
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2331), !noalias !1014
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2331), !noalias !1014
   br i1 %call.i.i.i2332, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2341, label %if.end.i.i2333
 
 if.end.i.i2333:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2328
@@ -13149,10 +13149,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp724.sroa.2.0.ref.tmp723.sroa_idx, align 8
   %second.i2343 = getelementptr inbounds nuw i8, ptr %ref.tmp723, i64 16
   store i32 8242, ptr %second.i2343, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2344), !noalias !1019
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2344), !noalias !1019
   %call.i.i.i2345 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp723, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2344), !noalias !1019
   %362 = load ptr, ptr %ConstFoundBucket.i.i.i2344, align 8, !noalias !1019
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2344), !noalias !1019
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2344), !noalias !1019
   br i1 %call.i.i.i2345, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2354, label %if.end.i.i2346
 
 if.end.i.i2346:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2341
@@ -13169,10 +13169,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp728.sroa.2.0.ref.tmp727.sroa_idx, align 8
   %second.i2356 = getelementptr inbounds nuw i8, ptr %ref.tmp727, i64 16
   store i32 8243, ptr %second.i2356, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2357), !noalias !1024
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2357), !noalias !1024
   %call.i.i.i2358 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp727, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2357), !noalias !1024
   %364 = load ptr, ptr %ConstFoundBucket.i.i.i2357, align 8, !noalias !1024
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2357), !noalias !1024
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2357), !noalias !1024
   br i1 %call.i.i.i2358, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2367, label %if.end.i.i2359
 
 if.end.i.i2359:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2354
@@ -13189,10 +13189,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp732.sroa.2.0.ref.tmp731.sroa_idx, align 8
   %second.i2369 = getelementptr inbounds nuw i8, ptr %ref.tmp731, i64 16
   store i32 8249, ptr %second.i2369, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2370), !noalias !1029
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2370), !noalias !1029
   %call.i.i.i2371 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp731, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2370), !noalias !1029
   %366 = load ptr, ptr %ConstFoundBucket.i.i.i2370, align 8, !noalias !1029
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2370), !noalias !1029
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2370), !noalias !1029
   br i1 %call.i.i.i2371, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2380, label %if.end.i.i2372
 
 if.end.i.i2372:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2367
@@ -13209,10 +13209,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp736.sroa.2.0.ref.tmp735.sroa_idx, align 8
   %second.i2382 = getelementptr inbounds nuw i8, ptr %ref.tmp735, i64 16
   store i32 8250, ptr %second.i2382, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2383), !noalias !1034
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2383), !noalias !1034
   %call.i.i.i2384 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp735, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2383), !noalias !1034
   %368 = load ptr, ptr %ConstFoundBucket.i.i.i2383, align 8, !noalias !1034
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2383), !noalias !1034
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2383), !noalias !1034
   br i1 %call.i.i.i2384, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2393, label %if.end.i.i2385
 
 if.end.i.i2385:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2380
@@ -13229,10 +13229,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp740.sroa.2.0.ref.tmp739.sroa_idx, align 8
   %second.i2395 = getelementptr inbounds nuw i8, ptr %ref.tmp739, i64 16
   store i32 8254, ptr %second.i2395, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2396), !noalias !1039
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2396), !noalias !1039
   %call.i.i.i2397 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp739, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2396), !noalias !1039
   %370 = load ptr, ptr %ConstFoundBucket.i.i.i2396, align 8, !noalias !1039
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2396), !noalias !1039
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2396), !noalias !1039
   br i1 %call.i.i.i2397, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2406, label %if.end.i.i2398
 
 if.end.i.i2398:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2393
@@ -13249,10 +13249,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp744.sroa.2.0.ref.tmp743.sroa_idx, align 8
   %second.i2408 = getelementptr inbounds nuw i8, ptr %ref.tmp743, i64 16
   store i32 8260, ptr %second.i2408, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2409), !noalias !1044
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2409), !noalias !1044
   %call.i.i.i2410 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp743, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2409), !noalias !1044
   %372 = load ptr, ptr %ConstFoundBucket.i.i.i2409, align 8, !noalias !1044
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2409), !noalias !1044
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2409), !noalias !1044
   br i1 %call.i.i.i2410, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2419, label %if.end.i.i2411
 
 if.end.i.i2411:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2406
@@ -13269,10 +13269,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp748.sroa.2.0.ref.tmp747.sroa_idx, align 8
   %second.i2421 = getelementptr inbounds nuw i8, ptr %ref.tmp747, i64 16
   store i32 8364, ptr %second.i2421, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2422), !noalias !1049
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2422), !noalias !1049
   %call.i.i.i2423 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp747, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2422), !noalias !1049
   %374 = load ptr, ptr %ConstFoundBucket.i.i.i2422, align 8, !noalias !1049
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2422), !noalias !1049
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2422), !noalias !1049
   br i1 %call.i.i.i2423, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2432, label %if.end.i.i2424
 
 if.end.i.i2424:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2419
@@ -13289,10 +13289,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp752.sroa.2.0.ref.tmp751.sroa_idx, align 8
   %second.i2434 = getelementptr inbounds nuw i8, ptr %ref.tmp751, i64 16
   store i32 8465, ptr %second.i2434, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2435), !noalias !1054
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2435), !noalias !1054
   %call.i.i.i2436 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp751, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2435), !noalias !1054
   %376 = load ptr, ptr %ConstFoundBucket.i.i.i2435, align 8, !noalias !1054
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2435), !noalias !1054
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2435), !noalias !1054
   br i1 %call.i.i.i2436, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2445, label %if.end.i.i2437
 
 if.end.i.i2437:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2432
@@ -13309,10 +13309,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp756.sroa.2.0.ref.tmp755.sroa_idx, align 8
   %second.i2447 = getelementptr inbounds nuw i8, ptr %ref.tmp755, i64 16
   store i32 8472, ptr %second.i2447, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2448), !noalias !1059
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2448), !noalias !1059
   %call.i.i.i2449 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp755, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2448), !noalias !1059
   %378 = load ptr, ptr %ConstFoundBucket.i.i.i2448, align 8, !noalias !1059
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2448), !noalias !1059
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2448), !noalias !1059
   br i1 %call.i.i.i2449, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2458, label %if.end.i.i2450
 
 if.end.i.i2450:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2445
@@ -13329,10 +13329,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp760.sroa.2.0.ref.tmp759.sroa_idx, align 8
   %second.i2460 = getelementptr inbounds nuw i8, ptr %ref.tmp759, i64 16
   store i32 8476, ptr %second.i2460, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2461), !noalias !1064
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2461), !noalias !1064
   %call.i.i.i2462 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp759, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2461), !noalias !1064
   %380 = load ptr, ptr %ConstFoundBucket.i.i.i2461, align 8, !noalias !1064
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2461), !noalias !1064
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2461), !noalias !1064
   br i1 %call.i.i.i2462, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2471, label %if.end.i.i2463
 
 if.end.i.i2463:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2458
@@ -13349,10 +13349,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp764.sroa.2.0.ref.tmp763.sroa_idx, align 8
   %second.i2473 = getelementptr inbounds nuw i8, ptr %ref.tmp763, i64 16
   store i32 8482, ptr %second.i2473, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2474), !noalias !1069
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2474), !noalias !1069
   %call.i.i.i2475 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp763, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2474), !noalias !1069
   %382 = load ptr, ptr %ConstFoundBucket.i.i.i2474, align 8, !noalias !1069
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2474), !noalias !1069
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2474), !noalias !1069
   br i1 %call.i.i.i2475, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2484, label %if.end.i.i2476
 
 if.end.i.i2476:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2471
@@ -13369,10 +13369,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 7, ptr %ref.tmp768.sroa.2.0.ref.tmp767.sroa_idx, align 8
   %second.i2486 = getelementptr inbounds nuw i8, ptr %ref.tmp767, i64 16
   store i32 8501, ptr %second.i2486, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2487), !noalias !1074
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2487), !noalias !1074
   %call.i.i.i2488 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp767, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2487), !noalias !1074
   %384 = load ptr, ptr %ConstFoundBucket.i.i.i2487, align 8, !noalias !1074
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2487), !noalias !1074
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2487), !noalias !1074
   br i1 %call.i.i.i2488, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2497, label %if.end.i.i2489
 
 if.end.i.i2489:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2484
@@ -13389,10 +13389,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp772.sroa.2.0.ref.tmp771.sroa_idx, align 8
   %second.i2499 = getelementptr inbounds nuw i8, ptr %ref.tmp771, i64 16
   store i32 8592, ptr %second.i2499, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2500), !noalias !1079
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2500), !noalias !1079
   %call.i.i.i2501 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp771, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2500), !noalias !1079
   %386 = load ptr, ptr %ConstFoundBucket.i.i.i2500, align 8, !noalias !1079
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2500), !noalias !1079
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2500), !noalias !1079
   br i1 %call.i.i.i2501, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2510, label %if.end.i.i2502
 
 if.end.i.i2502:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2497
@@ -13409,10 +13409,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp776.sroa.2.0.ref.tmp775.sroa_idx, align 8
   %second.i2512 = getelementptr inbounds nuw i8, ptr %ref.tmp775, i64 16
   store i32 8593, ptr %second.i2512, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2513), !noalias !1084
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2513), !noalias !1084
   %call.i.i.i2514 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp775, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2513), !noalias !1084
   %388 = load ptr, ptr %ConstFoundBucket.i.i.i2513, align 8, !noalias !1084
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2513), !noalias !1084
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2513), !noalias !1084
   br i1 %call.i.i.i2514, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2523, label %if.end.i.i2515
 
 if.end.i.i2515:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2510
@@ -13429,10 +13429,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp780.sroa.2.0.ref.tmp779.sroa_idx, align 8
   %second.i2525 = getelementptr inbounds nuw i8, ptr %ref.tmp779, i64 16
   store i32 8594, ptr %second.i2525, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2526), !noalias !1089
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2526), !noalias !1089
   %call.i.i.i2527 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp779, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2526), !noalias !1089
   %390 = load ptr, ptr %ConstFoundBucket.i.i.i2526, align 8, !noalias !1089
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2526), !noalias !1089
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2526), !noalias !1089
   br i1 %call.i.i.i2527, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2536, label %if.end.i.i2528
 
 if.end.i.i2528:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2523
@@ -13449,10 +13449,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp784.sroa.2.0.ref.tmp783.sroa_idx, align 8
   %second.i2538 = getelementptr inbounds nuw i8, ptr %ref.tmp783, i64 16
   store i32 8595, ptr %second.i2538, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2539), !noalias !1094
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2539), !noalias !1094
   %call.i.i.i2540 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp783, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2539), !noalias !1094
   %392 = load ptr, ptr %ConstFoundBucket.i.i.i2539, align 8, !noalias !1094
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2539), !noalias !1094
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2539), !noalias !1094
   br i1 %call.i.i.i2540, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2549, label %if.end.i.i2541
 
 if.end.i.i2541:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2536
@@ -13469,10 +13469,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp788.sroa.2.0.ref.tmp787.sroa_idx, align 8
   %second.i2551 = getelementptr inbounds nuw i8, ptr %ref.tmp787, i64 16
   store i32 8596, ptr %second.i2551, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2552), !noalias !1099
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2552), !noalias !1099
   %call.i.i.i2553 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp787, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2552), !noalias !1099
   %394 = load ptr, ptr %ConstFoundBucket.i.i.i2552, align 8, !noalias !1099
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2552), !noalias !1099
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2552), !noalias !1099
   br i1 %call.i.i.i2553, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2562, label %if.end.i.i2554
 
 if.end.i.i2554:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2549
@@ -13489,10 +13489,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp792.sroa.2.0.ref.tmp791.sroa_idx, align 8
   %second.i2564 = getelementptr inbounds nuw i8, ptr %ref.tmp791, i64 16
   store i32 8629, ptr %second.i2564, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2565), !noalias !1104
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2565), !noalias !1104
   %call.i.i.i2566 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp791, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2565), !noalias !1104
   %396 = load ptr, ptr %ConstFoundBucket.i.i.i2565, align 8, !noalias !1104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2565), !noalias !1104
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2565), !noalias !1104
   br i1 %call.i.i.i2566, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2575, label %if.end.i.i2567
 
 if.end.i.i2567:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2562
@@ -13509,10 +13509,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp796.sroa.2.0.ref.tmp795.sroa_idx, align 8
   %second.i2577 = getelementptr inbounds nuw i8, ptr %ref.tmp795, i64 16
   store i32 8656, ptr %second.i2577, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2578), !noalias !1109
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2578), !noalias !1109
   %call.i.i.i2579 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp795, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2578), !noalias !1109
   %398 = load ptr, ptr %ConstFoundBucket.i.i.i2578, align 8, !noalias !1109
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2578), !noalias !1109
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2578), !noalias !1109
   br i1 %call.i.i.i2579, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2588, label %if.end.i.i2580
 
 if.end.i.i2580:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2575
@@ -13529,10 +13529,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp800.sroa.2.0.ref.tmp799.sroa_idx, align 8
   %second.i2590 = getelementptr inbounds nuw i8, ptr %ref.tmp799, i64 16
   store i32 8657, ptr %second.i2590, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2591), !noalias !1114
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2591), !noalias !1114
   %call.i.i.i2592 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp799, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2591), !noalias !1114
   %400 = load ptr, ptr %ConstFoundBucket.i.i.i2591, align 8, !noalias !1114
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2591), !noalias !1114
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2591), !noalias !1114
   br i1 %call.i.i.i2592, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2601, label %if.end.i.i2593
 
 if.end.i.i2593:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2588
@@ -13549,10 +13549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp804.sroa.2.0.ref.tmp803.sroa_idx, align 8
   %second.i2603 = getelementptr inbounds nuw i8, ptr %ref.tmp803, i64 16
   store i32 8658, ptr %second.i2603, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2604), !noalias !1119
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2604), !noalias !1119
   %call.i.i.i2605 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp803, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2604), !noalias !1119
   %402 = load ptr, ptr %ConstFoundBucket.i.i.i2604, align 8, !noalias !1119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2604), !noalias !1119
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2604), !noalias !1119
   br i1 %call.i.i.i2605, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2614, label %if.end.i.i2606
 
 if.end.i.i2606:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2601
@@ -13569,10 +13569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp808.sroa.2.0.ref.tmp807.sroa_idx, align 8
   %second.i2616 = getelementptr inbounds nuw i8, ptr %ref.tmp807, i64 16
   store i32 8659, ptr %second.i2616, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2617), !noalias !1124
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2617), !noalias !1124
   %call.i.i.i2618 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp807, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2617), !noalias !1124
   %404 = load ptr, ptr %ConstFoundBucket.i.i.i2617, align 8, !noalias !1124
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2617), !noalias !1124
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2617), !noalias !1124
   br i1 %call.i.i.i2618, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2627, label %if.end.i.i2619
 
 if.end.i.i2619:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2614
@@ -13589,10 +13589,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp812.sroa.2.0.ref.tmp811.sroa_idx, align 8
   %second.i2629 = getelementptr inbounds nuw i8, ptr %ref.tmp811, i64 16
   store i32 8660, ptr %second.i2629, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2630), !noalias !1129
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2630), !noalias !1129
   %call.i.i.i2631 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp811, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2630), !noalias !1129
   %406 = load ptr, ptr %ConstFoundBucket.i.i.i2630, align 8, !noalias !1129
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2630), !noalias !1129
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2630), !noalias !1129
   br i1 %call.i.i.i2631, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2640, label %if.end.i.i2632
 
 if.end.i.i2632:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2627
@@ -13609,10 +13609,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp816.sroa.2.0.ref.tmp815.sroa_idx, align 8
   %second.i2642 = getelementptr inbounds nuw i8, ptr %ref.tmp815, i64 16
   store i32 8704, ptr %second.i2642, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2643), !noalias !1134
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2643), !noalias !1134
   %call.i.i.i2644 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp815, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2643), !noalias !1134
   %408 = load ptr, ptr %ConstFoundBucket.i.i.i2643, align 8, !noalias !1134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2643), !noalias !1134
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2643), !noalias !1134
   br i1 %call.i.i.i2644, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2653, label %if.end.i.i2645
 
 if.end.i.i2645:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2640
@@ -13629,10 +13629,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp820.sroa.2.0.ref.tmp819.sroa_idx, align 8
   %second.i2655 = getelementptr inbounds nuw i8, ptr %ref.tmp819, i64 16
   store i32 8706, ptr %second.i2655, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2656), !noalias !1139
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2656), !noalias !1139
   %call.i.i.i2657 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp819, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2656), !noalias !1139
   %410 = load ptr, ptr %ConstFoundBucket.i.i.i2656, align 8, !noalias !1139
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2656), !noalias !1139
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2656), !noalias !1139
   br i1 %call.i.i.i2657, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2666, label %if.end.i.i2658
 
 if.end.i.i2658:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2653
@@ -13649,10 +13649,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp824.sroa.2.0.ref.tmp823.sroa_idx, align 8
   %second.i2668 = getelementptr inbounds nuw i8, ptr %ref.tmp823, i64 16
   store i32 8707, ptr %second.i2668, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2669), !noalias !1144
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2669), !noalias !1144
   %call.i.i.i2670 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp823, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2669), !noalias !1144
   %412 = load ptr, ptr %ConstFoundBucket.i.i.i2669, align 8, !noalias !1144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2669), !noalias !1144
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2669), !noalias !1144
   br i1 %call.i.i.i2670, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2679, label %if.end.i.i2671
 
 if.end.i.i2671:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2666
@@ -13669,10 +13669,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp828.sroa.2.0.ref.tmp827.sroa_idx, align 8
   %second.i2681 = getelementptr inbounds nuw i8, ptr %ref.tmp827, i64 16
   store i32 8709, ptr %second.i2681, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2682), !noalias !1149
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2682), !noalias !1149
   %call.i.i.i2683 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp827, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2682), !noalias !1149
   %414 = load ptr, ptr %ConstFoundBucket.i.i.i2682, align 8, !noalias !1149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2682), !noalias !1149
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2682), !noalias !1149
   br i1 %call.i.i.i2683, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2692, label %if.end.i.i2684
 
 if.end.i.i2684:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2679
@@ -13689,10 +13689,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp832.sroa.2.0.ref.tmp831.sroa_idx, align 8
   %second.i2694 = getelementptr inbounds nuw i8, ptr %ref.tmp831, i64 16
   store i32 8711, ptr %second.i2694, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2695), !noalias !1154
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2695), !noalias !1154
   %call.i.i.i2696 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp831, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2695), !noalias !1154
   %416 = load ptr, ptr %ConstFoundBucket.i.i.i2695, align 8, !noalias !1154
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2695), !noalias !1154
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2695), !noalias !1154
   br i1 %call.i.i.i2696, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2705, label %if.end.i.i2697
 
 if.end.i.i2697:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2692
@@ -13709,10 +13709,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp836.sroa.2.0.ref.tmp835.sroa_idx, align 8
   %second.i2707 = getelementptr inbounds nuw i8, ptr %ref.tmp835, i64 16
   store i32 8712, ptr %second.i2707, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2708), !noalias !1159
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2708), !noalias !1159
   %call.i.i.i2709 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp835, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2708), !noalias !1159
   %418 = load ptr, ptr %ConstFoundBucket.i.i.i2708, align 8, !noalias !1159
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2708), !noalias !1159
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2708), !noalias !1159
   br i1 %call.i.i.i2709, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2718, label %if.end.i.i2710
 
 if.end.i.i2710:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2705
@@ -13729,10 +13729,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp840.sroa.2.0.ref.tmp839.sroa_idx, align 8
   %second.i2720 = getelementptr inbounds nuw i8, ptr %ref.tmp839, i64 16
   store i32 8713, ptr %second.i2720, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2721), !noalias !1164
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2721), !noalias !1164
   %call.i.i.i2722 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp839, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2721), !noalias !1164
   %420 = load ptr, ptr %ConstFoundBucket.i.i.i2721, align 8, !noalias !1164
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2721), !noalias !1164
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2721), !noalias !1164
   br i1 %call.i.i.i2722, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2731, label %if.end.i.i2723
 
 if.end.i.i2723:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2718
@@ -13749,10 +13749,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp844.sroa.2.0.ref.tmp843.sroa_idx, align 8
   %second.i2733 = getelementptr inbounds nuw i8, ptr %ref.tmp843, i64 16
   store i32 8715, ptr %second.i2733, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2734), !noalias !1169
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2734), !noalias !1169
   %call.i.i.i2735 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp843, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2734), !noalias !1169
   %422 = load ptr, ptr %ConstFoundBucket.i.i.i2734, align 8, !noalias !1169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2734), !noalias !1169
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2734), !noalias !1169
   br i1 %call.i.i.i2735, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2744, label %if.end.i.i2736
 
 if.end.i.i2736:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2731
@@ -13769,10 +13769,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp848.sroa.2.0.ref.tmp847.sroa_idx, align 8
   %second.i2746 = getelementptr inbounds nuw i8, ptr %ref.tmp847, i64 16
   store i32 8719, ptr %second.i2746, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2747), !noalias !1174
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2747), !noalias !1174
   %call.i.i.i2748 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp847, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2747), !noalias !1174
   %424 = load ptr, ptr %ConstFoundBucket.i.i.i2747, align 8, !noalias !1174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2747), !noalias !1174
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2747), !noalias !1174
   br i1 %call.i.i.i2748, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2757, label %if.end.i.i2749
 
 if.end.i.i2749:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2744
@@ -13789,10 +13789,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp852.sroa.2.0.ref.tmp851.sroa_idx, align 8
   %second.i2759 = getelementptr inbounds nuw i8, ptr %ref.tmp851, i64 16
   store i32 8721, ptr %second.i2759, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2760), !noalias !1179
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2760), !noalias !1179
   %call.i.i.i2761 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp851, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2760), !noalias !1179
   %426 = load ptr, ptr %ConstFoundBucket.i.i.i2760, align 8, !noalias !1179
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2760), !noalias !1179
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2760), !noalias !1179
   br i1 %call.i.i.i2761, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2770, label %if.end.i.i2762
 
 if.end.i.i2762:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2757
@@ -13809,10 +13809,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp856.sroa.2.0.ref.tmp855.sroa_idx, align 8
   %second.i2772 = getelementptr inbounds nuw i8, ptr %ref.tmp855, i64 16
   store i32 8722, ptr %second.i2772, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2773), !noalias !1184
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2773), !noalias !1184
   %call.i.i.i2774 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp855, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2773), !noalias !1184
   %428 = load ptr, ptr %ConstFoundBucket.i.i.i2773, align 8, !noalias !1184
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2773), !noalias !1184
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2773), !noalias !1184
   br i1 %call.i.i.i2774, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2783, label %if.end.i.i2775
 
 if.end.i.i2775:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2770
@@ -13829,10 +13829,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp860.sroa.2.0.ref.tmp859.sroa_idx, align 8
   %second.i2785 = getelementptr inbounds nuw i8, ptr %ref.tmp859, i64 16
   store i32 8727, ptr %second.i2785, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2786), !noalias !1189
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2786), !noalias !1189
   %call.i.i.i2787 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp859, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2786), !noalias !1189
   %430 = load ptr, ptr %ConstFoundBucket.i.i.i2786, align 8, !noalias !1189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2786), !noalias !1189
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2786), !noalias !1189
   br i1 %call.i.i.i2787, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2796, label %if.end.i.i2788
 
 if.end.i.i2788:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2783
@@ -13849,10 +13849,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp864.sroa.2.0.ref.tmp863.sroa_idx, align 8
   %second.i2798 = getelementptr inbounds nuw i8, ptr %ref.tmp863, i64 16
   store i32 8730, ptr %second.i2798, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2799), !noalias !1194
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2799), !noalias !1194
   %call.i.i.i2800 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp863, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2799), !noalias !1194
   %432 = load ptr, ptr %ConstFoundBucket.i.i.i2799, align 8, !noalias !1194
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2799), !noalias !1194
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2799), !noalias !1194
   br i1 %call.i.i.i2800, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2809, label %if.end.i.i2801
 
 if.end.i.i2801:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2796
@@ -13869,10 +13869,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp868.sroa.2.0.ref.tmp867.sroa_idx, align 8
   %second.i2811 = getelementptr inbounds nuw i8, ptr %ref.tmp867, i64 16
   store i32 8733, ptr %second.i2811, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2812), !noalias !1199
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2812), !noalias !1199
   %call.i.i.i2813 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp867, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2812), !noalias !1199
   %434 = load ptr, ptr %ConstFoundBucket.i.i.i2812, align 8, !noalias !1199
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2812), !noalias !1199
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2812), !noalias !1199
   br i1 %call.i.i.i2813, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2822, label %if.end.i.i2814
 
 if.end.i.i2814:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2809
@@ -13889,10 +13889,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp872.sroa.2.0.ref.tmp871.sroa_idx, align 8
   %second.i2824 = getelementptr inbounds nuw i8, ptr %ref.tmp871, i64 16
   store i32 8734, ptr %second.i2824, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2825), !noalias !1204
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2825), !noalias !1204
   %call.i.i.i2826 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp871, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2825), !noalias !1204
   %436 = load ptr, ptr %ConstFoundBucket.i.i.i2825, align 8, !noalias !1204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2825), !noalias !1204
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2825), !noalias !1204
   br i1 %call.i.i.i2826, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2835, label %if.end.i.i2827
 
 if.end.i.i2827:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2822
@@ -13909,10 +13909,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp876.sroa.2.0.ref.tmp875.sroa_idx, align 8
   %second.i2837 = getelementptr inbounds nuw i8, ptr %ref.tmp875, i64 16
   store i32 8736, ptr %second.i2837, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2838), !noalias !1209
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2838), !noalias !1209
   %call.i.i.i2839 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp875, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2838), !noalias !1209
   %438 = load ptr, ptr %ConstFoundBucket.i.i.i2838, align 8, !noalias !1209
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2838), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2838), !noalias !1209
   br i1 %call.i.i.i2839, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2848, label %if.end.i.i2840
 
 if.end.i.i2840:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2835
@@ -13929,10 +13929,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp880.sroa.2.0.ref.tmp879.sroa_idx, align 8
   %second.i2850 = getelementptr inbounds nuw i8, ptr %ref.tmp879, i64 16
   store i32 8743, ptr %second.i2850, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2851), !noalias !1214
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2851), !noalias !1214
   %call.i.i.i2852 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp879, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2851), !noalias !1214
   %440 = load ptr, ptr %ConstFoundBucket.i.i.i2851, align 8, !noalias !1214
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2851), !noalias !1214
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2851), !noalias !1214
   br i1 %call.i.i.i2852, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2861, label %if.end.i.i2853
 
 if.end.i.i2853:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2848
@@ -13949,10 +13949,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp884.sroa.2.0.ref.tmp883.sroa_idx, align 8
   %second.i2863 = getelementptr inbounds nuw i8, ptr %ref.tmp883, i64 16
   store i32 8744, ptr %second.i2863, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2864), !noalias !1219
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2864), !noalias !1219
   %call.i.i.i2865 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp883, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2864), !noalias !1219
   %442 = load ptr, ptr %ConstFoundBucket.i.i.i2864, align 8, !noalias !1219
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2864), !noalias !1219
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2864), !noalias !1219
   br i1 %call.i.i.i2865, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2874, label %if.end.i.i2866
 
 if.end.i.i2866:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2861
@@ -13969,10 +13969,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp888.sroa.2.0.ref.tmp887.sroa_idx, align 8
   %second.i2876 = getelementptr inbounds nuw i8, ptr %ref.tmp887, i64 16
   store i32 8745, ptr %second.i2876, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2877), !noalias !1224
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2877), !noalias !1224
   %call.i.i.i2878 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp887, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2877), !noalias !1224
   %444 = load ptr, ptr %ConstFoundBucket.i.i.i2877, align 8, !noalias !1224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2877), !noalias !1224
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2877), !noalias !1224
   br i1 %call.i.i.i2878, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2887, label %if.end.i.i2879
 
 if.end.i.i2879:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2874
@@ -13989,10 +13989,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp892.sroa.2.0.ref.tmp891.sroa_idx, align 8
   %second.i2889 = getelementptr inbounds nuw i8, ptr %ref.tmp891, i64 16
   store i32 8746, ptr %second.i2889, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2890), !noalias !1229
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2890), !noalias !1229
   %call.i.i.i2891 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp891, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2890), !noalias !1229
   %446 = load ptr, ptr %ConstFoundBucket.i.i.i2890, align 8, !noalias !1229
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2890), !noalias !1229
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2890), !noalias !1229
   br i1 %call.i.i.i2891, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2900, label %if.end.i.i2892
 
 if.end.i.i2892:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2887
@@ -14009,10 +14009,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp896.sroa.2.0.ref.tmp895.sroa_idx, align 8
   %second.i2902 = getelementptr inbounds nuw i8, ptr %ref.tmp895, i64 16
   store i32 8747, ptr %second.i2902, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2903), !noalias !1234
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2903), !noalias !1234
   %call.i.i.i2904 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp895, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2903), !noalias !1234
   %448 = load ptr, ptr %ConstFoundBucket.i.i.i2903, align 8, !noalias !1234
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2903), !noalias !1234
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2903), !noalias !1234
   br i1 %call.i.i.i2904, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2913, label %if.end.i.i2905
 
 if.end.i.i2905:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2900
@@ -14029,10 +14029,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp900.sroa.2.0.ref.tmp899.sroa_idx, align 8
   %second.i2915 = getelementptr inbounds nuw i8, ptr %ref.tmp899, i64 16
   store i32 8756, ptr %second.i2915, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2916), !noalias !1239
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2916), !noalias !1239
   %call.i.i.i2917 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp899, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2916), !noalias !1239
   %450 = load ptr, ptr %ConstFoundBucket.i.i.i2916, align 8, !noalias !1239
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2916), !noalias !1239
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2916), !noalias !1239
   br i1 %call.i.i.i2917, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2926, label %if.end.i.i2918
 
 if.end.i.i2918:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2913
@@ -14049,10 +14049,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp904.sroa.2.0.ref.tmp903.sroa_idx, align 8
   %second.i2928 = getelementptr inbounds nuw i8, ptr %ref.tmp903, i64 16
   store i32 8764, ptr %second.i2928, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2929), !noalias !1244
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2929), !noalias !1244
   %call.i.i.i2930 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp903, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2929), !noalias !1244
   %452 = load ptr, ptr %ConstFoundBucket.i.i.i2929, align 8, !noalias !1244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2929), !noalias !1244
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2929), !noalias !1244
   br i1 %call.i.i.i2930, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2939, label %if.end.i.i2931
 
 if.end.i.i2931:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2926
@@ -14069,10 +14069,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp908.sroa.2.0.ref.tmp907.sroa_idx, align 8
   %second.i2941 = getelementptr inbounds nuw i8, ptr %ref.tmp907, i64 16
   store i32 8773, ptr %second.i2941, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2942), !noalias !1249
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2942), !noalias !1249
   %call.i.i.i2943 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp907, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2942), !noalias !1249
   %454 = load ptr, ptr %ConstFoundBucket.i.i.i2942, align 8, !noalias !1249
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2942), !noalias !1249
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2942), !noalias !1249
   br i1 %call.i.i.i2943, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2952, label %if.end.i.i2944
 
 if.end.i.i2944:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2939
@@ -14089,10 +14089,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp912.sroa.2.0.ref.tmp911.sroa_idx, align 8
   %second.i2954 = getelementptr inbounds nuw i8, ptr %ref.tmp911, i64 16
   store i32 8776, ptr %second.i2954, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2955), !noalias !1254
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2955), !noalias !1254
   %call.i.i.i2956 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp911, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2955), !noalias !1254
   %456 = load ptr, ptr %ConstFoundBucket.i.i.i2955, align 8, !noalias !1254
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2955), !noalias !1254
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2955), !noalias !1254
   br i1 %call.i.i.i2956, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2965, label %if.end.i.i2957
 
 if.end.i.i2957:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2952
@@ -14109,10 +14109,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp916.sroa.2.0.ref.tmp915.sroa_idx, align 8
   %second.i2967 = getelementptr inbounds nuw i8, ptr %ref.tmp915, i64 16
   store i32 8800, ptr %second.i2967, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2968), !noalias !1259
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2968), !noalias !1259
   %call.i.i.i2969 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp915, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2968), !noalias !1259
   %458 = load ptr, ptr %ConstFoundBucket.i.i.i2968, align 8, !noalias !1259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2968), !noalias !1259
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2968), !noalias !1259
   br i1 %call.i.i.i2969, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2978, label %if.end.i.i2970
 
 if.end.i.i2970:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2965
@@ -14129,10 +14129,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp920.sroa.2.0.ref.tmp919.sroa_idx, align 8
   %second.i2980 = getelementptr inbounds nuw i8, ptr %ref.tmp919, i64 16
   store i32 8801, ptr %second.i2980, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2981), !noalias !1264
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2981), !noalias !1264
   %call.i.i.i2982 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp919, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2981), !noalias !1264
   %460 = load ptr, ptr %ConstFoundBucket.i.i.i2981, align 8, !noalias !1264
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2981), !noalias !1264
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2981), !noalias !1264
   br i1 %call.i.i.i2982, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2991, label %if.end.i.i2983
 
 if.end.i.i2983:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2978
@@ -14149,10 +14149,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp924.sroa.2.0.ref.tmp923.sroa_idx, align 8
   %second.i2993 = getelementptr inbounds nuw i8, ptr %ref.tmp923, i64 16
   store i32 8804, ptr %second.i2993, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2994), !noalias !1269
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i2994), !noalias !1269
   %call.i.i.i2995 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp923, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i2994), !noalias !1269
   %462 = load ptr, ptr %ConstFoundBucket.i.i.i2994, align 8, !noalias !1269
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i2994), !noalias !1269
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i2994), !noalias !1269
   br i1 %call.i.i.i2995, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3004, label %if.end.i.i2996
 
 if.end.i.i2996:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit2991
@@ -14169,10 +14169,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 2, ptr %ref.tmp928.sroa.2.0.ref.tmp927.sroa_idx, align 8
   %second.i3006 = getelementptr inbounds nuw i8, ptr %ref.tmp927, i64 16
   store i32 8805, ptr %second.i3006, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3007), !noalias !1274
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3007), !noalias !1274
   %call.i.i.i3008 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp927, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3007), !noalias !1274
   %464 = load ptr, ptr %ConstFoundBucket.i.i.i3007, align 8, !noalias !1274
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3007), !noalias !1274
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3007), !noalias !1274
   br i1 %call.i.i.i3008, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3017, label %if.end.i.i3009
 
 if.end.i.i3009:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3004
@@ -14189,10 +14189,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp932.sroa.2.0.ref.tmp931.sroa_idx, align 8
   %second.i3019 = getelementptr inbounds nuw i8, ptr %ref.tmp931, i64 16
   store i32 8834, ptr %second.i3019, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3020), !noalias !1279
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3020), !noalias !1279
   %call.i.i.i3021 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp931, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3020), !noalias !1279
   %466 = load ptr, ptr %ConstFoundBucket.i.i.i3020, align 8, !noalias !1279
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3020), !noalias !1279
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3020), !noalias !1279
   br i1 %call.i.i.i3021, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3030, label %if.end.i.i3022
 
 if.end.i.i3022:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3017
@@ -14209,10 +14209,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp936.sroa.2.0.ref.tmp935.sroa_idx, align 8
   %second.i3032 = getelementptr inbounds nuw i8, ptr %ref.tmp935, i64 16
   store i32 8835, ptr %second.i3032, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3033), !noalias !1284
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3033), !noalias !1284
   %call.i.i.i3034 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp935, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3033), !noalias !1284
   %468 = load ptr, ptr %ConstFoundBucket.i.i.i3033, align 8, !noalias !1284
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3033), !noalias !1284
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3033), !noalias !1284
   br i1 %call.i.i.i3034, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3043, label %if.end.i.i3035
 
 if.end.i.i3035:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3030
@@ -14229,10 +14229,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp940.sroa.2.0.ref.tmp939.sroa_idx, align 8
   %second.i3045 = getelementptr inbounds nuw i8, ptr %ref.tmp939, i64 16
   store i32 8836, ptr %second.i3045, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3046), !noalias !1289
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3046), !noalias !1289
   %call.i.i.i3047 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp939, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3046), !noalias !1289
   %470 = load ptr, ptr %ConstFoundBucket.i.i.i3046, align 8, !noalias !1289
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3046), !noalias !1289
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3046), !noalias !1289
   br i1 %call.i.i.i3047, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3056, label %if.end.i.i3048
 
 if.end.i.i3048:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3043
@@ -14249,10 +14249,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp944.sroa.2.0.ref.tmp943.sroa_idx, align 8
   %second.i3058 = getelementptr inbounds nuw i8, ptr %ref.tmp943, i64 16
   store i32 8838, ptr %second.i3058, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3059), !noalias !1294
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3059), !noalias !1294
   %call.i.i.i3060 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp943, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3059), !noalias !1294
   %472 = load ptr, ptr %ConstFoundBucket.i.i.i3059, align 8, !noalias !1294
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3059), !noalias !1294
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3059), !noalias !1294
   br i1 %call.i.i.i3060, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3069, label %if.end.i.i3061
 
 if.end.i.i3061:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3056
@@ -14269,10 +14269,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp948.sroa.2.0.ref.tmp947.sroa_idx, align 8
   %second.i3071 = getelementptr inbounds nuw i8, ptr %ref.tmp947, i64 16
   store i32 8839, ptr %second.i3071, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3072), !noalias !1299
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3072), !noalias !1299
   %call.i.i.i3073 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp947, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3072), !noalias !1299
   %474 = load ptr, ptr %ConstFoundBucket.i.i.i3072, align 8, !noalias !1299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3072), !noalias !1299
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3072), !noalias !1299
   br i1 %call.i.i.i3073, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3082, label %if.end.i.i3074
 
 if.end.i.i3074:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3069
@@ -14289,10 +14289,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp952.sroa.2.0.ref.tmp951.sroa_idx, align 8
   %second.i3084 = getelementptr inbounds nuw i8, ptr %ref.tmp951, i64 16
   store i32 8853, ptr %second.i3084, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3085), !noalias !1304
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3085), !noalias !1304
   %call.i.i.i3086 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp951, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3085), !noalias !1304
   %476 = load ptr, ptr %ConstFoundBucket.i.i.i3085, align 8, !noalias !1304
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3085), !noalias !1304
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3085), !noalias !1304
   br i1 %call.i.i.i3086, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3095, label %if.end.i.i3087
 
 if.end.i.i3087:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3082
@@ -14309,10 +14309,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp956.sroa.2.0.ref.tmp955.sroa_idx, align 8
   %second.i3097 = getelementptr inbounds nuw i8, ptr %ref.tmp955, i64 16
   store i32 8855, ptr %second.i3097, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3098), !noalias !1309
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3098), !noalias !1309
   %call.i.i.i3099 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp955, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3098), !noalias !1309
   %478 = load ptr, ptr %ConstFoundBucket.i.i.i3098, align 8, !noalias !1309
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3098), !noalias !1309
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3098), !noalias !1309
   br i1 %call.i.i.i3099, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3108, label %if.end.i.i3100
 
 if.end.i.i3100:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3095
@@ -14329,10 +14329,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp960.sroa.2.0.ref.tmp959.sroa_idx, align 8
   %second.i3110 = getelementptr inbounds nuw i8, ptr %ref.tmp959, i64 16
   store i32 8869, ptr %second.i3110, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3111), !noalias !1314
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3111), !noalias !1314
   %call.i.i.i3112 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp959, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3111), !noalias !1314
   %480 = load ptr, ptr %ConstFoundBucket.i.i.i3111, align 8, !noalias !1314
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3111), !noalias !1314
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3111), !noalias !1314
   br i1 %call.i.i.i3112, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3121, label %if.end.i.i3113
 
 if.end.i.i3113:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3108
@@ -14349,10 +14349,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp964.sroa.2.0.ref.tmp963.sroa_idx, align 8
   %second.i3123 = getelementptr inbounds nuw i8, ptr %ref.tmp963, i64 16
   store i32 8901, ptr %second.i3123, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3124), !noalias !1319
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3124), !noalias !1319
   %call.i.i.i3125 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp963, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3124), !noalias !1319
   %482 = load ptr, ptr %ConstFoundBucket.i.i.i3124, align 8, !noalias !1319
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3124), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3124), !noalias !1319
   br i1 %call.i.i.i3125, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3134, label %if.end.i.i3126
 
 if.end.i.i3126:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3121
@@ -14369,10 +14369,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp968.sroa.2.0.ref.tmp967.sroa_idx, align 8
   %second.i3136 = getelementptr inbounds nuw i8, ptr %ref.tmp967, i64 16
   store i32 8968, ptr %second.i3136, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3137), !noalias !1324
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3137), !noalias !1324
   %call.i.i.i3138 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp967, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3137), !noalias !1324
   %484 = load ptr, ptr %ConstFoundBucket.i.i.i3137, align 8, !noalias !1324
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3137), !noalias !1324
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3137), !noalias !1324
   br i1 %call.i.i.i3138, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3147, label %if.end.i.i3139
 
 if.end.i.i3139:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3134
@@ -14389,10 +14389,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp972.sroa.2.0.ref.tmp971.sroa_idx, align 8
   %second.i3149 = getelementptr inbounds nuw i8, ptr %ref.tmp971, i64 16
   store i32 8969, ptr %second.i3149, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3150), !noalias !1329
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3150), !noalias !1329
   %call.i.i.i3151 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp971, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3150), !noalias !1329
   %486 = load ptr, ptr %ConstFoundBucket.i.i.i3150, align 8, !noalias !1329
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3150), !noalias !1329
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3150), !noalias !1329
   br i1 %call.i.i.i3151, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3160, label %if.end.i.i3152
 
 if.end.i.i3152:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3147
@@ -14409,10 +14409,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp976.sroa.2.0.ref.tmp975.sroa_idx, align 8
   %second.i3162 = getelementptr inbounds nuw i8, ptr %ref.tmp975, i64 16
   store i32 8970, ptr %second.i3162, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3163), !noalias !1334
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3163), !noalias !1334
   %call.i.i.i3164 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp975, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3163), !noalias !1334
   %488 = load ptr, ptr %ConstFoundBucket.i.i.i3163, align 8, !noalias !1334
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3163), !noalias !1334
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3163), !noalias !1334
   br i1 %call.i.i.i3164, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3173, label %if.end.i.i3165
 
 if.end.i.i3165:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3160
@@ -14429,10 +14429,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp980.sroa.2.0.ref.tmp979.sroa_idx, align 8
   %second.i3175 = getelementptr inbounds nuw i8, ptr %ref.tmp979, i64 16
   store i32 8971, ptr %second.i3175, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3176), !noalias !1339
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3176), !noalias !1339
   %call.i.i.i3177 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp979, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3176), !noalias !1339
   %490 = load ptr, ptr %ConstFoundBucket.i.i.i3176, align 8, !noalias !1339
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3176), !noalias !1339
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3176), !noalias !1339
   br i1 %call.i.i.i3177, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3186, label %if.end.i.i3178
 
 if.end.i.i3178:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3173
@@ -14449,10 +14449,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp984.sroa.2.0.ref.tmp983.sroa_idx, align 8
   %second.i3188 = getelementptr inbounds nuw i8, ptr %ref.tmp983, i64 16
   store i32 9001, ptr %second.i3188, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3189), !noalias !1344
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3189), !noalias !1344
   %call.i.i.i3190 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp983, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3189), !noalias !1344
   %492 = load ptr, ptr %ConstFoundBucket.i.i.i3189, align 8, !noalias !1344
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3189), !noalias !1344
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3189), !noalias !1344
   br i1 %call.i.i.i3190, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3199, label %if.end.i.i3191
 
 if.end.i.i3191:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3186
@@ -14469,10 +14469,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 4, ptr %ref.tmp988.sroa.2.0.ref.tmp987.sroa_idx, align 8
   %second.i3201 = getelementptr inbounds nuw i8, ptr %ref.tmp987, i64 16
   store i32 9002, ptr %second.i3201, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3202), !noalias !1349
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3202), !noalias !1349
   %call.i.i.i3203 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp987, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3202), !noalias !1349
   %494 = load ptr, ptr %ConstFoundBucket.i.i.i3202, align 8, !noalias !1349
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3202), !noalias !1349
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3202), !noalias !1349
   br i1 %call.i.i.i3203, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3212, label %if.end.i.i3204
 
 if.end.i.i3204:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3199
@@ -14489,10 +14489,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 3, ptr %ref.tmp992.sroa.2.0.ref.tmp991.sroa_idx, align 8
   %second.i3214 = getelementptr inbounds nuw i8, ptr %ref.tmp991, i64 16
   store i32 9674, ptr %second.i3214, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3215), !noalias !1354
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3215), !noalias !1354
   %call.i.i.i3216 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp991, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3215), !noalias !1354
   %496 = load ptr, ptr %ConstFoundBucket.i.i.i3215, align 8, !noalias !1354
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3215), !noalias !1354
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3215), !noalias !1354
   br i1 %call.i.i.i3216, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3225, label %if.end.i.i3217
 
 if.end.i.i3217:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3212
@@ -14509,10 +14509,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp996.sroa.2.0.ref.tmp995.sroa_idx, align 8
   %second.i3227 = getelementptr inbounds nuw i8, ptr %ref.tmp995, i64 16
   store i32 9824, ptr %second.i3227, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3228), !noalias !1359
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3228), !noalias !1359
   %call.i.i.i3229 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp995, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3228), !noalias !1359
   %498 = load ptr, ptr %ConstFoundBucket.i.i.i3228, align 8, !noalias !1359
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3228), !noalias !1359
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3228), !noalias !1359
   br i1 %call.i.i.i3229, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3238, label %if.end.i.i3230
 
 if.end.i.i3230:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3225
@@ -14529,10 +14529,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp1000.sroa.2.0.ref.tmp999.sroa_idx, align 8
   %second.i3240 = getelementptr inbounds nuw i8, ptr %ref.tmp999, i64 16
   store i32 9827, ptr %second.i3240, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3241), !noalias !1364
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3241), !noalias !1364
   %call.i.i.i3242 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp999, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3241), !noalias !1364
   %500 = load ptr, ptr %ConstFoundBucket.i.i.i3241, align 8, !noalias !1364
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3241), !noalias !1364
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3241), !noalias !1364
   br i1 %call.i.i.i3242, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3251, label %if.end.i.i3243
 
 if.end.i.i3243:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3238
@@ -14549,10 +14549,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 6, ptr %ref.tmp1004.sroa.2.0.ref.tmp1003.sroa_idx, align 8
   %second.i3253 = getelementptr inbounds nuw i8, ptr %ref.tmp1003, i64 16
   store i32 9829, ptr %second.i3253, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3254), !noalias !1369
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3254), !noalias !1369
   %call.i.i.i3255 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp1003, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3254), !noalias !1369
   %502 = load ptr, ptr %ConstFoundBucket.i.i.i3254, align 8, !noalias !1369
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3254), !noalias !1369
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3254), !noalias !1369
   br i1 %call.i.i.i3255, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3264, label %if.end.i.i3256
 
 if.end.i.i3256:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3251
@@ -14569,10 +14569,10 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6de
   store i64 5, ptr %ref.tmp1008.sroa.2.0.ref.tmp1007.sroa_idx, align 8
   %second.i3266 = getelementptr inbounds nuw i8, ptr %ref.tmp1007, i64 16
   store i32 9830, ptr %second.i3266, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3267), !noalias !1374
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i.i3267), !noalias !1374
   %call.i.i.i3268 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes6parserL15getHTMLEntitiesEvE8entities, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp1007, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i.i3267), !noalias !1374
   %504 = load ptr, ptr %ConstFoundBucket.i.i.i3267, align 8, !noalias !1374
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i.i3267), !noalias !1374
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i.i3267), !noalias !1374
   br i1 %call.i.i.i3268, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3277, label %if.end.i.i3269
 
 if.end.i.i3269:                                   ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E6insertEOSt4pairIS2_jE.exit3264
@@ -14819,10 +14819,10 @@ entry:
 if.then:                                          ; preds = %entry
   %mul4 = shl i32 %1, 1
   tail call void @_ZN4llvh8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i)
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i)
   %2 = load ptr, ptr %ConstFoundBucket.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i)
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
@@ -14837,10 +14837,10 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i9)
   %call.i10 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i9)
   %4 = load ptr, ptr %ConstFoundBucket.i9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i9)
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, %if.then10, %if.then
@@ -14949,10 +14949,10 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i: ; preds = %_ZN4llv
   br i1 %switch.i, label %if.end.i5, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E15LookupBucketForIS2_EEbRKT_RPKS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, i64 16, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %second.i22.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 16
@@ -15055,11 +15055,11 @@ if.else:                                          ; preds = %lor.rhs
   br i1 %cmp.i, label %if.then23, label %if.end30
 
 if.then23:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
   %8 = load ptr, ptr %at.addr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then26
     i32 36, label %if.then26
@@ -15119,8 +15119,8 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit42: ; preds = %if.then26, 
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
   %conv.i12.i.i.i38 = add i32 %.pre.i.i.i37, %16
   store i32 %conv.i12.i.i.i38, ptr %Size.i.i.i27, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -15175,8 +15175,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i46 to i32
   %conv.i12.i.i.i54 = add i32 %21, %22
   store i32 %conv.i12.i.i.i54, ptr %Size.i.i.i27, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_28 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %8, ptr %curCharPtr_28, align 8
   call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE1EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
@@ -15292,11 +15292,11 @@ if.else:                                          ; preds = %lor.rhs
   br i1 %cmp.i, label %if.then22, label %if.end29
 
 if.then22:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i)
   store ptr %incdec.ptr, ptr %at.addr.i, align 8
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i)
   %8 = load ptr, ptr %at.addr.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i)
   switch i32 %call.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then25
     i32 36, label %if.then25
@@ -15356,8 +15356,8 @@ _ZN6hermes6parser7JSLexer15initStorageWithEPKcS3_.exit45: ; preds = %if.then.i.i
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i30 to i32
   %conv.i12.i.i.i41 = add i32 %.pre.i.i.i40, %16
   store i32 %conv.i12.i.i.i41, ptr %Size.i.i.i27, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -15412,8 +15412,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %22 = trunc i64 %sub.ptr.sub.i.i.i.i.i49 to i32
   %conv.i12.i.i.i60 = add i32 %21, %22
   store i32 %conv.i12.i.i.i60, ptr %Size.i.i.i27, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   %curCharPtr_27 = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %8, ptr %curCharPtr_27, align 8
   call void @_ZN6hermes6parser7JSLexer19scanIdentifierPartsILNS1_14IdentifierModeE2EEEvv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
@@ -15599,14 +15599,14 @@ if.end.i.i34:                                     ; preds = %_ZN4llvhplERKNS_5Tw
   br label %for.cond.backedge
 
 if.else16.thread:                                 ; preds = %if.then2, %if.then2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i35
 
 if.else16:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call5, 65536
   br i1 %cmp.i.i, label %if.end.i.i35, label %if.else.i.i
@@ -15659,8 +15659,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %15, %16
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN4llvhplERKNS_5TwineES2_.exit33, %if.end.i.i34, %for.cond
@@ -15731,11 +15731,11 @@ if.else:                                          ; preds = %lor.lhs.false10
   br i1 %cmp.i, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i.i)
   store ptr %0, ptr %at.addr.i.i, align 8
   %call.i.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i.i)
   %11 = load ptr, ptr %at.addr.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i.i)
   switch i32 %call.i.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then24.thread
     i32 36, label %if.then24.thread
@@ -15767,14 +15767,14 @@ _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   br i1 %spec.select.i, label %if.then24, label %return
 
 if.then24.thread:                                 ; preds = %if.then21, %if.then21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i
 
 if.then24:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -15832,8 +15832,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %21 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %20, %21
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   store ptr %11, ptr %curCharPtr_, align 8
   br label %return
 
@@ -15992,14 +15992,14 @@ if.end.i.i34:                                     ; preds = %_ZN4llvhplERKNS_5Tw
   br label %for.cond.backedge
 
 if.else16.thread:                                 ; preds = %if.then2, %if.then2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i35
 
 if.else16:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call5, 65536
   br i1 %cmp.i.i, label %if.end.i.i35, label %if.else.i.i
@@ -16052,8 +16052,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %16 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %15, %16
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %_ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit, %_ZN4llvhplERKNS_5TwineES2_.exit33, %if.end.i.i34, %for.cond
@@ -16124,11 +16124,11 @@ if.else:                                          ; preds = %lor.lhs.false10
   br i1 %cmp.i, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %at.addr.i.i)
   store ptr %0, ptr %at.addr.i.i, align 8
   %call.i.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNKS_6parser7JSLexer9_peekUTF8EPKcEUlRKN4llvh5TwineEE_EEjRS4_T0_(ptr noundef nonnull align 8 dereferenceable(8) %at.addr.i.i)
   %11 = load ptr, ptr %at.addr.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %at.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %at.addr.i.i)
   switch i32 %call.i.i, label %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i [
     i32 95, label %if.then24.thread
     i32 36, label %if.then24.thread
@@ -16160,14 +16160,14 @@ _ZN6hermes19isUnicodeIDContinueEj.exit:           ; preds = %lor.lhs.false2.i
   br i1 %spec.select.i, label %if.then24, label %return
 
 if.then24.thread:                                 ; preds = %if.then21, %if.then21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   br label %if.end.i.i
 
 if.then24:                                        ; preds = %_ZN6hermes22isASCIIIdentifierStartEj.exit.i.i, %_ZN6hermes16isUnicodeIDStartEj.exit.i, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN6hermes19isUnicodeIDContinueEj.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %call.i.i, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -16225,8 +16225,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %21 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %20, %21
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   store ptr %11, ptr %curCharPtr_, align 8
   br label %return
 
@@ -16313,8 +16313,8 @@ if.then22:                                        ; preds = %if.else
   br i1 %tobool.i.not, label %if.else26, label %if.then24
 
 if.then24:                                        ; preds = %if.then22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   %cmp.i.i = icmp ult i32 %codePoint.sroa.0.0.extract.trunc, 65536
   br i1 %cmp.i.i, label %if.end.i.i, label %if.else.i.i
@@ -16367,8 +16367,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %17 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %16, %17
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %if.end63
 
 if.else26:                                        ; preds = %if.then22
@@ -16439,8 +16439,8 @@ if.else48:                                        ; preds = %if.else
 
 if.then52:                                        ; preds = %if.else48
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i19)
   store ptr %buf.i.i18, ptr %d.i.i19, align 8
   %cmp.i.i21 = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i21, label %if.end.i.i29, label %if.else.i.i22
@@ -16493,8 +16493,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit52: ; preds = %if.end.i.
   %35 = trunc i64 %sub.ptr.sub.i.i.i.i.i33 to i32
   %conv.i12.i.i.i47 = add i32 %34, %35
   store i32 %conv.i12.i.i.i47, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i19)
   br label %if.end63
 
 if.else55:                                        ; preds = %land.rhs, %if.else48
@@ -16870,8 +16870,8 @@ sw.bb65:                                          ; preds = %if.then9
 
 if.then73:                                        ; preds = %sw.bb65
   store ptr %arrayidx, ptr %curCharPtr_, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i)
   store ptr %buf.i.i, ptr %d.i.i, align 8
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i, i32 noundef 0) #20
   %45 = load ptr, ptr %d.i.i, align 8
@@ -16909,12 +16909,12 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit: ; preds = %if.end.i.i.
   %50 = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
   %conv.i12.i.i.i = add i32 %49, %50
   store i32 %conv.i12.i.i.i, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i)
   br label %if.end188
 
 sw.bb77:                                          ; preds = %sw.bb65, %if.then9, %if.then9, %if.then9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %51 = load i8, ptr %strictMode_.i105, align 8
   %tobool.i = trunc i8 %51 to i1
   br i1 %tobool.i, label %if.then.i78, label %if.end5.i
@@ -16975,9 +16975,9 @@ _ZN6hermes6parser7JSLexer12consumeOctalEj.exit.loopexit: ; preds = %while.body.i
 
 _ZN6hermes6parser7JSLexer12consumeOctalEj.exit:   ; preds = %_ZN6hermes6parser7JSLexer12consumeOctalEj.exit.loopexit, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit.i
   %retval.0.i = phi i32 [ 0, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit.i ], [ %62, %_ZN6hermes6parser7JSLexer12consumeOctalEj.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i79)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i80)
   store ptr %buf.i.i79, ptr %d.i.i80, align 8
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i80, i32 noundef %retval.0.i) #20
   %63 = load ptr, ptr %d.i.i80, align 8
@@ -17015,12 +17015,12 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit103: ; preds = %if.end.i
   %68 = trunc i64 %sub.ptr.sub.i.i.i.i.i84 to i32
   %conv.i12.i.i.i98 = add i32 %67, %68
   store i32 %conv.i12.i.i.i98, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i79)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i80)
   br label %if.end188
 
 sw.bb80:                                          ; preds = %if.then9, %if.then9, %if.then9, %if.then9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i104)
   %69 = load i8, ptr %strictMode_.i105, align 8
   %tobool.i106 = trunc i8 %69 to i1
   br i1 %tobool.i106, label %if.then.i123, label %if.end5.i107
@@ -17073,9 +17073,9 @@ _ZN6hermes6parser7JSLexer12consumeOctalEj.exit132.loopexit: ; preds = %while.bod
 
 _ZN6hermes6parser7JSLexer12consumeOctalEj.exit132: ; preds = %_ZN6hermes6parser7JSLexer12consumeOctalEj.exit132.loopexit, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit.i130
   %retval.0.i115 = phi i32 [ 0, %_ZN6hermes6parser7JSLexer5errorEN4llvh5SMLocERKNS2_5TwineE.exit.i130 ], [ %79, %_ZN6hermes6parser7JSLexer12consumeOctalEj.exit132.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i104)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i133)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i134)
   store ptr %buf.i.i133, ptr %d.i.i134, align 8
   call void @_ZN6hermes10encodeUTF8ERPcj(ptr noundef nonnull align 8 dereferenceable(8) %d.i.i134, i32 noundef %retval.0.i115) #20
   %80 = load ptr, ptr %d.i.i134, align 8
@@ -17113,14 +17113,14 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit157: ; preds = %if.end.i
   %85 = trunc i64 %sub.ptr.sub.i.i.i.i.i138 to i32
   %conv.i12.i.i.i152 = add i32 %84, %85
   store i32 %conv.i12.i.i.i152, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i133)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i134)
   br label %if.end188
 
 sw.bb83:                                          ; preds = %if.then9
   %incdec.ptr85 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %incdec.ptr85, ptr %curCharPtr_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i158)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end15.i, %sw.bb83
@@ -17175,16 +17175,16 @@ if.end15.i:                                       ; preds = %if.then7.i, %if.the
   br i1 %cmp.not.i169, label %cond.end, label %for.body.i, !llvm.loop !59
 
 cond.end.thread:                                  ; preds = %if.end.i.i, %if.else9.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i158)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i172)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i173)
   store ptr %buf.i.i172, ptr %d.i.i173, align 8
   br label %if.end.i.i175
 
 cond.end:                                         ; preds = %if.end15.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i158)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i172)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i158)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i172)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i173)
   store ptr %buf.i.i172, ptr %d.i.i173, align 8
   %cmp.i.i = icmp ult i32 %add.i167, 65536
   br i1 %cmp.i.i, label %if.end.i.i175, label %if.else.i.i
@@ -17237,15 +17237,15 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit197: ; preds = %if.end.i
   %99 = trunc i64 %sub.ptr.sub.i.i.i.i.i178 to i32
   %conv.i12.i.i.i192 = add i32 %98, %99
   store i32 %conv.i12.i.i.i192, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i172)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i173)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i173)
   br label %if.end188
 
 sw.bb90:                                          ; preds = %if.then9
   store ptr %5, ptr %curCharPtr_, align 8
   %call93 = call noundef i32 @_ZN6hermes6parser7JSLexer20consumeUnicodeEscapeEv(ptr noundef nonnull align 8 dereferenceable(1128) %this)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i198)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i199)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i199)
   store ptr %buf.i.i198, ptr %d.i.i199, align 8
   %cmp.i.i201 = icmp ult i32 %call93, 65536
   br i1 %cmp.i.i201, label %if.end.i.i209, label %if.else.i.i202
@@ -17298,8 +17298,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit232: ; preds = %if.end.i
   %105 = trunc i64 %sub.ptr.sub.i.i.i.i.i213 to i32
   %conv.i12.i.i.i227 = add i32 %104, %105
   store i32 %conv.i12.i.i.i227, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i198)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i199)
   br label %if.end188
 
 sw.bb94:                                          ; preds = %if.then9
@@ -17339,8 +17339,8 @@ if.then110:                                       ; preds = %_ZN6hermes6parser12
 
 if.end112:                                        ; preds = %sw.bb107, %_ZN6hermes6parser12_GLOBAL__N_133matchUnicodeLineTerminatorOffset1EPKc.exit
   %call.i = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %incdec.ptr11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i233)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i234)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i233)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i234)
   store ptr %buf.i.i233, ptr %d.i.i234, align 8
   %cmp.i.i236 = icmp ult i32 %call.i, 65536
   br i1 %cmp.i.i236, label %if.end.i.i244, label %if.else.i.i237
@@ -17393,8 +17393,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit267: ; preds = %if.end.i
   %115 = trunc i64 %sub.ptr.sub.i.i.i.i.i248 to i32
   %conv.i12.i.i.i262 = add i32 %114, %115
   store i32 %conv.i12.i.i.i262, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i233)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i234)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i233)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i234)
   br label %if.end188
 
 sw.default:                                       ; preds = %if.then9
@@ -17403,8 +17403,8 @@ sw.default:                                       ; preds = %if.then9
 
 if.then118:                                       ; preds = %sw.default
   %call.i269 = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %incdec.ptr11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i270)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i271)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i270)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i271)
   store ptr %buf.i.i270, ptr %d.i.i271, align 8
   %cmp.i.i273 = icmp ult i32 %call.i269, 65536
   br i1 %cmp.i.i273, label %if.end.i.i281, label %if.else.i.i274
@@ -17457,8 +17457,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit304: ; preds = %if.end.i
   %121 = trunc i64 %sub.ptr.sub.i.i.i.i.i285 to i32
   %conv.i12.i.i.i299 = add i32 %120, %121
   store i32 %conv.i12.i.i.i299, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i270)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i271)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i270)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i271)
   br label %if.end188
 
 if.else121:                                       ; preds = %sw.default
@@ -17556,8 +17556,8 @@ if.else173:                                       ; preds = %if.else
 
 if.then177:                                       ; preds = %if.else173
   %call.i343 = call noundef i32 @_ZN6hermes19_decodeUTF8SlowPathILb0EZNS_6parser7JSLexer19_decodeUTF8SlowPathERPKcEUlRKN4llvh5TwineEE_EEjS5_T0_(ptr noundef nonnull align 8 dereferenceable(8) %curCharPtr_, ptr nonnull align 8 dereferenceable(1128) %this, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i344)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i.i345)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i.i344)
+  call void @llvm.lifetime.start.p0(ptr nonnull %d.i.i345)
   store ptr %buf.i.i344, ptr %d.i.i345, align 8
   %cmp.i.i347 = icmp ult i32 %call.i343, 65536
   br i1 %cmp.i.i347, label %if.end.i.i355, label %if.else.i.i348
@@ -17610,8 +17610,8 @@ _ZN6hermes6parser7JSLexer22appendUnicodeToStorageEj.exit378: ; preds = %if.end.i
   %141 = trunc i64 %sub.ptr.sub.i.i.i.i.i359 to i32
   %conv.i12.i.i.i373 = add i32 %140, %141
   store i32 %conv.i12.i.i.i373, ptr %Size.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i344)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i.i345)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i.i344)
+  call void @llvm.lifetime.end.p0(ptr nonnull %d.i.i345)
   br label %if.end188
 
 if.else180:                                       ; preds = %land.rhs, %if.else173
@@ -19313,10 +19313,10 @@ entry:
 if.then:                                          ; preds = %entry
   %mul4 = shl i32 %1, 1
   tail call void @_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %mul4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i)
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i)
   %2 = load ptr, ptr %ConstFoundBucket.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i)
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
@@ -19331,10 +19331,10 @@ if.else:                                          ; preds = %entry
 
 if.then10:                                        ; preds = %if.else
   tail call void @_ZN4llvh8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i9)
   %call.i10 = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Lookup, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i9)
   %4 = load ptr, ptr %ConstFoundBucket.i9, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i9)
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, %if.then10, %if.then
@@ -19443,10 +19443,10 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i: ; preds = %_ZN4llv
   br i1 %switch.i, label %if.end.i5, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ConstFoundBucket.i.i)
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEPN6hermes12UniqueStringENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i)
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, i64 16, i1 false)
   %second.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %second.i22.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 16
@@ -19487,10 +19487,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.ctpop.i32(i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

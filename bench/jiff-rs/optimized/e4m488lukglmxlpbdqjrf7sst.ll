@@ -344,7 +344,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
   %.16 = select i1 %.not, ptr %14, ptr %0
   %16 = shl i64 %.sroa.0.0.sroa.speculated.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %.16, i64 %16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   store ptr %2, ptr %7, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -430,7 +430,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h3b98565988a98d3fE(p
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit": ; preds = %.noexc20, %.noexc
   call void @"_ZN4core3ptr116drop_in_place$LT$core..slice..sort..stable..merge..MergeState$LT$jiff..tz..db..zoneinfo..inner..ZoneInfoName$GT$$GT$17hb8f2bfa53cafe287E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %49
 
 49:                                               ; preds = %10, %6, %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17h91ca38be8917b8adE.exit"
@@ -710,7 +710,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..BufGuard$LT$T$GT$$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$13with_capacity17h806a5eb633cd073aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !36
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !36
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %1, i1 noundef zeroext false, i64 noundef 8, i64 noundef 8), !noalias !36
   %4 = load i64, ptr %3, align 8, !range !39, !noalias !36, !noundef !8
   %5 = trunc nuw i64 %4 to i1
@@ -728,7 +728,7 @@ define hidden void @"_ZN5alloc5slice99_$LT$impl$u20$core..slice..sort..stable..B
   %11 = load ptr, ptr %8, align 8, !noalias !36, !nonnull !8, !noundef !8
   %12 = icmp ule i64 %1, %7
   tail call void @llvm.assume(i1 %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !36
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !36
   store i64 %7, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %13, align 8
@@ -800,14 +800,14 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !41
   %8 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %8)
   %9 = ptrtoint ptr %2 to i64
   %10 = ptrtoint ptr %1 to i64
   %11 = sub nuw i64 %9, %10
   %12 = lshr exact i64 %11, 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !45
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !45
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef %12, i1 noundef zeroext false, i64 noundef 8, i64 noundef 24), !noalias !45
   %13 = load i64, ptr %6, align 8, !range !39, !noalias !45, !noundef !8
   %14 = trunc nuw i64 %13 to i1
@@ -825,13 +825,13 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %20 = load ptr, ptr %17, align 8, !noalias !45, !nonnull !8, !noundef !8
   %21 = icmp ule i64 %12, %16
   tail call void @llvm.assume(i1 %21)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !45
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !45
   store i64 %16, ptr %7, align 8, !noalias !41
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %20, ptr %22, align 8, !noalias !41
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %23, align 8, !noalias !41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !49
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !49
   store ptr %23, ptr %5, align 8, !noalias !56
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !56
@@ -856,9 +856,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   resume { ptr, i32 } %25
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h391979630a601385E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2877888fe7078a68E.exit.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !49
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !57
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !41
   ret void
 }
 
@@ -877,17 +877,17 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %15 = alloca [24 x i8], align 8
   %16 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !72
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !72
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !72
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !72
   store ptr %18, ptr %12, align 8, !noalias !74
   br label %19
 
@@ -904,13 +904,13 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %24, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3f0434650e68abdE.exit.i", label %19
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3f0434650e68abdE.exit.thread.i": ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !72
   br label %26
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3f0434650e68abdE.exit.i": ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !72
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !72
   %.val.i.i = load ptr, ptr %20, align 8, !noalias !81, !nonnull !8, !noundef !8
   %25 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 40
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h264d14c2948c37e0E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25), !noalias !61
@@ -933,9 +933,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
           to label %70 unwind label %68, !noalias !58
 
 31:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3f0434650e68abdE.exit.i"
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !61
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !61
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !83
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !83
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, i64 noundef 4, i1 noundef zeroext false, i64 noundef 8, i64 noundef 24)
           to label %.noexc.i unwind label %29, !noalias !61
 
@@ -959,20 +959,20 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   %40 = load ptr, ptr %36, align 8, !noalias !83, !nonnull !8, !noundef !8
   %41 = icmp ugt i64 %35, 3
   call void @llvm.assume(i1 %41)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !83
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !61
   store i64 %35, ptr %15, align 8, !noalias !61
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %40, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !61
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !61
   %42 = load ptr, ptr %16, align 8, !noalias !61, !nonnull !8, !noundef !8
   %43 = load ptr, ptr %17, align 8, !noalias !61, !noundef !8
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !92
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !92
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !92
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !92
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %43, ptr %44, align 8, !noalias !93
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -984,8 +984,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !103
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !103
   store ptr %45, ptr %6, align 8, !noalias !105
   br label %48
 
@@ -995,8 +995,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %50, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.thread.i.i.i.i", label %51
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.thread.i.i.i.i": ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !103
   br label %.loopexit10.i
 
 51:                                               ; preds = %48
@@ -1010,8 +1010,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %53, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.i.i.i.i", label %48
 
 "_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.i.i.i.i": ; preds = %.noexc7.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !103
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !103
   %.not.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i, label %.loopexit10.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3f0434650e68abdE.exit.i.i.i"
 
@@ -1027,7 +1027,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   br i1 %.not.i.i.i, label %.loopexit10.i, label %55
 
 55:                                               ; preds = %.noexc8.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !93
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !93
   %56 = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !112, !noalias !61, !noundef !8
   %57 = icmp ult i64 %56, 384307168202282326
@@ -1042,7 +1042,7 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !61
   %62 = add nuw nsw i64 %56, 1
   store i64 %62, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !112, !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !93
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !93
   %.pre.i.i.i = load ptr, ptr %44, align 8, !alias.scope !107, !noalias !110
   %.promoted.i.i.i.pre.i.i.i = load ptr, ptr %9, align 8, !alias.scope !107, !noalias !110
   br label %46
@@ -1079,8 +1079,8 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
           to label %70 unwind label %68, !noalias !61
 
 .loopexit10.i:                                    ; preds = %.noexc8.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.i.i.i.i", %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc222d8f0db2d5370E.exit.thread.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !92
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !92
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !82
   br label %"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h597f6427fe8c4927E.exit"
 
@@ -1095,9 +1095,9 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
   resume { ptr, i32 } %.pn.i
 
 "_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h597f6427fe8c4927E.exit": ; preds = %26, %.loopexit10.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !61
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   ret void
 }
 
@@ -1117,8 +1117,8 @@ define void @_ZN4jiff3fmt8friendly6parser10SpanParser9parse_hms17hb6277a589e2ebe
   %17 = alloca [48 x i8], align 8
   %18 = alloca [8 x i8], align 8
   store i64 %4, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !113
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !113
   store i64 0, ptr %9, align 8, !noalias !113
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1191,8 +1191,8 @@ thread-pre-split:                                 ; preds = %34
 
 39:                                               ; preds = %.thread93, %.loopexit167
   %40 = call fastcc noundef ptr @"_ZN4jiff3fmt8friendly6parser10SpanParser16parse_unit_value28_$u7b$$u7b$closure$u7d$$u7d$17h87b851a0af17c11bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8), !noalias !120
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !113
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %41, align 8
   store i32 2, ptr %0, align 8
@@ -1200,9 +1200,9 @@ thread-pre-split:                                 ; preds = %34
 
 42:                                               ; preds = %.thread
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !113
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %.sroa.027.0.i188, ptr %15, align 8
   %.not = icmp eq i64 %3, %27
   br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit", !prof !121
@@ -1213,10 +1213,10 @@ thread-pre-split:                                 ; preds = %34
   br i1 %44, label %59, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit.thread", !prof !125
 
 45:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he2ebaf09c769ba29E.exit.thread"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !113
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !113
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %18, ptr %16, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @"_ZN78_$LT$jiff..util..rangeint..ri64$LT$_$C$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17heb83684ea543b381E", ptr %.sroa.431.0..sroa_idx, align 8
@@ -1230,16 +1230,16 @@ thread-pre-split:                                 ; preds = %34
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 1, ptr %49, align 8
   %50 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %51, align 8
   store i32 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %107
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit.thread": ; preds = %42, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %15, ptr %13, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN78_$LT$jiff..util..rangeint..ri64$LT$_$C$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17heb83684ea543b381E", ptr %.sroa.435.0..sroa_idx, align 8
@@ -1253,23 +1253,23 @@ thread-pre-split:                                 ; preds = %34
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %55, align 8
   %56 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %56, ptr %57, align 8
   store i32 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %58
 
 58:                                               ; preds = %102, %90, %83, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit.thread"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %107
 
 59:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf6a4038e34bfa153E.exit"
   %60 = xor i64 %27, -1
   %61 = add i64 %3, %60
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !126
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !126
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %66
@@ -1341,8 +1341,8 @@ thread-pre-split123:                              ; preds = %78
 
 83:                                               ; preds = %.thread127, %.loopexit
   %84 = call fastcc noundef ptr @"_ZN4jiff3fmt8friendly6parser10SpanParser16parse_unit_value28_$u7b$$u7b$closure$u7d$$u7d$17h87b851a0af17c11bE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6), !noalias !133
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !126
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !126
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %84, ptr %85, align 8
   store i32 2, ptr %0, align 8
@@ -1351,8 +1351,8 @@ thread-pre-split123:                              ; preds = %78
 86:                                               ; preds = %.thread126
   %87 = getelementptr inbounds nuw i8, ptr %62, i64 %71
   %88 = sub nuw i64 %61, %71
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !126
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !126
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not62 = icmp eq i64 %88, 0
   br i1 %.not62, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit"
 
@@ -1363,10 +1363,10 @@ thread-pre-split123:                              ; preds = %78
   br i1 %.sroa.0.0.i.i, label %97, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit.thread"
 
 90:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17he2ebaf09c769ba29E.exit84.thread"
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !126
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !126
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %15, ptr %11, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN78_$LT$jiff..util..rangeint..ri64$LT$_$C$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17heb83684ea543b381E", ptr %.sroa.444.0..sroa_idx, align 8
@@ -1380,15 +1380,15 @@ thread-pre-split123:                              ; preds = %78
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %94, align 8
   %95 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %95, ptr %96, align 8
   store i32 2, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %58
 
 97:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit"
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   switch i8 %.val.i86, label %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit.thread [
     i8 46, label %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit
     i8 44, label %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit
@@ -1431,13 +1431,13 @@ _ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit._crit_edge: 
   store ptr %.sroa.056.0, ptr %.sroa.821.0..sroa_idx, align 8
   %.sroa.922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.559.0, ptr %.sroa.922.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %107
 
 102:                                              ; preds = %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %104 = load ptr, ptr %103, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %104, ptr %105, align 8
   store i32 2, ptr %0, align 8
@@ -1449,7 +1449,7 @@ _ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit.thread: ; pr
   %.sroa.547.0.copyload = phi ptr [ %.sroa.547.0.copyload.pre, %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit._crit_edge ], [ %87, %97 ]
   %.sroa.446.0.copyload = phi i32 [ %.sroa.446.0.copyload.pre, %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit._crit_edge ], [ undef, %97 ]
   %106 = phi i32 [ %.pr158, %_ZN4jiff3fmt4util23parse_temporal_fraction17h33a3eeaa537931a6E.exit._crit_edge ], [ 0, %97 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit.thread"
 
 107:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h643e2e22402c76acE.exit.thread", %58, %45, %39
@@ -1461,9 +1461,9 @@ define internal fastcc noundef ptr @"_ZN4jiff3fmt8friendly6parser10SpanParser16p
   %2 = alloca [16 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1494,9 +1494,9 @@ define internal fastcc noundef ptr @"_ZN4jiff3fmt8friendly6parser10SpanParser16p
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %17, align 8
   %18 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %18
 }
 
@@ -1644,7 +1644,7 @@ _ZN4jiff3fmt8friendly6parser10SpanParser25parse_optional_whitespace17haf18717ac4
   unreachable
 
 18:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.39, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %19, align 8
@@ -1655,7 +1655,7 @@ _ZN4jiff3fmt8friendly6parser10SpanParser25parse_optional_whitespace17haf18717ac4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %22, align 8
   %23 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   store ptr null, ptr %0, align 8
@@ -1695,7 +1695,7 @@ define void @_ZN4jiff3fmt8friendly6parser10SpanParser20parse_optional_comma17h59
   br i1 %13, label %14, label %21, !prof !10
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.43, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %15, align 8
@@ -1706,7 +1706,7 @@ define void @_ZN4jiff3fmt8friendly6parser10SpanParser20parse_optional_comma17h59
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %18, align 8
   %19 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   store ptr null, ptr %0, align 8
@@ -1724,9 +1724,9 @@ define void @_ZN4jiff3fmt8friendly6parser10SpanParser20parse_optional_comma17h59
   ], !prof !155
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 %23, ptr %5, align 1
   store ptr %5, ptr %6, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1741,12 +1741,12 @@ define void @_ZN4jiff3fmt8friendly6parser10SpanParser20parse_optional_comma17h59
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %28, align 8
   %29 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %11
 
 31:                                               ; preds = %21, %21, %21, %21, %21
@@ -1765,7 +1765,7 @@ define void @_ZN4jiff3fmt7rfc282214DateTimeParser21parse_offset_obsolete17ha782c
   %7 = alloca [48 x i8], align 8
   %8 = alloca [48 x i8], align 8
   %9 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %9, i8 0, i64 5, i1 false)
   br label %10
 
@@ -1810,7 +1810,7 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   br i1 %exitcond.not, label %.thread36, label %10
 
 24:                                               ; preds = %_ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit.thread
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.56, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %25, align 8
@@ -1821,7 +1821,7 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %28, align 8
   %29 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   store ptr null, ptr %0, align 8
@@ -1972,9 +1972,9 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
 
 .thread37:                                        ; preds = %112, %96, %33
   %.sroa.02.0505658 = phi i64 [ 1, %96 ], [ 2, %33 ], [ %.sroa.02.0505659, %112 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %99 = icmp ugt i64 %.sroa.02.0505658, %3
   br i1 %99, label %100, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit", !prof !10
 
@@ -1999,12 +1999,12 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %105, align 8
   %106 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %106, ptr %107, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %115
 
 .thread36:                                        ; preds = %_ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit, %39, %41, %48, %51, %54, %57, %60, %64, %69, %73, %77, %81, %85, %89, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit33"
@@ -2025,7 +2025,7 @@ _ZN4jiff3fmt7rfc282213is_whitespace17h3dd7802177e85c32E.exit: ; preds = %16
   br i1 %.sroa.0.0.i4.i, label %109, label %.thread37
 
 115:                                              ; preds = %24, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit", %116
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 
 116:                                              ; preds = %.loopexit
@@ -2118,7 +2118,7 @@ define void @_ZN4jiff3fmt7rfc282214DateTimeParser12skip_comment17h337b9a6f9a117e
   br i1 %.not44, label %29, label %35, !prof !10
 
 29:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.67, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %30, align 8
@@ -2129,7 +2129,7 @@ define void @_ZN4jiff3fmt7rfc282214DateTimeParser12skip_comment17h337b9a6f9a117e
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %33, align 8
   %34 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %46
 
 35:                                               ; preds = %28
@@ -2172,7 +2172,7 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   br label %13
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.69, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %41, align 8
@@ -2183,7 +2183,7 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %44, align 8
   %45 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 46:                                               ; preds = %29, %51, %._crit_edge.thread
@@ -2202,7 +2202,7 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   br label %57
 
 51:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.71, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %52, align 8
@@ -2213,7 +2213,7 @@ _ZN4jiff3fmt7rfc282214DateTimeParser15skip_whitespace17hb33f8681fa4035f8E.exit: 
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %55, align 8
   %56 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %46
 
 57:                                               ; preds = %49, %22, %26, %35, %27
@@ -2230,8 +2230,8 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter15zoned_to_string17hcd13bacc62
   %4 = alloca [24 x i8], align 8
   %5 = alloca [12 x i8], align 4
   %6 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !174
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !174
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 4, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !174
   %7 = load i64, ptr %4, align 8, !range !39, !noalias !174, !noundef !8
   %8 = trunc nuw i64 %7 to i1
@@ -2249,13 +2249,13 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter15zoned_to_string17hcd13bacc62
   %14 = load ptr, ptr %11, align 8, !noalias !174, !nonnull !8, !noundef !8
   %15 = icmp ugt i64 %10, 3
   tail call void @llvm.assume(i1 %15)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !174
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !174
   store i64 %10, ptr %6, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.55.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -2271,7 +2271,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter15zoned_to_string17hcd13bacc62
 
 22:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he6562ce0359ebaffE.exit"
   %23 = extractvalue { i64, ptr } %19, 0
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = trunc nuw i64 %23 to i1
   br i1 %24, label %25, label %28
 
@@ -2288,7 +2288,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter15zoned_to_string17hcd13bacc62
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 30:                                               ; preds = %20
@@ -2305,8 +2305,8 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter15zoned_to_string17hcd13bacc62
 define void @_ZN4jiff3fmt7rfc282215DateTimePrinter19timestamp_to_string17h4a43b7a979405a7eE(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !177
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !177
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 4, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !177
   %6 = load i64, ptr %4, align 8, !range !39, !noalias !177, !noundef !8
   %7 = trunc nuw i64 %6 to i1
@@ -2324,7 +2324,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter19timestamp_to_string17h4a43b7
   %13 = load ptr, ptr %10, align 8, !noalias !177, !nonnull !8, !noundef !8
   %14 = icmp ugt i64 %9, 3
   tail call void @llvm.assume(i1 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !177
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !177
   store i64 %9, ptr %5, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %.sroa.44.0..sroa_idx, align 8
@@ -2357,7 +2357,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter19timestamp_to_string17h4a43b7
   br label %25
 
 25:                                               ; preds = %24, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 26:                                               ; preds = %16
@@ -2374,8 +2374,8 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter19timestamp_to_string17h4a43b7
 define void @_ZN4jiff3fmt7rfc282215DateTimePrinter27timestamp_to_rfc9110_string17hae3d6088a62e6910E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !180
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !180
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h488acd270d0fe261E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef 29, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !180
   %6 = load i64, ptr %4, align 8, !range !39, !noalias !180, !noundef !8
   %7 = trunc nuw i64 %6 to i1
@@ -2393,7 +2393,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter27timestamp_to_rfc9110_string1
   %13 = load ptr, ptr %10, align 8, !noalias !180, !nonnull !8, !noundef !8
   %14 = icmp ugt i64 %9, 28
   tail call void @llvm.assume(i1 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !180
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !180
   store i64 %9, ptr %5, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %.sroa.44.0..sroa_idx, align 8
@@ -2426,7 +2426,7 @@ define void @_ZN4jiff3fmt7rfc282215DateTimePrinter27timestamp_to_rfc9110_string1
   br label %25
 
 25:                                               ; preds = %24, %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
 26:                                               ; preds = %16
@@ -2462,8 +2462,8 @@ define { ptr, i64 } @_ZN4jiff3fmt7rfc282210month_name17h2d7434e461112cabE(i8 nou
   br i1 %5, label %switch.lookup, label %6
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.43.0..sroa_idx, align 8
@@ -2506,7 +2506,7 @@ define hidden void @_ZN4jiff6shared5posix6Parser5parse17h2f40ef906194709aE(ptr d
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [104 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4jiff6shared5posix6Parser12parse_prefix17h303ed5baaa3dc679E(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %6, ptr noundef nonnull align 8 %1)
   %7 = load i8, ptr %6, align 8, !range !183, !noundef !8
   %8 = icmp eq i8 %7, 4
@@ -2517,7 +2517,7 @@ define hidden void @_ZN4jiff6shared5posix6Parser5parse17h2f40ef906194709aE(ptr d
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !align !140, !noundef !8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2538,7 +2538,7 @@ define hidden void @_ZN4jiff6shared5posix6Parser5parse17h2f40ef906194709aE(ptr d
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !nonnull !8, !noundef !8
   %.sroa.1014.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 96
   %.sroa.1014.0.copyload = load i64, ptr %.sroa.1014.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %17 = icmp eq i64 %.sroa.1014.0.copyload, 0
   br i1 %17, label %18, label %19
 
@@ -2555,9 +2555,9 @@ define hidden void @_ZN4jiff6shared5posix6Parser5parse17h2f40ef906194709aE(ptr d
   br label %30
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %.sroa.9.0.copyload, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.1014.0.copyload, ptr %20, align 8
@@ -2576,14 +2576,14 @@ define hidden void @_ZN4jiff6shared5posix6Parser5parse17h2f40ef906194709aE(ptr d
   %25 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %29, align 8
   store i8 4, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %30
 
 30:                                               ; preds = %19, %18, %9
@@ -2631,11 +2631,11 @@ define hidden void @_ZN4jiff6shared5posix6Parser12parse_prefix17h303ed5baaa3dc67
   %.sroa.5.sroa.3 = alloca [7 x i8], align 8
   %.sroa.9 = alloca [20 x i8], align 8
   %.sroa.24 = alloca [7 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call fastcc void @_ZN4jiff6shared5posix6Parser18parse_abbreviation17hde3db3ee03466ff8E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %37, ptr noundef nonnull align 8 %1), !noalias !184
   %38 = load i8, ptr %37, align 8, !range !187, !noalias !184, !noundef !8
   %39 = trunc nuw i8 %38 to i1
@@ -2646,12 +2646,12 @@ define hidden void @_ZN4jiff6shared5posix6Parser12parse_prefix17h303ed5baaa3dc67
   %42 = load ptr, ptr %41, align 8, !noalias !184, !nonnull !8, !align !140, !noundef !8
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %44 = load i64, ptr %43, align 8, !noalias !184, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !184
   store ptr %42, ptr %35, align 8, !noalias !188
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %44, ptr %45, align 8, !noalias !188
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34), !noalias !188
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33), !noalias !188
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !188
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !188
   store ptr %35, ptr %33, align 8, !noalias !188
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !188
@@ -2684,10 +2684,10 @@ common.resume.i:                                  ; preds = %220, %194, %149, %1
   resume { ptr, i32 } %common.resume.op.i
 
 55:                                               ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34), !noalias !188
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33), !noalias !188
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !188
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !188
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %35), !noalias !184
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !184
   %56 = extractvalue { ptr, i64 } %50, 0
   %57 = extractvalue { ptr, i64 } %50, 1
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread
@@ -2708,12 +2708,12 @@ common.resume.i:                                  ; preds = %220, %194, %149, %1
 
 62:                                               ; preds = %58
   %63 = load i64, ptr %61, align 8, !noalias !184, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !184
   store ptr %60, ptr %32, align 8, !noalias !191
   %64 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %63, ptr %64, align 8, !noalias !191
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31), !noalias !191
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !191
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !191
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !191
   store ptr %32, ptr %30, align 8, !noalias !191
   %.sroa.42.0..sroa_idx.i59.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i59.i, align 8, !noalias !191
@@ -2742,10 +2742,10 @@ common.resume.i:                                  ; preds = %220, %194, %149, %1
   unreachable
 
 "_ZN4jiff6shared5posix6Parser21parse_posix_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h0301cb3ab1597ee0E.exit.i": ; preds = %62
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31), !noalias !191
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !191
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !191
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !191
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %32), !noalias !184
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !184
   %74 = extractvalue { ptr, i64 } %69, 0
   %75 = extractvalue { ptr, i64 } %69, 1
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread
@@ -2779,9 +2779,9 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i: ; preds = %81
   br i1 %or.cond71.i, label %90, label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
 
 90:                                               ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !184
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28), !noalias !184
-  call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %29), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !184
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !194
   call fastcc void @_ZN4jiff6shared5posix6Parser18parse_abbreviation17hde3db3ee03466ff8E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %28, ptr noundef nonnull align 8 %1), !noalias !194
   %91 = load i8, ptr %28, align 8, !range !187, !noalias !194, !noundef !8
   %92 = trunc nuw i8 %91 to i1
@@ -2792,12 +2792,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i: ; preds = %81
   %95 = load ptr, ptr %94, align 8, !noalias !194, !nonnull !8, !align !140, !noundef !8
   %96 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %97 = load i64, ptr %96, align 8, !noalias !194, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !194
   store ptr %95, ptr %17, align 8, !noalias !197
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %97, ptr %98, align 8, !noalias !197
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !197
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !197
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !197
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !197
   store ptr %17, ptr %15, align 8, !noalias !197
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !noalias !197
@@ -2826,10 +2826,10 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i: ; preds = %81
   unreachable
 
 108:                                              ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !197
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !197
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !197
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !197
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !194
   %109 = extractvalue { ptr, i64 } %103, 0
   %110 = extractvalue { ptr, i64 } %103, 1
   br label %227
@@ -2855,7 +2855,7 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i: ; preds = %81
   br i1 %113, label %122, label %114
 
 114:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !194
   %115 = icmp ult i64 %.val62.i.i, %.val.i62.i
   br i1 %115, label %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, label %116
 
@@ -2872,8 +2872,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i: ; preds = %114
   br i1 %121, label %132, label %130
 
 122:                                              ; preds = %111
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !194
   store ptr %29, ptr %26, align 8, !noalias !194
   %.sroa.441.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @"_ZN87_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h65973827c539a26dE", ptr %.sroa.441.0..sroa_idx.i.i, align 8, !noalias !194
@@ -2889,8 +2889,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i: ; preds = %114
   %127 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27), !noalias !194
   %128 = extractvalue { ptr, i64 } %127, 0
   %129 = extractvalue { ptr, i64 } %127, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !194
   br label %227
 
 130:                                              ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i
@@ -2924,12 +2924,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i: ; preds = %132
 
 141:                                              ; preds = %130
   %142 = load i64, ptr %.phi.trans.insert.i.i, align 8, !noalias !194, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !194
   store ptr %131, ptr %14, align 8, !noalias !200
   %143 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %142, ptr %143, align 8, !noalias !200
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !200
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !200
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !200
   store ptr %14, ptr %12, align 8, !noalias !200
   %.sroa.42.0..sroa_idx.i67.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i67.i.i, align 8, !noalias !200
@@ -2958,10 +2958,10 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i: ; preds = %132
   unreachable
 
 153:                                              ; preds = %141
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13), !noalias !200
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !200
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !200
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !194
   %154 = extractvalue { ptr, i64 } %148, 0
   %155 = extractvalue { ptr, i64 } %148, 1
   %.not61.i.i = icmp eq ptr %154, null
@@ -2977,8 +2977,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i: ; preds = %132
   br i1 %158, label %159, label %132
 
 159:                                              ; preds = %.thread.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !194
   store ptr %29, ptr %22, align 8, !noalias !194
   %.sroa.447.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @"_ZN87_$LT$jiff..shared..util..array_str..ArrayStr$LT$_$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h65973827c539a26dE", ptr %.sroa.447.0..sroa_idx.i.i, align 8, !noalias !194
@@ -2998,8 +2998,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i: ; preds = %132
   %165 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23), !noalias !194
   %166 = extractvalue { ptr, i64 } %165, 0
   %167 = extractvalue { ptr, i64 } %165, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !194
   br label %224
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i
@@ -3009,9 +3009,9 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4j
   br i1 %.not16.i.i, label %176, label %184
 
 _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i: ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit66.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !194
   store i8 %139, ptr %19, align 1, !noalias !194
   store ptr %19, ptr %20, align 8, !noalias !194
   %.sroa.455.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -3028,13 +3028,13 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i: ; preds = %_ZN
   %173 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21), !noalias !194
   %174 = extractvalue { ptr, i64 } %173, 0
   %175 = extractvalue { ptr, i64 } %173, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !194
   br label %224
 
 176:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !194
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.110, ptr %18, align 8, !noalias !194
   %177 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1, ptr %177, align 8, !noalias !194
@@ -3047,12 +3047,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i: ; preds = %_ZN
   %181 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18), !noalias !194
   %182 = extractvalue { ptr, i64 } %181, 0
   %183 = extractvalue { ptr, i64 } %181, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !194
   br label %224
 
 184:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !194
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !194
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !194
   call fastcc void @_ZN4jiff6shared5posix6Parser20parse_posix_datetime17hfb81b7c23b15bfc6E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1), !noalias !203
   %185 = load ptr, ptr %11, align 8, !noalias !203, !noundef !8
   %.not.i.i.i = icmp eq ptr %185, null
@@ -3064,12 +3064,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i: ; preds = %_ZN
 
 187:                                              ; preds = %184
   %.sroa.012.0.copyload.i.i.i = load i64, ptr %186, align 8, !noalias !203
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !203
   store ptr %185, ptr %8, align 8, !noalias !206
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sroa.012.0.copyload.i.i.i, ptr %188, align 8, !noalias !206
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !206
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !206
   store ptr %8, ptr %6, align 8, !noalias !206
   %.sroa.42.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i.i.i, align 8, !noalias !206
@@ -3098,10 +3098,10 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i: ; preds = %_ZN
   unreachable
 
 "_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hab49a9a0db7c3172E.exit.i.i.i": ; preds = %187
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !206
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !206
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8), !noalias !203
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !203
   br label %225
 
 198:                                              ; preds = %184
@@ -3124,7 +3124,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i.i: ; preds = %_ZN
   br i1 %.not24.i.i.i, label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i, label %210
 
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i.i, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i.i.i, %198
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !203
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.163, ptr %10, align 8, !noalias !203
   %205 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1, ptr %205, align 8, !noalias !203
@@ -3135,7 +3135,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   %208 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %208, align 8, !noalias !203
   %209 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10), !noalias !203
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !203
   br label %225
 
 210:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i.i
@@ -3147,12 +3147,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
 
 213:                                              ; preds = %210
   %.sroa.015.0.copyload.i.i.i = load i64, ptr %212, align 8, !noalias !203
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !203
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !203
   store ptr %211, ptr %5, align 8, !noalias !209
   %214 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.015.0.copyload.i.i.i, ptr %214, align 8, !noalias !209
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !209
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !209
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !209
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !209
   store ptr %5, ptr %3, align 8, !noalias !209
   %.sroa.42.0..sroa_idx.i20.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i20.i.i.i, align 8, !noalias !209
@@ -3181,24 +3181,24 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   unreachable
 
 "_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hd5299b838529c25bE.exit.i.i.i": ; preds = %213
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !209
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !209
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !209
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !209
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !203
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !203
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !203
   br label %225
 
 224:                                              ; preds = %225, %176, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i, %159, %153
   %.sroa.14.0.i = phi ptr [ %182, %176 ], [ %.sroa.7.0.ph.i.i, %225 ], [ %174, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i ], [ %166, %159 ], [ %154, %153 ]
   %.sroa.24.0.i = phi i64 [ %183, %176 ], [ %.sroa.14.0.ph.i.i, %225 ], [ %175, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit69.i.i ], [ %167, %159 ], [ %155, %153 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !194
   br label %227
 
 225:                                              ; preds = %"_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hd5299b838529c25bE.exit.i.i.i", %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i, %"_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hab49a9a0db7c3172E.exit.i.i.i"
   %.pn.i.i = phi { ptr, i64 } [ %193, %"_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hab49a9a0db7c3172E.exit.i.i.i" ], [ %219, %"_ZN4jiff6shared5posix6Parser10parse_rule28_$u7b$$u7b$closure$u7d$$u7d$17hd5299b838529c25bE.exit.i.i.i" ], [ %209, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i ]
   %.sroa.14.0.ph.i.i = extractvalue { ptr, i64 } %.pn.i.i, 1
   %.sroa.7.0.ph.i.i = extractvalue { ptr, i64 } %.pn.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !194
   %226 = icmp ne ptr %.sroa.7.0.ph.i.i, null
   call void @llvm.assume(i1 %226)
   br label %224
@@ -3206,9 +3206,9 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
 227:                                              ; preds = %224, %122, %108
   %.sroa.14.1.ph.i = phi ptr [ %.sroa.14.0.i, %224 ], [ %128, %122 ], [ %109, %108 ]
   %.sroa.24.1.ph.i = phi i64 [ %.sroa.24.0.i, %224 ], [ %129, %122 ], [ %110, %108 ]
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %29), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !184
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !184
   %228 = icmp ne ptr %.sroa.14.1.ph.i, null
   call void @llvm.assume(i1 %228)
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread
@@ -3222,8 +3222,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   %.sroa.7.12.insert.shift.i.i = shl nuw i64 %.sroa.7.12.insert.ext.i.i, 32
   %.sroa.7.12.insert.insert.i.i = or disjoint i64 %.sroa.7.12.insert.shift.i.i, %.sroa.7.8.insert.ext.i.i
   %230 = inttoptr i64 %.sroa.7.12.insert.insert.i.i to ptr
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !194
   %.sroa.541.i.sroa.0.0.copyload = load i32, ptr %29, align 4, !noalias !184
   %.sroa.541.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %.sroa.541.i.sroa.5, ptr noundef nonnull align 4 dereferenceable(27) %.sroa.541.i.sroa.5.0..sroa_idx, i64 27, i1 false)
@@ -3231,10 +3231,10 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
   %.sroa.24.20.insert.ext.i = zext i32 %133 to i64
   %.sroa.24.20.insert.shift.i = shl nuw i64 %.sroa.24.20.insert.ext.i, 32
   %.sroa.24.20.insert.insert.i = or disjoint i64 %.sroa.24.20.insert.shift.i, %.sroa.24.16.insert.ext.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %29), !noalias !194
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !184
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !194
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !184
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !184
   %231 = trunc i32 %.sroa.012.0.copyload.i1.i.i to i8
   %232 = lshr i32 %.sroa.012.0.copyload.i1.i.i, 8
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
@@ -3242,8 +3242,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i.i: 
 _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread: ; preds = %55, %227, %"_ZN4jiff6shared5posix6Parser21parse_posix_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h0301cb3ab1597ee0E.exit.i"
   %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16.71 = phi i64 [ %57, %55 ], [ %.sroa.24.1.ph.i, %227 ], [ %75, %"_ZN4jiff6shared5posix6Parser21parse_posix_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h0301cb3ab1597ee0E.exit.i" ]
   %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8.69 = phi ptr [ %56, %55 ], [ %.sroa.14.1.ph.i, %227 ], [ %74, %"_ZN4jiff6shared5posix6Parser21parse_posix_time_zone28_$u7b$$u7b$closure$u7d$$u7d$17h0301cb3ab1597ee0E.exit.i" ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge
 
 _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit: ; preds = %76, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i, %229
@@ -3259,8 +3259,8 @@ _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit: ; 
   store i64 %.sroa.440.0.i, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !184
   %.sroa.9.16..sroa_idx72 = getelementptr inbounds nuw i8, ptr %.sroa.9, i64 16
   store i32 %.sroa.541.i.sroa.0.0, ptr %.sroa.9.16..sroa_idx72, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %233 = icmp eq i8 %.sroa.038.sroa.0.0.i, 4
   %234 = ptrtoint ptr %.sroa.339.0.i to i64
   %235 = trunc i64 %234 to i32
@@ -3273,8 +3273,8 @@ _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit: ; 
 _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._crit_edge: ; preds = %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread
   %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16. = phi i64 [ %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16.71, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread ], [ %.sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.12..sroa.9.16..pre, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit ]
   %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8. = phi ptr [ %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8.69, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit.thread ], [ %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8..pre, %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.9.4..sroa.9.4..sroa.9.4..sroa.9.8., ptr %236, align 8
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3284,8 +3284,8 @@ _ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit._cr
 
 238:                                              ; preds = %_ZN4jiff6shared5posix6Parser21parse_posix_time_zone17h1c95c5301245ff5cE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %.sroa.5.sroa.3, ptr noundef nonnull align 8 dereferenceable(7) %.sroa.24, i64 7, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
   %239 = load i64, ptr %78, align 8, !noundef !8
   %.val.i24 = load i64, ptr %79, align 8, !noundef !8
   %240 = icmp ugt i64 %.val.i24, %239
@@ -3417,8 +3417,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i: ; preds = %46
 
 56:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i
   %.val31.i = phi i64 [ %47, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ %37, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !212
   %57 = icmp ult i64 %.val31.i, %.val.i
   br i1 %57, label %58, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit30.i", !prof !10
 
@@ -3442,11 +3442,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   br i1 %.not.i, label %56, label %46
 
 65:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !212
   store i64 30, ptr %31, align 8, !noalias !212
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !212
   %66 = icmp ugt i64 %.val.i, 30
   br i1 %66, label %69, label %67, !prof !10
 
@@ -3486,21 +3486,21 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   %78 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33), !noalias !212
   %79 = extractvalue { ptr, i64 } %78, 0
   %80 = extractvalue { ptr, i64 } %78, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !212
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %79, ptr %81, align 8, !alias.scope !212
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %80, ptr %82, align 8, !alias.scope !212
   store i8 1, ptr %0, align 8, !alias.scope !212
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !212
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 83:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit30.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !221
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !221
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !221
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !221
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !221
   %84 = icmp ugt i64 %.val31.i, %61
   br i1 %84, label %85, label %"_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation28_$u7b$$u7b$closure$u7d$$u7d$17h7829f45f39fe1cd7E.exit.i", !prof !10
 
@@ -3526,12 +3526,12 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 1, ptr %91, align 8, !noalias !221
   %92 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !221
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22), !noalias !221
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !221
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !221
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !221
   %93 = extractvalue { ptr, i64 } %92, 0
   %94 = extractvalue { ptr, i64 } %92, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !212
   %95 = icmp ne ptr %93, null
   call void @llvm.assume(i1 %95)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3546,7 +3546,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   %100 = load ptr, ptr %99, align 8, !noalias !212, !nonnull !8, !align !140, !noundef !8
   %101 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !212, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !212
   store ptr %100, ptr %29, align 8, !noalias !212
   %103 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %102, ptr %103, align 8, !noalias !212
@@ -3554,16 +3554,16 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   br i1 %104, label %108, label %105
 
 105:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !212
   call void @"_ZN4jiff6shared4util9array_str17ArrayStr$LT$_$GT$3new17h141d4656a149b238E"(ptr noalias noundef nonnull sret([32 x i8]) align 1 captures(none) dereferenceable(32) %24, ptr noalias noundef nonnull readonly align 1 %100, i64 noundef %102), !noalias !212
   %106 = load i8, ptr %24, align 1, !range !187, !noalias !212, !noundef !8
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %119, label %122, !prof !29
 
 108:                                              ; preds = %98
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26), !noalias !212
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !212
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !212
   store i64 %102, ptr %25, align 8, !noalias !212
   store ptr %29, ptr %26, align 8, !noalias !212
   %.sroa.422.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -3584,23 +3584,23 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   %114 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27), !noalias !212
   %115 = extractvalue { ptr, i64 } %114, 0
   %116 = extractvalue { ptr, i64 } %114, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !212
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %115, ptr %117, align 8, !alias.scope !212
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %116, ptr %118, align 8, !alias.scope !212
   store i8 1, ptr %0, align 8, !alias.scope !212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25), !noalias !212
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !212
   br label %123
 
 119:                                              ; preds = %105
   %120 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %121, ptr noundef nonnull align 1 dereferenceable(31) %120, i64 31, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !212
   store i8 0, ptr %0, align 8, !alias.scope !212
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !212
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 122:                                              ; preds = %105
@@ -3608,11 +3608,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   unreachable
 
 123:                                              ; preds = %108, %"_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation28_$u7b$$u7b$closure$u7d$$u7d$17h7829f45f39fe1cd7E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !212
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !212
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 124:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.125, ptr %34, align 8
   %125 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 1, ptr %125, align 8
@@ -3625,7 +3625,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i: ; preds = %55
   %129 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %34)
   %130 = extractvalue { ptr, i64 } %129, 0
   %131 = extractvalue { ptr, i64 } %129, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %130, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3669,8 +3669,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i3: ; preds = %135
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i3
   %.val46.i = phi i64 [ %136, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i3 ], [ %37, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !227
   %.not19 = icmp ugt i64 %.val46.i, %.val.i
   br i1 %.not19, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit45.i", label %150, !prof !29
 
@@ -3695,11 +3695,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6: ; preds = %149
   br i1 %.not.i7, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i, label %135
 
 158:                                              ; preds = %149
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %20), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !227
   store i64 30, ptr %18, align 8, !noalias !227
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !227
   %159 = icmp ugt i64 %.val.i, 29
   br i1 %159, label %162, label %160, !prof !10
 
@@ -3740,21 +3740,21 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6: ; preds = %149
   %172 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %20), !noalias !227
   %173 = extractvalue { ptr, i64 } %172, 0
   %174 = extractvalue { ptr, i64 } %172, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !227
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %173, ptr %175, align 8, !alias.scope !227
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %174, ptr %176, align 8, !alias.scope !227
   store i8 1, ptr %0, align 8, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !227
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 177:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit45.i"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !236
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !236
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !236
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !236
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !236
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !236
   %178 = icmp ugt i64 %.val46.i, %154
   br i1 %178, label %179, label %180, !prof !10
 
@@ -3780,12 +3780,12 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6: ; preds = %149
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %186, align 8, !noalias !236
   %187 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5), !noalias !236
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !236
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !236
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !236
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !236
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !236
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !236
   %188 = extractvalue { ptr, i64 } %187, 0
   %189 = extractvalue { ptr, i64 } %187, 1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !227
   %190 = icmp ne ptr %188, null
   call void @llvm.assume(i1 %190)
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3800,7 +3800,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i6: ; preds = %149
   %195 = load ptr, ptr %194, align 8, !noalias !227, !nonnull !8, !align !140, !noundef !8
   %196 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %197 = load i64, ptr %196, align 8, !noalias !227, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !227
   store ptr %195, ptr %16, align 8, !noalias !227
   %198 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %197, ptr %198, align 8, !noalias !227
@@ -3823,8 +3823,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit54.i: ; preds = %200
   br i1 %205, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit58.i, label %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i
 
 206:                                              ; preds = %193
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !227
   store ptr %16, ptr %13, align 8, !noalias !227
   %.sroa.424.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ca06b1f3076ba93E", ptr %.sroa.424.0..sroa_idx.i, align 8, !noalias !227
@@ -3840,13 +3840,13 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit54.i: ; preds = %200
   %211 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14), !noalias !227
   %212 = extractvalue { ptr, i64 } %211, 0
   %213 = extractvalue { ptr, i64 } %211, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !227
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %212, ptr %214, align 8, !alias.scope !227
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %213, ptr %215, align 8, !alias.scope !227
   store i8 1, ptr %0, align 8, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !227
   br label %246
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit58.i: ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit54.i
@@ -3856,9 +3856,9 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit58.i: ; preds = %_ZN4j
   br i1 %217, label %231, label %228
 
 _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i: ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit54.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !227
   store i8 %204, ptr %10, align 1, !noalias !227
   store ptr %16, ptr %11, align 8, !noalias !227
   %.sroa.428.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3879,27 +3879,27 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i: ; preds = %_ZN4j
   %223 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12), !noalias !227
   %224 = extractvalue { ptr, i64 } %223, 0
   %225 = extractvalue { ptr, i64 } %223, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !227
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %224, ptr %226, align 8, !alias.scope !227
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %225, ptr %227, align 8, !alias.scope !227
   store i8 1, ptr %0, align 8, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !227
   br label %246
 
 228:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit58.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !227
   call void @"_ZN4jiff6shared4util9array_str17ArrayStr$LT$_$GT$3new17h141d4656a149b238E"(ptr noalias noundef nonnull sret([32 x i8]) align 1 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %195, i64 noundef %197), !noalias !227
   %229 = load i8, ptr %6, align 1, !range !187, !noalias !227, !noundef !8
   %230 = trunc nuw i8 %229 to i1
   br i1 %230, label %242, label %245, !prof !29
 
 231:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit58.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !227
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !227
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !227
   store i64 %197, ptr %7, align 8, !noalias !227
   store ptr %16, ptr %8, align 8, !noalias !227
   %.sroa.436.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3920,23 +3920,23 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i: ; preds = %_ZN4j
   %237 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9), !noalias !227
   %238 = extractvalue { ptr, i64 } %237, 0
   %239 = extractvalue { ptr, i64 } %237, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !227
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %238, ptr %240, align 8, !alias.scope !227
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %239, ptr %241, align 8, !alias.scope !227
   store i8 1, ptr %0, align 8, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !227
   br label %246
 
 242:                                              ; preds = %228
   %243 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %244, ptr noundef nonnull align 1 dereferenceable(31) %243, i64 31, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !227
   store i8 0, ptr %0, align 8, !alias.scope !227
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !227
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 245:                                              ; preds = %228
@@ -3944,7 +3944,7 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i: ; preds = %_ZN4j
   unreachable
 
 246:                                              ; preds = %231, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit60.i, %206, %180
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !227
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !227
   br label %_ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit
 
 _ZN4jiff6shared5posix6Parser27parse_unquoted_abbreviation17h0ea32f2852eb9720E.exit: ; preds = %246, %242, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i8", %123, %119, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3d0deea6cfc1c6d6E.exit.i", %124
@@ -4003,7 +4003,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i: ; preds = %_ZN4ji
   br i1 %.not.i, label %33, label %.thread
 
 27:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !242
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !242
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.267, ptr %7, align 8, !noalias !242
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %28, align 8, !noalias !242
@@ -4014,11 +4014,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i: ; preds = %_ZN4ji
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %31, align 8, !noalias !242
   %32 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7), !noalias !242
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !242
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit
 
 33:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !242
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.269, ptr %6, align 8, !noalias !242
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %34, align 8, !noalias !242
@@ -4029,7 +4029,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i: ; preds = %_ZN4ji
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %37, align 8, !noalias !242
   %38 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !242
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; preds = %27, %33
@@ -4043,12 +4043,12 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
   br i1 %.not, label %.thread, label %39
 
 39:                                               ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.sroa.0.1, ptr %5, align 8, !noalias !245
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.17.sroa.0.1.in.in, ptr %40, align 8, !noalias !245
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !245
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !245
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !245
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !245
   store ptr %5, ptr %3, align 8, !noalias !245
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !245
@@ -4080,10 +4080,10 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
   resume { ptr, i32 } %47
 
 51:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !245
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !245
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !245
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !245
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %52 = extractvalue { ptr, i64 } %45, 0
   %53 = extractvalue { ptr, i64 } %45, 1
   %.sroa.7.8.extract.trunc = trunc i64 %53 to i1
@@ -4101,7 +4101,7 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
 .thread:                                          ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i, %2, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit, %51
   %.sroa.7.091 = phi i1 [ %.sroa.7.8.extract.trunc, %51 ], [ %.sroa.7.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ true, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ false, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ false, %2 ]
   %.sroa.15.090 = phi i32 [ %.sroa.15.8.extract.trunc, %51 ], [ %.sroa.15.1, %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit ], [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i ], [ 0, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i ], [ 0, %2 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f3094c0d0a542f1E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %15, ptr noundef nonnull align 8 %1)
   %56 = load ptr, ptr %15, align 8, !noundef !8
   %.not45 = icmp eq ptr %56, null
@@ -4110,7 +4110,7 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
 
 58:                                               ; preds = %.thread
   %59 = load i64, ptr %57, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store ptr %56, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %59, ptr %60, align 8
@@ -4118,7 +4118,7 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit: ; pr
 
 61:                                               ; preds = %.thread
   %62 = load i8, ptr %57, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %63 = load i64, ptr %16, align 8, !noundef !8
   %.val.i48 = load i64, ptr %17, align 8, !noundef !8
   %64 = icmp ult i64 %.val.i48, %63
@@ -4140,7 +4140,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %_ZN4jiff6
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread: ; preds = %95, %61, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit, %120
   %.sroa.030.0 = phi i8 [ %96, %120 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit ], [ %96, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52 ], [ 0, %61 ], [ %96, %95 ]
   %.sroa.031.0 = phi i32 [ %122, %120 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52 ], [ 0, %61 ], [ 0, %95 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %70 = sext i8 %62 to i32
   %71 = mul nsw i32 %70, 3600
   %72 = sext i8 %.sroa.030.0 to i32
@@ -4157,7 +4157,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread: ; pred
   br i1 %or.cond7, label %128, label %123, !prof !248
 
 80:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.153, ptr %14, align 8
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %81, align 8
@@ -4170,14 +4170,14 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread: ; pred
   %85 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   %86 = extractvalue { ptr, i64 } %85, 0
   %87 = extractvalue { ptr, i64 } %85, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr %86, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %87, ptr %88, align 8
   br label %130
 
 89:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dade12a94f9dbE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %13, ptr noundef nonnull align 8 %1)
   %90 = load ptr, ptr %13, align 8, !noundef !8
   %.not46 = icmp eq ptr %90, null
@@ -4186,7 +4186,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread: ; pred
 
 92:                                               ; preds = %89
   %93 = load i64, ptr %91, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store ptr %90, ptr %0, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %93, ptr %94, align 8
@@ -4194,7 +4194,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread: ; pred
 
 95:                                               ; preds = %89
   %96 = load i8, ptr %91, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %97 = load i64, ptr %16, align 8, !noundef !8
   %.val.i50 = load i64, ptr %17, align 8, !noundef !8
   %98 = icmp ult i64 %.val.i50, %97
@@ -4212,7 +4212,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52: ; preds = %
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.155, ptr %12, align 8
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %106, align 8
@@ -4225,14 +4225,14 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52: ; preds = %
   %110 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   %111 = extractvalue { ptr, i64 } %110, 0
   %112 = extractvalue { ptr, i64 } %110, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %111, ptr %0, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %112, ptr %113, align 8
   br label %130
 
 114:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e8702af5804E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1)
   %115 = load ptr, ptr %11, align 8, !noundef !8
   %.not47 = icmp eq ptr %115, null
@@ -4241,7 +4241,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52: ; preds = %
 
 117:                                              ; preds = %114
   %118 = load i64, ptr %116, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store ptr %115, ptr %0, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %118, ptr %119, align 8
@@ -4249,13 +4249,13 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52: ; preds = %
 
 120:                                              ; preds = %114
   %121 = load i8, ptr %116, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %122 = sext i8 %121 to i32
   br label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread
 
 123:                                              ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.443.0..sroa_idx, align 8
@@ -4275,7 +4275,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52: ; preds = %
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %78, ptr %129, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %130
 
 130:                                              ; preds = %105, %117, %80, %92, %128, %58, %54
@@ -4396,7 +4396,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.i: ; preds = %_ZN4j
   br i1 %.not73.i, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i, label %138
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %75), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !249
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.171, ptr %75, align 8, !noalias !249
   %89 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 1, ptr %89, align 8, !noalias !249
@@ -4407,12 +4407,12 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i: ; preds = %
   %92 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i64 0, ptr %92, align 8, !noalias !249
   %93 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %75), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !249
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
 
 94:                                               ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69), !noalias !249
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !252
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %69, ptr noundef nonnull align 8 %1, i64 noundef 3), !noalias !252
   %95 = load ptr, ptr %69, align 8, !noalias !252, !noundef !8
   %.not.i.i = icmp eq ptr %95, null
@@ -4421,12 +4421,12 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.thread.i: ; preds = %
 
 97:                                               ; preds = %94
   %98 = load i64, ptr %96, align 8, !noalias !252, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !252
   store ptr %95, ptr %63, align 8, !noalias !255
   %99 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 %98, ptr %99, align 8, !noalias !255
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %62), !noalias !255
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61), !noalias !255
+  call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !255
+  call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !255
   store ptr %63, ptr %61, align 8, !noalias !255
   %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !noalias !255
@@ -4459,24 +4459,24 @@ common.resume:                                    ; preds = %348, %372, %105, %2
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap28_$u7b$$u7b$closure$u7d$$u7d$17h70918f4062de4df7E.exit.i.i": ; preds = %97
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %62), !noalias !255
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !255
+  call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !255
+  call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !255
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %63), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !252
   %109 = extractvalue { ptr, i64 } %104, 0
   br label %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i
 
 110:                                              ; preds = %94
   %111 = load i32, ptr %96, align 8, !noalias !252, !noundef !8
   store i32 %111, ptr %70, align 4, !noalias !252
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %68), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !252
   %112 = add i32 %111, -32768
   %or.cond.i.i = icmp ult i32 %112, -65536
   br i1 %or.cond.i.i, label %113, label %121
 
 113:                                              ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %65), !noalias !252
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !252
   store ptr %70, ptr %64, align 8, !noalias !252
   %.sroa.419.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx.i.i, align 8, !noalias !252
@@ -4491,8 +4491,8 @@ common.resume:                                    ; preds = %348, %372, %105, %2
   store i64 1, ptr %117, align 8, !noalias !252
   %118 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %65), !noalias !252
   %119 = extractvalue { ptr, i64 } %118, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %65), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !252
   %120 = icmp ne ptr %119, null
   call void @llvm.assume(i1 %120)
   br label %131
@@ -4505,8 +4505,8 @@ common.resume:                                    ; preds = %348, %372, %105, %2
   br i1 %or.cond2.i.i, label %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.thread.i, label %124
 
 124:                                              ; preds = %121
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %67), !noalias !252
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !252
+  call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !252
   store ptr %68, ptr %66, align 8, !noalias !252
   %.sroa.425.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.425.0..sroa_idx.i.i, align 8, !noalias !252
@@ -4521,29 +4521,29 @@ common.resume:                                    ; preds = %348, %372, %105, %2
   store i64 1, ptr %128, align 8, !noalias !252
   %129 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %67), !noalias !252
   %130 = extractvalue { ptr, i64 } %129, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %67), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !252
   br label %131
 
 _ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.thread.i: ; preds = %121
   %.sroa.8.8.insert.ext.i = zext nneg i32 %111 to i64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %68), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !249
   br label %132
 
 131:                                              ; preds = %124, %113
   %.pn.i = phi { ptr, i64 } [ %118, %113 ], [ %129, %124 ]
   %.sroa.0.0.i = phi ptr [ %119, %113 ], [ %130, %124 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %68), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !252
   br label %_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i
 
 _ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E.exit.i: ; preds = %131, %"_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap28_$u7b$$u7b$closure$u7d$$u7d$17h70918f4062de4df7E.exit.i.i"
   %.pn.pn.i = phi { ptr, i64 } [ %.pn.i, %131 ], [ %104, %"_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap28_$u7b$$u7b$closure$u7d$$u7d$17h70918f4062de4df7E.exit.i.i" ]
   %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %131 ], [ %109, %"_ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap28_$u7b$$u7b$closure$u7d$$u7d$17h70918f4062de4df7E.exit.i.i" ]
   %.sroa.8.1.i = extractvalue { ptr, i64 } %.pn.pn.i, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70), !noalias !252
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !252
+  call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !249
   %.not32.i = icmp eq ptr %.sroa.0.1.i, null
   br i1 %.not32.i, label %132, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
@@ -4554,7 +4554,7 @@ _ZN4jiff6shared5posix6Parser30parse_posix_julian_day_no_leap17h9360379ab44d7d40E
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i: ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %74), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !249
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.173, ptr %74, align 8, !noalias !249
   %133 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 1, ptr %133, align 8, !noalias !249
@@ -4565,13 +4565,13 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i: ; preds =
   %136 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i64 0, ptr %136, align 8, !noalias !249
   %137 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %74), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %74), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !249
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
 
 138:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %60), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %49), !noalias !261
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !261
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %48, ptr noundef nonnull align 8 %1, i64 noundef 2), !noalias !261
   %139 = load ptr, ptr %48, align 8, !noalias !261, !noundef !8
   %.not.i.i.i = icmp eq ptr %139, null
@@ -4580,21 +4580,21 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit37.thread.i: ; preds =
 
 _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread61.i.i: ; preds = %138
   %141 = load i64, ptr %140, align 8, !noalias !261, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !261
   br label %.sink.split.i.i
 
 142:                                              ; preds = %138
   %143 = load i32, ptr %140, align 8, !noalias !261, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !261
   store i32 %143, ptr %49, align 4, !noalias !261
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !261
   %144 = add i32 %143, -128
   %or.cond.i.i.i = icmp ult i32 %144, -256
   br i1 %or.cond.i.i.i, label %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i, label %153
 
 _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i: ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44), !noalias !261
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !261
   store ptr %49, ptr %43, align 8, !noalias !261
   %.sroa.419.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx.i.i.i, align 8, !noalias !261
@@ -4610,11 +4610,11 @@ _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i:
   %149 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %44), !noalias !261
   %150 = extractvalue { ptr, i64 } %149, 0
   %151 = extractvalue { ptr, i64 } %149, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !261
   %152 = icmp ne ptr %150, null
   call void @llvm.assume(i1 %152)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !261
   br label %.sink.split.i.i
 
 153:                                              ; preds = %142
@@ -4626,13 +4626,13 @@ _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i:
 
 _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread.i.i: ; preds = %153
   %.sroa.8.8.insert.ext.i.i = zext nneg i32 %143 to i64
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !261
   br label %163
 
 _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i: ; preds = %153
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %46), !noalias !261
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !261
+  call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !261
   store ptr %47, ptr %45, align 8, !noalias !261
   %.sroa.425.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx.i.i.i, align 8, !noalias !261
@@ -4648,17 +4648,17 @@ _ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i: ; preds 
   %160 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %46), !noalias !261
   %161 = extractvalue { ptr, i64 } %160, 0
   %162 = extractvalue { ptr, i64 } %160, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %47), !noalias !261
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !261
   %.not.i38.i = icmp eq ptr %161, null
   br i1 %.not.i38.i, label %163, label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i
 
 .sink.split.i.i:                                  ; preds = %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread61.i.i
   %.sroa.0.166.ph.i.i = phi ptr [ %150, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i ], [ %139, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread61.i.i ]
   %.sroa.8.165.ph.i.i = phi i64 [ %151, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread67.i.i ], [ %141, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread61.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49), !noalias !261
+  call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !261
   br label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i
 
 163:                                              ; preds = %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.thread.i.i
@@ -4678,8 +4678,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i.i: ; preds =
   br i1 %.not40.i.i, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i, label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i
 
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i: ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i.i, %163
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %59), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !258
   store ptr %60, ptr %58, align 8, !noalias !258
   %.sroa.423.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.423.0..sroa_idx.i.i, align 8, !noalias !258
@@ -4695,8 +4695,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i: ; 
   %173 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %59), !noalias !258
   %174 = extractvalue { ptr, i64 } %173, 0
   %175 = extractvalue { ptr, i64 } %173, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %59), !noalias !258
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !258
   br label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i.i
@@ -4706,8 +4706,8 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4j
   br i1 %.not91.i.i, label %177, label %185
 
 177:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %57), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !258
   store ptr %60, ptr %56, align 8, !noalias !258
   %.sroa.427.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.427.0..sroa_idx.i.i, align 8, !noalias !258
@@ -4723,14 +4723,14 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4j
   %182 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %57), !noalias !258
   %183 = extractvalue { ptr, i64 } %182, 0
   %184 = extractvalue { ptr, i64 } %182, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %57), !noalias !258
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !258
   br label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i
 
 185:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %55), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42), !noalias !264
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !264
   call fastcc void @_ZN4jiff6shared5posix6Parser34parse_number_with_exactly_n_digits17h60c967e5173e7c16E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %41, ptr noundef nonnull align 8 %1, i64 noundef 1), !noalias !264
   %186 = load ptr, ptr %41, align 8, !noalias !264, !noundef !8
   %.not.i45.i.i = icmp eq ptr %186, null
@@ -4739,21 +4739,21 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i: ; preds = %_ZN4j
 
 _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread78.i.i: ; preds = %185
   %188 = load i64, ptr %187, align 8, !noalias !264, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !264
   br label %.sink.split92.i.i
 
 189:                                              ; preds = %185
   %190 = load i32, ptr %187, align 8, !noalias !264, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !264
   store i32 %190, ptr %42, align 4, !noalias !264
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !264
   %191 = add i32 %190, -128
   %or.cond.i46.i.i = icmp ult i32 %191, -256
   br i1 %or.cond.i46.i.i, label %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i, label %200
 
 _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i: ; preds = %189
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37), !noalias !264
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !264
   store ptr %42, ptr %36, align 8, !noalias !264
   %.sroa.419.0..sroa_idx.i49.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx.i49.i.i, align 8, !noalias !264
@@ -4769,11 +4769,11 @@ _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i: 
   %196 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37), !noalias !264
   %197 = extractvalue { ptr, i64 } %196, 0
   %198 = extractvalue { ptr, i64 } %196, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %36), !noalias !264
   %199 = icmp ne ptr %197, null
   call void @llvm.assume(i1 %199)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !264
   br label %.sink.split92.i.i
 
 200:                                              ; preds = %189
@@ -4785,13 +4785,13 @@ _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i: 
 
 _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread.i.i: ; preds = %200
   %.sroa.855.8.insert.ext.i.i = zext nneg i32 %190 to i64
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !264
   br label %210
 
 _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i: ; preds = %200
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %39), !noalias !264
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !264
+  call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !264
   store ptr %40, ptr %38, align 8, !noalias !264
   %.sroa.425.0..sroa_idx.i48.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx.i48.i.i, align 8, !noalias !264
@@ -4807,17 +4807,17 @@ _ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i: ; preds =
   %207 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %39), !noalias !264
   %208 = extractvalue { ptr, i64 } %207, 0
   %209 = extractvalue { ptr, i64 } %207, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %39), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40), !noalias !264
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !264
   %.not41.i.i = icmp eq ptr %208, null
   br i1 %.not41.i.i, label %210, label %236
 
 .sink.split92.i.i:                                ; preds = %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread78.i.i
   %.sroa.054.183.ph.i.i = phi ptr [ %197, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i ], [ %186, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread78.i.i ]
   %.sroa.855.182.ph.i.i = phi i64 [ %198, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread84.i.i ], [ %188, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread78.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42), !noalias !264
+  call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !264
   br label %236
 
 210:                                              ; preds = %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.thread.i.i
@@ -4837,8 +4837,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.i.i: ; preds
   br i1 %.not42.i.i, label %223, label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i
 
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.i.i, %210
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !258
   store ptr %55, ptr %53, align 8, !noalias !258
   %.sroa.433.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.433.0..sroa_idx.i.i, align 8, !noalias !258
@@ -4854,8 +4854,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: 
   %220 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54), !noalias !258
   %221 = extractvalue { ptr, i64 } %220, 0
   %222 = extractvalue { ptr, i64 } %220, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %54), !noalias !258
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !258
   br label %236
 
 223:                                              ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.i.i
@@ -4863,8 +4863,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: 
   br i1 %224, label %233, label %225
 
 225:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52), !noalias !258
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !258
   store ptr %55, ptr %51, align 8, !noalias !258
   %.sroa.437.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.437.0..sroa_idx.i.i, align 8, !noalias !258
@@ -4880,12 +4880,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: 
   %230 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %52), !noalias !258
   %231 = extractvalue { ptr, i64 } %230, 0
   %232 = extractvalue { ptr, i64 } %230, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %52), !noalias !258
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !258
   br label %236
 
 233:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !258
+  call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !258
   call fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e07305d36a628E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %50, ptr noundef nonnull align 8 %1), !noalias !258
   %234 = load ptr, ptr %50, align 8, !noalias !258, !noundef !8
   %.not43.i.i = icmp eq ptr %234, null
@@ -4895,17 +4895,17 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i: 
 236:                                              ; preds = %237, %225, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i, %.sink.split92.i.i, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i
   %.sroa.12.0.i = phi i64 [ %238, %237 ], [ %232, %225 ], [ %222, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %209, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.855.182.ph.i.i, %.sink.split92.i.i ]
   %.sroa.051.0.i = phi ptr [ %234, %237 ], [ %231, %225 ], [ %221, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit52.thread.i.i ], [ %208, %_ZN4jiff6shared5posix6Parser10parse_week17h08615c3a3770c19cE.exit.i.i ], [ %.sroa.054.183.ph.i.i, %.sink.split92.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !258
   br label %_ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i
 
 237:                                              ; preds = %233
   %238 = load i64, ptr %235, align 8, !noalias !258, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !258
   br label %236
 
 _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread64.i: ; preds = %233
   %239 = load i8, ptr %235, align 8, !noalias !258, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !258
   %240 = load i8, ptr %60, align 1, !noalias !258, !noundef !8
   %241 = load i8, ptr %55, align 1, !noalias !258, !noundef !8
   %.sroa.12.8.insert.ext.i = zext i8 %240 to i64
@@ -4915,20 +4915,20 @@ _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.th
   %.sroa.12.10.insert.shift.i = shl nuw nsw i64 %.sroa.12.10.insert.ext.i, 16
   %.sroa.12.9.insert.insert.i = or disjoint i64 %.sroa.12.10.insert.shift.i, %.sroa.12.8.insert.ext.i
   %.sroa.12.10.insert.insert.i = or disjoint i64 %.sroa.12.9.insert.insert.i, %.sroa.12.9.insert.shift.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %55), !noalias !258
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !258
   br label %242
 
 _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.thread.i: ; preds = %.sink.split.i.i, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i
   %.sroa.12.1.ph.i = phi i64 [ %.sroa.8.165.ph.i.i, %.sink.split.i.i ], [ %162, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i ]
   %.sroa.051.1.ph.i = phi ptr [ %.sroa.0.166.ph.i.i, %.sink.split.i.i ], [ %161, %_ZN4jiff6shared5posix6Parser11parse_month17h5e506c1dfb484bbdE.exit.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !258
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
 _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i: ; preds = %236, %177, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i
   %.sroa.12.1.i = phi i64 [ %184, %177 ], [ %.sroa.12.0.i, %236 ], [ %175, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ]
   %.sroa.051.1.i = phi ptr [ %183, %177 ], [ %.sroa.051.0.i, %236 ], [ %174, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %60), !noalias !258
+  call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !258
   %.not.i = icmp eq ptr %.sroa.051.1.i, null
   br i1 %.not.i, label %242, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
@@ -4940,9 +4940,9 @@ _ZN4jiff6shared5posix6Parser22parse_weekday_of_month17hb676128beac23344E.exit.i:
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread65
 
 _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %73), !noalias !249
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72), !noalias !249
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %71), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !249
   store i8 %84, ptr %71, align 1, !noalias !249
   store ptr %71, ptr %72, align 8, !noalias !249
   %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -4957,14 +4957,14 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
   %246 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 1, ptr %246, align 8, !noalias !249
   %247 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %73), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %73), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %71), !noalias !249
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !249
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit
 
 248:                                              ; preds = %85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !249
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !267
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %34, ptr noundef nonnull align 8 %1, i64 noundef 3), !noalias !267
   %249 = load ptr, ptr %34, align 8, !noalias !267, !noundef !8
   %.not.i41.i = icmp eq ptr %249, null
@@ -4973,12 +4973,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
 
 251:                                              ; preds = %248
   %252 = load i64, ptr %250, align 8, !noalias !267, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !267
   store ptr %249, ptr %28, align 8, !noalias !270
   %253 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %252, ptr %253, align 8, !noalias !270
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %27), !noalias !270
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !270
   store ptr %28, ptr %26, align 8, !noalias !270
   %.sroa.42.0..sroa_idx.i.i42.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i42.i, align 8, !noalias !270
@@ -5007,24 +5007,24 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
   unreachable
 
 "_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap28_$u7b$$u7b$closure$u7d$$u7d$17h6ca166785c88553bE.exit.i.i": ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27), !noalias !270
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !270
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !267
   %263 = extractvalue { ptr, i64 } %258, 0
   br label %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i
 
 264:                                              ; preds = %248
   %265 = load i32, ptr %250, align 8, !noalias !267, !noundef !8
   store i32 %265, ptr %35, align 4, !noalias !267
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %33), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %33), !noalias !267
   %266 = add i32 %265, -32768
   %or.cond.i43.i = icmp ult i32 %266, -65536
   br i1 %or.cond.i43.i, label %267, label %275
 
 267:                                              ; preds = %264
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %30), !noalias !267
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !267
   store ptr %35, ptr %29, align 8, !noalias !267
   %.sroa.419.0..sroa_idx.i46.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx.i46.i, align 8, !noalias !267
@@ -5039,8 +5039,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
   store i64 1, ptr %271, align 8, !noalias !267
   %272 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %30), !noalias !267
   %273 = extractvalue { ptr, i64 } %272, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !267
   %274 = icmp ne ptr %273, null
   call void @llvm.assume(i1 %274)
   br label %284
@@ -5052,8 +5052,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
   br i1 %or.cond2.i44.i, label %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.thread.i, label %277
 
 277:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32), !noalias !267
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !267
+  call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !267
   store ptr %33, ptr %31, align 8, !noalias !267
   %.sroa.425.0..sroa_idx.i45.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.425.0..sroa_idx.i45.i, align 8, !noalias !267
@@ -5068,29 +5068,29 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit40.i: ; preds = %85
   store i64 1, ptr %281, align 8, !noalias !267
   %282 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %32), !noalias !267
   %283 = extractvalue { ptr, i64 } %282, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %32), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !267
   br label %284
 
 _ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.thread.i: ; preds = %275
   %.sroa.849.8.insert.ext.i = zext nneg i32 %265 to i64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !249
   br label %285
 
 284:                                              ; preds = %277, %267
   %.pn75.i = phi { ptr, i64 } [ %272, %267 ], [ %282, %277 ]
   %.sroa.048.0.i = phi ptr [ %273, %267 ], [ %283, %277 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %33), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !267
   br label %_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i
 
 _ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap17hcac6c33503a140a5E.exit.i: ; preds = %284, %"_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap28_$u7b$$u7b$closure$u7d$$u7d$17h6ca166785c88553bE.exit.i.i"
   %.pn75.pn.i = phi { ptr, i64 } [ %.pn75.i, %284 ], [ %258, %"_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap28_$u7b$$u7b$closure$u7d$$u7d$17h6ca166785c88553bE.exit.i.i" ]
   %.sroa.048.1.i = phi ptr [ %.sroa.048.0.i, %284 ], [ %263, %"_ZN4jiff6shared5posix6Parser32parse_posix_julian_day_with_leap28_$u7b$$u7b$closure$u7d$$u7d$17h6ca166785c88553bE.exit.i.i" ]
   %.sroa.849.1.i = extractvalue { ptr, i64 } %.pn75.pn.i, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35), !noalias !267
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %35), !noalias !267
+  call void @llvm.lifetime.end.p0(ptr nonnull %34), !noalias !249
   %.not33.i = icmp eq ptr %.sroa.048.1.i, null
   br i1 %.not33.i, label %285, label %_ZN4jiff6shared5posix6Parser16parse_posix_date17h1accf13728707d7bE.exit.thread
 
@@ -5146,7 +5146,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %_ZN4jiff6
   br i1 %.not84, label %294, label %303
 
 294:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.169, ptr %76, align 8
   %295 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 1, ptr %295, align 8
@@ -5159,7 +5159,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %_ZN4jiff6
   %299 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %76)
   %300 = extractvalue { ptr, i64 } %299, 0
   %301 = extractvalue { ptr, i64 } %299, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
   store ptr %300, ptr %0, align 8
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %301, ptr %302, align 8
@@ -5172,7 +5172,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %_ZN4jiff6
   br i1 %306, label %310, label %307
 
 307:                                              ; preds = %303
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !273
   call fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f3094c0d0a542f1E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %25, ptr noundef nonnull align 8 %1), !noalias !273
   %308 = load ptr, ptr %25, align 8, !noalias !273, !noundef !8
   %.not.i21 = icmp eq ptr %308, null
@@ -5208,7 +5208,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   br i1 %.not.i.i25, label %323, label %.thread.thread126.i.thread
 
 317:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !276
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !276
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.267, ptr %17, align 8, !noalias !276
   %318 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %318, align 8, !noalias !276
@@ -5219,11 +5219,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   %321 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 0, ptr %321, align 8, !noalias !276
   %322 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17), !noalias !276
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !276
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !276
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 323:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !276
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !276
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.269, ptr %16, align 8, !noalias !276
   %324 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 1, ptr %324, align 8, !noalias !276
@@ -5234,7 +5234,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i: ; preds = %_ZN4
   %327 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %327, align 8, !noalias !276
   %328 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !276
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !276
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !276
   br label %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
 
 _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; preds = %323, %317
@@ -5246,12 +5246,12 @@ _ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i: ; 
 
 329:                                              ; preds = %307
   %330 = load i64, ptr %309, align 8, !noalias !273, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !273
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
 331:                                              ; preds = %307
   %332 = load i8, ptr %309, align 8, !noalias !273, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !273
   %333 = sext i8 %332 to i32
   br label %334
 
@@ -5271,12 +5271,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   br i1 %340, label %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i23, label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i
 
 341:                                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !273
   store ptr %.sroa.0.1.i37, ptr %15, align 8, !noalias !279
   %342 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %.sroa.17.sroa.0.1.in.in.i, ptr %342, align 8, !noalias !279
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !279
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13), !noalias !279
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !279
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !279
   store ptr %15, ptr %13, align 8, !noalias !279
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !279
@@ -5305,10 +5305,10 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   unreachable
 
 352:                                              ; preds = %341
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !279
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !279
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !279
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !279
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %15), !noalias !273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !273
   %353 = extractvalue { ptr, i64 } %347, 0
   %354 = extractvalue { ptr, i64 } %347, 1
   %.not53.i = icmp eq ptr %353, null
@@ -5316,7 +5316,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
 
 .thread.thread126.i.thread:                       ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i
   %.ph = phi i32 [ 1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit5.i.i ], [ -1, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i.i38 ], [ 1, %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit.i.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !273
   br label %360
 
 .thread.thread126.i:                              ; preds = %_ZN4jiff6shared5posix6Parser19parse_optional_sign17h9b34bcbb49c21d9aE.exit.i, %352
@@ -5329,7 +5329,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   %spec.select.i = select i1 %.sroa.7.095109.i, i32 %357, i32 1
   %.pre = load i8, ptr %304, align 8, !range !187, !noalias !282
   %358 = trunc nuw i8 %.pre to i1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !273
   br i1 %358, label %360, label %359, !prof !285
 
 359:                                              ; preds = %.thread.thread126.i
@@ -5338,7 +5338,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
 
 360:                                              ; preds = %.thread.thread126.i.thread, %.thread.thread126.i
   %361 = phi i32 [ %.ph, %.thread.thread126.i.thread ], [ %spec.select.i, %.thread.thread126.i ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !282
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1, i64 noundef 3), !noalias !282
   %362 = load ptr, ptr %11, align 8, !noalias !282, !noundef !8
   %.not.i59.i = icmp eq ptr %362, null
@@ -5347,12 +5347,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
 
 364:                                              ; preds = %360
   %365 = load i64, ptr %363, align 8, !noalias !282, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !282
   store ptr %362, ptr %5, align 8, !noalias !286
   %366 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %365, ptr %366, align 8, !noalias !286
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !286
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !286
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !286
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !286
   store ptr %5, ptr %3, align 8, !noalias !286
   %.sroa.42.0..sroa_idx.i.i.i26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i.i.i26, align 8, !noalias !286
@@ -5381,24 +5381,24 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   unreachable
 
 "_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i": ; preds = %364
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !286
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !286
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !286
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !286
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !282
   %376 = extractvalue { ptr, i64 } %371, 0
   br label %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i
 
 377:                                              ; preds = %360
   %378 = load i32, ptr %363, align 8, !noalias !282, !noundef !8
   store i32 %378, ptr %12, align 4, !noalias !282
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !282
   %379 = add i32 %378, -32768
   %or.cond.i.i31 = icmp ult i32 %379, -65536
   br i1 %or.cond.i.i31, label %380, label %388
 
 380:                                              ; preds = %377
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !282
   store ptr %12, ptr %6, align 8, !noalias !282
   %.sroa.419.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx.i.i35, align 8, !noalias !282
@@ -5413,8 +5413,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   store i64 1, ptr %384, align 8, !noalias !282
   %385 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7), !noalias !282
   %386 = extractvalue { ptr, i64 } %385, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !282
   %387 = icmp ne ptr %386, null
   call void @llvm.assume(i1 %387)
   br label %397
@@ -5426,8 +5426,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   br i1 %or.cond2.i.i32, label %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.thread.i, label %390
 
 390:                                              ; preds = %388
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !282
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !282
   store ptr %10, ptr %8, align 8, !noalias !282
   %.sroa.425.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.425.0..sroa_idx.i.i33, align 8, !noalias !282
@@ -5442,29 +5442,29 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i: ; preds = %
   store i64 1, ptr %394, align 8, !noalias !282
   %395 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9), !noalias !282
   %396 = extractvalue { ptr, i64 } %395, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !282
   br label %397
 
 _ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.thread.i: ; preds = %388
   %.sroa.8.8.insert.ext.i34 = zext nneg i32 %378 to i64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !273
   br label %398
 
 397:                                              ; preds = %390, %380
   %.pn118.i = phi { ptr, i64 } [ %385, %380 ], [ %395, %390 ]
   %.sroa.093.0.i = phi ptr [ %386, %380 ], [ %396, %390 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !282
   br label %_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i
 
 _ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus17h706e2f5a48228265E.exit.i: ; preds = %397, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i"
   %.pn118.pn.i = phi { ptr, i64 } [ %.pn118.i, %397 ], [ %371, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i" ]
   %.sroa.093.1.i = phi ptr [ %.sroa.093.0.i, %397 ], [ %376, %"_ZN4jiff6shared5posix6Parser21parse_hour_ianav3plus28_$u7b$$u7b$closure$u7d$$u7d$17h901a9e7516a5c424E.exit.i.i" ]
   %.sroa.8.1.i29 = extractvalue { ptr, i64 } %.pn118.pn.i, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !282
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !273
   %.not54.i = icmp eq ptr %.sroa.093.1.i, null
   br i1 %.not54.i, label %398, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
@@ -5482,7 +5482,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i23: ; preds = %_ZN4j
 _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i: ; preds = %439, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i, %419, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i, %334
   %.sroa.035.0.i = phi i8 [ %420, %439 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i ], [ %420, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i ], [ 0, %334 ], [ %420, %419 ]
   %.sroa.036.0.i = phi i32 [ %441, %439 ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.i ], [ 0, %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i ], [ 0, %334 ], [ 0, %419 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !273
   %sext.i = shl i32 %.sroa.051.0.i22, 16
   %400 = ashr exact i32 %sext.i, 16
   %401 = mul nsw i32 %400, 3600
@@ -5497,7 +5497,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i: ; pr
   br i1 %or.cond7.i, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread78, label %442, !prof !248
 
 408:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i23
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !273
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.202, ptr %24, align 8, !noalias !273
   %409 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 1, ptr %409, align 8, !noalias !273
@@ -5508,11 +5508,11 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i: ; pr
   %412 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %412, align 8, !noalias !273
   %413 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24), !noalias !273
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !273
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit
 
 414:                                              ; preds = %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit.i23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !273
   call fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dade12a94f9dbE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %23, ptr noundef nonnull align 8 %1), !noalias !273
   %415 = load ptr, ptr %23, align 8, !noalias !273, !noundef !8
   %.not55.i = icmp eq ptr %415, null
@@ -5521,12 +5521,12 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i: ; pr
 
 417:                                              ; preds = %414
   %418 = load i64, ptr %416, align 8, !noalias !273, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !273
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
 419:                                              ; preds = %414
   %420 = load i8, ptr %416, align 8, !noalias !273, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !273
   %421 = load i64, ptr %78, align 8, !noalias !273, !noundef !8
   %.val.i61.i = load i64, ptr %77, align 8, !noalias !273, !noundef !8
   %422 = icmp ult i64 %.val.i61.i, %421
@@ -5544,7 +5544,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i: ; preds =
   br i1 %428, label %435, label %429
 
 429:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !273
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.204, ptr %22, align 8, !noalias !273
   %430 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 1, ptr %430, align 8, !noalias !273
@@ -5555,17 +5555,17 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i: ; preds =
   %433 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i64 0, ptr %433, align 8, !noalias !273
   %434 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22), !noalias !273
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !273
   br label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit
 
 435:                                              ; preds = %427
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !273
   call fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e8702af5804E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %21, ptr noundef nonnull align 8 %1), !noalias !273
   %436 = load ptr, ptr %21, align 8, !noalias !273, !noundef !8
   %.not56.i = icmp eq ptr %436, null
   %437 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %438 = load i64, ptr %437, align 8, !noalias !273
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !273
   br i1 %.not56.i, label %439, label %_ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread
 
 439:                                              ; preds = %435
@@ -5575,8 +5575,8 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i: ; preds =
   br label %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i
 
 442:                                              ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !273
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !273
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !273
   store ptr %20, ptr %18, align 8, !noalias !273
   %.sroa.449.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.449.0..sroa_idx.i, align 8, !noalias !273
@@ -5594,7 +5594,7 @@ _ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit63.i: ; preds =
 
 _ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit.thread78: ; preds = %_ZN4jiff6shared5posix6Parser10maybe_byte17hc2eb5707519d29f4E.exit.thread.i
   %.sroa.12.8.insert.ext = zext i32 %406 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20), !noalias !273
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !273
   br label %449
 
 _ZN4jiff6shared5posix6Parser16parse_posix_time17hbb7444d7a9a4c15aE.exit: ; preds = %408, %429
@@ -5635,8 +5635,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
   %7 = alloca [1 x i8], align 1
   %8 = alloca [16 x i8], align 8
   %9 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call fastcc void @_ZN4jiff6shared5posix6Parser34parse_number_with_exactly_n_digits17h60c967e5173e7c16E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %8, ptr noundef nonnull align 8 %1, i64 noundef 1)
   %10 = load ptr, ptr %8, align 8, !noundef !8
   %.not = icmp eq ptr %10, null
@@ -5645,7 +5645,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
 
 12:                                               ; preds = %2
   %13 = load i64, ptr %11, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %10, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %13, ptr %14, align 8
@@ -5653,16 +5653,16 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
 
 15:                                               ; preds = %2
   %16 = load i32, ptr %11, align 8, !noundef !8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 %16, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = add i32 %16, -128
   %or.cond = icmp ult i32 %17, -256
   br i1 %or.cond, label %18, label %28
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %9, ptr %3, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx, align 8
@@ -5678,8 +5678,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
   %23 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %26)
   store ptr %24, ptr %0, align 8
@@ -5694,8 +5694,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
   br i1 %or.cond2, label %39, label %30
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx, align 8
@@ -5711,26 +5711,26 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser13parse_weekday17h774e0
   %35 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store ptr %36, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %29, ptr %40, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 41:                                               ; preds = %30, %18
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %42
 
 42:                                               ; preds = %12, %41, %39
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
 
@@ -5746,7 +5746,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
   %10 = alloca [1 x i8], align 1
   %11 = alloca [16 x i8], align 8
   %12 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upto_n_digits17h70e6d779c87cd4eaE(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1, i64 noundef 2)
   %13 = load ptr, ptr %11, align 8, !noundef !8
   %.not = icmp eq ptr %13, null
@@ -5755,12 +5755,12 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %14, align 8, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %13, ptr %5, align 8, !noalias !289
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %16, ptr %17, align 8, !noalias !289
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !289
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !289
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !289
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !289
   store ptr %5, ptr %3, align 8, !noalias !289
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !289
@@ -5792,10 +5792,10 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
   resume { ptr, i32 } %24
 
 "_ZN4jiff6shared5posix6Parser16parse_hour_posix28_$u7b$$u7b$closure$u7d$$u7d$17h1c1ba644930a5d40E.exit": ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !289
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !289
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !289
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !289
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = extractvalue { ptr, i64 } %22, 0
   %29 = extractvalue { ptr, i64 } %22, 1
   store ptr %28, ptr %0, align 8
@@ -5806,14 +5806,14 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
 31:                                               ; preds = %2
   %32 = load i32, ptr %14, align 8, !noundef !8
   store i32 %32, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = add i32 %32, -128
   %or.cond = icmp ult i32 %33, -256
   br i1 %or.cond, label %34, label %44
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx, align 8
@@ -5829,8 +5829,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
   %39 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %42)
   store ptr %40, ptr %0, align 8
@@ -5845,8 +5845,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
   br i1 %or.cond2, label %55, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx, align 8
@@ -5862,26 +5862,26 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser16parse_hour_posix17h0f
   %51 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = extractvalue { ptr, i64 } %51, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %52, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %53, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 55:                                               ; preds = %44
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %45, ptr %56, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 57:                                               ; preds = %46, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 58:                                               ; preds = %"_ZN4jiff6shared5posix6Parser16parse_hour_posix28_$u7b$$u7b$closure$u7d$$u7d$17h1c1ba644930a5d40E.exit", %57, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -5897,7 +5897,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
   %10 = alloca [1 x i8], align 1
   %11 = alloca [16 x i8], align 8
   %12 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call fastcc void @_ZN4jiff6shared5posix6Parser34parse_number_with_exactly_n_digits17h60c967e5173e7c16E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1, i64 noundef 2)
   %13 = load ptr, ptr %11, align 8, !noundef !8
   %.not = icmp eq ptr %13, null
@@ -5906,12 +5906,12 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %14, align 8, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %13, ptr %5, align 8, !noalias !292
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %16, ptr %17, align 8, !noalias !292
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !292
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !292
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !292
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !292
   store ptr %5, ptr %3, align 8, !noalias !292
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !292
@@ -5943,10 +5943,10 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
   resume { ptr, i32 } %24
 
 "_ZN4jiff6shared5posix6Parser12parse_minute28_$u7b$$u7b$closure$u7d$$u7d$17he34fe1915234be96E.exit": ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !292
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !292
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !292
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !292
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = extractvalue { ptr, i64 } %22, 0
   %29 = extractvalue { ptr, i64 } %22, 1
   store ptr %28, ptr %0, align 8
@@ -5957,14 +5957,14 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
 31:                                               ; preds = %2
   %32 = load i32, ptr %14, align 8, !noundef !8
   store i32 %32, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = add i32 %32, -128
   %or.cond = icmp ult i32 %33, -256
   br i1 %or.cond, label %34, label %44
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx, align 8
@@ -5980,8 +5980,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
   %39 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %42)
   store ptr %40, ptr %0, align 8
@@ -5996,8 +5996,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
   br i1 %or.cond2, label %55, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx, align 8
@@ -6013,26 +6013,26 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_minute17h6e1dad
   %51 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = extractvalue { ptr, i64 } %51, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %52, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %53, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 55:                                               ; preds = %44
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %45, ptr %56, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 57:                                               ; preds = %46, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 58:                                               ; preds = %"_ZN4jiff6shared5posix6Parser12parse_minute28_$u7b$$u7b$closure$u7d$$u7d$17he34fe1915234be96E.exit", %57, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -6048,7 +6048,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
   %10 = alloca [1 x i8], align 1
   %11 = alloca [16 x i8], align 8
   %12 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call fastcc void @_ZN4jiff6shared5posix6Parser34parse_number_with_exactly_n_digits17h60c967e5173e7c16E(ptr noalias noundef align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull align 8 %1, i64 noundef 2)
   %13 = load ptr, ptr %11, align 8, !noundef !8
   %.not = icmp eq ptr %13, null
@@ -6057,12 +6057,12 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %14, align 8, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %13, ptr %5, align 8, !noalias !295
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %16, ptr %17, align 8, !noalias !295
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !295
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !295
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !295
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !295
   store ptr %5, ptr %3, align 8, !noalias !295
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17haf5b13e4652aa808E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !295
@@ -6094,10 +6094,10 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
   resume { ptr, i32 } %24
 
 "_ZN4jiff6shared5posix6Parser12parse_second28_$u7b$$u7b$closure$u7d$$u7d$17h6fa3e70e205fb2d2E.exit": ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !295
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !295
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !295
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !295
   call void @"_ZN4core3ptr53drop_in_place$LT$jiff..shared..util..error..Error$GT$17he9f6cdd8d832c270E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = extractvalue { ptr, i64 } %22, 0
   %29 = extractvalue { ptr, i64 } %22, 1
   store ptr %28, ptr %0, align 8
@@ -6108,14 +6108,14 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
 31:                                               ; preds = %2
   %32 = load i32, ptr %14, align 8, !noundef !8
   store i32 %32, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %33 = add i32 %32, -128
   %or.cond = icmp ult i32 %33, -256
   br i1 %or.cond, label %34, label %44
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %12, ptr %6, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hd42deda1b830d1a7E", ptr %.sroa.419.0..sroa_idx, align 8
@@ -6131,8 +6131,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
   %39 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   %40 = extractvalue { ptr, i64 } %39, 0
   %41 = extractvalue { ptr, i64 } %39, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %42 = icmp ne ptr %40, null
   call void @llvm.assume(i1 %42)
   store ptr %40, ptr %0, align 8
@@ -6147,8 +6147,8 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
   br i1 %or.cond2, label %55, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h42356f33f0e6ea5cE", ptr %.sroa.425.0..sroa_idx, align 8
@@ -6164,26 +6164,26 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser12parse_second17he0aa5e
   %51 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   %52 = extractvalue { ptr, i64 } %51, 0
   %53 = extractvalue { ptr, i64 } %51, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %52, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %53, ptr %54, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 55:                                               ; preds = %44
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %45, ptr %56, align 8
   store ptr null, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 57:                                               ; preds = %46, %34
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %58
 
 58:                                               ; preds = %"_ZN4jiff6shared5posix6Parser12parse_second28_$u7b$$u7b$closure$u7d$$u7d$17h6fa3e70e205fb2d2E.exit", %57, %55
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 }
 
@@ -6227,7 +6227,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser34parse_number_with_exa
   %.sroa.034.088 = phi i64 [ 0, %3 ], [ %27, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit ]
   %.sroa.015.087 = phi i32 [ 0, %3 ], [ %.sroa.7.147, %_ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit ]
   %27 = add nuw nsw i64 %.sroa.034.088, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %.sroa.034.088, ptr %15, align 8
   %28 = icmp eq i64 %.val3.i127, %.val2.i125
   br i1 %28, label %38, label %30
@@ -6252,8 +6252,8 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   br i1 %36, label %48, label %50
 
 38:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %16, ptr %13, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.419.0..sroa_idx, align 8
@@ -6273,11 +6273,11 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   %44 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store ptr %45, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %46, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %98
 
 48:                                               ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit
@@ -6285,9 +6285,9 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   br i1 %49, label %62, label %59
 
 50:                                               ; preds = %_ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %35, ptr %10, align 1
   store ptr %10, ptr %11, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -6304,12 +6304,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   %55 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   %56 = extractvalue { ptr, i64 } %55, 0
   %57 = extractvalue { ptr, i64 } %55, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %56, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %57, ptr %58, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %98
 
 59:                                               ; preds = %48
@@ -6318,9 +6318,9 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   br i1 %61, label %.critedge, label %71
 
 62:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 %35, ptr %7, align 1
   store ptr %7, ptr %8, align 8
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6337,12 +6337,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   %67 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   %68 = extractvalue { ptr, i64 } %67, 0
   %69 = extractvalue { ptr, i64 } %67, 1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %68, ptr %0, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %69, ptr %70, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %98
 
 71:                                               ; preds = %59
@@ -6357,9 +6357,9 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   br label %91
 
 .critedge:                                        ; preds = %71, %59
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !298
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !298
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !298
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !298
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !298
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !298
   %77 = icmp ult i64 %.sroa.034.088, %.val
   br i1 %77, label %80, label %78, !prof !10
 
@@ -6388,9 +6388,9 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
   store ptr %5, ptr %22, align 8, !noalias !298
   store i64 1, ptr %23, align 8, !noalias !298
   %85 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !298
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !298
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !298
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !298
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !298
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !298
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !298
   %86 = extractvalue { ptr, i64 } %85, 0
   %87 = extractvalue { ptr, i64 } %85, 1
   %.not = icmp eq ptr %86, null
@@ -6430,12 +6430,12 @@ _ZN4jiff6shared5posix6Parser4byte17hd119eb807b4a2d53E.exit: ; preds = %30
 
 _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %91, %95
   %.val3.i128 = phi i64 [ %.val3.i, %91 ], [ %96, %95 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %exitcond.not = icmp eq i64 %27, %2
   br i1 %exitcond.not, label %24, label %26
 
 98:                                               ; preds = %50, %62, %89, %38
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %29
 }
 
@@ -6445,7 +6445,7 @@ define internal fastcc void @_ZN4jiff6shared5posix6Parser31parse_number_with_upt
   %5 = alloca [48 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %8, align 8, !noundef !8
   store i64 %.val, ptr %7, align 8
@@ -6532,7 +6532,7 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %26
   br label %49
 
 42:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.6685b5908cdcb8f47694639489d9f370.264, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %43, align 8
@@ -6544,11 +6544,11 @@ _ZN4jiff6shared5posix6Parser4bump17h25cf41ecc89a64deE.exit: ; preds = %26
   store i64 0, ptr %46, align 8
   %47 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   %48 = extractvalue { ptr, i64 } %47, 0
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 49:                                               ; preds = %40, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -6557,9 +6557,9 @@ define internal fastcc { ptr, i64 } @"_ZN4jiff6shared5posix6Parser31parse_number
   %2 = alloca [16 x i8], align 8
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load ptr, ptr %0, align 8, !nonnull !8, !align !140, !noundef !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !8
@@ -6603,9 +6603,9 @@ define internal fastcc { ptr, i64 } @"_ZN4jiff6shared5posix6Parser31parse_number
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %25, align 8
   %26 = call { ptr, i64 } @_ZN4jiff6shared4util5error5Error9from_args17he5a533fe9fe106e6E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { ptr, i64 } %26
 }
 
@@ -6821,10 +6821,10 @@ declare void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias nou
 declare void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h264d14c2948c37e0E"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

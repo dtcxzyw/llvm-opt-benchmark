@@ -283,8 +283,8 @@ if.end5:                                          ; preds = %if.end
 _ZN6hermes2vm9JSONLexer19errorUnexpectedCharEv.exit: ; preds = %if.end5
   %firstChar_.i16.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load i16, ptr %firstChar_.i16.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2.i)
   store i16 %3, ptr %ch.addr.i.i, align 2
   store ptr @.str.5, ptr %ref.tmp.i2.i, align 8, !alias.scope !4
   %leftKind_.i22.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 8
@@ -297,7 +297,7 @@ _ZN6hermes2vm9JSONLexer19errorUnexpectedCharEv.exit: ; preds = %if.end5
   store i64 22, ptr %leftSize_.i24.i.i10.i, align 8, !alias.scope !4
   %rightSize_.i25.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 40
   store i64 1, ptr %rightSize_.i25.i.i11.i, align 8, !alias.scope !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store i32 12, ptr %token_.i, align 8
   %.in.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load ptr, ptr %.in.i.i, align 8
@@ -313,9 +313,9 @@ _ZN6hermes2vm9JSONLexer19errorUnexpectedCharEv.exit: ; preds = %if.end5
   %rightSize_.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i.i, align 8, !alias.scope !7
   %call.i.i3.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %4, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2.i)
   br label %return
 
 if.end13:                                         ; preds = %if.end5
@@ -769,8 +769,8 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exi
   %or.i.i.i.i7.i = or i64 %27, -281474976710656
   %28 = load ptr, ptr %stackJO_.i, align 8
   store i64 %or.i.i.i.i7.i, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i.i)
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %replacer.coerce, align 8
   %cmp.i.i.i.i = icmp ugt i64 %retval.sroa.0.0.copyload.i.i.i.i.i, -844424930131969
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i, label %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.thread54.i
@@ -1104,24 +1104,24 @@ cleanup.i.i:                                      ; preds = %for.inc164.i.i, %if
   br label %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.thread.i: ; preds = %if.end39.i.i, %_ZN6hermes2vm22getArrayLikeLength_RJSENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeE.exit.i.i, %if.end26.i.i, %_ZN6hermes2vm6HandleINS0_8JSObjectEE10dyn_vmcastERKNS0_10HandleBaseE.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   br label %cleanup
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.thread54.i: ; preds = %if.end23.i.i, %_ZN6hermes2vm10dyn_vmcastINS0_8CallableEEEPT_NS0_11HermesValueE.exit.i.i, %_ZN6hermes2vm5vmisaINS0_8JSObjectEEEbNS0_11HermesValueE.exit.i.i, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit12.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   br label %if.end26.i
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i: ; preds = %cleanup.i.i, %if.then36.i.i
   %retval.0.i.i = phi i32 [ %call38.i.i, %if.then36.i.i ], [ %retval.1.i.i, %cleanup.i.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i.i)
   %cmp.i = icmp eq i32 %retval.0.i.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end26.i
 
 if.end26.i:                                       ; preds = %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.i, %_ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer18initializeReplacerENS0_6HandleINS0_11HermesValueEEE.exit.thread54.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %spaces.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %spaces.i.i)
   %retval.sroa.0.0.copyload.i.i.i.i20.i = load i64, ptr %space.coerce, align 8
   %95 = load ptr, ptr %tmpHandle_.i, align 8
   store i64 %retval.sroa.0.0.copyload.i.i.i.i20.i, ptr %95, align 8
@@ -1311,11 +1311,11 @@ if.end118.sink.split.i.i:                         ; preds = %if.else107.i.i, %if
   br label %if.end
 
 _ZN6hermes2vm12_GLOBAL__N_115JSONStringifyer4initENS0_6HandleINS0_11HermesValueEEES5_.exit.thread20: ; preds = %_ZN4llvh11SmallStringILj32EED2Ev.exit.i.i, %if.then.i.i, %if.then30.i.i, %if.then92.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %spaces.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spaces.i.i)
   br label %cleanup
 
 if.end:                                           ; preds = %if.end118.sink.split.i.i, %if.else107.i.i, %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEE10dyn_vmcastERKNS0_10HandleBaseE.exit.i.i, %_ZN4llvh11SmallStringILj32EED2Ev.exit.i.i, %if.then54.i.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %spaces.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %spaces.i.i)
   store i32 0, ptr %Size.i.i.i.i.i.i3, align 8
   %132 = load ptr, ptr %stringifyer, align 8
   %call.i = call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %132) #12
@@ -1345,7 +1345,7 @@ if.then34.i:                                      ; preds = %if.end.i
   %139 = load ptr, ptr %output_.i, align 8
   %140 = load i32, ptr %Size.i.i.i.i.i.i3, align 8
   %conv.i.i.i = zext i32 %140 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i8)
   %cmp.i.not.i.i = icmp ult i32 %140, 65536
   br i1 %cmp.i.not.i.i, label %if.then.i.i13, label %if.end.i.i.i.i.i
 
@@ -1382,7 +1382,7 @@ if.then.i.i.i.i12:                                ; preds = %if.end.i.i.i.i.i
 
 _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit.i: ; preds = %if.then.i.i.i.i12, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i, %if.then.i.i13
   %call3.pn.i.i = phi { i32, i64 } [ %call3.i.i, %if.then.i.i13 ], [ %call5.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i.i ], [ %call5.i.i, %if.then.i.i.i.i12 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i8)
   %144 = extractvalue { i32, i64 } %call3.pn.i.i, 0
   %145 = extractvalue { i32, i64 } %call3.pn.i.i, 1
   br label %cleanup
@@ -1491,9 +1491,9 @@ sw.bb20:                                          ; preds = %_ZN6hermes2vm13Muta
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp55.i)
   %9 = load ptr, ptr %this, align 8
   %call.i = tail call ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %9) #12
   %10 = ptrtoint ptr %call.i to i64
@@ -1524,9 +1524,9 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_
   br i1 %cmp.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread, label %if.end.i
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
   br label %cleanup
 
 if.end.i:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -1696,29 +1696,29 @@ _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193: ; 
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189: ; preds = %if.then95.i, %if.end62.i, %if.end57.i, %if.end32.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
   br label %cleanup
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit: ; preds = %if.then28.i, %if.then53.i, %if.else106.i
   %retval.i.sroa.0.0 = phi i32 [ %call108.i, %if.else106.i ], [ %call56.i, %if.then53.i ], [ %call31.i, %if.then28.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
   %cmp.i4 = icmp eq i32 %retval.i.sroa.0.0, 0
   br i1 %cmp.i4, label %cleanup, label %sw.epilog
 
 if.end33.sink.split:                              ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193
   %retval.i.sroa.13154.1168.ph = phi i64 [ %retval.sroa.0.0.copyload.i35, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193 ], [ %retval.sroa.0.0.copyload.i82, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162 ]
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp30.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %gcScope.i6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %gcScope.i6)
   %34 = load ptr, ptr %this, align 8
   %call.i8 = tail call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %34, i32 noundef 4, i32 noundef 0) #12
   %cmp.i.i143.not = icmp eq ptr %call.i8, inttoptr (i64 -1 to ptr)
@@ -1842,7 +1842,7 @@ if.else69.i:                                      ; preds = %_ZN6hermes2vm15Hand
   %call71.i18 = call noundef i32 @_ZN6hermes2vm9JSONLexer19errorUnexpectedCharEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_)
   %52 = icmp eq i32 %call71.i18, 0
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i6) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i6)
   br i1 %52, label %cleanup, label %sw.epilog
 
 cleanup.i19:                                      ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit107
@@ -1851,11 +1851,11 @@ cleanup.i19:                                      ; preds = %_ZN6hermes2vm15Hand
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread177: ; preds = %if.end8.i, %cleanup.i19
   %retval.sroa.0.0.copyload.i95 = load i64, ptr %call.i8, align 8
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i6)
   br label %sw.epilog
 
 _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread: ; preds = %sw.bb38, %if.end.i9
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i6)
   br label %cleanup
 
 sw.bb54:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
@@ -1865,7 +1865,7 @@ sw.bb60:                                          ; preds = %_ZN6hermes2vm13Muta
   br label %sw.epilog
 
 if.then.i31:                                      ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i32 12, ptr %token_.i, align 8
   %runtime_.i13.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %53 = load ptr, ptr %runtime_.i13.i, align 8
@@ -1881,14 +1881,14 @@ if.then.i31:                                      ; preds = %_ZN6hermes2vm13Muta
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !19
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %53, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   br label %cleanup
 
 if.end.i30:                                       ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit
   %firstChar_.i16.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %54 = load i16, ptr %firstChar_.i16.i, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2.i)
   store i16 %54, ptr %ch.addr.i.i, align 2
   store ptr @.str.5, ptr %ref.tmp.i2.i, align 8, !alias.scope !22
   %leftKind_.i22.i.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 8
@@ -1901,7 +1901,7 @@ if.end.i30:                                       ; preds = %_ZN6hermes2vm13Muta
   store i64 22, ptr %leftSize_.i24.i.i10.i, align 8, !alias.scope !22
   %rightSize_.i25.i.i11.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i2.i, i64 40
   store i64 1, ptr %rightSize_.i25.i.i11.i, align 8, !alias.scope !22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i)
   store i32 12, ptr %token_.i, align 8
   %.in.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %55 = load ptr, ptr %.in.i.i, align 8
@@ -1917,9 +1917,9 @@ if.end.i30:                                       ; preds = %_ZN6hermes2vm13Muta
   %rightSize_.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i.i, align 8, !alias.scope !25
   %call.i.i3.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %55, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2.i)
   br label %cleanup
 
 sw.epilog:                                        ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread177, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %if.end33.sink.split, %sw.bb60, %sw.bb54, %sw.bb20, %sw.bb
@@ -1935,7 +1935,7 @@ if.end72:                                         ; preds = %sw.epilog
 
 cleanup.critedge:                                 ; preds = %if.then58.i, %for.cond.i13, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit141
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i6) #12
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i6)
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, %cleanup.critedge, %sw.epilog, %if.end.i30, %if.then.i31, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread, %if.end72, %if.then
@@ -1960,7 +1960,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i32 12, ptr %token_, align 8
   %runtime_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %runtime_.i13, align 8
@@ -1976,14 +1976,14 @@ if.then:                                          ; preds = %entry
   %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i, align 8, !alias.scope !28
   %call.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %1, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   br label %return
 
 if.end:                                           ; preds = %entry
   %firstChar_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load i16, ptr %firstChar_.i16, align 8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i2)
   store i16 %2, ptr %ch.addr.i, align 2
   store ptr @.str.5, ptr %ref.tmp.i2, align 8, !alias.scope !31
   %leftKind_.i22.i.i7 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2, i64 8
@@ -1996,7 +1996,7 @@ if.end:                                           ; preds = %entry
   store i64 22, ptr %leftSize_.i24.i.i10, align 8, !alias.scope !31
   %rightSize_.i25.i.i11 = getelementptr inbounds nuw i8, ptr %ref.tmp.i2, i64 40
   store i64 1, ptr %rightSize_.i25.i.i11, align 8, !alias.scope !31
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   store i32 12, ptr %token_, align 8
   %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %.in.i, align 8
@@ -2012,9 +2012,9 @@ if.end:                                           ; preds = %entry
   %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !34
   %call.i.i3 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ch.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i2)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -2676,7 +2676,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12, !noalias !47
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
@@ -2685,7 +2685,7 @@ if.else:                                          ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !47
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %call5 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   br label %return
@@ -5662,10 +5662,10 @@ declare double @llvm.fabs.f64(double) #9
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

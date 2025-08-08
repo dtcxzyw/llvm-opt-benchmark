@@ -298,7 +298,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   store i64 %22, ptr %10, align 8, !alias.scope !23
   %23 = add i16 %5, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26
   %24 = call { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i16 noundef %23, ptr noalias noundef nonnull align 1 dereferenceable(5) %4), !noalias !26
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = extractvalue { ptr, i64 } %24, 1
@@ -322,7 +322,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_.exit: ; preds = %_
   %35 = load i64, ptr %10, align 8, !alias.scope !29, !noundef !4
   %36 = add i64 %35, %26
   store i64 %36, ptr %10, align 8, !alias.scope !29
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26
   %37 = load i64, ptr %1, align 8, !alias.scope !32, !noundef !4
   %38 = icmp eq i64 %36, %37
   br i1 %38, label %39, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit
@@ -339,7 +339,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   store i64 %42, ptr %10, align 8, !alias.scope !32
   %43 = add i16 %8, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !35
   %44 = call { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i16 noundef %43, ptr noalias noundef nonnull align 1 dereferenceable(5) %3), !noalias !35
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
@@ -363,7 +363,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_.exit4: ; preds = %
   %55 = load i64, ptr %10, align 8, !alias.scope !38, !noundef !4
   %56 = add i64 %55, %46
   store i64 %56, ptr %10, align 8, !alias.scope !38
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !35
   %57 = load i64, ptr %1, align 8, !alias.scope !41, !noundef !4
   %58 = icmp eq i64 %56, %57
   br i1 %58, label %59, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit5
@@ -611,7 +611,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 
 78:                                               ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28), !noalias !58
+  call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !58
   %79 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 39, ptr noalias noundef nonnull align 1 dereferenceable(11) %28), !noalias !58
   %80 = extractvalue { ptr, i64 } %79, 0
   %81 = extractvalue { ptr, i64 } %79, 1
@@ -635,7 +635,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit: ; preds = %7
   %90 = load i64, ptr %61, align 8, !alias.scope !61, !noundef !4
   %91 = add i64 %90, %81
   store i64 %91, ptr %61, align 8, !alias.scope !61
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28), !noalias !58
+  call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !58
   br label %73
 
 92:                                               ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit45
@@ -644,7 +644,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit: ; preds = %7
 
 94:                                               ; preds = %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27), !noalias !64
+  call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !64
   %95 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 38, ptr noalias noundef nonnull align 1 dereferenceable(11) %27), !noalias !64
   %96 = extractvalue { ptr, i64 } %95, 0
   %97 = extractvalue { ptr, i64 } %95, 1
@@ -668,7 +668,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit47: ; preds = 
   %106 = load i64, ptr %61, align 8, !alias.scope !67, !noundef !4
   %107 = add i64 %106, %97
   store i64 %107, ptr %61, align 8, !alias.scope !67
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !64
+  call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !64
   %108 = load i64, ptr %1, align 8, !alias.scope !70, !noundef !4
   %109 = icmp eq i64 %107, %108
   br i1 %109, label %110, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit
@@ -684,7 +684,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %113 = add i64 %107, 1
   store i64 %113, ptr %61, align 8, !alias.scope !70
   call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26), !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !73
   %114 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 2, ptr noalias noundef nonnull align 1 dereferenceable(11) %26), !noalias !73
   %115 = extractvalue { ptr, i64 } %114, 0
   %116 = extractvalue { ptr, i64 } %114, 1
@@ -708,7 +708,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit49: ; preds = 
   %125 = load i64, ptr %61, align 8, !alias.scope !76, !noundef !4
   %126 = add i64 %125, %116
   store i64 %126, ptr %61, align 8, !alias.scope !76
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26), !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !73
   %127 = load i64, ptr %1, align 8, !alias.scope !79, !noundef !4
   %128 = icmp eq i64 %126, %127
   br i1 %128, label %129, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit50
@@ -724,7 +724,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %132 = add i64 %126, 1
   store i64 %132, ptr %61, align 8, !alias.scope !79
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25), !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !82
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %133 = icmp ugt i8 %.sroa.4.0.copyload, 99
   br i1 %133, label %.thread.i.i, label %141
@@ -784,7 +784,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit: ; preds = %_
   %159 = load i64, ptr %61, align 8, !alias.scope !89, !noundef !4
   %160 = add i64 %159, %gepdiff.i
   store i64 %160, ptr %61, align 8, !alias.scope !89
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25), !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !82
   %161 = load i64, ptr %1, align 8, !alias.scope !92, !noundef !4
   %162 = icmp eq i64 %160, %161
   br i1 %162, label %163, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit52
@@ -800,7 +800,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %166 = add i64 %160, 1
   store i64 %166, ptr %61, align 8, !alias.scope !92
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !95
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
   %167 = icmp ugt i8 %.sroa.6.0.copyload, 99
   br i1 %167, label %.thread.i.i61, label %175
@@ -860,7 +860,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit62: ; preds = 
   %193 = load i64, ptr %61, align 8, !alias.scope !102, !noundef !4
   %194 = add i64 %193, %gepdiff.i56
   store i64 %194, ptr %61, align 8, !alias.scope !102
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !95
   %195 = load i64, ptr %1, align 8, !alias.scope !105, !noundef !4
   %196 = icmp eq i64 %194, %195
   br i1 %196, label %197, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit63
@@ -876,7 +876,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %200 = add i64 %194, 1
   store i64 %200, ptr %61, align 8, !alias.scope !105
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23), !noalias !108
+  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !108
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %201 = icmp ugt i8 %.sroa.7.0.copyload, 99
   br i1 %201, label %.thread.i.i72, label %209
@@ -936,7 +936,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit73: ; preds = 
   %227 = load i64, ptr %61, align 8, !alias.scope !115, !noundef !4
   %228 = add i64 %227, %gepdiff.i67
   store i64 %228, ptr %61, align 8, !alias.scope !115
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23), !noalias !108
+  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !108
   br label %73
 
 229:                                              ; preds = %92
@@ -972,7 +972,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit83: ; preds = 
 
 245:                                              ; preds = %229
   tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22), !noalias !127
+  call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !127
   %246 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 38, ptr noalias noundef nonnull align 1 dereferenceable(11) %22), !noalias !127
   %247 = extractvalue { ptr, i64 } %246, 0
   %248 = extractvalue { ptr, i64 } %246, 1
@@ -996,7 +996,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit85: ; preds = 
   %257 = load i64, ptr %61, align 8, !alias.scope !130, !noundef !4
   %258 = add i64 %257, %248
   store i64 %258, ptr %61, align 8, !alias.scope !130
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22), !noalias !127
+  call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !127
   %259 = load i64, ptr %1, align 8, !alias.scope !133, !noundef !4
   %260 = icmp eq i64 %258, %259
   br i1 %260, label %261, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit86
@@ -1012,7 +1012,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %264 = add i64 %258, 1
   store i64 %264, ptr %61, align 8, !alias.scope !133
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !136
   %265 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 5, ptr noalias noundef nonnull align 1 dereferenceable(11) %21), !noalias !136
   %266 = extractvalue { ptr, i64 } %265, 0
   %267 = extractvalue { ptr, i64 } %265, 1
@@ -1036,7 +1036,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit88: ; preds = 
   %276 = load i64, ptr %61, align 8, !alias.scope !139, !noundef !4
   %277 = add i64 %276, %267
   store i64 %277, ptr %61, align 8, !alias.scope !139
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !136
   %278 = load i64, ptr %1, align 8, !alias.scope !142, !noundef !4
   %279 = icmp eq i64 %277, %278
   br i1 %279, label %280, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit89
@@ -1052,7 +1052,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %283 = add i64 %277, 1
   store i64 %283, ptr %61, align 8, !alias.scope !142
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20), !noalias !145
+  call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !145
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %284 = icmp ugt i8 %.sroa.4.0.copyload, 99
   br i1 %284, label %290, label %285
@@ -1098,7 +1098,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit99: ; preds = 
   %305 = load i64, ptr %61, align 8, !alias.scope !152, !noundef !4
   %306 = add i64 %305, %.sroa.07.1.i.i92
   store i64 %306, ptr %61, align 8, !alias.scope !152
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !145
+  call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !145
   br label %73
 
 _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit.i101: ; preds = %229
@@ -1182,7 +1182,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 341:                                              ; preds = %326, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit110
   %342 = phi i64 [ %74, %326 ], [ %340, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit110 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19), !noalias !167
+  call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !167
   %343 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 49, ptr noalias noundef nonnull align 1 dereferenceable(11) %19), !noalias !167
   %344 = extractvalue { ptr, i64 } %343, 0
   %345 = extractvalue { ptr, i64 } %343, 1
@@ -1208,7 +1208,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit112: ; preds =
   %356 = load i64, ptr %347, align 8, !alias.scope !170, !noundef !4
   %357 = add i64 %356, %345
   store i64 %357, ptr %347, align 8, !alias.scope !170
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19), !noalias !167
+  call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !167
   br label %322
 
 358:                                              ; preds = %328
@@ -1265,7 +1265,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %383 = add i64 %376, 1
   store i64 %383, ptr %375, align 8, !alias.scope !176
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !179
+  call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !179
   %384 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 5, ptr noalias noundef nonnull align 1 dereferenceable(11) %18), !noalias !179
   %385 = extractvalue { ptr, i64 } %384, 0
   %386 = extractvalue { ptr, i64 } %384, 1
@@ -1289,7 +1289,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit116: ; preds =
   %395 = load i64, ptr %375, align 8, !alias.scope !182, !noundef !4
   %396 = add i64 %395, %386
   store i64 %396, ptr %375, align 8, !alias.scope !182
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !179
+  call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !179
   %397 = load i64, ptr %1, align 8, !alias.scope !185, !noundef !4
   %398 = icmp eq i64 %396, %397
   br i1 %398, label %399, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit117
@@ -1305,7 +1305,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %402 = add i64 %396, 1
   store i64 %402, ptr %375, align 8, !alias.scope !185
   call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !188
+  call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !188
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   %403 = icmp ugt i8 %.sroa.413.0.copyload, 99
   br i1 %403, label %409, label %404
@@ -1351,7 +1351,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit127: ; preds =
   %424 = load i64, ptr %375, align 8, !alias.scope !195, !noundef !4
   %425 = add i64 %424, %.sroa.07.1.i.i120
   store i64 %425, ptr %375, align 8, !alias.scope !195
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !188
+  call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !188
   br label %322
 
 426:                                              ; preds = %364
@@ -1472,7 +1472,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %486 = add i64 %74, 1
   store i64 %486, ptr %479, align 8, !alias.scope !222
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !225
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !225
   %487 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 48, ptr noalias noundef nonnull align 1 dereferenceable(11) %16), !noalias !225
   %488 = extractvalue { ptr, i64 } %487, 0
   %489 = extractvalue { ptr, i64 } %487, 1
@@ -1496,12 +1496,12 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152: ; preds =
   %498 = load i64, ptr %479, align 8, !alias.scope !228, !noundef !4
   %499 = add i64 %498, %489
   store i64 %499, ptr %479, align 8, !alias.scope !228
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !225
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !225
   br label %516
 
 500:                                              ; preds = %330
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15), !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !231
   %501 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 48, ptr noalias noundef nonnull align 1 dereferenceable(11) %15), !noalias !231
   %502 = extractvalue { ptr, i64 } %501, 0
   %503 = extractvalue { ptr, i64 } %501, 1
@@ -1527,7 +1527,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154: ; preds =
   %514 = load i64, ptr %505, align 8, !alias.scope !234, !noundef !4
   %515 = add i64 %514, %503
   store i64 %515, ptr %505, align 8, !alias.scope !234
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15), !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !231
   br label %516
 
 516:                                              ; preds = %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit152, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit154
@@ -1549,7 +1549,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %525 = add i64 %517, 1
   store i64 %525, ptr %518, align 8, !alias.scope !237
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !240
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !240
   %526 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 2, ptr noalias noundef nonnull align 1 dereferenceable(11) %14), !noalias !240
   %527 = extractvalue { ptr, i64 } %526, 0
   %528 = extractvalue { ptr, i64 } %526, 1
@@ -1573,7 +1573,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit157: ; preds =
   %537 = load i64, ptr %518, align 8, !alias.scope !243, !noundef !4
   %538 = add i64 %537, %528
   store i64 %538, ptr %518, align 8, !alias.scope !243
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14), !noalias !240
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !240
   %539 = load i64, ptr %1, align 8, !alias.scope !246, !noundef !4
   %540 = icmp eq i64 %538, %539
   br i1 %540, label %541, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit158
@@ -1589,7 +1589,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %544 = add i64 %538, 1
   store i64 %544, ptr %518, align 8, !alias.scope !246
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !249
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !249
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %545 = icmp ugt i8 %.sroa.413.0.copyload, 99
   br i1 %545, label %.thread.i.i167, label %553
@@ -1649,7 +1649,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit168: ; preds =
   %571 = load i64, ptr %518, align 8, !alias.scope !256, !noundef !4
   %572 = add i64 %571, %gepdiff.i162
   store i64 %572, ptr %518, align 8, !alias.scope !256
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !249
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !249
   %573 = load i64, ptr %1, align 8, !alias.scope !259, !noundef !4
   %574 = icmp eq i64 %572, %573
   br i1 %574, label %575, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit169
@@ -1665,7 +1665,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %578 = add i64 %572, 1
   store i64 %578, ptr %518, align 8, !alias.scope !259
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !262
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %579 = icmp ugt i8 %.sroa.615.0.copyload, 99
   br i1 %579, label %.thread.i.i178, label %587
@@ -1725,7 +1725,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit179: ; preds =
   %605 = load i64, ptr %518, align 8, !alias.scope !269, !noundef !4
   %606 = add i64 %605, %gepdiff.i173
   store i64 %606, ptr %518, align 8, !alias.scope !269
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !262
   %607 = load i64, ptr %1, align 8, !alias.scope !272, !noundef !4
   %608 = icmp eq i64 %606, %607
   br i1 %608, label %609, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit180
@@ -1741,7 +1741,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
   %612 = add i64 %606, 1
   store i64 %612, ptr %518, align 8, !alias.scope !272
   call void @llvm.experimental.noalias.scope.decl(metadata !275)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !275
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !275
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
   %613 = icmp ugt i8 %.sroa.716.0.copyload, 99
   br i1 %613, label %.thread.i.i189, label %621
@@ -1801,7 +1801,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoahEB4_.exit190: ; preds =
   %639 = load i64, ptr %518, align 8, !alias.scope !282, !noundef !4
   %640 = add i64 %639, %gepdiff.i184
   store i64 %640, ptr %518, align 8, !alias.scope !282
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !275
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !275
   br label %322
 
 641:                                              ; preds = %322
@@ -1845,7 +1845,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 660:                                              ; preds = %649, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit191
   %661 = phi i64 [ %323, %649 ], [ %659, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit191 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !288
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !288
   %662 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 22, ptr noalias noundef nonnull align 1 dereferenceable(11) %10), !noalias !288
   %663 = extractvalue { ptr, i64 } %662, 0
   %664 = extractvalue { ptr, i64 } %662, 1
@@ -1871,7 +1871,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit193: ; preds =
   %675 = load i64, ptr %666, align 8, !alias.scope !291, !noundef !4
   %676 = add i64 %675, %664
   store i64 %676, ptr %666, align 8, !alias.scope !291
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !288
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !288
   br label %644
 
 677:                                              ; preds = %650
@@ -1896,7 +1896,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 686:                                              ; preds = %650, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit194
   %687 = phi i64 [ %323, %650 ], [ %685, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit194 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !297
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !297
   %688 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 1, ptr noalias noundef nonnull align 1 dereferenceable(11) %9), !noalias !297
   %689 = extractvalue { ptr, i64 } %688, 0
   %690 = extractvalue { ptr, i64 } %688, 1
@@ -1922,7 +1922,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit196: ; preds =
   %701 = load i64, ptr %692, align 8, !alias.scope !300, !noundef !4
   %702 = add i64 %701, %690
   store i64 %702, ptr %692, align 8, !alias.scope !300
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !297
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !297
   br label %644
 
 703:                                              ; preds = %644
@@ -1966,7 +1966,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 722:                                              ; preds = %711, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit197
   %723 = phi i64 [ %645, %711 ], [ %721, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit197 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !306
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !306
   %724 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 23, ptr noalias noundef nonnull align 1 dereferenceable(11) %8), !noalias !306
   %725 = extractvalue { ptr, i64 } %724, 0
   %726 = extractvalue { ptr, i64 } %724, 1
@@ -1992,7 +1992,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit199: ; preds =
   %737 = load i64, ptr %728, align 8, !alias.scope !309, !noundef !4
   %738 = add i64 %737, %726
   store i64 %738, ptr %728, align 8, !alias.scope !309
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !306
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !306
   br label %706
 
 739:                                              ; preds = %712
@@ -2017,7 +2017,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 748:                                              ; preds = %712, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit200
   %749 = phi i64 [ %645, %712 ], [ %747, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit200 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !315
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !315
   %750 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 3, ptr noalias noundef nonnull align 1 dereferenceable(11) %7), !noalias !315
   %751 = extractvalue { ptr, i64 } %750, 0
   %752 = extractvalue { ptr, i64 } %750, 1
@@ -2043,7 +2043,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202: ; preds =
   %763 = load i64, ptr %754, align 8, !alias.scope !318, !noundef !4
   %764 = add i64 %763, %752
   store i64 %764, ptr %754, align 8, !alias.scope !318
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !315
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !315
   br label %706
 
 765:                                              ; preds = %706
@@ -2087,7 +2087,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 784:                                              ; preds = %773, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit203
   %785 = phi i64 [ %707, %773 ], [ %783, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit203 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !324
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !324
   %786 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 24, ptr noalias noundef nonnull align 1 dereferenceable(11) %6), !noalias !324
   %787 = extractvalue { ptr, i64 } %786, 0
   %788 = extractvalue { ptr, i64 } %786, 1
@@ -2113,7 +2113,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit205: ; preds =
   %799 = load i64, ptr %790, align 8, !alias.scope !327, !noundef !4
   %800 = add i64 %799, %788
   store i64 %800, ptr %790, align 8, !alias.scope !327
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !324
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !324
   br label %768
 
 801:                                              ; preds = %774
@@ -2138,7 +2138,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 810:                                              ; preds = %774, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit206
   %811 = phi i64 [ %707, %774 ], [ %809, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit206 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !333
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !333
   %812 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 4, ptr noalias noundef nonnull align 1 dereferenceable(11) %5), !noalias !333
   %813 = extractvalue { ptr, i64 } %812, 0
   %814 = extractvalue { ptr, i64 } %812, 1
@@ -2164,7 +2164,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208: ; preds =
   %825 = load i64, ptr %816, align 8, !alias.scope !336, !noundef !4
   %826 = add i64 %825, %814
   store i64 %826, ptr %816, align 8, !alias.scope !336
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !333
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !333
   br label %768
 
 827:                                              ; preds = %768
@@ -2220,7 +2220,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 851:                                              ; preds = %840, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit210
   %852 = phi i64 [ %769, %840 ], [ %850, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit210 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !345
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !345
   %853 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 27, ptr noalias noundef nonnull align 1 dereferenceable(11) %4), !noalias !345
   %854 = extractvalue { ptr, i64 } %853, 0
   %855 = extractvalue { ptr, i64 } %853, 1
@@ -2246,7 +2246,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit212: ; preds =
   %866 = load i64, ptr %857, align 8, !alias.scope !348, !noundef !4
   %867 = add i64 %866, %855
   store i64 %867, ptr %857, align 8, !alias.scope !348
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !345
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !345
   br label %830
 
 868:                                              ; preds = %841
@@ -2271,7 +2271,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 877:                                              ; preds = %841, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit213
   %878 = phi i64 [ %769, %841 ], [ %876, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit213 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !354
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !354
   %879 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 7, ptr noalias noundef nonnull align 1 dereferenceable(11) %3), !noalias !354
   %880 = extractvalue { ptr, i64 } %879, 0
   %881 = extractvalue { ptr, i64 } %879, 1
@@ -2297,7 +2297,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit215: ; preds =
   %892 = load i64, ptr %883, align 8, !alias.scope !357, !noundef !4
   %893 = add i64 %892, %881
   store i64 %893, ptr %883, align 8, !alias.scope !357
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !354
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !354
   br label %830
 
 894:                                              ; preds = %33, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit209
@@ -2346,7 +2346,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %17 = add i64 %16, 2
   store i64 %17, ptr %6, align 8, !alias.scope !360
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !363
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !363
   %18 = call { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i16 noundef %4, ptr noalias noundef nonnull align 1 dereferenceable(5) %3), !noalias !363
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
@@ -2370,7 +2370,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_.exit: ; preds = %_
   %29 = load i64, ptr %6, align 8, !alias.scope !366, !noundef !4
   %30 = add i64 %29, %20
   store i64 %30, ptr %6, align 8, !alias.scope !366
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !363
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !363
   %31 = load i64, ptr %1, align 8, !alias.scope !369, !noundef !4
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit
@@ -2457,7 +2457,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
   %17 = add i64 %16, 2
   store i64 %17, ptr %6, align 8, !alias.scope !375
   tail call void @llvm.experimental.noalias.scope.decl(metadata !378)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !378
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !378
   %18 = call { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i16 noundef %4, ptr noalias noundef nonnull align 1 dereferenceable(5) %3), !noalias !378
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
@@ -2481,7 +2481,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4_.exit: ; preds = %_
   %29 = load i64, ptr %6, align 8, !alias.scope !381, !noundef !4
   %30 = add i64 %29, %20
   store i64 %30, ptr %6, align 8, !alias.scope !381
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !378
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !378
   %31 = load i64, ptr %1, align 8, !alias.scope !384, !noundef !4
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit
@@ -2649,11 +2649,11 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = sub nuw i16 %11, %31
   store i16 %34, ptr %4, align 2
   call void @_RNvXsb_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_9MoveRightNtB5_8BufWrite9write_buf(ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 35:                                               ; preds = %29
@@ -2661,12 +2661,12 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
   br i1 %.not, label %28, label %.critedge
 
 .critedge:                                        ; preds = %13, %35
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %6, ptr %3, align 2
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %11, ptr %36, align 2
   call void @_RNvXs5_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_6MoveToNtB5_8BufWrite9write_buf(ptr noalias noundef nonnull readonly align 2 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
 }
 
@@ -3324,12 +3324,6 @@ declare void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE8grow_oneCscj
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_RNvXs3_NtNtCs1LoaDTb72WA_4core5slice3cmpShINtB5_14SlicePartialEqhE5equalCs6X0o37rPFRg_11compact_str(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_(ptr noalias noundef align 8 dereferenceable(24), i32 noundef) unnamed_addr #2
 
@@ -3338,6 +3332,12 @@ declare hidden { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { ptr, i64 } @_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i16 noundef, ptr noalias noundef align 1 dereferenceable(5)) unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

@@ -611,7 +611,7 @@ define void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dere
           to label %5 unwind label %9
 
 5:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef -1)
           to label %.noexc unwind label %9
 
@@ -627,7 +627,7 @@ define void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dere
 
 8:                                                ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 9:                                                ; preds = %5, %4, %2
@@ -681,7 +681,7 @@ define void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 der
           to label %6 unwind label %10
 
 6:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %1)
           to label %.noexc unwind label %10
 
@@ -697,7 +697,7 @@ define void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 der
 
 9:                                                ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 10:                                               ; preds = %6, %5, %3
@@ -763,7 +763,7 @@ define noundef zeroext i1 @_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %6 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -809,7 +809,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i: ; pr
   br i1 %exitcond.not.i10.i, label %.loopexit, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_9ATT_NAMESEEixEj.exit.i.i, %4
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i3 = icmp ult i32 %2, 7
   br i1 %.not.i3, label %30, label %27
 
@@ -1171,8 +1171,8 @@ define void @_ZN21MLRenderingBBoxAction18createSisterActionERP17MLRenderingActio
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -1189,8 +1189,8 @@ define void @_ZN21MLRenderingBBoxAction18createSisterActionERP17MLRenderingActio
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN21MLRenderingBBoxActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -1721,8 +1721,8 @@ define void @_ZN23MLRenderingPointsAction18createSisterActionERP17MLRenderingAct
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -1739,8 +1739,8 @@ define void @_ZN23MLRenderingPointsAction18createSisterActionERP17MLRenderingAct
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN23MLRenderingPointsActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -2010,8 +2010,8 @@ define void @_ZN21MLRenderingWireAction18createSisterActionERP17MLRenderingActio
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -2028,8 +2028,8 @@ define void @_ZN21MLRenderingWireAction18createSisterActionERP17MLRenderingActio
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN21MLRenderingWireActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -2545,8 +2545,8 @@ define void @_ZN22MLRenderingSolidAction18createSisterActionERP17MLRenderingActi
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -2563,8 +2563,8 @@ define void @_ZN22MLRenderingSolidAction18createSisterActionERP17MLRenderingActi
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN22MLRenderingSolidActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -2725,8 +2725,8 @@ define void @_ZN29MLRenderingFauxEdgeWireAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -2743,8 +2743,8 @@ define void @_ZN29MLRenderingFauxEdgeWireAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingFauxEdgeWireActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -3272,8 +3272,8 @@ define void @_ZN30MLRenderingPerFaceNormalAction18createSisterActionERP17MLRende
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -3290,8 +3290,8 @@ define void @_ZN30MLRenderingPerFaceNormalAction18createSisterActionERP17MLRende
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN30MLRenderingPerFaceNormalActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -3323,8 +3323,8 @@ declare noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo
 define noundef zeroext i1 @_ZNK30MLRenderingPerFaceNormalAction22isRenderingDataEnabledERK15MLRenderingData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3376,8 +3376,8 @@ _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRI
 
 _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit: ; preds = %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit, %2
   %25 = phi i1 [ %24, %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %25
 }
 
@@ -3631,8 +3631,8 @@ define void @_ZN32MLRenderingPerVertexNormalAction18createSisterActionERP17MLRen
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %14
@@ -3649,8 +3649,8 @@ define void @_ZN32MLRenderingPerVertexNormalAction18createSisterActionERP17MLRen
 
 12:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN32MLRenderingPerVertexNormalActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %8, i32 noundef %9, ptr noundef %2)
           to label %13 unwind label %14
 
@@ -3828,8 +3828,8 @@ define void @_ZN33MLRenderingPerVertTextCoordAction18createSisterActionERP17MLRe
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %14
@@ -3846,8 +3846,8 @@ define void @_ZN33MLRenderingPerVertTextCoordAction18createSisterActionERP17MLRe
 
 12:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN33MLRenderingPerVertTextCoordActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %8, i32 noundef %9, ptr noundef %2)
           to label %13 unwind label %14
 
@@ -4112,8 +4112,8 @@ define void @_ZN34MLRenderingPerWedgeTextCoordAction18createSisterActionERP17MLR
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -4130,8 +4130,8 @@ define void @_ZN34MLRenderingPerWedgeTextCoordAction18createSisterActionERP17MLR
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN34MLRenderingPerWedgeTextCoordActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -4161,8 +4161,8 @@ define void @_ZN34MLRenderingPerWedgeTextCoordAction19updateRenderingDataER15MLR
 define noundef zeroext i1 @_ZNK34MLRenderingPerWedgeTextCoordAction22isRenderingDataEnabledERK15MLRenderingData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -4214,8 +4214,8 @@ _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRI
 
 _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit: ; preds = %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit, %2
   %25 = phi i1 [ %24, %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %25
 }
 
@@ -4340,8 +4340,8 @@ define void @_ZN31MLRenderingDoubleLightingAction18createSisterActionERP17MLRend
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -4358,8 +4358,8 @@ define void @_ZN31MLRenderingDoubleLightingAction18createSisterActionERP17MLRend
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN31MLRenderingDoubleLightingActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -4767,8 +4767,8 @@ define void @_ZN31MLRenderingSingleLightingAction18createSisterActionERP17MLRend
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -4785,8 +4785,8 @@ define void @_ZN31MLRenderingSingleLightingAction18createSisterActionERP17MLRend
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN31MLRenderingSingleLightingActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -5194,8 +5194,8 @@ define void @_ZN30MLRenderingFancyLightingAction18createSisterActionERP17MLRende
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -5212,8 +5212,8 @@ define void @_ZN30MLRenderingFancyLightingAction18createSisterActionERP17MLRende
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN30MLRenderingFancyLightingActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -5712,8 +5712,8 @@ define void @_ZN26MLRenderingNoShadingAction18createSisterActionERP17MLRendering
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %14
@@ -5730,8 +5730,8 @@ define void @_ZN26MLRenderingNoShadingAction18createSisterActionERP17MLRendering
 
 12:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN26MLRenderingNoShadingActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %8, i32 noundef %9, ptr noundef %2)
           to label %13 unwind label %14
 
@@ -6190,8 +6190,8 @@ define void @_ZN25MLRenderingFaceCullAction18createSisterActionERP17MLRenderingA
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -6208,8 +6208,8 @@ define void @_ZN25MLRenderingFaceCullAction18createSisterActionERP17MLRenderingA
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN25MLRenderingFaceCullActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -6630,8 +6630,8 @@ define void @_ZN29MLRenderingPerMeshColorAction18createSisterActionERP17MLRender
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %14
@@ -6648,8 +6648,8 @@ define void @_ZN29MLRenderingPerMeshColorAction18createSisterActionERP17MLRender
 
 12:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingPerMeshColorActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %8, i32 noundef %9, ptr noundef %2)
           to label %13 unwind label %14
 
@@ -7275,8 +7275,8 @@ define void @_ZN31MLRenderingPerVertexColorAction18createSisterActionERP17MLRend
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %14
@@ -7293,8 +7293,8 @@ define void @_ZN31MLRenderingPerVertexColorAction18createSisterActionERP17MLRend
 
 12:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN31MLRenderingPerVertexColorActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %8, i32 noundef %9, ptr noundef %2)
           to label %13 unwind label %14
 
@@ -7567,8 +7567,8 @@ define void @_ZN29MLRenderingPerFaceColorAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -7585,8 +7585,8 @@ define void @_ZN29MLRenderingPerFaceColorAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingPerFaceColorActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -7616,8 +7616,8 @@ define void @_ZN29MLRenderingPerFaceColorAction19updateRenderingDataER15MLRender
 define noundef zeroext i1 @_ZNK29MLRenderingPerFaceColorAction22isRenderingDataEnabledERK15MLRenderingData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -7669,8 +7669,8 @@ _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRI
 
 _ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit: ; preds = %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit, %2
   %25 = phi i1 [ %24, %_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYENS1_9ATT_NAMESERK15MLRenderingData.exit.loopexit ], [ false, %2 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %25
 }
 
@@ -7706,8 +7706,8 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noun
 define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EPS_P7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %6 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4)
@@ -7721,8 +7721,8 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EPS_P7QObject(ptr no
 
 _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %6, ptr noundef %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -7885,8 +7885,8 @@ define void @_ZN33MLRenderingUserDefinedColorActionC2EPS_P7QObject(ptr noundef n
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %7 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4)
@@ -7904,8 +7904,8 @@ common.resume:                                    ; preds = %23, %8
 
 _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV33MLRenderingUserDefinedColorAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -8570,8 +8570,8 @@ define void @_ZN26MLRenderingSelectionAction18createSisterActionERP17MLRendering
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -8588,8 +8588,8 @@ define void @_ZN26MLRenderingSelectionAction18createSisterActionERP17MLRendering
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN26MLRenderingSelectionActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -9001,8 +9001,8 @@ define void @_ZN26MLRenderingPointsDotAction18createSisterActionERP17MLRendering
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -9019,8 +9019,8 @@ define void @_ZN26MLRenderingPointsDotAction18createSisterActionERP17MLRendering
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN26MLRenderingPointsDotActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -9432,8 +9432,8 @@ define void @_ZN30MLRenderingVertSelectionAction18createSisterActionERP17MLRende
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -9450,8 +9450,8 @@ define void @_ZN30MLRenderingVertSelectionAction18createSisterActionERP17MLRende
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN30MLRenderingVertSelectionActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -9863,8 +9863,8 @@ define void @_ZN30MLRenderingFaceSelectionAction18createSisterActionERP17MLRende
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -9881,8 +9881,8 @@ define void @_ZN30MLRenderingFaceSelectionAction18createSisterActionERP17MLRende
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN30MLRenderingFaceSelectionActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -10294,8 +10294,8 @@ define void @_ZN33MLRenderingBBoxPerMeshColorAction18createSisterActionERP17MLRe
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -10312,8 +10312,8 @@ define void @_ZN33MLRenderingBBoxPerMeshColorAction18createSisterActionERP17MLRe
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN33MLRenderingBBoxPerMeshColorActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -10753,8 +10753,8 @@ define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EPS_P7QObject(ptr nound
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %7 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4)
@@ -10772,8 +10772,8 @@ common.resume:                                    ; preds = %23, %8
 
 _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -11360,8 +11360,8 @@ define void @_ZN30MLRenderingEdgeDecoratorAction18createSisterActionERP17MLRende
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -11378,8 +11378,8 @@ define void @_ZN30MLRenderingEdgeDecoratorAction18createSisterActionERP17MLRende
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN30MLRenderingEdgeDecoratorActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -11787,8 +11787,8 @@ define void @_ZN29MLRenderingEdgeBoundaryAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -11805,8 +11805,8 @@ define void @_ZN29MLRenderingEdgeBoundaryAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingEdgeBoundaryActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -12214,8 +12214,8 @@ define void @_ZN29MLRenderingFaceBoundaryAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -12232,8 +12232,8 @@ define void @_ZN29MLRenderingFaceBoundaryAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingFaceBoundaryActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -12641,8 +12641,8 @@ define void @_ZN29MLRenderingEdgeManifoldAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -12659,8 +12659,8 @@ define void @_ZN29MLRenderingEdgeManifoldAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingEdgeManifoldActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -13068,8 +13068,8 @@ define void @_ZN29MLRenderingVertManifoldAction18createSisterActionERP17MLRender
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -13086,8 +13086,8 @@ define void @_ZN29MLRenderingVertManifoldAction18createSisterActionERP17MLRender
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN29MLRenderingVertManifoldActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -13495,8 +13495,8 @@ define void @_ZN26MLRenderingTexBorderAction18createSisterActionERP17MLRendering
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -13513,8 +13513,8 @@ define void @_ZN26MLRenderingTexBorderAction18createSisterActionERP17MLRendering
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN26MLRenderingTexBorderActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -13922,8 +13922,8 @@ define void @_ZN20MLRenderingDotAction18createSisterActionERP17MLRenderingAction
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -13940,8 +13940,8 @@ define void @_ZN20MLRenderingDotAction18createSisterActionERP17MLRenderingAction
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN20MLRenderingDotActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -14360,8 +14360,8 @@ define void @_ZN27MLRenderingPointsSizeActionC2EPS_P7QObject(ptr noundef nonnull
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %7 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4)
@@ -14379,8 +14379,8 @@ common.resume:                                    ; preds = %23, %8
 
 _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV27MLRenderingPointsSizeAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -14850,8 +14850,8 @@ define void @_ZN26MLRenderingWireWidthActionC2EPS_P7QObject(ptr noundef nonnull 
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QString, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   call void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %7 = invoke noundef i32 @_ZNK8QVariant5toIntEPb(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4)
@@ -14869,8 +14869,8 @@ common.resume:                                    ; preds = %23, %8
 
 _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %7, ptr noundef %2)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV26MLRenderingWireWidthAction, i64 16), ptr %0, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -15248,8 +15248,8 @@ define void @_ZN31MLRenderingBBoxQuotedInfoAction18createSisterActionERP17MLRend
   %4 = alloca i8, align 1
   %5 = alloca %class.QVariant, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %4, align 1
   invoke void @_ZNK7QAction4dataEv(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %12
@@ -15266,8 +15266,8 @@ define void @_ZN31MLRenderingBBoxQuotedInfoAction18createSisterActionERP17MLRend
 
 10:                                               ; preds = %.noexc
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZN31MLRenderingBBoxQuotedInfoActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %7, ptr noundef %2)
           to label %11 unwind label %12
 
@@ -15605,7 +15605,7 @@ define linkonce_odr void @_ZN5QListIP17MLRenderingActionE6appendERKS1_(ptr nound
   br i1 %6, label %7, label %50
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2147483647, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -15689,7 +15689,7 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
   br label %61
@@ -15777,9 +15777,9 @@ define internal void @_GLOBAL__sub_I_ml_rendering_actions.cpp() #19 section ".te
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #27
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -17299,9 +17299,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #23
   call void @_ZdlPv(ptr noundef nonnull %8) #23
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #24
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -17309,10 +17309,10 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

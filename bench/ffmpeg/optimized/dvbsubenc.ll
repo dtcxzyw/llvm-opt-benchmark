@@ -14,7 +14,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %.not = icmp eq i32 %9, 0
@@ -568,18 +568,12 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
 
 .thread208:                                       ; preds = %104, %102, %208, %301, %267, %265, %254, %.loopexit, %._crit_edge229, %40, %21, %10, %342
   %.0 = phi i32 [ %358, %342 ], [ -22, %10 ], [ -1397118274, %21 ], [ -1397118274, %40 ], [ -1397118274, %._crit_edge229 ], [ -1397118274, %.loopexit ], [ %299, %267 ], [ %317, %301 ], [ -1397118274, %254 ], [ -22, %265 ], [ -22, %208 ], [ -1397118274, %104 ], [ -22, %102 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8, !tbaa !37
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph434, label %._crit_edge435
@@ -1118,7 +1112,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8, !tbaa !37
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph339, label %._crit_edge340
@@ -1419,7 +1413,7 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = load ptr, ptr %0, align 8, !tbaa !37
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph80, label %._crit_edge81
@@ -1583,6 +1577,12 @@ define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
 
@@ -1596,8 +1596,8 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

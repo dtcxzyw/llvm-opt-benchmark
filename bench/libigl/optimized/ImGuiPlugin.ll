@@ -177,9 +177,6 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare noundef zeroext i1 @_Z28ImGui_ImplGlfw_InitForOpenGLP10GLFWwindowb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 declare noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef) local_unnamed_addr #2
@@ -189,9 +186,6 @@ declare noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv() l
 declare void @_ZN5ImGui15StyleColorsDarkEP10ImGuiStyle(ptr noundef) local_unnamed_addr #2
 
 declare noundef nonnull align 4 dereferenceable(1048) ptr @_ZN5ImGui8GetStyleEv() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin12init_widgetsEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
@@ -228,20 +222,20 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11reload_fontEi(ptr
   %4 = alloca [2 x i32], align 4
   %5 = alloca float, align 4
   %6 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %8 = load float, ptr %5, align 4, !tbaa !76
   %9 = load float, ptr %6, align 4, !tbaa !76
   %10 = fadd float %8, %9
   %11 = fmul float %10, 5.000000e-01
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %11, ptr %12, align 8, !tbaa !77
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call ptr @glfwGetCurrentContext()
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @glfwGetFramebufferSize(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %14)
@@ -252,8 +246,8 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11reload_fontEi(ptr
   %18 = load i32, ptr %4, align 4, !tbaa !78
   %19 = sitofp i32 %18 to float
   %20 = fdiv float %17, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %20, ptr %21, align 4, !tbaa !79
   %22 = call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
@@ -276,16 +270,16 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11reload_fontEi(ptr
 define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin13hidpi_scalingEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca float, align 4
   %3 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %5 = load float, ptr %2, align 4, !tbaa !76
   %6 = load float, ptr %3, align 4, !tbaa !76
   %7 = fadd float %5, %6
   %8 = fmul float %7, 5.000000e-01
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %8
 }
 
@@ -293,8 +287,8 @@ define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin13hidpi_sc
 define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11pixel_ratioEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2 x i32], align 4
   %3 = alloca [2 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @glfwGetCurrentContext()
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @glfwGetFramebufferSize(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %5)
@@ -305,8 +299,8 @@ define dso_local noundef float @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11pixel_ra
   %9 = load i32, ptr %3, align 4, !tbaa !78
   %10 = sitofp i32 %9 to float
   %11 = fdiv float %8, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret float %11
 }
 
@@ -330,16 +324,16 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8pre_
   %2 = alloca float, align 4
   %3 = alloca float, align 4
   tail call void @glfwPollEvents()
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @glfwGetCurrentContext()
   call void @glfwGetWindowContentScale(ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %5 = load float, ptr %2, align 4, !tbaa !76
   %6 = load float, ptr %3, align 4, !tbaa !76
   %7 = fadd float %5, %6
   %8 = fmul float %7, 5.000000e-01
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load float, ptr %9, align 8, !tbaa !77
   %11 = fsub float %8, %10
@@ -665,7 +659,7 @@ declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @glfwGetWindowContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !88
@@ -707,7 +701,7 @@ _ZN3igl6opengl4glfw12ViewerPluginD2Ev.exit:       ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 160) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui11ImGuiPluginE, i64 16), ptr %0, align 8, !tbaa !71
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !88
@@ -775,10 +769,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw12ViewerPlu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #6
+declare float @llvm.fabs.f32(float) #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw12ViewerPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -888,6 +882,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw12ViewerPlu
   ret i1 false
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8
 
@@ -895,10 +895,10 @@ attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { builtin nounwind }

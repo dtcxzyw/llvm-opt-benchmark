@@ -369,7 +369,7 @@ define internal i32 @dissect_rsvd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %18 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   store ptr %2, ptr @top_tree, align 8
@@ -423,7 +423,7 @@ define internal i32 @dissect_rsvd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 52:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %19, label %dissect_RSVD_GET_INITIAL_INFO.exit, label %53
 
 53:                                               ; preds = %52
@@ -446,14 +446,14 @@ define internal i32 @dissect_rsvd(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %52, %53
   %.0.i = phi i32 [ 32, %52 ], [ 56, %53 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %480
 
 68:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 %45, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %69 = call ptr @find_or_create_conversation(ptr noundef %1)
   %70 = load i32, ptr @proto_rsvd, align 4
   %71 = call ptr @conversation_get_proto_data(ptr noundef %69, i32 noundef %70)
@@ -463,7 +463,7 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %52, %53
 
 72:                                               ; preds = %68
   %73 = call ptr @wmem_file_scope()
-  %74 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %73, i64 noundef 32) #7
+  %74 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %73, i64 noundef 32) #6
   store ptr %74, ptr @rsvd_conv_data, align 8
   %75 = call ptr @wmem_file_scope()
   %76 = call noalias ptr @wmem_map_new(ptr noundef %75, ptr noundef nonnull @wmem_int64_hash, ptr noundef nonnull @g_int64_equal)
@@ -504,16 +504,16 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %52, %53
 
 98:                                               ; preds = %96
   %99 = call ptr @wmem_file_scope()
-  %100 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %99, i64 noundef 8) #7
+  %100 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %99, i64 noundef 8) #6
   %101 = load i64, ptr %13, align 8
   store i64 %101, ptr %100, align 8
   %102 = call ptr @wmem_file_scope()
-  %103 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %102, i64 noundef 16) #7
+  %103 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %102, i64 noundef 16) #6
   %104 = load ptr, ptr @rsvd_conv_data, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %103, ptr %105, align 8
   %106 = call ptr @wmem_file_scope()
-  %107 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %106, i64 noundef 72) #7
+  %107 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %106, i64 noundef 72) #6
   %108 = load ptr, ptr @rsvd_conv_data, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load ptr, ptr %109, align 8
@@ -651,7 +651,7 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %52, %53
 
 202:                                              ; preds = %195
   %203 = call ptr @wmem_file_scope()
-  %204 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %203, i64 noundef 16) #7
+  %204 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %203, i64 noundef 16) #6
   store i8 -1, ptr %204, align 8
   %205 = load ptr, ptr @rsvd_conv_data, align 8
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
@@ -754,7 +754,7 @@ get_itl_nexus.exit.i:                             ; preds = %202, %195
 
 268:                                              ; preds = %261
   %269 = call ptr @wmem_file_scope()
-  %270 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %269, i64 noundef 16) #7
+  %270 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %269, i64 noundef 16) #6
   store i8 -1, ptr %270, align 8
   %271 = load ptr, ptr @rsvd_conv_data, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
@@ -774,14 +774,14 @@ get_itl_nexus.exit186.i:                          ; preds = %268, %261
 
 dissect_RSVD_TUNNEL_SCSI.exit:                    ; preds = %214, %254, %258, %get_itl_nexus.exit186.i
   %.1.i = phi i32 [ %215, %214 ], [ %.2.i, %get_itl_nexus.exit186.i ], [ %.2.i, %258 ], [ %.2.i, %254 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %278 = add i32 %.1.i, 16
   br label %480
 
 279:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %280 = shl i32 %20, 16
   %sext134 = add i32 %280, -1048576
   %281 = ashr exact i32 %sext134, 16
@@ -817,11 +817,11 @@ dissect_RSVD_TUNNEL_SCSI.exit:                    ; preds = %214, %254, %258, %g
 
 dissect_RSVD_SRB_STATUS.exit:                     ; preds = %283, %289
   %.0.i124 = phi i32 [ 60, %283 ], [ %305, %289 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %480
 
 306:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %307 = shl i32 %20, 16
   %sext133 = add i32 %307, -1048576
   %308 = ashr exact i32 %sext133, 16
@@ -858,11 +858,11 @@ dissect_RSVD_GET_DISK_INFO.exit:                  ; preds = %310, %314
   %331 = call ptr @proto_tree_add_item(ptr noundef %.sink88.i, i32 noundef %330, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef -2147483648)
   %332 = load i32, ptr @hf_svhdx_tunnel_disk_info_virtual_disk_id, align 4
   %333 = call ptr @proto_tree_add_item(ptr noundef %.sink88.i, i32 noundef %332, ptr noundef %0, i32 noundef 56, i32 noundef 16, i32 noundef -2147483648)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %480
 
 334:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %335 = shl i32 %20, 16
   %sext132 = add i32 %335, -1048576
   %336 = ashr exact i32 %sext132, 16
@@ -874,12 +874,12 @@ dissect_RSVD_GET_DISK_INFO.exit:                  ; preds = %310, %314
   %hf_svhdx_tunnel_validate_disk_is_valid_disk.val.i = load i32, ptr @hf_svhdx_tunnel_validate_disk_is_valid_disk, align 4
   %339 = select i1 %19, i32 %hf_svhdx_tunnel_validate_disk_reserved.val.i, i32 %hf_svhdx_tunnel_validate_disk_is_valid_disk.val.i
   %340 = call ptr @proto_tree_add_item(ptr noundef %338, i32 noundef %339, ptr noundef %0, i32 noundef 16, i32 noundef %..i, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %341 = select i1 %19, i32 88, i32 33
   br label %480
 
 342:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %19, label %343, label %dissect_RSVD2_META_OPERATION_START.exit
 
 343:                                              ; preds = %342
@@ -960,13 +960,13 @@ dissect_RSVD_GET_DISK_INFO.exit:                  ; preds = %310, %314
 
 dissect_RSVD2_META_OPERATION_START.exit:          ; preds = %342, %343, %355, %366, %388, %392, %395
   %.0.i125 = phi i32 [ 56, %343 ], [ 68, %355 ], [ 108, %366 ], [ 76, %395 ], [ 60, %392 ], [ 60, %388 ], [ 32, %342 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %480
 
 400:                                              ; preds = %4
   %401 = trunc i32 %20 to i16
   %402 = add i16 %401, -16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %19, label %403, label %409
 
 403:                                              ; preds = %400
@@ -993,13 +993,13 @@ dissect_RSVD2_META_OPERATION_START.exit:          ; preds = %342, %343, %355, %3
 
 dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit: ; preds = %403, %409, %411
   %.0.i127 = phi i32 [ 48, %403 ], [ 48, %411 ], [ 32, %409 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %480
 
 419:                                              ; preds = %4
   %420 = trunc i32 %20 to i16
   %421 = add i16 %420, -16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %19, label %422, label %432
 
 422:                                              ; preds = %419
@@ -1053,11 +1053,11 @@ dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit: ; preds = %403, %409, %411
 
 dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit:      ; preds = %422, %432, %434, %440
   %.0.i128 = phi i32 [ 56, %422 ], [ 32, %432 ], [ 36, %434 ], [ 104, %440 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %480
 
 460:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %19, label %461, label %dissect_RSVD2_DELETE_SNAPSHOT.exit
 
 461:                                              ; preds = %460
@@ -1076,11 +1076,11 @@ dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit:      ; preds = %422, %432, %434, %4
 
 dissect_RSVD2_DELETE_SNAPSHOT.exit:               ; preds = %460, %461
   %.0.i129 = phi i32 [ 56, %461 ], [ 32, %460 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %480
 
 472:                                              ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %19, label %dissect_RSVD2_QUERY_SAFE_SIZE.exit, label %473
 
 473:                                              ; preds = %472
@@ -1095,12 +1095,12 @@ dissect_RSVD2_DELETE_SNAPSHOT.exit:               ; preds = %460, %461
 
 dissect_RSVD2_QUERY_SAFE_SIZE.exit:               ; preds = %472, %473
   %.0.i130 = phi i32 [ 32, %472 ], [ 40, %473 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %480
 
 480:                                              ; preds = %4, %dissect_RSVD2_QUERY_SAFE_SIZE.exit, %dissect_RSVD2_DELETE_SNAPSHOT.exit, %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit, %dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit, %dissect_RSVD2_META_OPERATION_START.exit, %334, %dissect_RSVD_GET_DISK_INFO.exit, %dissect_RSVD_SRB_STATUS.exit, %dissect_RSVD_TUNNEL_SCSI.exit, %dissect_RSVD_GET_INITIAL_INFO.exit
   %.0 = phi i32 [ 16, %4 ], [ %.0.i, %dissect_RSVD_GET_INITIAL_INFO.exit ], [ %278, %dissect_RSVD_TUNNEL_SCSI.exit ], [ %.0.i130, %dissect_RSVD2_QUERY_SAFE_SIZE.exit ], [ %.0.i124, %dissect_RSVD_SRB_STATUS.exit ], [ 88, %dissect_RSVD_GET_DISK_INFO.exit ], [ %341, %334 ], [ %.0.i125, %dissect_RSVD2_META_OPERATION_START.exit ], [ %.0.i127, %dissect_RSVD2_META_OPERATION_QUERY_PROGRESS.exit ], [ %.0.i128, %dissect_RSVD2_VHDSET_QUERY_INFORMATION.exit ], [ %.0.i129, %dissect_RSVD2_DELETE_SNAPSHOT.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret i32 %.0
 }
 
@@ -1109,9 +1109,6 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
@@ -1149,9 +1146,6 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
@@ -1159,7 +1153,7 @@ declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
@@ -1183,10 +1177,10 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1252,7 +1246,7 @@ define internal fastcc void @dissect_scsi_payload_databuffer(ptr noundef %0, ptr
 
 34:                                               ; preds = %15
   %35 = tail call ptr @wmem_file_scope()
-  %36 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %35, i64 noundef 16) #7
+  %36 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %35, i64 noundef 16) #6
   store i8 -1, ptr %36, align 8
   %37 = load ptr, ptr @rsvd_conv_data, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -1301,6 +1295,12 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: null_pointer_is_valid
 declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
@@ -1309,12 +1309,11 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(1) }
+attributes #6 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

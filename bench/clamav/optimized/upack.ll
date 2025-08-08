@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.cli_exe_section, align 4
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %314, label %11
 
@@ -1199,14 +1199,11 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .thread1181:                                      ; preds = %.thread1191, %488, %505, %453, %464, %470, %._crit_edge1273, %426, %439, %._crit_edge1267, %403, %405, %411, %414, %416, %400, %372, %378, %333, %338, %340, %371, %530, %399, %362, %254, %261, %263, %266, %269, %228, %237, %242, %245, %219, %221, %226, %214, %202, %204, %209, %211, %176, %189, %191, %160, %165, %172, %151, %157, %105, %110, %116, %97, %98, %103, %77, %85, %57, %64, %69, %39, %52, %20, %28, %311, %200, %.thread1212, %601, %312, %606, %600, %.split.us, %552
   %.1 = phi i32 [ -1, %.split.us ], [ 0, %600 ], [ 0, %606 ], [ -1, %552 ], [ -1, %312 ], [ 1, %601 ], [ -1, %.thread1212 ], [ -1, %200 ], [ -1, %311 ], [ -1, %28 ], [ -1, %20 ], [ -1, %52 ], [ -1, %39 ], [ -1, %69 ], [ -1, %64 ], [ -1, %57 ], [ -1, %85 ], [ -1, %77 ], [ -1, %103 ], [ -1, %98 ], [ -1, %97 ], [ -1, %116 ], [ -1, %110 ], [ -1, %105 ], [ -1, %157 ], [ -1, %151 ], [ -1, %172 ], [ -1, %165 ], [ -1, %160 ], [ -1, %191 ], [ -1, %189 ], [ -1, %176 ], [ -1, %211 ], [ -1, %209 ], [ -1, %204 ], [ -1, %202 ], [ -1, %214 ], [ -1, %226 ], [ -1, %221 ], [ -1, %219 ], [ -1, %245 ], [ -1, %242 ], [ -1, %237 ], [ -1, %228 ], [ -1, %269 ], [ -1, %266 ], [ -1, %263 ], [ -1, %261 ], [ -1, %254 ], [ -1, %362 ], [ -1, %399 ], [ -1, %530 ], [ -1, %371 ], [ -1, %340 ], [ -1, %338 ], [ -1, %333 ], [ -1, %378 ], [ -1, %372 ], [ -1, %400 ], [ -1, %416 ], [ -1, %414 ], [ -1, %411 ], [ -1, %405 ], [ -1, %403 ], [ -1, %._crit_edge1267 ], [ -1, %439 ], [ -1, %426 ], [ -1, %._crit_edge1273 ], [ -1, %470 ], [ -1, %464 ], [ -1, %453 ], [ -1, %505 ], [ -1, %488 ], [ -1, %.thread1191 ]
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone captures(address) %6, i32 noundef %7, ptr noundef %8) local_unnamed_addr #0 {
@@ -1216,13 +1213,13 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %13 = alloca i32, align 4
   %14 = alloca [6 x i32], align 16
   %15 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %4, ptr %12, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %8, ptr %10, align 8, !tbaa !13
   %16 = load i32, ptr %3, align 1, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1793,25 +1790,28 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 .critedge:                                        ; preds = %297, %264, %269, %313, %.thread358, %305, %302, %209, %213, %219, %222, %226, %202, %181, %190, %195, %130, %66, %59, %91, %.split, %100
   %.1249 = phi i32 [ -1, %100 ], [ -1, %.split ], [ -1, %91 ], [ -1, %297 ], [ -1, %264 ], [ -1, %269 ], [ 1, %313 ], [ -1, %.thread358 ], [ -1, %305 ], [ -1, %302 ], [ -1, %209 ], [ -1, %213 ], [ -1, %219 ], [ -1, %222 ], [ -1, %226 ], [ -1, %202 ], [ -1, %181 ], [ -1, %190 ], [ -1, %195 ], [ -1, %130 ], [ -1, %66 ], [ -1, %59 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1249
 }
 
+declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @lzma_upack_esi_00(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @lzma_upack_esi_54(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare i32 @lzma_upack_esi_50(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
 
-declare i32 @cli_rebuildpe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @lzma_upack_esi_00(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @lzma_upack_esi_54(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare i32 @lzma_upack_esi_50(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #3
@@ -1823,8 +1823,8 @@ declare i32 @llvm.umin.i32(i32, i32) #3
 declare i32 @llvm.usub.sat.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

@@ -44,10 +44,10 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %5 = alloca [6 x [2 x i32]], align 16
   %6 = alloca [16 x i32], align 16
   %7 = alloca [20 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(272) %8, i8 0, i64 272, i1 false)
@@ -1043,23 +1043,17 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 .loopexit:                                        ; preds = %752, %3
   %.0 = phi i32 [ -36, %3 ], [ 0, %752 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.mbedtls_camellia_context, align 4
-  call void @llvm.lifetime.start.p0(i64 276, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(276) %4, i8 0, i64 276, i1 false)
   %5 = call i32 @mbedtls_camellia_setkey_enc(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -1131,7 +1125,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_dec(ptr noundef wri
 
 46:                                               ; preds = %3, %35
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 276)
-  call void @llvm.lifetime.end.p0(i64 276, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
@@ -1768,6 +1762,12 @@ define hidden noundef i32 @mbedtls_camellia_crypt_ecb(ptr noundef readonly captu
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
@@ -1782,7 +1782,6 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

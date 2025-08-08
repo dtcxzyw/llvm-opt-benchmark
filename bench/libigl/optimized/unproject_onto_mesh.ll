@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES8_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKNS0_17EmbreeIntersectorERiRNS2_IfLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 1 %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(12) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::function", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = ptrtoint ptr %4 to i64
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -53,11 +53,11 @@ define dso_local noundef zeroext i1 @_ZN3igl6embree19unproject_onto_meshERKN5Eig
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #7
+  call void @__clang_call_terminate(ptr %20) #6
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %14, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %13
 
 21:                                               ; preds = %7
@@ -75,30 +75,24 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %14, %16
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #7
+  call void @__clang_call_terminate(ptr %28) #6
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %21, %24
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %22
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef zeroext i1 @_ZN3igl19unproject_onto_meshIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEEEEbRKNS2_IfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES9_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKSt8functionIFbRKS3_SF_RNS_3HitIfEEEERiRNS1_15PlainObjectBaseIT_EE(ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN3igl19unproject_onto_meshIN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEEEEbRKNS2_IfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES9_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKSt8functionIFbRKS3_SF_RNS_3HitIfEEEERiRNS1_15PlainObjectBaseIT_EE(ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS2_IiLin1ELin1ELi0ELin1ELin1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEESB_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKNS0_17EmbreeIntersectorERiSI_(ptr noundef nonnull align 1 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::function", align 8
   %10 = alloca %"class.Eigen::Matrix.5", align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = ptrtoint ptr %5 to i64
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -123,7 +117,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6embree19unproject_onto_meshERKN5Eig
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #7
+  call void @__clang_call_terminate(ptr %22) #6
   unreachable
 
 23:                                               ; preds = %8
@@ -141,15 +135,15 @@ define dso_local noundef zeroext i1 @_ZN3igl6embree19unproject_onto_meshERKN5Eig
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #7
+  call void @__clang_call_terminate(ptr %30) #6
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit10.i:               ; preds = %26, %23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   resume { ptr, i32 } %24
 
 _ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES8_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKNS0_17EmbreeIntersectorERiRNS2_IfLi3ELi1ELi0ELi3ELi1EEE.exit: ; preds = %16, %18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %15, label %31, label %50
 
 31:                                               ; preds = %_ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES8_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKNS0_17EmbreeIntersectorERiRNS2_IfLi3ELi1ELi0ELi3ELi1EEE.exit
@@ -176,28 +170,28 @@ _ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS
   br label %50
 
 50:                                               ; preds = %_ZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS2_IfLi4ELi4ELi0ELi4ELi4EEES8_RKNS2_IfLi4ELi1ELi0ELi4ELi1EEERKNS0_17EmbreeIntersectorERiRNS2_IfLi3ELi1ELi0ELi3ELi1EEE.exit, %31
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %15
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #6
-  tail call void @_ZSt9terminatev() #7
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
+  tail call void @_ZSt9terminatev() #6
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #4
+declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES4_RN3igl3HitIfEEEZNS5_6embree19unproject_onto_meshERKNS1_IfLi2ELi1ELi0ELi2ELi1EEERKNS1_IfLi4ELi4ELi0ELi4ELi4EEESG_RKNS1_IfLi4ELi1ELi0ELi4ELi1EEERKNSA_17EmbreeIntersectorERiRS2_E3$_0E9_M_invokeERKSt9_Any_dataS4_S4_S8_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(20) %3) #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.24", align 4
   %6 = alloca %"class.Eigen::Matrix.24", align 4
   %.val = load ptr, ptr %0, align 8, !tbaa !22
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load float, ptr %1, align 4, !tbaa !13
   store float %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -208,7 +202,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6Matrix
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4, !tbaa !13
   store float %13, ptr %11, align 4, !tbaa !13
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load float, ptr %2, align 4, !tbaa !13
   store float %14, ptr %6, align 4, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -220,13 +214,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6Matrix
   %20 = load float, ptr %19, align 4, !tbaa !13
   store float %20, ptr %18, align 4, !tbaa !13
   %21 = call noundef zeroext i1 @_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi(ptr noundef nonnull align 8 dereferenceable(56) %.val, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(20) %3, float noundef 0.000000e+00, float noundef 0x7FF0000000000000, i32 noundef -1)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES4_RN3igl3HitIfEEEZNS5_6embree19unproject_onto_meshERKNS1_IfLi2ELi1ELi0ELi2ELi1EEERKNS1_IfLi4ELi4ELi0ELi4ELi4EEESG_RKNS1_IfLi4ELi1ELi0ELi4ELi1EEERKNSA_17EmbreeIntersectorERiRS2_E3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6MatrixIfLi3ELi1ELi0ELi3ELi1EEES4_RN3igl3HitIfEEEZNS5_6embree19unproject_onto_meshERKNS1_IfLi2ELi1ELi0ELi2ELi1EEERKNS1_IfLi4ELi4ELi0ELi4ELi4EEESG_RKNS1_IfLi4ELi1ELi0ELi4ELi1EEERKNSA_17EmbreeIntersectorERiRS2_E3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #4 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN3igl6embree19unproject_onto_meshERKN5Eigen6MatrixIfLi2ELi1ELi0ELi2ELi1EEERKNS4_IfLi4ELi4ELi0ELi4ELi4EEESA_RKNS4_IfLi4ELi1ELi0ELi4ELi1EEERKNS2_17EmbreeIntersectorERiRNS4_IfLi3ELi1ELi0ELi3ELi1EEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -250,16 +244,22 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN5Eigen6Matrix
   ret i1 false
 }
 
-declare noundef zeroext i1 @_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(20), float noundef, float noundef, i32 noundef) local_unnamed_addr #2
+declare noundef zeroext i1 @_ZNK3igl6embree17EmbreeIntersector12intersectRayERKN5Eigen6MatrixIfLi1ELi3ELi1ELi1ELi3EEES6_RNS_3HitIfEEffi(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(20), float noundef, float noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { noreturn nounwind }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

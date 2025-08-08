@@ -318,15 +318,9 @@ define dso_local noundef ptr @acct_storage_p_get_connection(i32 noundef %0, ptr 
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare ptr @dbd_conn_open(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 declare void @slurmdbd_agent_set_conn(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @acct_storage_p_close_connection(ptr noundef %0) local_unnamed_addr #0 {
@@ -344,11 +338,11 @@ define dso_local i32 @acct_storage_p_commit(ptr noundef %0, i1 noundef zeroext %
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_fini_msg, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
   %7 = zext i1 %1 to i16
@@ -363,14 +357,14 @@ define dso_local i32 @acct_storage_p_commit(ptr noundef %0, i1 noundef zeroext %
   %12 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @dbd_conn_send_recv_rc_msg(i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -379,11 +373,11 @@ define dso_local i32 @acct_storage_p_add_users(ptr noundef %0, i32 noundef %1, p
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -397,9 +391,9 @@ define dso_local i32 @acct_storage_p_add_users(ptr noundef %0, i32 noundef %1, p
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -409,13 +403,13 @@ define dso_local ptr @acct_storage_p_add_users_cond(ptr noundef %0, i32 noundef 
   %6 = alloca %struct.dbd_modify_msg_t, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store ptr %2, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -432,28 +426,28 @@ define dso_local ptr @acct_storage_p_add_users_cond(ptr noundef %0, i32 noundef 
   %15 = tail call ptr @__errno_location() #12
   store i32 %spec.select, ptr %15, align 4
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %16
 }
 
 declare i32 @dbd_conn_send_recv_rc_comment_msg(i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @acct_storage_p_add_coord(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_acct_coord_msg_t, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -467,9 +461,9 @@ define dso_local i32 @acct_storage_p_add_coord(ptr noundef %0, i32 noundef %1, p
   %13 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %13, 0
   %spec.select = select i1 %.not, i32 %12, i32 %13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %spec.select
 }
 
@@ -478,11 +472,11 @@ define dso_local i32 @acct_storage_p_add_accts(ptr noundef %0, i32 noundef %1, p
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -496,9 +490,9 @@ define dso_local i32 @acct_storage_p_add_accts(ptr noundef %0, i32 noundef %1, p
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -508,13 +502,13 @@ define dso_local ptr @acct_storage_p_add_accts_cond(ptr noundef %0, i32 noundef 
   %6 = alloca %struct.dbd_modify_msg_t, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store ptr %2, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -531,10 +525,10 @@ define dso_local ptr @acct_storage_p_add_accts_cond(ptr noundef %0, i32 noundef 
   %15 = tail call ptr @__errno_location() #12
   store i32 %spec.select, ptr %15, align 4
   %16 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %16
 }
 
@@ -543,11 +537,11 @@ define dso_local i32 @acct_storage_p_add_clusters(ptr noundef %0, i32 noundef %1
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -561,9 +555,9 @@ define dso_local i32 @acct_storage_p_add_clusters(ptr noundef %0, i32 noundef %1
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -572,11 +566,11 @@ define dso_local i32 @acct_storage_p_add_federations(ptr noundef %0, i32 noundef
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -590,9 +584,9 @@ define dso_local i32 @acct_storage_p_add_federations(ptr noundef %0, i32 noundef
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -601,11 +595,11 @@ define dso_local i32 @acct_storage_p_add_tres(ptr noundef %0, i32 noundef %1, pt
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %8
 
@@ -626,9 +620,9 @@ define dso_local i32 @acct_storage_p_add_tres(ptr noundef %0, i32 noundef %1, pt
 
 14:                                               ; preds = %3, %8
   %.04 = phi i32 [ %spec.select, %8 ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.04
 }
 
@@ -637,11 +631,11 @@ define dso_local i32 @acct_storage_p_add_assocs(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -655,9 +649,9 @@ define dso_local i32 @acct_storage_p_add_assocs(ptr noundef %0, i32 noundef %1, 
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -666,11 +660,11 @@ define dso_local i32 @acct_storage_p_add_qos(ptr noundef %0, i32 noundef %1, ptr
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -684,9 +678,9 @@ define dso_local i32 @acct_storage_p_add_qos(ptr noundef %0, i32 noundef %1, ptr
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -695,11 +689,11 @@ define dso_local i32 @acct_storage_p_add_res(ptr noundef %0, i32 noundef %1, ptr
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -713,9 +707,9 @@ define dso_local i32 @acct_storage_p_add_res(ptr noundef %0, i32 noundef %1, ptr
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -724,11 +718,11 @@ define dso_local i32 @acct_storage_p_add_wckeys(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -742,9 +736,9 @@ define dso_local i32 @acct_storage_p_add_wckeys(ptr noundef %0, i32 noundef %1, 
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -752,10 +746,10 @@ define dso_local i32 @acct_storage_p_add_wckeys(ptr noundef %0, i32 noundef %1, 
 define dso_local i32 @acct_storage_p_add_reservation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_rec_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %8
 
@@ -810,8 +804,8 @@ define dso_local i32 @acct_storage_p_add_reservation(ptr noundef %0, ptr noundef
 
 29:                                               ; preds = %25, %23, %16, %11, %6
   %.0 = phi i32 [ %28, %25 ], [ -1, %23 ], [ -1, %16 ], [ -1, %11 ], [ -1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -824,12 +818,12 @@ define dso_local ptr @acct_storage_p_modify_users(ptr noundef %0, i32 noundef %1
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -899,9 +893,9 @@ define dso_local ptr @acct_storage_p_modify_users(ptr noundef %0, i32 noundef %1
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -918,12 +912,12 @@ define dso_local ptr @acct_storage_p_modify_accts(ptr noundef %0, i32 noundef %1
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -993,9 +987,9 @@ define dso_local ptr @acct_storage_p_modify_accts(ptr noundef %0, i32 noundef %1
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1004,11 +998,11 @@ define dso_local ptr @acct_storage_p_modify_clusters(ptr noundef %0, i32 noundef
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_modify_msg_t, align 8
   %7 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1079,9 +1073,9 @@ define dso_local ptr @acct_storage_p_modify_clusters(ptr noundef %0, i32 noundef
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1090,11 +1084,11 @@ define dso_local ptr @acct_storage_p_modify_assocs(ptr noundef %0, i32 noundef %
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_modify_msg_t, align 8
   %7 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1165,9 +1159,9 @@ define dso_local ptr @acct_storage_p_modify_assocs(ptr noundef %0, i32 noundef %
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1176,11 +1170,11 @@ define dso_local ptr @acct_storage_p_modify_federations(ptr noundef %0, i32 noun
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_modify_msg_t, align 8
   %7 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1251,9 +1245,9 @@ define dso_local ptr @acct_storage_p_modify_federations(ptr noundef %0, i32 noun
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1262,12 +1256,12 @@ define dso_local ptr @acct_storage_p_modify_job(ptr noundef %0, i32 noundef %1, 
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -1352,9 +1346,9 @@ define dso_local ptr @acct_storage_p_modify_job(ptr noundef %0, i32 noundef %1, 
 
 47:                                               ; preds = %20, %40, %43, %39, %16
   %.0 = phi ptr [ null, %16 ], [ null, %20 ], [ %.1, %39 ], [ null, %40 ], [ %46, %43 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1363,12 +1357,12 @@ define dso_local ptr @acct_storage_p_modify_qos(ptr noundef %0, i32 noundef %1, 
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -1438,9 +1432,9 @@ define dso_local ptr @acct_storage_p_modify_qos(ptr noundef %0, i32 noundef %1, 
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1449,12 +1443,12 @@ define dso_local ptr @acct_storage_p_modify_res(ptr noundef %0, i32 noundef %1, 
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -1524,9 +1518,9 @@ define dso_local ptr @acct_storage_p_modify_res(ptr noundef %0, i32 noundef %1, 
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1535,12 +1529,12 @@ define dso_local ptr @acct_storage_p_modify_wckeys(ptr noundef %0, i32 noundef %
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_modify_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
@@ -1610,9 +1604,9 @@ define dso_local ptr @acct_storage_p_modify_wckeys(ptr noundef %0, i32 noundef %
 
 40:                                               ; preds = %32, %36, %33, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %32 ], [ null, %33 ], [ %39, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1620,10 +1614,10 @@ define dso_local ptr @acct_storage_p_modify_wckeys(ptr noundef %0, i32 noundef %
 define dso_local i32 @acct_storage_p_modify_reservation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_rec_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %8
 
@@ -1688,8 +1682,8 @@ define dso_local i32 @acct_storage_p_modify_reservation(ptr noundef %0, ptr noun
 
 34:                                               ; preds = %30, %28, %23, %16, %11, %6
   %.0 = phi i32 [ %33, %30 ], [ -1, %28 ], [ -1, %23 ], [ -1, %16 ], [ -1, %11 ], [ -1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -1698,11 +1692,11 @@ define dso_local ptr @acct_storage_p_remove_users(ptr noundef %0, i32 noundef %1
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1775,9 +1769,9 @@ define dso_local ptr @acct_storage_p_remove_users(ptr noundef %0, i32 noundef %1
 
 41:                                               ; preds = %30, %34, %31, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %30 ], [ null, %31 ], [ %37, %34 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1786,11 +1780,11 @@ define dso_local ptr @acct_storage_p_remove_coord(ptr noundef %0, i32 noundef %1
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_acct_coord_msg_t, align 8
   %7 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1869,9 +1863,9 @@ define dso_local ptr @acct_storage_p_remove_coord(ptr noundef %0, i32 noundef %1
 
 44:                                               ; preds = %36, %40, %37, %13
   %.0 = phi ptr [ null, %13 ], [ %.1, %36 ], [ null, %37 ], [ %43, %40 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1880,11 +1874,11 @@ define dso_local ptr @acct_storage_p_remove_accts(ptr noundef %0, i32 noundef %1
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1965,9 +1959,9 @@ define dso_local ptr @acct_storage_p_remove_accts(ptr noundef %0, i32 noundef %1
 
 45:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -1976,11 +1970,11 @@ define dso_local ptr @acct_storage_p_remove_clusters(ptr noundef %0, i32 noundef
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2061,9 +2055,9 @@ define dso_local ptr @acct_storage_p_remove_clusters(ptr noundef %0, i32 noundef
 
 45:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2072,11 +2066,11 @@ define dso_local ptr @acct_storage_p_remove_assocs(ptr noundef %0, i32 noundef %
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2157,9 +2151,9 @@ define dso_local ptr @acct_storage_p_remove_assocs(ptr noundef %0, i32 noundef %
 
 45:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2168,11 +2162,11 @@ define dso_local ptr @acct_storage_p_remove_federations(ptr noundef %0, i32 noun
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2253,9 +2247,9 @@ define dso_local ptr @acct_storage_p_remove_federations(ptr noundef %0, i32 noun
 
 45:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2264,11 +2258,11 @@ define dso_local ptr @acct_storage_p_remove_qos(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2345,9 +2339,9 @@ define dso_local ptr @acct_storage_p_remove_qos(ptr noundef %0, i32 noundef %1, 
 
 42:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2356,11 +2350,11 @@ define dso_local ptr @acct_storage_p_remove_res(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2437,9 +2431,9 @@ define dso_local ptr @acct_storage_p_remove_res(ptr noundef %0, i32 noundef %1, 
 
 42:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2448,11 +2442,11 @@ define dso_local ptr @acct_storage_p_remove_wckeys(ptr noundef %0, i32 noundef %
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
   %6 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %2, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2529,9 +2523,9 @@ define dso_local ptr @acct_storage_p_remove_wckeys(ptr noundef %0, i32 noundef %
 
 42:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2539,10 +2533,10 @@ define dso_local ptr @acct_storage_p_remove_wckeys(ptr noundef %0, i32 noundef %
 define dso_local i32 @acct_storage_p_remove_reservation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_rec_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %8
 
@@ -2597,8 +2591,8 @@ define dso_local i32 @acct_storage_p_remove_reservation(ptr noundef %0, ptr noun
 
 29:                                               ; preds = %25, %23, %16, %11, %6
   %.0 = phi i32 [ %28, %25 ], [ -1, %23 ], [ -1, %16 ], [ -1, %11 ], [ -1, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -2607,12 +2601,12 @@ define dso_local ptr @acct_storage_p_get_users(ptr noundef %0, i32 noundef %1, p
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1415, ptr %8, align 8
@@ -2684,9 +2678,9 @@ define dso_local ptr @acct_storage_p_get_users(ptr noundef %0, i32 noundef %1, p
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2695,12 +2689,12 @@ define dso_local ptr @acct_storage_p_get_accts(ptr noundef %0, i32 noundef %1, p
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1409, ptr %8, align 8
@@ -2773,9 +2767,9 @@ define dso_local ptr @acct_storage_p_get_accts(ptr noundef %0, i32 noundef %1, p
 
 42:                                               ; preds = %34, %38, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2786,12 +2780,12 @@ define dso_local ptr @acct_storage_p_get_clusters(ptr noundef %0, i32 noundef %1
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1412, ptr %8, align 8
@@ -2863,9 +2857,9 @@ define dso_local ptr @acct_storage_p_get_clusters(ptr noundef %0, i32 noundef %1
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2874,12 +2868,12 @@ define dso_local ptr @acct_storage_p_get_federations(ptr noundef %0, i32 noundef
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1494, ptr %8, align 8
@@ -2951,9 +2945,9 @@ define dso_local ptr @acct_storage_p_get_federations(ptr noundef %0, i32 noundef
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -2961,10 +2955,10 @@ define dso_local ptr @acct_storage_p_get_federations(ptr noundef %0, i32 noundef
 define dso_local ptr @acct_storage_p_get_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.b = load i1, ptr @first, align 4
   br i1 %.b, label %8, label %6
@@ -3044,8 +3038,8 @@ define dso_local ptr @acct_storage_p_get_config(ptr noundef %0, ptr noundef %1) 
 
 42:                                               ; preds = %34, %38, %35, %12
   %.0 = phi ptr [ null, %12 ], [ %.1, %34 ], [ null, %35 ], [ %41, %38 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -3054,12 +3048,12 @@ define dso_local ptr @acct_storage_p_get_tres(ptr noundef %0, i32 noundef %1, pt
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1486, ptr %8, align 8
@@ -3131,9 +3125,9 @@ define dso_local ptr @acct_storage_p_get_tres(ptr noundef %0, i32 noundef %1, pt
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3142,12 +3136,12 @@ define dso_local ptr @acct_storage_p_get_assocs(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1410, ptr %8, align 8
@@ -3219,9 +3213,9 @@ define dso_local ptr @acct_storage_p_get_assocs(ptr noundef %0, i32 noundef %1, 
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3230,12 +3224,12 @@ define dso_local ptr @acct_storage_p_get_events(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1470, ptr %8, align 8
@@ -3307,9 +3301,9 @@ define dso_local ptr @acct_storage_p_get_events(ptr noundef %0, i32 noundef %1, 
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3318,12 +3312,12 @@ define dso_local ptr @acct_storage_p_get_instances(ptr noundef %0, i32 noundef %
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1503, ptr %8, align 8
@@ -3395,9 +3389,9 @@ define dso_local ptr @acct_storage_p_get_instances(ptr noundef %0, i32 noundef %
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3406,12 +3400,12 @@ define dso_local ptr @acct_storage_p_get_problems(ptr noundef %0, i32 noundef %1
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1468, ptr %8, align 8
@@ -3483,9 +3477,9 @@ define dso_local ptr @acct_storage_p_get_problems(ptr noundef %0, i32 noundef %1
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3494,12 +3488,12 @@ define dso_local ptr @acct_storage_p_get_qos(ptr noundef %0, i32 noundef %1, ptr
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1448, ptr %8, align 8
@@ -3580,9 +3574,9 @@ define dso_local ptr @acct_storage_p_get_qos(ptr noundef %0, i32 noundef %1, ptr
 
 44:                                               ; preds = %33, %43, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %.2, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3591,12 +3585,12 @@ define dso_local ptr @acct_storage_p_get_res(ptr noundef %0, i32 noundef %1, ptr
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1478, ptr %8, align 8
@@ -3677,9 +3671,9 @@ define dso_local ptr @acct_storage_p_get_res(ptr noundef %0, i32 noundef %1, ptr
 
 44:                                               ; preds = %33, %43, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %.2, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3688,12 +3682,12 @@ define dso_local ptr @acct_storage_p_get_wckeys(ptr noundef %0, i32 noundef %1, 
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1453, ptr %8, align 8
@@ -3774,9 +3768,9 @@ define dso_local ptr @acct_storage_p_get_wckeys(ptr noundef %0, i32 noundef %1, 
 
 44:                                               ; preds = %33, %43, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %.2, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3785,12 +3779,12 @@ define dso_local ptr @acct_storage_p_get_reservations(ptr noundef %0, i32 nounde
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1464, ptr %8, align 8
@@ -3871,9 +3865,9 @@ define dso_local ptr @acct_storage_p_get_reservations(ptr noundef %0, i32 nounde
 
 44:                                               ; preds = %33, %43, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %.2, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3882,12 +3876,12 @@ define dso_local ptr @acct_storage_p_get_txn(ptr noundef %0, i32 noundef %1, ptr
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1445, ptr %8, align 8
@@ -3959,9 +3953,9 @@ define dso_local ptr @acct_storage_p_get_txn(ptr noundef %0, i32 noundef %1, ptr
 
 41:                                               ; preds = %33, %37, %34, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %33 ], [ null, %34 ], [ %40, %37 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3970,12 +3964,12 @@ define dso_local i32 @acct_storage_p_get_usage(ptr noundef %0, i32 noundef %1, p
   %7 = alloca %struct.persist_msg_t, align 8
   %8 = alloca %struct.persist_msg_t, align 8
   %9 = alloca %struct.dbd_usage_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4104,9 +4098,9 @@ define dso_local i32 @acct_storage_p_get_usage(ptr noundef %0, i32 noundef %1, p
 
 67:                                               ; preds = %20, %44, %64, %43, %15
   %.0 = phi i32 [ -1, %15 ], [ %19, %20 ], [ 0, %43 ], [ 0, %44 ], [ %.1, %64 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -4119,11 +4113,11 @@ define dso_local i32 @acct_storage_p_roll_usage(ptr noundef %0, i64 noundef %1, 
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_roll_usage_msg_t, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   store i64 0, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4152,9 +4146,9 @@ define dso_local i32 @acct_storage_p_roll_usage(ptr noundef %0, i64 noundef %1, 
 
 20:                                               ; preds = %5, %16, %19
   %.0 = phi i32 [ %14, %19 ], [ %14, %16 ], [ %15, %5 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4163,11 +4157,11 @@ define dso_local i32 @acct_storage_p_fix_runaway_jobs(ptr noundef %0, i32 nounde
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_list_msg_t, align 8
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
@@ -4181,9 +4175,9 @@ define dso_local i32 @acct_storage_p_fix_runaway_jobs(ptr noundef %0, i32 nounde
   %12 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %12, 0
   %spec.select = select i1 %.not, i32 %11, i32 %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %spec.select
 }
 
@@ -4191,10 +4185,10 @@ define dso_local i32 @acct_storage_p_fix_runaway_jobs(ptr noundef %0, i32 nounde
 define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_down(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.persist_msg_t, align 8
   %7 = alloca %struct.dbd_node_state_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %12
 
@@ -4233,15 +4227,15 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_down(ptr nound
   store ptr %7, ptr %27, align 8
   %28 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 11008, ptr noundef nonnull %6) #11
   %.lobit = ashr i32 %28, 31
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.lobit
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @acct_storage_p_node_inx(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %38, label %4
 
@@ -4341,7 +4335,7 @@ define dso_local ptr @acct_storage_p_node_inx(ptr noundef readnone captures(none
 
 38:                                               ; preds = %35, %37, %16, %17, %2
   %.0 = phi ptr [ null, %2 ], [ null, %17 ], [ null, %16 ], [ %36, %37 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
@@ -4371,7 +4365,7 @@ declare i32 @slurm_hostlist_find(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @slurm_bit_fmt_full(ptr noundef) local_unnamed_addr #2
 
@@ -4379,10 +4373,10 @@ declare ptr @slurm_bit_fmt_full(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_up(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_node_state_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 15
@@ -4413,8 +4407,8 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_up(ptr noundef
 
 21:                                               ; preds = %12, %3
   %.0 = phi i32 [ 0, %3 ], [ %.lobit, %12 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4422,10 +4416,10 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_up(ptr noundef
 define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_node_state_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 15
@@ -4470,8 +4464,8 @@ define dso_local range(i32 -1, 1) i32 @clusteracct_storage_p_node_update(ptr nou
 
 32:                                               ; preds = %12, %3
   %.0 = phi i32 [ 0, %3 ], [ %.lobit, %12 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -4483,10 +4477,10 @@ define dso_local range(i32 10006, 10004) i32 @clusteracct_storage_p_cluster_tres
   %9 = alloca %struct.assoc_mgr_lock_t, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.clusteracct_storage_p_cluster_tres.node_write_lock) #11
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) @__const._update_cluster_nodes.locks, i64 28, i1 false)
   tail call void @slurm_xfree(ptr noundef nonnull @cluster_nodes) #11
   %12 = load i32, ptr @prev_node_record_count, align 4
@@ -4573,7 +4567,7 @@ define dso_local range(i32 10006, 10004) i32 @clusteracct_storage_p_cluster_tres
   unreachable
 
 _update_cluster_nodes.exit:                       ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %44 = load ptr, ptr @cluster_nodes, align 8
   %45 = call ptr @slurm_xstrdup(ptr noundef %44) #11
   store ptr %45, ptr %10, align 8
@@ -4582,19 +4576,19 @@ _update_cluster_nodes.exit:                       ; preds = %38
   store ptr %47, ptr %11, align 8
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const.clusteracct_storage_p_cluster_tres.node_write_lock) #11
   %48 = call i64 @time(ptr noundef null) #11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1407, ptr %49, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4
   %.not.i13 = icmp eq ptr %47, null
   br i1 %.not.i13, label %_send_cluster_tres.exit.thread, label %50
 
 _send_cluster_tres.exit.thread:                   ; preds = %_update_cluster_nodes.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @slurm_xfree(ptr noundef nonnull %10) #11
   call void @slurm_xfree(ptr noundef nonnull %11) #11
   br label %60
@@ -4619,9 +4613,9 @@ _send_cluster_tres.exit:                          ; preds = %50, %53
   store ptr %7, ptr %56, align 8
   %57 = call i32 @dbd_conn_send_recv_rc_msg(i16 noundef zeroext 11008, ptr noundef nonnull %6, ptr noundef nonnull %8) #11
   %58 = load i32, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @slurm_xfree(ptr noundef nonnull %10) #11
   call void @slurm_xfree(ptr noundef nonnull %11) #11
   switch i32 %58, label %60 [
@@ -4636,13 +4630,13 @@ _send_cluster_tres.exit:                          ; preds = %50, %53
 
 60:                                               ; preds = %_send_cluster_tres.exit.thread, %_send_cluster_tres.exit, %59
   %.0 = phi i32 [ 0, %59 ], [ %58, %_send_cluster_tres.exit ], [ -1, %_send_cluster_tres.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @lock_slurmctld(ptr noundef byval(%struct.slurmctld_lock_t) align 8) local_unnamed_addr #2
 
@@ -4696,11 +4690,11 @@ define dso_local i32 @clusteracct_storage_p_register_ctld(ptr noundef %0, i16 no
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_register_ctld_msg, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4754,21 +4748,21 @@ define dso_local i32 @clusteracct_storage_p_register_ctld(ptr noundef %0, i16 no
 32:                                               ; preds = %27, %30, %16, %20
   %33 = call i32 @dbd_conn_send_recv_rc_msg(i16 noundef zeroext 11008, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %34 = load i32, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %34
 }
 
 declare i32 @slurmdb_setup_cluster_flags() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @clusteracct_storage_p_register_disconn_ctld(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
+define dso_local noundef i32 @clusteracct_storage_p_register_disconn_ctld(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @clusteracct_storage_p_fini_ctld(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i16 noundef zeroext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #9 {
+define dso_local noundef i32 @clusteracct_storage_p_fini_ctld(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i16 noundef zeroext %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #8 {
   ret i32 0
 }
 
@@ -4776,9 +4770,9 @@ define dso_local noundef i32 @clusteracct_storage_p_fini_ctld(ptr noundef readno
 define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dbd_job_start_msg, align 8
   %4 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %3, i8 0, i64 320, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
@@ -5111,8 +5105,8 @@ _fill_stdout_str.exit:                            ; preds = %143, %142, %136, %1
 
 204:                                              ; preds = %157, %199, %13
   %.0 = phi i32 [ 0, %199 ], [ -1, %13 ], [ -1, %157 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5125,10 +5119,10 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 34359738432
@@ -5164,16 +5158,16 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
   br i1 %.not21, label %40, label %25
 
 25:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = call ptr @get_job_env(ptr noundef nonnull %1, ptr noundef nonnull %5) #11
   store ptr %26, ptr %6, align 8
   %.not22 = icmp eq ptr %26, null
   br i1 %.not22, label %34, label %27
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %28 = load i32, ptr %5, align 4
   %.not26 = icmp eq i32 %28, 0
@@ -5182,7 +5176,7 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   call void @slurm_xfree(ptr noundef nonnull %26) #11
   call void @slurm_xfree(ptr noundef nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %34
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
@@ -5203,8 +5197,8 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %38, ptr %39, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i64, ptr %9, align 8
   br label %40
 
@@ -5249,8 +5243,8 @@ define dso_local i32 @jobacct_storage_p_job_heavy(ptr noundef %0, ptr noundef %1
 
 59:                                               ; preds = %2, %58, %21
   %.015 = phi i32 [ %54, %58 ], [ -1, %21 ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.015
 }
 
@@ -5266,9 +5260,9 @@ declare void @slurm_free_buf(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_job_comp_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
@@ -5441,8 +5435,8 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
 
 97:                                               ; preds = %93, %13
   %.0 = phi i32 [ -1, %13 ], [ %.lobit, %93 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5450,10 +5444,10 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_job_complete(ptr nounde
 define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_step_start(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_step_start_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   %6 = call i32 @as_build_step_start_msg(ptr noundef nonnull %4, ptr noundef %1) #11
   %.not = icmp eq i32 %6, 0
@@ -5471,8 +5465,8 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_step_start(ptr noundef 
 
 11:                                               ; preds = %7, %2
   %.0 = phi i32 [ -1, %2 ], [ %.lobit, %7 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5482,10 +5476,10 @@ declare i32 @as_build_step_start_msg(ptr noundef, ptr noundef) local_unnamed_add
 define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_step_complete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_step_comp_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   %6 = call i32 @as_build_step_comp_msg(ptr noundef nonnull %4, ptr noundef %1) #11
   %.not = icmp eq i32 %6, 0
@@ -5503,8 +5497,8 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_step_complete(ptr nound
 
 11:                                               ; preds = %7, %2
   %.0 = phi i32 [ -1, %2 ], [ %.lobit, %7 ]
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5514,10 +5508,10 @@ declare i32 @as_build_step_comp_msg(ptr noundef, ptr noundef) local_unnamed_addr
 define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_suspend(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_job_suspend_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load i32, ptr %6, align 8
@@ -5569,8 +5563,8 @@ define dso_local range(i32 -1, 1) i32 @jobacct_storage_p_suspend(ptr noundef %0,
   store ptr %4, ptr %32, align 8
   %33 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 11008, ptr noundef nonnull %3) #11
   %.lobit = ashr i32 %33, 31
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.lobit
 }
 
@@ -5579,12 +5573,12 @@ define dso_local ptr @jobacct_storage_p_get_jobs_cond(ptr noundef %0, i32 nounde
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.persist_msg_t, align 8
   %6 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 1444, ptr %8, align 8
@@ -5670,9 +5664,9 @@ define dso_local ptr @jobacct_storage_p_get_jobs_cond(ptr noundef %0, i32 nounde
 
 49:                                               ; preds = %34, %48, %35, %11
   %.0 = phi ptr [ null, %11 ], [ %.1, %34 ], [ null, %35 ], [ %41, %48 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -5681,12 +5675,12 @@ define dso_local i32 @jobacct_storage_p_archive(ptr noundef %0, ptr noundef %1) 
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.persist_msg_t, align 8
   %5 = alloca %struct.dbd_cond_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 1459, ptr %7, align 8
@@ -5742,9 +5736,9 @@ define dso_local i32 @jobacct_storage_p_archive(ptr noundef %0, ptr noundef %1) 
 
 34:                                               ; preds = %31, %32, %10
   %.0 = phi i32 [ %9, %10 ], [ %20, %31 ], [ -1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5752,10 +5746,10 @@ define dso_local i32 @jobacct_storage_p_archive(ptr noundef %0, ptr noundef %1) 
 define dso_local i32 @jobacct_storage_p_archive_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 1460, ptr %6, align 8
@@ -5815,15 +5809,15 @@ define dso_local i32 @jobacct_storage_p_archive_load(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %31, %32, %9
   %.0 = phi i32 [ %8, %9 ], [ %20, %31 ], [ -1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 declare ptr @rpc_num2string(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @acct_storage_p_update_shares_used(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
+define dso_local noundef i32 @acct_storage_p_update_shares_used(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
   ret i32 0
 }
 
@@ -5831,10 +5825,10 @@ define dso_local noundef i32 @acct_storage_p_update_shares_used(ptr noundef read
 define dso_local range(i32 -1, 1) i32 @acct_storage_p_flush_jobs_on_cluster(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.dbd_cluster_tres_msg, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call i32 @slurm_get_log_level() #11
   %7 = icmp sgt i32 %6, 2
   br i1 %7, label %8, label %9
@@ -5856,8 +5850,8 @@ define dso_local range(i32 -1, 1) i32 @acct_storage_p_flush_jobs_on_cluster(ptr 
   store ptr %4, ptr %13, align 8
   %14 = call i32 @slurmdbd_agent_send(i16 noundef zeroext 11008, ptr noundef nonnull %3) #11
   %.lobit = ashr i32 %14, 31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.lobit
 }
 
@@ -5865,10 +5859,10 @@ define dso_local range(i32 -1, 1) i32 @acct_storage_p_flush_jobs_on_cluster(ptr 
 define dso_local i32 @acct_storage_p_reconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   br i1 %1, label %7, label %6
 
@@ -5887,8 +5881,8 @@ define dso_local i32 @acct_storage_p_reconfig(ptr noundef %0, i1 noundef zeroext
 
 11:                                               ; preds = %7, %6
   %.0 = phi i32 [ %10, %7 ], [ 0, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5898,10 +5892,10 @@ declare void @ext_dbd_reconfig() local_unnamed_addr #2
 define dso_local i32 @acct_storage_p_get_stats(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca %struct.persist_msg_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 1489, ptr %6, align 8
@@ -5966,8 +5960,8 @@ define dso_local i32 @acct_storage_p_get_stats(ptr noundef %0, ptr noundef write
 
 36:                                               ; preds = %28, %33, %30, %8
   %.0 = phi i32 [ %7, %8 ], [ %29, %28 ], [ -1, %30 ], [ 0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -5975,18 +5969,18 @@ define dso_local i32 @acct_storage_p_get_stats(ptr noundef %0, ptr noundef write
 define dso_local i32 @acct_storage_p_clear_stats(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.persist_msg_t, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 1491, ptr %5, align 8
   store ptr %0, ptr %2, align 8
   %6 = call i32 @dbd_conn_send_recv_rc_msg(i16 noundef zeroext 11008, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %7 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
@@ -6031,18 +6025,18 @@ declare i32 @send_nodes_to_accounting(i64 noundef) local_unnamed_addr #2
 define dso_local i32 @acct_storage_p_shutdown(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.persist_msg_t, align 8
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i16 1492, ptr %5, align 8
   store ptr %0, ptr %2, align 8
   %6 = call i32 @dbd_conn_send_recv_rc_msg(i16 noundef zeroext 11008, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %7 = load i32, ptr %3, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %7
 }
 
@@ -6070,16 +6064,22 @@ declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #2
 
 declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(none) }

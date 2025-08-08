@@ -40,7 +40,7 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   %16 = extractvalue { ptr, i64 } %13, 1
   store i8 10, ptr %8, align 1
   store i8 13, ptr %7, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %8, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %17, align 8
@@ -57,13 +57,13 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
 23:                                               ; preds = %15
   %24 = extractvalue { i64, ptr } %19, 1
   %25 = call i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr %24, ptr nonnull align 1 %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %26 = icmp ugt i64 %25, 4294967295
   br i1 %26, label %.split, label %.split7
 
 27:                                               ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %28 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hf2778d3f892431efE(i32 65279, ptr nonnull align 1 %5, i64 4)
   %29 = extractvalue { ptr, i64 } %28, 0
@@ -77,7 +77,7 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
 
 "_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$GT$16bom_start_offset17h1c32dca77835c952E.exit": ; preds = %27, %32
   %.sroa.0.0.i8 = phi i32 [ %33, %32 ], [ 0, %27 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 .split7:                                          ; preds = %23
@@ -88,7 +88,6 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   br label %38
 
 .split:                                           ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.c9ce67dde11a423340eb3fa1f4df360d.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.0, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.6) #5
   unreachable
 
@@ -158,7 +157,6 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   br label %25
 
 .split:                                           ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.c9ce67dde11a423340eb3fa1f4df360d.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.0, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.8) #5
   unreachable
 
@@ -172,7 +170,6 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   br label %25
 
 .split12:                                         ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.c9ce67dde11a423340eb3fa1f4df360d.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.0, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.10) #5
   unreachable
 }
@@ -195,7 +192,7 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   %13 = extractvalue { ptr, i64 } %10, 1
   store i8 10, ptr %7, align 1
   store i8 13, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %14, align 8
@@ -212,12 +209,12 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
 20:                                               ; preds = %12
   %21 = extractvalue { i64, ptr } %16, 1
   %22 = call i64 @"_ZN56_$LT$$BP$const$u20$T$u20$as$u20$memchr..ext..Pointer$GT$8distance17hf3b4155f07bfebbfE"(ptr %21, ptr nonnull align 1 %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = icmp ugt i64 %22, 4294967295
   br i1 %23, label %.split, label %.split9
 
 24:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = icmp ugt i64 %1, 4294967295
   br i1 %25, label %.split11, label %.split13
 
@@ -229,7 +226,6 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   br label %30
 
 .split:                                           ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.c9ce67dde11a423340eb3fa1f4df360d.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.0, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.12) #5
   unreachable
 
@@ -243,7 +239,6 @@ define i32 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_ranges..LineRanges$
   br label %30
 
 .split11:                                         ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
   call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr nonnull align 1 @anon.c9ce67dde11a423340eb3fa1f4df360d.1, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.0, ptr nonnull align 8 @anon.c9ce67dde11a423340eb3fa1f4df360d.10) #5
   unreachable
 }
@@ -307,7 +302,7 @@ define noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_rang
   %14 = extractvalue { ptr, i64 } %11, 1
   store i8 10, ptr %7, align 1
   store i8 13, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %7, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %15, align 8
@@ -323,7 +318,7 @@ define noundef zeroext i1 @"_ZN65_$LT$str$u20$as$u20$ruff_source_file..line_rang
   br label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h5c0f1e9c798871a0E.exit: ; preds = %13, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %19
 
 23:                                               ; preds = %4
@@ -434,10 +429,10 @@ declare { i32, i32 } @_ZN16ruff_source_file11line_ranges10LineRanges11lines_rang
 declare { i32, i32 } @_ZN16ruff_source_file11line_ranges10LineRanges16full_lines_range17h29b89ead5601752bE(ptr align 1, i64, i32, i32) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

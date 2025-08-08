@@ -749,7 +749,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   br label %82
 
 59:                                               ; preds = %init_txfm_param.exit
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %60 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %40
   %61 = load i32, ptr %60, align 4
   %62 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %40
@@ -817,7 +817,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   br i1 %exitcond63.not.i, label %av1_inv_txfm_add_c.exit, label %.preheader.us.i, !llvm.loop !9
 
 av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %82
 
 82:                                               ; preds = %9, %av1_inv_txfm_add_c.exit, %58
@@ -828,10 +828,10 @@ av1_inv_txfm_add_c.exit:                          ; preds = %._crit_edge.us42.i
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

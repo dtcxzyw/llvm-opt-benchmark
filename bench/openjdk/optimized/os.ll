@@ -694,7 +694,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
   %22 = getelementptr i8, ptr %21, i64 -1
   %23 = load i8, ptr %22, align 1
   %24 = sub i64 %1, %20
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %23, %26
@@ -717,7 +717,7 @@ define hidden noundef zeroext i1 @_ZN2os14dll_locate_libEPcmPKcS2_(ptr noundef %
 
 _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   %.0.i = phi i1 [ %35, %33 ], [ false, %30 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %85
 
 36:                                               ; preds = %15
@@ -754,7 +754,7 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   %51 = getelementptr i8, ptr %45, i64 %48
   %52 = getelementptr i8, ptr %51, i64 -1
   %53 = load i8, ptr %52, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %54 = call noundef ptr @_ZN2os14file_separatorEv() #28
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %53, %55
@@ -771,13 +771,13 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit:   ; preds = %30, %33
   br i1 %.not.i60, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread, label %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62
 
 _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread: ; preds = %59
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread67
 
 _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62: ; preds = %59
   %62 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %6) #28
   %63 = icmp eq i32 %62, 0
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %63, label %.lr.ph.i.preheader, label %.thread67
 
 .thread67:                                        ; preds = %.lr.ph, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62.thread, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit62, %47
@@ -814,7 +814,7 @@ _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %69, %.preheader
   %71 = getelementptr i8, ptr %2, i64 %16
   %72 = getelementptr i8, ptr %71, i64 -1
   %73 = load i8, ptr %72, align 1
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %74 = tail call noundef ptr @_ZN2os14file_separatorEv() #28
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %73, %75
@@ -837,7 +837,7 @@ _ZL25free_array_of_char_arraysPPcm.exit:          ; preds = %69, %.preheader
 
 _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66: ; preds = %79, %82
   %.0.i65 = phi i1 [ %84, %82 ], [ false, %79 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %85
 
 85:                                               ; preds = %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit, %.thread, %41, %_ZL25free_array_of_char_arraysPPcm.exit, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, %4
@@ -1446,7 +1446,7 @@ define hidden noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef readonly captu
   %3 = alloca %class.NativeCallStack, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #29
   %5 = add i64 %4, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %8, label %_ZN2os6mallocEm8MEMFLAGS.exit
@@ -1457,7 +1457,7 @@ define hidden noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef readonly captu
 
 _ZN2os6mallocEm8MEMFLAGS.exit:                    ; preds = %2, %8
   %9 = call noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
 
@@ -1493,7 +1493,7 @@ define hidden noundef nonnull ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr nou
   %3 = alloca %class.NativeCallStack, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #29
   %5 = add i64 %4, 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %8, label %_ZN2os6mallocEm8MEMFLAGS.exit.i
@@ -1504,7 +1504,7 @@ define hidden noundef nonnull ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr nou
 
 _ZN2os6mallocEm8MEMFLAGS.exit.i:                  ; preds = %8, %2
   %9 = call noundef ptr @_ZN2os6mallocEm8MEMFLAGSRK15NativeCallStack(i64 noundef %5, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
 
@@ -2287,12 +2287,12 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
   br label %.thread.i
 
 .thread.i:                                        ; preds = %56, %54, %51, %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %47, ptr %8, align 8
   br label %.lr.ph.i.i.preheader
 
 57:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %47, ptr %8, align 8
   br i1 %27, label %.lr.ph.i.i.preheader, label %_ZL16print_ascii_formR12stringStreammi.exit.i
 
@@ -2315,7 +2315,7 @@ define hidden void @_ZN2os14print_hex_dumpEP12outputStreamPKhS3_ibiS3_(ptr nound
   br i1 %exitcond.not.i.i, label %_ZL16print_ascii_formR12stringStreammi.exit.i, label %.lr.ph.i.i, !llvm.loop !18
 
 _ZL16print_ascii_formR12stringStreammi.exit.i:    ; preds = %.lr.ph.i.i, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZL18print_hex_locationP12outputStreamPKhiR12stringStream.exit
 
 _ZL16read_safely_fromPKmPm.exit.i:                ; preds = %40
@@ -4171,7 +4171,7 @@ define hidden noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %0, i1
 
 11:                                               ; preds = %7, %10
   %12 = phi i32 [ %8, %7 ], [ %.pr, %10 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -4182,7 +4182,7 @@ define hidden noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %0, i1
   br label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %11, %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %24, label %17
@@ -4247,7 +4247,7 @@ define hidden noundef ptr @_ZN2os25attempt_reserve_memory_atEPcmb8MEMFLAGS(ptr n
 
 12:                                               ; preds = %8, %11
   %13 = phi i32 [ %9, %8 ], [ %.pr, %11 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -4258,7 +4258,7 @@ define hidden noundef ptr @_ZN2os25attempt_reserve_memory_atEPcmb8MEMFLAGS(ptr n
   br label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %12, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %28, label %18
@@ -4499,7 +4499,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 
 120:                                              ; preds = %116, %119
   %121 = phi i32 [ %117, %116 ], [ %.pr, %119 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %122 = icmp sgt i32 %121, 1
   br i1 %122, label %123, label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -4510,7 +4510,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   br label %_ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %120, %123
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
 .loopexit:                                        ; preds = %105, %93
@@ -4668,7 +4668,7 @@ define hidden noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef %0, i64
 
 11:                                               ; preds = %7, %10
   %12 = phi i32 [ %8, %7 ], [ %.pre, %10 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = icmp sgt i32 %12, 1
   %14 = icmp ne ptr %0, null
   %or.cond.i = and i1 %14, %13
@@ -4681,7 +4681,7 @@ define hidden noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef %0, i64
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %11, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %28, label %18
@@ -4730,7 +4730,7 @@ define hidden noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %0, i6
 
 12:                                               ; preds = %8, %11
   %13 = phi i32 [ %9, %8 ], [ %.pre, %11 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = icmp sgt i32 %13, 1
   %15 = icmp ne ptr %0, null
   %or.cond.i = and i1 %15, %14
@@ -4743,7 +4743,7 @@ define hidden noundef zeroext i1 @_ZN2os13commit_memoryEPcmmb(ptr noundef %0, i6
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %12, %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not17 = icmp eq ptr %18, null
   br i1 %.not17, label %29, label %19
@@ -4789,7 +4789,7 @@ define hidden void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef %0, i64 no
 
 10:                                               ; preds = %4, %9
   %11 = phi i32 [ %7, %4 ], [ %.pre, %9 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = icmp sgt i32 %11, 1
   %13 = icmp ne ptr %0, null
   %or.cond.i = and i1 %13, %12
@@ -4802,7 +4802,7 @@ define hidden void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef %0, i64 no
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %10, %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4824,7 +4824,7 @@ define hidden void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %0, i64 n
 
 11:                                               ; preds = %5, %10
   %12 = phi i32 [ %8, %5 ], [ %.pre, %10 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = icmp sgt i32 %12, 1
   %14 = icmp ne ptr %0, null
   %or.cond.i = and i1 %14, %13
@@ -4837,7 +4837,7 @@ define hidden void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %0, i64 n
   br label %_ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit
 
 _ZN10MemTracker28record_virtual_memory_commitEPvmRK15NativeCallStack.exit: ; preds = %11, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -5047,7 +5047,7 @@ define hidden noundef ptr @_ZN2os18map_memory_to_fileEmi8MEMFLAGS(i64 noundef %0
 
 11:                                               ; preds = %7, %10
   %12 = phi i32 [ %8, %7 ], [ %.pr, %10 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -5059,7 +5059,7 @@ define hidden noundef ptr @_ZN2os18map_memory_to_fileEmi8MEMFLAGS(i64 noundef %0
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %11, %14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %17
 
 17:                                               ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit, %3
@@ -5088,7 +5088,7 @@ define hidden noundef ptr @_ZN2os29attempt_map_memory_to_file_atEPcmi8MEMFLAGS(p
 
 12:                                               ; preds = %8, %11
   %13 = phi i32 [ %9, %8 ], [ %.pr, %11 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -5100,7 +5100,7 @@ define hidden noundef ptr @_ZN2os29attempt_map_memory_to_file_atEPcmi8MEMFLAGS(p
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %12, %15
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %18
 
 18:                                               ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit, %4
@@ -5129,7 +5129,7 @@ define hidden noundef ptr @_ZN2os10map_memoryEiPKcmPcmbb8MEMFLAGS(i32 noundef %0
 
 16:                                               ; preds = %12, %15
   %17 = phi i32 [ %13, %12 ], [ %.pr, %15 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %18 = icmp sgt i32 %17, 1
   br i1 %18, label %19, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -5141,7 +5141,7 @@ define hidden noundef ptr @_ZN2os10map_memoryEiPKcmPcmbb8MEMFLAGS(i32 noundef %0
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %16, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %22
 
 22:                                               ; preds = %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit, %8
@@ -5224,7 +5224,7 @@ define hidden noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %0,
 
 13:                                               ; preds = %9, %12
   %14 = phi i32 [ %10, %9 ], [ %.pr, %12 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
@@ -5236,7 +5236,7 @@ define hidden noundef ptr @_ZN2os22reserve_memory_specialEmmmPcb(i64 noundef %0,
   br label %_ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit
 
 _ZN10MemTracker40record_virtual_memory_reserve_and_commitEPvmRK15NativeCallStack8MEMFLAGS.exit: ; preds = %13, %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %19, null
   br i1 %.not13, label %27, label %20
@@ -5834,10 +5834,10 @@ declare i64 @llvm.umin.i64(i64, i64) #26
 declare i64 @llvm.abs.i64(i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }

@@ -2927,7 +2927,7 @@ if.end39:                                         ; preds = %if.end82.i476, %if.
 
 if.then.i423:                                     ; preds = %if.end39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %87, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i) #17
@@ -2937,7 +2937,7 @@ if.then.i423:                                     ; preds = %if.end39
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i, align 8
   %90 = load ptr, ptr %87, align 8
   store i8 0, ptr %90, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i)
   %91 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %91, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
@@ -2952,7 +2952,7 @@ _ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12emplace_backIJEEERS2_DpOT_
   %92 = phi ptr [ %incdec.ptr.i, %if.then.i423 ], [ %.pre, %if.else.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %92, i64 -40
   %add.ptr43 = getelementptr inbounds i8, ptr %data, i64 %86
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr.i.i, ptr noundef %add.ptr43, i64 noundef %sz34.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -2981,7 +2981,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i,
   resume { ptr, i32 } %94
 
 _ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i425
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end49, label %if.then47
 
 if.then47:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcm.exit
@@ -3538,7 +3538,7 @@ if.end5:                                          ; preds = %if.end82.i, %if.the
   %28 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 -96
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %27
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %unknown_fields.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i, i8 0, i64 24, i1 false)
   %call.i = invoke noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN8tutorial6PersonEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i, ptr noundef %add.ptr, i64 noundef %sz.0, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -3567,7 +3567,7 @@ _ZN9struct_pb13UnknownFieldsD2Ev.exit3.i:         ; preds = %if.then.i.i.i.i2.i,
   resume { ptr, i32 } %30
 
 _ZN9struct_pb8internal14deserialize_toIN8tutorial6PersonEEEbRT_PKcm.exit: ; preds = %invoke.cont.i, %if.then.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %unknown_fields.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %unknown_fields.i)
   br i1 %call.i, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %_ZN9struct_pb8internal14deserialize_toIN8tutorial6PersonEEEbRT_PKcm.exit
@@ -3607,7 +3607,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
@@ -3617,9 +3617,9 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %email.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1.i.i.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #17
@@ -3629,7 +3629,7 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr %_M_string_length.i.i.i2.i.i.i, align 8
   %5 = load ptr, ptr %email.i.i.i, align 8
   store i8 0, ptr %5, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1.i.i.i)
   %phones.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones.i.i.i, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_M_finish, align 8
@@ -3857,7 +3857,7 @@ _ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(36) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
@@ -3867,7 +3867,7 @@ _ZNKSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE12_M_check_lenEmPKc.exit: ;
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN8tutorial6Person11PhoneNumberESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -4036,7 +4036,7 @@ _ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #15
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i) #17
@@ -4046,9 +4046,9 @@ _ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr, align 8
   store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %email.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1.i.i.i)
   %5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #17
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %email.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1.i.i.i) #17
@@ -4058,7 +4058,7 @@ _ZNKSt6vectorIN8tutorial6PersonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   store i64 0, ptr %_M_string_length.i.i.i2.i.i.i, align 8
   %6 = load ptr, ptr %email.i.i.i, align 8
   store i8 0, ptr %6, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i1.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1.i.i.i)
   %phones.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %phones.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -4296,10 +4296,10 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

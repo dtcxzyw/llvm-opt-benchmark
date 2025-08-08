@@ -415,7 +415,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %5 = alloca [2 x i8], align 2
   %6 = alloca %struct.DISASMED, align 8
   %7 = alloca [128 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %8, i8 0, i64 29, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -518,7 +518,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %or.cond647.i, label %67, label %66
 
 66:                                               ; preds = %62
-  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 67:                                               ; preds = %62
@@ -540,7 +540,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %73
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 1311, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 1311, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 78:                                               ; preds = %73
@@ -603,7 +603,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %110
 
 109:                                              ; preds = %94
-  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1331, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 1331, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 110:                                              ; preds = %103, %94
@@ -838,7 +838,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %202, label %204, label %203
 
 203:                                              ; preds = %199
-  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1407, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 1407, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 204:                                              ; preds = %199, %193, %193, %193, %193
@@ -848,7 +848,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %switch.i, label %207, label %208
 
 207:                                              ; preds = %204
-  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 1413, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, i32 noundef 1413, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 208:                                              ; preds = %204, %193, %193, %193, %193
@@ -858,7 +858,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %211, label %213, label %212
 
 212:                                              ; preds = %208
-  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 1419, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 1419, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 213:                                              ; preds = %208
@@ -899,7 +899,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   ]
 
 234:                                              ; preds = %231
-  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 1427, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, i32 noundef 1427, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 235:                                              ; preds = %231
@@ -932,7 +932,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %253, label %255, label %254
 
 254:                                              ; preds = %249
-  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, i32 noundef 1438, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2, i32 noundef 1438, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 255:                                              ; preds = %249
@@ -946,7 +946,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %.not632.i, label %262, label %263
 
 262:                                              ; preds = %255
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1440, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1440, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 263:                                              ; preds = %255
@@ -1057,7 +1057,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.sink.split1043.i
 
 303:                                              ; preds = %293
-  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 1515, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.2, i32 noundef 1515, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 .sink.split1043.i:                                ; preds = %302, %299, %293
@@ -1131,7 +1131,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %339, label %341, label %340
 
 340:                                              ; preds = %338
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 1532, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 1532, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 341:                                              ; preds = %338
@@ -1375,7 +1375,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %460, label %462, label %461
 
 461:                                              ; preds = %459
-  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 1604, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.2, i32 noundef 1604, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 462:                                              ; preds = %459
@@ -1427,7 +1427,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   ]
 
 487:                                              ; preds = %484
-  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef 1622, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef 1622, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 488:                                              ; preds = %484, %484
@@ -1439,7 +1439,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %.not620.i, label %493, label %494
 
 493:                                              ; preds = %488
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1624, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1624, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 494:                                              ; preds = %488
@@ -1452,7 +1452,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %.not621.i, label %500, label %501
 
 500:                                              ; preds = %494
-  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef 1627, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef 1627, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 501:                                              ; preds = %494
@@ -1496,7 +1496,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.backedge.i.backedge
 
 514:                                              ; preds = %193
-  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 1640, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 1640, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 515:                                              ; preds = %.backedge.i
@@ -1533,7 +1533,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   ]
 
 528:                                              ; preds = %523
-  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 1653, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.2, i32 noundef 1653, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 529:                                              ; preds = %523, %523
@@ -1598,7 +1598,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %559, label %561, label %560
 
 560:                                              ; preds = %556
-  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 1669, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.2, i32 noundef 1669, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 561:                                              ; preds = %556
@@ -1646,7 +1646,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   ]
 
 584:                                              ; preds = %581
-  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, i32 noundef 1685, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.2, i32 noundef 1685, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 585:                                              ; preds = %581, %581
@@ -1658,7 +1658,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %.not.i, label %590, label %591
 
 590:                                              ; preds = %585
-  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 591:                                              ; preds = %585
@@ -1671,7 +1671,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br i1 %.not608.i, label %597, label %598
 
 597:                                              ; preds = %591
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.2, i32 noundef 1690, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 598:                                              ; preds = %591
@@ -1743,7 +1743,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.backedge.i
 
 611:                                              ; preds = %515
-  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.2, i32 noundef 1703, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #10
+  tail call void @__assert_fail(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.2, i32 noundef 1703, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
   unreachable
 
 612:                                              ; preds = %.backedge.i
@@ -1760,13 +1760,13 @@ default.unreachable:                              ; preds = %.backedge.i
   br i1 %.not44, label %718, label %615
 
 615:                                              ; preds = %614
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 0, ptr %5, align 2
   %616 = zext i16 %28 to i64
   %617 = getelementptr inbounds nuw [287 x ptr], ptr @mnemonic, i64 0, i64 %616
   %618 = load ptr, ptr %617, align 8, !tbaa !29
-  %619 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %618) #9
+  %619 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %618) #10
   %620 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
   %621 = getelementptr inbounds nuw i8, ptr %7, i64 %620
   br label %622
@@ -1790,7 +1790,7 @@ default.unreachable:                              ; preds = %.backedge.i
   br i1 %628, label %629, label %633
 
 629:                                              ; preds = %625
-  %630 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %5, i64 noundef %627) #9
+  %630 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %5, i64 noundef %627) #10
   %631 = sext i32 %630 to i64
   %632 = getelementptr inbounds i8, ptr %.06980.i, i64 %631
   br label %717
@@ -1798,7 +1798,7 @@ default.unreachable:                              ; preds = %.backedge.i
 633:                                              ; preds = %625
   %634 = trunc i64 %627 to i32
   %635 = sub nsw i32 0, %634
-  %636 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %5, i32 noundef %635) #9
+  %636 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %5, i32 noundef %635) #10
   %637 = sext i32 %636 to i64
   %638 = getelementptr inbounds i8, ptr %.06980.i, i64 %637
   br label %717
@@ -1809,7 +1809,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %642 = zext i32 %641 to i64
   %643 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %642
   %644 = load ptr, ptr %643, align 8, !tbaa !29
-  %645 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %644) #9
+  %645 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %644) #10
   %646 = sext i32 %645 to i64
   %647 = getelementptr inbounds i8, ptr %.06980.i, i64 %646
   br label %717
@@ -1820,7 +1820,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %651 = zext i32 %650 to i64
   %652 = getelementptr inbounds nuw [7 x ptr], ptr @dis_size, i64 0, i64 %651
   %653 = load ptr, ptr %652, align 8, !tbaa !29
-  %654 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %653) #9
+  %654 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %653) #10
   %655 = sext i32 %654 to i64
   %656 = getelementptr inbounds i8, ptr %.06980.i, i64 %655
   %657 = load i32, ptr %26, align 8, !tbaa !17
@@ -1831,7 +1831,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %659 = zext i32 %657 to i64
   %660 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %659
   %661 = load ptr, ptr %660, align 8, !tbaa !29
-  %662 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %656, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %661) #9
+  %662 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %656, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %661) #10
   %663 = sext i32 %662 to i64
   %664 = getelementptr inbounds i8, ptr %656, i64 %663
   br label %665
@@ -1872,7 +1872,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %683 = zext i32 %668 to i64
   %684 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %683
   %685 = load ptr, ptr %684, align 8, !tbaa !29
-  %686 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %666, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %685, i32 noundef %682) #9
+  %686 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %666, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %685, i32 noundef %682) #10
   %687 = sext i32 %686 to i64
   %688 = getelementptr inbounds i8, ptr %666, i64 %687
   br label %689
@@ -1889,7 +1889,7 @@ default.unreachable:                              ; preds = %.backedge.i
   %693 = zext i32 %691 to i64
   %694 = getelementptr inbounds nuw [55 x ptr], ptr @x86regs, i64 0, i64 %693
   %695 = load ptr, ptr %694, align 8, !tbaa !29
-  %696 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i50, ptr noundef %695) #9
+  %696 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i50, ptr noundef %695) #10
   %697 = sext i32 %696 to i64
   %698 = getelementptr inbounds i8, ptr %.3.i, i64 %697
   br label %699
@@ -1911,13 +1911,13 @@ default.unreachable:                              ; preds = %.backedge.i
 
 706:                                              ; preds = %702
   %707 = sub nsw i32 0, %701
-  %708 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.4.i51, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %707) #9
+  %708 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.4.i51, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %707) #10
   %709 = sext i32 %708 to i64
   %710 = getelementptr inbounds i8, ptr %.4.i51, i64 %709
   br label %715
 
 711:                                              ; preds = %702
-  %712 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.4.i51, ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %.1.i, i32 noundef %701) #9
+  %712 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.4.i51, ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %.1.i, i32 noundef %701) #10
   %713 = sext i32 %712 to i64
   %714 = getelementptr inbounds i8, ptr %.4.i51, i64 %713
   br label %715
@@ -1937,9 +1937,9 @@ default.unreachable:                              ; preds = %.backedge.i
   br i1 %exitcond.not.i47, label %spam_x86.exit, label %622
 
 spam_x86.exit:                                    ; preds = %717
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #9
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i16, ptr %23, align 2, !tbaa !12
   %.pre227 = load i32, ptr %13, align 8, !tbaa !14
   %.pre228 = load i32, ptr %12, align 4, !tbaa !15
@@ -2025,25 +2025,19 @@ spam_x86.exit:                                    ; preds = %717
 
 .loopexit:                                        ; preds = %462, %.lr.ph799.preheader.i, %.lr.ph809.preheader.i, %366, %341, %328, %328, %304, %281, %129, %111, %84, %78, %47, %.lr.ph.i, %.lr.ph782.i, %.lr.ph790.i, %.lr.ph819.i, %.lr.ph827.i, %.lr.ph834.i, %763, %612
   %.042 = phi ptr [ null, %612 ], [ %.0518.i, %763 ], [ null, %.lr.ph834.i ], [ null, %.lr.ph827.i ], [ null, %.lr.ph819.i ], [ null, %.lr.ph790.i ], [ null, %.lr.ph782.i ], [ null, %.lr.ph.i ], [ null, %47 ], [ null, %78 ], [ null, %84 ], [ null, %111 ], [ null, %129 ], [ null, %281 ], [ null, %304 ], [ null, %328 ], [ null, %328 ], [ null, %341 ], [ null, %366 ], [ null, %.lr.ph809.preheader.i ], [ null, %.lr.ph799.preheader.i ], [ null, %462 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.042
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @disasmbuf(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.DISASM_RESULT, align 2
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %5, i8 0, i64 29, i1 false)
   %.not19 = icmp eq i32 %1, 0
@@ -2066,7 +2060,7 @@ define range(i32 0, 2) i32 @disasmbuf(ptr noundef %0, i32 noundef %1, i32 nounde
   %.neg = sub i64 %12, %11
   %13 = trunc i64 %.neg to i32
   %14 = add i32 %.0152030, %13
-  %15 = call i64 @cli_writen(i32 noundef %2, ptr noundef nonnull %4, i64 noundef 64) #9
+  %15 = call i64 @cli_writen(i32 noundef %2, ptr noundef nonnull %4, i64 noundef 64) #10
   %.not = icmp eq i32 %14, 0
   %16 = add nuw nsw i32 %6, 1
   %exitcond.not = icmp eq i32 %6, 200
@@ -2075,38 +2069,44 @@ define range(i32 0, 2) i32 @disasmbuf(ptr noundef %0, i32 noundef %1, i32 nounde
 
 .critedge:                                        ; preds = %.lr.ph.preheader, %10, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ 1, %10 ], [ %.02328, %.lr.ph.preheader ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0.lcssa
 }
 
-declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @stpcpy(ptr noalias writeonly, ptr noalias readonly captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -153,7 +153,7 @@ if.then3:                                         ; preds = %if.end, %"_ZNK6goog
   %12 = load i64, ptr %alloc_policy_, align 8
   %and.i = and i64 %12, -8
   %add = add i64 %n, 96
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp10.i)
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i.thread, label %if.end.i
 
@@ -201,7 +201,7 @@ if.end18.i:                                       ; preds = %while.end.i
 _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: ; preds = %if.then16.i, %if.end18.i
   %.sroa.speculated.i20 = phi i64 [ %.sroa.speculated.i21, %if.then16.i ], [ %.sroa.speculated.i, %if.end18.i ]
   %call.i7.pn.i = phi ptr [ %call.i7.i, %if.then16.i ], [ %call20.i, %if.end18.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp10.i)
   %size3.i.i = getelementptr inbounds nuw i8, ptr %call.i7.pn.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i7.pn.i, i8 0, i64 16, i1 false)
   store i64 %.sroa.speculated.i20, ptr %size3.i.i, align 8
@@ -4149,10 +4149,10 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26

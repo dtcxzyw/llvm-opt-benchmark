@@ -258,13 +258,7 @@ _ZN4cvc57context3CDOINS_8internal12NodeTemplateILb0EEEEC2EPNS0_7ContextE.exit: ;
   br label %common.resume
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @__gxx_personality_v0(...)
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context6CDListISt10shared_ptrINS_8internal8decision11JustifyInfoEENS0_14DefaultCleanUpIS6_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(74) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -509,7 +503,7 @@ _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %_ZN4cvc57context3CD
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %28, align 8, !tbaa !32
   %29 = load ptr, ptr %1, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = tail call noundef ptr @_ZN4cvc58internal8decision12JustifyStack21getOrAllocJustifyInfoEm(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef 0)
   store ptr %29, ptr %3, align 8, !tbaa !30
   call void @_ZN4cvc58internal8decision11JustifyInfo3setENS0_12NodeTemplateILb0EEENS0_4prop8SatValueE(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull %3, i32 noundef 1)
@@ -530,7 +524,7 @@ _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %_ZN4cvc57context3CD
 40:                                               ; preds = %39, %_ZN4cvc57context3CDOImEaSERKm.exit
   %41 = add i64 %31, 1
   store i64 %41, ptr %28, align 8, !tbaa !32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -706,7 +700,7 @@ define hidden noundef ptr @_ZN4cvc58internal8decision12JustifyStack21getOrAllocJ
   br i1 %13, label %14, label %77
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %15 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #26, !noalias !70
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -844,7 +838,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %71, %69
   br label %_ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %49, %59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %5, align 8, !tbaa !49
   br label %77
 
@@ -852,7 +846,7 @@ _ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_po
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
 77:                                               ; preds = %_ZNSt12__shared_ptrIN4cvc58internal8decision11JustifyInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %2
@@ -1063,7 +1057,7 @@ declare void @llvm.trap() #16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context10ContextObjdlEPv(ptr noundef %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cvc5::internal::FatalStream", align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #25
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZN4cvc58internal11FatalStreamC1EPKcS3_i(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN4cvc57context10ContextObjdlEPv, ptr noundef nonnull @.str.6, i32 noundef 566)
           to label %3 unwind label %11
 
@@ -1642,6 +1636,12 @@ define internal void @_GLOBAL__sub_I_justify_stack.cpp() #10 section ".text.star
   %2 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4cvc58internal4propL15undefSatLiteralE)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

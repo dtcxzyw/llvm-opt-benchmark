@@ -62,12 +62,6 @@ define dso_local ptr @table_slot_callbacks(ptr noundef %0) local_unnamed_addr #0
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @table_slot_create(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -108,9 +102,9 @@ table_slot_callbacks.exit:                        ; preds = %5, %9
   ret ptr %17
 }
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @table_beginscan_catalog(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -126,9 +120,9 @@ define dso_local ptr @table_beginscan_catalog(ptr noundef %0, i32 noundef %1, pt
   ret ptr %12
 }
 
-declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #2
+declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #2
+declare ptr @GetCatalogSnapshot(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -154,9 +148,9 @@ define dso_local i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %1
   ret i64 %13
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #2
+declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @table_parallelscan_initialize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -185,7 +179,7 @@ define dso_local void @table_parallelscan_initialize(ptr noundef %0, ptr noundef
   ret void
 }
 
-declare void @SerializeSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @SerializeSnapshot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @table_beginscan_parallel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -213,12 +207,12 @@ define dso_local ptr @table_beginscan_parallel(ptr noundef %0, ptr noundef %1) l
   ret ptr %17
 }
 
-declare ptr @RestoreSnapshot(ptr noundef) local_unnamed_addr #2
+declare ptr @RestoreSnapshot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @table_index_fetch_tuple_check(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
@@ -277,11 +271,11 @@ table_index_fetch_tuple.exit:                     ; preds = %table_slot_create.e
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull %24) #11
   call void @ExecDropSingleTupleTableSlot(ptr noundef %20) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %37
 }
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @table_tuple_get_latest_tid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -337,15 +331,15 @@ define dso_local void @table_tuple_get_latest_tid(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @simple_table_tuple_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -358,12 +352,12 @@ define dso_local void @simple_table_tuple_insert(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
-declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @simple_table_tuple_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.TM_FailureData, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
@@ -406,7 +400,7 @@ define dso_local void @simple_table_tuple_delete(ptr noundef %0, ptr noundef %1,
   unreachable
 
 23:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -414,8 +408,8 @@ define dso_local void @simple_table_tuple_delete(ptr noundef %0, ptr noundef %1,
 define dso_local void @simple_table_tuple_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.TM_FailureData, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8
@@ -458,13 +452,13 @@ define dso_local void @simple_table_tuple_update(ptr noundef %0, ptr noundef %1,
   unreachable
 
 26:                                               ; preds = %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @table_block_parallelscan_estimate(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
+define dso_local noundef i64 @table_block_parallelscan_estimate(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
   ret i64 48
 }
 
@@ -508,12 +502,12 @@ define dso_local noundef i64 @table_block_parallelscan_initialize(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @RelationGetNumberOfBlocksInFork(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @table_block_parallelscan_reinitialize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
+define dso_local void @table_block_parallelscan_reinitialize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store volatile i64 0, ptr %3, align 8
   ret void
@@ -583,11 +577,11 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ss_get_location(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -678,7 +672,7 @@ define dso_local i32 @table_block_parallelscan_nextpage(ptr noundef %0, ptr noun
   ret i32 %.02634
 }
 
-declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ss_report_location(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -8191) i64 @table_block_relation_size(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -746,7 +740,7 @@ RelationGetSmgr.exit14:                           ; preds = %17, %20
   ret i64 %27
 }
 
-declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @table_block_relation_estimate_size(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
@@ -844,17 +838,23 @@ select.unfold:                                    ; preds = %20, %7
   ret void
 }
 
-declare i32 @get_rel_data_width(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @get_rel_data_width(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.rint.f64(double) #8
+declare double @llvm.rint.f64(double) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
-declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #2
+declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #1
 
-declare void @smgrpin(ptr noundef) local_unnamed_addr #2
+declare void @smgrpin(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -869,14 +869,14 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

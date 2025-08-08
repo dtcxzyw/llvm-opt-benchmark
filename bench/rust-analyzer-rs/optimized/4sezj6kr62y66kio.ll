@@ -331,7 +331,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   br i1 %97, label %.lr.ph.split.us.i.i.i.i.i.i.i, label %98
 
 98:                                               ; preds = %96
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !59
   store ptr %85, ptr %6, align 8, !noalias !59
   store i64 %88, ptr %24, align 8, !noalias !59
   store ptr getelementptr inbounds nuw (i8, ptr @anon.2e41b453ec379ad870f26bf22901bf86.24, i64 1), ptr %25, align 8, !noalias !59
@@ -350,7 +350,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %98, %113
   %.06551.i.i.i.i.i.i = phi i64 [ %114, %113 ], [ 0, %98 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !59
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !59
   store i64 0, ptr %5, align 8, !noalias !59
   %103 = getelementptr i8, ptr %85, i64 %.06551.i.i.i.i.i.i
   br label %104
@@ -373,7 +373,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
 
 113:                                              ; preds = %122
   %114 = add i64 %.06551.i.i.i.i.i.i, 64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !59
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !59
   %115 = add i64 %.06551.i.i.i.i.i.i, 143
   %116 = icmp uge i64 %115, %88
   %117 = trunc nuw i8 %.3.i.i.i.i.i.i to i1
@@ -471,7 +471,7 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
 
 "_ZN10test_utils7fixture8MiniCore11source_code28_$u7b$$u7b$closure$u7d$$u7d$17h78df4957e0ea5275E.exit.i.i.i": ; preds = %152, %._crit_edge.i.i.i.i.i.i
   %.4.i.i.i.i.i.i = phi i8 [ %.168.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %155, %152 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !59
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !59
   %158 = trunc nuw i8 %.4.i.i.i.i.i.i to i1
   br i1 %158, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h1a775e8ef64967a7E.exit.thread3.i", label %.loopexit
 
@@ -525,10 +525,10 @@ declare i16 @llvm.cttz.i16(i16, i1 immarg) #4
 declare { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef, ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6

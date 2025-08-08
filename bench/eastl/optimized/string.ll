@@ -48,7 +48,7 @@ land.rhs:                                         ; preds = %entry, %while.body
 while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %incdec.ptr, ptr %pDest, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %u32.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %u32.i)
   %call.i = call noundef zeroext i1 @_ZN5eastl10UTF8ToUCS4ERPKcS1_Rj(ptr noundef nonnull align 8 dereferenceable(8) %pSrc, ptr noundef nonnull %pSrcEnd, ptr noundef nonnull align 4 dereferenceable(4) %u32.i)
   %2 = load i32, ptr %u32.i, align 4
   %cmp.i = icmp ult i32 %2, 65536
@@ -56,7 +56,7 @@ while.body:                                       ; preds = %land.rhs
   %conv.i = trunc nuw i32 %2 to i16
   %storemerge.i = select i1 %or.cond.i, i16 %conv.i, i16 -1
   store i16 %storemerge.i, ptr %1, align 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %u32.i)
   %3 = load ptr, ptr %pSrc, align 8
   %cmp = icmp ult ptr %3, %pSrcEnd
   %or.cond = select i1 %or.cond.i, i1 %cmp, i1 false
@@ -706,10 +706,10 @@ while.end:                                        ; preds = %while.body, %entry
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -12255,7 +12255,7 @@ define hidden noundef range(i32 1, 3) i32 @_ZN10LinearScan30append_scope_value_f
 
 23:                                               ; preds = %8
   %24 = select i1 %12, i32 2, i32 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
@@ -12273,7 +12273,7 @@ _ZN10LinearScan17location_for_nameEiN8Location4TypeE.exit: ; preds = %23, %28
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %.sroa.0.0.copyload.i, ptr %31, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr %17, align 8
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %19
   store ptr %30, ptr %33, align 8
@@ -26247,10 +26247,10 @@ declare i32 @llvm.smax.i32(i32, i32) #20
 declare i32 @llvm.ctpop.i32(i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

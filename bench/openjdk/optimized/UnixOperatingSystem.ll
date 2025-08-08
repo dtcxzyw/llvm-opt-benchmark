@@ -62,8 +62,8 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %17, label %12, !llvm.loop !6
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %get_jvmticks.exit, label %20
@@ -81,8 +81,8 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
   br label %get_jvmticks.exit
 
 get_jvmticks.exit:                                ; preds = %17, %20, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i1 true, ptr @perfInit.initialized, align 4
   br label %26
 
@@ -251,8 +251,8 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr noundef 
   %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
   %.sroa.2.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 8
   %.sroa.3.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 24), align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = call i32 (ptr, ptr, ...) @read_statdata(ptr nonnull poison, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %get_jvmticks.exit.thread, label %21
@@ -263,8 +263,8 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr noundef 
   br i1 %23, label %get_jvmticks.exit.thread, label %get_jvmticks.exit
 
 get_jvmticks.exit.thread:                         ; preds = %18, %21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %49
 
 get_jvmticks.exit:                                ; preds = %21
@@ -272,8 +272,8 @@ get_jvmticks.exit:                                ; preds = %21
   store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 8), align 8
   %25 = load i64, ptr %5, align 8
   store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @counters, i64 16), align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %26
 
 26:                                               ; preds = %get_jvmticks.exit, %11
@@ -358,7 +358,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getCpuLoad0(
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef %3, i32 noundef 1)
   %8 = fcmp olt double %7, 0.000000e+00
   br i1 %8, label %get_cpu_load.exit, label %9
@@ -372,7 +372,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getCpuLoad0(
 
 get_cpu_load.exit:                                ; preds = %6, %9
   %.0.i = phi double [ %13, %9 ], [ -1.000000e+00, %6 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %14
 
 14:                                               ; preds = %2, %get_cpu_load.exit
@@ -388,13 +388,13 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCp
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef %3, i32 noundef 0)
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = load double, ptr %3, align 8
   %10 = fadd double %7, %9
   %.0.i = select i1 %8, double -1.000000e+00, double %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -415,7 +415,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpu
   br i1 %or.cond6, label %10, label %18
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = call fastcc double @get_cpuload_internal(i32 noundef %2, ptr noundef %4, i32 noundef 1)
   %12 = fcmp olt double %11, 0.000000e+00
   br i1 %12, label %get_cpu_load.exit, label %13
@@ -429,7 +429,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpu
 
 get_cpu_load.exit:                                ; preds = %10, %13
   %.0.i = phi double [ %17, %13 ], [ -1.000000e+00, %10 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %18
 
 18:                                               ; preds = %3, %get_cpu_load.exit
@@ -502,7 +502,7 @@ define internal i32 @read_statdata(ptr readnone captures(none) %0, ptr noundef %
   %3 = alloca [2048 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %vread_statdata.exit, label %7
@@ -541,7 +541,7 @@ define internal i32 @read_statdata(ptr readnone captures(none) %0, ptr noundef %
 
 vread_statdata.exit:                              ; preds = %2, %22
   %.011.i = phi i32 [ %.0.i, %22 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %.011.i
 }
@@ -571,10 +571,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7

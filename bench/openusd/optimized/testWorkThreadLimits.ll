@@ -718,9 +718,9 @@ _ZNSt3setINSt6thread2idESt4lessIS1_ESaIS1_EE5clearEv.exit40: ; preds = %_ZNK32px
   store i64 0, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 1, ptr %248, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEE14_RawTBBCounterKNS1_16auto_partitionerEE3runERKS4_RKS5_RS7_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %17)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %249 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.11)
   %250 = load atomic i64, ptr @_ZL14_uniqueThreads seq_cst, align 8
   %251 = inttoptr i64 %250 to ptr
@@ -851,7 +851,7 @@ _ZL14_ExpectedLimitim.exit:                       ; preds = %305, %307, %301
   %.in = phi i32 [ %304, %301 ], [ %.sroa.speculated8.i, %307 ], [ %31, %305 ]
   %310 = call i32 @llvm.umin.i32(i32 %.in, i32 257)
   %311 = icmp eq i32 %310, %303
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   br i1 %311, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, label %312
 
 312:                                              ; preds = %_ZL14_ExpectedLimitim.exit
@@ -870,7 +870,7 @@ _ZL14_ExpectedLimitim.exit:                       ; preds = %305, %307, %301
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit: ; preds = %_ZL14_ExpectedLimitim.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %314 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__31WorkGetPhysicalConcurrencyLimitEv()
   %315 = zext i32 %314 to i64
   call fastcc void @_ZL16_TestThreadLimitim(i32 noundef %31, i64 noundef %315)
@@ -899,7 +899,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit48:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit, %324
   %.sroa.speculated.i46 = phi i64 [ %327, %324 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit ]
   %328 = icmp eq i64 %.sroa.speculated.i46, %318
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   br i1 %328, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49, label %329
 
 329:                                              ; preds = %_ZL14_ExpectedLimitim.exit48
@@ -918,7 +918,7 @@ _ZL14_ExpectedLimitim.exit48:                     ; preds = %_ZN32pxrInternal_v0
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49: ; preds = %_ZL14_ExpectedLimitim.exit48
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call fastcc void @_ZL16_TestThreadLimitim(i32 noundef %31, i64 noundef 1)
   %331 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.17)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23WorkSetConcurrencyLimitEj(i32 noundef 2)
@@ -945,7 +945,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit53:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49, %339
   %.sroa.speculated.i51 = phi i64 [ %342, %339 ], [ 2, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit49 ]
   %343 = icmp eq i64 %.sroa.speculated.i51, %333
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br i1 %343, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54, label %344
 
 344:                                              ; preds = %_ZL14_ExpectedLimitim.exit53
@@ -964,7 +964,7 @@ _ZL14_ExpectedLimitim.exit53:                     ; preds = %_ZN32pxrInternal_v0
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54: ; preds = %_ZL14_ExpectedLimitim.exit53
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call fastcc void @_ZL16_TestThreadLimitim(i32 noundef %31, i64 noundef 2)
   %346 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23WorkSetConcurrencyLimitEj(i32 noundef 4)
@@ -991,7 +991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit58:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54, %354
   %.sroa.speculated.i56 = phi i64 [ %357, %354 ], [ 4, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit54 ]
   %358 = icmp eq i64 %.sroa.speculated.i56, %348
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %358, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59, label %359
 
 359:                                              ; preds = %_ZL14_ExpectedLimitim.exit58
@@ -1010,7 +1010,7 @@ _ZL14_ExpectedLimitim.exit58:                     ; preds = %_ZN32pxrInternal_v0
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59: ; preds = %_ZL14_ExpectedLimitim.exit58
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call fastcc void @_ZL16_TestThreadLimitim(i32 noundef %31, i64 noundef 4)
   %361 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.21)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__23WorkSetConcurrencyLimitEj(i32 noundef 1000)
@@ -1037,7 +1037,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit63:                     ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59, %369
   %.sroa.speculated.i61 = phi i64 [ %372, %369 ], [ 257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit59 ]
   %373 = icmp eq i64 %.sroa.speculated.i61, %363
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   br i1 %373, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit64, label %374
 
 374:                                              ; preds = %_ZL14_ExpectedLimitim.exit63
@@ -1056,7 +1056,7 @@ _ZL14_ExpectedLimitim.exit63:                     ; preds = %_ZN32pxrInternal_v0
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit64: ; preds = %_ZL14_ExpectedLimitim.exit63
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @_ZL16_TestThreadLimitim(i32 noundef %31, i64 noundef 1000)
   %376 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.23)
   %377 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__31WorkGetPhysicalConcurrencyLimitEv()
@@ -1085,7 +1085,7 @@ _ZL14_ExpectedLimitim.exit.i:                     ; preds = %386, %_ZN32pxrInter
   %389 = phi i64 [ %388, %386 ], [ %380, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit64 ]
   %.sroa.speculated.i.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %389, i64 257)
   %390 = icmp eq i64 %.sroa.speculated.i.i, %379
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %390, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i, label %391
 
 391:                                              ; preds = %_ZL14_ExpectedLimitim.exit.i
@@ -1104,7 +1104,7 @@ _ZL14_ExpectedLimitim.exit.i:                     ; preds = %386, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i: ; preds = %_ZL14_ExpectedLimitim.exit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef 0)
   %393 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %394 = zext i32 %393 to i64
@@ -1129,7 +1129,7 @@ _ZL14_ExpectedLimitim.exit19.i:                   ; preds = %400, %_ZN32pxrInter
   %403 = phi i64 [ %402, %400 ], [ %380, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i ]
   %.sroa.speculated.i17.i = call noundef range(i64 0, 258) i64 @llvm.umin.i64(i64 %403, i64 257)
   %404 = icmp eq i64 %.sroa.speculated.i17.i, %394
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   br i1 %404, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i, label %405
 
 405:                                              ; preds = %_ZL14_ExpectedLimitim.exit19.i
@@ -1148,7 +1148,7 @@ _ZL14_ExpectedLimitim.exit19.i:                   ; preds = %400, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i: ; preds = %_ZL14_ExpectedLimitim.exit19.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef 1)
   %407 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %408 = zext i32 %407 to i64
@@ -1173,7 +1173,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit24.i:                   ; preds = %414, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i
   %.sroa.speculated.i22.i = phi i64 [ %417, %414 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit20.i ]
   %418 = icmp eq i64 %.sroa.speculated.i22.i, %408
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br i1 %418, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i, label %419
 
 419:                                              ; preds = %_ZL14_ExpectedLimitim.exit24.i
@@ -1192,7 +1192,7 @@ _ZL14_ExpectedLimitim.exit24.i:                   ; preds = %414, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i: ; preds = %_ZL14_ExpectedLimitim.exit24.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef 3)
   %421 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %422 = zext i32 %421 to i64
@@ -1217,7 +1217,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit29.i:                   ; preds = %428, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i
   %.sroa.speculated.i27.i = phi i64 [ %431, %428 ], [ 3, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit25.i ]
   %432 = icmp eq i64 %.sroa.speculated.i27.i, %422
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %432, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i, label %433
 
 433:                                              ; preds = %_ZL14_ExpectedLimitim.exit29.i
@@ -1236,7 +1236,7 @@ _ZL14_ExpectedLimitim.exit29.i:                   ; preds = %428, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i: ; preds = %_ZL14_ExpectedLimitim.exit29.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef 1000)
   %435 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %436 = zext i32 %435 to i64
@@ -1261,7 +1261,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit34.i:                   ; preds = %442, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i
   %.sroa.speculated.i32.i = phi i64 [ %445, %442 ], [ 257, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit30.i ]
   %446 = icmp eq i64 %.sroa.speculated.i32.i, %436
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %446, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit35.i, label %447
 
 447:                                              ; preds = %_ZL14_ExpectedLimitim.exit34.i
@@ -1280,7 +1280,7 @@ _ZL14_ExpectedLimitim.exit34.i:                   ; preds = %442, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit35.i: ; preds = %_ZL14_ExpectedLimitim.exit34.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef -1)
   %449 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %450 = call i32 @llvm.smax.i32(i32 %377, i32 2)
@@ -1301,7 +1301,7 @@ _ZL14_ExpectedLimitim.exit39.i:                   ; preds = %453, %451, %_ZN32px
   %.in.i = phi i32 [ %.sroa.speculated78.i, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit35.i ], [ %.sroa.speculated8.i38.i, %453 ], [ %31, %451 ]
   %456 = call i32 @llvm.umin.i32(i32 %.in.i, i32 257)
   %457 = icmp eq i32 %456, %449
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %457, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit40.i, label %458
 
 458:                                              ; preds = %_ZL14_ExpectedLimitim.exit39.i
@@ -1320,7 +1320,7 @@ _ZL14_ExpectedLimitim.exit39.i:                   ; preds = %453, %451, %_ZN32px
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit40.i: ; preds = %_ZL14_ExpectedLimitim.exit39.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef -3)
   %460 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
   %461 = call i32 @llvm.smax.i32(i32 %377, i32 4)
@@ -1341,7 +1341,7 @@ _ZL14_ExpectedLimitim.exit45.i:                   ; preds = %464, %462, %_ZN32px
   %.in113.i = phi i32 [ %.sroa.speculated.i66, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit40.i ], [ %.sroa.speculated8.i44.i, %464 ], [ %31, %462 ]
   %467 = call i32 @llvm.umin.i32(i32 %.in113.i, i32 257)
   %468 = icmp eq i32 %467, %460
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %468, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i, label %469
 
 469:                                              ; preds = %_ZL14_ExpectedLimitim.exit45.i
@@ -1360,7 +1360,7 @@ _ZL14_ExpectedLimitim.exit45.i:                   ; preds = %464, %462, %_ZN32px
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i: ; preds = %_ZL14_ExpectedLimitim.exit45.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %471 = sub nsw i32 0, %377
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef %471)
   %472 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
@@ -1386,7 +1386,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit50.i:                   ; preds = %479, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i
   %.sroa.speculated.i48.i = phi i64 [ %482, %479 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit46.i ]
   %483 = icmp eq i64 %.sroa.speculated.i48.i, %473
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %483, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i, label %484
 
 484:                                              ; preds = %_ZL14_ExpectedLimitim.exit50.i
@@ -1405,7 +1405,7 @@ _ZL14_ExpectedLimitim.exit50.i:                   ; preds = %479, %_ZN32pxrInter
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i: ; preds = %_ZL14_ExpectedLimitim.exit50.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %486 = mul i32 %377, -10
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31WorkSetConcurrencyLimitArgumentEi(i32 noundef %486)
   %487 = call fastcc noundef i32 @_ZL20_GetConcurrencyLimitv()
@@ -1431,7 +1431,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZL14_ExpectedLimitim.exit55.i:                   ; preds = %494, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i
   %.sroa.speculated.i53.i = phi i64 [ %497, %494 ], [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit51.i ]
   %498 = icmp eq i64 %.sroa.speculated.i53.i, %488
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %498, label %_ZL14_TestArgumentsi.exit, label %499
 
 499:                                              ; preds = %_ZL14_ExpectedLimitim.exit55.i
@@ -1450,7 +1450,7 @@ _ZL14_ExpectedLimitim.exit55.i:                   ; preds = %494, %_ZN32pxrInter
   unreachable
 
 _ZL14_TestArgumentsi.exit:                        ; preds = %_ZL14_ExpectedLimitim.exit55.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %501
 
 501:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3setINSt6thread2idESt4lessIS3_ESaIS3_EENS_27Tf_StaticDataDefaultFactoryIS7_EEEptEv.exit33, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3setINSt6thread2idESt4lessIS3_ESaIS3_EENS_27Tf_StaticDataDefaultFactoryIS7_EEEptEv.exit31, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3setINSt6thread2idESt4lessIS3_ESaIS3_EENS_27Tf_StaticDataDefaultFactoryIS7_EEEptEv.exit37, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt3setINSt6thread2idESt4lessIS3_ESaIS3_EENS_27Tf_StaticDataDefaultFactoryIS7_EEEptEv.exit35, %_ZL14_TestArgumentsi.exit
@@ -1775,7 +1775,7 @@ define internal fastcc noundef i32 @_ZL20_GetConcurrencyLimitv() unnamed_addr #3
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 -1, ptr %14, align 4
   store ptr %2, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %15 = load atomic i32, ptr %7 acquire, align 8
   %.not9.i.i.i.i = icmp eq i32 %15, 2
   br i1 %.not9.i.i.i.i, label %"_ZN3tbb6detail2d110task_arena12execute_implIvZL20_GetConcurrencyLimitvE3$_0EET_RT0_.exit.i", label %.lr.ph.i.i.i.i
@@ -1846,7 +1846,7 @@ _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eq
           to label %36 unwind label %44
 
 36:                                               ; preds = %"_ZN3tbb6detail2d110task_arena12execute_implIvZL20_GetConcurrencyLimitvE3$_0EET_RT0_.exit.i"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %37 = load i32, ptr %2, align 4
   %38 = load atomic i32, ptr %7 acquire, align 8
   %39 = icmp eq i32 %38, 2
@@ -2076,8 +2076,8 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkP
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 13
   store i8 0, ptr %14, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %4, align 8
   %15 = invoke noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 128)
           to label %.noexc unwind label %41
@@ -2124,8 +2124,8 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkP
           to label %33 unwind label %41
 
 33:                                               ; preds = %.noexc7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %35 = load atomic i8, ptr %34 monotonic, align 1
   %36 = icmp eq i8 %35, -1
@@ -2399,7 +2399,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %30 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2449,7 +2449,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr %51, ptr %57, align 32
   %58 = load ptr, ptr %3, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %30, ptr noundef nonnull align 8 dereferenceable(128) %58)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %59 = load i64, ptr %6, align 8
   %60 = load i64, ptr %2, align 8
   %61 = load i64, ptr %9, align 8
@@ -2641,7 +2641,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %77 = zext nneg i8 %31 to i64
   %78 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %80 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %81 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %25, i64 %77
@@ -2682,7 +2682,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store ptr %95, ptr %101, align 32
   %102 = load ptr, ptr %3, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %80, ptr noundef nonnull align 8 dereferenceable(128) %102)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %103 = add i8 %.promoted.i.pr45, -1
   store i8 %103, ptr %23, align 2
   %104 = add nuw nsw i8 %31, 1
@@ -2987,8 +2987,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d19start_forINS1_13blocked_ra
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 13
   store i8 4, ptr %10, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %0, align 8
@@ -3022,8 +3022,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d19start_forINS1_13blocked_ra
           to label %24 unwind label %32
 
 24:                                               ; preds = %3, %.noexc
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %26 = load atomic i8, ptr %25 monotonic, align 1
   %27 = icmp eq i8 %26, -1
@@ -3199,7 +3199,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d121simple_partition_type7exe
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %18 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -3236,7 +3236,7 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d121simple_partition_type7exe
   store ptr %31, ptr %37, align 32
   %38 = load ptr, ptr %3, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(120) %18, ptr noundef nonnull align 8 dereferenceable(128) %38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = load i64, ptr %6, align 8
   %40 = load i64, ptr %2, align 8
   %41 = load i64, ptr %7, align 8
@@ -3265,8 +3265,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d19start_forINS1_13blocked_ra
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 13
   store i8 4, ptr %10, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %0, align 8
@@ -3313,8 +3313,8 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d19start_forINS1_13blocked_ra
           to label %31 unwind label %39
 
 31:                                               ; preds = %3, %.noexc4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %33 = load atomic i8, ptr %32 monotonic, align 1
   %34 = icmp eq i8 %33, -1
@@ -3546,7 +3546,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit: ; preds = %13, %20
   br label %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11
 
 _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.backedge, %_ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %29 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -3593,7 +3593,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11: ; preds = %_ZN3tb
   store ptr %48, ptr %54, align 32
   %55 = load ptr, ptr %3, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) %55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = load i64, ptr %6, align 8
   %57 = load i64, ptr %2, align 8
   %58 = load i64, ptr %9, align 8
@@ -3767,7 +3767,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   %73 = zext nneg i8 %27 to i64
   %74 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 0, i64 %73
   %75 = load i8, ptr %74, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %76 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %3)
   %77 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %22, i64 %73
@@ -3805,7 +3805,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   store ptr %89, ptr %95, align 32
   %96 = load ptr, ptr %3, align 8
   call void @_ZN3tbb6detail2r15spawnERNS0_2d14taskERNS2_18task_group_contextE(ptr noundef nonnull align 64 dereferenceable(128) %76, ptr noundef nonnull align 8 dereferenceable(128) %96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %97 = add i8 %.promoted.i.pr45, -1
   store i8 %97, ptr %20, align 2
   %98 = add nuw nsw i8 %27, 1
@@ -3878,10 +3878,10 @@ define internal void @_GLOBAL__sub_I_testWorkThreadLimits.cpp() #18 section ".te
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

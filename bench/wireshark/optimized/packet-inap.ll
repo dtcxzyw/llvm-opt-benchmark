@@ -2698,7 +2698,7 @@ define hidden i32 @dissect_inap_Interval(i1 noundef zeroext %0, ptr noundef %1, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_inap_HighLayerCompatibility(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -2715,12 +2715,9 @@ define hidden i32 @dissect_inap_HighLayerCompatibility(i1 noundef zeroext %0, pt
   br label %17
 
 17:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2731,13 +2728,10 @@ declare void @dissect_q931_high_layer_compat_ie(ptr noundef, i32 noundef, i32 no
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_inap_RedirectionInformation(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -2753,7 +2747,7 @@ define hidden i32 @dissect_inap_RedirectionInformation(i1 noundef zeroext %0, pt
   br label %16
 
 16:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -2867,7 +2861,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 256) i32 @dissect_inap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2894,7 +2888,7 @@ define internal range(i32 0, 256) i32 @dissect_inap(ptr noundef %0, ptr noundef 
   %18 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %.0, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ROS_choice, i32 noundef -1, i32 noundef %17, ptr noundef null)
   %19 = load i8, ptr @inap_pdu_size, align 1
   %20 = zext i8 %19 to i32
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 }
 
@@ -3546,1005 +3540,1005 @@ declare i32 @dissect_ber_object_identifier_str(i1 noundef zeroext, ptr noundef, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ActivateServiceFilteringArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ActivateServiceFilteringArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ActivateServiceFilteringArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ActivateServiceFilteringArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_AnalysedInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_AnalysedInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_AnalysedInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @AnalysedInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_AnalyseInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_AnalyseInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_AnalyseInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @AnalyseInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ApplyChargingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ApplyChargingArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ApplyChargingArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ApplyChargingArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ApplyChargingReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ApplyChargingReportArg_PDU, align 4
   %6 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_AssistRequestInstructionsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_AssistRequestInstructionsArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_AssistRequestInstructionsArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @AssistRequestInstructionsArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_AuthorizeTerminationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_AuthorizeTerminationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_AuthorizeTerminationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @AuthorizeTerminationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallFilteringArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CallFilteringArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CallFilteringArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallFilteringArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallGapArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CallGapArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CallGapArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallGapArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallInformationReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CallInformationReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CallInformationReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallInformationReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CallInformationRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CallInformationRequestArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CallInformationRequestArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CallInformationRequestArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CancelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CancelArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CancelArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CancelArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CancelStatusReportRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CancelStatusReportRequestArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CancelStatusReportRequestArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CancelStatusReportRequestArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CollectedInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CollectedInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CollectedInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CollectedInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CollectInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CollectInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CollectInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CollectInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ConnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ConnectArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ConnectArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ConnectToResourceArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ConnectToResourceArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ConnectToResourceArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ConnectToResourceArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ContinueWithArgumentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ContinueWithArgumentArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ContinueWithArgumentArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ContinueWithArgumentArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CreateCallSegmentAssociationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CreateCallSegmentAssociationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CreateCallSegmentAssociationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CreateCallSegmentAssociationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_CreateOrRemoveTriggerDataArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_CreateOrRemoveTriggerDataArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_CreateOrRemoveTriggerDataArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @CreateOrRemoveTriggerDataArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_DisconnectForwardConnectionWithArgumentArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_DisconnectForwardConnectionWithArgumentArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_DisconnectForwardConnectionWithArgumentArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @DisconnectForwardConnectionWithArgumentArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_DisconnectLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_DisconnectLegArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_DisconnectLegArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @DisconnectLegArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EntityReleasedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_EntityReleasedArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_EntityReleasedArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EntityReleasedArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EstablishTemporaryConnectionArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_EstablishTemporaryConnectionArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_EstablishTemporaryConnectionArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EstablishTemporaryConnectionArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EventNotificationChargingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_EventNotificationChargingArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_EventNotificationChargingArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EventNotificationChargingArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EventReportBCSMArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_EventReportBCSMArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_EventReportBCSMArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EventReportBCSMArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_EventReportFacilityArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_EventReportFacilityArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_EventReportFacilityArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @EventReportFacilityArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_FacilitySelectedAndAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_FacilitySelectedAndAvailableArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_FacilitySelectedAndAvailableArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @FacilitySelectedAndAvailableArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_FurnishChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_FurnishChargingInformationArg_PDU, align 4
   %6 = call i32 @dissect_ber_octet_string(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_HoldCallInNetworkArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_HoldCallInNetworkArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_HoldCallInNetworkArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @HoldCallInNetworkArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitialDPArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_InitialDPArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_InitialDPArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitialDPArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_InitiateCallAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_InitiateCallAttemptArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_InitiateCallAttemptArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @InitiateCallAttemptArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ManageTriggerDataArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ManageTriggerDataArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ManageTriggerDataArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ManageTriggerDataArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MergeCallSegmentsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MergeCallSegmentsArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MergeCallSegmentsArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MergeCallSegmentsArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MonitorRouteReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MonitorRouteReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MonitorRouteReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MonitorRouteReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MonitorRouteRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MonitorRouteRequestArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MonitorRouteRequestArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MonitorRouteRequestArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MoveCallSegmentsArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MoveCallSegmentsArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MoveCallSegmentsArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MoveCallSegmentsArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MoveLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MoveLegArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MoveLegArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MoveLegArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OAbandonArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OAbandonArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OAbandonArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OAbandonArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OAnswerArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OAnswerArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OAnswerArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OCalledPartyBusyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OCalledPartyBusyArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OCalledPartyBusyArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OCalledPartyBusyArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ODisconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ODisconnectArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ODisconnectArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ODisconnectArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_MidCallArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_MidCallArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_MidCallArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @MidCallArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ONoAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ONoAnswerArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ONoAnswerArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ONoAnswerArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OriginationAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OriginationAttemptArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OriginationAttemptArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OriginationAttemptArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OriginationAttemptAuthorizedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OriginationAttemptAuthorizedArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OriginationAttemptAuthorizedArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OriginationAttemptAuthorizedArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_OSuspendedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_OSuspendedArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_OSuspendedArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @OSuspendedArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ReconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ReconnectArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ReconnectArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReconnectArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ReleaseCallArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ReleaseCallArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ReleaseCallArg, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReleaseCallArg_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ReportUTSIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ReportUTSIArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ReportUTSIArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ReportUTSIArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestCurrentStatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestCurrentStatusReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ResourceID, align 4
   %7 = call i32 @dissect_ber_choice(ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ResourceID_choice, i32 noundef %5, i32 noundef %6, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestEveryStatusChangeReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestEveryStatusChangeReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestEveryStatusChangeReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestEveryStatusChangeReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestFirstStatusMatchReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestFirstStatusMatchReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestFirstStatusMatchReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestFirstStatusMatchReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestNotificationChargingEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestNotificationChargingEventArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestNotificationChargingEventArg, align 4
   %7 = call i32 @dissect_ber_sequence_of(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestNotificationChargingEventArg_sequence_of, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestReportBCSMEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestReportBCSMEventArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestReportBCSMEventArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestReportBCSMEventArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestReportFacilityEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestReportFacilityEventArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestReportFacilityEventArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestReportFacilityEventArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RequestReportUTSIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RequestReportUTSIArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RequestReportUTSIArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RequestReportUTSIArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ResetTimerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ResetTimerArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ResetTimerArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ResetTimerArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_RouteSelectFailureArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_RouteSelectFailureArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_RouteSelectFailureArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @RouteSelectFailureArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SelectFacilityArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SelectFacilityArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SelectFacilityArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SelectFacilityArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SelectRouteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SelectRouteArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SelectRouteArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SelectRouteArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SendChargingInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SendChargingInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SendChargingInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SendChargingInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SendFacilityInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SendFacilityInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SendFacilityInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SendFacilityInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SendSTUIArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SendSTUIArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SendSTUIArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SendSTUIArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ServiceFilteringResponseArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ServiceFilteringResponseArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ServiceFilteringResponseArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ServiceFilteringResponseArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SetServiceProfileArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SetServiceProfileArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SetServiceProfileArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SetServiceProfileArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SplitLegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SplitLegArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SplitLegArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SplitLegArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_StatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_StatusReportArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_StatusReportArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @StatusReportArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TAnswerArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TAnswerArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TAnswerArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TBusyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TBusyArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TBusyArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TBusyArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TDisconnectArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TDisconnectArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TDisconnectArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TDisconnectArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TermAttemptAuthorizedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TermAttemptAuthorizedArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TermAttemptAuthorizedArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TermAttemptAuthorizedArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TerminationAttemptArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TerminationAttemptArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TerminationAttemptArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TerminationAttemptArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TNoAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TNoAnswerArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TNoAnswerArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TNoAnswerArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_TSuspendedArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_TSuspendedArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_TSuspendedArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @TSuspendedArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PlayAnnouncementArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_PlayAnnouncementArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_PlayAnnouncementArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PlayAnnouncementArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PromptAndCollectUserInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_PromptAndCollectUserInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_PromptAndCollectUserInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PromptAndCollectUserInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PromptAndReceiveMessageArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_PromptAndReceiveMessageArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_PromptAndReceiveMessageArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @PromptAndReceiveMessageArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ScriptCloseArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ScriptCloseArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ScriptCloseArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ScriptCloseArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ScriptEventArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ScriptEventArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ScriptEventArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ScriptEventArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ScriptInformationArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ScriptInformationArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ScriptInformationArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ScriptInformationArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ScriptRunArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_ScriptRunArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_ScriptRunArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ScriptRunArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SpecializedResourceReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SpecializedResourceReportArg_PDU, align 4
   %6 = call i32 @dissect_ber_null(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_SRFCallGapArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._asn1_ctx_t, align 8
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @asn1_ctx_init(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1)
   %5 = load i32, ptr @hf_inap_SRFCallGapArg_PDU, align 4
   %6 = load i32, ptr @ett_inap_SRFCallGapArg, align 4
   %7 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %2, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @SRFCallGapArg_sequence, i32 noundef %5, i32 noundef %6)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
@@ -4615,8 +4609,8 @@ define internal i32 @dissect_inap_MaximumNumberOfCounters(i1 noundef zeroext %0,
 define internal i32 @dissect_inap_Cause(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %10 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %10, null
@@ -4634,8 +4628,8 @@ define internal i32 @dissect_inap_Cause(i1 noundef zeroext %0, ptr noundef %1, i
   br label %19
 
 19:                                               ; preds = %6, %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %9
 }
 
@@ -4746,7 +4740,7 @@ define internal i32 @dissect_inap_VariablePart(i1 zeroext %0, ptr noundef %1, i3
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -4872,7 +4866,7 @@ define internal i32 @dissect_inap_Digits(i1 noundef zeroext %0, ptr noundef %1, 
   br label %79
 
 79:                                               ; preds = %71, %74, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -4975,7 +4969,7 @@ define internal i32 @dissect_inap_DpSpecificCommonParameters(i1 noundef zeroext 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_CalledPartyNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -4988,7 +4982,7 @@ define internal i32 @dissect_inap_CalledPartyNumber(i1 noundef zeroext %0, ptr n
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5020,7 +5014,7 @@ define internal i32 @dissect_inap_FacilityGroupMember(i1 noundef zeroext %0, ptr
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_OriginalCalledPartyID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5033,14 +5027,14 @@ define internal i32 @dissect_inap_OriginalCalledPartyID(i1 noundef zeroext %0, p
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_RedirectingPartyID(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5053,7 +5047,7 @@ define internal i32 @dissect_inap_RedirectingPartyID(i1 noundef zeroext %0, ptr 
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5124,7 +5118,7 @@ define internal i32 @dissect_inap_BearerCapability(i1 zeroext %0, ptr noundef %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_CallingPartyNumber(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5137,7 +5131,7 @@ define internal i32 @dissect_inap_CallingPartyNumber(i1 noundef zeroext %0, ptr 
   br label %13
 
 13:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5250,7 +5244,7 @@ define internal i32 @dissect_inap_TriggerType(i1 noundef zeroext %0, ptr noundef
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_T_bearerCap(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %9, null
@@ -5262,7 +5256,7 @@ define internal i32 @dissect_inap_T_bearerCap(i1 noundef zeroext %0, ptr noundef
   br label %12
 
 12:                                               ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5760,7 +5754,7 @@ define internal i32 @dissect_inap_T_resourceAddress(i1 zeroext %0, ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_inap_IPRoutingAddress(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %9, null
@@ -5773,7 +5767,7 @@ define internal i32 @dissect_inap_IPRoutingAddress(i1 noundef zeroext %0, ptr no
   br label %dissect_inap_CalledPartyNumber.exit
 
 dissect_inap_CalledPartyNumber.exit:              ; preds = %6, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }
 
@@ -5851,7 +5845,7 @@ define internal i32 @dissect_inap_T_triggerId(i1 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_triggerPar(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
+define internal noundef i32 @dissect_inap_T_triggerPar(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
@@ -6605,22 +6599,22 @@ define internal i32 @dissect_inap_T_controlDigits(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptResult(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
+define internal noundef i32 @dissect_inap_T_uIScriptResult(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_01(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_01(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_02(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
+define internal noundef i32 @dissect_inap_T_uIScriptSpecificInfo_02(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #2 {
   ret i32 %2
 }
 
@@ -6673,57 +6667,57 @@ define internal i32 @dissect_inap_ResultArgument(i1 zeroext %0, ptr noundef %1, 
   ]
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @asn1_ctx_init(ptr noundef nonnull %12, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %17 = load i32, ptr @hf_inap_CreateCallSegmentAssociationResultArg_PDU, align 4
   %18 = load i32, ptr @ett_inap_CreateCallSegmentAssociationResultArg, align 4
   %19 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @CreateCallSegmentAssociationResultArg_sequence, i32 noundef %17, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_returnResultData.exit
 
 20:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %21 = load i32, ptr @hf_inap_CreateOrRemoveTriggerDataResultArg_PDU, align 4
   %22 = load i32, ptr @ett_inap_CreateOrRemoveTriggerDataResultArg, align 4
   %23 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @CreateOrRemoveTriggerDataResultArg_sequence, i32 noundef %21, i32 noundef %22)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_returnResultData.exit
 
 24:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @asn1_ctx_init(ptr noundef nonnull %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %25 = load i32, ptr @hf_inap_ManageTriggerDataResultArg_PDU, align 4
   %26 = load i32, ptr @ett_inap_ManageTriggerDataResultArg, align 4
   %27 = call i32 @dissect_ber_choice(ptr noundef nonnull %10, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ManageTriggerDataResultArg_choice, i32 noundef %25, i32 noundef %26, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_returnResultData.exit
 
 28:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @asn1_ctx_init(ptr noundef nonnull %9, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %29 = load i32, ptr @hf_inap_RequestCurrentStatusReportResultArg_PDU, align 4
   %30 = load i32, ptr @ett_inap_RequestCurrentStatusReportResultArg, align 4
   %31 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @RequestCurrentStatusReportResultArg_sequence, i32 noundef %29, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_returnResultData.exit
 
 32:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %33 = load i32, ptr @hf_inap_ReceivedInformationArg_PDU, align 4
   %34 = load i32, ptr @ett_inap_ReceivedInformationArg, align 4
   %35 = call i32 @dissect_ber_choice(ptr noundef nonnull %8, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ReceivedInformationArg_choice, i32 noundef %33, i32 noundef %34, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_returnResultData.exit
 
 36:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %37 = load i32, ptr @hf_inap_MessageReceivedArg_PDU, align 4
   %38 = load i32, ptr @ett_inap_MessageReceivedArg, align 4
   %39 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @MessageReceivedArg_sequence, i32 noundef %37, i32 noundef %38)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_returnResultData.exit
 
 40:                                               ; preds = %6
@@ -6820,54 +6814,54 @@ define internal i32 @dissect_inap_T_parameter(i1 zeroext %0, ptr noundef %1, i32
   ]
 
 16:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @asn1_ctx_init(ptr noundef nonnull %12, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %17 = load i32, ptr @hf_inap_PAR_cancelFailed_PDU, align 4
   %18 = load i32, ptr @ett_inap_PAR_cancelFailed, align 4
   %19 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @PAR_cancelFailed_sequence, i32 noundef %17, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %12) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %dissect_returnErrorData.exit
 
 20:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %11) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %21 = load i32, ptr @hf_inap_PAR_requestedInfoError_PDU, align 4
   %22 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %11, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %21, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %11) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_returnErrorData.exit
 
 23:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @asn1_ctx_init(ptr noundef nonnull %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %24 = load i32, ptr @hf_inap_ScfTaskRefusedParameter_PDU, align 4
   %25 = load i32, ptr @ett_inap_ScfTaskRefusedParameter, align 4
   %26 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %10, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ScfTaskRefusedParameter_sequence, i32 noundef %24, i32 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %dissect_returnErrorData.exit
 
 27:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @asn1_ctx_init(ptr noundef nonnull %9, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %28 = load i32, ptr @hf_inap_ReferralParameter_PDU, align 4
   %29 = load i32, ptr @ett_inap_ReferralParameter, align 4
   %30 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @ReferralParameter_sequence, i32 noundef %28, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %9) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_returnErrorData.exit
 
 31:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @asn1_ctx_init(ptr noundef nonnull %8, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %32 = load i32, ptr @hf_inap_UnavailableNetworkResource_PDU, align 4
   %33 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %32, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_returnErrorData.exit
 
 34:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %15)
   %35 = load i32, ptr @hf_inap_PAR_taskRefused_PDU, align 4
   %36 = call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %1, i32 noundef 0, i32 noundef %35, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_returnErrorData.exit
 
 37:                                               ; preds = %6
@@ -6929,11 +6923,16 @@ define internal i32 @dissect_inap_ReturnErrorProblem(i1 noundef zeroext %0, ptr 
   ret i32 %7
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

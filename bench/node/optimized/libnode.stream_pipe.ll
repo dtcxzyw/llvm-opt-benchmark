@@ -1466,8 +1466,8 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %is_closed_ = getelementptr inbounds nuw i8, ptr %retval.i13.0.i, i64 62
   store i8 0, ptr %is_closed_, align 2
   %writable_listener_ = getelementptr inbounds nuw i8, ptr %retval.i13.0.i, i64 104
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %callback_scope.i)
   %11 = ptrtoint ptr %writable_listener_ to i64
   %sub.i.i.i = add i64 %11, -104
   %12 = inttoptr i64 %sub.i.i.i to ptr
@@ -1505,8 +1505,8 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %_ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit
 
 _ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit: ; preds = %do.end, %lor.lhs.false.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %callback_scope.i)
   br label %return
 
 return:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZN4node10StreamPipe16WritableListener18OnStreamWantsWriteEm.exit
@@ -1949,7 +1949,7 @@ entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i)
   %isolate_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 88
   %0 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef %0) #12
@@ -2099,7 +2099,7 @@ lor.rhs222.i:                                     ; preds = %lor.lhs.false188.i
 "_ZZN4node10StreamPipe6UnpipeEbENK3$_0clEPNS_11EnvironmentE.exit": ; preds = %_ZNK4node10BaseObject6objectEv.exit.i, %land.rhs.i, %if.end57.i, %lor.lhs.false.i, %lor.lhs.false123.i, %lor.rhs.i, %if.end130.i, %lor.lhs.false159.i, %lor.lhs.false188.i, %lor.rhs222.i
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i.i) #12
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %handle_scope.i)
   ret void
 }
 
@@ -2145,10 +2145,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

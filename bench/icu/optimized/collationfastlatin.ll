@@ -187,16 +187,10 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
   ret i32 %.090
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZNK6icu_7713CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull align 8 dereferenceable(140), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF16EPKtS2_iPKDsiS4_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #2 align 2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -209,9 +203,9 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   %15 = getelementptr inbounds nuw i16, ptr %0, i64 %14
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !32
   %18 = and i32 %2, 2
   %.not416 = icmp eq i32 %18, 0
@@ -1600,13 +1594,13 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit549: ; preds = %638, %635
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread557: ; preds = %65, %36, %126, %97, %651, %644, %287, %289, %.thread655, %.thread637, %415, %413, %.thread, %.thread642, %.thread625
   %.4 = phi i32 [ 0, %.thread625 ], [ 0, %.thread642 ], [ %148, %.thread ], [ %416, %415 ], [ %414, %413 ], [ %547, %.thread637 ], [ %650, %.thread655 ], [ -2, %287 ], [ %291, %289 ], [ 0, %644 ], [ 0, %651 ], [ -2, %97 ], [ -2, %126 ], [ -2, %36 ], [ -2, %65 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin6lookupEPKti(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin6lookupEPKti(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = and i32 %1, -64
   %or.cond = icmp eq i32 %3, 8192
   br i1 %or.cond, label %4, label %10
@@ -1632,7 +1626,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin6lookupEPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %6) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %6) local_unnamed_addr #4 align 2 {
   %8 = add i32 %2, -3072
   %or.cond = icmp ult i32 %8, -2048
   br i1 %or.cond, label %.critedge144, label %9
@@ -1846,7 +1840,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 67109889) i32 @_ZN6icu_7718CollationFastLatin14getSecondariesEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 67109889) i32 @_ZN6icu_7718CollationFastLatin14getSecondariesEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = icmp ult i32 %1, 65536
   br i1 %3, label %4, label %16
 
@@ -1888,7 +1882,7 @@ define noundef range(i32 0, 67109889) i32 @_ZN6icu_7718CollationFastLatin14getSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 1572889) i32 @_ZN6icu_7718CollationFastLatin8getCasesEjaj(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 1572889) i32 @_ZN6icu_7718CollationFastLatin8getCasesEjaj(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = icmp ult i32 %2, 65536
   br i1 %4, label %5, label %16
 
@@ -1945,7 +1939,7 @@ define noundef range(i32 0, 1572889) i32 @_ZN6icu_7718CollationFastLatin8getCase
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 4128832) i32 @_ZN6icu_7718CollationFastLatin13getTertiariesEjaj(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, 4128832) i32 @_ZN6icu_7718CollationFastLatin13getTertiariesEjaj(i32 noundef %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = icmp ult i32 %2, 65536
   br i1 %4, label %5, label %20
 
@@ -2016,7 +2010,7 @@ define noundef range(i32 0, 4128832) i32 @_ZN6icu_7718CollationFastLatin13getTer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, -458759) i32 @_ZN6icu_7718CollationFastLatin15getQuaternariesEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef range(i32 0, -458759) i32 @_ZN6icu_7718CollationFastLatin15getQuaternariesEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = icmp ult i32 %1, 65536
   br i1 %3, label %4, label %14
 
@@ -2053,7 +2047,7 @@ define noundef range(i32 0, -458759) i32 @_ZN6icu_7718CollationFastLatin15getQua
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8EPKtS2_iPKhiS4_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8EPKtS2_iPKhiS4_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #2 align 2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -2066,9 +2060,9 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %15 = getelementptr inbounds nuw i16, ptr %0, i64 %14
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !32
   %18 = and i32 %2, 2
   %.not452 = icmp eq i32 %18, 0
@@ -3689,13 +3683,13 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559: ; preds = %792, %789
 
 _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569: ; preds = %94, %36, %184, %126, %805, %798, %357, %359, %.thread687, %.thread665, %513, %511, %.thread, %.thread670, %.thread649
   %.4 = phi i32 [ 0, %.thread649 ], [ 0, %.thread670 ], [ %206, %.thread ], [ %514, %513 ], [ %512, %511 ], [ %673, %.thread665 ], [ %804, %.thread687 ], [ -2, %357 ], [ %361, %359 ], [ 0, %798 ], [ 0, %805 ], [ -2, %126 ], [ -2, %184 ], [ -2, %36 ], [ -2, %94 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i32 noundef %4) local_unnamed_addr #6 align 2 {
   %6 = load i32, ptr %3, align 4, !tbaa !32
   %7 = add nsw i32 %6, 1
   %8 = icmp slt i32 %7, %4
@@ -3746,7 +3740,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #7 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #6 align 2 {
   %5 = icmp slt i32 %1, 198
   br i1 %5, label %6, label %20
 
@@ -3796,21 +3790,26 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
   ret i32 %.0
 }
 
-declare noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852), i32 noundef) local_unnamed_addr #2
+declare noundef i32 @_ZNK6icu_7717CollationSettings9reorderExEj(ptr noundef nonnull align 8 dereferenceable(852), i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

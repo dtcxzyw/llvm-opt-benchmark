@@ -182,7 +182,7 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
 110:                                              ; preds = %nfaExecLimEx384_Compress_Repeats.exit
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %112 = load i32, ptr %111, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> %.sroa.052.0.copyload.pre, ptr %4, align 16
   %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x i64> %.sroa.554.0.copyload.pre, ptr %.16..16..16..sroa_idx, align 16
@@ -190,11 +190,11 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   store <2 x i64> %.sroa.657.0.copyload.pre, ptr %.32..32..32..sroa_idx, align 16
   %113 = zext i32 %112 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 16 %4, i64 %113, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %moNfaCompressState384.exit
 
 114:                                              ; preds = %nfaExecLimEx384_Compress_Repeats.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %116 = zext i8 %.0.i to i64
@@ -221,7 +221,7 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   br i1 %.not18.i, label %154, label %129
 
 129:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 784
   call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 16) ], !noalias !18
   %131 = load <2 x i64>, ptr %130, align 16, !noalias !18
@@ -248,7 +248,7 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   br i1 %.not94, label %157, label %146
 
 146:                                              ; preds = %129
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.assume(i1 true) [ "align"(ptr %130, i64 16) ], !noalias !24
   call void @llvm.assume(i1 true) [ "align"(ptr %132, i64 16) ], !noalias !24
   call void @llvm.assume(i1 true) [ "align"(ptr %134, i64 16) ], !noalias !24
@@ -263,8 +263,8 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %153 = load i32, ptr %152, align 4
   call void @storecompressed384(ptr noundef %9, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %153) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge.i
 
 154:                                              ; preds = %114
@@ -274,7 +274,7 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %146, %154
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %moNfaCompressState384.exit
 
 157:                                              ; preds = %129
@@ -282,19 +282,13 @@ nfaExecLimEx384_Compress_Repeats.exit:            ; preds = %queue_prev_byte.exi
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %160, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %moNfaCompressState384.exit
 
 moNfaCompressState384.exit:                       ; preds = %110, %.critedge.i, %157
   ret i8 0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef signext i8 @nfaExecLimEx384_expandState(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
@@ -309,18 +303,18 @@ define hidden noundef signext i8 @nfaExecLimEx384_expandState(ptr noundef %0, pt
   br i1 %.not.i, label %13, label %17
 
 13:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %2, i64 %16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, ptr noundef nonnull align 16 dereferenceable(48) %6, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %moNfaExpandState384.exit
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %19 = zext i8 %4 to i64
@@ -347,7 +341,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_expandState(ptr noundef %0, pt
   br i1 %.not16.i, label %55, label %32
 
 32:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
   call void @llvm.assume(i1 true) [ "align"(ptr %33, i64 16) ], !noalias !37
   %34 = load <2 x i64>, ptr %33, align 16, !noalias !37
@@ -388,7 +382,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_expandState(ptr noundef %0, pt
   store <2 x i64> %52, ptr %1, align 16
   store <2 x i64> %53, ptr %.sroa.470.0..sroa_idx, align 16
   store <2 x i64> %54, ptr %.sroa.571.0..sroa_idx, align 16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %58
 
 55:                                               ; preds = %17
@@ -398,7 +392,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_expandState(ptr noundef %0, pt
   br label %58
 
 58:                                               ; preds = %55, %32
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %moNfaExpandState384.exit
 
 moNfaExpandState384.exit:                         ; preds = %13, %58
@@ -517,7 +511,7 @@ nfaExecLimEx384_Expand_Repeats.exit:              ; preds = %127, %61, %moNfaExp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecLimEx384_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden noundef signext i8 @nfaExecLimEx384_queueInitState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -543,10 +537,10 @@ define hidden noundef signext i8 @nfaExecLimEx384_queueInitState(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
@@ -556,7 +550,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   %8 = alloca %struct.m384, align 16
   %9 = alloca %struct.m384, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not47 = icmp eq i64 %1, 0
   %.v.i = select i1 %.not47, i64 336, i64 384
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.v.i
@@ -592,7 +586,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %30 = load i32, ptr %29, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %12, ptr %5, align 16
   %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x i64> %15, ptr %.16..16..16..sroa_idx, align 16
@@ -600,11 +594,11 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   store <2 x i64> %18, ptr %.32..32..32..sroa_idx, align 16
   %31 = zext i32 %30 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 16 %5, i64 %31, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %moNfaCompressState384.exit
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %34 = zext i8 %3 to i64
@@ -631,7 +625,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   br i1 %.not18.i, label %72, label %47
 
 47:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 784
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 16) ], !noalias !62
   %49 = load <2 x i64>, ptr %48, align 16, !noalias !62
@@ -658,7 +652,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   br i1 %.not, label %75, label %64
 
 64:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 16) ], !noalias !68
   call void @llvm.assume(i1 true) [ "align"(ptr %50, i64 16) ], !noalias !68
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 16) ], !noalias !68
@@ -673,8 +667,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %71 = load i32, ptr %70, align 4
   call void @storecompressed384(ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %71) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.i
 
 72:                                               ; preds = %32
@@ -684,7 +678,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %64, %72
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %moNfaCompressState384.exit
 
 75:                                               ; preds = %47
@@ -692,8 +686,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_initCompressedState(ptr
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %78, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %moNfaCompressState384.exit
 
 moNfaCompressState384.exit:                       ; preds = %28, %.critedge.i, %75
@@ -735,7 +729,7 @@ moNfaCompressState384.exit:                       ; preds = %28, %.critedge.i, %
 
 .loopexit:                                        ; preds = %86, %moNfaCompressState384.exit, %4
   %.0 = phi i8 [ 0, %4 ], [ 1, %moNfaCompressState384.exit ], [ 1, %86 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i8 %.0
 }
 
@@ -758,7 +752,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_Q(ptr noundef %0, ptr n
   %.sroa.4162.0.copyload = load <2 x i64>, ptr %.sroa.4162.0..sroa_idx, align 16
   %.sroa.5163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.5163.0.copyload = load <2 x i64>, ptr %.sroa.5163.0..sroa_idx, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 16) ], !noalias !74
@@ -774,7 +768,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_Q(ptr noundef %0, ptr n
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 16) ], !noalias !74
   %20 = load <2 x i64>, ptr %19, align 16, !noalias !74
   store <2 x i64> %20, ptr %18, align 16, !alias.scope !74
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = and <2 x i64> %14, %.sroa.0161.0.copyload
   store <2 x i64> %21, ptr %5, align 16, !alias.scope !77
   %22 = and <2 x i64> %17, %.sroa.4162.0.copyload
@@ -815,14 +809,14 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_Q(ptr noundef %0, ptr n
   br i1 %.not12.i, label %moNfaReportCurrent384.exit, label %moNfaReportCurrent384.exit.thread
 
 moNfaReportCurrent384.exit.thread:                ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 0, ptr %8, align 8
   br label %277
 
 moNfaReportCurrent384.exit:                       ; preds = %10, %31
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 0, ptr %8, align 8
   br label %50
 
@@ -835,7 +829,7 @@ moNfaReportCurrent384.exit:                       ; preds = %10, %31
   br i1 %55, label %277, label %56
 
 56:                                               ; preds = %50
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
@@ -1252,7 +1246,7 @@ limexExpireExtendedState384.exit:                 ; preds = %255, %154, %._crit_
 
 .thread:                                          ; preds = %105, %113, %269, %262
   %.5 = phi i8 [ 1, %262 ], [ %276, %269 ], [ 0, %105 ], [ 1, %113 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %277
 
 277:                                              ; preds = %moNfaReportCurrent384.exit.thread, %50, %.thread
@@ -1261,7 +1255,7 @@ limexExpireExtendedState384.exit:                 ; preds = %255, %154, %._crit_
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, i64 noundef %4) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_CB(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3, i64 noundef %4) unnamed_addr #4 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca [6 x i64], align 16
   %8 = alloca [6 x i32], align 16
@@ -1705,13 +1699,13 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
 
 diff384.exit.thread:                              ; preds = %271, %277
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %79, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %249, ptr %6, align 16
   store <2 x i64> %250, ptr %.sroa.7.0..sroa_idx1449, align 16
   store <2 x i64> %251, ptr %.sroa.8.0..sroa_idx1455, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %75, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
   br label %300
 
@@ -2087,15 +2081,15 @@ repeatHasMatch.exit.thread:                       ; preds = %445, %377, %373, %3
   br label %processExceptional384.exit210.thread1925
 
 processExceptional384.exit210.thread1925:         ; preds = %456, %463, %461, %460
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %processExceptional384.exit210.thread
 
 processExceptional384.exit210:                    ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %nfaExecLimEx384_Stream.exit
 
 processExceptional384.exit210.thread:             ; preds = %294, %290, %284, %245, %processExceptional384.exit210.thread1925
@@ -2524,13 +2518,13 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
 
 diff384.exit214.thread:                           ; preds = %716, %722
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %518, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> %694, ptr %9, align 16
   store <2 x i64> %695, ptr %.sroa.71485.0..sroa_idx1486, align 16
   store <2 x i64> %696, ptr %.sroa.81492.0..sroa_idx1493, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 64 dereferenceable(48) %514, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 16
   br label %745
 
@@ -2906,15 +2900,15 @@ repeatHasMatch.exit287.thread:                    ; preds = %890, %822, %818, %8
   br label %processExceptional384.exit191.thread2022
 
 processExceptional384.exit191.thread2022:         ; preds = %901, %908, %906, %905
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %processExceptional384.exit191.thread
 
 processExceptional384.exit191:                    ; preds = %.lr.ph2247
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nfaExecLimEx384_Stream.exit
 
 processExceptional384.exit191.thread:             ; preds = %739, %735, %729, %690, %processExceptional384.exit191.thread2022
@@ -3042,14 +3036,14 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %processExceptional3
   br i1 %.not2176, label %990, label %lshift64_m128.exit31
 
 990:                                              ; preds = %975
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store <2 x i64> %.sroa.0504.12275, ptr %15, align 16
   %.sroa.23.0..sroa_idx555 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store <2 x i64> %.sroa.23.12276, ptr %.sroa.23.0..sroa_idx555, align 16
   %.sroa.25.0..sroa_idx591 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store <2 x i64> %.sroa.25.12277, ptr %.sroa.25.0..sroa_idx591, align 16
   %991 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118542274, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not124.i = icmp eq i64 %991, %.118542274
   br i1 %.not124.i, label %1002, label %992
 
@@ -3412,13 +3406,13 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
 
 diff384.exit217.thread:                           ; preds = %1191, %1197
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %965, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> %1169, ptr %12, align 16
   store <2 x i64> %1170, ptr %.sroa.71523.0..sroa_idx1524, align 16
   store <2 x i64> %1171, ptr %.sroa.81530.0..sroa_idx1531, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 64 dereferenceable(48) %961, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 16
   br label %1220
 
@@ -3794,15 +3788,15 @@ repeatHasMatch.exit289.thread:                    ; preds = %1365, %1297, %1293,
   br label %processExceptional384.exit.thread2119
 
 processExceptional384.exit.thread2119:            ; preds = %1376, %1383, %1381, %1380
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %processExceptional384.exit.thread
 
 processExceptional384.exit:                       ; preds = %.lr.ph2269
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %nfaExecLimEx384_Stream.exit
 
 processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204, %1165, %processExceptional384.exit.thread2119
@@ -3844,7 +3838,7 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   br i1 %.not129.i, label %nfaExecLimEx384_Stream.exit, label %1402
 
 1402:                                             ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1403 = getelementptr inbounds nuw i8, ptr %0, i64 432
   call void @llvm.experimental.noalias.scope.decl(metadata !229)
   call void @llvm.assume(i1 true) [ "align"(ptr %1403, i64 16) ], !noalias !229
@@ -3886,11 +3880,11 @@ processExceptional384.exit.thread:                ; preds = %1214, %1210, %1204,
   br i1 %.not132.i, label %1430, label %.critedge139.i
 
 1430:                                             ; preds = %1419, %1402
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %nfaExecLimEx384_Stream.exit
 
 .critedge139.i:                                   ; preds = %1419
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %nfaExecLimEx384_Stream.exit
 
 nfaExecLimEx384_Stream.exit:                      ; preds = %.lr.ph2234, %.lr.ph2250, %.lr.ph2272, %processExceptional384.exit191, %processExceptional384.exit210, %processExceptional384.exit, %.loopexit, %1430, %.critedge139.i
@@ -3919,7 +3913,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx384_Q2(ptr noundef %0, ptr 
   %.sroa.4198.0.copyload = load <2 x i64>, ptr %.sroa.4198.0..sroa_idx, align 16
   %.sroa.5199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.sroa.5199.0.copyload = load <2 x i64>, ptr %.sroa.5199.0..sroa_idx, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 16) ], !noalias !232
@@ -3935,7 +3929,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx384_Q2(ptr noundef %0, ptr 
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 16) ], !noalias !232
   %22 = load <2 x i64>, ptr %21, align 16, !noalias !232
   store <2 x i64> %22, ptr %20, align 16, !alias.scope !232
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = and <2 x i64> %16, %.sroa.0197.0.copyload
   store <2 x i64> %23, ptr %5, align 16, !alias.scope !235
   %24 = and <2 x i64> %19, %.sroa.4198.0.copyload
@@ -3976,14 +3970,14 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx384_Q2(ptr noundef %0, ptr 
   br i1 %.not12.i, label %moNfaReportCurrent384.exit, label %moNfaReportCurrent384.exit.thread
 
 moNfaReportCurrent384.exit.thread:                ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 0, ptr %10, align 8
   br label %312
 
 moNfaReportCurrent384.exit:                       ; preds = %12, %33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i8 0, ptr %10, align 8
   br label %52
 
@@ -3996,7 +3990,7 @@ moNfaReportCurrent384.exit:                       ; preds = %12, %33
   br i1 %57, label %312, label %58
 
 58:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
@@ -4065,7 +4059,7 @@ moNfaReportCurrent384.exit:                       ; preds = %12, %33
 
 103:                                              ; preds = %95
   %104 = tail call i64 @llvm.umin.i64(i64 %79, i64 %101)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8
   %105 = load ptr, ptr %91, align 8
   %106 = load i64, ptr %92, align 8
@@ -4093,11 +4087,11 @@ moNfaReportCurrent384.exit:                       ; preds = %12, %33
   store i64 %118, ptr %120, align 8
   %121 = load ptr, ptr %59, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %121, ptr noundef nonnull align 64 dereferenceable(48) %6, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread245
 
 122:                                              ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %123
 
 123:                                              ; preds = %122, %95
@@ -4469,7 +4463,7 @@ limexExpireExtendedState384.exit:                 ; preds = %290, %189, %._crit_
 
 .thread245:                                       ; preds = %.thread, %131, %148, %304, %297
   %.7 = phi i8 [ 1, %297 ], [ %311, %304 ], [ 2, %.thread ], [ 2, %131 ], [ 1, %148 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %312
 
 312:                                              ; preds = %moNfaReportCurrent384.exit.thread, %52, %.thread245
@@ -4478,7 +4472,7 @@ limexExpireExtendedState384.exit:                 ; preds = %290, %189, %._crit_
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx384_Stream_First(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #4 {
   %7 = alloca [6 x i64], align 16
   %8 = alloca [6 x i64], align 16
   %9 = alloca [6 x i32], align 16
@@ -4917,13 +4911,13 @@ lshift64_m128.exit136:                            ; preds = %lshift64_m128.exit1
 
 diff384.exit.thread:                              ; preds = %.critedge.i15, %290
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %82, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %250, ptr %7, align 16
   store <2 x i64> %251, ptr %.sroa.71439.0..sroa_idx1440, align 16
   store <2 x i64> %252, ptr %.sroa.81446.0..sroa_idx1447, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef nonnull align 64 dereferenceable(48) %75, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 16
   br label %301
 
@@ -5247,9 +5241,9 @@ runException384.exit:                             ; preds = %428, %376, %372, %3
   br label %448
 
 448:                                              ; preds = %447, %445, %444, %440
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %449
 
 449:                                              ; preds = %246, %448, %297
@@ -5674,13 +5668,13 @@ lshift64_m128.exit88:                             ; preds = %lshift64_m128.exit9
 
 diff384.exit205.thread:                           ; preds = %.critedge.i21, %721
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %507, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store <2 x i64> %681, ptr %10, align 16
   store <2 x i64> %682, ptr %.sroa.71502.0..sroa_idx1503, align 16
   store <2 x i64> %683, ptr %.sroa.81509.0..sroa_idx1510, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 64 dereferenceable(48) %500, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 16
   br label %732
 
@@ -6004,9 +5998,9 @@ runException384.exit224:                          ; preds = %859, %807, %803, %8
   br label %879
 
 879:                                              ; preds = %878, %876, %875, %871
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %880
 
 880:                                              ; preds = %677, %879, %728
@@ -6135,14 +6129,14 @@ nfaExecLimEx384_Loop_No_Accel.exit12:             ; preds = %449, %513, %880, %4
   br i1 %.not2039, label %963, label %lshift64_m128.exit34
 
 963:                                              ; preds = %948
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store <2 x i64> %.sroa.0475.12107, ptr %16, align 16
   %.sroa.24.0..sroa_idx529 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store <2 x i64> %.sroa.24.12108, ptr %.sroa.24.0..sroa_idx529, align 16
   %.sroa.26.0..sroa_idx567 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store <2 x i64> %.sroa.26.12109, ptr %.sroa.26.0..sroa_idx567, align 16
   %964 = call i64 @doAccel384(ptr noundef nonnull align 16 %16, ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %25, ptr noundef %1, i64 noundef %.118972105, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.not124.i = icmp eq i64 %964, %.118972105
   br i1 %.not124.i, label %975, label %965
 
@@ -6500,13 +6494,13 @@ lshift64_m128.exit40:                             ; preds = %lshift64_m128.exit4
 
 diff384.exit208.thread:                           ; preds = %.critedge.i28, %1182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %940, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store <2 x i64> %1142, ptr %13, align 16
   store <2 x i64> %1143, ptr %.sroa.71565.0..sroa_idx1566, align 16
   store <2 x i64> %1144, ptr %.sroa.81572.0..sroa_idx1573, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %14, ptr noundef nonnull align 64 dereferenceable(48) %933, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 16
   br label %1193
 
@@ -6830,9 +6824,9 @@ runException384.exit237:                          ; preds = %1320, %1268, %1264,
   br label %1340
 
 1340:                                             ; preds = %1339, %1337, %1336, %1332
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %1341
 
 1341:                                             ; preds = %1138, %1340, %1189
@@ -6933,7 +6927,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLimEx384_QR(ptr noundef %0, ptr 
   br i1 %12, label %342, label %13
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
@@ -7339,8 +7333,8 @@ limexExpireExtendedState384.exit:                 ; preds = %limexExpireExtended
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 528
   call void @llvm.assume(i1 true) [ "align"(ptr %225, i64 16) ], !noalias !422
   %226 = load <2 x i64>, ptr %225, align 16, !noalias !422
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %227 = and <2 x i64> %222, %.sroa.0168.0.copyload
   %228 = and <2 x i64> %224, %.sroa.4169.0.copyload
   store <2 x i64> %228, ptr %.sroa.7, align 16, !alias.scope !425
@@ -7496,13 +7490,13 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
   %300 = load i32, ptr %299, align 8
   %301 = zext i32 %300 to i64
   %302 = getelementptr inbounds nuw i8, ptr %7, i64 %301
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> %.sroa.0143.2, ptr %4, align 16
   %.sroa.7.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x i64> %.sroa.7.0..sroa.7.0..sroa.7.0.copyload147, ptr %.sroa.7.0..sroa_idx146, align 16
   %.sroa.9.0..sroa_idx150 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store <2 x i64> %.sroa.9.0..sroa.9.0..sroa.9.0.copyload151, ptr %.sroa.9.0..sroa_idx150, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %222, ptr %5, align 16
   %.sroa.5156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x i64> %224, ptr %.sroa.5156.0..sroa_idx, align 16
@@ -7511,8 +7505,8 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
   br label %303
 
 .thread244:                                       ; preds = %.thread
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %select.unfold241
 
 303:                                              ; preds = %lazyTug384.exit, %.thread
@@ -7585,15 +7579,15 @@ limexAcceptHasReport.exit:                        ; preds = %.lr.ph265
   br i1 %exitcond, label %.thread244, label %303
 
 limexAcceptHasReport.exit.thread:                 ; preds = %limexAcceptHasReport.exit, %324
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   br label %341
 
 select.unfold241:                                 ; preds = %.thread244, %limexExpireExtendedState384.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   %334 = or <2 x i64> %.sroa.4169.0.copyload, %.sroa.0168.0.copyload
   %335 = or <2 x i64> %334, %.sroa.5170.0.copyload
   %336 = bitcast <2 x i64> %335 to <16 x i8>
@@ -7605,7 +7599,7 @@ select.unfold241:                                 ; preds = %.thread244, %limexE
 
 341:                                              ; preds = %limexAcceptHasReport.exit.thread, %select.unfold241
   %.1 = phi i8 [ %340, %select.unfold241 ], [ 2, %limexAcceptHasReport.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %342
 
 342:                                              ; preds = %3, %341
@@ -7614,7 +7608,7 @@ select.unfold241:                                 ; preds = %.thread244, %limexE
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #5 {
+define internal fastcc void @nfaExecLimEx384_Stream_Silent(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #4 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca [6 x i64], align 16
   %8 = alloca [6 x i32], align 16
@@ -8029,13 +8023,13 @@ lshift64_m128.exit133:                            ; preds = %lshift64_m128.exit1
 
 diff384.exit.thread:                              ; preds = %268, %274
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %78, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %246, ptr %6, align 16
   store <2 x i64> %247, ptr %.sroa.7.0..sroa_idx1397, align 16
   store <2 x i64> %248, ptr %.sroa.8.0..sroa_idx1403, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %74, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
   br label %285
 
@@ -8359,9 +8353,9 @@ runException384.exit:                             ; preds = %412, %360, %356, %3
   br label %432
 
 432:                                              ; preds = %431, %429, %428, %424
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %nfaExecLimEx384_Run_Exceptions.exit
 
 nfaExecLimEx384_Run_Exceptions.exit:              ; preds = %242, %432, %281
@@ -8762,13 +8756,13 @@ lshift64_m128.exit85:                             ; preds = %lshift64_m128.exit9
 
 diff384.exit202.thread:                           ; preds = %683, %689
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %487, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x i64> %661, ptr %9, align 16
   store <2 x i64> %662, ptr %.sroa.71433.0..sroa_idx1434, align 16
   store <2 x i64> %663, ptr %.sroa.81440.0..sroa_idx1441, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 64 dereferenceable(48) %483, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 16
   br label %700
 
@@ -9092,9 +9086,9 @@ runException384.exit221:                          ; preds = %827, %775, %771, %7
   br label %847
 
 847:                                              ; preds = %846, %844, %843, %839
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %nfaExecLimEx384_Run_Exceptions.exit20
 
 nfaExecLimEx384_Run_Exceptions.exit20:            ; preds = %657, %847, %696
@@ -9220,14 +9214,14 @@ nfaExecLimEx384_Loop_No_Accel.exit11:             ; preds = %nfaExecLimEx384_Run
   br i1 %.not1890, label %927, label %lshift64_m128.exit31
 
 927:                                              ; preds = %912
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store <2 x i64> %.sroa.0467.11943, ptr %15, align 16
   %.sroa.22.0..sroa_idx515 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store <2 x i64> %.sroa.22.11944, ptr %.sroa.22.0..sroa_idx515, align 16
   %.sroa.24.0..sroa_idx549 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store <2 x i64> %.sroa.24.11945, ptr %.sroa.24.0..sroa_idx549, align 16
   %928 = call i64 @doAccel384(ptr noundef nonnull align 16 %15, ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef %1, i64 noundef %.117941942, i64 noundef %2) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.not124.i = icmp eq i64 %928, %.117941942
   br i1 %.not124.i, label %939, label %929
 
@@ -9564,13 +9558,13 @@ lshift64_m128.exit37:                             ; preds = %lshift64_m128.exit4
 
 diff384.exit205.thread:                           ; preds = %1128, %1134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %904, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store <2 x i64> %1106, ptr %12, align 16
   store <2 x i64> %1107, ptr %.sroa.71471.0..sroa_idx1472, align 16
   store <2 x i64> %1108, ptr %.sroa.81478.0..sroa_idx1479, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef nonnull align 64 dereferenceable(48) %900, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 16
   br label %1145
 
@@ -9894,9 +9888,9 @@ runException384.exit234:                          ; preds = %1272, %1220, %1216,
   br label %1292
 
 1292:                                             ; preds = %1291, %1289, %1288, %1284
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %nfaExecLimEx384_Run_Exceptions.exit26
 
 nfaExecLimEx384_Run_Exceptions.exit26:            ; preds = %1102, %1292, %1141
@@ -9951,7 +9945,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_testEOD(ptr noundef %0,
   br i1 %.not.i, label %moNfaTestEod384.exit, label %17
 
 17:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 16) ], !noalias !551
@@ -9967,7 +9961,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_testEOD(ptr noundef %0,
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 16) ], !noalias !551
   %25 = load <2 x i64>, ptr %24, align 16, !noalias !551
   store <2 x i64> %25, ptr %23, align 16, !alias.scope !551
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.sroa.019.0.copyload = load <2 x i64>, ptr %1, align 16
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.420.0.copyload = load <2 x i64>, ptr %.sroa.420.0..sroa_idx, align 16
@@ -10139,8 +10133,8 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
 
 109:                                              ; preds = %108, %102
   %.2.i = phi i8 [ 1, %108 ], [ 0, %102 ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %moNfaTestEod384.exit
 
 moNfaTestEod384.exit:                             ; preds = %6, %109
@@ -10159,7 +10153,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_reportCurrent(ptr noundef %0, 
   %.sroa.47.0.copyload = load <2 x i64>, ptr %.sroa.47.0..sroa_idx, align 16
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.58.0.copyload = load <2 x i64>, ptr %.sroa.58.0..sroa_idx, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 16) ], !noalias !557
@@ -10175,7 +10169,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_reportCurrent(ptr noundef %0, 
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 16) ], !noalias !557
   %14 = load <2 x i64>, ptr %13, align 16, !noalias !557
   store <2 x i64> %14, ptr %12, align 16, !alias.scope !557
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = and <2 x i64> %8, %.sroa.06.0.copyload
   store <2 x i64> %15, ptr %4, align 16, !alias.scope !560
   %16 = and <2 x i64> %11, %.sroa.47.0.copyload
@@ -10216,8 +10210,8 @@ define hidden noundef signext i8 @nfaExecLimEx384_reportCurrent(ptr noundef %0, 
   br label %moNfaReportCurrent384.exit
 
 moNfaReportCurrent384.exit:                       ; preds = %25, %2
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i8 1
 }
 
@@ -10226,7 +10220,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef %0, i64 
   %9 = alloca %struct.m384, align 16
   %10 = alloca %struct.m384, align 16
   %11 = alloca %struct.NFAContext384, align 64
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
@@ -10294,7 +10288,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef %0, i64 
   br i1 %.not66, label %moNfaTestEod384.exit, label %40
 
 40:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
   call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 16) ], !noalias !566
@@ -10310,7 +10304,7 @@ define hidden noundef signext i8 @nfaExecLimEx384_B_Reverse(ptr noundef %0, i64 
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 16) ], !noalias !566
   %48 = load <2 x i64>, ptr %47, align 16, !noalias !566
   store <2 x i64> %48, ptr %46, align 16, !alias.scope !566
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %49 = and <2 x i64> %42, %.sroa.041.0.copyload
   store <2 x i64> %49, ptr %10, align 16, !alias.scope !569
   %50 = and <2 x i64> %45, %.sroa.442.0.copyload
@@ -10443,17 +10437,17 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
   br label %111
 
 111:                                              ; preds = %105, %lazyTug384.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %moNfaTestEod384.exit
 
 moNfaTestEod384.exit:                             ; preds = %111, %34, %31, %29
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i8 0
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #5 {
+define internal fastcc void @nfaExecLimEx384_Rev_Stream(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull captures(none) %3, i64 noundef %4) unnamed_addr #4 {
   %6 = alloca [6 x i64], align 16
   %7 = alloca [6 x i64], align 16
   %8 = alloca [6 x i32], align 16
@@ -10863,13 +10857,13 @@ lshift64_m128.exit67:                             ; preds = %lshift64_m128.exit7
 
 diff384.exit.thread:                              ; preds = %248, %253
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %52, i8 0, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x i64> %226, ptr %6, align 16
   store <2 x i64> %227, ptr %.sroa.7.0..sroa_idx493, align 16
   store <2 x i64> %228, ptr %.sroa.8.0..sroa_idx499, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, ptr noundef nonnull align 64 dereferenceable(48) %48, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 16
   br label %274
 
@@ -11038,15 +11032,15 @@ limexRunReports.exit.i114:                        ; preds = %313, %307
   br label %processExceptional384.exit.thread633
 
 processExceptional384.exit.thread633:             ; preds = %344, %348
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %processExceptional384.exit.thread
 
 processExceptional384.exit:                       ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
 processExceptional384.exit.thread:                ; preds = %269, %265, %260, %222, %processExceptional384.exit.thread633
@@ -11080,7 +11074,7 @@ processExceptional384.exit.thread:                ; preds = %269, %265, %260, %2
   store <2 x i64> %362, ptr %3, align 64
   store <2 x i64> %363, ptr %.sroa.17.0..sroa_idx, align 16
   store <2 x i64> %364, ptr %.sroa.18.0..sroa_idx, align 32
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.assume(i1 true) [ "align"(ptr %366, i64 16) ], !noalias !608
@@ -11124,7 +11118,7 @@ processExceptional384.exit.thread:                ; preds = %269, %265, %260, %2
   br label %.thread653
 
 .thread653:                                       ; preds = %389, %380, %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph682, %processExceptional384.exit, %.critedge.thread651, %.thread653
@@ -11173,8 +11167,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_inAccept(ptr noundef %0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 528
   call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 16) ], !noalias !611
   %32 = load <2 x i64>, ptr %31, align 16, !noalias !611
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %33 = and <2 x i64> %28, %.sroa.047.0.copyload
   %34 = and <2 x i64> %30, %.sroa.448.0.copyload
   store <2 x i64> %34, ptr %.sroa.7, align 16, !alias.scope !614
@@ -11331,13 +11325,13 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
   %107 = load i32, ptr %106, align 8
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 %108
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store <2 x i64> %.sroa.0.2, ptr %4, align 16
   %.sroa.7.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store <2 x i64> %.sroa.7.0..sroa.7.0..sroa.7.0.copyload26, ptr %.sroa.7.0..sroa_idx25, align 16
   %.sroa.9.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store <2 x i64> %.sroa.9.0..sroa.9.0..sroa.9.0.copyload30, ptr %.sroa.9.0..sroa_idx29, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store <2 x i64> %28, ptr %5, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store <2 x i64> %30, ptr %.sroa.5.0..sroa_idx, align 16
@@ -11416,14 +11410,14 @@ limexAcceptHasReport.exit:                        ; preds = %.lr.ph
 
 limexAcceptHasReport.exit.thread:                 ; preds = %.thread, %limexAcceptHasReport.exit, %131
   %spec.select.i = phi i8 [ 1, %131 ], [ 1, %limexAcceptHasReport.exit ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %limexInAccept384.exit
 
 limexInAccept384.exit:                            ; preds = %3, %limexAcceptHasReport.exit.thread
   %.0.i = phi i8 [ %spec.select.i, %limexAcceptHasReport.exit.thread ], [ 0, %3 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   ret i8 %.0.i
 }
 
@@ -11467,8 +11461,8 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx384_inAnyAccept(ptr noundef
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 528
   call void @llvm.assume(i1 true) [ "align"(ptr %28, i64 16) ], !noalias !617
   %29 = load <2 x i64>, ptr %28, align 16, !noalias !617
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   %30 = and <2 x i64> %25, %.sroa.041.0.copyload
   %31 = and <2 x i64> %27, %.sroa.442.0.copyload
   store <2 x i64> %31, ptr %.sroa.7, align 16, !alias.scope !620
@@ -11632,8 +11626,8 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
 
 limexInAnyAccept384.exit:                         ; preds = %2, %lazyTug384.exit
   %.0.i = phi i8 [ %109, %lazyTug384.exit ], [ 0, %2 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   ret i8 %.0.i
 }
 
@@ -11641,8 +11635,8 @@ limexInAnyAccept384.exit:                         ; preds = %2, %lazyTug384.exit
 define hidden range(i32 0, 2) i32 @nfaExecLimEx384_zombie_status(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.sroa.6 = alloca <2 x i64>, align 16
   %.sroa.7 = alloca <2 x i64>, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.sroa.022.0.copyload = load <2 x i64>, ptr %5, align 16
@@ -11821,24 +11815,24 @@ lazyTug384.exit:                                  ; preds = %lazyTug384.exit.loo
   %95 = bitcast <16 x i1> %94 to i16
   %.not55 = icmp ne i16 %95, 0
   %. = zext i1 %.not55 to i32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   ret i32 %.
 }
 
-declare void @repeatPack(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @repeatPack(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #7
+declare i32 @llvm.x86.sse41.ptestz(<2 x i64>, <2 x i64>) #6
 
-declare void @storecompressed384(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @storecompressed384(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @loadcompressed384(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
+declare void @loadcompressed384(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
+declare void @repeatUnpack(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash384(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash384(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #4 {
   %8 = alloca [6 x i64], align 16
   %9 = alloca [6 x i64], align 16
   %.sroa.016.0.copyload = load <2 x i64>, ptr %2, align 16
@@ -11854,13 +11848,13 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash384(pt
   %10 = and <2 x i64> %.sroa.010.0.copyload, %.sroa.016.0.copyload
   %11 = and <2 x i64> %.sroa.411.0.copyload, %.sroa.518.0.copyload
   %12 = and <2 x i64> %.sroa.512.0.copyload, %.sroa.6.0.copyload
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %10, ptr %8, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <2 x i64> %11, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store <2 x i64> %12, ptr %.sroa.5.0..sroa_idx, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> %.sroa.016.0.copyload, ptr %9, align 16
   %.sroa.518.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <2 x i64> %.sroa.518.0.copyload, ptr %.sroa.518.0..sroa_idx19, align 16
@@ -11942,16 +11936,16 @@ limexRunAccept.exit.thread25:                     ; preds = %35, %31, %limexRunA
 
 moProcessAcceptsImpl384.exit:                     ; preds = %.critedge.i.thread, %limexRunAccept.exit, %.lr.ph
   %spec.select.i = phi i8 [ 1, %.lr.ph ], [ 1, %limexRunAccept.exit ], [ 0, %.critedge.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %spec.select.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #8
+declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts384(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts384(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #4 {
   %8 = alloca [6 x i64], align 16
   %9 = alloca [6 x i64], align 16
   %.sroa.034.0.copyload = load <2 x i64>, ptr %2, align 16
@@ -11967,13 +11961,13 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts384(ptr nounde
   %10 = and <2 x i64> %.sroa.028.0.copyload, %.sroa.034.0.copyload
   %11 = and <2 x i64> %.sroa.429.0.copyload, %.sroa.536.0.copyload
   %12 = and <2 x i64> %.sroa.530.0.copyload, %.sroa.639.0.copyload
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x i64> %10, ptr %8, align 16
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <2 x i64> %11, ptr %.sroa.420.0..sroa_idx, align 16
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store <2 x i64> %12, ptr %.sroa.521.0..sroa_idx, align 16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store <2 x i64> %.sroa.034.0.copyload, ptr %9, align 16
   %.sroa.536.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store <2 x i64> %.sroa.536.0.copyload, ptr %.sroa.536.0..sroa_idx37, align 16
@@ -12071,54 +12065,60 @@ limexRunAccept.exit.thread44:                     ; preds = %35, %31, %limexRunA
 
 moProcessAcceptsImpl384.exit:                     ; preds = %.critedge.i.thread, %limexRunAccept.exit, %.lr.ph
   %spec.select.i = phi i8 [ 1, %.lr.ph ], [ 1, %limexRunAccept.exit ], [ 0, %.critedge.i.thread ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i8 %spec.select.i
 }
 
-declare i64 @doAccel384(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
+declare i64 @doAccel384(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64>, <2 x i64>) #7
+declare <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64>, <2 x i64>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #7
+declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #7
+declare <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32>, <4 x i32>) #6
 
-declare void @repeatStoreRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @repeatStoreRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare void @repeatStoreRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @repeatStoreRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare void @repeatStoreBitmap(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @repeatStoreBitmap(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare void @repeatStoreSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @repeatStoreSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare void @repeatStoreTrailer(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
+declare void @repeatStoreTrailer(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-declare i32 @repeatHasMatchRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @repeatHasMatchRing(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @repeatHasMatchRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @repeatHasMatchRange(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @repeatHasMatchBitmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @repeatHasMatchBitmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @repeatHasMatchSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @repeatHasMatchSparseOptimalP(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @repeatHasMatchTrailer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @repeatHasMatchTrailer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare i64 @repeatLastTopRing(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @repeatLastTopRing(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @repeatLastTopRange(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @repeatLastTopRange(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @repeatLastTopBitmap(ptr noundef) local_unnamed_addr #6
+declare i64 @repeatLastTopBitmap(ptr noundef) local_unnamed_addr #5
 
-declare i64 @repeatLastTopSparseOptimalP(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @repeatLastTopSparseOptimalP(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare i64 @repeatLastTopTrailer(ptr noundef, ptr noundef) local_unnamed_addr #6
+declare i64 @repeatLastTopTrailer(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+declare void @llvm.assume(i1 noundef) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
@@ -12127,15 +12127,15 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noinline nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="core-avx2" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #12 = { nounwind }

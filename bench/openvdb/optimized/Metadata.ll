@@ -1184,7 +1184,7 @@ entry:
   %istr = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(112) %ostr, i32 noundef 4)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i.i)
   %vtable.i.i = load ptr, ptr %other, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 56
   %0 = load ptr, ptr %vfn.i.i, align 8
@@ -1197,7 +1197,7 @@ call.i.i.noexc:                                   ; preds = %entry
           to label %call2.i.i.noexc unwind label %lpad
 
 call2.i.i.noexc:                                  ; preds = %call.i.i.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %other, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
@@ -1214,14 +1214,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %n.i)
   store i32 0, ptr %n.i, align 4
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %istr, ptr noundef nonnull %n.i, i64 noundef 4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %2 = load i32, ptr %n.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %n.i)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
@@ -2632,10 +2632,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

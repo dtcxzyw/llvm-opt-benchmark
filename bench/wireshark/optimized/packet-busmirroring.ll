@@ -203,17 +203,11 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_busmirroring() local_unnamed_addr #0 {
@@ -251,7 +245,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_sequence_number, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %22, align 8
   %23 = tail call i64 @tvb_get_uint48(ptr noundef %0, i32 noundef 2, i32 noundef 0)
@@ -267,7 +261,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %31 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %32 = load i32, ptr @hf_nanoseconds, align 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %32, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %34 = load i32, ptr @hf_data_length, align 4
   %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %17, i32 noundef %34, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
@@ -460,7 +454,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %131, ptr noundef %0, i32 noundef %.4301, i32 noundef 4, i32 noundef 0)
   %133 = load i32, ptr @hf_can_frame_type, align 4
   %134 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %133, ptr noundef %0, i32 noundef %.4301, i32 noundef 4, i32 noundef 0)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %135 = load i32, ptr @hf_can_id, align 4
   %136 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %128, i32 noundef %135, ptr noundef %0, i32 noundef %.4301, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
@@ -477,7 +471,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
 142:                                              ; preds = %140, %124
   %143 = sub i32 %120, %.0297335
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %143)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %144 = and i8 %130, 64
   %145 = icmp ne i8 %144, 0
   br label %190
@@ -561,7 +555,7 @@ define internal i32 @dissect_busmirroring(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread
 
 197:                                              ; preds = %192
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %198 = load i32, ptr @hf_payload_length, align 4
   %199 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %43, i32 noundef %198, ptr noundef %0, i32 noundef %.6303, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
@@ -615,7 +609,7 @@ switch.early.test:                                ; preds = %203
 
 .thread323:                                       ; preds = %211
   %215 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %43, ptr noundef nonnull @ei_data_item_incomplete)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 216:                                              ; preds = %211
@@ -625,7 +619,7 @@ switch.early.test:                                ; preds = %203
   %220 = add i32 %219, %193
   %221 = sub i32 %220, %.0297335
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %221)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge
 
 .backedge:                                        ; preds = %216, %190
@@ -634,8 +628,8 @@ switch.early.test:                                ; preds = %203
   br i1 %222, label %.lr.ph, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %.backedge, %41, %195, %171, %149, %122, %91, %76, %62, %53, %.thread323
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %223
 
 223:                                              ; preds = %4, %.thread
@@ -697,6 +691,12 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
@@ -704,7 +704,6 @@ attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-widt
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

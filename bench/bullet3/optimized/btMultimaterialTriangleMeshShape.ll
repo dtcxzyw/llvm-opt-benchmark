@@ -15,16 +15,16 @@ define dso_local noundef ptr @_ZN32btMultimaterialTriangleMeshShape21getMaterial
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = load ptr, ptr %13, align 8, !tbaa !17
@@ -42,26 +42,25 @@ define dso_local noundef ptr @_ZN32btMultimaterialTriangleMeshShape21getMaterial
   %25 = mul nsw i32 %24, %23
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #2
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -12,7 +12,7 @@ define i32 @lv_obj_send_event(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   br i1 %5, label %57, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %7, align 8, !tbaa !10
@@ -140,7 +140,7 @@ event_is_bubbled.exit:                            ; preds = %54, %49
 event_send_core.exit:                             ; preds = %54, %51, %46, %13, %16, %18, %24, %lv_obj_event_base.exit.i, %lv_obj_event_base.exit.thread.i, %38, %40, %43
   %.0.i = phi i32 [ 1, %13 ], [ 0, %16 ], [ 1, %24 ], [ %23, %18 ], [ 1, %lv_obj_event_base.exit.thread.i ], [ 0, %lv_obj_event_base.exit.i ], [ 1, %40 ], [ %39, %38 ], [ 1, %43 ], [ 1, %46 ], [ 1, %51 ], [ 1, %54 ]
   call void @lv_event_pop(ptr noundef nonnull %4) #4
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %57
 
 57:                                               ; preds = %3, %event_send_core.exit
@@ -148,15 +148,9 @@ event_send_core.exit:                             ; preds = %54, %51, %46, %13, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_event_push(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_event_push(ptr noundef) local_unnamed_addr #2
-
-declare void @lv_event_pop(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @lv_event_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @lv_obj_event_base(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -216,9 +210,9 @@ define ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   ret ptr %9
 }
 
-declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #2
+declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lv_event_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_obj_get_event_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -244,7 +238,7 @@ define i32 @lv_obj_get_event_count(ptr noundef readonly captures(address_is_null
   ret i32 %.0
 }
 
-declare i32 @lv_event_get_count(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_event_get_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_obj_get_event_dsc(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -270,7 +264,7 @@ define ptr @lv_obj_get_event_dsc(ptr noundef readonly captures(address_is_null) 
   ret ptr %.0
 }
 
-declare ptr @lv_event_get_dsc(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_dsc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @lv_obj_remove_event(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -296,7 +290,7 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef readonly captures(address_is_
   ret i1 %.0
 }
 
-declare zeroext i1 @lv_event_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_event_remove(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @lv_obj_remove_event_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
@@ -395,7 +389,7 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef readonly captures(address
   ret i1 %.0
 }
 
-declare zeroext i1 @lv_event_remove_dsc(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_event_remove_dsc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
@@ -486,7 +480,7 @@ define ptr @lv_event_get_current_target_obj(ptr noundef %0) local_unnamed_addr #
   ret ptr %2
 }
 
-declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_current_target(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_target_obj(ptr noundef %0) local_unnamed_addr #0 {
@@ -494,7 +488,7 @@ define ptr @lv_event_get_target_obj(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_target(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_indev(ptr noundef %0) local_unnamed_addr #0 {
@@ -530,7 +524,7 @@ define ptr @lv_event_get_indev(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_event_get_param(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_event_get_layer(ptr noundef %0) local_unnamed_addr #0 {
@@ -728,20 +722,26 @@ define ptr @lv_event_get_draw_task(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @lv_indev_active() local_unnamed_addr #2
+declare ptr @lv_indev_active() local_unnamed_addr #1
 
-declare i32 @lv_event_send(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @lv_event_send(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_obj_get_parent(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_obj_has_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 

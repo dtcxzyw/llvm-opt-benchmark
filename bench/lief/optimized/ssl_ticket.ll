@@ -66,16 +66,10 @@ mbedtls_cipher_get_key_bitlen.exit:               ; preds = %6, %14
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_cipher_setkey(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_setup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -120,7 +114,7 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %mbedtls_cipher_info
   br i1 %.not29, label %24, label %mbedtls_cipher_info_get_mode.exit35.thread
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %25 = tail call i64 @time(ptr noundef null) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -155,19 +149,19 @@ mbedtls_cipher_info_get_key_bitlen.exit:          ; preds = %mbedtls_cipher_info
 
 ssl_ticket_gen_key.exit.thread:                   ; preds = %24, %32
   %.0.i37.ph = phi i32 [ %35, %32 ], [ %31, %24 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %mbedtls_cipher_info_get_mode.exit35.thread
 
 ssl_ticket_gen_key.exit:                          ; preds = %36, %38
   %.0.i.i = phi i32 [ %42, %38 ], [ 0, %36 ]
   %43 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %19, ptr noundef nonnull %7, i32 noundef %.0.i.i, i32 noundef 1) #8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 32) #8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not30 = icmp eq i32 %43, 0
   br i1 %.not30, label %44, label %mbedtls_cipher_info_get_mode.exit35.thread
 
 44:                                               ; preds = %ssl_ticket_gen_key.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %46 = call i64 @time(ptr noundef null) #8
@@ -209,7 +203,7 @@ mbedtls_cipher_get_key_bitlen.exit.i42:           ; preds = %59, %57
 
 ssl_ticket_gen_key.exit44:                        ; preds = %44, %53, %mbedtls_cipher_get_key_bitlen.exit.i42
   %.0.i39 = phi i32 [ %64, %mbedtls_cipher_get_key_bitlen.exit.i42 ], [ %52, %44 ], [ %56, %53 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %mbedtls_cipher_info_get_mode.exit35.thread
 
 mbedtls_cipher_info_get_mode.exit35.thread:       ; preds = %mbedtls_cipher_info_get_mode.exit, %5, %ssl_ticket_gen_key.exit.thread, %ssl_ticket_gen_key.exit44, %ssl_ticket_gen_key.exit, %21, %15, %mbedtls_cipher_info_get_key_bitlen.exit
@@ -217,9 +211,9 @@ mbedtls_cipher_info_get_mode.exit35.thread:       ; preds = %mbedtls_cipher_info
   ret i32 %.0
 }
 
-declare ptr @mbedtls_cipher_info_from_type(i32 noundef) local_unnamed_addr #4
+declare ptr @mbedtls_cipher_info_from_type(i32 noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
@@ -228,8 +222,8 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %4, align 8, !tbaa !20
   %12 = icmp eq ptr %0, null
   br i1 %12, label %55, label %13
@@ -304,8 +298,8 @@ define hidden i32 @mbedtls_ssl_ticket_write(ptr noundef %0, ptr noundef %1, ptr 
 
 55:                                               ; preds = %53, %23, %25, %37, %44, %49, %17, %6, %13
   %.0 = phi i32 [ -28928, %13 ], [ -28928, %6 ], [ -27136, %17 ], [ %24, %23 ], [ %36, %25 ], [ %40, %37 ], [ %48, %44 ], [ 0, %53 ], [ -27648, %49 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -339,7 +333,7 @@ define internal fastcc i32 @ssl_ticket_update_keys(ptr noundef nonnull %0) unnam
   %19 = load i8, ptr %3, align 8, !tbaa !3
   %20 = sub i8 1, %19
   store i8 %20, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw %struct.mbedtls_ssl_ticket_key, ptr %0, i64 %21
@@ -386,7 +380,7 @@ mbedtls_cipher_get_key_bitlen.exit.i:             ; preds = %40, %37
 
 ssl_ticket_gen_key.exit:                          ; preds = %18, %33, %mbedtls_cipher_get_key_bitlen.exit.i
   %.0.i = phi i32 [ %45, %mbedtls_cipher_get_key_bitlen.exit.i ], [ %32, %18 ], [ %36, %33 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
 46:                                               ; preds = %1, %ssl_ticket_gen_key.exit, %13
@@ -394,12 +388,12 @@ ssl_ticket_gen_key.exit:                          ; preds = %18, %33, %mbedtls_c
   ret i32 %.1
 }
 
-declare i32 @mbedtls_ssl_session_save(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @mbedtls_ssl_session_save(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #5
 
-declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_cipher_auth_encrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
@@ -407,7 +401,7 @@ define hidden i32 @mbedtls_ssl_ticket_parse(ptr noundef %0, ptr noundef %1, ptr 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = icmp eq ptr %0, null
   br i1 %9, label %ssl_ticket_select_key.exit.thread, label %10
 
@@ -492,15 +486,15 @@ ssl_ticket_select_key.exit:                       ; preds = %.preheader
 
 ssl_ticket_select_key.exit.thread:                ; preds = %21, %34, %40, %43, %28, %15, %32, %17, %30, %4, %10
   %.0 = phi i32 [ -28928, %10 ], [ -28928, %4 ], [ %16, %15 ], [ %spec.store.select, %28 ], [ %33, %32 ], [ -28928, %17 ], [ -27648, %30 ], [ %spec.select, %43 ], [ -28928, %40 ], [ -28928, %34 ], [ -28032, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_cipher_auth_decrypt_ext(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @mbedtls_ssl_session_load(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @mbedtls_ssl_session_load(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i64 @mbedtls_ms_time() local_unnamed_addr #4
+declare i64 @mbedtls_ms_time() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ssl_ticket_free(ptr noundef %0) local_unnamed_addr #2 {
@@ -519,9 +513,15 @@ define hidden void @mbedtls_ssl_ticket_free(ptr noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #4
+declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #3
 
-declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
@@ -529,10 +529,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nounwind }
 

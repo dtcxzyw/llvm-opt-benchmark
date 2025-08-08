@@ -1162,9 +1162,9 @@ define hidden void @_ZN10Dictionary9add_klassEP10JavaThreadP6SymbolP13InstanceKl
   store ptr %2, ptr %7, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = call noundef zeroext i1 @_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE19internal_insert_getI16DictionaryLookupZNS3_6insertIS5_EEbP6ThreadRT_RKP15DictionaryEntryPbSF_E3NOPEEbS8_SA_SE_RT0_SF_SF_(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = load i32, ptr %0, align 8
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %0, align 8
@@ -1792,7 +1792,7 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   call void asm sideeffect "prefetcht0 ($0,$1,1)", "r,r,~{dirflag},~{fpsr},~{flags}"(ptr %41, i64 0) #15, !srcloc !15
   %42 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load volatile ptr, ptr %44, align 8
@@ -2019,7 +2019,7 @@ _ZN26GrowableArrayWithAllocatorIP21ProtectionDomainEntry13GrowableArrayIS1_EE4pu
   br i1 %.not.i.i.i.i, label %"_ZZN10Dictionary32remove_from_package_access_cacheEP13GrowableArrayIP21ProtectionDomainEntryEENK3$_0clEPP15DictionaryEntry.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !25
 
 "_ZZN10Dictionary32remove_from_package_access_cacheEP13GrowableArrayIP21ProtectionDomainEntryEENK3$_0clEPP15DictionaryEntry.exit.i.i.i": ; preds = %138, %40
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %139 = load volatile ptr, ptr %.011.i.i.i, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   %.not.i9.i.i = icmp eq ptr %139, null
@@ -2532,9 +2532,9 @@ define hidden void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(p
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store ptr null, ptr %30, align 8, !noalias !32
   store ptr %19, ptr %24, align 8, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !32
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !32
   call void @_ZN9NumberSeqC1Ed(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef 3.000000e-01) #15, !noalias !35
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %32 = load volatile ptr, ptr %31, align 8, !noalias !35
@@ -2683,9 +2683,9 @@ _ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE8ScopedCSC2EP6ThreadP
   br label %"_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i"
 
 "_ZN19ConcurrentHashTableIN10Dictionary6ConfigEL8MEMFLAGS1EE20statistics_calculateIZNS0_22print_table_statisticsEP12outputStreamPKcE3$_0EE15TableStatisticsP6ThreadRT_.exit.i": ; preds = %83, %80
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !32
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !32
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !32
   %86 = load ptr, ptr %20, align 8, !noalias !32
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %86) #15
@@ -4739,10 +4739,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

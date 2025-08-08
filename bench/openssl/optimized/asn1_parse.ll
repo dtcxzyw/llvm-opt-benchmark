@@ -79,12 +79,12 @@ define internal fastcc range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, ptr noun
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !8
   %15 = icmp sgt i32 %4, 128
   br i1 %15, label %16, label %18
@@ -141,7 +141,7 @@ define internal fastcc range(i32 0, 3) i32 @asn1_parse2(ptr noundef %0, ptr noun
   %47 = load i64, ptr %11, align 8, !tbaa !10
   %48 = load i32, ptr %12, align 4, !tbaa !12
   %49 = load i32, ptr %13, align 4, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not55.i = icmp eq i32 %32, 33
   br i1 %.not55.i, label %54, label %50
 
@@ -274,12 +274,12 @@ ASN1_tag2str.exit.i:                              ; preds = %95, %92, %90, %86, 
 asn1_print_info.exit.thread:                      ; preds = %54, %65, %61, %50
   %.06875.i.ph = phi ptr [ null, %50 ], [ null, %61 ], [ %63, %65 ], [ null, %54 ]
   %108 = call i32 @BIO_free(ptr noundef %.06875.i.ph) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread265
 
 asn1_print_info.exit:                             ; preds = %105, %106
   %109 = call i32 @BIO_free(ptr noundef %.0.i) #5
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %.036.i, label %.thread265, label %110
 
 110:                                              ; preds = %asn1_print_info.exit
@@ -810,12 +810,12 @@ switch.early.test:                                ; preds = %209
 
 366:                                              ; preds = %.thread265, %16
   %.0 = phi i32 [ 0, %16 ], [ %.0205, %.thread265 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
 
@@ -847,61 +847,61 @@ define ptr @ASN1_tag2str(i32 noundef %0) local_unnamed_addr #1 {
   ret ptr %.09
 }
 
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare ptr @d2i_ASN1_OBJECT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @d2i_ASN1_OCTET_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare i32 @BIO_dump_indent(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #2
+
+declare ptr @d2i_ASN1_ENUMERATED(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #2
+
+declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #2
+
+declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+
+declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_f_prefix() local_unnamed_addr #2
+
+declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #2
+
+declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-declare ptr @d2i_ASN1_OBJECT(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @d2i_ASN1_OCTET_STRING(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare i32 @BIO_dump_indent(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #3
-
-declare ptr @d2i_ASN1_INTEGER(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #3
-
-declare ptr @d2i_ASN1_ENUMERATED(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
-
-declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #3
-
-declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #3
-
-declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
-
-declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_new(ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_f_prefix() local_unnamed_addr #3
-
-declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #3
-
-declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #3
-
-declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

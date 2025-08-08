@@ -42,13 +42,13 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %.preheader63, %.lr.ph
   %.05564 = phi i64 [ %34, %.lr.ph ], [ 0, %.preheader63 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr i64, ptr %0, i64 %.05564
   %24 = load i64, ptr %23, align 8, !tbaa !3
   store i64 %24, ptr %4, align 8, !tbaa !3
   %25 = getelementptr i64, ptr %1, i64 %.05564
   %26 = load i64, ptr %25, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = or disjoint i64 %.05564, 1
   %28 = getelementptr i64, ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !3
@@ -60,8 +60,8 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   store i64 %32, ptr %23, align 8, !tbaa !3
   %33 = load i64, ptr %5, align 8, !tbaa !3
   store i64 %33, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %34 = add i64 %.05564, 2
   %35 = icmp ult i64 %34, %22
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
@@ -78,19 +78,19 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
   %.165 = phi i64 [ %50, %.lr.ph66 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %38 = getelementptr i64, ptr %0, i64 %.165
   %39 = load i64, ptr %38, align 8, !tbaa !3
   store i64 %39, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = getelementptr i8, ptr %38, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !3
   store i64 %41, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = getelementptr i8, ptr %38, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !3
   store i64 %43, ptr %8, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = getelementptr i8, ptr %38, i64 24
   %45 = load i64, ptr %44, align 8, !tbaa !3
   store i64 %45, ptr %9, align 8, !tbaa !3
@@ -104,10 +104,10 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   store i64 %48, ptr %42, align 8, !tbaa !3
   %49 = load i64, ptr %9, align 8, !tbaa !3
   store i64 %49, ptr %44, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %50 = add i64 %.165, 4
   %51 = icmp ult i64 %50, %37
   br i1 %51, label %.lr.ph66, label %.loopexit, !llvm.loop !11
@@ -117,11 +117,8 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(none) uwtable
-define internal fastcc i64 @x64_powmod(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc i64 @x64_powmod(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %.not35 = icmp eq i64 %1, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -323,20 +320,20 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   ret i64 %.0.lcssa
 }
 
-declare hidden i32 @six_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @six_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @inv_six_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @inv_six_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @std_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @std_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @std_inv_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @std_inv_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare hidden i32 @inv_four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare hidden i32 @inv_four_step_fnt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @x64_mulmod2(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @x64_mulmod2(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = load i64, ptr %0, align 8, !tbaa !3
   %7 = zext i64 %6 to i128
   %8 = zext i64 %1 to i128
@@ -516,11 +513,8 @@ x64_mulmod.exit28:                                ; preds = %69, %82, %95
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @x64_mulmod2c(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc void @x64_mulmod2c(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = load i64, ptr %0, align 8, !tbaa !3
   %6 = zext i64 %5 to i128
   %7 = zext i64 %2 to i128
@@ -731,11 +725,11 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
 
 .lr.ph:                                           ; preds = %.preheader52, %.lr.ph
   %.053 = phi i64 [ %26, %.lr.ph ], [ 0, %.preheader52 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr i64, ptr %0, i64 %.053
   %21 = load i64, ptr %20, align 8, !tbaa !3
   store i64 %21, ptr %3, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !3
   store i64 %23, ptr %4, align 8, !tbaa !3
@@ -744,8 +738,8 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   store i64 %24, ptr %20, align 8, !tbaa !3
   %25 = load i64, ptr %4, align 8, !tbaa !3
   store i64 %25, ptr %22, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = add i64 %.053, 2
   %27 = icmp ult i64 %26, %19
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -762,19 +756,19 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
   %.154 = phi i64 [ %42, %.lr.ph55 ], [ 0, %.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr i64, ptr %0, i64 %.154
   %31 = load i64, ptr %30, align 8, !tbaa !3
   store i64 %31, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !3
   store i64 %33, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %34 = getelementptr i8, ptr %30, i64 16
   %35 = load i64, ptr %34, align 8, !tbaa !3
   store i64 %35, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %36 = getelementptr i8, ptr %30, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !3
   store i64 %37, ptr %8, align 8, !tbaa !3
@@ -788,10 +782,10 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   store i64 %40, ptr %34, align 8, !tbaa !3
   %41 = load i64, ptr %8, align 8, !tbaa !3
   store i64 %41, ptr %36, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = add i64 %.154, 4
   %43 = icmp ult i64 %42, %29
   br i1 %43, label %.lr.ph55, label %.loopexit, !llvm.loop !14
@@ -801,14 +795,20 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   ret i32 %.044
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { inlinehint nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { inlinehint nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 

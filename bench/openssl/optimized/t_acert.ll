@@ -471,15 +471,15 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   br i1 %244, label %245, label %250
 
 245:                                              ; preds = %.thread183
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @X509_ACERT_get0_signature(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #3
   %246 = load ptr, ptr %5, align 8, !tbaa !20
   %247 = load ptr, ptr %6, align 8, !tbaa !22
   %248 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %246, ptr noundef %247) #3
   %249 = icmp sgt i32 %248, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %249, label %250, label %251
 
 250:                                              ; preds = %245, %.thread183
@@ -496,77 +496,71 @@ print_attribute.exit:                             ; preds = %200, %.preheader.i
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @X509_ACERT_get_version(ptr noundef) local_unnamed_addr #1
 
-declare i64 @X509_ACERT_get_version(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_serialNumber(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_serialNumber(ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_holder_entityName(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_holder_entityName(ptr noundef) local_unnamed_addr #2
+declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
+declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_holder_baseCertId(ptr noundef) local_unnamed_addr #1
 
-declare i32 @GENERAL_NAME_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_ISSUER_SERIAL_get0_issuer(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_holder_baseCertId(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_ISSUER_SERIAL_get0_issuer(ptr noundef) local_unnamed_addr #2
+declare ptr @OSSL_ISSUER_SERIAL_get0_serial(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @OSSL_ISSUER_SERIAL_get0_issuerUID(ptr noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_ISSUER_SERIAL_get0_serial(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_signature_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @OSSL_ISSUER_SERIAL_get0_issuerUID(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_issuerName(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_signature_dump(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_GENERALIZEDTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_issuerName(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_notBefore(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_GENERALIZEDTIME_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_notAfter(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_notBefore(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_ACERT_get_attr_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_notAfter(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_ACERT_get_attr_count(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ACERT_get0_extensions(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ACERT_get0_extensions(ptr noundef) local_unnamed_addr #2
+declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_object(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #1
 
-declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @X509_EXTENSION_get_critical(ptr noundef) local_unnamed_addr #2
+declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509V3_EXT_print(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_STRING_print(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @X509_ACERT_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_EXTENSION_get_data(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_signature_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @X509_ACERT_get0_signature(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare i32 @X509_signature_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
-
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @X509_ACERT_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -574,19 +568,25 @@ define range(i32 0, 2) i32 @X509_ACERT_print(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #2
+declare ptr @X509_ATTRIBUTE_get0_object(ptr noundef) local_unnamed_addr #1
 
-declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #2
+declare i32 @X509_ATTRIBUTE_count(ptr noundef) local_unnamed_addr #1
 
-declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @X509_ATTRIBUTE_get0_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ASN1_parse_dump(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ASN1_parse_dump(ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

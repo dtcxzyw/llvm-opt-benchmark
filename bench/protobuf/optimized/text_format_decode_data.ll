@@ -101,13 +101,13 @@ cond.false:                                       ; preds = %for.body
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %cond.false
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %v.addr.i)
   store i32 %key, ptr %v.addr.i, align 4
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr16strings_internal16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9, ptr noundef nonnull align 4 dereferenceable(4) %v.addr.i)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %v.addr.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %call.i4, i64 34, ptr nonnull @.str.3)
           to label %invoke.cont15 unwind label %lpad
 
@@ -726,8 +726,8 @@ invoke.cont2:                                     ; preds = %if.then
 call2.i.noexc:                                    ; preds = %invoke.cont2
   %start_count_.i = getelementptr inbounds nuw i8, ptr %output_stream, i64 72
   store i64 %call2.i3, ptr %start_count_.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %size.i.i)
   %call.i.i4 = invoke noundef zeroext i1 @_ZN6google8protobuf2io19OstreamOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(72) %data_outputstream, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
           to label %call.i.i.noexc unwind label %lpad3
 
@@ -760,8 +760,8 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
 invoke.cont4:                                     ; preds = %call.i.i.noexc.invoke.cont4_crit_edge, %if.then.i.i
   %6 = phi ptr [ %.pre45, %call.i.i.noexc.invoke.cont4_crit_edge ], [ %add.ptr4.sink.i.i.i, %if.then.i.i ]
   %7 = phi ptr [ %.pre, %call.i.i.noexc.invoke.cont4_crit_edge ], [ %retval.0.i.i.i, %if.then.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %size.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %data.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %size.i.i)
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i6 = ptrtoint ptr %8 to i64
@@ -1114,10 +1114,10 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

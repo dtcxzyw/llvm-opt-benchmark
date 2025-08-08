@@ -246,9 +246,6 @@ cf_ssl_scache_sesssion_ldestroy.exit:             ; preds = %35, %37
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal void @cf_ssl_scache_sesssion_ldestroy(ptr readnone captures(none) %0, ptr noundef initializes((8, 28), (56, 64)) %1) #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
@@ -291,9 +288,6 @@ cf_ssl_scache_clear_session.exit:                 ; preds = %6, %10
   tail call void %18(ptr noundef nonnull %1) #9
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_session_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -355,9 +349,9 @@ cf_ssl_scache_sesssion_ldestroy.exit:             ; preds = %10, %14
   ret void
 }
 
-declare ptr @Curl_node_llist(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_node_llist(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_node_remove(ptr noundef) local_unnamed_addr #2
+declare void @Curl_node_remove(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 28) i32 @Curl_ssl_scache_create(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
@@ -410,7 +404,7 @@ define hidden range(i32 0, 28) i32 @Curl_ssl_scache_create(i64 noundef %0, i64 n
   ret i32 %.021
 }
 
-declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_scache_destroy(ptr noundef %0) local_unnamed_addr #0 {
@@ -515,7 +509,7 @@ define hidden void @Curl_ssl_scache_lock(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_share_lock(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_scache_unlock(ptr noundef %0) local_unnamed_addr #0 {
@@ -539,15 +533,15 @@ define hidden void @Curl_ssl_scache_unlock(ptr noundef %0) local_unnamed_addr #0
   ret void
 }
 
-declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
   %6 = alloca i64, align 8
   %7 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %3, align 8, !tbaa !114
   call void @Curl_dyn_init(ptr noundef nonnull %5, i64 noundef 10240) #9
   %8 = load ptr, ptr %1, align 8, !tbaa !115
@@ -875,18 +869,18 @@ define hidden i32 @Curl_ssl_peer_key_make(ptr noundef %0, ptr noundef readonly c
 151:                                              ; preds = %144, %145, %147, %142, %134, %127, %120, %115, %110, %103, %99, %96, %92, %87, %82, %77, %71, %._crit_edge162, %56, %48, %37, %32, %27, %23, %4, %149
   %.0 = phi i32 [ %11, %4 ], [ %.1, %23 ], [ %38, %37 ], [ %67, %._crit_edge162 ], [ %73, %71 ], [ %78, %77 ], [ %83, %82 ], [ %88, %87 ], [ %95, %92 ], [ %98, %96 ], [ %102, %99 ], [ %106, %103 ], [ %111, %110 ], [ %116, %115 ], [ %121, %120 ], [ %128, %127 ], [ %135, %134 ], [ %143, %142 ], [ %148, %147 ], [ 0, %149 ], [ %51, %48 ], [ %59, %56 ], [ %33, %32 ], [ %28, %27 ], [ 2, %145 ], [ 2, %144 ]
   call void @Curl_dyn_free(ptr noundef nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
-declare ptr @Curl_ssl_cf_get_primary_config(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_ssl_cf_get_primary_config(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cf_ssl_peer_key_add_path(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -928,7 +922,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, ptr noundef %1) #9
   %.not24 = icmp eq i32 %8, 0
   br i1 %.not24, label %9, label %.loopexit
@@ -956,7 +950,7 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
 
 .loopexit:                                        ; preds = %13, %.preheader, %9, %7
   %.016 = phi i32 [ %8, %7 ], [ %12, %9 ], [ 0, %13 ], [ %18, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 19:                                               ; preds = %3, %.loopexit
@@ -964,9 +958,9 @@ define internal fastcc i32 @cf_ssl_peer_key_add_hash(ptr noundef nonnull %0, ptr
   ret i32 %.2
 }
 
-declare ptr @Curl_dyn_take(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_dyn_take(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
+declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_ssl_scache_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1057,7 +1051,7 @@ cf_ssl_scache_sesssion_ldestroy.exit.i:           ; preds = %26, %22
   br label %Curl_ssl_scache_lock.exit
 
 Curl_ssl_scache_lock.exit:                        ; preds = %35, %38, %42
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
   %45 = tail call i64 @time(ptr noundef null) #9
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1482,7 +1476,7 @@ Curl_ssl_session_destroy.exit96.i:                ; preds = %.lr.ph.i.i, %cf_sca
 
 cf_scache_add_session.exit:                       ; preds = %48, %52, %cf_ssl_scache_sesssion_ldestroy.exit.i.i, %108, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i, %203, %204, %211, %217, %232
   %.0.i = phi i32 [ 0, %204 ], [ 0, %211 ], [ 0, %217 ], [ 0, %232 ], [ %125, %203 ], [ 0, %48 ], [ 0, %52 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i.i ], [ 0, %108 ], [ 0, %cf_ssl_scache_sesssion_ldestroy.exit.i89.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %234 = load ptr, ptr %36, align 8, !tbaa !45
   %.not.i19 = icmp eq ptr %234, null
   br i1 %.not.i19, label %Curl_ssl_session_destroy.exit, label %235
@@ -1503,7 +1497,7 @@ Curl_ssl_session_destroy.exit:                    ; preds = %239, %235, %cf_scac
   ret i32 %.0
 }
 
-declare ptr @Curl_ssl_cf_get_config(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_ssl_cf_get_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_ssl_scache_return(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1580,7 +1574,7 @@ define hidden i32 @Curl_ssl_scache_take(ptr noundef %0, ptr noundef %1, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3232
   %7 = load ptr, ptr %6, align 8, !tbaa !155
   %8 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %3, align 8, !tbaa !7
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %81, label %9
@@ -1726,7 +1720,7 @@ Curl_ssl_scache_unlock.exit:                      ; preds = %32, %34, %38
 
 81:                                               ; preds = %54, %53, %47, %40, %80, %79, %73, %66, %4
   %.0 = phi i32 [ 0, %4 ], [ %18, %66 ], [ %18, %73 ], [ %18, %79 ], [ %18, %80 ], [ %18, %40 ], [ %18, %47 ], [ %18, %53 ], [ %18, %54 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1901,7 +1895,7 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   br i1 %.not14.i101.us, label %81, label %cf_ssl_scache_match_auth.exit102.thread.us
 
 81:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not86.us = icmp eq i64 %.066132.us188, 0
   br i1 %.not86.us, label %82, label %84
 
@@ -1924,7 +1918,7 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   br i1 %.not88.us, label %.split137.us, label %90
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cf_ssl_scache_match_auth.exit102.thread.us
 
 cf_ssl_scache_match_auth.exit102.thread.us:       ; preds = %90, %78, %75, %72, %68, %.lr.ph190
@@ -1974,7 +1968,7 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %106
   br i1 %.not16.i98, label %115, label %cf_ssl_scache_match_auth.exit102.thread
 
 115:                                              ; preds = %cf_ssl_scache_match_auth.exit102
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not86 = icmp eq i64 %.066132185, 0
   br i1 %.not86, label %116, label %118
 
@@ -2048,11 +2042,11 @@ cf_ssl_scache_match_auth.exit102:                 ; preds = %106
 
 .thread:                                          ; preds = %118, %84, %145, %140
   %.2.ph = phi i32 [ 27, %140 ], [ 0, %145 ], [ %86, %84 ], [ %121, %118 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %165
 
 146:                                              ; preds = %122
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %cf_ssl_scache_match_auth.exit102.thread
 
 cf_ssl_scache_match_auth.exit102.thread:          ; preds = %106, %101, %146, %.lr.ph187, %97, %cf_ssl_scache_match_auth.exit102
@@ -2179,15 +2173,15 @@ cf_scache_session_remove.exit:                    ; preds = %cf_ssl_scache_sesss
 }
 
 ; Function Attrs: nounwind
-declare i64 @time(ptr noundef) local_unnamed_addr #3
+declare i64 @time(ptr noundef) local_unnamed_addr #2
 
-declare ptr @Curl_llist_head(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_llist_head(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_node_take_elem(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_node_take_elem(ptr noundef) local_unnamed_addr #1
 
-declare void @Curl_trc_ssls(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @Curl_trc_ssls(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i64 @Curl_llist_count(ptr noundef) local_unnamed_addr #2
+declare i64 @Curl_llist_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -2195,7 +2189,7 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 3232
   %8 = load ptr, ptr %7, align 8, !tbaa !155
   %9 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call fastcc i32 @cf_ssl_add_peer(ptr noundef %1, ptr noundef %8, ptr noundef %2, ptr noundef %9, ptr noundef %6)
   %11 = icmp eq i32 %10, 0
   %12 = load ptr, ptr %6, align 8
@@ -2263,14 +2257,14 @@ define hidden i32 @Curl_ssl_scache_add_obj(ptr noundef %0, ptr noundef %1, ptr n
   br label %40
 
 40:                                               ; preds = %.thread, %39, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !161
   store ptr null, ptr %4, align 8, !tbaa !161
   %.not = icmp eq ptr %2, null
@@ -2571,7 +2565,7 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %103, %118
 
 .thread55:                                        ; preds = %.thread, %.loopexit.i, %102, %cf_ssl_scache_clear_peer.exit, %7, %9, %13
   %.0 = phi i32 [ 0, %13 ], [ 0, %9 ], [ %8, %7 ], [ %.0.ph.i, %cf_ssl_scache_clear_peer.exit ], [ 0, %102 ], [ 0, %.loopexit.i ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2581,7 +2575,7 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3232
   %7 = load ptr, ptr %6, align 8, !tbaa !155
   %8 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %36, label %9
@@ -2643,7 +2637,7 @@ define hidden zeroext i1 @Curl_ssl_scache_get_obj(ptr noundef %0, ptr noundef %1
 
 36:                                               ; preds = %9, %4, %33
   %.0 = phi i1 [ %35, %33 ], [ false, %4 ], [ false, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
@@ -2653,7 +2647,7 @@ define hidden void @Curl_ssl_scache_remove_all(ptr noundef %0, ptr noundef %1, p
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3232
   %6 = load ptr, ptr %5, align 8, !tbaa !155
   %7 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef %0) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %Curl_ssl_scache_unlock.exit, label %8
 
@@ -2751,38 +2745,44 @@ cf_ssl_scache_clear_peer.exit:                    ; preds = %21, %29
   br label %Curl_ssl_scache_unlock.exit
 
 Curl_ssl_scache_unlock.exit:                      ; preds = %52, %48, %46, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @Curl_llist_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_llist_destroy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-declare i32 @Curl_sha256it(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @Curl_sha256it(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @Curl_llist_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @Curl_llist_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_node_elem(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_node_elem(ptr noundef) local_unnamed_addr #1
 
-declare ptr @Curl_node_next(ptr noundef) local_unnamed_addr #2
+declare ptr @Curl_node_next(ptr noundef) local_unnamed_addr #1
 
-declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_hmacit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @Curl_safecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @Curl_safecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @Curl_timestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @Curl_timestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
@@ -2791,12 +2791,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind }

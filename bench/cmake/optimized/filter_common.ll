@@ -18,7 +18,7 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   br i1 %or.cond, label %40, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = load i64, ptr %0, align 8, !tbaa !4
   %.not57 = icmp eq i64 %8, -1
   br i1 %.not57, label %._crit_edge61, label %.lr.ph60
@@ -112,7 +112,7 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
 
 .loopexit:                                        ; preds = %.lr.ph65, %.thread, %._crit_edge61
   %.140 = phi i32 [ 0, %._crit_edge61 ], [ %.138, %.thread ], [ %.13876, %.lr.ph65 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %3, %.loopexit
@@ -120,18 +120,12 @@ define dso_local range(i32 0, 12) i32 @lzma_filters_copy(ptr noundef readonly ca
   ret i32 %.039
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lzma_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lzma_filters_free(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -164,7 +158,7 @@ define dso_local void @lzma_filters_free(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 12) i32 @lzma_validate_chain(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 
@@ -292,7 +286,7 @@ define dso_local i32 @lzma_raw_coder_init(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond3.not.i, label %lzma_validate_chain.exit, label %lzma_validate_chain.exit.thread
 
 lzma_validate_chain.exit:                         ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not6089.not = icmp eq i64 %24, 0
   br i1 %4, label %.preheader, label %.preheader78
 
@@ -374,7 +368,7 @@ lzma_validate_chain.exit:                         ; preds = %27
 
 .thread70:                                        ; preds = %54, %.lr.ph, %38, %.lr.ph91, %.loopexit, %69
   %.5 = phi i32 [ %68, %69 ], [ 0, %.loopexit ], [ 8, %.lr.ph91 ], [ 8, %38 ], [ 8, %.lr.ph ], [ 8, %54 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %lzma_validate_chain.exit.thread
 
 lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr.ph.i, %27, %5, %8, %.thread70
@@ -382,9 +376,9 @@ lzma_validate_chain.exit.thread:                  ; preds = %._crit_edge.i, %.lr
   ret i32 %.1
 }
 
-declare i32 @lzma_next_filter_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @lzma_next_filter_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lzma_next_end(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lzma_next_end(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lzma_raw_coder_memusage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -487,11 +481,17 @@ lzma_validate_chain.exit:                         ; preds = %23, %43
   ret i64 %.1
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

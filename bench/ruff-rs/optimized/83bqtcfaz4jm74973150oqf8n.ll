@@ -36,7 +36,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
   store i32 0, ptr %3, align 4, !noalias !3
   %6 = icmp samesign ult i32 %1, 2048
   br i1 %6, label %29, label %7
@@ -89,7 +89,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i: ; preds = %29
   %35 = or disjoint i8 %34, -128
   store i8 %35, ptr %.sink.i.sroa.phi.i, align 1, !alias.scope !6, !noalias !3
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h65555aefc72deeccE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.04823a5aed8d2c365b8aa55da2c107a6.13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit
 
 36:                                               ; preds = %2
@@ -131,8 +131,8 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h50ed3e2e450
   %5 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h75261ed85b5e4bc7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ne ptr %7, null
@@ -149,12 +149,12 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h50ed3e2e450
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 19:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = icmp eq ptr %6, %7
   br i1 %20, label %.loopexit, label %.lr.ph.i.i
 
@@ -200,7 +200,7 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h50ed3e2e450
 35:                                               ; preds = %16, %34, %.loopexit
   %.sroa.4.1 = phi i32 [ %.sroa.3.0.copyload, %.loopexit ], [ %18, %16 ], [ %30, %34 ]
   %.sroa.0.1 = phi i32 [ 0, %.loopexit ], [ 1, %16 ], [ 1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
   %37 = insertvalue { i32, i32 } %36, i32 %.sroa.4.1, 1
   ret { i32, i32 } %37
@@ -228,8 +228,8 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h9ea35ddc4e1
   %5 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6a5b6177820b4556E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ne ptr %7, null
@@ -246,12 +246,12 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h9ea35ddc4e1
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 19:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = icmp eq ptr %6, %7
   br i1 %20, label %.loopexit, label %.lr.ph.i.i
 
@@ -297,7 +297,7 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_seq17h9ea35ddc4e1
 35:                                               ; preds = %16, %34, %.loopexit
   %.sroa.4.1 = phi i32 [ %.sroa.3.0.copyload, %.loopexit ], [ %18, %16 ], [ %30, %34 ]
   %.sroa.0.1 = phi i32 [ 0, %.loopexit ], [ 1, %16 ], [ 1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
   %37 = insertvalue { i32, i32 } %36, i32 %.sroa.4.1, 1
   ret { i32, i32 } %37
@@ -324,14 +324,14 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h473015ad0d6
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !43
   store i64 0, ptr %5, align 8, !noalias !43
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !43
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !43
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !43
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -536870880, ptr %7, align 8, !noalias !43
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -351,7 +351,6 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h473015ad0d6
           to label %common.resume unwind label %14, !noalias !50
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !43
   br i1 %9, label %13, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc4de39b0c518dc35E.exit", !prof !51
 
 13:                                               ; preds = %12
@@ -372,10 +371,9 @@ common.resume:                                    ; preds = %21, %10
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc4de39b0c518dc35E.exit": ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !52
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !43
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !43
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !43
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !12, !noundef !12
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -391,7 +389,7 @@ common.resume:                                    ; preds = %21, %10
 
 23:                                               ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hc4de39b0c518dc35E.exit"
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { i32, i32 } %20
 
 24:                                               ; preds = %21
@@ -407,14 +405,14 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h5160d872aa8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !53
   store i64 0, ptr %5, align 8, !noalias !53
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !53
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !53
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !53
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -536870880, ptr %7, align 8, !noalias !53
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -434,7 +432,6 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h5160d872aa8
           to label %common.resume unwind label %14, !noalias !60
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !53
   br i1 %9, label %13, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hdb5bb847a21a951dE.exit", !prof !51
 
 13:                                               ; preds = %12
@@ -455,10 +452,9 @@ common.resume:                                    ; preds = %21, %10
   resume { ptr, i32 } %common.resume.op
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hdb5bb847a21a951dE.exit": ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !61
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !53
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !53
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !12, !noundef !12
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -474,7 +470,7 @@ common.resume:                                    ; preds = %21, %10
 
 23:                                               ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hdb5bb847a21a951dE.exit"
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { i32, i32 } %20
 
 24:                                               ; preds = %21
@@ -487,7 +483,7 @@ common.resume:                                    ; preds = %21, %10
 ; Function Attrs: nonlazybind uwtable
 define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h765858771b381995E(ptr noalias noundef readonly align 1 dereferenceable(4) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h0f8fab51c3d39265E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !12, !noundef !12
@@ -504,7 +500,7 @@ define hidden { i32, i32 } @_ZN5serde3ser10Serializer11collect_str17h765858771b3
 
 11:                                               ; preds = %2
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret { i32, i32 } %8
 
 12:                                               ; preds = %9
@@ -549,10 +545,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
   store i32 %12, ptr %16, align 4, !alias.scope !62, !noalias !65
   %.val = load i8, ptr %3, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !68
   store i32 0, ptr %15, align 8, !alias.scope !68
   store i32 %12, ptr %7, align 4, !noalias !68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !68
   %.val32.i = load i8, ptr %9, align 1, !noalias !68
   %.not.i.i = icmp eq i8 %.val, 2
   %21 = trunc nuw i8 %.val to i1
@@ -574,7 +570,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !68
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !68
   %29 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %30 unwind label %.body.thread.i
 
@@ -584,7 +580,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
           to label %31 unwind label %.body.thread.i
 
 31:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !68
   %.val30.i = load i32, ptr %6, align 4, !noalias !68, !noundef !12
   %32 = icmp ugt i32 %.val30.i, 131
   br i1 %32, label %33, label %48
@@ -624,11 +620,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit.i": ; preds = %34
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %47, i32 noundef %36, i32 noundef %.sroa.3.0.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit"
 
 48:                                               ; preds = %33, %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
   %.val29.i = load i32, ptr %7, align 4, !noalias !68, !noundef !12
   %49 = icmp ugt i32 %.val29.i, 131
   br i1 %49, label %50, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit"
@@ -638,7 +634,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %46, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !68
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit"
 
 .body.thread.i:                                   ; preds = %30, %27, %25
@@ -668,7 +664,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h01e92
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit.i", %48, %50, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %39, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ undef, %50 ], [ undef, %48 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 0, %50 ], [ 0, %48 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !68
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !68
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h7b31c25d66f6e54cE.exit"
@@ -718,10 +714,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   store i32 %19, ptr %23, align 4, !alias.scope !71, !noalias !74
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !81
   store i32 0, ptr %22, align 8, !alias.scope !76, !noalias !79
   store i32 %19, ptr %14, align 4, !noalias !81
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13), !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !81
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %28 = load ptr, ptr %3, align 8, !alias.scope !87, !noalias !88, !noundef !12
@@ -729,13 +725,13 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br i1 %.not.i.i, label %108, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !89
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h3cbda0c29f9701b0E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %111, !noalias !76
 
 .noexc.i:                                         ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !89
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !89
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val.i.i.i.i.i = load i64, ptr %30, align 8, !noalias !89, !noundef !12
   invoke void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %16, i64 noundef 1, i64 %.val.i.i.i.i.i)
@@ -749,12 +745,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 33:                                               ; preds = %.noexc32.i
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i32, ptr %34, align 4, !noalias !89, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !89
   br label %.noexc33.i
 
 36:                                               ; preds = %.noexc32.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !89
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !89
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %37 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb85d24e9ac74937E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
@@ -809,10 +805,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 59:                                               ; preds = %58, %55
   store i32 %53, ptr %41, align 4, !alias.scope !123, !noalias !124
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !136
   store i32 0, ptr %40, align 8, !alias.scope !137, !noalias !124
   store i32 %53, ptr %7, align 4, !noalias !136
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !136
   %60 = invoke { i32, i32 } @"_ZN11ruff_linter8settings5types1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_linter..settings..types..PythonVersion$GT$9serialize17h0a7de99476da9892E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %46, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %50)
           to label %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h9322467c239939fdE.exit.i.i.i.i.i.i.i.i.i.i.i" unwind label %.thread.i.i.i.i.i.i.i.i.i.i.i, !noalias !138
 
@@ -835,7 +831,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h9322467c239939fdE.exit.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !136
   %66 = icmp ugt i32 %53, 131
   br i1 %66, label %67, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.thread12.i.i.i.i.i.i.i"
 
@@ -854,7 +850,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
           to label %79 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !138
 
 73:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !136
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !136
   %74 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %42, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %75 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !139
 
@@ -871,7 +867,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
           to label %76 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !139
 
 76:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !136
   %.val31.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !noalias !136, !noundef !12
   %77 = icmp ugt i32 %.val31.i.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %77, label %78, label %92
@@ -913,11 +909,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
           to label %.noexc11.i.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i.i, !noalias !76
 
 .noexc11.i.i.i.i.i:                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !136
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.i.i.i.i.i.i.i"
 
 92:                                               ; preds = %78, %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !136
   %.val30.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %7, align 4, !noalias !136, !noundef !12
   %93 = icmp ugt i32 %.val30.i.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %93, label %94, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.i.i.i.i.i.i.i"
@@ -935,7 +931,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i": ; preds = %96, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h4af499f1ab56786fE.exit.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !136
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.thread12.i.i.i.i.i.i.i"
 
 .body.thread.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %88, %85, %.body.thread10.i.i.i.i.i.i.i.i.i.i.i
@@ -961,11 +957,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.thread12.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i", %67, %65
   %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %67 ], [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !136
   br label %.loopexit.i.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h107304b04d7b0facE.exit.i.i.i.i.i.i.i": ; preds = %94, %92, %.noexc11.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !136
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !136
   %102 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb85d24e9ac74937E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc12.i.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i.i, !noalias !76
 
@@ -990,21 +986,21 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
           to label %.noexc33.i unwind label %111, !noalias !76
 
 .loopexit24.i.i.i.i.i:                            ; preds = %.noexc12.i.i.i.i.i, %.noexc.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !89
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !89
   %104 = invoke { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %.noexc34.i unwind label %111, !noalias !76
 
 .noexc34.i:                                       ; preds = %.loopexit24.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !89
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !89
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !89
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h16be1788b8386d15E.exit.i"
 
 .noexc33.i:                                       ; preds = %.loopexit.i.i.i.i.i, %33
   %.sroa.4.0.i.i.i.i.i = phi i32 [ %35, %33 ], [ %.sroa.3.0.i.i.ph.i.i.i.i.i, %.loopexit.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !89
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !89
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !89
   %105 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h16be1788b8386d15E.exit.i"
 
@@ -1046,7 +1042,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h16be1788b8386d15E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !81
   %117 = icmp ugt i32 %19, 131
   br i1 %117, label %118, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit"
 
@@ -1066,7 +1062,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !81
   %126 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %125, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13)
           to label %127 unwind label %.body36.thread51.i
 
@@ -1083,7 +1079,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
           to label %128 unwind label %.body36.thread51.i
 
 128:                                              ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !81
   %.val31.i = load i32, ptr %13, align 4, !noalias !81, !noundef !12
   %129 = icmp ugt i32 %.val31.i, 131
   br i1 %129, label %130, label %145
@@ -1123,11 +1119,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i": ; preds = %131
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %144, i32 noundef %133, i32 noundef %114)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !81
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit"
 
 145:                                              ; preds = %130, %128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !81
   %.val30.i = load i32, ptr %14, align 4, !noalias !81, !noundef !12
   %146 = icmp ugt i32 %.val30.i, 131
   br i1 %146, label %147, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit"
@@ -1145,7 +1141,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i": ; preds = %149, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hfaf34e3700bf504eE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !81
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit"
 
 .body36.thread.i:                                 ; preds = %140, %137, %.body36.thread51.i
@@ -1176,7 +1172,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h05574
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit": ; preds = %116, %118, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %145, %147, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
   %.sroa.5.2.i = phi i32 [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ %114, %118 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 1, %118 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !81
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf9aa1e3c98bd1861E.exit"
@@ -1219,10 +1215,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
   store i32 %12, ptr %16, align 4, !alias.scope !142, !noalias !145
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !152
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !152
   store i32 0, ptr %15, align 8, !alias.scope !147, !noalias !150
   store i32 %12, ptr %7, align 4, !noalias !152
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !152
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !152
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !159, !noalias !160, !noundef !12
@@ -1260,7 +1256,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3032f1f2abbf4bdeE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !152
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit"
 
@@ -1280,7 +1276,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !152
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !152
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -1297,7 +1293,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !152
   %.val31.i = load i32, ptr %6, align 4, !noalias !152, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -1337,11 +1333,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !152
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !152
   %.val30.i = load i32, ptr %7, align 4, !noalias !152, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit"
@@ -1359,7 +1355,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h6e39461b034520b7E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !152
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -1390,7 +1386,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h0b2fd
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !152
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !152
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hca4bbfcdc5adec9aE.exit"
@@ -1435,10 +1431,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
   store i32 %14, ptr %18, align 4, !alias.scope !162, !noalias !165
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9), !noalias !172
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !172
   store i32 0, ptr %17, align 8, !alias.scope !167, !noalias !170
   store i32 %14, ptr %9, align 4, !noalias !172
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8), !noalias !172
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !172
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %23 = load i64, ptr %3, align 8, !range !178, !alias.scope !179, !noalias !180, !noundef !12
@@ -1452,8 +1448,8 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 .noexc.i:                                         ; preds = %24
   %26 = extractvalue { ptr, ptr } %25, 0
   %27 = extractvalue { ptr, ptr } %25, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !181
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !181
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !181
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !181
   %28 = icmp ne ptr %26, null
   tail call void @llvm.assume(i1 %28)
   %29 = icmp ne ptr %27, null
@@ -1473,12 +1469,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 36:                                               ; preds = %.noexc32.i
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i32, ptr %37, align 8, !noalias !181, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   br label %62
 
 39:                                               ; preds = %.noexc32.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !181
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   %40 = icmp eq ptr %26, %27
   br i1 %40, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -1550,13 +1546,13 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 .loopexit.i:                                      ; preds = %.noexc12.i.i.i.i.i, %39
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !noalias !181
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !181
   br label %65
 
 62:                                               ; preds = %54, %36
   %.sroa.4.1.i.i.i.i.ph.i = phi i32 [ %50, %54 ], [ %38, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !181
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !172
   %63 = icmp ugt i32 %14, 131
   br i1 %63, label %64, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit"
 
@@ -1577,7 +1573,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !172
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !172
   %72 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %71, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8)
           to label %73 unwind label %.body35.thread58.i
 
@@ -1594,7 +1590,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
           to label %74 unwind label %.body35.thread58.i
 
 74:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !172
   %.val31.i = load i32, ptr %8, align 4, !noalias !172, !noundef !12
   %75 = icmp ugt i32 %.val31.i, 131
   br i1 %75, label %76, label %91
@@ -1634,11 +1630,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %77
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %90, i32 noundef %79, i32 noundef %.val29.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !172
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit"
 
 91:                                               ; preds = %76, %74
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !172
   %.val30.i = load i32, ptr %9, align 4, !noalias !172, !noundef !12
   %92 = icmp ugt i32 %.val30.i, 131
   br i1 %92, label %93, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit"
@@ -1656,7 +1652,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i": ; preds = %95, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h9f14ef772e2f8444E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !172
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit"
 
 .body35.thread.i:                                 ; preds = %86, %83, %.body35.thread58.i
@@ -1687,7 +1683,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h1da4d
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit": ; preds = %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i", %91, %93, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i"
   %.sroa.5.2.i = phi i32 [ %82, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ %.sroa.4.1.i.i.i.i.ph.i, %62 ], [ %.sroa.4.1.i.i.i.i.ph.i, %64 ], [ undef, %93 ], [ undef, %91 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit38.i" ], [ 1, %62 ], [ 1, %64 ], [ 0, %93 ], [ 0, %91 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !172
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !172
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h9523bca2b5fa5300E.exit"
@@ -1730,10 +1726,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
   store i32 %12, ptr %16, align 4, !alias.scope !213, !noalias !216
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !223
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !223
   store i32 0, ptr %15, align 8, !alias.scope !218, !noalias !221
   store i32 %12, ptr %7, align 4, !noalias !223
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !223
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !223
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %21 = load i64, ptr %3, align 8, !range !178, !alias.scope !229, !noalias !230, !noundef !12
@@ -1771,7 +1767,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h62718d2a4caf397bE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit"
 
@@ -1791,7 +1787,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !223
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !223
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -1808,7 +1804,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !223
   %.val31.i = load i32, ptr %6, align 4, !noalias !223, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -1848,11 +1844,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   %.val30.i = load i32, ptr %7, align 4, !noalias !223, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit"
@@ -1870,7 +1866,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17he03273c6bcf68002E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !223
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -1901,7 +1897,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h27333
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !223
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !223
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hdbb1f84b2e40330cE.exit"
@@ -1944,10 +1940,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
   store i32 %12, ptr %16, align 4, !alias.scope !232, !noalias !235
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !242
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !242
   store i32 0, ptr %15, align 8, !alias.scope !237, !noalias !240
   store i32 %12, ptr %7, align 4, !noalias !242
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !242
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !249, !noalias !250, !noundef !12
@@ -1985,7 +1981,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h0b458d87c22d0666E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit"
 
@@ -2005,7 +2001,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !242
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !242
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -2022,7 +2018,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !242
   %.val31.i = load i32, ptr %6, align 4, !noalias !242, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -2062,11 +2058,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
   %.val30.i = load i32, ptr %7, align 4, !noalias !242, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit"
@@ -2084,7 +2080,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h910e76625d980b1cE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !242
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -2115,7 +2111,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2c577
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !242
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !242
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h254835e68698ecd6E.exit"
@@ -2165,10 +2161,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   store i32 %19, ptr %23, align 4, !alias.scope !252, !noalias !255
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14), !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !262
   store i32 0, ptr %22, align 8, !alias.scope !257, !noalias !260
   store i32 %19, ptr %14, align 4, !noalias !262
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13), !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !262
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %28 = load ptr, ptr %3, align 8, !alias.scope !268, !noalias !269, !noundef !12
@@ -2176,13 +2172,13 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br i1 %.not.i.i, label %108, label %29
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !270
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hdae0b7c82fccd4c7E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
           to label %.noexc.i unwind label %111, !noalias !257
 
 .noexc.i:                                         ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !270
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !270
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val.i.i.i.i.i = load i64, ptr %30, align 8, !noalias !270, !noundef !12
   invoke void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %16, i64 noundef 1, i64 %.val.i.i.i.i.i)
@@ -2196,12 +2192,12 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 33:                                               ; preds = %.noexc32.i
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i32, ptr %34, align 4, !noalias !270, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !270
   br label %.noexc33.i
 
 36:                                               ; preds = %.noexc32.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !270
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !270
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %37 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h976f653586cdfa4fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
@@ -2256,10 +2252,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 59:                                               ; preds = %58, %55
   store i32 %53, ptr %41, align 4, !alias.scope !303, !noalias !304
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !316
   store i32 0, ptr %40, align 8, !alias.scope !317, !noalias !304
   store i32 %53, ptr %7, align 4, !noalias !316
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !316
   %60 = invoke fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h827fed8a69bc7a77E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %50)
           to label %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h194a4c84f7d1b557E.exit.i.i.i.i.i.i.i.i.i.i.i" unwind label %.thread.i.i.i.i.i.i.i.i.i.i.i, !noalias !318
 
@@ -2282,7 +2278,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h194a4c84f7d1b557E.exit.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !316
   %66 = icmp ugt i32 %53, 131
   br i1 %66, label %67, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.thread12.i.i.i.i.i.i.i"
 
@@ -2301,7 +2297,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
           to label %79 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !318
 
 73:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !316
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !316
   %74 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %42, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %75 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !319
 
@@ -2318,7 +2314,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
           to label %76 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i.i, !noalias !319
 
 76:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !316
   %.val31.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !noalias !316, !noundef !12
   %77 = icmp ugt i32 %.val31.i.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %77, label %78, label %92
@@ -2360,11 +2356,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
           to label %.noexc11.i.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i.i, !noalias !257
 
 .noexc11.i.i.i.i.i:                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !316
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.i.i.i.i.i.i.i"
 
 92:                                               ; preds = %78, %76
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !316
   %.val30.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %7, align 4, !noalias !316, !noundef !12
   %93 = icmp ugt i32 %.val30.i.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %93, label %94, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.i.i.i.i.i.i.i"
@@ -2382,7 +2378,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i": ; preds = %96, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hb6a7534bebdd6051E.exit.i.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !316
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.thread12.i.i.i.i.i.i.i"
 
 .body.thread.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %88, %85, %.body.thread10.i.i.i.i.i.i.i.i.i.i.i
@@ -2408,11 +2404,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.thread12.i.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i", %67, %65
   %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i.i = phi i32 [ %63, %67 ], [ %63, %65 ], [ %84, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !316
   br label %.loopexit.i.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h5b00737f9e45d30aE.exit.i.i.i.i.i.i.i": ; preds = %94, %92, %.noexc11.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !316
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !316
   %102 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h976f653586cdfa4fE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc12.i.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i.i, !noalias !257
 
@@ -2437,21 +2433,21 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
           to label %.noexc33.i unwind label %111, !noalias !257
 
 .loopexit24.i.i.i.i.i:                            ; preds = %.noexc12.i.i.i.i.i, %.noexc.i.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !270
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !270
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !270
   %104 = invoke { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
           to label %.noexc34.i unwind label %111, !noalias !257
 
 .noexc34.i:                                       ; preds = %.loopexit24.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !270
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !270
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !270
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h56ae87af38158890E.exit.i"
 
 .noexc33.i:                                       ; preds = %.loopexit.i.i.i.i.i, %33
   %.sroa.4.0.i.i.i.i.i = phi i32 [ %35, %33 ], [ %.sroa.3.0.i.i.ph.i.i.i.i.i, %.loopexit.i.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !270
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !270
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !270
   %105 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h56ae87af38158890E.exit.i"
 
@@ -2493,7 +2489,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h56ae87af38158890E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !262
   %117 = icmp ugt i32 %19, 131
   br i1 %117, label %118, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit"
 
@@ -2513,7 +2509,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !262
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !262
   %126 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %125, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13)
           to label %127 unwind label %.body36.thread51.i
 
@@ -2530,7 +2526,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
           to label %128 unwind label %.body36.thread51.i
 
 128:                                              ; preds = %127
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !262
   %.val31.i = load i32, ptr %13, align 4, !noalias !262, !noundef !12
   %129 = icmp ugt i32 %.val31.i, 131
   br i1 %129, label %130, label %145
@@ -2570,11 +2566,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i": ; preds = %131
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %144, i32 noundef %133, i32 noundef %114)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !262
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit"
 
 145:                                              ; preds = %130, %128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !262
   %.val30.i = load i32, ptr %14, align 4, !noalias !262, !noundef !12
   %146 = icmp ugt i32 %.val30.i, 131
   br i1 %146, label %147, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit"
@@ -2592,7 +2588,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i": ; preds = %149, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hf6b38c9856658cf3E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !262
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit"
 
 .body36.thread.i:                                 ; preds = %140, %137, %.body36.thread51.i
@@ -2623,7 +2619,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h2fccb
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit": ; preds = %116, %118, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i", %145, %147, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i"
   %.sroa.5.2.i = phi i32 [ %136, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ %114, %116 ], [ %114, %118 ], [ undef, %147 ], [ undef, %145 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit39.i" ], [ 1, %116 ], [ 1, %118 ], [ 0, %147 ], [ 0, %145 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14), !noalias !262
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !262
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2940fce069453ddE.exit"
@@ -2666,10 +2662,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
   store i32 %12, ptr %16, align 4, !alias.scope !321, !noalias !324
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !331
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !331
   store i32 0, ptr %15, align 8, !alias.scope !326, !noalias !329
   store i32 %12, ptr %7, align 4, !noalias !331
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !331
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !331
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !337, !noalias !338, !noundef !12
@@ -2707,7 +2703,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h9962c9358ae6943bE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !331
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit"
 
@@ -2727,7 +2723,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !331
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !331
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -2744,7 +2740,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !331
   %.val31.i = load i32, ptr %6, align 4, !noalias !331, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -2784,11 +2780,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !331
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !331
   %.val30.i = load i32, ptr %7, align 4, !noalias !331, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit"
@@ -2806,7 +2802,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h8630945bbe04ccbfE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !331
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -2837,7 +2833,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h3bec0
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !331
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !331
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h6f636227ccaa108eE.exit"
@@ -2880,10 +2876,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
   store i32 %12, ptr %16, align 4, !alias.scope !340, !noalias !343
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !350
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !350
   store i32 0, ptr %15, align 8, !alias.scope !345, !noalias !348
   store i32 %12, ptr %7, align 4, !noalias !350
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !350
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !350
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !356, !noalias !357, !noundef !12
@@ -2921,7 +2917,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hbd70e50387355fa5E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !350
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit"
 
@@ -2941,7 +2937,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !350
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !350
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -2958,7 +2954,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !350
   %.val31.i = load i32, ptr %6, align 4, !noalias !350, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -2998,11 +2994,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !350
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !350
   %.val30.i = load i32, ptr %7, align 4, !noalias !350, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit"
@@ -3020,7 +3016,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h432f9bd1a037d88cE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !350
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -3051,7 +3047,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h48696
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !350
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !350
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc34e0b39be91af74E.exit"
@@ -3094,10 +3090,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
   store i32 %12, ptr %16, align 4, !alias.scope !359, !noalias !362
   tail call void @llvm.experimental.noalias.scope.decl(metadata !364)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !369
   store i32 0, ptr %15, align 8, !alias.scope !364, !noalias !367
   store i32 %12, ptr %7, align 4, !noalias !369
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !369
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !376, !noalias !377, !noundef !12
@@ -3135,7 +3131,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h829308bd5274cf8aE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !369
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit"
 
@@ -3155,7 +3151,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !369
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !369
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -3172,7 +3168,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !369
   %.val31.i = load i32, ptr %6, align 4, !noalias !369, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -3212,11 +3208,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !369
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !369
   %.val30.i = load i32, ptr %7, align 4, !noalias !369, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit"
@@ -3234,7 +3230,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h1db76c928e5f59c2E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !369
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -3265,7 +3261,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4907d
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !369
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !369
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h99564a581f8637beE.exit"
@@ -3308,10 +3304,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
   store i32 %12, ptr %16, align 4, !alias.scope !379, !noalias !382
   tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !389
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !389
   store i32 0, ptr %15, align 8, !alias.scope !384, !noalias !387
   store i32 %12, ptr %7, align 4, !noalias !389
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !389
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !389
   tail call void @llvm.experimental.noalias.scope.decl(metadata !390)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !395, !noalias !396, !noundef !12
@@ -3349,7 +3345,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hc8b11870f8f3f913E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !389
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit"
 
@@ -3369,7 +3365,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !389
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !389
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -3386,7 +3382,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !389
   %.val31.i = load i32, ptr %6, align 4, !noalias !389, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -3426,11 +3422,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !389
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !389
   %.val30.i = load i32, ptr %7, align 4, !noalias !389, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit"
@@ -3448,7 +3444,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hb53ae8fd76a22c3eE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !389
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -3479,7 +3475,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4ad21
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !389
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !389
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hf17d0bcc0f22fbeaE.exit"
@@ -3522,10 +3518,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
   store i32 %12, ptr %16, align 4, !alias.scope !398, !noalias !401
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !408
   store i32 0, ptr %15, align 8, !alias.scope !403, !noalias !406
   store i32 %12, ptr %7, align 4, !noalias !408
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !408
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !414, !noalias !415, !noundef !12
@@ -3563,7 +3559,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h8fc7fc27786300a7E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !408
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit"
 
@@ -3583,7 +3579,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !408
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !408
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -3600,7 +3596,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !408
   %.val31.i = load i32, ptr %6, align 4, !noalias !408, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -3640,11 +3636,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !408
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !408
   %.val30.i = load i32, ptr %7, align 4, !noalias !408, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit"
@@ -3662,7 +3658,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h78c6ee9436efa2abE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !408
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -3693,7 +3689,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h4bfea
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !408
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !408
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha0a78e35b157e94bE.exit"
@@ -3736,10 +3732,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
   store i32 %12, ptr %16, align 4, !alias.scope !417, !noalias !420
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !425)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !427
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !427
   store i32 0, ptr %15, align 8, !alias.scope !422, !noalias !425
   store i32 %12, ptr %7, align 4, !noalias !427
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !427
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !427
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   %21 = load i64, ptr %3, align 8, !range !178, !alias.scope !433, !noalias !434, !noundef !12
@@ -3777,7 +3773,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd57b93a852f507ccE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !427
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit"
 
@@ -3797,7 +3793,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !427
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !427
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -3814,7 +3810,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !427
   %.val31.i = load i32, ptr %6, align 4, !noalias !427, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -3854,11 +3850,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !427
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !427
   %.val30.i = load i32, ptr %7, align 4, !noalias !427, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit"
@@ -3876,7 +3872,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17he21708589df521a1E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !427
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -3907,7 +3903,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h5f5b0
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !427
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !427
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4f6b4ceba478adf6E.exit"
@@ -3950,10 +3946,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
   store i32 %12, ptr %16, align 4, !alias.scope !436, !noalias !439
   tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !446
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !446
   store i32 0, ptr %15, align 8, !alias.scope !441, !noalias !444
   store i32 %12, ptr %7, align 4, !noalias !446
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !446
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !446
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !452, !noalias !453, !noundef !12
@@ -3991,7 +3987,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h46a337252c95cacfE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !446
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit"
 
@@ -4011,7 +4007,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !446
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !446
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -4028,7 +4024,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !446
   %.val31.i = load i32, ptr %6, align 4, !noalias !446, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -4068,11 +4064,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !446
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !446
   %.val30.i = load i32, ptr %7, align 4, !noalias !446, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit"
@@ -4090,7 +4086,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h1857b8a152f81fdcE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !446
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -4121,7 +4117,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h61742
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !446
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !446
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hcd9ae0658ace45ddE.exit"
@@ -4164,10 +4160,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
   store i32 %12, ptr %16, align 4, !alias.scope !455, !noalias !458
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !465
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !465
   store i32 0, ptr %15, align 8, !alias.scope !460, !noalias !463
   store i32 %12, ptr %7, align 4, !noalias !465
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !465
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !465
   tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !471, !noalias !472, !noundef !12
@@ -4205,7 +4201,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h257de128571f4f93E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !465
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit"
 
@@ -4225,7 +4221,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !465
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !465
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -4242,7 +4238,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !465
   %.val31.i = load i32, ptr %6, align 4, !noalias !465, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -4282,11 +4278,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !465
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !465
   %.val30.i = load i32, ptr %7, align 4, !noalias !465, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit"
@@ -4304,7 +4300,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h605f50f21f59b53fE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !465
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -4335,7 +4331,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h73e35
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !465
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !465
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha2d1a4d848953e94E.exit"
@@ -4378,10 +4374,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
   store i32 %12, ptr %16, align 4, !alias.scope !474, !noalias !477
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !484
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !484
   store i32 0, ptr %15, align 8, !alias.scope !479, !noalias !482
   store i32 %12, ptr %7, align 4, !noalias !484
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !484
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !484
   tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !490, !noalias !491, !noundef !12
@@ -4419,7 +4415,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h83edfb5cce38541eE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !484
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit"
 
@@ -4439,7 +4435,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !484
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !484
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -4456,7 +4452,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !484
   %.val31.i = load i32, ptr %6, align 4, !noalias !484, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -4496,11 +4492,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !484
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !484
   %.val30.i = load i32, ptr %7, align 4, !noalias !484, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit"
@@ -4518,7 +4514,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h55a5ea19d2268724E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !484
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -4549,7 +4545,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h776a5
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !484
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !484
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h870c2259e7a1e0daE.exit"
@@ -4592,10 +4588,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
   store i32 %12, ptr %16, align 4, !alias.scope !493, !noalias !496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !503
   store i32 0, ptr %15, align 8, !alias.scope !498, !noalias !501
   store i32 %12, ptr %7, align 4, !noalias !503
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !503
   tail call void @llvm.experimental.noalias.scope.decl(metadata !504)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !509, !noalias !510, !noundef !12
@@ -4633,7 +4629,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h16fc42b1ea8f0763E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !503
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit"
 
@@ -4653,7 +4649,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !503
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !503
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -4670,7 +4666,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !503
   %.val31.i = load i32, ptr %6, align 4, !noalias !503, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -4710,11 +4706,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !503
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !503
   %.val30.i = load i32, ptr %7, align 4, !noalias !503, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit"
@@ -4732,7 +4728,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h308916d53bc25364E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !503
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -4763,7 +4759,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7abc5
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !503
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !503
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h467e42703dbf033eE.exit"
@@ -4806,10 +4802,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
   store i32 %12, ptr %16, align 4, !alias.scope !512, !noalias !515
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !522
   store i32 0, ptr %15, align 8, !alias.scope !517, !noalias !520
   store i32 %12, ptr %7, align 4, !noalias !522
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !522
   tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
   %21 = load i64, ptr %3, align 8, !range !528, !alias.scope !529, !noalias !530, !noundef !12
@@ -4848,7 +4844,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hc0ea74a1106dd154E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !522
   %34 = icmp ugt i32 %12, 131
   br i1 %34, label %35, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit"
 
@@ -4868,7 +4864,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !522
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !522
   %43 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %42, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %44 unwind label %.body.thread46.i
 
@@ -4885,7 +4881,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
           to label %45 unwind label %.body.thread46.i
 
 45:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !522
   %.val31.i = load i32, ptr %6, align 4, !noalias !522, !noundef !12
   %46 = icmp ugt i32 %.val31.i, 131
   br i1 %46, label %47, label %62
@@ -4925,11 +4921,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61, i32 noundef %50, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !522
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit"
 
 62:                                               ; preds = %47, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !522
   %.val30.i = load i32, ptr %7, align 4, !noalias !522, !noundef !12
   %63 = icmp ugt i32 %.val30.i, 131
   br i1 %63, label %64, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit"
@@ -4947,7 +4943,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %66, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h488f4c8898bdfc15E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !522
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit"
 
 .body.thread.i:                                   ; preds = %57, %54, %.body.thread46.i
@@ -4978,7 +4974,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h7fb43
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit": ; preds = %33, %35, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ %31, %35 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 1, %35 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !522
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !522
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h792cb3fc4fa26fc9E.exit"
@@ -5021,10 +5017,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
   store i32 %12, ptr %16, align 4, !alias.scope !532, !noalias !535
   tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !542
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !542
   store i32 0, ptr %15, align 8, !alias.scope !537, !noalias !540
   store i32 %12, ptr %7, align 4, !noalias !542
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !542
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !542
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !546)
   %21 = load i64, ptr %3, align 8, !range !178, !alias.scope !548, !noalias !549, !noundef !12
@@ -5062,7 +5058,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hed099f1ab115a20fE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !542
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit"
 
@@ -5082,7 +5078,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !542
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !542
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -5099,7 +5095,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !542
   %.val31.i = load i32, ptr %6, align 4, !noalias !542, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -5139,11 +5135,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !542
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !542
   %.val30.i = load i32, ptr %7, align 4, !noalias !542, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit"
@@ -5161,7 +5157,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h1f921766d47698f9E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !542
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -5192,7 +5188,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h84088
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !542
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !542
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h34af9a939462cc63E.exit"
@@ -5235,10 +5231,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
   store i32 %12, ptr %16, align 4, !alias.scope !551, !noalias !554
   tail call void @llvm.experimental.noalias.scope.decl(metadata !556)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !559)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !561
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !561
   store i32 0, ptr %15, align 8, !alias.scope !556, !noalias !559
   store i32 %12, ptr %7, align 4, !noalias !561
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !561
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !561
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !565)
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5277,7 +5273,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hc3b69044fd832eafE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !561
   %33 = icmp ugt i32 %12, 131
   br i1 %33, label %34, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit"
 
@@ -5297,7 +5293,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !561
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !561
   %42 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %41, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %43 unwind label %.body.thread46.i
 
@@ -5314,7 +5310,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
           to label %44 unwind label %.body.thread46.i
 
 44:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !561
   %.val31.i = load i32, ptr %6, align 4, !noalias !561, !noundef !12
   %45 = icmp ugt i32 %.val31.i, 131
   br i1 %45, label %46, label %61
@@ -5354,11 +5350,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %47
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %60, i32 noundef %49, i32 noundef %30)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !561
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit"
 
 61:                                               ; preds = %46, %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !561
   %.val30.i = load i32, ptr %7, align 4, !noalias !561, !noundef !12
   %62 = icmp ugt i32 %.val30.i, 131
   br i1 %62, label %63, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit"
@@ -5376,7 +5372,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %65, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h5eb5d2129db6108bE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !561
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit"
 
 .body.thread.i:                                   ; preds = %56, %53, %.body.thread46.i
@@ -5407,7 +5403,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h841b0
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit": ; preds = %32, %34, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %61, %63, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %52, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %30, %32 ], [ %30, %34 ], [ undef, %63 ], [ undef, %61 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %32 ], [ 1, %34 ], [ 0, %63 ], [ 0, %61 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !561
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !561
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3fa8f71f2af9ccdfE.exit"
@@ -5450,10 +5446,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
   store i32 %12, ptr %16, align 4, !alias.scope !570, !noalias !573
   tail call void @llvm.experimental.noalias.scope.decl(metadata !575)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !580
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !580
   store i32 0, ptr %15, align 8, !alias.scope !575, !noalias !578
   store i32 %12, ptr %7, align 4, !noalias !580
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !580
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !580
   tail call void @llvm.experimental.noalias.scope.decl(metadata !581)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !584)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !586, !noalias !587, !noundef !12
@@ -5491,7 +5487,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h106f9775efc5073aE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !580
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit"
 
@@ -5511,7 +5507,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !580
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !580
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -5528,7 +5524,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !580
   %.val31.i = load i32, ptr %6, align 4, !noalias !580, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -5568,11 +5564,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !580
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !580
   %.val30.i = load i32, ptr %7, align 4, !noalias !580, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit"
@@ -5590,7 +5586,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h317244dc2122a869E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !580
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -5621,7 +5617,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h845a3
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !580
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !580
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd2e8abb8b69fdeadE.exit"
@@ -5664,10 +5660,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
   store i32 %12, ptr %16, align 4, !alias.scope !589, !noalias !592
   tail call void @llvm.experimental.noalias.scope.decl(metadata !594)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !599
   store i32 0, ptr %15, align 8, !alias.scope !594, !noalias !597
   store i32 %12, ptr %7, align 4, !noalias !599
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !599
   tail call void @llvm.experimental.noalias.scope.decl(metadata !600)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !605, !noalias !606, !noundef !12
@@ -5705,7 +5701,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hc858415cabece344E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !599
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit"
 
@@ -5725,7 +5721,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !599
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !599
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -5742,7 +5738,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !599
   %.val31.i = load i32, ptr %6, align 4, !noalias !599, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -5782,11 +5778,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !599
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !599
   %.val30.i = load i32, ptr %7, align 4, !noalias !599, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit"
@@ -5804,7 +5800,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h466537a89d5d2c42E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !599
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -5835,7 +5831,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h874c8
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !599
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !599
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hd23fb903b4c28079E.exit"
@@ -5878,10 +5874,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
   store i32 %12, ptr %16, align 4, !alias.scope !608, !noalias !611
   tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !618
   store i32 0, ptr %15, align 8, !alias.scope !613, !noalias !616
   store i32 %12, ptr %7, align 4, !noalias !618
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !618
   tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !622)
   %21 = load i8, ptr %3, align 1, !range !624, !alias.scope !625, !noalias !626, !noundef !12
@@ -5919,7 +5915,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h04b63688405a7eb4E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !618
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit"
 
@@ -5939,7 +5935,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !618
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !618
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -5956,7 +5952,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !618
   %.val31.i = load i32, ptr %6, align 4, !noalias !618, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -5996,11 +5992,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !618
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !618
   %.val30.i = load i32, ptr %7, align 4, !noalias !618, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit"
@@ -6018,7 +6014,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h9e6825ad51715ffcE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !618
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -6049,7 +6045,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8bba0
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !618
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !618
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hbd00f2d65107671cE.exit"
@@ -6092,10 +6088,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
   store i32 %12, ptr %16, align 4, !alias.scope !628, !noalias !631
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !636)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !638
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !638
   store i32 0, ptr %15, align 8, !alias.scope !633, !noalias !636
   store i32 %12, ptr %7, align 4, !noalias !638
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !638
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !638
   tail call void @llvm.experimental.noalias.scope.decl(metadata !639)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !642)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !644, !noalias !645, !noundef !12
@@ -6133,7 +6129,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h029c02c1eb51f1c3E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !638
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit"
 
@@ -6153,7 +6149,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !638
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !638
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -6170,7 +6166,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !638
   %.val31.i = load i32, ptr %6, align 4, !noalias !638, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -6210,11 +6206,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !638
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !638
   %.val30.i = load i32, ptr %7, align 4, !noalias !638, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit"
@@ -6232,7 +6228,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hb12bda13f6679674E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !638
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -6263,7 +6259,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h8da19
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !638
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !638
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hb5977aa058a612c4E.exit"
@@ -6306,10 +6302,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
   store i32 %12, ptr %16, align 4, !alias.scope !647, !noalias !650
   tail call void @llvm.experimental.noalias.scope.decl(metadata !652)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !657
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !657
   store i32 0, ptr %15, align 8, !alias.scope !652, !noalias !655
   store i32 %12, ptr %7, align 4, !noalias !657
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !657
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !657
   tail call void @llvm.experimental.noalias.scope.decl(metadata !658)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !661)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !663, !noalias !664, !noundef !12
@@ -6347,7 +6343,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h5f13626b46642409E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !657
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit"
 
@@ -6367,7 +6363,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !657
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !657
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -6384,7 +6380,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !657
   %.val31.i = load i32, ptr %6, align 4, !noalias !657, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -6424,11 +6420,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !657
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !657
   %.val30.i = load i32, ptr %7, align 4, !noalias !657, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit"
@@ -6446,7 +6442,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h061ae93132716de5E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !657
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -6477,7 +6473,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h90e88
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !657
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !657
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h3b8afc2b2b2c4a66E.exit"
@@ -6520,10 +6516,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
   store i32 %12, ptr %16, align 4, !alias.scope !666, !noalias !669
   tail call void @llvm.experimental.noalias.scope.decl(metadata !671)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !674)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !676
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !676
   store i32 0, ptr %15, align 8, !alias.scope !671, !noalias !674
   store i32 %12, ptr %7, align 4, !noalias !676
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !676
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !676
   tail call void @llvm.experimental.noalias.scope.decl(metadata !677)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !682, !noalias !683, !noundef !12
@@ -6561,7 +6557,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h2e46332abb74dd33E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit"
 
@@ -6581,7 +6577,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !676
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !676
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -6598,7 +6594,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !676
   %.val31.i = load i32, ptr %6, align 4, !noalias !676, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -6638,11 +6634,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
   %.val30.i = load i32, ptr %7, align 4, !noalias !676, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit"
@@ -6660,7 +6656,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hf3ed5a8eed5c206fE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !676
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -6691,7 +6687,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h93512
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !676
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !676
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h0eaaca97191571a7E.exit"
@@ -6734,10 +6730,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
   store i32 %12, ptr %16, align 4, !alias.scope !685, !noalias !688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !690)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !693)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !695
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !695
   store i32 0, ptr %15, align 8, !alias.scope !690, !noalias !693
   store i32 %12, ptr %7, align 4, !noalias !695
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !695
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !695
   tail call void @llvm.experimental.noalias.scope.decl(metadata !696)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !699)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !701, !noalias !702, !noundef !12
@@ -6775,7 +6771,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h68368575139df496E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !695
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit"
 
@@ -6795,7 +6791,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !695
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !695
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -6812,7 +6808,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !695
   %.val31.i = load i32, ptr %6, align 4, !noalias !695, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -6852,11 +6848,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !695
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !695
   %.val30.i = load i32, ptr %7, align 4, !noalias !695, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit"
@@ -6874,7 +6870,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h51e2955611f05c80E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !695
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -6905,7 +6901,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h95317
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !695
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !695
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17ha393b8411923aaadE.exit"
@@ -6948,10 +6944,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
   store i32 %12, ptr %16, align 4, !alias.scope !704, !noalias !707
   tail call void @llvm.experimental.noalias.scope.decl(metadata !709)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !712)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !714
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !714
   store i32 0, ptr %15, align 8, !alias.scope !709, !noalias !712
   store i32 %12, ptr %7, align 4, !noalias !714
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !714
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !714
   tail call void @llvm.experimental.noalias.scope.decl(metadata !715)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !718)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !720, !noalias !721, !noundef !12
@@ -6989,7 +6985,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hece5c386e50aa90dE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !714
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit"
 
@@ -7009,7 +7005,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !714
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !714
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -7026,7 +7022,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !714
   %.val31.i = load i32, ptr %6, align 4, !noalias !714, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -7066,11 +7062,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !714
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !714
   %.val30.i = load i32, ptr %7, align 4, !noalias !714, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit"
@@ -7088,7 +7084,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17he27fca92744b755bE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !714
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -7119,7 +7115,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17h9995b
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !714
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !714
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h758eb30173a3729cE.exit"
@@ -7162,10 +7158,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
   store i32 %12, ptr %16, align 4, !alias.scope !723, !noalias !726
   tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !733
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !733
   store i32 0, ptr %15, align 8, !alias.scope !728, !noalias !731
   store i32 %12, ptr %7, align 4, !noalias !733
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !733
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !733
   tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !739, !noalias !740, !noundef !12
@@ -7203,7 +7199,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h87afe95fc022dd35E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !733
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit"
 
@@ -7223,7 +7219,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !733
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !733
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -7240,7 +7236,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !733
   %.val31.i = load i32, ptr %6, align 4, !noalias !733, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -7280,11 +7276,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !733
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !733
   %.val30.i = load i32, ptr %7, align 4, !noalias !733, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit"
@@ -7302,7 +7298,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h3a0778c939392b84E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !733
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -7333,7 +7329,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha482d
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !733
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !733
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1a49361ad94b2527E.exit"
@@ -7376,10 +7372,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
   store i32 %12, ptr %16, align 4, !alias.scope !742, !noalias !745
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !750)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !752
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !752
   store i32 0, ptr %15, align 8, !alias.scope !747, !noalias !750
   store i32 %12, ptr %7, align 4, !noalias !752
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !752
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !752
   tail call void @llvm.experimental.noalias.scope.decl(metadata !753)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !756)
   %21 = load i8, ptr %3, align 1, !range !758, !alias.scope !759, !noalias !760, !noundef !12
@@ -7417,7 +7413,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7b87b1992348298dE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !752
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit"
 
@@ -7437,7 +7433,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !752
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !752
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -7454,7 +7450,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !752
   %.val31.i = load i32, ptr %6, align 4, !noalias !752, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -7494,11 +7490,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !752
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !752
   %.val30.i = load i32, ptr %7, align 4, !noalias !752, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit"
@@ -7516,7 +7512,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h2102c46fef053295E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !752
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -7547,7 +7543,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17ha4a50
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !752
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !752
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h45e84dd299aa5944E.exit"
@@ -7590,10 +7586,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
   store i32 %12, ptr %16, align 4, !alias.scope !762, !noalias !765
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !770)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !772
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !772
   store i32 0, ptr %15, align 8, !alias.scope !767, !noalias !770
   store i32 %12, ptr %7, align 4, !noalias !772
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !772
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !772
   tail call void @llvm.experimental.noalias.scope.decl(metadata !773)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !778, !noalias !779, !noundef !12
@@ -7631,7 +7627,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hae8facebe867e024E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !772
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit"
 
@@ -7651,7 +7647,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !772
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !772
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -7668,7 +7664,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !772
   %.val31.i = load i32, ptr %6, align 4, !noalias !772, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -7708,11 +7704,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !772
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !772
   %.val30.i = load i32, ptr %7, align 4, !noalias !772, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit"
@@ -7730,7 +7726,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hfe8586ea457ab981E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !772
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -7761,7 +7757,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17had201
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !772
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !772
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hacde1d0ed038436aE.exit"
@@ -7804,10 +7800,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
   store i32 %12, ptr %16, align 4, !alias.scope !781, !noalias !784
   tail call void @llvm.experimental.noalias.scope.decl(metadata !786)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !789)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !791
   store i32 0, ptr %15, align 8, !alias.scope !786, !noalias !789
   store i32 %12, ptr %7, align 4, !noalias !791
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !791
   tail call void @llvm.experimental.noalias.scope.decl(metadata !792)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %21 = load i64, ptr %3, align 8, !range !248, !alias.scope !797, !noalias !798, !noundef !12
@@ -7845,7 +7841,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hfd29159c39f02c44E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !791
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit"
 
@@ -7865,7 +7861,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !791
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !791
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -7882,7 +7878,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !791
   %.val31.i = load i32, ptr %6, align 4, !noalias !791, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -7922,11 +7918,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !791
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !791
   %.val30.i = load i32, ptr %7, align 4, !noalias !791, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit"
@@ -7944,7 +7940,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h250af18d734a1d49E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !791
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -7975,7 +7971,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hbdc8d
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !791
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !791
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h20caa9fb4e2f2efdE.exit"
@@ -8018,10 +8014,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
   store i32 %12, ptr %16, align 4, !alias.scope !800, !noalias !803
   tail call void @llvm.experimental.noalias.scope.decl(metadata !805)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !808)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !810
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !810
   store i32 0, ptr %15, align 8, !alias.scope !805, !noalias !808
   store i32 %12, ptr %7, align 4, !noalias !810
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !810
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !810
   tail call void @llvm.experimental.noalias.scope.decl(metadata !811)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !814)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !816, !noalias !817, !noundef !12
@@ -8059,7 +8055,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h46d6c42b288c2d3dE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !810
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit"
 
@@ -8079,7 +8075,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !810
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !810
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -8096,7 +8092,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !810
   %.val31.i = load i32, ptr %6, align 4, !noalias !810, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -8136,11 +8132,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !810
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !810
   %.val30.i = load i32, ptr %7, align 4, !noalias !810, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit"
@@ -8158,7 +8154,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h5595939941cd53b1E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !810
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -8189,7 +8185,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hc68f1
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !810
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !810
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h887e15bc490775d9E.exit"
@@ -8232,10 +8228,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
   store i32 %12, ptr %16, align 4, !alias.scope !819, !noalias !822
   tail call void @llvm.experimental.noalias.scope.decl(metadata !824)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !827)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !829
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !829
   store i32 0, ptr %15, align 8, !alias.scope !824, !noalias !827
   store i32 %12, ptr %7, align 4, !noalias !829
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !829
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !829
   tail call void @llvm.experimental.noalias.scope.decl(metadata !830)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !833)
   %21 = load i16, ptr %3, align 2, !alias.scope !835, !noalias !836, !noundef !12
@@ -8273,7 +8269,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hccfd5370550d8950E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !829
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit"
 
@@ -8293,7 +8289,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !829
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !829
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -8310,7 +8306,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !829
   %.val31.i = load i32, ptr %6, align 4, !noalias !829, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -8350,11 +8346,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !829
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !829
   %.val30.i = load i32, ptr %7, align 4, !noalias !829, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit"
@@ -8372,7 +8368,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h65aef9cf318711dfE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !829
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -8403,7 +8399,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hd7f0a
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !829
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !829
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h453c8e53ca996d2fE.exit"
@@ -8446,10 +8442,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
   store i32 %12, ptr %16, align 4, !alias.scope !838, !noalias !841
   tail call void @llvm.experimental.noalias.scope.decl(metadata !843)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !846)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !848
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !848
   store i32 0, ptr %15, align 8, !alias.scope !843, !noalias !846
   store i32 %12, ptr %7, align 4, !noalias !848
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !848
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !848
   tail call void @llvm.experimental.noalias.scope.decl(metadata !849)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !852)
   %21 = load i8, ptr %3, align 1, !alias.scope !854, !noalias !855, !noundef !12
@@ -8487,7 +8483,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h5d1a7e1d7000b684E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !848
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit"
 
@@ -8507,7 +8503,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !848
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !848
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -8524,7 +8520,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !848
   %.val31.i = load i32, ptr %6, align 4, !noalias !848, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -8564,11 +8560,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !848
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !848
   %.val30.i = load i32, ptr %7, align 4, !noalias !848, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit"
@@ -8586,7 +8582,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h64986348b79947c9E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !848
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -8617,7 +8613,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he09c7
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !848
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !848
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h54946c564687158dE.exit"
@@ -8660,10 +8656,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
   store i32 %12, ptr %16, align 4, !alias.scope !857, !noalias !860
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !865)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !867
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !867
   store i32 0, ptr %15, align 8, !alias.scope !862, !noalias !865
   store i32 %12, ptr %7, align 4, !noalias !867
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !867
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !867
   tail call void @llvm.experimental.noalias.scope.decl(metadata !868)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !871)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !873, !noalias !874, !noundef !12
@@ -8701,7 +8697,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd9e1b225fc071f9eE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !867
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit"
 
@@ -8721,7 +8717,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !867
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !867
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -8738,7 +8734,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !867
   %.val31.i = load i32, ptr %6, align 4, !noalias !867, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -8778,11 +8774,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !867
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !867
   %.val30.i = load i32, ptr %7, align 4, !noalias !867, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit"
@@ -8800,7 +8796,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h06863de4b29c4314E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !867
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -8831,7 +8827,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he18ea
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !867
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !867
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h4974f26c2e398a94E.exit"
@@ -8874,10 +8870,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
   store i32 %12, ptr %16, align 4, !alias.scope !876, !noalias !879
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !884)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !886
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !886
   store i32 0, ptr %15, align 8, !alias.scope !881, !noalias !884
   store i32 %12, ptr %7, align 4, !noalias !886
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !886
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !886
   tail call void @llvm.experimental.noalias.scope.decl(metadata !887)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !890)
   %21 = load i64, ptr %3, align 8, !range !178, !alias.scope !892, !noalias !893, !noundef !12
@@ -8919,7 +8915,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hb31095fdaa8a116bE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !886
   %34 = icmp ugt i32 %12, 131
   br i1 %34, label %35, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit"
 
@@ -8939,7 +8935,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !886
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !886
   %43 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %42, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %44 unwind label %.body.thread46.i, !noalias !884
 
@@ -8956,7 +8952,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
           to label %45 unwind label %.body.thread46.i, !noalias !884
 
 45:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !886
   %.val31.i = load i32, ptr %6, align 4, !noalias !886, !noundef !12
   %46 = icmp ugt i32 %.val31.i, 131
   br i1 %46, label %47, label %62
@@ -8996,11 +8992,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %61, i32 noundef %50, i32 noundef %31), !noalias !884
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !886
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit"
 
 62:                                               ; preds = %47, %45
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !886
   %.val30.i = load i32, ptr %7, align 4, !noalias !886, !noundef !12
   %63 = icmp ugt i32 %.val30.i, 131
   br i1 %63, label %64, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit"
@@ -9018,7 +9014,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %66, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h0c6f84a8d20d8d81E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !886
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit"
 
 .body.thread.i:                                   ; preds = %57, %54, %.body.thread46.i
@@ -9049,7 +9045,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he549b
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit": ; preds = %33, %35, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %62, %64, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %53, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %31, %33 ], [ %31, %35 ], [ undef, %64 ], [ undef, %62 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %33 ], [ 1, %35 ], [ 0, %64 ], [ 0, %62 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !886
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !886
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hadfc0b5a0511d368E.exit"
@@ -9092,10 +9088,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
   store i32 %12, ptr %16, align 4, !alias.scope !895, !noalias !898
   tail call void @llvm.experimental.noalias.scope.decl(metadata !900)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !903)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !905
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !905
   store i32 0, ptr %15, align 8, !alias.scope !900, !noalias !903
   store i32 %12, ptr %7, align 4, !noalias !905
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !905
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !905
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !909)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !911, !noalias !912, !noundef !12
@@ -9133,7 +9129,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h23e1eb8c6fb006caE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !905
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit"
 
@@ -9153,7 +9149,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !905
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !905
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -9170,7 +9166,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !905
   %.val31.i = load i32, ptr %6, align 4, !noalias !905, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -9210,11 +9206,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !905
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !905
   %.val30.i = load i32, ptr %7, align 4, !noalias !905, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit"
@@ -9232,7 +9228,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h01840d49871722fbE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !905
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -9263,7 +9259,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17he59fb
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !905
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !905
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17heba9270af64eb599E.exit"
@@ -9306,10 +9302,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
   store i32 %12, ptr %16, align 4, !alias.scope !914, !noalias !917
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !924
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !924
   store i32 0, ptr %15, align 8, !alias.scope !919, !noalias !922
   store i32 %12, ptr %7, align 4, !noalias !924
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !924
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !924
   tail call void @llvm.experimental.noalias.scope.decl(metadata !925)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !928)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !930, !noalias !931, !noundef !12
@@ -9347,7 +9343,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hce37d00fef3d8c21E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !924
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit"
 
@@ -9367,7 +9363,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !924
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !924
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -9384,7 +9380,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !924
   %.val31.i = load i32, ptr %6, align 4, !noalias !924, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -9424,11 +9420,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !924
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !924
   %.val30.i = load i32, ptr %7, align 4, !noalias !924, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit"
@@ -9446,7 +9442,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hb9779cf01f200d8eE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !924
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -9477,7 +9473,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hec205
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !924
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !924
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hc066b9d5b93ae485E.exit"
@@ -9520,10 +9516,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
   store i32 %12, ptr %16, align 4, !alias.scope !933, !noalias !936
   tail call void @llvm.experimental.noalias.scope.decl(metadata !938)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !941)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !943
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !943
   store i32 0, ptr %15, align 8, !alias.scope !938, !noalias !941
   store i32 %12, ptr %7, align 4, !noalias !943
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !943
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !943
   tail call void @llvm.experimental.noalias.scope.decl(metadata !944)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !947)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !949, !noalias !950, !noundef !12
@@ -9561,7 +9557,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h6d9d1ad21b420655E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !943
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit"
 
@@ -9581,7 +9577,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !943
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !943
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -9598,7 +9594,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !943
   %.val31.i = load i32, ptr %6, align 4, !noalias !943, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -9638,11 +9634,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !943
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !943
   %.val30.i = load i32, ptr %7, align 4, !noalias !943, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit"
@@ -9660,7 +9656,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hdd55c0e07533e799E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !943
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -9691,7 +9687,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hefc21
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !943
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !943
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17hfbd7cac210cb5d6dE.exit"
@@ -9734,10 +9730,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
   store i32 %12, ptr %16, align 4, !alias.scope !952, !noalias !955
   tail call void @llvm.experimental.noalias.scope.decl(metadata !957)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !962
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !962
   store i32 0, ptr %15, align 8, !alias.scope !957, !noalias !960
   store i32 %12, ptr %7, align 4, !noalias !962
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !962
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !962
   tail call void @llvm.experimental.noalias.scope.decl(metadata !963)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
   %21 = load i8, ptr %3, align 1, !range !375, !alias.scope !968, !noalias !969, !noundef !12
@@ -9775,7 +9771,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h95a1fb6f36d9ab91E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !962
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit"
 
@@ -9795,7 +9791,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !962
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !962
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -9812,7 +9808,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !962
   %.val31.i = load i32, ptr %6, align 4, !noalias !962, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -9852,11 +9848,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !962
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !962
   %.val30.i = load i32, ptr %7, align 4, !noalias !962, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit"
@@ -9874,7 +9870,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hcc419f02eb14fa3dE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !962
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -9905,7 +9901,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hf3ed6
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !962
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !962
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h1f3a57851c237174E.exit"
@@ -9948,10 +9944,10 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
   store i32 %12, ptr %16, align 4, !alias.scope !971, !noalias !974
   tail call void @llvm.experimental.noalias.scope.decl(metadata !976)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !981
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !981
   store i32 0, ptr %15, align 8, !alias.scope !976, !noalias !979
   store i32 %12, ptr %7, align 4, !noalias !981
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !981
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !981
   tail call void @llvm.experimental.noalias.scope.decl(metadata !982)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !985)
   %21 = load i64, ptr %3, align 8, !range !158, !alias.scope !987, !noalias !988, !noundef !12
@@ -9989,7 +9985,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h20a0d8d610cbb80aE.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !981
   %32 = icmp ugt i32 %12, 131
   br i1 %32, label %33, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit"
 
@@ -10009,7 +10005,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !981
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !981
   %41 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %40, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %42 unwind label %.body.thread46.i
 
@@ -10026,7 +10022,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
           to label %43 unwind label %.body.thread46.i
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !981
   %.val31.i = load i32, ptr %6, align 4, !noalias !981, !noundef !12
   %44 = icmp ugt i32 %.val31.i, 131
   br i1 %44, label %45, label %60
@@ -10066,11 +10062,11 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i": ; preds = %46
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %59, i32 noundef %48, i32 noundef %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !981
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit"
 
 60:                                               ; preds = %45, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !981
   %.val30.i = load i32, ptr %7, align 4, !noalias !981, !noundef !12
   %61 = icmp ugt i32 %.val30.i, 131
   br i1 %61, label %62, label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit"
@@ -10088,7 +10084,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i": ; preds = %64, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h7725de497f951801E.exit.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !981
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit"
 
 .body.thread.i:                                   ; preds = %55, %52, %.body.thread46.i
@@ -10119,7 +10115,7 @@ define hidden { i32, i32 } @_ZN5serde3ser12SerializeMap15serialize_entry17hfaccd
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit": ; preds = %31, %33, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i", %60, %62, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i"
   %.sroa.5.2.i = phi i32 [ %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ %29, %31 ], [ %29, %33 ], [ undef, %62 ], [ undef, %60 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
   %.sroa.0.2.i = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit34.i" ], [ 1, %31 ], [ 1, %33 ], [ 0, %62 ], [ 0, %60 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit32.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !981
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !981
   br label %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread"
 
 "_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17hdcc35e86d61bcf3fE.exit.thread": ; preds = %4, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value17h5782105c7635ce52E.exit"
@@ -10137,8 +10133,8 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
   %5 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h06c8889f7153e9daE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !990
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !993
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !993
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !993
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !993
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ne ptr %7, null
@@ -10155,12 +10151,12 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8, !noalias !993, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !993
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !993
   br label %_ZN5serde3ser10Serializer11collect_seq17h7eed58fade138db6E.exit
 
 19:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !993
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !993
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !993
   %20 = icmp eq ptr %6, %7
   br i1 %20, label %.loopexit.i, label %.lr.ph.i.i.i
 
@@ -10225,7 +10221,7 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
 _ZN5serde3ser10Serializer11collect_seq17h7eed58fade138db6E.exit: ; preds = %16, %36, %.loopexit.i
   %.sroa.4.1.i = phi i32 [ %.sroa.3.0.copyload.i, %.loopexit.i ], [ %18, %16 ], [ %32, %36 ]
   %.sroa.0.1.i = phi i32 [ 0, %.loopexit.i ], [ 1, %16 ], [ 1, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !993
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !993
   %42 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1.i, 0
   %43 = insertvalue { i32, i32 } %42, i32 %.sroa.4.1.i, 1
   ret { i32, i32 } %43
@@ -10238,8 +10234,8 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
   %5 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha3bec14c2030115bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0), !noalias !1015
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1018
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1018
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1018
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1018
   %8 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %8)
   %9 = icmp ne ptr %7, null
@@ -10256,12 +10252,12 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8, !noalias !1018, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1018
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1018
   br label %_ZN5serde3ser10Serializer11collect_seq17hd028199edd6b8681E.exit
 
 19:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !noalias !1018
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !1018
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1018
   %20 = icmp eq ptr %6, %7
   br i1 %20, label %.loopexit.i, label %.lr.ph.i.i.i
 
@@ -10322,7 +10318,7 @@ define internal fastcc { i32, i32 } @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..
 _ZN5serde3ser10Serializer11collect_seq17hd028199edd6b8681E.exit: ; preds = %16, %34, %.loopexit.i
   %.sroa.4.1.i = phi i32 [ %.sroa.3.0.copyload.i, %.loopexit.i ], [ %18, %16 ], [ %30, %34 ]
   %.sroa.0.1.i = phi i32 [ 0, %.loopexit.i ], [ 1, %16 ], [ 1, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !1018
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1018
   %40 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1.i, 0
   %41 = insertvalue { i32, i32 } %40, i32 %.sroa.4.1.i, 1
   ret { i32, i32 } %41
@@ -10589,7 +10585,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   %2 = alloca [4 x i8], align 4
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !range !67, !noundef !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -10600,7 +10596,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
 
 10:                                               ; preds = %1
   store i32 %8, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !12, !align !28, !noundef !12
   %13 = icmp ne ptr %.0.val, null
@@ -10631,7 +10627,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17hcd9dda6f44d2ec2eE.exit"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = icmp ugt i32 %8, 131
   br i1 %21, label %22, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit"
 
@@ -10651,7 +10647,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
           to label %31 unwind label %.body.thread10
 
@@ -10668,7 +10664,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
           to label %32 unwind label %.body.thread10
 
 32:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val31 = load i32, ptr %3, align 4, !noundef !12
   %33 = icmp ugt i32 %.val31, 131
   br i1 %33, label %34, label %49
@@ -10708,11 +10704,11 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33": ; preds = %35
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN18serde_wasm_bindgen9ObjectExt3set17hf92179a5e7c53205E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %48, i32 noundef %37, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit"
 
 49:                                               ; preds = %34, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val30 = load i32, ptr %4, align 4, !noundef !12
   %50 = icmp ugt i32 %.val30, 131
   br i1 %50, label %51, label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit"
@@ -10724,7 +10720,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33", %49, %51, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35", %20, %22
   %.sroa.5.2 = phi i32 [ %40, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ %18, %20 ], [ %18, %22 ], [ undef, %51 ], [ undef, %49 ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
   %.sroa.0.2 = phi i32 [ 1, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35" ], [ 1, %20 ], [ 1, %22 ], [ 0, %51 ], [ 0, %49 ], [ 0, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %52 = insertvalue { i32, i32 } poison, i32 %.sroa.0.2, 0
   %53 = insertvalue { i32, i32 } %52, i32 %.sroa.5.2, 1
   ret { i32, i32 } %53
@@ -10738,7 +10734,7 @@ define internal fastcc { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSeri
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35": ; preds = %55, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h0370cfa493b2cd21E.exit"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit"
 
 .body.thread:                                     ; preds = %44, %41, %.body.thread10
@@ -10784,10 +10780,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i, label %94, label %14
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !1040
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1040
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hcf836f6cff4bfafbE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !1050
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1040
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1040
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1040
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1040
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val.i.i.i.i = load i64, ptr %15, align 8, !noalias !1040, !noundef !12
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %12, i64 noundef 1, i64 %.val.i.i.i.i)
@@ -10798,12 +10794,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = load i32, ptr %19, align 4, !noalias !1040, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1040
   br label %90
 
 21:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1040
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1051)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   %22 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h083140c596a66157E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
@@ -10858,10 +10854,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 44:                                               ; preds = %43, %40
   store i32 %38, ptr %26, align 4, !alias.scope !1074, !noalias !1075
   call void @llvm.experimental.noalias.scope.decl(metadata !1084)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !1087
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1087
   store i32 0, ptr %25, align 8, !alias.scope !1088, !noalias !1075
   store i32 %38, ptr %7, align 4, !noalias !1087
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !1087
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1087
   %45 = invoke { i32, i32 } @"_ZN11ruff_linter5rules25flake8_import_conventions8settings1_122_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_linter..rules..flake8_import_conventions..settings..BannedAliases$GT$9serialize17h46a3d41b61d585d4E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %35)
           to label %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17hce82cb25314535edE.exit.i.i.i.i.i.i.i.i.i.i" unwind label %.thread.i.i.i.i.i.i.i.i.i.i, !noalias !1089
 
@@ -10884,7 +10880,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17hce82cb25314535edE.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1087
   %51 = icmp ugt i32 %38, 131
   br i1 %51, label %52, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.thread12.i.i.i.i.i.i"
 
@@ -10903,7 +10899,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %64 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1089
 
 58:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !1087
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1087
   %59 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %60 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1090
 
@@ -10920,7 +10916,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %61 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1090
 
 61:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1087
   %.val31.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !noalias !1087, !noundef !12
   %62 = icmp ugt i32 %.val31.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %62, label %63, label %77
@@ -10962,11 +10958,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %.noexc11.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
 .noexc11.i.i.i.i:                                 ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1087
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.i.i.i.i.i.i"
 
 77:                                               ; preds = %63, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1087
   %.val30.i.i.i.i.i.i.i.i.i.i = load i32, ptr %7, align 4, !noalias !1087, !noundef !12
   %78 = icmp ugt i32 %.val30.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %78, label %79, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.i.i.i.i.i.i"
@@ -10984,7 +10980,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i": ; preds = %81, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17hc8f4700b9e5bfaffE.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1087
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.thread12.i.i.i.i.i.i"
 
 .body.thread.i.i.i.i.i.i.i.i.i.i:                 ; preds = %73, %70, %.body.thread10.i.i.i.i.i.i.i.i.i.i
@@ -11010,11 +11006,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.thread12.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %52, %50
   %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %52 ], [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1087
   br label %.loopexit.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h9bccb37635889f66E.exit.i.i.i.i.i.i": ; preds = %79, %77, %.noexc11.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1087
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1087
   %87 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h083140c596a66157E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc12.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
@@ -11039,18 +11035,18 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %90
 
 .loopexit24.i.i.i.i:                              ; preds = %.noexc12.i.i.i.i, %.noexc.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1040
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !1040
   %89 = call { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1040
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1040
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1040
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h756b16e915ca53f0E.exit"
 
 90:                                               ; preds = %.loopexit.i.i.i.i, %18
   %.sroa.4.0.i.i.i.i = phi i32 [ %20, %18 ], [ %.sroa.3.0.i.i.ph.i.i.i.i, %.loopexit.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1040
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1040
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1040
   %91 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h756b16e915ca53f0E.exit"
 
@@ -11289,8 +11285,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   %8 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h97a74bb9b0ee6a58E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !1105
   %9 = extractvalue { ptr, ptr } %8, 0
   %10 = extractvalue { ptr, ptr } %8, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1110
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1110
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1110
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
   %12 = icmp ne ptr %10, null
@@ -11307,12 +11303,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load i32, ptr %20, align 8, !noalias !1110, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1110
   br label %42
 
 22:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1110
   %23 = icmp eq ptr %9, %10
   br i1 %23, label %.loopexit, label %.lr.ph.i.i.i.i
 
@@ -11368,13 +11364,13 @@ common.resume:                                    ; preds = %49, %52, %38
 
 42:                                               ; preds = %19, %37
   %.sroa.4.1.i.i.ph = phi i32 [ %33, %37 ], [ %21, %19 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1110
   br label %46
 
 .loopexit:                                        ; preds = %.noexc12.i.i, %22
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !1110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1110
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1110
   %43 = invoke noundef i32 @_ZN18serde_wasm_bindgen16static_str_to_js17ha7d0d6bb305a0e7bE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %44 unwind label %49
 
@@ -11416,8 +11412,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   %10 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7d7a242c05c77755E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !1132
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1139
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1139
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1139
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1139
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -11434,12 +11430,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 8, !noalias !1139, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1139
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1139
   br label %45
 
 24:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1139
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1139
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1139
   %25 = icmp eq ptr %11, %12
   br i1 %25, label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd0f948624c6070c9E.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -11502,12 +11498,12 @@ common.resume:                                    ; preds = %53, %56, %40
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd0f948624c6070c9E.exit": ; preds = %.noexc12.i.i.i.i, %24
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !1139
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1139
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1139
   br label %46
 
 45:                                               ; preds = %21, %39
   %.sroa.4.1.i.i.i.i.ph = phi i32 [ %35, %39 ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1139
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1139
   br label %50
 
 46:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd0f948624c6070c9E.exit", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hd0f948624c6070c9E.exit.thread"
@@ -11609,10 +11605,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i, label %51, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1167
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h145bb4a5ed90a102E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !1177
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1167
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1167
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.val.i.i.i.i = load i64, ptr %12, align 8, !noalias !1167, !noundef !12
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %9, i64 noundef 1, i64 %.val.i.i.i.i)
@@ -11623,12 +11619,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load i32, ptr %16, align 4, !noalias !1167, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1167
   br label %46
 
 18:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1167
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1167
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -11693,18 +11689,18 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %46
 
 44:                                               ; preds = %.noexc.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1167
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !1167
   %45 = call { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1167
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1167
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1167
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h0ecac8b5fcbeb105E.exit"
 
 46:                                               ; preds = %42, %15
   %.sroa.4.0.i.i.i.i = phi i32 [ %17, %15 ], [ %43, %42 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1167
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1167
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1167
   %47 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h0ecac8b5fcbeb105E.exit"
 
@@ -11839,10 +11835,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i, label %92, label %14
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !1209
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1209
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17heb380962e2c27bf8E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !1219
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1209
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1209
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1209
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1209
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val.i.i.i.i = load i64, ptr %15, align 8, !noalias !1209, !noundef !12
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %12, i64 noundef 1, i64 %.val.i.i.i.i)
@@ -11853,12 +11849,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = load i32, ptr %19, align 4, !noalias !1209, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1209
   br label %88
 
 21:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1209
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1209
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1220)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1223)
   %22 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5af682b33aec548E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
@@ -11909,10 +11905,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 42:                                               ; preds = %41, %38
   store i32 %36, ptr %26, align 4, !alias.scope !1232, !noalias !1233
   call void @llvm.experimental.noalias.scope.decl(metadata !1243)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !1246
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1246
   store i32 0, ptr %25, align 8, !alias.scope !1247, !noalias !1233
   store i32 %36, ptr %7, align 4, !noalias !1246
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !1246
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1246
   %43 = invoke { i32, i32 } @"_ZN14ruff_workspace7options1_82_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_workspace..options..Alias$GT$9serialize17h31d5638524fd465dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %33)
           to label %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17haccf758d26cbb936E.exit.i.i.i.i.i.i.i.i.i.i" unwind label %.thread.i.i.i.i.i.i.i.i.i.i, !noalias !1248
 
@@ -11935,7 +11931,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17haccf758d26cbb936E.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1246
   %49 = icmp ugt i32 %36, 131
   br i1 %49, label %50, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.thread10.i.i.i.i.i.i"
 
@@ -11954,7 +11950,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %62 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1248
 
 56:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !1246
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1246
   %57 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %58 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i
 
@@ -11971,7 +11967,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %59 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i
 
 59:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1246
   %.val31.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !noalias !1246, !noundef !12
   %60 = icmp ugt i32 %.val31.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %60, label %61, label %75
@@ -12013,11 +12009,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %.noexc11.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
 .noexc11.i.i.i.i:                                 ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1246
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.i.i.i.i.i.i"
 
 75:                                               ; preds = %61, %59
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1246
   %.val30.i.i.i.i.i.i.i.i.i.i = load i32, ptr %7, align 4, !noalias !1246, !noundef !12
   %76 = icmp ugt i32 %.val30.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %76, label %77, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.i.i.i.i.i.i"
@@ -12035,7 +12031,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i": ; preds = %79, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h9dc57dad9f864defE.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1246
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.thread10.i.i.i.i.i.i"
 
 .body.thread.i.i.i.i.i.i.i.i.i.i:                 ; preds = %71, %68, %.body.thread10.i.i.i.i.i.i.i.i.i.i
@@ -12061,11 +12057,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.thread10.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %50, %48
   %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %46, %50 ], [ %46, %48 ], [ %67, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1246
   br label %.loopexit.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h14434ca9806ea9e0E.exit.i.i.i.i.i.i": ; preds = %77, %75, %.noexc11.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1246
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1246
   %85 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5af682b33aec548E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc12.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
@@ -12090,18 +12086,18 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %88
 
 .loopexit24.i.i.i.i:                              ; preds = %.noexc12.i.i.i.i, %.noexc.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1209
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !1209
   %87 = call { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1209
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1209
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1209
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17haf5016ec48200482E.exit"
 
 88:                                               ; preds = %.loopexit.i.i.i.i, %18
   %.sroa.4.0.i.i.i.i = phi i32 [ %20, %18 ], [ %.sroa.3.0.i.i.ph.i.i.i.i, %.loopexit.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1209
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1209
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1209
   %89 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17haf5016ec48200482E.exit"
 
@@ -12405,8 +12401,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   %10 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbf59108322335fc6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !1275
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1282
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1282
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1282
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1282
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -12423,12 +12419,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 8, !noalias !1282, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1282
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1282
   br label %45
 
 24:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1282
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1282
   %25 = icmp eq ptr %11, %12
   br i1 %25, label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7ad9d16d1047a999E.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -12491,12 +12487,12 @@ common.resume:                                    ; preds = %53, %56, %40
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7ad9d16d1047a999E.exit": ; preds = %.noexc12.i.i.i.i, %24
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !1282
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1282
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1282
   br label %46
 
 45:                                               ; preds = %21, %39
   %.sroa.4.1.i.i.i.i.ph = phi i32 [ %35, %39 ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1282
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1282
   br label %50
 
 46:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7ad9d16d1047a999E.exit", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h7ad9d16d1047a999E.exit.thread"
@@ -12602,7 +12598,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1310)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1316)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8), !noalias !1319
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1319
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1323)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1326)
   %14 = load ptr, ptr %13, align 8, !alias.scope !1328, !noalias !1329, !noundef !12
@@ -12636,8 +12632,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   store i64 %.sink19.i.i.i.i.i, ptr %21, align 8, !alias.scope !1323, !noalias !1330
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %.sink.i.i.i.i.i, ptr %22, align 8, !alias.scope !1323, !noalias !1330
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !1319
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1319
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1319
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1319
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %9, i64 noundef 1, i64 %.sink.i.i.i.i.i), !noalias !1331
   %23 = load i32, ptr %6, align 8, !range !99, !noalias !1319, !noundef !12
   %24 = icmp eq i32 %23, 2
@@ -12646,12 +12642,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %27 = load i32, ptr %26, align 4, !noalias !1319, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1319
   br label %56
 
 28:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !1319
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1319
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -12716,18 +12712,18 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %56
 
 54:                                               ; preds = %.noexc.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1319
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !1319
   %55 = call { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5), !noalias !1331
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1319
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1319
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1319
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hf931be754a0c4eb4E.exit"
 
 56:                                               ; preds = %52, %25
   %.sroa.4.0.i.i.i.i = phi i32 [ %27, %25 ], [ %53, %52 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !1319
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1319
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1319
   %57 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17hf931be754a0c4eb4E.exit"
 
@@ -12858,10 +12854,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i, label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3a7736e8ed147a54E.exit.thread", label %10
 
 10:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !1361
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1361
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17h6e114f6042d23083E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !1371
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1361
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1361
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1361
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1361
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %.val10.i.i.i.i = load i64, ptr %11, align 8, !noalias !1361, !noundef !12
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h5e9ae3bd3e657aa6E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %8, i64 noundef 1, i64 %.val10.i.i.i.i)
@@ -12872,12 +12868,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 8, !noalias !1361, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1361
   br label %40
 
 17:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1361
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1361
   %18 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3d84ee8cc736601E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %7)
           to label %.noexc.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
@@ -12961,14 +12957,14 @@ common.resume:                                    ; preds = %48, %51, %36
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3a7736e8ed147a54E.exit": ; preds = %.noexc13.i.i.i.i, %.noexc.i.i.i.i
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !1361
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1361
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1361
   br label %41
 
 40:                                               ; preds = %14, %35
   %.sroa.4.1.i.i.i.i.ph = phi i32 [ %30, %35 ], [ %16, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1361
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1361
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1361
   br label %45
 
 41:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3a7736e8ed147a54E.exit", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h3a7736e8ed147a54E.exit.thread"
@@ -13394,8 +13390,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   %10 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hbae0b53cea8601d5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !1423
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1430
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1430
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1430
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1430
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -13412,12 +13408,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 8, !noalias !1430, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1430
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1430
   br label %45
 
 24:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1430
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1430
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1430
   %25 = icmp eq ptr %11, %12
   br i1 %25, label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h260620035a8300c9E.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -13480,12 +13476,12 @@ common.resume:                                    ; preds = %53, %56, %40
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h260620035a8300c9E.exit": ; preds = %.noexc12.i.i.i.i, %24
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !1430
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1430
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1430
   br label %46
 
 45:                                               ; preds = %21, %39
   %.sroa.4.1.i.i.i.i.ph = phi i32 [ %35, %39 ], [ %23, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1430
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1430
   br label %50
 
 46:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h260620035a8300c9E.exit", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h260620035a8300c9E.exit.thread"
@@ -13590,10 +13586,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %.not.i, label %94, label %14
 
 14:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !1458
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !1458
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17he5d4a5cb9525ebc2E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3), !noalias !1468
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !1458
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1458
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1458
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !1458
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.val.i.i.i.i = load i64, ptr %15, align 8, !noalias !1458, !noundef !12
   call void @"_ZN82_$LT$$RF$serde_wasm_bindgen..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h5c97d9f5263d9855E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %12, i64 noundef 1, i64 %.val.i.i.i.i)
@@ -13604,12 +13600,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = load i32, ptr %19, align 4, !noalias !1458, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1458
   br label %90
 
 21:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !1458
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1458
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1469)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1472)
   %22 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2226b6031c28e7d2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
@@ -13664,10 +13660,10 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 44:                                               ; preds = %43, %40
   store i32 %38, ptr %26, align 4, !alias.scope !1492, !noalias !1493
   call void @llvm.experimental.noalias.scope.decl(metadata !1502)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !1505
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1505
   store i32 0, ptr %25, align 8, !alias.scope !1506, !noalias !1493
   store i32 %38, ptr %7, align 4, !noalias !1505
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !1505
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1505
   %45 = invoke { i32, i32 } @"_ZN11ruff_linter5rules19flake8_tidy_imports8settings1_109_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..ApiBan$GT$9serialize17h2e55f1a7a46ce4baE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %35)
           to label %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h1f59a0787f74e5b9E.exit.i.i.i.i.i.i.i.i.i.i" unwind label %.thread.i.i.i.i.i.i.i.i.i.i, !noalias !1507
 
@@ -13690,7 +13686,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %"_ZN5serde3ser5impls57_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$$RF$T$GT$9serialize17h1f59a0787f74e5b9E.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1505
   %51 = icmp ugt i32 %38, 131
   br i1 %51, label %52, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.thread12.i.i.i.i.i.i"
 
@@ -13709,7 +13705,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %64 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1507
 
 58:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !1505
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1505
   %59 = invoke noundef i32 @_ZN6js_sys3Map3set17h7d0aafa431afce06E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6)
           to label %60 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1508
 
@@ -13726,7 +13722,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %61 unwind label %.body.thread10.i.i.i.i.i.i.i.i.i.i, !noalias !1508
 
 61:                                               ; preds = %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1505
   %.val31.i.i.i.i.i.i.i.i.i.i = load i32, ptr %6, align 4, !noalias !1505, !noundef !12
   %62 = icmp ugt i32 %.val31.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %62, label %63, label %77
@@ -13768,11 +13764,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
           to label %.noexc11.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
 .noexc11.i.i.i.i:                                 ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit33.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1505
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.i.i.i.i.i.i"
 
 77:                                               ; preds = %63, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1505
   %.val30.i.i.i.i.i.i.i.i.i.i = load i32, ptr %7, align 4, !noalias !1505, !noundef !12
   %78 = icmp ugt i32 %.val30.i.i.i.i.i.i.i.i.i.i, 131
   br i1 %78, label %79, label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.i.i.i.i.i.i"
@@ -13790,7 +13786,7 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i": ; preds = %81, %"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$15serialize_value28_$u7b$$u7b$closure$u7d$$u7d$17h1fc0e031e92400afE.exit.i.i.i.i.i.i.i.i.i.i"
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1505
   br label %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.thread12.i.i.i.i.i.i"
 
 .body.thread.i.i.i.i.i.i.i.i.i.i:                 ; preds = %73, %70, %.body.thread10.i.i.i.i.i.i.i.i.i.i
@@ -13816,11 +13812,11 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.thread12.i.i.i.i.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i", %52, %50
   %.sroa.5.2.i.i.i.i.ph.i.i.i.i.i.i = phi i32 [ %48, %52 ], [ %48, %50 ], [ %69, %"_ZN4core3ptr42drop_in_place$LT$wasm_bindgen..JsValue$GT$17h8774817b8887ab3eE.exit35.i.i.i.i.i.i.i.i.i.i" ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1505
   br label %.loopexit.i.i.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h530c77fd09d832f3E.exit.i.i.i.i.i.i": ; preds = %79, %77, %.noexc11.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !1505
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1505
   %87 = invoke { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2226b6031c28e7d2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc12.i.i.i.i unwind label %.body.thread18.loopexit.i.i.i.i
 
@@ -13845,18 +13841,18 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   br label %90
 
 .loopexit24.i.i.i.i:                              ; preds = %.noexc12.i.i.i.i, %.noexc.i.i.i.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !1458
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1458
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !1458
   %89 = call { i32, i32 } @"_ZN83_$LT$serde_wasm_bindgen..ser..MapSerializer$u20$as$u20$serde..ser..SerializeMap$GT$3end17h306c4552cc152733E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !1458
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1458
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1458
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17ha9001f1b04b7ffc9E.exit"
 
 90:                                               ; preds = %.loopexit.i.i.i.i, %18
   %.sroa.4.0.i.i.i.i = phi i32 [ %20, %18 ], [ %.sroa.3.0.i.i.ph.i.i.i.i, %.loopexit.i.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1458
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1458
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1458
   %91 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %.sroa.4.0.i.i.i.i, 1
   br label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17ha9001f1b04b7ffc9E.exit"
 
@@ -13931,8 +13927,8 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
   %10 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2c93208121f0851aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3), !noalias !1514
   %11 = extractvalue { ptr, ptr } %10, 0
   %12 = extractvalue { ptr, ptr } %10, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !1521
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !1521
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1521
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1521
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -13948,12 +13944,12 @@ define hidden { i32, i32 } @"_ZN89_$LT$serde_wasm_bindgen..ser..ObjectSerializer
 20:                                               ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load i32, ptr %21, align 8, !noalias !1521, !noundef !12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1521
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1521
   br label %44
 
 23:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !noalias !1521
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1521
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1521
   %24 = icmp eq ptr %11, %12
   br i1 %24, label %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h18133607a68ad854E.exit", label %.lr.ph.i.i.i.i.i.i
 
@@ -14016,12 +14012,12 @@ common.resume:                                    ; preds = %52, %55, %39
 "_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h18133607a68ad854E.exit": ; preds = %.noexc12.i.i.i.i, %23
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.3.0.copyload.i.i.i.i = load i32, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8, !noalias !1521
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1521
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1521
   br label %45
 
 44:                                               ; preds = %20, %38
   %.sroa.4.1.i.i.i.i.ph = phi i32 [ %34, %38 ], [ %22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1521
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1521
   br label %49
 
 45:                                               ; preds = %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h18133607a68ad854E.exit", %"_ZN5serde3ser5impls81_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$9serialize17h18133607a68ad854E.exit.thread"
@@ -14598,10 +14594,10 @@ declare hidden { i32, i32 } @"_ZN16ruff_source_file10line_index1_92_$LT$impl$u20
 declare hidden { i32, i32 } @"_ZN9ruff_wasm1_71_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff_wasm..Location$GT$9serialize17hd95605a70f3c362aE"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef readonly align 1 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

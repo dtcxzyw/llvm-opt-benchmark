@@ -144,13 +144,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   ret i1 %.013
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, ptr, i64) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier13verifyIntegerERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
@@ -222,7 +216,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyScalarERNS_7msgpack7DocNodeENS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyArrayERNS_7msgpack7DocNodeENS_12function_refIFbS6_EEESt8optionalImE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr readonly captures(none) %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #0 align 2 {
@@ -370,7 +364,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   ret i1 %.0
 }
 
-declare ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) local_unnamed_addr #2
+declare ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i1 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly byval(%"class.llvm::function_ref") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
@@ -596,33 +590,33 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   br i1 %53, label %54, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 54:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_1EEblS3_", ptr %3, align 8, !tbaa !30
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %56 = ptrtoint ptr %4 to i64
   store i64 %56, ptr %55, align 8, !tbaa !32
   %57 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.7, i64 14, i1 noundef zeroext false, i8 noundef zeroext 5, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %57, label %58, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 58:                                               ; preds = %54
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_2EEblS3_", ptr %5, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = ptrtoint ptr %6 to i64
   store i64 %60, ptr %59, align 8, !tbaa !32
   %61 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.8, i64 7, i1 noundef zeroext false, i8 noundef zeroext 5, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %5)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %61, label %62, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 62:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_3EEblS3_", ptr %7, align 8, !tbaa !30
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %64 = ptrtoint ptr %8 to i64
   store i64 %64, ptr %63, align 8, !tbaa !32
   %65 = call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.9, i64 14, i1 noundef zeroext false, i8 noundef zeroext 5, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %7)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %65, label %66, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 66:                                               ; preds = %62
@@ -716,7 +710,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   br i1 %42, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit32, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !34
   %43 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.16, i64 17) #6
   %44 = load ptr, ptr %15, align 8, !tbaa !22
@@ -725,18 +719,18 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   br i1 %46, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117
   %47 = ptrtoint ptr %3 to i64
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %49 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_1EEblS3_"(i64 noundef %47, ptr noundef nonnull align 8 dereferenceable(24) %48) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %49, label %50, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 50:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !37
   %51 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.17, i64 5) #6
   %52 = load ptr, ptr %15, align 8, !tbaa !22
@@ -745,18 +739,18 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %54, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread: ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41: ; preds = %50
   %55 = ptrtoint ptr %4 to i64
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %57 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_2EEblS3_"(i64 noundef %55, ptr noundef nonnull align 8 dereferenceable(24) %56) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %57, label %58, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 58:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !39
   %59 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.18, i64 20) #6
   %60 = load ptr, ptr %15, align 8, !tbaa !22
@@ -765,18 +759,18 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %62, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread: ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43: ; preds = %58
   %63 = ptrtoint ptr %5 to i64
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %65 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_3EEblS3_"(i64 noundef %63, ptr noundef nonnull align 8 dereferenceable(24) %64) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %65, label %66, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 66:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !41
   %67 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.19, i64 20) #6
   %68 = load ptr, ptr %15, align 8, !tbaa !22
@@ -785,14 +779,14 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %70, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45.thread: ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %74
 
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45: ; preds = %66
   %71 = ptrtoint ptr %6 to i64
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %73 = call fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_4EEblS3_"(i64 noundef %71, ptr noundef nonnull align 8 dereferenceable(24) %72) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %73, label %74, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread
 
 74:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45.thread, %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45
@@ -1267,7 +1261,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_0EEblS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_0EEblS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1458,7 +1452,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i238.i:       ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_1EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #4 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_1EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1513,7 +1507,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i38.i:        ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_2EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #4 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_2EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1551,7 +1545,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i:        ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_3EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #4 align 2 {
+define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_3EEblS3_"(i64 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1589,7 +1583,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i14.i:        ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_0EEblS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_0EEblS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2333,14 +2327,20 @@ _ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEE
   ret i1 %.0.i.i
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 

@@ -106,7 +106,7 @@ define dso_local void @_ZN3igl8copyleft4cgal26mesh_boolean_type_to_funcsERKNS_15
   ]
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !8
@@ -130,12 +130,12 @@ define dso_local void @_ZN3igl8copyleft4cgal26mesh_boolean_type_to_funcsERKNS_15
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #8
+  call void @__clang_call_terminate(ptr %26) #7
   unreachable
 
 _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit: ; preds = %15, %22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !8
@@ -159,15 +159,15 @@ _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cga
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #8
+  call void @__clang_call_terminate(ptr %37) #7
   unreachable
 
 _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit: ; preds = %_ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit, %33
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %130
 
 38:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !8
@@ -191,12 +191,12 @@ _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTy
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #8
+  call void @__clang_call_terminate(ptr %49) #7
   unreachable
 
 _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE1EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit: ; preds = %38, %45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !8
@@ -220,15 +220,15 @@ _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cga
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #8
+  call void @__clang_call_terminate(ptr %60) #7
   unreachable
 
 _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit14: ; preds = %_ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE1EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit, %56
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %130
 
 61:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !8
@@ -252,12 +252,12 @@ _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTy
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #8
+  call void @__clang_call_terminate(ptr %72) #7
   unreachable
 
 _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE2EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit: ; preds = %61, %68
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !8
@@ -281,15 +281,15 @@ _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cga
   %82 = landingpad { ptr, i32 }
           catch ptr null
   %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #8
+  call void @__clang_call_terminate(ptr %83) #7
   unreachable
 
 _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit17: ; preds = %_ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE2EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit, %79
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %130
 
 84:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !8
@@ -313,12 +313,12 @@ _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTy
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #8
+  call void @__clang_call_terminate(ptr %95) #7
   unreachable
 
 _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE3EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit: ; preds = %84, %91
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !8
@@ -342,15 +342,15 @@ _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cga
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #8
+  call void @__clang_call_terminate(ptr %106) #7
   unreachable
 
 _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit20: ; preds = %_ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE3EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit, %102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %130
 
 107:                                              ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 16, i1 false), !tbaa.struct !8
@@ -374,12 +374,12 @@ _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTy
   %117 = landingpad { ptr, i32 }
           catch ptr null
   %118 = extractvalue { ptr, i32 } %117, 0
-  call void @__clang_call_terminate(ptr %118) #8
+  call void @__clang_call_terminate(ptr %118) #7
   unreachable
 
 _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE4EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit: ; preds = %107, %114
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 16, i1 false), !tbaa.struct !8
@@ -403,28 +403,22 @@ _ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cga
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #8
+  call void @__clang_call_terminate(ptr %129) #7
   unreachable
 
 _ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE1EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit: ; preds = %_ZNSt8functionIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEEaSIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS6_15MeshBooleanTypeE4EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS4_E4typeEOSD_.exit, %125
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %130
 
 130:                                              ; preds = %3, %_ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE1EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit, %_ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit20, %_ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit17, %_ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit14, %_ZNSt8functionIFiiiEEaSIN3igl8copyleft4cgal19WindingNumberFilterILNS5_10KeeperTypeE0EEEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOSA_.exit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE0EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE0EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %.not9.i.i.i = icmp sgt i64 %4, 0
@@ -452,7 +446,7 @@ _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15Mes
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE0EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE0EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -473,22 +467,22 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOpe
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #7
-  tail call void @_ZSt9terminatev() #8
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #8
+  tail call void @_ZSt9terminatev() #7
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #5
+declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE9_M_invokeERKSt9_Any_dataOiSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE9_M_invokeERKSt9_Any_dataOiSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #2 comdat align 2 {
   %4 = load i32, ptr %1, align 4, !tbaa !19
   %5 = load i32, ptr %2, align 4, !tbaa !19
   %6 = icmp sgt i32 %5, 0
@@ -503,7 +497,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8c
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE0EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -522,7 +516,7 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILN
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE1EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE1EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %.not9.i.i.i = icmp slt i64 %4, 1
@@ -550,7 +544,7 @@ _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15Mes
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE1EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE1EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -569,7 +563,7 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOpe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE2EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE2EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = icmp slt i64 %4, 2
@@ -596,7 +590,7 @@ _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15Mes
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE2EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE2EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE2EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE2EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -615,7 +609,7 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOpe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE3EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE3EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = icmp sgt i64 %4, 0
@@ -647,7 +641,7 @@ _ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15Mes
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE3EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE3EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE3EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE3EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -666,12 +660,12 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOpe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE4EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #3 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE4EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE4EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE4EEEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE4EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS1_15MeshBooleanTypeE4EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -690,12 +684,12 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal29BinaryWindingNumberOpe
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE9_M_invokeERKSt9_Any_dataOiSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #3 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE9_M_invokeERKSt9_Any_dataOiSB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) #2 comdat align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFiiiEN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILNS3_10KeeperTypeE1EEEE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -713,15 +707,21 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILN
   ret i1 false
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { cold nofree noreturn }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn nounwind }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold nofree noreturn }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -270,7 +270,7 @@ if.end18:                                         ; preds = %if.end15, %if.end5
 
 if.then21:                                        ; preds = %if.end18
   %3 = load i16, ptr %addr, align 2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
   switch i16 %3, label %uv__set_recverr.exit.thread [
     i16 2, label %if.then.i
@@ -288,14 +288,14 @@ if.then7.i:                                       ; preds = %if.then21
   br i1 %tobool9.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
 uv__set_recverr.exit.thread:                      ; preds = %if.then21, %if.then7.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i)
   br label %if.end27
 
 uv__set_recverr.exit:                             ; preds = %if.then.i, %if.then7.i
   %call11.i = tail call ptr @__errno_location() #12
   %4 = load i32, ptr %call11.i, align 4
   %sub12.i = sub nsw i32 0, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i)
   %tobool24.not = icmp eq i32 %4, 0
   br i1 %tobool24.not, label %if.end27, label %return
 
@@ -305,21 +305,21 @@ if.end27:                                         ; preds = %uv__set_recverr.exi
   br i1 %tobool29.not, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %yes.i25)
   store i32 1, ptr %yes.i25, align 4
   %call.i26 = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i25, i32 noundef 4) #11
   %tobool.not.i27 = icmp eq i32 %call.i26, 0
   br i1 %tobool.not.i27, label %uv__set_reuse.exit.thread, label %uv__set_reuse.exit
 
 uv__set_reuse.exit.thread:                        ; preds = %if.then30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i25)
   br label %if.end35
 
 uv__set_reuse.exit:                               ; preds = %if.then30
   %call1.i = tail call ptr @__errno_location() #12
   %5 = load i32, ptr %call1.i, align 4
   %sub.i = sub nsw i32 0, %5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i25)
   %tobool32.not = icmp eq i32 %5, 0
   br i1 %tobool32.not, label %if.end35, label %return
 
@@ -384,7 +384,7 @@ define hidden i32 @uv__udp_connect(ptr noundef captures(none) %handle, ptr nound
 entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %0 = load i16, ptr %addr, align 2
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i)
   %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %1 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %1, -1
@@ -444,16 +444,16 @@ if.end56.i:                                       ; preds = %if.end18.i
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %if.then9.i, %if.then48.i
   %retval.0.i.ph = phi i32 [ %call.i, %if.then9.i ], [ -22, %if.then48.i ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %return
 
 uv__udp_maybe_deferred_bind.exit.thread12:        ; preds = %entry, %if.end56.i
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %do.body.preheader
 
 uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   %sub50.i = sub nsw i32 0, %2
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %do.body.preheader, label %return
 
@@ -547,7 +547,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i16, ptr %addr, align 2
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i)
   %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %1 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %1, -1
@@ -606,17 +606,17 @@ if.end56.i:                                       ; preds = %if.end18.i
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %if.then, %if.end56.i
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %if.end3
 
 uv__udp_maybe_deferred_bind.exit.thread44:        ; preds = %if.then9.i, %if.then48.i
   %retval.0.i.ph = phi i32 [ %call.i, %if.then9.i ], [ -22, %if.then48.i ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %return
 
 uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   %sub50.i = sub nsw i32 0, %2
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.end3, label %return
 
@@ -963,7 +963,7 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %1 = load i16, ptr %addr, align 2
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i)
   %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %2 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %2, -1
@@ -1022,17 +1022,17 @@ if.end56.i:                                       ; preds = %if.end18.i
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %if.then1, %if.end56.i
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %if.end5
 
 uv__udp_maybe_deferred_bind.exit.thread13:        ; preds = %if.then9.i, %if.then48.i
   %retval.0.i.ph = phi i32 [ %call.i, %if.then9.i ], [ -22, %if.then48.i ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %return
 
 uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   %sub50.i = sub nsw i32 0, %3
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   %tobool2.not = icmp eq i32 %3, 0
   br i1 %tobool2.not, label %if.end5, label %return
 
@@ -1147,9 +1147,9 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %peer.i)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %h.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %peer.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %h.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %buf.i)
   %tmp.sroa.2.0.buf.sroa_idx.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %alloc_cb.i = getelementptr inbounds i8, ptr %w, i64 -16
   %flags.i.i = getelementptr inbounds i8, ptr %w, i64 -40
@@ -1190,10 +1190,10 @@ if.end.i:                                         ; preds = %do.body.i
   br i1 %tobool.not.i, label %if.end11.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void @llvm.lifetime.start.p0(i64 560, ptr nonnull %peers.i.i)
-  call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %iov.i.i)
-  call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %msgs.i.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %chunk_buf.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %peers.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %iov.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %msgs.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %chunk_buf.i.i)
   %div44.i.i = lshr i64 %4, 16
   %spec.store.select.i.i = call i64 @llvm.umin.i64(i64 %div44.i.i, i64 20)
   %cmp152.not.i.i = icmp ult i64 %4, 65536
@@ -1313,10 +1313,10 @@ if.then78.i.i:                                    ; preds = %for.end74.i.i
   br label %uv__udp_recvmmsg.exit.i
 
 uv__udp_recvmmsg.exit.i:                          ; preds = %land.rhs49.i.i, %if.then78.i.i, %for.end74.i.i, %if.else.i.i, %if.then40.i.i
-  call void @llvm.lifetime.end.p0(i64 560, ptr nonnull %peers.i.i)
-  call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %iov.i.i)
-  call void @llvm.lifetime.end.p0(i64 1280, ptr nonnull %msgs.i.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %chunk_buf.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %peers.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %iov.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %msgs.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %chunk_buf.i.i)
   %conv.i = sext i32 %call.i.i to i64
   %sub.i = call i32 @llvm.smax.i32(i32 %call.i.i, i32 0)
   %spec.select.i = sub i32 %count.0.i, %sub.i
@@ -1388,9 +1388,9 @@ land.rhs52.i:                                     ; preds = %land.lhs.true47.i
   br i1 %cmp54.not.i, label %uv__udp_recvmsg.exit, label %do.body.i
 
 uv__udp_recvmsg.exit:                             ; preds = %do.cond42.i, %land.lhs.true47.i, %land.rhs52.i, %if.then.i
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %peer.i)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %h.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buf.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %peer.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %h.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %buf.i)
   br label %if.end
 
 if.end:                                           ; preds = %uv__udp_recvmsg.exit, %entry
@@ -1439,21 +1439,21 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
   %call.i = call i32 @setsockopt(i32 noundef %sock, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %uv__set_reuse.exit.thread, label %uv__set_reuse.exit
 
 uv__set_reuse.exit.thread:                        ; preds = %if.end6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i)
   br label %if.end10
 
 uv__set_reuse.exit:                               ; preds = %if.end6
   %call1.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call1.i, align 4
   %sub.i = sub nsw i32 0, %2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %yes.i)
   %tobool8.not = icmp eq i32 %2, 0
   br i1 %tobool8.not, label %if.end10, label %return
 
@@ -1496,26 +1496,26 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i)
   %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %0 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
   br i1 %cmp.not.i, label %uv__udp_maybe_deferred_bind.exit, label %uv__udp_maybe_deferred_bind.exit.thread
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %if.end
 
 uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %taddr.i, i8 0, i64 16, i1 false)
   store i16 2, ptr %taddr.i, align 4
   %call7.i = call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %taddr.i, i32 noundef 16, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   %tobool.not = icmp eq i32 %call7.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread, %uv__udp_maybe_deferred_bind.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mreq.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mreq.i)
   store i64 0, ptr %mreq.i, align 8
   %tobool.not.i = icmp eq ptr %interface_addr, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -1559,7 +1559,7 @@ if.then12.i:                                      ; preds = %sw.epilog.i
 
 uv__udp_set_membership4.exit:                     ; preds = %if.then.i, %if.end6.i, %sw.epilog.i, %if.then12.i
   %retval.0.i10 = phi i32 [ %sub.i, %if.then12.i ], [ %call.i, %if.then.i ], [ -22, %if.end6.i ], [ 0, %sw.epilog.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mreq.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i)
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1568,14 +1568,14 @@ if.else:                                          ; preds = %entry
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i12)
   %fd.i13 = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %4 = load i32, ptr %fd.i13, align 8
   %cmp.not.i14 = icmp eq i32 %4, -1
   br i1 %cmp.not.i14, label %uv__udp_maybe_deferred_bind.exit18, label %uv__udp_maybe_deferred_bind.exit18.thread
 
 uv__udp_maybe_deferred_bind.exit18.thread:        ; preds = %if.then6
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i12)
   br label %if.end10
 
 uv__udp_maybe_deferred_bind.exit18:               ; preds = %if.then6
@@ -1584,13 +1584,13 @@ uv__udp_maybe_deferred_bind.exit18:               ; preds = %if.then6
   %sin6_addr.i = getelementptr inbounds nuw i8, ptr %taddr.i12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %call7.i17 = call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %taddr.i12, i32 noundef 28, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i12)
   %tobool8.not = icmp eq i32 %call7.i17, 0
   br i1 %tobool8.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %uv__udp_maybe_deferred_bind.exit18.thread, %uv__udp_maybe_deferred_bind.exit18
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %mreq.i19)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %addr6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mreq.i19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr6.i)
   %5 = getelementptr inbounds nuw i8, ptr %mreq.i19, i64 16
   store i32 0, ptr %5, align 4
   %tobool.not.i20 = icmp eq ptr %interface_addr, null
@@ -1633,8 +1633,8 @@ if.then8.i:                                       ; preds = %sw.epilog.i27
 
 uv__udp_set_membership6.exit:                     ; preds = %if.then.i21, %if.end4.i, %sw.epilog.i27, %if.then8.i
   %retval.0.i24 = phi i32 [ %sub.i30, %if.then8.i ], [ -22, %if.then.i21 ], [ -22, %if.end4.i ], [ 0, %sw.epilog.i27 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %mreq.i19)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %addr6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr6.i)
   br label %return
 
 return:                                           ; preds = %if.else, %uv__udp_maybe_deferred_bind.exit18, %uv__udp_maybe_deferred_bind.exit, %uv__udp_set_membership6.exit, %uv__udp_set_membership4.exit
@@ -1671,16 +1671,16 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %mreq.i)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %addr6.i)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mreq.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %addr6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i.i)
   %fd.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %0 = load i32, ptr %fd.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %0, -1
   br i1 %cmp.not.i.i, label %uv__udp_maybe_deferred_bind.exit.i, label %uv__udp_maybe_deferred_bind.exit.thread.i
 
 uv__udp_maybe_deferred_bind.exit.thread.i:        ; preds = %if.end7
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i.i)
   br label %if.end.i
 
 uv__udp_maybe_deferred_bind.exit.i:               ; preds = %if.end7
@@ -1689,7 +1689,7 @@ uv__udp_maybe_deferred_bind.exit.i:               ; preds = %if.end7
   %sin6_addr.i.i = getelementptr inbounds nuw i8, ptr %taddr.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr.i.i, ptr noundef nonnull align 4 dereferenceable(16) @in6addr_any, i64 16, i1 false)
   %call7.i.i = call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %taddr.i.i, i32 noundef 28, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i.i)
   %tobool.not.i = icmp eq i32 %call7.i.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %uv__udp_set_source_membership6.exit
 
@@ -1738,8 +1738,8 @@ if.then18.i:                                      ; preds = %if.end15.i
 
 uv__udp_set_source_membership6.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i, %if.then1.i, %if.end7.i, %if.end15.i, %if.then18.i
   %retval.0.i = phi i32 [ %sub.i, %if.then18.i ], [ %call7.i.i, %uv__udp_maybe_deferred_bind.exit.i ], [ %call2.i, %if.then1.i ], [ -22, %if.end7.i ], [ 0, %if.end15.i ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %mreq.i)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %addr6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %addr6.i)
   br label %return
 
 if.end9:                                          ; preds = %entry
@@ -1748,22 +1748,22 @@ if.end9:                                          ; preds = %entry
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end9
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %mreq.i13)
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i.i12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %mreq.i13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i.i12)
   %fd.i.i14 = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %4 = load i32, ptr %fd.i.i14, align 8
   %cmp.not.i.i15 = icmp eq i32 %4, -1
   br i1 %cmp.not.i.i15, label %uv__udp_maybe_deferred_bind.exit.i25, label %uv__udp_maybe_deferred_bind.exit.thread.i16
 
 uv__udp_maybe_deferred_bind.exit.thread.i16:      ; preds = %if.end13
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i.i12)
   br label %if.end.i17
 
 uv__udp_maybe_deferred_bind.exit.i25:             ; preds = %if.end13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %taddr.i.i12, i8 0, i64 16, i1 false)
   store i16 2, ptr %taddr.i.i12, align 4
   %call7.i.i26 = call i32 @uv__udp_bind(ptr noundef nonnull %handle, ptr noundef nonnull %taddr.i.i12, i32 noundef 16, i32 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i.i12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i.i12)
   %tobool.not.i27 = icmp eq i32 %call7.i.i26, 0
   br i1 %tobool.not.i27, label %if.end.i17, label %uv__udp_set_source_membership4.exit
 
@@ -1815,7 +1815,7 @@ if.then25.i:                                      ; preds = %if.end22.i
 
 uv__udp_set_source_membership4.exit:              ; preds = %uv__udp_maybe_deferred_bind.exit.i25, %if.then1.i19, %if.end9.i, %if.end22.i, %if.then25.i
   %retval.0.i22 = phi i32 [ %sub.i24, %if.then25.i ], [ %call7.i.i26, %uv__udp_maybe_deferred_bind.exit.i25 ], [ %call2.i20, %if.then1.i19 ], [ -22, %if.end9.i ], [ 0, %if.end22.i ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %mreq.i13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %mreq.i13)
   br label %return
 
 return:                                           ; preds = %if.end9, %if.end, %if.then, %uv__udp_set_source_membership4.exit, %uv__udp_set_source_membership6.exit
@@ -1854,7 +1854,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg.i)
   store i32 %ttl, ptr %arg.i, align 4
   %flags.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags.i.i, align 8
@@ -1885,7 +1885,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 uv__setsockopt_maybe_char.exit:                   ; preds = %if.end.i.i, %if.then5.i.i
   %retval.0.i = phi i32 [ %sub.i.i, %if.then5.i.i ], [ 0, %if.end.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg.i)
   br label %return
 
 return:                                           ; preds = %entry, %uv__setsockopt_maybe_char.exit
@@ -1897,7 +1897,7 @@ return:                                           ; preds = %entry, %uv__setsock
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_ttl(ptr noundef readonly captures(none) %handle, i32 noundef %ttl) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg.i)
   store i32 %ttl, ptr %arg.i, align 4
   %or.cond.i = icmp ugt i32 %ttl, 255
   br i1 %or.cond.i, label %uv__setsockopt_maybe_char.exit, label %if.end.i
@@ -1932,7 +1932,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 uv__setsockopt_maybe_char.exit:                   ; preds = %entry, %if.end.i.i, %if.then5.i.i
   %retval.0.i = phi i32 [ -22, %entry ], [ %sub.i.i, %if.then5.i.i ], [ 0, %if.end.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg.i)
   ret i32 %retval.0.i
 }
 
@@ -1940,7 +1940,7 @@ uv__setsockopt_maybe_char.exit:                   ; preds = %entry, %if.end.i.i,
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_udp_set_multicast_loop(ptr noundef readonly captures(none) %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %arg.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %arg.i)
   store i32 %on, ptr %arg.i, align 4
   %or.cond.i = icmp ugt i32 %on, 255
   br i1 %or.cond.i, label %uv__setsockopt_maybe_char.exit, label %if.end.i
@@ -1975,7 +1975,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 
 uv__setsockopt_maybe_char.exit:                   ; preds = %entry, %if.end.i.i, %if.then5.i.i
   %retval.0.i = phi i32 [ -22, %entry ], [ %sub.i.i, %if.then5.i.i ], [ 0, %if.end.i.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %arg.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %arg.i)
   ret i32 %retval.0.i
 }
 
@@ -2097,7 +2097,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %taddr.i)
   %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %0 = load i32, ptr %fd.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
@@ -2134,17 +2134,17 @@ if.end56.i:                                       ; preds = %if.end18.i
   br label %uv__udp_maybe_deferred_bind.exit.thread
 
 uv__udp_maybe_deferred_bind.exit.thread:          ; preds = %if.end3, %if.end56.i
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %if.end7
 
 uv__udp_maybe_deferred_bind.exit.thread18:        ; preds = %if.then9.i, %if.then48.i
   %retval.0.i.ph = phi i32 [ %call.i, %if.then9.i ], [ -22, %if.then48.i ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   br label %return
 
 uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   %sub50.i = sub nsw i32 0, %1
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %taddr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %taddr.i)
   %tobool5.not = icmp eq i32 %1, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -2243,10 +2243,10 @@ declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

@@ -296,12 +296,12 @@ define hidden void @zim_SQLite3_open(ptr noundef readonly captures(none) %0, ptr
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 6, ptr %7, align 8, !tbaa !4
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds i8, ptr %9, i64 -128
@@ -431,44 +431,41 @@ define hidden void @zim_SQLite3_open(ptr noundef readonly captures(none) %0, ptr
   br label %71
 
 71:                                               ; preds = %68, %70, %53, %59, %37, %30, %21, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
-declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
+declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #2
+declare void @_efree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_open_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_errstr(i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_errstr(i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_set_authorizer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) #0 {
@@ -516,8 +513,8 @@ define internal range(i32 0, 3) i32 @php_sqlite3_authorizer(ptr noundef readonly
   br i1 %.not65, label %113, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = sext i32 %1 to i64
   store i64 %27, ptr %8, align 16, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -699,8 +696,8 @@ zend_call_known_fcc.exit:                         ; preds = %93, %85, %79
   call void @zval_ptr_dtor(ptr noundef nonnull %111) #17
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @zval_ptr_dtor(ptr noundef nonnull %112) #17
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %113
 
 113:                                              ; preds = %108, %23, %21, %18, %14
@@ -708,10 +705,7 @@ zend_call_known_fcc.exit:                         ; preds = %93, %85, %79
   ret i32 %.053
 }
 
-declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @sqlite3_db_config(ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_close(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -769,16 +763,16 @@ define hidden void @zim_SQLite3_close(ptr noundef readonly captures(none) %0, pt
   ret void
 }
 
-declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
+declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
-declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #2
+declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sqlite3_error(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %6 = call i64 @zend_vspprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef %2, ptr noundef nonnull %4) #17
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -813,8 +807,8 @@ define internal void @php_sqlite3_error(ptr noundef readonly captures(address_is
   br label %21
 
 21:                                               ; preds = %20, %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -823,8 +817,8 @@ define hidden void @zim_SQLite3_exec(ptr noundef readonly captures(none) %0, ptr
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !58
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = getelementptr inbounds i8, ptr %6, i64 -128
@@ -876,16 +870,16 @@ define hidden void @zim_SQLite3_exec(ptr noundef readonly captures(none) %0, ptr
   br label %33
 
 33:                                               ; preds = %31, %27, %18, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_free(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_version(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -917,11 +911,11 @@ define hidden void @zim_SQLite3_version(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-declare ptr @_zend_new_array_0() local_unnamed_addr #2
+declare ptr @_zend_new_array_0() local_unnamed_addr #1
 
-declare ptr @sqlite3_libversion() local_unnamed_addr #2
+declare ptr @sqlite3_libversion() local_unnamed_addr #1
 
-declare i32 @sqlite3_libversion_number() local_unnamed_addr #2
+declare i32 @sqlite3_libversion_number() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_lastInsertRowID(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -965,7 +959,7 @@ define hidden void @zim_SQLite3_lastInsertRowID(ptr noundef readonly captures(no
   ret void
 }
 
-declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_lastErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1020,7 +1014,7 @@ define hidden void @zim_SQLite3_lastErrorCode(ptr noundef readonly captures(none
   ret void
 }
 
-declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_lastExtendedErrorCode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1075,13 +1069,13 @@ define hidden void @zim_SQLite3_lastExtendedErrorCode(ptr noundef readonly captu
   ret void
 }
 
-declare i32 @sqlite3_extended_errcode(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_extended_errcode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_enableExtendedResultCodes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !80
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds i8, ptr %5, i64 -128
@@ -1133,11 +1127,11 @@ define hidden void @zim_SQLite3_enableExtendedResultCodes(ptr noundef readonly c
   br label %32
 
 32:                                               ; preds = %30, %28, %17, %11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_extended_result_codes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_extended_result_codes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_lastErrorMsg(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1208,13 +1202,13 @@ zend_string_alloc.exit:                           ; preds = %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_busyTimeout(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !8
@@ -1252,11 +1246,11 @@ define hidden void @zim_SQLite3_busyTimeout(ptr noundef readonly captures(none) 
   br label %27
 
 27:                                               ; preds = %20, %17, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_loadExtension(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1266,12 +1260,12 @@ define hidden void @zim_SQLite3_loadExtension(ptr noundef readonly captures(none
   %6 = alloca [4096 x i8], align 16
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds i8, ptr %9, i64 -128
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1393,26 +1387,26 @@ define hidden void @zim_SQLite3_loadExtension(ptr noundef readonly captures(none
   br label %72
 
 72:                                               ; preds = %68, %62, %54, %49, %31, %26, %21, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #2
+declare void @zend_argument_must_not_be_empty_error(i32 noundef) local_unnamed_addr #1
 
-declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
-declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_enable_load_extension(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_load_extension(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_load_extension(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_changes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -1457,12 +1451,12 @@ define hidden void @zim_SQLite3_changes(ptr noundef readonly captures(none) %0, 
   ret void
 }
 
-declare i32 @sqlite3_changes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_changes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_escapeString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #17
@@ -1518,19 +1512,19 @@ zend_string_alloc.exit:                           ; preds = %15
   br label %31
 
 31:                                               ; preds = %zend_string_alloc.exit, %15, %28, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #2
+declare ptr @sqlite3_mprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_prepare(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = getelementptr inbounds i8, ptr %6, i64 -128
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1613,18 +1607,18 @@ define hidden void @zim_SQLite3_prepare(ptr noundef readonly captures(none) %0, 
   br label %54
 
 54:                                               ; preds = %51, %47, %25, %18, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @object_init_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #2
+declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_llist_add_element(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_llist_add_element(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_query(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -1632,11 +1626,11 @@ define hidden void @zim_SQLite3_query(ptr noundef readonly captures(none) %0, pt
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !58
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   %9 = getelementptr inbounds i8, ptr %8, i64 -128
@@ -1803,18 +1797,18 @@ define hidden void @zim_SQLite3_query(ptr noundef readonly captures(none) %0, pt
   br label %102
 
 102:                                              ; preds = %48, %86, %98, %70, %27, %20, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_step(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_querySingle(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
@@ -1824,12 +1818,12 @@ define hidden void @zim_SQLite3_querySingle(ptr noundef readonly captures(none) 
   %6 = alloca ptr, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds i8, ptr %9, i64 -128
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1955,14 +1949,14 @@ define hidden void @zim_SQLite3_querySingle(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %69, %.lr.ph
   %.050 = phi i32 [ %79, %.lr.ph ], [ 0, %69 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %75 = load ptr, ptr %6, align 8, !tbaa !101
   call fastcc void @sqlite_value_to_zval(ptr noundef %75, i32 noundef %.050, ptr noundef nonnull %7)
   %76 = load ptr, ptr %6, align 8, !tbaa !101
   %77 = call ptr @sqlite3_column_name(ptr noundef %76, i32 noundef %.050) #17
   %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #18
   call void @add_assoc_zval_ex(ptr noundef nonnull %1, ptr noundef nonnull %77, i64 noundef %78, ptr noundef nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %79 = add nuw nsw i32 %.050, 1
   %80 = load ptr, ptr %6, align 8, !tbaa !101
   %81 = call i32 @sqlite3_data_count(ptr noundef %80) #17
@@ -2009,10 +2003,10 @@ define hidden void @zim_SQLite3_querySingle(ptr noundef readonly captures(none) 
   br label %101
 
 101:                                              ; preds = %49, %.loopexit, %57, %28, %21, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2084,9 +2078,9 @@ zend_string_alloc.exit29:                         ; preds = %3
   ret void
 }
 
-declare i32 @sqlite3_data_count(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_data_count(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_createFunction(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -2096,14 +2090,14 @@ define hidden void @zim_SQLite3_createFunction(ptr noundef readonly captures(non
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) @empty_fcall_info, i64 64, i1 false), !tbaa.struct !102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 -1, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %7, align 8, !tbaa !4
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2238,20 +2232,20 @@ zend_fcc_addref.exit:                             ; preds = %65, %68
   br label %79
 
 79:                                               ; preds = %77, %zend_fcc_addref.exit, %28, %21, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_release_fcall_info_cache(ptr noundef) local_unnamed_addr #2
+declare void @zend_release_fcall_info_cache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
+declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
-declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_create_function(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sqlite3_callback_func(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
@@ -2270,16 +2264,16 @@ define hidden void @zim_SQLite3_createAggregate(ptr noundef readonly captures(no
   %7 = alloca %struct._zend_fcall_info_cache, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) @empty_fcall_info, i64 64, i1 false), !tbaa.struct !102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !60
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) @empty_fcall_info, i64 64, i1 false), !tbaa.struct !102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 -1, ptr %8, align 8, !tbaa !4
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2437,12 +2431,12 @@ zend_fcc_addref.exit22:                           ; preds = %75, %78
   %.sink = phi i32 [ 2, %87 ], [ 3, %zend_fcc_addref.exit22 ]
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %89, align 8, !tbaa !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2476,10 +2470,10 @@ define hidden void @zim_SQLite3_createCollation(ptr noundef readonly captures(no
   %4 = alloca %struct._zend_fcall_info, align 8
   %5 = alloca %struct._zend_fcall_info_cache, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) @empty_fcall_info, i64 64, i1 false), !tbaa.struct !102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !60
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2604,20 +2598,20 @@ zend_fcc_addref.exit:                             ; preds = %58, %61
   br label %69
 
 69:                                               ; preds = %67, %zend_fcc_addref.exit, %26, %19, %12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_create_collation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_sqlite3_callback_compare(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !9
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %zend_string_alloc.exit, label %59
@@ -2721,8 +2715,8 @@ zend_call_known_fcc.exit:                         ; preds = %43, %35, %zend_stri
 
 59:                                               ; preds = %5, %58
   %.0 = phi i32 [ %.013, %58 ], [ 0, %5 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -2738,17 +2732,17 @@ define hidden void @zim_SQLite3_openBlob(ptr noundef readonly captures(none) %0,
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @.str.27, ptr %5, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr null, ptr %11, align 8, !tbaa !119
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %14 = getelementptr inbounds i8, ptr %13, i64 -128
@@ -2839,31 +2833,31 @@ define hidden void @zim_SQLite3_openBlob(ptr noundef readonly captures(none) %0,
   br label %65
 
 65:                                               ; preds = %56, %63, %39, %25, %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_blob_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @_emalloc_32() local_unnamed_addr #2
+declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_bytes(ptr noundef) local_unnamed_addr #1
 
-declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_enableExceptions(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !80
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2900,25 +2894,25 @@ define hidden void @zim_SQLite3_enableExceptions(ptr noundef readonly captures(n
   br label %24
 
 24:                                               ; preds = %22, %10
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_setAuthorizer(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) @empty_fcall_info, i64 64, i1 false), !tbaa.struct !102
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !60
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !58
   %cond = icmp eq i32 %8, 1
   br i1 %cond, label %10, label %9, !prof !135
@@ -2958,11 +2952,11 @@ zend_parse_arg_func.exit:                         ; preds = %16
   %.037 = phi i32 [ 1, %9 ], [ %.47, %zend_parse_arg_func.exit ]
   %.0 = phi i32 [ 0, %9 ], [ 1, %zend_parse_arg_func.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.037, i32 noundef %.0, ptr noundef %20, i32 noundef %.039, ptr noundef %.038) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
 21:                                               ; preds = %16, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = load ptr, ptr %6, align 8, !tbaa !8
   %23 = getelementptr inbounds i8, ptr %22, i64 -128
   %24 = load i8, ptr %23, align 8, !tbaa !44, !range !55, !noundef !56
@@ -3098,14 +3092,14 @@ zend_fcc_addref.exit:                             ; preds = %79, %76, %61
   br label %83
 
 83:                                               ; preds = %19, %26, %zend_fcc_addref.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3_backup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -3114,13 +3108,13 @@ define hidden void @zim_SQLite3_backup(ptr noundef readonly captures(none) %0, p
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @.str.27, ptr %3, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @.str.27, ptr %4, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !8
   %10 = load ptr, ptr @php_sqlite3_sc_entry, align 8, !tbaa !57
@@ -3222,19 +3216,19 @@ define hidden void @zim_SQLite3_backup(ptr noundef readonly captures(none) %0, p
   br label %59
 
 59:                                               ; preds = %57, %55, %31, %22, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_backup_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_backup_step(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_backup_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_paramCount(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -3293,7 +3287,7 @@ define hidden void @zim_SQLite3Stmt_paramCount(ptr noundef readonly captures(non
   ret void
 }
 
-declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_parameter_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_close(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -3339,10 +3333,10 @@ define hidden void @zim_SQLite3Stmt_close(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_llist_del_element(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #7 {
+define internal range(i32 0, 2) i32 @php_sqlite3_compare_stmt_free(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #6 {
   %3 = load ptr, ptr %0, align 8, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !88, !range !55, !noundef !56
@@ -3432,7 +3426,7 @@ define hidden void @zim_SQLite3Stmt_reset(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare ptr @sqlite3_db_handle(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_db_handle(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_clear(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -3519,11 +3513,11 @@ define hidden void @zim_SQLite3Stmt_clear(ptr noundef readonly captures(none) %0
   ret void
 }
 
-declare i32 @sqlite3_clear_bindings(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_clear_bindings(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
+declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
-declare void @_efree_56(ptr noundef) local_unnamed_addr #2
+declare void @_efree_56(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_readOnly(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -3588,12 +3582,12 @@ define hidden void @zim_SQLite3Stmt_readOnly(ptr noundef readonly captures(none)
   ret void
 }
 
-declare i32 @sqlite3_stmt_readonly(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_stmt_readonly(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !8
@@ -3736,7 +3730,7 @@ zend_string_alloc.exit67:                         ; preds = %39
   br label %64
 
 64:                                               ; preds = %17, %zend_string_alloc.exit, %zend_string_alloc.exit67, %37, %29, %24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4038,9 +4032,9 @@ zend_tmp_string_release.exit:                     ; preds = %zend_tmp_string_rel
   ret i32 %.7
 }
 
-declare ptr @sqlite3_expanded_sql(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_expanded_sql(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_sql(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Stmt_bindParam(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -4054,7 +4048,7 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr noundef writeo
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct.php_sqlite3_bound_param, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %6, align 8, !tbaa !8
@@ -4328,12 +4322,12 @@ thread-pre-split.i:                               ; preds = %70
 zend_hash_update_mem.exit.i:                      ; preds = %126, %124
   %128 = phi ptr [ %125, %124 ], [ %127, %126 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %128, ptr %4, align 8, !tbaa !8
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 13, ptr %129, align 8, !tbaa !8
   %130 = call ptr @zend_hash_update(ptr noundef nonnull %.032.i, ptr noundef nonnull %119, ptr noundef nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %register_bound_parameter_to_sqlite.exit
 
 131:                                              ; preds = %117
@@ -4355,12 +4349,12 @@ zend_hash_update_mem.exit.i:                      ; preds = %126, %124
 zend_hash_index_update_mem.exit.i:                ; preds = %138, %136
   %140 = phi ptr [ %137, %136 ], [ %139, %138 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %140, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %140, ptr %3, align 8, !tbaa !8
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 13, ptr %141, align 8, !tbaa !8
   %142 = call ptr @zend_hash_index_update(ptr noundef nonnull %.032.i, i64 noundef %132, ptr noundef nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %register_bound_parameter_to_sqlite.exit
 
 143:                                              ; preds = %105, %107, %111, %116
@@ -4383,7 +4377,7 @@ register_bound_parameter_to_sqlite.exit:          ; preds = %zend_hash_index_upd
   br label %150
 
 150:                                              ; preds = %.thread, %register_bound_parameter_to_sqlite.exit, %147, %45, %40
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -4513,10 +4507,10 @@ define hidden void @zim_SQLite3Stmt___construct(ptr noundef readonly captures(no
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   store ptr %8, ptr %3, align 8, !tbaa !82
@@ -4596,9 +4590,9 @@ define hidden void @zim_SQLite3Stmt___construct(ptr noundef readonly captures(no
   br label %52
 
 52:                                               ; preds = %49, %45, %30, %23, %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4649,13 +4643,13 @@ define hidden void @zim_SQLite3Result_numColumns(ptr noundef readonly captures(n
   ret void
 }
 
-declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Result_columnName(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
@@ -4746,7 +4740,7 @@ zend_string_alloc.exit:                           ; preds = %27
   br label %45
 
 45:                                               ; preds = %16, %zend_string_alloc.exit, %33, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -4754,7 +4748,7 @@ zend_string_alloc.exit:                           ; preds = %27
 define hidden void @zim_SQLite3Result_columnType(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds i8, ptr %5, i64 -32
@@ -4834,11 +4828,11 @@ zend_parse_arg_long_ex.exit:                      ; preds = %9
   br label %40
 
 40:                                               ; preds = %16, %32, %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr noundef captures(none) %1) #0 {
@@ -4846,7 +4840,7 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr noundef cap
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 3, ptr %4, align 8, !tbaa !4
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
@@ -5021,7 +5015,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
 
 88:                                               ; preds = %.lr.ph155, %131
   %indvars.iv157 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next158, %131 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %89 = load ptr, ptr %24, align 8, !tbaa !97
   %90 = load ptr, ptr %89, align 8, !tbaa !100
   %91 = trunc nuw nsw i64 %indvars.iv157 to i32
@@ -5063,7 +5057,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %14
   %111 = load ptr, ptr %87, align 8, !tbaa !98
   %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv157
   %113 = load ptr, ptr %112, align 8, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !73
@@ -5100,11 +5094,11 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %122, %121, %109, %_
   br label %zend_symtable_update.exit
 
 zend_symtable_update.exit:                        ; preds = %127, %_zend_handle_numeric_str.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %131
 
 131:                                              ; preds = %zend_symtable_update.exit, %97
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.loopexit, label %88
@@ -5128,18 +5122,18 @@ zend_symtable_update.exit:                        ; preds = %127, %_zend_handle_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %131, %.loopexit152, %21, %134, %132, %46, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare noalias ptr @_emalloc_40() local_unnamed_addr #2
+declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
-declare noalias ptr @_emalloc_56() local_unnamed_addr #2
+declare noalias ptr @_emalloc_56() local_unnamed_addr #1
 
-declare noalias ptr @_emalloc_256() local_unnamed_addr #2
+declare noalias ptr @_emalloc_256() local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_SQLite3Result_reset(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -5459,7 +5453,7 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   %79 = alloca %struct.zend_type, align 8
   %80 = alloca %struct._zend_class_entry, align 8
   %81 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %80) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %80, i8 0, i64 520, i1 false)
   %82 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %83 = tail call ptr %82(ptr noundef nonnull @.str.64, i64 noundef 16, i1 noundef zeroext true) #17
@@ -5470,7 +5464,7 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 504
   store ptr null, ptr %86, align 8, !tbaa !8
   %87 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %80, ptr noundef %81, i32 noundef 8192) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %80) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
   store ptr %87, ptr @php_sqlite3_exception_ce, align 8, !tbaa !57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @sqlite3_stmt_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
@@ -5479,44 +5473,44 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 24), align 8, !tbaa !163
   store ptr @php_sqlite3_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 8), align 8, !tbaa !164
   store ptr @php_sqlite3_get_gc, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_object_handlers, i64 168), align 8, !tbaa !165
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %79)
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %5, i8 0, i64 520, i1 false)
   %88 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %89 = call ptr %88(ptr noundef nonnull @.str.53, i64 noundef 7, i1 noundef zeroext true) #17
@@ -5527,7 +5521,7 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store ptr @class_SQLite3_methods, ptr %92, align 8, !tbaa !8
   %93 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %5, ptr noundef null, i32 noundef 536870912) #17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !8
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %94, align 8, !tbaa !8
@@ -5568,7 +5562,7 @@ define hidden noundef i32 @zm_startup_sqlite3(i32 noundef %0, i32 noundef %1) #0
   br label %zend_string_release.exit.i
 
 zend_string_release.exit.i:                       ; preds = %111, %110, %103, %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 1, ptr %8, align 8, !tbaa !8
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %112, align 8, !tbaa !8
@@ -5609,7 +5603,7 @@ zend_string_release.exit.i:                       ; preds = %111, %110, %103, %2
   br label %zend_string_release.exit188.i
 
 zend_string_release.exit188.i:                    ; preds = %129, %128, %121, %zend_string_release.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 2, ptr %10, align 8, !tbaa !8
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %130, align 8, !tbaa !8
@@ -5650,7 +5644,7 @@ zend_string_release.exit188.i:                    ; preds = %129, %128, %121, %z
   br label %zend_string_release.exit191.i
 
 zend_string_release.exit191.i:                    ; preds = %147, %146, %139, %zend_string_release.exit188.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 1, ptr %12, align 8, !tbaa !8
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %148, align 8, !tbaa !8
@@ -5691,7 +5685,7 @@ zend_string_release.exit191.i:                    ; preds = %147, %146, %139, %z
   br label %zend_string_release.exit194.i
 
 zend_string_release.exit194.i:                    ; preds = %165, %164, %157, %zend_string_release.exit191.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 2, ptr %14, align 8, !tbaa !8
   %166 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %166, align 8, !tbaa !8
@@ -5732,7 +5726,7 @@ zend_string_release.exit194.i:                    ; preds = %165, %164, %157, %z
   br label %zend_string_release.exit197.i
 
 zend_string_release.exit197.i:                    ; preds = %183, %182, %175, %zend_string_release.exit194.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 3, ptr %16, align 8, !tbaa !8
   %184 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %184, align 8, !tbaa !8
@@ -5773,7 +5767,7 @@ zend_string_release.exit197.i:                    ; preds = %183, %182, %175, %z
   br label %zend_string_release.exit200.i
 
 zend_string_release.exit200.i:                    ; preds = %201, %200, %193, %zend_string_release.exit197.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 4, ptr %18, align 8, !tbaa !8
   %202 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 4, ptr %202, align 8, !tbaa !8
@@ -5814,7 +5808,7 @@ zend_string_release.exit200.i:                    ; preds = %201, %200, %193, %z
   br label %zend_string_release.exit203.i
 
 zend_string_release.exit203.i:                    ; preds = %219, %218, %211, %zend_string_release.exit200.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 5, ptr %20, align 8, !tbaa !8
   %220 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 4, ptr %220, align 8, !tbaa !8
@@ -5855,7 +5849,7 @@ zend_string_release.exit203.i:                    ; preds = %219, %218, %211, %z
   br label %zend_string_release.exit206.i
 
 zend_string_release.exit206.i:                    ; preds = %237, %236, %229, %zend_string_release.exit203.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 6, ptr %22, align 8, !tbaa !8
   %238 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 4, ptr %238, align 8, !tbaa !8
@@ -5896,7 +5890,7 @@ zend_string_release.exit206.i:                    ; preds = %237, %236, %229, %z
   br label %zend_string_release.exit209.i
 
 zend_string_release.exit209.i:                    ; preds = %255, %254, %247, %zend_string_release.exit206.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 7, ptr %24, align 8, !tbaa !8
   %256 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 4, ptr %256, align 8, !tbaa !8
@@ -5937,7 +5931,7 @@ zend_string_release.exit209.i:                    ; preds = %255, %254, %247, %z
   br label %zend_string_release.exit212.i
 
 zend_string_release.exit212.i:                    ; preds = %273, %272, %265, %zend_string_release.exit209.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 8, ptr %26, align 8, !tbaa !8
   %274 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 4, ptr %274, align 8, !tbaa !8
@@ -5978,7 +5972,7 @@ zend_string_release.exit212.i:                    ; preds = %273, %272, %265, %z
   br label %zend_string_release.exit215.i
 
 zend_string_release.exit215.i:                    ; preds = %291, %290, %283, %zend_string_release.exit212.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 9, ptr %28, align 8, !tbaa !8
   %292 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 4, ptr %292, align 8, !tbaa !8
@@ -6019,7 +6013,7 @@ zend_string_release.exit215.i:                    ; preds = %291, %290, %283, %z
   br label %zend_string_release.exit218.i
 
 zend_string_release.exit218.i:                    ; preds = %309, %308, %301, %zend_string_release.exit215.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 10, ptr %30, align 8, !tbaa !8
   %310 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 4, ptr %310, align 8, !tbaa !8
@@ -6060,7 +6054,7 @@ zend_string_release.exit218.i:                    ; preds = %309, %308, %301, %z
   br label %zend_string_release.exit221.i
 
 zend_string_release.exit221.i:                    ; preds = %327, %326, %319, %zend_string_release.exit218.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 11, ptr %32, align 8, !tbaa !8
   %328 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 4, ptr %328, align 8, !tbaa !8
@@ -6101,7 +6095,7 @@ zend_string_release.exit221.i:                    ; preds = %327, %326, %319, %z
   br label %zend_string_release.exit224.i
 
 zend_string_release.exit224.i:                    ; preds = %345, %344, %337, %zend_string_release.exit221.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 12, ptr %34, align 8, !tbaa !8
   %346 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 4, ptr %346, align 8, !tbaa !8
@@ -6142,7 +6136,7 @@ zend_string_release.exit224.i:                    ; preds = %345, %344, %337, %z
   br label %zend_string_release.exit227.i
 
 zend_string_release.exit227.i:                    ; preds = %363, %362, %355, %zend_string_release.exit224.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 13, ptr %36, align 8, !tbaa !8
   %364 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 4, ptr %364, align 8, !tbaa !8
@@ -6183,7 +6177,7 @@ zend_string_release.exit227.i:                    ; preds = %363, %362, %355, %z
   br label %zend_string_release.exit230.i
 
 zend_string_release.exit230.i:                    ; preds = %381, %380, %373, %zend_string_release.exit227.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 14, ptr %38, align 8, !tbaa !8
   %382 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 4, ptr %382, align 8, !tbaa !8
@@ -6224,7 +6218,7 @@ zend_string_release.exit230.i:                    ; preds = %381, %380, %373, %z
   br label %zend_string_release.exit233.i
 
 zend_string_release.exit233.i:                    ; preds = %399, %398, %391, %zend_string_release.exit230.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 15, ptr %40, align 8, !tbaa !8
   %400 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 4, ptr %400, align 8, !tbaa !8
@@ -6265,7 +6259,7 @@ zend_string_release.exit233.i:                    ; preds = %399, %398, %391, %z
   br label %zend_string_release.exit236.i
 
 zend_string_release.exit236.i:                    ; preds = %417, %416, %409, %zend_string_release.exit233.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 16, ptr %42, align 8, !tbaa !8
   %418 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 4, ptr %418, align 8, !tbaa !8
@@ -6306,7 +6300,7 @@ zend_string_release.exit236.i:                    ; preds = %417, %416, %409, %z
   br label %zend_string_release.exit239.i
 
 zend_string_release.exit239.i:                    ; preds = %435, %434, %427, %zend_string_release.exit236.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 17, ptr %44, align 8, !tbaa !8
   %436 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 4, ptr %436, align 8, !tbaa !8
@@ -6347,7 +6341,7 @@ zend_string_release.exit239.i:                    ; preds = %435, %434, %427, %z
   br label %zend_string_release.exit242.i
 
 zend_string_release.exit242.i:                    ; preds = %453, %452, %445, %zend_string_release.exit239.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 18, ptr %46, align 8, !tbaa !8
   %454 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 4, ptr %454, align 8, !tbaa !8
@@ -6388,7 +6382,7 @@ zend_string_release.exit242.i:                    ; preds = %453, %452, %445, %z
   br label %zend_string_release.exit245.i
 
 zend_string_release.exit245.i:                    ; preds = %471, %470, %463, %zend_string_release.exit242.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 19, ptr %48, align 8, !tbaa !8
   %472 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 4, ptr %472, align 8, !tbaa !8
@@ -6429,7 +6423,7 @@ zend_string_release.exit245.i:                    ; preds = %471, %470, %463, %z
   br label %zend_string_release.exit248.i
 
 zend_string_release.exit248.i:                    ; preds = %489, %488, %481, %zend_string_release.exit245.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 20, ptr %50, align 8, !tbaa !8
   %490 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 4, ptr %490, align 8, !tbaa !8
@@ -6470,7 +6464,7 @@ zend_string_release.exit248.i:                    ; preds = %489, %488, %481, %z
   br label %zend_string_release.exit251.i
 
 zend_string_release.exit251.i:                    ; preds = %507, %506, %499, %zend_string_release.exit248.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i64 21, ptr %52, align 8, !tbaa !8
   %508 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 4, ptr %508, align 8, !tbaa !8
@@ -6511,7 +6505,7 @@ zend_string_release.exit251.i:                    ; preds = %507, %506, %499, %z
   br label %zend_string_release.exit254.i
 
 zend_string_release.exit254.i:                    ; preds = %525, %524, %517, %zend_string_release.exit251.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i64 22, ptr %54, align 8, !tbaa !8
   %526 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 4, ptr %526, align 8, !tbaa !8
@@ -6552,7 +6546,7 @@ zend_string_release.exit254.i:                    ; preds = %525, %524, %517, %z
   br label %zend_string_release.exit257.i
 
 zend_string_release.exit257.i:                    ; preds = %543, %542, %535, %zend_string_release.exit254.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i64 23, ptr %56, align 8, !tbaa !8
   %544 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 4, ptr %544, align 8, !tbaa !8
@@ -6593,7 +6587,7 @@ zend_string_release.exit257.i:                    ; preds = %543, %542, %535, %z
   br label %zend_string_release.exit260.i
 
 zend_string_release.exit260.i:                    ; preds = %561, %560, %553, %zend_string_release.exit257.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i64 24, ptr %58, align 8, !tbaa !8
   %562 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 4, ptr %562, align 8, !tbaa !8
@@ -6634,7 +6628,7 @@ zend_string_release.exit260.i:                    ; preds = %561, %560, %553, %z
   br label %zend_string_release.exit263.i
 
 zend_string_release.exit263.i:                    ; preds = %579, %578, %571, %zend_string_release.exit260.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i64 25, ptr %60, align 8, !tbaa !8
   %580 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 4, ptr %580, align 8, !tbaa !8
@@ -6675,7 +6669,7 @@ zend_string_release.exit263.i:                    ; preds = %579, %578, %571, %z
   br label %zend_string_release.exit266.i
 
 zend_string_release.exit266.i:                    ; preds = %597, %596, %589, %zend_string_release.exit263.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i64 26, ptr %62, align 8, !tbaa !8
   %598 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 4, ptr %598, align 8, !tbaa !8
@@ -6716,7 +6710,7 @@ zend_string_release.exit266.i:                    ; preds = %597, %596, %589, %z
   br label %zend_string_release.exit269.i
 
 zend_string_release.exit269.i:                    ; preds = %615, %614, %607, %zend_string_release.exit266.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i64 27, ptr %64, align 8, !tbaa !8
   %616 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 4, ptr %616, align 8, !tbaa !8
@@ -6757,7 +6751,7 @@ zend_string_release.exit269.i:                    ; preds = %615, %614, %607, %z
   br label %zend_string_release.exit272.i
 
 zend_string_release.exit272.i:                    ; preds = %633, %632, %625, %zend_string_release.exit269.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i64 28, ptr %66, align 8, !tbaa !8
   %634 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 4, ptr %634, align 8, !tbaa !8
@@ -6798,7 +6792,7 @@ zend_string_release.exit272.i:                    ; preds = %633, %632, %625, %z
   br label %zend_string_release.exit275.i
 
 zend_string_release.exit275.i:                    ; preds = %651, %650, %643, %zend_string_release.exit272.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i64 29, ptr %68, align 8, !tbaa !8
   %652 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 4, ptr %652, align 8, !tbaa !8
@@ -6839,7 +6833,7 @@ zend_string_release.exit275.i:                    ; preds = %651, %650, %643, %z
   br label %zend_string_release.exit278.i
 
 zend_string_release.exit278.i:                    ; preds = %669, %668, %661, %zend_string_release.exit275.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i64 30, ptr %70, align 8, !tbaa !8
   %670 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 4, ptr %670, align 8, !tbaa !8
@@ -6880,7 +6874,7 @@ zend_string_release.exit278.i:                    ; preds = %669, %668, %661, %z
   br label %zend_string_release.exit281.i
 
 zend_string_release.exit281.i:                    ; preds = %687, %686, %679, %zend_string_release.exit278.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i64 31, ptr %72, align 8, !tbaa !8
   %688 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 4, ptr %688, align 8, !tbaa !8
@@ -6921,7 +6915,7 @@ zend_string_release.exit281.i:                    ; preds = %687, %686, %679, %z
   br label %zend_string_release.exit284.i
 
 zend_string_release.exit284.i:                    ; preds = %705, %704, %697, %zend_string_release.exit281.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i64 32, ptr %74, align 8, !tbaa !8
   %706 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 4, ptr %706, align 8, !tbaa !8
@@ -6962,7 +6956,7 @@ zend_string_release.exit284.i:                    ; preds = %705, %704, %697, %z
   br label %zend_string_release.exit287.i
 
 zend_string_release.exit287.i:                    ; preds = %723, %722, %715, %zend_string_release.exit284.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i64 0, ptr %76, align 8, !tbaa !8
   %724 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 4, ptr %724, align 8, !tbaa !8
@@ -7003,7 +6997,7 @@ zend_string_release.exit287.i:                    ; preds = %723, %722, %715, %z
   br label %zend_string_release.exit290.i
 
 zend_string_release.exit290.i:                    ; preds = %741, %740, %733, %zend_string_release.exit287.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i64 33, ptr %78, align 8, !tbaa !8
   %742 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 4, ptr %742, align 8, !tbaa !8
@@ -7044,81 +7038,81 @@ zend_string_release.exit290.i:                    ; preds = %741, %740, %733, %z
   br label %register_class_SQLite3.exit
 
 register_class_SQLite3.exit:                      ; preds = %zend_string_release.exit290.i, %751, %758, %759
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
   store ptr %93, ptr @php_sqlite3_sc_entry, align 8, !tbaa !57
   %760 = getelementptr inbounds nuw i8, ptr %93, i64 384
   store ptr @php_sqlite3_object_new, ptr %760, align 8, !tbaa !8
@@ -7127,7 +7121,7 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   store i32 32, ptr @sqlite3_stmt_object_handlers, align 8, !tbaa !161
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 24), align 8, !tbaa !163
   store ptr @php_sqlite3_stmt_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_stmt_object_handlers, i64 8), align 8, !tbaa !164
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %4, i8 0, i64 520, i1 false)
   %762 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %763 = call ptr %762(ptr noundef nonnull @.str.148, i64 noundef 11, i1 noundef zeroext true) #17
@@ -7138,7 +7132,7 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   %766 = getelementptr inbounds nuw i8, ptr %4, i64 504
   store ptr @class_SQLite3Stmt_methods, ptr %766, align 8, !tbaa !8
   %767 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %4, ptr noundef null, i32 noundef 536870912) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %767, ptr @php_sqlite3_stmt_entry, align 8, !tbaa !57
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 384
   store ptr @php_sqlite3_stmt_object_new, ptr %768, align 8, !tbaa !8
@@ -7147,7 +7141,7 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   store i32 32, ptr @sqlite3_result_object_handlers, align 8, !tbaa !161
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 24), align 8, !tbaa !163
   store ptr @php_sqlite3_result_object_free_storage, ptr getelementptr inbounds nuw (i8, ptr @sqlite3_result_object_handlers, i64 8), align 8, !tbaa !164
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %770 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !149
   %771 = call ptr %770(ptr noundef nonnull @.str.151, i64 noundef 13, i1 noundef zeroext true) #17
@@ -7158,7 +7152,7 @@ register_class_SQLite3.exit:                      ; preds = %zend_string_release
   %774 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr @class_SQLite3Result_methods, ptr %774, align 8, !tbaa !8
   %775 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef null, i32 noundef 536870912) #17
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %775, ptr @php_sqlite3_result_entry, align 8, !tbaa !57
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 384
   store ptr @php_sqlite3_result_object_new, ptr %776, align 8, !tbaa !8
@@ -8255,7 +8249,7 @@ define internal noundef nonnull ptr @php_sqlite3_result_object_new(ptr noundef %
   ret ptr %13
 }
 
-declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @zend_register_ini_entries_ex(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_shutdown_sqlite3(i32 noundef %0, i32 noundef %1) #0 {
@@ -8263,7 +8257,7 @@ define hidden noundef i32 @zm_shutdown_sqlite3(i32 noundef %0, i32 noundef %1) #
   ret i32 0
 }
 
-declare void @zend_unregister_ini_entries_ex(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_unregister_ini_entries_ex(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zm_info_sqlite3(ptr noundef %0) #0 {
@@ -8276,53 +8270,53 @@ define hidden void @zm_info_sqlite3(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @php_info_print_table_start() local_unnamed_addr #2
+declare void @php_info_print_table_start() local_unnamed_addr #1
 
-declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #2
+declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #1
 
-declare void @php_info_print_table_end() local_unnamed_addr #2
+declare void @php_info_print_table_end() local_unnamed_addr #1
 
-declare void @display_ini_entries(ptr noundef) local_unnamed_addr #2
+declare void @display_ini_entries(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_sqlite3(ptr noundef writeonly captures(none) initializes((0, 16)) %0) #9 {
+define internal void @zm_globals_ctor_sqlite3(ptr noundef writeonly captures(none) initializes((0, 16)) %0) #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #10
+declare void @llvm.va_start.p0(ptr) #9
 
-declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @zend_vspprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #10
+declare void @llvm.va_end.p0(ptr) #9
 
-declare void @add_assoc_string_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_assoc_string_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @add_assoc_long_ex(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare void @add_assoc_long_ex(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #8
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #7
 
-declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare double @sqlite3_column_double(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_column_blob(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_column_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sqlite3_do_callback(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp ne i32 %4, 0
   %spec.store.select = select i1 %7, i32 2, i32 0
   %8 = add i32 %spec.store.select, %1
@@ -8641,40 +8635,40 @@ zend_tmp_string_release.exit:                     ; preds = %zval_try_get_tmp_st
   br label %143
 
 143:                                              ; preds = %142, %138
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_aggregate_context(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @sqlite3_aggregate_context(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_type(ptr noundef) local_unnamed_addr #1
 
-declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #2
+declare i64 @sqlite3_value_int64(ptr noundef) local_unnamed_addr #1
 
-declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #2
+declare double @sqlite3_value_double(ptr noundef) local_unnamed_addr #1
 
-declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #2
+declare ptr @sqlite3_value_text(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_int64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_null(ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_result_null(ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #2
+declare void @sqlite3_result_double(ptr noundef, double noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_text(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @sqlite3_result_text(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @sqlite3_result_error(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #2
+declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_sqlite3_stream_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
@@ -8792,12 +8786,12 @@ define internal noundef i32 @php_sqlite3_stream_close(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_sqlite3_stream_flush(ptr readnone captures(none) %0) #12 {
+define internal noundef i32 @php_sqlite3_stream_flush(ptr readnone captures(none) %0) #11 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #13 {
+define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #12 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !185
   switch i32 %2, label %57 [
@@ -8920,12 +8914,12 @@ define internal range(i32 -1, 1) i32 @php_sqlite3_stream_seek(ptr noundef captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @php_sqlite3_stream_cast(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #12 {
+define internal noundef i32 @php_sqlite3_stream_cast(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #11 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @php_sqlite3_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((48, 56)) %1) #14 {
+define internal noundef i32 @php_sqlite3_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((48, 56)) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8935,50 +8929,50 @@ define internal noundef i32 @php_sqlite3_stream_stat(ptr noundef readonly captur
   ret i32 0
 }
 
-declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_write(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_read(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_blob_close(ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_fcall_info_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @zend_fcall_info_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #2
+declare void @zend_objects_store_del(ptr noundef) local_unnamed_addr #1
 
-declare void @gc_possible_root(ptr noundef) local_unnamed_addr #2
+declare void @gc_possible_root(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @convert_to_long(ptr noundef) local_unnamed_addr #2
+declare void @convert_to_long(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_int64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @convert_to_double(ptr noundef) local_unnamed_addr #2
+declare void @convert_to_double(ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
-declare ptr @zend_fetch_resource2_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @zend_fetch_resource2_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @php_file_le_stream() local_unnamed_addr #2
+declare i32 @php_file_le_stream() local_unnamed_addr #1
 
-declare i32 @php_file_le_pstream() local_unnamed_addr #2
+declare i32 @php_file_le_pstream() local_unnamed_addr #1
 
-declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_text(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #2
+declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-declare zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @sqlite3_param_dtor(ptr noundef readonly captures(none) %0) #0 {
@@ -9025,33 +9019,33 @@ zend_string_release_ex.exit:                      ; preds = %14, %9, %5, %1
   ret void
 }
 
-declare i32 @sqlite3_bind_parameter_index(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @sqlite3_bind_parameter_index(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @zend_register_internal_class_with_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #2
+declare void @zend_object_std_dtor(ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_std_get_gc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @zend_std_get_gc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_get_gc_buffer_create() local_unnamed_addr #2
+declare ptr @zend_get_gc_buffer_create() local_unnamed_addr #1
 
-declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #2
+declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #1
 
-declare void @zend_get_gc_buffer_grow(ptr noundef) local_unnamed_addr #2
+declare void @zend_get_gc_buffer_grow(ptr noundef) local_unnamed_addr #1
 
-declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #2
+declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
-declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
+declare void @zend_llist_init(ptr noundef, i64 noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_sqlite3_free_list_dtor(ptr noundef readonly captures(none) %0) #0 {
@@ -9075,37 +9069,43 @@ define internal void @php_sqlite3_free_list_dtor(ptr noundef readonly captures(n
   ret void
 }
 
-declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @object_properties_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @OnUpdateString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @OnUpdateString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #2
+declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #1
 
-declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind willreturn memory(read) }

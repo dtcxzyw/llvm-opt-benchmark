@@ -479,11 +479,8 @@ LzmaDec_InitStateReal.exit:                       ; preds = %122
   ret i32 %.9
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1252,10 +1249,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readnone captures(address) %2) unnamed_addr #1 {
@@ -2813,7 +2807,7 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr noundef writ
   %.047 = phi i64 [ %9, %7 ], [ %35, %34 ]
   %.046 = phi i64 [ %10, %7 ], [ %37, %34 ]
   %.044 = phi ptr [ %1, %7 ], [ %36, %34 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %.046, ptr %8, align 8, !tbaa !19
   %15 = load i64, ptr %11, align 8, !tbaa !18
   %16 = load i64, ptr %12, align 8, !tbaa !21
@@ -2848,7 +2842,7 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr noundef writ
   br i1 %.not, label %34, label %.thread
 
 .thread:                                          ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 34:                                               ; preds = %19
@@ -2859,7 +2853,7 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr noundef writ
   %39 = icmp ne i64 %28, %20
   %40 = icmp ne i64 %35, 0
   %or.cond.not = select i1 %39, i1 %40, i1 false
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %or.cond.not, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %34, %.thread
@@ -2868,7 +2862,7 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define void @LzmaDec_FreeProbs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @LzmaDec_FreeProbs(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2879,7 +2873,7 @@ define void @LzmaDec_FreeProbs(ptr noundef captures(none) %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @LzmaDec_Free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @LzmaDec_Free(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2895,7 +2889,7 @@ define void @LzmaDec_Free(ptr noundef captures(none) %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 5) i32 @LzmaProps_Decode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 5) i32 @LzmaProps_Decode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp ult i32 %2, 5
   br i1 %4, label %19, label %5
 
@@ -2930,7 +2924,7 @@ define range(i32 0, 5) i32 @LzmaProps_Decode(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %2, 5
   br i1 %5, label %LzmaProps_Decode.exit.thread, label %6
 
@@ -2995,7 +2989,7 @@ LzmaProps_Decode.exit.thread:                     ; preds = %26, %6, %4, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp ult i32 %2, 5
   br i1 %5, label %LzmaProps_Decode.exit.thread, label %6
 
@@ -3093,9 +3087,9 @@ LzmaProps_Decode.exit.thread:                     ; preds = %26, %6, %4, %52, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8) local_unnamed_addr #5 {
+define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8) local_unnamed_addr #4 {
   %10 = alloca %struct.CLzmaDec, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i64, ptr %3, align 8, !tbaa !19
   %12 = load i64, ptr %1, align 8, !tbaa !19
   store i64 0, ptr %1, align 8, !tbaa !19
@@ -3188,9 +3182,15 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr noundef captures(none
 
 LzmaDec_AllocateProbs.exit.thread:                ; preds = %23, %18, %14, %9, %54
   %.0 = phi i32 [ %.024, %54 ], [ 6, %9 ], [ 2, %23 ], [ 4, %18 ], [ 4, %14 ]
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
@@ -3206,11 +3206,11 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

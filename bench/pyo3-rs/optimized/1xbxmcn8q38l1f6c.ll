@@ -8,7 +8,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %4 = alloca [72 x i8], align 8
   %5 = alloca [120 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   invoke void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h994ba5e9b88426d3E"(ptr sret([24 x i8]) align 8 %0, ptr nonnull align 8 %4, ptr align 8 %2)
           to label %9 unwind label %6
@@ -50,7 +50,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit": ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %19)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -65,9 +65,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
   %6 = load i32, ptr %5, align 8
   %.not3.i = icmp eq i32 %6, 4
@@ -112,9 +112,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %8, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha87f1cebff4c4010E.exit": ; preds = %._crit_edge.i, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -123,9 +123,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
@@ -167,9 +167,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h470e508dd1dfd64cE.exit": ; preds = %._crit_edge.i, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -184,9 +184,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
   %6 = load i32, ptr %5, align 8
   %.not3.i = icmp eq i32 %6, 4
@@ -231,9 +231,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %8, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf08d9122edb6bbb6E.exit": ; preds = %._crit_edge.i, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -242,9 +242,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1)
   %6 = load i32, ptr %5, align 8
   %.not3.i = icmp eq i32 %6, 4
@@ -289,9 +289,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %8, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h267e85af2bf588c7E.exit": ; preds = %._crit_edge.i, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -300,9 +300,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @_ZN4core4iter8adapters7flatten17and_then_or_clear17h8281dc8553ca724aE(ptr nonnull sret([32 x i8]) align 8 %5, ptr nonnull align 8 %6)
   %7 = load i32, ptr %5, align 8
@@ -344,9 +344,9 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h817ee0290540dfe8E.exit": ; preds = %._crit_edge.i, %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -708,12 +708,12 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   %8 = alloca [352 x i8], align 8
   %.pr = load i64, ptr %1, align 8
   %9 = icmp eq i64 %.pr, 0
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br i1 %9, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread, label %10
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit.thread: ; preds = %2
   store i64 22, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %20
 
 10:                                               ; preds = %.critedge, %2
@@ -751,7 +751,7 @@ common.resume:                                    ; preds = %35, %14, %41
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; preds = %10, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(352) %4, i64 352, i1 false)
   %.pr6 = load i64, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.pr6, 22
   br i1 %.not, label %20, label %19
 
@@ -772,7 +772,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; pr
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %30
@@ -814,7 +814,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit: ; pr
   unreachable
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5: ; preds = %29, %34
-  call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %24
 
 40:                                               ; preds = %20
@@ -836,7 +836,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2ea9d3c2701904d0E.exit5: ; p
   store i64 1, ptr %1, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.3, i64 1072, i1 false)
-  call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %10
 }
 
@@ -1872,9 +1872,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator6reduce17h8ab3c3655a33554cE(p
 
 11:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e34c3a92ba81754E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   invoke void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h994ba5e9b88426d3E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %3, ptr nonnull align 8 %6)
           to label %15 unwind label %12
@@ -1912,8 +1912,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator6reduce17h8ab3c3655a33554cE(p
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf06ac9669a7b1073E.exit.i": ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$syn..error..Error$GT$$GT$$GT$17hb7cb4454811e9803E"(ptr nonnull align 8 %24)
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %25
 
@@ -2180,10 +2180,10 @@ declare void @"_ZN4core3ptr38drop_in_place$LT$syn..error..Error$GT$17h0f776584e3
 declare void @_ZN4core3ops8function6FnOnce9call_once17hc9573aaa536acb0fE(ptr sret([352 x i8]) align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

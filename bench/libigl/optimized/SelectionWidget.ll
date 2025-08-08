@@ -102,15 +102,15 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget4drawEv(ptr nou
 
 12:                                               ; preds = %1
   %13 = tail call noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv()
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 16, !tbaa !32
   call void @glfwGetFramebufferSize(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = load ptr, ptr %14, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 16, !tbaa !32
@@ -122,27 +122,27 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget4drawEv(ptr nou
   %25 = fdiv float %22, %24
   %26 = load i32, ptr %5, align 4, !tbaa !66
   %27 = sitofp i32 %26 to float
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float 0.000000e+00, ptr %6, align 4, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 0.000000e+00, ptr %28, align 4, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float 0.000000e+00, ptr %29, align 4, !tbaa !69
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float %22, ptr %8, align 4, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %27, ptr %30, align 4, !tbaa !69
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %8, i32 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %31 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.3, ptr noundef null, i32 noundef 787343)
   %32 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -273,15 +273,9 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit:       ; preds = %._ZN8ImVectorI6ImVe
 
 declare noundef nonnull align 8 dereferenceable(5464) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
@@ -292,7 +286,7 @@ declare noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef, ptr noundef, i32
 declare noundef ptr @_ZN5ImGui17GetWindowDrawListEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #4
+declare float @llvm.fmuladd.f32(float, float, float) #3
 
 declare void @_ZN5ImGui3EndEv() local_unnamed_addr #2
 
@@ -385,7 +379,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE5clearEv.exit: ; pred
   br i1 %50, label %51, label %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 51:                                               ; preds = %45
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %45
@@ -398,7 +392,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
   %.not.i.i2 = icmp ne i64 %56, 0
   tail call void @llvm.assume(i1 %.not.i.i2)
   %57 = shl nuw nsw i64 %56, 3
-  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #22
+  %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #21
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %49
   store float %31, ptr %59, align 4, !tbaa !91
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
@@ -425,7 +419,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
   br i1 %.not.i33.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJNS0_5BlockINS1_IfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %65
 
 65:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %49) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %49) #22
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJNS0_5BlockINS1_IfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJNS0_5BlockINS1_IfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i, %65
@@ -458,7 +452,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget2xyEPKNS1_6View
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget8mouse_upEii(ptr noundef nonnull align 16 dereferenceable(264) initializes((156, 157)) %0, i32 %1, i32 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget8mouse_upEii(ptr noundef nonnull align 16 dereferenceable(264) initializes((156, 157)) %0, i32 %1, i32 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %4, align 4, !tbaa !94
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 158
@@ -570,7 +564,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget1
   br i1 %33, label %34, label %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 34:                                               ; preds = %32
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %32
@@ -582,7 +576,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
   %.not.i.i.i = icmp ne i64 %38, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %39 = shl nuw nsw i64 %38, 3
-  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #22
+  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #21
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %22
   %42 = load i64, ptr %25, align 4, !tbaa !114
   store i64 %42, ptr %41, align 4, !tbaa !114
@@ -604,7 +598,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %40, %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i ], [ %45, %.lr.ph.i.i.i.i.i ]
   %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #22
   store ptr %40, ptr %16, align 16, !tbaa !102
   store ptr %46, ptr %17, align 8, !tbaa !103
   %47 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %40, i64 %38
@@ -744,7 +738,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJRS2_E
   br i1 %132, label %133, label %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i3
 
 133:                                              ; preds = %127
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i.i3: ; preds = %127
@@ -757,7 +751,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
   %.not.i.i.i5 = icmp ne i64 %138, 0
   tail call void @llvm.assume(i1 %.not.i.i.i5)
   %139 = shl nuw nsw i64 %138, 3
-  %140 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %139) #22
+  %140 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %139) #21
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %131
   store float %119, ptr %141, align 4, !tbaa !114
   %.sroa_idx14 = getelementptr inbounds nuw i8, ptr %141, i64 4
@@ -784,7 +778,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
   br i1 %.not.i23.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %146
 
 146:                                              ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %131) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef %131) #22
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %146, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
@@ -835,7 +829,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget4rectERKN5Eigen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget6circleERKN5Eigen6MatrixIfLi2ELi2ELi0ELi2ELi2EEERSt6vectorINS5_IfLi1ELi2ELi1ELi1ELi2EEESaISA_EE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget6circleERKN5Eigen6MatrixIfLi2ELi2ELi0ELi2ELi2EEERSt6vectorINS5_IfLi1ELi2ELi1ELi1ELi2EEESaISA_EE(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !102
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !103
@@ -859,7 +853,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE5clearEv.exit: ; pred
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE5clearEv.exit
   %13 = ptrtoint ptr %6 to i64
   %14 = sub i64 %13, %10
-  %15 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #22
+  %15 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
   %.not10.i.i.i.i = icmp eq ptr %3, %6
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
 
@@ -880,7 +874,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
   br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit.i, label %19
 
 19:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %11) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %11) #22
   br label %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %19, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -921,11 +915,11 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE7reserveEm.exit: ; pr
   %44 = phi double [ 0.000000e+00, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE7reserveEm.exit ], [ %86, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12emplace_backIJddEEERS2_DpOT_.exit ]
   %45 = load float, ptr %0, align 16, !tbaa !91
   %46 = fpext float %45 to double
-  %47 = tail call double @cos(double noundef %44) #20, !tbaa !66
+  %47 = tail call double @cos(double noundef %44) #23, !tbaa !66
   %48 = tail call double @llvm.fmuladd.f64(double %38, double %47, double %46)
   %49 = load float, ptr %32, align 8, !tbaa !91
   %50 = fpext float %49 to double
-  %51 = tail call double @sin(double noundef %44) #20, !tbaa !66
+  %51 = tail call double @sin(double noundef %44) #23, !tbaa !66
   %52 = tail call double @llvm.fmuladd.f64(double %38, double %51, double %50)
   %.not.i = icmp eq ptr %43, %42
   br i1 %.not.i, label %58, label %53
@@ -948,7 +942,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE7reserveEm.exit: ; pr
   br i1 %62, label %63, label %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 63:                                               ; preds = %58
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #20
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %58
@@ -961,7 +955,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
   %.not.i.i14 = icmp ne i64 %68, 0
   tail call void @llvm.assume(i1 %.not.i.i14)
   %69 = shl nuw nsw i64 %68, 3
-  %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #22
+  %70 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %69) #21
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %61
   %72 = fptrunc double %48 to float
   store float %72, ptr %71, align 4, !tbaa !91
@@ -990,7 +984,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
   br i1 %.not.i34.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJddEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit, label %79
 
 79:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %61) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %61) #22
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJddEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_realloc_insertIJddEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33.i, %79
@@ -1018,13 +1012,13 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget1
   %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = trunc i32 %1 to i8
-  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %8, i64 noundef 0) #20
+  %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %8, i64 noundef 0) #23
   %.not = icmp eq i64 %9, -1
   br i1 %.not, label %10, label %.sink.split
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %8, i64 noundef 0) #20
+  %12 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %8, i64 noundef 0) #23
   %.not7 = icmp eq i64 %12, -1
   br i1 %.not7, label %16, label %13
 
@@ -1036,7 +1030,7 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget1
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 noundef signext %8, i64 noundef 0) #20
+  %18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 noundef signext %8, i64 noundef 0) #23
   %.not8 = icmp eq i64 %18, -1
   %.pre = load i32, ptr %5, align 8, !tbaa !16
   br i1 %.not8, label %21, label %19
@@ -1082,12 +1076,12 @@ _ZN3igl6opengl4glfw5imgui15SelectionWidget5clearEv.exit: ; preds = %23, %_ZSt8_D
 
 _ZNKSt8functionIFvN3igl6opengl4glfw5imgui15SelectionWidget4ModeEEEclES5_.exit: ; preds = %_ZN3igl6opengl4glfw5imgui15SelectionWidget5clearEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %6, ptr %4, align 4, !tbaa !148
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = load ptr, ptr %34, align 16, !tbaa !149
   call void %35(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 36:                                               ; preds = %21, %_ZN3igl6opengl4glfw5imgui15SelectionWidget5clearEv.exit, %_ZNKSt8functionIFvN3igl6opengl4glfw5imgui15SelectionWidget4ModeEEEclES5_.exit
@@ -1095,10 +1089,10 @@ _ZNKSt8functionIFvN3igl6opengl4glfw5imgui15SelectionWidget4ModeEEEclES5_.exit: ;
 }
 
 ; Function Attrs: nounwind
-declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget5clearEv(ptr noundef nonnull align 16 captures(none) dereferenceable(264) initializes((156, 157), (158, 159), (160, 176)) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidget5clearEv(ptr noundef nonnull align 16 captures(none) dereferenceable(264) initializes((156, 157), (158, 159), (160, 176)) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1121,13 +1115,13 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE5clearEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #8
+declare double @cos(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #8
+declare double @sin(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1167,7 +1161,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1
   br i1 %24, label %25, label %_ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 25:                                               ; preds = %23
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #20
   unreachable
 
 _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %23
@@ -1175,7 +1169,7 @@ _ZNKSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE12_M_check_lenEmPKc.
   %26 = add nuw nsw i64 %.sroa.speculated.i.i, %9
   %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
   %28 = shl nuw nsw i64 %27, 3
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #22
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   %.not10.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i
@@ -1198,7 +1192,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_
 
 34:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   %35 = sub i64 %15, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %35) #22
   br label %_ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %34, %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -1229,7 +1223,7 @@ _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_default_appendEm
 declare noundef nonnull align 16 dereferenceable(544) ptr @_ZNK3igl6opengl4glfw6Viewer4coreEj(ptr noundef nonnull align 16 dereferenceable(616), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3igl6opengl4glfw5imgui15SelectionWidgetE, i64 16), ptr %0, align 16, !tbaa !155
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !116
@@ -1278,7 +1272,7 @@ _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_ba
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %25) #22
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EED2Ev.exit: ; preds = %_ZNSt14_Function_baseD2Ev.exit2, %20
@@ -1298,7 +1292,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EED2Ev.exit
   %33 = load i64, ptr %28, align 8, !tbaa !114
   %34 = add i64 %33, 1
-  tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %34) #23
+  tail call void @_ZdlPvm(ptr noundef %27, i64 noundef %34) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1318,7 +1312,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %42 = load i64, ptr %37, align 8, !tbaa !114
   %43 = add i64 %42, 1
-  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #23
+  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3
@@ -1338,7 +1332,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5
   %51 = load i64, ptr %46, align 8, !tbaa !114
   %52 = add i64 %51, 1
-  tail call void @_ZdlPvm(ptr noundef %45, i64 noundef %52) #23
+  tail call void @_ZdlPvm(ptr noundef %45, i64 noundef %52) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i6
@@ -1359,7 +1353,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8
   %60 = load i64, ptr %55, align 8, !tbaa !114
   %61 = add i64 %60, 1
-  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #23
+  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #22
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit
 
 _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -1367,9 +1361,9 @@ _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD0Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 272) #23
+define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD0Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) unnamed_addr #8 comdat align 2 {
+  tail call void @_ZN3igl6opengl4glfw5imgui15SelectionWidgetD2Ev(ptr noundef nonnull align 16 dereferenceable(264) %0) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 272) #22
   ret void
 }
 
@@ -1389,7 +1383,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImG
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef) local_unnamed_addr #2
 
@@ -1400,8 +1394,8 @@ declare void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef nonnull ali
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
   tail call void @_ZSt9terminatev() #24
   unreachable
 }
@@ -1409,10 +1403,10 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #12
+declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1433,7 +1427,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !114
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #23
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1459,11 +1453,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
   %9 = load i64, ptr %4, align 8, !tbaa !114
   %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #23
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #22
   br label %_ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit
 
 _ZN3igl6opengl4glfw5imgui11ImGuiWidgetD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #22
   ret void
 }
 
@@ -1495,13 +1489,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImG
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #4
+declare float @llvm.sqrt.f32(float) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
@@ -1524,27 +1524,27 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn }
-attributes #13 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn }
+attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind }
 attributes #24 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

@@ -206,13 +206,10 @@ define dso_local range(i32 -1, 42) i32 @pg_valid_client_encoding(ptr noundef rea
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 
@@ -222,12 +219,12 @@ define dso_local i32 @pg_char_to_encoding_private(ptr noundef readonly captures(
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %9 = icmp ugt i64 %8, 63
   br i1 %9, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
-  %10 = tail call ptr @__ctype_b_loc() #7
+  %10 = tail call ptr @__ctype_b_loc() #6
   br label %11
 
 11:                                               ; preds = %21, %.lr.ph.i
@@ -280,7 +277,7 @@ clean_encoding_name.exit:                         ; preds = %21
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %26
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %32) #6
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %32) #5
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %43
 
@@ -301,12 +298,9 @@ clean_encoding_name.exit:                         ; preds = %21
 
 .loopexit:                                        ; preds = %43, %7, %1, %4, %40
   %.0 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 35) i32 @pg_valid_server_encoding_private(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
@@ -324,10 +318,10 @@ define dso_local range(i32 0, 2) i32 @pg_valid_server_encoding_id_private(i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_addr #0 {
@@ -346,16 +340,21 @@ define dso_local ptr @pg_encoding_to_char_private(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #4
+declare ptr @__ctype_b_loc() local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

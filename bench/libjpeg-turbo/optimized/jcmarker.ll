@@ -31,9 +31,6 @@ define void @jinit_marker_writer(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind uwtable
 define internal void @write_file_header(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -1292,8 +1289,8 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
   br label %207
 
 16:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !tbaa !42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 324
@@ -1656,8 +1653,8 @@ emit_byte.exit49.i:                               ; preds = %203, %199, %emit_by
   br i1 %exitcond73.not.i, label %emit_dac.exit, label %129, !llvm.loop !83
 
 emit_dac.exit:                                    ; preds = %emit_byte.exit49.i, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 207:                                              ; preds = %.lr.ph, %231
@@ -2667,9 +2664,6 @@ define internal void @write_marker_byte(ptr noundef %0, i32 noundef %1) #0 {
 emit_byte.exit:                                   ; preds = %2, %12, %16
   ret void
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @emit_dqt(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -3707,6 +3701,12 @@ emit_byte.exit43:                                 ; preds = %125, %135, %139
 143:                                              ; preds = %._crit_edge, %17
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2

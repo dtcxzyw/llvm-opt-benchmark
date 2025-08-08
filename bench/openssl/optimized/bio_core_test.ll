@@ -53,8 +53,8 @@ define internal range(i32 0, 2) i32 @test_bio_core() #0 {
   %1 = alloca %struct.ossl_core_bio_st, align 8
   %2 = alloca [80 x i8], align 16
   %3 = tail call ptr @OSSL_LIB_CTX_new_from_dispatch(ptr noundef null, ptr noundef nonnull @biocbs) #3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = tail call ptr @BIO_s_mem() #3
   %5 = tail call ptr @BIO_new(ptr noundef %4) #3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -144,13 +144,10 @@ define internal range(i32 0, 2) i32 @test_bio_core() #0 {
   %48 = load ptr, ptr %6, align 8, !tbaa !4
   %49 = call i32 @BIO_free(ptr noundef %48) #3
   call void @OSSL_LIB_CTX_free(ptr noundef %3) #3
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.015
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @OSSL_LIB_CTX_new_from_dispatch(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -185,9 +182,6 @@ declare i32 @BIO_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_read_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
@@ -250,6 +244,12 @@ declare i32 @BIO_read_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) loc
 declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @BIO_up_ref(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

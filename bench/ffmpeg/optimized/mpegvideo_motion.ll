@@ -285,7 +285,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not224.i, label %1606, label %194
 
 194:                                              ; preds = %191
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %195 = load i32, ptr %20, align 4, !tbaa !37
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %197 = load i32, ptr %196, align 4, !tbaa !58
@@ -462,7 +462,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %317 = and i32 %.0131135.i, 1
   %318 = add nuw nsw i32 %317, 1
   %319 = lshr i32 %.0131135.i, 1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %320 = zext nneg i32 %319 to i64
   %321 = getelementptr inbounds nuw [4 x [2 x i16]], ptr %10, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
@@ -507,7 +507,7 @@ define void @ff_mpv_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %351 = load ptr, ptr %5, align 8, !tbaa !41
   %352 = or disjoint i32 %348, %302
   %353 = add nuw nsw i32 %349, %303
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %354
 
 354:                                              ; preds = %417, %316
@@ -1872,19 +1872,19 @@ obmc_motion.exit.i:                               ; preds = %417
   %1599 = trunc nuw i16 %1598 to i8
   %1600 = getelementptr inbounds i8, ptr %422, i64 %1583
   store i8 %1599, ptr %1600, align 1, !tbaa !61
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1601 = sext i16 %325 to i32
   %1602 = add nsw i32 %.0137.i, %1601
   %1603 = sext i16 %327 to i32
   %1604 = add nsw i32 %.0130136.i, %1603
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1605 = add nuw nsw i32 %.0131135.i, 1
   %exitcond.not.i = icmp eq i32 %1605, 4
   br i1 %exitcond.not.i, label %apply_obmc.exit, label %316, !llvm.loop !74
 
 apply_obmc.exit:                                  ; preds = %obmc_motion.exit.i
   tail call fastcc void @chroma_4mv_motion(ptr noundef nonnull readonly %0, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly %5, ptr noundef nonnull readonly %304, i32 noundef %1602, i32 noundef %1604)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %mpv_motion_internal.exit
 
 1606:                                             ; preds = %191, %188
@@ -2193,16 +2193,10 @@ mpv_motion_internal.exit:                         ; preds = %132, %187, %.prehea
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @ff_mpeg4_mcsel_motion(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ff_mpeg4_mcsel_motion(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 8, 17) %12) unnamed_addr #3 {
+define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, i32 noundef %10, i32 noundef %11, i32 noundef range(i32 8, 17) %12) unnamed_addr #2 {
   %14 = and i32 %11, 3
   %15 = shl nuw nsw i32 %14, 2
   %16 = and i32 %10, 3
@@ -2438,7 +2432,7 @@ define internal fastcc void @qpel_motion(ptr noundef readonly captures(none) %0,
   ret void
 }
 
-declare void @ff_mspel_motion(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @ff_mspel_motion(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mpeg_motion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 8, 17) %9, i32 noundef range(i32 0, 2) %10, i32 noundef %11) unnamed_addr #0 {
@@ -3225,17 +3219,23 @@ define internal fastcc void @chroma_4mv_motion(ptr noundef readonly captures(non
   ret void
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @ff_h261_loop_filter(ptr noundef) local_unnamed_addr #2
+declare void @ff_h261_loop_filter(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

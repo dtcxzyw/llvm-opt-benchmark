@@ -2956,8 +2956,8 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   br label %66
 
 43:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %44 = load i64, ptr @_ZN6OSInfo26_vm_allocation_granularityE, align 8
   %45 = mul i64 %44, %2
   %46 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -3009,8 +3009,8 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
 _ZL30wb_stress_virtual_space_resizemmm.exit:      ; preds = %64, %48, %50
   %.0.i = phi i32 [ 3, %48 ], [ 0, %50 ], [ 0, %64 ]
   call void @_ZN12VirtualSpaceD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %66
 
 66:                                               ; preds = %_ZL30wb_stress_virtual_space_resizemmm.exit, %41
@@ -8206,7 +8206,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
   %35 = call noundef ptr @_ZN2os14reserve_memoryEmb8MEMFLAGS(i64 noundef %2, i1 noundef zeroext false, i8 noundef zeroext 27) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %37 = icmp sgt i32 %36, 1
   %38 = icmp ne ptr %35, null
@@ -8220,7 +8220,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %39
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 1312
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %27, align 8
@@ -8352,7 +8352,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %35
   %36 = inttoptr i64 %2 to ptr
   %37 = call noundef ptr @_ZN2os25attempt_reserve_memory_atEPcmb8MEMFLAGS(ptr noundef %36, i64 noundef %3, i1 noundef zeroext false, i8 noundef zeroext 27) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %39 = icmp sgt i32 %38, 1
   %40 = icmp ne ptr %37, null
@@ -8366,7 +8366,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %41
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 1312
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %28, align 8
@@ -8498,7 +8498,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %35
   %36 = inttoptr i64 %2 to ptr
   %37 = call noundef zeroext i1 @_ZN2os13commit_memoryEPcmb(ptr noundef %36, i64 noundef %3, i1 noundef zeroext false) #15
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4
   %39 = icmp sgt i32 %38, 1
   %40 = icmp ne i64 %2, 0
@@ -8512,7 +8512,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   br label %_ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit
 
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %41
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 1312
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %28, align 8
@@ -9588,11 +9588,11 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
 
 39:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %6, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 1, i32 noundef 0) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #15, !noalias !11
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(1800) %10) #15
   %40 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %10, ptr noundef nonnull byval(%class.frame) align 8 %4, ptr noundef nonnull %6) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = icmp sgt i32 %2, 0
   %42 = icmp ne ptr %40, null
   %43 = and i1 %42, %41
@@ -30908,7 +30908,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = icmp eq ptr %2, null
   %38 = icmp eq ptr %3, null
   %or.cond.i = or i1 %37, %38
@@ -31090,13 +31090,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   br label %_ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
 
 _ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit.thread: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %130
 
 _ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %114
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.1.i, label %115, label %130
 
 115:                                              ; preds = %_ZL15GetMethodOptionIbEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
@@ -31272,7 +31272,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = icmp eq ptr %2, null
   %38 = icmp eq ptr %3, null
   %or.cond.i = or i1 %37, %38
@@ -31454,13 +31454,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   br label %_ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
 
 _ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit.thread: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 _ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %114
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.1.i, label %115, label %129
 
 115:                                              ; preds = %_ZL15GetMethodOptionIlEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
@@ -31635,7 +31635,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = icmp eq ptr %2, null
   %38 = icmp eq ptr %3, null
   %or.cond.i = or i1 %37, %38
@@ -31817,13 +31817,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   br label %_ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
 
 _ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit.thread: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 _ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %114
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.1.i, label %115, label %129
 
 115:                                              ; preds = %_ZL15GetMethodOptionImEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
@@ -31998,7 +31998,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = icmp eq ptr %2, null
   %38 = icmp eq ptr %3, null
   %or.cond.i = or i1 %37, %38
@@ -32180,13 +32180,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   br label %_ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
 
 _ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit.thread: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 _ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %114
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.1.i, label %115, label %129
 
 115:                                              ; preds = %_ZL15GetMethodOptionIdEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
@@ -32361,7 +32361,7 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %36
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = icmp eq ptr %2, null
   %38 = icmp eq ptr %3, null
   %or.cond.i = or i1 %37, %38
@@ -32543,13 +32543,13 @@ _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i: ; pr
   br label %_ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
 
 _ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit.thread: ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit, %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %136
 
 _ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; preds = %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i.i, %114
   store volatile i32 6, ptr %18, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.1.i, label %115, label %136
 
 115:                                              ; preds = %_ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit
@@ -37354,7 +37354,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit37: ; preds = %59, %6
 
 69:                                               ; preds = %_ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit37
   store i8 0, ptr %8, align 1
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %70
 
 70:                                               ; preds = %70, %69
@@ -37377,7 +37377,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit37: ; preds = %59, %6
 
 _ZN8WhiteBox15validate_cgroupEPKcS1_S1_Ph.exit:   ; preds = %70
   %77 = call noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP10CgroupInfoPKcS3_S3_Ph(ptr noundef nonnull %6, ptr noundef %42, ptr noundef %53, ptr noundef %63, ptr noundef nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %78 = load i8, ptr %8, align 1
   %79 = zext i8 %78 to i32
   %80 = load ptr, ptr %0, align 8
@@ -38649,7 +38649,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i.us:   ; preds = %66
   %75 = phi i8 [ 1, %64 ], [ 0, %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i.us ], [ %73, %71 ], [ 0, %66 ]
   store i8 %75, ptr %52, align 8
   call void @_ZNK5frame6verifyEPK11RegisterMap(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %57) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %76 = load i8, ptr %52, align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %_ZN16StackFrameStream4nextEv.exit.us, label %78
@@ -38682,7 +38682,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i.us:       ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit.us:             ; preds = %_ZNK5frame6senderEP11RegisterMap.exit.i.us, %74
   %86 = phi i8 [ %.pre22, %_ZNK5frame6senderEP11RegisterMap.exit.i.us ], [ %76, %74 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = trunc i8 %86 to i1
   br i1 %87, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
 
@@ -38717,7 +38717,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %93
   store i8 %102, ptr %52, align 8
   call void @_ZNK5frame14print_value_onEP12outputStreamP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %7, ptr noundef null) #15
   call void @_ZNK5frame6verifyEPK11RegisterMap(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %57) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %103 = load i8, ptr %52, align 8
   %104 = trunc i8 %103 to i1
   br i1 %104, label %_ZN16StackFrameStream4nextEv.exit, label %105
@@ -38750,7 +38750,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %101, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %113 = phi i8 [ %103, %101 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = trunc i8 %113 to i1
   br i1 %114, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
 
@@ -42617,7 +42617,7 @@ _ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %41
   br label %64
 
 64:                                               ; preds = %49, %52, %61
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %65 = load i8, ptr %13, align 8
   %66 = trunc i8 %65 to i1
   br i1 %66, label %_ZN16StackFrameStream4nextEv.exit, label %67
@@ -42650,7 +42650,7 @@ _ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7i
 
 _ZN16StackFrameStream4nextEv.exit:                ; preds = %64, %_ZNK5frame6senderEP11RegisterMap.exit.i
   %75 = phi i8 [ %65, %64 ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %76 = trunc i8 %75 to i1
   br i1 %76, label %_ZN16StackFrameStream7is_doneEv.exit.thread, label %.lr.ph, !llvm.loop !41
 
@@ -42972,11 +42972,11 @@ define internal void @_ZZ24WB_HandshakeReadMonitorsEN19ReadMonitorsClosure9do_th
 
 24:                                               ; preds = %2
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 1, i32 noundef 0) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #15, !noalias !45
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %1) #15
   %25 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull byval(%class.frame) align 8 %3, ptr noundef nonnull %4) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph30
 
@@ -45850,9 +45850,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %264, label %23, label %._crit_edge35, !llvm.loop !60
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -47319,9 +47319,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
   br i1 %255, label %23, label %._crit_edge35, !llvm.loop !63
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -51306,12 +51306,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %274, label %30, label %._crit_edge62, !llvm.loop !90
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -51979,12 +51979,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   br i1 %265, label %30, label %._crit_edge62, !llvm.loop !92
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -54543,10 +54543,10 @@ declare i32 @llvm.ctpop.i32(i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

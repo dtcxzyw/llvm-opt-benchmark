@@ -376,12 +376,6 @@ define weak_odr dso_local noundef i64 @_ZNK3ozz9animation8internal5TrackIfE4size
   ret i64 %11
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef ptr @_ZNK3ozz9animation8internal5TrackIfE4nameEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -403,7 +397,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !13
   %12 = trunc i64 %11 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
   %15 = trunc nuw i8 %14 to i1
@@ -415,7 +409,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %8, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %.not = icmp eq ptr %22, null
@@ -428,7 +422,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
 25:                                               ; preds = %2, %23
   %26 = phi i64 [ %24, %23 ], [ 0, %2 ]
   %27 = trunc i64 %26 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %28 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
   %29 = trunc nuw i8 %28 to i1
   %.sroa.0.0.insert.insert.i19 = call i32 @llvm.bswap.i32(i32 %27)
@@ -439,7 +433,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.03.0.copyload = load ptr, ptr %9, align 8, !tbaa !8
   %.sroa.24.0.copyload = load i64, ptr %10, align 8, !tbaa !14
   %35 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
@@ -454,7 +448,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %.0.i5.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %37 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %38 = load float, ptr %37, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
   %40 = trunc nuw i8 %39 to i1
   %41 = bitcast float %38 to i32
@@ -467,7 +461,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackIfE4SaveERNS_2i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %49 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %49, %.sroa.24.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !36
@@ -498,7 +492,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i24 = phi i64 [ %72, %.lr.ph.i.i23 ], [ 0, %.preheader.i.i21 ]
   %60 = getelementptr inbounds nuw float, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i24
   %61 = load float, ptr %60, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %62 = load i8, ptr %13, align 8, !tbaa !25, !range !29, !noundef !30
   %63 = trunc nuw i8 %62 to i1
   %64 = bitcast float %61 to i32
@@ -511,7 +505,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef i64 %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %72 = add nuw i64 %.0.i5.i.i24, 1
   %exitcond58.not = icmp eq i64 %72, %.sroa.22.0.copyload
   br i1 %exitcond58.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit26, label %.lr.ph.i.i23, !llvm.loop !36
@@ -542,14 +536,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit26: ; preds = %.lr.ph.i
   %.0.i5.i.i30 = phi i64 [ %90, %.lr.ph.i.i29 ], [ 0, %.preheader.i.i27 ]
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i30
   %84 = load i8, ptr %83, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %84, ptr %4, align 1, !tbaa !38
   %85 = load ptr, ptr %1, align 8, !tbaa !33
   %86 = load ptr, ptr %85, align 8, !tbaa !22
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %90 = add nuw i64 %.0.i5.i.i30, 1
   %exitcond59.not = icmp eq i64 %90, %.sroa.2.0.copyload
   br i1 %exitcond59.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i29, !llvm.loop !39
@@ -576,14 +570,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i34 = phi i64 [ %107, %.lr.ph.i.i33 ], [ 0, %.preheader.i.i31 ]
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 %.0.i5.i.i34
   %101 = load i8, ptr %100, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %101, ptr %3, align 1, !tbaa !38
   %102 = load ptr, ptr %1, align 8, !tbaa !33
   %103 = load ptr, ptr %102, align 8, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = call noundef i64 %105(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %107 = add nuw i64 %.0.i5.i.i34, 1
   %exitcond60.not = icmp eq i64 %107, %26
   br i1 %exitcond60.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i33, !llvm.loop !40
@@ -601,7 +595,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfE4LoadERNS_2io8IArchiveEj(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -619,7 +613,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackIfE4LoadERNS_2io
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !41
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1, i64 noundef 26)
@@ -684,18 +678,18 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc25, %28
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc27
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 38:                                               ; preds = %.noexc27, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc25, %31, %25, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit, %13
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %1, align 8, !tbaa !64
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -707,8 +701,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc27
   %49 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %49)
   %50 = select i1 %48, i32 %.sroa.0.0.insert.insert.i, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !64
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -719,7 +713,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc27
   %58 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i20 = call i32 @llvm.bswap.i32(i32 %58)
   %59 = select i1 %57, i32 %.sroa.0.0.insert.insert.i20, i32 %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = zext i32 %50 to i64
   %61 = sext i32 %59 to i64
   %62 = shl nuw nsw i64 %60, 3
@@ -1129,7 +1123,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %14 = trunc nuw i8 %13 to i1
@@ -1141,7 +1135,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !75
   %.not = icmp eq ptr %21, null
@@ -1154,7 +1148,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 24:                                               ; preds = %2, %22
   %25 = phi i64 [ %23, %22 ], [ 0, %2 ]
   %26 = trunc i64 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %28 = trunc nuw i8 %27 to i1
   %.sroa.0.0.insert.insert.i19 = call i32 @llvm.bswap.i32(i32 %26)
@@ -1165,7 +1159,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.03.0.copyload = load ptr, ptr %8, align 8, !tbaa !8
   %.sroa.24.0.copyload = load i64, ptr %9, align 8, !tbaa !14
   %34 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -1180,7 +1174,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %39 = trunc nuw i8 %38 to i1
   %40 = bitcast float %37 to i32
@@ -1193,7 +1187,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %48, %.sroa.24.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !36
@@ -1229,14 +1223,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i25 = phi i64 [ %67, %.lr.ph.i.i24 ], [ 0, %.preheader.i.i22 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i25
   %61 = load i8, ptr %60, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %61, ptr %4, align 1, !tbaa !38
   %62 = load ptr, ptr %1, align 8, !tbaa !33
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = add nuw i64 %.0.i5.i.i25, 1
   %exitcond50.not = icmp eq i64 %67, %.sroa.2.0.copyload
   br i1 %exitcond50.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i24, !llvm.loop !39
@@ -1263,14 +1257,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i29 = phi i64 [ %84, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.0.i5.i.i29
   %78 = load i8, ptr %77, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %78, ptr %3, align 1, !tbaa !38
   %79 = load ptr, ptr %1, align 8, !tbaa !33
   %80 = load ptr, ptr %79, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = add nuw i64 %.0.i5.i.i29, 1
   %exitcond51.not = icmp eq i64 %84, %25
   br i1 %exitcond51.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i28, !llvm.loop !40
@@ -1303,7 +1297,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float2
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !41
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1, i64 noundef 26)
@@ -1368,18 +1362,18 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc22, %28
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 38:                                               ; preds = %.noexc24, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc22, %31, %25, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit, %13
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %1, align 8, !tbaa !64
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1391,8 +1385,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %49 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %49)
   %50 = select i1 %48, i32 %.sroa.0.0.insert.insert.i, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !64
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -1403,7 +1397,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %58 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i20 = call i32 @llvm.bswap.i32(i32 %58)
   %59 = select i1 %57, i32 %.sroa.0.0.insert.insert.i20, i32 %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = zext i32 %50 to i64
   %61 = sext i32 %59 to i64
   %62 = mul nuw nsw i64 %60, 12
@@ -1778,7 +1772,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %14 = trunc nuw i8 %13 to i1
@@ -1790,7 +1784,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not = icmp eq ptr %21, null
@@ -1803,7 +1797,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 24:                                               ; preds = %2, %22
   %25 = phi i64 [ %23, %22 ], [ 0, %2 ]
   %26 = trunc i64 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %28 = trunc nuw i8 %27 to i1
   %.sroa.0.0.insert.insert.i19 = call i32 @llvm.bswap.i32(i32 %26)
@@ -1814,7 +1808,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.03.0.copyload = load ptr, ptr %8, align 8, !tbaa !8
   %.sroa.24.0.copyload = load i64, ptr %9, align 8, !tbaa !14
   %34 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -1829,7 +1823,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %39 = trunc nuw i8 %38 to i1
   %40 = bitcast float %37 to i32
@@ -1842,7 +1836,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %48, %.sroa.24.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !36
@@ -1878,14 +1872,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i25 = phi i64 [ %67, %.lr.ph.i.i24 ], [ 0, %.preheader.i.i22 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i25
   %61 = load i8, ptr %60, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %61, ptr %4, align 1, !tbaa !38
   %62 = load ptr, ptr %1, align 8, !tbaa !33
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = add nuw i64 %.0.i5.i.i25, 1
   %exitcond50.not = icmp eq i64 %67, %.sroa.2.0.copyload
   br i1 %exitcond50.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i24, !llvm.loop !39
@@ -1912,14 +1906,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i29 = phi i64 [ %84, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.0.i5.i.i29
   %78 = load i8, ptr %77, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %78, ptr %3, align 1, !tbaa !38
   %79 = load ptr, ptr %1, align 8, !tbaa !33
   %80 = load ptr, ptr %79, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = add nuw i64 %.0.i5.i.i29, 1
   %exitcond51.not = icmp eq i64 %84, %25
   br i1 %exitcond51.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i28, !llvm.loop !40
@@ -1952,7 +1946,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float3
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !41
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1, i64 noundef 26)
@@ -2017,18 +2011,18 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc22, %28
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 38:                                               ; preds = %.noexc24, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc22, %31, %25, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit, %13
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %1, align 8, !tbaa !64
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -2040,8 +2034,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %49 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %49)
   %50 = select i1 %48, i32 %.sroa.0.0.insert.insert.i, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !64
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -2052,7 +2046,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %58 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i20 = call i32 @llvm.bswap.i32(i32 %58)
   %59 = select i1 %57, i32 %.sroa.0.0.insert.insert.i20, i32 %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = zext i32 %50 to i64
   %61 = sext i32 %59 to i64
   %62 = shl nuw nsw i64 %60, 4
@@ -2427,7 +2421,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %14 = trunc nuw i8 %13 to i1
@@ -2439,7 +2433,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !91
   %.not = icmp eq ptr %21, null
@@ -2452,7 +2446,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
 24:                                               ; preds = %2, %22
   %25 = phi i64 [ %23, %22 ], [ 0, %2 ]
   %26 = trunc i64 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %28 = trunc nuw i8 %27 to i1
   %.sroa.0.0.insert.insert.i19 = call i32 @llvm.bswap.i32(i32 %26)
@@ -2463,7 +2457,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.03.0.copyload = load ptr, ptr %8, align 8, !tbaa !8
   %.sroa.24.0.copyload = load i64, ptr %9, align 8, !tbaa !14
   %34 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -2478,7 +2472,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %39 = trunc nuw i8 %38 to i1
   %40 = bitcast float %37 to i32
@@ -2491,7 +2485,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math6Float
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %48, %.sroa.24.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !36
@@ -2527,14 +2521,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i25 = phi i64 [ %67, %.lr.ph.i.i24 ], [ 0, %.preheader.i.i22 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i25
   %61 = load i8, ptr %60, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %61, ptr %4, align 1, !tbaa !38
   %62 = load ptr, ptr %1, align 8, !tbaa !33
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = add nuw i64 %.0.i5.i.i25, 1
   %exitcond50.not = icmp eq i64 %67, %.sroa.2.0.copyload
   br i1 %exitcond50.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i24, !llvm.loop !39
@@ -2561,14 +2555,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i29 = phi i64 [ %84, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.0.i5.i.i29
   %78 = load i8, ptr %77, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %78, ptr %3, align 1, !tbaa !38
   %79 = load ptr, ptr %1, align 8, !tbaa !33
   %80 = load ptr, ptr %79, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = add nuw i64 %.0.i5.i.i29, 1
   %exitcond51.not = icmp eq i64 %84, %25
   br i1 %exitcond51.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i28, !llvm.loop !40
@@ -2601,7 +2595,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math6Float4
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !41
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1, i64 noundef 26)
@@ -2666,18 +2660,18 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc22, %28
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 38:                                               ; preds = %.noexc24, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc22, %31, %25, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit, %13
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %1, align 8, !tbaa !64
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -2689,8 +2683,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %49 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %49)
   %50 = select i1 %48, i32 %.sroa.0.0.insert.insert.i, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !64
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -2701,7 +2695,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %58 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i20 = call i32 @llvm.bswap.i32(i32 %58)
   %59 = select i1 %57, i32 %.sroa.0.0.insert.insert.i20, i32 %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = zext i32 %50 to i64
   %61 = sext i32 %59 to i64
   %62 = mul nuw nsw i64 %60, 20
@@ -3076,7 +3070,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = trunc i64 %10 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %14 = trunc nuw i8 %13 to i1
@@ -3088,7 +3082,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %7, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !99
   %.not = icmp eq ptr %21, null
@@ -3101,7 +3095,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
 24:                                               ; preds = %2, %22
   %25 = phi i64 [ %23, %22 ], [ 0, %2 ]
   %26 = trunc i64 %25 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %28 = trunc nuw i8 %27 to i1
   %.sroa.0.0.insert.insert.i19 = call i32 @llvm.bswap.i32(i32 %26)
@@ -3112,7 +3106,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %6, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.03.0.copyload = load ptr, ptr %8, align 8, !tbaa !8
   %.sroa.24.0.copyload = load i64, ptr %9, align 8, !tbaa !14
   %34 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
@@ -3127,7 +3121,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %.0.i5.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %36 = getelementptr inbounds nuw float, ptr %.sroa.03.0.copyload, i64 %.0.i5.i.i
   %37 = load float, ptr %36, align 4, !tbaa !34
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load i8, ptr %12, align 8, !tbaa !25, !range !29, !noundef !30
   %39 = trunc nuw i8 %38 to i1
   %40 = bitcast float %37 to i32
@@ -3140,7 +3134,7 @@ define weak_odr dso_local void @_ZNK3ozz9animation8internal5TrackINS_4math10Quat
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %5, i64 noundef 4)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %48 = add nuw i64 %.0.i5.i.i, 1
   %exitcond.not = icmp eq i64 %48, %.sroa.24.0.copyload
   br i1 %exitcond.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !36
@@ -3176,14 +3170,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIfEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i25 = phi i64 [ %67, %.lr.ph.i.i24 ], [ 0, %.preheader.i.i22 ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.0.i5.i.i25
   %61 = load i8, ptr %60, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %61, ptr %4, align 1, !tbaa !38
   %62 = load ptr, ptr %1, align 8, !tbaa !33
   %63 = load ptr, ptr %62, align 8, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = add nuw i64 %.0.i5.i.i25, 1
   %exitcond50.not = icmp eq i64 %67, %.sroa.2.0.copyload
   br i1 %exitcond50.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit, label %.lr.ph.i.i24, !llvm.loop !39
@@ -3210,14 +3204,14 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIhEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
   %.0.i5.i.i29 = phi i64 [ %84, %.lr.ph.i.i28 ], [ 0, %.preheader.i.i26 ]
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.0.i5.i.i29
   %78 = load i8, ptr %77, align 1, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 %78, ptr %3, align 1, !tbaa !38
   %79 = load ptr, ptr %1, align 8, !tbaa !33
   %80 = load ptr, ptr %79, align 8, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = call noundef i64 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %3, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %84 = add nuw i64 %.0.i5.i.i29, 1
   %exitcond51.not = icmp eq i64 %84, %25
   br i1 %exitcond51.not, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit, label %.lr.ph.i.i28, !llvm.loop !40
@@ -3250,7 +3244,7 @@ define weak_odr dso_local void @_ZN3ozz9animation8internal5TrackINS_4math10Quate
   br i1 %12, label %13, label %40
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3ozz3log3ErrC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %6)
   %14 = load ptr, ptr %6, align 8, !tbaa !41
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.1, i64 noundef 26)
@@ -3315,18 +3309,18 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc22, %28
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %116
 
 38:                                               ; preds = %.noexc24, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc22, %31, %25, %_ZNSolsEj.exit, %_ZN3ozz3log6LoggerlsIA27_cEERSoRKT_.exit, %13
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %39
 
 40:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = load ptr, ptr %1, align 8, !tbaa !64
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -3338,8 +3332,8 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %49 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %49)
   %50 = select i1 %48, i32 %.sroa.0.0.insert.insert.i, i32 %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = load ptr, ptr %1, align 8, !tbaa !64
   %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -3350,7 +3344,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc24
   %58 = load i32, ptr %4, align 4
   %.sroa.0.0.insert.insert.i20 = call i32 @llvm.bswap.i32(i32 %58)
   %59 = select i1 %57, i32 %.sroa.0.0.insert.insert.i20, i32 %58
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %60 = zext i32 %50 to i64
   %61 = sext i32 %59 to i64
   %62 = mul nuw nsw i64 %60, 20
@@ -3521,7 +3515,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #9
+declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #8
 
 declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570)) local_unnamed_addr #0
 
@@ -3542,11 +3536,17 @@ declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_
 declare void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_track.cc() #10 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_track.cc() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
@@ -3561,10 +3561,10 @@ attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold nofree noreturn }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { noreturn nounwind }

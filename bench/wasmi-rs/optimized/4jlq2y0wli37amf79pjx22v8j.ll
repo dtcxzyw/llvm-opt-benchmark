@@ -144,16 +144,16 @@ define void @_ZN10wasmi_core4simd14v128_bitselect17h2feeb908d0de3228E(ptr dead_o
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false)
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3)
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -174,7 +174,7 @@ define noundef range(i8 0, 12) i8 @_ZN10wasmi_core4simd13v128_store_at17hadf333b
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd9v128_load17h4e2322d9ebc7d674E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17h0f71fd50e092a0ddE(ptr noalias noundef nonnull sret([32 x i8]) align 16 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 16, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -196,14 +196,14 @@ define void @_ZN10wasmi_core4simd9v128_load17h4e2322d9ebc7d674E(ptr dead_on_unwi
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd12v128_load_at17hb019f0c9277b0900E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17h999bcbd9a174beefE(ptr noalias noundef nonnull sret([32 x i8]) align 16 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 16, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -225,7 +225,7 @@ define void @_ZN10wasmi_core4simd12v128_load_at17hb019f0c9277b0900E(ptr dead_on_
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -342,7 +342,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h511f554251303602E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = alloca [16 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -355,7 +355,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..Lan
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -399,7 +399,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = alloca [16 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -412,7 +412,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lan
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -456,7 +456,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17h6ad9de541d956037E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, i16 noundef %1) unnamed_addr #5 {
   %3 = alloca [16 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -469,7 +469,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..Lan
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -513,7 +513,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hda5adec649fb69d1E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 2 captures(none) dereferenceable(16) %0, i16 noundef %1) unnamed_addr #5 {
   %3 = alloca [16 x i8], align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -526,7 +526,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..Lan
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull align 2 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -656,7 +656,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17haab6102681111b4eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, float noundef %1) unnamed_addr #5 {
   %3 = alloca [16 x i8], align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %4
 
 4:                                                ; preds = %2, %4
@@ -669,7 +669,7 @@ define void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..simd..Lan
 
 8:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -2269,13 +2269,13 @@ define void @_ZN10wasmi_core4simd16v128_load32_zero17hd87ba6ab8bb4a1d6E(ptr dead
   br label %12
 
 "_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit": ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %.sroa.69.0.extract.shift = lshr i64 %7, 32
   %.sroa.69.0.extract.trunc = trunc nuw i64 %.sroa.69.0.extract.shift to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$12replace_lane17h217a287368f88f17E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %11, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6, i8 noundef 0, i32 noundef %.sroa.69.0.extract.trunc)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %12
 
 12:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", %9
@@ -2288,7 +2288,7 @@ define void @_ZN10wasmi_core4simd16v128_load32_zero17hd87ba6ab8bb4a1d6E(ptr dead
 define void @_ZN10wasmi_core4simd16v128_load64_zero17hf3c74506faeb60d7E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %8 = load i8, ptr %7, align 8, !range !31, !noundef !14
   %9 = trunc nuw i8 %8 to i1
@@ -2297,7 +2297,7 @@ define void @_ZN10wasmi_core4simd16v128_load64_zero17hf3c74506faeb60d7E(ptr dead
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %12 = load i8, ptr %11, align 1, !range !32, !noundef !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %12, ptr %13, align 1
   br label %17
@@ -2305,12 +2305,12 @@ define void @_ZN10wasmi_core4simd16v128_load64_zero17hf3c74506faeb60d7E(ptr dead
 "_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge": ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$12replace_lane17h72b3d8fe98016381E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %16, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6, i8 noundef 0, i64 noundef %15)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %17
 
 17:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge", %10
@@ -2334,13 +2334,13 @@ define void @_ZN10wasmi_core4simd19v128_load32_zero_at17h61c6418851ea069eE(ptr d
   br label %11
 
 "_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit": ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.69.0.extract.shift = lshr i64 %6, 32
   %.sroa.69.0.extract.trunc = trunc nuw i64 %.sroa.69.0.extract.shift to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$12replace_lane17h217a287368f88f17E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5, i8 noundef 0, i32 noundef %.sroa.69.0.extract.trunc)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %11
 
 11:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17he5229ceb3779425aE.exit", %8
@@ -2353,7 +2353,7 @@ define void @_ZN10wasmi_core4simd19v128_load32_zero_at17h61c6418851ea069eE(ptr d
 define void @_ZN10wasmi_core4simd19v128_load64_zero_at17h594b109b6b5ec5b2E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2362,7 +2362,7 @@ define void @_ZN10wasmi_core4simd19v128_load64_zero_at17h594b109b6b5ec5b2E(ptr d
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = load i8, ptr %10, align 1, !range !32, !noundef !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %11, ptr %12, align 1
   br label %16
@@ -2370,12 +2370,12 @@ define void @_ZN10wasmi_core4simd19v128_load64_zero_at17h594b109b6b5ec5b2E(ptr d
 "_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge": ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8, !noundef !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$12replace_lane17h72b3d8fe98016381E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %15, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5, i8 noundef 0, i64 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 16:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge", %9
@@ -2485,7 +2485,7 @@ define void @_ZN10wasmi_core4simd17v128_load32_splat17hb49b8af8a4baa4fcE(ptr dea
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd17v128_load64_splat17h389fa46b8aa2b733E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) initializes((0, 2)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2509,7 +2509,7 @@ define void @_ZN10wasmi_core4simd17v128_load64_splat17h389fa46b8aa2b733E(ptr dea
 15:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge", %10
   %storemerge = phi i8 [ 0, %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge" ], [ 1, %10 ]
   store i8 %storemerge, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2614,7 +2614,7 @@ define void @_ZN10wasmi_core4simd20v128_load32_splat_at17h3ab039a11a86f722E(ptr 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd20v128_load64_splat_at17hcdc0f5be5e039450E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) initializes((0, 2)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -2638,7 +2638,7 @@ define void @_ZN10wasmi_core4simd20v128_load64_splat_at17hcdc0f5be5e039450E(ptr 
 14:                                               ; preds = %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge", %9
   %storemerge = phi i8 [ 0, %"_ZN67_$LT$wasmi_core..simd..U64x2$u20$as$u20$wasmi_core..simd..Lanes$GT$5splat17hbfd8cbe13a3a3054E.exit.critedge" ], [ 1, %9 ]
   store i8 %storemerge, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -2717,7 +2717,7 @@ define void @_ZN10wasmi_core4simd16v128_load32_lane17heaee2bb484e9f12cE(ptr dead
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd16v128_load64_lane17h4a74d49f3c13478eE(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef align 1 captures(none) dereferenceable(16) %5, i8 noundef %6) unnamed_addr #3 {
   %8 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %9 = load i8, ptr %8, align 8, !range !31, !noundef !14
   %10 = trunc nuw i8 %9 to i1
@@ -2739,7 +2739,7 @@ define void @_ZN10wasmi_core4simd16v128_load64_lane17h4a74d49f3c13478eE(ptr dead
 18:                                               ; preds = %15, %12
   %.sink = phi i8 [ 1, %12 ], [ 0, %15 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
@@ -2818,7 +2818,7 @@ define void @_ZN10wasmi_core4simd19v128_load32_lane_at17hbc34ed371330e600E(ptr d
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd19v128_load64_lane_at17h61e2b26f93ae8ba4E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, ptr noalias noundef align 1 captures(none) dereferenceable(16) %4, i8 noundef %5) unnamed_addr #3 {
   %7 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %8 = load i8, ptr %7, align 8, !range !31, !noundef !14
   %9 = trunc nuw i8 %8 to i1
@@ -2840,7 +2840,7 @@ define void @_ZN10wasmi_core4simd19v128_load64_lane_at17h61e2b26f93ae8ba4E(ptr d
 17:                                               ; preds = %14, %11
   %.sink = phi i8 [ 1, %11 ], [ 0, %14 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -2877,7 +2877,7 @@ define noundef i64 @"_ZN62_$LT$u64$u20$as$u20$wasmi_core..simd..SplitInto$LT$i32
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd14v128_load8x8_s17h7139574fab35b450E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2899,14 +2899,14 @@ define void @_ZN10wasmi_core4simd14v128_load8x8_s17h7139574fab35b450E(ptr dead_o
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd14v128_load8x8_u17hecc33d912269ff50E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2928,14 +2928,14 @@ define void @_ZN10wasmi_core4simd14v128_load8x8_u17hecc33d912269ff50E(ptr dead_o
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd15v128_load16x4_s17h21ceedd987e75598E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2957,14 +2957,14 @@ define void @_ZN10wasmi_core4simd15v128_load16x4_s17h21ceedd987e75598E(ptr dead_
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd15v128_load16x4_u17h8f792f537280051fE(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -2986,14 +2986,14 @@ define void @_ZN10wasmi_core4simd15v128_load16x4_u17h8f792f537280051fE(ptr dead_
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd15v128_load32x2_s17hf65da4ff778e035dE(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -3015,14 +3015,14 @@ define void @_ZN10wasmi_core4simd15v128_load32x2_s17hf65da4ff778e035dE(ptr dead_
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd15v128_load32x2_u17h9e6f9287346dbf68E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN10wasmi_core6memory6access4load17hfbeceb6cf1bc1ae8E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
   %7 = load i8, ptr %6, align 8, !range !31, !noundef !14
   %8 = trunc nuw i8 %7 to i1
@@ -3044,14 +3044,14 @@ define void @_ZN10wasmi_core4simd15v128_load32x2_u17h9e6f9287346dbf68E(ptr dead_
 16:                                               ; preds = %13, %10
   %.sink = phi i8 [ 1, %10 ], [ 0, %13 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd17v128_load8x8_s_at17ha6af620371255986E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3073,14 +3073,14 @@ define void @_ZN10wasmi_core4simd17v128_load8x8_s_at17ha6af620371255986E(ptr dea
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd17v128_load8x8_u_at17hf68407c1eb60f276E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3102,14 +3102,14 @@ define void @_ZN10wasmi_core4simd17v128_load8x8_u_at17hf68407c1eb60f276E(ptr dea
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd18v128_load16x4_s_at17hbbf4d963d65d1d40E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3131,14 +3131,14 @@ define void @_ZN10wasmi_core4simd18v128_load16x4_s_at17hbbf4d963d65d1d40E(ptr de
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd18v128_load16x4_u_at17h3c09b4182b68b529E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3160,14 +3160,14 @@ define void @_ZN10wasmi_core4simd18v128_load16x4_u_at17h3c09b4182b68b529E(ptr de
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd18v128_load32x2_s_at17hbd7a68edaf49b675E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3189,14 +3189,14 @@ define void @_ZN10wasmi_core4simd18v128_load32x2_s_at17hbd7a68edaf49b675E(ptr de
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10wasmi_core4simd18v128_load32x2_u_at17h80704f3d479cf962E(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN10wasmi_core6memory6access7load_at17hb63e361a0a29afdcE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3)
   %6 = load i8, ptr %5, align 8, !range !31, !noundef !14
   %7 = trunc nuw i8 %6 to i1
@@ -3218,7 +3218,7 @@ define void @_ZN10wasmi_core4simd18v128_load32x2_u_at17h80704f3d479cf962E(ptr de
 15:                                               ; preds = %12, %9
   %.sink = phi i8 [ 1, %9 ], [ 0, %12 ]
   store i8 %.sink, ptr %0, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -3227,7 +3227,7 @@ define void @_ZN10wasmi_core4simd21i8x16_relaxed_swizzle17h14e2e8290401f258E(ptr
   %4 = alloca [16 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
@@ -3257,7 +3257,7 @@ define void @_ZN10wasmi_core4simd21i8x16_relaxed_swizzle17h14e2e8290401f258E(ptr
 
 _ZN10wasmi_core4simd13i8x16_swizzle17ha3224305b5de0f8eE.exit: ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h1088fc96d636a183E.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull readonly align 1 dereferenceable(16) %4, i64 16, i1 false), !noalias !64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -3266,16 +3266,16 @@ define void @_ZN10wasmi_core4simd24i8x16_relaxed_laneselect17h3fdf37cea5c086c7E(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !65
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !65
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !71
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !65
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !65
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !65
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !65
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !73
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !74
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !65
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !65
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !65
   ret void
 }
 
@@ -3284,16 +3284,16 @@ define void @_ZN10wasmi_core4simd24i16x8_relaxed_laneselect17h4a2c21b95362d8edE(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !81
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !75
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !75
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !83
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !75
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !75
   ret void
 }
 
@@ -3302,16 +3302,16 @@ define void @_ZN10wasmi_core4simd24i32x4_relaxed_laneselect17h7a7624dbf088aa0eE(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !91
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !92
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !85
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !85
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !93
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !85
   ret void
 }
 
@@ -3320,16 +3320,16 @@ define void @_ZN10wasmi_core4simd24i64x2_relaxed_laneselect17h95e3600971d74b45E(
   %5 = alloca [16 x i8], align 1
   %6 = alloca [16 x i8], align 1
   %7 = alloca [16 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !101
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hb1e7e1dcfb220967E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %5), !noalias !102
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !95
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !95
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !95
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17h7ce61a36fd0be7ffE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %3), !noalias !103
   call void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$15lanewise_binary17hdc3a1f385f93b82fE"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %7, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %6), !noalias !104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !95
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !95
   ret void
 }
 
@@ -4132,10 +4132,10 @@ declare hidden void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V12
 declare hidden void @"_ZN10wasmi_core4simd41_$LT$impl$u20$wasmi_core..value..V128$GT$8load_nxm17h86a6f09dc4b04492E"(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 1 captures(none) dereferenceable(16), i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

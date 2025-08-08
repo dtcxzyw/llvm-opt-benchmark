@@ -55,7 +55,7 @@ define dso_local noundef zeroext i1 @dsm_impl_op(i32 noundef %0, i32 noundef %1,
   ]
 
 16:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %1) #11
   %18 = icmp eq i32 %0, 3
   %19 = and i32 %0, -2
@@ -182,7 +182,7 @@ errcode_for_dynamic_shared_memory.exit110.i:      ; preds = %65, %63
   br i1 %69, label %70, label %87
 
 70:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %71 = call i32 @fstat(i32 noundef %51, ptr noundef nonnull %14) #11
   %.not102.i = icmp eq i32 %71, 0
   br i1 %.not102.i, label %.thread.i, label %72
@@ -219,15 +219,15 @@ errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
 .thread.i:                                        ; preds = %70
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %85 = load i64, ptr %84, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %117
 
 86:                                               ; preds = %errcode_for_dynamic_shared_memory.exit112.i, %72
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %dsm_impl_posix.exit
 
 87:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %88 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %92
@@ -262,7 +262,7 @@ errcode_for_dynamic_shared_memory.exit112.i:      ; preds = %81, %79
   br label %dsm_impl_posix_resize.exit.i
 
 dsm_impl_posix_resize.exit.i:                     ; preds = %102, %97
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.not.i = icmp eq i32 %95, 0
   br i1 %.not.i, label %117, label %105
 
@@ -346,11 +346,11 @@ errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %132, %130
 
 dsm_impl_posix.exit:                              ; preds = %126, %errcode_for_dynamic_shared_memory.exit116.i, %105, %errcode_for_dynamic_shared_memory.exit114.i, %58, %errcode_for_dynamic_shared_memory.exit110.i, %38, %errcode_for_dynamic_shared_memory.exit108.i, %25, %errcode_for_dynamic_shared_memory.exit.i, %35, %36, %55, %86, %135
   %.0.i = phi i1 [ true, %135 ], [ false, %86 ], [ true, %36 ], [ true, %35 ], [ false, %55 ], [ false, %errcode_for_dynamic_shared_memory.exit.i ], [ false, %25 ], [ false, %errcode_for_dynamic_shared_memory.exit108.i ], [ false, %38 ], [ false, %errcode_for_dynamic_shared_memory.exit110.i ], [ false, %58 ], [ false, %errcode_for_dynamic_shared_memory.exit114.i ], [ false, %105 ], [ false, %errcode_for_dynamic_shared_memory.exit116.i ], [ false, %126 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %349
 
 137:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %138 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.12, i32 noundef %1) #11
   %spec.select.i = call i32 @llvm.abs.i32(i32 %1, i1 false)
   %139 = icmp eq i32 %1, 0
@@ -502,7 +502,7 @@ errcode_for_dynamic_shared_memory.exit123.i:      ; preds = %181, %179
   br i1 %193, label %194, label %209
 
 194:                                              ; preds = %192
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %195 = call i32 @shmctl(i32 noundef %.0105.i, i32 noundef 2, ptr noundef nonnull %11) #11
   %.not116.i = icmp eq i32 %195, 0
   br i1 %.not116.i, label %.thread128.i, label %196
@@ -535,11 +535,11 @@ errcode_for_dynamic_shared_memory.exit125.i:      ; preds = %203, %201
 .thread128.i:                                     ; preds = %194
   %206 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %207 = load i64, ptr %206, align 8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %209
 
 208:                                              ; preds = %errcode_for_dynamic_shared_memory.exit125.i, %196
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dsm_impl_sysv.exit
 
 209:                                              ; preds = %.thread128.i, %192
@@ -590,11 +590,11 @@ errcode_for_dynamic_shared_memory.exit127.i:      ; preds = %224, %222
 
 dsm_impl_sysv.exit:                               ; preds = %218, %errcode_for_dynamic_shared_memory.exit127.i, %188, %190, %174, %errcode_for_dynamic_shared_memory.exit123.i, %._crit_edge.i, %errcode_for_dynamic_shared_memory.exit.i25, %156, %145, %184, %185, %208, %227
   %.0.i23 = phi i1 [ false, %145 ], [ true, %227 ], [ false, %208 ], [ true, %185 ], [ true, %184 ], [ false, %156 ], [ false, %errcode_for_dynamic_shared_memory.exit.i25 ], [ false, %._crit_edge.i ], [ false, %errcode_for_dynamic_shared_memory.exit123.i ], [ false, %174 ], [ false, %190 ], [ false, %188 ], [ false, %errcode_for_dynamic_shared_memory.exit127.i ], [ false, %218 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %349
 
 228:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %1) #11
   %230 = icmp eq i32 %0, 3
   %231 = and i32 %0, -2
@@ -718,7 +718,7 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %277, %275
   br i1 %265, label %281, label %298
 
 281:                                              ; preds = %280
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %282 = call i32 @fstat(i32 noundef %263, ptr noundef nonnull %9) #11
   %.not130.i = icmp eq i32 %282, 0
   br i1 %.not130.i, label %.thread.i34, label %283
@@ -754,11 +754,11 @@ errcode_for_dynamic_shared_memory.exit141.i:      ; preds = %292, %290
 .thread.i34:                                      ; preds = %281
   %295 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %296 = load i64, ptr %295, align 8
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge.i
 
 297:                                              ; preds = %errcode_for_dynamic_shared_memory.exit141.i, %283
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dsm_impl_mmap.exit
 
 298:                                              ; preds = %280
@@ -875,7 +875,7 @@ errcode_for_dynamic_shared_memory.exit145.i:      ; preds = %335, %333
 
 dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %errcode_for_dynamic_shared_memory.exit145.i, %307, %errcode_for_dynamic_shared_memory.exit143.i, %270, %errcode_for_dynamic_shared_memory.exit139.i, %250, %errcode_for_dynamic_shared_memory.exit137.i, %237, %errcode_for_dynamic_shared_memory.exit.i39, %247, %248, %267, %297, %338
   %.0.i31 = phi i1 [ false, %297 ], [ true, %248 ], [ true, %247 ], [ false, %267 ], [ true, %338 ], [ false, %errcode_for_dynamic_shared_memory.exit.i39 ], [ false, %237 ], [ false, %errcode_for_dynamic_shared_memory.exit137.i ], [ false, %250 ], [ false, %errcode_for_dynamic_shared_memory.exit139.i ], [ false, %270 ], [ false, %errcode_for_dynamic_shared_memory.exit143.i ], [ false, %307 ], [ false, %errcode_for_dynamic_shared_memory.exit145.i ], [ false, %329 ], [ false, %342 ], [ false, %340 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %349
 
 345:                                              ; preds = %7
@@ -891,32 +891,29 @@ dsm_impl_mmap.exit:                               ; preds = %340, %342, %329, %e
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @dsm_impl_pin_segment(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
+define dso_local void @dsm_impl_pin_segment(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @dsm_impl_unpin_segment(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
+define dso_local void @dsm_impl_unpin_segment(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   ret void
 }
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @errcode_for_dynamic_shared_memory() unnamed_addr #0 {
@@ -939,66 +936,69 @@ define internal fastcc void @errcode_for_dynamic_shared_memory() unnamed_addr #0
   ret void
 }
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @shm_unlink(ptr noundef) local_unnamed_addr #2
 
-declare i32 @shm_unlink(ptr noundef) local_unnamed_addr #3
+declare void @ReserveExternalFD() local_unnamed_addr #2
 
-declare void @ReserveExternalFD() local_unnamed_addr #3
+declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @shm_open(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-declare void @ReleaseExternalFD() local_unnamed_addr #3
+declare void @ReleaseExternalFD() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @close(i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
-
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
-
-declare i32 @errcode_for_file_access() local_unnamed_addr #3
+declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @posix_fallocate(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind
-declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
-
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare i32 @errcode_for_file_access() local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @shmdt(ptr noundef) local_unnamed_addr #5
+declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+
+declare i32 @posix_fallocate(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+
+declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @shmdt(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare i32 @shmctl(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: nounwind
+declare ptr @shmat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #3
+declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #2
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
@@ -1010,14 +1010,14 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }

@@ -36,12 +36,12 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   br i1 %24, label %25, label %173
 
 25:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %3, align 8, !tbaa !4
   store ptr %1, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = tail call ptr @timelib_rel_time_ctor() #9
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 68
   store i32 0, ptr %27, align 4, !tbaa !29
@@ -266,10 +266,10 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   br label %timelib_diff_with_tzid.exit
 
 timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %125, %128, %131, %137, %139, %145, %.thread.i, %154, %161, %170
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %247
 
 173:                                              ; preds = %16, %12, %2
@@ -377,16 +377,13 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-declare ptr @timelib_rel_time_ctor() local_unnamed_addr #3
+declare ptr @timelib_rel_time_ctor() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #4 {
+define internal fastcc void @sort_old_to_new(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load i32, ptr %5, align 8, !tbaa !9
@@ -593,8 +590,8 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not, label %43, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @timelib_time_compare(ptr noundef %0, ptr noundef %1) #9
   %8 = icmp slt i32 %7, 0
   %. = select i1 %8, ptr %0, ptr %1
@@ -637,8 +634,8 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   %or.cond = select i1 %40, i1 %41, i1 false
   %42 = sext i1 %or.cond to i32
   %.024 = add nsw i32 %42, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %53
 
 43:                                               ; preds = %2
@@ -658,24 +655,21 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %.1
 }
 
-declare void @timelib_do_rel_normalize(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @timelib_do_rel_normalize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @timelib_same_timezone(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @timelib_same_timezone(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @timelib_time_compare(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @timelib_time_compare(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @timelib_hmsf_to_decimal_hour(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @timelib_hmsf_to_decimal_hour(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
-
-declare i64 @timelib_epoch_days_from_time(ptr noundef) local_unnamed_addr #3
+declare i64 @timelib_epoch_days_from_time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #5
+declare i64 @llvm.abs.i64(i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_add(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -749,17 +743,17 @@ define hidden ptr @timelib_add(ptr noundef %0, ptr noundef readonly captures(non
   ret ptr %3
 }
 
-declare ptr @timelib_time_clone(ptr noundef) local_unnamed_addr #3
+declare ptr @timelib_time_clone(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-declare void @timelib_update_ts(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @timelib_update_ts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #3
+declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -981,15 +975,15 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   ret ptr %3
 }
 
-declare i64 @timelib_hms_to_seconds(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @timelib_hms_to_seconds(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @timelib_rel_time_clone(ptr noundef) local_unnamed_addr #3
+declare ptr @timelib_rel_time_clone(ptr noundef) local_unnamed_addr #2
 
-declare void @timelib_do_normalize(ptr noundef) local_unnamed_addr #3
+declare void @timelib_do_normalize(ptr noundef) local_unnamed_addr #2
 
-declare void @timelib_rel_time_dtor(ptr noundef) local_unnamed_addr #3
+declare void @timelib_rel_time_dtor(ptr noundef) local_unnamed_addr #2
 
-declare void @timelib_set_timezone(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @timelib_set_timezone(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1156,16 +1150,22 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   ret ptr %3
 }
 
-declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 

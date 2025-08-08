@@ -270,11 +270,8 @@ _ZN4llvm6objectL8isAMDGPUERKNS0_10ObjectFileE.exit17.thread: ; preds = %57, %_ZN
   ret { ptr, ptr } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL18supportsCOFFX86_64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL18supportsCOFFX86_64Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 11
   %switch.selectcmp.case2 = icmp eq i64 %0, 1
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -282,7 +279,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL18supportsCOFFX86_64Em(i64 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   %switch = icmp eq i64 %0, 11
   %6 = add i64 %3, %2
   %7 = and i64 %6, 4294967295
@@ -290,11 +287,8 @@ define internal noundef i64 @_ZN4llvm6objectL17resolveCOFFX86_64Emmmml(i64 nound
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFX86Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFX86Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 11
   %switch.selectcmp.case2 = icmp eq i64 %0, 6
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -302,14 +296,14 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFX86Em(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL14resolveCOFFX86Emmmml(i64 %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL14resolveCOFFX86Emmmml(i64 %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   %6 = add i64 %3, %2
   %7 = and i64 %6, 4294967295
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFARMEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFARMEm(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 15
   %switch.selectcmp.case2 = icmp eq i64 %0, 1
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -317,14 +311,14 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsCOFFARMEm(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL14resolveCOFFARMEmmmml(i64 %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL14resolveCOFFARMEmmmml(i64 %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   %6 = add i64 %3, %2
   %7 = and i64 %6, 4294967295
   ret i64 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsCOFFARM64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsCOFFARM64Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 8
   %switch.selectcmp.case2 = icmp eq i64 %0, 14
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -332,7 +326,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsCOFFARM64Em(i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL16resolveCOFFARM64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL16resolveCOFFARM64Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   %switch = icmp eq i64 %0, 8
   %6 = add i64 %3, %2
   %7 = and i64 %6, 4294967295
@@ -341,7 +335,7 @@ define internal noundef i64 @_ZN4llvm6objectL16resolveCOFFARM64Emmmml(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsX86_64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsX86_64Em(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 25
   %switch.cast = trunc i64 %0 to i25
   %switch.downshift = lshr i25 -14545913, %switch.cast
@@ -351,7 +345,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsX86_64Em(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL13resolveX86_64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL13resolveX86_64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   switch i64 %0, label %14 [
     i64 0, label %15
     i64 1, label %6
@@ -386,7 +380,7 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveX86_64Emmmml(i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsAArch64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsAArch64Em(i64 noundef %0) #1 {
   %switch.tableidx = add i64 %0, -257
   %2 = icmp ult i64 %switch.tableidx, 6
   %switch.cast = trunc i64 %switch.tableidx to i6
@@ -397,7 +391,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsAArch64Em(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL14resolveAArch64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL14resolveAArch64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %6 = add i64 %4, %2
   switch i64 %0, label %17 [
     i64 258, label %7
@@ -434,14 +428,14 @@ define internal noundef i64 @_ZN4llvm6objectL14resolveAArch64Emmmml(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsBPFEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsBPFEm(i64 noundef %0) #1 {
   %2 = and i64 %0, -2
   %switch = icmp eq i64 %2, 2
   ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL10resolveBPFEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL10resolveBPFEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   %switch = icmp eq i64 %0, 3
   %6 = add i64 %3, %2
   %7 = and i64 %6, 4294967295
@@ -450,7 +444,7 @@ define internal noundef i64 @_ZN4llvm6objectL10resolveBPFEmmmml(i64 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsLoongArchEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsLoongArchEm(i64 noundef %0) #1 {
   switch i64 %0, label %2 [
     i64 0, label %3
     i64 1, label %3
@@ -477,7 +471,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL17supportsLoongArchEm(i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL16resolveLoongArchEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL16resolveLoongArchEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   switch i64 %0, label %57 [
     i64 0, label %58
     i64 1, label %6
@@ -581,7 +575,7 @@ define internal noundef i64 @_ZN4llvm6objectL16resolveLoongArchEmmmml(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips64Em(i64 noundef %0) #1 {
   switch i64 %0, label %2 [
     i64 2, label %3
     i64 18, label %3
@@ -598,7 +592,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips64Em(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL13resolveMips64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL13resolveMips64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %6 = add i64 %4, %2
   switch i64 %0, label %13 [
     i64 2, label %7
@@ -628,7 +622,7 @@ define internal noundef i64 @_ZN4llvm6objectL13resolveMips64Emmmml(i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC64Em(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 45
   %switch.cast = trunc i64 %0 to i45
   %switch.downshift = lshr i45 -17317241028606, %switch.cast
@@ -638,7 +632,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC64Em(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL12resolvePPC64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL12resolvePPC64Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %6 = add i64 %4, %2
   switch i64 %0, label %14 [
     i64 1, label %7
@@ -669,7 +663,7 @@ define internal noundef i64 @_ZN4llvm6objectL12resolvePPC64Emmmml(i64 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSystemZEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSystemZEm(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 4
   %switch.selectcmp.case2 = icmp eq i64 %0, 22
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -677,7 +671,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSystemZEm(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL14resolveSystemZEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL14resolveSystemZEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %switch = icmp eq i64 %0, 4
   %6 = add i64 %4, %2
   %7 = and i64 %6, 4294967295
@@ -686,7 +680,7 @@ define internal noundef i64 @_ZN4llvm6objectL14resolveSystemZEmmmml(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc64Em(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 55
   %switch.cast = trunc i64 %0 to i55
   %switch.downshift = lshr i55 -18014394206126072, %switch.cast
@@ -696,13 +690,13 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc64Em(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL14resolveSparc64Emmmml(i64 %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL14resolveSparc64Emmmml(i64 %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %6 = add i64 %4, %2
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsAmdgpuEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsAmdgpuEm(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 6
   %switch.selectcmp.case2 = icmp eq i64 %0, 3
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -710,13 +704,13 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsAmdgpuEm(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL13resolveAmdgpuEmmmml(i64 %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL13resolveAmdgpuEmmmml(i64 %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %6 = add i64 %4, %2
   ret i64 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsRISCVEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsRISCVEm(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 62
   %switch.cast = trunc i64 %0 to i62
   %switch.downshift = lshr i62 -869192537649184761, %switch.cast
@@ -726,7 +720,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsRISCVEm(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL12resolveRISCVEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL12resolveRISCVEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   switch i64 %0, label %65 [
     i64 0, label %66
     i64 1, label %6
@@ -847,13 +841,13 @@ define internal noundef i64 @_ZN4llvm6objectL12resolveRISCVEmmmml(i64 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsX86Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsX86Em(i64 noundef %0) #1 {
   %switch = icmp ult i64 %0, 3
   ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL10resolveX86Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL10resolveX86Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 %4) #1 {
   switch i64 %0, label %11 [
     i64 0, label %12
     i64 1, label %6
@@ -878,7 +872,7 @@ define internal noundef i64 @_ZN4llvm6objectL10resolveX86Emmmml(i64 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC32Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC32Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 1
   %switch.selectcmp.case2 = icmp eq i64 %0, 26
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -886,7 +880,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsPPC32Em(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolvePPC32Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolvePPC32Emmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %switch = icmp eq i64 %0, 1
   %6 = select i1 %switch, i64 0, i64 %1
   %7 = sub i64 %2, %6
@@ -896,14 +890,14 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolveP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsARMEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsARMEm(i64 noundef %0) #1 {
   %2 = and i64 %0, -2
   %switch = icmp eq i64 %2, 2
   ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveARMEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveARMEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   %switch = icmp eq i64 %0, 2
   %6 = add i64 %3, %2
   %7 = select i1 %switch, i64 0, i64 %1
@@ -914,7 +908,7 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsAVREm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsAVREm(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 4
   %switch.selectcmp.case2 = icmp eq i64 %0, 1
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -922,7 +916,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL11supportsAVREm(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveAVREmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveAVREmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %switch = icmp eq i64 %0, 4
   %6 = add i64 %4, %2
   %.0.v = select i1 %switch, i64 65535, i64 4294967295
@@ -931,13 +925,13 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL10resolveA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsLanaiEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL13supportsLanaiEm(i64 noundef %0) #1 {
   %2 = icmp eq i64 %0, 4
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolveLanaiEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #3 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolveLanaiEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
   %6 = icmp eq i64 %0, 4
   tail call void @llvm.assume(i1 %6)
   %7 = add i64 %4, %2
@@ -946,7 +940,7 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL12resolveL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips32Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips32Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 2
   %switch.selectcmp.case2 = icmp eq i64 %0, 39
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -954,7 +948,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMips32Em(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveMips32Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #3 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveMips32Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 %4) #2 {
   %6 = icmp eq i64 %0, 2
   br i1 %6, label %9, label %7
 
@@ -970,7 +964,7 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMSP430Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMSP430Em(i64 noundef %0) #1 {
   %2 = add i64 %0, -1
   %switch.and = and i64 %2, -5
   %switch.selectcmp = icmp eq i64 %switch.and, 0
@@ -978,7 +972,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsMSP430Em(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveMSP430Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
+define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveMSP430Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #1 {
   %switch = icmp eq i64 %0, 1
   %6 = add i64 %4, %2
   %.0.v = select i1 %switch, i64 4294967295, i64 65535
@@ -987,7 +981,7 @@ define internal noundef range(i64 0, 4294967296) i64 @_ZN4llvm6objectL13resolveM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc32Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc32Em(i64 noundef %0) #1 {
   %switch.selectcmp.case1 = icmp eq i64 %0, 3
   %switch.selectcmp.case2 = icmp eq i64 %0, 23
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
@@ -995,7 +989,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsSparc32Em(i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL14resolveSparc32Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL14resolveSparc32Emmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   switch i64 %0, label %8 [
     i64 23, label %6
     i64 3, label %6
@@ -1011,13 +1005,13 @@ define internal noundef i64 @_ZN4llvm6objectL14resolveSparc32Emmmml(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsHexagonEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL15supportsHexagonEm(i64 noundef %0) #1 {
   %2 = icmp eq i64 %0, 6
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
-define internal noundef i64 @_ZN4llvm6objectL14resolveHexagonEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #3 {
+define internal noundef i64 @_ZN4llvm6objectL14resolveHexagonEmmmml(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3, i64 noundef %4) #2 {
   %6 = icmp eq i64 %0, 6
   tail call void @llvm.assume(i1 %6)
   %7 = add i64 %4, %2
@@ -1025,7 +1019,7 @@ define internal noundef i64 @_ZN4llvm6objectL14resolveHexagonEmmmml(i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL12supportsCSKYEm(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL12supportsCSKYEm(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 6
   %switch.cast = trunc i64 %0 to i6
   %switch.downshift = lshr i6 -29, %switch.cast
@@ -1035,7 +1029,7 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL12supportsCSKYEm(i64 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL11resolveCSKYEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL11resolveCSKYEmmmml(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #1 {
   switch i64 %0, label %13 [
     i64 0, label %14
     i64 1, label %6
@@ -1062,20 +1056,20 @@ define internal noundef i64 @_ZN4llvm6objectL11resolveCSKYEmmmml(i64 noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL19supportsMachOX86_64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL19supportsMachOX86_64Em(i64 noundef %0) #1 {
   %2 = icmp eq i64 %0, 0
   ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
-define internal noundef i64 @_ZN4llvm6objectL18resolveMachOX86_64Emmmml(i64 noundef %0, i64 %1, i64 noundef returned %2, i64 %3, i64 %4) #3 {
+define internal noundef i64 @_ZN4llvm6objectL18resolveMachOX86_64Emmmml(i64 noundef %0, i64 %1, i64 noundef returned %2, i64 %3, i64 %4) #2 {
   %6 = icmp eq i64 %0, 0
   tail call void @llvm.assume(i1 %6)
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm32Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm32Em(i64 noundef %0) #1 {
   %2 = icmp ult i64 %0, 24
   %switch.cast = trunc i64 %0 to i24
   %switch.downshift = lshr i24 -7329793, %switch.cast
@@ -1085,12 +1079,12 @@ define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm32Em(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL13resolveWasm32Emmmml(i64 %0, i64 %1, i64 %2, i64 noundef returned %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL13resolveWasm32Emmmml(i64 %0, i64 %1, i64 %2, i64 noundef returned %3, i64 %4) #1 {
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm64Em(i64 noundef %0) #2 {
+define internal noundef zeroext i1 @_ZN4llvm6objectL14supportsWasm64Em(i64 noundef %0) #1 {
 _ZN4llvm6objectL14supportsWasm32Em.exit:
   %1 = icmp ult i64 %0, 24
   %switch.cast = trunc i64 %0 to i24
@@ -1101,7 +1095,7 @@ _ZN4llvm6objectL14supportsWasm32Em.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4llvm6objectL13resolveWasm64Emmmml(i64 %0, i64 %1, i64 %2, i64 noundef returned %3, i64 %4) #2 {
+define internal noundef i64 @_ZN4llvm6objectL13resolveWasm64Emmmml(i64 %0, i64 %1, i64 %2, i64 noundef returned %3, i64 %4) #1 {
   ret i64 %3
 }
 
@@ -1149,9 +1143,9 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
 
 36:                                               ; preds = %35
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 56
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %25, ptr noundef nonnull align 8 dereferenceable(64) %37, i32 noundef %.sroa.0.0.extract.trunc.i.i) #12
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1160,8 +1154,8 @@ define dso_local noundef i64 @_ZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_
   br i1 %40, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %51
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %41 = load i64, ptr %25, align 8, !tbaa !22, !noalias !19
   %42 = inttoptr i64 %41 to ptr
@@ -1184,8 +1178,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
 
 51:                                               ; preds = %36
   %52 = load ptr, ptr %25, align 8, !tbaa !33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %53, align 1
@@ -1198,9 +1192,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
 
 56:                                               ; preds = %54
   %.sroa.0.0.copyload.i27.i = load i64, ptr %1, align 8, !tbaa !18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %.sroa.0.0.extract.trunc.i28.i = trunc i64 %.sroa.0.0.copyload.i27.i to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.61") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i28.i) #12
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %58 = load i8, ptr %57, align 8
@@ -1208,8 +1202,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i:
   br i1 %59, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.i, label %70
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.i: ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %60 = load i64, ptr %21, align 8, !tbaa !22, !noalias !35
   %61 = inttoptr i64 %60 to ptr
@@ -1232,8 +1226,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.
 
 70:                                               ; preds = %56
   %71 = load ptr, ptr %21, align 8, !tbaa !41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 1) ]
   %.0.copyload.i.i.i30.i = load i32, ptr %72, align 1
@@ -1246,8 +1240,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.
   br i1 %.not41, label %74, label %92
 
 74:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.65") align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i37.i) #12
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %76 = load i8, ptr %75, align 8
@@ -1255,8 +1249,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i29.
   br i1 %77, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.i, label %88
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.i: ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %78 = load i64, ptr %17, align 8, !tbaa !22, !noalias !43
   %79 = inttoptr i64 %78 to ptr
@@ -1279,8 +1273,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.
 
 88:                                               ; preds = %74
   %89 = load ptr, ptr %17, align 8, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %90, i64 1) ]
   %.0.copyload.i.i.i35.i = load i32, ptr %90, align 1
@@ -1288,8 +1282,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.
   br label %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
 
 92:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE10getSectionEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.69") align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %55, i32 noundef %.sroa.0.0.extract.trunc.i37.i) #12
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %94 = load i8, ptr %93, align 8
@@ -1297,8 +1291,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i34.
   br i1 %95, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i38.i, label %_ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i38.i: ; preds = %92
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %96 = load i64, ptr %13, align 8, !tbaa !22, !noalias !51
   %97 = inttoptr i64 %96 to ptr
@@ -1321,8 +1315,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i38.
 
 _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelSectionENS0_11DataRefImplE.exit.i: ; preds = %92
   %106 = load ptr, ptr %13, align 8, !tbaa !57
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %107, i64 1) ]
   %.0.copyload.i.i.i39.i = load i32, ptr %107, align 1
@@ -1337,7 +1331,7 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelS
 110:                                              ; preds = %"_ZZN4llvm6object17resolveRelocationEPFmmmmmlERKNS0_13RelocationRefEmmENK3$_0clEv.exit"
   %.sroa.01.0.copyload = load i64, ptr %1, align 8, !tbaa !18
   %.sroa.2.0.copyload = load ptr, ptr %29, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %111 = load ptr, ptr %.sroa.2.0.copyload, align 8, !tbaa !13, !noalias !60
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 512
   %113 = load ptr, ptr %112, align 8, !noalias !60
@@ -1348,22 +1342,22 @@ _ZNK4llvm6object13ELFObjectFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE13getRelS
   br i1 %116, label %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.i, label %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.thread.i
 
 _ZN4llvm8ExpectedIlE9takeErrorEv.exit.thread.i:   ; preds = %110
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm8ExpectedIlE9takeErrorEv.exit.i:          ; preds = %110
   %117 = load i64, ptr %12, align 8, !tbaa !22, !noalias !63
   %118 = inttoptr i64 %117 to ptr
   store ptr null, ptr %12, align 8, !tbaa !22, !noalias !63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %.not.i.i.i = icmp eq i64 %117, 0
   br i1 %.not.i.i.i, label %_ZN4llvm5ErrorD2Ev.exit.i.thread, label %119
 
 _ZN4llvm5ErrorD2Ev.exit.i.thread:                 ; preds = %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit
 
 119:                                              ; preds = %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.i
@@ -1384,7 +1378,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.thread:                 ; preds = %_ZN4llvm8ExpectedIl
 .lr.ph.i.i.i:                                     ; preds = %124, %_ZN4llvm5ErrorD2Ev.exit9.i.i.i
   %129 = phi ptr [ %142, %_ZN4llvm5ErrorD2Ev.exit9.i.i.i ], [ null, %124 ]
   %.sroa.05.017.i.i.i = phi ptr [ %155, %_ZN4llvm5ErrorD2Ev.exit9.i.i.i ], [ %126, %124 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12, !noalias !66
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !66
   store ptr %129, ptr %10, align 8, !tbaa !24, !noalias !66
   %130 = load i64, ptr %.sroa.05.017.i.i.i, align 8, !tbaa !22, !noalias !66
   %131 = inttoptr i64 %130 to ptr
@@ -1397,8 +1391,8 @@ _ZN4llvm5ErrorD2Ev.exit.i.thread:                 ; preds = %_ZN4llvm8ExpectedIl
   br i1 %135, label %136, label %_ZN4llvm5ErrorD2Ev.exit7.i.i.i
 
 136:                                              ; preds = %.lr.ph.i.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #12, !noalias !74
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #12, !noalias !74
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !74
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !74
   %137 = load ptr, ptr %131, align 8, !tbaa !13, !noalias !74
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %139 = load ptr, ptr %138, align 8, !noalias !74
@@ -1440,7 +1434,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i2
   br label %_ZN4llvm5ErrorD2Ev.exit9.i.i.i
 
 _ZN4llvm5ErrorD2Ev.exit9.i.i.i:                   ; preds = %151, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i.i26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12, !noalias !66
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !66
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.05.017.i.i.i, i64 8
   %.not15.i.i.i = icmp eq ptr %155, %128
   br i1 %.not15.i.i.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i15.i.loopexit.i.i, label %.lr.ph.i.i.i
@@ -1451,8 +1445,8 @@ _ZN4llvm5ErrorD2Ev.exit9.i.i.i:                   ; preds = %151, %_ZNSt10unique
   %159 = load ptr, ptr %158, align 8, !noalias !78
   %160 = call noundef zeroext i1 %159(ptr noundef nonnull align 8 dereferenceable(8) %118, ptr noundef nonnull @_ZN4llvm13ErrorInfoBase2IDE) #12, !noalias !78
   call void @llvm.assume(i1 %160)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #12, !noalias !78
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12, !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !78
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !78
   %161 = load ptr, ptr %118, align 8, !tbaa !13, !noalias !78
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = load ptr, ptr %162, align 8, !noalias !78
@@ -1482,8 +1476,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %_ZN4llvm8ExpectedIl
   %.ph.i = phi i8 [ %115, %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.thread.i ], [ %.pre.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i15.i.i.i ]
   %.sroa.02.1.i.ph.i = phi i1 [ true, %_ZN4llvm8ExpectedIlE9takeErrorEv.exit.thread.i ], [ %.sroa.02.0.i.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i15.i.i.i ]
   %.pr.i = load i64, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.assume(i1 %.sroa.02.1.i.ph.i)
   %170 = trunc i8 %.ph.i to i1
   %.not.i.i1.i = icmp ne i64 %.pr.i, 0
@@ -1500,7 +1494,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %_ZN
 
 _ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.thread, %_ZN4llvm5ErrorD2Ev.exit.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
   %175 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit.i.thread ], [ %.pr.i, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %.pr.i, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %176 = load ptr, ptr %30, align 8, !tbaa !13
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 392
   %178 = load ptr, ptr %177, align 8
@@ -1561,27 +1555,27 @@ _ZN4llvm6objectL12getELFAddendENS0_13RelocationRefE.exit: ; preds = %_ZN4llvm5Er
   ret i64 %.1
 }
 
-declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
+declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb0EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext) local_unnamed_addr #5
+declare void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext) local_unnamed_addr #4
 
-declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_unnamed_addr #4
+declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #8
+declare i32 @llvm.bswap.i32(i32) #7
 
-declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.61") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
+declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1ELb1EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.61") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
-declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.65") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
+declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb0EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.65") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
-declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.69") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
+declare void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0ELb1EEEE10getSectionEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected.69") align 8, ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
@@ -1936,7 +1930,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
@@ -2027,7 +2021,13 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
@@ -2039,15 +2039,15 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

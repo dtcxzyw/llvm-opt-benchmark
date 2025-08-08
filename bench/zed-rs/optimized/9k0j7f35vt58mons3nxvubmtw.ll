@@ -45,7 +45,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hffcf474b30d0ad20E(ptr
   %15 = load i64, ptr %5, align 8, !noundef !4
   %16 = sub nuw i64 %15, %6
   %17 = getelementptr inbounds i8, ptr %14, i64 %6
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN4core3str8converts9from_utf817hc59c49a6a70e8fedE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %16)
           to label %20 unwind label %18
 
@@ -58,7 +58,7 @@ define hidden { i64, ptr } @_ZN3std2io16append_to_string17hffcf474b30d0ad20E(ptr
 20:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h537dbdf951494492E.exit"
   %21 = load i64, ptr %4, align 8, !range !5, !noundef !4
   %trunc = trunc nuw i64 %21 to i1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = load i64, ptr %5, align 8
   %trunc13 = trunc nuw i64 %11 to i1
   %.sroa.4.1 = select i1 %trunc13, ptr %12, ptr @anon.abc5958ecb543d3232d5f4291e576c66.2
@@ -210,7 +210,7 @@ default.unreachable:                              ; preds = %14
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %28, %21, %23, %16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !14
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372ce4eaE.llvm.3748628968446158010(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %10), !noalias !14
   %35 = load i8, ptr %4, align 8, !range !21, !alias.scope !22, !noalias !14, !noundef !4
   %switch.not.i.i.i.i = icmp eq i8 %35, 3
@@ -221,7 +221,7 @@ default.unreachable:                              ; preds = %14
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit": ; preds = %34, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14
   br label %37
 
 37:                                               ; preds = %.thread70, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit"
@@ -235,7 +235,7 @@ default.unreachable:                              ; preds = %14
 define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_probe_read17h30947f31907667b6E(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [32 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %5 = call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %4, i64 noundef 32)
   %6 = extractvalue { i64, ptr } %5, 0
@@ -305,7 +305,7 @@ default.unreachable:                              ; preds = %11
 .thread:                                          ; preds = %16, %39, %32, %34, %23
   %30 = phi { i64, ptr } [ %.lcssa48, %23 ], [ %13, %34 ], [ %13, %32 ], [ %13, %39 ], [ %13, %16 ]
   %.sroa.3.0 = phi ptr [ %.in, %23 ], [ %12, %34 ], [ %12, %32 ], [ %12, %39 ], [ %12, %16 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = insertvalue { i64, ptr } %30, ptr %.sroa.3.0, 1
   ret { i64, ptr } %31
 
@@ -332,7 +332,7 @@ default.unreachable:                              ; preds = %11
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %16, %39, %32, %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !28
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !28
   %46 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %46)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372ce4eaE.llvm.3748628968446158010(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %12), !noalias !28
@@ -345,7 +345,7 @@ default.unreachable:                              ; preds = %11
   br label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hcd0e7a0726fb9b72E.exit"
 
 "_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17hcd0e7a0726fb9b72E.exit": ; preds = %45, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !28
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !28
   %49 = call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %4, i64 noundef 32)
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
@@ -585,7 +585,7 @@ _ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread: ; preds = %_ZN3
   br i1 %104, label %.noexc, label %.thread122
 
 .noexc:                                           ; preds = %82, %95, %93, %99
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372ce4eaE.llvm.3748628968446158010(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull %75)
   %105 = load i8, ptr %5, align 8, !range !21, !alias.scope !61, !noalias !54, !noundef !4
   %switch.not.i.i.i.i = icmp eq i8 %105, 3
@@ -608,7 +608,7 @@ _ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread: ; preds = %_ZN3
   ret { i64, ptr } %110
 
 111:                                              ; preds = %106, %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !54
   %112 = call { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$std..io..Read$GT$4read17h7aa9c4e0aa4203f7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %62, i64 noundef %.sroa.0.0.sroa.speculated.i), !noalias !50
   %113 = extractvalue { i64, ptr } %112, 0
   %114 = extractvalue { i64, ptr } %112, 1
@@ -768,7 +768,7 @@ default.unreachable:                              ; preds = %32
   br i1 %47, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %35, %38, %36, %42
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !94
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !94
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372ce4eaE.llvm.3748628968446158010(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %20)
   %48 = load i8, ptr %4, align 8, !range !21, !alias.scope !101, !noalias !94, !noundef !4
   %switch.not.i.i.i.i = icmp eq i8 %48, 3
@@ -779,7 +779,7 @@ default.unreachable:                              ; preds = %32
   br label %50
 
 50:                                               ; preds = %49, %.noexc
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !94
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !94
   br label %.backedge
 
 .backedge:                                        ; preds = %50, %30
@@ -823,7 +823,7 @@ define hidden void @_ZN4core10intrinsics11write_bytes18precondition_check17h8452
   br i1 %13, label %19, label %9
 
 14:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr @anon.abc5958ecb543d3232d5f4291e576c66.17.llvm.15947672843193833052, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %15, align 8
@@ -904,7 +904,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Resul
   ret void
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !104
+  call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !104
   %5 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %5)
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372ce4eaE.llvm.3748628968446158010(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull %.8.val), !noalias !104
@@ -918,7 +918,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Resul
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h236a7ad955b7b765E.exit": ; preds = %4, %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1), !noalias !104
+  call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !104
   br label %3
 }
 
@@ -1035,12 +1035,6 @@ declare void @_ZN4core3num14overflow_panic3add17h5b7436ab74f01e75E(ptr noalias n
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h420c81a3fa54acb3E.llvm.3748628968446158010"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -1051,7 +1045,13 @@ declare hidden void @_ZN3std2io5error14repr_bitpacked11decode_repr17hdac4e382372
 declare hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h55cc37cb87464b99E.llvm.1184672830167366418"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7ffbb786c84c317E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #16
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hc7ffbb786c84c317E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -1074,8 +1074,8 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { cold }

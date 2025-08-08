@@ -37,7 +37,7 @@ define internal void @qt_rtp_close(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2) i32 @qt_rtp_parse_packet(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef %6, i16 zeroext %7, i32 noundef %8) #1 {
   %10 = alloca %struct.FFIOContext, align 8
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = and i32 %8, 2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !11
@@ -498,7 +498,7 @@ define internal range(i32 -2147483648, 2) i32 @qt_rtp_parse_packet(ptr noundef %
 
 .thread236:                                       ; preds = %144, %136, %151, %124, %99, %121, %71, %98, %198, %252, %248, %241, %245, %.thread239, %227, %222, %200, %174, %60, %58, %54, %50, %14, %292, %276, %275, %173
   %.1 = phi i32 [ -1163346256, %173 ], [ -1163346256, %292 ], [ %195, %198 ], [ 1, %276 ], [ -12, %275 ], [ %53, %50 ], [ %20, %14 ], [ -1094995529, %54 ], [ -1094995529, %58 ], [ -1094995529, %60 ], [ -1094995529, %174 ], [ -12, %200 ], [ 0, %227 ], [ %225, %222 ], [ -11, %.thread239 ], [ -1094995529, %245 ], [ -1094995529, %241 ], [ %250, %248 ], [ 0, %252 ], [ -1094995529, %124 ], [ -1094995529, %99 ], [ -1094995529, %121 ], [ -1094995529, %71 ], [ -1163346256, %98 ], [ -12, %151 ], [ -1094995529, %136 ], [ -12, %144 ]
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
@@ -508,16 +508,10 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #2
 
 declare void @av_packet_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare i32 @av_new_packet(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ffio_init_read_context(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -552,7 +546,13 @@ declare ptr @av_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @av_packet_from_data(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
@@ -563,9 +563,9 @@ declare i32 @llvm.bswap.i32(i32) #6
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

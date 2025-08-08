@@ -132,20 +132,14 @@ define dso_local i64 @ProcArrayShmemSize() local_unnamed_addr #0 {
   ret i64 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArrayShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @MaxBackends, align 4
   %3 = load i32, ptr @max_prepared_xacts, align 4
   %4 = add i32 %3, %2
@@ -203,11 +197,11 @@ define dso_local void @ProcArrayShmemInit() local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %26, %21
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
@@ -358,26 +352,26 @@ define dso_local void @ProcArrayAdd(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArrayRemove(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -851,7 +845,7 @@ ProcArrayGroupClearXid.exit:                      ; preds = %.lr.ph.i, %170, %Pr
   ret void
 }
 
-declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArrayClearTransaction(ptr noundef captures(none) initializes((52, 60), (72, 76), (89, 90)) %0) local_unnamed_addr #0 {
@@ -914,7 +908,7 @@ define dso_local void @ProcArrayClearTransaction(ptr noundef captures(none) init
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @ProcArrayInitRecovery(i32 noundef %0) local_unnamed_addr #5 {
+define dso_local void @ProcArrayInitRecovery(i32 noundef %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -1295,23 +1289,23 @@ define dso_local void @ExpireOldKnownAssignedTransactionIds(i32 noundef %0) loca
   ret void
 }
 
-declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #2
+declare void @AdvanceNextFullTransactionIdPastXid(i32 noundef) local_unnamed_addr #1
 
-declare void @StandbyReleaseOldLocks(i32 noundef) local_unnamed_addr #2
+declare void @StandbyReleaseOldLocks(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdDidAbort(i32 noundef) local_unnamed_addr #1
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @xidLogicalComparator(ptr noundef, ptr noundef) #2
+declare i32 @xidLogicalComparator(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -1495,7 +1489,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
 define internal fastcc void @KnownAssignedXidsDisplay(i32 noundef range(i32 12, 16) %0) unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = load ptr, ptr @procArray, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -1554,13 +1548,13 @@ define internal fastcc void @KnownAssignedXidsDisplay(i32 noundef range(i32 12, 
 30:                                               ; preds = %23, %._crit_edge
   %31 = load ptr, ptr %2, align 8
   call void @pfree(ptr noundef %31) #15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-declare void @ExtendSUBTRANS(i32 noundef) local_unnamed_addr #2
+declare void @ExtendSUBTRANS(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1697,7 +1691,7 @@ KnownAssignedXidsRemoveTree.exit:                 ; preds = %._crit_edge.i, %25,
   ret void
 }
 
-declare i32 @TransactionIdLatest(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @TransactionIdLatest(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RecordKnownAssignedTransactionIds(i32 noundef %0) local_unnamed_addr #0 {
@@ -1750,7 +1744,7 @@ define dso_local void @RecordKnownAssignedTransactionIds(i32 noundef %0) local_u
   ret void
 }
 
-declare void @SubTransSetParent(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @SubTransSetParent(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @TransactionIdIsInProgress(i32 noundef %0) local_unnamed_addr #0 {
@@ -1983,10 +1977,10 @@ KnownAssignedXidExists.exit.thread:               ; preds = %110, %96, %114, %Kn
 
 128:                                              ; preds = %KnownAssignedXidExists.exit.thread
   %129 = load ptr, ptr @TransactionIdIsInProgress.xids, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %130 = call fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef %129, ptr noundef %2, i32 noundef %0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %131
 
 131:                                              ; preds = %KnownAssignedXidExists.exit.thread, %128, %.thread73
@@ -2028,19 +2022,19 @@ KnownAssignedXidExists.exit.thread:               ; preds = %110, %96, %114, %Kn
   ret i1 %.0
 }
 
-declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
-declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #2
+declare i32 @SubTransGetTopmostTransaction(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #7 {
+define internal fastcc zeroext i1 @pg_lfind32(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #6 {
   %4 = insertelement <4 x i32> poison, i32 %0, i64 0
   %5 = shufflevector <4 x i32> %4, <4 x i32> poison, <4 x i32> zeroinitializer
   %6 = icmp ult i32 %2, 16
@@ -2186,7 +2180,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsActive(i32 noundef %0) local
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetOldestNonRemovableTransactionId(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call fastcc void @ComputeXidHorizons(ptr noundef %2)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %42, label %4
@@ -2278,7 +2272,7 @@ GlobalVisHorizonKindForRel.exit:                  ; preds = %39, %35
 
 53:                                               ; preds = %GlobalVisHorizonKindForRel.exit, %48, %45, %42
   %.0 = phi i32 [ %44, %42 ], [ %47, %45 ], [ %50, %48 ], [ %52, %GlobalVisHorizonKindForRel.exit ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -2774,18 +2768,18 @@ GlobalVisUpdateApply.exit:                        ; preds = %FullTransactionIdNe
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetOldestTransactionIdConsideredRunning() local_unnamed_addr #0 {
   %1 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call fastcc void @ComputeXidHorizons(ptr noundef %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i32, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @GetReplicationHorizons(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ComputeXidHorizonsResult, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -2793,12 +2787,12 @@ define dso_local void @GetReplicationHorizons(ptr noundef writeonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @GetMaxSnapshotXidCount() local_unnamed_addr #8 {
+define dso_local i32 @GetMaxSnapshotXidCount() local_unnamed_addr #7 {
   %1 = load ptr, ptr @procArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i32, ptr %2, align 4
@@ -2806,7 +2800,7 @@ define dso_local i32 @GetMaxSnapshotXidCount() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local i32 @GetMaxSnapshotSubxidCount() local_unnamed_addr #9 {
+define dso_local i32 @GetMaxSnapshotSubxidCount() local_unnamed_addr #8 {
   %1 = load i32, ptr @MaxBackends, align 4
   %2 = load i32, ptr @max_prepared_xacts, align 4
   %3 = add i32 %2, %1
@@ -2821,7 +2815,7 @@ define dso_local noundef ptr @GetSnapshotData(ptr noundef returned captures(ret:
   %4 = load ptr, ptr @ProcGlobal, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -3246,7 +3240,7 @@ FullTransactionIdNewer.exit152:                   ; preds = %FullTransactionIdNe
   br label %215
 
 215:                                              ; preds = %FullTransactionIdNewer.exit152, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 }
 
@@ -3359,7 +3353,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr noundef writeonly
   ret i32 %.018.lcssa
 }
 
-declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
@@ -3981,7 +3975,7 @@ define dso_local noundef zeroext i1 @HaveVirtualXIDsDelayingChkpt(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @ProcNumberGetProc(i32 noundef %0) local_unnamed_addr #8 {
+define dso_local ptr @ProcNumberGetProc(i32 noundef %0) local_unnamed_addr #7 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %14, label %3
 
@@ -4110,7 +4104,7 @@ BackendPidGetProcWithLock.exit:                   ; preds = %11, %12, %.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @BackendPidGetProcWithLock(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local ptr @BackendPidGetProcWithLock(i32 noundef %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @procArray, align 8
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %.loopexit, label %.preheader
@@ -4775,7 +4769,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   ret ptr %118
 }
 
-declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdFollows(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @CancelVirtualTransaction(i64 %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -4900,10 +4894,10 @@ define dso_local i32 @SignalVirtualTransaction(i64 %0, i32 noundef %1, i1 nounde
   ret i32 %.1
 }
 
-declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed_addr #10 {
+define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @procArray, align 8
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %30, label %.preheader
@@ -5267,7 +5261,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
 define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = load ptr, ptr @procArray, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   br label %7
 
@@ -5392,16 +5386,16 @@ define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr no
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge47, %.critedge.critedge
   %.lcssa = phi i1 [ false, %.critedge.critedge ], [ %.136, %._crit_edge47 ], [ %.136, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.lcssa
 }
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #11
+declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #10
 
-declare void @pg_usleep(i64 noundef) local_unnamed_addr #2
+declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_addr #0 {
@@ -5670,21 +5664,21 @@ BackendPidGetProc.exit67.thread:                  ; preds = %103, %BackendPidGet
   ret void
 }
 
-declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_database_name(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @superuser() local_unnamed_addr #2
+declare zeroext i1 @superuser() local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @has_privs_of_role(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @GetUserId() local_unnamed_addr #2
+declare i32 @GetUserId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcArraySetReplicationSlotXmin(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -6023,9 +6017,9 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableFullXid(ptr noundef readonl
   br i1 %or.cond, label %GlobalVisTestShouldUpdate.exit.thread9, label %GlobalVisTestShouldUpdate.exit.thread
 
 GlobalVisTestShouldUpdate.exit.thread:            ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = load i64, ptr %4, align 8
   %13 = icmp ult i64 %1, %12
   br label %GlobalVisTestShouldUpdate.exit.thread9
@@ -6061,9 +6055,9 @@ define dso_local zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef readonly ca
   br i1 %or.cond.i, label %GlobalVisTestIsRemovableFullXid.exit, label %GlobalVisTestShouldUpdate.exit.thread.i
 
 GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = load i64, ptr %9, align 8
   %17 = icmp ult i64 %8, %16
   br label %GlobalVisTestIsRemovableFullXid.exit
@@ -6168,9 +6162,9 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
   br i1 %or.cond.i, label %GlobalVisTestIsRemovableFullXid.exit, label %GlobalVisTestShouldUpdate.exit.thread.i
 
 GlobalVisTestShouldUpdate.exit.thread.i:          ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = load i64, ptr %43, align 8
   %52 = icmp ult i64 %1, %51
   br label %GlobalVisTestIsRemovableFullXid.exit
@@ -6279,9 +6273,9 @@ GlobalVisTestFor.exit:                            ; preds = %2, %5, %11, %13, %2
   br i1 %or.cond.i.i, label %GlobalVisTestIsRemovableXid.exit, label %GlobalVisTestShouldUpdate.exit.thread.i.i
 
 GlobalVisTestShouldUpdate.exit.thread.i.i:        ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load i64, ptr %48, align 8
   %56 = icmp ult i64 %47, %55
   br label %GlobalVisTestIsRemovableXid.exit
@@ -6705,15 +6699,15 @@ KnownAssignedXidsCompress.exit:                   ; preds = %0, %12, %._crit_edg
   ret void
 }
 
-declare void @PGSemaphoreLock(ptr noundef) local_unnamed_addr #2
+declare void @PGSemaphoreLock(ptr noundef) local_unnamed_addr #1
 
-declare void @PGSemaphoreUnlock(ptr noundef) local_unnamed_addr #2
+declare void @PGSemaphoreUnlock(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @IsCatalogRelation(ptr noundef) local_unnamed_addr #1
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
-declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_addr #0 {
@@ -6803,11 +6797,17 @@ KnownAssignedXidsSearch.exit:                     ; preds = %19, %5, %23, %25, %
   ret void
 }
 
-declare zeroext i1 @StandbyTransactionIdIsPrepared(i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @StandbyTransactionIdIsPrepared(i32 noundef) local_unnamed_addr #1
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #2
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -6822,17 +6822,17 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }

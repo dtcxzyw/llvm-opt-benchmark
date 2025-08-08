@@ -26,7 +26,7 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
   br label %15
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %9
 
@@ -44,7 +44,7 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
   call void @join_path_components(ptr noundef nonnull %3, ptr noundef %.sink, ptr noundef nonnull %0) #5
   call void @canonicalize_path(ptr noundef nonnull %3) #5
   %14 = call ptr @pstrdup(ptr noundef nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %13, %6
@@ -54,20 +54,14 @@ define dso_local ptr @AbsoluteConfigLocation(ptr noundef %0, ptr noundef %1) loc
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nofree
-declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @get_parent_directory(ptr noundef) local_unnamed_addr #1
 
 declare void @join_path_components(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @canonicalize_path(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
@@ -102,7 +96,7 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   br label %AbsoluteConfigLocation.exit
 
 22:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %25, label %23
 
@@ -120,7 +114,7 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   call void @join_path_components(ptr noundef nonnull %6, ptr noundef %.sink.i, ptr noundef nonnull %0) #5
   call void @canonicalize_path(ptr noundef nonnull %6) #5
   %28 = call ptr @pstrdup(ptr noundef nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %AbsoluteConfigLocation.exit
 
 AbsoluteConfigLocation.exit:                      ; preds = %20, %27
@@ -150,7 +144,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   %39 = phi ptr [ %68, %67 ], [ %38, %36 ]
   %.06390 = phi i32 [ %.1, %67 ], [ 32, %36 ]
   %.16589 = phi ptr [ %.266, %67 ], [ %37, %36 ]
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 19
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #6
   %42 = icmp ult i64 %41, 6
@@ -181,7 +175,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
   %52 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #5
   store ptr %52, ptr %4, align 8
   call void @pfree(ptr noundef %.16589) #5
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %75
 
 53:                                               ; preds = %50
@@ -212,7 +206,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
 67:                                               ; preds = %60, %50, %46, %43, %.lr.ph
   %.266 = phi ptr [ %.16589, %.lr.ph ], [ %.16589, %43 ], [ %.16589, %46 ], [ %.367, %60 ], [ %.16589, %50 ]
   %.1 = phi i32 [ %.06390, %.lr.ph ], [ %.06390, %43 ], [ %.06390, %46 ], [ %.2, %60 ], [ %.06390, %50 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %68 = call ptr @ReadDir(ptr noundef nonnull %29, ptr noundef %.0.i) #5
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -249,10 +243,10 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -273,7 +267,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @get_dirent_type(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
@@ -287,11 +281,17 @@ declare i32 @pg_qsort_strcmp(ptr noundef, ptr noundef) #1
 
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind willreturn memory(read) }
 

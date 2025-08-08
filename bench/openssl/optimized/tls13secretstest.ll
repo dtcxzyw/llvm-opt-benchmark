@@ -199,8 +199,8 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal range(i32 0, 2) i32 @test_handshake_secrets() #3 {
   %1 = alloca [64 x i8], align 16
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @TLS_method() #6
   %4 = tail call ptr @SSL_CTX_new(ptr noundef %3) #6
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @.str.2, ptr noundef %4) #6
@@ -409,13 +409,10 @@ define internal range(i32 0, 2) i32 @test_handshake_secrets() #3 {
   %.0 = phi i32 [ 0, %94 ], [ 0, %89 ], [ 0, %87 ], [ 0, %85 ], [ 0, %84 ], [ 0, %79 ], [ 0, %77 ], [ 0, %75 ], [ 0, %74 ], [ 0, %70 ], [ 0, %64 ], [ 0, %59 ], [ 0, %57 ], [ 0, %55 ], [ 0, %54 ], [ 0, %49 ], [ 0, %47 ], [ 0, %42 ], [ 0, %39 ], [ 0, %38 ], [ 0, %32 ], [ 0, %29 ], [ 0, %18 ], [ 0, %15 ], [ 0, %6 ], [ 0, %0 ], [ 1, %91 ]
   call void @SSL_free(ptr noundef %.030) #6
   call void @SSL_CTX_free(ptr noundef %4) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare ptr @SSL_CTX_new(ptr noundef) local_unnamed_addr #4
 
@@ -447,10 +444,10 @@ define internal fastcc range(i32 0, 2) i32 @test_secret(ptr noundef %0, ptr noun
   %9 = alloca [64 x i8], align 16
   %10 = alloca [16 x i8], align 16
   %11 = alloca [12 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = tail call ptr @EVP_sha256() #6
   %.b.i = load i1, ptr @full_hash, align 4
   br i1 %.b.i, label %13, label %14
@@ -508,10 +505,10 @@ ssl_handshake_hash.exit:                          ; preds = %14, %13
 
 29:                                               ; preds = %27, %22, %17, %26, %21, %16
   %.0 = phi i32 [ 0, %26 ], [ 0, %21 ], [ 0, %16 ], [ 0, %17 ], [ 0, %22 ], [ %., %27 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -521,9 +518,6 @@ declare void @SSL_free(ptr noundef) local_unnamed_addr #4
 
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 declare i32 @tls13_hkdf_expand(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
@@ -531,6 +525,12 @@ declare i32 @tls13_hkdf_expand(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @tls13_derive_key(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 declare i32 @tls13_derive_iv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

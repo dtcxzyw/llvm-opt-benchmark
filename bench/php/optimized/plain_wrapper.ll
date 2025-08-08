@@ -90,19 +90,13 @@ define dso_local range(i32 -1, 1) i32 @php_stream_parse_fopen_modes(ptr noundef 
   ret i32 %.012
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !9
   %5 = call i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #17
   %.not = icmp eq i32 %5, -1
@@ -156,26 +150,26 @@ define dso_local ptr @_php_stream_fopen_temporary_file(ptr noundef %0, ptr nound
 
 30:                                               ; preds = %3, %15, %28
   %.1 = phi ptr [ %14, %15 ], [ null, %28 ], [ null, %3 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.1
 }
 
-declare i32 @php_open_temporary_fd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_open_temporary_fd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @close(i32 noundef) local_unnamed_addr #4
+declare i32 @close(i32 noundef) local_unnamed_addr #3
 
-declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_tmpfile(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_tmpfile(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call ptr @_php_stream_fopen_temporary_file(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef null)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_from_fd(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_from_fd(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %7, label %5
 
@@ -305,13 +299,13 @@ detect_is_seekable.exit:                          ; preds = %14, %do_fstat.exit.
 }
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_from_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @_emalloc_192() #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
@@ -406,10 +400,10 @@ detect_is_seekable.exit:                          ; preds = %9, %do_fstat.exit.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias ptr @_emalloc_192() #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
@@ -431,18 +425,18 @@ define dso_local ptr @_php_stream_fopen_from_pipe(ptr noundef %0, ptr noundef %1
   ret ptr %10
 }
 
-declare noalias ptr @_emalloc_192() local_unnamed_addr #4
+declare noalias ptr @_emalloc_192() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
-declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_stdiop_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal noundef i64 @php_stdiop_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -489,7 +483,7 @@ define internal noundef i64 @php_stdiop_write(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #3 {
+define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -592,7 +586,7 @@ define internal noundef i64 @php_stdiop_read(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_stdiop_close(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
+define internal i32 @php_stdiop_close(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -714,7 +708,7 @@ zend_string_release_ex.exit:                      ; preds = %36, %43, %48
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_stdiop_flush(ptr noundef readonly captures(none) %0) #9 {
+define internal noundef i32 @php_stdiop_flush(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8, !tbaa !36
@@ -731,7 +725,7 @@ define internal noundef i32 @php_stdiop_flush(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #3 {
+define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -773,7 +767,7 @@ define internal noundef i32 @php_stdiop_seek(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #3 {
+define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #2 {
   %4 = alloca [5 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
@@ -793,14 +787,14 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef nonnull %0, ptr noundef nonnull %4) #17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = call noalias ptr @fdopen(i32 noundef %13, ptr noundef nonnull %4) #17
   store ptr %14, ptr %6, align 8, !tbaa !36
   %.not41 = icmp eq ptr %14, null
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not41, label %46, label %15
 
 15:                                               ; preds = %11, %8
@@ -879,7 +873,7 @@ define internal range(i32 -1, 1) i32 @php_stdiop_cast(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_stdiop_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #9 {
+define internal noundef i32 @php_stdiop_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -925,7 +919,7 @@ do_fstat.exit.thread:                             ; preds = %2, %do_fstat.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 {
+define internal i32 @php_stdiop_set_option(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1152,7 +1146,7 @@ switch.lookup:                                    ; preds = %80
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %7, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %108 = call i32 @_php_stream_cast(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %6, i32 noundef 8) #17
   %109 = icmp eq i32 %108, -1
   br i1 %109, label %php_stdiop_sync.exit, label %110
@@ -1191,12 +1185,12 @@ php_stdiop_flush.exit.thread.i:                   ; preds = %php_stdiop_flush.ex
 
 php_stdiop_sync.exit:                             ; preds = %106, %php_stdiop_flush.exit.i, %121
   %.0.i102 = phi i32 [ %125, %121 ], [ -1, %106 ], [ -1, %php_stdiop_flush.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 126:                                              ; preds = %102
   %127 = load ptr, ptr %7, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %128 = call i32 @_php_stream_cast(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 8) #17
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %php_stdiop_sync.exit109, label %130
@@ -1235,7 +1229,7 @@ php_stdiop_flush.exit.thread.i107:                ; preds = %php_stdiop_flush.ex
 
 php_stdiop_sync.exit109:                          ; preds = %126, %php_stdiop_flush.exit.i105, %141
   %.0.i106 = phi i32 [ %145, %141 ], [ -1, %126 ], [ -1, %php_stdiop_flush.exit.i105 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
 146:                                              ; preds = %15
@@ -1283,16 +1277,16 @@ php_stdiop_sync.exit109:                          ; preds = %126, %php_stdiop_fl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = and i32 %3, 2048
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !51
   %10 = call i32 @php_stream_parse_fopen_modes(ptr noundef %1, ptr noundef nonnull %6)
   %11 = icmp eq i32 %10, -1
@@ -1555,37 +1549,37 @@ zend_string_release_ex.exit:                      ; preds = %99, %104, %109
 
 128:                                              ; preds = %115, %117, %125, %127, %110, %17, %35, %12
   %.0 = phi ptr [ null, %12 ], [ null, %110 ], [ %37, %35 ], [ null, %17 ], [ null, %127 ], [ null, %125 ], [ %.pre48, %117 ], [ %.pre48, %115 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
-declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i64 @php_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @php_stream_from_persistent_id(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_stream_from_persistent_id(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-declare void @_efree(ptr noundef) local_unnamed_addr #4
+declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
-declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %7
 
@@ -1814,105 +1808,105 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 
 87:                                               ; preds = %28, %21, %8, %.critedge2, %.split.us, %34, %30, %23
   %.0 = phi ptr [ %24, %23 ], [ %31, %30 ], [ %.us-phi, %.split.us ], [ null, %.critedge2 ], [ %35, %34 ], [ null, %8 ], [ null, %21 ], [ null, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #4
+declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @zend_is_executing() local_unnamed_addr #4
+declare zeroext i1 @zend_is_executing() local_unnamed_addr #3
 
-declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #4
+declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #3
 
-declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #4
+declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
-declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @php_check_open_basedir_ex(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @php_check_open_basedir_ex(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #11
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #5
+declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
-declare void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #7
-
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
+declare void @php_stream_mode_sanitize_fdopen_fopencookie(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #6
+
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @_php_stream_cast(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @_php_stream_cast(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @fdatasync(i32 noundef) local_unnamed_addr #4
+declare i32 @fdatasync(i32 noundef) local_unnamed_addr #3
 
-declare i32 @fsync(i32 noundef) local_unnamed_addr #4
+declare i32 @fsync(i32 noundef) local_unnamed_addr #3
 
-declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @add_assoc_bool_ex(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr readnone captures(none) %5) #3 {
+define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr readnone captures(none) %5) #2 {
   %7 = and i32 %3, 1024
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
@@ -1932,7 +1926,7 @@ define internal ptr @php_plain_files_stream_opener(ptr readnone captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_url_stater(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4) #3 {
+define internal noundef i32 @php_plain_files_url_stater(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4) #2 {
   %6 = and i32 %2, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %13
@@ -1969,7 +1963,7 @@ define internal noundef i32 @php_plain_files_url_stater(ptr readnone captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @php_plain_files_dir_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #3 {
+define internal ptr @php_plain_files_dir_opener(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #2 {
   %7 = and i32 %3, 4096
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %8
@@ -2011,7 +2005,7 @@ define internal ptr @php_plain_files_dir_opener(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #3 {
+define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef 7) #16
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2047,7 +2041,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_unlink(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr readnone captures(none) %4) #3 {
+define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca %struct.stat, align 8
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %2, null
@@ -2084,7 +2078,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
   br i1 %23, label %24, label %56
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = tail call i32 @umask(i32 noundef 63) #17
   %26 = tail call i32 @php_copy_file(ptr noundef nonnull %spec.select, ptr noundef nonnull %.034) #17
   %27 = icmp eq i32 %26, 0
@@ -2146,7 +2140,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
 .critedge50:                                      ; preds = %37, %49, %.critedge48, %44, %52
   %.2 = phi i32 [ 1, %.critedge48 ], [ 0, %44 ], [ 0, %49 ], [ 0, %52 ], [ 0, %37 ]
   %55 = tail call i32 @umask(i32 noundef %25) #17
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
 56:                                               ; preds = %20
@@ -2164,7 +2158,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #3 {
+define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca [4096 x i8], align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = alloca %struct.stat, align 8
@@ -2197,7 +2191,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br label %91
 
 22:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = call ptr @expand_filepath_with_mode(ptr noundef %spec.select, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef 0) #17
   %.not75 = icmp eq ptr %23, null
   br i1 %.not75, label %24, label %25
@@ -2212,7 +2206,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   br i1 %.not76, label %27, label %90
 
 27:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #16
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 %29
@@ -2396,12 +2390,12 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
 
 .thread92:                                        ; preds = %.thread92.sink.split, %._crit_edge, %84, %72
   %.496 = phi i32 [ 0, %72 ], [ 0, %84 ], [ 1, %._crit_edge ], [ 0, %.thread92.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %90
 
 90:                                               ; preds = %25, %.thread92, %24
   %.251 = phi i32 [ %.496, %.thread92 ], [ 0, %24 ], [ 0, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %91
 
 91:                                               ; preds = %18, %14, %12, %90
@@ -2410,7 +2404,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #3 {
+define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr readnone captures(none) %0, ptr noundef %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef 7) #16
   %6 = icmp eq i32 %5, 0
   %spec.select.idx = select i1 %6, i64 7, i64 0
@@ -2441,11 +2435,11 @@ define internal range(i32 0, 2) i32 @php_plain_files_rmdir(ptr readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #3 {
+define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call i32 @strncasecmp(ptr noundef %1, ptr noundef nonnull @.str.16, i64 noundef 7) #16
   %9 = icmp eq i32 %8, 0
   %spec.select.idx = select i1 %9, i64 7, i64 0
@@ -2565,28 +2559,28 @@ define internal range(i32 0, 2) i32 @php_plain_files_metadata(ptr readnone captu
 
 53:                                               ; preds = %.thread, %5, %52, %48, %45, %34, %25
   %.0 = phi i32 [ 0, %45 ], [ 0, %48 ], [ 1, %52 ], [ 0, %25 ], [ 0, %34 ], [ 0, %5 ], [ 0, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 4098) i64 @php_plain_files_dirstream_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #3 {
+define internal range(i64 -1, 4098) i64 @php_plain_files_dirstream_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #2 {
   %.not = icmp eq i64 %2, 4097
   br i1 %.not, label %4, label %17
 
@@ -2618,7 +2612,7 @@ define internal range(i64 -1, 4098) i64 @php_plain_files_dirstream_read(ptr noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @php_plain_files_dirstream_close(ptr noundef readonly captures(none) %0, i32 %1) #9 {
+define internal noundef i32 @php_plain_files_dirstream_close(ptr noundef readonly captures(none) %0, i32 %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = tail call i32 @closedir(ptr noundef %4)
@@ -2626,83 +2620,89 @@ define internal noundef i32 @php_plain_files_dirstream_close(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @php_plain_files_dirstream_rewind(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) #3 {
+define internal noundef i32 @php_plain_files_dirstream_rewind(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, ptr readnone captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   tail call void @rewinddir(ptr noundef %6) #17
   ret i32 0
 }
 
-declare ptr @readdir(ptr noundef) local_unnamed_addr #4
+declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare void @rewinddir(ptr noundef) local_unnamed_addr #5
+declare void @rewinddir(ptr noundef) local_unnamed_addr #4
 
-declare void @php_error_docref1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @php_error_docref1(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare void @php_clear_stat_cache(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @php_clear_stat_cache(i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare i32 @umask(i32 noundef) local_unnamed_addr #5
+declare i32 @umask(i32 noundef) local_unnamed_addr #4
 
-declare i32 @php_copy_file(ptr noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #7
-
-declare void @php_error_docref2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @php_copy_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
+
+declare void @php_error_docref2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
-declare ptr @expand_filepath_with_mode(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: nofree nounwind
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
+
+declare ptr @expand_filepath_with_mode(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare i32 @php_get_uid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_get_uid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @php_get_gid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @php_get_gid_by_name(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #4
+declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { nounwind }
 attributes #18 = { nounwind allocsize(0) }

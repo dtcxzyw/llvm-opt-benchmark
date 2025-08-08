@@ -93,7 +93,7 @@ define hidden i32 @GuessControllerType(i32 noundef %0, i32 noundef %1) local_unn
   br i1 %.not.i, label %.preheader.preheader, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.8, i32 noundef %0, i32 noundef %1) #4
   %9 = call ptr @SDL_strstr_REAL(ptr noundef nonnull %6, ptr noundef nonnull %3) #4
   %.not19.i = icmp eq ptr %9, null
@@ -106,7 +106,7 @@ define hidden i32 @GuessControllerType(i32 noundef %0, i32 noundef %1) local_unn
   br i1 %.not20.i, label %GetControllerTypeOverride.exit.thread25, label %13
 
 GetControllerTypeOverride.exit.thread25:          ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2, %GetControllerTypeOverride.exit.thread25
@@ -120,7 +120,7 @@ GetControllerTypeOverride.exit.thread25:          ; preds = %10
   %17 = icmp eq i32 %16, 0
   %spec.select.idx.i = select i1 %17, i64 18, i64 0
   %spec.select.i = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select.idx.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str, i64 noundef 7) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.loopexit, label %20
@@ -178,16 +178,10 @@ GetControllerTypeOverride.exit.thread25:          ; preds = %10
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @SDL_strncasecmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden ptr @GuessControllerName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden ptr @GuessControllerName(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = shl i32 %0, 16
   %4 = or i32 %3, %1
   br label %6
@@ -214,20 +208,26 @@ define hidden ptr @GuessControllerName(i32 noundef %0, i32 noundef %1) local_unn
   ret ptr %.07
 }
 
-declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @SDL_snprintf_REAL(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SDL_strstr_REAL(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #2
+declare i64 @SDL_strlen_REAL(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @SDL_strncmp_REAL(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

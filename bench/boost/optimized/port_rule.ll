@@ -65,14 +65,8 @@ $_ZZNK5boost4urls7grammar13unsigned_ruleItE5parseERPKcS5_E11loc__LINE___3 = comd
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result") align 8 captures(none) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result") align 8 captures(none) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::grammar::unsigned_rule", align 1
   %6 = alloca %"class.boost::system::result.5", align 8
   %7 = load ptr, ptr %2, align 8, !tbaa !3
@@ -92,8 +86,8 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
   br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK5boost4urls7grammar13unsigned_ruleItE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.5") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !10
@@ -140,8 +134,8 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
   br label %.critedge33
 
 34:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %4, %34
@@ -174,8 +168,8 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
   store i8 1, ptr %.sroa.15.0..sroa_idx49, align 2, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %42, align 8, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %43
 
 43:                                               ; preds = %.critedge33, %.critedge.thread
@@ -183,7 +177,7 @@ define hidden void @_ZNK5boost4urls6detail9port_rule5parseERPKcS4_(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK5boost4urls7grammar13unsigned_ruleItE5parseERPKcS5_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.5") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNK5boost4urls7grammar13unsigned_ruleItE5parseERPKcS5_(ptr dead_on_unwind noalias writable sret(%"class.boost::system::result.5") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = icmp eq ptr %5, %3
   br i1 %6, label %7, label %16
@@ -436,7 +430,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit66: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result.20") align 8 captures(none) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::system::result.20") align 8 captures(none) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.boost::urls::grammar::unsigned_rule", align 1
   %6 = alloca %"class.boost::system::result.5", align 8
   %7 = load ptr, ptr %2, align 8, !tbaa !3
@@ -477,8 +471,8 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
   br i1 %.not.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #3, !noalias !47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #3, !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !47
   call void @_ZNK5boost4urls7grammar13unsigned_ruleItE5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.5") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #3, !noalias !47
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !10, !noalias !47
@@ -525,8 +519,8 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
   br label %.critedge33.i.i
 
 41:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #3, !noalias !47
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3, !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
   br label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %17, %41, %13
@@ -541,8 +535,8 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
 .critedge33.i.i:                                  ; preds = %.critedge2.i.i, %22
   %.sink72.i.i = phi i64 [ %40, %.critedge2.i.i ], [ %26, %22 ]
   %.sink.i.i = phi i16 [ 0, %.critedge2.i.i ], [ %27, %22 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #3, !noalias !47
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3, !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
   br label %48
 
 48:                                               ; preds = %.critedge.thread.i.i, %.critedge33.i.i
@@ -567,11 +561,17 @@ define hidden void @_ZNK5boost4urls6detail16port_part_rule_t5parseERPKcS4_(ptr d
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
+attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

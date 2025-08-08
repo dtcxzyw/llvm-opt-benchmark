@@ -86,7 +86,7 @@ declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_lock_basic(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.PyMutex, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
   %4 = cmpxchg ptr %3, i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
@@ -124,14 +124,14 @@ _PyMutex_Unlock.exit:                             ; preds = %10, %13
   unreachable
 
 17:                                               ; preds = %_PyMutex_Unlock.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_lock_two_threads(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.test_lock2_data, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %4 = cmpxchg ptr %3, i8 0, i8 1 seq_cst seq_cst, align 1
   %5 = extractvalue { i8, i1 } %4, 1
@@ -202,7 +202,7 @@ _PyMutex_Unlock.exit:                             ; preds = %25, %28
   unreachable
 
 33:                                               ; preds = %_PyMutex_Unlock.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
@@ -210,9 +210,9 @@ _PyMutex_Unlock.exit:                             ; preds = %25, %28
 define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.test_data_counter, align 8
   %4 = alloca [5 x %struct.thread_data_counter], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   br label %5
 
@@ -244,8 +244,8 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
   unreachable
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
@@ -253,9 +253,9 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.test_data_counter, align 8
   %4 = alloca [5 x %struct.thread_data_counter], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %4, i8 0, i64 80, i1 false)
   br label %5
 
@@ -287,8 +287,8 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
   unreachable
 
 16:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
@@ -420,15 +420,15 @@ Py_DECREF.exit:                                   ; preds = %10, %7, %5, %2
 define internal noundef nonnull ptr @test_lock_once(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._PyOnceFlag, align 1
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !27
   br label %6
 
 5:                                                ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 
 6:                                                ; preds = %2, %20
@@ -480,7 +480,7 @@ _PyOnceFlag_CallOnce.exit.thread:                 ; preds = %6
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_lock_rwlock(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.test_rwlock_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.test_lock_rwlock.test_data, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_PyRWMutex_Lock(ptr noundef nonnull %4) #6
@@ -619,14 +619,14 @@ wait_until.exit8:                                 ; preds = %59
 68:                                               ; preds = %wait_until.exit8
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 19
   call void @PyEvent_Wait(ptr noundef nonnull %69) #6
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._PyRecursiveMutex, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = call i32 @_PyRecursiveMutex_IsLockedByCurrentThread(ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %4, 0
@@ -709,21 +709,15 @@ define internal noundef nonnull ptr @test_lock_recursive(ptr readnone captures(n
   unreachable
 
 37:                                               ; preds = %33
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr @_Py_NoneStruct
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @PyMutex_Lock(ptr noundef) local_unnamed_addr #1
 
@@ -887,7 +881,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
   %5 = alloca %struct.bench_data_locks, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %5, i8 0, i64 248, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %8, align 4, !tbaa !39
@@ -1055,7 +1049,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 Py_XDECREF.exit:                                  ; preds = %80, %77, %75, %.loopexit, %13
   %.0 = phi ptr [ %14, %13 ], [ %.038, %.loopexit ], [ %.038, %75 ], [ %.038, %77 ], [ %.038, %80 ]
-  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -1239,7 +1233,7 @@ define internal range(i32 -1, 1) i32 @init_maybe_fail(ptr noundef captures(none)
 declare i32 @_PyOnceFlag_CallOnceSlow(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_PyRWMutex_Lock(ptr noundef) local_unnamed_addr #1
 
@@ -1301,12 +1295,18 @@ declare i64 @PyThread_get_thread_ident_ex() local_unnamed_addr #1
 
 declare void @_PyRecursiveMutex_Unlock(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { noreturn nounwind }
 

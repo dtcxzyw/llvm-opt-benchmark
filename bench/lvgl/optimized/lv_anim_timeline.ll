@@ -21,13 +21,7 @@ define nonnull ptr @lv_anim_timeline_create() local_unnamed_addr #0 {
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_timeline_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -58,7 +52,7 @@ define void @lv_anim_timeline_pause(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @lv_free(ptr noundef) local_unnamed_addr #2
+declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -99,10 +93,10 @@ define void @lv_anim_timeline_add(ptr noundef captures(address_is_null) %0, i32 
   ret void
 }
 
-declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @lv_anim_timeline_start(ptr noundef %0) local_unnamed_addr #0 {
@@ -194,7 +188,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
   %43 = sub nuw i32 %41, %20
   %44 = sub nuw i32 %20, %41
   %45 = select i1 %42, i32 %43, i32 %44
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @lv_anim_init(ptr noundef nonnull %2) #7
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef nonnull %0) #7
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %2, ptr noundef nonnull @anim_timeline_exec_cb) #7
@@ -204,7 +198,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %2, i32 noundef %16) #7
   call void @lv_anim_set_repeat_delay(ptr noundef nonnull %2, i32 noundef %18) #7
   %46 = call ptr @lv_anim_start(ptr noundef nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %spec.select31.i
 }
 
@@ -252,11 +246,11 @@ define i32 @lv_anim_timeline_get_playtime(ptr noundef readonly captures(address_
   ret i32 %spec.select31
 }
 
-declare void @lv_anim_init(ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_init(ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @anim_timeline_exec_cb(ptr noundef initializes((12, 16)) %0, i32 noundef %1) #0 {
@@ -264,11 +258,11 @@ define internal void @anim_timeline_exec_cb(ptr noundef initializes((12, 16)) %0
   ret void
 }
 
-declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_values(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_duration(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_path_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @lv_anim_set_path_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @anim_timeline_path_cb(ptr noundef readonly captures(none) %0) #0 {
@@ -284,16 +278,16 @@ define internal i32 @anim_timeline_path_cb(ptr noundef readonly captures(none) %
   ret i32 %10
 }
 
-declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @lv_anim_set_repeat_delay(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @lv_anim_set_repeat_delay(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_start(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_reverse(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_reverse(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -308,7 +302,7 @@ define void @lv_anim_timeline_set_reverse(ptr noundef writeonly captures(address
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -322,7 +316,7 @@ define void @lv_anim_timeline_set_repeat_count(ptr noundef writeonly captures(ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_anim_timeline_set_repeat_delay(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @lv_anim_timeline_set_repeat_delay(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -382,7 +376,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %8, %.pre
   ret void
 }
 
-declare i32 @lv_map(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @lv_map(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes((12, 16)) %0, i32 noundef %1) unnamed_addr #0 {
@@ -770,10 +764,10 @@ define internal fastcc void @anim_timeline_set_act_time(ptr noundef initializes(
   br i1 %177, label %8, label %._crit_edge, !llvm.loop !37
 }
 
-declare i32 @lv_anim_get_playtime(ptr noundef) local_unnamed_addr #2
+declare i32 @lv_anim_get_playtime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_anim_timeline_get_reverse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define zeroext i1 @lv_anim_timeline_get_reverse(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -836,7 +830,7 @@ lv_anim_timeline_get_playtime.exit:               ; preds = %.lr.ph.i, %7, %.pre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -850,7 +844,7 @@ define i32 @lv_anim_timeline_get_repeat_count(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_anim_timeline_get_repeat_delay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @lv_anim_timeline_get_repeat_delay(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -863,17 +857,23 @@ define i32 @lv_anim_timeline_get_repeat_delay(ptr noundef readonly captures(addr
   ret i32 %4
 }
 
-declare ptr @lv_anim_get(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lv_anim_get(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

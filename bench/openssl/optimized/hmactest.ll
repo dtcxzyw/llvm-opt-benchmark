@@ -242,8 +242,8 @@ define internal range(i32 0, 2) i32 @test_hmac_bad() #0 {
 define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
   %1 = alloca [64 x i8], align 16
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @HMAC_CTX_new() #5
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 135, ptr noundef nonnull @.str.26, ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
@@ -513,8 +513,8 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
 
 166:                                              ; preds = %0, %165
   %.035 = phi i32 [ %.0, %165 ], [ 0, %0 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.035
 }
 
@@ -522,8 +522,8 @@ define internal range(i32 0, 2) i32 @test_hmac_run() #0 {
 define internal range(i32 0, 2) i32 @test_hmac_copy() #0 {
   %1 = alloca [64 x i8], align 16
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @HMAC_CTX_new() #5
   %4 = tail call ptr @HMAC_CTX_new() #5
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 228, ptr noundef nonnull @.str.21, ptr noundef %3) #5
@@ -611,8 +611,8 @@ pt.exit:                                          ; preds = %.lr.ph.i, %32
   %.0 = phi i32 [ 0, %pt.exit ], [ 0, %27 ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ], [ 0, %6 ], [ 0, %0 ], [ %spec.select, %43 ]
   call void @HMAC_CTX_free(ptr noundef %4) #5
   call void @HMAC_CTX_free(ptr noundef %3) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -620,9 +620,9 @@ pt.exit:                                          ; preds = %.lr.ph.i, %32
 define internal range(i32 0, 2) i32 @test_hmac_copy_uninited() #0 {
   %1 = alloca [24 x i8], align 16
   %2 = alloca [166 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 166, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(166) %2, i8 0, i64 166, i1 false)
   %3 = tail call ptr @EVP_MD_CTX_new() #5
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.7, i32 noundef 257, ptr noundef nonnull @.str.44, ptr noundef %3) #5
@@ -676,8 +676,8 @@ define internal range(i32 0, 2) i32 @test_hmac_copy_uninited() #0 {
   call void @EVP_MD_CTX_free(ptr noundef %.011) #5
   call void @EVP_MD_CTX_free(ptr noundef %.010) #5
   call void @EVP_PKEY_free(ptr noundef %.012) #5
-  call void @llvm.lifetime.end.p0(i64 166, ptr nonnull %2) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -685,8 +685,8 @@ define internal range(i32 0, 2) i32 @test_hmac_copy_uninited() #0 {
 define internal range(i32 0, 2) i32 @test_hmac_chunks(i32 noundef %0) #0 {
   %2 = alloca [32768 x i8], align 16
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [12 x %struct.test_chunks_st], ptr @test_chunks, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 16, !tbaa !17
@@ -800,13 +800,10 @@ pt.exit:                                          ; preds = %.lr.ph.i, %46
   %.022 = phi ptr [ %10, %pt.exit ], [ %10, %._crit_edge ], [ %10, %12 ], [ %10, %9 ], [ null, %1 ], [ %10, %57 ], [ %10, %28 ], [ %10, %34 ]
   %.0 = phi i32 [ 0, %pt.exit ], [ 0, %._crit_edge ], [ 0, %12 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %57 ], [ 0, %28 ], [ 0, %34 ]
   call void @HMAC_CTX_free(ptr noundef %.022) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 32768, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @pt(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
@@ -849,9 +846,6 @@ declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 
 declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @EVP_sha1() local_unnamed_addr #1
@@ -883,7 +877,7 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @HMAC_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
@@ -901,13 +895,19 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 

@@ -187,7 +187,7 @@ entry:
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %notification) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %call.i = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #10, !noalias !5
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i64 16), ptr %call.i, align 8, !noalias !5
@@ -196,7 +196,7 @@ entry:
   %m_binaryNotification.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_binaryNotification.i.i, i8 0, i64 24, i1 false), !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #10, !noalias !5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
   store ptr %call.i, ptr %agg.tmp, align 8
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
@@ -366,7 +366,7 @@ _ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit: ; preds = %
 
 cleanup.done11.thread:                            ; preds = %_ZN4node9inspector8protocol15DictionaryValue4castEPNS1_5ValueE.exit
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store i8 0, ptr %result.i, align 1
   br label %if.then.i
 
@@ -379,7 +379,7 @@ cleanup.done11:                                   ; preds = %_ZN4node9inspector8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #10
   call void @_ZN4node9inspector8protocol12ErrorSupport7setNameEPKc(ptr noundef nonnull align 8 dereferenceable(48) %errors, ptr noundef nonnull @.str.2) #10
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %result.i)
   store i8 0, ptr %result.i, align 1
   %tobool.not.i12 = icmp eq ptr %call8, null
   br i1 %tobool.not.i12, label %if.then.i, label %cond.true.i
@@ -397,7 +397,7 @@ if.then.i:                                        ; preds = %cleanup.done11.thre
 
 _ZN4node9inspector8protocol16ValueConversionsIbE9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE.exit: ; preds = %cond.true.i, %if.then.i
   %3 = load i8, ptr %result.i, align 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %result.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %result.i)
   call void @_ZN4node9inspector8protocol12ErrorSupport3popEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #10
   %call13 = call noundef zeroext i1 @_ZN4node9inspector8protocol12ErrorSupport9hasErrorsEv(ptr noundef nonnull align 8 dereferenceable(48) %errors) #10
   br i1 %call13, label %if.then, label %if.end
@@ -490,8 +490,8 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #11
   %m_frontendChannel.i = getelementptr inbounds nuw i8, ptr %uber, i64 8
   %0 = load ptr, ptr %m_frontendChannel.i, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   tail call void @_ZN4node9inspector8protocol14DispatcherBaseC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(192) %call, ptr noundef %0) #10
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector8protocol11NodeRuntime14DispatcherImplE, i64 16), ptr %call, align 8
   %m_dispatchMap.i = getelementptr inbounds nuw i8, ptr %call, i64 72
@@ -521,7 +521,7 @@ entry:
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #10
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i)
   store i64 42, ptr %__dnew.i, align 8
   %call2.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, ptr noundef %call2.i) #10
@@ -531,15 +531,15 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4.i, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 42)) #10
   %2 = load i64, ptr %__dnew.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i64 noundef %2) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i)
   %call.i7.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_MN4node9inspector8protocol11NodeRuntime14DispatcherImplEFviRS8_SE_St10unique_ptrINSB_15DictionaryValueESt14default_deleteISG_EEPNSB_12ErrorSupportEEESaISO_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS6_(ptr noundef nonnull align 8 dereferenceable(56) %m_dispatchMap.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
   store i64 ptrtoint (ptr @_ZN4node9inspector8protocol11NodeRuntime14DispatcherImpl30notifyWhenWaitingForDisconnectEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St10unique_ptrINS1_15DictionaryValueESt14default_deleteISD_EEPNS1_12ErrorSupportE to i64), ptr %call.i7.i, align 8
   %call.repack1.i = getelementptr inbounds nuw i8, ptr %call.i7.i, i64 8
   store i64 0, ptr %call.repack1.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   call void @_ZN4node9inspector8protocol14UberDispatcher14setupRedirectsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(128) %uber, ptr noundef nonnull align 8 dereferenceable(56) %m_redirects.i) #10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #10
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
@@ -1117,10 +1117,10 @@ return:                                           ; preds = %_ZNKSt8__detail15_H
 declare void @_ZN4node9inspector8protocol14DispatcherBase7WeakPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9

@@ -60,9 +60,6 @@ ubidi_openSized_77.exit:                          ; preds = %3, %0
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ubidi_openSized_77(i32 noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
@@ -177,14 +174,11 @@ ubidi_getMemory_77.exit48:                        ; preds = %.sink.split.i46, %3
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @uprv_malloc_77(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define signext range(i8 0, 2) i8 @ubidi_getMemory_77(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -316,12 +310,12 @@ define void @ubidi_close_77(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: allocsize(1)
-declare ptr @uprv_realloc_77(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @uprv_realloc_77(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @uprv_free_77(ptr noundef) local_unnamed_addr #5
+declare void @uprv_free_77(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setInverse_77(ptr noundef writeonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #6 {
+define void @ubidi_setInverse_77(ptr noundef writeonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -339,7 +333,7 @@ define void @ubidi_setInverse_77(ptr noundef writeonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ubidi_isInverse_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define signext i8 @ubidi_isInverse_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -354,7 +348,7 @@ define signext i8 @ubidi_isInverse_77(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setReorderingMode_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @ubidi_setReorderingMode_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ult i32 %1, 7
   %or.cond3 = and i1 %3, %4
@@ -374,7 +368,7 @@ define void @ubidi_setReorderingMode_77(ptr noundef writeonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ubidi_getReorderingMode_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i32 @ubidi_getReorderingMode_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -389,7 +383,7 @@ define i32 @ubidi_getReorderingMode_77(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_setReorderingOptions_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @ubidi_setReorderingOptions_77(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %7, label %3
 
@@ -407,7 +401,7 @@ define void @ubidi_setReorderingOptions_77(ptr noundef writeonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ubidi_getReorderingOptions_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i32 @ubidi_getReorderingOptions_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -492,12 +486,12 @@ define range(i32 0, 4) i32 @ubidi_getBaseDirection_77(ptr noundef %0, i32 nounde
   ret i32 %.0
 }
 
-declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #5
+declare i32 @u_strlen_77(ptr noundef) local_unnamed_addr #4
 
-declare i32 @u_charDirection_77(i32 noundef) local_unnamed_addr #5
+declare i32 @u_charDirection_77(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @ubidi_getParaLevelAtIndex_77(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
+define zeroext i8 @ubidi_getParaLevelAtIndex_77(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8, !tbaa !40
   %5 = icmp sgt i32 %4, 0
@@ -1171,8 +1165,8 @@ ubidi_getMemory_77.exit:                          ; preds = %.sink.split.i, %278
   %295 = phi i1 [ false, %ubidi_getMemory_77.exit ], [ %spec.select.i291, %291 ]
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %297 = load i32, ptr %296, align 8, !tbaa !37
-  call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %298 = and i32 %297, 4
   %.not.i288 = icmp eq i32 %298, 0
   br i1 %.not.i288, label %300, label %299
@@ -1845,8 +1839,8 @@ select.unfold.i:                                  ; preds = %.lr.ph355.i
   br i1 %exitcond.not.i, label %.loopexit347, label %594, !llvm.loop !83
 
 602:                                              ; preds = %512, %516, %525, %530
-  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 7, ptr %5, align 4, !tbaa !23
   br label %879
 
@@ -1868,8 +1862,8 @@ select.unfold.i:                                  ; preds = %.lr.ph355.i
   store i32 %.9194.i, ptr %608, align 4, !tbaa !75
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %.0183.ph.lcssa288429.i, ptr %609, align 8, !tbaa !85
-  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %610 = load ptr, ptr %243, align 8, !tbaa !76
   %611 = load i32, ptr %237, align 4, !tbaa !51
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 196
@@ -2021,7 +2015,7 @@ select.unfold.i:                                  ; preds = %.lr.ph355.i
   br label %674
 
 673:                                              ; preds = %651
-  tail call void @abort() #19
+  tail call void @abort() #18
   unreachable
 
 674:                                              ; preds = %671, %672, %665, %666, %659, %657, %655, %653
@@ -2658,7 +2652,7 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %52
   br i1 %.not285, label %85, label %207
 
 85:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 2544, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !98
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 500
   store i32 0, ptr %86, align 4, !tbaa !100
@@ -2916,12 +2910,12 @@ _ZL11bracketInitP5UBiDiP11BracketData.exit:       ; preds = %148, %154
 
 .loopexit:                                        ; preds = %._crit_edge396, %_ZL11bracketInitP5UBiDiP11BracketData.exit, %202
   %.1259 = phi i32 [ 0, %202 ], [ 2, %_ZL11bracketInitP5UBiDiP11BracketData.exit ], [ 2, %._crit_edge396 ]
-  call void @llvm.lifetime.end.p0(i64 2544, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL18directionFromFlagsP5UBiDi.exit.thread
 
 207:                                              ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 254, ptr nonnull %4) #18
-  call void @llvm.lifetime.start.p0(i64 2544, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %0, ptr %5, align 8, !tbaa !98
   %208 = getelementptr inbounds nuw i8, ptr %5, i64 500
   store i32 0, ptr %208, align 4, !tbaa !100
@@ -3711,8 +3705,8 @@ _ZL22bracketProcessBoundaryP11BracketDataihh.exit358: ; preds = %549, %559
 
 _ZL18directionFromFlagsP5UBiDi.exit366:           ; preds = %580, %608, %605
   %spec.select306 = phi i32 [ 0, %605 ], [ %..i361, %608 ], [ -1, %580 ]
-  call void @llvm.lifetime.end.p0(i64 2544, ptr nonnull %5) #18
-  call void @llvm.lifetime.end.p0(i64 254, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZL18directionFromFlagsP5UBiDi.exit.thread
 
 _ZL18directionFromFlagsP5UBiDi.exit.thread:       ; preds = %._crit_edge402, %.preheader, %52, %49, %_ZL18directionFromFlagsP5UBiDi.exit366, %41, %.loopexit
@@ -3721,7 +3715,7 @@ _ZL18directionFromFlagsP5UBiDi.exit.thread:       ; preds = %._crit_edge402, %.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr noundef nonnull captures(none) initializes((324, 328)) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #9 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZL19checkExplicitLevelsP5UBiDiP10UErrorCode(ptr noundef nonnull captures(none) initializes((324, 328)) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3912,14 +3906,14 @@ _ZL18directionFromFlagsP5UBiDi.exit:              ; preds = %.thread108, %89, %8
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #10
+declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL21resolveImplicitLevelsP5UBiDiiihh(ptr noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2, i8 noundef zeroext range(i8 0, 2) %3, i8 noundef zeroext range(i8 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.LevState, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load i32, ptr %9, align 8, !tbaa !85
   %11 = icmp slt i32 %1, %10
@@ -4311,7 +4305,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   br label %193
 
 192:                                              ; preds = %185
-  tail call void @abort() #19
+  tail call void @abort() #18
   unreachable
 
 193:                                              ; preds = %185, %173, %191, %190, %189
@@ -4480,12 +4474,12 @@ _ZL17firstL_R_AL_EN_ANP5UBiDi.exit:               ; preds = %ubidi_getCustomized
   br label %273
 
 273:                                              ; preds = %272, %257
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL14adjustWSLevelsP5UBiDi(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #9 {
+define internal fastcc void @_ZL14adjustWSLevelsP5UBiDi(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -4771,7 +4765,7 @@ define internal fastcc void @_ZL8addPointP5UBiDiii(ptr noundef nonnull captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ubidi_orderParagraphsLTR_77(ptr noundef writeonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #6 {
+define void @ubidi_orderParagraphsLTR_77(ptr noundef writeonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -4785,7 +4779,7 @@ define void @ubidi_orderParagraphsLTR_77(ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i8 @ubidi_isOrderParagraphsLTR_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define signext i8 @ubidi_isOrderParagraphsLTR_77(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4800,7 +4794,7 @@ define signext i8 @ubidi_isOrderParagraphsLTR_77(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getDirection_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define i32 @ubidi_getDirection_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4829,7 +4823,7 @@ define i32 @ubidi_getDirection_77(ptr noundef readonly captures(address) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ubidi_getText_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define ptr @ubidi_getText_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4858,7 +4852,7 @@ define ptr @ubidi_getText_77(ptr noundef readonly captures(address) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define i32 @ubidi_getLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4887,7 +4881,7 @@ define i32 @ubidi_getLength_77(ptr noundef readonly captures(address) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getProcessedLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define i32 @ubidi_getProcessedLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4916,7 +4910,7 @@ define i32 @ubidi_getProcessedLength_77(ptr noundef readonly captures(address) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_getResultLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define i32 @ubidi_getResultLength_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4945,7 +4939,7 @@ define i32 @ubidi_getResultLength_77(ptr noundef readonly captures(address) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @ubidi_getParaLevel_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define zeroext i8 @ubidi_getParaLevel_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -4974,7 +4968,7 @@ define zeroext i8 @ubidi_getParaLevel_77(ptr noundef readonly captures(address) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @ubidi_countParagraphs_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define i32 @ubidi_countParagraphs_77(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -5003,7 +4997,7 @@ define i32 @ubidi_countParagraphs_77(ptr noundef readonly captures(address) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ubidi_getParagraphByIndex_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #11 {
+define void @ubidi_getParagraphByIndex_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #10 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %72, label %8
 
@@ -5151,7 +5145,7 @@ ubidi_getParaLevelAtIndex_77.exit:                ; preds = %63, %55, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #11 {
+define i32 @ubidi_getParagraph_77(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #10 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %ubidi_getParagraphByIndex_77.exit, label %8
 
@@ -5340,7 +5334,7 @@ ubidi_getParagraphByIndex_77.exit:                ; preds = %86, %59, %43, %39, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ubidi_setClassCallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #12 {
+define void @ubidi_setClassCallback_77(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #11 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %25, label %8
 
@@ -5389,7 +5383,7 @@ define void @ubidi_setClassCallback_77(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ubidi_getClassCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #12 {
+define void @ubidi_getClassCallback_77(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #11 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %13, label %5
 
@@ -5442,18 +5436,18 @@ define i32 @ubidi_getCustomizedClass_77(ptr noundef readonly captures(none) %0, 
   ret i32 %spec.store.select
 }
 
-declare i32 @ubidi_getClass_77(i32 noundef) local_unnamed_addr #5
+declare i32 @ubidi_getClass_77(i32 noundef) local_unnamed_addr #4
 
-declare ptr @ubidi_getLevels_77(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @ubidi_getLevels_77(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
-declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #5
+declare i32 @ubidi_writeReordered_77(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
-declare void @ubidi_getVisualMap_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @ubidi_getVisualMap_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare signext i8 @ubidi_getRuns_77(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare signext i8 @ubidi_getRuns_77(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18bracketProcessCharP11BracketDatai(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
@@ -5915,9 +5909,9 @@ _ZL21bracketProcessClosingP11BracketDataii.exit:  ; preds = %99, %107, %.critedg
   ret i8 %.1
 }
 
-declare i32 @u_getBidiPairedBracket_77(i32 noundef) local_unnamed_addr #5
+declare i32 @u_getBidiPairedBracket_77(i32 noundef) local_unnamed_addr #4
 
-declare i32 @ubidi_getPairedBracketType_77(i32 noundef) local_unnamed_addr #5
+declare i32 @ubidi_getPairedBracketType_77(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL17bracketAddOpeningP11BracketDataDsi(ptr noundef nonnull captures(address) %0, i16 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
@@ -6029,7 +6023,7 @@ ubidi_getMemory_77.exit:                          ; preds = %.sink.split.i, %23
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef nonnull %0, i32 noundef range(i32 0, 65535) %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #14 {
+define internal fastcc void @_ZL6fixN0cP11BracketDataiih(ptr noundef nonnull %0, i32 noundef range(i32 0, 65535) %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %6 = load i32, ptr %5, align 4, !tbaa !100
   %7 = sext i32 %6 to i64
@@ -7023,7 +7017,7 @@ _ZL8addPointP5UBiDiii.exit265:                    ; preds = %326, %.thread.i264,
   br i1 %.not196.not, label %.lr.ph, label %_ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit, !llvm.loop !167
 
 411:                                              ; preds = %5
-  tail call void @abort() #19
+  tail call void @abort() #18
   unreachable
 
 _ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit:     ; preds = %408, %.loopexit, %69, %50, %395, %364, %._crit_edge.i253, %.thread.i255, %291, %53, %34, %5, %29, %31, %177, %198, %204, %210, %.critedge204, %._crit_edge, %_ZL8addPointP5UBiDiii.exit229, %123, %167, %._crit_edge300, %209, %205, %_ZL8addPointP5UBiDiii.exit265, %313
@@ -7097,6 +7091,12 @@ _ZL24setLevelsOutsideIsolatesP5UBiDiiih.exit277:  ; preds = %436, %.lr.ph302.pre
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
@@ -7113,25 +7113,24 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { allocsize(0) }
 attributes #17 = { allocsize(1) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

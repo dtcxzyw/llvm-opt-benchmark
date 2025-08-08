@@ -351,9 +351,6 @@ define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr nound
   ret i32 %31
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -389,9 +386,6 @@ define internal i32 @dissect_smb_unknown(ptr noundef %0, ptr readnone captures(n
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_smb_logon_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
@@ -465,7 +459,7 @@ define internal noundef i32 @dissect_smb_logon_LM20_resp(ptr noundef %0, ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr @hf_computer_name, align 4
   %7 = call i32 @display_ms_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %6, ptr noundef nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -515,7 +509,7 @@ display_LMNT_token.exit:                          ; preds = %24, %27
   %.str.196..str.195.i = select i1 %.not.i, ptr @.str.196, ptr @.str.195
   %37 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %34, ptr noundef nonnull %.str.196..str.195.i, i32 noundef %34)
   %38 = add i32 %.0, 2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %38
 }
 
@@ -529,7 +523,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %45, label %9
 
 9:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %10 = and i32 %7, 1
   %spec.select = add i32 %10, %7
@@ -591,7 +585,7 @@ display_LMNT_token.exit:                          ; preds = %31, %34
   %.str.196..str.195.i = select i1 %.not.i, ptr @.str.196, ptr @.str.195
   %43 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef %40, ptr noundef nonnull %.str.196..str.195.i, i32 noundef %40)
   %44 = add i32 %20, 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 45:                                               ; preds = %display_LMNT_token.exit, %4
@@ -1031,10 +1025,15 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ms_compressed_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

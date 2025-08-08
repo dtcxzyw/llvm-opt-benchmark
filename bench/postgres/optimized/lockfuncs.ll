@@ -121,10 +121,10 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %.lr.ph, %226
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr %38, align 8
   %41 = load i32, ptr %34, align 8
@@ -284,11 +284,11 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %124 = load i32, ptr %43, align 8
   %125 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %126 = load i32, ptr %125, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %127 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.25, i32 noundef %124, i32 noundef %126) #4
   %128 = call ptr @cstring_to_text(ptr noundef nonnull %4) #4
   %129 = ptrtoint ptr %128 to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %129, ptr %130, align 8
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -370,11 +370,11 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %181 = load i32, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %183 = load i32, ptr %182, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %184 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.25, i32 noundef %181, i32 noundef %183) #4
   %185 = call ptr @cstring_to_text(ptr noundef nonnull %3) #4
   %186 = ptrtoint ptr %185 to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 %186, ptr %187, align 16
   %188 = getelementptr inbounds nuw i8, ptr %43, i64 40
@@ -442,15 +442,15 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   store i32 1, ptr %225, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %319
 
 226:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %227 = load i32, ptr %34, align 8
   %228 = load i32, ptr %33, align 8
   %229 = icmp slt i32 %227, %228
@@ -473,10 +473,10 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %241 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds %struct.SERIALIZABLEXACT, ptr %242, i64 %239
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %244 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %244, i8 0, i64 112, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %245 = add nsw i32 %233, 1
   store i32 %245, ptr %232, align 8
@@ -546,11 +546,11 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %283 = load i32, ptr %243, align 8
   %284 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %285 = load i32, ptr %284, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %286 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.25, i32 noundef %283, i32 noundef %285) #4
   %287 = call ptr @cstring_to_text(ptr noundef nonnull %2) #4
   %288 = ptrtoint ptr %287 to i64
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %289 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i64 %288, ptr %289, align 16
   %290 = getelementptr inbounds nuw i8, ptr %243, i64 160
@@ -593,8 +593,8 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 32
   store i32 1, ptr %313, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #4
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %319
 
 314:                                              ; preds = %._crit_edge
@@ -612,40 +612,34 @@ define dso_local i64 @pg_lock_status(ptr noundef %0) local_unnamed_addr #0 {
   ret i64 %.2
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
-declare ptr @init_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateTemplateTupleDesc(i32 noundef) local_unnamed_addr #2
+declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @TupleDescInitEntry(ptr noundef, i16 noundef signext, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #1
 
-declare ptr @BlessTupleDesc(ptr noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @GetLockStatusData() local_unnamed_addr #1
 
-declare ptr @GetLockStatusData() local_unnamed_addr #2
+declare ptr @GetPredicateLockStatusData() local_unnamed_addr #1
 
-declare ptr @GetPredicateLockStatusData() local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #2
+declare ptr @per_MultiFuncCall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare ptr @GetLockmodeName(i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare ptr @GetLockmodeName(i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -813,11 +807,11 @@ define dso_local i64 @pg_blocking_pids(ptr noundef readonly captures(none) %0) l
   ret i64 %89
 }
 
-declare ptr @GetBlockerStatusData(i32 noundef) local_unnamed_addr #2
+declare ptr @GetBlockerStatusData(i32 noundef) local_unnamed_addr #1
 
-declare ptr @GetLockTagsMethodTable(ptr noundef) local_unnamed_addr #2
+declare ptr @GetLockTagsMethodTable(ptr noundef) local_unnamed_addr #1
 
-declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @construct_array_builtin(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -857,14 +851,14 @@ define dso_local i64 @pg_safe_snapshot_blocking_pids(ptr noundef readonly captur
   ret i64 %22
 }
 
-declare i32 @GetSafeSnapshotBlockingPids(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @GetSafeSnapshotBlockingPids(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_advisory_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -881,18 +875,18 @@ define dso_local noundef i64 @pg_advisory_lock_int8(ptr noundef readonly capture
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
-declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @LockAcquire(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_advisory_xact_lock_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -909,7 +903,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_int8(ptr noundef readonly ca
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -918,7 +912,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int8(ptr noundef readonly 
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -935,7 +929,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int8(ptr noundef readonly 
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -944,7 +938,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int8(ptr noundef read
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -961,7 +955,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int8(ptr noundef read
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %13, align 1
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -970,7 +964,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int8(ptr noundef read
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -989,7 +983,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int8(ptr noundef read
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext true) #4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -998,7 +992,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int8(ptr noundef
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -1017,7 +1011,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int8(ptr noundef
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext true) #4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -1026,7 +1020,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int8(ptr nound
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -1045,7 +1039,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int8(ptr nound
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true) #4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -1054,7 +1048,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int8(ptr 
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -1073,7 +1067,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int8(ptr 
   %14 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext true) #4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -1082,7 +1076,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int8(ptr noundef readon
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -1100,18 +1094,18 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int8(ptr noundef readon
   store i8 2, ptr %13, align 1
   %14 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true) #4
   %15 = zext i1 %14 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %15
 }
 
-declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare zeroext i1 @LockRelease(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LOCKTAG, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = load i32, ptr @MyDatabaseId, align 4
   store i32 %5, ptr %2, align 4
   %6 = lshr i64 %4, 32
@@ -1129,7 +1123,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int8(ptr noundef
   store i8 2, ptr %13, align 1
   %14 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true) #4
   %15 = zext i1 %14 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %15
 }
 
@@ -1142,7 +1136,7 @@ define dso_local noundef i64 @pg_advisory_lock_int4(ptr noundef readonly capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1156,7 +1150,7 @@ define dso_local noundef i64 @pg_advisory_lock_int4(ptr noundef readonly capture
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %14, align 1
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -1169,7 +1163,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_int4(ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1183,7 +1177,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_int4(ptr noundef readonly ca
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %14, align 1
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -1196,7 +1190,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int4(ptr noundef readonly 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1210,7 +1204,7 @@ define dso_local noundef i64 @pg_advisory_lock_shared_int4(ptr noundef readonly 
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %14, align 1
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -1223,7 +1217,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int4(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1237,7 +1231,7 @@ define dso_local noundef i64 @pg_advisory_xact_lock_shared_int4(ptr noundef read
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 2, ptr %14, align 1
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext false) #4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
@@ -1250,7 +1244,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int4(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1266,7 +1260,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_int4(ptr noundef read
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true, i1 noundef zeroext true) #4
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %17
 }
 
@@ -1279,7 +1273,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int4(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1295,7 +1289,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_int4(ptr noundef
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext true) #4
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %17
 }
 
@@ -1308,7 +1302,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int4(ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1324,7 +1318,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_lock_shared_int4(ptr nound
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true, i1 noundef zeroext true) #4
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %17
 }
 
@@ -1337,7 +1331,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int4(ptr 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1353,7 +1347,7 @@ define dso_local range(i64 0, 2) i64 @pg_try_advisory_xact_lock_shared_int4(ptr 
   %15 = call i32 @LockAcquire(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext false, i1 noundef zeroext true) #4
   %16 = icmp ne i32 %15, 0
   %17 = zext i1 %16 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %17
 }
 
@@ -1366,7 +1360,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int4(ptr noundef readon
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1381,7 +1375,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_int4(ptr noundef readon
   store i8 2, ptr %14, align 1
   %15 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 7, i1 noundef zeroext true) #4
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -1394,7 +1388,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int4(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr @MyDatabaseId, align 4
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1409,7 +1403,7 @@ define dso_local range(i64 0, 2) i64 @pg_advisory_unlock_shared_int4(ptr noundef
   store i8 2, ptr %14, align 1
   %15 = call zeroext i1 @LockRelease(ptr noundef nonnull %2, i32 noundef 5, i1 noundef zeroext true) #4
   %16 = zext i1 %15 to i64
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %16
 }
 
@@ -1419,14 +1413,20 @@ define dso_local noundef i64 @pg_advisory_unlock_all(ptr noundef readnone captur
   ret i64 0
 }
 
-declare void @LockReleaseSession(i16 noundef zeroext) local_unnamed_addr #2
+declare void @LockReleaseSession(i16 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #2
+declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

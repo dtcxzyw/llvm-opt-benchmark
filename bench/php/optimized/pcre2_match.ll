@@ -28,8 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.pcre2_callout_block_8, align 8
   %9 = alloca %struct.match_block_8, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp eq ptr %1, null
   %11 = icmp eq i64 %2, 0
   %or.cond = and i1 %10, %11
@@ -1629,35 +1629,29 @@ thread-pre-split:                                 ; preds = %467, %478, %459, %.
 
 .thread:                                          ; preds = %.lr.ph1126.split, %768, %784, %771, %762, %765, %.lr.ph1126.split.us, %61, %148, %755, %.loopexit1094, %115, %126, %119, %90, %57, %29, %26, %23, %13, %7, %288, %306, %110
   %.0 = phi i32 [ -48, %306 ], [ -63, %288 ], [ %102, %110 ], [ -34, %7 ], [ -51, %13 ], [ -33, %23 ], [ -31, %26 ], [ -32, %29 ], [ -34, %57 ], [ %., %90 ], [ -48, %119 ], [ %114, %126 ], [ %114, %115 ], [ -44, %.loopexit1094 ], [ -48, %755 ], [ %.957, %148 ], [ -56, %61 ], [ %164, %.lr.ph1126.split.us ], [ %738, %765 ], [ %.pre1190, %762 ], [ -2, %771 ], [ -1, %784 ], [ %.47531048, %768 ], [ %170, %.lr.ph1126.split ]
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i64 @_pcre2_strlen_8(ptr noundef) local_unnamed_addr #1
 
-declare i64 @_pcre2_strlen_8(ptr noundef) local_unnamed_addr #2
+declare i32 @_pcre2_valid_utf_8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @_pcre2_valid_utf_8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
-
-declare i32 @php_pcre2_jit_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @php_pcre2_jit_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare i32 @_pcre2_is_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_is_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_was_newline_8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef range(i64 136, 1048704) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull %5) unnamed_addr #0 {
@@ -1666,7 +1660,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %13 = load i32, ptr %12, align 8, !tbaa !53
   %14 = and i32 %13, 524288
@@ -24957,7 +24951,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
 
 14335:                                            ; preds = %.lr.ph12444, %14355
   %.97818112443 = phi i32 [ 1, %.lr.ph12444 ], [ %14359, %14355 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14336 = load i64, ptr %14311, align 8, !tbaa !126
   %14337 = load i32, ptr %14332, align 8, !tbaa !124
   %14338 = load i32, ptr %14333, align 4, !tbaa !124
@@ -25002,11 +24996,11 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
   br i1 %.not14921, label %14354, label %.thread10322
 
 .thread10322:                                     ; preds = %14353
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread9897
 
 14354:                                            ; preds = %14345, %14351, %14353, %14343
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.preheader10559.preheader
 
 14355:                                            ; preds = %14335
@@ -25014,7 +25008,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
   %14357 = load ptr, ptr %14334, align 8, !tbaa !113
   %14358 = getelementptr inbounds nuw i8, ptr %14357, i64 %14356
   store ptr %14358, ptr %14334, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %14359 = add i32 %.97818112443, 1
   %14360 = load i32, ptr %14331, align 8, !tbaa !124
   %.not9093 = icmp ugt i32 %14359, %14360
@@ -25137,7 +25131,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
 14418:                                            ; preds = %.lr.ph12450, %14433
   %.0793612448 = phi i32 [ 1, %.lr.ph12450 ], [ %spec.select9884, %14433 ]
   %.98818212447 = phi i32 [ %14361, %.lr.ph12450 ], [ %14438, %14433 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14419 = load i64, ptr %14311, align 8, !tbaa !126
   %14420 = load i32, ptr %14416, align 8, !tbaa !124
   %14421 = load i32, ptr %14417, align 4, !tbaa !124
@@ -25166,11 +25160,11 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
   br i1 %.not14922, label %14432, label %.thread10332
 
 .thread10332:                                     ; preds = %14431
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread9897
 
 14432:                                            ; preds = %14423, %14425, %14427, %14431
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit10789
 
 14433:                                            ; preds = %14418
@@ -25181,7 +25175,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
   %14436 = load ptr, ptr %14403, align 8, !tbaa !113
   %14437 = getelementptr inbounds nuw i8, ptr %14436, i64 %14434
   store ptr %14437, ptr %14403, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %14438 = add nuw i32 %.98818212447, 1
   %14439 = load i32, ptr %14363, align 4, !tbaa !124
   %14440 = icmp ult i32 %14438, %14439
@@ -25263,7 +25257,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
 
 14473:                                            ; preds = %.lr.ph12953, %14473
   %.99818312951 = phi i32 [ %14468, %.lr.ph12953 ], [ %14481, %14473 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %14474 = load i64, ptr %14470, align 8, !tbaa !126
   %14475 = load i32, ptr %14471, align 8, !tbaa !124
   %14476 = load i32, ptr %14472, align 4, !tbaa !124
@@ -25272,7 +25266,7 @@ thread-pre-split10138:                            ; preds = %.thread-pre-split10
   %14479 = load ptr, ptr %14463, align 8, !tbaa !113
   %14480 = getelementptr inbounds nuw i8, ptr %14479, i64 %14478
   store ptr %14480, ptr %14463, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %14481 = add nuw i32 %.99818312951, 1
   %14482 = load i32, ptr %14465, align 4, !tbaa !124
   %14483 = icmp ult i32 %14481, %14482
@@ -28792,20 +28786,20 @@ thread-pre-split10412:                            ; preds = %15407, %15405, %154
 
 .thread9897:                                      ; preds = %87, %99, %96, %79, %14752, %10765, %10632, %10473, %8661, %138, %134, %7202, %6839, %6708, %6445, %6310, %5801, %13694, %13586, %13477, %13369, %13260, %13152, %13048, %12939, %12199, %12078, %11970, %11857, %11732, %11609, %11484, %11350, %11230, %11110, %10988, %10868, %8335, %8309, %8287, %8261, %8239, %5749, %7075, %6957, %6575, %6184, %6058, %5929, %5382, %3878, %3442, %2972, %2442, %2163, %2012, %1721, %1417, %1363, %12822, %.preheader10815, %15991, %15826, %15815, %15733, %15730, %15676, %15453, %14302, %13821, %._crit_edge14800, %14098, %14074, %14051, %14027, %14004, %13986, %13968, %13950, %13932, %13904, %13891, %13834, %12701, %12809, %12793, %12779, %12725, %12346, %10828, %8349, %8639, %8619, %8598, %8578, %8557, %8537, %8522, %8507, %8492, %8477, %8451, %8439, %8383, %7451, %8122, %8012, %7902, %7792, %7682, %7561, %7536, %7486, %7337, %5653, %5544, %5285, %5174, %5063, %4952, %4841, %4819, %4712, %4594, %4477, %4359, %4242, %4124, %4007, %3633, %3202, %3101, %2772, %2647, %2556, %2274, %2127, %1831, %1489, %1442, %1300, %1228, %731, %454, %435, %410, %371, %349, %337, %250, %8419, %7520, %7446, %13870, %12759, %12455, %.preheader10591, %157, %16270, %16266, %14396, %thread-pre-split10138, %10718, %10615, %10493, %10363, %10213, %10074, %9946, %9812, %9672, %9529, %9390, %9236, %9098, %8960, %8820, %8680, %3759, %3326, %2940, %2809, %2418, %2300, %1982, %1860, %1467, %1390, %1273, %.lr.ph12956, %263, %.thread10332, %.thread10322
   %.6 = phi i32 [ -2, %.thread10322 ], [ -2, %.thread10332 ], [ 1, %263 ], [ 1, %.lr.ph12956 ], [ -44, %16270 ], [ %.47968, %16266 ], [ -2, %14396 ], [ -44, %thread-pre-split10138 ], [ -2, %10718 ], [ -44, %10615 ], [ -2, %10493 ], [ -2, %10363 ], [ -2, %10213 ], [ -2, %10074 ], [ -2, %9946 ], [ -2, %9812 ], [ -2, %9672 ], [ -2, %9529 ], [ -2, %9390 ], [ -2, %9236 ], [ -2, %9098 ], [ -2, %8960 ], [ -2, %8820 ], [ -2, %8680 ], [ -2, %3759 ], [ -2, %3326 ], [ -2, %2940 ], [ -2, %2809 ], [ -2, %2418 ], [ -2, %2300 ], [ -2, %1982 ], [ -2, %1860 ], [ -2, %1467 ], [ -2, %1390 ], [ -2, %1273 ], [ -44, %157 ], [ -44, %.preheader10591 ], [ -2, %12455 ], [ -2, %12759 ], [ -2, %13870 ], [ -2, %7446 ], [ -2, %7520 ], [ -2, %8419 ], [ -2, %7202 ], [ -2, %6839 ], [ -2, %6708 ], [ -2, %6445 ], [ -2, %6310 ], [ -2, %5801 ], [ -2, %13694 ], [ -2, %13586 ], [ -2, %13477 ], [ -2, %13369 ], [ -2, %13260 ], [ -2, %13152 ], [ -2, %13048 ], [ -2, %12939 ], [ -2, %12199 ], [ -2, %12078 ], [ -2, %11970 ], [ -2, %11857 ], [ -2, %11732 ], [ -2, %11609 ], [ -2, %11484 ], [ -2, %11350 ], [ -2, %11230 ], [ -2, %11110 ], [ -2, %10988 ], [ -2, %10868 ], [ -2, %8335 ], [ -2, %8309 ], [ -2, %8287 ], [ -2, %8261 ], [ -2, %8239 ], [ -2, %5929 ], [ -2, %6058 ], [ -2, %6184 ], [ -2, %6575 ], [ -2, %6957 ], [ -2, %7075 ], [ -44, %5749 ], [ -44, %5382 ], [ -2, %3878 ], [ -2, %3442 ], [ -2, %2972 ], [ -2, %2442 ], [ -2, %2163 ], [ -2, %2012 ], [ -2, %1721 ], [ -2, %1417 ], [ -2, %1363 ], [ -2, %12822 ], [ -44, %.preheader10815 ], [ -2, %15991 ], [ -2, %15826 ], [ -2, %15815 ], [ -2, %15733 ], [ -2, %15730 ], [ -2, %15676 ], [ -44, %15453 ], [ -2, %14302 ], [ -44, %13821 ], [ -2, %._crit_edge14800 ], [ -2, %14098 ], [ -2, %14074 ], [ -2, %14051 ], [ -2, %14027 ], [ -2, %14004 ], [ -2, %13986 ], [ -2, %13968 ], [ -2, %13950 ], [ -2, %13932 ], [ -2, %13904 ], [ -2, %13891 ], [ -2, %13834 ], [ -44, %12701 ], [ -2, %12809 ], [ -2, %12793 ], [ -2, %12779 ], [ -2, %12725 ], [ -2, %12346 ], [ -44, %10828 ], [ -44, %8349 ], [ -2, %8639 ], [ -2, %8619 ], [ -2, %8598 ], [ -2, %8578 ], [ -2, %8557 ], [ -2, %8537 ], [ -2, %8522 ], [ -2, %8507 ], [ -2, %8492 ], [ -2, %8477 ], [ -2, %8451 ], [ -2, %8439 ], [ -2, %8383 ], [ -44, %7451 ], [ -2, %8122 ], [ -2, %8012 ], [ -2, %7902 ], [ -2, %7792 ], [ -2, %7682 ], [ -2, %7561 ], [ -2, %7536 ], [ -2, %7486 ], [ -2, %7337 ], [ -2, %5653 ], [ -2, %5544 ], [ -2, %5285 ], [ -2, %5174 ], [ -2, %5063 ], [ -2, %4952 ], [ -2, %4841 ], [ -2, %4819 ], [ -2, %4712 ], [ -2, %4594 ], [ -2, %4477 ], [ -2, %4359 ], [ -2, %4242 ], [ -2, %4124 ], [ -2, %4007 ], [ -2, %3633 ], [ -2, %3202 ], [ -2, %3101 ], [ -2, %2772 ], [ -2, %2647 ], [ -2, %2556 ], [ -2, %2274 ], [ -2, %2127 ], [ -2, %1831 ], [ -2, %1489 ], [ -2, %1442 ], [ -2, %1300 ], [ -2, %1228 ], [ -2, %731 ], [ -2, %454 ], [ -2, %435 ], [ -2, %410 ], [ -2, %371 ], [ -2, %349 ], [ -2, %337 ], [ 0, %250 ], [ -48, %79 ], [ -63, %96 ], [ -48, %99 ], [ -63, %87 ], [ -52, %14752 ], [ -2, %10765 ], [ -2, %10632 ], [ -2, %10473 ], [ -44, %8661 ], [ -53, %138 ], [ -47, %134 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.6
 }
 
-declare i32 @_pcre2_ord2utf_8(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_pcre2_ord2utf_8(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_xclass_8(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_eclass_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_eclass_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %8 = load i64, ptr %7, align 8, !tbaa !116
   %.not = icmp ult i64 %0, %8
@@ -29506,9 +29500,15 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr noundef nonnull reado
   ret i32 %.0
 }
 
-declare i32 @_pcre2_script_run_8(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @_pcre2_script_run_8(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @_pcre2_strcmp_8(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @_pcre2_strcmp_8(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
@@ -29526,12 +29526,12 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nounwind }

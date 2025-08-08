@@ -59,7 +59,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %7, %9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detail16SlowDynamicAPIntaSEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
@@ -81,18 +81,12 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %10, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !3
   store i32 %13, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4llvm6detail16SlowDynamicAPIntcvlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK4llvm6detail16SlowDynamicAPIntcvlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !3
   %4 = icmp ult i32 %3, 65
@@ -124,7 +118,7 @@ define dso_local i64 @_ZN4llvm6detail10hash_valueERKNS0_16SlowDynamicAPIntE(ptr 
   ret i64 %2
 }
 
-declare i64 @_ZN4llvm10hash_valueERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare i64 @_ZN4llvm10hash_valueERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detailpLERNS0_16SlowDynamicAPIntEl(ptr noundef nonnull returned align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
@@ -132,11 +126,11 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !11
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !11
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !11
@@ -158,8 +152,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit.i
 
 _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit.i: ; preds = %15, %12, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ult i32 %17, 65
@@ -180,7 +174,7 @@ _ZN4llvm6detail16SlowDynamicAPIntpLERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3
   store i32 %25, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = icmp ugt i32 %27, 64
@@ -196,7 +190,7 @@ _ZN4llvm6detail16SlowDynamicAPIntpLERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZN4llvm6detail16SlowDynamicAPIntpLERKS1_.exit, %29, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -205,9 +199,9 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !14
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !14
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !14
@@ -229,8 +223,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit:  ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ult i32 %16, 65
@@ -251,7 +245,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %21, %18, %_ZNK4llvm
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !3
   store i32 %24, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
@@ -261,11 +255,11 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !17
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !17
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7ssub_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !17
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !17
@@ -287,8 +281,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit.i
 
 _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit.i: ; preds = %15, %12, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ult i32 %17, 65
@@ -309,7 +303,7 @@ _ZN4llvm6detail16SlowDynamicAPIntmIERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3
   store i32 %25, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = icmp ugt i32 %27, 64
@@ -325,7 +319,7 @@ _ZN4llvm6detail16SlowDynamicAPIntmIERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZN4llvm6detail16SlowDynamicAPIntmIERKS1_.exit, %29, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -334,9 +328,9 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7ssub_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !20
@@ -358,8 +352,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit:  ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ult i32 %16, 65
@@ -380,7 +374,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %21, %18, %_ZNK4llvm
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !3
   store i32 %24, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
@@ -390,11 +384,11 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !23
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !23
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !23
@@ -416,8 +410,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit.i
 
 _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit.i: ; preds = %15, %12, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !23
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !23
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ult i32 %17, 65
@@ -438,7 +432,7 @@ _ZN4llvm6detail16SlowDynamicAPIntmLERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3
   store i32 %25, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = icmp ugt i32 %27, 64
@@ -454,7 +448,7 @@ _ZN4llvm6detail16SlowDynamicAPIntmLERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZN4llvm6detail16SlowDynamicAPIntmLERKS1_.exit, %29, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -463,9 +457,9 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !26
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !26
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !26
@@ -487,8 +481,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !26
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ult i32 %16, 65
@@ -509,7 +503,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %21, %18, %_ZNK4llvm
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !3
   store i32 %24, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
@@ -519,11 +513,11 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !29
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !29
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !29
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !noalias !29
@@ -545,8 +539,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit.i
 
 _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit.i: ; preds = %15, %12, %2
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !29
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ult i32 %17, 65
@@ -567,7 +561,7 @@ _ZN4llvm6detail16SlowDynamicAPIntdVERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !3
   store i32 %25, ptr %16, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = icmp ugt i32 %27, 64
@@ -583,7 +577,7 @@ _ZN4llvm6detail16SlowDynamicAPIntdVERKS1_.exit:   ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZN4llvm6detail16SlowDynamicAPIntdVERKS1_.exit, %29, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %0
 }
 
@@ -592,9 +586,9 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"struct.std::_Mem_fn", align 8
   %5 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !32
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %4, align 8, !noalias !32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !noalias !32
@@ -616,8 +610,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detai
   br label %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ult i32 %16, 65
@@ -638,7 +632,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %21, %18, %_ZNK4llvm
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !3
   store i32 %24, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %0
 }
 
@@ -646,9 +640,9 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %21, %18, %_ZNK4llvm
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detailrMERNS0_16SlowDynamicAPIntEl(ptr noundef nonnull returned align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %4 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !3
@@ -670,7 +664,7 @@ _ZN4llvm6detail16SlowDynamicAPIntrMERKS1_.exit:   ; preds = %2, %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !3
   store i32 %14, ptr %5, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ugt i32 %16, 64
@@ -686,14 +680,14 @@ _ZN4llvm6detail16SlowDynamicAPIntrMERKS1_.exit:   ; preds = %2, %8, %11
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZN4llvm6detail16SlowDynamicAPIntrMERKS1_.exit, %18, %21
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detail16SlowDynamicAPIntrMERKS1_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !3
@@ -715,14 +709,14 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %10, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !3
   store i32 %13, ptr %4, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -740,7 +734,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -753,9 +747,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
@@ -791,7 +785,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %10, %14
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqERKS0_.exit, %19, %22
   %23 = phi i32 [ %8, %_ZNK4llvm5APInteqERKS0_.exit ], [ %8, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %25, label %_ZN4llvm5APIntD2Ev.exit5
 
@@ -805,14 +799,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInteqER
   br label %_ZN4llvm5APIntD2Ev.exit5
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %25, %28
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailneERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -830,7 +824,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailneERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -843,9 +837,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntneERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
@@ -881,7 +875,7 @@ _ZNK4llvm5APIntneERKS0_.exit:                     ; preds = %10, %14
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APIntneERKS0_.exit, %19, %22
   %23 = phi i32 [ %8, %_ZNK4llvm5APIntneERKS0_.exit ], [ %8, %19 ], [ %.pre, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = icmp ugt i32 %23, 64
   br i1 %24, label %25, label %_ZN4llvm5APIntD2Ev.exit5
 
@@ -896,14 +890,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APIntneER
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %25, %28
   %29 = xor i1 %.0.i.i, true
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailgtERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -921,7 +915,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailgtERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -934,9 +928,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgtERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -954,7 +948,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgtERKS1_(
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ugt i32 %16, 64
@@ -971,14 +965,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %18, %21
   %22 = icmp sgt i32 %7, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -996,7 +990,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailltERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -1009,9 +1003,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1029,7 +1023,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ugt i32 %16, 64
@@ -1046,14 +1040,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %18, %21
   %22 = icmp slt i32 %7, 0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailleERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1071,7 +1065,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailleERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -1084,9 +1078,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntleERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1104,7 +1098,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntleERKS1_(
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ugt i32 %16, 64
@@ -1121,14 +1115,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %18, %21
   %22 = icmp slt i32 %7, 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1146,7 +1140,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntE
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -1159,9 +1153,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load i32, ptr %6, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   %7 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %4) #12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1179,7 +1173,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = icmp ugt i32 %16, 64
@@ -1196,7 +1190,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %11, %14
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %18, %21
   %22 = icmp sgt i32 %7, -1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %22
 }
 
@@ -1205,10 +1199,10 @@ define dso_local void @_ZN4llvm6detailplERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !35
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !35
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !35
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !35
@@ -1230,8 +1224,8 @@ define dso_local void @_ZN4llvm6detailplERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !35
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1247,7 +1241,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1255,8 +1249,8 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16S
 define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
@@ -1278,8 +1272,8 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_(ptr dead_on_un
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1288,10 +1282,10 @@ define dso_local void @_ZN4llvm6detailmiERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !38
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !38
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !38
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7ssub_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !38
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !38
@@ -1313,8 +1307,8 @@ define dso_local void @_ZN4llvm6detailmiERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !38
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !38
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1330,7 +1324,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1338,8 +1332,8 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16S
 define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7ssub_ovERKS0_Rb to i64), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
@@ -1361,8 +1355,8 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_(ptr dead_on_un
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1371,10 +1365,10 @@ define dso_local void @_ZN4llvm6detailmlERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !41
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !41
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !41
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !41
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !41
@@ -1396,8 +1390,8 @@ define dso_local void @_ZN4llvm6detailmlERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !41
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !41
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1413,7 +1407,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1421,8 +1415,8 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16S
 define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
@@ -1444,8 +1438,8 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_(ptr dead_on_un
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1454,10 +1448,10 @@ define dso_local void @_ZN4llvm6detaildvERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %2) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !44
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !44
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !44
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !44
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !44
@@ -1479,8 +1473,8 @@ define dso_local void @_ZN4llvm6detaildvERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !44
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !44
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1496,7 +1490,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1504,8 +1498,8 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16S
 define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
@@ -1527,15 +1521,15 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_(ptr dead_on_un
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %11, %14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6detailrmERKNS0_16SlowDynamicAPIntEl(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %2) #10
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1553,7 +1547,7 @@ define dso_local void @_ZN4llvm6detailrmERKNS0_16SlowDynamicAPIntEl(ptr dead_on_
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %3, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1567,10 +1561,10 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_un
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !3
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %8, i32 %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.sroa.speculated) #10
   call void @_ZNK4llvm5APInt4sremERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6) #10
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %4) #10
@@ -1604,7 +1598,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %3, %14, %17
   br label %_ZN4llvm5APIntD2Ev.exit4
 
 _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %21, %24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !3
   %27 = icmp ugt i32 %26, 64
@@ -1620,15 +1614,15 @@ _ZN4llvm5APIntD2Ev.exit4:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit5
 
 _ZN4llvm5APIntD2Ev.exit5:                         ; preds = %_ZN4llvm5APIntD2Ev.exit4, %28, %31
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detaileqElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1646,14 +1640,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detaileqElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailneElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1671,14 +1665,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailneElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailgtElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgtERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1696,14 +1690,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailgtElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailltElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1721,14 +1715,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailltElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailleElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1746,14 +1740,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailleElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6detailgeElRKNS0_16SlowDynamicAPIntE(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1771,7 +1765,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6detailgeElRKNS0_16SlowDynamicAPInt
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %4
 }
 
@@ -1780,10 +1774,10 @@ define dso_local void @_ZN4llvm6detailplElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !47
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !47
@@ -1805,8 +1799,8 @@ define dso_local void @_ZN4llvm6detailplElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !47
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1822,7 +1816,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntplERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1831,10 +1825,10 @@ define dso_local void @_ZN4llvm6detailmiElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !50
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !50
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7ssub_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !50
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !50
@@ -1856,8 +1850,8 @@ define dso_local void @_ZN4llvm6detailmiElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !50
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !50
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1873,7 +1867,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntmiERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1882,10 +1876,10 @@ define dso_local void @_ZN4llvm6detailmlElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !53
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !53
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !53
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !53
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !53
@@ -1907,8 +1901,8 @@ define dso_local void @_ZN4llvm6detailmlElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !53
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !53
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !53
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1924,7 +1918,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1933,10 +1927,10 @@ define dso_local void @_ZN4llvm6detaildvElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"struct.std::_Mem_fn", align 8
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !56
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !56
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8, !noalias !56
@@ -1958,8 +1952,8 @@ define dso_local void @_ZN4llvm6detaildvElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   br label %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !56
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !3
   %18 = icmp ugt i32 %17, 64
@@ -1975,14 +1969,14 @@ _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %3, %12, %15
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit, %19, %22
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6detailrmElRKNS0_16SlowDynamicAPIntE(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %1) #10
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2000,11 +1994,11 @@ define dso_local void @_ZN4llvm6detailrmElRKNS0_16SlowDynamicAPIntE(ptr dead_on_
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %3, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #4
+declare void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12function_refIFS0_S2_S2_RbEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr readonly captures(none) %3, i64 %4) local_unnamed_addr #1 {
@@ -2014,15 +2008,15 @@ define dso_local void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12funct
   %9 = alloca %"class.llvm::APInt", align 8
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca %"class.llvm::APInt", align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %12, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val11 = load i32, ptr %13, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.sroa.speculated.i) #10
   call void %3(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8 %0, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2040,7 +2034,7 @@ define dso_local void @_Z25runOpWithExpandOnOverflowRKN4llvm5APIntES2_NS_12funct
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %5, %17, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !3
   %23 = icmp ugt i32 %22, 64
@@ -2056,17 +2050,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %5, %17, %20
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit12:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %24, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %28 = load i8, ptr %6, align 1, !tbaa !59, !range !61, !noundef !62
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %56
 
 30:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit12
   %31 = shl i32 %.sroa.speculated.i, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %10, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %31) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %31) #10
   call void %3(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %9, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(1) %6) #10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2105,7 +2099,7 @@ _ZN4llvm5APIntD2Ev.exit13:                        ; preds = %38, %35, %30
   br label %_ZN4llvm5APIntD2Ev.exit14
 
 _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.exit13, %45, %48
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %51 = icmp ugt i32 %50, 64
@@ -2121,27 +2115,27 @@ _ZN4llvm5APIntD2Ev.exit14:                        ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit15
 
 _ZN4llvm5APIntD2Ev.exit15:                        ; preds = %_ZN4llvm5APIntD2Ev.exit14, %52, %55
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %56
 
 56:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit15, %_ZN4llvm5APIntD2Ev.exit12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @_ZNK4llvm5APInt7sadd_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #4
+declare void @_ZNK4llvm5APInt7sadd_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #3
 
-declare void @_ZNK4llvm5APInt7ssub_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #4
+declare void @_ZNK4llvm5APInt7ssub_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #3
 
-declare void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #4
+declare void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #3
 
-declare void @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #4
+declare void @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0) #10
   %4 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2159,7 +2153,7 @@ define dso_local void @_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE(ptr dead_on
   br label %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit
 
 _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %2, %8, %11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %4, label %12, label %20
 
 12:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit
@@ -2227,10 +2221,10 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit:         ; preds = %17
   br i1 %29, label %30, label %_ZN4llvm5APIntC2ERKS0_.exit3
 
 30:                                               ; preds = %11, %_ZNK4llvm5APInt16isMinSignedValueEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = shl i32 %9, 1
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %31) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !3
@@ -2302,7 +2296,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvmngENS_5APIn
   br label %_ZN4llvm5APIntD2Ev.exit1
 
 _ZN4llvm5APIntD2Ev.exit1:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %59, %62
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = load i32, ptr %33, align 8, !tbaa !3
   %64 = icmp ugt i32 %63, 64
   br i1 %64, label %65, label %_ZN4llvm5APIntD2Ev.exit2
@@ -2317,17 +2311,17 @@ _ZN4llvm5APIntD2Ev.exit1:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit2
 
 _ZN4llvm5APIntD2Ev.exit2:                         ; preds = %_ZN4llvm5APIntD2Ev.exit1, %65, %68
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %101
 
 _ZN4llvm5APIntC2ERKS0_.exit3.thread:              ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %9, ptr %69, align 8, !tbaa !3
   br label %_ZN4llvm5APInt15clearUnusedBitsEv.exit.i.i.i4
 
 _ZN4llvm5APIntC2ERKS0_.exit3:                     ; preds = %17, %_ZNK4llvm5APInt16isMinSignedValueEv.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %9, ptr %70, align 8, !tbaa !3
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %1) #10
@@ -2398,7 +2392,7 @@ _ZN4llvm5APIntD2Ev.exit7:                         ; preds = %_ZN4llvmngENS_5APIn
   br label %_ZN4llvm5APIntD2Ev.exit8
 
 _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.exit7, %97, %100
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %101
 
 101:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit8, %_ZN4llvm5APIntD2Ev.exit2
@@ -2411,7 +2405,7 @@ define dso_local void @_ZN4llvm6detail7ceilDivERKNS0_16SlowDynamicAPIntES3_(ptr 
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef -1) #10
   %8 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2429,7 +2423,7 @@ define dso_local void @_ZN4llvm6detail7ceilDivERKNS0_16SlowDynamicAPIntES3_(ptr 
   br label %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
 
 _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %8, label %16, label %17
 
 16:                                               ; preds = %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
@@ -2442,10 +2436,10 @@ _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val7 = load i32, ptr %19, align 8, !tbaa !3
   %.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.sroa.speculated.i) #10
   call void @_ZN4llvm8APIntOps12RoundingSDivERKNS_5APIntES3_NS1_8RoundingE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 2) #10
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %5) #10
@@ -2479,7 +2473,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %17, %23, %26
   br label %_ZN4llvm5APIntD2Ev.exit8
 
 _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %30, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !3
   %36 = icmp ugt i32 %35, 64
@@ -2495,15 +2489,15 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZN4llvm5APIntD2Ev.exit8, %37, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 41:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit9, %16
   ret void
 }
 
-declare void @_ZN4llvm8APIntOps12RoundingSDivERKNS_5APIntES3_NS1_8RoundingE(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #4
+declare void @_ZN4llvm8APIntOps12RoundingSDivERKNS_5APIntES3_NS1_8RoundingE(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6detail8floorDivERKNS0_16SlowDynamicAPIntES3_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 {
@@ -2511,7 +2505,7 @@ define dso_local void @_ZN4llvm6detail8floorDivERKNS0_16SlowDynamicAPIntES3_(ptr
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef -1) #10
   %8 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPInteqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2529,7 +2523,7 @@ define dso_local void @_ZN4llvm6detail8floorDivERKNS0_16SlowDynamicAPIntES3_(ptr
   br label %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
 
 _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %8, label %16, label %17
 
 16:                                               ; preds = %_ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit
@@ -2542,10 +2536,10 @@ _ZN4llvm6detaileqERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %12, %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val7 = load i32, ptr %19, align 8, !tbaa !3
   %.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.sroa.speculated.i) #10
   call void @_ZN4llvm8APIntOps12RoundingSDivERKNS_5APIntES3_NS1_8RoundingE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 0) #10
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1ERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(12) %5) #10
@@ -2579,7 +2573,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %17, %23, %26
   br label %_ZN4llvm5APIntD2Ev.exit8
 
 _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.exit, %30, %33
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !3
   %36 = icmp ugt i32 %35, 64
@@ -2595,8 +2589,8 @@ _ZN4llvm5APIntD2Ev.exit8:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit9
 
 _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %_ZN4llvm5APIntD2Ev.exit8, %37, %40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
 41:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit9, %16
@@ -2610,9 +2604,9 @@ define dso_local void @_ZN4llvm6detail3modERKNS0_16SlowDynamicAPIntES3_(ptr dead
   %6 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %7 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %8 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef 0) #10
   %9 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2630,14 +2624,14 @@ define dso_local void @_ZN4llvm6detail3modERKNS0_16SlowDynamicAPIntES3_(ptr dead
   br label %_ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit
 
 _ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %13, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %9, label %17, label %27
 
 17:                                               ; preds = %_ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK4llvm6detail16SlowDynamicAPIntrmERKS1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !70
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !70
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !70
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sadd_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !70
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %18, align 8, !noalias !70
@@ -2663,8 +2657,8 @@ _ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %13, %16
   br label %.critedge
 
 28:                                               ; preds = %26, %23, %17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !70
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !70
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !70
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !3
   %31 = icmp ugt i32 %30, 64
@@ -2680,7 +2674,7 @@ _ZN4llvm6detailltERKNS0_16SlowDynamicAPIntEl.exit: ; preds = %3, %13, %16
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %28, %32, %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 .critedge:                                        ; preds = %27, %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
@@ -2699,7 +2693,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %28, %32, %35
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit10
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit10:     ; preds = %.critedge, %39, %42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -2713,7 +2707,7 @@ define dso_local void @_ZN4llvm6detail3gcdERKNS0_16SlowDynamicAPIntES3_(ptr dead
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load i32, ptr %8, align 8, !tbaa !3
   %.sroa.speculated.i = tail call noundef i32 @llvm.umax.i32(i32 %.val, i32 %.val5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.sroa.speculated.i) #10
   call void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %6, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %.sroa.speculated.i) #10
   call void @_ZN4llvm8APIntOps21GreatestCommonDivisorENS_5APIntES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
@@ -2763,11 +2757,11 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit7
 
 _ZN4llvm5APIntD2Ev.exit7:                         ; preds = %_ZN4llvm5APIntD2Ev.exit6, %26, %29
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-declare void @_ZN4llvm8APIntOps21GreatestCommonDivisorENS_5APIntES1_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN4llvm8APIntOps21GreatestCommonDivisorENS_5APIntES1_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6detail3lcmERKNS0_16SlowDynamicAPIntES3_(ptr dead_on_unwind noalias writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #1 {
@@ -2781,9 +2775,9 @@ define dso_local void @_ZN4llvm6detail3lcmERKNS0_16SlowDynamicAPIntES3_(ptr dead
   %11 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %12 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
   %13 = alloca %"class.llvm::detail::SlowDynamicAPInt", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10, !noalias !73
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !73
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0) #10, !noalias !73
   %14 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !73
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2801,7 +2795,7 @@ define dso_local void @_ZN4llvm6detail3lcmERKNS0_16SlowDynamicAPIntES3_(ptr dead
   br label %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i
 
 _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i: ; preds = %21, %18, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10, !noalias !73
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !73
   br i1 %14, label %22, label %30
 
 22:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i
@@ -2826,9 +2820,9 @@ _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i: ; preds = %21, %18, %3
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit
 
 _ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit: ; preds = %27, %29, %30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10, !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !76
   call void @_ZN4llvm6detail16SlowDynamicAPIntC1El(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 0) #10, !noalias !76
   %31 = call noundef zeroext i1 @_ZNK4llvm6detail16SlowDynamicAPIntgeERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %8), !noalias !76
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2846,7 +2840,7 @@ _ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit: ; preds = %27, %29, %30
   br label %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2
 
 _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2: ; preds = %38, %35, %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10, !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !76
   br i1 %31, label %39, label %47
 
 39:                                               ; preds = %_ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2
@@ -2871,9 +2865,9 @@ _ZN4llvm6detailgeERKNS0_16SlowDynamicAPIntEl.exit.i2: ; preds = %38, %35, %_ZN4l
   br label %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3
 
 _ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3: ; preds = %44, %46, %47
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10, !noalias !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10, !noalias !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !79
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7smul_ovERKS0_Rb to i64), ptr %7, align 8, !noalias !79
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %48, align 8, !noalias !79
@@ -2895,12 +2889,12 @@ _ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3: ; preds = %44, %46, %47
   br label %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %_ZN4llvm6detail3absERKNS0_16SlowDynamicAPIntE.exit3, %53, %56
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10, !noalias !79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10, !noalias !79
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !79
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !79
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN4llvm6detail3gcdERKNS0_16SlowDynamicAPIntES3_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::detail::SlowDynamicAPInt") align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10, !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !82
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !82
   store i64 ptrtoint (ptr @_ZNK4llvm5APInt7sdiv_ovERKS0_Rb to i64), ptr %5, align 8, !noalias !82
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %57, align 8, !noalias !82
@@ -2922,8 +2916,8 @@ _ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit:  ; preds = %_ZN4llvm6detail3abs
   br label %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit
 
 _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntmlERKS1_.exit, %62, %65
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10, !noalias !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !82
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !82
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !3
   %68 = icmp ugt i32 %67, 64
@@ -2939,7 +2933,7 @@ _ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit:  ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16SlowDynamicAPIntdvERKS1_.exit, %69, %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !3
   %75 = icmp ugt i32 %74, 64
@@ -2955,7 +2949,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit:       ; preds = %_ZNK4llvm6detail16S
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit4
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit4:      ; preds = %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit, %76, %79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !3
   %82 = icmp ugt i32 %81, 64
@@ -2971,7 +2965,7 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit4:      ; preds = %_ZN4llvm6detail16Sl
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit5
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit5:      ; preds = %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit4, %83, %86
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %88 = load i32, ptr %87, align 8, !tbaa !3
   %89 = icmp ugt i32 %88, 64
@@ -2987,11 +2981,11 @@ _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit5:      ; preds = %_ZN4llvm6detail16Sl
   br label %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit6
 
 _ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit6:      ; preds = %_ZN4llvm6detail16SlowDynamicAPIntD2Ev.exit5, %90, %93
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
 
-declare void @_ZNK4llvm5APInt4sremERKS0_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare void @_ZNK4llvm5APInt4sremERKS0_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm6detail16SlowDynamicAPIntppEv(ptr noundef nonnull returned align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
@@ -3012,33 +3006,33 @@ define dso_local void @_ZNK4llvm6detail16SlowDynamicAPInt5printERNS_11raw_ostrea
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
-define dso_local void @_ZNK4llvm6detail16SlowDynamicAPInt4dumpEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4llvm6detail16SlowDynamicAPInt4dumpEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #10
   tail call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #10
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #3
 
-declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
+declare noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
+declare noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
+declare noundef i32 @_ZNK4llvm5APInt26countTrailingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
-declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
-declare void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
-declare void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm12function_refIFNS_5APIntERKS1_S3_RbEE11callback_fnISt7_Mem_fnIMS1_KFS1_S3_S4_EEEES1_lS3_S3_S4_(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #1 comdat align 2 {
@@ -3068,6 +3062,12 @@ _ZNKSt12_Mem_fn_baseIMN4llvm5APIntEKFS1_RKS1_RbELb1EEclIJS3_S3_S4_EEEDTclsr3stdE
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
@@ -3076,12 +3076,12 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }

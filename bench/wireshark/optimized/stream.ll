@@ -23,28 +23,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @stream_new(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stream_key, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = load ptr, ptr @stream_hash, align 8
   %6 = call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @.str.2) #8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @.str.2) #7
   unreachable
 
 9:                                                ; preds = %2
   %10 = call ptr @wmem_file_scope()
-  %11 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %10, i64 noundef 16) #9
+  %11 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %10, i64 noundef 16) #8
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %12, align 8
   %13 = call ptr @wmem_file_scope()
-  %14 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %13, i64 noundef 32) #9
+  %14 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %13, i64 noundef 32) #8
   store ptr %11, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
@@ -53,25 +53,19 @@ define noundef ptr @stream_new(ptr noundef %0, i32 noundef %1) local_unnamed_add
   ret ptr %14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @find_stream(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stream_key, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = load ptr, ptr @stream_hash, align 8
   %6 = call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %6
 }
 
@@ -102,7 +96,7 @@ cleanup_fragment_hash.exit:                       ; preds = %cleanup_stream_hash
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reassembly_table_destroy(ptr noundef) local_unnamed_addr #3
+declare void @reassembly_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @stream_init() local_unnamed_addr #0 {
@@ -116,12 +110,12 @@ define hidden void @stream_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @stream_find_frag(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.fragment_key, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
@@ -129,7 +123,7 @@ define ptr @stream_find_frag(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr @fragment_hash, align 8
   %8 = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
 
@@ -139,7 +133,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @.str.3) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @.str.3) #7
   unreachable
 
 8:                                                ; preds = %6
@@ -159,7 +153,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %14, %12
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @.str.4) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 339, ptr noundef nonnull @.str.4) #7
   unreachable
 
 19:                                               ; preds = %8, %14
@@ -175,7 +169,7 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 23:                                               ; preds = %19
   %24 = tail call ptr @wmem_file_scope()
-  %25 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #9
+  %25 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #8
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8
@@ -198,14 +192,14 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
   %36 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @stream_reassembly_table, ptr noundef %3, i32 noundef 0, ptr noundef %4, i32 noundef %34, ptr noundef null, i32 noundef %35, i1 noundef zeroext %5)
   %37 = tail call i32 @tvb_reported_length(ptr noundef %3)
   %38 = tail call ptr @wmem_file_scope()
-  %39 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %38, i64 noundef 16) #9
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %38, i64 noundef 16) #8
   store ptr %0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %1, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %2, ptr %41, align 4
   %42 = tail call ptr @wmem_file_scope()
-  %43 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #9
+  %43 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #8
   store i32 %37, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr null, ptr %44, align 8
@@ -231,10 +225,10 @@ define noundef ptr @stream_add_frag(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -242,7 +236,7 @@ define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %9, label %10
 
 9:                                                ; preds = %8
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 382, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 382, ptr noundef nonnull @.str.5) #7
   unreachable
 
 10:                                               ; preds = %8
@@ -281,10 +275,10 @@ define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @stream_get_frag_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -292,7 +286,7 @@ define hidden i32 @stream_get_frag_length(ptr noundef readonly captures(address_
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @.str.5) #7
   unreachable
 
 3:                                                ; preds = %1
@@ -306,7 +300,7 @@ define hidden ptr @stream_get_frag_data(ptr noundef readonly captures(address_is
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 408, ptr noundef nonnull @.str.5) #7
   unreachable
 
 3:                                                ; preds = %1
@@ -322,7 +316,7 @@ define hidden i32 @stream_get_pdu_no(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %2, label %3
 
 2:                                                ; preds = %1
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @.str.5) #8
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @.str.5) #7
   unreachable
 
 3:                                                ; preds = %1
@@ -334,25 +328,25 @@ define hidden i32 @stream_get_pdu_no(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #3
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #3
+declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @stream_hash_func(ptr noundef readonly captures(none) %0) #5 {
+define internal i32 @stream_hash_func(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -363,7 +357,7 @@ define internal i32 @stream_hash_func(ptr noundef readonly captures(none) %0) #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @stream_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 0, 2) i32 @stream_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -384,7 +378,7 @@ define internal range(i32 0, 2) i32 @stream_compare_func(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @fragment_hash_func(ptr noundef readonly captures(none) %0) #5 {
+define internal i32 @fragment_hash_func(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -398,7 +392,7 @@ define internal i32 @fragment_hash_func(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @fragment_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal range(i32 0, 2) i32 @fragment_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -426,19 +420,24 @@ define internal range(i32 0, 2) i32 @fragment_compare_func(ptr noundef readonly 
   ret i32 %20
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { noreturn }
-attributes #9 = { allocsize(1) }
+attributes #7 = { noreturn }
+attributes #8 = { allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

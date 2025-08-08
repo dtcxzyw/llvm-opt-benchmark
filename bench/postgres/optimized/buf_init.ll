@@ -32,10 +32,10 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr @NBuffers, align 4
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 6
@@ -135,28 +135,22 @@ define dso_local void @BufferManagerShmemInit() local_unnamed_addr #0 {
   %61 = xor i1 %.pre-phi, true
   call void @StrategyInitialize(i1 noundef zeroext %61) #3
   call void @WritebackContextInit(ptr noundef nonnull @BackendWritebackContext, ptr noundef nonnull @backend_flush_after) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 
-declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #2
+declare void @StrategyInitialize(i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @StrategyInitialize(i1 noundef zeroext) local_unnamed_addr #2
-
-declare void @WritebackContextInit(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @WritebackContextInit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @BufferManagerShmemSize() local_unnamed_addr #0 {
@@ -184,15 +178,21 @@ define dso_local i64 @BufferManagerShmemSize() local_unnamed_addr #0 {
   ret i64 %21
 }
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @StrategyShmemSize() local_unnamed_addr #2
+declare i64 @StrategyShmemSize() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

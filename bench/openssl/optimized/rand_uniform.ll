@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i32 %1, label %6 [
     i32 0, label %5
     i32 1, label %.loopexit
@@ -74,17 +74,11 @@ define i32 @ossl_rand_uniform_uint32(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .loopexit:                                        ; preds = %19, %35, %10, %3, %33, %24, %9, %5
   %.026 = phi i32 [ 0, %9 ], [ 0, %24 ], [ %34, %33 ], [ 0, %5 ], [ 0, %3 ], [ %16, %10 ], [ %16, %35 ], [ %16, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.026
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_rand_range_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
@@ -98,7 +92,7 @@ define i32 @ossl_rand_range_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 8:                                                ; preds = %4
   %9 = sub nuw i32 %2, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i32 %9, label %11 [
     i32 0, label %10
     i32 1, label %ossl_rand_uniform_uint32.exit
@@ -166,7 +160,7 @@ define i32 @ossl_rand_range_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 ossl_rand_uniform_uint32.exit:                    ; preds = %24, %40, %8, %10, %14, %15, %29, %38
   %.026.i = phi i32 [ 0, %14 ], [ 0, %29 ], [ %39, %38 ], [ 0, %10 ], [ 0, %8 ], [ %21, %15 ], [ %21, %40 ], [ %21, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = add i32 %.026.i, %1
   br label %42
 
@@ -175,9 +169,15 @@ ossl_rand_uniform_uint32.exit:                    ; preds = %24, %40, %8, %10, %
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

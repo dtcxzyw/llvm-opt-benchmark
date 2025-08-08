@@ -1746,11 +1746,11 @@ entry:
   %isolate.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %0 = load ptr, ptr %isolate.i, align 8
   %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_data.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_hint.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %initial_refcount.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ownership.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_callback.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_data.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_hint.addr.i.i)
   store i32 0, ptr %initial_refcount.addr.i.i, align 4
   store i32 0, ptr %ownership.addr.i.i, align 4
   store ptr @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_, ptr %finalize_callback.addr.i.i, align 8
@@ -1758,11 +1758,11 @@ entry:
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef nonnull %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %initial_refcount.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ownership.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_callback.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_data.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_hint.addr.i.i)
   %cmp.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i, label %if.then, label %do.end
 
@@ -2191,11 +2191,11 @@ entry:
   %isolate.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %0 = load ptr, ptr %isolate.i, align 8
   %call3.i = tail call ptr @_ZN2v88External3NewEPNS_7IsolateEPv(ptr noundef %0, ptr noundef nonnull %call.i) #24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_data.addr.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_hint.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %initial_refcount.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ownership.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_callback.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_data.addr.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_hint.addr.i.i)
   store i32 0, ptr %initial_refcount.addr.i.i, align 4
   store i32 0, ptr %ownership.addr.i.i, align 4
   store ptr @_ZN6v8impl12_GLOBAL__N_114CallbackBundle6DeleteEP10napi_env__PvS4_, ptr %finalize_callback.addr.i.i, align 8
@@ -2203,11 +2203,11 @@ entry:
   store ptr null, ptr %finalize_hint.addr.i.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i.i, ptr noundef nonnull %env, ptr %call3.i, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %initial_refcount.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ownership.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_callback.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_data.addr.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_hint.addr.i.i)
   %cmp.i = icmp eq ptr %call3.i, null
   br i1 %cmp.i, label %if.then, label %do.end
 
@@ -10489,7 +10489,7 @@ declare ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull
 define dso_local range(i32 0, 24) i32 @napi_wrap(ptr noundef %env, ptr noundef %js_object, ptr noundef %native_object, ptr noundef %finalize_cb, ptr noundef %finalize_hint, ptr noundef writeonly captures(address_is_null) %result) local_unnamed_addr #3 {
 entry:
   %try_catch.i = alloca %"class.v8impl::TryCatch", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %try_catch.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %try_catch.i)
   %cmp.i = icmp eq ptr %env, null
   br i1 %cmp.i, label %_ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit, label %do.end.i
 
@@ -10690,7 +10690,7 @@ _ZN6v8impl8TryCatchD2Ev.exit.i:                   ; preds = %if.end.i7.i.i, %_ZN
 
 _ZN6v8impl12_GLOBAL__N_14WrapEP10napi_env__P12napi_value__PvPFvS2_S5_S5_ES5_PP10napi_ref__.exit: ; preds = %entry, %if.then4.i, %if.then10.i, %_ZN6v8impl8TryCatchD2Ev.exit.i
   %retval.0.i = phi i32 [ %retval.1.i, %_ZN6v8impl8TryCatchD2Ev.exit.i ], [ %cond.i, %if.then10.i ], [ 10, %if.then4.i ], [ 1, %entry ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %try_catch.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %try_catch.i)
   ret i32 %retval.0.i
 }
 
@@ -10998,11 +10998,11 @@ do.end21:                                         ; preds = %do.end14
   br i1 %tobool.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %do.end21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_hint.addr.i)
   store i32 0, ptr %initial_refcount.addr.i, align 4
   store i32 0, ptr %ownership.addr.i, align 4
   store ptr %finalize_cb, ptr %finalize_callback.addr.i, align 8
@@ -11010,11 +11010,11 @@ if.then29:                                        ; preds = %do.end21
   store ptr %finalize_hint, ptr %finalize_hint.addr.i, align 8
   %call.i = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr %call23, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_hint.addr.i)
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then29, %do.end21
@@ -11684,11 +11684,11 @@ if.then26:                                        ; preds = %lor.lhs.false23
   br label %return
 
 if.end29:                                         ; preds = %if.then18, %lor.lhs.false, %lor.lhs.false23, %do.end13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_hint.addr.i)
   store i32 %initial_refcount, ptr %initial_refcount.addr.i, align 4
   store i32 1, ptr %ownership.addr.i, align 4
   store ptr null, ptr %finalize_callback.addr.i, align 8
@@ -11696,11 +11696,11 @@ if.end29:                                         ; preds = %if.then18, %lor.lhs
   store ptr null, ptr %finalize_hint.addr.i, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr nonnull %value, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_hint.addr.i)
   store ptr %call.i, ptr %result, align 8
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)
@@ -14933,11 +14933,11 @@ if.then20:                                        ; preds = %do.end13
 do.end23:                                         ; preds = %do.end13
   %cmp24 = icmp ne ptr %result, null
   %cond = zext i1 %cmp24 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %finalize_hint.addr.i)
   store i32 0, ptr %initial_refcount.addr.i, align 4
   store i32 %cond, ptr %ownership.addr.i, align 4
   store ptr %finalize_cb, ptr %finalize_callback.addr.i, align 8
@@ -14945,11 +14945,11 @@ do.end23:                                         ; preds = %do.end13
   store ptr %finalize_hint, ptr %finalize_hint.addr.i, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #25
   call void @_ZN6v8impl9ReferenceC2IJRjRNS_9OwnershipERPFvP10napi_env__PvS7_ERS7_SB_EEES6_N2v85LocalINSC_5ValueEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(81) %call.i, ptr noundef nonnull %env, ptr nonnull %js_object, ptr noundef nonnull align 4 dereferenceable(4) %initial_refcount.addr.i, ptr noundef nonnull align 4 dereferenceable(4) %ownership.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_callback.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_data.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %finalize_hint.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %initial_refcount.addr.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ownership.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_callback.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_data.addr.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %finalize_hint.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %initial_refcount.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ownership.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_callback.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_data.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %finalize_hint.addr.i)
   %cmp29.not = icmp eq ptr %result, null
   br i1 %cmp29.not, label %if.end31, label %if.then30
 
@@ -17009,10 +17009,10 @@ entry:
 declare double @llvm.fabs.f64(double) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21

@@ -230,17 +230,11 @@ define dso_local void @gpu_p_get_device_count(ptr noundef %0) local_unnamed_addr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @nvmlDeviceGetCount_v2(ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetCount_v2(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2
-
-declare ptr @nvmlErrorString(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @nvmlErrorString(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @init() local_unnamed_addr #0 {
@@ -264,13 +258,13 @@ define dso_local noundef i32 @init() local_unnamed_addr #0 {
   ret i32 0
 }
 
-declare zeroext i1 @slurm_running_in_slurmstepd() local_unnamed_addr #2
+declare zeroext i1 @slurm_running_in_slurmstepd() local_unnamed_addr #1
 
-declare void @gpu_get_tres_pos(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gpu_get_tres_pos(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_get_log_level() local_unnamed_addr #2
+declare i32 @slurm_get_log_level() local_unnamed_addr #1
 
-declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @fini() local_unnamed_addr #0 {
@@ -293,11 +287,11 @@ define internal fastcc void @_nvml_shutdown() unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #12
   %6 = tail call i32 @nvmlShutdown() #12
   store i32 0, ptr @init_pid, align 4
@@ -331,10 +325,10 @@ define internal fastcc void @_nvml_shutdown() unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %16, %19, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -388,15 +382,15 @@ define dso_local ptr @gpu_p_get_system_gpu_list(ptr noundef readonly captures(no
   %47 = alloca ptr, align 8
   %48 = alloca ptr, align 8
   %49 = alloca %struct.nvml_mig_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store ptr null, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 0, ptr %31, align 4
   %50 = tail call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #12
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %35) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   tail call fastcc void @_nvml_init()
   %51 = call i32 @nvmlSystemGetDriverVersion(ptr noundef nonnull %32, i32 noundef 80) #12
   %.not.i.i = icmp eq i32 %51, 0
@@ -492,7 +486,7 @@ gpu_p_get_device_count.exit.i:                    ; preds = %72, %70
 
 90:                                               ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %91 = trunc nuw i64 %indvars.iv.i to i32
   %92 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %91, ptr noundef nonnull %36) #12
   %.not.i69.i = icmp eq i32 %92, 0
@@ -522,7 +516,7 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
   br label %102
 
 102:                                              ; preds = %_nvml_get_device_pci_info.exit.i, %_nvml_get_handle.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %103 = load i32, ptr %31, align 4
   %104 = zext i32 %103 to i64
@@ -597,22 +591,22 @@ _nvml_get_device_pci_info.exit.i:                 ; preds = %97, %95
 
 151:                                              ; preds = %542, %.lr.ph125.i
   %.2122.i = phi i32 [ 0, %.lr.ph125.i ], [ %543, %542 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %38) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %38, i8 0, i64 80, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i32 0, ptr %39, align 4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %40) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %40, i8 0, i64 4096, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store ptr null, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store ptr null, ptr %42, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store ptr null, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %44) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %44, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %45) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i32 32800, ptr %45, align 8
   store i32 0, ptr %126, align 4
   store i64 1, ptr %127, align 8
@@ -735,12 +729,12 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %178, %176
 
 195:                                              ; preds = %185
   %196 = load i32, ptr %31, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %197 = zext i32 %196 to i64
   %198 = call ptr @slurm_xcalloc(i64 noundef %197, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.29, i32 noundef 900, ptr noundef nonnull @__func__._nvml_get_nvlink_info) #12
   store ptr %198, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store ptr null, ptr %28, align 8
   %199 = sext i32 %.2122.i to i64
   %200 = getelementptr inbounds i32, ptr %198, i64 %199
@@ -788,7 +782,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %178, %176
   br i1 %218, label %219, label %241
 
 219:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %220 = call i32 @slurm_get_log_level() #12
   %221 = icmp sgt i32 %220, 6
   br i1 %221, label %222, label %223
@@ -799,7 +793,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %178, %176
 
 223:                                              ; preds = %222, %219
   %.val.i.i = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %25) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %25, i8 0, i64 68, i1 false)
   %224 = call i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef %.val.i.i, i32 noundef range(i32 0, 18) %.035.i.i, ptr noundef nonnull %25) #12
   %.not.i.i.i = icmp eq i32 %224, 0
@@ -813,7 +807,7 @@ _nvml_get_device_affinity.exit.i:                 ; preds = %178, %176
 _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %225, %223
   %.sink.i.i.i = phi ptr [ @.str.7, %225 ], [ %138, %223 ]
   %228 = call ptr @slurm_xstrdup(ptr noundef nonnull %.sink.i.i.i) #12
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %25) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   store ptr %228, ptr %29, align 8
   %229 = icmp ne ptr %228, null
   %or.cond16.i.reass.i.i = and i1 %invariant.op.i.i, %229
@@ -848,7 +842,7 @@ _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
 
 _get_index_from_str_arr.exit.thread.i.i:          ; preds = %234, %236, %_get_index_from_str_arr.exit.i.i, %_nvml_get_nvlink_remote_pcie.exit.i.i
   call void @slurm_xfree(ptr noundef nonnull %29) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   br label %245
 
 241:                                              ; preds = %216
@@ -891,9 +885,9 @@ _get_index_from_str_arr.exit.thread.i.i:          ; preds = %234, %236, %_get_in
 
 _nvml_get_nvlink_info.exit.i:                     ; preds = %250, %._crit_edge.i.i
   %252 = phi ptr [ %251, %250 ], [ %249, %._crit_edge.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store ptr %252, ptr %43, align 8
   %253 = load i32, ptr %39, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %42, ptr noundef nonnull @.str.33, i32 noundef %253) #12
@@ -1013,8 +1007,8 @@ _nvml_get_nvlink_info.exit.i:                     ; preds = %250, %._crit_edge.i
   br i1 %159, label %309, label %.critedge.i
 
 309:                                              ; preds = %308
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %310 = call ptr @slurm_xstrdup(ptr noundef nonnull %44) #12
   store ptr %310, ptr %47, align 8
   %311 = call ptr @slurm_xstrchr(ptr noundef %310, i32 noundef 45) #12
@@ -1053,7 +1047,7 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
 
 .lr.ph114.i:                                      ; preds = %.lr.ph114.i.preheader, %326
   %.039113.i = phi i32 [ %327, %326 ], [ 0, %.lr.ph114.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %.val65.i = load ptr, ptr %37, align 8
   %322 = call i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef %.val65.i, i32 noundef %.039113.i, ptr noundef nonnull %48) #12
   switch i32 %322, label %323 [
@@ -1067,12 +1061,12 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
   br label %.loopexit94.i
 
 .loopexit94.i:                                    ; preds = %.lr.ph114.i, %323
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %.loopexit.i
 
 326:                                              ; preds = %.lr.ph114.i
   %327 = add nuw i32 %.039113.i, 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %328 = load i32, ptr %46, align 4
   %329 = icmp ult i32 %327, %328
   br i1 %329, label %.lr.ph114.i, label %.loopexit.i, !llvm.loop !15
@@ -1098,13 +1092,13 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
 
 ._crit_edge120.i:                                 ; preds = %473
   call void @slurm_xfree(ptr noundef nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br i1 %.145115.ph.i, label %484, label %.critedge.i
 
 .lr.ph119.i:                                      ; preds = %473, %.lr.ph119.outer.i
   %.0116.i = phi i32 [ %474, %473 ], [ %.0116.ph.i, %.lr.ph119.outer.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   %335 = load ptr, ptr %42, align 8
   %336 = call ptr @slurm_xstrdup(ptr noundef %335) #12
@@ -1114,13 +1108,13 @@ _nvml_get_max_mig_device_count.exit.i:            ; preds = %317
   store ptr %338, ptr %143, align 8
   %339 = load i32, ptr %39, align 4
   %.val66.i = load ptr, ptr %37, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %20) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %20, i8 0, i64 96, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %21, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %340 = call i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef %.val66.i, i32 noundef %.0116.i, ptr noundef nonnull %19) #12
   switch i32 %340, label %341 [
     i32 6, label %473
@@ -1174,20 +1168,20 @@ _nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i:
 _nvml_get_compute_instance_id.exit.i.i:           ; preds = %353, %_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i
   %356 = phi i32 [ %.pre.i.i, %_nvml_get_gpu_instance_id.exit._nvml_get_compute_instance_id.exit_crit_edge.i.i ], [ 0, %353 ]
   %357 = load i32, ptr %22, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %358 = call noalias ptr @fopen(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90)
   %.not.i34.i.i = icmp eq ptr %358, null
   br i1 %.not.i34.i.i, label %_nvml_get_mig_minor_numbers.exit.thread.i.i, label %360
 
 _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_instance_id.exit.i.i
   %359 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.89) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %473
 
 360:                                              ; preds = %_nvml_get_compute_instance_id.exit.i.i
@@ -1266,18 +1260,18 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
 
 _nvml_get_mig_minor_numbers.exit.i.i:             ; preds = %368, %366
   %386 = call i32 @fclose(ptr noundef nonnull %358)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %473
 
 387:                                              ; preds = %385, %382
   %388 = call i32 @fclose(ptr noundef nonnull %358)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.val.i82.i = load ptr, ptr %19, align 8
   %389 = call i32 @nvmlDeviceGetName(ptr noundef %.val.i82.i, ptr noundef nonnull %21, i32 noundef 64) #12
   %.not.i35.i.i = icmp eq i32 %389, 0
@@ -1305,7 +1299,7 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %390, %387
   br label %412
 
 398:                                              ; preds = %394, %_nvml_get_device_name.exit.i.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %399 = load ptr, ptr %19, align 8
   %400 = call i32 @nvmlDeviceGetAttributes_v2(ptr noundef %399, ptr noundef nonnull %24) #12
   %.not26.i.i = icmp eq i32 %400, 0
@@ -1329,13 +1323,13 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %390, %387
   %407 = add i64 %406, 1023
   %408 = lshr i64 %407, 10
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %143, ptr noundef nonnull @.str.76, i32 noundef %405, i64 noundef %408) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %412
 
 409:                                              ; preds = %398
   %410 = call ptr @nvmlErrorString(i32 noundef %400) #12
   %411 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.73, ptr noundef %410) #12
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %473
 
 412:                                              ; preds = %.thread.i.i, %396
@@ -1347,10 +1341,10 @@ _nvml_get_device_name.exit.i.i:                   ; preds = %390, %387
   br i1 %.b8.pre.i.i.i, label %428, label %429
 
 413:                                              ; preds = %412
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %414 = call i32 @nvmlSystemGetDriverVersion(ptr noundef nonnull %14, i32 noundef 80) #12
   %.not.i.i.i.i = icmp eq i32 %414, 0
   br i1 %.not.i.i.i.i, label %_nvml_get_driver.exit.i.i.i, label %415
@@ -1377,10 +1371,10 @@ _nvml_get_driver.exit.i.i.i:                      ; preds = %415, %413
 _nvml_use_mig_uuid.exit.thread.i.i:               ; preds = %421, %_nvml_get_driver.exit.i.i.i
   store i1 true, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
   store i1 true, ptr @_nvml_use_mig_uuid.set, align 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %428
 
 _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
@@ -1391,10 +1385,10 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   %or.cond13.i.i.i = select i1 %or.cond11.i.i.i, i1 %427, i1 false
   store i1 %or.cond13.i.i.i, ptr @_nvml_use_mig_uuid.nvml_use_mig_uuid, align 1
   store i1 true, ptr @_nvml_use_mig_uuid.set, align 1
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %or.cond13.i.i.i, label %428, label %429
 
 428:                                              ; preds = %_nvml_use_mig_uuid.exit.i.i, %_nvml_use_mig_uuid.exit.thread.i.i, %._crit_edge.i.i.i
@@ -1495,26 +1489,26 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   br label %.thread162.i
 
 473:                                              ; preds = %409, %_nvml_get_mig_minor_numbers.exit.i.i, %_nvml_get_mig_minor_numbers.exit.thread.i.i, %341, %.lr.ph119.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @slurm_xfree(ptr noundef nonnull %49) #12
   call void @slurm_xfree(ptr noundef nonnull %148) #12
   call void @slurm_xfree(ptr noundef nonnull %143) #12
   call void @slurm_xfree(ptr noundef nonnull %147) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %474 = add nuw i32 %.0116.i, 1
   %exitcond.not.i = icmp eq i32 %474, %.041102.i
   br i1 %exitcond.not.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !16
 
 .thread162.i:                                     ; preds = %471, %468
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #12
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %20) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %475 = load ptr, ptr %49, align 8
   store ptr %475, ptr %132, align 8
   %476 = load ptr, ptr %143, align 8
@@ -1529,22 +1523,22 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   call void @slurm_xfree(ptr noundef nonnull %148) #12
   call void @slurm_xfree(ptr noundef nonnull %143) #12
   call void @slurm_xfree(ptr noundef nonnull %147) #12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %480 = add nuw i32 %.0116.i, 1
   %exitcond.not164.i = icmp eq i32 %480, %.041102.i
   br i1 %exitcond.not164.i, label %._crit_edge120.thread.i, label %.lr.ph119.outer.i, !llvm.loop !16
 
 ._crit_edge120.thread.i:                          ; preds = %.thread162.i
   call void @slurm_xfree(ptr noundef nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %484
 
 .critedge.critedge.i:                             ; preds = %333
   %481 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.48) #12
   call void @slurm_xfree(ptr noundef nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.critedge.i, %._crit_edge120.i, %308
@@ -1557,11 +1551,11 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   br label %484
 
 484:                                              ; preds = %.critedge.i, %._crit_edge120.thread.i, %._crit_edge120.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 512, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %10, i8 0, i64 2048, i1 false)
   %485 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnull readonly %37, ptr noundef %8, ptr noundef %9)
   br i1 %485, label %486, label %_nvml_print_freqs.exit.i
@@ -1582,7 +1576,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   %491 = load i32, ptr %9, align 16
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.102, i32 noundef %491) #12
   %492 = load i32, ptr %9, align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 512, ptr %7, align 4
   %493 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %492, ptr noundef %7, ptr noundef nonnull %10)
   br i1 %493, label %494, label %_nvml_print_gfx_freqs.exit.i.i
@@ -1593,11 +1587,11 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %421
   br label %_nvml_print_gfx_freqs.exit.i.i
 
 _nvml_print_gfx_freqs.exit.i.i:                   ; preds = %494, %490
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %496 = load i32, ptr %149, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.103, i32 noundef %496) #12
   %497 = load i32, ptr %149, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 512, ptr %6, align 4
   %498 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %497, ptr noundef %6, ptr noundef nonnull %10)
   br i1 %498, label %499, label %_nvml_print_gfx_freqs.exit38.i.i
@@ -1608,7 +1602,7 @@ _nvml_print_gfx_freqs.exit.i.i:                   ; preds = %494, %490
   br label %_nvml_print_gfx_freqs.exit38.i.i
 
 _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %499, %_nvml_print_gfx_freqs.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.104) #12
   %501 = load i32, ptr %8, align 4
   %502 = add i32 %501, -1
@@ -1618,7 +1612,7 @@ _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %499, %_nvml_print_g
   %506 = load i32, ptr %505, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %506, i32 noundef %503) #12
   %507 = load i32, ptr %505, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 512, ptr %5, align 4
   %508 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %507, ptr noundef %5, ptr noundef nonnull %10)
   br i1 %508, label %509, label %_nvml_print_gfx_freqs.exit39.i.i
@@ -1629,7 +1623,7 @@ _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %499, %_nvml_print_g
   br label %_nvml_print_gfx_freqs.exit39.i.i
 
 _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %509, %_nvml_print_gfx_freqs.exit38.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.104) #12
   %511 = load i32, ptr %8, align 4
   %512 = add i32 %511, -2
@@ -1638,7 +1632,7 @@ _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %509, %_nvml_print_g
   %515 = load i32, ptr %514, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %515, i32 noundef %512) #12
   %516 = load i32, ptr %514, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 512, ptr %4, align 4
   %517 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %516, ptr noundef %4, ptr noundef nonnull %10)
   br i1 %517, label %518, label %_nvml_print_gfx_freqs.exit40.i.i
@@ -1649,7 +1643,7 @@ _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %509, %_nvml_print_g
   br label %_nvml_print_gfx_freqs.exit40.i.i
 
 _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %518, %_nvml_print_gfx_freqs.exit39.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %520 = load i32, ptr %8, align 4
   %521 = add i32 %520, -1
   %522 = zext i32 %521 to i64
@@ -1657,7 +1651,7 @@ _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %518, %_nvml_print_g
   %524 = load i32, ptr %523, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %524, i32 noundef %521) #12
   %525 = load i32, ptr %523, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 512, ptr %3, align 4
   %526 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %525, ptr noundef %3, ptr noundef nonnull %10)
   br i1 %526, label %527, label %_nvml_print_gfx_freqs.exit41.i.i
@@ -1668,7 +1662,7 @@ _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %518, %_nvml_print_g
   br label %_nvml_print_gfx_freqs.exit41.i.i
 
 _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %527, %_nvml_print_gfx_freqs.exit40.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_nvml_print_freqs.exit.i
 
 .lr.ph.i86.i:                                     ; preds = %.preheader.i.i, %_nvml_print_gfx_freqs.exit42.i.i
@@ -1678,7 +1672,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %527, %_nvml_print_g
   %531 = trunc nuw i64 %indvars.iv.i87.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %530, i32 noundef %531) #12
   %532 = load i32, ptr %529, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 512, ptr %2, align 4
   %533 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %532, ptr noundef %2, ptr noundef nonnull %10)
   br i1 %533, label %534, label %_nvml_print_gfx_freqs.exit42.i.i
@@ -1689,7 +1683,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %527, %_nvml_print_g
   br label %_nvml_print_gfx_freqs.exit42.i.i
 
 _nvml_print_gfx_freqs.exit42.i.i:                 ; preds = %534, %.lr.ph.i86.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next.i88.i = add nuw nsw i64 %indvars.iv.i87.i, 1
   %536 = load i32, ptr %8, align 4
   %537 = zext i32 %536 to i64
@@ -1697,9 +1691,9 @@ _nvml_print_gfx_freqs.exit42.i.i:                 ; preds = %534, %.lr.ph.i86.i
   br i1 %538, label %.lr.ph.i86.i, label %_nvml_print_freqs.exit.i, !llvm.loop !17
 
 _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_freqs.exit42.i.i, %_nvml_print_gfx_freqs.exit41.i.i, %.preheader.i.i, %484
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %539 = load ptr, ptr %131, align 8
   %.not55.i = icmp eq ptr %539, null
   br i1 %.not55.i, label %541, label %540
@@ -1716,15 +1710,15 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   br label %542
 
 542:                                              ; preds = %541, %194, %_nvml_get_device_minor_number.exit.i, %_nvml_get_device_minor_number.exit.thread.i, %154
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %45) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %44) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #12
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %40) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %38) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %543 = add nuw i32 %.2122.i, 1
   %544 = load i32, ptr %31, align 4
   %545 = icmp ult i32 %543, %544
@@ -1777,12 +1771,12 @@ _nvml_print_freqs.exit.i:                         ; preds = %_nvml_print_gfx_fre
   br label %_get_system_gpu_list_nvml.exit
 
 _get_system_gpu_list_nvml.exit:                   ; preds = %._crit_edge130.i, %557
-  call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %35) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %33) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %559, label %561
 
@@ -1812,7 +1806,7 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.not = icmp eq ptr %0, null
   %.not10 = icmp eq ptr %1, null
   %or.cond = or i1 %.not, %.not10
@@ -1849,13 +1843,13 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
   %30 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %0) #12
   store ptr %30, ptr @saved_gpus, align 8
   tail call fastcc void @_nvml_init()
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %31 = tail call i32 @slurm_get_log_level() #12
   %32 = icmp sgt i32 %31, 5
   br i1 %32, label %33, label %34
@@ -1967,11 +1961,11 @@ define dso_local void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) 
   %.03660.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.1.i, %172 ]
   %.03759.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.138.i, %172 ]
   %.04058.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.141.i, %172 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %81 = load i32, ptr %12, align 4
   store i32 %81, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %82 = load i32, ptr %13, align 4
   store i32 %82, ptr %17, align 4
   br i1 %or.cond3.i, label %90, label %83
@@ -2013,13 +2007,13 @@ _nvml_get_handle.exit.i:                          ; preds = %90
   br label %100
 
 100:                                              ; preds = %99, %96
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %7, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 512, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 512, ptr %10, align 4
   %101 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnull readonly %15, ptr noundef %8, ptr noundef %7)
   br i1 %101, label %102, label %_nvml_get_nearest_freqs.exit.i
@@ -2037,10 +2031,10 @@ _nvml_get_handle.exit.i:                          ; preds = %90
   br label %_nvml_get_nearest_freqs.exit.i
 
 _nvml_get_nearest_freqs.exit.i:                   ; preds = %106, %102, %100
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %108 = call i32 @slurm_get_log_level() #12
   %109 = icmp sgt i32 %108, 5
   br i1 %109, label %110, label %112
@@ -2063,11 +2057,11 @@ _nvml_get_nearest_freqs.exit.i:                   ; preds = %106, %102, %100
 117:                                              ; preds = %115, %112
   %118 = load i32, ptr %17, align 4
   %119 = load i32, ptr %16, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %120 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
   %121 = load ptr, ptr %15, align 8
   %122 = call i32 @nvmlDeviceSetApplicationsClocks(ptr noundef %121, i32 noundef %118, i32 noundef %119) #12
@@ -2092,10 +2086,10 @@ _nvml_get_nearest_freqs.exit.i:                   ; preds = %106, %102, %100
   br label %_nvml_set_freqs.exit.i
 
 _nvml_set_freqs.exit.i:                           ; preds = %129, %128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %132 = call i32 @slurm_get_log_level() #12
   %133 = icmp sgt i32 %132, 5
   br i1 %133, label %134, label %136
@@ -2193,9 +2187,9 @@ _nvml_set_freqs.exit.i:                           ; preds = %129, %128
   %.141.i = phi i32 [ %91, %171 ], [ %.04058.i, %88 ], [ %.04058.i, %85 ], [ %91, %_nvml_get_handle.exit.i ]
   %.138.i = phi i32 [ %.239.i, %171 ], [ %.03759.i, %88 ], [ %.03759.i, %85 ], [ %.03759.i, %_nvml_get_handle.exit.i ]
   %.1.i = phi i1 [ %.2.i, %171 ], [ %.03660.i, %88 ], [ %.03660.i, %85 ], [ %.03660.i, %_nvml_get_handle.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
@@ -2225,29 +2219,29 @@ _nvml_set_freqs.exit.i:                           ; preds = %129, %128
   br label %_set_freq.exit
 
 _set_freq.exit:                                   ; preds = %60, %63, %79, %._crit_edge.i, %180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @slurm_xfree(ptr noundef nonnull %18) #12
   br label %183
 
 183:                                              ; preds = %19, %2, %_set_freq.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_nvml_init() unnamed_addr #0 {
@@ -2273,11 +2267,11 @@ define internal fastcc void @_nvml_init() unnamed_addr #0 {
 
 14:                                               ; preds = %10
   store i32 %11, ptr @init_pid, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #12
   %16 = tail call i32 @nvmlInit_v2() #12
   %17 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
@@ -2310,17 +2304,17 @@ define internal fastcc void @_nvml_init() unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %26, %29, %23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %31
 
 31:                                               ; preds = %10, %30
   ret void
 }
 
-declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
+declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gpu_p_step_hardware_fini() local_unnamed_addr #0 {
@@ -2347,7 +2341,7 @@ define dso_local void @gpu_p_step_hardware_fini() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %65 ]
   %.028.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %65 ]
   %.01727.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.118.i, %65 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call i32 @slurm_bit_test(ptr noundef nonnull %6, i64 noundef %indvars.iv.i) #12
   %.not21.i = icmp eq i32 %11, 0
   br i1 %.not21.i, label %65, label %12
@@ -2385,11 +2379,11 @@ _nvml_get_handle.exit.i:                          ; preds = %12
   br label %28
 
 28:                                               ; preds = %26, %23
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #12
   %30 = load ptr, ptr %5, align 8
   %31 = call i32 @nvmlDeviceResetApplicationsClocks(ptr noundef %30) #12
@@ -2414,10 +2408,10 @@ _nvml_get_handle.exit.i:                          ; preds = %12
   br label %_nvml_reset_freqs.exit.i
 
 _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %41 = call i32 @slurm_get_log_level() #12
   %42 = icmp sgt i32 %41, 5
   br i1 %42, label %43, label %45
@@ -2474,7 +2468,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
 65:                                               ; preds = %64, %61, %60, %58, %_nvml_get_handle.exit.i, %.lr.ph.i
   %.118.i = phi i32 [ %.01727.i, %.lr.ph.i ], [ %13, %_nvml_get_handle.exit.i ], [ %13, %60 ], [ %13, %64 ], [ %13, %61 ], [ %13, %58 ]
   %.1.i = phi i32 [ %.028.i, %.lr.ph.i ], [ %.028.i, %_nvml_get_handle.exit.i ], [ %.028.i, %60 ], [ %.028.i, %64 ], [ %.028.i, %61 ], [ %59, %58 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
@@ -2525,8 +2519,8 @@ _reset_freq.exit:                                 ; preds = %7, %._crit_edge.i, 
 define dso_local ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [512 x i64], align 16
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @slurm_get_log_level() #12
   %5 = icmp sgt i32 %4, 2
   br i1 %5, label %6, label %7
@@ -2677,20 +2671,20 @@ define dso_local ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 
 
 66:                                               ; preds = %62, %65, %47, %15, %8
   %.0 = phi ptr [ %17, %15 ], [ %49, %47 ], [ %10, %8 ], [ %64, %65 ], [ %64, %62 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
 
-declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
@@ -2773,10 +2767,10 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr noundef non
   ret void
 }
 
-declare ptr @slurm_bit_fmt_full(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_bit_fmt_full(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @gpu_p_energy_read(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
+define dso_local noundef i32 @gpu_p_energy_read(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i32 0
 }
 
@@ -2790,7 +2784,7 @@ define dso_local noundef i32 @gpu_p_usage_read(i32 noundef %0, ptr noundef captu
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %11 = load i32, ptr @gpumem_pos, align 4
   %12 = icmp ne i32 %11, -1
@@ -2842,7 +2836,7 @@ gpu_p_get_device_count.exit:                      ; preds = %19
 
 .lr.ph:                                           ; preds = %gpu_p_get_device_count.exit, %215
   %.026 = phi i32 [ %216, %215 ], [ 0, %gpu_p_get_device_count.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %36 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %.026, ptr noundef nonnull %10) #12
   %.not.i18 = icmp eq i32 %36, 0
   br i1 %.not.i18, label %39, label %_nvml_get_handle.exit
@@ -2857,8 +2851,8 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %42 = call i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %8, ptr noundef null) #12, !callees !28
   switch i32 %42, label %43 [
@@ -2969,15 +2963,15 @@ _nvml_get_handle.exit:                            ; preds = %.lr.ph
   br label %92
 
 _get_nvml_process_info.exit.i:                    ; preds = %64, %43
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_get_gpumem.exit
 
 92:                                               ; preds = %82, %79, %.loopexit.i.i, %46
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %93 = call i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef %41, ptr noundef nonnull %6, ptr noundef null) #12, !callees !28
   switch i32 %93, label %94 [
@@ -3088,13 +3082,13 @@ _get_nvml_process_info.exit.i:                    ; preds = %64, %43
   br label %143
 
 _get_nvml_process_info.exit20.i:                  ; preds = %115, %94
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_get_gpumem.exit
 
 143:                                              ; preds = %133, %130, %.loopexit.i18.i, %97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_get_gpumem.exit
 
 _get_gpumem.exit:                                 ; preds = %143, %_get_nvml_process_info.exit20.i, %_get_nvml_process_info.exit.i, %39
@@ -3102,8 +3096,8 @@ _get_gpumem.exit:                                 ; preds = %143, %_get_nvml_pro
 
 144:                                              ; preds = %_get_gpumem.exit
   %145 = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %146 = load i32, ptr @gpuutil_pos, align 4
   %147 = sext i32 %146 to i64
@@ -3215,8 +3209,8 @@ _get_gpumem.exit:                                 ; preds = %143, %_get_nvml_pro
   br label %_get_gpuutil.exit
 
 _get_gpuutil.exit:                                ; preds = %144, %155, %170, %177, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %199
 
 199:                                              ; preds = %_get_gpumem.exit, %_get_gpuutil.exit
@@ -3244,44 +3238,44 @@ _get_gpuutil.exit:                                ; preds = %144, %155, %170, %1
   br label %215
 
 215:                                              ; preds = %_nvml_get_handle.exit, %199, %205, %202
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %216 = add nuw nsw i32 %.026, 1
   %217 = load i32, ptr %9, align 4
   %218 = icmp ult i32 %216, %217
   br i1 %218, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %215, %gpu_p_get_device_count.exit.thread, %gpu_p_get_device_count.exit, %15, %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
-declare i32 @nvmlShutdown() local_unnamed_addr #2
+declare i32 @nvmlShutdown() local_unnamed_addr #1
 
-declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_diff_tv_str(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_destroy_gres_slurmd_conf(ptr noundef) #2
+declare void @slurm_destroy_gres_slurmd_conf(ptr noundef) #1
 
-declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @slurm_bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @add_gres_to_list(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_gres_to_list(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_nvml_is_device_mig(ptr %.0.val) unnamed_addr #0 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %3 = call i32 @nvmlDeviceGetMigMode(ptr noundef %.0.val, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
   switch i32 %3, label %4 [
@@ -3326,62 +3320,62 @@ _nvml_get_device_mig_mode.exit:                   ; preds = %0, %0, %4
 20:                                               ; preds = %.sink.split, %14, %17, %11
   %21 = load i32, ptr %1, align 4
   %22 = icmp eq i32 %21, 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %22
 }
 
-declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @slurm_bit_and(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @slurm_xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @slurm_xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlSystemGetDriverVersion(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @nvmlSystemGetDriverVersion(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlSystemGetNVMLVersion(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @nvmlSystemGetNVMLVersion(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetPciInfo_v3(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetPciInfo_v3(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetMigMode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetMigMode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @gpu_common_underscorify_tolower(ptr noundef) local_unnamed_addr #2
+declare void @gpu_common_underscorify_tolower(ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetUUID(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetUUID(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetMinorNumber(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetMinorNumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetCpuAffinity(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetCpuAffinity(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetNvLinkState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetNvLinkState(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetNvLinkRemotePciInfo_v2(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetMaxMigDeviceCount(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetMaxMigDeviceCount(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetMigDeviceHandleByIndex(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetAttributes_v2(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetAttributes_v2(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetGpuInstanceId(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetGpuInstanceId(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetComputeInstanceId(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
+declare i32 @nvmlDeviceGetComputeInstanceId(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
-
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
@@ -3389,11 +3383,11 @@ define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnu
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 @nvmlDeviceGetSupportedMemoryClocks(ptr noundef %9, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
@@ -3440,19 +3434,19 @@ define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnu
 
 33:                                               ; preds = %20, %25, %31, %17
   %.0 = phi i1 [ false, %17 ], [ false, %31 ], [ true, %25 ], [ true, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
 
-declare i32 @nvmlDeviceGetSupportedMemoryClocks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetSupportedMemoryClocks(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
-declare i32 @slurm_sort_uint32_list_desc(ptr noundef, ptr noundef) #2
+declare i32 @slurm_sort_uint32_list_desc(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
@@ -3460,11 +3454,11 @@ define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnu
   %6 = alloca %struct.timeval, align 8
   %7 = alloca [20 x i8], align 16
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #12
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 @nvmlDeviceGetSupportedGraphicsClocks(ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
@@ -3511,40 +3505,40 @@ define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnu
 
 34:                                               ; preds = %21, %26, %32, %18
   %.0 = phi i1 [ false, %18 ], [ false, %32 ], [ true, %26 ], [ true, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare void @gpu_common_print_freqs(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @gpu_common_print_freqs(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetSupportedGraphicsClocks(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetSupportedGraphicsClocks(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #8
+declare i32 @getpid() local_unnamed_addr #7
 
-declare i32 @nvmlInit_v2() local_unnamed_addr #2
+declare i32 @nvmlInit_v2() local_unnamed_addr #1
 
-declare void @gpu_common_parse_gpu_freq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @gpu_common_parse_gpu_freq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @gpu_common_freq_value_to_string(i32 noundef) local_unnamed_addr #2
+declare ptr @gpu_common_freq_value_to_string(i32 noundef) local_unnamed_addr #1
 
-declare i32 @slurm_cgroup_conf_init() local_unnamed_addr #2
+declare i32 @slurm_cgroup_conf_init() local_unnamed_addr #1
 
-declare ptr @slurm_xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @slurm_xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_set_count(ptr noundef) local_unnamed_addr #1
 
-declare i64 @slurm_bit_size(ptr noundef) local_unnamed_addr #2
+declare i64 @slurm_bit_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
-declare void @gpu_common_get_nearest_freq(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @gpu_common_get_nearest_freq(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
@@ -3553,13 +3547,13 @@ define internal fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly captures
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %1, label %9 [
     i32 0, label %11
     i32 2, label %8
@@ -3603,30 +3597,36 @@ define internal fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly captures
 
 26:                                               ; preds = %24, %21
   %.0 = phi i32 [ 0, %21 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @nvmlDeviceGetApplicationsClock(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetApplicationsClock(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceSetApplicationsClocks(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceSetApplicationsClocks(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceResetApplicationsClocks(ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceResetApplicationsClocks(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #9
+declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #8
 
-declare i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetComputeRunningProcesses_v3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetGraphicsRunningProcesses_v3(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @nvmlDeviceGetProcessUtilization(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @nvmlDeviceGetProcessUtilization(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
@@ -3635,15 +3635,15 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nofree nounwind }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

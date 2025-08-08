@@ -205,7 +205,7 @@ define internal ptr @resource_getrlimit(ptr readnone captures(none) %0, ptr noun
   br i1 %5, label %19, label %.split
 
 .split:                                           ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %or.cond.i = icmp ugt i32 %4, 15
   br i1 %or.cond.i, label %6, label %8
 
@@ -233,7 +233,7 @@ define internal ptr @resource_getrlimit(ptr readnone captures(none) %0, ptr noun
 
 resource_getrlimit_impl.exit:                     ; preds = %6, %11, %14
   %.0.i = phi ptr [ null, %6 ], [ null, %11 ], [ %18, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 19:                                               ; preds = %2
@@ -307,8 +307,8 @@ define internal ptr @resource_prlimit(ptr readnone captures(none) %0, ptr nounde
 
 34:                                               ; preds = %29, %31
   %.0 = phi ptr [ %6, %29 ], [ %33, %31 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %or.cond.i = icmp ugt i32 %25, 15
   br i1 %or.cond.i, label %35, label %37
 
@@ -372,8 +372,8 @@ define internal ptr @resource_prlimit(ptr readnone captures(none) %0, ptr nounde
 
 resource_prlimit_impl.exit:                       ; preds = %35, %40, %46, %56, %58, %61
   %.014.i = phi ptr [ null, %35 ], [ %65, %61 ], [ null, %40 ], [ null, %46 ], [ null, %58 ], [ null, %56 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %66
 
 66:                                               ; preds = %27, %20, %resource_prlimit_impl.exit, %13, %8
@@ -439,9 +439,6 @@ define internal ptr @resource_getpagesize(ptr readnone captures(none) %0, ptr re
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
@@ -449,7 +446,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @resource_getrusage_impl(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rusage, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @getrusage(i32 noundef %1, ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %15
@@ -561,18 +558,15 @@ define internal fastcc ptr @resource_getrusage_impl(ptr noundef %0, i32 noundef 
 
 79:                                               ; preds = %19, %15, %78, %12, %10
   %.0 = phi ptr [ null, %10 ], [ null, %12 ], [ null, %78 ], [ null, %15 ], [ %18, %19 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind
-declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -585,7 +579,7 @@ declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) lo
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
@@ -594,7 +588,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 declare void @_Py_DecRef(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
@@ -659,7 +653,7 @@ define internal fastcc range(i32 -1, 1) i32 @py2rlimit(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind
-declare i32 @prlimit64(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @prlimit64(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @PySequence_Tuple(ptr noundef) local_unnamed_addr #1
 
@@ -672,7 +666,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @resource_setrlimit_impl(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.rlimit, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %or.cond = icmp ugt i32 %0, 15
   br i1 %or.cond, label %4, label %6
 
@@ -734,15 +728,15 @@ define internal fastcc ptr @resource_setrlimit_impl(i32 noundef %0, ptr noundef 
 
 31:                                               ; preds = %22, %26, %24, %13, %9, %29, %4
   %.0 = phi ptr [ null, %4 ], [ %30, %29 ], [ null, %9 ], [ null, %13 ], [ null, %24 ], [ null, %26 ], [ null, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind
-declare i32 @setrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @setrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @getpagesize() local_unnamed_addr #4
+declare i32 @getpagesize() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @resource_exec(ptr noundef %0) #0 {
@@ -879,12 +873,18 @@ declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) loca
 
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind willreturn memory(none) }
 

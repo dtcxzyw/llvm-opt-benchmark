@@ -2060,9 +2060,9 @@ _ZN13Devirtualizer6do_oopI26SerialCheckForUnmarkedOops9narrowOopEEvPT_PT0_.exit.
   br i1 %68, label %28, label %_ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop26SerialCheckForUnmarkedOopsEEvP7oopDescPT0_.exit, !llvm.loop !19
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop26SerialCheckForUnmarkedOopsEEvP7oopDescPT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop26SerialCheckForUnmarkedOops14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -2157,9 +2157,9 @@ _ZN13Devirtualizer6do_oopI26SerialCheckForUnmarkedOopsP7oopDescEEvPT_PT0_.exit.i
   br i1 %58, label %24, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc26SerialCheckForUnmarkedOopsEEvS2_PT0_.exit, !llvm.loop !21
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc26SerialCheckForUnmarkedOopsEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc26SerialCheckForUnmarkedOops14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6037,12 +6037,12 @@ _ZN13Devirtualizer6do_oopI17OldGenScanClosure9narrowOopEEvPT_PT0_.exit: ; preds 
   br i1 %81, label %25, label %._crit_edge58, !llvm.loop !51
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop17OldGenScanClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -6627,12 +6627,12 @@ _ZN13Devirtualizer6do_oopI17OldGenScanClosureP7oopDescEEvPT_PT0_.exit: ; preds =
   br i1 %68, label %25, label %._crit_edge58, !llvm.loop !53
 
 ._crit_edge58:                                    ; preds = %._crit_edge, %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc17OldGenScanClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -7726,8 +7726,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %37 = getelementptr inbounds ptr, ptr %3, i64 %4
   %38 = icmp ult ptr %37, %35
   %.012.i = select i1 %38, ptr %37, ptr %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = icmp ugt ptr %.012.i, %spec.select.i
   br i1 %39, label %40, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS7_.exit.i
 
@@ -7751,15 +7751,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %52 = ptrtoint ptr %.012.i to i64
   %53 = sub i64 %52, %19
   %54 = ashr exact i64 %53, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8
   %55 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop17OldGenScanClosureEEEbPT_mmEUlmE_EEbS6_mm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %6, i64 noundef %51, i64 noundef %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS7_.exit.i
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS7_.exit.i: ; preds = %40, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedI9narrowOop17OldGenScanClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
 
 56:                                               ; preds = %5
@@ -8111,8 +8111,8 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %37 = getelementptr inbounds ptr, ptr %3, i64 %4
   %38 = icmp ult ptr %37, %35
   %.012.i = select i1 %38, ptr %37, ptr %35
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = icmp ugt ptr %.012.i, %spec.select.i
   br i1 %39, label %40, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS8_.exit.i
 
@@ -8136,15 +8136,15 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass23oop_oop_iterate_b
   %52 = ptrtoint ptr %.012.i to i64
   %53 = sub i64 %52, %19
   %54 = ashr exact i64 %53, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8
   %55 = call noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc17OldGenScanClosureEEEbPT_mmEUlmE_EEbS7_mm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull %6, i64 noundef %51, i64 noundef %54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS8_.exit.i
 
 _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc17OldGenScanClosureEEvP17stackChunkOopDescPT0_PlS8_.exit.i: ; preds = %40, %16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN23InstanceStackChunkKlass29oop_oop_iterate_stack_boundedIP7oopDesc17OldGenScanClosureEEvP17stackChunkOopDescPT0_9MemRegion.exit
 
 56:                                               ; preds = %5
@@ -8621,10 +8621,10 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OldGenScanC
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10

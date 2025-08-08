@@ -145,7 +145,7 @@ timer_less_than.exit.i:                           ; preds = %if.end.i.i
   br i1 %cmp9.i.not.i, label %while.body15.i, label %heap_insert.exit
 
 while.body15.i:                                   ; preds = %timer_less_than.exit.i, %land.rhs.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %t.i.i, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %heap_node, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %heap_node, ptr noundef nonnull align 8 dereferenceable(24) %t.i.i, i64 24, i1 false)
@@ -219,7 +219,7 @@ if.else31.i.i:                                    ; preds = %if.else24.i.i
   br label %heap_node_swap.exit.i
 
 heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.then28.i.i, %if.then23.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
   %21 = load ptr, ptr %parent1.i, align 8
   %cmp12.not.i = icmp eq ptr %21, null
   br i1 %cmp12.not.i, label %heap_insert.exit, label %land.rhs.i
@@ -441,7 +441,7 @@ while.cond71.preheader.i:                         ; preds = %if.end66.i
   br i1 %cmp73.not26.i, label %heap_remove.exit, label %land.rhs.i
 
 if.end69.i:                                       ; preds = %if.end66.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %t.i.i, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %smallest.1.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %smallest.1.i, ptr noundef nonnull align 8 dereferenceable(24) %t.i.i, i64 24, i1 false)
@@ -516,7 +516,7 @@ if.else31.i.i:                                    ; preds = %if.else24.i.i
   br label %heap_node_swap.exit.i
 
 heap_node_swap.exit.i:                            ; preds = %if.else31.i.i, %if.then28.i.i, %if.then23.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i.i)
   br label %for.cond50.i
 
 land.rhs.i:                                       ; preds = %while.cond71.preheader.i, %heap_node_swap.exit123.i
@@ -539,7 +539,7 @@ timer_less_than.exit91.i:                         ; preds = %if.end.i83.i
   br i1 %cmp9.i88.not.i, label %while.body77.i, label %heap_remove.exit
 
 while.body77.i:                                   ; preds = %timer_less_than.exit91.i, %land.rhs.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %t.i92.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %t.i92.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %t.i92.i, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %t.i92.i, i64 24, i1 false)
@@ -613,7 +613,7 @@ if.else31.i116.i:                                 ; preds = %if.else24.i114.i
   br label %heap_node_swap.exit123.i
 
 heap_node_swap.exit123.i:                         ; preds = %if.else31.i116.i, %if.then28.i118.i, %if.then23.i119.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %t.i92.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %t.i92.i)
   %39 = load ptr, ptr %parent21.i, align 8
   %cmp73.not.i = icmp eq ptr %39, null
   br i1 %cmp73.not.i, label %heap_remove.exit, label %land.rhs.i
@@ -792,10 +792,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #7

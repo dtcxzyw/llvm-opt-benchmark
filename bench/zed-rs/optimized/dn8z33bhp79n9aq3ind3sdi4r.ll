@@ -143,14 +143,14 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
 
 15:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.12, ptr %8, align 8, !noalias !40
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %16, align 8, !noalias !40
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !47
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !48, !noalias !49, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %18), !noalias !42
@@ -161,7 +161,7 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   %23 = load i64, ptr %22, align 8, !noalias !47, !noundef !20
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %25 = load i64, ptr %24, align 8, !noalias !47, !noundef !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !48, !noalias !49, !nonnull !20, !noundef !20
   %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %19
@@ -175,27 +175,27 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   store ptr %29, ptr %33, align 8, !alias.scope !42, !noalias !50
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %31, ptr %34, align 8, !alias.scope !42, !noalias !50
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !40
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !40
   store ptr %8, ptr %5, align 8, !noalias !51
   %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %35, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %37
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %15
   %36 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !40
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !40
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %36, label %37, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
 
 37:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !58
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !58
   %38 = load i64, ptr %17, align 8, !alias.scope !55, !noalias !60, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %38), !noalias !60
   %39 = load i64, ptr %4, align 8, !noalias !58, !noundef !20
@@ -205,7 +205,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %43 = load i64, ptr %42, align 8, !noalias !58, !noundef !20
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load i64, ptr %44, align 8, !noalias !58, !noundef !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !58
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !58
   %46 = load ptr, ptr %26, align 8, !alias.scope !55, !noalias !60, !nonnull !20, !noundef !20
   %47 = icmp eq i64 %43, %45
   br i1 %47, label %48, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6"
@@ -1399,14 +1399,14 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
 
 14:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %7, align 8, !noalias !473
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %15, align 8, !noalias !473
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !473
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !473
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !480
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !480
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !481, !noalias !482, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !475
@@ -1417,7 +1417,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   %22 = load i64, ptr %21, align 8, !noalias !480, !noundef !20
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i64, ptr %23, align 8, !noalias !480, !noundef !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !480
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !480
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !481, !noalias !482, !nonnull !20, !noundef !20
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
@@ -1431,22 +1431,22 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   store ptr %28, ptr %32, align 8, !alias.scope !475, !noalias !483
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %33, align 8, !alias.scope !475, !noalias !483
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !473
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !473
   store ptr %7, ptr %4, align 8, !noalias !484
   %34 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %34, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !473
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !473
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !473
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %14
   %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !473
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !473
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !473
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread", label %50
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
@@ -1529,14 +1529,14 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
 
 14:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %7, align 8, !noalias !513
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %15, align 8, !noalias !513
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !513
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !513
   tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !520
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !520
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !521, !noalias !522, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !515
@@ -1547,7 +1547,7 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   %22 = load i64, ptr %21, align 8, !noalias !520, !noundef !20
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i64, ptr %23, align 8, !noalias !520, !noundef !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !520
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !520
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !521, !noalias !522, !nonnull !20, !noundef !20
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
@@ -1561,22 +1561,22 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   store ptr %28, ptr %32, align 8, !alias.scope !515, !noalias !523
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %33, align 8, !alias.scope !515, !noalias !523
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !513
   store ptr %7, ptr %4, align 8, !noalias !524
   %34 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %34, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !513
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !513
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %14
   %35 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !513
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !513
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !513
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %35, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread", label %50
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
@@ -1639,14 +1639,14 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   %7 = alloca [32 x i8], align 8
   %8 = alloca [16 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %8, align 8, !noalias !545
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 3, ptr %9, align 8, !noalias !545
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !545
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !552
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !552
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !553, !noalias !554, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, i64 noundef %11), !noalias !547
@@ -1657,7 +1657,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   %16 = load i64, ptr %15, align 8, !noalias !552, !noundef !20
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %18 = load i64, ptr %17, align 8, !noalias !552, !noundef !20
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !552
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !552
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !553, !noalias !554, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %12
@@ -1671,22 +1671,22 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   store ptr %22, ptr %26, align 8, !alias.scope !547, !noalias !555
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %24, ptr %27, align 8, !alias.scope !547, !noalias !555
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !545
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !545
   store ptr %8, ptr %5, align 8, !noalias !556
   %28 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %28, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread: ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !545
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %30
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit: ; preds = %4
   %29 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !545
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !545
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit.thread, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit
@@ -1725,17 +1725,11 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
-
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17heab87b6d47eaacf4E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #8
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17heab87b6d47eaacf4E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #7
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #9
+declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef) unnamed_addr #3
@@ -1745,6 +1739,12 @@ declare void @_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement9is_inline17he27e04e46236419aE(ptr noundef nonnull align 8) unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
@@ -1759,9 +1759,9 @@ attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 

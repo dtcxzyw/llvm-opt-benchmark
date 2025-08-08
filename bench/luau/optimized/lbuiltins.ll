@@ -440,7 +440,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL11luauF_frexpP9lua_StateP10lua_
 
 14:                                               ; preds = %10
   %15 = load double, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = call double @frexp(double noundef %15, ptr noundef nonnull %7) #20
   store double %16, ptr %1, align 8, !tbaa !9
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -451,7 +451,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL11luauF_frexpP9lua_StateP10lua_
   store double %20, ptr %18, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 3, ptr %21, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %22
 
 22:                                               ; preds = %6, %10, %14
@@ -722,7 +722,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL10luauF_modfP9lua_StateP10lua_T
 
 14:                                               ; preds = %10
   %15 = load double, ptr %2, align 8, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = call double @modf(double noundef %15, ptr noundef nonnull %7) #20
   %17 = load double, ptr %7, align 8, !tbaa !14
   store double %17, ptr %1, align 8, !tbaa !9
@@ -732,7 +732,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL10luauF_modfP9lua_StateP10lua_T
   store double %16, ptr %19, align 8, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 3, ptr %20, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %21
 
 21:                                               ; preds = %6, %10, %14
@@ -1693,7 +1693,7 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_TValueS2_iS2_i(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #7 {
   %7 = alloca [8 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp slt i32 %5, 8
   %9 = icmp slt i32 %3, 2
   %or.cond = and i1 %9, %8
@@ -1772,7 +1772,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 
 .critedge:                                        ; preds = %.lr.ph, %33, %23, %6, %19, %10, %.critedge43
   %.0 = phi i32 [ 1, %.critedge43 ], [ -1, %10 ], [ -1, %19 ], [ -1, %6 ], [ -1, %23 ], [ -1, %33 ], [ -1, %.lr.ph ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
@@ -2773,7 +2773,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   br i1 %or.cond, label %10, label %20
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !4
   switch i32 %12, label %18 [
@@ -2798,7 +2798,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   %.sink = phi i32 [ 0, %10 ], [ 0, %13 ], [ 3, %.sink.split ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sink, ptr %19, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %20
 
 20:                                               ; preds = %6, %18
@@ -2865,7 +2865,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   br i1 %.not, label %35, label %46
 
 35:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = load double, ptr %2, align 8, !tbaa !9
   %37 = call noundef ptr @_Z12luai_num2strPcd(ptr noundef nonnull %7, double noundef %36)
   %38 = ptrtoint ptr %37 to i64
@@ -2875,7 +2875,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   store ptr %41, ptr %1, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %42, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #20
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %46
 
 43:                                               ; preds = %10
@@ -4192,14 +4192,8 @@ define internal noundef i32 @_ZL13luauF_missingP9lua_StateP10lua_TValueS2_iS2_i(
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #10
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.acos.f64(double) #11
@@ -4488,6 +4482,12 @@ define internal void @_GLOBAL__sub_I_lbuiltins.cpp() #17 section ".text.startup"
   %6 = tail call ptr @llvm.invariant.start.p0(i64 2048, ptr nonnull @luauF_table)
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #18

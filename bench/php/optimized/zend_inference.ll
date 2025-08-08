@@ -1144,16 +1144,10 @@ zend_ssa_next_use_phi.exit:                       ; preds = %590, %581
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare void @_efree(ptr noundef) local_unnamed_addr #3
+declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_ssa_find_false_dependencies(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -1497,13 +1491,13 @@ zend_ssa_next_use.exit:                           ; preds = %82, %77
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly initializes((16, 18)) %5) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly initializes((16, 18)) %5) local_unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 0, ptr %7, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 17
@@ -4791,7 +4785,7 @@ _ssa_op1_has_range.exit.thread:                   ; preds = %.thread1361, %.thre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zend_inference_calc_binary_op_range(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @zend_inference_calc_binary_op_range(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, i8 noundef zeroext %4, ptr noundef writeonly captures(none) %5) unnamed_addr #6 {
   switch i8 %4, label %3440 [
     i8 1, label %7
     i8 2, label %392
@@ -10664,10 +10658,10 @@ _ssa_op1_has_range.exit.thread:                   ; preds = %3111, %3135, %3138,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
+define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %4 = load i8, ptr %3, align 1, !tbaa !28
@@ -10757,7 +10751,7 @@ define dso_local range(i32 -2147483520, 0) i32 @zend_array_type_info(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 2, 1) i32 @zend_array_element_type(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define dso_local range(i32 2, 1) i32 @zend_array_element_type(i32 noundef %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = and i32 %0, 256
   %.not = icmp eq i32 %5, 0
   %.not37 = icmp eq i32 %2, 0
@@ -10938,7 +10932,7 @@ define dso_local range(i32 -1, 1) i32 @zend_update_type_info(ptr noundef %0, ptr
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %18 = load i8, ptr %17, align 4, !tbaa !48
   %19 = icmp eq i8 %18, -119
@@ -23226,8 +23220,8 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
   br i1 %.not9138.i, label %.thread582, label %6263
 
 6263:                                             ; preds = %6254
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %6264 = call i32 @zend_get_func_info(ptr noundef nonnull %6262, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   %6265 = load i32, ptr %6242, align 4, !tbaa !33
   %6266 = icmp sgt i32 %6265, -1
@@ -23354,15 +23348,15 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
   br label %.thread585
 
 .thread585:                                       ; preds = %6308, %6263, %6319, %6323
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit
 
 6330:                                             ; preds = %6303
   %.val262 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val262, i32 noundef %6265)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit
 
 6331:                                             ; preds = %_ssa_op1_info.exit46.thread
@@ -23518,7 +23512,7 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
   br label %_zend_update_type_info.exit
 
 6408:                                             ; preds = %_ssa_op1_info.exit46.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %6409 = call ptr @zend_fetch_class_const_info(ptr noundef %2, ptr noundef %0, ptr noundef %.07500.i, ptr noundef nonnull %11) #18
   %.not9058.i = icmp eq ptr %6409, null
   br i1 %.not9058.i, label %6414, label %6410
@@ -23589,13 +23583,13 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
   br label %.thread591
 
 .thread591:                                       ; preds = %6445, %6433, %6414
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_zend_update_type_info.exit
 
 6446:                                             ; preds = %6441
   %.val265 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val265, i32 noundef %6416)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_zend_update_type_info.exit
 
 6447:                                             ; preds = %6410
@@ -23683,7 +23677,7 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
 .critedge10894.i:                                 ; preds = %6490
   %.val266 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val266, i32 noundef %6452)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_zend_update_type_info.exit
 
 6494:                                             ; preds = %6490
@@ -24828,7 +24822,7 @@ zend_fetch_prop_type.exit445:                     ; preds = %6002, %6003
 
 7077:                                             ; preds = %7073
   %7078 = tail call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %2, ptr noundef %0, ptr noundef %.07500.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.not.i468 = icmp eq ptr %7078, null
   br i1 %.not.i468, label %.thread605, label %zend_fetch_prop_type.exit470
 
@@ -24924,17 +24918,17 @@ zend_fetch_prop_type.exit470:                     ; preds = %7077
   br label %.thread602
 
 .thread602:                                       ; preds = %7127, %7115, %7085
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_zend_update_type_info.exit
 
 .thread605:                                       ; preds = %7077, %zend_fetch_prop_type.exit470
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread582
 
 7128:                                             ; preds = %7123
   %.val281 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val281, i32 noundef %7086)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_zend_update_type_info.exit
 
 7129:                                             ; preds = %_ssa_op1_info.exit46.thread
@@ -25221,12 +25215,12 @@ zend_fetch_prop_type.exit470:                     ; preds = %7077
   br label %_zend_update_type_info.exit
 
 .critedge10900.i:                                 ; preds = %6495, %6447, %6510, %6505
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_zend_update_type_info.exit
 
 _zend_update_type_info.exit:                      ; preds = %6821, %6740, %6065, %6020, %5978, %5934, %4269, %4142, %1731, %1690, %7028, %6331, %5795, %5807, %5763, %570, %603, %615, %616, %651, %663, %664, %683, %695, %696, %715, %727, %.thread487, %905, %917, %1094, %1104, %1108, %1115, %1121, %1125, %1137, %1156, %1168, %1626, %1739, %1744, %1849, %1882, %1894, %1990, %2022, %2034, %2291, %2371, %2383, %.thread524, %2656, %2668, %2701, %2777, %2789, %2879, %2898, %2910, %3059, %3153, %3157, %3167, %3171, %3244, %3263, %3275, %3446, %3448, %3469, %3481, %3513, %3517, %3536, %3547, %3548, %3567, %3578, %3579, %3616, %3628, %3629, %3633, %3649, %3650, %3718, %3722, %3732, %3736, %3741, %3817, %3821, %3831, %3835, %3938, %3957, %3969, %3970, %3991, %4003, %4004, %4023, %4034, %4035, %4071, %4083, %4084, %4103, %4115, %4195, %4200, %4210, %4214, %4251, %4273, %4282, %4286, %4331, %4337, %4341, %4346, %4352, %4356, %4371, %4377, %4381, %4386, %4392, %4396, %4408, %4414, %4418, %4423, %4429, %4433, %4438, %4444, %4448, %4474, %4485, %4489, %4494, %4500, %4504, %4526, %4536, %4540, %4547, %4553, %4557, %thread-pre-split539.thread, %4679, %4691, %4740, %4750, %4754, %4761, %4767, %4771, %4842, %4930, %4942, %4943, %4984, %4996, %4997, %5028, %5040, %5041, %5109, %5113, %5123, %5127, %5295, %5305, %5309, %5316, %5322, %5326, %5401, %5481, %5493, %5840, %5859, %5871, %5872, %5988, %5993, %6075, %6080, %6241, %6367, %6371, %6376, %6395, %6407, %6517, %6536, %6548, %6549, %6568, %6580, %6581, %6600, %6612, %6613, %6632, %6644, %6645, %6673, %6685, %6686, %6705, %6717, %6795, %6800, %6812, %6816, %6876, %6881, %6893, %6897, %6933, %6952, %6963, %6964, %6983, %6995, %6996, %7015, %7027, %7064, %7068, %7073, %7129, %7148, %7160, %7161, %7180, %7192, %.thread582, %7248, %7260, %.critedge10900.i, %.thread585, %.thread591, %.thread602, %7128, %6446, %6330, %5808, %5624, %.critedge10796.i, %emit_type_narrowing_warning.exit, %emit_type_narrowing_warning.exit352, %emit_type_narrowing_warning.exit355, %517, %520, %524, %542, %emit_type_narrowing_warning.exit358, %569, %.critedge.i, %.critedge10310.i, %.critedge10314.i, %.critedge10318.i, %.critedge10328.i, %.critedge10341.i, %.critedge10350.i, %.critedge10362.i, %.critedge10367.i, %.critedge10377.i, %.critedge10383.i, %.critedge10394.i, %.critedge10410.i, %.critedge10414.critedge10998.i, %.critedge10428.i, %.critedge10437.i, %.critedge10414.critedge11000.i, %.critedge10453.i, %.critedge10461.i, %.critedge10470.i, %.critedge10479.i, %.critedge10489.i, %.critedge10498.i, %.critedge10414.critedge11005.i, %.critedge10507.i, %.critedge10512.i, %.critedge10414.critedge11007.i, %.critedge10522.i, %.critedge10533.i, %.critedge10543.i, %.critedge10553.i, %.critedge10562.i, %.critedge10414.critedge11009.i, %.critedge10576.i, %.critedge10414.critedge11011.i, %.critedge10592.i, %.critedge10414.critedge11013.i, %.critedge10596.i, %.critedge10600.i, %.critedge10609.i, %.critedge10613.i, %.critedge10622.i, %.critedge10633.i, %.critedge10644.i, %.critedge10414.critedge11015.i, %.critedge10414.critedge11017.i, %.critedge10414.critedge11019.i, %.critedge10655.i, %.critedge10659.i, %.critedge10668.i, %.critedge10672.i, %.critedge10676.i, %.critedge10683.i, %.critedge10687.i, %.critedge10700.i, %.critedge10712.i, %.critedge10719.i, %.critedge10728.i, %.critedge10414.critedge11025.i, %.critedge10744.i, %.critedge10753.i, %.critedge10768.i, %.critedge10779.i, %.critedge10809.i, %.critedge10824.i, %.critedge10835.i, %.critedge10844.i, %.critedge10853.i, %.critedge10862.i, %.critedge10878.i, %.critedge10882.i, %.critedge10894.i, %.critedge10902.i, %.critedge10906.i, %.critedge10910.i, %.critedge10914.i, %.critedge10921.i, %.critedge10923.i, %.critedge10934.i, %.critedge10943.i, %.critedge10947.i, %.critedge10414.critedge11034.i, %.critedge10951.i, %.critedge10955.i, %.critedge10959.i, %.critedge10971.i, %.critedge10975.i, %.critedge10414.critedge11036.i, %.critedge10979.i
   %.4.i = phi i32 [ -1, %5808 ], [ -1, %6330 ], [ -1, %6446 ], [ -1, %7128 ], [ -1, %.critedge.i ], [ -1, %.critedge10310.i ], [ -1, %.critedge10314.i ], [ -1, %.critedge10318.i ], [ -1, %.critedge10328.i ], [ -1, %.critedge10341.i ], [ -1, %.critedge10350.i ], [ -1, %.critedge10362.i ], [ -1, %.critedge10428.i ], [ -1, %.critedge10437.i ], [ -1, %.critedge10453.i ], [ -1, %.critedge10461.i ], [ -1, %.critedge10470.i ], [ -1, %.critedge10489.i ], [ -1, %.critedge10498.i ], [ -1, %.critedge10507.i ], [ -1, %.critedge10512.i ], [ -1, %.critedge10522.i ], [ -1, %.critedge10533.i ], [ -1, %.critedge10543.i ], [ -1, %.critedge10553.i ], [ -1, %.critedge10562.i ], [ -1, %.critedge10576.i ], [ -1, %.critedge10592.i ], [ -1, %.critedge10596.i ], [ -1, %.critedge10600.i ], [ -1, %.critedge10609.i ], [ -1, %.critedge10613.i ], [ -1, %.critedge10622.i ], [ -1, %.critedge10633.i ], [ -1, %.critedge10644.i ], [ -1, %.critedge10655.i ], [ -1, %.critedge10659.i ], [ -1, %.critedge10672.i ], [ -1, %.critedge10676.i ], [ -1, %.critedge10683.i ], [ -1, %.critedge10687.i ], [ -1, %.critedge10700.i ], [ -1, %.critedge10719.i ], [ -1, %.critedge10728.i ], [ -1, %.critedge10744.i ], [ -1, %.critedge10753.i ], [ -1, %.critedge10768.i ], [ -1, %.critedge10779.i ], [ -1, %.critedge10809.i ], [ -1, %.critedge10835.i ], [ -1, %.critedge10844.i ], [ -1, %.critedge10853.i ], [ -1, %.critedge10862.i ], [ -1, %.critedge10878.i ], [ -1, %.critedge10882.i ], [ -1, %.critedge10894.i ], [ -1, %.critedge10902.i ], [ -1, %.critedge10906.i ], [ -1, %.critedge10910.i ], [ -1, %.critedge10914.i ], [ -1, %.critedge10923.i ], [ -1, %.critedge10934.i ], [ -1, %.critedge10943.i ], [ -1, %.critedge10947.i ], [ -1, %.critedge10951.i ], [ -1, %.critedge10955.i ], [ -1, %.critedge10959.i ], [ -1, %.critedge10971.i ], [ -1, %.critedge10975.i ], [ -1, %.critedge10979.i ], [ -1, %.critedge10410.i ], [ -1, %.critedge10394.i ], [ -1, %.critedge10383.i ], [ -1, %.critedge10377.i ], [ -1, %emit_type_narrowing_warning.exit ], [ -1, %emit_type_narrowing_warning.exit352 ], [ -1, %emit_type_narrowing_warning.exit355 ], [ -1, %emit_type_narrowing_warning.exit358 ], [ 0, %569 ], [ 0, %542 ], [ 0, %517 ], [ 0, %520 ], [ 0, %524 ], [ -1, %.critedge10367.i ], [ -1, %.critedge10414.critedge10998.i ], [ -1, %.critedge10414.critedge11000.i ], [ -1, %.critedge10479.i ], [ -1, %.critedge10414.critedge11005.i ], [ -1, %.critedge10414.critedge11007.i ], [ -1, %.critedge10414.critedge11009.i ], [ -1, %.critedge10414.critedge11011.i ], [ -1, %.critedge10414.critedge11013.i ], [ -1, %.critedge10414.critedge11015.i ], [ -1, %.critedge10414.critedge11017.i ], [ -1, %.critedge10414.critedge11019.i ], [ -1, %.critedge10668.i ], [ -1, %.critedge10712.i ], [ -1, %.critedge10414.critedge11025.i ], [ -1, %.critedge10824.i ], [ -1, %.critedge10921.i ], [ -1, %.critedge10414.critedge11034.i ], [ -1, %.critedge10414.critedge11036.i ], [ -1, %.critedge10796.i ], [ 0, %5624 ], [ 0, %.thread602 ], [ 0, %.thread591 ], [ 0, %.thread585 ], [ 0, %.critedge10900.i ], [ 0, %7260 ], [ 0, %7248 ], [ 0, %.thread582 ], [ 0, %7192 ], [ 0, %7180 ], [ 0, %7161 ], [ 0, %7160 ], [ 0, %7148 ], [ 0, %7129 ], [ 0, %7073 ], [ 0, %7068 ], [ 0, %7064 ], [ 0, %7027 ], [ 0, %7015 ], [ 0, %6996 ], [ 0, %6995 ], [ 0, %6983 ], [ 0, %6964 ], [ 0, %6963 ], [ 0, %6952 ], [ 0, %6933 ], [ 0, %6897 ], [ 0, %6893 ], [ 0, %6881 ], [ 0, %6876 ], [ 0, %6816 ], [ 0, %6812 ], [ 0, %6800 ], [ 0, %6795 ], [ 0, %6717 ], [ 0, %6705 ], [ 0, %6686 ], [ 0, %6685 ], [ 0, %6673 ], [ 0, %6645 ], [ 0, %6644 ], [ 0, %6632 ], [ 0, %6613 ], [ 0, %6612 ], [ 0, %6600 ], [ 0, %6581 ], [ 0, %6580 ], [ 0, %6568 ], [ 0, %6549 ], [ 0, %6548 ], [ 0, %6536 ], [ 0, %6517 ], [ 0, %6407 ], [ 0, %6395 ], [ 0, %6376 ], [ 0, %6371 ], [ 0, %6367 ], [ 0, %6241 ], [ 0, %6080 ], [ 0, %6075 ], [ 0, %6065 ], [ 0, %5993 ], [ 0, %5988 ], [ 0, %5978 ], [ 0, %5872 ], [ 0, %5871 ], [ 0, %5859 ], [ 0, %5840 ], [ 0, %5493 ], [ 0, %5481 ], [ 0, %5401 ], [ 0, %5326 ], [ 0, %5322 ], [ 0, %5316 ], [ 0, %5309 ], [ 0, %5305 ], [ 0, %5295 ], [ 0, %5127 ], [ 0, %5123 ], [ 0, %5113 ], [ 0, %5109 ], [ 0, %5041 ], [ 0, %5040 ], [ 0, %5028 ], [ 0, %4997 ], [ 0, %4996 ], [ 0, %4984 ], [ 0, %4943 ], [ 0, %4942 ], [ 0, %4930 ], [ 0, %4842 ], [ 0, %4771 ], [ 0, %4767 ], [ 0, %4761 ], [ 0, %4754 ], [ 0, %4750 ], [ 0, %4740 ], [ 0, %4691 ], [ 0, %4679 ], [ 0, %thread-pre-split539.thread ], [ 0, %4557 ], [ 0, %4553 ], [ 0, %4547 ], [ 0, %4540 ], [ 0, %4536 ], [ 0, %4526 ], [ 0, %4504 ], [ 0, %4500 ], [ 0, %4494 ], [ 0, %4489 ], [ 0, %4485 ], [ 0, %4474 ], [ 0, %4448 ], [ 0, %4444 ], [ 0, %4438 ], [ 0, %4433 ], [ 0, %4429 ], [ 0, %4423 ], [ 0, %4418 ], [ 0, %4414 ], [ 0, %4408 ], [ 0, %4396 ], [ 0, %4392 ], [ 0, %4386 ], [ 0, %4381 ], [ 0, %4377 ], [ 0, %4371 ], [ 0, %4356 ], [ 0, %4352 ], [ 0, %4346 ], [ 0, %4341 ], [ 0, %4337 ], [ 0, %4331 ], [ 0, %4286 ], [ 0, %4282 ], [ 0, %4273 ], [ 0, %4251 ], [ 0, %4214 ], [ 0, %4210 ], [ 0, %4200 ], [ 0, %4195 ], [ 0, %4115 ], [ 0, %4103 ], [ 0, %4084 ], [ 0, %4083 ], [ 0, %4071 ], [ 0, %4035 ], [ 0, %4034 ], [ 0, %4023 ], [ 0, %4004 ], [ 0, %4003 ], [ 0, %3991 ], [ 0, %3970 ], [ 0, %3969 ], [ 0, %3957 ], [ 0, %3938 ], [ 0, %3835 ], [ 0, %3831 ], [ 0, %3821 ], [ 0, %3817 ], [ 0, %3741 ], [ 0, %3736 ], [ 0, %3732 ], [ 0, %3722 ], [ 0, %3718 ], [ 0, %3650 ], [ 0, %3649 ], [ 0, %3633 ], [ 0, %3629 ], [ 0, %3628 ], [ 0, %3616 ], [ 0, %3579 ], [ 0, %3578 ], [ 0, %3567 ], [ 0, %3548 ], [ 0, %3547 ], [ 0, %3536 ], [ 0, %3517 ], [ 0, %3513 ], [ 0, %3481 ], [ 0, %3469 ], [ 0, %3448 ], [ 0, %3446 ], [ 0, %3275 ], [ 0, %3263 ], [ 0, %3244 ], [ 0, %3171 ], [ 0, %3167 ], [ 0, %3157 ], [ 0, %3153 ], [ 0, %3059 ], [ 0, %2910 ], [ 0, %2898 ], [ 0, %2879 ], [ 0, %2789 ], [ 0, %2777 ], [ 0, %2701 ], [ 0, %2668 ], [ 0, %2656 ], [ 0, %.thread524 ], [ 0, %2383 ], [ 0, %2371 ], [ 0, %2291 ], [ 0, %2034 ], [ 0, %2022 ], [ 0, %1990 ], [ 0, %1894 ], [ 0, %1882 ], [ 0, %1849 ], [ 0, %1744 ], [ 0, %1739 ], [ 0, %1731 ], [ 0, %1626 ], [ 0, %1168 ], [ 0, %1156 ], [ 0, %1137 ], [ 0, %1125 ], [ 0, %1121 ], [ 0, %1115 ], [ 0, %1108 ], [ 0, %1104 ], [ 0, %1094 ], [ 0, %917 ], [ 0, %905 ], [ 0, %.thread487 ], [ 0, %727 ], [ 0, %715 ], [ 0, %696 ], [ 0, %695 ], [ 0, %683 ], [ 0, %664 ], [ 0, %663 ], [ 0, %651 ], [ 0, %616 ], [ 0, %615 ], [ 0, %603 ], [ 0, %570 ], [ 0, %5763 ], [ 0, %5807 ], [ 0, %5795 ], [ 0, %6331 ], [ 0, %7028 ], [ 0, %1690 ], [ 0, %4142 ], [ 0, %4269 ], [ 0, %5934 ], [ 0, %6020 ], [ 0, %6740 ], [ 0, %6821 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.4.i
 }
 
@@ -25979,7 +25973,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %11 = add nuw nsw i64 %10, 63
   %12 = lshr i64 %11, 6
   %13 = trunc nuw nsw i64 %12 to i32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = shl nuw nsw i64 %12, 3
   %15 = sext i32 %9 to i64
   %16 = shl nsw i64 %15, 2
@@ -26233,7 +26227,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %169 = load i64, ptr %168, align 8, !tbaa !67
   %170 = and i64 %169, %165
   store i64 %170, ptr %168, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %171 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %162, i32 noundef 0, ptr noundef %6)
   br i1 %171, label %172, label %zend_ssa_range_widening.exit.thread
 
@@ -26325,13 +26319,13 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   br i1 %225, label %zend_ssa_range_widening.exit.thread, label %226
 
 zend_ssa_range_widening.exit.thread:              ; preds = %222, %161
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit1007
 
 226:                                              ; preds = %222, %218, %214, %208, %178
   %227 = getelementptr inbounds nuw i8, ptr %174, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %227, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !100
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %228 = load ptr, ptr %46, align 8, !tbaa !19
   %229 = getelementptr inbounds %struct._zend_ssa_var, ptr %228, i64 %indvars.iv1108, i32 3
   %.08431022 = load i32, ptr %229, align 4, !tbaa !24
@@ -27297,7 +27291,7 @@ zend_ssa_next_use_phi.exit976:                    ; preds = %803, %795
   %830 = load i64, ptr %829, align 8, !tbaa !67
   %831 = and i64 %830, %826
   store i64 %831, ptr %829, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %832 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %823, i32 noundef 0, ptr noundef %5)
   br i1 %832, label %833, label %zend_ssa_range_widening.exit987.thread
 
@@ -27389,13 +27383,13 @@ zend_ssa_next_use_phi.exit976:                    ; preds = %803, %795
   br i1 %886, label %zend_ssa_range_widening.exit987.thread, label %887
 
 zend_ssa_range_widening.exit987.thread:           ; preds = %883, %822
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit1005
 
 887:                                              ; preds = %883, %879, %875, %869, %839
   %888 = getelementptr inbounds nuw i8, ptr %835, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %888, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !100
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %889 = load ptr, ptr %46, align 8, !tbaa !19
   %890 = getelementptr inbounds %struct._zend_ssa_var, ptr %889, i64 %indvars.iv1118, i32 3
   %.08221051 = load i32, ptr %890, align 4, !tbaa !24
@@ -27874,7 +27868,7 @@ zend_ssa_next_use_phi.exit970:                    ; preds = %1170, %1162
   br i1 %.not914, label %1189, label %1248
 
 1189:                                             ; preds = %1184
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1190 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.61068, i32 noundef 1, ptr noundef %4)
   br i1 %1190, label %1191, label %zend_ssa_range_narrowing.exit
 
@@ -27981,7 +27975,7 @@ zend_inference_narrowing_meet.exit.thread.i:      ; preds = %1243, %1239, %1234,
   br label %zend_ssa_range_narrowing.exit
 
 zend_ssa_range_narrowing.exit:                    ; preds = %1189, %1243, %zend_inference_narrowing_meet.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1248
 
 1248:                                             ; preds = %zend_ssa_range_narrowing.exit, %1184, %1180, %.lr.ph1070
@@ -28042,7 +28036,7 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1189, %1243, %zend_
   %1278 = load i64, ptr %1277, align 8, !tbaa !67
   %1279 = and i64 %1278, %1274
   store i64 %1279, ptr %1277, align 8, !tbaa !67
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1280 = call fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %1271, i32 noundef 1, ptr noundef %3)
   br i1 %1280, label %1281, label %zend_ssa_range_narrowing.exit991.thread
 
@@ -28144,13 +28138,13 @@ zend_ssa_range_narrowing.exit:                    ; preds = %1189, %1243, %zend_
   br i1 %1336, label %zend_ssa_range_narrowing.exit991.thread, label %1337
 
 zend_ssa_range_narrowing.exit991.thread:          ; preds = %1333, %1270
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 1337:                                             ; preds = %1333, %1329, %1324, %1319, %1287
   %1338 = getelementptr inbounds nuw i8, ptr %1283, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1338, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !100
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1339 = load ptr, ptr %46, align 8, !tbaa !19
   %1340 = getelementptr inbounds %struct._zend_ssa_var, ptr %1339, i64 %indvars.iv1124, i32 3
   %.01071 = load i32, ptr %1340, align 4, !tbaa !24
@@ -28684,7 +28678,7 @@ zend_ssa_next_use_phi.exit:                       ; preds = %1620, %1612
   br label %1663
 
 1663:                                             ; preds = %1662, %._crit_edge1095
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -28763,7 +28757,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   %45 = load i32, ptr %44, align 8, !tbaa !155
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !156
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.32.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.32.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.32.i, i8 0, i64 6, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !74
@@ -29307,7 +29301,7 @@ is_recursive_tail_call.exit.i:                    ; preds = %290, %285, %277, %2
   br label %zend_func_return_info.exit
 
 zend_func_return_info.exit:                       ; preds = %51, %302
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.32.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.32.i)
   br label %311
 
 311:                                              ; preds = %36, %zend_func_return_info.exit
@@ -31064,15 +31058,15 @@ _ssa_op2_info.exit:                               ; preds = %.lr.ph.i30, %162, %
   ret i1 %184
 }
 
-declare ptr @zend_std_write_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
+declare ptr @zend_std_write_property(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #3
+declare ptr @zend_std_get_property_ptr_ptr(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #11
+declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @zend_ssa_range_or(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #12 {
+define internal fastcc void @zend_ssa_range_or(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
   %6 = icmp slt i64 %0, 0
   %7 = select i1 %6, i32 8, i32 0
   %8 = icmp slt i64 %1, 0
@@ -31357,7 +31351,7 @@ maxOR.exit86:                                     ; preds = %121, %117
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @zend_ssa_range_and(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #12 {
+define internal fastcc void @zend_ssa_range_and(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #11 {
   %6 = icmp slt i64 %0, 0
   %7 = select i1 %6, i32 8, i32 0
   %8 = icmp slt i64 %1, 0
@@ -31651,9 +31645,9 @@ maxAND.exit89:                                    ; preds = %117, %129, %124
   ret void
 }
 
-declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_optimizer_get_class_entry(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emit_type_narrowing_warning(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %.64.val, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
@@ -31689,7 +31683,7 @@ define internal fastcc void @emit_type_narrowing_warning(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @add_usages(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc void @add_usages(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = sext i32 %3 to i64
@@ -31976,7 +31970,7 @@ zend_ssa_next_use.exit:                           ; preds = %180, %177
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @binary_op_result_type(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #13 {
+define internal fastcc i32 @binary_op_result_type(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #12 {
   %7 = and i32 %2, 1022
   %8 = shl i32 %2, 1
   %9 = and i32 %8, 2
@@ -32494,7 +32488,7 @@ lookup_prop_info.exit.thread6:                    ; preds = %78, %84, %90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc i32 @assign_dim_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #10 {
+define internal fastcc i32 @assign_dim_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #9 {
   %5 = and i32 %0, 1073741823
   %6 = and i32 %0, 7
   %.not = icmp eq i32 %6, 0
@@ -32596,12 +32590,12 @@ assign_dim_array_result_type.exit:                ; preds = %14, %20, %47
   ret i32 %.3
 }
 
-declare ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_optimizer_get_class_entry_from_op1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_std_get_constructor(ptr noundef) #3
+declare ptr @zend_std_get_constructor(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 0, 16777216) i32 @assign_dim_array_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #10 {
+define internal fastcc range(i32 0, 16777216) i32 @assign_dim_array_result_type(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #9 {
   %5 = and i32 %2, 1023
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %41, label %6
@@ -32681,10 +32675,10 @@ define internal fastcc range(i32 0, 16777216) i32 @assign_dim_array_result_type(
   ret i32 %46
 }
 
-declare ptr @zend_std_read_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
+declare ptr @zend_std_read_property(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @result_may_be_separated(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @result_may_be_separated(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !33
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -32742,21 +32736,21 @@ define internal fastcc noundef zeroext i1 @result_may_be_separated(ptr noundef r
   ret i1 %.1
 }
 
-declare i32 @zend_get_func_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @zend_get_func_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_fetch_class_const_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_fetch_class_const_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_get_opcode_name(i8 noundef zeroext) local_unnamed_addr #3
+declare ptr @zend_get_opcode_name(i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @zend_error_at(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @zend_error_at(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @zend_get_property_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #14
+declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #15 {
+define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #14 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = sext i32 %2 to i64
@@ -33433,7 +33427,7 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   %10 = add nuw nsw i64 %9, 63
   %11 = lshr i64 %10, 6
   %12 = trunc nuw nsw i64 %11 to i32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %13 = shl nuw nsw i64 %11, 3
   %14 = shl nuw nsw i64 %11, 4
   %15 = icmp ugt i32 %8, 131072
@@ -34218,7 +34212,7 @@ zend_inference_narrowing_meet.exit:               ; preds = %.preheader, %zend_s
   br label %494
 
 494:                                              ; preds = %493, %492
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -34966,7 +34960,7 @@ join_class_entries.exit:                          ; preds = %._crit_edge.i, %290
   %371 = getelementptr inbounds nuw %struct._zend_ssa_op, ptr %370, i64 %368
   %372 = load ptr, ptr %13, align 8, !tbaa !19
   %373 = load ptr, ptr %15, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %374 = getelementptr inbounds nuw i8, ptr %369, i64 28
   %375 = load i8, ptr %374, align 4, !tbaa !48
   %376 = icmp eq i8 %375, -119
@@ -47515,8 +47509,8 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
   br i1 %.not9138.i, label %.thread1514, label %6732
 
 6732:                                             ; preds = %6724
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %6733 = call i32 @zend_get_func_info(ptr noundef nonnull %6731, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8) #18
   %6734 = load i32, ptr %6713, align 4, !tbaa !33
   %6735 = icmp sgt i32 %6734, -1
@@ -47647,15 +47641,15 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
   br label %.thread1517
 
 .thread1517:                                      ; preds = %6789, %6793, %6777, %6775
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_zend_update_type_info.exit.thread
 
 6801:                                             ; preds = %.thread1510
   %.val624 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val624, i32 noundef %6734)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_zend_update_type_info.exit
 
 6802:                                             ; preds = %_ssa_op1_info.exit402.thread
@@ -47811,7 +47805,7 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
   br label %_zend_update_type_info.exit.thread
 
 6878:                                             ; preds = %_ssa_op1_info.exit402.thread
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %6879 = call ptr @zend_fetch_class_const_info(ptr noundef %1, ptr noundef %0, ptr noundef %.07500.i, ptr noundef nonnull %9) #18
   %.not9058.i = icmp eq ptr %6879, null
   br i1 %.not9058.i, label %6884, label %6880
@@ -47877,13 +47871,13 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
   br label %.thread1544
 
 .thread1544:                                      ; preds = %6912, %6894, %6884, %.thread1536
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit.thread
 
 6913:                                             ; preds = %.thread1540
   %.val627 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val627, i32 noundef %6886)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit
 
 6914:                                             ; preds = %6880
@@ -47967,7 +47961,7 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
 .critedge10894.i:                                 ; preds = %.thread1550
   %.val628 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val628, i32 noundef %6919)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit
 
 6959:                                             ; preds = %.thread1550
@@ -49123,7 +49117,7 @@ result_may_be_separated.exit:                     ; preds = %6476, %6484
 
 7545:                                             ; preds = %7541
   %7546 = call fastcc ptr @zend_fetch_static_prop_info(ptr noundef %1, ptr noundef %0, ptr noundef %.07500.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not.i876 = icmp eq ptr %7546, null
   br i1 %.not.i876, label %.thread1663, label %zend_fetch_prop_type.exit878
 
@@ -49216,17 +49210,17 @@ zend_fetch_prop_type.exit878:                     ; preds = %7545
   br label %.thread1660
 
 .thread1660:                                      ; preds = %7593, %7569, %7553, %.thread1649
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_zend_update_type_info.exit.thread
 
 .thread1663:                                      ; preds = %7545, %zend_fetch_prop_type.exit878
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread1514
 
 7594:                                             ; preds = %.thread1653
   %.val643 = load ptr, ptr %13, align 8, !tbaa !19
   call fastcc void @emit_type_narrowing_warning(ptr noundef nonnull %0, ptr %.val643, i32 noundef %7554)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_zend_update_type_info.exit
 
 7595:                                             ; preds = %_ssa_op1_info.exit402.thread
@@ -49499,15 +49493,15 @@ zend_fetch_prop_type.exit878:                     ; preds = %7545
   br label %_zend_update_type_info.exit.thread
 
 .critedge10900.i:                                 ; preds = %6978, %6973, %6962, %6960
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_zend_update_type_info.exit.thread
 
 _zend_update_type_info.exit.thread:               ; preds = %892, %863, %846, %849, %853, %.thread922, %6044, %.thread1686, %.thread1672, %.thread1665, %.thread1660, %.thread1630, %.thread1623, %.thread1616, %.thread1588, %.thread1581, %.thread1574, %.thread1567, %.thread1560, %.thread1553, %.thread1544, %.thread1529, %.thread1517, %.thread1459, %.thread1419, %.thread1371, %.thread1364, %.thread1357, %.thread1331, %zend_hash_find_ptr.exit.thread, %.thread1299, %.thread1292, %.thread1285, %.thread1278, %.thread1271, %.thread1247, %.thread1240, %.thread1233, %.thread1226, %.thread1212, %.thread1189, %.thread1147, %.thread1133, %.thread1117, %.thread1094, %.thread1059, %.thread1044, %.thread987, %.thread966, %.thread950, %.thread943, %.thread936, %.thread929, %.critedge10900.i, %7719, %7700, %.thread1514, %7654, %7636, %7626, %7625, %7605, %7595, %7541, %7535, %7531, %7524, %7493, %7473, %7463, %7462, %7442, %7432, %7431, %7412, %7402, %7366, %7362, %7356, %7348, %7343, %7334, %7281, %7277, %7271, %7263, %7258, %7249, %7180, %7160, %7150, %7149, %7129, %7110, %7109, %7089, %7079, %7078, %7058, %7048, %7047, %7027, %7017, %7016, %6996, %6986, %6877, %6859, %6849, %6843, %6839, %6832, %6712, %6553, %6548, %6537, %6535, %6432, %6427, %6416, %6414, %6312, %6311, %6291, %6281, %5931, %5906, %5840, %5766, %5762, %5754, %5746, %5742, %5731, %5555, %5551, %5543, %5535, %5531, %5520, %5460, %5459, %5434, %5419, %5418, %5393, %5367, %5366, %5341, %5262, %5192, %5188, %5180, %5172, %5168, %5157, %5108, %5086, %thread-pre-split1329.thread, %4972, %4968, %4960, %4952, %4948, %4937, %4913, %4909, %4901, %4895, %4891, %4880, %4855, %4851, %4843, %4837, %4833, %4825, %4819, %4815, %4808, %4796, %4792, %4784, %4778, %4774, %4766, %4751, %4747, %4741, %4735, %4731, %4725, %4678, %4674, %4665, %4646, %4609, %4605, %4599, %4591, %4586, %4577, %4504, %4484, %4474, %4473, %4448, %4427, %4426, %4407, %4397, %4396, %4379, %4367, %4366, %4348, %4338, %4224, %4220, %4212, %4204, %4200, %4189, %4119, %4113, %4109, %4101, %4093, %4089, %4078, %4016, %4015, %4009, %3997, %3996, %3971, %3949, %3948, %3929, %3919, %3918, %3899, %3889, %3885, %3854, %3837, %3825, %3822, %3646, %3629, %3619, %3552, %3548, %3540, %3532, %3528, %3517, %3439, %3271, %3253, %3243, %3149, %3124, %3064, %3034, %3009, %2949, %2741, %2716, %2653, %2398, %2373, %2356, %2262, %2237, %2219, %2115, %2110, %2099, %2097, %1994, %1537, %1517, %1507, %1494, %1490, %1482, %1474, %1470, %1459, %1272, %1247, %.thread964, %1073, %1038, %1028, %1027, %1007, %997, %996, %971, %952, %951, %911, %893, %6207, %6249, %6224, %.thread1448, %6802, %7494
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.lr.ph.i.backedge
 
 _zend_update_type_info.exit:                      ; preds = %7594, %6913, %6801, %6250, %.critedge10796.i, %emit_type_narrowing_warning.exit738, %emit_type_narrowing_warning.exit741, %emit_type_narrowing_warning.exit744, %emit_type_narrowing_warning.exit747, %emit_type_narrowing_warning.exit750, %.critedge10310.i, %.critedge10314.i, %emit_type_narrowing_warning.exit755, %.critedge10328.i, %.critedge10341.i, %.critedge10350.i, %.critedge10362.i, %.critedge10367.i, %.critedge10377.i, %.critedge10383.i, %.critedge10394.i, %.critedge10410.i, %.critedge10414.critedge10998.i, %.critedge10428.i, %.critedge10437.i, %.critedge10414.critedge11000.i, %.critedge10453.i, %.critedge10461.i, %.critedge10470.i, %.critedge10479.i, %.critedge10489.i, %.critedge10498.i, %.critedge10414.critedge11005.i, %.critedge10507.i, %.critedge10512.i, %.critedge10414.critedge11007.i, %.critedge10522.i, %.critedge10533.i, %.critedge10543.i, %.critedge10553.i, %.critedge10562.i, %.critedge10414.critedge11009.i, %.critedge10576.i, %.critedge10414.critedge11011.i, %.critedge10592.i, %.critedge10414.critedge11013.i, %.critedge10596.i, %.critedge10600.i, %.critedge10609.i, %.critedge10613.i, %.critedge10622.i, %.critedge10633.i, %.critedge10644.i, %.critedge10414.critedge11015.i, %.critedge10414.critedge11017.i, %.critedge10414.critedge11019.i, %.critedge10655.i, %.critedge10659.i, %.critedge10668.i, %.critedge10672.i, %.critedge10676.i, %.critedge10683.i, %.critedge10687.i, %.critedge10700.i, %.critedge10712.i, %.critedge10719.i, %.critedge10728.i, %.critedge10414.critedge11025.i, %.critedge10744.i, %.critedge10753.i, %.critedge10768.i, %.critedge10779.i, %.critedge10809.i, %.critedge10824.i, %.critedge10835.i, %.critedge10844.i, %.critedge10853.i, %.critedge10862.i, %.critedge10878.i, %.critedge10882.i, %.critedge10894.i, %.critedge10902.i, %.critedge10906.i, %.critedge10910.i, %.critedge10914.i, %.critedge10921.i, %.critedge10923.i, %.critedge10934.i, %.critedge10943.i, %.critedge10947.i, %.critedge10414.critedge11034.i, %.critedge10951.i, %.critedge10955.i, %.critedge10959.i, %.critedge10971.i, %.critedge10975.i, %.critedge10414.critedge11036.i, %.critedge10979.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge348
 
 .critedge348:                                     ; preds = %35, %5, %_zend_update_type_info.exit, %emit_type_narrowing_warning.exit, %emit_type_narrowing_warning.exit661
@@ -49720,9 +49714,9 @@ zend_bitset_union.exit:                           ; preds = %.lr.ph.i, %82, %78,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #10
 
-declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @can_convert_to_double(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
@@ -49865,12 +49859,12 @@ zend_ssa_is_no_val_use.exit.thread:               ; preds = %65, %68, %53, %56, 
   br i1 %or.cond145, label %86, label %.thread161
 
 86:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %38, align 8, !tbaa !28
   store i32 0, ptr %39, align 8, !tbaa !28
   %87 = load i32, ptr %50, align 4, !tbaa !51
@@ -50138,21 +50132,21 @@ zval_get_double.exit147:                          ; preds = %212, %214
   br i1 %221, label %222, label %.thread164
 
 .thread164:                                       ; preds = %zval_get_double.exit147, %is_effective_op1_double_cast.exit, %is_effective_op2_double_cast.exit, %219, %zval_get_double.exit, %174, %177, %176, %175, %186, %188, %187
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread161
 
 222:                                              ; preds = %219
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre192 = load ptr, ptr %35, align 8, !tbaa !29
   br label %.thread158
 
@@ -50260,11 +50254,17 @@ zend_ssa_next_use_phi.exit:                       ; preds = %268, %260
   ret i1 %.0132
 }
 
-declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #3
+declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #2
 
-declare double @zval_get_double_func(ptr noundef) local_unnamed_addr #3
+declare double @zval_get_double_func(ptr noundef) local_unnamed_addr #2
 
-declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #16
@@ -50282,21 +50282,21 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nounwind allocsize(0) }
 attributes #18 = { nounwind }

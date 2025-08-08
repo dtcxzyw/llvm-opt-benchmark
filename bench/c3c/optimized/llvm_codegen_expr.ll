@@ -488,7 +488,7 @@ define dso_local void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %common.ret419
 
 71:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = load ptr, ptr @expr_arena, align 8
@@ -552,7 +552,7 @@ llvm_emit_swizzle.exit:                           ; preds = %98, %71
   %109 = call ptr @LLVMBuildShuffleVector(ptr noundef %105, ptr noundef %78, ptr noundef %107, ptr noundef %108, ptr noundef %83) #10
   %110 = load ptr, ptr %2, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %109, ptr noundef %110) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %common.ret419
 
 111:                                              ; preds = %62
@@ -641,13 +641,13 @@ llmv_emit_test_hook.exit:                         ; preds = %135, %139
   br label %common.ret419
 
 145:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %146 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %148 = load i32, ptr %147, align 4
@@ -886,13 +886,13 @@ llmv_emit_test_hook.exit:                         ; preds = %135, %139
   unreachable
 
 llvm_emit_builtin_access.exit:                    ; preds = %153, %161, %162, %165, %201, %209, %274, %278, %288
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %49)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %common.ret419
 
 290:                                              ; preds = %62
@@ -905,7 +905,7 @@ llvm_emit_builtin_access.exit:                    ; preds = %153, %161, %162, %1
   br label %common.ret419
 
 293:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %295 = load ptr, ptr %294, align 8
   %.not.i120 = icmp eq ptr %295, null
@@ -992,7 +992,7 @@ decl_optional_ref.exit:                           ; preds = %tailrecurse._crit_e
   br label %llvm_emit_try_unwrap.exit
 
 llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.exit, %335, %338
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %common.ret419
 
 340:                                              ; preds = %62
@@ -1000,10 +1000,10 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
   br label %common.ret419
 
 341:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %342 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %343 = load i32, ptr %342, align 8
   %344 = load ptr, ptr @expr_arena, align 8
@@ -1282,10 +1282,10 @@ llvm_emit_try_unwrap.exit:                        ; preds = %decl_optional_ref.e
   unreachable
 
 llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %453, %493, %501
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   br label %common.ret419
 
 510:                                              ; preds = %62
@@ -1299,12 +1299,12 @@ llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %4
   br label %common.ret419
 
 514:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %515 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %516 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %517 = load i32, ptr %516, align 4
@@ -1323,7 +1323,7 @@ llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %4
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %39) #10
   call void @llvm_emit_subarray_pointer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %40)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %40) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef %1) #10
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %526 = load ptr, ptr %525, align 8
@@ -1336,7 +1336,7 @@ llvm_emit_typeid_info.exit:                       ; preds = %360, %393, %423, %4
   %533 = load ptr, ptr @type_usz, align 8
   %534 = load i32, ptr %7, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %41, ptr noundef %532, ptr noundef %533, i32 noundef %534) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %41) #10
   %535 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
   %.not.i123 = icmp eq i32 %535, 0
@@ -1389,26 +1389,26 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   %569 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %570 = load ptr, ptr %569, align 8
   %571 = call ptr @LLVMBuildMemMove(ptr noundef %566, ptr noundef %568, i32 noundef %544, ptr noundef %570, i32 noundef %544, ptr noundef %565) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %40)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %common.ret419
 
 572:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %573 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %575 = load i32, ptr %574, align 4
@@ -1677,25 +1677,25 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   br label %llvm_emit_slice_assign.exit
 
 llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph274, %.preheader, %654, %660, %712
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %common.ret419
 
 722:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %24) #10
@@ -1790,15 +1790,15 @@ gencontext_emit_slice.exit:                       ; preds = %754, %762, %772
   %782 = call fastcc ptr @type_lowering(ptr noundef %781)
   %783 = call ptr @llvm_emit_aggregate_two(ptr noundef nonnull %0, ptr noundef %782, ptr noundef %.029.i, ptr noundef %749)
   call void @llvm_value_set(ptr noundef %1, ptr noundef %783, ptr noundef %782) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %common.ret419
 
 784:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %785 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %786 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %787 = load i32, ptr %786, align 4
@@ -1864,7 +1864,7 @@ llvm_emit_pointer_offset.exit:                    ; preds = %806, %.thread215, %
   %819 = load ptr, ptr %818, align 8
   %820 = call ptr @llvm_emit_pointer_gep_raw(ptr noundef nonnull %0, ptr noundef %.0.i130, ptr noundef %817, ptr noundef %819)
   store ptr %820, ptr %816, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %common.ret419
 
 821:                                              ; preds = %62
@@ -1930,8 +1930,8 @@ llvm_emit_pointer_offset.exit:                    ; preds = %806, %.thread215, %
   br label %common.ret419
 
 853:                                              ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %854 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %855 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %856 = load ptr, ptr %855, align 8
@@ -2068,8 +2068,8 @@ llvm_emit_pointer_offset.exit:                    ; preds = %806, %.thread215, %
   br label %llvm_emit_macro_block.exit
 
 llvm_emit_macro_block.exit:                       ; preds = %.critedge.i135, %909
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %common.ret419
 
 910:                                              ; preds = %62, %62
@@ -2115,7 +2115,7 @@ llvm_emit_macro_block.exit:                       ; preds = %.critedge.i135, %90
   br label %914
 
 928:                                              ; preds = %914
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %929 = load ptr, ptr %2, align 8
   %930 = tail call fastcc ptr @type_lowering(ptr noundef %929)
   %931 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %930) #10
@@ -2298,7 +2298,7 @@ llvm_update_vector.exit65.i:                      ; preds = %1016, %.lr.ph257
 llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_update_vector.exit.i, %966, %936, %969, %939
   %.1.i180 = phi ptr [ %937, %939 ], [ %967, %969 ], [ %937, %936 ], [ %967, %966 ], [ %964, %llvm_update_vector.exit.i ], [ %.4.i, %.loopexit ]
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.1.i180, ptr noundef %930) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.ret419
 
 1029:                                             ; preds = %914
@@ -2333,8 +2333,8 @@ llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_up
   br label %common.ret419
 
 1041:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %1042 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1043 = load ptr, ptr %1042, align 8
   %.val.i138 = load ptr, ptr %1043, align 8
@@ -2810,8 +2810,8 @@ llvm_emit_vector_initializer_list.exit:           ; preds = %.loopexit, %llvm_up
   unreachable
 
 llvm_emit_unary_expr.exit:                        ; preds = %1082, %1153, %1160, %1181, %.critedge.i140, %1279, %1282, %1300, %1301, %1307, %1310, %1311
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %common.ret419
 
 1313:                                             ; preds = %62
@@ -2898,8 +2898,8 @@ llvm_emit_unary_expr.exit:                        ; preds = %1082, %1153, %1160,
   br label %common.ret419
 
 1346:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %1347 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1348 = load i32, ptr %1347, align 8
   %1349 = load ptr, ptr @expr_arena, align 8
@@ -3155,13 +3155,13 @@ bitstruct_requires_bitswap.exit:                  ; preds = %1403
   br label %llvm_emit_bitassign_expr.exit
 
 llvm_emit_bitassign_expr.exit:                    ; preds = %1400, %1473
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %common.ret419
 
 1479:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %1480 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1481 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1482 = load i8, ptr %1481, align 8
@@ -3265,8 +3265,8 @@ decl_optional_ref.exit204:                        ; preds = %tailrecurse._crit_e
   br label %llvm_emit_binary_expr.exit
 
 llvm_emit_binary_expr.exit:                       ; preds = %1491, %1493, %1531, %1537
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %common.ret419
 
 1538:                                             ; preds = %62
@@ -3280,7 +3280,7 @@ llvm_emit_binary_expr.exit:                       ; preds = %1491, %1493, %1531,
   %1543 = load i8, ptr %1542, align 8
   %1544 = icmp eq i8 %1543, 7
   %1545 = select i1 %1544, i32 1, i32 -1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %1546 = getelementptr inbounds nuw i8, ptr %1541, i64 16
   %1547 = load i16, ptr %1546, align 8
   %1548 = and i16 %1547, 255
@@ -3320,7 +3320,7 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
 1563:                                             ; preds = %expr_is_vector_subscript.exit.i.thread
   call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %1541)
   call void @llvm_value_addr(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1564 = load ptr, ptr %57, align 8
   %.not.i16.i = icmp eq ptr %1564, null
   br i1 %.not.i16.i, label %1568, label %1565
@@ -3350,15 +3350,15 @@ llvm_emit_inc_dec_change.exit.i:                  ; preds = %1569, %1568
   %1575 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %1576 = load i32, ptr %1575, align 4
   %1577 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef nonnull %0, ptr noundef %1574, ptr noundef %1572, i32 noundef %1576) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %llvm_emit_post_inc_dec.exit
 
 llvm_emit_post_inc_dec.exit:                      ; preds = %1558, %1562, %llvm_emit_inc_dec_change.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.ret419
 
 1578:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %1579 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.210) #10
   %1580 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
   %1581 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3413,11 +3413,11 @@ llvm_emit_post_inc_dec.exit:                      ; preds = %1558, %1562, %llvm_
   br label %llvm_emit_force_unwrap_expr.exit
 
 llvm_emit_force_unwrap_expr.exit:                 ; preds = %1601, %1603
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.ret419
 
 1606:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1607 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.215) #10
   %1608 = tail call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.211) #10
   %1609 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -3517,7 +3517,7 @@ llvm_emit_rethrow_expr.exit.sink.split:           ; preds = %1648, %1645
 
 llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_expr.exit.sink.split, %1606
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %1608) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.ret419
 
 1653:                                             ; preds = %62, %62, %62
@@ -3531,8 +3531,8 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   br label %common.ret419
 
 1657:                                             ; preds = %62, %62
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %1658 = and i16 %64, 255
   %1659 = icmp eq i16 %1658, 51
   %1660 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3676,12 +3676,12 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   br label %gencontext_emit_subscript.exit
 
 gencontext_emit_subscript.exit:                   ; preds = %1675, %1726, %1727
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %common.ret419
 
 1733:                                             ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %1734 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1735 = load ptr, ptr %1734, align 8
   tail call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1735)
@@ -3774,7 +3774,7 @@ gencontext_emit_subscript.exit:                   ; preds = %1675, %1726, %1727
   br label %llvm_emit_access_addr.exit
 
 llvm_emit_access_addr.exit:                       ; preds = %1770, %1780
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.ret419
 
 1784:                                             ; preds = %62
@@ -4549,7 +4549,7 @@ define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1,
   %.3 = load ptr, ptr %.3.in802, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %29, ptr noundef %.3)
   call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef nonnull %29) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %168 = load ptr, ptr @type_usz, align 8
   %169 = call fastcc ptr @type_lowering(ptr noundef %168)
   %170 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %169) #10
@@ -4572,7 +4572,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %.lr.ph, %173
   %181 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %180, ptr noundef %181) #10
   %182 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %166, ptr noundef %163, ptr noundef nonnull %7, i32 noundef %164, ptr noundef nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %183 = load i32, ptr %30, align 4
   %184 = call ptr @llvm_store_to_ptr_aligned(ptr noundef %0, ptr noundef %182, ptr noundef nonnull %29, i32 noundef %183) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5428,8 +5428,8 @@ expand_.exit768:                                  ; preds = %442, %446
   %579 = load ptr, ptr %224, align 8
   %580 = call ptr @LLVMTypeOf(ptr noundef nonnull %576) #10
   %581 = call ptr @LLVMBuildPhi(ptr noundef %579, ptr noundef %580, ptr noundef nonnull @.str.6) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %413, ptr %5, align 16
   %582 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %576, ptr %582, align 8
@@ -5437,8 +5437,8 @@ expand_.exit768:                                  ; preds = %442, %446
   %583 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %577, ptr %583, align 8
   call void @LLVMAddIncoming(ptr noundef %581, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %584 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %585 = load ptr, ptr %584, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %581, ptr noundef %585) #10
@@ -6015,7 +6015,7 @@ define dso_local ptr @llvm_coerce_expand_hi_offset(ptr noundef %0, ptr noundef r
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @LLVMConstInt(ptr noundef %26, i64 noundef %24, i32 noundef 0) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %27, ptr %6, align 8
   %28 = tail call i32 @LLVMIsConstant(ptr noundef %27) #10
   %.not.i.i = icmp eq i32 %28, 0
@@ -6035,7 +6035,7 @@ define dso_local ptr @llvm_coerce_expand_hi_offset(ptr noundef %0, ptr noundef r
   br label %llvm_emit_const_ptradd_inbounds_raw.exit
 
 llvm_emit_const_ptradd_inbounds_raw.exit:         ; preds = %29, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %65
 
 37:                                               ; preds = %4
@@ -6058,7 +6058,7 @@ llvm_emit_const_ptradd_inbounds_raw.exit:         ; preds = %29, %31
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @LLVMConstInt(ptr noundef %54, i64 noundef %52, i32 noundef 0) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %55, ptr %5, align 8
   %56 = tail call i32 @LLVMIsConstant(ptr noundef %55) #10
   %.not.i.i30 = icmp eq i32 %56, 0
@@ -6078,7 +6078,7 @@ llvm_emit_const_ptradd_inbounds_raw.exit:         ; preds = %29, %31
   br label %llvm_emit_const_ptradd_inbounds_raw.exit33
 
 llvm_emit_const_ptradd_inbounds_raw.exit33:       ; preds = %57, %59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 
 65:                                               ; preds = %llvm_emit_const_ptradd_inbounds_raw.exit33, %llvm_emit_const_ptradd_inbounds_raw.exit
@@ -6093,7 +6093,7 @@ define dso_local ptr @llvm_emit_const_ptradd_inbounds_raw(ptr noundef readonly c
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %2, i32 noundef 0) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
   %8 = tail call i32 @LLVMIsConstant(ptr noundef %7) #10
   %.not.i = icmp eq i32 %8, 0
@@ -6114,7 +6114,7 @@ define dso_local ptr @llvm_emit_const_ptradd_inbounds_raw(ptr noundef readonly c
 
 llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %9, %11
   %.0.i = phi ptr [ %16, %11 ], [ %1, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.i
 }
 
@@ -8036,7 +8036,7 @@ type_flatten.exit454:                             ; preds = %.preheader
   %483 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %482, ptr %483, align 8
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %484 = load ptr, ptr %483, align 8
   call void @llvm_value_set_int(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %484, i64 noundef 0) #10
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %3) #10
@@ -8049,7 +8049,7 @@ type_flatten.exit454:                             ; preds = %.preheader
   %490 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %491 = load ptr, ptr %490, align 8
   call void @llvm_emit_int_comp_raw(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %485, ptr noundef %487, ptr noundef %489, ptr noundef %491, i32 noundef 18)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %492
 
 492:                                              ; preds = %.critedge435, %.critedge437, %325, %type_flatten.exit454, %67, %96, %480, %355, %.critedge441, %.critedge439, %.critedge433, %.critedge431, %259, %229, %220, %209, %198, %189, %180, %170, %169, %168, %llvm_emit_arr_to_subarray_cast.exit, %129, %128, %126, %108, %99, %type_flatten.exit449
@@ -8598,8 +8598,8 @@ unreachable:                                      ; preds = %43
 
 163:                                              ; preds = %162
   %164 = icmp eq i32 %.0213267, 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %.0205, ptr %12, align 8
   %165 = tail call ptr @LLVMTypeOf(ptr noundef %.0205) #10
   store ptr %165, ptr %13, align 8
@@ -8617,8 +8617,8 @@ unreachable:                                      ; preds = %43
   %177 = call ptr @LLVMBuildCall2(ptr noundef %176, ptr noundef %174, ptr noundef %171, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %178 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %177, ptr noundef %178) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %275
 
 179:                                              ; preds = %162
@@ -8691,8 +8691,8 @@ unreachable:                                      ; preds = %43
 
 209:                                              ; preds = %208
   %210 = icmp eq i32 %.0213265, 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.0204, ptr %10, align 8
   %211 = tail call ptr @LLVMTypeOf(ptr noundef %.0204) #10
   store ptr %211, ptr %11, align 8
@@ -8710,8 +8710,8 @@ unreachable:                                      ; preds = %43
   %223 = call ptr @LLVMBuildCall2(ptr noundef %222, ptr noundef %220, ptr noundef %217, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %224 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %223, ptr noundef %224) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %275
 
 225:                                              ; preds = %208
@@ -8778,8 +8778,8 @@ default.unreachable:                              ; preds = %227
 
 257:                                              ; preds = %256
   %258 = icmp eq i32 %.0213265, 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %.1, ptr %8, align 8
   %259 = tail call ptr @LLVMTypeOf(ptr noundef %.1) #10
   store ptr %259, ptr %9, align 8
@@ -8797,8 +8797,8 @@ default.unreachable:                              ; preds = %227
   %271 = call ptr @LLVMBuildCall2(ptr noundef %270, ptr noundef %268, ptr noundef %265, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %272 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %271, ptr noundef %272) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %275
 
 273:                                              ; preds = %256
@@ -8830,7 +8830,7 @@ define dso_local ptr @llvm_emit_struct_gep_raw(ptr noundef readonly captures(non
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @LLVMConstInt(ptr noundef %19, i64 noundef %17, i32 noundef 0) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %20, ptr %7, align 8
   %21 = tail call i32 @LLVMIsConstant(ptr noundef %20) #10
   %.not.i.i = icmp eq i32 %21, 0
@@ -8851,7 +8851,7 @@ define dso_local ptr @llvm_emit_struct_gep_raw(ptr noundef readonly captures(non
 
 llvm_emit_const_ptradd_inbounds_raw.exit:         ; preds = %22, %24
   %.0.i.i = phi ptr [ %29, %24 ], [ %1, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %30
 
 30:                                               ; preds = %6, %llvm_emit_const_ptradd_inbounds_raw.exit
@@ -10161,8 +10161,8 @@ define dso_local void @llvm_emit_lhs_is_subtype(ptr noundef %0, ptr noundef %1, 
   call void @llvm_emit_cond_br_raw(ptr noundef %0, ptr noundef %40, ptr noundef %18, ptr noundef %17) #10
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = load ptr, ptr %41, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %42, ptr %7, align 16
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %36, ptr %43, align 8
@@ -10170,8 +10170,8 @@ define dso_local void @llvm_emit_lhs_is_subtype(ptr noundef %0, ptr noundef %1, 
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %19, ptr %44, align 8
   call void @LLVMAddIncoming(ptr noundef %24, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 2) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm_emit_block(ptr noundef %0, ptr noundef %18) #10
   %45 = load ptr, ptr %20, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -10181,8 +10181,8 @@ define dso_local void @llvm_emit_lhs_is_subtype(ptr noundef %0, ptr noundef %1, 
   %50 = call ptr @LLVMConstNull(ptr noundef %49) #10
   %51 = load ptr, ptr %46, align 8
   %52 = call ptr @LLVMConstAllOnes(ptr noundef %51) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %50, ptr %5, align 16
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %52, ptr %53, align 8
@@ -10190,8 +10190,8 @@ define dso_local void @llvm_emit_lhs_is_subtype(ptr noundef %0, ptr noundef %1, 
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %17, ptr %54, align 8
   call void @LLVMAddIncoming(ptr noundef %48, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 2) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %55 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %48, ptr noundef %55) #10
   ret void
@@ -10372,22 +10372,22 @@ llvm_emit_ptr_comparison.exit:                    ; preds = %56, %60, %64, %68, 
   br label %500
 
 82:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %83 = icmp eq i32 %4, 19
   %84 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %85 = getelementptr inbounds nuw i8, ptr %39, i64 64
@@ -10457,7 +10457,7 @@ llvm_emit_ptr_comparison.exit:                    ; preds = %56, %60, %64, %68, 
   store ptr %113, ptr %122, align 8
   %123 = load ptr, ptr %114, align 8
   %124 = load i32, ptr %115, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %125 = load ptr, ptr @type_usz, align 8
   %126 = call fastcc ptr @type_lowering(ptr noundef %125)
   %127 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %126) #10
@@ -10480,12 +10480,12 @@ llvm_emit_array_gep_raw.exit70:                   ; preds = %121, %130
   %138 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %6, ptr noundef %137, ptr noundef %138) #10
   %139 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %123, ptr noundef %90, ptr noundef nonnull %6, i32 noundef %124, ptr noundef nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %140 = load i32, ptr %24, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %25, ptr noundef %139, ptr noundef %88, i32 noundef %140) #10
   %141 = load ptr, ptr %116, align 8
   %142 = load i32, ptr %117, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %143 = load ptr, ptr @type_usz, align 8
   %144 = call fastcc ptr @type_lowering(ptr noundef %143)
   %145 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef %144) #10
@@ -10508,7 +10508,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %llvm_emit_array_gep
   %156 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %155, ptr noundef %156) #10
   %157 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %141, ptr noundef %90, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %158 = load i32, ptr %26, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %27, ptr noundef %157, ptr noundef %88, i32 noundef %158) #10
   call void @llvm_emit_comp(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull %27, i32 noundef 19)
@@ -10665,27 +10665,27 @@ llvm_emit_array_comp.exit:                        ; preds = %._crit_edge, %201
   %.sink = phi ptr [ %171, %._crit_edge ], [ %244, %201 ]
   %253 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.sink, ptr noundef %253) #10
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %500
 
 254:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call fastcc void @llvm_emit_any_pointer(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %20)
   call fastcc void @llvm_emit_type_from_any(ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %20) #10
@@ -10743,8 +10743,8 @@ llvm_emit_any_comparison.exit:                    ; preds = %255, %271
   %.0.i64 = phi ptr [ %270, %255 ], [ %286, %271 ]
   %288 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %.0.i64, ptr noundef %288) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %500
 
 289:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
@@ -10752,18 +10752,18 @@ llvm_emit_any_comparison.exit:                    ; preds = %255, %271
   unreachable
 
 290:                                              ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %291 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %292 = load ptr, ptr %291, align 8
   %293 = tail call fastcc ptr @type_lowering(ptr noundef %292)
@@ -11022,18 +11022,18 @@ llvm_emit_subarray_comp.exit:                     ; preds = %403, %414
   call void @LLVMAddIncoming(ptr noundef %452, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 3) #10
   %463 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %452, ptr noundef %463) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %500
 
 .preheader:                                       ; preds = %5, %476
@@ -11183,8 +11183,8 @@ define internal fastcc void @llvm_emit_float_comp(ptr noundef %0, ptr noundef %1
 
 39:                                               ; preds = %38
   %40 = icmp eq i32 %4, 19
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %.0, ptr %7, align 8
   %41 = tail call ptr @LLVMTypeOf(ptr noundef %.0) #10
   store ptr %41, ptr %8, align 8
@@ -11202,8 +11202,8 @@ define internal fastcc void @llvm_emit_float_comp(ptr noundef %0, ptr noundef %1
   %53 = call ptr @LLVMBuildCall2(ptr noundef %52, ptr noundef %50, ptr noundef %47, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @.str.3) #10
   %54 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef %1, ptr noundef %53, ptr noundef %54) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %57
 
 55:                                               ; preds = %38
@@ -11366,10 +11366,10 @@ define dso_local void @gencontext_emit_ternary_expr(ptr noundef %0, ptr noundef 
   br i1 %.not, label %16, label %138
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = load ptr, ptr @expr_arena, align 8
@@ -11616,10 +11616,10 @@ type_flatten.exit172:                             ; preds = %105
   br label %llvm_emit_elvis_expr.exit
 
 llvm_emit_elvis_expr.exit:                        ; preds = %llvm_get_current_block_if_in_use.exit182.thread, %52, %llvm_get_current_block_if_in_use.exit182, %124, %131
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %300
 
 138:                                              ; preds = %3
@@ -12069,7 +12069,7 @@ define dso_local ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %4
   %9 = tail call ptr @llvm_ptr_mult(ptr noundef %0, ptr noundef %3, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8
   %10 = tail call i32 @LLVMIsConstant(ptr noundef %9) #10
   %.not.i = icmp eq i32 %10, 0
@@ -12090,12 +12090,12 @@ define dso_local ptr @llvm_emit_pointer_inbounds_gep_raw(ptr noundef %0, ptr nou
 
 llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %11, %13
   %.0.i = phi ptr [ %18, %13 ], [ %2, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 19:                                               ; preds = %4
   %20 = tail call i32 @llvm_abi_size(ptr noundef %0, ptr noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   %21 = tail call i32 @LLVMIsConstant(ptr noundef %3) #10
   %.not.i12 = icmp eq i32 %21, 0
@@ -12125,7 +12125,7 @@ llvm_emit_ptradd_inbounds_raw.exit:               ; preds = %11, %13
 
 llvm_emit_ptradd_inbounds_raw.exit15:             ; preds = %22, %30, %32
   %.0.i14 = phi ptr [ %31, %30 ], [ %34, %32 ], [ %2, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %llvm_emit_ptradd_inbounds_raw.exit15, %llvm_emit_ptradd_inbounds_raw.exit
@@ -12297,7 +12297,7 @@ define dso_local ptr @llvm_ptr_mult(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = tail call ptr @LLVMGetElementType(ptr noundef %9) #10
   %14 = tail call ptr @LLVMConstInt(ptr noundef %13, i64 noundef %6, i32 noundef 0) #10
   %15 = tail call i32 @LLVMGetVectorSize(ptr noundef %9) #10
-  call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = icmp ugt i32 %15, 256
   br i1 %16, label %.thread.i, label %20
 
@@ -12331,7 +12331,7 @@ define dso_local ptr @llvm_ptr_mult(ptr noundef %0, ptr noundef %1, ptr noundef 
 llvm_emit_const_vector.exit:                      ; preds = %.lr.ph.i, %20
   %.0916.i = phi ptr [ %4, %20 ], [ %.0915.i, %.lr.ph.i ]
   %22 = call ptr @LLVMConstVector(ptr noundef nonnull %.0916.i, i32 noundef %15) #10
-  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 23:                                               ; preds = %8
@@ -12362,7 +12362,7 @@ define dso_local ptr @llvm_emit_pointer_gep_raw(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %4
   %9 = tail call ptr @llvm_ptr_mult(ptr noundef %0, ptr noundef %3, ptr noundef %1)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %9, ptr %6, align 8
   %10 = tail call i32 @LLVMIsConstant(ptr noundef %9) #10
   %.not.i = icmp eq i32 %10, 0
@@ -12383,12 +12383,12 @@ define dso_local ptr @llvm_emit_pointer_gep_raw(ptr noundef %0, ptr noundef %1, 
 
 llvm_emit_ptradd_raw.exit:                        ; preds = %11, %13
   %.0.i = phi ptr [ %18, %13 ], [ %2, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 19:                                               ; preds = %4
   %20 = tail call i32 @llvm_abi_size(ptr noundef %0, ptr noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   %21 = tail call i32 @LLVMIsConstant(ptr noundef %3) #10
   %.not.i12 = icmp eq i32 %21, 0
@@ -12418,7 +12418,7 @@ llvm_emit_ptradd_raw.exit:                        ; preds = %11, %13
 
 llvm_emit_ptradd_raw.exit15:                      ; preds = %22, %30, %32
   %.0.i14 = phi ptr [ %31, %30 ], [ %34, %32 ], [ %2, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
 35:                                               ; preds = %llvm_emit_ptradd_raw.exit15, %llvm_emit_ptradd_raw.exit
@@ -13083,7 +13083,7 @@ define internal fastcc void @llvm_expand_type_to_args(ptr noundef %0, ptr nounde
   br label %64
 
 20:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
@@ -13117,11 +13117,11 @@ define internal fastcc void @llvm_expand_type_to_args(ptr noundef %0, ptr nounde
   br i1 %exitcond.not, label %llvm_expand_struct_to_args.exit, label %.lr.ph23, !llvm.loop !48
 
 llvm_expand_struct_to_args.exit:                  ; preds = %.lr.ph23, %20, %25
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %64
 
 36:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %37 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %1) #10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %39 = load i32, ptr %38, align 8
@@ -13134,7 +13134,7 @@ llvm_expand_struct_to_args.exit:                  ; preds = %.lr.ph23, %20, %25
 
 41:                                               ; preds = %.lr.ph, %llvm_emit_array_gep_raw.exit
   %.0.i1921 = phi i64 [ 0, %.lr.ph ], [ %59, %llvm_emit_array_gep_raw.exit ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %42 = load ptr, ptr @type_usz, align 8
   %43 = call fastcc ptr @type_lowering(ptr noundef %42)
   %44 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %43) #10
@@ -13157,7 +13157,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %41, %47
   %55 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %54, ptr noundef %55) #10
   %56 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %2, ptr noundef %37, ptr noundef nonnull %7, i32 noundef %5, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %57 = load ptr, ptr %40, align 8
   %58 = load i32, ptr %8, align 4
   call fastcc void @llvm_expand_type_to_args(ptr noundef %0, ptr noundef %57, ptr noundef %56, ptr noundef %3, ptr noundef %4, i32 noundef %58)
@@ -13168,7 +13168,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %41, %47
   br i1 %62, label %41, label %llvm_expand_array_to_args.exit, !llvm.loop !49
 
 llvm_expand_array_to_args.exit:                   ; preds = %llvm_emit_array_gep_raw.exit, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %64
 
 63:                                               ; preds = %6, %6, %6, %6
@@ -14125,7 +14125,7 @@ define internal fastcc void @llvm_emit_const_init_ref(ptr noundef %0, ptr nounde
 76:                                               ; preds = %.lr.ph137, %llvm_emit_array_gep_raw.exit
   %indvars.iv148 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next149, %llvm_emit_array_gep_raw.exit ]
   %77 = load i32, ptr %74, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %78 = load ptr, ptr @type_usz, align 8
   %79 = call fastcc ptr @type_lowering(ptr noundef %78)
   %80 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %79) #10
@@ -14148,7 +14148,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %76, %83
   %91 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %6, ptr noundef %90, ptr noundef %91) #10
   %92 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %66, ptr noundef %72, ptr noundef nonnull %6, i32 noundef %77, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = load i32, ptr %7, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %8, ptr noundef %92, ptr noundef %69, i32 noundef %93) #10
   %94 = load ptr, ptr %75, align 8
@@ -14191,7 +14191,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %76, %83
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %116 = load i32, ptr %115, align 8
   %117 = load i32, ptr %110, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %118 = load ptr, ptr @type_usz, align 8
   %119 = call fastcc ptr @type_lowering(ptr noundef %118)
   %120 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %119) #10
@@ -14215,7 +14215,7 @@ llvm_emit_array_gep_raw.exit129:                  ; preds = %111, %123
   %132 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %5, ptr noundef %131, ptr noundef %132) #10
   %133 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %99, ptr noundef %104, ptr noundef nonnull %5, i32 noundef %117, ptr noundef nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %134 = load i32, ptr %9, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %10, ptr noundef %133, ptr noundef %103, i32 noundef %134) #10
   %135 = load ptr, ptr %114, align 8
@@ -14274,7 +14274,7 @@ llvm_emit_array_gep_raw.exit129:                  ; preds = %111, %123
 
 170:                                              ; preds = %.lr.ph, %llvm_value_struct_gep.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %llvm_value_struct_gep.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef %1) #10
   %171 = load ptr, ptr %165, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
@@ -14309,7 +14309,7 @@ llvm_value_struct_gep.exit:                       ; preds = %176
   call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %12, ptr noundef %186, ptr noundef %188) #10
   %189 = load i32, ptr %4, align 4
   store i32 %189, ptr %168, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %190 = load ptr, ptr %169, align 8
   %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv
   %192 = load ptr, ptr %191, align 8
@@ -14387,8 +14387,8 @@ type_flatten.exit:                                ; preds = %12
 28:                                               ; preds = %type_flatten.exit
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %30 = load ptr, ptr %29, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call fastcc ptr @type_lowering(ptr noundef %32)
@@ -14603,8 +14603,8 @@ bitstruct_requires_bitswap.exit:                  ; preds = %._crit_edge
   br label %llvm_emit_initialize_reference_bitstruct.exit
 
 llvm_emit_initialize_reference_bitstruct.exit:    ; preds = %56, %bitstruct_requires_bitswap.exit79, %52, %135
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 141:                                              ; preds = %type_flatten.exit
@@ -14616,7 +14616,7 @@ llvm_emit_initialize_reference_bitstruct.exit:    ; preds = %56, %bitstruct_requ
   br i1 %146, label %147, label %180
 
 147:                                              ; preds = %141
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %1) #10
   %148 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %144) #10
   %149 = tail call ptr @LLVMGetUndef(ptr noundef %148) #10
@@ -14675,7 +14675,7 @@ llvm_emit_initialize_reference_vector.exit:       ; preds = %169, %147, %150
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = call ptr @llvm_store_to_ptr_raw_aligned(ptr noundef %0, ptr noundef %176, ptr noundef %.041.i.lcssa, i32 noundef %178) #10
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 180:                                              ; preds = %141
@@ -14720,7 +14720,7 @@ llvm_emit_initialize_reference_vector.exit:       ; preds = %169, %147, %150
   br i1 %192, label %202, label %222
 
 202:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef nonnull %1) #10
   %203 = load ptr, ptr %142, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 56
@@ -14754,7 +14754,7 @@ llvm_value_struct_gep.exit:                       ; preds = %208
   call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %9, ptr noundef %218, ptr noundef %220) #10
   %221 = load i32, ptr %5, align 4
   store i32 %221, ptr %198, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %245
 
 222:                                              ; preds = %199
@@ -14762,7 +14762,7 @@ llvm_value_struct_gep.exit:                       ; preds = %208
 
 223:                                              ; preds = %222
   %224 = load i32, ptr %197, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %225 = load ptr, ptr @type_usz, align 8
   %226 = call fastcc ptr @type_lowering(ptr noundef %225)
   %227 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %226) #10
@@ -14785,7 +14785,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %223, %230
   %238 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %237, ptr noundef %238) #10
   %239 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %182, ptr noundef %183, ptr noundef nonnull %4, i32 noundef %224, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %240 = load ptr, ptr %201, align 8
   %241 = load i32, ptr %10, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %9, ptr noundef %239, ptr noundef %240, i32 noundef %241) #10
@@ -14886,7 +14886,7 @@ define internal fastcc void @llvm_emit_initialize_reference_designated(ptr nound
 21:                                               ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %23 = load ptr, ptr %22, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call fastcc ptr @type_lowering(ptr noundef %25)
@@ -14895,7 +14895,7 @@ define internal fastcc void @llvm_emit_initialize_reference_designated(ptr nound
   br i1 %28, label %29, label %64
 
 29:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = load ptr, ptr %24, align 8
   %31 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %30) #10
   %32 = getelementptr i8, ptr %23, i64 112
@@ -14961,7 +14961,7 @@ bitstruct_requires_bitswap.exit.i:                ; preds = %38, %36
   br i1 %exitcond66.not, label %llvm_emit_initialize_reference_designated_bitstruct_array.exit, label %49, !llvm.loop !60
 
 llvm_emit_initialize_reference_designated_bitstruct_array.exit: ; preds = %49, %bitstruct_requires_bitswap.exit.i, %45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %llvm_emit_initialize_reference_designated_bitstruct.exit
 
 64:                                               ; preds = %21
@@ -15122,7 +15122,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %._crit_edge
   br label %llvm_emit_initialize_reference_designated_bitstruct.exit
 
 llvm_emit_initialize_reference_designated_bitstruct.exit: ; preds = %llvm_emit_initialize_reference_designated_bitstruct_array.exit, %144
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 150:                                              ; preds = %8
@@ -15236,7 +15236,7 @@ type_flatten.exit:                                ; preds = %17
   %33 = and i32 %13, 7
   %34 = tail call ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %6, i32 noundef %33) #10
   %35 = lshr i32 %13, 3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %36 = load ptr, ptr @type_usz, align 8
   %37 = tail call fastcc ptr @type_lowering(ptr noundef %36)
   %38 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %37) #10
@@ -15260,7 +15260,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %32, %41
   %50 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %9, ptr noundef %49, ptr noundef %50) #10
   %51 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %9, i32 noundef %2, ptr noundef nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %10, align 4
@@ -15361,7 +15361,7 @@ llvm_bswap_non_integral.exit:                     ; preds = %82, %78, %77
 113:                                              ; preds = %.lr.ph, %259
   %indvars.iv = phi i64 [ %106, %.lr.ph ], [ %indvars.iv.next, %259 ]
   %.1274311 = phi ptr [ %.0273, %.lr.ph ], [ %.2, %259 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %114 = load ptr, ptr @type_usz, align 8
   %115 = call fastcc ptr @type_lowering(ptr noundef %114)
   %116 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %115) #10
@@ -15384,7 +15384,7 @@ llvm_emit_array_gep_raw.exit307:                  ; preds = %113, %119
   %127 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %8, ptr noundef %126, ptr noundef %127) #10
   %128 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %8, i32 noundef %2, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %129 = icmp eq i64 %indvars.iv, %108
   %or.cond = and i1 %95, %129
   br i1 %or.cond, label %130, label %198
@@ -15752,7 +15752,7 @@ define internal fastcc void @llvm_emit_initialize_designated_element(ptr noundef
   br label %96
 
 72:                                               ; preds = %40
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef nonnull %1) #10
   %73 = load ptr, ptr %41, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
@@ -15791,7 +15791,7 @@ llvm_value_struct_gep.exit:                       ; preds = %79
   %94 = load i32, ptr %13, align 4
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %94, ptr %95, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %96
 
 96:                                               ; preds = %llvm_value_struct_gep.exit, %60
@@ -15966,7 +15966,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %118, %120
   %204 = load i32, ptr %195, align 8
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %206 = load i32, ptr %205, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %207 = load ptr, ptr @type_usz, align 8
   %208 = tail call fastcc ptr @type_lowering(ptr noundef %207)
   %209 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %208) #10
@@ -15990,7 +15990,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %190, %212
   %221 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %12, ptr noundef %220, ptr noundef %221) #10
   %222 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %201, ptr noundef %203, ptr noundef nonnull %12, i32 noundef %206, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %223 = load i32, ptr %17, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %14, ptr noundef %222, ptr noundef %194, i32 noundef %223) #10
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -15998,9 +15998,9 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %190, %212
   br label %llvm_emit_initialize_reference.exit
 
 225:                                              ; preds = %36
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef %1) #10
   %.not.i195 = icmp eq ptr %6, null
   br i1 %.not.i195, label %226, label %227
@@ -16031,7 +16031,7 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %190, %212
   %.024.i201 = phi i32 [ %232, %.lr.ph ], [ %260, %llvm_emit_array_gep_raw.exit198 ]
   %239 = load ptr, ptr %235, align 8
   %240 = load i32, ptr %236, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %241 = load ptr, ptr @type_usz, align 8
   %242 = call fastcc ptr @type_lowering(ptr noundef %241)
   %243 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %242) #10
@@ -16055,7 +16055,7 @@ llvm_emit_array_gep_raw.exit198:                  ; preds = %238, %246
   %255 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %8, ptr noundef %254, ptr noundef %255) #10
   %256 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %239, ptr noundef %230, ptr noundef nonnull %8, i32 noundef %240, ptr noundef nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %257 = load ptr, ptr %228, align 8
   %258 = call ptr @type_get_indexed_type(ptr noundef %257) #10
   %259 = load i32, ptr %11, align 4
@@ -16067,9 +16067,9 @@ llvm_emit_array_gep_raw.exit198:                  ; preds = %238, %246
   br i1 %.not26.i.not, label %238, label %llvm_emit_initialize_designated_const_range.exit, !llvm.loop !64
 
 llvm_emit_initialize_designated_const_range.exit: ; preds = %llvm_emit_array_gep_raw.exit198, %227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %llvm_emit_initialize_reference.exit
 
 262:                                              ; preds = %36
@@ -16378,8 +16378,8 @@ define internal fastcc noundef ptr @llvm_emit_dynamic_search(ptr noundef %0, ptr
   %126 = load ptr, ptr %72, align 8
   %127 = load ptr, ptr %97, align 8
   %128 = call ptr @LLVMBuildPhi(ptr noundef %126, ptr noundef %127, ptr noundef nonnull @.str.125) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %125, ptr %4, align 16
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %103, ptr %129, align 8
@@ -16387,8 +16387,8 @@ define internal fastcc noundef ptr @llvm_emit_dynamic_search(ptr noundef %0, ptr
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %86, ptr %130, align 8
   call void @LLVMAddIncoming(ptr noundef %128, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 2) #10
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %128
 }
 
@@ -17595,7 +17595,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
 24:                                               ; preds = %expr_is_vector_subscript.exit.thread
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %2)
   call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %26 = load ptr, ptr %25, align 8
   %.not.i16 = icmp eq ptr %26, null
@@ -17628,7 +17628,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
   br label %llvm_emit_inc_dec_change.exit
 
 llvm_emit_inc_dec_change.exit:                    ; preds = %30, %39
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %42
 
 42:                                               ; preds = %llvm_emit_inc_dec_change.exit, %23, %19
@@ -17844,7 +17844,7 @@ type_flatten.exit149:                             ; preds = %50
 66:                                               ; preds = %type_flatten.exit149
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %68 = load ptr, ptr %67, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull align 8 %6) #10
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -17875,7 +17875,7 @@ type_flatten.exit149:                             ; preds = %50
 llvm_emit_bitassign_array.exit:                   ; preds = %80, %82
   %.0.i.i = phi i1 [ %81, %80 ], [ %..i.i, %82 ]
   call fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %70, i32 noundef %72, ptr noundef %75, i1 noundef zeroext %.0.i.i, ptr noundef readonly %12, ptr noundef %47)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %160
 
 84:                                               ; preds = %type_flatten.exit149
@@ -18247,7 +18247,7 @@ define internal fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noun
   br label %47
 
 25:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef %1) #10
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -18283,7 +18283,7 @@ llvm_value_struct_gep.exit:                       ; preds = %32
   tail call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %1, ptr noundef %42, ptr noundef %44) #10
   %45 = load i32, ptr %5, align 4
   store i32 %45, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
 46:                                               ; preds = %9
@@ -18348,7 +18348,7 @@ type_flatten.exit:                                ; preds = %8
   br i1 %27, label %28, label %192
 
 28:                                               ; preds = %type_flatten.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %1) #10
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %30 = load ptr, ptr %29, align 8
@@ -18358,7 +18358,7 @@ type_flatten.exit:                                ; preds = %8
   br i1 %33, label %34, label %72
 
 34:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @type_char, align 8
@@ -18369,7 +18369,7 @@ type_flatten.exit:                                ; preds = %8
   %42 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %41) #10
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = load ptr, ptr @type_usz, align 8
   %46 = tail call fastcc ptr @type_lowering(ptr noundef %45)
   %47 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %46) #10
@@ -18394,7 +18394,7 @@ llvm_extract_bool_bit_from_array.exit.i:          ; preds = %50, %34
   %60 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %5, ptr noundef %59, ptr noundef %60) #10
   %61 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %36, ptr noundef %42, ptr noundef nonnull %5, i32 noundef %44, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %62 = load i32, ptr %6, align 4
   %63 = call ptr @llvm_load(ptr noundef %0, ptr noundef %38, ptr noundef %61, i32 noundef %62, ptr noundef nonnull @.str.3) #10
   %64 = and i32 %40, 7
@@ -18406,7 +18406,7 @@ llvm_extract_bool_bit_from_array.exit.i:          ; preds = %50, %34
   %70 = call ptr @LLVMBuildTrunc(ptr noundef %67, ptr noundef %65, ptr noundef %69, ptr noundef nonnull @.str.3) #10
   %71 = load ptr, ptr @type_bool, align 8
   call void @llvm_value_set(ptr noundef nonnull %1, ptr noundef %70, ptr noundef %71) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %llvm_extract_bitvalue_from_array.exit
 
 72:                                               ; preds = %28
@@ -18464,7 +18464,7 @@ bitstruct_requires_bitswap.exit.i:                ; preds = %79, %77
   %103 = load ptr, ptr %24, align 8
   %104 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %103) #10
   %105 = load i32, ptr %97, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %106 = load ptr, ptr @type_usz, align 8
   %107 = call fastcc ptr @type_lowering(ptr noundef %106)
   %108 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %107) #10
@@ -18487,7 +18487,7 @@ llvm_emit_array_gep_raw.exit.i:                   ; preds = %111, %102
   %119 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %118, ptr noundef %119) #10
   %120 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %86, ptr noundef %104, ptr noundef nonnull %4, i32 noundef %105, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %121 = load i32, ptr %7, align 4
   %122 = call ptr @llvm_load(ptr noundef %0, ptr noundef %88, ptr noundef %120, i32 noundef %121, ptr noundef nonnull @.str.3) #10
   %123 = call ptr @LLVMTypeOf(ptr noundef %122) #10
@@ -18625,7 +18625,7 @@ llvm_bswap_non_integral.exit.i:                   ; preds = %162, %158, %._crit_
   br label %llvm_extract_bitvalue_from_array.exit
 
 llvm_extract_bitvalue_from_array.exit:            ; preds = %llvm_extract_bool_bit_from_array.exit.i, %191
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %270
 
 192:                                              ; preds = %type_flatten.exit
@@ -18884,10 +18884,10 @@ define internal fastcc void @llvm_emit_binary(ptr noundef %0, ptr noundef %1, pt
   br i1 %17, label %18, label %79
 
 18:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %19 = tail call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.196) #10
   %20 = tail call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.197) #10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -19021,10 +19021,10 @@ llvm_get_current_block_if_in_use.exit:            ; preds = %40, %48
   br label %llvm_emit_else.exit
 
 llvm_emit_else.exit:                              ; preds = %.critedge.i, %55, %69, %74
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %595
 
 79:                                               ; preds = %5
@@ -19033,9 +19033,9 @@ llvm_emit_else.exit:                              ; preds = %.critedge.i, %55, %
   br i1 %or.cond, label %81, label %136
 
 81:                                               ; preds = %79
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = load ptr, ptr @expr_arena, align 8
@@ -19154,9 +19154,9 @@ llvm_get_current_block_if_in_use.exit442:         ; preds = %111, %119
   br label %llvm_emit_logical_and_or.exit
 
 llvm_emit_logical_and_or.exit:                    ; preds = %102, %125, %.critedge.i429
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %595
 
 136:                                              ; preds = %79
@@ -20737,7 +20737,7 @@ define internal fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %
 
 25:                                               ; preds = %9
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef %1) #10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm_value_fold_optional(ptr noundef %0, ptr noundef %1) #10
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -20773,7 +20773,7 @@ llvm_value_struct_gep.exit:                       ; preds = %32
   tail call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %1, ptr noundef %42, ptr noundef %44) #10
   %45 = load i32, ptr %5, align 4
   store i32 %45, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
 46:                                               ; preds = %9
@@ -20792,10 +20792,10 @@ llvm_value_struct_gep.exit:                       ; preds = %32
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

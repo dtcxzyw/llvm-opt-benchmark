@@ -147,11 +147,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -417,10 +417,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
   br label %198
 
 197:                                              ; preds = %180
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %184, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %185, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %198
 
 198:                                              ; preds = %197, %192
@@ -437,13 +437,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %207 = zext i8 %184 to i64
   store i64 %207, ptr %132, align 8, !tbaa !180
   store i64 %.reass, ptr %133, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 208:                                              ; preds = %177
@@ -472,10 +472,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
   br label %229
 
 228:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %214, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %210, i64 noundef 2, ptr noundef nonnull %8, i8 %215, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %229
 
 229:                                              ; preds = %228, %223
@@ -492,13 +492,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %238 = zext i16 %214 to i64
   store i64 %238, ptr %130, align 8, !tbaa !180
   store i64 %210, ptr %131, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 239:                                              ; preds = %177
@@ -527,10 +527,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
   br label %260
 
 259:                                              ; preds = %239
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %245, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %241, i64 noundef 4, ptr noundef nonnull %6, i8 %246, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %260
 
 260:                                              ; preds = %259, %254
@@ -547,13 +547,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %262, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %269 = zext i32 %245 to i64
   store i64 %269, ptr %128, align 8, !tbaa !180
   store i64 %241, ptr %129, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 270:                                              ; preds = %177
@@ -582,10 +582,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
   br label %291
 
 290:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %276, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %272, i64 noundef 8, ptr noundef nonnull %4, i8 %277, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %291
 
 291:                                              ; preds = %290, %285
@@ -602,12 +602,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vsoxei8_vP
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %276, ptr %134, align 8, !tbaa !180
   store i64 %272, ptr %135, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %299, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %298, %294, %291, %267, %263, %260, %236, %232, %229, %205, %201, %198
@@ -629,9 +629,6 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %298, %294, %291, %2
   br i1 %exitcond247.not, label %._crit_edge, label %149, !llvm.loop !187
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
 declare noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #0
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -639,12 +636,12 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6trap_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr void @_ZN6trap_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -733,10 +730,7 @@ _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE22_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #0
 
@@ -809,11 +803,11 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -1077,10 +1071,10 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %196
 
 195:                                              ; preds = %178
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %182, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %183, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %196
 
 196:                                              ; preds = %195, %190
@@ -1097,13 +1091,13 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %205 = zext i8 %182 to i64
   store i64 %205, ptr %132, align 8, !tbaa !180
   store i64 %.reass, ptr %133, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 206:                                              ; preds = %175
@@ -1132,10 +1126,10 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %227
 
 226:                                              ; preds = %206
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %212, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %208, i64 noundef 2, ptr noundef nonnull %8, i8 %213, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %227
 
 227:                                              ; preds = %226, %221
@@ -1152,13 +1146,13 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 234:                                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %236 = zext i16 %212 to i64
   store i64 %236, ptr %130, align 8, !tbaa !180
   store i64 %208, ptr %131, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %235, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 237:                                              ; preds = %175
@@ -1187,10 +1181,10 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %258
 
 257:                                              ; preds = %237
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %243, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %239, i64 noundef 4, ptr noundef nonnull %6, i8 %244, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %258
 
 258:                                              ; preds = %257, %252
@@ -1207,13 +1201,13 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 265:                                              ; preds = %261
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %267 = zext i32 %243 to i64
   store i64 %267, ptr %128, align 8, !tbaa !180
   store i64 %239, ptr %129, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %266, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 268:                                              ; preds = %175
@@ -1242,10 +1236,10 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %289
 
 288:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %274, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %270, i64 noundef 8, ptr noundef nonnull %4, i8 %275, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %289
 
 289:                                              ; preds = %288, %283
@@ -1262,12 +1256,12 @@ define noundef i64 @_Z20fast_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 296:                                              ; preds = %292
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %274, ptr %134, align 8, !tbaa !180
   store i64 %270, ptr %135, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %297, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %296, %292, %289, %265, %261, %258, %234, %230, %227, %203, %199, %196
@@ -1347,11 +1341,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -1617,10 +1611,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
   br label %198
 
 197:                                              ; preds = %180
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %184, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %185, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %198
 
 198:                                              ; preds = %197, %192
@@ -1637,13 +1631,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %200, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %207 = zext i8 %184 to i64
   store i64 %207, ptr %132, align 8, !tbaa !180
   store i64 %.reass, ptr %133, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 208:                                              ; preds = %177
@@ -1672,10 +1666,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
   br label %229
 
 228:                                              ; preds = %208
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %214, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %210, i64 noundef 2, ptr noundef nonnull %8, i8 %215, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %229
 
 229:                                              ; preds = %228, %223
@@ -1692,13 +1686,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %238 = zext i16 %214 to i64
   store i64 %238, ptr %130, align 8, !tbaa !180
   store i64 %210, ptr %131, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %237, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 239:                                              ; preds = %177
@@ -1727,10 +1721,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
   br label %260
 
 259:                                              ; preds = %239
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %245, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %241, i64 noundef 4, ptr noundef nonnull %6, i8 %246, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %260
 
 260:                                              ; preds = %259, %254
@@ -1747,13 +1741,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %262, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %269 = zext i32 %245 to i64
   store i64 %269, ptr %128, align 8, !tbaa !180
   store i64 %241, ptr %129, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 270:                                              ; preds = %177
@@ -1782,10 +1776,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
   br label %291
 
 290:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %276, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %179, i64 noundef %272, i64 noundef 8, ptr noundef nonnull %4, i8 %277, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %291
 
 291:                                              ; preds = %290, %285
@@ -1802,12 +1796,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vsoxei8_
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %276, ptr %134, align 8, !tbaa !180
   store i64 %272, ptr %135, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %299, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %298, %294, %291, %267, %263, %260, %236, %232, %229, %205, %201, %198
@@ -1887,11 +1881,11 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -2155,10 +2149,10 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %196
 
 195:                                              ; preds = %178
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %182, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %183, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %196
 
 196:                                              ; preds = %195, %190
@@ -2175,13 +2169,13 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %205 = zext i8 %182 to i64
   store i64 %205, ptr %132, align 8, !tbaa !180
   store i64 %.reass, ptr %133, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %204, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 206:                                              ; preds = %175
@@ -2210,10 +2204,10 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %227
 
 226:                                              ; preds = %206
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %212, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %208, i64 noundef 2, ptr noundef nonnull %8, i8 %213, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %227
 
 227:                                              ; preds = %226, %221
@@ -2230,13 +2224,13 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 234:                                              ; preds = %230
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %236 = zext i16 %212 to i64
   store i64 %236, ptr %130, align 8, !tbaa !180
   store i64 %208, ptr %131, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %235, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 237:                                              ; preds = %175
@@ -2265,10 +2259,10 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %258
 
 257:                                              ; preds = %237
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %243, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %239, i64 noundef 4, ptr noundef nonnull %6, i8 %244, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %258
 
 258:                                              ; preds = %257, %252
@@ -2285,13 +2279,13 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 265:                                              ; preds = %261
   %266 = getelementptr inbounds nuw i8, ptr %260, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %267 = zext i32 %243 to i64
   store i64 %267, ptr %128, align 8, !tbaa !180
   store i64 %239, ptr %129, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %266, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 268:                                              ; preds = %175
@@ -2320,10 +2314,10 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %289
 
 288:                                              ; preds = %268
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %274, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %177, i64 noundef %270, i64 noundef 8, ptr noundef nonnull %4, i8 %275, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %289
 
 289:                                              ; preds = %288, %283
@@ -2340,12 +2334,12 @@ define noundef i64 @_Z22logged_rv64i_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 296:                                              ; preds = %292
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %274, ptr %134, align 8, !tbaa !180
   store i64 %270, ptr %135, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %297, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %296, %292, %289, %265, %261, %258, %234, %230, %227, %203, %199, %196
@@ -2425,11 +2419,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -2711,10 +2705,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
   br label %205
 
 204:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %191, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %192, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
 
 205:                                              ; preds = %204, %199
@@ -2731,13 +2725,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %214 = zext i8 %191 to i64
   store i64 %214, ptr %139, align 8, !tbaa !180
   store i64 %.reass, ptr %140, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 215:                                              ; preds = %184
@@ -2766,10 +2760,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
   br label %236
 
 235:                                              ; preds = %215
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %221, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %217, i64 noundef 2, ptr noundef nonnull %8, i8 %222, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %236
 
 236:                                              ; preds = %235, %230
@@ -2786,13 +2780,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %245 = zext i16 %221 to i64
   store i64 %245, ptr %137, align 8, !tbaa !180
   store i64 %217, ptr %138, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 246:                                              ; preds = %184
@@ -2821,10 +2815,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
   br label %267
 
 266:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %252, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %248, i64 noundef 4, ptr noundef nonnull %6, i8 %253, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %267
 
 267:                                              ; preds = %266, %261
@@ -2841,13 +2835,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %269, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %276 = zext i32 %252 to i64
   store i64 %276, ptr %135, align 8, !tbaa !180
   store i64 %248, ptr %136, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 277:                                              ; preds = %184
@@ -2876,10 +2870,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
   br label %298
 
 297:                                              ; preds = %277
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %283, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %279, i64 noundef 8, ptr noundef nonnull %4, i8 %284, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %298
 
 298:                                              ; preds = %297, %292
@@ -2896,12 +2890,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vsoxei8_vP
 
 305:                                              ; preds = %301
   %306 = getelementptr inbounds nuw i8, ptr %300, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %283, ptr %141, align 8, !tbaa !180
   store i64 %279, ptr %142, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %306, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %305, %301, %298, %274, %270, %267, %243, %239, %236, %212, %208, %205
@@ -2981,11 +2975,11 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -3265,10 +3259,10 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %203
 
 202:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %189, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %190, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %203
 
 203:                                              ; preds = %202, %197
@@ -3285,13 +3279,13 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %212 = zext i8 %189 to i64
   store i64 %212, ptr %139, align 8, !tbaa !180
   store i64 %.reass, ptr %140, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %211, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 213:                                              ; preds = %182
@@ -3320,10 +3314,10 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %234
 
 233:                                              ; preds = %213
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %219, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %215, i64 noundef 2, ptr noundef nonnull %8, i8 %220, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %234
 
 234:                                              ; preds = %233, %228
@@ -3340,13 +3334,13 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 241:                                              ; preds = %237
   %242 = getelementptr inbounds nuw i8, ptr %236, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %243 = zext i16 %219 to i64
   store i64 %243, ptr %137, align 8, !tbaa !180
   store i64 %215, ptr %138, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 244:                                              ; preds = %182
@@ -3375,10 +3369,10 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %265
 
 264:                                              ; preds = %244
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %250, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %246, i64 noundef 4, ptr noundef nonnull %6, i8 %251, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %265
 
 265:                                              ; preds = %264, %259
@@ -3395,13 +3389,13 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 272:                                              ; preds = %268
   %273 = getelementptr inbounds nuw i8, ptr %267, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %274 = zext i32 %250 to i64
   store i64 %274, ptr %135, align 8, !tbaa !180
   store i64 %246, ptr %136, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 275:                                              ; preds = %182
@@ -3430,10 +3424,10 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
   br label %296
 
 295:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %281, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %277, i64 noundef 8, ptr noundef nonnull %4, i8 %282, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %296
 
 296:                                              ; preds = %295, %290
@@ -3450,12 +3444,12 @@ define noundef i64 @_Z20fast_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef %
 
 303:                                              ; preds = %299
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %281, ptr %141, align 8, !tbaa !180
   store i64 %277, ptr %142, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %304, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %303, %299, %296, %272, %268, %265, %241, %237, %234, %210, %206, %203
@@ -3535,11 +3529,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -3821,10 +3815,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
   br label %205
 
 204:                                              ; preds = %187
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %191, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %192, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %205
 
 205:                                              ; preds = %204, %199
@@ -3841,13 +3835,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
 
 212:                                              ; preds = %208
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %214 = zext i8 %191 to i64
   store i64 %214, ptr %139, align 8, !tbaa !180
   store i64 %.reass, ptr %140, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 215:                                              ; preds = %184
@@ -3876,10 +3870,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
   br label %236
 
 235:                                              ; preds = %215
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %221, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %217, i64 noundef 2, ptr noundef nonnull %8, i8 %222, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %236
 
 236:                                              ; preds = %235, %230
@@ -3896,13 +3890,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %245 = zext i16 %221 to i64
   store i64 %245, ptr %137, align 8, !tbaa !180
   store i64 %217, ptr %138, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 246:                                              ; preds = %184
@@ -3931,10 +3925,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
   br label %267
 
 266:                                              ; preds = %246
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %252, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %248, i64 noundef 4, ptr noundef nonnull %6, i8 %253, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %267
 
 267:                                              ; preds = %266, %261
@@ -3951,13 +3945,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %269, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %276 = zext i32 %252 to i64
   store i64 %276, ptr %135, align 8, !tbaa !180
   store i64 %248, ptr %136, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %275, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 277:                                              ; preds = %184
@@ -3986,10 +3980,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
   br label %298
 
 297:                                              ; preds = %277
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %283, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %186, i64 noundef %279, i64 noundef 8, ptr noundef nonnull %4, i8 %284, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %298
 
 298:                                              ; preds = %297, %292
@@ -4006,12 +4000,12 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vsoxei8_
 
 305:                                              ; preds = %301
   %306 = getelementptr inbounds nuw i8, ptr %300, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %283, ptr %141, align 8, !tbaa !180
   store i64 %279, ptr %142, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %306, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %305, %301, %298, %274, %270, %267, %243, %239, %236, %212, %208, %205
@@ -4091,11 +4085,11 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 3, ptr %12, align 8, !tbaa !144
   %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %40 = load ptr, ptr %19, align 8, !tbaa !132
   call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %40, i64 noundef 1536)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 266816
@@ -4375,10 +4369,10 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %203
 
 202:                                              ; preds = %185
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 %189, ptr %10, align 1
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %.reass, i64 noundef 1, ptr noundef nonnull %10, i8 %190, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %203
 
 203:                                              ; preds = %202, %197
@@ -4395,13 +4389,13 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 210:                                              ; preds = %206
   %211 = getelementptr inbounds nuw i8, ptr %205, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 1, ptr %11, align 8, !tbaa !178
   %212 = zext i8 %189 to i64
   store i64 %212, ptr %139, align 8, !tbaa !180
   store i64 %.reass, ptr %140, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %211, ptr noundef nonnull align 8 dereferenceable(24) %11)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 213:                                              ; preds = %182
@@ -4430,10 +4424,10 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %234
 
 233:                                              ; preds = %213
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %219, ptr %8, align 2
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %215, i64 noundef 2, ptr noundef nonnull %8, i8 %220, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %234
 
 234:                                              ; preds = %233, %228
@@ -4450,13 +4444,13 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 241:                                              ; preds = %237
   %242 = getelementptr inbounds nuw i8, ptr %236, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 2, ptr %9, align 8, !tbaa !178
   %243 = zext i16 %219 to i64
   store i64 %243, ptr %137, align 8, !tbaa !180
   store i64 %215, ptr %138, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(24) %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 244:                                              ; preds = %182
@@ -4485,10 +4479,10 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %265
 
 264:                                              ; preds = %244
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %250, ptr %6, align 4
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %246, i64 noundef 4, ptr noundef nonnull %6, i8 %251, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %265
 
 265:                                              ; preds = %264, %259
@@ -4505,13 +4499,13 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 272:                                              ; preds = %268
   %273 = getelementptr inbounds nuw i8, ptr %267, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 4, ptr %7, align 8, !tbaa !178
   %274 = zext i32 %250 to i64
   store i64 %274, ptr %135, align 8, !tbaa !180
   store i64 %246, ptr %136, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 275:                                              ; preds = %182
@@ -4540,10 +4534,10 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
   br label %296
 
 295:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %281, ptr %4, align 8
   call void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168) %184, i64 noundef %277, i64 noundef 8, ptr noundef nonnull %4, i8 %282, i1 noundef zeroext true, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %296
 
 296:                                              ; preds = %295, %290
@@ -4560,12 +4554,12 @@ define noundef i64 @_Z22logged_rv64e_vsoxei8_vP11processor_t6insn_tm(ptr noundef
 
 303:                                              ; preds = %299
   %304 = getelementptr inbounds nuw i8, ptr %298, i64 3912
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 8, ptr %5, align 8, !tbaa !178
   store i64 %281, ptr %141, align 8, !tbaa !180
   store i64 %277, ptr %142, align 8, !tbaa !182
   call void @_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %304, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit
 
 _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %303, %299, %296, %272, %268, %265, %241, %237, %234, %210, %206, %203
@@ -4588,7 +4582,7 @@ _ZN5mmu_t5storeIhEEvmT_13xlate_flags_t.exit:      ; preds = %303, %299, %296, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !tbaa !136, !range !142, !noundef !143
   %4 = trunc nuw i8 %3 to i1
@@ -4596,34 +4590,34 @@ define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t8has_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t8has_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN11insn_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN11insn_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !138
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN6trap_t9has_tval2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN6trap_t9has_tval2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN6trap_t9get_tval2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN6trap_t9get_tval2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN6trap_t9has_tinstEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef zeroext i1 @_ZN6trap_t9has_tinstEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN6trap_t9get_tinstEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN6trap_t9get_tinstEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
   ret i64 0
 }
 
@@ -4643,22 +4637,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN24trap_illegal_instructionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 comdat align 2 {
+define linkonce_odr void @_ZN24trap_illegal_instructionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #21
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168), i64 noundef, i64 noundef, ptr noundef, i8, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
@@ -5017,20 +5011,26 @@ _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_vsoxei8_v.cc() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_vsoxei8_v.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #15
@@ -5048,17 +5048,17 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -345,7 +345,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes8AddTimesE
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %.not6.i.i = icmp eq ptr %5, %7
   br i1 %.not6.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit, label %.lr.ph.i.i
@@ -372,7 +372,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
   br i1 %.not.i.i, label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit, label %9, !llvm.loop !4
 
 _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeESt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKS2_St6vectorIS2_S5_EEEEEvT_SF_.exit: ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -404,7 +404,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes12AddKnotT
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %13, ptr %2, align 8
   %.not6.i.i = icmp eq ptr %15, %16
   br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -435,7 +435,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTi
   br i1 %.not.i.i, label %.loopexit, label %18, !llvm.loop !6
 
 .loopexit:                                        ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i.i, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = load ptr, ptr %26, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleTimeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %27)
@@ -1481,10 +1481,10 @@ _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__18TsTest_SampleTimes10SampleT
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

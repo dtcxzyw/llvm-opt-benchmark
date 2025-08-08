@@ -73,7 +73,7 @@ if.end:                                           ; preds = %entry
 
 if.then11:                                        ; preds = %if.end
   %3 = load ptr, ptr %this, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %Stream.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %Stream.i)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #8
   %BufferMode.i.i.i = getelementptr inbounds nuw i8, ptr %Stream.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8, !noalias !4
@@ -95,7 +95,7 @@ if.then.i.i:                                      ; preds = %if.then11
 
 _ZNK4llvh19formatv_object_base3strB5cxx11Ev.exit: ; preds = %if.then11, %if.then.i.i
   call void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %Stream.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %Stream.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %Stream.i)
   br label %return
 
 if.end13:                                         ; preds = %if.end
@@ -107,7 +107,7 @@ if.end13:                                         ; preds = %if.end
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Vec)
   %6 = extractvalue { ptr, i64 } %call, 0
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -123,7 +123,7 @@ if.end.i:                                         ; preds = %if.end13
   br label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
 
 _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %8 = load ptr, ptr %Vec, align 8
   %cmp.i.i.i.i = icmp eq ptr %8, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i
@@ -189,7 +189,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %OS.i)
   %BufferMode.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 8
@@ -207,7 +207,7 @@ if.end:                                           ; preds = %if.end.i, %entry
   %9 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %9)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %OS.i)
   %10 = load ptr, ptr %Out, align 8
   %Size.i = getelementptr inbounds nuw i8, ptr %Out, i64 8
   %11 = load i32, ptr %Size.i, align 8
@@ -297,7 +297,7 @@ sw.bb3:                                           ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then, %entry
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %OS.i)
   %BufferMode.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 32
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS.i, i64 8
@@ -314,7 +314,7 @@ if.end:                                           ; preds = %if.then, %entry
   %6 = load i8, ptr %RHSKind.i.i, align 1
   call void @_ZNK4llvh5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(36) %OS.i, ptr %agg.tmp2.sroa.0.0.copyload.i.i, i8 noundef zeroext %6)
   call void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %OS.i) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %OS.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %OS.i)
   %Size.i.i = getelementptr inbounds nuw i8, ptr %Out, i64 8
   %7 = load i32, ptr %Size.i.i, align 8
   %Capacity.i.i = getelementptr inbounds nuw i8, ptr %Out, i64 12
@@ -1441,10 +1441,10 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -240,34 +240,28 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
-
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #2
+declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #1
 
-declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #2
+declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogTuplesMultiInsertWithInfo(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTuplesMultiInsertWithInfo(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogCloseIndexes(ptr noundef) local_unnamed_addr #2
+declare void @CatalogCloseIndexes(ptr noundef) local_unnamed_addr #1
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -277,7 +271,7 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
   br i1 %5, label %6, label %34
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br i1 %1, label %7, label %29
 
 7:                                                ; preds = %6
@@ -326,7 +320,7 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
   br label %33
 
 33:                                               ; preds = %12, %29
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
 34:                                               ; preds = %33, %2
@@ -336,7 +330,7 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #7
@@ -381,24 +375,24 @@ define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local
   %.1 = phi i32 [ %24, %.thread ], [ 0, %2 ], [ 0, %25 ]
   call void @systable_endscan(ptr noundef %8) #7
   call void @table_close(ptr noundef %4, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @getObjectDescription(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @getObjectDescription(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @get_extension_name(i32 noundef) local_unnamed_addr #2
+declare ptr @get_extension_name(i32 noundef) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @checkMembershipInCurrentExtension(ptr noundef %0) local_unnamed_addr #0 {
@@ -434,7 +428,7 @@ define dso_local void @checkMembershipInCurrentExtension(ptr noundef %0) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #7
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #7
@@ -490,24 +484,24 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   %.us-phi = phi i64 [ 0, %.split16 ], [ %.0.ph.us, %10 ], [ %26, %.split14 ]
   call void @systable_endscan(ptr noundef %9) #7
   call void @table_close(ptr noundef %5, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.us-phi
 }
 
-declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @systable_beginscan(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #2
+declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
+declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @deleteDependencyRecordsForClass(i32 noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #7
   %7 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #7
@@ -555,14 +549,14 @@ define dso_local i64 @deleteDependencyRecordsForClass(i32 noundef %0, i32 nounde
   %.0.lcssa = phi i64 [ 0, %4 ], [ %.1, %28 ]
   call void @systable_endscan(ptr noundef %10) #7
   call void @table_close(ptr noundef %6, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @deleteDependencyRecordsForSpecific(i32 noundef %0, i32 noundef %1, i8 noundef signext %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #7
   %8 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #7
@@ -616,7 +610,7 @@ define dso_local i64 @deleteDependencyRecordsForSpecific(i32 noundef %0, i32 nou
   %.0.lcssa = phi i64 [ 0, %5 ], [ %.1, %33 ]
   call void @systable_endscan(ptr noundef %11) #7
   call void @table_close(ptr noundef %7, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0.lcssa
 }
 
@@ -625,9 +619,9 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   %6 = alloca [2 x %struct.ScanKeyData], align 16
   %7 = alloca %struct.ObjectAddress, align 4
   %8 = alloca %struct.ObjectAddress, align 4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %2, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -747,22 +741,22 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
 
 67:                                               ; preds = %13, %._crit_edge, %14
   %.0 = phi i64 [ 1, %14 ], [ %.031.lcssa, %._crit_edge ], [ 1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }
 
-declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #2
+declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
 
-declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #7
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #7
@@ -798,7 +792,7 @@ define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 n
   %.0.lcssa = phi i64 [ 0, %3 ], [ %20, %.lr.ph ]
   call void @systable_endscan(ptr noundef %9) #7
   call void @table_close(ptr noundef %5, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0.lcssa
 }
 
@@ -806,8 +800,8 @@ define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 n
 define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2 x %struct.ScanKeyData], align 16
   %5 = alloca %struct.ObjectAddress, align 4
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #7
   store i32 %0, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -875,15 +869,15 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %.0.lcssa = phi i64 [ 0, %15 ], [ %24, %.lr.ph.split.us ], [ %35, %.lr.ph.split ]
   call void @systable_endscan(ptr noundef %20) #7
   call void @table_close(ptr noundef %6, i32 noundef 3) #7
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #7
@@ -931,16 +925,16 @@ define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) 
   %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %27 ]
   call void @systable_endscan(ptr noundef %8) #7
   call void @table_close(ptr noundef %4, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0.lcssa
 }
 
-declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef signext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -988,7 +982,7 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
   %.not20 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %28 ]
   call void @systable_endscan(ptr noundef %9) #7
   call void @table_close(ptr noundef %6, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.not20
 }
 
@@ -1001,7 +995,7 @@ define dso_local ptr @getOwnedSequences(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 noundef signext %1, i8 noundef signext range(i8 0, 106) %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -1138,7 +1132,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   %.0.lcssa = phi ptr [ null, %11 ], [ %.1.us, %41 ], [ %.1, %72 ]
   call void @systable_endscan(ptr noundef %13) #7
   call void @table_close(ptr noundef %5, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa
 }
 
@@ -1220,20 +1214,20 @@ list_length.exit:                                 ; preds = %26
   ret i32 %.0
 }
 
-declare ptr @get_partition_ancestors(i32 noundef) local_unnamed_addr #2
+declare ptr @get_partition_ancestors(i32 noundef) local_unnamed_addr #1
 
-declare ptr @get_attname(i32 noundef, i16 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @get_attname(i32 noundef, i16 noundef signext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare signext i16 @get_attnum(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare signext i16 @get_attnum(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @list_free(ptr noundef) local_unnamed_addr #2
+declare void @list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [3 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1285,14 +1279,14 @@ define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0
   %.1 = phi i32 [ %27, %.thread ], [ 0, %1 ], [ 0, %28 ]
   call void @systable_endscan(ptr noundef %7) #7
   call void @table_close(ptr noundef %3, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [3 x %struct.ScanKeyData], align 16
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #7
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #7
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -1346,13 +1340,19 @@ define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_ad
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %29 ]
   call void @systable_endscan(ptr noundef %7) #7
   call void @table_close(ptr noundef %3, i32 noundef 1) #7
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0.lcssa
 }
 
-declare zeroext i1 @IsPinnedObject(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @IsPinnedObject(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #2
+declare signext i8 @get_rel_relkind(i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
@@ -1361,10 +1361,10 @@ declare void @llvm.assume(i1 noundef) #5
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }

@@ -20,7 +20,7 @@ $_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCh
 define void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit
@@ -40,7 +40,7 @@ define void @_ZN3url18AppendStringOfTypeEPKciNS_15SharedCharTypesEPNS_12CanonOut
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br i1 %16, label %17, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i
 
@@ -67,7 +67,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i:    ; preds = %21, %15
 _ZN3url11ReadUTFCharEPKcPiiPj.exit.i:             ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i, %21, %17
   %25 = phi i32 [ %18, %17 ], [ %18, %21 ], [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 26:                                               ; preds = %10
@@ -131,7 +131,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
   br i1 %52, label %10, label %_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit, !llvm.loop !18
 
 _ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -139,7 +139,7 @@ _ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIchEEvPKT_iNS_15SharedCharTypesEPNS_1
 define void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !3
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit
@@ -159,7 +159,7 @@ define void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOut
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br i1 %16, label %17, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i
 
@@ -186,7 +186,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i:    ; preds = %21, %15
 _ZN3url11ReadUTFCharEPKtPiiPj.exit.i:             ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i, %21, %17
   %25 = phi i32 [ %18, %17 ], [ %18, %21 ], [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 26:                                               ; preds = %10
@@ -251,7 +251,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
   br i1 %53, label %10, label %_ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit, !llvm.loop !21
 
 _ZN3url12_GLOBAL__N_120DoAppendStringOfTypeIttEEvPKT_iNS_15SharedCharTypesEPNS_12CanonOutputTIcEE.exit: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -323,7 +323,7 @@ declare noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef,
 define void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4, !tbaa !3
   %7 = icmp slt i32 %1, %2
   br i1 %7, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE.exit
@@ -343,7 +343,7 @@ define void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr 
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %16, label %17, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i
 
@@ -370,7 +370,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %21, %15
 _ZN3url21AppendUTF8EscapedCharEPKcPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %21, %17
   %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %17 ], [ %18, %21 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 26:                                               ; preds = %10
@@ -431,7 +431,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
   br i1 %49, label %10, label %_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE.exit, !llvm.loop !22
 
 _ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputTIcEE.exit: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -439,7 +439,7 @@ _ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIchEEvPKT_iiPNS_12CanonOutputT
 define void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4, !tbaa !3
   %7 = icmp slt i32 %1, %2
   br i1 %7, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE.exit
@@ -459,7 +459,7 @@ define void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr 
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5)
   br i1 %16, label %17, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i
 
@@ -486,7 +486,7 @@ _ZN4base16IsValidCharacterEj.exit.thread6.i.i.i:  ; preds = %21, %15
 _ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i, %21, %17
   %25 = phi i32 [ 65533, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ %18, %17 ], [ %18, %21 ]
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %25, ptr noundef %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 26:                                               ; preds = %10
@@ -548,7 +548,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
   br i1 %50, label %10, label %_ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE.exit, !llvm.loop !23
 
 _ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputTIcEE.exit: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -556,19 +556,19 @@ _ZN3url12_GLOBAL__N_127DoAppendInvalidNarrowStringIttEEvPKT_iiPNS_12CanonOutputT
 define noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN3url11ReadUTFCharEPKtPiiPj.exit, %3
   %.0.lcssa = phi i1 [ true, %3 ], [ %17, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa
 
 .lr.ph:                                           ; preds = %3, %_ZN3url11ReadUTFCharEPKtPiiPj.exit
   %.06 = phi i1 [ %17, %_ZN3url11ReadUTFCharEPKtPiiPj.exit ], [ true, %3 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %7, label %8, label %_ZN4base16IsValidCharacterEj.exit.thread6.i
 
@@ -597,7 +597,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit:               ; preds = %8, %12, %_ZN4base16
   %.0.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i ], [ true, %8 ], [ true, %12 ]
   %17 = and i1 %.06, %.0.i
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %16, ptr noundef %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = load i32, ptr %4, align 4, !tbaa !3
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %4, align 4, !tbaa !3
@@ -605,17 +605,11 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit:               ; preds = %8, %12, %_ZN4base16
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !3
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -628,12 +622,12 @@ define noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItE
 
 ._crit_edge:                                      ; preds = %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit, %3
   %.0.lcssa = phi i1 [ true, %3 ], [ %68, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.lcssa
 
 9:                                                ; preds = %.lr.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit
   %.014 = phi i1 [ true, %.lr.ph ], [ %68, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5)
   br i1 %10, label %11, label %_ZN4base16IsValidCharacterEj.exit.thread6.i
 
@@ -784,7 +778,7 @@ _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split: ; preds = %_Z
 
 _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit: ; preds = %select.unfold.i.i8.i, %select.unfold.i.i18.i, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split
   %68 = phi i1 [ %.ph28, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split ], [ %51, %select.unfold.i.i18.i ], [ %.014, %select.unfold.i.i8.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = load i32, ptr %4, align 4, !tbaa !3
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %4, align 4, !tbaa !3
@@ -793,7 +787,7 @@ _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit: ; preds = %select.unfold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #3 {
+define void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !32
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN3url12_GLOBAL__N_119DoOverrideComponentEPKcRKNS_9ComponentEPS2_PS3_.exit, label %6
@@ -971,14 +965,14 @@ define noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12Repla
   %31 = load i32, ptr %22, align 8, !tbaa !49
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i16, ptr %23, i64 %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !3
   %34 = icmp sgt i32 %26, 0
   br i1 %34, label %.lr.ph.i.i, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %28, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i
   %.06.i.i = phi i1 [ %45, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i ], [ true, %28 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %35 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %33, i32 noundef %26, ptr noundef nonnull %20, ptr noundef nonnull %21)
   br i1 %35, label %36, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i
 
@@ -1007,7 +1001,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i:           ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i ], [ true, %36 ], [ true, %40 ]
   %45 = and i1 %.06.i.i, %.0.i.i.i
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %44, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %46 = load i32, ptr %20, align 4, !tbaa !3
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %20, align 4, !tbaa !3
@@ -1023,7 +1017,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_ZN3ur
   %49 = phi i32 [ %30, %28 ], [ %.pre14.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
   %50 = phi i32 [ %30, %28 ], [ %.pre.i, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
   %.0.lcssa.i.i = phi i1 [ true, %28 ], [ %45, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %51 = sub nsw i32 %50, %49
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %51, ptr %52, align 4, !tbaa !48
@@ -1055,14 +1049,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %64 = load i32, ptr %55, align 8, !tbaa !49
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i16, ptr %54, i64 %65
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !3
   %67 = icmp sgt i32 %59, 0
   br i1 %67, label %.lr.ph.i.i78, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75
 
 .lr.ph.i.i78:                                     ; preds = %61, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81
   %.06.i.i79 = phi i1 [ %78, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81 ], [ true, %61 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %68 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %66, i32 noundef %59, ptr noundef nonnull %18, ptr noundef nonnull %19)
   br i1 %68, label %69, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80
 
@@ -1091,7 +1085,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i81:         ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i82 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i80 ], [ true, %69 ], [ true, %73 ]
   %78 = and i1 %.06.i.i79, %.0.i.i.i82
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %77, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %79 = load i32, ptr %18, align 4, !tbaa !3
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %18, align 4, !tbaa !3
@@ -1107,7 +1101,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i75: ; preds = %_ZN3
   %82 = phi i32 [ %63, %61 ], [ %.pre14.i85, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
   %83 = phi i32 [ %63, %61 ], [ %.pre.i84, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
   %.0.lcssa.i.i76 = phi i1 [ true, %61 ], [ %78, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i83 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %84 = sub nsw i32 %83, %82
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %84, ptr %85, align 4, !tbaa !48
@@ -1139,14 +1133,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %97 = load i32, ptr %88, align 8, !tbaa !49
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds i16, ptr %87, i64 %98
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !3
   %100 = icmp sgt i32 %92, 0
   br i1 %100, label %.lr.ph.i.i96, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93
 
 .lr.ph.i.i96:                                     ; preds = %94, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99
   %.06.i.i97 = phi i1 [ %111, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99 ], [ true, %94 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %101 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %99, i32 noundef %92, ptr noundef nonnull %16, ptr noundef nonnull %17)
   br i1 %101, label %102, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98
 
@@ -1175,7 +1169,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i99:         ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i100 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i98 ], [ true, %102 ], [ true, %106 ]
   %111 = and i1 %.06.i.i97, %.0.i.i.i100
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %110, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %112 = load i32, ptr %16, align 4, !tbaa !3
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %16, align 4, !tbaa !3
@@ -1191,7 +1185,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i93: ; preds = %_ZN3
   %115 = phi i32 [ %96, %94 ], [ %.pre14.i103, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
   %116 = phi i32 [ %96, %94 ], [ %.pre.i102, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
   %.0.lcssa.i.i94 = phi i1 [ true, %94 ], [ %111, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i101 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %117 = sub nsw i32 %116, %115
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %117, ptr %118, align 4, !tbaa !48
@@ -1223,14 +1217,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %130 = load i32, ptr %121, align 8, !tbaa !49
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds i16, ptr %120, i64 %131
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !3
   %133 = icmp sgt i32 %125, 0
   br i1 %133, label %.lr.ph.i.i114, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111
 
 .lr.ph.i.i114:                                    ; preds = %127, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117
   %.06.i.i115 = phi i1 [ %144, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117 ], [ true, %127 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %134 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %132, i32 noundef %125, ptr noundef nonnull %14, ptr noundef nonnull %15)
   br i1 %134, label %135, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116
 
@@ -1259,7 +1253,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i117:        ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i118 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i116 ], [ true, %135 ], [ true, %139 ]
   %144 = and i1 %.06.i.i115, %.0.i.i.i118
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %143, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %145 = load i32, ptr %14, align 4, !tbaa !3
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %14, align 4, !tbaa !3
@@ -1275,7 +1269,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i111: ; preds = %_ZN
   %148 = phi i32 [ %129, %127 ], [ %.pre14.i121, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
   %149 = phi i32 [ %129, %127 ], [ %.pre.i120, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
   %.0.lcssa.i.i112 = phi i1 [ true, %127 ], [ %144, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i119 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %150 = sub nsw i32 %149, %148
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %150, ptr %151, align 4, !tbaa !48
@@ -1307,14 +1301,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %163 = load i32, ptr %154, align 8, !tbaa !49
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds i16, ptr %153, i64 %164
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !3
   %166 = icmp sgt i32 %158, 0
   br i1 %166, label %.lr.ph.i.i132, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129
 
 .lr.ph.i.i132:                                    ; preds = %160, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135
   %.06.i.i133 = phi i1 [ %177, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135 ], [ true, %160 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %167 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %165, i32 noundef %158, ptr noundef nonnull %12, ptr noundef nonnull %13)
   br i1 %167, label %168, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134
 
@@ -1343,7 +1337,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i135:        ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i136 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i134 ], [ true, %168 ], [ true, %172 ]
   %177 = and i1 %.06.i.i133, %.0.i.i.i136
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %176, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %178 = load i32, ptr %12, align 4, !tbaa !3
   %179 = add nsw i32 %178, 1
   store i32 %179, ptr %12, align 4, !tbaa !3
@@ -1359,7 +1353,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i129: ; preds = %_ZN
   %181 = phi i32 [ %162, %160 ], [ %.pre14.i139, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
   %182 = phi i32 [ %162, %160 ], [ %.pre.i138, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
   %.0.lcssa.i.i130 = phi i1 [ true, %160 ], [ %177, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i137 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %183 = sub nsw i32 %182, %181
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %183, ptr %184, align 4, !tbaa !48
@@ -1391,14 +1385,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %196 = load i32, ptr %187, align 8, !tbaa !49
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds i16, ptr %186, i64 %197
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !3
   %199 = icmp sgt i32 %191, 0
   br i1 %199, label %.lr.ph.i.i150, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147
 
 .lr.ph.i.i150:                                    ; preds = %193, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153
   %.06.i.i151 = phi i1 [ %210, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153 ], [ true, %193 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %200 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %198, i32 noundef %191, ptr noundef nonnull %10, ptr noundef nonnull %11)
   br i1 %200, label %201, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152
 
@@ -1427,7 +1421,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i153:        ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i154 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i152 ], [ true, %201 ], [ true, %205 ]
   %210 = and i1 %.06.i.i151, %.0.i.i.i154
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %209, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %211 = load i32, ptr %10, align 4, !tbaa !3
   %212 = add nsw i32 %211, 1
   store i32 %212, ptr %10, align 4, !tbaa !3
@@ -1443,7 +1437,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i147: ; preds = %_ZN
   %214 = phi i32 [ %195, %193 ], [ %.pre14.i157, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
   %215 = phi i32 [ %195, %193 ], [ %.pre.i156, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
   %.0.lcssa.i.i148 = phi i1 [ true, %193 ], [ %210, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i155 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %216 = sub nsw i32 %215, %214
   %217 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %216, ptr %217, align 4, !tbaa !48
@@ -1475,14 +1469,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %229 = load i32, ptr %220, align 8, !tbaa !49
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds i16, ptr %219, i64 %230
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
   %232 = icmp sgt i32 %224, 0
   br i1 %232, label %.lr.ph.i.i168, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165
 
 .lr.ph.i.i168:                                    ; preds = %226, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171
   %.06.i.i169 = phi i1 [ %243, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171 ], [ true, %226 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %233 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %231, i32 noundef %224, ptr noundef nonnull %8, ptr noundef nonnull %9)
   br i1 %233, label %234, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170
 
@@ -1511,7 +1505,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i171:        ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i172 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i170 ], [ true, %234 ], [ true, %238 ]
   %243 = and i1 %.06.i.i169, %.0.i.i.i172
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %242, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %244 = load i32, ptr %8, align 4, !tbaa !3
   %245 = add nsw i32 %244, 1
   store i32 %245, ptr %8, align 4, !tbaa !3
@@ -1527,7 +1521,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i165: ; preds = %_ZN
   %247 = phi i32 [ %228, %226 ], [ %.pre14.i175, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
   %248 = phi i32 [ %228, %226 ], [ %.pre.i174, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
   %.0.lcssa.i.i166 = phi i1 [ true, %226 ], [ %243, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i173 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %249 = sub nsw i32 %248, %247
   %250 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %249, ptr %250, align 4, !tbaa !48
@@ -1559,14 +1553,14 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   %262 = load i32, ptr %253, align 8, !tbaa !49
   %263 = sext i32 %262 to i64
   %264 = getelementptr inbounds i16, ptr %252, i64 %263
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !3
   %265 = icmp sgt i32 %257, 0
   br i1 %265, label %.lr.ph.i.i186, label %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183
 
 .lr.ph.i.i186:                                    ; preds = %259, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189
   %.06.i.i187 = phi i1 [ %276, %_ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189 ], [ true, %259 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %266 = call noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef nonnull %264, i32 noundef %257, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %266, label %267, label %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188
 
@@ -1595,7 +1589,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i.i189:        ; preds = %_ZN4base16IsValidCh
   %.0.i.i.i190 = phi i1 [ false, %_ZN4base16IsValidCharacterEj.exit.thread6.i.i.i188 ], [ true, %267 ], [ true, %271 ]
   %276 = and i1 %.06.i.i187, %.0.i.i.i190
   call void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %275, ptr noundef nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %277 = load i32, ptr %6, align 4, !tbaa !3
   %278 = add nsw i32 %277, 1
   store i32 %278, ptr %6, align 4, !tbaa !3
@@ -1611,7 +1605,7 @@ _ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.i183: ; preds = %_ZN
   %280 = phi i32 [ %261, %259 ], [ %.pre14.i193, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
   %281 = phi i32 [ %261, %259 ], [ %.pre.i192, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
   %.0.lcssa.i.i184 = phi i1 [ true, %259 ], [ %276, %_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE.exit.loopexit.i191 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %282 = sub nsw i32 %281, %280
   %283 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 %282, ptr %283, align 4, !tbaa !48
@@ -1725,7 +1719,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   switch i32 %3, label %9 [
     i32 10, label %6
     i32 16, label %5
@@ -1748,16 +1742,16 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca [13 x i8], align 1
   %.not = icmp eq i32 %3, 10
   br i1 %.not, label %6, label %16
 
 6:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 13, ptr noundef nonnull @.str, i32 noundef %0) #7
   %8 = sext i32 %7 to i64
   %.not14 = icmp ugt i64 %2, %8
@@ -1789,7 +1783,7 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr n
 
 15:                                               ; preds = %6, %._crit_edge
   %.1 = phi i32 [ 0, %._crit_edge ], [ 22, %6 ]
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %16
 
 16:                                               ; preds = %4, %15
@@ -1798,7 +1792,7 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr n
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %0, ptr noundef %1) local_unnamed_addr #6 comdat {
+define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_18AppendCharToOutputEhPS2_EEEEvjS4_(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %24
 
@@ -2274,7 +2268,7 @@ _ZN3url18AppendCharToOutputEhPNS_12CanonOutputTIcEE.exit: ; preds = %select.unfo
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #6 comdat {
+define linkonce_odr void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %0, ptr noundef %1) local_unnamed_addr #5 comdat {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2415,7 +2409,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit23:      ; preds = %select.unfold.i.i16
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %0, ptr noundef %1) local_unnamed_addr #6 comdat {
+define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCharIhcEEvS3_PNS1_IT0_EEEEEEvjS4_(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %6
 
@@ -2489,13 +2483,19 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

@@ -103,7 +103,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   %9 = inttoptr i64 %1 to ptr
   %10 = trunc i64 %2 to i32
   %11 = inttoptr i64 %3 to ptr
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = lshr i32 %8, 8
   %13 = and i32 %8, 255
   %14 = icmp samesign ugt i32 %13, 2
@@ -119,7 +119,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br i1 %18, label %19, label %117
 
 19:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %13, ptr %6, align 4
   %20 = tail call i32 @security_quotactl(i32 noundef 8388609, i32 noundef %13, i32 noundef 0, ptr noundef null) #8
   %21 = icmp eq i32 %20, 0
@@ -130,7 +130,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br label %23
 
 23:                                               ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = sext i32 %20 to i64
   br label %117
 
@@ -151,7 +151,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
 33:                                               ; preds = %30, %27, %25
   %34 = phi ptr [ %32, %30 ], [ null, %25 ], [ %7, %27 ]
   %35 = call ptr @getname(ptr noundef nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !7
   %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
   br i1 %36, label %.loopexit, label %37
@@ -298,12 +298,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
   br i1 %50, label %.thread9, label %.loopexit
 
 .thread9:                                         ; preds = %95, %.loopexit10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %101
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10, %41, %33
   %99 = phi ptr [ %43, %41 ], [ %35, %33 ], [ %49, %.loopexit10 ], [ %52, %.preheader ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %100 = icmp ugt ptr %99, inttoptr (i64 -4096 to ptr)
   br i1 %100, label %101, label %105
 
@@ -347,7 +347,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_quotactl
 
 117:                                              ; preds = %115, %23, %17, %4
   %118 = phi i64 [ %116, %115 ], [ %24, %23 ], [ -22, %4 ], [ -19, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %118
 }
 
@@ -515,14 +515,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_quotactl_fd(
   ret i64 %14
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @do_quotactl(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 0, 16777216) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 align 16 {
@@ -696,19 +690,19 @@ define internal fastcc i32 @do_quotactl(ptr noundef %0, i32 noundef range(i32 0,
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @drop_super(ptr noundef) local_unnamed_addr #4
+declare dso_local void @drop_super(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @drop_super_exclusive(ptr noundef) local_unnamed_addr #4
+declare dso_local void @drop_super_exclusive(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @path_put(ptr noundef) local_unnamed_addr #4
+declare dso_local void @path_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @security_quotactl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @security_quotactl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @iterate_supers(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local void @iterate_supers(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @quota_sync_one(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
@@ -741,46 +735,46 @@ define internal void @quota_sync_one(ptr noundef %0, ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @user_path_at_empty(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @user_path_at_empty(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @getname(ptr noundef) local_unnamed_addr #4
+declare dso_local ptr @getname(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @lookup_bdev(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @lookup_bdev(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @putname(ptr noundef) local_unnamed_addr #4
+declare dso_local void @putname(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local ptr @user_get_super(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare dso_local ptr @user_get_super(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @up_write(ptr noundef) local_unnamed_addr #4
+declare dso_local void @up_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @up_read(ptr noundef) local_unnamed_addr #4
+declare dso_local void @up_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @put_super(ptr noundef) local_unnamed_addr #4
+declare dso_local void @put_super(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @__percpu_down_read(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare dso_local zeroext i1 @__percpu_down_read(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
-declare i64 @llvm.read_register.i64(metadata) #5
+declare i64 @llvm.read_register.i64(metadata) #4
 
 ; Function Attrs: nocallback nounwind
-declare void @llvm.write_register.i64(metadata, i64) #6
+declare void @llvm.write_register.i64(metadata, i64) #5
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
+declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @rcuwait_wake_up(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @rcuwait_wake_up(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @quota_quotaon(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
@@ -889,7 +883,7 @@ default.unreachable1:                             ; preds = %.thread
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -14, 1) i32 @quota_getfmt(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load i32, ptr %5, align 8
   %7 = shl nuw nsw i32 1, %1
@@ -915,7 +909,7 @@ define internal fastcc range(i32 -14, 1) i32 @quota_getfmt(ptr noundef readonly 
 
 23:                                               ; preds = %14, %3
   %24 = phi i32 [ -3, %3 ], [ %22, %14 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %24
 }
 
@@ -923,9 +917,9 @@ define internal fastcc range(i32 -14, 1) i32 @quota_getfmt(ptr noundef readonly 
 define internal fastcc i32 @quota_getinfo(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.qc_state, align 8
   %5 = alloca %struct.if_dqinfo, align 8
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -989,8 +983,8 @@ define internal fastcc i32 @quota_getinfo(ptr noundef %0, i32 noundef range(i32 
 
 45:                                               ; preds = %40, %14, %11, %3
   %46 = phi i32 [ -38, %3 ], [ %12, %11 ], [ -3, %14 ], [ %44, %40 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %46
 }
 
@@ -998,9 +992,9 @@ define internal fastcc i32 @quota_getinfo(ptr noundef %0, i32 noundef range(i32 
 define internal fastcc i32 @quota_setinfo(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.if_dqinfo, align 8
   %5 = alloca %struct.qc_info, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %2, i64 noundef 24) #8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %50
@@ -1080,8 +1074,8 @@ define internal fastcc i32 @quota_setinfo(ptr noundef %0, i32 noundef range(i32 
 
 50:                                               ; preds = %48, %20, %14, %8, %3
   %51 = phi i32 [ %49, %48 ], [ -14, %3 ], [ -38, %8 ], [ -22, %14 ], [ -22, %20 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %51
 }
 
@@ -1089,9 +1083,9 @@ define internal fastcc i32 @quota_setinfo(ptr noundef %0, i32 noundef range(i32 
 define internal fastcc i32 @quota_getquota(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.qc_dqblk, align 8
   %6 = alloca %struct.if_dqblk, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 64
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1194,8 +1188,8 @@ define internal fastcc i32 @quota_getquota(ptr noundef %0, i32 noundef range(i32
 
 80:                                               ; preds = %79, %76, %66, %63, %21, %12, %4
   %81 = phi i32 [ 0, %79 ], [ -14, %66 ], [ -38, %4 ], [ -22, %12 ], [ %25, %21 ], [ -14, %76 ], [ -14, %63 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %81
 }
 
@@ -1204,10 +1198,10 @@ define internal fastcc i32 @quota_getnextquota(ptr noundef %0, i32 noundef range
   %5 = alloca %struct.kqid, align 8
   %6 = alloca %struct.qc_dqblk, align 8
   %7 = alloca %struct.if_nextdqblk, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -1284,9 +1278,9 @@ define internal fastcc i32 @quota_getnextquota(ptr noundef %0, i32 noundef range
 
 63:                                               ; preds = %28, %22, %13, %4
   %64 = phi i32 [ -38, %4 ], [ -22, %13 ], [ %26, %22 ], [ %62, %28 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %64
 }
 
@@ -1294,9 +1288,9 @@ define internal fastcc i32 @quota_getnextquota(ptr noundef %0, i32 noundef range
 define internal fastcc i32 @quota_setquota(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.qc_dqblk, align 8
   %6 = alloca %struct.if_dqblk, align 8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !annotation !7
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !22
   %8 = inttoptr i64 %7 to ptr
@@ -1414,15 +1408,15 @@ define internal fastcc i32 @quota_setquota(ptr noundef %0, i32 noundef range(i32
 
 92:                                               ; preds = %45, %36, %30, %27, %16, %13
   %93 = phi i32 [ %91, %45 ], [ -14, %13 ], [ -14, %16 ], [ -14, %27 ], [ -38, %30 ], [ -22, %36 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @quota_enable(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !7
   %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq i64 %4, 0
@@ -1443,14 +1437,14 @@ define internal fastcc i32 @quota_enable(ptr noundef %0, ptr noundef %1) unnamed
 
 15:                                               ; preds = %12, %6, %2
   %16 = phi i32 [ %14, %12 ], [ -14, %2 ], [ -38, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @quota_disable(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !7
   %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq i64 %4, 0
@@ -1471,14 +1465,14 @@ define internal fastcc i32 @quota_disable(ptr noundef %0, ptr noundef %1) unname
 
 15:                                               ; preds = %12, %6, %2
   %16 = phi i32 [ %14, %12 ], [ -14, %2 ], [ -38, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @quota_rmxquota(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !annotation !7
   %4 = call i64 @_copy_from_user(ptr noundef nonnull %3, ptr noundef %1, i64 noundef 4) #8
   %5 = icmp eq i64 %4, 0
@@ -1499,7 +1493,7 @@ define internal fastcc i32 @quota_rmxquota(ptr noundef %0, ptr noundef %1) unnam
 
 15:                                               ; preds = %12, %6, %2
   %16 = phi i32 [ %14, %12 ], [ -14, %2 ], [ -38, %6 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %16
 }
 
@@ -1507,7 +1501,7 @@ define internal fastcc i32 @quota_rmxquota(ptr noundef %0, ptr noundef %1) unnam
 define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.qc_state, align 8
   %5 = alloca %struct.fs_quota_stat, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -1516,7 +1510,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
   br i1 %10, label %218, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
   %12 = call i32 %9(ptr noundef %0, ptr noundef nonnull %4) #8
   %13 = icmp slt i32 %12, 0
@@ -1636,11 +1630,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
 
 94:                                               ; preds = %14, %11
   %95 = phi i32 [ %12, %11 ], [ -38, %14 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %218
 
 96:                                               ; preds = %85, %78
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %97 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !22
   %98 = inttoptr i64 %97 to ptr
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -1802,7 +1796,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
 
 218:                                              ; preds = %94, %214, %203, %193, %183, %173, %163, %153, %148, %137, %132, %121, %111, %103, %3
   %219 = phi i32 [ -38, %3 ], [ %95, %94 ], [ %217, %214 ], [ -14, %193 ], [ -14, %183 ], [ -14, %173 ], [ -14, %163 ], [ -14, %153 ], [ -14, %148 ], [ -14, %137 ], [ -14, %121 ], [ -14, %111 ], [ -14, %103 ], [ %213, %203 ], [ -14, %132 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %219
 }
 
@@ -1810,7 +1804,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstate(ptr nounde
 define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.qc_state, align 8
   %5 = alloca %struct.fs_quota_statv, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -1830,7 +1824,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
   br i1 %16, label %17, label %109
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %4, i8 0, i64 176, i1 false)
   %18 = load ptr, ptr %6, align 64
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -1955,11 +1949,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
 
 104:                                              ; preds = %23, %17
   %105 = phi i32 [ %21, %17 ], [ -38, %23 ]
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 106:                                              ; preds = %95, %91
-  call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 160) #8
   %108 = icmp eq i64 %107, 0
   %spec.select = select i1 %108, i32 0, i32 -14
@@ -1967,7 +1961,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @quota_getxstatev(ptr nound
 
 109:                                              ; preds = %106, %104, %14, %11, %3
   %110 = phi i32 [ -38, %3 ], [ -14, %11 ], [ -22, %14 ], [ %105, %104 ], [ %spec.select, %106 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %110
 }
 
@@ -1976,9 +1970,9 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
   %5 = alloca %struct.fs_disk_quota, align 8
   %6 = alloca %struct.qc_dqblk, align 8
   %7 = alloca %struct.qc_info, align 4
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !7
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %3, i64 noundef 112) #8
   %9 = icmp eq i64 %8, 0
@@ -2017,7 +2011,7 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
   br i1 %33, label %._crit_edge, label %34
 
 34:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %35 = load ptr, ptr %11, align 64
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
@@ -2062,14 +2056,14 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
 
 .thread:                                          ; preds = %34, %39
   %.ph = phi i32 [ %62, %39 ], [ -22, %34 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
 64:                                               ; preds = %39
   %65 = load i16, ptr %29, align 2
   %66 = and i16 %65, -4033
   store i16 %66, ptr %29, align 2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %25, %64, %31
@@ -2179,8 +2173,8 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
 
 151:                                              ; preds = %.thread, %._crit_edge, %16, %10, %4
   %152 = phi i32 [ %150, %._crit_edge ], [ -14, %4 ], [ -38, %10 ], [ -22, %16 ], [ %.ph, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %152
 }
 
@@ -2188,8 +2182,8 @@ define internal fastcc i32 @quota_setxquota(ptr noundef %0, i32 noundef range(i3
 define internal fastcc i32 @quota_getxquota(ptr noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca %struct.fs_disk_quota, align 8
   %6 = alloca %struct.qc_dqblk, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 64
@@ -2368,8 +2362,8 @@ define internal fastcc i32 @quota_getxquota(ptr noundef %0, i32 noundef range(i3
 
 130:                                              ; preds = %122, %21, %12, %4
   %131 = phi i32 [ -38, %4 ], [ -22, %12 ], [ %25, %21 ], [ %129, %122 ]
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %131
 }
 
@@ -2378,10 +2372,10 @@ define internal fastcc i32 @quota_getnextxquota(ptr noundef %0, i32 noundef rang
   %5 = alloca %struct.fs_disk_quota, align 8
   %6 = alloca %struct.qc_dqblk, align 8
   %7 = alloca %struct.kqid, align 8
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false), !annotation !7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -2562,26 +2556,26 @@ define internal fastcc i32 @quota_getnextxquota(ptr noundef %0, i32 noundef rang
 
 133:                                              ; preds = %125, %22, %13, %4
   %134 = phi i32 [ -38, %4 ], [ -22, %13 ], [ %26, %22 ], [ %132, %125 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %134
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @in_egroup_p(i32) local_unnamed_addr #4
+declare dso_local i32 @in_egroup_p(i32) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #4
+declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @from_kqid(ptr noundef, i64) local_unnamed_addr #4
+declare dso_local i32 @from_kqid(ptr noundef, i64) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -14, 1) i32 @compat_copy_fs_qfilestat(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
@@ -2610,31 +2604,37 @@ define internal fastcc range(i32 -14, 1) i32 @compat_copy_fs_qfilestat(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i32 @mnt_want_write(ptr noundef) local_unnamed_addr #4
+declare dso_local i32 @mnt_want_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @down_write(ptr noundef) local_unnamed_addr #4
+declare dso_local void @down_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @down_read(ptr noundef) local_unnamed_addr #4
+declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @mnt_drop_write(ptr noundef) local_unnamed_addr #4
+declare dso_local void @mnt_drop_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local i64 @__fdget_raw(i32 noundef) local_unnamed_addr #4
+declare dso_local i64 @__fdget_raw(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare dso_local void @fput(ptr noundef) local_unnamed_addr #4
+declare dso_local void @fput(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
-attributes #6 = { nocallback nounwind }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(read) }
+attributes #5 = { nocallback nounwind }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind memory(none) }
 

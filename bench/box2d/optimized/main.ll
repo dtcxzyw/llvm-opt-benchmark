@@ -82,14 +82,8 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [30 x i8] c"ImGui_ImplOpenGL3_Init failed\00", align 1
 @str.2 = private unnamed_addr constant [104 x i8] c"\0A\0AERROR: the Box2D samples working directory must be the top level Box2D directory (same as README.md)\0A\00", align 1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define dso_local noundef ptr @_Z8AllocFcnji(i32 noundef %0, i32 noundef %1) #1 {
+define dso_local noundef ptr @_Z8AllocFcnji(i32 noundef %0, i32 noundef %1) #0 {
   %3 = add i32 %0, -1
   %4 = add nsw i32 %1, -1
   %5 = or i32 %4, %3
@@ -102,41 +96,41 @@ define dso_local noundef ptr @_Z8AllocFcnji(i32 noundef %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
+declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_Z7FreeFcnPv(ptr noundef captures(none) %0) #4 {
+define dso_local void @_Z7FreeFcnPv(ptr noundef captures(none) %0) #3 {
   tail call void @free(ptr noundef %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_Z9AssertFcnPKcS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #6 {
+define dso_local noundef i32 @_Z9AssertFcnPKcS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) #5 {
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define dso_local void @_Z17glfwErrorCallbackiPKc(i32 noundef %0, ptr noundef %1) #8 {
+define dso_local void @_Z17glfwErrorCallbackiPKc(i32 noundef %0, ptr noundef %1) #7 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !4
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1) #22
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
+define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
   %3 = alloca %struct.ImVec2, align 4
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
@@ -154,7 +148,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %17 = alloca %struct.ImVec4, align 8
   tail call void @b2SetAllocator(ptr noundef nonnull @_Z8AllocFcnji, ptr noundef nonnull @_Z7FreeFcnPv)
   tail call void @b2SetAssertFcn(ptr noundef nonnull @_Z9AssertFcnPKcS0_i)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   tail call void @_ZN8Settings4LoadEv(ptr noundef nonnull align 4 dereferenceable(44) @_ZL10s_settings)
   %18 = tail call noundef i32 @_ZN4enki21GetNumHardwareThreadsEv()
   %19 = sdiv i32 %18, 2
@@ -283,7 +277,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   unreachable
 
 _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12ImFontConfigC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %7)
   %89 = load float, ptr @_ZL13s_windowScale, align 4, !tbaa !21
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 80
@@ -308,7 +302,7 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   %105 = load ptr, ptr %104, align 8, !tbaa !34
   %106 = call noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180) %105, ptr noundef nonnull @.str.18, float noundef 6.400000e+01, ptr noundef nonnull %7, ptr noundef null)
   store ptr %106, ptr getelementptr inbounds nuw (i8, ptr @g_draw, i64 208), align 8, !tbaa !55
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4Draw6CreateEv(ptr noundef nonnull align 8 dereferenceable(216) @g_draw)
   %107 = load i32, ptr @_ZL10s_settings, align 4, !tbaa !56
   %108 = load i32, ptr @g_sampleCount, align 4, !tbaa !14
@@ -384,8 +378,8 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   %153 = fdiv float %152, %148
   %154 = fptosi float %153 to i32
   store i32 %154, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %155 = load ptr, ptr @g_mainWindow, align 8, !tbaa !22
   call void @glfwGetFramebufferSize(ptr noundef %155, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %156 = load ptr, ptr @glad_glViewport, align 8, !tbaa !27
@@ -394,9 +388,9 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   call void %156(i32 noundef 0, i32 noundef 0, i32 noundef %157, i32 noundef %158)
   %159 = load ptr, ptr @glad_glClear, align 8, !tbaa !27
   call void %159(i32 noundef 16640)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store double 0.000000e+00, ptr %11, align 8, !tbaa !58
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store double 0.000000e+00, ptr %12, align 8, !tbaa !58
   %160 = load ptr, ptr @g_mainWindow, align 8, !tbaa !22
   call void @glfwGetCursorPos(ptr noundef %160, ptr noundef nonnull %11, ptr noundef nonnull %12)
@@ -438,16 +432,16 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   %189 = getelementptr inbounds nuw i8, ptr %175, i64 76
   store float %188, ptr %189, align 4, !tbaa !63
   call void @_ZN5ImGui8NewFrameEv()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float 0.000000e+00, ptr %13, align 4, !tbaa !64
   store float 0.000000e+00, ptr %116, align 4, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store float 0.000000e+00, ptr %14, align 4, !tbaa !64
   store float 0.000000e+00, ptr %117, align 4, !tbaa !65
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %13, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !16
   %191 = sitofp i32 %190 to float
   %192 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !20
@@ -455,7 +449,7 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   store float %191, ptr %15, align 4, !tbaa !64
   store float %193, ptr %118, align 4, !tbaa !65
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZN5ImGui20SetNextWindowBgAlphaEf(float noundef 0.000000e+00)
   %194 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef 197193)
   call void @_ZN5ImGui3EndEv()
@@ -504,27 +498,27 @@ _ZL8CreateUIP10GLFWwindowPKc.exit:                ; preds = %86
   br i1 %223, label %224, label %_ZL8UpdateUIv.exit.thread
 
 224:                                              ; preds = %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 12), align 4, !tbaa !16
   %226 = sitofp i32 %225 to float
   %227 = fadd float %226, -1.800000e+02
   %228 = fadd float %227, -1.000000e+01
   store float %228, ptr %3, align 4, !tbaa !64
   store float 1.000000e+01, ptr %119, align 4, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float 0.000000e+00, ptr %4, align 4, !tbaa !64
   store float 0.000000e+00, ptr %120, align 4, !tbaa !65
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !20
   %230 = sitofp i32 %229 to float
   %231 = fadd float %230, -2.000000e+01
   store float 1.800000e+02, ptr %5, align 4, !tbaa !64
   store float %231, ptr %121, align 4, !tbaa !65
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %5, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %232 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.21, ptr noundef nonnull @g_draw, i32 noundef 38)
   %233 = call noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef nonnull @.str.22, i32 noundef 0)
   br i1 %233, label %234, label %_ZL8UpdateUIv.exit
@@ -589,7 +583,7 @@ _ZL13RestartSamplev.exit.i:                       ; preds = %247, %240
   %270 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.42, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 35))
   %271 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.43, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 36))
   %272 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.44, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL10s_settings, i64 37))
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store float -1.000000e+00, ptr %6, align 4, !tbaa !64
   store float 0.000000e+00, ptr %122, align 4, !tbaa !65
   %273 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.45, ptr noundef nonnull align 4 dereferenceable(8) %6)
@@ -670,7 +664,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
 
 309:                                              ; preds = %307, %305
   call void @_ZN5ImGui10EndTabItemEv()
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %310
 
 310:                                              ; preds = %309, %234
@@ -817,19 +811,19 @@ _ZL8UpdateUIv.exit:                               ; preds = %224, %359
   %376 = fpext float %375 to double
   %377 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.10, double noundef %367, i32 noundef %370, double noundef %372, double noundef %374, double noundef %376) #21
   %378 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef 197193)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %379 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !20
   %380 = sitofp i32 %379 to float
   %381 = fadd float %380, -2.000000e+01
   store float 5.000000e+00, ptr %16, align 4, !tbaa !64
   store float %381, ptr %123, align 4, !tbaa !65
   call void @_ZN5ImGui12SetCursorPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8) %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store <2 x float> <float 0x3FE3333340000000, float 0x3FECDCDD00000000>, ptr %17, align 8
   store <2 x float> <float 0x3FE3333340000000, float 1.000000e+00>, ptr %124, align 8
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull @.str.11, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN5ImGui3EndEv()
   br label %_ZL8UpdateUIv.exit.thread
 
@@ -890,10 +884,10 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
   %.017.lcssa = phi double [ %401, %400 ], [ %404, %.lr.ph ]
   %406 = fsub double %.017.lcssa, %126
   %407 = fptrunc double %406 to float
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %408 = load ptr, ptr @g_mainWindow, align 8, !tbaa !22
   %409 = call i32 @glfwWindowShouldClose(ptr noundef %408)
   %.not24 = icmp eq i32 %409, 0
@@ -923,47 +917,47 @@ _ZL8UpdateUIv.exit.thread:                        ; preds = %216, %365, %_ZL8Upd
 
 417:                                              ; preds = %48, %54, %416, %28
   %.0 = phi i32 [ -1, %28 ], [ -1, %48 ], [ 0, %416 ], [ -1, %54 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
-declare void @b2SetAllocator(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @b2SetAllocator(ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @b2SetAssertFcn(ptr noundef) local_unnamed_addr #10
+declare void @b2SetAssertFcn(ptr noundef) local_unnamed_addr #9
 
-declare void @_ZN8Settings4LoadEv(ptr noundef nonnull align 4 dereferenceable(44)) local_unnamed_addr #10
+declare void @_ZN8Settings4LoadEv(ptr noundef nonnull align 4 dereferenceable(44)) local_unnamed_addr #9
 
-declare noundef i32 @_ZN4enki21GetNumHardwareThreadsEv() local_unnamed_addr #10
+declare noundef i32 @_ZN4enki21GetNumHardwareThreadsEv() local_unnamed_addr #9
 
-declare ptr @glfwSetErrorCallback(ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetErrorCallback(ptr noundef) local_unnamed_addr #9
 
-declare i32 @glfwInit() local_unnamed_addr #10
+declare i32 @glfwInit() local_unnamed_addr #9
 
-declare void @glfwWindowHint(i32 noundef, i32 noundef) local_unnamed_addr #10
+declare void @glfwWindowHint(i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare { i64, i32 } @b2GetVersion() local_unnamed_addr #10
+declare { i64, i32 } @b2GetVersion() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
-declare ptr @glfwGetPrimaryMonitor() local_unnamed_addr #10
+declare ptr @glfwGetPrimaryMonitor() local_unnamed_addr #9
 
-declare void @glfwGetMonitorContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @glfwGetMonitorContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare ptr @glfwCreateWindow(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwCreateWindow(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @glfwTerminate() local_unnamed_addr #10
+declare void @glfwTerminate() local_unnamed_addr #9
 
-declare void @glfwGetWindowContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @glfwGetWindowContentScale(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @glfwMakeContextCurrent(ptr noundef) local_unnamed_addr #10
+declare void @glfwMakeContextCurrent(ptr noundef) local_unnamed_addr #9
 
-declare i32 @gladLoadGL() local_unnamed_addr #10
+declare i32 @gladLoadGL() local_unnamed_addr #9
 
-declare ptr @glfwSetWindowSizeCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetWindowSizeCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @_ZL20ResizeWindowCallbackP10GLFWwindowii(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #11 {
+define internal void @_ZL20ResizeWindowCallbackP10GLFWwindowii(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #10 {
   %4 = sitofp i32 %1 to float
   %5 = load float, ptr @_ZL13s_windowScale, align 4, !tbaa !21
   %6 = fdiv float %4, %5
@@ -978,10 +972,10 @@ define internal void @_ZL20ResizeWindowCallbackP10GLFWwindowii(ptr readnone capt
   ret void
 }
 
-declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetKeyCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #12 {
+define internal void @_ZL11KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #11 {
   tail call void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 169
@@ -1154,18 +1148,18 @@ _ZL13RestartSamplev.exit:                         ; preds = %43, %46
   ret void
 }
 
-declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetCharCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12CharCallbackP10GLFWwindowj(ptr noundef %0, i32 noundef %1) #13 {
+define internal void @_ZL12CharCallbackP10GLFWwindowj(ptr noundef %0, i32 noundef %1) #12 {
   tail call void @_Z27ImGui_ImplGlfw_CharCallbackP10GLFWwindowj(ptr noundef %0, i32 noundef %1)
   ret void
 }
 
-declare ptr @glfwSetMouseButtonCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetMouseButtonCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #12 {
+define internal void @_ZL19MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #11 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   tail call void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3)
@@ -1176,8 +1170,8 @@ define internal void @_ZL19MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i
   br i1 %10, label %37, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = load ptr, ptr @g_mainWindow, align 8, !tbaa !22
   call void @glfwGetCursorPos(ptr noundef %12, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %13 = load double, ptr %5, align 8, !tbaa !58
@@ -1234,18 +1228,18 @@ define internal void @_ZL19MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i
   br label %36
 
 36:                                               ; preds = %33, %22, %32, %11, %27, %20, %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 37:                                               ; preds = %4, %36
   ret void
 }
 
-declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetCursorPosCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #12 {
+define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #11 {
   %4 = fptrunc double %1 to float
   %5 = load float, ptr @_ZL13s_windowScale, align 4, !tbaa !21
   %6 = fdiv float %4, %5
@@ -1285,10 +1279,10 @@ define internal void @_ZL19MouseMotionCallbackP10GLFWwindowdd(ptr noundef %0, do
   ret void
 }
 
-declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare ptr @glfwSetScrollCallback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL14ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #13 {
+define internal void @_ZL14ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #12 {
   tail call void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2)
   %4 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -1309,71 +1303,71 @@ define internal void @_ZL14ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double 
   ret void
 }
 
-declare void @_ZN4Draw6CreateEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #10
+declare void @_ZN4Draw6CreateEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #9
 
-declare i32 @glfwWindowShouldClose(ptr noundef) local_unnamed_addr #10
+declare i32 @glfwWindowShouldClose(ptr noundef) local_unnamed_addr #9
 
-declare double @glfwGetTime() local_unnamed_addr #10
+declare double @glfwGetTime() local_unnamed_addr #9
 
-declare i32 @glfwGetKey(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare i32 @glfwGetKey(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @glfwGetWindowSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @glfwGetFramebufferSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @glfwGetCursorPos(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare void @glfwGetCursorPos(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare void @_Z32ImGui_ImplGlfw_CursorPosCallbackP10GLFWwindowdd(ptr noundef, double noundef, double noundef) local_unnamed_addr #10
+declare void @_Z32ImGui_ImplGlfw_CursorPosCallbackP10GLFWwindowdd(ptr noundef, double noundef, double noundef) local_unnamed_addr #9
 
-declare void @_Z26ImGui_ImplOpenGL3_NewFramev() local_unnamed_addr #10
+declare void @_Z26ImGui_ImplOpenGL3_NewFramev() local_unnamed_addr #9
 
-declare void @_Z23ImGui_ImplGlfw_NewFramev() local_unnamed_addr #10
+declare void @_Z23ImGui_ImplGlfw_NewFramev() local_unnamed_addr #9
 
-declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #10
+declare noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv() local_unnamed_addr #9
 
-declare void @_ZN5ImGui8NewFrameEv() local_unnamed_addr #10
+declare void @_ZN5ImGui8NewFrameEv() local_unnamed_addr #9
 
-declare void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #10
+declare void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #9
 
-declare void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #10
+declare void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN5ImGui20SetNextWindowBgAlphaEf(float noundef) local_unnamed_addr #10
+declare void @_ZN5ImGui20SetNextWindowBgAlphaEf(float noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN5ImGui3EndEv() local_unnamed_addr #10
+declare void @_ZN5ImGui3EndEv() local_unnamed_addr #9
 
-declare void @_ZN6Sample9DrawTitleEPKc(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) local_unnamed_addr #10
+declare void @_ZN6Sample9DrawTitleEPKc(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) local_unnamed_addr #9
 
-declare void @_ZN4Draw5FlushEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #10
+declare void @_ZN4Draw5FlushEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #9
 
-declare void @_ZN5ImGui12SetCursorPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #10
+declare void @_ZN5ImGui12SetCursorPosERK6ImVec2(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #9
 
-declare void @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #10
+declare void @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ...) local_unnamed_addr #9
 
-declare void @_ZN5ImGui6RenderEv() local_unnamed_addr #10
+declare void @_ZN5ImGui6RenderEv() local_unnamed_addr #9
 
-declare void @_Z32ImGui_ImplOpenGL3_RenderDrawDataP10ImDrawData(ptr noundef) local_unnamed_addr #10
+declare void @_Z32ImGui_ImplOpenGL3_RenderDrawDataP10ImDrawData(ptr noundef) local_unnamed_addr #9
 
-declare noundef ptr @_ZN5ImGui11GetDrawDataEv() local_unnamed_addr #10
+declare noundef ptr @_ZN5ImGui11GetDrawDataEv() local_unnamed_addr #9
 
-declare void @glfwSwapBuffers(ptr noundef) local_unnamed_addr #10
+declare void @glfwSwapBuffers(ptr noundef) local_unnamed_addr #9
 
-declare void @_ZN6Camera9ResetViewEv(ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #10
+declare void @_ZN6Camera9ResetViewEv(ptr noundef nonnull align 4 dereferenceable(20)) local_unnamed_addr #9
 
-declare void @glfwPollEvents() local_unnamed_addr #10
+declare void @glfwPollEvents() local_unnamed_addr #9
 
-declare void @b2Yield() local_unnamed_addr #10
+declare void @b2Yield() local_unnamed_addr #9
 
-declare void @_ZN4Draw7DestroyEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #10
+declare void @_ZN4Draw7DestroyEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #9
 
-declare void @_ZN8Settings4SaveEv(ptr noundef nonnull align 4 dereferenceable(44)) local_unnamed_addr #10
+declare void @_ZN8Settings4SaveEv(ptr noundef nonnull align 4 dereferenceable(44)) local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZL14CompareSamplesPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+define internal noundef i32 @_ZL14CompareSamplesPKvS0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #14 {
   %3 = load ptr, ptr %0, align 8, !tbaa !73
   %4 = load ptr, ptr %1, align 8, !tbaa !73
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #25
@@ -1394,79 +1388,85 @@ define internal noundef i32 @_ZL14CompareSamplesPKvS0_(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
-declare void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
+declare void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @glfwSetWindowShouldClose(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare void @glfwSetWindowShouldClose(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN6Sample11ShiftOriginE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(248), <2 x float>) local_unnamed_addr #10
+declare void @_ZN6Sample11ShiftOriginE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(248), <2 x float>) local_unnamed_addr #9
 
-declare void @_Z27ImGui_ImplGlfw_CharCallbackP10GLFWwindowj(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare void @_Z27ImGui_ImplGlfw_CharCallbackP10GLFWwindowj(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
+declare void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
-declare <2 x float> @_ZN6Camera20ConvertScreenToWorldE6b2Vec2(ptr noundef nonnull align 4 dereferenceable(20), <2 x float>) local_unnamed_addr #10
+declare <2 x float> @_ZN6Camera20ConvertScreenToWorldE6b2Vec2(ptr noundef nonnull align 4 dereferenceable(20), <2 x float>) local_unnamed_addr #9
 
-declare void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef, double noundef, double noundef) local_unnamed_addr #10
+declare void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef, double noundef, double noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui30DebugCheckVersionAndDataLayoutEPKcmmmmmm(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
-declare noundef ptr @_ZN5ImGui13CreateContextEP11ImFontAtlas(ptr noundef) local_unnamed_addr #10
+declare noundef ptr @_ZN5ImGui13CreateContextEP11ImFontAtlas(ptr noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_Z28ImGui_ImplGlfw_InitForOpenGLP10GLFWwindowb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #10
+declare noundef zeroext i1 @_Z28ImGui_ImplGlfw_InitForOpenGLP10GLFWwindowb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
-declare void @_ZN12ImFontConfigC1Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #10
+declare void @_ZN12ImFontConfigC1Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #9
 
-declare noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180), ptr noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
+declare noundef ptr @_ZN11ImFontAtlas18AddFontFromFileTTFEPKcfPK12ImFontConfigPKt(ptr noundef nonnull align 8 dereferenceable(1180), ptr noundef, float noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #17
+declare void @exit(i32 noundef) local_unnamed_addr #16
 
-declare noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui11BeginTabBarEPKci(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui12BeginTabItemEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN5ImGui13PushItemWidthEf(float noundef) local_unnamed_addr #10
+declare void @_ZN5ImGui13PushItemWidthEf(float noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui9SliderIntEPKcPiiiS1_i(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui11SliderFloatEPKcPfffS1_i(ptr noundef, ptr noundef, float noundef, float noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui11SliderFloatEPKcPfffS1_i(ptr noundef, ptr noundef, float noundef, float noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN5ImGui12PopItemWidthEv() local_unnamed_addr #10
+declare void @_ZN5ImGui12PopItemWidthEv() local_unnamed_addr #9
 
-declare void @_ZN5ImGui9SeparatorEv() local_unnamed_addr #10
+declare void @_ZN5ImGui9SeparatorEv() local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef, ptr noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #9
 
-declare void @b2World_DumpMemoryStats(i32) local_unnamed_addr #10
+declare void @b2World_DumpMemoryStats(i32) local_unnamed_addr #9
 
-declare void @_ZN6Sample12ResetProfileEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #10
+declare void @_ZN6Sample12ResetProfileEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #9
 
-declare void @_ZN5ImGui10EndTabItemEv() local_unnamed_addr #10
+declare void @_ZN5ImGui10EndTabItemEv() local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKci(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKci(ptr noundef, i32 noundef) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKviPKcz(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui10TreeNodeExEPKviPKcz(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
-declare noundef zeroext i1 @_ZN5ImGui13IsItemClickedEi(i32 noundef) local_unnamed_addr #10
+declare noundef zeroext i1 @_ZN5ImGui13IsItemClickedEi(i32 noundef) local_unnamed_addr #9
 
-declare void @_ZN5ImGui7TreePopEv() local_unnamed_addr #10
+declare void @_ZN5ImGui7TreePopEv() local_unnamed_addr #9
 
-declare void @_ZN5ImGui9EndTabBarEv() local_unnamed_addr #10
+declare void @_ZN5ImGui9EndTabBarEv() local_unnamed_addr #9
 
-declare void @_Z26ImGui_ImplOpenGL3_Shutdownv() local_unnamed_addr #10
+declare void @_Z26ImGui_ImplOpenGL3_Shutdownv() local_unnamed_addr #9
 
-declare void @_Z23ImGui_ImplGlfw_Shutdownv() local_unnamed_addr #10
+declare void @_Z23ImGui_ImplGlfw_Shutdownv() local_unnamed_addr #9
 
-declare void @_ZN5ImGui14DestroyContextEP12ImGuiContext(ptr noundef) local_unnamed_addr #10
+declare void @_ZN5ImGui14DestroyContextEP12ImGuiContext(ptr noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
@@ -1477,24 +1477,24 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
-attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress norecurse uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress norecurse uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nounwind allocsize(1) }

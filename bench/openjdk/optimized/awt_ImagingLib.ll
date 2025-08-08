@@ -1079,8 +1079,8 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 556
   %126 = load i32, ptr %125, align 4
   %.not114 = icmp ne i32 %126, 0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 468
   %128 = load i32, ptr %127, align 4
   %.neg253 = sext i1 %.not114 to i32
@@ -1342,16 +1342,16 @@ define internal fastcc range(i32 -1, 1) i32 @allocateArray(ptr noundef %0, ptr n
 
 expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopexit.i116
   %.0.i = phi i32 [ 0, %.loopexit.i116 ], [ -1, %124 ], [ -1, %131 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %expandICM.exit
 
 260:                                              ; preds = %121
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 556
   %262 = load i32, ptr %261, align 4
   %.not113 = icmp ne i32 %262, 0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 468
   %264 = load i32, ptr %263, align 4
   %.neg252 = sext i1 %.not113 to i32
@@ -1613,16 +1613,16 @@ expandPackedBCRdefault.exit:                      ; preds = %124, %131, %.loopex
 
 expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopexit.i122
   %.0.i123 = phi i32 [ 0, %.loopexit.i122 ], [ -1, %260 ], [ -1, %267 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %expandICM.exit
 
 396:                                              ; preds = %121
   %397 = getelementptr inbounds nuw i8, ptr %1, i64 556
   %398 = load i32, ptr %397, align 4
   %.not112 = icmp ne i32 %398, 0
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 468
   %400 = load i32, ptr %399, align 4
   %.neg = sext i1 %.not112 to i32
@@ -1929,8 +1929,8 @@ expandPackedSCRdefault.exit:                      ; preds = %260, %267, %.loopex
 
 expandPackedICRdefault.exit:                      ; preds = %396, %403, %.loopexit.i186
   %.0.i187 = phi i32 [ 0, %.loopexit.i186 ], [ -1, %396 ], [ -1, %403 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %expandICM.exit
 
 547:                                              ; preds = %121, %28
@@ -3466,8 +3466,8 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 189:                                              ; preds = %188
   %190 = getelementptr i8, ptr %186, i64 24
   %.val229 = load ptr, ptr %190, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %191 = load i32, ptr %12, align 4
   %192 = icmp sgt i32 %191, 32
   br i1 %192, label %expandPackedBCR.exit, label %193
@@ -3713,8 +3713,8 @@ define internal fastcc range(i32 -1, 1) i32 @allocateRasterArray(ptr noundef %0,
 
 expandPackedBCR.exit:                             ; preds = %189, %193, %.loopexit.i
   %.0.i = phi i32 [ 0, %.loopexit.i ], [ -1, %189 ], [ -1, %193 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %375
 
 324:                                              ; preds = %15
@@ -3888,8 +3888,8 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
 12:                                               ; preds = %3
   %13 = getelementptr i8, ptr %2, i64 24
   %.val16 = load ptr, ptr %13, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 32
@@ -4087,8 +4087,8 @@ define internal fastcc range(i32 -2, 1) i32 @storeRasterArray(ptr noundef %0, pt
 
 setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, %41, %43, %48, %56, %._crit_edge148.i
   %.0.i = phi i32 [ 0, %._crit_edge148.i ], [ -1, %12 ], [ -1, %17 ], [ -2, %41 ], [ -2, %36 ], [ -2, %25 ], [ -2, %43 ], [ -2, %48 ], [ -1, %56 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %374
 
 125:                                              ; preds = %3
@@ -4100,8 +4100,8 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
 129:                                              ; preds = %125
   %130 = getelementptr i8, ptr %2, i64 24
   %.val15 = load ptr, ptr %130, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %132 = load i32, ptr %131, align 4
   %133 = icmp sgt i32 %132, 32
@@ -4309,8 +4309,8 @@ setPackedBCR.exit:                                ; preds = %12, %17, %25, %36, 
 
 setPackedSCR.exit:                                ; preds = %129, %134, %142, %153, %158, %160, %165, %173, %._crit_edge147.i
   %.0.i17 = phi i32 [ 0, %._crit_edge147.i ], [ -1, %129 ], [ -1, %134 ], [ -2, %158 ], [ -2, %153 ], [ -2, %142 ], [ -2, %160 ], [ -2, %165 ], [ -1, %173 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %374
 
 250:                                              ; preds = %3
@@ -4322,8 +4322,8 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
 254:                                              ; preds = %250
   %255 = getelementptr i8, ptr %2, i64 24
   %.val = load ptr, ptr %255, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 460
   %257 = load i32, ptr %256, align 4
   %258 = icmp sgt i32 %257, 32
@@ -4530,8 +4530,8 @@ setPackedSCR.exit:                                ; preds = %129, %134, %142, %1
 
 setPackedICR.exit:                                ; preds = %254, %259, %267, %278, %283, %285, %290, %298, %._crit_edge147.i47
   %.0.i40 = phi i32 [ 0, %._crit_edge147.i47 ], [ -1, %254 ], [ -1, %259 ], [ -2, %283 ], [ -2, %278 ], [ -2, %267 ], [ -2, %285 ], [ -2, %290 ], [ -1, %298 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %374
 
 374:                                              ; preds = %3, %125, %250, %setPackedICR.exit, %setPackedSCR.exit, %setPackedBCR.exit
@@ -8246,10 +8246,10 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

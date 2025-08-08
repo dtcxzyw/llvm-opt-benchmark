@@ -139,19 +139,13 @@ define noundef ptr @_ZN13duckdb_brotli27BrotliDecoderCreateInstanceEPFPvS0_mEPFv
   ret ptr %.028
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
-declare noundef i32 @_ZN13duckdb_brotli22BrotliDecoderStateInitEPNS_24BrotliDecoderStateStructEPFPvS2_mEPFvS2_S2_ES2_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli22BrotliDecoderStateInitEPNS_24BrotliDecoderStateStructEPFPvS2_mEPFvS2_S2_ES2_(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13duckdb_brotli28BrotliDecoderDestroyInstanceEPNS_24BrotliDecoderStateStructE(ptr noundef %0) local_unnamed_addr #1 {
@@ -171,7 +165,7 @@ define void @_ZN13duckdb_brotli28BrotliDecoderDestroyInstanceEPNS_24BrotliDecode
   ret void
 }
 
-declare void @_ZN13duckdb_brotli25BrotliDecoderStateCleanupEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #4
+declare void @_ZN13duckdb_brotli25BrotliDecoderStateCleanupEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli29BrotliDecoderAttachDictionaryEPNS_24BrotliDecoderStateStructENS_26BrotliSharedDictionaryTypeEmPKh(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -281,7 +275,7 @@ _ZN13duckdb_brotliL24AttachCompoundDictionaryEPNS_24BrotliDecoderStateStructEPKh
   ret i32 %.0
 }
 
-declare noundef i32 @_ZN13duckdb_brotli28BrotliSharedDictionaryAttachEPNS_28BrotliSharedDictionaryStructENS_26BrotliSharedDictionaryTypeEmPKh(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli28BrotliSharedDictionaryAttachEPNS_28BrotliSharedDictionaryStructENS_26BrotliSharedDictionaryTypeEmPKh(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderDecompressEmPKhPmPh(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
@@ -291,17 +285,17 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderDecompressE
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 5744, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = load i64, ptr %2, align 8, !tbaa !30
   store i64 %11, ptr %9, align 8, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %3, ptr %10, align 8, !tbaa !29
   %12 = call noundef i32 @_ZN13duckdb_brotli22BrotliDecoderStateInitEPNS_24BrotliDecoderStateStructEPFPvS2_mEPFvS2_S2_ES2_(ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not = icmp eq i32 %12, 0
@@ -318,12 +312,12 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderDecompressE
 
 16:                                               ; preds = %4, %13
   %.0 = phi i32 [ %spec.store.select, %13 ], [ 0, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 5744, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1012,7 +1006,7 @@ _ZN13duckdb_brotliL24BrotliBitReaderNormalizeEPNS_15BrotliBitReaderE.exit432: ; 
   %333 = load ptr, ptr %88, align 8, !tbaa !57
   %334 = sext i32 %330 to i64
   %335 = getelementptr inbounds %"struct.duckdb_brotli::HuffmanCode", ptr %333, i64 %334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %336 = load i32, ptr %97, align 4, !tbaa !70
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %.preheader, label %382
@@ -1103,7 +1097,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
   br label %384
 
 _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.thread: ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.backedge
 
 382:                                              ; preds = %328
@@ -1153,7 +1147,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit: ; preds = %393
 _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.thread548: ; preds = %393
   store i64 %385, ptr %98, align 8, !tbaa !75
   store i32 1, ptr %97, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.backedge.backedge
 
 ._crit_edge643:                                   ; preds = %_ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit, %.._crit_edge643_crit_edge
@@ -1170,7 +1164,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %412 = add i64 %408, %411
   store i64 %412, ptr %332, align 8, !tbaa !30
   store i32 0, ptr %97, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %413 = load i32, ptr %58, align 4, !tbaa !54
   %414 = add nsw i32 %413, 1
   store i32 %414, ptr %58, align 4, !tbaa !54
@@ -1527,7 +1521,7 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %524, 
 
 591:                                              ; preds = %598, %.lr.ph.i459
   %592 = phi ptr [ %.pre27.i, %.lr.ph.i459 ], [ %605, %598 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %593 = load i16, ptr %589, align 8, !tbaa !94
   %594 = zext i16 %593 to i64
   %595 = load i16, ptr %590, align 2, !tbaa !95
@@ -1548,14 +1542,14 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %524, 
   store ptr %605, ptr %76, align 8, !tbaa !92
   %606 = add nsw i32 %601, 1
   store i32 %606, ptr %77, align 4, !tbaa !90
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %607 = load i16, ptr %585, align 4, !tbaa !93
   %608 = zext i16 %607 to i32
   %609 = icmp slt i32 %606, %608
   br i1 %609, label %591, label %.loopexit590.loopexit, !llvm.loop !98
 
 _ZN13duckdb_brotliL22HuffmanTreeGroupDecodeEPNS_16HuffmanTreeGroupEPNS_24BrotliDecoderStateStructE.exit: ; preds = %591
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.backedge
 
 .loopexit590.loopexit:                            ; preds = %598
@@ -1956,7 +1950,7 @@ _ZN13duckdb_brotliL21BrotliBitReaderUnloadEPNS_15BrotliBitReaderE.exit416: ; pre
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN13duckdb_brotliL13SaveErrorCodeEPNS_24BrotliDecoderStateStructENS_22BrotliDecoderErrorCodeEm(ptr noundef captures(none) initializes((128, 132)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN13duckdb_brotliL13SaveErrorCodeEPNS_24BrotliDecoderStateStructENS_22BrotliDecoderErrorCodeEm(ptr noundef captures(none) initializes((128, 132)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %4, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1988,7 +1982,7 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZN13duckdb_brotliL13SaveErr
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -9, 4) i32 @_ZN13duckdb_brotliL15WriteRingBufferEPNS_24BrotliDecoderStateStructEPmPPhS2_i(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -9, 4) i32 @_ZN13duckdb_brotliL15WriteRingBufferEPNS_24BrotliDecoderStateStructEPmPPhS2_i(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -2095,12 +2089,12 @@ define internal fastcc noundef range(i32 -9, 4) i32 @_ZN13duckdb_brotliL15WriteR
   ret i32 %.041
 }
 
-declare noundef i32 @_ZN13duckdb_brotli21BrotliWarmupBitReaderEPNS_15BrotliBitReaderE(ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli21BrotliWarmupBitReaderEPNS_15BrotliBitReaderE(ptr noundef) local_unnamed_addr #3
 
-declare void @_ZN13duckdb_brotli32BrotliDecoderStateMetablockBeginEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #4
+declare void @_ZN13duckdb_brotli32BrotliDecoderStateMetablockBeginEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL21DecodeMetaBlockLengthEPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL21DecodeMetaBlockLengthEPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #7 {
 .split:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %.promoted255 = load i32, ptr %2, align 8, !tbaa !122
@@ -2608,7 +2602,7 @@ _ZN13duckdb_brotliL18BrotliSafeReadBitsEPNS_15BrotliBitReaderEmPm.exit95.thread:
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL29BrotliCalculateRingBufferSizeEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #9 {
+define internal fastcc void @_ZN13duckdb_brotliL29BrotliCalculateRingBufferSizeEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 6
@@ -2662,7 +2656,7 @@ define internal fastcc void @_ZN13duckdb_brotliL29BrotliCalculateRingBufferSizeE
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL17DecodeVarLenUint8EPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL17DecodeVarLenUint8EPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPm(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load i32, ptr %4, align 8, !tbaa !128
   switch i32 %5, label %_ZN13duckdb_brotliL18BrotliSafeReadBitsEPNS_15BrotliBitReaderEmPm.exit22.thread [
@@ -3756,7 +3750,7 @@ thread-pre-split.thread:                          ; preds = %283, %thread-pre-sp
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 -26, 4) i32 @_ZN13duckdb_brotliL29CopyUncompressedBlockToOutputEPmPPhS0_PNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -26, 4) i32 @_ZN13duckdb_brotliL29CopyUncompressedBlockToOutputEPmPPhS0_PNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) unnamed_addr #9 {
   %5 = tail call fastcc noundef i32 @_ZN13duckdb_brotliL22BrotliEnsureRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef %3)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread50, label %.preheader
@@ -3918,7 +3912,7 @@ _ZN13duckdb_brotliL15BrotliCopyBytesEPhPNS_15BrotliBitReaderEm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 1, 3) i32 @_ZN13duckdb_brotliL17SkipMetadataBlockEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 1, 3) i32 @_ZN13duckdb_brotliL17SkipMetadataBlockEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = alloca [8 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -3933,7 +3927,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @_ZN13duckdb_brotliL17SkipMet
   br i1 %10, label %11, label %44
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = trunc i64 %9 to i32
   %13 = ashr i32 %12, 3
   %spec.select = tail call i32 @llvm.smin.i32(i32 %13, i32 %5)
@@ -4011,7 +4005,7 @@ _ZN13duckdb_brotliL15BrotliCopyBytesEPhPNS_15BrotliBitReaderEm.exit: ; preds = %
   %43 = sub nsw i32 %42, %spec.select
   store i32 %43, ptr %4, align 4, !tbaa !60
   %.not41 = icmp eq i32 %42, %spec.select
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not41, label %74, label %44
 
 44:                                               ; preds = %41, %7
@@ -4205,7 +4199,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit.i: ; preds = %.l
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 2688
   %61 = load i64, ptr %60, align 8, !tbaa !148
   %62 = load ptr, ptr %2, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 2696
   store i64 %57, ptr %5, align 8, !tbaa !30
   %64 = icmp ne i64 %57, 65535
@@ -4221,7 +4215,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit.i: ; preds = %.l
   br label %71
 
 .thread151:                                       ; preds = %.backedge, %56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %161
 
 71:                                               ; preds = %.lr.ph193, %.backedge
@@ -4415,7 +4409,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit: ; preds = %137
 
 .thread146:                                       ; preds = %._crit_edge186, %.thread146.sink.split
   %.6 = phi i32 [ 2, %.thread146.sink.split ], [ -8, %._crit_edge186 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
 161:                                              ; preds = %.thread151, %4
@@ -4472,10 +4466,10 @@ _ZN13duckdb_brotliL18BrotliSafeReadBitsEPNS_15BrotliBitReaderEmPm.exit.thread: ;
   ret i32 %.2
 }
 
-declare noundef i32 @_ZN13duckdb_brotli33BrotliDecoderHuffmanTreeGroupInitEPNS_24BrotliDecoderStateStructEPNS_16HuffmanTreeGroupEmmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli33BrotliDecoderHuffmanTreeGroupInitEPNS_24BrotliDecoderStateStructEPNS_16HuffmanTreeGroupEmmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL22BrotliEnsureRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL22BrotliEnsureRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -4547,7 +4541,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL22BrotliE
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL15ProcessCommandsEPNS_24BrotliDecoderStateStructE(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL15ProcessCommandsEPNS_24BrotliDecoderStateStructE(ptr noundef %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !114
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5869,7 +5863,7 @@ _ZN13duckdb_brotliL23ProcessCommandsInternalEiPNS_24BrotliDecoderStateStructE.ex
 }
 
 ; Function Attrs: mustprogress noinline uwtable
-define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL19SafeProcessCommandsEPNS_24BrotliDecoderStateStructE(ptr noundef %0) unnamed_addr #10 {
+define internal fastcc noundef range(i32 -31, 3) i32 @_ZN13duckdb_brotliL19SafeProcessCommandsEPNS_24BrotliDecoderStateStructE(ptr noundef %0) unnamed_addr #9 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -5921,7 +5915,7 @@ _ZN13duckdb_brotliL25GetCompoundDictionarySizeEPNS_24BrotliDecoderStateStructE.e
   br i1 %.not420.i, label %.thread179, label %18
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load i64, ptr %10, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !51
@@ -6157,7 +6151,7 @@ _ZN13duckdb_brotliL12SafeReadBitsEPNS_15BrotliBitReaderEmPm.exit30: ; preds = %9
 
 _ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderEPi.exit.thread: ; preds = %_ZN13duckdb_brotliL12SafeReadBitsEPNS_15BrotliBitReaderEmPm.exit30, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i9
   %.13.ph = phi i32 [ %.394.ph, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i9 ], [ %91, %_ZN13duckdb_brotliL12SafeReadBitsEPNS_15BrotliBitReaderEmPm.exit30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread179
 
 142:                                              ; preds = %_ZN13duckdb_brotliL14BrotliTakeBitsEPNS_15BrotliBitReaderEmPm.exit.i, %114
@@ -6170,7 +6164,7 @@ _ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15B
   %147 = add i64 %146, -1
   store i64 %147, ptr %17, align 8, !tbaa !30
   %148 = add nsw i32 %.1123.ph, %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %328, label %150
 
@@ -6219,7 +6213,7 @@ _ZN13duckdb_brotliL19ReadCommandInternalEiPNS_24BrotliDecoderStateStructEPNS_15B
   br i1 %171, label %.thread208.thread, label %172, !prof !159
 
 172:                                              ; preds = %169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %173 = load ptr, ptr %155, align 8, !tbaa !102
   %.promoted400 = load i64, ptr %157, align 8, !tbaa !51
   %174 = icmp ult i64 %.promoted400, 15
@@ -6307,7 +6301,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
 
 .thread:                                          ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit436.i
   %218 = trunc nsw i64 %indvars.iv to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread179
 
 219:                                              ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit436.i._crit_edge, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit436.i.thread
@@ -6316,7 +6310,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
   %222 = load ptr, ptr %160, align 8, !tbaa !48
   %223 = getelementptr inbounds i8, ptr %222, i64 %indvars.iv
   store i8 %221, ptr %223, align 1, !tbaa !49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %224 = load i64, ptr %156, align 8, !tbaa !30
   %225 = add i64 %224, -1
   store i64 %225, ptr %156, align 8, !tbaa !30
@@ -6380,7 +6374,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
   %265 = zext i8 %264 to i64
   %266 = getelementptr inbounds nuw ptr, ptr %260, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.promoted406 = load i64, ptr %157, align 8, !tbaa !51
   %268 = icmp ult i64 %.promoted406, 15
   br i1 %268, label %.lr.ph408, label %.._crit_edge409_crit_edge
@@ -6454,7 +6448,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
   %308 = getelementptr inbounds nuw i8, ptr %.0.i439.i, i64 2
   %309 = load i16, ptr %308, align 2, !tbaa !74
   %310 = trunc i16 %309 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %314
 
 _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i: ; preds = %270
@@ -6462,7 +6456,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
   %.not398.not.i = icmp eq i32 %311, 0
   %312 = load i64, ptr %5, align 8
   %313 = trunc i64 %312 to i8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not398.not.i, label %.thread179.loopexit, label %314
 
 314:                                              ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i.thread, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i
@@ -6539,7 +6533,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
 
 349:                                              ; preds = %347, %343
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %352 = load ptr, ptr %351, align 8, !tbaa !163
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 716
@@ -6770,13 +6764,13 @@ _ZN13duckdb_brotliL14SafeReadBits32EPNS_15BrotliBitReaderEmPm.exit: ; preds = %4
   br label %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit
 
 _ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit.thread: ; preds = %_ZN13duckdb_brotliL14SafeReadBits32EPNS_15BrotliBitReaderEmPm.exit, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread179
 
 _ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit: ; preds = %431, %420, %476
   %485 = phi i32 [ 0, %431 ], [ %421, %420 ], [ 0, %476 ]
   %486 = phi i32 [ %storemerge.i, %431 ], [ %429, %420 ], [ %484, %476 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %487
 
 487:                                              ; preds = %_ZN13duckdb_brotliL20ReadDistanceInternalEiPNS_24BrotliDecoderStateStructEPNS_15BrotliBitReaderE.exit, %332
@@ -7367,7 +7361,7 @@ _ZN13duckdb_brotliL23ProcessCommandsInternalEiPNS_24BrotliDecoderStateStructE.ex
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL14WrapRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #7 {
+define internal fastcc void @_ZN13duckdb_brotliL14WrapRingBufferEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 8
@@ -7392,10 +7386,10 @@ define internal fastcc void @_ZN13duckdb_brotliL14WrapRingBufferEPNS_24BrotliDec
   ret void
 }
 
-declare void @_ZN13duckdb_brotli39BrotliDecoderStateCleanupAfterMetablockEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #4
+declare void @_ZN13duckdb_brotli39BrotliDecoderStateCleanupAfterMetablockEPNS_24BrotliDecoderStateStructE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli26BrotliDecoderHasMoreOutputEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli26BrotliDecoderHasMoreOutputEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8, !tbaa !43
   %4 = icmp slt i32 %3, 0
@@ -7431,12 +7425,12 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli26BrotliDecoderHasMoreOutp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN13duckdb_brotli23BrotliDecoderTakeOutputEPNS_24BrotliDecoderStateStructEPm(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #12 {
+define noundef ptr @_ZN13duckdb_brotli23BrotliDecoderTakeOutputEPNS_24BrotliDecoderStateStructEPm(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %1, align 8, !tbaa !30
   %.not = icmp eq i64 %5, 0
   %spec.select = select i1 %.not, i64 16777216, i64 %5
@@ -7484,13 +7478,13 @@ define noundef ptr @_ZN13duckdb_brotli23BrotliDecoderTakeOutputEPNS_24BrotliDeco
 
 25:                                               ; preds = %17, %24, %13
   %.0 = phi ptr [ null, %13 ], [ null, %24 ], [ %.pre, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli19BrotliDecoderIsUsedEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli19BrotliDecoderIsUsedEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %8
@@ -7508,7 +7502,7 @@ define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli19BrotliDecoderIsUsedEPKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderIsFinishedEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define noundef range(i32 0, 2) i32 @_ZN13duckdb_brotli23BrotliDecoderIsFinishedEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load i32, ptr %0, align 8, !tbaa !3
   %3 = icmp eq i32 %2, 26
   br i1 %3, label %4, label %_ZN13duckdb_brotli26BrotliDecoderHasMoreOutputEPKNS_24BrotliDecoderStateStructE.exit
@@ -7549,14 +7543,14 @@ _ZN13duckdb_brotli26BrotliDecoderHasMoreOutputEPKNS_24BrotliDecoderStateStructE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN13duckdb_brotli25BrotliDecoderGetErrorCodeEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define noundef i32 @_ZN13duckdb_brotli25BrotliDecoderGetErrorCodeEPKNS_24BrotliDecoderStateStructE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8, !tbaa !43
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN13duckdb_brotli24BrotliDecoderErrorStringENS_22BrotliDecoderErrorCodeE(i32 noundef %0) local_unnamed_addr #13 {
+define noundef nonnull ptr @_ZN13duckdb_brotli24BrotliDecoderErrorStringENS_22BrotliDecoderErrorCodeE(i32 noundef %0) local_unnamed_addr #12 {
   %switch.tableidx = add i32 %0, 31
   %2 = icmp ult i32 %switch.tableidx, 35
   br i1 %2, label %switch.lookup, label %4
@@ -7573,12 +7567,12 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN13duckdb_brotli20BrotliDecoderVersionEv() local_unnamed_addr #13 {
+define noundef i32 @_ZN13duckdb_brotli20BrotliDecoderVersionEv() local_unnamed_addr #12 {
   ret i32 16781312
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13duckdb_brotli33BrotliDecoderSetMetadataCallbacksEPNS_24BrotliDecoderStateStructEPFvPvmEPFvS2_PKhmES2_(ptr noundef writeonly captures(none) initializes((720, 744)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
+define void @_ZN13duckdb_brotli33BrotliDecoderSetMetadataCallbacksEPNS_24BrotliDecoderStateStructEPFvPvmEPFvS2_PKhmES2_(ptr noundef writeonly captures(none) initializes((720, 744)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %1, ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -7589,19 +7583,19 @@ define void @_ZN13duckdb_brotli33BrotliDecoderSetMetadataCallbacksEPNS_24BrotliD
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
-declare noundef i32 @_ZN13duckdb_brotli29BrotliBuildSimpleHuffmanTableEPNS_11HuffmanCodeEiPtj(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli29BrotliBuildSimpleHuffmanTableEPNS_11HuffmanCodeEiPtj(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11HuffmanCodeEPKhPt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @_ZN13duckdb_brotli34BrotliBuildCodeLengthsHuffmanTableEPNS_11HuffmanCodeEPKhPt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCodeEiPKtPt(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli23BrotliBuildHuffmanTableEPNS_11HuffmanCodeEiPKtPt(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL16SafeDecodeSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL16SafeDecodeSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !51
   %6 = icmp eq i64 %5, 0
@@ -7673,7 +7667,7 @@ _ZN13duckdb_brotliL7BitMaskEm.exit:               ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL27InverseMoveToFrontTransformEPhmPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, i64 noundef range(i64 0, -3) %1, ptr noundef captures(none) initializes((452, 456)) %2) unnamed_addr #9 {
+define internal fastcc void @_ZN13duckdb_brotliL27InverseMoveToFrontTransformEPhmPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0, i64 noundef range(i64 0, -3) %1, ptr noundef captures(none) initializes((452, 456)) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %5 = load i64, ptr %4, align 8, !tbaa !179
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 452
@@ -7728,7 +7722,7 @@ define internal fastcc void @_ZN13duckdb_brotliL27InverseMoveToFrontTransformEPh
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDecodeCommandBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDecodeCommandBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -7741,7 +7735,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDec
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1584
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp ult i64 %5, 2
   br i1 %14, label %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.thread, label %15
 
@@ -7829,7 +7823,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
 
 68:                                               ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.thread, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %71 = load i32, ptr %70, align 4, !tbaa !70
   %72 = icmp eq i32 %71, 0
@@ -7971,7 +7965,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.thread
 
 _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.thread: ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i, %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %70, align 4, !tbaa !70
   store i64 %16, ptr %12, align 8, !tbaa !52
   store i64 %18, ptr %17, align 8, !tbaa !51
@@ -8000,7 +7994,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %155 = add i64 %151, %154
   store i64 %155, ptr %69, align 8, !tbaa !30
   store i32 0, ptr %70, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %156 = load i64, ptr %3, align 8, !tbaa !30
   switch i64 %156, label %163 [
     i64 1, label %157
@@ -8030,7 +8024,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %169 = load i64, ptr %168, align 8, !tbaa !30
   store i64 %169, ptr %13, align 8, !tbaa !30
   store i64 %spec.select, ptr %168, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %171 = load ptr, ptr %170, align 8, !tbaa !106
   %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %spec.select
@@ -8040,7 +8034,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL32DecodeCommandBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.thread: ; preds = %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.thread, %1, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_brotliL32DecodeCommandBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL32DecodeCommandBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit: ; preds = %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.thread, %165
@@ -8049,7 +8043,7 @@ _ZN13duckdb_brotliL32DecodeCommandBlockSwitchInternalEiPNS_24BrotliDecoderStateS
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL24DecodeCommandBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @_ZN13duckdb_brotliL24DecodeCommandBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i64, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -8248,7 +8242,7 @@ _ZN13duckdb_brotliL32DecodeCommandBlockSwitchInternalEiPNS_24BrotliDecoderStateS
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL29SafeDecodeDistanceBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL29SafeDecodeDistanceBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -8261,7 +8255,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL29SafeDec
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 3168
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = icmp ult i64 %5, 2
   br i1 %14, label %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread, label %15
 
@@ -8349,7 +8343,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
 
 68:                                               ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i.thread, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %71 = load i32, ptr %70, align 4, !tbaa !70
   %72 = icmp eq i32 %71, 0
@@ -8491,7 +8485,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread
 
 _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread: ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i.i, %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %70, align 4, !tbaa !70
   store i64 %16, ptr %12, align 8, !tbaa !52
   store i64 %18, ptr %17, align 8, !tbaa !51
@@ -8520,7 +8514,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %155 = add i64 %151, %154
   store i64 %155, ptr %69, align 8, !tbaa !30
   store i32 0, ptr %70, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %156 = load i64, ptr %3, align 8, !tbaa !30
   switch i64 %156, label %163 [
     i64 1, label %157
@@ -8550,7 +8544,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %169 = load i64, ptr %168, align 8, !tbaa !30
   store i64 %169, ptr %13, align 8, !tbaa !30
   store i64 %spec.select, ptr %168, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %171 = load ptr, ptr %170, align 8, !tbaa !104
   %172 = shl i64 %spec.select, 2
@@ -8567,7 +8561,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL33DecodeDistanceBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread: ; preds = %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread, %1, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_brotliL33DecodeDistanceBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL33DecodeDistanceBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit: ; preds = %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread, %165
@@ -8576,7 +8570,7 @@ _ZN13duckdb_brotliL33DecodeDistanceBlockSwitchInternalEiPNS_24BrotliDecoderState
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL25DecodeDistanceBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @_ZN13duckdb_brotliL25DecodeDistanceBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load i64, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -8781,10 +8775,10 @@ _ZN13duckdb_brotliL33DecodeDistanceBlockSwitchInternalEiPNS_24BrotliDecoderState
   ret void
 }
 
-declare noundef i32 @_ZN13duckdb_brotli29BrotliTransformDictionaryWordEPhPKhiPKNS_16BrotliTransformsEi(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @_ZN13duckdb_brotli29BrotliTransformDictionaryWordEPhPKhiPKNS_16BrotliTransformsEi(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDecodeLiteralBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDecodeLiteralBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -8795,7 +8789,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN13duckdb_brotliL28SafeDec
   %9 = load ptr, ptr %8, align 8, !tbaa !57
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = icmp ult i64 %5, 2
   br i1 %12, label %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread, label %13
 
@@ -8883,7 +8877,7 @@ _ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.
 
 66:                                               ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i.thread, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 764
   %69 = load i32, ptr %68, align 4, !tbaa !70
   %70 = icmp eq i32 %69, 0
@@ -9025,7 +9019,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread
 
 _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread: ; preds = %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit.i.i, %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i32 0, ptr %68, align 4, !tbaa !70
   store i64 %14, ptr %10, align 8, !tbaa !52
   store i64 %16, ptr %15, align 8, !tbaa !51
@@ -9054,7 +9048,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %153 = add i64 %149, %152
   store i64 %153, ptr %67, align 8, !tbaa !30
   store i32 0, ptr %68, align 4, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %154 = load i64, ptr %3, align 8, !tbaa !30
   switch i64 %154, label %161 [
     i64 1, label %155
@@ -9084,7 +9078,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   %167 = load i64, ptr %166, align 8, !tbaa !30
   store i64 %167, ptr %11, align 8, !tbaa !30
   store i64 %spec.select, ptr %166, align 8, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %168 = shl i64 %spec.select, 6
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %170 = load ptr, ptr %169, align 8, !tbaa !84
@@ -9123,7 +9117,7 @@ _ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_1
   br label %_ZN13duckdb_brotliL32DecodeLiteralBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread: ; preds = %_ZN13duckdb_brotliL19SafeReadBlockLengthEPNS_24BrotliDecoderStateStructEPmPKNS_11HuffmanCodeEPNS_15BrotliBitReaderE.exit.i.i.thread, %1, %_ZN13duckdb_brotliL14SafeReadSymbolEPKNS_11HuffmanCodeEPNS_15BrotliBitReaderEPm.exit55.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN13duckdb_brotliL32DecodeLiteralBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit
 
 _ZN13duckdb_brotliL32DecodeLiteralBlockSwitchInternalEiPNS_24BrotliDecoderStateStructE.exit: ; preds = %_ZN13duckdb_brotliL24DecodeBlockTypeAndLengthEiPNS_24BrotliDecoderStateStructEi.exit.i.thread, %163
@@ -9132,7 +9126,7 @@ _ZN13duckdb_brotliL32DecodeLiteralBlockSwitchInternalEiPNS_24BrotliDecoderStateS
 }
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN13duckdb_brotliL24DecodeLiteralBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #18 {
+define internal fastcc void @_ZN13duckdb_brotliL24DecodeLiteralBlockSwitchEPNS_24BrotliDecoderStateStructE(ptr noundef captures(none) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i64, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -9357,6 +9351,12 @@ _ZN13duckdb_brotliL32DecodeLiteralBlockSwitchInternalEiPNS_24BrotliDecoderStateS
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
 
@@ -9377,23 +9377,23 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree noinline norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree noinline norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress noinline uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nounwind allocsize(0) }

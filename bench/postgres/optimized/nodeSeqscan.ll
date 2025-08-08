@@ -81,22 +81,19 @@ define dso_local noundef ptr @ExecInitSeqScan(ptr noundef %0, ptr noundef %1, i3
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAssignExprContext(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @ExecOpenScanRelation(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @table_slot_callbacks(ptr noundef) local_unnamed_addr #1
 
-declare ptr @table_slot_callbacks(ptr noundef) local_unnamed_addr #2
+declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecInitResultTypeTL(ptr noundef) local_unnamed_addr #2
+declare void @ExecAssignScanProjectionInfo(ptr noundef) local_unnamed_addr #1
 
-declare void @ExecAssignScanProjectionInfo(ptr noundef) local_unnamed_addr #2
-
-declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecSeqScanEPQ(ptr noundef %0) #0 {
@@ -187,7 +184,7 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = load ptr, ptr %33, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -211,7 +208,7 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %51 = trunc i32 %50 to i16
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 6
   store i16 %51, ptr %52, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ExecScanExtended.exit
 
 ExecScanExtended.exit:                            ; preds = %21, %28, %ExecScanFetch.exit5
@@ -274,7 +271,7 @@ ExecScanFetch.exit:                               ; preds = %17, %19
 
 26:                                               ; preds = %22
   store ptr %20, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
@@ -282,7 +279,7 @@ ExecScanFetch.exit:                               ; preds = %17, %19
   %30 = call i64 %29(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %2) #6
   store ptr %28, ptr @CurrentMemoryContext, align 8
   %.not8 = icmp eq i64 %30, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not8, label %31, label %ExecScanExtended.exit
 
 31:                                               ; preds = %26
@@ -408,7 +405,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
 
 46:                                               ; preds = %35
   store ptr %33, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = load ptr, ptr %12, align 8
   %48 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %47, ptr @CurrentMemoryContext, align 8
@@ -416,7 +413,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %50 = call i64 %49(ptr noundef nonnull %.fr15, ptr noundef nonnull %9, ptr noundef nonnull %3) #6
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i64 %50, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %75, label %.split13
 
 .split13:                                         ; preds = %46, %.split13.us
@@ -429,7 +426,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %56 = load ptr, ptr %55, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -453,7 +450,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %73 = trunc i32 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 6
   store i16 %73, ptr %74, align 2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ExecScanExtended.exit
 
 75:                                               ; preds = %46
@@ -477,9 +474,6 @@ ExecScanExtended.exit:                            ; preds = %.split13, %.split11
   %.0.i = phi ptr [ %17, %ExecScanFetch.exit6 ], [ %.us-phi14, %.split13 ], [ %.us-phi, %.split11.us ], [ %56, %51 ], [ %41, %39 ]
   ret ptr %.0.i
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndSeqScan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -522,7 +516,7 @@ define dso_local void @ExecReScanSeqScan(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #2
+declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSeqScanEstimate(ptr noundef captures(none) initializes((224, 232)) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
@@ -548,9 +542,9 @@ define dso_local void @ExecSeqScanEstimate(ptr noundef captures(none) initialize
   ret void
 }
 
-declare i64 @table_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @table_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSeqScanInitializeDSM(ptr noundef captures(none) initializes((208, 216)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -580,13 +574,13 @@ define dso_local void @ExecSeqScanInitializeDSM(ptr noundef captures(none) initi
   ret void
 }
 
-declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @table_parallelscan_initialize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @table_parallelscan_initialize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @table_beginscan_parallel(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @table_beginscan_parallel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSeqScanReInitializeDSM(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
@@ -622,11 +616,11 @@ define dso_local void @ExecSeqScanInitializeWorker(ptr noundef captures(none) in
   ret void
 }
 
-declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @shm_toc_lookup(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ExecScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SeqNext(ptr noundef captures(none) %0) #0 {
@@ -687,29 +681,35 @@ table_scan_getnextslot.exit:                      ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @SeqRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
+define internal noundef zeroext i1 @SeqRecheck(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i1 true
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
-declare void @ProcessInterrupts() local_unnamed_addr #2
+declare void @ProcessInterrupts() local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nounwind }
 attributes #7 = { cold nounwind }

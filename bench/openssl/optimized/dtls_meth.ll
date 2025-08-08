@@ -21,7 +21,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %2 = alloca [64 x i8], align 16
   %3 = alloca %struct.ssl_mac_buf_st, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4048
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1696
@@ -450,8 +450,8 @@ satsub64be.exit.thread15.i:                       ; preds = %228, %225
   br label %.backedge.sink.split.sink.split
 
 267:                                              ; preds = %239
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %268 = load ptr, ptr %20, align 8, !tbaa !30
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 13
@@ -779,13 +779,13 @@ dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.ex
   br label %dtls_process_record.exit
 
 dtls_process_record.exit.thread:                  ; preds = %271, %.critedge.i, %302, %289
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %435
 
 dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_update.exit.i, %433
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.not118, label %435, label %437
 
 435:                                              ; preds = %dtls_process_record.exit.thread, %dtls_process_record.exit
@@ -811,20 +811,14 @@ dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_
 
 dtls_rlayer_buffer_record.exit:                   ; preds = %435, %143, %70, %260, %251, %441, %10, %443, %._crit_edge
   %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %443 ], [ -2, %10 ], [ -2, %441 ], [ -2, %251 ], [ -2, %260 ], [ -2, %435 ], [ -2, %143 ], [ %75, %70 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @tls_setup_read_buffer(ptr noundef) local_unnamed_addr #2
+declare i32 @tls_setup_read_buffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
@@ -899,21 +893,21 @@ define range(i32 0, 2) i32 @dtls_prepare_record_header(ptr noundef %0, ptr nound
   ret i32 %.021
 }
 
-declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @WPACKET_put_bytes__(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @WPACKET_reserve_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @WPACKET_reserve_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ERR_new() local_unnamed_addr #2
+declare void @ERR_new() local_unnamed_addr #1
 
-declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_rlayer_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ossl_rlayer_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @dtls_post_encryption_processing(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -930,9 +924,9 @@ define i32 @dtls_post_encryption_processing(ptr noundef %0, i64 noundef %1, ptr 
   ret i32 %.0
 }
 
-declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tls_post_encryption_processing_default(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls_increment_sequence_ctr(ptr noundef) #2
+declare i32 @tls_increment_sequence_ctr(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dtls_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr readnone captures(none) %7, i64 %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr readnone captures(none) %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr readnone captures(none) %24, ptr readnone captures(none) %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr readnone captures(none) %30, ptr noundef %31) #0 {
@@ -1011,7 +1005,7 @@ define internal i32 @dtls_new_record_layer(ptr noundef %0, ptr noundef %1, i32 n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dtls_free(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %4 = load i64, ptr %3, align 8, !tbaa !79
   %.not = icmp eq i64 %4, 0
@@ -1111,50 +1105,50 @@ define internal range(i32 0, 2) i32 @dtls_free(ptr noundef %0) #0 {
   %51 = icmp ne i32 %.1, 0
   %52 = select i1 %50, i1 %51, i1 false
   %53 = zext i1 %52 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %53
 }
 
-declare i32 @tls_unprocessed_read_pending(ptr noundef) #2
+declare i32 @tls_unprocessed_read_pending(ptr noundef) #1
 
-declare i32 @tls_processed_read_pending(ptr noundef) #2
+declare i32 @tls_processed_read_pending(ptr noundef) #1
 
-declare i64 @tls_app_data_pending(ptr noundef) #2
+declare i64 @tls_app_data_pending(ptr noundef) #1
 
-declare i64 @tls_get_max_records(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) #2
+declare i64 @tls_get_max_records(ptr noundef, i8 noundef zeroext, i64 noundef, i64 noundef, ptr noundef) #1
 
-declare i32 @tls_write_records(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @tls_write_records(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i32 @tls_retry_write_records(ptr noundef) #2
+declare i32 @tls_retry_write_records(ptr noundef) #1
 
-declare i32 @tls_read_record(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare i32 @tls_read_record(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @tls_release_record(ptr noundef, ptr noundef, i64 noundef) #2
+declare i32 @tls_release_record(ptr noundef, ptr noundef, i64 noundef) #1
 
-declare i32 @tls_get_alert_code(ptr noundef) #2
+declare i32 @tls_get_alert_code(ptr noundef) #1
 
-declare i32 @tls_set1_bio(ptr noundef, ptr noundef) #2
+declare i32 @tls_set1_bio(ptr noundef, ptr noundef) #1
 
-declare i32 @tls_set_protocol_version(ptr noundef, i32 noundef) #2
+declare i32 @tls_set_protocol_version(ptr noundef, i32 noundef) #1
 
-declare void @tls_set_first_handshake(ptr noundef, i32 noundef) #2
+declare void @tls_set_first_handshake(ptr noundef, i32 noundef) #1
 
-declare void @tls_set_max_pipelines(ptr noundef, i64 noundef) #2
+declare void @tls_set_max_pipelines(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dtls_set_in_init(ptr noundef writeonly captures(none) initializes((4368, 4372)) %0, i32 noundef %1) #4 {
+define internal void @dtls_set_in_init(ptr noundef writeonly captures(none) initializes((4368, 4372)) %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4368
   store i32 %1, ptr %3, align 8, !tbaa !52
   ret void
 }
 
-declare void @tls_get_state(ptr noundef, ptr noundef, ptr noundef) #2
+declare void @tls_get_state(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @tls_set_options(ptr noundef, ptr noundef) #2
+declare i32 @tls_set_options(ptr noundef, ptr noundef) #1
 
-declare ptr @tls_get_compression(ptr noundef) #2
+declare ptr @tls_get_compression(ptr noundef) #1
 
-declare void @tls_set_max_frag_len(ptr noundef, i64 noundef) #2
+declare void @tls_set_max_frag_len(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @dtls_get_max_record_overhead(ptr noundef readonly captures(none) %0) #0 {
@@ -1187,72 +1181,78 @@ define internal i64 @dtls_get_max_record_overhead(ptr noundef readonly captures(
   ret i64 %19
 }
 
-declare i32 @tls_alloc_buffers(ptr noundef) #2
+declare i32 @tls_alloc_buffers(ptr noundef) #1
 
-declare i32 @tls_free_buffers(ptr noundef) #2
+declare i32 @tls_free_buffers(ptr noundef) #1
 
-declare ptr @pqueue_pop(ptr noundef) local_unnamed_addr #2
+declare ptr @pqueue_pop(ptr noundef) local_unnamed_addr #1
 
-declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @pitem_free(ptr noundef) local_unnamed_addr #2
+declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_tls_buffer_release(ptr noundef) local_unnamed_addr #2
+declare void @ossl_tls_buffer_release(ptr noundef) local_unnamed_addr #1
 
-declare void @ossl_tls_rl_record_set_seq_num(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ossl_tls_rl_record_set_seq_num(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @pqueue_size(ptr noundef) local_unnamed_addr #2
+declare i64 @pqueue_size(ptr noundef) local_unnamed_addr #1
 
-declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @pitem_new(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pitem_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-declare ptr @pqueue_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @pqueue_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_MD_CTX_get0_md(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_MD_CTX_get0_md(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #1
 
-declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ERR_set_mark() local_unnamed_addr #2
+declare i32 @ERR_set_mark() local_unnamed_addr #1
 
-declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
+declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
-declare i32 @ERR_clear_last_mark() local_unnamed_addr #2
+declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 
-declare i32 @tls_do_uncompress(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tls_do_uncompress(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls_int_new_record_layer(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @tls_int_new_record_layer(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @pqueue_new() local_unnamed_addr #2
+declare ptr @pqueue_new() local_unnamed_addr #1
 
-declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @BIO_write_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @pqueue_free(ptr noundef) local_unnamed_addr #2
+declare void @pqueue_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tls_free(ptr noundef) local_unnamed_addr #2
+declare i32 @tls_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_get_mode(ptr noundef) local_unnamed_addr #1
 
-declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2
+declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #1
 
-declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #2
+declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nounwind }
 

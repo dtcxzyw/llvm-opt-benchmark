@@ -863,7 +863,7 @@ define internal range(i32 -1094995529, 1) i32 @ogg_init(ptr noundef %0) #0 {
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %.not.i.i = icmp eq i32 %81, 0
   %103 = select i1 %.not.i.i, ptr @.str.41, ptr @.str.40
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
   %104 = load ptr, ptr %72, align 8, !tbaa !98
   %105 = call i64 @ff_vorbiscomment_length(ptr noundef %104, ptr noundef nonnull %103, ptr noundef null, i32 noundef 0) #9
@@ -877,7 +877,7 @@ define internal range(i32 -1094995529, 1) i32 @ogg_init(ptr noundef %0) #0 {
   br i1 %.not25.i.i, label %ogg_write_vorbiscomment.exit.thread.i, label %.thread
 
 ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit231
 
 .thread:                                          ; preds = %108
@@ -888,7 +888,7 @@ ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
   %113 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %6, ptr noundef %112, ptr noundef nonnull %103, ptr noundef null, i32 noundef 0) #9
   %114 = trunc i64 %106 to i32
   store i32 %114, ptr %102, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %115 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %109, ptr %115, align 8, !tbaa !34
   store i8 -124, ptr %109, align 1, !tbaa !48
@@ -937,7 +937,7 @@ ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
   %139 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %.not.i.i168 = icmp eq i32 %127, 0
   %140 = select i1 %.not.i.i168, ptr @.str.41, ptr @.str.40
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
   %141 = load ptr, ptr %72, align 8, !tbaa !98
   %142 = call i64 @ff_vorbiscomment_length(ptr noundef %141, ptr noundef nonnull %140, ptr noundef null, i32 noundef 0) #9
@@ -950,7 +950,7 @@ ogg_write_vorbiscomment.exit.thread.i:            ; preds = %108, %89
   br i1 %.not25.i.i169, label %ogg_write_vorbiscomment.exit.thread.i171, label %.thread199
 
 ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit230
 
 .thread199:                                       ; preds = %144
@@ -959,7 +959,7 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
   %147 = load ptr, ptr %72, align 8, !tbaa !98
   %148 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %5, ptr noundef %147, ptr noundef nonnull %140, ptr noundef null, i32 noundef 0) #9
   store i32 %146, ptr %139, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %149 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %145, ptr %149, align 8, !tbaa !34
   br label %.thread220
@@ -998,7 +998,7 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
   %168 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %.not.i.i173 = icmp eq i32 %152, 0
   %169 = select i1 %.not.i.i173, ptr @.str.41, ptr @.str.40
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
   %170 = load ptr, ptr %72, align 8, !tbaa !98
   %171 = call i64 @ff_vorbiscomment_length(ptr noundef %170, ptr noundef nonnull %169, ptr noundef %153, i32 noundef %154) #9
@@ -1012,7 +1012,7 @@ ogg_write_vorbiscomment.exit.thread.i171:         ; preds = %144, %133
   br i1 %.not25.i.i174, label %ogg_write_vorbiscomment.exit.thread.i176, label %.thread207
 
 ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit229
 
 .thread207:                                       ; preds = %174
@@ -1023,7 +1023,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   %179 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %4, ptr noundef %178, ptr noundef nonnull %169, ptr noundef %153, i32 noundef %154) #9
   %180 = trunc i64 %172 to i32
   store i32 %180, ptr %168, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %181 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %175, ptr %181, align 8, !tbaa !34
   store i64 8315722252305133647, ptr %175, align 1
@@ -1135,7 +1135,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   %249 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %.not.i.i178 = icmp eq i32 %184, 0
   %250 = select i1 %.not.i.i178, ptr @.str.41, ptr @.str.40
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
   %251 = load ptr, ptr %72, align 8, !tbaa !98
   %252 = call i64 @ff_vorbiscomment_length(ptr noundef %251, ptr noundef nonnull %250, ptr noundef null, i32 noundef 0) #9
@@ -1149,7 +1149,7 @@ ogg_write_vorbiscomment.exit.thread.i176:         ; preds = %174, %161
   br i1 %.not25.i.i179, label %ogg_write_vorbiscomment.exit.thread.i181, label %257
 
 ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit228
 
 257:                                              ; preds = %255
@@ -1160,7 +1160,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   %261 = call i32 @ff_vorbiscomment_write(ptr noundef nonnull %3, ptr noundef %260, ptr noundef nonnull %250, ptr noundef null, i32 noundef 0) #9
   %262 = trunc i64 %253 to i32
   store i32 %262, ptr %249, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %263 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %256, ptr %263, align 8, !tbaa !34
   store i8 79, ptr %256, align 1, !tbaa !48
@@ -1207,7 +1207,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   %284 = getelementptr inbounds nuw i8, ptr %53, i64 36
   %.not.i182 = icmp eq i32 %283, 0
   %285 = select i1 %.not.i182, ptr @.str.41, ptr @.str.40
-  call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %2) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @ff_metadata_conv(ptr noundef nonnull %72, ptr noundef nonnull @ff_vorbiscomment_metadata_conv, ptr noundef null) #9
   %286 = load ptr, ptr %72, align 8, !tbaa !98
   %287 = call i64 @ff_vorbiscomment_length(ptr noundef %286, ptr noundef nonnull %285, ptr noundef null, i32 noundef 0) #9
@@ -1235,7 +1235,7 @@ ogg_write_vorbiscomment.exit.thread.i181:         ; preds = %255, %248
   br label %301
 
 ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %300 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr null, ptr %300, align 8, !tbaa !34
   br label %.thread224
@@ -1243,7 +1243,7 @@ ogg_write_vorbiscomment.exit.thread:              ; preds = %281, %291
 301:                                              ; preds = %299, %293
   %302 = phi i8 [ 3, %299 ], [ -127, %293 ]
   store i32 %295, ptr %284, align 4, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %2) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %303 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %292, ptr %303, align 8, !tbaa !34
   store i8 %302, ptr %292, align 1, !tbaa !48
@@ -1385,9 +1385,6 @@ define internal void @ogg_free(ptr noundef readonly captures(none) %0) #0 {
 }
 
 declare ptr @av_default_item_name(ptr noundef) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ogg_buffer_data(ptr noundef readonly captures(none) %0, i32 %.16.val.4.val, ptr captures(none) %.24.val, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
@@ -1822,16 +1819,13 @@ ogg_compare_granule.exit._crit_edge:              ; preds = %ogg_compare_granule
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ogg_write_pages(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca [282 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !111
   %.not = icmp eq ptr %8, null
@@ -1856,7 +1850,7 @@ define internal fastcc void @ogg_write_pages(ptr noundef readonly captures(none)
 thread-pre-split:                                 ; preds = %57
   %21 = icmp eq i32 %68, 1
   %22 = and i1 %11, %21
-  call void @llvm.lifetime.start.p0(i64 282, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call ptr @av_crc_get_table(i32 noundef 3) #9
   store i32 1399285583, ptr %3, align 16, !tbaa !48
   store i8 0, ptr %12, align 4, !tbaa !48
@@ -1903,7 +1897,7 @@ thread-pre-split:                                 ; preds = %57
   %52 = load i32, ptr %67, align 4, !tbaa !59
   %53 = add i32 %52, -1
   store i32 %53, ptr %67, align 4, !tbaa !59
-  call void @llvm.lifetime.end.p0(i64 282, ptr nonnull %3) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = load ptr, ptr %4, align 8, !tbaa !62
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 65304
   %56 = load ptr, ptr %55, align 8, !tbaa !66
@@ -1934,18 +1928,18 @@ thread-pre-split:                                 ; preds = %57
   br label %72
 
 72:                                               ; preds = %2, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #5
+declare i64 @av_rescale_q(i64 noundef, i64, i64) local_unnamed_addr #4
 
 declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #1
 
@@ -1954,7 +1948,7 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #1
 declare ptr @av_crc_get_table(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @av_crc(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @av_crc(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 declare void @avio_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1984,6 +1978,12 @@ declare void @avio_w8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @av_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
@@ -2001,11 +2001,11 @@ declare void @llvm.assume(i1 noundef) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }

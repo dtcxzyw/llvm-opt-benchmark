@@ -64,7 +64,7 @@ define internal noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h49
   br i1 %5, label %6, label %"_ZN11ty_vendored11file_system23VENDORED_TYPESHED_STUBS28_$u7b$$u7b$closure$u7d$$u7d$17hea02b6e764e3a8b4E.exit", !prof !5
 
 6:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = icmp ne ptr %4, null
   tail call void @llvm.assume(i1 %7)
   store ptr %4, ptr %1, align 8
@@ -104,13 +104,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11ty_vendored11file_sy
   br i1 %4, label %_ZN3std4sync6poison4once4Once9call_once17h1dfe404bc3a278e8E.exit, label %5, !prof !13
 
 5:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @_ZN11ty_vendored11file_system23VENDORED_TYPESHED_STUBS17h155a6c9ed677769eE, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %2, ptr %1, align 8
   call void @_ZN3std3sys4sync4once5futex4Once4call17hc0bb6defe1aa0f88E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @_ZN11ty_vendored11file_system23VENDORED_TYPESHED_STUBS17h155a6c9ed677769eE, i64 8), i1 noundef zeroext false, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.f3bf1289c20e5f418487683dea6a3242.0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f3bf1289c20e5f418487683dea6a3242.15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN3std4sync6poison4once4Once9call_once17h1dfe404bc3a278e8E.exit
 
 _ZN3std4sync6poison4once4Once9call_once17h1dfe404bc3a278e8E.exit: ; preds = %0, %5
@@ -142,10 +142,10 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() unnamed
 declare { i64, ptr } @_ZN7ruff_db8vendored18VendoredFileSystem10new_static17hd40f8500f37e3cc3E(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

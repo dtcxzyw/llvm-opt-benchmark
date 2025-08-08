@@ -81,14 +81,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob8ValidateEv(
   br i1 %.not26, label %._crit_edge42, label %.lr.ph41
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob3RunEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZNK3ozz9animation11BlendingJob3RunEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.ozz::animation::(anonymous namespace)::ProcessArgs", align 16
   %3 = load float, ptr %0, align 8, !tbaa !4
   %4 = fcmp ogt float %3, 0.000000e+00
@@ -161,7 +155,7 @@ _ZNK3ozz9animation11BlendingJob8ValidateEv.exit:  ; preds = %.lr.ph41.i, %._crit
   br i1 %.1.lcssa.i, label %38, label %1131
 
 38:                                               ; preds = %_ZNK3ozz9animation11BlendingJob8ValidateEv.exit
-  call void @llvm.lifetime.start.p0(i64 4128, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4096
   store ptr %0, ptr %39, align 16, !tbaa !22
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 4104
@@ -1612,7 +1606,7 @@ _ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit: ; preds = %.
   br i1 %.not.i16, label %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit, label %654
 
 _ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit: ; preds = %.loopexit.i15, %_ZN3ozz9animation12_GLOBAL__N_19NormalizeEPNS1_11ProcessArgsE.exit
-  call void @llvm.lifetime.end.p0(i64 4128, ptr nonnull %2) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %1131
 
 1131:                                             ; preds = %_ZNK3ozz9animation11BlendingJob8ValidateEv.exit, %_ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit
@@ -1620,27 +1614,32 @@ _ZN3ozz9animation12_GLOBAL__N_19AddLayersEPNS1_11ProcessArgsE.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #4
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #5
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #4
+declare <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float>) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.rcp.ps(<4 x float>) #4
+declare <4 x float> @llvm.x86.sse.rcp.ps(<4 x float>) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

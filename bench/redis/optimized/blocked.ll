@@ -175,17 +175,11 @@ define dso_local void @updateStatsOnUnblock(ptr noundef %0, i64 noundef %1, i64 
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
 declare void @updateCommandLatencyHistogram(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @slowlogPushCurrentCommand(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @processUnblockedClients() local_unnamed_addr #0 {
@@ -579,7 +573,7 @@ define dso_local void @replyToClientsBlockedOnShutdown() local_unnamed_addr #0 {
   br i1 %3, label %20, label %4
 
 4:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !85
   call void @listRewind(ptr noundef %5, ptr noundef nonnull %1) #5
   %6 = call ptr @listNext(ptr noundef nonnull %1) #5
@@ -613,7 +607,7 @@ define dso_local void @replyToClientsBlockedOnShutdown() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %18, %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %20
 
 20:                                               ; preds = %0, %._crit_edge
@@ -629,7 +623,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @disconnectAllBlockedClients() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1432), align 8, !tbaa !85
   call void @listRewind(ptr noundef %2, ptr noundef nonnull %1) #5
   %3 = call ptr @listNext(ptr noundef nonnull %1) #5
@@ -679,7 +673,7 @@ define dso_local void @disconnectAllBlockedClients() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %21, %0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -805,7 +799,7 @@ define dso_local void @handleClientsBlockedOnKeys() local_unnamed_addr #0 {
 
 27:                                               ; preds = %.lr.ph
   %28 = call ptr @dictGetVal(ptr noundef nonnull %26) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @listRewind(ptr noundef %28, ptr noundef nonnull %1) #5
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load i64, ptr %29, align 8, !tbaa !71
@@ -1018,7 +1012,7 @@ unblockClientOnKey.exit.i:                        ; preds = %unblockClientOnKey.
   br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !99
 
 .critedge.i:                                      ; preds = %unblockClientOnKey.exit.i, %.lr.ph.i, %27
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %handleClientsBlockedOnKey.exit
 
 handleClientsBlockedOnKey.exit:                   ; preds = %.lr.ph, %.critedge.i
@@ -1059,7 +1053,7 @@ declare void @listRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @blockForKeys(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !34
   %10 = and i64 %9, 1125899906842624
@@ -1269,7 +1263,7 @@ blockClient.exit53:                               ; preds = %93, %97
 
 104:                                              ; preds = %blockClient.exit, %blockClient.exit53
   call void @addClientToTimeoutTable(ptr noundef nonnull %0) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -1333,7 +1327,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %23, label %getBlockedTypeByType.exit, label %24
 
 24:                                               ; preds = %19, %14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !92
   %27 = call ptr @dictAddRaw(ptr noundef %26, ptr noundef %1, ptr noundef nonnull %5) #5
@@ -1352,7 +1346,7 @@ switch.lookup:                                    ; preds = %4
   br label %33
 
 33:                                               ; preds = %24, %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %getBlockedTypeByType.exit
 
 getBlockedTypeByType.exit:                        ; preds = %4, %19, %14, %switch.lookup, %33
@@ -1714,7 +1708,7 @@ declare void @listUnlinkNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #3
 
 declare ptr @lookupKeyReadWithFlags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1730,11 +1724,17 @@ declare i32 @moduleTryServeClientBlockedOnKey(ptr noundef, ptr noundef) local_un
 
 declare void @moduleUnblockClient(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { noreturn nounwind }
 attributes #7 = { nounwind allocsize(0) }

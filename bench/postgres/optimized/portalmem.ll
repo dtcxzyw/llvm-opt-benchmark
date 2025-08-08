@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @EnablePortalManager() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @TopMemoryContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   store ptr %3, ptr @TopPortalContext, align 8
@@ -62,19 +62,13 @@ define dso_local void @EnablePortalManager() local_unnamed_addr #0 {
   store i64 72, ptr %5, align 8
   %6 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 16, ptr noundef nonnull %1, i32 noundef 24) #8
   store ptr %6, ptr @PortalHashTable, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
-
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetPortalByName(ptr noundef %0) local_unnamed_addr #0 {
@@ -97,10 +91,10 @@ define dso_local ptr @GetPortalByName(ptr noundef %0) local_unnamed_addr #0 {
   ret ptr %.1
 }
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -138,7 +132,7 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @CreatePortal(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -222,7 +216,7 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   %42 = tail call i64 @GetCurrentStatementStartTimestamp() #8
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 208
   store i64 %42, ptr %43, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = load ptr, ptr @PortalHashTable, align 8
   %45 = call ptr @hash_search(ptr noundef %44, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #8
   %46 = load i8, ptr %4, align 1, !range !4, !noundef !5
@@ -240,7 +234,7 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %23, ptr %52, align 8
   store ptr %45, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = load ptr, ptr %26, align 8
   %54 = load i8, ptr %45, align 1
   %.not29 = icmp eq i8 %54, 0
@@ -250,15 +244,15 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
@@ -408,26 +402,26 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   ret void
 }
 
-declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare ptr @ResourceOwnerCreate(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @ResourceOwnerCreate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PortalCleanup(ptr noundef) #2
+declare void @PortalCleanup(ptr noundef) #1
 
-declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #2
+declare i32 @GetCurrentSubTransactionId() local_unnamed_addr #1
 
-declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #2
+declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #1
 
-declare i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #2
+declare i64 @GetCurrentStatementStartTimestamp() local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextSetIdentifier(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @CreateNewPortal() local_unnamed_addr #0 {
   %1 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   br label %2
 
 2:                                                ; preds = %GetPortalByName.exit, %0
@@ -448,14 +442,14 @@ GetPortalByName.exit:                             ; preds = %2
 
 GetPortalByName.exit.thread:                      ; preds = %2, %GetPortalByName.exit
   %11 = call ptr @CreatePortal(ptr noundef nonnull %1, i1 noundef zeroext false, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %11
 }
 
-declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PortalDefineQuery(ptr noundef writeonly captures(none) initializes((8, 16), (56, 68), (72, 76), (80, 104), (128, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 {
+define dso_local void @PortalDefineQuery(ptr noundef writeonly captures(none) initializes((8, 16), (56, 68), (72, 76), (80, 104), (128, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -495,7 +489,7 @@ define dso_local void @PortalCreateHoldStore(ptr noundef captures(none) initiali
   ret void
 }
 
-declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PinPortal(ptr noundef captures(none) %0) local_unnamed_addr #0 {
@@ -595,22 +589,22 @@ define dso_local void @MarkPortalFailed(ptr noundef initializes((128, 132)) %0) 
   ret void
 }
 
-declare void @UnregisterSnapshotFromOwner(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @UnregisterSnapshotFromOwner(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ResourceOwnerRelease(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
+declare void @ResourceOwnerRelease(ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @ResourceOwnerDelete(ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @tuplestore_end(ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_end(ptr noundef) local_unnamed_addr #1
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
-declare void @pfree(ptr noundef) local_unnamed_addr #2
+declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PortalHashTableDeleteAll() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %4
@@ -643,20 +637,20 @@ define dso_local void @PortalHashTableDeleteAll() local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %14, %4, %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #2
+declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
-declare void @hash_seq_term(ptr noundef) local_unnamed_addr #2
+declare void @hash_seq_term(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %3) #8
   %4 = call ptr @hash_seq_search(ptr noundef nonnull %2) #8
@@ -804,14 +798,14 @@ HoldPortal.exit:                                  ; preds = %44, %57
 
 ._crit_edge:                                      ; preds = %66, %1
   %.0.lcssa = phi i1 [ false, %1 ], [ %.1, %66 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
@@ -914,16 +908,16 @@ PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.ex
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %41, %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare void @MemoryContextDeleteChildren(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDeleteChildren(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
@@ -991,14 +985,14 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %33, %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PortalErrorCleanup() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
@@ -1026,14 +1020,14 @@ define dso_local void @PortalErrorCleanup() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %12, %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubCommit_Portals(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %5, ptr noundef %6) #8
   %7 = call ptr @hash_seq_search(ptr noundef nonnull %5) #8
@@ -1078,16 +1072,16 @@ define dso_local void @AtSubCommit_Portals(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
-declare void @ResourceOwnerNewParent(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ResourceOwnerNewParent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubAbort_Portals(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %5, ptr noundef %6) #8
   %7 = call ptr @hash_seq_search(ptr noundef nonnull %5) #8
@@ -1202,14 +1196,14 @@ PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.ex
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %47, %4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %3) #8
   %4 = call ptr @hash_seq_search(ptr noundef nonnull %2) #8
@@ -1265,7 +1259,7 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %25, %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1276,7 +1270,7 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #8
   %7 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %7) #8
@@ -1298,8 +1292,8 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %17 = phi ptr [ %8, %.lr.ph ], [ %46, %45 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
@@ -1343,27 +1337,27 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   br label %45
 
 45:                                               ; preds = %23, %16, %26
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = call ptr @hash_seq_search(ptr noundef nonnull %2) #8
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %45, %1
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
 }
 
-declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #2
+declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
-declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ThereAreNoReadyPortals() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   br label %3
@@ -1382,14 +1376,14 @@ define dso_local noundef zeroext i1 @ThereAreNoReadyPortals() local_unnamed_addr
   br i1 %.not5, label %10, label %3, !llvm.loop !16
 
 10:                                               ; preds = %3, %5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.not
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
@@ -1484,14 +1478,14 @@ HoldPortal.exit:                                  ; preds = %27, %41
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %47, %0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ForgetPortalSnapshots() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %2) #8
   %3 = call ptr @hash_seq_search(ptr noundef nonnull %1) #8
@@ -1544,28 +1538,34 @@ define dso_local void @ForgetPortalSnapshots() local_unnamed_addr #0 {
   unreachable
 
 19:                                               ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #2
+declare zeroext i1 @ActiveSnapshotSet() local_unnamed_addr #1
 
-declare void @PopActiveSnapshot() local_unnamed_addr #2
+declare void @PopActiveSnapshot() local_unnamed_addr #1
 
-declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ReleaseCachedPlan(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PersistHoldablePortal(ptr noundef) local_unnamed_addr #2
+declare void @PersistHoldablePortal(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #8 = { nounwind }
 attributes #9 = { cold nounwind }

@@ -205,7 +205,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
   %3 = alloca %struct._zend_class_entry, align 8
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %3, i8 0, i64 520, i1 false)
   %4 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !4
   %5 = tail call ptr %4(ptr noundef nonnull @.str.72, i64 noundef 9, i1 noundef zeroext true) #16
@@ -216,7 +216,7 @@ define hidden noundef i32 @zm_startup_xml(i32 %0, i32 noundef %1) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr null, ptr %8, align 8, !tbaa !28
   %9 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %3, ptr noundef null, i32 noundef 536879136) #16
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr %9, ptr @xml_parser_ce, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 384
   store ptr @xml_parser_create_object, ptr %10, align 8, !tbaa !28
@@ -1994,7 +1994,7 @@ xml_decode_tag.exit:                              ; preds = %xml_xmlcharlen.exit
   br i1 %.not102, label %131, label %30
 
 30:                                               ; preds = %xml_decode_tag.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2056,7 +2056,7 @@ zend_string_alloc.exit:                           ; preds = %37, %30
 .lr.ph163:                                        ; preds = %.lr.ph, %zend_string_release_ex.exit
   %62 = phi ptr [ %111, %zend_string_release_ex.exit ], [ %61, %.lr.ph ]
   %.0152162 = phi ptr [ %101, %zend_string_release_ex.exit ], [ %2, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = load i8, ptr %62, align 1, !tbaa !28
   %.not4.i.i130 = icmp eq i8 %63, 0
   br i1 %.not4.i.i130, label %xml_xmlcharlen.exit.i135, label %.lr.ph.preheader.i.i131
@@ -2098,7 +2098,7 @@ xml_decode_tag.exit137:                           ; preds = %xml_xmlcharlen.exit
   %82 = select i1 %.not112, i32 262, i32 6
   store i32 %82, ptr %60, align 8, !tbaa !28
   %83 = load ptr, ptr %58, align 16, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %84 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !61
@@ -2135,7 +2135,7 @@ _zend_handle_numeric_str.exit127.thread:          ; preds = %92, %91, %xml_decod
   br label %zend_symtable_update.exit
 
 zend_symtable_update.exit:                        ; preds = %97, %_zend_handle_numeric_str.exit127.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %101 = getelementptr inbounds nuw i8, ptr %.0152162, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !28
@@ -2157,7 +2157,7 @@ zend_symtable_update.exit:                        ; preds = %97, %_zend_handle_n
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %zend_symtable_update.exit, %105, %110
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %111 = load ptr, ptr %101, align 8, !tbaa !83
   %.not105 = icmp eq ptr %111, null
   br i1 %.not105, label %.critedge, label %.lr.ph163
@@ -2198,7 +2198,7 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %46) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %58) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %131
 
 131:                                              ; preds = %zend_call_known_fcc.exit, %xml_decode_tag.exit
@@ -2217,8 +2217,8 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
   br i1 %140, label %141, label %249
 
 141:                                              ; preds = %138
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %142 = call ptr @_zend_new_array_0() #16
   store ptr %142, ptr %8, align 8, !tbaa !28
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2265,7 +2265,7 @@ zend_call_known_fcc.exit:                         ; preds = %124, %116, %.crited
 .lr.ph167:                                        ; preds = %.lr.ph157, %zend_string_release_ex.exit117
   %167 = phi ptr [ %215, %zend_string_release_ex.exit117 ], [ %166, %.lr.ph157 ]
   %.1156165 = phi ptr [ %205, %zend_string_release_ex.exit117 ], [ %2, %.lr.ph157 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %168 = load i8, ptr %167, align 1, !tbaa !28
   %.not4.i.i138 = icmp eq i8 %168, 0
   br i1 %.not4.i.i138, label %xml_xmlcharlen.exit.i143, label %.lr.ph.preheader.i.i139
@@ -2306,7 +2306,7 @@ xml_decode_tag.exit145:                           ; preds = %xml_xmlcharlen.exit
   %.not111 = icmp eq i32 %186, 0
   %187 = select i1 %.not111, i32 262, i32 6
   store i32 %187, ptr %165, align 8, !tbaa !28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %188 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %189 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %190 = load i64, ptr %189, align 8, !tbaa !61
@@ -2343,7 +2343,7 @@ _zend_handle_numeric_str.exit.thread:             ; preds = %196, %195, %xml_dec
   br label %zend_symtable_update.exit115
 
 zend_symtable_update.exit115:                     ; preds = %201, %_zend_handle_numeric_str.exit.thread
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %205 = getelementptr inbounds nuw i8, ptr %.1156165, i64 16
   %206 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %207 = load i32, ptr %206, align 4, !tbaa !28
@@ -2365,7 +2365,7 @@ zend_symtable_update.exit115:                     ; preds = %201, %_zend_handle_
   br label %zend_string_release_ex.exit117
 
 zend_string_release_ex.exit117:                   ; preds = %zend_symtable_update.exit115, %209, %214
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %215 = load ptr, ptr %205, align 8, !tbaa !83
   %.not107 = icmp eq ptr %215, null
   br i1 %.not107, label %.critedge3, label %.lr.ph167
@@ -2434,8 +2434,8 @@ zend_string_release_ex.exit117:                   ; preds = %zend_symtable_updat
   br label %248
 
 248:                                              ; preds = %241, %246, %247
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %252
 
 249:                                              ; preds = %138
@@ -2470,14 +2470,8 @@ zend_string_release_ex.exit119:                   ; preds = %261, %256, %252, %3
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @_zend_new_array_0() local_unnamed_addr #3
 
@@ -2485,7 +2479,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #3
 define internal fastcc ptr @xml_utf8_decode(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !110
   br label %6
 
@@ -2543,7 +2537,7 @@ zend_string_alloc.exit30:                         ; preds = %13
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !104
   %33 = call i32 @php_next_utf8_char(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   %34 = load i32, ptr %5, align 4, !tbaa !104
@@ -2558,7 +2552,7 @@ zend_string_alloc.exit30:                         ; preds = %13
   store i64 %41, ptr %30, align 8, !tbaa !61
   %42 = getelementptr inbounds nuw [1 x i8], ptr %31, i64 0, i64 %40
   store i8 %39, ptr %42, align 1, !tbaa !28
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %43 = load i64, ptr %4, align 8, !tbaa !110
   %44 = icmp ult i64 %43, %1
   br i1 %44, label %32, label %._crit_edge
@@ -2625,7 +2619,7 @@ zend_string_alloc.exit.i:                         ; preds = %49, %52
 
 zend_string_truncate.exit:                        ; preds = %74, %zend_string_alloc.exit.i, %55, %._crit_edge, %.thread
   %.025 = phi ptr [ %19, %.thread ], [ %27, %._crit_edge ], [ %58, %55 ], [ %66, %74 ], [ %66, %zend_string_alloc.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.025
 }
 
@@ -2680,13 +2674,13 @@ zend_gc_try_delref.exit:                          ; preds = %22, %17, %13
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %zend_gc_try_delref.exit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = tail call ptr @_zend_new_array_0() #16
   store ptr %32, ptr %3, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %33, align 8, !tbaa !28
   %34 = call ptr @zend_hash_str_update(ptr noundef %27, ptr noundef nonnull %1, i64 noundef %28, ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %31, %zend_gc_try_delref.exit
@@ -2756,7 +2750,7 @@ xml_decode_tag.exit:                              ; preds = %xml_xmlcharlen.exit
   br i1 %.not60, label %67, label %21
 
 21:                                               ; preds = %xml_decode_tag.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2835,7 +2829,7 @@ zend_call_known_fcc.exit:                         ; preds = %60, %52, %zend_stri
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %64, ptr noundef %66, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %37) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %67
 
 67:                                               ; preds = %zend_call_known_fcc.exit, %xml_decode_tag.exit
@@ -2849,7 +2843,7 @@ zend_call_known_fcc.exit:                         ; preds = %60, %52, %zend_stri
   br i1 %or.cond, label %118, label %74
 
 74:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %76 = load i8, ptr %75, align 8, !tbaa !113, !range !107, !noundef !54
   %77 = trunc nuw i8 %76 to i1
@@ -2924,7 +2918,7 @@ zend_call_known_fcc.exit:                         ; preds = %60, %52, %zend_stri
 
 xml_get_separated_data.exit.thread:               ; preds = %81, %104, %78, %80
   store i8 0, ptr %75, align 8, !tbaa !113
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
 118:                                              ; preds = %xml_get_separated_data.exit.thread, %67
@@ -3083,7 +3077,7 @@ define hidden void @xml_characterDataHandler(ptr noundef captures(address_is_nul
   br i1 %.not138, label %56, label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3174,7 +3168,7 @@ zend_call_known_fcc.exit:                         ; preds = %49, %41, %xml_xmlch
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %53, ptr noundef %55, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %22) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %56
 
 56:                                               ; preds = %zend_call_known_fcc.exit, %6
@@ -3397,7 +3391,7 @@ zend_string_extend.exit:                          ; preds = %118, %zend_string_a
   br label %zend_string_release_ex.exit158
 
 177:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %178 = load ptr, ptr %57, align 8, !tbaa !28
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 16
@@ -3717,7 +3711,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %313, %222, %204, %2
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %363, %358, %.thread, %322, %354
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zend_string_release_ex.exit158
 
 .critedge148.sink.split:                          ; preds = %308, %199
@@ -3725,7 +3719,7 @@ zend_string_release_ex.exit:                      ; preds = %363, %358, %.thread
   br label %.critedge148
 
 .critedge148:                                     ; preds = %.critedge148.sink.split, %308, %zend_string_extend.exit165, %199, %195
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %zend_string_release_ex.exit158
 
 zend_string_release_ex.exit158:                   ; preds = %176, %171, %167, %161, %156, %zend_string_extend.exit, %93, %88, %84, %166, %.critedge148, %zend_string_release_ex.exit, %56, %3
@@ -3735,7 +3729,7 @@ zend_string_release_ex.exit158:                   ; preds = %176, %171, %167, %1
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -3754,7 +3748,7 @@ define hidden void @xml_processingInstructionHandler(ptr noundef readonly captur
   br i1 %.not16, label %65, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3876,7 +3870,7 @@ zend_call_known_fcc.exit:                         ; preds = %58, %50, %xml_xmlch
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %21) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %34) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
 65:                                               ; preds = %3, %5, %zend_call_known_fcc.exit
@@ -3896,7 +3890,7 @@ define hidden void @xml_defaultHandler(ptr noundef readonly captures(address_is_
   br i1 %.not15, label %55, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3987,7 +3981,7 @@ zend_call_known_fcc.exit:                         ; preds = %48, %40, %xml_xmlch
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %52, ptr noundef %54, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
 55:                                               ; preds = %3, %5, %zend_call_known_fcc.exit
@@ -4007,7 +4001,7 @@ define hidden void @xml_unparsedEntityDeclHandler(ptr noundef readonly captures(
   br i1 %.not22, label %107, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4234,7 +4228,7 @@ zend_call_known_fcc.exit:                         ; preds = %100, %92, %xml_xmlc
   call void @zval_ptr_dtor(ptr noundef nonnull %50) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %63) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %76) #16
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
 107:                                              ; preds = %6, %8, %zend_call_known_fcc.exit
@@ -4254,7 +4248,7 @@ define hidden void @xml_notationDeclHandler(ptr noundef readonly captures(addres
   br i1 %.not20, label %93, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4446,7 +4440,7 @@ zend_call_known_fcc.exit:                         ; preds = %86, %78, %xml_xmlch
   call void @zval_ptr_dtor(ptr noundef nonnull %36) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %49) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %62) #16
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %93
 
 93:                                               ; preds = %5, %7, %zend_call_known_fcc.exit
@@ -4468,8 +4462,8 @@ define hidden i32 @xml_externalEntityRefHandler(ptr noundef %0, ptr noundef %1, 
   br i1 %.not24, label %102, label %12
 
 12:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -4674,8 +4668,8 @@ zend_call_known_fcc.exit:                         ; preds = %88, %80, %xml_xmlch
 
 101:                                              ; preds = %zend_call_known_fcc.exit, %98
   %.022 = phi i32 [ %100, %98 ], [ 0, %zend_call_known_fcc.exit ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
 102:                                              ; preds = %5, %9, %101
@@ -4700,7 +4694,7 @@ define hidden void @xml_startNamespaceDeclHandler(ptr noundef readonly captures(
   br i1 %.not16, label %65, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4822,7 +4816,7 @@ zend_call_known_fcc.exit:                         ; preds = %58, %50, %xml_xmlch
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %21) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %34) #16
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %65
 
 65:                                               ; preds = %3, %5, %zend_call_known_fcc.exit
@@ -4842,7 +4836,7 @@ define hidden void @xml_endNamespaceDeclHandler(ptr noundef readonly captures(ad
   br i1 %.not14, label %51, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4929,7 +4923,7 @@ zend_call_known_fcc.exit:                         ; preds = %44, %36, %xml_xmlch
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %48, ptr noundef %50, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #16
   call void @zval_ptr_dtor(ptr noundef nonnull %20) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
 51:                                               ; preds = %2, %4, %zend_call_known_fcc.exit
@@ -4949,11 +4943,11 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !110
   %6 = icmp ne i32 %1, 0
   %7 = select i1 %6, ptr @.str.133, ptr @.str.134
@@ -5076,9 +5070,9 @@ define internal fastcc void @php_xml_parser_create_impl(i32 %.44.val, ptr nounde
   br label %62
 
 62:                                               ; preds = %46, %37, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -5094,8 +5088,8 @@ define hidden void @zif_xml_parser_create_ns(ptr noundef readonly captures(none)
 define hidden void @zif_xml_set_object(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -7319,15 +7313,15 @@ zend_object_release.exit347:                      ; preds = %1030, %1025, %1024,
   br label %1034
 
 1034:                                             ; preds = %zend_fcc_addref.exit327, %zend_fcc_addref.exit324, %zend_fcc_addref.exit321, %zend_fcc_addref.exit318, %zend_fcc_addref.exit315, %zend_fcc_addref.exit312, %zend_fcc_addref.exit309, %zend_fcc_addref.exit306, %zend_fcc_addref.exit303, %zend_fcc_addref.exit, %zend_object_release.exit347, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #6
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -7342,18 +7336,18 @@ define hidden void @zif_xml_set_element_handler(ptr noundef readonly captures(no
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !28
@@ -7637,8 +7631,8 @@ php_xml_check_string_method_arg.exit41:           ; preds = %145, %139
   br label %.critedge29
 
 156:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %5) #16
   call void @zend_release_fcall_info_cache(ptr noundef nonnull %7) #16
   %157 = load i32, ptr %12, align 4, !tbaa !28
@@ -7662,8 +7656,8 @@ php_xml_check_string_method_arg.exit41:           ; preds = %145, %139
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
   %167 = icmp ne ptr %166, null
   call void @llvm.assume(i1 %167)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge29
 
 .critedge:                                        ; preds = %132, %150, %72, %91, %34, %53, %17
@@ -7679,18 +7673,18 @@ php_xml_check_string_method_arg.exit41:           ; preds = %145, %139
   br label %.critedge29
 
 .critedge29:                                      ; preds = %php_xml_check_string_method_arg.exit33, %php_xml_check_string_method_arg.exit, %php_xml_check_string_method_arg.exit37, %php_xml_check_string_method_arg.exit41, %102, %165, %.critedge, %69, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @zend_parse_parameters_ex(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -7824,9 +7818,9 @@ declare void @php_XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) l
 define hidden void @zif_xml_set_character_data_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -7844,8 +7838,8 @@ define hidden void @zif_xml_set_character_data_handler(ptr noundef readonly capt
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -7856,12 +7850,12 @@ define internal fastcc void @php_xml_set_handler_parse_callable(ptr noundef read
   %6 = alloca %struct._zend_fcall_info_cache, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !57
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4, !tbaa !28
@@ -7951,7 +7945,7 @@ php_xml_check_string_method_arg.exit:             ; preds = %45, %39
   br label %.critedge
 
 56:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = load i32, ptr %9, align 4, !tbaa !28
   %58 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
   %59 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %57, ptr noundef nonnull @.str.144, ptr noundef nonnull %4, ptr noundef %58, ptr noundef nonnull %8) #16
@@ -7966,14 +7960,14 @@ php_xml_check_string_method_arg.exit:             ; preds = %45, %39
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
   %64 = icmp ne ptr %63, null
   call void @llvm.assume(i1 %64)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %50, %php_xml_check_string_method_arg.exit, %19, %25, %14, %62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7983,9 +7977,9 @@ declare void @php_XML_SetCharacterDataHandler(ptr noundef, ptr noundef) local_un
 define hidden void @zif_xml_set_processing_instruction_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8003,8 +7997,8 @@ define hidden void @zif_xml_set_processing_instruction_handler(ptr noundef reado
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8014,9 +8008,9 @@ declare void @php_XML_SetProcessingInstructionHandler(ptr noundef, ptr noundef) 
 define hidden void @zif_xml_set_default_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8034,8 +8028,8 @@ define hidden void @zif_xml_set_default_handler(ptr noundef readonly captures(no
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8045,9 +8039,9 @@ declare void @php_XML_SetDefaultHandler(ptr noundef, ptr noundef) local_unnamed_
 define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8065,8 +8059,8 @@ define hidden void @zif_xml_set_unparsed_entity_decl_handler(ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8076,9 +8070,9 @@ declare void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef, ptr noundef) loc
 define hidden void @zif_xml_set_notation_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8096,8 +8090,8 @@ define hidden void @zif_xml_set_notation_decl_handler(ptr noundef readonly captu
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8107,9 +8101,9 @@ declare void @php_XML_SetNotationDeclHandler(ptr noundef, ptr noundef) local_unn
 define hidden void @zif_xml_set_external_entity_ref_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8127,8 +8121,8 @@ define hidden void @zif_xml_set_external_entity_ref_handler(ptr noundef readonly
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8138,9 +8132,9 @@ declare void @php_XML_SetExternalEntityRefHandler(ptr noundef, ptr noundef) loca
 define hidden void @zif_xml_set_start_namespace_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8158,8 +8152,8 @@ define hidden void @zif_xml_set_start_namespace_decl_handler(ptr noundef readonl
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8169,9 +8163,9 @@ declare void @php_XML_SetStartNamespaceDeclHandler(ptr noundef, ptr noundef) loc
 define hidden void @zif_xml_set_end_namespace_decl_handler(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   call fastcc void @php_xml_set_handler_parse_callable(ptr noundef %0, ptr noundef %3, ptr noundef %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !123
@@ -8189,8 +8183,8 @@ define hidden void @zif_xml_set_end_namespace_decl_handler(ptr noundef readonly 
   br label %11
 
 11:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8202,10 +8196,10 @@ define hidden void @zif_xml_parse(ptr noundef readonly captures(none) %0, ptr no
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !170
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !28
@@ -8269,10 +8263,10 @@ define hidden void @zif_xml_parse(ptr noundef readonly captures(none) %0, ptr no
   br label %47
 
 47:                                               ; preds = %24, %21, %12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8285,12 +8279,12 @@ define hidden void @zif_xml_parse_into_struct(ptr noundef readonly captures(none
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %10 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8498,11 +8492,11 @@ xml_parser_free_ltags.exit:                       ; preds = %85, %._crit_edge.i
   br label %114
 
 114:                                              ; preds = %xml_parser_free_ltags.exit, %zend_try_array_init_size.exit, %zend_try_array_init_size.exit43, %23, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8511,7 +8505,7 @@ declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_get_error_code(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8538,7 +8532,7 @@ define hidden void @zif_xml_get_error_code(ptr noundef readonly captures(none) %
   br label %20
 
 20:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8547,7 +8541,7 @@ declare i32 @php_XML_GetErrorCode(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_error_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.39, ptr noundef nonnull %3) #16
@@ -8589,7 +8583,7 @@ zend_string_alloc.exit:                           ; preds = %11
   br label %25
 
 25:                                               ; preds = %11, %zend_string_alloc.exit, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8598,7 +8592,7 @@ declare ptr @php_XML_ErrorString(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_get_current_line_number(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8625,7 +8619,7 @@ define hidden void @zif_xml_get_current_line_number(ptr noundef readonly capture
   br label %20
 
 20:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8634,7 +8628,7 @@ declare i32 @php_XML_GetCurrentLineNumber(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_get_current_column_number(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8661,7 +8655,7 @@ define hidden void @zif_xml_get_current_column_number(ptr noundef readonly captu
   br label %20
 
 20:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8670,7 +8664,7 @@ declare i32 @php_XML_GetCurrentColumnNumber(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_get_current_byte_index(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8696,7 +8690,7 @@ define hidden void @zif_xml_get_current_byte_index(ptr noundef readonly captures
   br label %19
 
 19:                                               ; preds = %12, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8705,7 +8699,7 @@ declare i64 @php_XML_GetCurrentByteIndex(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xml_parser_free(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8739,7 +8733,7 @@ define hidden void @zif_xml_parser_free(ptr noundef readonly captures(none) %0, 
   br label %22
 
 22:                                               ; preds = %20, %18, %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8748,9 +8742,9 @@ define hidden void @zif_xml_parser_set_option(ptr noundef readonly captures(none
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !28
   %8 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -8927,9 +8921,9 @@ xml_get_encoding.exit:                            ; preds = %72
   br label %.critedge
 
 .critedge:                                        ; preds = %58, %79, %66, %87, %84, %38, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -8941,8 +8935,8 @@ declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #3
 define hidden void @zif_xml_parser_get_option(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = load ptr, ptr @xml_parser_ce, align 8, !tbaa !29
@@ -9035,8 +9029,8 @@ zend_string_alloc.exit:                           ; preds = %13
   br label %55
 
 55:                                               ; preds = %52, %zend_string_alloc.exit, %34, %28, %23, %17, %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -9051,10 +9045,10 @@ declare ptr @zend_add_attribute(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare noalias ptr @_emalloc_256() local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: allocsize(1)
-declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 declare void @zend_object_std_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -9073,7 +9067,7 @@ declare void @zend_get_gc_buffer_grow(ptr noundef) local_unnamed_addr #3
 declare void @zend_str_toupper(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #8
 
 declare i32 @php_next_utf8_char(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -9084,7 +9078,7 @@ declare ptr @zend_hash_update(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @zend_call_known_function(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -9127,10 +9121,10 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0) #13 {
+define internal signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0) #12 {
   %2 = icmp ugt i16 %0, 255
   %3 = trunc nuw i16 %0 to i8
   %4 = select i1 %2, i8 63, i8 %3
@@ -9138,13 +9132,13 @@ define internal signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0) #13 {
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal zeroext range(i16 0, 256) i16 @xml_encode_iso_8859_1(i8 noundef zeroext %0) #13 {
+define internal zeroext range(i16 0, 256) i16 @xml_encode_iso_8859_1(i8 noundef zeroext %0) #12 {
   %2 = zext i8 %0 to i16
   ret i16 %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) #13 {
+define internal signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) #12 {
   %2 = icmp ugt i16 %0, 127
   %3 = trunc nuw nsw i16 %0 to i8
   %4 = select i1 %2, i8 63, i8 %3
@@ -9152,10 +9146,16 @@ define internal signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) #13 {
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal zeroext range(i16 0, 256) i16 @xml_encode_us_ascii(i8 noundef zeroext %0) #13 {
+define internal zeroext range(i16 0, 256) i16 @xml_encode_us_ascii(i8 noundef zeroext %0) #12 {
   %2 = zext i8 %0 to i16
   ret i16 %2
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
@@ -9167,16 +9167,16 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

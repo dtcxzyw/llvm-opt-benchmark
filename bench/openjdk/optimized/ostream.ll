@@ -436,7 +436,7 @@ _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %4
   br i1 %.not, label %33, label %25
 
 25:                                               ; preds = %_ZN12outputStream6indentEv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %24, i64 noundef %27, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -445,20 +445,20 @@ _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %28, i64 noundef %29) #21
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %_ZN12outputStream6indentEv.exit
-  call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = call noundef ptr @_ZN12outputStream12do_vsnprintfEPcmPKcP13__va_list_tagbRm(ptr noundef nonnull %5, i64 noundef 2000, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %35 = load i64, ptr %6, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %34, i64 noundef %35) #21
-  call void @llvm.lifetime.end.p0(i64 2000, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %39
 
 39:                                               ; preds = %33, %25
@@ -1536,7 +1536,7 @@ define hidden noundef ptr @_Z13make_log_namePKcS0_(ptr noundef %0, ptr noundef r
 
 _ZL19get_datetime_stringPcm.exit:                 ; preds = %13, %2
   %15 = call noundef i32 @_ZN2os18current_process_idEv() #21
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = call noundef ptr @_ZN2os14file_separatorEv() #21
   %17 = load i8, ptr %16, align 1
   br label %18
@@ -1701,7 +1701,7 @@ _ZL19get_datetime_stringPcm.exit:                 ; preds = %13, %2
 
 _ZL22make_log_name_internalPKcS0_iS0_.exit:       ; preds = %60, %.thread111.i
   %.085.i = phi ptr [ %63, %.thread111.i ], [ null, %60 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.085.i
 }
 
@@ -2447,14 +2447,14 @@ _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i,
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull %64, i64 noundef %69) #21
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i8 61, ptr %2, align 1
   store i8 0, ptr %58, align 1
   %85 = load ptr, ptr %54, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull %2, i64 noundef 1) #21
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %88 = load ptr, ptr %.052, align 8
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %88) #22
   %90 = load i8, ptr %55, align 4
@@ -3714,10 +3714,10 @@ declare i64 @llvm.umax.i64(i64, i64) #18
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18

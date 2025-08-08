@@ -393,7 +393,7 @@ select.unfold.i:                                  ; preds = %159, %156, %switch.
   %190 = zext i32 %.0396.i to i64
   %191 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %149, i64 %190
   %192 = load i32, ptr %191, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %.lr.ph.i.i55
 
 .lr.ph.i.i55:                                     ; preds = %206, %189
@@ -428,13 +428,13 @@ select.unfold.i:                                  ; preds = %159, %156, %switch.
 
 _ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit.i: ; preds = %206, %201, %196
   %.013.i.i = phi i32 [ %199, %196 ], [ %spec.select.i.i, %201 ], [ %192, %206 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 %.013.i.i, ptr %191, align 4
   br label %231
 
 209:                                              ; preds = %185
   %210 = load i32, ptr %151, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i32 %186, label %unreachable.i.i [
     i32 0, label %_ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i
     i32 1, label %213
@@ -489,7 +489,7 @@ unreachable.i.i:                                  ; preds = %209
 
 _ZL14thai_pua_shapej13thai_action_tP9hb_font_t.exit57.i: ; preds = %228, %223, %218, %213, %209
   %.013.i53.i = phi i32 [ %210, %209 ], [ %210, %213 ], [ %221, %218 ], [ %spec.select.i56.i, %223 ], [ %210, %228 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %.013.i53.i, ptr %151, align 4
   br label %231
 
@@ -1067,10 +1067,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #3
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

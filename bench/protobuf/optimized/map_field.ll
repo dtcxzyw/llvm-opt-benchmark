@@ -241,7 +241,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden { ptr, i64 } @_ZNK6google8protobuf8internal19RealKeyToVariantKeyINS0_6MapKeyEEclERKS3_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(36) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %value, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -271,7 +271,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   switch i32 %0, label %sw.default [
     i32 9, label %sw.bb
     i32 2, label %sw.bb4
@@ -367,7 +367,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp20 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -397,7 +397,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -468,7 +468,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -498,7 +498,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -567,7 +567,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -597,7 +597,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -666,7 +666,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -696,7 +696,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -765,7 +765,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -795,7 +795,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -864,7 +864,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -894,7 +894,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -1318,7 +1318,7 @@ entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this_iter, ptr noundef nonnull align 8 dereferenceable(20) %that_iter, i64 20, i1 false)
   %key_ = getelementptr inbounds nuw i8, ptr %this_iter, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %that_iter, i64 64
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -1348,7 +1348,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %type_.i6 = getelementptr inbounds nuw i8, ptr %this_iter, i64 64
   %2 = load i32, ptr %type_.i6, align 8
   %cmp.i7 = icmp eq i32 %2, %0
@@ -2685,7 +2685,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -2714,7 +2714,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2782,7 +2782,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -2811,7 +2811,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2880,7 +2880,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -2909,7 +2909,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -2978,7 +2978,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3007,7 +3007,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3076,7 +3076,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3105,7 +3105,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3174,7 +3174,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3203,7 +3203,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3275,7 +3275,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3304,7 +3304,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 5
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3375,7 +3375,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3404,7 +3404,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 6
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3475,7 +3475,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3504,7 +3504,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 8
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -3573,7 +3573,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -3602,7 +3602,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 10
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4192,7 +4192,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4221,7 +4221,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4290,7 +4290,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4319,7 +4319,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4388,7 +4388,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4417,7 +4417,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 3
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4486,7 +4486,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4515,7 +4515,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4584,7 +4584,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4613,7 +4613,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 5
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4684,7 +4684,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4713,7 +4713,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 6
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4784,7 +4784,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4813,7 +4813,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 7
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4883,7 +4883,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -4912,7 +4912,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 9
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -4981,7 +4981,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -5010,7 +5010,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 8
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -5081,7 +5081,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp11 = alloca ptr, align 8
   %ref.tmp19 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -5110,7 +5110,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   %cmp.not = icmp eq i32 %0, 10
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -5460,11 +5460,11 @@ entry:
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JEEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(36) %map_key)
   %2 = load ptr, ptr %ref.tmp.i, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(56) %base, ptr noundef nonnull %second.i)
   br label %return
 
@@ -5697,11 +5697,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.i20, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE18TryEmplaceInternalIRKS2_JEEESt4pairINS4_8iteratorEbEOT_DpOT0_(ptr nonnull sret(%"struct.std::pair.51") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(36) %kv.i.i)
   %13 = load ptr, ptr %ref.tmp.i, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %13, i64 48
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @_ZN6google8protobuf8internal15DynamicMapField16AllocateMapValueEPNS0_11MapValueRefE(ptr noundef nonnull align 8 dereferenceable(56) %base, ptr noundef nonnull %second.i)
   br label %if.end
 
@@ -6019,7 +6019,7 @@ cond.end.i.i.i:                                   ; preds = %cond.false.i.i.i33,
 _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit: ; preds = %if.then4, %cond.end.i.i.i
   %it.sroa.0.1 = phi ptr [ %cond.i.i.i34, %cond.end.i.i.i ], [ null, %if.then4 ]
   %it.sroa.13.1 = phi i32 [ %10, %cond.end.i.i.i ], [ 0, %if.then4 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 40
   %19 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %19, 0
@@ -6049,7 +6049,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %cmp = icmp eq i32 %19, 9
   %mul11 = shl nuw nsw i64 %conv.i, 5
   %add12 = select i1 %cmp, i64 %mul11, i64 0
@@ -6057,7 +6057,7 @@ _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %_ZNK6google8protobu
   %add7 = add i64 %reass.mul, %size.0
   %size.2 = add i64 %add7, %add12
   %second = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 48
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i)
   %type_.i37 = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 56
   %21 = load i32, ptr %type_.i37, align 8
   %cmp.i38 = icmp eq i32 %21, 0
@@ -6086,7 +6086,7 @@ lpad.i40:                                         ; preds = %invoke.cont.i, %if.
   unreachable
 
 _ZNK6google8protobuf16MapValueConstRef4typeEv.exit: ; preds = %_ZNK6google8protobuf6MapKey4typeEv.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i)
   switch i32 %21, label %if.end51 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb18
@@ -7951,7 +7951,7 @@ lpad:                                             ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %_ZNK6google8protobuf6MapKey4typeEv.exit
 
@@ -7979,7 +7979,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %if.end
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   switch i32 %0, label %sw.epilog [
     i32 5, label %sw.bb
     i32 6, label %sw.bb
@@ -8105,7 +8105,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf6MapKey8CopyFromERKS1_(ptr n
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i)
   %type_.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load i32, ptr %type_.i, align 8
   %cmp.i = icmp eq i32 %0, 0
@@ -8135,7 +8135,7 @@ lpad.i:                                           ; preds = %invoke.cont5.i, %in
   unreachable
 
 _ZNK6google8protobuf6MapKey4typeEv.exit:          ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2.i)
   %type_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %type_.i7, align 8
   %cmp.i8 = icmp eq i32 %2, %0
@@ -8291,7 +8291,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i.i, label %if.else.i.i.i.i.i
 
 _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i.i: ; preds = %if.else
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i.i)
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %if.else
@@ -8321,7 +8321,7 @@ for.body.lr.ph.i.i.i:                             ; preds = %cond.false.i.i.i.i.
   %cond.i.i.i.i.i = phi ptr [ %17, %cond.true.i.i.i.i.i ], [ %21, %cond.false.i.i.i.i.i ]
   %cmp16.i.i.i.i.i = icmp ne ptr %cond.i.i.i.i.i, null
   tail call void @llvm.assume(i1 %cmp16.i.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i.i)
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i, %for.body.lr.ph.i.i.i
@@ -8384,7 +8384,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
   br i1 %cmp.i.i.not.i.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit, label %for.body.i.i.i, !llvm.loop !52
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEC2ERKS4_.exit: ; preds = %if.then.i.i.i6.i.i, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i.i, %for.inc.i.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i.i)
   %call3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -8409,7 +8409,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i: ; preds 
   br i1 %cmp.i.i.i.i, label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i, label %if.else.i.i.i.i
 
 _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit.i
@@ -8438,7 +8438,7 @@ for.body.lr.ph.i.i:                               ; preds = %cond.false.i.i.i.i,
   %cond.i.i.i.i = phi ptr [ %40, %cond.true.i.i.i.i ], [ %44, %cond.false.i.i.i.i ]
   %cmp16.i.i.i.i = icmp ne ptr %cond.i.i.i.i, null
   call void @llvm.assume(i1 %cmp16.i.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i, %for.body.lr.ph.i.i
@@ -8504,7 +8504,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
   br i1 %cmp.i.i.not.i.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, label %for.body.i.i, !llvm.loop !52
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i.i, %if.then.i.i.i6.i, %for.inc.i.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i.i)
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit.i, %invoke.cont
@@ -8568,7 +8568,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit: ; preds = 
   br i1 %cmp.i.i.i, label %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread, label %if.else.i.i.i
 
 _ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread: ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   br label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5clearEv.exit
@@ -8598,7 +8598,7 @@ for.body.lr.ph.i:                                 ; preds = %cond.false.i.i.i, %
   %cond.i.i.i = phi ptr [ %5, %cond.true.i.i.i ], [ %9, %cond.false.i.i.i ]
   %cmp16.i.i.i = icmp ne ptr %cond.i.i.i, null
   tail call void @llvm.assume(i1 %cmp16.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i, %for.body.lr.ph.i
@@ -8661,7 +8661,7 @@ _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit
   br i1 %cmp.i.i.not.i, label %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, label %for.body.i, !llvm.loop !52
 
 _ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit: ; preds = %if.then.i.i.i6, %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE14const_iteratorppEv.exit.i, %for.inc.i.i.i.i, %_ZNK6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE5beginEv.exit.thread
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf3MapINS0_6MapKeyENS0_11MapValueRefEE6insertINS4_14const_iteratorEEEvT_S7_.exit, %entry
@@ -9374,10 +9374,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #22

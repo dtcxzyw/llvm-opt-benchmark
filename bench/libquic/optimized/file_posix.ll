@@ -83,32 +83,26 @@ define void @_ZN4base4File4Info8FromStatERK6stat64(ptr noundef nonnull writeonly
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare i64 @_ZN4base4Time9FromTimeTEl(i64 noundef) local_unnamed_addr #2
+declare i64 @_ZN4base4Time9FromTimeTEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4base4File7IsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK4base4File7IsValidEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !24
   %3 = icmp ne i32 %2, -1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK4base4File15GetPlatformFileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !27
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(50) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr %0, align 8, !tbaa !24
   store i32 -1, ptr %0, align 8, !tbaa !24
   ret i32 %2
@@ -122,7 +116,7 @@ define void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(5
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %5 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %6 unwind label %8
@@ -155,7 +149,7 @@ define void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(5
 13:                                               ; preds = %.noexc, %10
   store i32 -1, ptr %0, align 8, !tbaa !24
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
 
 14:                                               ; preds = %1, %13
@@ -169,25 +163,25 @@ define void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(5
 17:                                               ; preds = %15, %8
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %9, %8 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
+declare void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv() local_unnamed_addr #2
+declare noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv() local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN4base11FileTracing11ScopedTrace10InitializeEPKcPKNS_4FileEl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare void @_ZN4base11FileTracing11ScopedTrace10InitializeEPKcPKNS_4FileEl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
+declare void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN4base4File4SeekENS0_6WhenceEl(ptr noundef nonnull align 8 dereferenceable(50) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %5 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %6 unwind label %8
@@ -203,19 +197,19 @@ define noundef i64 @_ZN4base4File4SeekENS0_6WhenceEl(ptr noundef nonnull align 8
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7, %6
   %11 = load i32, ptr %0, align 8, !tbaa !27
   %12 = call i64 @lseek(i32 noundef %11, i64 noundef %2, i32 noundef %1) #14
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %12
 }
 
 ; Function Attrs: nounwind
-declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -224,7 +218,7 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
   br i1 %6, label %39, label %7
 
 7:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %8 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %9 unwind label %12
@@ -290,13 +284,13 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
   %.not = icmp eq i32 %.1, 0
   %37 = select i1 %.not, i32 %36, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 38:                                               ; preds = %31, %12
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
 39:                                               ; preds = %4, %.critedge.thread
@@ -305,10 +299,10 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull align 8 dereferenceable(50) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -317,7 +311,7 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
   br i1 %5, label %37, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %7 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %8 unwind label %11
@@ -382,13 +376,13 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 36:                                               ; preds = %29, %11
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %12, %11 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %3, %.critedge.thread
@@ -397,12 +391,12 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %7 unwind label %10
@@ -441,7 +435,7 @@ define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull ali
 .critedge:                                        ; preds = %14, %16
   %20 = trunc i64 %13 to i32
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 
 21:                                               ; preds = %._crit_edge
@@ -452,7 +446,7 @@ define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull ali
 23:                                               ; preds = %21, %10
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %11, %10 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
 
@@ -463,7 +457,7 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %7 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %8 unwind label %11
@@ -502,7 +496,7 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 22:                                               ; preds = %._crit_edge
@@ -513,7 +507,7 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
 24:                                               ; preds = %22, %11
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 25:                                               ; preds = %3, %.critedge
@@ -539,7 +533,7 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
   br i1 %12, label %45, label %13
 
 13:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %14 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %15 unwind label %18
@@ -605,13 +599,13 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
   %.not = icmp eq i32 %.1, 0
   %43 = select i1 %.not, i32 %42, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 44:                                               ; preds = %37, %18
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
 45:                                               ; preds = %11, %.critedge.thread, %9
@@ -626,7 +620,7 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
   br i1 %5, label %37, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %7 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %8 unwind label %11
@@ -691,13 +685,13 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 36:                                               ; preds = %29, %11
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %12, %11 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 37:                                               ; preds = %3, %.critedge.thread
@@ -706,10 +700,10 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr noundef nonnull align 8 dereferenceable(50) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -718,7 +712,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
   %7 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %8 unwind label %11
@@ -757,7 +751,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 22:                                               ; preds = %._crit_edge
@@ -768,7 +762,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
 24:                                               ; preds = %22, %11
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
 25:                                               ; preds = %3, %.critedge
@@ -780,7 +774,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
 define noundef i64 @_ZN4base4File9GetLengthEv(ptr noundef nonnull align 8 dereferenceable(50) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %3 = alloca %struct.stat64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %4 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %5 unwind label %7
@@ -796,27 +790,27 @@ define noundef i64 @_ZN4base4File9GetLengthEv(ptr noundef nonnull align 8 derefe
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %6, %5
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load i32, ptr %0, align 8, !tbaa !27
   %11 = call noundef i32 @fstat64(i32 noundef %10, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i64, ptr %12, align 8
   %.0 = select i1 %.not, i64 %13, i64 0
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8 dereferenceable(50) %0, i64 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %5 unwind label %7
@@ -832,7 +826,7 @@ define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8
   %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %6, %5
@@ -853,7 +847,7 @@ define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8
 _ZN4base12_GLOBAL__N_113CallFtruncateEil.exit:    ; preds = %11, %14
   %.not = icmp eq i32 %12, 0
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not
 }
 
@@ -865,7 +859,7 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
   %7 = alloca %"class.base::FileTracing::ScopedTrace", align 8
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
   %8 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %9 unwind label %11
@@ -896,7 +890,7 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
   %20 = extractvalue { i64, i64 } %16, 0
   %21 = extractvalue { i64, i64 } %16, 1
   %22 = load i32, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %19, ptr %4, align 16, !tbaa !41
   %23 = mul nsw i64 %18, 1000
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -907,10 +901,10 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %26, ptr %27, align 8, !tbaa !42
   %28 = call noundef i32 @futimens(i32 noundef %22, ptr noundef nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %28, 0
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.not
 
 29:                                               ; preds = %13
@@ -926,17 +920,17 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
 33:                                               ; preds = %29, %31, %11
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %32, %31 ], [ %30, %29 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, i64 } @_ZNK4base4Time9ToTimeValEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
+declare { i64, i64 } @_ZNK4base4Time9ToTimeValEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull align 8 dereferenceable(50) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.base::FileTracing::ScopedTrace", align 8
   %4 = alloca %struct.stat64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %6 unwind label %8
@@ -954,7 +948,7 @@ define noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull
   br label %52
 
 10:                                               ; preds = %7, %6
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i32, ptr %0, align 8, !tbaa !27
   %12 = call noundef i32 @fstat64(i32 noundef %11, ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %12, 0
@@ -963,7 +957,7 @@ define noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull
 13:                                               ; preds = %.noexc10, %.noexc9, %.noexc8, %.noexc7, %.noexc, %15
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
 15:                                               ; preds = %10
@@ -1029,15 +1023,15 @@ _ZN4base4File4Info8FromStatERK6stat64.exit:       ; preds = %.noexc10
   br label %51
 
 51:                                               ; preds = %_ZN4base4File4Info8FromStatERK6stat64.exit, %10
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not
 
 52:                                               ; preds = %13, %8
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %9, %8 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
 
@@ -1045,7 +1039,7 @@ _ZN4base4File4Info8FromStatERK6stat64.exit:       ; preds = %.noexc10
 define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull align 8 dereferenceable(50) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.flock, align 8
   %3 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %5 unwind label %.loopexit.split-lp
@@ -1070,12 +1064,12 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 7:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %lpad.phi
 
 8:                                                ; preds = %6, %5
   %9 = load i32, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 1, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %10, align 2, !tbaa !46
@@ -1103,9 +1097,9 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 
 .loopexit3:                                       ; preds = %.noexc, %.critedge.i
   %.0.i = phi i32 [ %19, %.critedge.i ], [ 0, %.noexc ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -1113,7 +1107,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull align 8 dereferenceable(50) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.flock, align 8
   %3 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %5 unwind label %.loopexit.split-lp
@@ -1138,12 +1132,12 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
 7:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %lpad.phi
 
 8:                                                ; preds = %6, %5
   %9 = load i32, ptr %0, align 8, !tbaa !27
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i16 2, ptr %2, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %10, align 2, !tbaa !46
@@ -1171,9 +1165,9 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
 
 .loopexit3:                                       ; preds = %.noexc, %.critedge.i
   %.0.i = phi i32 [ %19, %.critedge.i ], [ 0, %.noexc ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
 
@@ -1189,7 +1183,7 @@ define void @_ZNK4base4File9DuplicateEv(ptr dead_on_unwind noalias writable sret
   br label %32
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %7 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %8 unwind label %10
@@ -1244,23 +1238,23 @@ define void @_ZNK4base4File9DuplicateEv(ptr dead_on_unwind noalias writable sret
 
 30:                                               ; preds = %24, %28, %20
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 31:                                               ; preds = %21, %10
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %11, %10 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
 32:                                               ; preds = %30, %5
   ret void
 }
 
-declare void @_ZN4base4FileC1Ev(ptr noundef nonnull align 8 dereferenceable(50)) unnamed_addr #2
+declare void @_ZN4base4FileC1Ev(ptr noundef nonnull align 8 dereferenceable(50)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @dup(i32 noundef) local_unnamed_addr #6
+declare i32 @dup(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1274,10 +1268,10 @@ define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 no
   br i1 %or.cond, label %switch.lookup, label %.noexc.i
 
 .noexc.i:                                         ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %3, align 8, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 32, ptr %2, align 8, !tbaa !60
   %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %6, ptr %3, align 8, !tbaa !61
@@ -1289,7 +1283,7 @@ define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 no
   %9 = load ptr, ptr %3, align 8, !tbaa !61
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %7
   store i8 0, ptr %10, align 1, !tbaa !62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = invoke noundef ptr @_ZN4base15SparseHistogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1)
           to label %12 unwind label %20
 
@@ -1309,7 +1303,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = load ptr, ptr %11, align 8, !tbaa !64
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
@@ -1334,7 +1328,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %21
 
 switch.lookup:                                    ; preds = %1
@@ -1348,11 +1342,11 @@ switch.lookup:                                    ; preds = %1
   ret i32 %.06
 }
 
-declare void @_ZN4base4FileC1ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef) unnamed_addr #2
+declare void @_ZN4base4FileC1ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef) unnamed_addr #1
 
-declare void @_ZN4base4FileC1Ei(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef) unnamed_addr #2
+declare void @_ZN4base4FileC1Ei(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef) unnamed_addr #1
 
-declare noundef ptr @_ZN4base15SparseHistogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZN4base15SparseHistogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull align 8 captures(none) dereferenceable(50) initializes((48, 49)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -1522,15 +1516,15 @@ _ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEE5resetERKi.exit: ; p
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #7
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 dereferenceable(50) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.base::FileTracing::ScopedTrace", align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN4base11FileTracing11ScopedTraceC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %3 = invoke noundef zeroext i1 @_ZN4base11FileTracing17IsCategoryEnabledEv()
           to label %4 unwind label %6
@@ -1568,7 +1562,7 @@ define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 der
 .critedge:                                        ; preds = %11, %13
   %.not = icmp eq i32 %10, 0
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not
 
 17:                                               ; preds = %8
@@ -1579,11 +1573,11 @@ define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 der
 19:                                               ; preds = %17, %6
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %7, %6 ]
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
 
-declare i32 @fdatasync(i32 noundef) local_unnamed_addr #2
+declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4base4File15SetPlatformFileEi(ptr noundef nonnull align 8 captures(none) dereferenceable(50) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
@@ -1608,28 +1602,34 @@ _ZN4base13ScopedGenericIiNS_8internal19ScopedFDCloseTraitsEE5resetERKi.exit: ; p
   ret void
 }
 
-declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
+declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @ftruncate(i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #6
+declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
-declare noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #11
+declare void @abort() local_unnamed_addr #10
 
-declare void @_ZN4base8internal19ScopedFDCloseTraits4FreeEi(i32 noundef) local_unnamed_addr #2
+declare void @_ZN4base8internal19ScopedFDCloseTraits4FreeEi(i32 noundef) local_unnamed_addr #1
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
@@ -1638,17 +1638,17 @@ declare void @llvm.assume(i1 noundef) #12
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }

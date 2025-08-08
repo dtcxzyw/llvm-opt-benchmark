@@ -66,12 +66,6 @@ _ZN3gmxL23setICellCoordinatesSimdILNS_25ClusterDistanceKernelTypeE1EEEviRKNS_11B
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx27setICellCoordinatesSimd2xMMEiRKNS_11BasicVectorIfEEiPKfPNS_20NbnxmPairlistCpuWorkE(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %4, i64 112
@@ -120,7 +114,7 @@ _ZN3gmxL23setICellCoordinatesSimdILNS_25ClusterDistanceKernelTypeE2EEEviRKNS_11B
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noalias noundef readonly captures(none) %6, float noundef %7, float noundef %8, ptr noalias noundef captures(none) %9) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noalias noundef readonly captures(none) %6, float noundef %7, float noundef %8, ptr noalias noundef captures(none) %9) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.std::array", align 32
   %12 = alloca %"struct.std::array.42", align 32
   %13 = alloca %"struct.std::array.43", align 32
@@ -194,11 +188,11 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %.val205.i = load <8 x float>, ptr %57, align 32, !tbaa !14, !alias.scope !18, !noalias !21
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %.val206.i = load <8 x float>, ptr %58, align 32, !tbaa !14, !alias.scope !18, !noalias !21
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %11) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !25
   br label %60
 
 59:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !25
   br label %71
 
 60:                                               ; preds = %60, %52
@@ -224,7 +218,7 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   br i1 %exitcond.not.i, label %59, label %60, !llvm.loop !33
 
 70:                                               ; preds = %71
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !25
   br label %81
 
 71:                                               ; preds = %71, %59
@@ -265,9 +259,9 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %89 = icmp ne i8 %88, 0
   %90 = zext i1 %89 to i8
   %91 = add nsw i32 %35, 34
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #10, !noalias !25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #10, !noalias !25
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %11) #10, !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !25
   br label %104
 
 .preheader235.i:                                  ; preds = %81, %97
@@ -352,11 +346,11 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %.val208.i = load <8 x float>, ptr %133, align 32, !tbaa !14, !alias.scope !18, !noalias !21
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 64
   %.val209.i = load <8 x float>, ptr %134, align 32, !tbaa !14, !alias.scope !18, !noalias !21
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %14) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !25
   br label %136
 
 135:                                              ; preds = %136
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !25
   br label %147
 
 136:                                              ; preds = %136, %128
@@ -382,7 +376,7 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   br i1 %exitcond276.not.i, label %135, label %136, !llvm.loop !39
 
 146:                                              ; preds = %147
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #10, !noalias !25
+  call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !25
   br label %157
 
 147:                                              ; preds = %147, %135
@@ -423,9 +417,9 @@ define void @_ZN3gmx22makeClusterListSimd4xMERKNS_4GridEPNS_16NbnxnPairlistCpuEi
   %165 = icmp ne i8 %164, 0
   %166 = zext i1 %165 to i8
   %167 = add nsw i32 %111, 34
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16) #10, !noalias !25
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #10, !noalias !25
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %14) #10, !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !25
+  call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !25
   br label %180
 
 .preheader233.i:                                  ; preds = %157, %173
@@ -538,7 +532,7 @@ _ZN3gmxL8getImaskILi4ELi8EEEjbii.exit.i:          ; preds = %208, %201
   br i1 %224, label %225, label %_ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 225:                                              ; preds = %219
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11, !noalias !25
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #10, !noalias !25
   unreachable
 
 _ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %219
@@ -551,7 +545,7 @@ _ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EE
   %.not.i.i.i.i.i = icmp ne i64 %230, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %231 = shl nuw nsw i64 %230, 3
-  %232 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %231) #12, !noalias !25
+  %232 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %231) #11, !noalias !25
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 %223
   %.sroa.0.0.insert.ext214.i = zext i32 %204 to i64
   %.sroa.0.0.insert.insert216.i = or disjoint i64 %.sroa.5.0.insert.ext218.i, %.sroa.0.0.insert.ext214.i
@@ -576,7 +570,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInit
   br i1 %.not.i35.i.i.i.i, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i, label %238
 
 238:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %220, i64 noundef %223) #13, !noalias !25
+  tail call void @_ZdlPvm(ptr noundef nonnull %220, i64 noundef %223) #12, !noalias !25
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i: ; preds = %238, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i
@@ -597,21 +591,21 @@ _ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE1EEEvRKNS_4GridEPN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #3
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noalias noundef readonly captures(none) %6, float noundef %7, float noundef %8, ptr noalias noundef captures(none) %9) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuEiiibPKfffPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(380) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noalias noundef readonly captures(none) %6, float noundef %7, float noundef %8, ptr noalias noundef captures(none) %9) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.std::array.46", align 32
   %.sroa.024 = alloca <8 x float>, align 32
   %.sroa.425 = alloca <8 x float>, align 32
@@ -687,12 +681,12 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.val208.i = load <4 x float>, ptr %53, align 1, !tbaa !14, !alias.scope !92, !noalias !95
   %54 = shufflevector <4 x float> %.val208.i, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11) #10, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !97
   br label %56
 
 55:                                               ; preds = %56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.024)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.425)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.425)
   br label %73
 
 56:                                               ; preds = %56, %45
@@ -725,9 +719,9 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   %70 = icmp ne i8 %69, 0
   %71 = zext i1 %70 to i8
   %72 = add nsw i32 %28, 18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.024)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.425)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %11) #10, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.024)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.425)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !97
   br label %82
 
 73:                                               ; preds = %73, %55
@@ -807,12 +801,12 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %.val211.i = load <4 x float>, ptr %112, align 1, !tbaa !14, !alias.scope !92, !noalias !95
   %113 = shufflevector <4 x float> %.val211.i, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %12) #10, !noalias !97
+  call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !97
   br label %115
 
 114:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.013)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.414)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.013)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.414)
   br label %132
 
 115:                                              ; preds = %115, %104
@@ -845,9 +839,9 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   %129 = icmp ne i8 %128, 0
   %130 = zext i1 %129 to i8
   %131 = add nsw i32 %87, 18
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.013)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.414)
-  call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %12) #10, !noalias !97
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.013)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.414)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !97
   br label %141
 
 132:                                              ; preds = %132, %114
@@ -941,7 +935,7 @@ define void @_ZN3gmx23makeClusterListSimd2xMMERKNS_4GridEPNS_16NbnxnPairlistCpuE
   br i1 %176, label %177, label %_ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i.i.i.i
 
 177:                                              ; preds = %171
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11, !noalias !97
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #10, !noalias !97
   unreachable
 
 _ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %171
@@ -954,7 +948,7 @@ _ZNKSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EE
   %.not.i.i.i.i.i = icmp ne i64 %182, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   %183 = shl nuw nsw i64 %182, 3
-  %184 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #12, !noalias !97
+  %184 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #11, !noalias !97
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 %175
   %.sroa.5.0.insert.ext220.i = zext i32 %spec.select.i.i to i64
   %.sroa.5.0.insert.shift221.i = shl nuw i64 %.sroa.5.0.insert.ext220.i, 32
@@ -981,7 +975,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInit
   br i1 %.not.i35.i.i.i.i, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i, label %190
 
 190:                                              ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %172, i64 noundef %175) #13, !noalias !97
+  tail call void @_ZdlPvm(ptr noundef nonnull %172, i64 noundef %175) #12, !noalias !97
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S5_EEDpOT_.exit.i.i.i: ; preds = %190, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit34.i.i.i.i
@@ -1001,6 +995,12 @@ _ZN3gmxL19makeClusterListSimdILNS_25ClusterDistanceKernelTypeE2EEEvRKNS_4GridEPN
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #7
 
@@ -1014,19 +1014,18 @@ declare void @llvm.assume(i1 noundef) #8
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { mustprogress uwtable "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { builtin allocsize(0) }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

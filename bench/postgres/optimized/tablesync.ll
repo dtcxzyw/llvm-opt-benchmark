@@ -143,10 +143,10 @@ define dso_local void @process_syncing_tables(i64 noundef %0) local_unnamed_addr
   br i1 %.not2.i, label %process_syncing_tables_for_sync.exit, label %28
 
 28:                                               ; preds = %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %9, i8 0, i64 64, i1 false)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i8 115, ptr %22, align 8
   store i64 %0, ptr %26, align 8
@@ -210,7 +210,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   br label %234
 
 61:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %4)
   %63 = load ptr, ptr @table_states_not_ready, align 8
   %64 = icmp eq ptr %63, null
@@ -220,14 +220,14 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   br i1 %or.cond.i, label %71, label %67
 
 67:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 4, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 16, ptr %69, align 8
   %70 = call ptr @hash_create(ptr noundef nonnull @.str.4, i64 noundef 256, ptr noundef nonnull %5, i32 noundef 40) #12
   store ptr %70, ptr @process_syncing_tables_for_apply.last_start_times, align 8
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
 71:                                               ; preds = %61
@@ -275,7 +275,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   br i1 %.not56.i, label %200, label %90
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 114, ptr %83, align 8
   store i64 %0, ptr %88, align 8
   %91 = trunc nuw i8 %79 to i1
@@ -299,7 +299,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %102 = load i8, ptr %83, align 8
   %103 = load i64, ptr %88, align 8
   call void @UpdateSubscriptionRelState(i32 noundef %100, i32 noundef %101, i8 noundef signext %102, i64 noundef %103) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %200
 
 104:                                              ; preds = %.lr.ph
@@ -376,7 +376,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   br label %141
 
 141:                                              ; preds = %159, %139
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %142 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i = icmp eq i32 %142, 0
   br i1 %.not.i.i, label %144, label %143, !prof !8
@@ -415,11 +415,11 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   %161 = call i32 @WaitLatch(ptr noundef %160, i32 noundef 41, i64 noundef 1000, i32 noundef 134217760) #12
   %162 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %162) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %141
 
 wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %200
 
 163:                                              ; preds = %126
@@ -442,7 +442,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
 
 175:                                              ; preds = %166
   %176 = call i64 @GetCurrentTimestamp() #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %177 = load ptr, ptr @process_syncing_tables_for_apply.last_start_times, align 8
   %178 = call ptr @hash_search(ptr noundef %177, ptr noundef nonnull %82, i32 noundef 1, ptr noundef nonnull %7) #12
   %179 = load i8, ptr %7, align 1, !range !9, !noundef !10
@@ -473,7 +473,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
   br label %199
 
 199:                                              ; preds = %186, %181
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %200
 
 200:                                              ; preds = %199, %166, %163, %wait_for_relation_state_change.exit.i, %93, %87
@@ -493,7 +493,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
 
 210:                                              ; preds = %205
   call void @CommandCounterIncrement() #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %211 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %2)
   %212 = load i8, ptr %2, align 1, !range !9, !noundef !10
   %213 = trunc nuw i8 %212 to i1
@@ -508,7 +508,7 @@ AllTablesyncsReady.exit.i:                        ; preds = %214, %210
   %216 = load ptr, ptr @table_states_not_ready, align 8
   %217 = icmp eq ptr %216, null
   %218 = select i1 %211, i1 %217, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %218, label %219, label %.critedge58.critedge.i
 
 219:                                              ; preds = %AllTablesyncsReady.exit.i
@@ -538,7 +538,7 @@ AllTablesyncsReady.exit.i:                        ; preds = %214, %210
   br label %process_syncing_tables_for_apply.exit
 
 process_syncing_tables_for_apply.exit:            ; preds = %.critedge.i, %.critedge58.critedge.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %234
 
 231:                                              ; preds = %1
@@ -552,17 +552,14 @@ process_syncing_tables_for_apply.exit:            ; preds = %.critedge.i, %.crit
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReplicationSlotNameForTablesync(i32 noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
@@ -571,12 +568,12 @@ define dso_local void @ReplicationSlotNameForTablesync(i32 noundef %0, i32 nound
   ret void
 }
 
-declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i64 @GetSystemIdentifier() local_unnamed_addr #4
+declare i64 @GetSystemIdentifier() local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @TablesyncWorkerMain(i64 noundef %0) local_unnamed_addr #5 {
+define dso_local void @TablesyncWorkerMain(i64 noundef %0) local_unnamed_addr #4 {
   %2 = trunc i64 %0 to i32
   tail call void @SetupApplyOrSyncWorker(i32 noundef %2) #12
   tail call fastcc void @run_tablesync_worker()
@@ -584,10 +581,10 @@ define dso_local void @TablesyncWorkerMain(i64 noundef %0) local_unnamed_addr #5
   unreachable
 }
 
-declare void @SetupApplyOrSyncWorker(i32 noundef) local_unnamed_addr #4
+declare void @SetupApplyOrSyncWorker(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @finish_sync_worker() unnamed_addr #5 {
+define internal fastcc void @finish_sync_worker() unnamed_addr #4 {
   %1 = tail call zeroext i1 @IsTransactionState() #12
   br i1 %1, label %2, label %4
 
@@ -628,7 +625,7 @@ define internal fastcc void @finish_sync_worker() unnamed_addr #5 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %1)
   %3 = load i8, ptr %1, align 1, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
@@ -643,7 +640,7 @@ define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
   %8 = load ptr, ptr @table_states_not_ready, align 8
   %9 = icmp eq ptr %8, null
   %10 = select i1 %2, i1 %9, i1 false
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %10
 }
 
@@ -738,21 +735,18 @@ define internal fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull writeonl
   ret i1 %39
 }
 
-declare void @CommitTransactionCommand() local_unnamed_addr #4
+declare void @CommitTransactionCommand() local_unnamed_addr #3
 
-declare i64 @pgstat_report_stat(i1 noundef zeroext) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i64 @pgstat_report_stat(i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UpdateTwoPhaseState(i32 noundef %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = alloca [18 x i8], align 16
   %4 = alloca [18 x i8], align 16
   %5 = alloca [18 x i64], align 16
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %4) #12
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #12
   %7 = zext i32 %0 to i64
   %8 = tail call ptr @SearchSysCacheCopy(i32 noundef 67, i64 noundef %7, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
@@ -782,83 +776,83 @@ define dso_local void @UpdateTwoPhaseState(i32 noundef %0, i8 noundef signext %1
   call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %19, ptr noundef %18) #12
   call void @heap_freetuple(ptr noundef %18) #12
   call void @table_close(ptr noundef %6, i32 noundef 3) #12
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
-declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @SearchSysCacheCopy(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @heap_modify_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @heap_freetuple(ptr noundef) local_unnamed_addr #4
+declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
 
-declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @IsTransactionState() local_unnamed_addr #4
+declare zeroext i1 @IsTransactionState() local_unnamed_addr #3
 
-declare void @StartTransactionCommand() local_unnamed_addr #4
+declare void @StartTransactionCommand() local_unnamed_addr #3
 
-declare void @UpdateSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef) local_unnamed_addr #4
+declare void @UpdateSubscriptionRelState(i32 noundef, i32 noundef, i8 noundef signext, i64 noundef) local_unnamed_addr #3
 
-declare void @ReplicationSlotDropAtPubNode(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @ReplicationSlotDropAtPubNode(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
+declare void @ReplicationOriginNameForLogicalRep(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @replorigin_session_reset() local_unnamed_addr #4
+declare void @replorigin_session_reset() local_unnamed_addr #3
 
-declare void @replorigin_drop_by_name(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare void @replorigin_drop_by_name(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @hash_destroy(ptr noundef) local_unnamed_addr #4
+declare void @hash_destroy(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @logicalrep_worker_find(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @logicalrep_worker_find(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @logicalrep_worker_wakeup_ptr(ptr noundef) local_unnamed_addr #4
+declare void @logicalrep_worker_wakeup_ptr(ptr noundef) local_unnamed_addr #3
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #4
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
 
-declare i32 @logicalrep_sync_worker_count(i32 noundef) local_unnamed_addr #4
+declare i32 @logicalrep_sync_worker_count(i32 noundef) local_unnamed_addr #3
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #4
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #3
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @logicalrep_worker_launch(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @logicalrep_worker_launch(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @CommandCounterIncrement() local_unnamed_addr #4
+declare void @CommandCounterIncrement() local_unnamed_addr #3
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 
-declare void @ApplyLauncherForgetWorkerStartTime(i32 noundef) local_unnamed_addr #4
+declare void @ApplyLauncherForgetWorkerStartTime(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @proc_exit(i32 noundef) local_unnamed_addr #7
+declare void @proc_exit(i32 noundef) local_unnamed_addr #6
 
-declare void @ProcessInterrupts() local_unnamed_addr #4
+declare void @ProcessInterrupts() local_unnamed_addr #3
 
-declare void @InvalidateCatalogSnapshot() local_unnamed_addr #4
+declare void @InvalidateCatalogSnapshot() local_unnamed_addr #3
 
-declare signext i8 @GetSubscriptionRelState(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare signext i8 @GetSubscriptionRelState(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @ResetLatch(ptr noundef) local_unnamed_addr #4
+declare void @ResetLatch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
@@ -866,12 +860,12 @@ define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct.WalRcvStreamOptions, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %1) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call fastcc void @start_table_sync(ptr noundef %2, ptr noundef %3)
   %5 = load ptr, ptr @MySubscription, align 8
   %6 = load i32, ptr %5, align 8
@@ -889,10 +883,10 @@ define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
   %15 = call zeroext i1 %13(ptr noundef %14, ptr noundef nonnull %4) #12
   %16 = load i64, ptr %2, align 8
   call void @start_apply(i64 noundef %16) #12
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %1) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -912,17 +906,17 @@ define internal fastcc void @start_table_sync(ptr noundef nonnull %0, ptr nounde
   %14 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %15 = load ptr, ptr @PG_exception_stack, align 8
   %16 = load ptr, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %17 = call i32 @__sigsetjmp(ptr noundef nonnull %14, i32 noundef 0) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %727
 
 19:                                               ; preds = %2
   store ptr %14, ptr @PG_exception_stack, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @StartTransactionCommand() #12
   %20 = load ptr, ptr @MyLogicalRepWorker, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -1216,8 +1210,8 @@ walrcv_clear_result.exit.i:                       ; preds = %141, %138
 194:                                              ; preds = %181
   %195 = call ptr @GetTransactionSnapshot() #12
   call void @PushActiveSnapshot(ptr noundef %195) #12
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %196 = getelementptr inbounds nuw i8, ptr %117, i64 56
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 68
@@ -1225,12 +1219,12 @@ walrcv_clear_result.exit.i:                       ; preds = %141, %138
   %200 = call ptr @get_namespace_name(i32 noundef %199) #12
   %201 = load ptr, ptr %196, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) @__const.fetch_remote_table_info.tableRow, i64 12, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %5, ptr noundef nonnull align 16 dereferenceable(20) @__const.fetch_remote_table_info.attrRow, i64 20, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 25, ptr %6, align 4
   %203 = load ptr, ptr @WalReceiverFunctions, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
@@ -1364,7 +1358,7 @@ walrcv_clear_result.exit.i.i.i:                   ; preds = %267, %265
   br i1 %268, label %269, label %353
 
 269:                                              ; preds = %walrcv_clear_result.exit.i.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 22, ptr %7, align 4
   %270 = call ptr @makeStringInfo() #12
   %271 = load ptr, ptr @MySubscription, align 8
@@ -1523,7 +1517,7 @@ slot_getattr.exit137.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 walrcv_clear_result.exit142.i.i.i:                ; preds = %352, %350
   call void @pfree(ptr noundef nonnull %281) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %353
 
 353:                                              ; preds = %walrcv_clear_result.exit142.i.i.i, %walrcv_clear_result.exit.i.i.i
@@ -1875,10 +1869,10 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %.257.i.i = phi ptr [ %.055.i.i, %walrcv_clear_result.exit164.i.i.i ], [ null, %walrcv_clear_result.exit157.i.i.i ]
   %515 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %515) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @logicalrep_relmap_update(ptr noundef nonnull %8) #12
   %516 = load i32, ptr %8, align 8
   %517 = call ptr @logicalrep_rel_open(i32 noundef %516, i32 noundef 0) #12
@@ -2124,8 +2118,8 @@ copy_table.exit.i:                                ; preds = %629, %walrcv_clear_
   %638 = call ptr @BeginCopyFrom(ptr noundef %623, ptr noundef %117, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull @copy_read_data, ptr noundef %.06.lcssa.i.i.i, ptr noundef %.0.i.i) #12
   %639 = call i64 @CopyFrom(ptr noundef %638) #12
   call void @logicalrep_rel_close(ptr noundef nonnull %517, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @PopActiveSnapshot() #12
   %640 = load ptr, ptr @WalReceiverFunctions, align 8
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 120
@@ -2299,10 +2293,10 @@ walrcv_clear_result.exit49.i:                     ; preds = %663, %660
   br label %LogicalRepSyncTableStart.exit
 
 LogicalRepSyncTableStart.exit:                    ; preds = %699, %724
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #12
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %736
 
 727:                                              ; preds = %2
@@ -2330,7 +2324,7 @@ LogicalRepSyncTableStart.exit:                    ; preds = %699, %724
   %.0 = phi ptr [ %53, %LogicalRepSyncTableStart.exit ], [ null, %732 ]
   store ptr %15, ptr @PG_exception_stack, align 8
   store ptr %16, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %737 = load ptr, ptr @ApplyContext, align 8
   %738 = call ptr @MemoryContextStrdup(ptr noundef %737, ptr noundef %.0) #12
   store ptr %738, ptr %1, align 8
@@ -2338,105 +2332,105 @@ LogicalRepSyncTableStart.exit:                    ; preds = %699, %724
   ret void
 }
 
-declare void @set_apply_error_context_origin(ptr noundef) local_unnamed_addr #4
+declare void @set_apply_error_context_origin(ptr noundef) local_unnamed_addr #3
 
-declare void @set_stream_options(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @set_stream_options(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @start_apply(i64 noundef) local_unnamed_addr #4
+declare void @start_apply(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare void @DisableSubscriptionAndExit() local_unnamed_addr #4
+declare void @DisableSubscriptionAndExit() local_unnamed_addr #3
 
-declare void @AbortOutOfAnyTransaction() local_unnamed_addr #4
+declare void @AbortOutOfAnyTransaction() local_unnamed_addr #3
 
-declare void @pgstat_report_subscription_error(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @pgstat_report_subscription_error(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @pg_re_throw() local_unnamed_addr #7
+declare void @pg_re_throw() local_unnamed_addr #6
 
-declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @MemoryContextStrdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @pfree(ptr noundef) local_unnamed_addr #4
+declare void @pfree(ptr noundef) local_unnamed_addr #3
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #4
+declare i32 @errcode(i32 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare zeroext i16 @replorigin_by_name(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @replorigin_session_setup(i16 noundef zeroext, i32 noundef) local_unnamed_addr #4
+declare void @replorigin_session_setup(i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
-declare i64 @replorigin_session_get_progress(i1 noundef zeroext) local_unnamed_addr #4
+declare i64 @replorigin_session_get_progress(i1 noundef zeroext) local_unnamed_addr #3
 
-declare zeroext i16 @replorigin_create(ptr noundef) local_unnamed_addr #4
+declare zeroext i16 @replorigin_create(ptr noundef) local_unnamed_addr #3
 
-declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @LockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare void @replorigin_advance(i16 noundef zeroext, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @UnlockRelationOid(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @SwitchToUntrustedUser(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @SwitchToUntrustedUser(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @GetUserId() local_unnamed_addr #4
+declare i32 @GetUserId() local_unnamed_addr #3
 
-declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @get_relkind_objtype(i8 noundef signext) local_unnamed_addr #4
+declare i32 @get_relkind_objtype(i8 noundef signext) local_unnamed_addr #3
 
-declare i32 @check_enable_rls(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare i32 @check_enable_rls(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @GetUserNameFromId(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #4
+declare void @PushActiveSnapshot(ptr noundef) local_unnamed_addr #3
 
-declare ptr @GetTransactionSnapshot() local_unnamed_addr #4
+declare ptr @GetTransactionSnapshot() local_unnamed_addr #3
 
-declare void @PopActiveSnapshot() local_unnamed_addr #4
+declare void @PopActiveSnapshot() local_unnamed_addr #3
 
-declare void @RestoreUserContext(ptr noundef) local_unnamed_addr #4
+declare void @RestoreUserContext(ptr noundef) local_unnamed_addr #3
 
-declare void @tuplestore_end(ptr noundef) local_unnamed_addr #4
+declare void @tuplestore_end(ptr noundef) local_unnamed_addr #3
 
-declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #4
+declare void @FreeTupleDesc(ptr noundef) local_unnamed_addr #3
 
-declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #3
 
-declare void @logicalrep_relmap_update(ptr noundef) local_unnamed_addr #4
+declare void @logicalrep_relmap_update(ptr noundef) local_unnamed_addr #3
 
-declare ptr @logicalrep_rel_open(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @logicalrep_rel_open(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @initStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @quote_qualified_identifier(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @quote_qualified_identifier(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #4
+declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #3
 
-declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #4
+declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
-declare void @list_free_deep(ptr noundef) local_unnamed_addr #4
+declare void @list_free_deep(ptr noundef) local_unnamed_addr #3
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #4
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #3
 
-declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @makeDefElem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @makeString(ptr noundef) local_unnamed_addr #4
+declare ptr @makeString(ptr noundef) local_unnamed_addr #3
 
-declare ptr @makeStringInfo() local_unnamed_addr #4
+declare ptr @makeStringInfo() local_unnamed_addr #3
 
-declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #4
+declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #3
 
-declare ptr @addRangeTableEntryForRelation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @addRangeTableEntryForRelation(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @BeginCopyFrom(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @BeginCopyFrom(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
@@ -2476,9 +2470,9 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   %.14069 = phi i32 [ %.241, %48 ], [ %.039, %20 ]
   %.14368 = phi i32 [ %.244, %48 ], [ %.042, %20 ]
   %.04667 = phi ptr [ %.147, %48 ], [ %0, %20 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
   br label %24
 
@@ -2531,8 +2525,8 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
 
 .thread:                                          ; preds = %36, %34
   %.1.ph = phi i32 [ %46, %36 ], [ %.241, %34 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 48:                                               ; preds = %32
@@ -2541,8 +2535,8 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   %51 = call i32 @WaitLatchOrSocket(ptr noundef %49, i32 noundef 43, i32 noundef %50, i64 noundef 1000, i32 noundef 134217759) #12
   %52 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %52) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %53 = icmp slt i32 %.241, %1
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
@@ -2551,56 +2545,62 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   ret i32 %.2
 }
 
-declare i64 @CopyFrom(ptr noundef) local_unnamed_addr #4
+declare i64 @CopyFrom(ptr noundef) local_unnamed_addr #3
 
-declare void @logicalrep_rel_close(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @logicalrep_rel_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-declare ptr @quote_literal_cstr(ptr noundef) local_unnamed_addr #4
+declare ptr @quote_literal_cstr(ptr noundef) local_unnamed_addr #3
 
-declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @tuplestore_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @tuplestore_gettupleslot(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
-declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #4
+declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #3
 
-declare void @GetPublicationsStr(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @GetPublicationsStr(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare void @resetStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @resetStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #4
+declare i64 @tuplestore_tuple_count(ptr noundef) local_unnamed_addr #3
 
-declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #4
+declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 
-declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #4
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #4
+declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @destroyStringInfo(ptr noundef) local_unnamed_addr #4
+declare void @destroyStringInfo(ptr noundef) local_unnamed_addr #3
 
-declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @WaitLatchOrSocket(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @WaitLatchOrSocket(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #4
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #3
 
-declare i64 @GetXLogWriteRecPtr() local_unnamed_addr #4
+declare i64 @GetXLogWriteRecPtr() local_unnamed_addr #3
 
-declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #4
+declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #3
 
-declare void @logicalrep_worker_wakeup(i32 noundef, i32 noundef) local_unnamed_addr #4
+declare void @logicalrep_worker_wakeup(i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @GetSubscriptionRelations(i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare ptr @GetSubscriptionRelations(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare zeroext i1 @HasSubscriptionRelations(i32 noundef) local_unnamed_addr #4
+declare zeroext i1 @HasSubscriptionRelations(i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10
@@ -2613,14 +2613,14 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }

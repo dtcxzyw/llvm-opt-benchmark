@@ -3045,11 +3045,11 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   unreachable
 
 if.then3:                                         ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp54.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp55.i)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp54.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp58.i)
   %cmp.i263 = icmp ult ptr %0, %end
   br i1 %cmp.i263, label %if.then.i265, label %if.end80.i
 
@@ -3240,11 +3240,11 @@ invoke.cont5:                                     ; preds = %land.lhs.true73.i, 
   %retval.0.i273 = phi i64 [ 3, %if.then66.i ], [ 2, %land.lhs.true73.i ]
   %timezoneId77.i = getelementptr inbounds nuw i8, ptr %date, i64 56
   store i64 %.sink.i272, ptr %timezoneId77.i, align 8
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp53.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp54.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp55.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp58.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp54.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp58.i)
   %29 = load ptr, ptr %cur, align 8
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %29, i64 %retval.0.i273
   store ptr %add.ptr7, ptr %cur, align 8
@@ -3358,7 +3358,7 @@ lpad15.body:                                      ; preds = %eh.resume.i284, %lp
   unreachable
 
 if.then25:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i294)
   %sub.ptr.lhs.cast.i295 = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast.i296 = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i297 = sub i64 %sub.ptr.lhs.cast.i295, %sub.ptr.rhs.cast.i296
@@ -3417,7 +3417,7 @@ lpad.i300:                                        ; preds = %if.end36.i
 
 invoke.cont27:                                    ; preds = %if.then17.i, %if.then7.i
   %retval.0.i305 = phi i64 [ 3, %if.then7.i ], [ %spec.select.i, %if.then17.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i294)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i294)
   %57 = load ptr, ptr %cur, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %57, i64 %retval.0.i305
   store ptr %add.ptr29, ptr %cur, align 8
@@ -3539,7 +3539,7 @@ lpad39.body:                                      ; preds = %eh.resume.i318, %lp
   unreachable
 
 if.then49:                                        ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i336)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i336)
   %sub.ptr.lhs.cast.i337 = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast.i338 = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i339 = sub i64 %sub.ptr.lhs.cast.i337, %sub.ptr.rhs.cast.i338
@@ -3598,7 +3598,7 @@ lpad.i343:                                        ; preds = %if.end36.i341
 
 invoke.cont51:                                    ; preds = %if.then17.i354, %if.then7.i348
   %retval.0.i360 = phi i64 [ 3, %if.then7.i348 ], [ %spec.select.i359, %if.then17.i354 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i336)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i336)
   %86 = load ptr, ptr %cur, align 8
   %add.ptr53 = getelementptr inbounds i8, ptr %86, i64 %retval.0.i360
   store ptr %add.ptr53, ptr %cur, align 8
@@ -5389,13 +5389,13 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_
 
 for.body:                                         ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEEC2EmRKSD_RKSB_RKS7_.exit, %invoke.cont
   %__f.addr.05 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %__f, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEEC2EmRKSD_RKSB_RKS7_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i)
   store ptr %this, ptr %__node_gen.i, align 8
   %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_lESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS5_RKS6_NS8_10_AllocNodeISaINS8_10_Hash_nodeIS6_Lb1EEEEEEEES4_INS8_14_Node_iteratorIS6_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(24) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__f.addr.05, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %__l
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !30
@@ -6327,13 +6327,13 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_l
 
 for.body:                                         ; preds = %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2EmRKSE_RKSC_RKS8_.exit, %invoke.cont
   %__f.addr.05 = phi ptr [ %incdec.ptr, %invoke.cont ], [ %__f, %_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2EmRKSE_RKSC_RKS8_.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %__node_gen.i)
   store ptr %this, ptr %__node_gen.i, align 8
   %call3.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS5_RKS7_NS9_10_AllocNodeISaINS9_10_Hash_nodeIS7_Lb1EEEEEEEES4_INS9_14_Node_iteratorIS7_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(40) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(40) %__f.addr.05, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %__node_gen.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__f.addr.05, i64 40
   %cmp.not = icmp eq ptr %incdec.ptr, %__l
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !44
@@ -6735,10 +6735,10 @@ entry:
   %ref.tmp83.i = alloca %"struct.std::hash", align 1
   %ref.tmp84.i = alloca %"struct.std::equal_to", align 1
   %ref.tmp85.i = alloca %"class.std::allocator.7", align 1
-  call void @llvm.lifetime.start.p0(i64 840, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp83.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp84.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp85.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp83.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp84.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp85.i)
   store i64 3, ptr %ref.tmp.i, align 8
   %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.2, ptr %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i, align 8
@@ -6951,14 +6951,14 @@ entry:
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 840
   call void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS7_EET_SO_mRKSE_RKSC_RKS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_112dayOfWeekMapE, ptr noundef nonnull %ref.tmp.i, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp84.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85.i)
   %0 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS3_lESt4hashIS3_ESt8equal_toIS3_ESaIS4_IKS3_S5_EEED2Ev, ptr nonnull @_ZN8facebook5velox9functions12_GLOBAL__N_112dayOfWeekMapE, ptr nonnull @__dso_handle) #2
-  call void @llvm.lifetime.end.p0(i64 840, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp83.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp84.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp85.i)
-  call void @llvm.lifetime.start.p0(i64 1440, ptr nonnull %ref.tmp.i1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp143.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp144.i)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp145.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp83.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp84.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp85.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp143.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp144.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp145.i)
   store i64 3, ptr %ref.tmp.i1, align 8
   %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i1, i64 8
   store ptr @.str.34, ptr %ref.tmp1.sroa.2.0.ref.tmp.sroa_idx.i2, align 8
@@ -7321,10 +7321,10 @@ entry:
   %add.ptr.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %ref.tmp.i1, i64 1440
   call void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEEC2IPKS7_EET_SO_mRKSE_RKSC_RKS8_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) @_ZN8facebook5velox9functions12_GLOBAL__N_18monthMapE, ptr noundef nonnull %ref.tmp.i1, ptr noundef nonnull %add.ptr.i.i.i.i106, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp143.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp144.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp145.i)
   %1 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEESt4pairIS3_lESt4hashIS3_ESt8equal_toIS3_ESaIS4_IKS3_S5_EEED2Ev, ptr nonnull @_ZN8facebook5velox9functions12_GLOBAL__N_18monthMapE, ptr nonnull @__dso_handle) #2
-  call void @llvm.lifetime.end.p0(i64 1440, ptr nonnull %ref.tmp.i1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp143.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp144.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp145.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp143.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp144.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp145.i)
   ret void
 }
 
@@ -7344,10 +7344,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

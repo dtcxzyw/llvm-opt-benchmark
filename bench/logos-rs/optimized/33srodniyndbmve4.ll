@@ -594,20 +594,20 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   resume { ptr, i32 } %.pn131.pn
 
 119:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %16, align 8
   invoke void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %16, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
           to label %121 unwind label %358
 
 120:                                              ; preds = %97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %15, align 8
   invoke void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %15, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
           to label %125 unwind label %358
 
 121:                                              ; preds = %119
   %122 = load ptr, ptr %16, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.invoke218
 
 123:                                              ; preds = %.invoke218
@@ -618,7 +618,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %15, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.invoke218
 
 .invoke218:                                       ; preds = %121, %125
@@ -917,9 +917,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   br label %167
 
 222:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %223 = load i64, ptr %41, align 8
   %224 = add i64 %223, -2
   %225 = icmp ult i64 %224, 7
@@ -998,9 +998,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   br label %240
 
 240:                                              ; preds = %.noexc151, %.noexc150, %.noexc149, %.noexc148, %.noexc147, %.noexc, %228
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %30, ptr nonnull align 8 %29)
           to label %209 unwind label %.loopexit
 
@@ -1086,9 +1086,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %.thread182 unwind label %117
 
 272:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %273 = load i64, ptr %41, align 8
   %274 = add i64 %273, -2
   %275 = icmp ult i64 %274, 7
@@ -1167,9 +1167,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   br label %290
 
 290:                                              ; preds = %.noexc157, %.noexc156, %.noexc155, %.noexc154, %.noexc153, %.noexc152, %278
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %291 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 40, i64 8)
           to label %296 unwind label %292
 
@@ -1193,9 +1193,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %267 unwind label %.loopexit207
 
 297:                                              ; preds = %265
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %298 = load i64, ptr %41, align 8
   %299 = add i64 %298, -2
   %300 = icmp ult i64 %299, 7
@@ -1274,9 +1274,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   br label %315
 
 315:                                              ; preds = %.noexc164, %.noexc163, %.noexc162, %.noexc161, %.noexc160, %.noexc159, %303
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %26, ptr nonnull align 8 %25)
           to label %260 unwind label %.loopexit.split-lp208
 
@@ -1329,9 +1329,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %.thread182 unwind label %117
 
 338:                                              ; preds = %333
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %339 = load i64, ptr %41, align 8
   %340 = add i64 %339, -2
   %341 = icmp ult i64 %340, 7
@@ -1410,9 +1410,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   br label %356
 
 356:                                              ; preds = %.noexc171, %.noexc170, %.noexc169, %.noexc168, %.noexc167, %.noexc166, %344
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %32, ptr nonnull align 8 %31)
           to label %330 unwind label %336
 
@@ -1864,10 +1864,10 @@ define align 8 ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h4b11a1be84b948cfE"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", ptr %2, align 8
   call void @_ZN3std4sync4once4Once9call_once17h415e0d2348d81a6fE(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN72_$LT$logos_codegen..mir..DOT_UTF8$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h4e78c70f80464326E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1883,10 +1883,10 @@ define align 8 ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..op
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$lazy_static..LazyStatic$GT$10initialize17h734a4be209f1f3a6E"(ptr readnone align 1 captures(none) %0) unnamed_addr #0 {
   %2 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", ptr %2, align 8
   call void @_ZN3std4sync4once4Once9call_once17h7939245f6474cba1E(ptr nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN73_$LT$logos_codegen..mir..DOT_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17he0817a35ef2f4df0E", i64 48), ptr nonnull align 8 %2, ptr nonnull align 8 @anon.f6c064d3e306e5568b2469df939b8624.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -2105,10 +2105,10 @@ declare hidden void @"_ZN63_$LT$regex_syntax..hir..Class$u20$as$u20$core..clone.
 declare { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5bb2d2bb2318459eE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6

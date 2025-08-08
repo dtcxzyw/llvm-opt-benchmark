@@ -254,11 +254,11 @@ define hidden noundef zeroext i1 @_ZN13CallGenerator34is_inlined_method_handle_i
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %6, i32 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %9) #8
   br i1 %10, label %11, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodiS1_.exit
 
@@ -276,11 +276,11 @@ _ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodiS1_.exit: ; pr
 define hidden noundef zeroext i1 @_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodiS1_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %7 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %6) #8
   br i1 %7, label %8, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8ciMethodS1_.exit
 
@@ -446,11 +446,11 @@ _ZN4NodenwEm.exit:                                ; preds = %41, %43
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %56 = load i32, ptr %55, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %54, i32 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %58 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %57) #8
   br i1 %58, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit.thread
 
@@ -473,11 +473,11 @@ _ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %67 = load i32, ptr %66, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %68 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %65, i32 noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
@@ -874,11 +874,11 @@ define hidden noundef ptr @_ZN20VirtualCallGenerator8generateEP8JVMState(ptr nou
 53:                                               ; preds = %32
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %55 = load i32, ptr %54, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %56 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %52, i32 noundef %55, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef i32 @_ZNK8GraphKit7java_bcEv(ptr noundef nonnull align 8 dereferenceable(84) %9) #8
@@ -935,11 +935,11 @@ define hidden noundef ptr @_ZN20VirtualCallGenerator8generateEP8JVMState(ptr nou
   %91 = load ptr, ptr %51, align 8
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %93 = load i32, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %94 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %91, i32 noundef %93, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
@@ -1075,11 +1075,11 @@ _ZN4NodenwEm.exit:                                ; preds = %159, %161
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %194 = load i32, ptr %193, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %195 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %192, i32 noundef %194, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %196 = call noundef zeroext i1 @_ZNK8ciMethod26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(160) %195) #8
   br i1 %196, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit, label %_ZN13CallGenerator34is_inlined_method_handle_intrinsicEP8JVMStateP8ciMethod.exit.thread
 
@@ -1394,7 +1394,7 @@ define hidden noundef ptr @_ZN13CallGenerator24for_method_handle_inlineEP8JVMSta
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = add i32 %63, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %13, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %13, ptr noundef nonnull %2, i32 noundef %64, i32 noundef %61, i32 noundef 1, ptr noundef nonnull @.str.10) #8
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1403,7 +1403,7 @@ define hidden noundef ptr @_ZN13CallGenerator24for_method_handle_inlineEP8JVMSta
   %68 = load ptr, ptr %67, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %66, ptr noundef nonnull @.str.20, ptr noundef %68) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %13) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit: ; preds = %55, %59
@@ -1426,7 +1426,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit: ; pred
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = add i32 %79, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %12, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef %80, i32 noundef %77, i32 noundef 1, ptr noundef nonnull @.str.11) #8
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1435,7 +1435,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit: ; pred
   %84 = load ptr, ptr %83, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %82, ptr noundef nonnull @.str.20, ptr noundef %84) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %12) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117: ; preds = %71, %75
@@ -1454,7 +1454,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117: ; p
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = add i32 %93, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %11, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef %94, i32 noundef %91, i32 noundef 1, ptr noundef nonnull @.str.12) #8
   %95 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1463,7 +1463,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit117: ; p
   %98 = load ptr, ptr %97, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %96, ptr noundef nonnull @.str.20, ptr noundef %98) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %11) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118: ; preds = %85, %89
@@ -1527,7 +1527,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118: ; p
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %146 = load i32, ptr %145, align 8
   %147 = add i32 %146, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %10, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %10, ptr noundef nonnull %2, i32 noundef %147, i32 noundef %144, i32 noundef 1, ptr noundef nonnull @.str.10) #8
   %148 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1536,7 +1536,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit118: ; p
   %151 = load ptr, ptr %150, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %149, ptr noundef nonnull @.str.20, ptr noundef %151) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %10) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119: ; preds = %138, %142
@@ -1587,7 +1587,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119: ; p
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %186 = load i32, ptr %185, align 8
   %187 = add i32 %186, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %9, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %9, ptr noundef nonnull %2, i32 noundef %187, i32 noundef %184, i32 noundef 1, ptr noundef nonnull @.str.13) #8
   %188 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1596,7 +1596,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit119: ; p
   %191 = load ptr, ptr %190, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %189, ptr noundef nonnull @.str.20, ptr noundef %191) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %9) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit121: ; preds = %178, %182
@@ -1739,7 +1739,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit:          ; preds = %234, %224, %192, %1
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %280 = load i32, ptr %279, align 8
   %281 = add i32 %280, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef %281, i32 noundef %278, i32 noundef 1, ptr noundef nonnull @.str.13) #8
   %282 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1748,7 +1748,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit:          ; preds = %234, %224, %192, %1
   %285 = load ptr, ptr %284, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %283, ptr noundef nonnull @.str.20, ptr noundef %285) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %8) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit122: ; preds = %272, %276
@@ -1920,7 +1920,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit130:       ; preds = %329, %319, %286, %2
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %393 = load i32, ptr %392, align 8
   %394 = add i32 %393, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %7, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %394, i32 noundef %391, i32 noundef 1, ptr noundef nonnull @.str.14) #8
   %395 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1929,7 +1929,7 @@ _ZN8GraphKit12set_argumentEjP4Node.exit130:       ; preds = %329, %319, %286, %2
   %398 = load ptr, ptr %397, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %396, ptr noundef nonnull @.str.20, ptr noundef %398) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %7) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132: ; preds = %385, %389
@@ -1948,7 +1948,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132: ; p
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %407 = load i32, ptr %406, align 8
   %408 = add i32 %407, -1
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %6, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef %408, i32 noundef %405, i32 noundef 1, ptr noundef nonnull @.str.15) #8
   %409 = getelementptr inbounds nuw i8, ptr %20, i64 2096
@@ -1957,7 +1957,7 @@ _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit132: ; p
   %412 = load ptr, ptr %411, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %410, ptr noundef nonnull @.str.20, ptr noundef %412) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %6) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133
 
 _ZN13CallGenerator22print_inlining_failureEP7CompileP8ciMethodiiPKc.exit133: ; preds = %399, %403
@@ -2081,7 +2081,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %55 = tail call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(81) %51) #8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %6, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %6, ptr noundef %44, i32 noundef %47, i32 noundef %57, i32 noundef 1, ptr noundef nonnull @.str.6) #8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 2096
@@ -2090,7 +2090,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %61 = load ptr, ptr %60, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull @.str.20, ptr noundef %61) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %6) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %143
 
 62:                                               ; preds = %3
@@ -2139,7 +2139,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %97 = tail call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(81) %93) #8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 36
   %99 = load i32, ptr %98, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %5, ptr noundef %86, i32 noundef %89, i32 noundef %99, i32 noundef 1, ptr noundef nonnull @.str.7) #8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 2096
@@ -2148,7 +2148,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %103 = load ptr, ptr %102, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull @.str.20, ptr noundef %103) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %143
 
 104:                                              ; preds = %67, %62
@@ -2193,7 +2193,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %134 = tail call noundef ptr %133(ptr noundef nonnull align 8 dereferenceable(81) %130) #8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
   %136 = load i32, ptr %135, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %4, ptr noundef %123, i32 noundef %126, i32 noundef %136, i32 noundef 1, ptr noundef nonnull @.str.8) #8
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 2096
@@ -2202,7 +2202,7 @@ define hidden noundef zeroext i1 @_ZN30LateInlineVirtualCallGenerator20do_late_i
   %140 = load ptr, ptr %139, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %138, ptr noundef nonnull @.str.20, ptr noundef %140) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %141
 
 141:                                              ; preds = %121, %117, %112
@@ -3404,11 +3404,11 @@ define hidden noundef ptr @_ZN22PredictedCallGenerator8generateEP8JVMState(ptr n
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %31 = load i32, ptr %30, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %29, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -4676,11 +4676,11 @@ define hidden noundef ptr @_ZN28PredicatedIntrinsicGenerator8generateEP8JVMState
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %29 = load i32, ptr %28, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %27, i32 noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
@@ -5985,11 +5985,11 @@ define hidden noundef ptr @_ZN25UncommonTrapCallGenerator8generateEP8JVMState(pt
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i32, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %9, i32 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull %4) #8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -6466,7 +6466,7 @@ define linkonce_odr hidden void @_ZN23LateInlineCallGenerator19print_inlining_la
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(81) %8) #8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %29 = load i32, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %4, ptr noundef %16, i32 noundef %23, i32 noundef %29, i32 noundef %1, ptr noundef %2) #8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 2096
@@ -6475,7 +6475,7 @@ define linkonce_odr hidden void @_ZN23LateInlineCallGenerator19print_inlining_la
   %33 = load ptr, ptr %32, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.20, ptr noundef %33) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7Compile22print_inlining_move_toEP13CallGenerator(ptr noundef nonnull align 8 dereferenceable(2316) %14, ptr noundef nonnull %0) #8
   call void @_ZN7Compile29print_inlining_update_delayedEP13CallGenerator(ptr noundef nonnull align 8 dereferenceable(2316) %14, ptr noundef nonnull %0) #8
   ret void
@@ -6762,7 +6762,7 @@ define linkonce_odr hidden void @_ZN30LateInlineVirtualCallGenerator19print_inli
   %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(81) %8) #8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %29 = load i32, ptr %28, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #8
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %4, ptr noundef %16, i32 noundef %23, i32 noundef %29, i32 noundef %1, ptr noundef %2) #8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 2096
@@ -6771,7 +6771,7 @@ define linkonce_odr hidden void @_ZN30LateInlineVirtualCallGenerator19print_inli
   %33 = load ptr, ptr %32, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.20, ptr noundef %33) #8
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %4) #8
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN7Compile22print_inlining_move_toEP13CallGenerator(ptr noundef nonnull align 8 dereferenceable(2316) %14, ptr noundef nonnull %0) #8
   call void @_ZN7Compile29print_inlining_update_delayedEP13CallGenerator(ptr noundef nonnull align 8 dereferenceable(2316) %14, ptr noundef nonnull %0) #8
   ret void
@@ -7515,10 +7515,10 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 declare i32 @llvm.ctpop.i32(i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7

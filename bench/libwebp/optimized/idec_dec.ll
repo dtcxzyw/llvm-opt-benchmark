@@ -87,7 +87,7 @@ define internal fastcc ptr @NewDecoder(ptr noundef %0, ptr noundef %1) unnamed_a
 ; Function Attrs: nounwind uwtable
 define ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.WebPBitstreamFeatures, align 4
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = icmp eq ptr %2, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %6 = icmp ne ptr %0, null
@@ -122,18 +122,12 @@ define ptr @WebPIDecode(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_un
 
 20:                                               ; preds = %.thread, %13, %17, %8
   %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ %15, %17 ], [ %12, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define void @WebPIDelete(ptr noundef %0) local_unnamed_addr #0 {
@@ -197,15 +191,15 @@ ClearMemBuffer.exit:                              ; preds = %18, %22
   ret void
 }
 
-declare i32 @VP8ExitCritical(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8ExitCritical(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @VP8Delete(ptr noundef) local_unnamed_addr #3
+declare void @VP8Delete(ptr noundef) local_unnamed_addr #2
 
-declare void @VP8LDelete(ptr noundef) local_unnamed_addr #3
+declare void @VP8LDelete(ptr noundef) local_unnamed_addr #2
 
-declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #3
+declare void @WebPFreeDecBuffer(ptr noundef) local_unnamed_addr #2
 
-declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
+declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @WebPINewRGB(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -579,7 +573,7 @@ define internal fastcc i32 @IDecode(ptr noundef nonnull %0) unnamed_addr #0 {
   %13 = getelementptr i8, ptr %0, i64 312
   %.val37.i = load i64, ptr %13, align 8, !tbaa !47
   %14 = sub i64 %.val37.i, %11
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %12, ptr %4, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %14, ptr %15, align 8, !tbaa !51
@@ -679,7 +673,7 @@ IDecError.exit.i:                                 ; preds = %21, %18
 
 DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.i, %33, %35, %53, %55
   %.0.i = phi i32 [ %17, %IDecError.exit.i ], [ 5, %7 ], [ 1, %33 ], [ 1, %53 ], [ 0, %55 ], [ 0, %35 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr %0, align 8, !tbaa !3
   br label %70
 
@@ -704,8 +698,8 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
   %79 = getelementptr i8, ptr %0, i64 312
   %.val19.i = load i64, ptr %79, align 8, !tbaa !47
   %80 = sub i64 %.val19.i, %77
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %81 = icmp ult i64 %80, 10
   br i1 %81, label %DecodeVP8FrameHeader.exit, label %82
 
@@ -756,8 +750,8 @@ DecodeWebPHeaders.exit:                           ; preds = %7, %IDecError.exit.
 DecodeVP8FrameHeader.exit:                        ; preds = %73, %.sink.split.i
   %.pr = phi i32 [ 1, %73 ], [ %.sink.i, %.sink.split.i ]
   %.0.i20 = phi i32 [ 5, %73 ], [ %.0.ph.i, %.sink.split.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %108
 
 108:                                              ; preds = %DecodeVP8FrameHeader.exit, %70
@@ -991,7 +985,7 @@ IDecError.exit56.i:                               ; preds = %215, %212
   %227 = and i32 %226, %224
   %228 = zext i32 %227 to i64
   %229 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %201, i64 0, i64 %228
-  call void @llvm.lifetime.start.p0(i64 52, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
   %230 = load ptr, ptr %203, align 8, !tbaa !79
   %231 = getelementptr inbounds i8, ptr %230, i64 -2
   %232 = load i16, ptr %231, align 1
@@ -1086,11 +1080,11 @@ IDecError.exit58.i:                               ; preds = %263, %260
 
 .thread.i:                                        ; preds = %266, %IDecError.exit58.i, %IDecError.exit57.i
   %.3.ph.i = phi i32 [ 3, %IDecError.exit58.i ], [ 5, %266 ], [ 3, %IDecError.exit57.i ]
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   br label %DecodeRemaining.exitthread-pre-split
 
 281:                                              ; preds = %274, %273
-  call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   %282 = load i32, ptr %199, align 8, !tbaa !76
   %283 = add nsw i32 %282, 1
   store i32 %283, ptr %199, align 8, !tbaa !76
@@ -1431,7 +1425,7 @@ CheckMemBufferMode.exit.thread:                   ; preds = %7, %19, %6, %3, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @WebPIDecodedArea(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define ptr @WebPIDecodedArea(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %GetOutputBuffer.exit, label %7
 
@@ -1518,7 +1512,7 @@ GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @WebPIDecGetRGB(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define ptr @WebPIDecGetRGB(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %GetOutputBuffer.exit.thread, label %7
 
@@ -1601,7 +1595,7 @@ GetOutputBuffer.exit.thread:                      ; preds = %14, %11, %5, %7, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @WebPIDecGetYUVA(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #4 {
+define ptr @WebPIDecGetYUVA(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #3 {
   %11 = icmp eq ptr %0, null
   br i1 %11, label %GetOutputBuffer.exit.thread, label %12
 
@@ -1734,7 +1728,7 @@ GetOutputBuffer.exit.thread:                      ; preds = %19, %16, %10, %12, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @WebPISetIOHooks(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @WebPISetIOHooks(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %14, label %7
 
@@ -1759,24 +1753,24 @@ define hidden range(i32 0, 2) i32 @WebPISetIOHooks(ptr noundef captures(address_
   ret i32 %.0
 }
 
-declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @WebPResetDecParams(ptr noundef) local_unnamed_addr #3
+declare void @WebPResetDecParams(ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPAvoidSlowMemory(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPAvoidSlowMemory(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @WebPInitCustomIo(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @WebPInitCustomIo(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPInitDecBufferInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WebPInitDecBufferInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @VP8InitIoInternal(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @VP8InitIoInternal(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DoRemap(ptr noundef nonnull captures(none) initializes((232, 248)) %0, i64 noundef %1) unnamed_addr #0 {
@@ -1908,57 +1902,63 @@ NeedCompressedAlpha.exit.thread:                  ; preds = %47, %45, %31, %Need
   ret void
 }
 
-declare void @VP8RemapBitReader(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @VP8RemapBitReader(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @VP8BitReaderSetBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @VP8BitReaderSetBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @VP8LBitReaderSetBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @VP8LBitReaderSetBuffer(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @WebPParseHeaders(ptr noundef) local_unnamed_addr #3
+declare i32 @WebPParseHeaders(ptr noundef) local_unnamed_addr #2
 
-declare ptr @VP8New() local_unnamed_addr #3
+declare ptr @VP8New() local_unnamed_addr #2
 
-declare ptr @VP8LNew() local_unnamed_addr #3
+declare ptr @VP8LNew() local_unnamed_addr #2
 
-declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8GetInfo(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8GetHeaders(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8GetHeaders(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPAllocateDecBuffer(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPAllocateDecBuffer(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8GetThreadMethod(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @VP8GetThreadMethod(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @VP8InitDithering(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @VP8InitDithering(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8EnterCritical(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8EnterCritical(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8InitFrame(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8InitFrame(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8ParseIntraModeRow(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8ParseIntraModeRow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8DecodeMB(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8DecodeMB(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @WebPGetWorkerInterface() local_unnamed_addr #3
+declare ptr @WebPGetWorkerInterface() local_unnamed_addr #2
 
-declare void @VP8InitScanline(ptr noundef) local_unnamed_addr #3
+declare void @VP8InitScanline(ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8ProcessRow(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8ProcessRow(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPFlipBuffer(ptr noundef) local_unnamed_addr #3
+declare i32 @WebPFlipBuffer(ptr noundef) local_unnamed_addr #2
 
-declare i32 @WebPCopyDecBufferPixels(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @WebPCopyDecBufferPixels(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8LDecodeHeader(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @VP8LDecodeHeader(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @VP8LDecodeImage(ptr noundef) local_unnamed_addr #3
+declare i32 @VP8LDecodeImage(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

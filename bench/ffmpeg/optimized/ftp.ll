@@ -116,7 +116,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_open(ptr noundef %0, ptr noun
   br i1 %10, label %52, label %11
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.22, i64 noundef 0) #10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !15
@@ -137,15 +137,15 @@ ftp_send_command.exit.i:                          ; preds = %15
   br i1 %.not.i, label %22, label %20
 
 20:                                               ; preds = %11, %15, %ftp_send_command.exit.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %21, align 8, !tbaa !18
   br label %64
 
 22:                                               ; preds = %ftp_send_command.exit.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 1096
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.23, ptr noundef %24) #10
@@ -198,8 +198,8 @@ ftp_send_command.exit.thread.i:                   ; preds = %37, %ftp_send_comma
   br label %ftp_file_size.exit
 
 ftp_file_size.exit:                               ; preds = %22, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 1136
   %48 = load i32, ptr %47, align 8, !tbaa !22
   %.not = icmp eq i32 %48, 1
@@ -277,7 +277,7 @@ thread-pre-split:                                 ; preds = %18
   br i1 %23, label %24, label %38
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %10, align 8, !tbaa !19
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.31, ptr noundef %25) #10
   %27 = icmp ugt i32 %26, 1023
@@ -312,7 +312,7 @@ ftp_send_command.exit.i:                          ; preds = %36, %30
 
 ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_command.exit.i, %28, %35
   %.0.i.ph = phi i32 [ -5, %35 ], [ -5, %28 ], [ -5, %ftp_send_command.exit.i ], [ -38, %24 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 38:                                               ; preds = %21
@@ -324,7 +324,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
 
 .thread:                                          ; preds = %ftp_send_command.exit.i, %ftp_send_command.exit.i
   store i32 2, ptr %9, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = load ptr, ptr %12, align 8, !tbaa !24
   %.not79 = icmp eq ptr %41, null
   br i1 %.not79, label %68, label %.thread80
@@ -340,7 +340,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   br i1 %46, label %47, label %.thread61
 
 47:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !20
   %48 = call fastcc i32 @ftp_status(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull @ftp_read.retr_codes)
   %.not55 = icmp eq i32 %48, 226
@@ -351,7 +351,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   store i32 5, ptr %9, align 4, !tbaa !23
   call void @av_freep(ptr noundef nonnull %5) #10
   store i32 6, ptr %9, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 50:                                               ; preds = %47
@@ -372,7 +372,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   %57 = phi ptr [ %6, %54 ], [ @.str.25, %52 ], [ %51, %50 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.24, ptr noundef nonnull %57) #10
   call void @av_freep(ptr noundef nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread61
 
 58:                                               ; preds = %.thread80
@@ -437,7 +437,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %15, label %16, label %32
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.35, ptr noundef %18) #10
@@ -474,7 +474,7 @@ ftp_send_command.exit.i:                          ; preds = %30, %24
 
 ftp_store.exit.thread:                            ; preds = %16, %ftp_send_command.exit.i, %21, %29
   %.0.i.ph = phi i32 [ -5, %29 ], [ -5, %21 ], [ -5, %ftp_send_command.exit.i ], [ -38, %16 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 32:                                               ; preds = %13
@@ -487,7 +487,7 @@ ftp_store.exit.thread:                            ; preds = %16, %ftp_send_comma
 
 .thread:                                          ; preds = %ftp_send_command.exit.i, %ftp_send_command.exit.i
   store i32 3, ptr %7, align 4, !tbaa !23
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !24
   %.not29 = icmp eq ptr %37, null
@@ -662,7 +662,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_open_dir(ptr noundef %0) #0 {
   br i1 %8, label %ftp_list.exit.thread, label %9
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096, ptr noundef nonnull @.str.48, ptr noundef %11) #10
@@ -690,11 +690,11 @@ ftp_send_command.exit.i:                          ; preds = %17
 
 ftp_set_dir.exit.thread:                          ; preds = %9, %14, %17, %ftp_send_command.exit.i
   %.0.i.ph = phi i32 [ -5, %ftp_send_command.exit.i ], [ -5, %17 ], [ -5, %14 ], [ -38, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ftp_list.exit.thread
 
 22:                                               ; preds = %ftp_send_command.exit.i
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = call fastcc i32 @ftp_connect_data_connection(ptr noundef nonnull %0)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %ftp_list.exit.thread, label %25
@@ -885,8 +885,8 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br label %.thread68
 
 56:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !20
   %57 = call ptr @av_strtok(ptr noundef nonnull %.046.lcssa, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
   %.not42.i.i = icmp eq ptr %57, null
@@ -977,12 +977,12 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %98 = call ptr @av_small_strptime(ptr noundef %97, ptr noundef nonnull @.str.68, ptr noundef nonnull %3) #10
   %99 = call i64 @av_timegm(ptr noundef nonnull %3) #10
   %100 = mul nsw i64 %99, 1000000
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %100, ptr %62, align 8, !tbaa !42
   br label %.backedge.i.i
 
@@ -1051,13 +1051,13 @@ ftp_parse_entry.exit.thread:                      ; preds = %52
   br label %.thread68
 
 ftp_parse_entry.exit.thread64:                    ; preds = %56, %.backedge.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread68
 
 128:                                              ; preds = %76, %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @avio_free_directory_entry(ptr noundef nonnull %1) #10
   br label %13, !llvm.loop !47
 
@@ -1084,7 +1084,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_delete(ptr noundef %0) #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = tail call fastcc i32 @ftp_connect(ptr noundef %0, ptr noundef %6)
@@ -1160,7 +1160,7 @@ ftp_send_command.exit14.thread:                   ; preds = %ftp_send_command.ex
   call void @av_freep(ptr noundef nonnull %43) #10
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 1152
   call void @av_freep(ptr noundef nonnull %44) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -1170,8 +1170,8 @@ define internal range(i32 -2147483648, 1) i32 @ftp_move(ptr noundef %0, ptr noun
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = tail call fastcc i32 @ftp_connect(ptr noundef %0, ptr noundef %8)
@@ -1249,13 +1249,10 @@ ftp_send_command.exit.thread:                     ; preds = %ftp_send_command.ex
   call void @av_freep(ptr noundef nonnull %46) #10
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 1152
   call void @av_freep(ptr noundef nonnull %47) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
@@ -1264,10 +1261,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [4096 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1140
@@ -1381,7 +1378,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   br i1 %59, label %85, label %60
 
 60:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !15
@@ -1442,11 +1439,11 @@ ftp_send_command.exit.i:                          ; preds = %63
 
 ftp_current_dir.exit.thread:                      ; preds = %.thread.i, %75
   %.015.i.ph = phi i32 [ -5, %.thread.i ], [ -12, %75 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %85
 
 81:                                               ; preds = %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %82 = call ptr @av_append_path_component(ptr noundef nonnull %79, ptr noundef nonnull %5) #10
   %.not56 = icmp eq ptr %82, null
   br i1 %.not56, label %85, label %83
@@ -1459,26 +1456,23 @@ ftp_current_dir.exit.thread:                      ; preds = %.thread.i, %75
 
 85:                                               ; preds = %ftp_current_dir.exit.thread, %81, %57, %43, %47, %51, %83
   %.0 = phi i32 [ 0, %83 ], [ -12, %51 ], [ -12, %47 ], [ -12, %43 ], [ %58, %57 ], [ -12, %81 ], [ %.015.i.ph, %ftp_current_dir.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_url_split(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
-
-declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @av_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @ff_urldecode(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @ff_urldecode(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connection(ptr noundef %0) unnamed_addr #0 {
@@ -1486,10 +1480,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
   %3 = alloca [1024 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -1562,7 +1556,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
 43:                                               ; preds = %42, %39, %36
   %44 = load ptr, ptr %4, align 8, !tbaa !20
   call void @av_free(ptr noundef %44) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1080
   %46 = load ptr, ptr %45, align 8, !tbaa !52
   %47 = call ptr @strpbrk(ptr noundef %46, ptr noundef nonnull @.str.14) #11
@@ -1619,12 +1613,12 @@ ftp_send_command.exit.thread.i:                   ; preds = %67, %ftp_send_comma
 
 69:                                               ; preds = %43, %48, %62, %64, %59, %53, %51, %ftp_send_command.exit.thread.i
   %.011.i.ph = phi i32 [ -13, %ftp_send_command.exit.thread.i ], [ -13, %51 ], [ -13, %53 ], [ -13, %59 ], [ -38, %64 ], [ -22, %62 ], [ -38, %48 ], [ -22, %43 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10) #10
   br label %ftp_features.exit
 
 70:                                               ; preds = %ftp_send_command.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %71 = load ptr, ptr %8, align 8, !tbaa !15
   %.not16.i.i35 = icmp eq ptr %71, null
   br i1 %.not16.i.i35, label %75, label %72
@@ -1707,30 +1701,30 @@ ftp_send_command.exit14.i:                        ; preds = %89, %85
 
 ftp_features.exit:                                ; preds = %92, %ftp_send_command.exit14.i, %88, %83, %ftp_has_feature.exit.i, %81, %1, %75, %69, %35, %29
   %.0 = phi i32 [ %27, %29 ], [ -13, %35 ], [ %.011.i.ph, %69 ], [ -5, %75 ], [ 0, %1 ], [ 0, %81 ], [ 0, %ftp_has_feature.exit.i ], [ 0, %83 ], [ 0, %88 ], [ 0, %ftp_send_command.exit14.i ], [ 0, %92 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare ptr @av_append_path_component(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_append_path_component(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_free(ptr noundef) local_unnamed_addr #2
+declare void @av_free(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @ff_url_join(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_dict_set_int(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ffurl_open_whitelist(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_dict_free(ptr noundef) local_unnamed_addr #2
+declare void @av_dict_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ftp_status(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.AVBPrint, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %6
 
@@ -1911,29 +1905,29 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
 
 76:                                               ; preds = %.sink.split, %74, %42
   %.0 = phi i32 [ %.015.i.ph, %42 ], [ %.14465, %74 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare ptr @av_stristr(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_stristr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @av_bprint_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
-
-declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
-
-declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @av_bprint_finalize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+
+declare void @av_bprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+declare i32 @ffurl_read2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ftp_send_command(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
@@ -1974,12 +1968,12 @@ define internal fastcc i32 @ftp_send_command(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %.0
 }
 
-declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ffurl_write2(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @av_freep(ptr noundef) local_unnamed_addr #2
+declare void @av_freep(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_data_connection(ptr noundef %0) unnamed_addr #0 {
@@ -1989,8 +1983,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_data_connectio
   %5 = alloca ptr, align 8
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
@@ -2000,7 +1994,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_data_connectio
   br i1 %.not, label %12, label %113
 
 12:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !15
@@ -2082,7 +2076,7 @@ ftp_passive_mode_epsv.exit:                       ; preds = %38
   store i32 %43, ptr %44, align 8, !tbaa !70
   %45 = load ptr, ptr %5, align 8, !tbaa !20
   call void @av_free(ptr noundef %45) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %81
 
 .loopexit:                                        ; preds = %.preheader.i, %12, %15, %ftp_send_command.exit.i, %26, %27, %30, %32, %35, %38
@@ -2090,9 +2084,9 @@ ftp_passive_mode_epsv.exit:                       ; preds = %38
   call void @av_free(ptr noundef %46) #10
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 1064
   store i32 -1, ptr %47, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !20
   store ptr null, ptr %3, align 8, !tbaa !20
   %48 = load ptr, ptr %13, align 8, !tbaa !15
@@ -2176,8 +2170,8 @@ ftp_passive_mode.exit.thread:                     ; preds = %.preheader.i33, %.l
   %75 = load ptr, ptr %3, align 8, !tbaa !20
   call void @av_free(ptr noundef %75) #10
   store i32 -1, ptr %47, align 8, !tbaa !70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %115
 
 ftp_passive_mode.exit:                            ; preds = %70
@@ -2188,8 +2182,8 @@ ftp_passive_mode.exit:                            ; preds = %70
   store i32 %79, ptr %47, align 8, !tbaa !70
   %80 = load ptr, ptr %3, align 8, !tbaa !20
   call void @av_free(ptr noundef %80) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
 81:                                               ; preds = %ftp_passive_mode.exit, %ftp_passive_mode_epsv.exit
@@ -2228,7 +2222,7 @@ ftp_passive_mode.exit:                            ; preds = %70
   br i1 %.not28, label %113, label %105
 
 105:                                              ; preds = %102
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.22, i64 noundef %104) #10
   %107 = load ptr, ptr %13, align 8, !tbaa !15
   %.not16.i.i42 = icmp eq ptr %107, null
@@ -2248,11 +2242,11 @@ ftp_send_command.exit.i44:                        ; preds = %108
   br i1 %.not.i45, label %ftp_restart.exit, label %ftp_restart.exit.thread
 
 ftp_restart.exit.thread:                          ; preds = %105, %108, %ftp_send_command.exit.i44
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %115
 
 ftp_restart.exit:                                 ; preds = %ftp_send_command.exit.i44
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %113
 
 113:                                              ; preds = %ftp_restart.exit, %102, %1
@@ -2262,13 +2256,13 @@ ftp_restart.exit:                                 ; preds = %ftp_send_command.ex
 
 115:                                              ; preds = %ftp_restart.exit.thread, %ftp_passive_mode.exit.thread, %92, %113
   %.0 = phi i32 [ 0, %113 ], [ %100, %92 ], [ -5, %ftp_passive_mode.exit.thread ], [ -5, %ftp_restart.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @ftp_abort(ptr noundef %0) unnamed_addr #0 {
@@ -2320,50 +2314,56 @@ ftp_send_command.exit:                            ; preds = %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
-declare ptr @av_strtok(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_strtok(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #2
+declare i32 @ffurl_closep(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @av_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #2
+declare i32 @ffurl_get_file_handle(ptr noundef) local_unnamed_addr #1
 
-declare i32 @ffurl_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ffurl_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @av_default_item_name(ptr noundef) #2
+declare ptr @av_default_item_name(ptr noundef) #1
 
-declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #2
+declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
-declare ptr @ff_alloc_dir_entry() local_unnamed_addr #2
+declare ptr @ff_alloc_dir_entry() local_unnamed_addr #1
 
-declare void @avio_free_directory_entry(ptr noundef) local_unnamed_addr #2
+declare void @avio_free_directory_entry(ptr noundef) local_unnamed_addr #1
 
-declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @av_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
-declare ptr @av_small_strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @av_small_strptime(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @av_timegm(ptr noundef) local_unnamed_addr #2
+declare i64 @av_timegm(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind willreturn memory(read) }

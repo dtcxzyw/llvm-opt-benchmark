@@ -141,7 +141,7 @@ define internal void @ResOwnerReleaseBufferIO(i64 noundef %0) #0 {
   %5 = load ptr, ptr @BufferDescriptors, align 8
   %6 = and i64 %4, 4294967295
   %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %8, align 4
@@ -169,7 +169,7 @@ define internal void @ResOwnerReleaseBufferIO(i64 noundef %0) #0 {
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
   %.lcssa.i.i = phi i32 [ %14, %1 ], [ %16, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = and i32 %.lcssa.i.i, 16777216
   %.not.i = icmp eq i32 %18, 0
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
@@ -214,7 +214,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
   br label %37
 
 37:                                               ; preds = %36, %21, %19
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %38, align 4
@@ -241,7 +241,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
 AbortBufferIO.exit:                               ; preds = %.lr.ph.i.i.i, %37
   %.lcssa.i.i.i = phi i32 [ %43, %37 ], [ %45, %.lr.ph.i.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.0.i.i = and i32 %.lcssa.i.i.i, -205520897
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %47 = or disjoint i32 %.0.i.i, 134217728
@@ -305,7 +305,7 @@ define internal ptr @ResOwnerPrintBufferPin(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.buftag, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i32, ptr %0, align 4
   store i32 %5, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -350,28 +350,22 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
 
 32:                                               ; preds = %27, %23, %29
   %.sroa.0.0.insert.insert = phi i64 [ 0, %23 ], [ %31, %29 ], [ %spec.select, %27 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @BufTableHashCode(ptr noundef) local_unnamed_addr #2
 
-declare i32 @BufTableHashCode(ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BufTableLookup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @BufTableLookup(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
-declare void @LWLockRelease(ptr noundef) local_unnamed_addr #3
-
-declare zeroext i1 @smgrprefetch(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare zeroext i1 @smgrprefetch(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @PrefetchBuffer(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -448,17 +442,17 @@ RelationGetSmgr.exit12:                           ; preds = %27, %31
 }
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #3
+declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @PrefetchLocalBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @PrefetchLocalBuffer(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -492,7 +486,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   br label %ReservePrivateRefCountEntry.exit
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = load i32, ptr @PrivateRefCountClock, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr @PrivateRefCountClock, align 4
@@ -512,7 +506,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   %28 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %5, %14, %16
@@ -571,7 +565,7 @@ BufferTagsEqual.exit:                             ; preds = %50
   %62 = load ptr, ptr @BufferDescriptors, align 8
   %63 = zext i32 %61 to i64
   %64 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %62, i64 %63
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %4, ptr %7, align 4
   br label %66
 
@@ -589,7 +583,7 @@ BufferTagsEqual.exit:                             ; preds = %50
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %66
   %70 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GetPrivateRefCount.exit
 
 71:                                               ; preds = %65
@@ -598,13 +592,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %66
   br i1 %73, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %71
   %74 = load ptr, ptr @PrivateRefCountHash, align 8
   %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
 
@@ -621,7 +615,7 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   br label %93
 
 GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %GetPrivateRefCount.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %83, align 4
@@ -649,7 +643,7 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %GetPrivateRefCount.exit.thread
   %.lcssa.i = phi i32 [ %89, %GetPrivateRefCount.exit.thread ], [ %91, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %93
 
 93:                                               ; preds = %LockBufHdr.exit, %80
@@ -737,9 +731,9 @@ BufferTagsEqual.exit.thread:                      ; preds = %39, %42, %46, %50, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #3
+declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
@@ -766,7 +760,7 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
   br label %22
 
 8:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %9 = load i32, ptr @PrivateRefCountClock, align 4
   %10 = add i32 %9, 1
   store i32 %10, ptr @PrivateRefCountClock, align 4
@@ -786,19 +780,19 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
   %20 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %22
 
 22:                                               ; preds = %6, %0, %8
   ret void
 }
 
-declare zeroext i1 @PinLocalBuffer(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @PinLocalBuffer(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @GetPrivateRefCount(i32 noundef %0) unnamed_addr #6 {
+define internal fastcc i32 @GetPrivateRefCount(i32 noundef %0) unnamed_addr #5 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   br label %4
 
@@ -816,7 +810,7 @@ define internal fastcc i32 @GetPrivateRefCount(i32 noundef %0) unnamed_addr #6 {
 
 GetPrivateRefCountEntry.exit.thread5:             ; preds = %4
   %8 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %15
 
 9:                                                ; preds = %3
@@ -825,13 +819,13 @@ GetPrivateRefCountEntry.exit.thread5:             ; preds = %4
   br i1 %11, label %GetPrivateRefCountEntry.exit.thread, label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit.thread:              ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %18
 
 GetPrivateRefCountEntry.exit:                     ; preds = %9
   %12 = load ptr, ptr @PrivateRefCountHash, align 8
   %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
 
@@ -849,7 +843,7 @@ GetPrivateRefCountEntry.exit:                     ; preds = %9
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SpinDelayStatus, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -878,7 +872,7 @@ define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none
   %.lcssa = phi i32 [ %9, %1 ], [ %11, %.lr.ph ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
   %13 = or disjoint i32 %.lcssa, 4194304
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %13
 }
 
@@ -915,7 +909,7 @@ define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnon
   br i1 %.not.us, label %23, label %20
 
 20:                                               ; preds = %.split.us
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 8
@@ -937,7 +931,7 @@ define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnon
 WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   %.0.lcssa.i.us = phi i32 [ %.03.i.us, %20 ], [ %.0.i.us, %.lr.ph.i.us ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
 23:                                               ; preds = %WaitBufHdrUnlocked.exit.us, %.split.us
@@ -960,7 +954,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   br i1 %.not, label %35, label %32
 
 32:                                               ; preds = %.split
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 8
@@ -982,7 +976,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %32
   %.0.lcssa.i = phi i32 [ %.03.i, %32 ], [ %.0.i, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 35:                                               ; preds = %WaitBufHdrUnlocked.exit, %.split
@@ -1025,7 +1019,7 @@ define dso_local i32 @ReadBuffer(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define dso_local i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #6 {
+define dso_local i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.buftag, align 4
   %7 = alloca %struct.ReadBuffersOperation, align 8
   %8 = alloca i32, align 4
@@ -1072,9 +1066,9 @@ define dso_local i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 nou
 
 RelationGetSmgr.exit:                             ; preds = %24, %28
   %32 = phi ptr [ %.pre.i, %28 ], [ %26, %24 ]
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = icmp eq i32 %2, -1
   br i1 %33, label %34, label %38, !prof !7
 
@@ -1097,7 +1091,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   br i1 %43, label %44, label %141, !prof !7
 
 44:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %45 = icmp eq i8 %41, 116
   br i1 %45, label %46, label %53
 
@@ -1115,7 +1109,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
 
 53:                                               ; preds = %44
   %54 = tail call i32 @IOContextForStrategy(ptr noundef %4) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %55) #16
   tail call fastcc void @ReservePrivateRefCountEntry()
@@ -1152,7 +1146,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   call void @LWLockRelease(ptr noundef nonnull %70) #16
   %spec.select.i12 = zext i1 %78 to i8
   store i8 %spec.select.i12, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %78, label %99, label %102
 
 79:                                               ; preds = %53
@@ -1183,7 +1177,7 @@ BufferAlloc.exit.thread:                          ; preds = %79
   store volatile i32 %94, ptr %93, align 4
   call void @LWLockRelease(ptr noundef nonnull %70) #16
   store i8 0, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
 BufferAlloc.exit:                                 ; preds = %79
@@ -1196,7 +1190,7 @@ BufferAlloc.exit:                                 ; preds = %79
   call void @LWLockRelease(ptr noundef nonnull %70) #16
   %spec.select49.i = zext i1 %98 to i8
   store i8 %spec.select49.i, ptr %10, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %74, %BufferAlloc.exit
@@ -1291,7 +1285,7 @@ PinBufferForBlock.exit:                           ; preds = %115, %126, %.thread
   %139 = load i8, ptr %10, align 1, !range !5, !noundef !6
   %140 = trunc nuw i8 %139 to i1
   call fastcc void @ZeroAndLockBuffer(i32 noundef %138, i32 noundef %3, i1 noundef zeroext %140)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %ReadBuffer_common.exit
 
 141:                                              ; preds = %38
@@ -1319,9 +1313,9 @@ PinBufferForBlock.exit:                           ; preds = %115, %126, %.thread
 
 ReadBuffer_common.exit:                           ; preds = %34, %PinBufferForBlock.exit, %149
   %.031.i = phi i32 [ %37, %34 ], [ %138, %PinBufferForBlock.exit ], [ %150, %149 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.031.i
 }
 
@@ -1333,9 +1327,9 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %11 = alloca %struct.BufferManagerRelation, align 8
   %12 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #16
   %13 = select i1 %6, i8 112, i8 117
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %14 = icmp eq i32 %3, -1
   %15 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %15, 2
@@ -1352,7 +1346,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
 
 19:                                               ; preds = %18
   %20 = tail call i32 @IOContextForStrategy(ptr noundef %5) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %21) #16
   tail call fastcc void @ReservePrivateRefCountEntry()
@@ -1387,7 +1381,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %43 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %41, i64 %42
   %44 = call fastcc zeroext i1 @PinBuffer(ptr noundef %43, ptr noundef %5)
   call void @LWLockRelease(ptr noundef nonnull %36) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %44, label %64, label %PinBufferForBlock.exit
 
 45:                                               ; preds = %19
@@ -1416,7 +1410,7 @@ BufferAlloc.exit.thread:                          ; preds = %45
   %59 = or i32 %.masked, %spec.select50.i.v
   store volatile i32 %59, ptr %58, align 4
   call void @LWLockRelease(ptr noundef nonnull %36) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %PinBufferForBlock.exit
 
 BufferAlloc.exit:                                 ; preds = %45
@@ -1427,7 +1421,7 @@ BufferAlloc.exit:                                 ; preds = %45
   %62 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %60, i64 %61
   %63 = call fastcc zeroext i1 @PinBuffer(ptr noundef %62, ptr noundef %5)
   call void @LWLockRelease(ptr noundef nonnull %36) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %63, label %64, label %PinBufferForBlock.exit
 
 64:                                               ; preds = %40, %BufferAlloc.exit
@@ -1481,22 +1475,22 @@ PinBufferForBlock.exit:                           ; preds = %40, %BufferAlloc.ex
 
 ReadBuffer_common.exit:                           ; preds = %16, %PinBufferForBlock.exit, %84
   %.031.i = phi i32 [ %17, %16 ], [ %75, %PinBufferForBlock.exit ], [ %85, %84 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.031.i
 }
 
-declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #3
+declare ptr @smgropen(i64, i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ExtendBufferedRel(ptr noundef readonly byval(%struct.BufferManagerRelation) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.BufferManagerRelation, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -1535,10 +1529,10 @@ RelationGetSmgr.exit.i:                           ; preds = %16, %11
 
 ExtendBufferedRelBy.exit:                         ; preds = %4, %RelationGetSmgr.exit.i
   %26 = call fastcc i32 @ExtendBufferedRelCommon(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %5, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %27 = load i32, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
 
@@ -1809,7 +1803,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %123 = load ptr, ptr @BufferDescriptors, align 8
   %124 = zext i32 %122 to i64
   %125 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %123, i64 %124
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %15) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %126 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %126) #16
   %127 = load ptr, ptr @ReservedRefCountEntry, align 8
@@ -1834,7 +1828,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br label %ReservePrivateRefCountEntry.exit.i
 
 133:                                              ; preds = %128
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %134 = load i32, ptr @PrivateRefCountClock, align 4
   %135 = add i32 %134, 1
   store i32 %135, ptr @PrivateRefCountClock, align 4
@@ -1854,7 +1848,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %145 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %146 = add i32 %145, 1
   store i32 %146, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %ReservePrivateRefCountEntry.exit.i
 
 ReservePrivateRefCountEntry.exit.i:               ; preds = %133, %131, %119
@@ -1932,7 +1926,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %133, %131, %119
   br label %195
 
 195:                                              ; preds = %StartBufferIO.exit.i, %193
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 8
   store i32 0, ptr %86, align 4
   store i32 0, ptr %87, align 8
@@ -1954,7 +1948,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %133, %131, %119
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %195
   %.lcssa.i.i = phi i32 [ %196, %195 ], [ %198, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %200 = and i32 %.lcssa.i.i, -20971521
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   store volatile i32 %200, ptr %194, align 4
@@ -1963,7 +1957,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %195
   br label %.split.i.i
 
 .split.i.i:                                       ; preds = %WaitIO.exit.i, %LockBufHdr.exit.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8
   store i32 0, ptr %91, align 4
   store i32 0, ptr %92, align 8
@@ -1985,7 +1979,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %195
 LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.split.i.i
   %.lcssa.i.i.i = phi i32 [ %202, %.split.i.i ], [ %204, %.lr.ph.i.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %206 = and i32 %.lcssa.i.i.i, 67108864
   %.not.i140.i = icmp eq i32 %206, 0
   br i1 %.not.i140.i, label %.split21.us.i.i, label %207
@@ -2002,7 +1996,7 @@ LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.spl
   br label %212
 
 212:                                              ; preds = %219, %207
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 8
   store i32 0, ptr %96, align 4
   store i32 0, ptr %97, align 8
@@ -2024,7 +2018,7 @@ LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.spl
 LockBufHdr.exit.i159.i:                           ; preds = %.lr.ph.i.i157.i, %212
   %.lcssa.i.i160.i = phi i32 [ %213, %212 ], [ %215, %.lr.ph.i.i157.i ]
   call void @finish_spin_delay(ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %217 = and i32 %.lcssa.i.i160.i, -4194305
   store volatile i32 %217, ptr %194, align 4
@@ -2063,7 +2057,7 @@ StartBufferIO.exit.i:                             ; preds = %.split21.us.i.i
   br label %195, !llvm.loop !17
 
 228:                                              ; preds = %ReservePrivateRefCountEntry.exit.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 8
   store i32 0, ptr %80, align 4
   store i32 0, ptr %81, align 8
@@ -2086,7 +2080,7 @@ StartBufferIO.exit.i:                             ; preds = %.split21.us.i.i
 LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %228
   %.lcssa.i145.i = phi i32 [ %230, %228 ], [ %232, %.lr.ph.i143.i ]
   call void @finish_spin_delay(ptr noundef nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %125, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %.lcssa.i145.masked.i = and i32 %.lcssa.i145.i, -38010881
@@ -2097,7 +2091,7 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %228
   br label %236
 
 236:                                              ; preds = %LockBufHdr.exit146.i, %StartBufferIO.exit.thread.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond223.not.i = icmp eq i64 %indvars.iv.next220.i, %73
   br i1 %exitcond223.not.i, label %._crit_edge196.i, label %119, !llvm.loop !18
@@ -2156,7 +2150,7 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %228
   br label %.critedge134.i
 
 .critedge134.i:                                   ; preds = %.critedge136.i, %260
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8
   store i32 0, ptr %245, align 4
   store i32 0, ptr %246, align 8
@@ -2179,7 +2173,7 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %228
 TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i148.i, %.critedge134.i
   %.lcssa.i.i151.i = phi i32 [ %266, %.critedge134.i ], [ %268, %.lr.ph.i.i148.i ]
   call void @finish_spin_delay(ptr noundef nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.0.i153.i = and i32 %.lcssa.i.i151.i, -222298113
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %270 = or disjoint i32 %.0.i153.i, 16777216
@@ -2215,9 +2209,9 @@ define dso_local i32 @ExtendBufferedRelTo(ptr noundef byval(%struct.BufferManage
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = alloca [64 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -2397,9 +2391,9 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load i8, ptr %92, align 8
   %94 = add i32 %4, -1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %95 = icmp eq i32 %4, 0
   br i1 %95, label %96, label %99, !prof !7
 
@@ -2427,7 +2421,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   br i1 %or.cond, label %106, label %205, !prof !7
 
 106:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %107 = icmp eq i8 %.029.i, 116
   br i1 %107, label %108, label %115
 
@@ -2445,7 +2439,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
 
 115:                                              ; preds = %106
   %116 = call i32 @IOContextForStrategy(ptr noundef %2) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %117) #16
   call fastcc void @ReservePrivateRefCountEntry()
@@ -2482,7 +2476,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   call void @LWLockRelease(ptr noundef nonnull %132) #16
   %spec.select.i53 = zext i1 %140 to i8
   store i8 %spec.select.i53, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %140, label %161, label %164
 
 141:                                              ; preds = %115
@@ -2513,7 +2507,7 @@ BufferAlloc.exit.thread:                          ; preds = %141
   store volatile i32 %156, ptr %155, align 4
   call void @LWLockRelease(ptr noundef nonnull %132) #16
   store i8 0, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %164
 
 BufferAlloc.exit:                                 ; preds = %141
@@ -2526,7 +2520,7 @@ BufferAlloc.exit:                                 ; preds = %141
   call void @LWLockRelease(ptr noundef nonnull %132) #16
   %spec.select49.i = zext i1 %160 to i8
   store i8 %spec.select49.i, ptr %11, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %160, label %161, label %164
 
 161:                                              ; preds = %136, %BufferAlloc.exit
@@ -2626,7 +2620,7 @@ PinBufferForBlock.exit:                           ; preds = %178, %192, %.thread
   %203 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %204 = trunc nuw i8 %203 to i1
   call fastcc void @ZeroAndLockBuffer(i32 noundef %202, i32 noundef %5, i1 noundef zeroext %204)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %ReadBuffer_common.exit
 
 205:                                              ; preds = %105
@@ -2654,27 +2648,27 @@ PinBufferForBlock.exit:                           ; preds = %178, %192, %.thread
 
 ReadBuffer_common.exit:                           ; preds = %96, %PinBufferForBlock.exit, %213
   %.031.i = phi i32 [ %98, %96 ], [ %202, %PinBufferForBlock.exit ], [ %214, %213 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %215
 
 215:                                              ; preds = %ReadBuffer_common.exit, %._crit_edge
   %.3 = phi i32 [ %.031.i, %ReadBuffer_common.exit ], [ %.1.lcssa, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i32 %.3
 }
 
-declare zeroext i1 @smgrexists(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @smgrexists(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @LockRelationForExtension(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @LockRelationForExtension(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @smgrcreate(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @smgrcreate(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @UnlockRelationForExtension(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @UnlockRelationForExtension(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ReleaseBuffer(i32 noundef %0) local_unnamed_addr #0 {
@@ -2744,7 +2738,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %168 ]
   %.048.i26 = phi i32 [ %10, %.lr.ph ], [ %.250.i.ph, %168 ]
   %indvars36 = trunc i64 %indvars.iv to i32
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %12, align 8
   %28 = load i8, ptr %13, align 8
@@ -2768,7 +2762,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
 
 40:                                               ; preds = %25
   %41 = call i32 @IOContextForStrategy(ptr noundef %31) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %42) #16
   %43 = load ptr, ptr @ReservedRefCountEntry, align 8
@@ -2793,7 +2787,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   br label %ReservePrivateRefCountEntry.exit
 
 49:                                               ; preds = %44
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %50 = load i32, ptr @PrivateRefCountClock, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr @PrivateRefCountClock, align 4
@@ -2813,7 +2807,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   %61 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
@@ -2846,7 +2840,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   call void @LWLockRelease(ptr noundef nonnull %73) #16
   %spec.select.i = zext i1 %81 to i8
   store i8 %spec.select.i, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %81, label %109, label %112
 
 82:                                               ; preds = %ReservePrivateRefCountEntry.exit
@@ -2864,7 +2858,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   br i1 %92, label %BufferAlloc.exit, label %93
 
 93:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   store i32 0, ptr %20, align 4
   store i32 0, ptr %21, align 8
@@ -2887,7 +2881,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
 BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %93
   %.lcssa.i = phi i32 [ %95, %93 ], [ %97, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %87, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   %99 = icmp eq i8 %28, 112
   %100 = icmp eq i32 %29, 3
@@ -2899,7 +2893,7 @@ BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %93
   store volatile i32 %101, ptr %94, align 4
   call void @LWLockRelease(ptr noundef nonnull %73) #16
   store i8 0, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
 
 BufferAlloc.exit:                                 ; preds = %82
@@ -2917,7 +2911,7 @@ BufferAlloc.exit:                                 ; preds = %82
   call void @LWLockRelease(ptr noundef nonnull %73) #16
   %spec.select49.i = zext i1 %108 to i8
   store i8 %spec.select49.i, ptr %9, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %77, %BufferAlloc.exit
@@ -3046,12 +3040,12 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
 
 166:                                              ; preds = %PinBufferForBlock.exit
   %167 = add i32 %indvars36, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 168:                                              ; preds = %164, %162, %157, %154
   %.250.i.ph = phi i32 [ %160, %162 ], [ %160, %164 ], [ %.048.i26, %154 ], [ %.048.i26, %157 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %169 = sext i32 %.250.i.ph to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
   br i1 %170, label %25, label %.loopexit.loopexit, !llvm.loop !22
@@ -3118,7 +3112,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %9, align 8
   %24 = load i8, ptr %21, align 8
@@ -3141,7 +3135,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
 
 35:                                               ; preds = %4
   %36 = tail call i32 @IOContextForStrategy(ptr noundef %26) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %37) #16
   %38 = load ptr, ptr @ReservedRefCountEntry, align 8
@@ -3166,7 +3160,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   br label %ReservePrivateRefCountEntry.exit
 
 44:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %45 = load i32, ptr @PrivateRefCountClock, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr @PrivateRefCountClock, align 4
@@ -3186,7 +3180,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   %56 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
@@ -3219,7 +3213,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   call void @LWLockRelease(ptr noundef nonnull %68) #16
   %spec.select.i = zext i1 %76 to i8
   store i8 %spec.select.i, ptr %8, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %76, label %104, label %107
 
 77:                                               ; preds = %ReservePrivateRefCountEntry.exit
@@ -3237,7 +3231,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   br i1 %87, label %BufferAlloc.exit, label %88
 
 88:                                               ; preds = %77
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8
   store i32 0, ptr %15, align 4
   store i32 0, ptr %16, align 8
@@ -3260,7 +3254,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
 BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %88
   %.lcssa.i = phi i32 [ %90, %88 ], [ %92, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %82, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
   %94 = icmp eq i8 %24, 112
   %95 = icmp eq i32 %25, 3
@@ -3272,7 +3266,7 @@ BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %88
   store volatile i32 %96, ptr %89, align 4
   call void @LWLockRelease(ptr noundef nonnull %68) #16
   store i8 0, ptr %8, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
 
 BufferAlloc.exit:                                 ; preds = %77
@@ -3290,7 +3284,7 @@ BufferAlloc.exit:                                 ; preds = %77
   call void @LWLockRelease(ptr noundef nonnull %68) #16
   %spec.select49.i = zext i1 %103 to i8
   store i8 %spec.select49.i, ptr %8, align 1
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %72, %BufferAlloc.exit
@@ -3391,7 +3385,7 @@ PinBufferForBlock.exit:                           ; preds = %121, %135, %.thread
   store i32 %145, ptr %1, align 4
   %146 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %147 = trunc nuw i8 %146 to i1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %147, label %StartReadBuffersImpl.exit, label %148
 
 148:                                              ; preds = %PinBufferForBlock.exit
@@ -3486,8 +3480,8 @@ define dso_local void @WaitReadBuffers(ptr noundef readonly captures(none) %0) l
 
 47:                                               ; preds = %.lr.ph120, %235
   %.078118 = phi i32 [ 0, %.lr.ph120 ], [ %236, %235 ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = sext i32 %.078118 to i64
   %49 = getelementptr inbounds i32, ptr %12, i64 %48
   %50 = load i32, ptr %49, align 4
@@ -3568,7 +3562,7 @@ BufferGetBlock.exit:                              ; preds = %67, %74
   %92 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %92) #16
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %33, align 4
   store i32 0, ptr %34, align 8
@@ -3590,7 +3584,7 @@ BufferGetBlock.exit:                              ; preds = %67, %74
 LockBufHdr.exit.us.i:                             ; preds = %.lr.ph.i.us.i, %87
   %.lcssa.i.us.i = phi i32 [ %94, %87 ], [ %96, %.lr.ph.i.us.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %98 = and i32 %.lcssa.i.us.i, 67108864
   %.not.us.i = icmp eq i32 %98, 0
   br i1 %.not.us.i, label %.split21.us.i, label %.loopexit.split.us.i
@@ -3797,7 +3791,7 @@ BufferGetBlock.exit86:                            ; preds = %119, %127
   br label %229
 
 215:                                              ; preds = %210
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %40, align 4
   store i32 0, ptr %41, align 8
@@ -3820,7 +3814,7 @@ BufferGetBlock.exit86:                            ; preds = %119, %127
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %215
   %.lcssa.i.i = phi i32 [ %217, %215 ], [ %219, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.0.i87 = and i32 %.lcssa.i.i, -222298113
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %221 = or disjoint i32 %.0.i87, 16777216
@@ -3853,8 +3847,8 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %215
 
 235:                                              ; preds = %52, %._crit_edge, %230, %WaitReadBuffersCanStartIO.exit
   %.1 = phi i32 [ %.078118, %WaitReadBuffersCanStartIO.exit ], [ %.2104, %230 ], [ %.2104, %._crit_edge ], [ %.078118, %52 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %236 = add i32 %.1, 1
   %237 = icmp slt i32 %236, %8
   br i1 %237, label %47, label %.loopexit, !llvm.loop !27
@@ -3863,20 +3857,20 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %215
   ret void
 }
 
-declare i32 @IOContextForStrategy(ptr noundef) local_unnamed_addr #3
+declare i32 @IOContextForStrategy(ptr noundef) local_unnamed_addr #2
 
-declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @pgstat_prepare_io_time(i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @smgrreadv(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @smgrreadv(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @PageIsVerifiedExtended(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @PageIsVerifiedExtended(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @GetRelationPath(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @LimitAdditionalPins(ptr noundef captures(none) %0) local_unnamed_addr #7 {
+define dso_local void @LimitAdditionalPins(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp ult i32 %2, 2
   br i1 %3, label %13, label %4
@@ -3919,10 +3913,10 @@ define dso_local zeroext i1 @BufferIsExclusiveLocked(i32 noundef %0) local_unnam
   ret i1 %.0
 }
 
-declare zeroext i1 @LWLockHeldByMeInMode(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockHeldByMeInMode(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local zeroext i1 @BufferIsDirty(i32 noundef %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @BufferIsDirty(i32 noundef %0) local_unnamed_addr #7 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %3, label %8
 
@@ -3990,7 +3984,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %15, align 4
   store i32 0, ptr %16, align 8
@@ -4012,7 +4006,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %22
   %.0.lcssa.i = phi i32 [ %.03.i, %22 ], [ %.0.i, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %WaitBufHdrUnlocked.exit, %20
@@ -4048,9 +4042,9 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %22
   ret void
 }
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @MarkLocalBufferDirty(i32 noundef) local_unnamed_addr #3
+declare void @MarkLocalBufferDirty(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @ReleaseAndReadBuffer(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -4160,7 +4154,7 @@ BufTagMatchesRelFileLocator.exit25.thread:        ; preds = %39, %43, %53, %BufT
   ret i32 %.0
 }
 
-declare void @UnpinLocalBuffer(i32 noundef) local_unnamed_addr #3
+declare void @UnpinLocalBuffer(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @UnpinBuffer(ptr noundef %0) unnamed_addr #0 {
@@ -4178,8 +4172,8 @@ define internal fastcc void @UnpinBuffer(ptr noundef %0) unnamed_addr #0 {
 define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @StrategySyncStart(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %5 = load i32, ptr %3, align 4
   %6 = zext i32 %5 to i64
@@ -4396,12 +4390,12 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 123:                                              ; preds = %118, %11
   %.0 = phi i1 [ true, %11 ], [ %122, %118 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.0
 }
 
-declare i32 @StrategySyncStart(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @StrategySyncStart(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
@@ -4411,7 +4405,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   %7 = load ptr, ptr @BufferDescriptors, align 8
   %8 = zext i32 %0 to i64
   %9 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %7, i64 %8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -4434,7 +4428,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   br label %ReservePrivateRefCountEntry.exit
 
 16:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %17 = load i32, ptr @PrivateRefCountClock, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr @PrivateRefCountClock, align 4
@@ -4454,13 +4448,13 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   %28 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %3, %14, %16
   %30 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %30) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %31, align 4
@@ -4488,7 +4482,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %3, %14, %16
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %37, %ReservePrivateRefCountEntry.exit ], [ %39, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = and i32 %.lcssa.i, 4194303
   %or.cond = icmp ne i32 %41, 0
   %brmerge.not = and i1 %1, %or.cond
@@ -4584,7 +4578,7 @@ ScheduleBufferTagForWriteback.exit:               ; preds = %48, %79, %83
 
 85:                                               ; preds = %ScheduleBufferTagForWriteback.exit, %46, %42
   %.0 = phi i32 [ %84, %ScheduleBufferTagForWriteback.exit ], [ %.mux, %46 ], [ 0, %42 ]
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -4594,12 +4588,12 @@ define dso_local void @AtEOXact_Buffers(i1 noundef zeroext %0) local_unnamed_add
   ret void
 }
 
-declare void @AtEOXact_LocalBuffers(i1 noundef zeroext) local_unnamed_addr #3
+declare void @AtEOXact_LocalBuffers(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitBufferManagerAccess() local_unnamed_addr #0 {
   %1 = alloca %struct.HASHCTL, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) @PrivateRefCountArray, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 4, ptr %2, align 8
@@ -4608,13 +4602,13 @@ define dso_local void @InitBufferManagerAccess() local_unnamed_addr #0 {
   %4 = call ptr @hash_create(ptr noundef nonnull @.str.7, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 40) #16
   store ptr %4, ptr @PrivateRefCountHash, align 8
   call void @on_shmem_exit(ptr noundef nonnull @AtProcExit_Buffers, i64 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @on_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @AtProcExit_Buffers(i32 %0, i64 %1) #0 {
@@ -4624,7 +4618,7 @@ define internal void @AtProcExit_Buffers(i32 %0, i64 %1) #0 {
   br i1 %.not.i, label %UnlockBuffers.exit, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
@@ -4652,7 +4646,7 @@ define internal void @AtProcExit_Buffers(i32 %0, i64 %1) #0 {
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %5
   %.lcssa.i.i = phi i32 [ %12, %5 ], [ %14, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = and i32 %.lcssa.i.i, 536870912
   %.not7.i = icmp eq i32 %16, 0
   br i1 %.not7.i, label %23, label %17
@@ -4701,7 +4695,7 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
   %15 = load ptr, ptr @BufferDescriptors, align 8
   %16 = zext i32 %14 to i64
   %17 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %15, i64 %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   br label %19
 
@@ -4719,7 +4713,7 @@ define dso_local ptr @DebugPrintBufferRefcount(i32 noundef %0) local_unnamed_add
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %19
   %23 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %30
 
 24:                                               ; preds = %18
@@ -4728,13 +4722,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %19
   br i1 %26, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %24
   %27 = load ptr, ptr @PrivateRefCountHash, align 8
   %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %GetPrivateRefCount.exit, label %30
 
@@ -4768,15 +4762,15 @@ GetPrivateRefCount.exit:                          ; preds = %30, %GetPrivateRefC
   ret ptr %43
 }
 
-declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #3
+declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @pfree(ptr noundef) local_unnamed_addr #3
+declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SpinDelayStatus, align 8
   %3 = alloca %struct.WritebackContext, align 8
-  call void @llvm.lifetime.start.p0(i64 5136, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = and i32 %0, 19
   %.not.i = icmp eq i32 %4, 0
   %spec.select.i = select i1 %.not.i, i32 2139095039, i32 -8388609
@@ -4797,7 +4791,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
   %.084105.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %42 ]
   %13 = load ptr, ptr @BufferDescriptors, align 8
   %14 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %13, i64 %indvars.iv.i
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 8
@@ -4820,7 +4814,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %.lcssa.i.i = phi i32 [ %16, %12 ], [ %18, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = or i32 %.lcssa.i.i, %spec.select.i
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %38
@@ -5077,12 +5071,12 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br label %BufferSync.exit
 
 BufferSync.exit:                                  ; preds = %1, %._crit_edge.i, %._crit_edge125.i
-  call void @llvm.lifetime.end.p0(i64 5136, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #9 {
+define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #8 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %3, label %8
 
@@ -5108,7 +5102,7 @@ define dso_local i32 @BufferGetBlockNumber(i32 noundef %0) local_unnamed_addr #9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @BufferGetTag(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #7 {
+define dso_local void @BufferGetTag(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #6 {
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %6, label %11
 
@@ -5197,7 +5191,7 @@ RelationGetSmgr.exit:                             ; preds = %16, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local zeroext i1 @BufferIsPermanent(i32 noundef %0) local_unnamed_addr #8 {
+define dso_local zeroext i1 @BufferIsPermanent(i32 noundef %0) local_unnamed_addr #7 {
   %2 = icmp slt i32 %0, 0
   br i1 %2, label %10, label %3
 
@@ -5255,7 +5249,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br label %37
 
 24:                                               ; preds = %BufferGetPage.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %25, align 4
@@ -5283,7 +5277,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %24
   %.lcssa.i = phi i32 [ %31, %24 ], [ %33, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val12 = load i64, ptr %.0.i.i, align 4
   %35 = call i64 @llvm.fshl.i64(i64 %.val12, i64 %.val12, i64 32)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
@@ -5296,13 +5290,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %24
   ret i64 %.0
 }
 
-declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #3
+declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.SpinDelayStatus, align 8
   %6 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.0.0.copyload62 = load i64, ptr %0, align 8
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload62 to i32
   %.sroa.0.sroa.7.0.extract.shift = lshr i64 %.sroa.0.0.copyload62, 32
@@ -5439,7 +5433,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %50
   br i1 %55, label %56, label %BufTagMatchesRelFileLocator.exit.thread
 
 56:                                               ; preds = %BufTagMatchesRelFileLocator.exit
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8
   store i32 0, ptr %40, align 4
   store i32 0, ptr %41, align 8
@@ -5462,7 +5456,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %50
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %56
   %.lcssa.i = phi i32 [ %58, %56 ], [ %60, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %7, label %.lr.ph88, label %._crit_edge89
 
 .lr.ph88:                                         ; preds = %LockBufHdr.exit
@@ -5523,13 +5517,13 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %45, %50, %.thread74
   br i1 %81, label %45, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph86, %BufTagMatchesRelFileLocator.exit.thread, %.thread121, %.thread, %8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-declare void @DropRelationLocalBuffers(i64, i32, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @DropRelationLocalBuffers(i64, i32, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @smgrnblocks_cached(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @smgrnblocks_cached(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
@@ -5554,7 +5548,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
 
 17:                                               ; preds = %.lr.ph, %52
   %.024 = phi i32 [ %4, %.lr.ph ], [ %53, %52 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 %0, ptr %7, align 8
   store i32 %1, ptr %9, align 8
   store i32 %2, ptr %10, align 4
@@ -5575,7 +5569,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   %28 = load ptr, ptr @BufferDescriptors, align 8
   %29 = zext nneg i32 %25 to i64
   %30 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %28, i64 %29
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 8
@@ -5598,7 +5592,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %27
   %.lcssa.i = phi i32 [ %32, %27 ], [ %34, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = load i32, ptr %30, align 4
   %37 = icmp eq i32 %36, %.sroa.0.0.extract.trunc
   br i1 %37, label %38, label %BufTagMatchesRelFileLocator.exit.thread
@@ -5638,7 +5632,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %LockBufHdr.exit, %3
   br label %52
 
 52:                                               ; preds = %50, %BufTagMatchesRelFileLocator.exit.thread, %17
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = add i32 %.024, 1
   %exitcond.not = icmp eq i32 %53, %3
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !37
@@ -5652,7 +5646,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.SpinDelayStatus, align 8
   %4 = alloca %struct.buftag, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load volatile i32, ptr %5, align 4
@@ -5683,7 +5677,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
 
 28:                                               ; preds = %GetPrivateRefCount.exit.thread, %1
   %29 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %14, align 4
   store i32 0, ptr %15, align 8
@@ -5705,7 +5699,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %28
   %.lcssa.i = phi i32 [ %30, %28 ], [ %32, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load i32, ptr %0, align 4
   %35 = load i32, ptr %4, align 4
   %36 = icmp eq i32 %34, %35
@@ -5754,7 +5748,7 @@ BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %3
   call void @LWLockRelease(ptr noundef nonnull %13) #16
   %.val = load i32, ptr %27, align 4
   %57 = add i32 %.val, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %57, ptr %2, align 4
   br label %59
 
@@ -5772,7 +5766,7 @@ BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %3
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %59
   %63 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
 64:                                               ; preds = %58
@@ -5781,13 +5775,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %59
   br i1 %66, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %64
   %67 = load ptr, ptr @PrivateRefCountHash, align 8
   %68 = call ptr @hash_search(ptr noundef %67, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
 
@@ -5831,7 +5825,7 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
   br label %80
 
 80:                                               ; preds = %79, %BufferTagsEqual.exit.thread
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -6135,7 +6129,7 @@ rlocator_comparator.exit.thread:                  ; preds = %109, %105, %.lr.ph.
 
 bsearch.exit:                                     ; preds = %BufTagMatchesRelFileLocator.exit, %rlocator_comparator.exit
   %.1109 = phi ptr [ %101, %rlocator_comparator.exit ], [ %84, %BufTagMatchesRelFileLocator.exit ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %72, align 4
   store i32 0, ptr %73, align 8
@@ -6158,7 +6152,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i115, %bsearch.exit
   %.lcssa.i = phi i32 [ %114, %bsearch.exit ], [ %116, %.lr.ph.i115 ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %118 = load i32, ptr %79, align 4
   %119 = load i32, ptr %.1109, align 4
   %120 = icmp eq i32 %118, %119
@@ -6206,14 +6200,14 @@ bsearch.exit.thread:                              ; preds = %BufTagMatchesRelFil
   ret void
 }
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #3
+declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
-declare void @DropRelationAllLocalBuffers(i64, i32) local_unnamed_addr #3
+declare void @DropRelationAllLocalBuffers(i64, i32) local_unnamed_addr #2
 
-declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @rlocator_comparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+define internal range(i32 -1, 2) i32 @rlocator_comparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %.sroa.04.0.copyload = load i32, ptr %0, align 4
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.56.0.copyload = load i32, ptr %.sroa.56.0..sroa_idx, align 4
@@ -6278,7 +6272,7 @@ define dso_local void @DropDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0
   br i1 %.not, label %15, label %26
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 8
@@ -6301,7 +6295,7 @@ define dso_local void @DropDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %15
   %.lcssa.i = phi i32 [ %17, %15 ], [ %19, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = load i32, ptr %13, align 4
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %23, label %24
@@ -6419,7 +6413,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   br i1 %53, label %54, label %BufTagMatchesRelFileLocator.exit.thread
 
 54:                                               ; preds = %49
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %57 = load i32, ptr %56, align 4
@@ -6441,10 +6435,10 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   %68 = getelementptr i8, ptr %37, i64 12
   %.val = load i32, ptr %68, align 4
   %69 = load i32, ptr %63, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %61, ptr %4, align 8
   call void @smgrwritev(ptr noundef %13, i32 noundef %.val, i32 noundef %69, ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %67, i32 noundef 1, i64 noundef 8192) #16
   %70 = and i32 %51, -276824065
   store volatile i32 %70, ptr %50, align 4
@@ -6453,7 +6447,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   store i64 %72, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
   %73 = load ptr, ptr %5, align 8
   store ptr %73, ptr @error_context_stack, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load ptr, ptr @LocalBufferDescriptors, align 8
   %.pre59 = load i32, ptr @NLocBuffer, align 4
   br label %BufTagMatchesRelFileLocator.exit.thread
@@ -6512,7 +6506,7 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
   br label %ReservePrivateRefCountEntry.exit
 
 99:                                               ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %100 = load i32, ptr @PrivateRefCountClock, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr @PrivateRefCountClock, align 4
@@ -6532,13 +6526,13 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
   %111 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %92, %97, %99
   %113 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %113) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %23, align 4
   store i32 0, ptr %24, align 8
@@ -6561,7 +6555,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %92, %97, %99
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %115, %ReservePrivateRefCountEntry.exit ], [ %117, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %119 = load i32, ptr %80, align 4
   %120 = load i32, ptr %0, align 4
   %121 = icmp eq i32 %119, %120
@@ -6655,7 +6649,7 @@ define internal void @local_buffer_write_error_callback(ptr noundef readonly cap
   ret void
 }
 
-declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @PageSetChecksumInplace(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
@@ -6663,7 +6657,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
   %5 = alloca ptr, align 8
   %6 = alloca %struct.SpinDelayStatus, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call fastcc zeroext i1 @StartBufferIO(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
   br i1 %8, label %9, label %71
 
@@ -6687,7 +6681,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
 
 18:                                               ; preds = %9, %14
   %.0 = phi ptr [ %17, %14 ], [ %1, %9 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %19, align 4
@@ -6715,7 +6709,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   %.lcssa.i = phi i32 [ %25, %18 ], [ %27, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = load ptr, ptr @BufferBlocks, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %31 = load i32, ptr %30, align 4
@@ -6749,15 +6743,15 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   %50 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %50, align 4
   %51 = load i32, ptr %44, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %46, ptr %5, align 8
   call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %51, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 7, i64 %49, i32 noundef 1, i64 noundef 8192) #16
   %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   %53 = add i64 %52, 1
   store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %54, align 4
@@ -6784,7 +6778,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %38
   %.lcssa.i.i = phi i32 [ %59, %38 ], [ %61, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = and i32 %.lcssa.i.i, 268435456
   %.not.i27 = icmp eq i32 %63, 0
   %.0.v.i = select i1 %.not.i27, i32 -1556086785, i32 -205520897
@@ -6806,7 +6800,7 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %38
   br label %71
 
 71:                                               ; preds = %3, %TerminateBufferIO.exit
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -6983,7 +6977,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   br label %ReservePrivateRefCountEntry.exit
 
 68:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = load i32, ptr @PrivateRefCountClock, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr @PrivateRefCountClock, align 4
@@ -7003,13 +6997,13 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   %80 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %bsearch.exit, %66, %68
   %82 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %82) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %21, align 4
   store i32 0, ptr %22, align 8
@@ -7032,7 +7026,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %bsearch.exit, %66, 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i53, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %84, %ReservePrivateRefCountEntry.exit ], [ %86, %.lr.ph.i53 ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %88 = load i32, ptr %28, align 4
   %89 = load i32, ptr %.147, align 4
   %90 = icmp eq i32 %88, %89
@@ -7169,14 +7163,14 @@ define dso_local void @CreateAndCopyRelationData(i64 %0, i32 %1, i64 %2, i32 %3,
   br i1 %exitcond.not, label %.split37.us, label %.split, !llvm.loop !54
 }
 
-declare ptr @RelationCreateStorage(i64, i32, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @RelationCreateStorage(i64, i32, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 %2, i32 %3, i32 noundef range(i32 -2147483648, 4) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %union.PGIOAlignedBlock, align 4096
   %8 = alloca %struct.BlockRangeReadStreamPrivate, align 4
-  call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @wal_level, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %14
@@ -7324,12 +7318,12 @@ UnlockReleaseBuffer.exit51:                       ; preds = %UnlockReleaseBuffer
   br label %89
 
 89:                                               ; preds = %14, %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare void @log_smgrcreate(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @log_smgrcreate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0 {
@@ -7379,7 +7373,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
   br label %ReservePrivateRefCountEntry.exit
 
 23:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load i32, ptr @PrivateRefCountClock, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr @PrivateRefCountClock, align 4
@@ -7399,13 +7393,13 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
   %35 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %16, %21, %23
   %37 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %37) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 8
@@ -7428,7 +7422,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %16, %21, %23
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %39, %ReservePrivateRefCountEntry.exit ], [ %41, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = load i32, ptr %14, align 4
   %44 = icmp eq i32 %43, %0
   %45 = and i32 %.lcssa.i, 25165824
@@ -7617,7 +7611,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   br i1 %brmerge.not, label %18, label %.loopexit
 
 18:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %19 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -7639,7 +7633,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   br label %ReservePrivateRefCountEntry.exit
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = load i32, ptr @PrivateRefCountClock, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr @PrivateRefCountClock, align 4
@@ -7659,7 +7653,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   %37 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %38 = add i32 %37, 1
   store i32 %38, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
@@ -7676,7 +7670,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   %46 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %47 = add i32 %46, -1
   store i32 %47, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %7
@@ -7760,7 +7754,7 @@ BufferGetPage.exit:                               ; preds = %2
 40:                                               ; preds = %22, %34, %26
   %.028 = phi i1 [ true, %34 ], [ false, %26 ], [ false, %22 ]
   %.026 = phi i64 [ %39, %34 ], [ 0, %26 ], [ 0, %22 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %41, align 4
@@ -7787,7 +7781,7 @@ BufferGetPage.exit:                               ; preds = %2
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %40
   %.lcssa.i = phi i32 [ %46, %40 ], [ %48, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = and i32 %.lcssa.i, 8388608
   %.not31 = icmp ne i32 %50, 0
   %51 = icmp eq i64 %.026, 0
@@ -7840,11 +7834,11 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %40
   ret void
 }
 
-declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #3
+declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2
 
-declare zeroext i1 @RelFileLocatorSkippingWAL(i64, i32) local_unnamed_addr #3
+declare zeroext i1 @RelFileLocatorSkippingWAL(i64, i32) local_unnamed_addr #2
 
-declare i64 @XLogSaveBufferForHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @XLogSaveBufferForHint(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnlockBuffers() local_unnamed_addr #0 {
@@ -7854,7 +7848,7 @@ define dso_local void @UnlockBuffers() local_unnamed_addr #0 {
   br i1 %.not, label %23, label %3
 
 3:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 0, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
@@ -7882,7 +7876,7 @@ define dso_local void @UnlockBuffers() local_unnamed_addr #0 {
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %3
   %.lcssa.i = phi i32 [ %10, %3 ], [ %12, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %1) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %14 = and i32 %.lcssa.i, 536870912
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %21, label %15
@@ -7926,7 +7920,7 @@ define dso_local zeroext i1 @ConditionalLockBuffer(i32 noundef %0) local_unnamed
   ret i1 %.0
 }
 
-declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_addr #0 {
@@ -7954,7 +7948,7 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
   unreachable
 
 16:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 %0, ptr %2, align 4
   br label %18
 
@@ -7972,7 +7966,7 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %18
   %22 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit
 
 23:                                               ; preds = %17
@@ -7981,13 +7975,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %18
   br i1 %25, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %23
   %26 = load ptr, ptr @PrivateRefCountHash, align 8
   %27 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
 
@@ -8044,7 +8038,7 @@ LockBuffer.exit:                                  ; preds = %79, %5
   %.0 = phi i64 [ 0, %5 ], [ %.3, %79 ]
   %23 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %22, i64 %8, i32 0, i32 5
   %24 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 8
@@ -8066,7 +8060,7 @@ LockBuffer.exit:                                  ; preds = %79, %5
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %LockBuffer.exit
   %.lcssa.i = phi i32 [ %25, %LockBuffer.exit ], [ %27, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %29 = and i32 %.lcssa.i, 262143
   %.not52 = icmp eq i32 %29, 1
   br i1 %.not52, label %30, label %38
@@ -8172,7 +8166,7 @@ LockBuffer.exit53:                                ; preds = %38
   %.449 = phi i8 [ 1, %.thread ], [ %.045, %67 ]
   %.4 = phi i8 [ %.24361, %.thread ], [ %.041, %67 ]
   %.3 = phi i64 [ %.2, %.thread ], [ %.0, %67 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %17, align 4
   store i32 0, ptr %18, align 8
@@ -8194,7 +8188,7 @@ LockBuffer.exit53:                                ; preds = %38
 LockBufHdr.exit58:                                ; preds = %.lr.ph.i55, %68
   %.lcssa.i57 = phi i32 [ %69, %68 ], [ %71, %.lr.ph.i55 ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %73 = and i32 %.lcssa.i57, 536870912
   %.not51 = icmp eq i32 %73, 0
   br i1 %.not51, label %79, label %74
@@ -8220,21 +8214,21 @@ LockBufHdr.exit58:                                ; preds = %.lr.ph.i55, %68
   ret void
 }
 
-declare void @LogRecoveryConflict(i32 noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @LogRecoveryConflict(i32 noundef, i64 noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare i64 @GetCurrentTimestamp() local_unnamed_addr #3
+declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
 
-declare void @set_ps_display_remove_suffix() local_unnamed_addr #3
+declare void @set_ps_display_remove_suffix() local_unnamed_addr #2
 
-declare void @set_ps_display_suffix(ptr noundef) local_unnamed_addr #3
+declare void @set_ps_display_suffix(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @SetStartupBufferPinWaitBufId(i32 noundef) local_unnamed_addr #3
+declare void @SetStartupBufferPinWaitBufId(i32 noundef) local_unnamed_addr #2
 
-declare void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr #3
+declare void @ResolveRecoveryConflictWithBufferPin() local_unnamed_addr #2
 
-declare void @ProcWaitForSignal(i32 noundef) local_unnamed_addr #3
+declare void @ProcWaitForSignal(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_addr #0 {
@@ -8245,7 +8239,7 @@ define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_
 
 4:                                                ; preds = %0
   %5 = add nuw i32 %2, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 %5, ptr %1, align 4
   br label %7
 
@@ -8263,7 +8257,7 @@ define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %7
   %11 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %18
 
 12:                                               ; preds = %6
@@ -8272,13 +8266,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %7
   br i1 %14, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %GetPrivateRefCount.exit
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %12
   %15 = load ptr, ptr @PrivateRefCountHash, align 8
   %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %GetPrivateRefCount.exit, label %18
 
@@ -8294,7 +8288,7 @@ GetPrivateRefCount.exit:                          ; preds = %18, %GetPrivateRefC
   ret i1 %.0
 }
 
-declare i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #3
+declare i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) local_unnamed_addr #0 {
@@ -8313,7 +8307,7 @@ define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) loc
   br label %GetPrivateRefCount.exit.thread
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   br label %13
 
@@ -8331,7 +8325,7 @@ define dso_local zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %0) loc
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
   %17 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
 18:                                               ; preds = %12
@@ -8340,13 +8334,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
   br i1 %20, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %18
   %21 = load ptr, ptr @PrivateRefCountHash, align 8
   %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
 
@@ -8367,7 +8361,7 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
 
 31:                                               ; preds = %ConditionalLockBuffer.exit
   %32 = load ptr, ptr @BufferDescriptors, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %33, align 4
@@ -8395,7 +8389,7 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %31
   %.lcssa.i = phi i32 [ %39, %31 ], [ %41, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = and i32 %.lcssa.i, 262143
   %44 = icmp eq i32 %43, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
@@ -8436,7 +8430,7 @@ define dso_local zeroext i1 @IsBufferCleanupOK(i32 noundef %0) local_unnamed_add
   br label %GetPrivateRefCount.exit.thread
 
 11:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %0, ptr %3, align 4
   br label %13
 
@@ -8454,7 +8448,7 @@ define dso_local zeroext i1 @IsBufferCleanupOK(i32 noundef %0) local_unnamed_add
 
 GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
   %17 = getelementptr inbounds nuw [8 x %struct.PrivateRefCountEntry], ptr @PrivateRefCountArray, i64 0, i64 %indvars.iv.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit
 
 18:                                               ; preds = %12
@@ -8463,13 +8457,13 @@ GetPrivateRefCountEntry.exit.thread5.i:           ; preds = %13
   br i1 %20, label %GetPrivateRefCountEntry.exit.thread.i, label %GetPrivateRefCountEntry.exit.i
 
 GetPrivateRefCountEntry.exit.thread.i:            ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %18
   %21 = load ptr, ptr @PrivateRefCountHash, align 8
   %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
 
@@ -8484,7 +8478,7 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   %27 = add nsw i32 %0, -1
   %28 = load ptr, ptr @BufferDescriptors, align 8
   %29 = zext i32 %27 to i64
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %30, align 4
@@ -8512,7 +8506,7 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %26
   %.lcssa.i = phi i32 [ %36, %26 ], [ %38, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = and i32 %.lcssa.i, 262143
   %41 = icmp eq i32 %40, 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
@@ -8525,12 +8519,12 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
   ret i1 %.0
 }
 
-declare void @perform_spin_delay(ptr noundef) local_unnamed_addr #3
+declare void @perform_spin_delay(ptr noundef) local_unnamed_addr #2
 
-declare void @finish_spin_delay(ptr noundef) local_unnamed_addr #3
+declare void @finish_spin_delay(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @WritebackContextInit(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define dso_local void @WritebackContextInit(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1) local_unnamed_addr #10 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -8689,7 +8683,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_pending_writebacks(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #12 {
+define internal fastcc void @sort_pending_writebacks(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #11 {
   %.sroa.0.i.i200 = alloca %struct.buftag, align 8
   %.sroa.0.i.i = alloca %struct.buftag, align 8
   %.sroa.0.i198 = alloca %struct.buftag, align 8
@@ -8782,11 +8776,11 @@ rlocator_comparator.exit.i:                       ; preds = %25
   br i1 %38, label %buffertag_comparator.exit.thread208, label %.critedge
 
 buffertag_comparator.exit.thread208:              ; preds = %33, %19, %23, %31, %rlocator_comparator.exit.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(20) %.0130276, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130276, ptr noundef nonnull align 4 dereferenceable(20) %13, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %39 = icmp ugt ptr %13, %.0127.ph
   br i1 %39, label %.lr.ph277, label %.critedge, !llvm.loop !60
 
@@ -8892,11 +8886,11 @@ buffertag_comparator.exit168.thread212:           ; preds = %61, %47, %51, %59, 
 
 90:                                               ; preds = %88, %buffertag_comparator.exit168.thread212
   %.2 = phi ptr [ %89, %88 ], [ %70, %buffertag_comparator.exit168.thread212 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i169)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i169)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i169, ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.2, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.2, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i169, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i169)
   %91 = getelementptr i8, ptr %10, i64 -20
   br label %92
 
@@ -8966,11 +8960,11 @@ buffertag_comparator.exit182:                     ; preds = %110
   br i1 %115, label %.critedge2, label %116
 
 116:                                              ; preds = %buffertag_comparator.exit182
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i183)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i183)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i183, ptr noundef nonnull align 4 dereferenceable(20) %.1140247, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1140247, ptr noundef nonnull align 4 dereferenceable(20) %.1138248, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1138248, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i183, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i183)
   %117 = getelementptr inbounds nuw i8, ptr %.1140247, i64 20
   br label %118
 
@@ -9044,11 +9038,11 @@ rlocator_comparator.exit.i190:                    ; preds = %130
   br i1 %.not225, label %.thread222, label %143
 
 143:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i197)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i197, ptr noundef nonnull align 4 dereferenceable(20) %.1136265, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1136265, ptr noundef nonnull align 4 dereferenceable(20) %.1133266, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1133266, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i197, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i197)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i197)
   %144 = getelementptr inbounds i8, ptr %.1133266, i64 -20
   br label %.thread222
 
@@ -9059,11 +9053,11 @@ rlocator_comparator.exit.i190:                    ; preds = %130
   br i1 %.not152, label %.critedge4, label %.lr.ph267, !llvm.loop !64
 
 146:                                              ; preds = %137, %132, %130, %126, %.lr.ph267
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i198)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i198)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i198, ptr noundef nonnull align 4 dereferenceable(20) %.1138.lcssa, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1138.lcssa, ptr noundef nonnull align 4 dereferenceable(20) %.1136265, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1136265, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i198, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i198)
   %147 = getelementptr inbounds nuw i8, ptr %.1138.lcssa, i64 20
   %148 = getelementptr inbounds i8, ptr %.1136265, i64 -20
   br label %92
@@ -9087,11 +9081,11 @@ rlocator_comparator.exit.i190:                    ; preds = %130
   %.06.i = phi i64 [ %159, %.lr.ph.i ], [ 0, %.critedge4 ]
   %157 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.0127.ph, i64 %.06.i
   %158 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %156, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i, ptr noundef nonnull align 4 dereferenceable(20) %157, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %157, ptr noundef nonnull align 4 dereferenceable(20) %158, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %158, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %159 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %159, %.
   br i1 %exitcond.not.i, label %sort_pending_writebacks_swapn.exit, label %.lr.ph.i, !llvm.loop !65
@@ -9115,11 +9109,11 @@ sort_pending_writebacks_swapn.exit:               ; preds = %.lr.ph.i, %.critedg
   %.06.i203 = phi i64 [ %173, %.lr.ph.i202 ], [ 0, %sort_pending_writebacks_swapn.exit ]
   %171 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %.1138.lcssa, i64 %.06.i203
   %172 = getelementptr inbounds nuw %struct.PendingWriteback, ptr %170, i64 %.06.i203
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i.i200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i200)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i200, ptr noundef nonnull align 4 dereferenceable(20) %171, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %171, ptr noundef nonnull align 4 dereferenceable(20) %172, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %172, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i.i200, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i.i200)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i200)
   %173 = add nuw i64 %.06.i203, 1
   %exitcond.not.i204 = icmp eq i64 %173, %168
   br i1 %exitcond.not.i204, label %sort_pending_writebacks_swapn.exit205, label %.lr.ph.i202, !llvm.loop !65
@@ -9163,7 +9157,7 @@ sort_pending_writebacks_swapn.exit205:            ; preds = %.lr.ph.i202, %sort_
   ret void
 }
 
-declare void @smgrwriteback(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @smgrwriteback(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_unnamed_addr #0 {
@@ -9193,7 +9187,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   br label %ReservePrivateRefCountEntry.exit
 
 11:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = load i32, ptr @PrivateRefCountClock, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr @PrivateRefCountClock, align 4
@@ -9213,7 +9207,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   %23 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
@@ -9221,7 +9215,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
   %26 = load ptr, ptr @BufferDescriptors, align 8
   %27 = zext i32 %25 to i64
   %28 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %26, i64 %27
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %29, align 4
@@ -9249,7 +9243,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %35, %ReservePrivateRefCountEntry.exit ], [ %37, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = and i32 %.lcssa.i, 16777216
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %43
@@ -9318,7 +9312,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
 define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.SpinDelayStatus, align 8
   %3 = alloca %struct.buftag, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %4 = call i32 @BufTableHashCode(ptr noundef nonnull %3) #16
   %5 = load ptr, ptr @MainLWLockArray, align 8
@@ -9327,7 +9321,7 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
   %8 = getelementptr inbounds nuw %union.LWLockPadded, ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 6784
   %10 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %11, align 4
@@ -9355,7 +9349,7 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i32 [ %17, %1 ], [ %19, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i32 %.lcssa.i, 8650751
   %or.cond = icmp eq i32 %21, 1
   br i1 %or.cond, label %24, label %22
@@ -9383,13 +9377,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %1
 
 29:                                               ; preds = %24, %22
   call void @LWLockRelease(ptr noundef nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %or.cond
 }
 
-declare void @smgrpin(ptr noundef) local_unnamed_addr #3
+declare void @smgrpin(ptr noundef) local_unnamed_addr #2
 
-declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -9426,7 +9420,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %25, i8 0, i64 8192, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %26, i32 noundef 0) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %28, align 4
@@ -9454,7 +9448,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %21
   %.lcssa.i.i = phi i32 [ %34, %21 ], [ %36, %.lr.ph.i.i ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.0.i = and i32 %.lcssa.i.i, -222298113
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %38 = or disjoint i32 %.0.i, 16777216
@@ -9505,11 +9499,11 @@ LockBuffer.exit:                                  ; preds = %.critedge.thread31
   ret void
 }
 
-declare ptr @LocalBufferAlloc(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @LocalBufferAlloc(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #3
+declare void @pgstat_assoc_relation(ptr noundef) local_unnamed_addr #2
 
-declare void @pgstat_count_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
+declare void @pgstat_count_io_op(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
@@ -9517,8 +9511,8 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -9541,7 +9535,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   br label %ReservePrivateRefCountEntry.exit
 
 13:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = load i32, ptr @PrivateRefCountClock, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr @PrivateRefCountClock, align 4
@@ -9561,7 +9555,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   %25 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %ReservePrivateRefCountEntry.exit
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
@@ -9611,7 +9605,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
   br i1 %.not27, label %.thread, label %52
 
 52:                                               ; preds = %51
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %28, align 4
   store i32 0, ptr %29, align 8
@@ -9634,7 +9628,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %52
   %.lcssa.i = phi i32 [ %53, %52 ], [ %55, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %3) #16
   %57 = or disjoint i32 %.lcssa.i, 4194304
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %57, ptr %5, align 4
   %58 = load ptr, ptr @BufferBlocks, align 8
   %59 = load i32, ptr %35, align 4
@@ -9731,20 +9725,20 @@ ScheduleBufferTagForWriteback.exit.thread:        ; preds = %88, %85, %.thread, 
   br label %33
 
 103:                                              ; preds = %98, %95
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %36
 }
 
-declare i32 @BufTableInsert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @BufTableInsert(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @StrategyFreeBuffer(ptr noundef) local_unnamed_addr #3
+declare void @StrategyFreeBuffer(ptr noundef) local_unnamed_addr #2
 
-declare ptr @StrategyGetBuffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @StrategyGetBuffer(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @XLogNeedsFlush(i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @XLogNeedsFlush(i64 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @StrategyRejectBuffer(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare zeroext i1 @StrategyRejectBuffer(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
@@ -9760,7 +9754,7 @@ define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noun
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 8
@@ -9782,7 +9776,7 @@ define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noun
 LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.split.us
   %.lcssa.i.us = phi i32 [ %12, %.split.us ], [ %14, %.lr.ph.i.us ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = and i32 %.lcssa.i.us, 67108864
   %.not.us = icmp eq i32 %16, 0
   br i1 %.not.us, label %.split21.us, label %.loopexit.split.us
@@ -9794,7 +9788,7 @@ LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.spli
   br label %38
 
 .split:                                           ; preds = %3, %23
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 8
@@ -9816,7 +9810,7 @@ LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.spli
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.split
   %.lcssa.i = phi i32 [ %18, %.split ], [ %20, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = and i32 %.lcssa.i, 67108864
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.split21.us, label %23
@@ -9884,7 +9878,7 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %20, %1
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 8
@@ -9906,7 +9900,7 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %13
   %.lcssa.i = phi i32 [ %14, %13 ], [ %16, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %2) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %18 = and i32 %.lcssa.i, -4194305
   store volatile i32 %18, ptr %12, align 4
@@ -9923,21 +9917,21 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %13
   ret void
 }
 
-declare void @ConditionVariablePrepareToSleep(ptr noundef) local_unnamed_addr #3
+declare void @ConditionVariablePrepareToSleep(ptr noundef) local_unnamed_addr #2
 
-declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #3
+declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #2
 
-declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @smgrmaxcombine(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare i32 @smgrmaxcombine(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @ExtendBufferedRelLocal(ptr noundef byval(%struct.BufferManagerRelation) align 8, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @ExtendBufferedRelLocal(ptr noundef byval(%struct.BufferManagerRelation) align 8, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @smgrzeroextend(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @smgrzeroextend(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 {
@@ -9949,7 +9943,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
   %7 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %7, align 4
   %8 = add i32 %.val, 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %8, ptr %6, align 4
   br label %10
 
@@ -9981,7 +9975,7 @@ GetPrivateRefCountEntry.exit.loopexit:            ; preds = %10
 
 GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountEntry.exit.loopexit, %14, %17
   %.0.i = phi ptr [ null, %14 ], [ %19, %17 ], [ %20, %GetPrivateRefCountEntry.exit.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, -1
@@ -10006,7 +10000,7 @@ GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountE
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8
   store i32 0, ptr %28, align 4
   store i32 0, ptr %29, align 8
@@ -10028,7 +10022,7 @@ GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountE
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
   %.0.lcssa.i = phi i32 [ %.03.i, %35 ], [ %.0.i23, %.lr.ph.i ]
   call void @finish_spin_delay(ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %WaitBufHdrUnlocked.exit, %33
@@ -10046,7 +10040,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
   br i1 %.not20, label %62, label %45
 
 45:                                               ; preds = %43
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %46, align 4
@@ -10073,7 +10067,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   %.lcssa.i = phi i32 [ %51, %45 ], [ %53, %.lr.ph.i24 ]
   call void @finish_spin_delay(ptr noundef nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = and i32 %.lcssa.i, 537133055
   %or.cond = icmp eq i32 %55, 536870913
   br i1 %or.cond, label %56, label %60
@@ -10105,8 +10099,8 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   br label %ForgetPrivateRefCountEntry.exit
 
 66:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %67 = load i32, ptr %.0.i, align 4
   store i32 %67, ptr %3, align 4
   %68 = load ptr, ptr @PrivateRefCountHash, align 8
@@ -10114,24 +10108,24 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   %70 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %71 = add i32 %70, -1
   store i32 %71, ptr @PrivateRefCountOverflowed, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ForgetPrivateRefCountEntry.exit
 
 ForgetPrivateRefCountEntry.exit:                  ; preds = %66, %65, %GetPrivateRefCountEntry.exit
   ret void
 }
 
-declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
+declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @ProcSendSignal(i32 noundef) local_unnamed_addr #3
+declare void @ProcSendSignal(i32 noundef) local_unnamed_addr #2
 
-declare void @AtProcExit_LocalBuffers() local_unnamed_addr #3
+declare void @AtProcExit_LocalBuffers() local_unnamed_addr #2
 
-declare void @ProcessProcSignalBarrier() local_unnamed_addr #3
+declare void @ProcessProcSignalBarrier() local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #12 {
+define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 noundef range(i64 -461168601842738790, 461168601842738791) %1) unnamed_addr #11 {
   %3 = alloca %struct.CkptSortItem, align 4
   %4 = alloca %struct.CkptSortItem, align 4
   %5 = alloca %struct.CkptSortItem, align 4
@@ -10212,11 +10206,11 @@ define internal fastcc void @sort_checkpoint_bufferids(ptr noundef %0, i64 nound
   br i1 %47, label %ckpt_buforder_comparator.exit.thread172, label %.critedge
 
 ckpt_buforder_comparator.exit.thread172:          ; preds = %42, %40, %32, %24
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %.0130238, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0130238, ptr noundef nonnull align 4 dereferenceable(20) %20, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %20, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %48 = icmp ugt ptr %20, %.0127.ph
   br i1 %48, label %.lr.ph239, label %.critedge, !llvm.loop !66
 
@@ -10310,11 +10304,11 @@ ckpt_buforder_comparator.exit158.thread176:       ; preds = %72, %70, %62, %54
 
 101:                                              ; preds = %99, %ckpt_buforder_comparator.exit158.thread176
   %.2 = phi ptr [ %100, %99 ], [ %81, %ckpt_buforder_comparator.exit158.thread176 ]
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.2, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.2, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %102 = getelementptr i8, ptr %17, i64 -20
   br label %103
 
@@ -10372,11 +10366,11 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   br i1 %128, label %.critedge2, label %129
 
 129:                                              ; preds = %ckpt_buforder_comparator.exit161
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %.1140211, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1140211, ptr noundef nonnull align 4 dereferenceable(20) %.1138212, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1138212, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %130 = getelementptr inbounds nuw i8, ptr %.1140211, i64 20
   br label %131
 
@@ -10438,11 +10432,11 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   br i1 %.not189, label %.thread186, label %158
 
 158:                                              ; preds = %157
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %.1136227, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1136227, ptr noundef nonnull align 4 dereferenceable(20) %.1133228, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1133228, ptr noundef nonnull align 4 dereferenceable(20) %6, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %159 = getelementptr inbounds i8, ptr %.1133228, i64 -20
   br label %.thread186
 
@@ -10453,11 +10447,11 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   br i1 %.not152, label %.critedge4, label %.lr.ph229, !llvm.loop !70
 
 161:                                              ; preds = %152, %145, %138, %.lr.ph229
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %.1138.lcssa, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1138.lcssa, ptr noundef nonnull align 4 dereferenceable(20) %.1136227, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.1136227, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %162 = getelementptr inbounds nuw i8, ptr %.1138.lcssa, i64 20
   %163 = getelementptr inbounds i8, ptr %.1136227, i64 -20
   br label %103
@@ -10481,11 +10475,11 @@ ckpt_buforder_comparator.exit161:                 ; preds = %123
   %.06.i = phi i64 [ %174, %.lr.ph.i ], [ 0, %.critedge4 ]
   %172 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.0127.ph, i64 %.06.i
   %173 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %171, i64 %.06.i
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %172, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %172, ptr noundef nonnull align 4 dereferenceable(20) %173, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %173, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %174 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %174, %.
   br i1 %exitcond.not.i, label %sort_checkpoint_bufferids_swapn.exit, label %.lr.ph.i, !llvm.loop !71
@@ -10509,11 +10503,11 @@ sort_checkpoint_bufferids_swapn.exit:             ; preds = %.lr.ph.i, %.critedg
   %.06.i167 = phi i64 [ %188, %.lr.ph.i166 ], [ 0, %sort_checkpoint_bufferids_swapn.exit ]
   %186 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %.1138.lcssa, i64 %.06.i167
   %187 = getelementptr inbounds nuw %struct.CkptSortItem, ptr %185, i64 %.06.i167
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %186, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %186, ptr noundef nonnull align 4 dereferenceable(20) %187, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %187, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %188 = add nuw i64 %.06.i167, 1
   %exitcond.not.i168 = icmp eq i64 %188, %183
   br i1 %exitcond.not.i168, label %sort_checkpoint_bufferids_swapn.exit169, label %.lr.ph.i166, !llvm.loop !71
@@ -10557,12 +10551,12 @@ sort_checkpoint_bufferids_swapn.exit169:          ; preds = %.lr.ph.i166, %sort_
   ret void
 }
 
-declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @ts_ckpt_progress_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #9 {
+define internal range(i32 -1, 2) i32 @ts_ckpt_progress_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #8 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10576,22 +10570,22 @@ define internal range(i32 -1, 2) i32 @ts_ckpt_progress_comparator(i64 noundef %0
   ret i32 %.0
 }
 
-declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @binaryheap_build(ptr noundef) local_unnamed_addr #3
+declare void @binaryheap_build(ptr noundef) local_unnamed_addr #2
 
-declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #3
+declare i64 @binaryheap_first(ptr noundef) local_unnamed_addr #2
 
-declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #3
+declare i64 @binaryheap_remove_first(ptr noundef) local_unnamed_addr #2
 
-declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare void @CheckpointWriteDelay(i32 noundef, double noundef) local_unnamed_addr #3
+declare void @CheckpointWriteDelay(i32 noundef, double noundef) local_unnamed_addr #2
 
-declare void @binaryheap_free(ptr noundef) local_unnamed_addr #3
+declare void @binaryheap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #13 {
+define internal fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #12 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = icmp ult i32 %4, %5
@@ -10802,9 +10796,9 @@ ckpt_buforder_comparator.exit21:                  ; preds = %103, %128, %77, %10
   ret ptr %134
 }
 
-declare void @BufTableDelete(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare void @BufTableDelete(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @smgrwritev(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @shared_buffer_write_error_callback(ptr noundef readonly captures(address_is_null) %0) #0 {
@@ -10832,36 +10826,36 @@ define internal void @shared_buffer_write_error_callback(ptr noundef readonly ca
   ret void
 }
 
-declare void @XLogFlush(i64 noundef) local_unnamed_addr #3
+declare void @XLogFlush(i64 noundef) local_unnamed_addr #2
 
-declare ptr @PageSetChecksumCopy(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @PageSetChecksumCopy(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #3
+declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 
-declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @smgrextend(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare void @smgrextend(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @GetAccessStrategy(i32 noundef) local_unnamed_addr #3
+declare ptr @GetAccessStrategy(i32 noundef) local_unnamed_addr #2
 
-declare ptr @read_stream_begin_smgr_relation(i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare ptr @read_stream_begin_smgr_relation(i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @block_range_read_stream_cb(ptr noundef, ptr noundef, ptr noundef) #3
+declare i32 @block_range_read_stream_cb(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @ProcessInterrupts() local_unnamed_addr #3
+declare void @ProcessInterrupts() local_unnamed_addr #2
 
-declare i32 @read_stream_next_buffer(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @read_stream_next_buffer(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare void @read_stream_end(ptr noundef) local_unnamed_addr #3
+declare void @read_stream_end(ptr noundef) local_unnamed_addr #2
 
-declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #3
+declare void @FreeAccessStrategy(ptr noundef) local_unnamed_addr #2
 
-declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #3
+declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @sort_pending_writebacks_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #13 {
+define internal fastcc ptr @sort_pending_writebacks_med3(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readonly captures(ret: address, provenance) %2) unnamed_addr #12 {
   %4 = load i64, ptr %0, align 4
   %5 = getelementptr i8, ptr %0, i64 8
   %.val.i.i = load i32, ptr %5, align 4
@@ -11108,9 +11102,15 @@ buffertag_comparator.exit41:                      ; preds = %91, %112, %68, %77,
   ret ptr %118
 }
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
-declare void @UnpinLocalBufferNoOwner(i32 noundef) local_unnamed_addr #3
+declare void @UnpinLocalBufferNoOwner(i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -11129,18 +11129,18 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

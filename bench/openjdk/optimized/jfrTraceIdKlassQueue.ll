@@ -219,8 +219,8 @@ define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr noundef nonnull readon
 7:                                                ; preds = %1
   store i1 true, ptr @_ZL6_clear, align 1
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %8, align 8
@@ -230,7 +230,7 @@ define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr noundef nonnull readon
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i.i = and i8 %13, 1
@@ -260,9 +260,9 @@ define hidden void @_ZN20JfrTraceIdKlassQueue5clearEv(ptr noundef nonnull readon
   br i1 %or.cond10.not.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7iterateI12KlassFunctorEEvRT_b.exit, !llvm.loop !7
 
 _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7iterateI12KlassFunctorEEvRT_b.exit: ; preds = %.lr.ph.i.i.i.i.i, %20, %7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i1 false, ptr @_ZL6_clear, align 1
   br label %22
 
@@ -285,7 +285,7 @@ define linkonce_odr hidden void @_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %8, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %not..i.i.i.i.i = and i8 %13, 1
@@ -335,7 +335,7 @@ define linkonce_odr hidden void @_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE7
   br i1 %29, label %26, label %_ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEEEEvRT_b.exit, !llvm.loop !9
 
 _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb0EE7iterateI15EpochDispatchOpIN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE15ElementDispatchI12KlassFunctorEEEEEvRT_b.exit: ; preds = %26, %27, %.lr.ph.i.i.i.i, %21, %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1677,10 +1677,10 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare void @_ZN9JfrBuffer11set_retiredEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

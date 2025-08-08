@@ -1304,9 +1304,6 @@ Py_DECREF.exit:                                   ; preds = %3, %42, %39, %6
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @PyBuffer_FillInfo(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -1505,9 +1502,6 @@ memory_alloc.exit.thread:                         ; preds = %10, %_Py_NewRef.exi
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyMemoryView_FromBuffer(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !117
@@ -1584,7 +1578,7 @@ Py_DECREF.exit:                                   ; preds = %6, %42, %39, %9, %4
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMemoryView_FromBufferProc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -2317,7 +2311,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @init_shape_strides(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
+define internal fastcc void @init_shape_strides(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !103
   switch i32 %4, label %.preheader34 [
@@ -2458,7 +2452,7 @@ init_strides_from_shape.exit:                     ; preds = %45, %67, %._crit_ed
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @buffer_to_contiguous(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2) unnamed_addr #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !103
   %7 = sext i32 %6 to i64
@@ -2551,7 +2545,7 @@ init_strides_from_shape.exit:                     ; preds = %45, %31, %38, %18
 
 55:                                               ; preds = %init_strides_from_shape.exit, %11
   %.0 = phi i32 [ -1, %11 ], [ %54, %init_strides_from_shape.exit ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -3103,7 +3097,7 @@ Py_DECREF.exit:                                   ; preds = %45, %42, %40, %_mem
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @memory_richcompare(ptr noundef readonly captures(address) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.Py_buffer, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i32 %2, -4
   %or.cond = icmp ult i32 %5, -2
   br i1 %or.cond, label %unpacker_free.exit100.thread, label %6
@@ -3532,7 +3526,7 @@ unpacker_free.exit100.thread:                     ; preds = %3, %40, %unpacker_f
 
 _Py_XNewRef.exit:                                 ; preds = %unpacker_free.exit100, %unpacker_free.exit100.thread, %175
   %.072160166171175 = phi ptr [ null, %unpacker_free.exit100 ], [ %.072160166171174, %unpacker_free.exit100.thread ], [ %.072160166171174, %175 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.072160166171175
 }
 
@@ -3705,7 +3699,7 @@ _Py_NewRef.exit:                                  ; preds = %memory_length.exit,
 ; Function Attrs: nounwind uwtable
 define internal ptr @memoryview(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %5, align 8, !tbaa !162
   %6 = icmp eq ptr %2, null
@@ -3727,7 +3721,7 @@ define internal ptr @memoryview(ptr readnone captures(none) %0, ptr noundef %1, 
 
 14:                                               ; preds = %9, %.thread
   %.0 = phi ptr [ %13, %.thread ], [ null, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -3738,7 +3732,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @init_flags(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -4082,13 +4076,13 @@ last_dim_is_contiguous.exit.thread._crit_edge:    ; preds = %last_dim_is_contigu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) unnamed_addr #8 {
+define internal fastcc void @copy_rec(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef captures(address_is_null) %9) unnamed_addr #7 {
   %11 = icmp eq i64 %1, 1
   br i1 %11, label %37, label %.preheader
 
@@ -4295,13 +4289,13 @@ copy_base.exit:                                   ; preds = %102, %28, %81, %.lr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @unpack_single(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc ptr @unpack_single(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !109
   %6 = and i32 %5, 1
@@ -4946,7 +4940,7 @@ define internal range(i32 -1, 1) i32 @memory_ass_sub(ptr noundef readonly captur
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca [3 x i64], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !109
   %10 = and i32 %9, 1
@@ -5097,8 +5091,8 @@ _PyIndex_Check.exit.thread:                       ; preds = %57, %_PyIndex_Check
   br i1 %77, label %78, label %.thread
 
 78:                                               ; preds = %76
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 284) #14
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %109, label %81
@@ -5154,8 +5148,8 @@ _PyIndex_Check.exit.thread:                       ; preds = %57, %_PyIndex_Check
 
 109:                                              ; preds = %78, %108
   %.2 = phi i32 [ %.052, %108 ], [ -1, %78 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %129
 
 110:                                              ; preds = %_PyIndex_Check.exit.thread
@@ -5206,7 +5200,7 @@ _PyIndex_Check.exit.thread:                       ; preds = %57, %_PyIndex_Check
 
 129:                                              ; preds = %adjust_fmt.exit.thread, %117, %122, %119, %64, %74, %70, %.split, %127, %.thread80, %109, %55, %52, %37, %33, %17
   %.0 = phi i32 [ -1, %17 ], [ -1, %33 ], [ -1, %37 ], [ %54, %52 ], [ -1, %55 ], [ %.2, %109 ], [ -1, %.thread80 ], [ -1, %127 ], [ -1, %64 ], [ %75, %74 ], [ -1, %70 ], [ -1, %.split ], [ -1, %117 ], [ %123, %122 ], [ -1, %119 ], [ -1, %adjust_fmt.exit.thread ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
@@ -5215,13 +5209,13 @@ declare i64 @PyNumber_AsSsize_t(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @init_slice(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 1) i32 @init_slice(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @PySlice_Unpack(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %25, label %8
@@ -5250,14 +5244,14 @@ define internal fastcc range(i32 -1, 1) i32 @init_slice(ptr noundef nonnull capt
 
 25:                                               ; preds = %2, %8
   %.031 = phi i32 [ 0, %8 ], [ -1, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.031
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 2) i64 @is_multiindex(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
+define internal fastcc range(i64 0, 2) i64 @is_multiindex(ptr noundef readonly captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val12 = load ptr, ptr %2, align 8, !tbaa !134
   %3 = getelementptr i8, ptr %.val12, i64 168
@@ -5374,7 +5368,7 @@ adjust_fmt.exit:                                  ; preds = %22
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_multislice(ptr noundef readonly captures(none) %0) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @is_multislice(ptr noundef readonly captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val14 = load ptr, ptr %2, align 8, !tbaa !134
   %3 = getelementptr i8, ptr %.val14, i64 168
@@ -6667,7 +6661,7 @@ _Py_NewRef.exit:                                  ; preds = %75, %78
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @memory_releasebuf(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #11 {
+define internal void @memory_releasebuf(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !110
   %5 = add i64 %4, -1
@@ -6861,7 +6855,7 @@ define internal fastcc range(i32 -1, 1) i32 @fix_struct_error_int() unnamed_addr
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i32 @unpack_cmp(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #9 {
+define internal fastcc i32 @unpack_cmp(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #8 {
   switch i8 %2, label %135 [
     i8 66, label %6
     i8 98, label %11
@@ -7438,7 +7432,7 @@ define internal noundef ptr @memoryview_release(ptr noundef captures(none) %0, p
 define internal ptr @memoryview_tobytes(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -7481,7 +7475,7 @@ define internal ptr @memoryview_tobytes(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not38, label %33, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %18, ptr noundef nonnull %6) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread47, label %27
@@ -7498,11 +7492,11 @@ define internal ptr @memoryview_tobytes(ptr noundef %0, ptr noundef %1, i64 noun
   br label %.thread47
 
 .thread47:                                        ; preds = %30, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %memoryview_tobytes_impl.exit
 
 32:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 33:                                               ; preds = %20
@@ -7599,14 +7593,14 @@ sub_0.i:                                          ; preds = %47
 
 memoryview_tobytes_impl.exit:                     ; preds = %74, %71, %69, %64, %59, %.tail25.thread.i, %45, %.thread47, %33, %11
   %.030 = phi ptr [ null, %33 ], [ null, %11 ], [ null, %.thread47 ], [ null, %45 ], [ null, %.tail25.thread.i ], [ null, %59 ], [ %62, %64 ], [ null, %69 ], [ null, %71 ], [ null, %74 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.030
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @memoryview_hex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -7738,7 +7732,7 @@ define internal ptr @memoryview_hex(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 memoryview_hex_impl.exit:                         ; preds = %68, %65, %61, %60, %57, %55, %45, %40, %36, %23, %11
   %.027 = phi ptr [ null, %23 ], [ null, %11 ], [ null, %36 ], [ %44, %40 ], [ null, %45 ], [ null, %55 ], [ null, %57 ], [ null, %60 ], [ %63, %61 ], [ %63, %65 ], [ %63, %68 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.027
 }
 
@@ -7829,7 +7823,7 @@ memoryview_tolist_impl.exit:                      ; preds = %13, %adjust_fmt.exi
 ; Function Attrs: nounwind uwtable
 define internal ptr @memoryview_cast(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -8038,7 +8032,7 @@ zero_in_shape.exit.i:                             ; preds = %55
 
 memoryview_cast_impl.exit:                        ; preds = %96, %93, %91, %88, %87, %.thread53.i, %74, %69, %64, %zero_in_shape.exit.i, %44, %40, %36, %12, %21
   %.025 = phi ptr [ null, %21 ], [ null, %12 ], [ null, %36 ], [ null, %40 ], [ null, %zero_in_shape.exit.i ], [ null, %69 ], [ null, %74 ], [ null, %64 ], [ null, %44 ], [ null, %.thread53.i ], [ %82, %88 ], [ %82, %87 ], [ null, %91 ], [ null, %93 ], [ null, %96 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.025
 }
 
@@ -8093,7 +8087,7 @@ memoryview_toreadonly_impl.exit:                  ; preds = %12, %16, %18, %21
 ; Function Attrs: nounwind uwtable
 define internal ptr @memoryview__from_flags(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
   %7 = icmp eq i64 %2, 2
   %or.cond3 = and i1 %7, %6
@@ -8127,7 +8121,7 @@ define internal ptr @memoryview__from_flags(ptr readnone captures(none) %0, ptr 
 
 20:                                               ; preds = %.sink.split, %17, %9
   %.0 = phi ptr [ null, %17 ], [ null, %9 ], [ %19, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
 
@@ -8139,7 +8133,7 @@ define internal ptr @memoryview_count(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !104
   %7 = call i32 @PyIter_NextItem(ptr noundef nonnull %4, ptr noundef nonnull %3) #14
   %.not36 = icmp eq i32 %7, 0
@@ -8261,7 +8255,7 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge, %45, %
 
 Py_DECREF.exit29:                                 ; preds = %43, %40, %.critedge, %15, %12, %10, %Py_DECREF.exit
   %.2 = phi ptr [ %49, %Py_DECREF.exit ], [ null, %10 ], [ null, %12 ], [ null, %15 ], [ null, %.critedge ], [ null, %40 ], [ null, %43 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
 50:                                               ; preds = %2, %Py_DECREF.exit29
@@ -8273,9 +8267,9 @@ Py_DECREF.exit29:                                 ; preds = %43, %40, %.critedge
 define internal ptr @memoryview_index(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 9223372036854775807, ptr %5, align 8, !tbaa !124
   %6 = add i64 %2, -1
   %or.cond = icmp ult i64 %6, 3
@@ -8439,8 +8433,8 @@ Py_DECREF.exit.i:                                 ; preds = %69, %66, %63
 
 memoryview_index_impl.exit:                       ; preds = %73, %.lr.ph.i, %77, %._crit_edge.i, %71, %Py_DECREF.exit62.i, %39, %34, %18, %12, %7
   %.0 = phi ptr [ null, %18 ], [ null, %12 ], [ null, %7 ], [ null, %34 ], [ null, %39 ], [ null, %77 ], [ null, %._crit_edge.i ], [ %72, %71 ], [ %62, %Py_DECREF.exit62.i ], [ null, %.lr.ph.i ], [ null, %73 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
@@ -9817,6 +9811,12 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12
 
@@ -9828,16 +9828,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }

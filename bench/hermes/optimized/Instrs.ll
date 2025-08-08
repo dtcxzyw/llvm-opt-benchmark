@@ -1370,7 +1370,7 @@ _ZNK6hermes11Instruction10getVarietyEv.exit:      ; preds = %entry, %sw.epilog.s
   store i64 %retval.sroa.0.0.insert.insert.i.i, ptr %ref.tmp, align 8
   %call3 = tail call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   store i32 %call3, ptr %ref.tmp2, align 4
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper.i)
   %4 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %4, 0
   br i1 %guard.uninitialized.i.i.i, label %init.check.i.i.i, label %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit, !prof !15
@@ -1394,7 +1394,7 @@ _ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.e
   store i64 %7, ptr %seed.i.i, align 8
   %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %helper.i, i64 64
   %call.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineIN6hermes11Instruction7VarietyEJjEEENS_9hash_codeEmPcS8_RKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i, i64 noundef 0, ptr noundef nonnull %helper.i, ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp2)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper.i)
   %call6 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) #15
   %cmp.not33 = icmp eq i32 %call6, 0
   br i1 %cmp.not33, label %for.end, label %for.body.lr.ph
@@ -1410,7 +1410,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %i.035 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
   %hc.sroa.0.034 = phi i64 [ %call.i, %for.body.lr.ph ], [ %call3.i.i.i, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
   %call9 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.035) #15
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper.i4)
   %8 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i.i.i5 = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i.i5, label %init.check.i.i.i8, label %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit, !prof !15
@@ -1435,14 +1435,14 @@ _ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit: ; preds
   %12 = ptrtoint ptr %call9 to i64
   store i64 %12, ptr %add.ptr.i.i.i, align 8
   %call3.i.i.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i4, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %add.ptr.i7)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper.i4)
   %inc = add nuw i32 %i.035, 1
   %cmp.not = icmp eq i32 %inc, %call6
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit, %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit
   %hc.sroa.0.0.lcssa = phi i64 [ %call.i, %_ZN4llvh12hash_combineIJN6hermes11Instruction7VarietyEjEEENS_9hash_codeEDpRKT_.exit ], [ %call3.i.i.i, %_ZN4llvh12hash_combineIJNS_9hash_codeEPN6hermes5ValueEEEES1_DpRKT_.exit ]
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %helper.i14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %helper.i14)
   %13 = load atomic i8, ptr @_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed acquire, align 8
   %guard.uninitialized.i.i.i15 = icmp eq i8 %13, 0
   br i1 %guard.uninitialized.i.i.i15, label %init.check.i.i.i21, label %_ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit, !prof !15
@@ -1470,7 +1470,7 @@ _ZN4llvh12hash_combineIJNS_9hash_codeES1_EEES1_DpRKT_.exit: ; preds = %for.end, 
   %add.ptr.i.i29 = getelementptr inbounds nuw i8, ptr %helper.i14, i64 16
   store i64 0, ptr %add.ptr.i.i.i18, align 8
   %call3.i.i.i20 = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %helper.i14, i64 noundef 0, ptr noundef nonnull %add.ptr.i.i29, ptr noundef nonnull %add.ptr.i17)
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %helper.i14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %helper.i14)
   ret i64 %call3.i.i.i20
 }
 
@@ -1522,13 +1522,13 @@ _ZN4llvh7hashing6detail17get_hashable_dataIN6hermes11Instruction7VarietyEEENSt9e
   %mul6.i.i.i.i.i = mul i64 %xor5.i.i.i.i.i, -7070675565921424023
   %call2 = call noundef ptr @_ZN4llvh7hashing6detail29hash_combine_recursive_helper12combine_dataImEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %length.addr, ptr noundef %buffer_ptr, ptr noundef %buffer_end, i64 noundef %mul6.i.i.i.i.i)
   %5 = load i64, ptr %length.addr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %length.addr.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %length.addr.i)
   store i64 %5, ptr %length.addr.i, align 8
   %6 = load i32, ptr %args, align 4
   %call2.i = call noundef ptr @_ZN4llvh7hashing6detail29hash_combine_recursive_helper12combine_dataIjEEPcRmS4_S4_T_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %length.addr.i, ptr noundef %call2, ptr noundef %buffer_end, i32 noundef %6)
   %7 = load i64, ptr %length.addr.i, align 8
   %call3.i = call i64 @_ZN4llvh7hashing6detail29hash_combine_recursive_helper7combineEmPcS3_(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %7, ptr noundef %call2.i, ptr noundef %buffer_end)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %length.addr.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %length.addr.i)
   ret i64 %call3.i
 }
 
@@ -2483,10 +2483,10 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #13
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -857,12 +857,12 @@ _ZN18ZArrayIteratorImplIP5ZPageLb1EE10next_indexEPm.exit.preheader: ; preds = %_
   br i1 %46, label %47, label %_ZN25ZRelocationSetInstallTask13install_smallEP11ZForwardingm.exit
 
 47:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %50 = load i8, ptr %49, align 1
   call void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN25ZRelocationSetInstallTask7installEP11ZForwardingmEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS9_(ptr noundef nonnull align 8 dereferenceable(64) %48, i8 noundef zeroext %50, ptr nonnull align 8 dereferenceable(192) %37, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN25ZRelocationSetInstallTask13install_smallEP11ZForwardingm.exit
 
 _ZN25ZRelocationSetInstallTask13install_smallEP11ZForwardingm.exit: ; preds = %21, %47
@@ -909,12 +909,12 @@ _ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZN25ZRelocationSet
   br i1 %78, label %79, label %_ZN25ZRelocationSetInstallTask14install_mediumEP11ZForwardingm.exit
 
 79:                                               ; preds = %57
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %82 = load i8, ptr %81, align 1
   call void @_ZN8ZLiveMap7iterateIZN5ZPage14object_iterateIZN25ZRelocationSetInstallTask7installEP11ZForwardingmEUlP7oopDescE_EEvT_EUlmE_EEv13ZGenerationIdS9_(ptr noundef nonnull align 8 dereferenceable(64) %80, i8 noundef zeroext %82, ptr nonnull align 8 dereferenceable(192) %70, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN25ZRelocationSetInstallTask14install_mediumEP11ZForwardingm.exit
 
 _ZN25ZRelocationSetInstallTask14install_mediumEP11ZForwardingm.exit: ; preds = %57, %79
@@ -1318,7 +1318,7 @@ _ZNK5ZPage21object_from_bit_indexEm.exit:         ; preds = %2, %_ZNK5ZPage22obj
   %17 = load i64, ptr @ZAddressHeapBase, align 8
   %18 = or i64 %17, %16
   %19 = inttoptr i64 %18 to ptr
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %20, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV23ZBasicOopIterateClosureIPFvPV8zpointerEE, i64 16), ptr %3, align 8
@@ -1395,7 +1395,7 @@ _ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i
   br label %_ZZN25ZRelocationSetInstallTask7installEP11ZForwardingmENKUlP7oopDescE_clES3_.exit
 
 _ZZN25ZRelocationSetInstallTask7installEP11ZForwardingmENKUlP7oopDescE_clES3_.exit: ; preds = %_ZN9ZIterator25is_invisible_object_arrayEP7oopDesc.exit.i.i.i, %_ZN7oopDesc11oop_iterateI23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvPT_.exit.i.i.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 true
 }
 
@@ -1734,9 +1734,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZBasicOopIterateCl
   unreachable
 
 _ZN16InstanceRefKlass15oop_oop_iterateI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvP7oopDescPT0_.exit: ; preds = %18, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop23ZBasicOopIterateClosureIPFvPV8zpointerEE14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1793,9 +1793,9 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23ZBasicOopIterateCl
   br i1 %32, label %20, label %_ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvS2_PT0_.exit, !llvm.loop !25
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEEEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc23ZBasicOopIterateClosureIPFvPV8zpointerEE14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -4213,10 +4213,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #11
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

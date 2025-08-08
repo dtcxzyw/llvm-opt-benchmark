@@ -4797,7 +4797,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = load i32, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
@@ -4868,7 +4868,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit: ; preds = %37, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 53:                                               ; preds = %5
@@ -4921,7 +4921,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
   %87 = load double, ptr %86, align 8, !noalias !31
   %88 = load i32, ptr %69, align 4
   %89 = load i32, ptr %70, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %90 = load i8, ptr %71, align 4
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %.loopexit.i15
@@ -4988,7 +4988,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWei
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit34
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point1stDerivWeightIdEENS4_24Point1stDerivAccumulatorEEEviiT_S9_iiT0_.exit34: ; preds = %107, %.loopexit.i15
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %125 = icmp slt i64 %indvars.iv.next, %74
   br i1 %125, label %75, label %.loopexit, !llvm.loop !34
@@ -5561,7 +5561,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = load i32, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
@@ -5656,7 +5656,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE13A
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit: ; preds = %37, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 68:                                               ; preds = %5
@@ -5730,7 +5730,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
   %114 = load double, ptr %113, align 8, !noalias !37
   %115 = load i32, ptr %87, align 4
   %116 = load i32, ptr %88, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %117 = load i8, ptr %89, align 4
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %.loopexit.i15
@@ -5821,7 +5821,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWei
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit49
 
 _ZN10OpenSubdiv6v3_6_03Far8internal11WeightTableIdE5mergeINS2_19Point2ndDerivWeightIdEENS4_24Point2ndDerivAccumulatorEEEviiT_S9_iiT0_.exit49: ; preds = %134, %.loopexit.i15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %170 = icmp slt i64 %indvars.iv.next, %92
   br i1 %170, label %93, label %.loopexit, !llvm.loop !40
@@ -6557,10 +6557,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

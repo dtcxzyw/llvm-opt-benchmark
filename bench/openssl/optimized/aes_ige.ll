@@ -102,7 +102,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   br label %96
 
 .lr.ph181.preheader:                              ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5213.0.copyload = load i64, ptr %.sroa.5213.0..sroa_idx, align 1, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -148,7 +148,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   store i64 %.sroa.0216.0.copyload, ptr %48, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %96
 
 60:                                               ; preds = %25
@@ -165,7 +165,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   %.0123150 = phi ptr [ %.2121151, %.lr.ph ], [ %61, %.lr.ph.preheader ]
   %.0124149 = phi ptr [ %.2152, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.2131148 = phi i64 [ %79, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %63 = load i64, ptr %.2152, align 1, !tbaa !3
   %64 = load i64, ptr %.0123150, align 1, !tbaa !3
   %65 = xor i64 %64, %63
@@ -190,7 +190,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   %79 = add nsw i64 %.2131148, -1
   %80 = getelementptr inbounds nuw i8, ptr %.2152, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.2121151, i64 16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not141 = icmp eq i64 %79, 0
   br i1 %.not141, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -200,7 +200,7 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   br label %96
 
 .lr.ph161.preheader:                              ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.sroa.0201.0.copyload = load i64, ptr %4, align 1
   %.sroa.5203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.5203.0.copyload = load i64, ptr %.sroa.5203.0..sroa_idx, align 1, !tbaa !9
@@ -249,28 +249,22 @@ define void @AES_ige_encrypt(ptr noundef readonly captures(address) %0, ptr noun
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.0.sroa.5.0.copyload, ptr %.sroa.0.sroa.5.0..sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %96
 
 96:                                               ; preds = %._crit_edge182, %._crit_edge171, %._crit_edge162, %._crit_edge, %6
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: noreturn
-declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @AES_encrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #0 {
@@ -278,10 +272,10 @@ define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
   %11 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = icmp ne ptr %0, null
   %13 = icmp ne ptr %1, null
   %or.cond = and i1 %12, %13
@@ -522,18 +516,24 @@ define void @AES_bi_ige_encrypt(ptr noundef readonly captures(address_is_null) %
   br i1 %114, label %.lr.ph150, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %111, %67, %70, %26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { noreturn nounwind }
 attributes #6 = { nounwind }
 

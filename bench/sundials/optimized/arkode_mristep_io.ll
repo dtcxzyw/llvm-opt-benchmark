@@ -106,10 +106,10 @@ define i32 @MRIStepSetCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetCoupling, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %58
@@ -193,35 +193,29 @@ define i32 @MRIStepSetCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 58:                                               ; preds = %2, %48, %46, %10
   %.0 = phi i32 [ -22, %10 ], [ -21, %46 ], [ 0, %48 ], [ %7, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @mriStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @mriStep_AccessARKODEStepMem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @MRIStepCoupling_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @MRIStepCoupling_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MRIStepCoupling_Free(ptr noundef) local_unnamed_addr #1
 
-declare void @MRIStepCoupling_Free(ptr noundef) local_unnamed_addr #2
-
-declare ptr @MRIStepCoupling_Copy(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @MRIStepCoupling_Copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetPreInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetPreInnerFn, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
@@ -233,8 +227,8 @@ define i32 @MRIStepSetPreInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %9
 
 9:                                                ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -242,8 +236,8 @@ define i32 @MRIStepSetPreInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_a
 define i32 @MRIStepSetPostInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepSetPostInnerFn, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
@@ -255,15 +249,15 @@ define i32 @MRIStepSetPostInnerFn(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %9
 
 9:                                                ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !8
   %5 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNumRhsEvals, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
@@ -315,11 +309,11 @@ define i32 @mriStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef w
 
 26:                                               ; preds = %14, %17, %20, %3, %11, %8
   %.0 = phi i32 [ -22, %8 ], [ -22, %11 ], [ %5, %3 ], [ 0, %20 ], [ 0, %17 ], [ 0, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-declare i32 @mriStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @mriStep_AccessStepMem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -336,14 +330,14 @@ define i32 @MRIStepGetNumRhsEvals(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 %.0
 }
 
-declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumRhsEvals(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetCurrentCoupling(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepGetCurrentCoupling, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
@@ -356,8 +350,8 @@ define i32 @MRIStepGetCurrentCoupling(ptr noundef %0, ptr noundef writeonly capt
   br label %10
 
 10:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -365,8 +359,8 @@ define i32 @MRIStepGetCurrentCoupling(ptr noundef %0, ptr noundef writeonly capt
 define i32 @MRIStepGetLastInnerStepFlag(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepGetLastInnerStepFlag, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -381,8 +375,8 @@ define i32 @MRIStepGetLastInnerStepFlag(ptr noundef %0, ptr noundef writeonly ca
   br label %12
 
 12:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -390,8 +384,8 @@ define i32 @MRIStepGetLastInnerStepFlag(ptr noundef %0, ptr noundef writeonly ca
 define i32 @MRIStepGetNumInnerStepperFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepGetNumInnerStepperFails, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %10
@@ -404,8 +398,8 @@ define i32 @MRIStepGetNumInnerStepperFails(ptr noundef %0, ptr noundef writeonly
   br label %10
 
 10:                                               ; preds = %2, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %5
 }
 
@@ -429,16 +423,16 @@ define i32 @mriStep_SetAdaptController(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %.0
 }
 
-declare i32 @SUNAdaptController_GetType(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_GetType(ptr noundef) local_unnamed_addr #1
 
-declare i32 @arkReplaceAdaptController(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @arkReplaceAdaptController(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_MRIStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_MRIStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetUserData, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %12
@@ -460,11 +454,11 @@ define i32 @mriStep_SetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 12:                                               ; preds = %9, %2, %11
   %.0 = phi i32 [ 0, %11 ], [ %4, %2 ], [ %10, %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @arkLSSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @arkLSSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -473,11 +467,11 @@ define i32 @mriStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetDefaults, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %100
@@ -643,26 +637,26 @@ define i32 @mriStep_SetDefaults(ptr noundef %0) local_unnamed_addr #0 {
 
 100:                                              ; preds = %87, %91, %1, %86, %79
   %.0 = phi i32 [ -20, %79 ], [ -20, %86 ], [ %7, %1 ], [ 0, %91 ], [ 0, %87 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Space(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #2
+declare i32 @SUNAdaptController_Destroy(ptr noundef) local_unnamed_addr #1
 
-declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #2
+declare ptr @SUNAdaptController_I(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetLinear, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %12
@@ -680,14 +674,14 @@ define i32 @mriStep_SetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br label %12
 
 12:                                               ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinear, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %9
@@ -703,7 +697,7 @@ define i32 @mriStep_SetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %1, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %3
 }
 
@@ -712,9 +706,9 @@ define i32 @mriStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetOrder, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %28
@@ -752,16 +746,16 @@ define i32 @mriStep_SetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br label %28
 
 28:                                               ; preds = %2, %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetNonlinCRDown(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinCRDown, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -775,14 +769,14 @@ define i32 @mriStep_SetNonlinCRDown(ptr noundef %0, double noundef %1) local_unn
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinRDiv, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -796,14 +790,14 @@ define i32 @mriStep_SetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnam
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetDeltaGammaMax, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -817,14 +811,14 @@ define i32 @mriStep_SetDeltaGammaMax(ptr noundef %0, double noundef %1) local_un
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetLSetupFrequency, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -838,14 +832,14 @@ define i32 @mriStep_SetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unn
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetPredictorMethod, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -857,14 +851,14 @@ define i32 @mriStep_SetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unn
   br label %8
 
 8:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetMaxNonlinIters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %16
@@ -895,16 +889,16 @@ define i32 @mriStep_SetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unna
 
 16:                                               ; preds = %11, %2, %15, %10
   %.0 = phi i32 [ -22, %10 ], [ -32, %15 ], [ %4, %2 ], [ 0, %11 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @SUNNonlinSolSetMaxIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetNonlinConvCoef, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.sink.split, label %8
@@ -918,14 +912,14 @@ define i32 @mriStep_SetNonlinConvCoef(ptr noundef %0, double noundef %1) local_u
   br label %8
 
 8:                                                ; preds = %.sink.split, %2
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetStagePredictFn, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -937,14 +931,14 @@ define i32 @mriStep_SetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unna
   br label %8
 
 8:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_SetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_SetDeduceImplicitRhs, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %8
@@ -956,14 +950,14 @@ define i32 @mriStep_SetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_u
   br label %8
 
 8:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetCurrentGamma(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetCurrentGamma, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -976,14 +970,14 @@ define i32 @mriStep_GetCurrentGamma(ptr noundef %0, ptr noundef writeonly captur
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetEstLocalErrors, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %20
@@ -1015,16 +1009,16 @@ define i32 @mriStep_GetEstLocalErrors(ptr noundef %0, ptr noundef %1) local_unna
 
 20:                                               ; preds = %8, %12, %2, %17
   %.0 = phi i32 [ 0, %17 ], [ %4, %2 ], [ -48, %12 ], [ -48, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetNumLinSolvSetups(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNumLinSolvSetups, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1037,14 +1031,14 @@ define i32 @mriStep_GetNumLinSolvSetups(ptr noundef %0, ptr noundef writeonly ca
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetNumNonlinSolvIters(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNumNonlinSolvIters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1057,14 +1051,14 @@ define i32 @mriStep_GetNumNonlinSolvIters(ptr noundef %0, ptr noundef writeonly 
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNumNonlinSolvConvFails, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
@@ -1077,14 +1071,14 @@ define i32 @mriStep_GetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef writeo
   br label %9
 
 9:                                                ; preds = %2, %5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_GetNonlinSolvStats(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_GetNonlinSolvStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %12
@@ -1100,14 +1094,14 @@ define i32 @mriStep_GetNonlinSolvStats(ptr noundef %0, ptr noundef writeonly cap
   br label %12
 
 12:                                               ; preds = %3, %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_PrintAllStats, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %201
@@ -1346,17 +1340,17 @@ define i32 @mriStep_PrintAllStats(ptr noundef %0, ptr noundef captures(none) %1,
 
 201:                                              ; preds = %199, %47, %78, %39, %3, %200
   %.0 = phi i32 [ -22, %200 ], [ %5, %3 ], [ 0, %39 ], [ 0, %78 ], [ 0, %47 ], [ 0, %199 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @mriStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @mriStep_AccessStepMem(ptr noundef %0, ptr noundef nonnull @__func__.mriStep_WriteParameters, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %68
@@ -1459,7 +1453,7 @@ define i32 @mriStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) %
   br label %68
 
 68:                                               ; preds = %2, %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
@@ -1469,7 +1463,7 @@ define i32 @MRIStepResize(ptr noundef %0, ptr noundef %1, double noundef %2, ptr
   ret i32 %6
 }
 
-declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeResize(ptr noundef, ptr noundef, double noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1477,7 +1471,7 @@ define i32 @MRIStepReset(ptr noundef %0, double noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeReset(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
@@ -1485,7 +1479,7 @@ define i32 @MRIStepSStolerances(ptr noundef %0, double noundef %1, double nounde
   ret i32 %4
 }
 
-declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1493,7 +1487,7 @@ define i32 @MRIStepSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSVtolerances(ptr noundef, double noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1501,7 +1495,7 @@ define i32 @MRIStepWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWFtolerances(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1509,7 +1503,7 @@ define i32 @MRIStepSetLinearSolver(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinearSolver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1517,7 +1511,7 @@ define i32 @MRIStepRootInit(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   ret i32 %4
 }
 
-declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeRootInit(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
@@ -1525,7 +1519,7 @@ define i32 @MRIStepSetDefaults(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDefaults(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1533,7 +1527,7 @@ define i32 @MRIStepSetOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   ret i32 %3
 }
 
-declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetOrder(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1541,7 +1535,7 @@ define i32 @MRIStepSetInterpolantType(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1549,7 +1543,7 @@ define i32 @MRIStepSetInterpolantDegree(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolantDegree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetDenseOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1563,7 +1557,7 @@ define i32 @MRIStepSetNonlinearSolver(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1571,7 +1565,7 @@ define i32 @MRIStepSetNlsRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNlsRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNlsRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1579,7 +1573,7 @@ define i32 @MRIStepSetLinear(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
@@ -1587,7 +1581,7 @@ define i32 @MRIStepSetNonlinear(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNonlinear(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1595,7 +1589,7 @@ define i32 @MRIStepSetMaxNumSteps(ptr noundef %0, i64 noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNumSteps(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1603,7 +1597,7 @@ define i32 @MRIStepSetNonlinCRDown(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinCRDown(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinCRDown(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1611,7 +1605,7 @@ define i32 @MRIStepSetNonlinRDiv(ptr noundef %0, double noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinRDiv(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinRDiv(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1619,7 +1613,7 @@ define i32 @MRIStepSetDeltaGammaMax(ptr noundef %0, double noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeSetDeltaGammaMax(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDeltaGammaMax(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1627,7 +1621,7 @@ define i32 @MRIStepSetLSetupFrequency(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLSetupFrequency(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLSetupFrequency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1635,7 +1629,7 @@ define i32 @MRIStepSetPredictorMethod(ptr noundef %0, i32 noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPredictorMethod(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPredictorMethod(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1643,7 +1637,7 @@ define i32 @MRIStepSetMaxNonlinIters(ptr noundef %0, i32 noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxNonlinIters(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxNonlinIters(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1651,7 +1645,7 @@ define i32 @MRIStepSetNonlinConvCoef(ptr noundef %0, double noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetNonlinConvCoef(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNonlinConvCoef(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1659,7 +1653,7 @@ define i32 @MRIStepSetMaxHnilWarns(ptr noundef %0, i32 noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetMaxHnilWarns(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1667,7 +1661,7 @@ define i32 @MRIStepSetInterpolateStopTime(ptr noundef %0, i32 noundef %1) local_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetInterpolateStopTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1675,7 +1669,7 @@ define i32 @MRIStepSetStopTime(ptr noundef %0, double noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
@@ -1683,7 +1677,7 @@ define i32 @MRIStepClearStopTime(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeClearStopTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1691,7 +1685,7 @@ define i32 @MRIStepSetFixedStep(ptr noundef %0, double noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetFixedStep(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1699,7 +1693,7 @@ define i32 @MRIStepSetRootDirection(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetRootDirection(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
@@ -1707,7 +1701,7 @@ define i32 @MRIStepSetNoInactiveRootWarn(ptr noundef %0) local_unnamed_addr #0 {
   ret i32 %2
 }
 
-declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetNoInactiveRootWarn(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1715,7 +1709,7 @@ define i32 @MRIStepSetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1723,7 +1717,7 @@ define i32 @MRIStepSetPostprocessStepFn(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStepFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1731,7 +1725,7 @@ define i32 @MRIStepSetPostprocessStageFn(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPostprocessStageFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1739,7 +1733,7 @@ define i32 @MRIStepSetStagePredictFn(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeSetStagePredictFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetStagePredictFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1747,7 +1741,7 @@ define i32 @MRIStepSetDeduceImplicitRhs(ptr noundef %0, i32 noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeSetDeduceImplicitRhs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetDeduceImplicitRhs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1755,7 +1749,7 @@ define i32 @MRIStepSetJacFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -1763,7 +1757,7 @@ define i32 @MRIStepSetJacEvalFrequency(ptr noundef %0, i64 noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacEvalFrequency(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacEvalFrequency(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1771,7 +1765,7 @@ define i32 @MRIStepSetLinearSolutionScaling(ptr noundef %0, i32 noundef %1) loca
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinearSolutionScaling(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinearSolutionScaling(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1779,7 +1773,7 @@ define i32 @MRIStepSetEpsLin(ptr noundef %0, double noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeSetEpsLin(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetEpsLin(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLSNormFactor(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
@@ -1787,7 +1781,7 @@ define i32 @MRIStepSetLSNormFactor(ptr noundef %0, double noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLSNormFactor(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1795,7 +1789,7 @@ define i32 @MRIStepSetPreconditioner(ptr noundef %0, ptr noundef %1, ptr noundef
   ret i32 %4
 }
 
-declare i32 @ARKodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetPreconditioner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1803,7 +1797,7 @@ define i32 @MRIStepSetJacTimes(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   ret i32 %4
 }
 
-declare i32 @ARKodeSetJacTimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacTimes(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1811,7 +1805,7 @@ define i32 @MRIStepSetJacTimesRhsFn(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeSetJacTimesRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetJacTimesRhsFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1819,7 +1813,7 @@ define i32 @MRIStepSetLinSysFn(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeSetLinSysFn(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeSetLinSysFn(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1827,7 +1821,7 @@ define i32 @MRIStepEvolve(ptr noundef %0, double noundef %1, ptr noundef %2, ptr
   ret i32 %6
 }
 
-declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1835,7 +1829,7 @@ define i32 @MRIStepGetDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr
   ret i32 %5
 }
 
-declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetDky(ptr noundef, double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1843,7 +1837,7 @@ define i32 @MRIStepComputeState(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %4
 }
 
-declare i32 @ARKodeComputeState(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeComputeState(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumLinSolvSetups(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1851,7 +1845,7 @@ define i32 @MRIStepGetNumLinSolvSetups(ptr noundef %0, ptr noundef %1) local_unn
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinSolvSetups(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1859,7 +1853,7 @@ define i32 @MRIStepGetWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ret i32 %4
 }
 
-declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1867,7 +1861,7 @@ define i32 @MRIStepGetNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1875,7 +1869,7 @@ define i32 @MRIStepGetLastStep(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastStep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1883,7 +1877,7 @@ define i32 @MRIStepGetCurrentTime(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1891,7 +1885,7 @@ define i32 @MRIStepGetCurrentState(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentState(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetCurrentGamma(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1899,7 +1893,7 @@ define i32 @MRIStepGetCurrentGamma(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetCurrentGamma(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetCurrentGamma(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1907,7 +1901,7 @@ define i32 @MRIStepGetTolScaleFactor(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetTolScaleFactor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1915,7 +1909,7 @@ define i32 @MRIStepGetErrWeights(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ret i32 %3
 }
 
-declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetErrWeights(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1923,7 +1917,7 @@ define i32 @MRIStepGetNumGEvals(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumGEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1931,7 +1925,7 @@ define i32 @MRIStepGetRootInfo(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetRootInfo(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1939,7 +1933,7 @@ define i32 @MRIStepGetUserData(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret i32 %3
 }
 
-declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetUserData(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1947,7 +1941,7 @@ define i32 @MRIStepPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
-declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ARKodePrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @MRIStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -1955,7 +1949,7 @@ define ptr @MRIStepGetReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1963,14 +1957,14 @@ define i32 @MRIStepWriteParameters(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeWriteParameters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepWriteCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @mriStep_AccessARKODEStepMem(ptr noundef %0, ptr noundef nonnull @__func__.MRIStepWriteCoupling, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %18
@@ -1997,12 +1991,12 @@ define i32 @MRIStepWriteCoupling(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 18:                                               ; preds = %2, %13, %11
   %.0 = phi i32 [ -21, %11 ], [ 0, %13 ], [ %5, %2 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare void @MRIStepCoupling_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @MRIStepCoupling_Write(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNonlinearSystemData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
@@ -2010,7 +2004,7 @@ define i32 @MRIStepGetNonlinearSystemData(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 %9
 }
 
-declare i32 @ARKodeGetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNonlinearSystemData(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2018,7 +2012,7 @@ define i32 @MRIStepGetNumNonlinSolvIters(ptr noundef %0, ptr noundef %1) local_u
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2026,7 +2020,7 @@ define i32 @MRIStepGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef %1) loc
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumNonlinSolvConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNonlinSolvStats(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2034,7 +2028,7 @@ define i32 @MRIStepGetNonlinSolvStats(ptr noundef %0, ptr noundef %1, ptr nounde
   ret i32 %4
 }
 
-declare i32 @ARKodeGetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNonlinSolvStats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumStepSolveFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2042,7 +2036,7 @@ define i32 @MRIStepGetNumStepSolveFails(ptr noundef %0, ptr noundef %1) local_un
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumStepSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumStepSolveFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetJac(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2050,7 +2044,7 @@ define i32 @MRIStepGetJac(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJac(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJac(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetJacTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2058,7 +2052,7 @@ define i32 @MRIStepGetJacTime(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJacTime(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJacTime(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetJacNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2066,7 +2060,7 @@ define i32 @MRIStepGetJacNumSteps(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetJacNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetJacNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetLinWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2074,7 +2068,7 @@ define i32 @MRIStepGetLinWorkSpace(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret i32 %4
 }
 
-declare i32 @ARKodeGetLinWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLinWorkSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2082,7 +2076,7 @@ define i32 @MRIStepGetNumJacEvals(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJacEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumPrecEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2090,7 +2084,7 @@ define i32 @MRIStepGetNumPrecEvals(ptr noundef %0, ptr noundef %1) local_unnamed
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumPrecEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumPrecSolves(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2098,7 +2092,7 @@ define i32 @MRIStepGetNumPrecSolves(ptr noundef %0, ptr noundef %1) local_unname
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumPrecSolves(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumLinIters(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2106,7 +2100,7 @@ define i32 @MRIStepGetNumLinIters(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinIters(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinIters(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumLinConvFails(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2114,7 +2108,7 @@ define i32 @MRIStepGetNumLinConvFails(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinConvFails(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinConvFails(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumJTSetupEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2122,7 +2116,7 @@ define i32 @MRIStepGetNumJTSetupEvals(ptr noundef %0, ptr noundef %1) local_unna
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJTSetupEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJTSetupEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumJtimesEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2130,7 +2124,7 @@ define i32 @MRIStepGetNumJtimesEvals(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumJtimesEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumJtimesEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetNumLinRhsEvals(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2138,7 +2132,7 @@ define i32 @MRIStepGetNumLinRhsEvals(ptr noundef %0, ptr noundef %1) local_unnam
   ret i32 %3
 }
 
-declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @MRIStepGetLastLinFlag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2146,7 +2140,7 @@ define i32 @MRIStepGetLastLinFlag(ptr noundef %0, ptr noundef %1) local_unnamed_
   ret i32 %3
 }
 
-declare i32 @ARKodeGetLastLinFlag(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @ARKodeGetLastLinFlag(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @MRIStepGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
@@ -2154,7 +2148,7 @@ define ptr @MRIStepGetLinReturnFlagName(i64 noundef %0) local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @ARKodeGetLinReturnFlagName(i64 noundef) local_unnamed_addr #2
+declare ptr @ARKodeGetLinReturnFlagName(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @MRIStepFree(ptr noundef %0) local_unnamed_addr #0 {
@@ -2162,7 +2156,7 @@ define void @MRIStepFree(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
+declare void @ARKodeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @MRIStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -2170,7 +2164,13 @@ define void @MRIStepPrintMem(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   ret void
 }
 
-declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @ARKodePrintMem(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
@@ -2179,9 +2179,9 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nounwind }
 attributes #5 = { nounwind }
 

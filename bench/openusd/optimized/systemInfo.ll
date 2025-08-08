@@ -175,15 +175,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0E9_M_invokeERKSt9_Any_dataOS0_OS1_", ptr %8, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #16
           to label %.lr.ph.i unwind label %.body.thread
 
 .lr.ph.i:                                         ; preds = %1
   store i64 4096, ptr %4, align 8, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4
   store ptr %9, ptr %2, align 8, !noalias !4
   store ptr %4, ptr %3, align 8, !noalias !4
   br label %10
@@ -202,8 +202,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11
           to label %13 unwind label %.thread27.loopexit.i, !noalias !4
 
 13:                                               ; preds = %10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !4
   br i1 %12, label %21, label %14
 
 14:                                               ; preds = %13
@@ -221,8 +221,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11
 
 _ZNSt10unique_ptrIcSt14default_deleteIA_cEE5resetEPc.exit10.i: ; preds = %18
   call void @_ZdaPv(ptr noundef nonnull %.sroa.0.138.i) #18, !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !4
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !4
   store ptr %19, ptr %2, align 8, !noalias !4
   store ptr %4, ptr %3, align 8, !noalias !4
   %20 = load ptr, ptr %7, align 8, !noalias !4
@@ -276,8 +276,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i, %17
   call void @_ZdaPv(ptr noundef nonnull %.sroa.0.138.i) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %30 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbPcPmEED2Ev.exit, label %31
@@ -466,7 +466,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInte
   %4 = alloca %struct.stat, align 8
   %.val = load ptr, ptr %1, align 8
   %.val3 = load ptr, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load i64, ptr %.val3, align 8
   %6 = tail call i64 @readlink(ptr noundef nonnull @.str.4, ptr noundef %.val, i64 noundef %5) #15
   %7 = icmp eq i64 %6, -1
@@ -510,7 +510,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPcPmEZN32pxrInte
 
 "_ZSt10__invoke_rIbRZN32pxrInternal_v0_24__pxrReserved__21ArchGetExecutablePathB5cxx11EvE3$_0JPcPmEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit": ; preds = %8, %21, %22
   %.0.i.i.i = phi i1 [ false, %8 ], [ false, %21 ], [ true, %22 ]
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0.i.i.i
 }
 
@@ -540,10 +540,10 @@ declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef c
 declare noundef i32 @lstat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

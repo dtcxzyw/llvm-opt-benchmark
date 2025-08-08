@@ -184,7 +184,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @PMIx_Info_string(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !3
   %3 = load i32, ptr @pmix_globals, align 8, !tbaa !8
   %4 = icmp slt i32 %3, 1
@@ -211,24 +211,21 @@ define ptr @PMIx_Info_string(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %8, %5
   %.0 = phi ptr [ %7, %5 ], [ %spec.select, %8 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef nonnull %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %pmix_bfrops_base_print_value.exit
@@ -242,7 +239,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_info(ptr noundef %0, ptr no
   br label %pmix_bfrops_base_print_value.exit
 
 pmix_bfrops_base_print_value.exit:                ; preds = %4, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 512
   %17 = load i32, ptr %16, align 4, !tbaa !51
   %18 = call ptr @PMIx_Info_directives_string(i32 noundef %17) #8
@@ -260,26 +257,23 @@ pmix_bfrops_base_print_value.exit:                ; preds = %4, %11
   call void @free(ptr noundef %27) #8
   %28 = icmp slt i32 %25, 0
   %. = select i1 %28, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @PMIx_Value_string(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = load i32, ptr @pmix_globals, align 8, !tbaa !8
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %10
 
@@ -299,7 +293,7 @@ define ptr @PMIx_Value_string(ptr noundef %0) local_unnamed_addr #0 {
   br label %pmix_bfrops_base_print_value.exit
 
 pmix_bfrops_base_print_value.exit:                ; preds = %10, %13, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = load ptr, ptr %3, align 8, !tbaa !3
   br label %27
 
@@ -319,14 +313,14 @@ pmix_bfrops_base_print_value.exit:                ; preds = %10, %13, %8
 
 27:                                               ; preds = %17, %pmix_bfrops_base_print_value.exit
   %.0 = phi ptr [ %16, %pmix_bfrops_base_print_value.exit ], [ %spec.select, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %11
 
@@ -357,7 +351,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_value(ptr noundef %0, ptr n
 
 21:                                               ; preds = %19, %7
   %.010 = phi i32 [ 0, %7 ], [ %., %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.010
 }
 
@@ -427,7 +421,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_bool(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind
-declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_byte(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -835,10 +829,10 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_time(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind
-declare ptr @ctime(ptr noundef) local_unnamed_addr #2
+declare ptr @ctime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_timeval(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -889,14 +883,14 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_status(ptr noundef %0, ptr 
   ret i32 %.11
 }
 
-declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #4
+declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 
-declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
+declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @print_val(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i16, ptr %1, align 8, !tbaa !70
   switch i16 %4, label %222 [
     i16 0, label %5
@@ -1301,12 +1295,12 @@ define internal fastcc i32 @print_val(ptr noundef nonnull writeonly captures(non
   %.0 = phi i32 [ 0, %222 ], [ 0, %5 ], [ %.12.i, %7 ], [ %.11.i, %14 ], [ %23, %20 ], [ %.11.i53, %24 ], [ %.11.i54, %29 ], [ %.11.i55, %35 ], [ %.11.i56, %41 ], [ %.11.i57, %47 ], [ %.11.i58, %53 ], [ %.11.i59, %58 ], [ %.11.i60, %63 ], [ %.11.i61, %69 ], [ %.11.i62, %75 ], [ %.11.i63, %81 ], [ %.11.i64, %86 ], [ %.11.i65, %91 ], [ %.11.i66, %97 ], [ %.12.i67, %102 ], [ %111, %109 ], [ %114, %112 ], [ %117, %115 ], [ %..i, %118 ], [ %126, %123 ], [ %.13.i, %127 ], [ %.9.i, %132 ], [ %140, %138 ], [ %143, %141 ], [ %146, %144 ], [ %150, %147 ], [ %154, %151 ], [ %158, %155 ], [ %161, %159 ], [ %164, %162 ], [ %167, %165 ], [ %171, %168 ], [ %174, %172 ], [ %177, %175 ], [ %181, %178 ], [ %185, %182 ], [ %188, %186 ], [ %192, %189 ], [ %..i68, %193 ], [ %201, %198 ], [ %205, %202 ], [ %209, %206 ], [ %212, %210 ], [ %215, %213 ], [ %218, %216 ], [ %221, %219 ]
   %228 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %228, ptr %0, align 8, !tbaa !3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix_bfrops_base_print_info_directives(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1321,18 +1315,18 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_info_directives(ptr noundef
   ret i32 %.
 }
 
-declare ptr @PMIx_Get_attribute_name(ptr noundef) local_unnamed_addr #4
+declare ptr @PMIx_Get_attribute_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_pdata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = call i32 @pmix_bfrops_base_print_proc(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i16 zeroext poison)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 776
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = call fastcc i32 @print_val(ptr noundef %5, ptr noundef nonnull %9)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %pmix_bfrops_base_print_value.exit
@@ -1346,7 +1340,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_pdata(ptr noundef %0, ptr n
   br label %pmix_bfrops_base_print_value.exit
 
 pmix_bfrops_base_print_value.exit:                ; preds = %4, %12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = icmp eq ptr %1, null
   %18 = select i1 %17, ptr @.str.1, ptr %1
   %19 = load ptr, ptr %6, align 8, !tbaa !3
@@ -1376,8 +1370,8 @@ pmix_bfrops_base_print_value.exit:                ; preds = %4, %12
 31:                                               ; preds = %30, %28
   %32 = icmp slt i32 %25, 0
   %. = select i1 %32, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.
 }
 
@@ -1432,20 +1426,20 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_proc(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix_bfrops_base_print_buf(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #6 {
+define noundef i32 @pmix_bfrops_base_print_buf(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix_bfrops_base_print_app(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #6 {
+define noundef i32 @pmix_bfrops_base_print_app(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #7
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pmix_bfrops_base_print_kval(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #6 {
+define noundef i32 @pmix_bfrops_base_print_kval(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #5 {
   ret i32 0
 }
 
@@ -1485,7 +1479,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_scope(ptr noundef %0, ptr n
   ret i32 %.
 }
 
-declare ptr @PMIx_Scope_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Scope_string(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix_bfrops_base_print_range(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
@@ -1499,7 +1493,7 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_range(ptr noundef %0, ptr n
   ret i32 %.
 }
 
-declare ptr @PMIx_Data_range_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Data_range_string(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix_bfrops_base_print_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1513,9 +1507,9 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_cmd(ptr noundef %0, ptr nou
   ret i32 %.
 }
 
-declare ptr @pmix_command_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @pmix_command_string(i8 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @PMIx_Info_directives_string(i32 noundef) local_unnamed_addr #4
+declare ptr @PMIx_Info_directives_string(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_datatype(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1541,7 +1535,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_datatype(ptr noundef %0, pt
   ret i32 %.11
 }
 
-declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_bo(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1591,14 +1585,14 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_pstate(ptr noundef %0, ptr 
   ret i32 %.
 }
 
-declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %1, null
   %8 = select i1 %7, ptr @.str.1, ptr %1
   %9 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.67, ptr noundef nonnull %8) #8
@@ -1642,8 +1636,8 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr n
 
 35:                                               ; preds = %.sink.split, %4, %14
   %.0 = phi i32 [ 0, %14 ], [ -32, %4 ], [ %.0.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -1651,8 +1645,8 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_pinfo(ptr noundef %0, ptr n
 define range(i32 -47, 1) i32 @pmix_bfrops_base_print_darray(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !80
   %.not293 = icmp eq i64 %8, 0
@@ -2591,8 +2585,8 @@ pmix_bfrops_base_print_bool.exit:                 ; preds = %385, %380, %377, %3
   %499 = select i1 %498, ptr @.str.47, ptr %.0.lcssa
   %500 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef nonnull %494, ptr noundef %496, i64 noundef %497, ptr noundef nonnull %494, ptr noundef nonnull %499) #8
   call void @free(ptr noundef %.0.lcssa) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0225.lcssa
 }
 
@@ -2795,7 +2789,7 @@ define range(i32 -47, 1) i32 @pmix_bfrops_base_print_cpuset(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i16, ptr %2, align 2, !tbaa !63
   switch i16 %6, label %11 [
@@ -2912,7 +2906,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, pt
   call void @free(ptr noundef %.016) #8
   %58 = icmp slt i32 %57, 0
   %. = select i1 %58, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.
 }
 
@@ -2920,8 +2914,8 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_locality(ptr noundef %0, pt
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_geometry(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !113
   %7 = icmp eq ptr %1, null
   %8 = select i1 %7, ptr @.str.1, ptr %1
@@ -3004,8 +2998,8 @@ pmix_bfrops_base_print_coord.exit:                ; preds = %26, %switch.lookup
 
 48:                                               ; preds = %.sink.split, %36, %4
   %.017 = phi i32 [ -29, %4 ], [ -29, %36 ], [ %.017.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
 }
 
@@ -3102,7 +3096,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_endpoint(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_smed(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
@@ -3192,14 +3186,14 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_smed(ptr noundef %0, ptr no
   call void @free(ptr noundef %.013) #8
   %47 = icmp slt i32 %46, 0
   %. = select i1 %47, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_sacc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
@@ -3276,14 +3270,14 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_sacc(ptr noundef %0, ptr no
   call void @free(ptr noundef %37) #8
   %42 = icmp slt i32 %41, 0
   %. = select i1 %42, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_spers(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i64, ptr %2, align 8, !tbaa !62
   %7 = and i64 %6, 1
@@ -3371,14 +3365,14 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_spers(ptr noundef %0, ptr n
   call void @free(ptr noundef %42) #8
   %47 = icmp slt i32 %46, 0
   %. = select i1 %47, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_satyp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !113
   %6 = load i16, ptr %2, align 2, !tbaa !63
   %7 = and i16 %6, 1
@@ -3411,7 +3405,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_satyp(ptr noundef %0, ptr n
   call void @free(ptr noundef %17) #8
   %22 = icmp slt i32 %21, 0
   %. = select i1 %22, i32 -29, i32 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.
 }
 
@@ -3421,10 +3415,10 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq ptr %1, null
   %10 = select i1 %9, ptr @.str.1, ptr %1
   %11 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.67, ptr noundef nonnull %10) #8
@@ -3544,16 +3538,16 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_print_query(ptr noundef writeonly
 
 64:                                               ; preds = %4, %.loopexit, %52, %44, %26, %16
   %.017 = phi i32 [ -32, %16 ], [ -32, %26 ], [ %43, %44 ], [ -32, %52 ], [ 0, %.loopexit ], [ -32, %4 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.017
 }
 
-declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Alloc_directive_string(i8 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @PMIx_Resource_block_directive_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Resource_block_directive_string(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_iof_channel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -3567,7 +3561,7 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_iof_channel(ptr noundef %0,
   ret i32 %.
 }
 
-declare ptr @PMIx_IOF_channel_string(i16 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_IOF_channel_string(i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_print_regex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -3579,21 +3573,21 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_print_regex(ptr noundef %0, ptr n
   ret i32 %.
 }
 
-declare ptr @PMIx_Job_state_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Job_state_string(i8 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @PMIx_Link_state_string(i8 noundef zeroext) local_unnamed_addr #4
+declare ptr @PMIx_Link_state_string(i8 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @pmix_hwloc_print_cpuset(ptr noundef) local_unnamed_addr #4
+declare ptr @pmix_hwloc_print_cpuset(ptr noundef) local_unnamed_addr #3
 
-declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #4
+declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 
-declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @PMIx_Device_type_string(i64 noundef) local_unnamed_addr #4
+declare ptr @PMIx_Device_type_string(i64 noundef) local_unnamed_addr #3
 
-declare ptr @pmix_hwloc_print_topology(ptr noundef) local_unnamed_addr #4
+declare ptr @pmix_hwloc_print_topology(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_bfrops_base_print_pstats(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -3655,7 +3649,7 @@ define noundef i32 @pmix_bfrops_base_print_pstats(ptr noundef %0, ptr noundef %1
   ret i32 0
 }
 
-declare ptr @pmix_util_print_name_args(ptr noundef) local_unnamed_addr #4
+declare ptr @pmix_util_print_name_args(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @pmix_bfrops_base_print_dkstats(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
@@ -3809,14 +3803,20 @@ define noundef i32 @pmix_bfrops_base_print_dbuf(ptr noundef %0, ptr noundef %1, 
   ret i32 0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @H5VL__native_datatype_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.H5G_loc_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr %1, align 8, !tbaa !3
   %12 = call i32 @H5G_loc_real(ptr noundef %0, i32 noundef %11, ptr noundef nonnull %10) #3
   %13 = icmp slt i32 %12, 0
@@ -141,36 +141,30 @@ define ptr @H5VL__native_datatype_commit(ptr noundef %0, ptr noundef readonly ca
 
 .thread:                                          ; preds = %48, %41, %34, %30, %21, %14, %53, %56, %61
   %.036 = phi ptr [ null, %61 ], [ %46, %53 ], [ %46, %56 ], [ null, %48 ], [ null, %41 ], [ null, %34 ], [ null, %30 ], [ null, %21 ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret ptr %.036
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5T_is_sensible(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5T_is_sensible(ptr noundef) local_unnamed_addr #2
+declare ptr @H5T_copy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @H5T_copy(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5T__commit_named(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5T__commit_named(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @H5T__commit_anon(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5T__commit_anon(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare i32 @H5T_close(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @H5T_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VL__native_datatype_open(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_loc_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr %1, align 8, !tbaa !3
   %9 = call i32 @H5G_loc_real(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %7) #3
   %10 = icmp slt i32 %9, 0
@@ -200,11 +194,11 @@ define ptr @H5VL__native_datatype_open(ptr noundef %0, ptr noundef readonly capt
 
 24:                                               ; preds = %22, %18, %11
   %.0 = phi ptr [ null, %11 ], [ null, %18 ], [ %16, %22 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
 }
 
-declare ptr @H5T__open_name(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @H5T__open_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_datatype_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
@@ -266,9 +260,9 @@ define range(i32 -1, 1) i32 @H5VL__native_datatype_get(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
-declare i32 @H5T_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5T_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @H5T__get_create_plist(ptr noundef) local_unnamed_addr #2
+declare i64 @H5T__get_create_plist(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_datatype_specific(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
@@ -328,11 +322,11 @@ define range(i32 -1, 1) i32 @H5VL__native_datatype_specific(ptr noundef %0, ptr 
   ret i32 %.0
 }
 
-declare zeroext i1 @H5F_has_feature(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @H5F_has_feature(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @H5O_flush_common(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @H5O_flush_common(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5O_refresh_metadata(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @H5O_refresh_metadata(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_datatype_close(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
@@ -351,9 +345,15 @@ define range(i32 -1, 1) i32 @H5VL__native_datatype_close(ptr noundef %0, i64 nou
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

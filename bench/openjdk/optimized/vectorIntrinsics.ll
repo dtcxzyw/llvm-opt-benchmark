@@ -3140,12 +3140,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %77, %_ZL20is_kl
   %125 = zext i8 %110 to i64
   %126 = load ptr, ptr %78, align 8
   %127 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %126) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %127, ptr %2, align 8
   %128 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #9
   %129 = load ptr, ptr %2, align 8
   %130 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %129, ptr noundef %128, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %131 = call noundef ptr @_ZN8GraphKit12unbox_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %64, ptr noundef %130, i8 noundef zeroext %110, i32 noundef %105, i1 noundef zeroext true)
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %161
@@ -11928,12 +11928,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit:    ; preds = %_ZL20is_klass_initi
   %179 = load i32, ptr %80, align 8
   %180 = load ptr, ptr %72, align 8
   %181 = tail call noundef ptr @_ZN10ciInstance21java_lang_Class_klassEv(ptr noundef nonnull align 8 dereferenceable(40) %180) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %181, ptr %2, align 8
   %182 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #9
   %183 = load ptr, ptr %2, align 8
   %184 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 4, ptr noundef %183, ptr noundef %182, i1 noundef zeroext true, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %185 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
   %186 = call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %181, ptr noundef %185) #9
   br i1 %186, label %187, label %316
@@ -14489,10 +14489,10 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

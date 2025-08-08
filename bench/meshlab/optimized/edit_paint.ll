@@ -1642,7 +1642,7 @@ define noundef zeroext i1 @_ZN15EditPaintPlugin9startEditER9MeshModelP6GLAreaP26
   %42 = load i32, ptr %41, align 4
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %44 = load i32, ptr %43, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %30, ptr %6, align 4
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %31, ptr %45, align 4
@@ -1656,7 +1656,7 @@ define noundef zeroext i1 @_ZN15EditPaintPlugin9startEditER9MeshModelP6GLAreaP26
   %52 = sub i32 %51, %44
   store i32 %52, ptr %49, align 4
   call void @_ZN7QWidget11setGeometryERK5QRect(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 4 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %53 = load ptr, ptr %20, align 8
   call void @_ZN7QWidget13setSizePolicyE11QSizePolicy(ptr noundef nonnull align 8 dereferenceable(48) %53, i32 1310720)
   %54 = load ptr, ptr %20, align 8
@@ -2037,7 +2037,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %197, %_ZN9QtPrivate
 237:                                              ; preds = %_ZN7QStringD2Ev.exit
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 240
   %239 = load ptr, ptr %238, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not.i38 = icmp eq ptr %239, null
   br i1 %.not.i38, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, label %240
 
@@ -2051,7 +2051,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %197, %_ZN9QtPrivate
   br label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %237, %240
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %245 = load i32, ptr %244, align 8
   %246 = call noundef zeroext i1 @_ZN26MLSceneGLSharedDataContext13manageBuffersEi(ptr noundef nonnull align 8 dereferenceable(168) %239, i32 noundef %245)
@@ -3265,7 +3265,7 @@ define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnu
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glPushMatrix()
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 1132
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %45, i64 64, i1 false)
   br label %.preheader.i.i.i
 
@@ -3296,7 +3296,7 @@ define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnu
 
 _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %55
   call void @glMultMatrixf(ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @glGetDoublev(i32 noundef 2982, ptr noundef nonnull %56)
   call void @glPopMatrix()
@@ -3930,27 +3930,27 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %430
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %447)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %11, i8 0, i64 7, i1 false)
   %448 = getelementptr inbounds nuw i8, ptr %11, i64 3
   store i8 1, ptr %448, align 1
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %450 = load i32, ptr %449, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %450, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %11)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit71: ; preds = %427, %427
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @_ZN15EditPaintPlugin5paintEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %451)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %10, i8 0, i64 7, i1 false)
   %452 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 1, ptr %452, align 1
   %453 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %454 = load i32, ptr %453, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %454, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %10)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit73: ; preds = %427
@@ -3958,14 +3958,14 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 496
   call void @_Z8drawLineP6GLAreaR6QPointS2_(ptr noundef %455, ptr noundef nonnull align 4 dereferenceable(8) %456, ptr noundef nonnull align 4 dereferenceable(8) %457)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %9, i8 0, i64 7, i1 false)
   %458 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 1, ptr %458, align 1
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %460 = load i32, ptr %459, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %460, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %9)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 461:                                              ; preds = %427
@@ -4005,7 +4005,7 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
 _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %427, %427
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %480)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %481 = getelementptr inbounds nuw i8, ptr %8, i64 3
   store i32 0, ptr %481, align 1
   store i8 1, ptr %8, align 1
@@ -4016,26 +4016,26 @@ _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataCon
   %484 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %485 = load i32, ptr %484, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %485, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %8)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit76: ; preds = %427
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %486)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %7, i8 0, i64 7, i1 false)
   %487 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 1, ptr %487, align 1
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %489 = load i32, ptr %488, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %489, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %7)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit78: ; preds = %427
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @_ZN15EditPaintPlugin6smoothEPSt6vectorISt4pairIP8CVertexONS_11PickingDataEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %490)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %491 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i32 0, ptr %491, align 1
   store i8 1, ptr %6, align 1
@@ -4046,7 +4046,7 @@ _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataCon
   %494 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %495 = load i32, ptr %494, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %495, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %6)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 496:                                              ; preds = %232
@@ -4102,7 +4102,7 @@ _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataCon
           to label %518 unwind label %522
 
 518:                                              ; preds = %517
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false)
   %519 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 1, ptr %519, align 1
@@ -4112,7 +4112,7 @@ _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataCon
           to label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80 unwind label %522
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit80: ; preds = %518
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr.pre = load ptr, ptr %23, align 8
   br label %thread-pre-split
 
@@ -4216,14 +4216,14 @@ thread-pre-split.thread:                          ; preds = %513, %511, %thread-
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit84: ; preds = %500
   call void @_ZN15EditPaintPlugin8gradientER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, i8 0, i64 7, i1 false)
   %575 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 1, ptr %575, align 1
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %577 = load i32, ptr %576, align 8
   call void @_ZN26MLSceneGLSharedDataContext21meshAttributesUpdatedEibRKN3vcg20GLMeshAttributesInfo13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(168) %33, i32 noundef %577, i1 noundef zeroext false, ptr noundef nonnull align 1 dereferenceable(7) %4)
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit82
 
 578:                                              ; preds = %500
@@ -6834,7 +6834,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %154
   store i32 %.sroa.01.0.copyload, ptr %190, align 8
   call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %185, ptr noundef nonnull %186)
   %192 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 40
   %194 = load i32, ptr %193, align 1
   store i32 %194, ptr %4, align 4
@@ -6869,7 +6869,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %154
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %201
   %214 = load i32, ptr %4, align 4
   store i32 %214, ptr %193, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %322
 
 215:                                              ; preds = %175
@@ -7003,7 +7003,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
   store i32 %.sroa.0.0.copyload, ptr %295, align 8
   call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull %291)
   %297 = load ptr, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 40
   %299 = load i32, ptr %298, align 1
   store i32 %299, ptr %3, align 4
@@ -7038,7 +7038,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42: ; preds = %306
   %319 = load i32, ptr %3, align 4
   store i32 %319, ptr %298, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %322
 
 320:                                              ; preds = %286
@@ -8681,8 +8681,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %77 = fdiv float %70, 3.000000e+00
   %78 = fdiv float %73, 3.000000e+00
   %79 = fdiv float %76, 3.000000e+00
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %80 = load float, ptr %8, align 16
   %81 = load float, ptr %18, align 4
   %82 = load float, ptr %11, align 8
@@ -8717,8 +8717,8 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE15PickVisibleFaceEiiR
   %.sroa.016.4.vec.extract.i = extractelement <4 x float> %104, i64 1
   %107 = call float @llvm.fmuladd.f32(float %85, float %.sroa.016.4.vec.extract.i, float %81)
   %108 = fadd float %85, %107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %109 = fcmp oge float %106, 0.000000e+00
   %110 = fcmp olt float %106, %39
   %or.cond.not51.not55 = and i1 %109, %110
@@ -9228,7 +9228,7 @@ _ZN8Paintbox12getUndoStackEv.exit62:              ; preds = %_ZN5QHashIP8CVertex
 
 187:                                              ; preds = %184
   %188 = load ptr, ptr %73, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 40
   %190 = load i32, ptr %189, align 1
   store i32 %190, ptr %3, align 4
@@ -9257,7 +9257,7 @@ _ZN8Paintbox12getUndoStackEv.exit62:              ; preds = %_ZN5QHashIP8CVertex
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %191
   %204 = load i32, ptr %3, align 4
   store i32 %204, ptr %189, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 .loopexit167:                                     ; preds = %_ZN8Paintbox12getUndoStackEv.exit62, %184, %103, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i.i, %138, %_ZN9QHashData8willGrowEv.exit.i, %_ZN5QHashIP8CVertexOS1_E6insertERKS1_S4_.exit
@@ -10541,7 +10541,7 @@ _ZN8Paintbox12getUndoStackEv.exit82:              ; preds = %276
   br i1 %exitcond.not.i, label %_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit, label %.preheader, !llvm.loop !72
 
 _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit:   ; preds = %.preheader
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %312 = load i32, ptr %283, align 1
   store i32 %312, ptr %10, align 4
   %313 = load i8, ptr %148, align 1
@@ -10574,7 +10574,7 @@ _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit:   ; preds = %.preheader
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %318
   %331 = load i32, ptr %10, align 4
   store i32 %331, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 .loopexit179:                                     ; preds = %_ZN5QHashIP8CVertexOS1_E6insertERKS1_S4_.exit, %_ZN8Paintbox12getUndoStackEv.exit82, %284, %196, %_ZN9QtPrivate8RefCount5derefEv.exit.thread3.i.i.i, %230, %_ZN9QHashData8willGrowEv.exit.i, %276
@@ -10604,7 +10604,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %318
   br i1 %337, label %338, label %354
 
 338:                                              ; preds = %336
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %339 = load i32, ptr %283, align 1
   store i32 %339, ptr %9, align 4
   br label %340
@@ -10632,7 +10632,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %318
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit92: ; preds = %340
   %353 = load i32, ptr %9, align 4
   store i32 %353, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 354:                                              ; preds = %336
@@ -10640,7 +10640,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit92: ; preds = %340
   br i1 %355, label %356, label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 356:                                              ; preds = %354
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %357 = load i32, ptr %283, align 1
   store i32 %357, ptr %8, align 4
   br label %358
@@ -10668,7 +10668,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit92: ; preds = %340
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit97: ; preds = %358
   %371 = load i32, ptr %8, align 4
   store i32 %371, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 372:                                              ; preds = %289
@@ -10678,7 +10678,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit97: ; preds = %358
   %374 = fmul double %145, %295
   %375 = fmul double %374, 1.000000e+02
   %376 = fptosi double %375 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %377 = load i32, ptr %283, align 1
   store i32 %377, ptr %7, align 4
   %378 = sitofp i32 %376 to double
@@ -10709,7 +10709,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit97: ; preds = %358
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit102: ; preds = %381
   %394 = load i32, ptr %7, align 4
   store i32 %394, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 395:                                              ; preds = %372
@@ -10717,7 +10717,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit102: ; preds = %381
   br i1 %396, label %397, label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 397:                                              ; preds = %395
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %398 = load i32, ptr %283, align 1
   store i32 %398, ptr %6, align 4
   br label %399
@@ -10745,7 +10745,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit102: ; preds = %381
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit107: ; preds = %399
   %412 = load i32, ptr %6, align 4
   store i32 %412, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 413:                                              ; preds = %287
@@ -10789,7 +10789,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit107: ; preds = %399
   br i1 %exitcond.not.i111, label %_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112, label %.preheader198, !llvm.loop !72
 
 _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112: ; preds = %.preheader198
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %439 = load i32, ptr %283, align 1
   store i32 %439, ptr %5, align 4
   %440 = load i8, ptr %148, align 1
@@ -10822,14 +10822,14 @@ _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112: ; preds = %.preheader198
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit117: ; preds = %445
   %458 = load i32, ptr %5, align 4
   store i32 %458, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 459:                                              ; preds = %422
   %460 = fmul double %145, %425
   %461 = fmul double %460, 1.000000e+02
   %462 = fptosi double %461 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %463 = load i32, ptr %283, align 1
   store i32 %463, ptr %4, align 4
   %464 = sitofp i32 %462 to double
@@ -10860,7 +10860,7 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit117: ; preds = %445
 _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit122: ; preds = %467
   %480 = load i32, ptr %4, align 4
   store i32 %480, ptr %283, align 1
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit
 
 _ZNK5QHashIP8CVertexOS1_E8containsERKS1_.exit:    ; preds = %185, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit122, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit117, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit107, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit102, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit97, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit92, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit, %413, %354, %395
@@ -13085,7 +13085,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   store ptr %32, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 0, ptr %51, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %52 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %.noexc13 unwind label %60
 
@@ -13102,7 +13102,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 57:                                               ; preds = %.noexc13, %55
   %.sroa.07.0.i.i = phi ptr [ %53, %.noexc13 ], [ %56, %55 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #26
   br label %62
 
@@ -13194,7 +13194,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %27 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE24_M_get_insert_unique_posERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %.noexc unwind label %13
 
@@ -13211,7 +13211,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 32:                                               ; preds = %.noexc, %30
   %.sroa.07.0.i.i = phi ptr [ %28, %.noexc ], [ %31, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 80
@@ -13252,7 +13252,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13274,7 +13274,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
   %22 = load ptr, ptr %3, align 8
   %23 = icmp ult ptr %21, %22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %23, label %31, label %30
 
 24:                                               ; preds = %18, %9
@@ -13291,7 +13291,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %24
   %29 = icmp slt i32 %25, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %29, label %31, label %30
 
 30:                                               ; preds = %20, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
@@ -13319,7 +13319,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
   %.013 = phi ptr [ %1, %.lr.ph ], [ %.1, %28 ]
   %.0812 = phi ptr [ %2, %.lr.ph ], [ %.19, %28 ]
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -13337,7 +13337,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
   %19 = load ptr, ptr %5, align 8
   %20 = icmp ult ptr %18, %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %20, label %27, label %28
 
 21:                                               ; preds = %15, %10
@@ -13354,7 +13354,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %21
   %26 = icmp slt i32 %22, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %17, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
@@ -13477,7 +13477,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St
 10:                                               ; preds = %.lr.ph, %29
   %.02227 = phi ptr [ %.02225, %.lr.ph ], [ %.022, %29 ]
   %11 = getelementptr inbounds nuw i8, ptr %.02227, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.02227, i64 40
@@ -13496,7 +13496,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St
   %20 = load ptr, ptr %4, align 8
   %21 = icmp ult ptr %19, %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %21, label %29, label %28
 
 22:                                               ; preds = %16, %10
@@ -13513,7 +13513,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %22
   %27 = icmp slt i32 %23, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %18, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit
@@ -13545,7 +13545,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %22
   %.021.lcssa32 = phi ptr [ %.021.lcssa33, %35 ], [ %.02227, %._crit_edge ]
   %.sroa.07.0 = phi ptr [ %36, %35 ], [ %.02227, %._crit_edge ]
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = load ptr, ptr %1, align 8
   store ptr %39, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -13567,7 +13567,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %22
   %50 = load ptr, ptr %3, align 8
   %51 = icmp ult ptr %49, %50
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %51, label %59, label %58
 
 52:                                               ; preds = %46, %37
@@ -13584,7 +13584,7 @@ _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %22
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit6: ; preds = %52
   %57 = icmp slt i32 %53, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %48, %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit6
@@ -13609,7 +13609,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN3vcg18PointerToAttributeES1_St9_Identit
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -13650,7 +13650,7 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 _ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit: ; preds = %20, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i
   %30 = phi i1 [ %23, %20 ], [ %29, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %31
 
 31:                                               ; preds = %_ZNKSt4lessIN3vcg18PointerToAttributeEEclERKS1_S4_.exit, %5
@@ -14118,7 +14118,7 @@ define linkonce_odr void @_ZN3vcg9GLPickTriI6CMeshOE22glGetMatrixAndViewportERN5
 12:                                               ; preds = %7
   call void @glGetDoublev(i32 noundef 2983, ptr noundef nonnull %4)
   call void @glGetDoublev(i32 noundef 2982, ptr noundef nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -14260,7 +14260,7 @@ _ZN5Eigen8internal15call_assignmentINS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEENS_12Cwise
   %126 = load double, ptr %125, align 8
   %127 = fptrunc double %126 to float
   store float %127, ptr %124, align 4
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -14368,12 +14368,12 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
 
 _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   store float 1.000000e+00, ptr %34, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %10, ptr %8, align 8, !alias.scope !172
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastM, ptr %56, align 8, !alias.scope !172
   %57 = call noundef zeroext i1 @_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_6numext12not_equal_toIfEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEES7_EEE3anyEv(ptr noundef nonnull align 1 dereferenceable(1) %8)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %58 = load ptr, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE5lastm, align 8
   %.not42 = icmp ne ptr %2, %58
   %or.cond.not = select i1 %57, i1 true, i1 %.not42
@@ -14433,8 +14433,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %93, align 4
   %.sroa.22.0..0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 16
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..0..sroa_idx.i.i, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   %94 = load float, ptr %9, align 16
   %95 = load float, ptr %79, align 4
   %96 = load float, ptr %80, align 8
@@ -14470,8 +14470,8 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %55, %53
   %.sroa.016.8.vec.extract.i.i = extractelement <4 x float> %116, i64 2
   %.sroa.018.0.vec.insert.i.i = insertelement <2 x float> poison, float %118, i64 0
   %.sroa.018.4.vec.insert.i.i = insertelement <2 x float> %.sroa.018.0.vec.insert.i.i, float %120, i64 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %121 = load ptr, ptr @_ZZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6vectorIP6CFaceOSaIS6_EEiiE4pVec, align 8
   %122 = getelementptr inbounds %"class.vcg::Point3", ptr %121, i64 %.020.i
   store <2 x float> %.sroa.018.4.vec.insert.i.i, ptr %122, align 4
@@ -16110,7 +16110,7 @@ define void @_ZN15EditPaintPlugin6updateEv(ptr noundef nonnull readonly align 8 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
   %20 = load ptr, ptr %19, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, label %21
 
@@ -16128,7 +16128,7 @@ define void @_ZN15EditPaintPlugin6updateEv(ptr noundef nonnull readonly align 8 
 
 _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %11, %21
   %25 = phi ptr [ %18, %11 ], [ %.pre9, %21 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %26)
   %28 = load ptr, ptr %4, align 8
@@ -16136,7 +16136,7 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %32 = load ptr, ptr %31, align 8
-  call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.not.i7 = icmp eq ptr %32, null
   br i1 %.not.i7, label %_ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit, label %33
 
@@ -16161,7 +16161,7 @@ _ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext
 _ZN15EditPaintPlugin21updateGeometryBuffersER9MeshModelP26MLSceneGLSharedDataContext.exit: ; preds = %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit, %33
   %39 = phi ptr [ null, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre14, %33 ]
   %40 = phi ptr [ %30, %_ZN15EditPaintPlugin17updateColorBufferER9MeshModelP26MLSceneGLSharedDataContext.exit ], [ %.pre12, %33 ]
-  call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %41)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1224
@@ -16927,9 +16927,9 @@ define internal void @_GLOBAL__sub_I_edit_paint.cpp() #13 section ".text.startup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(24) @constinit, i64 24, i1 false)
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN3vcgL13ColorMapEnumsE, i64 8), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN3vcg8ColorMapESaIS1_EED2Ev, ptr nonnull @_ZN3vcgL13ColorMapEnumsE, ptr nonnull @__dso_handle) #26
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #29
   store i8 68, ptr %8, align 1
   %.sroa.2583.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -18449,9 +18449,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   call void @_ZdlPv(ptr noundef nonnull %15) #25
   call void @_ZdlPv(ptr noundef nonnull %8) #25
   %82 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS4_EESt4lessIS1_ESaISt4pairIKS1_S6_EEED2Ev, ptr nonnull @_ZN3vcgL9colorMapsE, ptr nonnull @__dso_handle) #26
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -18471,10 +18471,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 declare float @llvm.sqrt.f32(float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #22

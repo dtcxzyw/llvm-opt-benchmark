@@ -15,10 +15,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !4
-  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
   %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -28,7 +28,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKv(ptr noundef %0) l
   br i1 %.not.i.i, label %_ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   br label %_ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit
 
 _ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit:     ; preds = %9, %1
@@ -40,10 +40,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKv(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !4
-  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
   %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -53,7 +53,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKv(ptr noundef %0) l
   br i1 %.not.i.i, label %_ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %10 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %6, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   br label %_ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit
 
 _ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit:     ; preds = %9, %1
@@ -63,34 +63,28 @@ _ZNSt3__1L22__libcpp_atomic_notifyEPVKv.exit:     ; preds = %9, %1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKv(ptr noundef %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !4
-  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
   %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4, i32 1
   %6 = load atomic i32, ptr %5 acquire, align 4
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__120__libcpp_atomic_waitEPVKvi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !4
-  %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = and i64 %4, 255
   %6 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = atomicrmw volatile add ptr %6, i32 1 seq_cst, align 4
-  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %7, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #6
+  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %7, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #7
   %10 = atomicrmw volatile sub ptr %6, i32 1 release, align 4
   ret void
 }
@@ -98,10 +92,10 @@ define dso_local void @_ZNSt3__120__libcpp_atomic_waitEPVKvi(ptr noundef %0, i32
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEE(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !4
-  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
   %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
   %6 = load atomic i32, ptr %5 seq_cst, align 64
@@ -109,7 +103,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_oneEPVKNS_17__cxx_atomic_i
   br i1 %.not.i, label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 129, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 129, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   br label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit
 
 _ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit: ; preds = %7, %1
@@ -119,10 +113,10 @@ _ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atom
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEE(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8, !tbaa !4
-  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
+  %3 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %2, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %4 = and i64 %3, 255
   %5 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %4
   %6 = load atomic i32, ptr %5 seq_cst, align 64
@@ -130,7 +124,7 @@ define dso_local void @_ZNSt3__123__cxx_atomic_notify_allEPVKNS_17__cxx_atomic_i
   br i1 %.not.i, label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
+  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 129, i32 noundef 2147483647, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   br label %_ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit
 
 _ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEPVKS3_b.exit: ; preds = %7, %1
@@ -138,7 +132,7 @@ _ZNSt3__1L26__libcpp_contention_notifyEPVNS_17__cxx_atomic_implIiNS_22__cxx_atom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEE(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEE(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i32, ptr %0 acquire, align 4
   ret i32 %2
 }
@@ -146,32 +140,38 @@ define dso_local noundef i32 @_ZNSt3__123__libcpp_atomic_monitorEPVKNS_17__cxx_a
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__120__libcpp_atomic_waitEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEi(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !4
-  %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
+  %4 = call noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef nonnull captures(none) %3, i64 noundef 8) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %5 = and i64 %4, 255
   %6 = getelementptr inbounds nuw [256 x %"struct.std::__1::__libcpp_contention_table_entry"], ptr @_ZNSt3__1L25__libcpp_contention_tableE, i64 0, i64 %5
   %7 = atomicrmw volatile add ptr %6, i32 1 seq_cst, align 4
-  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #6
+  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef %0, i32 noundef 128, i32 noundef %1, ptr noundef nonnull @_ZZNSt3__1L33__libcpp_platform_wait_on_addressEPVKNS_17__cxx_atomic_implIiNS_22__cxx_atomic_base_implIiEEEEiE9__timeout, i32 noundef 0, i32 noundef 0) #7
   %9 = atomicrmw volatile sub ptr %6, i32 1 release, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
+declare noundef i64 @_ZNSt3__113__hash_memoryEPKvm(ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
-declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #5
+declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #2 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

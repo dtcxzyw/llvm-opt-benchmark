@@ -386,7 +386,7 @@ _ZNK12LogSelectioneqERKS_.exit:                   ; preds = %24, %2, %5, %12, %1
 define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwind noalias writable sret(%class.LogSelection) align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [5 x i32], align 16
   %5 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 17) #10
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 61) #11, !noalias !15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %21, label %7
@@ -569,7 +569,7 @@ define hidden void @_ZN12LogSelection5parseEPKcP12outputStream(ptr dead_on_unwin
   br label %_ZL14parse_internalPcP12outputStream.exit
 
 _ZL14parse_internalPcP12outputStream.exit:        ; preds = %19, %24, %47, %52, %69, %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   tail call void @_ZN2os4freeEPv(ptr noundef nonnull %5) #10
   ret void
 }
@@ -1263,11 +1263,11 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit: ; preds = %53, %56
   br i1 %63, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %51, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i64, ptr %2, align 8
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90
 
@@ -1406,11 +1406,11 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52: ; preds = %110, %113
   br i1 %120, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread: ; preds = %108, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre100 = load i64, ptr %2, align 8
   %.pre.i.i54.pre = load i64, ptr %66, align 8
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94
@@ -1548,11 +1548,11 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86: ; preds = %165, %168
   br i1 %175, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread, label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread98
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread: ; preds = %163, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %66, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread98
 
 _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread98: ; preds = %163, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86.thread, %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit86
@@ -1871,11 +1871,11 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, 
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %.us-phi58, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.us-phi58, ptr noundef nonnull align 8 dereferenceable(48) %84, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %84, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %133 = add nuw i64 %.us-phi, 1
   br label %14, !llvm.loop !33
 
@@ -1887,10 +1887,10 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit51.thread: ; preds = %120, 
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

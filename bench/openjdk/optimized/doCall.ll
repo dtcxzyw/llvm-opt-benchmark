@@ -157,11 +157,11 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [239 x i32], ptr @_ZN9Bytecodes10_java_codeE, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = call noundef ptr @_ZN8ciMethod17get_method_at_bciEiRbPP11ciSignature(ptr noundef nonnull align 8 dereferenceable(160) %16, i32 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %12) #11
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %35 = icmp eq i32 %33, 185
   switch i32 %33, label %36 [
     i32 185, label %41
@@ -722,7 +722,7 @@ _ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptRea
   %334 = load i32, ptr %333, align 8
   %335 = add i32 %334, -1
   %336 = load i32, ptr %17, align 4
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %10, i64 noundef 0) #11
   call void @_ZN11CompileTask20print_inlining_innerEP12outputStreamP8ciMethodii14InliningResultPKc(ptr noundef nonnull %10, ptr noundef nonnull %1, i32 noundef %335, i32 noundef %336, i32 noundef 1, ptr noundef nonnull @.str.9) #11
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 2096
@@ -731,7 +731,7 @@ _ZN7Compile28too_many_traps_or_recompilesEP8ciMethodiN14Deoptimization11DeoptRea
   %340 = load ptr, ptr %339, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %338, ptr noundef nonnull @.str.17, ptr noundef %340) #11
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %10) #11
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pre = load ptr, ptr %327, align 8
   br label %341
 
@@ -4970,10 +4970,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10

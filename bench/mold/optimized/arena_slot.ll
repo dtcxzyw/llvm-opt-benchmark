@@ -74,7 +74,7 @@ _ZN3tbb6detail2r110task_proxy12extract_taskILl1EEEPNS0_2d14taskEv.exit: ; preds 
   %31 = inttoptr i64 %30 to ptr
   %32 = load ptr, ptr %9, align 64, !tbaa !37
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 64 dereferenceable(104) %9) #2
+  tail call void %33(ptr noundef nonnull align 64 dereferenceable(104) %9) #1
   tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull %9, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(12) %2)
   %34 = load i8, ptr %3, align 1, !tbaa !19, !range !39, !noundef !40
   %35 = trunc nuw i8 %34 to i1
@@ -90,12 +90,6 @@ _ZN3tbb6detail2r110task_proxy12extract_taskILl1EEEPNS0_2d14taskEv.exit: ; preds 
   %.0 = phi ptr [ null, %5 ], [ null, %.critedge ], [ %9, %.thread ], [ %27, %26 ], [ null, %36 ], [ null, %.critedge30 ]
   ret ptr %.0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define noundef ptr @_ZN3tbb6detail2r110arena_slot8get_taskERNS1_18execution_data_extEl(ptr noundef nonnull align 128 captures(none) dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -160,7 +154,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %25
   br label %.preheader.i.outer, !llvm.loop !43
 
 30:                                               ; preds = %.critedge.i
-  %31 = tail call noundef i32 @sched_yield() #2
+  %31 = tail call noundef i32 @sched_yield() #1
   br label %.preheader.i, !llvm.loop !43
 
 _ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit: ; preds = %21, %16
@@ -242,7 +236,7 @@ _ZN3tbb6detail2r110arena_slot17release_task_poolEv.exit: ; preds = %40, %38, %37
   %64 = inttoptr i64 %63 to ptr
   %65 = load ptr, ptr %45, align 64, !tbaa !37
   %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef nonnull align 64 dereferenceable(104) %45) #2
+  tail call void %66(ptr noundef nonnull align 64 dereferenceable(104) %45) #1
   tail call void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1) %64, ptr noundef nonnull %45, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %67 = trunc nuw i8 %.051 to i1
   br i1 %67, label %68, label %_ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit.thread.thread66
@@ -301,10 +295,10 @@ _ZN3tbb6detail2r110arena_slot13get_task_implEmRNS1_18execution_data_extERbl.exit
   %84 = load ptr, ptr %83, align 128, !tbaa !49
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !87
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #2, !srcloc !88
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #2
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #1, !srcloc !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %88 = load atomic i64, ptr %87 acquire, align 8
   switch i64 %88, label %89 [
@@ -335,10 +329,10 @@ _ZN3tbb6detail2r111atomic_flag12test_and_setEv.exit.i: ; preds = %89, %79
   %100 = load ptr, ptr %99, align 128, !tbaa !49
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !87
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, ptr nonnull elementtype(i8) %4) #2, !srcloc !88
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #2
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, ptr nonnull elementtype(i8) %4) #1, !srcloc !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 232
   %104 = load atomic i64, ptr %103 acquire, align 8
   switch i64 %104, label %105 [
@@ -412,7 +406,7 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.outer
 
 17:                                               ; preds = %.critedge.i
-  %18 = tail call noundef i32 @sched_yield() #2
+  %18 = tail call noundef i32 @sched_yield() #1
   br label %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i
 
 19:                                               ; preds = %9
@@ -576,10 +570,10 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i:     ; preds = %.lr.ph.i.i.i, %12
 
 98:                                               ; preds = %.thread52, %._crit_edge
   %.13854 = phi ptr [ %.us-phi68, %.thread52 ], [ null, %._crit_edge ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #2
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !87
-  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #2, !srcloc !88
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #2
+  call void asm sideeffect "lock; notb $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, ptr nonnull elementtype(i8) %5) #1, !srcloc !88
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %100 = load atomic i64, ptr %99 acquire, align 8
   switch i64 %100, label %101 [
@@ -614,20 +608,26 @@ _ZN3tbb6detail2r15arena18advertise_new_workILNS2_13new_work_typeE1EEEvv.exit: ; 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #2
+declare void @llvm.x86.sse2.pause() #1
 
 ; Function Attrs: nounwind
-declare i32 @sched_yield() local_unnamed_addr #3
+declare i32 @sched_yield() local_unnamed_addr #2
 
-declare void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
+declare void @_ZN3tbb6detail2r110deallocateERNS0_2d117small_object_poolEPvmRKNS2_14execution_dataE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3
 
-declare void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768), i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
+declare void @_ZN3tbb6detail2r15arena15request_workersEiib(ptr noundef nonnull align 128 dereferenceable(768), i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 attributes #0 = { mustprogress sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind }
-attributes #3 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rtm,+sse,+sse2,+waitpkg,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

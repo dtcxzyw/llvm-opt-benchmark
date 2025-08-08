@@ -1517,7 +1517,7 @@ _ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge: ; preds
 .thread:                                          ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i, %_ZN11G1Allocator18attempt_allocationEmmPm.exit
   %51 = phi i64 [ %.pre, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %44, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %27, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
   %.019 = phi ptr [ %50, %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge ], [ %38, %_ZN11G1Allocator18attempt_allocationEmmPm.exit ], [ %21, %_ZN18MutatorAllocRegion27attempt_retained_allocationEmmPm.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.019, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.idx.i = and i64 %51, 2305843009213693951
@@ -1525,7 +1525,7 @@ _ZN11G1Allocator18attempt_allocationEmmPm.exit.thread..thread_crit_edge: ; preds
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %54 = load ptr, ptr %53, align 8
   call void @_ZN11G1CardTable16g1_mark_as_youngERK9MemRegion(ptr noundef nonnull align 8 dereferenceable(104) %54, ptr noundef nonnull align 8 dereferenceable(16) %5) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 55:                                               ; preds = %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread
@@ -1642,7 +1642,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %47, %48
   br i1 %.not, label %49, label %.loopexit
 
 49:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN25VM_G1CollectForAllocationC1EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(57) %3, i64 noundef %1, i32 noundef %.122, i32 noundef 21) #23
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #23
   %50 = load ptr, ptr %26, align 8
@@ -1650,7 +1650,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %47, %48
   %52 = trunc i8 %51 to i1
   %53 = load i8, ptr %28, align 8
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %54 = trunc i8 %53 to i1
   %55 = select i1 %52, i1 %54, i1 false
   %56 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -1851,7 +1851,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11G1Allocator25a
   br i1 %.not36, label %54, label %_ZN11G1Allocator18attempt_allocationEmmPm.exit.thread39
 
 54:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN25VM_G1CollectForAllocationC1EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(57) %3, i64 noundef %1, i32 noundef %.1, i32 noundef 19) #23
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #23
   %55 = load ptr, ptr %18, align 8
@@ -1859,7 +1859,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11G1Allocator25a
   %57 = trunc i8 %56 to i1
   %58 = load i8, ptr %20, align 8
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %3) #23
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = trunc i8 %58 to i1
   %60 = select i1 %57, i1 %59, i1 false
   %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -2534,7 +2534,7 @@ define hidden void @_ZN15G1CollectedHeap32prepare_heap_for_full_collectionEv(ptr
   %5 = load ptr, ptr %3, align 8
   tail call void @_ZN11G1Allocator24abandon_gc_alloc_regionsEv(ptr noundef nonnull align 8 dereferenceable(120) %5) #23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %7, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV29G1AbandonCollectionSetClosure, i64 16), ptr %2, align 8
@@ -2542,7 +2542,7 @@ define hidden void @_ZN15G1CollectedHeap32prepare_heap_for_full_collectionEv(ptr
   call void @_ZN15G1CollectionSet5clearEv(ptr noundef nonnull align 8 dereferenceable(160) %6) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   store i32 1, ptr %8, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   call void @_ZN16G1FreeRegionList10remove_allEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #23
   ret void
@@ -2599,7 +2599,7 @@ define hidden void @_ZN15G1CollectedHeap41prepare_for_mutator_after_full_collect
   %2 = alloca %class.RebuildCodeRootClosure, align 8
   %3 = alloca %class.G1ConcurrentRefineStats, align 8
   %4 = alloca %class.RebuildRegionSetsClosure, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 992
@@ -2628,15 +2628,15 @@ define hidden void @_ZN15G1CollectedHeap41prepare_for_mutator_after_full_collect
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store volatile i64 %18, ptr %19, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1664
   call void @_ZN19G1DirtyCardQueueSet22abandon_logs_and_statsEv(ptr noundef nonnull align 8 dereferenceable(928) %21) #23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %23 = load ptr, ptr %22, align 8
   call void @_ZN18G1ConcurrentRefine30get_and_reset_refinement_statsEv(ptr dead_on_unwind nonnull writable sret(%class.G1ConcurrentRefineStats) align 8 %3, ptr noundef nonnull align 8 dereferenceable(136) %23) #23
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN15G1CollectedHeap24resize_heap_if_necessaryEv(ptr noundef nonnull align 8 dereferenceable(1488) %0)
   %24 = call noundef zeroext i1 @_ZNK19G1HeapRegionManager20has_inactive_regionsEv(ptr noundef nonnull align 8 dereferenceable(232) %11) #23
   br i1 %24, label %25, label %_ZN15G1CollectedHeap29uncommit_regions_if_necessaryEv.exit
@@ -2646,12 +2646,12 @@ define hidden void @_ZN15G1CollectedHeap41prepare_for_mutator_after_full_collect
   br label %_ZN15G1CollectedHeap29uncommit_regions_if_necessaryEv.exit
 
 _ZN15G1CollectedHeap29uncommit_regions_if_necessaryEv.exit: ; preds = %1, %25
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22RebuildCodeRootClosure, i64 16), ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %26, align 8
   call void @_ZN9CodeCache11nmethods_doEP14NMethodClosure(ptr noundef nonnull %2) #23
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   call void @_ZN15G1CollectionSet26start_incremental_buildingEv(ptr noundef nonnull align 8 dereferenceable(160) %27) #23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1432
@@ -2801,7 +2801,7 @@ define hidden void @_ZN15G1CollectedHeap24resize_heap_if_necessaryEv(ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 552
   call void @_ZN16G1FreeRegionList10remove_allEv(ptr noundef nonnull align 8 dereferenceable(72) %19) #23
   call void @_ZN15G1CollectedHeap13shrink_helperEm(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %6)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2818,7 +2818,7 @@ define hidden void @_ZN15G1CollectedHeap24resize_heap_if_necessaryEv(ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %27, align 8
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %18, ptr noundef nonnull %2) #23
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %28
 
 28:                                               ; preds = %11, %15, %1
@@ -3209,7 +3209,7 @@ define hidden void @_ZN15G1CollectedHeap6shrinkEm(ptr noundef nonnull align 8 de
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @_ZN16G1FreeRegionList10remove_allEv(ptr noundef nonnull align 8 dereferenceable(72) %7) #23
   tail call void @_ZN15G1CollectedHeap13shrink_helperEm(ptr noundef nonnull align 8 dereferenceable(1488) %0, i64 noundef %1)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3226,7 +3226,7 @@ define hidden void @_ZN15G1CollectedHeap6shrinkEm(ptr noundef nonnull align 8 de
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %15, align 8
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %6, ptr noundef nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -3863,7 +3863,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %8
   %45 = call noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef %44) #23
   %46 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %47 = zext i32 %46 to i64
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = call noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef %45, i64 noundef 1) #23
   call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %5, i64 noundef %45, i64 noundef %48) #23
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3874,7 +3874,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %8
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8
   call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.36, i64 noundef %45, i64 noundef %48, ptr noundef %53, i64 noundef %55, i64 noundef %50) #23
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = load i64, ptr %28, align 8
   %57 = lshr i64 %56, 3
   %58 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
@@ -3883,7 +3883,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %8
   %61 = call noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef %60) #23
   %62 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %63 = zext i32 %62 to i64
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %64 = call noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef %61, i64 noundef 1) #23
   call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %4, i64 noundef %61, i64 noundef %64) #23
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -3894,11 +3894,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %8
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = load i64, ptr %70, align 8
   call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.37, i64 noundef %61, i64 noundef %64, ptr noundef %69, i64 noundef %71, i64 noundef %66) #23
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = load i64, ptr %28, align 8
   %73 = call noundef i64 @_ZN10MarkBitMap12compute_sizeEm(i64 noundef %72) #23
   %74 = call noundef i64 @_ZN10MarkBitMap13mark_distanceEv() #23
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = call noundef i64 @_ZN2os30page_size_for_region_unalignedEmm(i64 noundef %73, i64 noundef 1) #23
   call void @_ZN13ReservedSpaceC1Emm(ptr noundef nonnull align 8 dereferenceable(49) %3, i64 noundef %73, i64 noundef %75) #23
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3909,7 +3909,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load i64, ptr %81, align 8
   call void @_ZN2os35trace_page_sizes_for_requested_sizeEPKcmmS1_mm(ptr noundef nonnull @.str.38, i64 noundef %73, i64 noundef %75, ptr noundef %80, i64 noundef %82, i64 noundef %77) #23
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @_ZN19G1HeapRegionManager10initializeEP21G1RegionToSpaceMapperS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(232) %83, ptr noundef nonnull %31, ptr noundef %79, ptr noundef %52, ptr noundef %68) #23
   %84 = load ptr, ptr %22, align 8
@@ -4070,14 +4070,14 @@ _ZN19G1BiasedMappedArrayI16G1HeapRegionAttrE10initializeE9MemRegionm.exit: ; pre
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   call void @_ZN8G1Policy4initEP15G1CollectedHeapP15G1CollectionSet(ptr noundef nonnull align 8 dereferenceable(552) %173, ptr noundef nonnull %0, ptr noundef nonnull %174) #23
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4
   %175 = load ptr, ptr %172, align 8
   %176 = call noundef ptr @_ZN18G1ConcurrentRefine6createEP8G1PolicyPi(ptr noundef %175, ptr noundef nonnull %2) #23
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store ptr %176, ptr %177, align 8
   %178 = load i32, ptr %2, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not74 = icmp eq i32 %178, 0
   br i1 %.not74, label %179, label %202
 
@@ -4461,7 +4461,7 @@ declare void @_ZN13CollectedHeap36record_whole_heap_examined_timestampEv(ptr nou
 define hidden void @_ZN15G1CollectedHeap7collectEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1488) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.G1GCCounters, align 8
   %4 = alloca %class.G1GCCounters, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load ptr, ptr @Heap_lock, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.i, label %6
@@ -4480,7 +4480,7 @@ _ZL19collection_countersP15G1CollectedHeap.exit:  ; preds = %_ZN11MutexLockerC2E
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -6277,7 +6277,7 @@ define hidden void @_ZNK15G1CollectedHeap18print_heap_regionsEv(ptr noundef nonn
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.74) #23
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %8, align 8
@@ -6286,7 +6286,7 @@ define hidden void @_ZNK15G1CollectedHeap18print_heap_regionsEv(ptr noundef nonn
   store ptr %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull %2) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #23
   br label %11
 
@@ -6446,7 +6446,7 @@ define hidden void @_ZNK15G1CollectedHeap17print_extended_onEP12outputStream(ptr
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef %1) #23
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.74) #23
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %7, align 8
@@ -6455,7 +6455,7 @@ define hidden void @_ZNK15G1CollectedHeap17print_extended_onEP12outputStream(ptr
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %9, ptr noundef nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -6728,7 +6728,7 @@ define hidden void @_ZN15G1CollectedHeap10trace_heapEN6GCWhen4TypeEPK8GCTracer(p
   %5 = alloca %class.G1HeapSummary, align 8
   %6 = alloca %class.MetaspaceSummary, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %8 = load ptr, ptr %7, align 8, !noalias !31
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 720
@@ -6784,7 +6784,7 @@ _ZN15G1CollectedHeap22create_g1_heap_summaryEv.exit: ; preds = %17, %22
   store i64 %14, ptr %44, align 8, !alias.scope !31
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %38, ptr %45, align 8, !alias.scope !31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZNK8GCTracer22report_gc_heap_summaryEN6GCWhen4TypeERK13GCHeapSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %5) #23
   call void @_ZN13CollectedHeap24create_metaspace_summaryEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceSummary) align 8 %6, ptr noundef nonnull align 8 dereferenceable(104) %0) #23
   call void @_ZNK8GCTracer24report_metaspace_summaryEN6GCWhen4TypeERK16MetaspaceSummary(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %6) #23
@@ -6868,7 +6868,7 @@ _ZN15G1CollectedHeap38increment_old_marking_cycles_completedEbb.exit: ; preds = 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1MonotonicArenaMemoryStatsS1_(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load i8, ptr @UsePerfData, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %_ZN15G1CollectedHeap35update_parallel_gc_threads_cpu_timeEv.exit
@@ -6891,7 +6891,7 @@ _ZN15G1CollectedHeap38increment_old_marking_cycles_completedEbb.exit: ; preds = 
   br label %_ZN15G1CollectedHeap35update_parallel_gc_threads_cpu_timeEv.exit
 
 _ZN15G1CollectedHeap35update_parallel_gc_threads_cpu_timeEv.exit: ; preds = %10, %22, %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -7099,8 +7099,8 @@ define hidden void @_ZN15G1CollectedHeap30verify_before_young_collectionEN14G1He
   tail call void @_ZN14G1HeapVerifier18prepare_for_verifyEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
   %15 = load ptr, ptr %13, align 8
   tail call void @_ZN14G1HeapVerifier16verify_before_gcEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_171ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit, label %17
@@ -7125,8 +7125,8 @@ define hidden void @_ZN15G1CollectedHeap30verify_before_young_collectionEN14G1He
   br label %_ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit
 
 _ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit: ; preds = %9, %17
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr noundef nonnull align 8 dereferenceable(552) %24) #23
@@ -7164,8 +7164,8 @@ define hidden void @_ZN15G1CollectedHeap29verify_after_young_collectionEN14G1Hea
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZN14G1HeapVerifier15verify_after_gcEv(ptr noundef nonnull align 8 dereferenceable(8) %14) #23
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_171ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit, label %16
@@ -7190,8 +7190,8 @@ define hidden void @_ZN15G1CollectedHeap29verify_after_young_collectionEN14G1Hea
   br label %_ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit
 
 _ZN15G1CollectedHeap19verify_numa_regionsEPKc.exit: ; preds = %9, %16
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 970
   %23 = load volatile i8, ptr %22, align 2
   %24 = trunc i8 %23 to i1
@@ -7404,7 +7404,7 @@ define hidden void @_ZN17G1HeapPrinterMarkC2EP15G1CollectedHeap(ptr noundef nonn
   %11 = load ptr, ptr %0, align 8
   tail call void @_ZN13CollectedHeap20print_heap_before_gcEv(ptr noundef nonnull align 8 dereferenceable(104) %11) #23
   %12 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZNK15G1CollectedHeap18print_heap_regionsEv.exit, label %14
@@ -7419,7 +7419,7 @@ define hidden void @_ZN17G1HeapPrinterMarkC2EP15G1CollectedHeap(ptr noundef nonn
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.74) #23
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %17, align 8
@@ -7428,12 +7428,12 @@ define hidden void @_ZN17G1HeapPrinterMarkC2EP15G1CollectedHeap(ptr noundef nonn
   store ptr %4, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 392
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %19, ptr noundef nonnull %3) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %4) #23
   br label %_ZNK15G1CollectedHeap18print_heap_regionsEv.exit
 
 _ZNK15G1CollectedHeap18print_heap_regionsEv.exit: ; preds = %2, %14
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -7465,7 +7465,7 @@ define hidden void @_ZN17G1HeapPrinterMarkD2Ev(ptr noundef nonnull align 8 deref
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN16G1HeapTransition5printEv(ptr noundef nonnull align 8 dereferenceable(128) %16) #23
   %17 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZNK15G1CollectedHeap18print_heap_regionsEv.exit, label %19
@@ -7480,7 +7480,7 @@ define hidden void @_ZN17G1HeapPrinterMarkD2Ev(ptr noundef nonnull align 8 deref
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.74) #23
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 1, ptr %22, align 8
@@ -7489,14 +7489,14 @@ define hidden void @_ZN17G1HeapPrinterMarkD2Ev(ptr noundef nonnull align 8 deref
   store ptr %3, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 392
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %24, ptr noundef nonnull %2) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #23
   %.pre = load ptr, ptr %0, align 8
   br label %_ZNK15G1CollectedHeap18print_heap_regionsEv.exit
 
 _ZNK15G1CollectedHeap18print_heap_regionsEv.exit: ; preds = %1, %19
   %25 = phi ptr [ %17, %1 ], [ %.pre, %19 ]
-  call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnull align 8 dereferenceable(104) %25) #23
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 384
@@ -7959,7 +7959,7 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit22
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit22: ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i19, %83
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %86 = load ptr, ptr %48, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load i32, ptr %87, align 8
@@ -7969,7 +7969,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV22G1ParallelCleaningTask, i64 16), ptr %6, align 8
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN22CodeCacheUnloadingTaskD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %91 = load ptr, ptr %68, align 8
   %.not.i.i.i.i = icmp ne ptr %91, null
   %92 = load ptr, ptr %71, align 8
@@ -8235,7 +8235,7 @@ _ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCoun
 
 _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit63: ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit50, %_ZN17GCTraceTimeDriver8at_startEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit10.i.i.i60, %198
   %201 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 128
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
@@ -8256,7 +8256,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE2ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %212, ptr noundef nonnull %5) #23
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27G1BulkUnregisterNMethodTask, i64 16), ptr %5, align 8
   call void @_ZN19G1HeapRegionClaimerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %209) #23
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %213 = load ptr, ptr %183, align 8
   %.not.i.i.i.i64 = icmp ne ptr %213, null
   %214 = load ptr, ptr %186, align 8
@@ -9957,7 +9957,7 @@ define hidden void @_ZN15G1CollectedHeap20update_used_after_gcEb(ptr noundef non
   br i1 %1, label %4, label %10
 
 4:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %5, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV14SumUsedClosure, i64 16), ptr %3, align 8
@@ -9966,7 +9966,7 @@ define hidden void @_ZN15G1CollectedHeap20update_used_after_gcEb(ptr noundef non
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @_ZNK19G1HeapRegionManager7iterateEP19G1HeapRegionClosure(ptr noundef nonnull align 8 dereferenceable(232) %7, ptr noundef nonnull %3) #23
   %8 = load i64, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store volatile i64 %8, ptr %9, align 8
   br label %16
@@ -11025,7 +11025,7 @@ define linkonce_odr hidden void @_ZN24G1ParallelObjectIterator14object_iterateEP
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %8, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV33IterateObjectClosureRegionClosure, i64 16), ptr %4, align 8
@@ -11034,7 +11034,7 @@ define linkonce_odr hidden void @_ZN24G1ParallelObjectIterator14object_iterateEP
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %11 = tail call noundef i32 @_ZNK19G1HeapRegionClaimer17offset_for_workerEj(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %2) #23
   call void @_ZNK19G1HeapRegionManager11par_iterateEP19G1HeapRegionClosureP19G1HeapRegionClaimerj(ptr noundef nonnull align 8 dereferenceable(232) %10, ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef %11) #23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -12940,9 +12940,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %264, label %23, label %._crit_edge35, !llvm.loop !50
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -15014,9 +15014,9 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
   br i1 %255, label %23, label %._crit_edge35, !llvm.loop !56
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -18997,12 +18997,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
   br i1 %274, label %30, label %._crit_edge62, !llvm.loop !82
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosureK10MrContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -19670,12 +19670,12 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %9
   br i1 %265, label %30, label %._crit_edge62, !llvm.loop !84
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %3, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosureK10MrContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -22557,10 +22557,10 @@ declare i64 @llvm.umax.i64(i64, i64) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

@@ -555,8 +555,8 @@ define hidden void @je_stats_print(ptr noundef %0, ptr noundef %1, ptr noundef r
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.emitter_s, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 1, ptr %4, align 8, !tbaa !4
   store i64 8, ptr %5, align 8, !tbaa !4
   %7 = call i32 @mallctl(ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 8) #14
@@ -666,7 +666,7 @@ select.unfold:                                    ; preds = %14, %10
   %.023 = phi i1 [ true, %10 ], [ %.124, %14 ]
   %.020 = phi i1 [ true, %10 ], [ %.121, %14 ]
   %.019 = phi i1 [ true, %10 ], [ %.1, %14 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %.044, ptr %6, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %27, align 8, !tbaa !16
@@ -756,38 +756,32 @@ emitter_json_object_end.exit:                     ; preds = %35, %emitter_indent
   br label %emitter_end.exit
 
 emitter_end.exit:                                 ; preds = %emitter_json_object_end.exit, %46
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
 51:                                               ; preds = %emitter_end.exit, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nounwind
-declare i32 @mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mallctl(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @je_malloc_write(ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @emitter_table_printf(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #5 {
+define internal void @emitter_table_printf(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr %0, align 8, !tbaa !11
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !16
@@ -795,7 +789,7 @@ define internal void @emitter_table_printf(ptr noundef nonnull readonly captures
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   call void @je_malloc_vcprintf(ptr noundef %8, ptr noundef %10, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
 11:                                               ; preds = %6, %2
@@ -803,7 +797,7 @@ define internal void @emitter_table_printf(ptr noundef nonnull readonly captures
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i.i, label %3, label %emitter_json_object_begin.exit
@@ -893,7 +887,7 @@ emitter_json_object_begin.exit:                   ; preds = %2, %emitter_json_ke
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed_addr #6 {
+define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed_addr #5 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -954,24 +948,24 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   %59 = alloca i64, align 8
   %60 = alloca i64, align 8
   %61 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 1, ptr %12, align 8, !tbaa !4
   store i64 4, ptr %13, align 8, !tbaa !4
   store i64 8, ptr %17, align 8, !tbaa !4
@@ -980,7 +974,7 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   store i64 4, ptr %14, align 8, !tbaa !4
   store i64 8, ptr %16, align 8, !tbaa !4
   store i64 8, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 8, ptr %20, align 8, !tbaa !4
   %62 = call i32 @mallctl(ptr noundef nonnull @.str.14, ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef null, i64 noundef 0) #14
   %.not = icmp eq i32 %62, 0
@@ -992,10 +986,10 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 64:                                               ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.16, i32 noundef 8, ptr noundef nonnull readonly %2, ptr noundef null, i32 noundef 0, ptr noundef null)
   call fastcc void @emitter_dict_begin(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 1, ptr %21, align 8, !tbaa !4
   %65 = call i32 @mallctl(ptr noundef nonnull @.str.19, ptr noundef nonnull %3, ptr noundef nonnull %21, ptr noundef null, i64 noundef 0) #14
   %.not124 = icmp eq i32 %65, 0
@@ -1007,9 +1001,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 67:                                               ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.19, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 1, ptr %22, align 8, !tbaa !4
   %68 = call i32 @mallctl(ptr noundef nonnull @.str.21, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
   %.not125 = icmp eq i32 %68, 0
@@ -1021,9 +1015,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 70:                                               ; preds = %67
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 1, ptr %23, align 8, !tbaa !4
   %71 = call i32 @mallctl(ptr noundef nonnull @.str.23, ptr noundef nonnull %3, ptr noundef nonnull %23, ptr noundef null, i64 noundef 0) #14
   %.not126 = icmp eq i32 %71, 0
@@ -1035,9 +1029,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 1, ptr %24, align 8, !tbaa !4
   %74 = call i32 @mallctl(ptr noundef nonnull @.str.25, ptr noundef nonnull %3, ptr noundef nonnull %24, ptr noundef null, i64 noundef 0) #14
   %.not127 = icmp eq i32 %74, 0
@@ -1049,10 +1043,10 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 76:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 8, ptr noundef nonnull @config_malloc_conf, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 1, ptr %25, align 8, !tbaa !4
   %77 = call i32 @mallctl(ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull %25, ptr noundef null, i64 noundef 0) #14
   %.not128 = icmp eq i32 %77, 0
@@ -1064,9 +1058,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 79:                                               ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 1, ptr %26, align 8, !tbaa !4
   %80 = call i32 @mallctl(ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull %26, ptr noundef null, i64 noundef 0) #14
   %.not129 = icmp eq i32 %80, 0
@@ -1078,9 +1072,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 82:                                               ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 1, ptr %27, align 8, !tbaa !4
   %83 = call i32 @mallctl(ptr noundef nonnull @.str.33, ptr noundef nonnull %3, ptr noundef nonnull %27, ptr noundef null, i64 noundef 0) #14
   %.not130 = icmp eq i32 %83, 0
@@ -1092,9 +1086,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 85:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.33, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 1, ptr %28, align 8, !tbaa !4
   %86 = call i32 @mallctl(ptr noundef nonnull @.str.35, ptr noundef nonnull %3, ptr noundef nonnull %28, ptr noundef null, i64 noundef 0) #14
   %.not131 = icmp eq i32 %86, 0
@@ -1106,9 +1100,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.35, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 1, ptr %29, align 8, !tbaa !4
   %89 = call i32 @mallctl(ptr noundef nonnull @.str.37, ptr noundef nonnull %3, ptr noundef nonnull %29, ptr noundef null, i64 noundef 0) #14
   %.not132 = icmp eq i32 %89, 0
@@ -1120,9 +1114,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 91:                                               ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.37, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 1, ptr %30, align 8, !tbaa !4
   %92 = call i32 @mallctl(ptr noundef nonnull @.str.39, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef null, i64 noundef 0) #14
   %.not133 = icmp eq i32 %92, 0
@@ -1134,9 +1128,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 94:                                               ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.39, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 1, ptr %31, align 8, !tbaa !4
   %95 = call i32 @mallctl(ptr noundef nonnull @.str.41, ptr noundef nonnull %3, ptr noundef nonnull %31, ptr noundef null, i64 noundef 0) #14
   %.not134 = icmp eq i32 %95, 0
@@ -1148,9 +1142,9 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 97:                                               ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 1, ptr %32, align 8, !tbaa !4
   %98 = call i32 @mallctl(ptr noundef nonnull @.str.43, ptr noundef nonnull %3, ptr noundef nonnull %32, ptr noundef null, i64 noundef 0) #14
   %.not135 = icmp eq i32 %98, 0
@@ -1162,7 +1156,7 @@ define internal fastcc void @stats_general_print(ptr noundef nonnull %0) unnamed
   unreachable
 
 100:                                              ; preds = %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i32 noundef 0, ptr noundef nonnull readonly %3, ptr noundef null, i32 noundef 0, ptr noundef null)
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
@@ -1411,20 +1405,20 @@ emitter_dict_end.exit:                            ; preds = %emitter_json_object
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store ptr @.str.91, ptr %33, align 8, !tbaa !24
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.90, i32 noundef 8, ptr noundef nonnull readonly %33, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %204
 
 203:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @je_fxp_print(i32 noundef %200, ptr noundef nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store ptr %34, ptr %35, align 8, !tbaa !24
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.90, i32 noundef 8, ptr noundef nonnull readonly %35, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br label %204
 
 204:                                              ; preds = %202, %203, %196
@@ -1971,7 +1965,7 @@ emitter_json_object_end.exit.i178:                ; preds = %.lr.ph.i.i.i181, %4
 
 emitter_dict_end.exit184:                         ; preds = %emitter_json_object_end.exit.i178, %439, %441
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.193)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 4, ptr %36, align 8, !tbaa !4
   %446 = call i32 @mallctl(ptr noundef nonnull @.str.194, ptr noundef nonnull %5, ptr noundef nonnull %36, ptr noundef null, i64 noundef 0) #14
   %.not139 = icmp eq i32 %446, 0
@@ -1983,9 +1977,9 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 448:                                              ; preds = %emitter_dict_end.exit184
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.195, i32 noundef 3, ptr noundef nonnull readonly %5, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 8, ptr %37, align 8, !tbaa !4
   %449 = call i32 @mallctl(ptr noundef nonnull @.str.110, ptr noundef nonnull %9, ptr noundef nonnull %37, ptr noundef null, i64 noundef 0) #14
   %.not140 = icmp eq i32 %449, 0
@@ -1997,9 +1991,9 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 451:                                              ; preds = %448
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef 7, ptr noundef %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 8, ptr %38, align 8, !tbaa !4
   %452 = call i32 @mallctl(ptr noundef nonnull @.str.113, ptr noundef nonnull %9, ptr noundef nonnull %38, ptr noundef null, i64 noundef 0) #14
   %.not141 = icmp eq i32 %452, 0
@@ -2011,9 +2005,9 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 454:                                              ; preds = %451
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 7, ptr noundef %9)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 8, ptr %39, align 8, !tbaa !4
   %455 = call i32 @mallctl(ptr noundef nonnull @.str.196, ptr noundef nonnull %11, ptr noundef nonnull %39, ptr noundef null, i64 noundef 0) #14
   %.not142 = icmp eq i32 %455, 0
@@ -2025,9 +2019,9 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 457:                                              ; preds = %454
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.198, i32 noundef 6, ptr noundef nonnull readonly %11, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 8, ptr %40, align 8, !tbaa !4
   %458 = call i32 @mallctl(ptr noundef nonnull @.str.199, ptr noundef nonnull %11, ptr noundef nonnull %40, ptr noundef null, i64 noundef 0) #14
   %.not143 = icmp eq i32 %458, 0
@@ -2039,9 +2033,9 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 460:                                              ; preds = %457
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.201, i32 noundef 6, ptr noundef nonnull readonly %11, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 8, ptr %41, align 8, !tbaa !4
   %461 = call i32 @mallctl(ptr noundef nonnull @.str.202, ptr noundef nonnull %11, ptr noundef nonnull %41, ptr noundef null, i64 noundef 0) #14
   %.not144 = icmp eq i32 %461, 0
@@ -2053,7 +2047,7 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 463:                                              ; preds = %460
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.204, i32 noundef 6, ptr noundef nonnull readonly %11, ptr noundef null, i32 noundef 0, ptr noundef null)
   %464 = call i32 @mallctl(ptr noundef nonnull @.str.205, ptr noundef nonnull %11, ptr noundef nonnull %17, ptr noundef null, i64 noundef 0) #14
   %465 = icmp eq i32 %464, 0
@@ -2064,8 +2058,8 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   br label %467
 
 467:                                              ; preds = %466, %463
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i64 4, ptr %43, align 8, !tbaa !4
   %468 = call i32 @mallctl(ptr noundef nonnull @.str.207, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef null, i64 noundef 0) #14
   %.not145 = icmp eq i32 %468, 0
@@ -2077,10 +2071,10 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 470:                                              ; preds = %467
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.208, ptr noundef nonnull @.str.209, i32 noundef 3, ptr noundef nonnull readonly %42, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 4, ptr %45, align 8, !tbaa !4
   %471 = call i32 @mallctl(ptr noundef nonnull @.str.210, ptr noundef nonnull %44, ptr noundef nonnull %45, ptr noundef null, i64 noundef 0) #14
   %.not146 = icmp eq i32 %471, 0
@@ -2092,7 +2086,7 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
   unreachable
 
 473:                                              ; preds = %470
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str.212, i32 noundef 3, ptr noundef nonnull readonly %44, ptr noundef null, i32 noundef 0, ptr noundef null)
   %.val = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i = icmp ult i32 %.val, 2
@@ -2100,8 +2094,8 @@ emitter_dict_end.exit184:                         ; preds = %emitter_json_object
 
 474:                                              ; preds = %473
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.213)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 7, ptr %47, align 8, !tbaa !4
   %475 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 888
@@ -2125,7 +2119,7 @@ tsd_fetch_impl.exit172:                           ; preds = %474, %478
   unreachable
 
 482:                                              ; preds = %tsd_fetch_impl.exit172
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %483 = load i32, ptr %42, align 4, !tbaa !26
   %.not263 = icmp eq i32 %483, 0
   br i1 %.not263, label %._crit_edge, label %.lr.ph
@@ -2178,7 +2172,7 @@ emitter_indent.exit.i:                            ; preds = %.lr.ph.i.i, %493, %
   br label %emitter_json_array_end.exit
 
 emitter_json_array_end.exit:                      ; preds = %._crit_edge, %emitter_indent.exit.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   br label %557
 
 500:                                              ; preds = %.lr.ph, %emitter_json_object_end.exit
@@ -2242,9 +2236,9 @@ emitter_json_key_prefix.exit.i:                   ; preds = %.lr.ph.i.i.i194, %5
   br label %emitter_json_object_begin.exit
 
 emitter_json_object_begin.exit:                   ; preds = %500, %emitter_json_key_prefix.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 7, ptr %48, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 8, ptr %49, align 8, !tbaa !4
   %520 = load i8, ptr %476, align 8, !tbaa !8
   %.not.i167 = icmp eq i8 %520, 0
@@ -2266,12 +2260,12 @@ tsd_fetch_impl.exit169:                           ; preds = %emitter_json_object
   unreachable
 
 525:                                              ; preds = %tsd_fetch_impl.exit169
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.216, i32 noundef 6, ptr noundef %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 7, ptr %50, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   store i64 4, ptr %51, align 8, !tbaa !4
   %526 = load i8, ptr %476, align 8, !tbaa !8
   %.not.i164 = icmp eq i8 %526, 0
@@ -2293,12 +2287,12 @@ tsd_fetch_impl.exit166:                           ; preds = %525, %527
   unreachable
 
 531:                                              ; preds = %tsd_fetch_impl.exit166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.218, i32 noundef 4, ptr noundef %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i64 7, ptr %52, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   store i64 8, ptr %53, align 8, !tbaa !4
   %532 = load i8, ptr %476, align 8, !tbaa !8
   %.not.i161 = icmp eq i8 %532, 0
@@ -2320,12 +2314,12 @@ tsd_fetch_impl.exit163:                           ; preds = %531, %533
   unreachable
 
 537:                                              ; preds = %tsd_fetch_impl.exit163
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.219, i32 noundef 6, ptr noundef %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store i64 7, ptr %54, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store i64 4, ptr %55, align 8, !tbaa !4
   %538 = load i8, ptr %476, align 8, !tbaa !8
   %.not.i158 = icmp eq i8 %538, 0
@@ -2347,8 +2341,8 @@ tsd_fetch_impl.exit160:                           ; preds = %537, %539
   unreachable
 
 543:                                              ; preds = %tsd_fetch_impl.exit160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.220, i32 noundef 4, ptr noundef %6)
   %.val.i197 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i198 = icmp ult i32 %.val.i197, 2
@@ -2395,8 +2389,8 @@ emitter_json_object_end.exit:                     ; preds = %543, %emitter_inden
   br i1 %556, label %500, label %._crit_edge, !llvm.loop !28
 
 557:                                              ; preds = %emitter_json_array_end.exit, %473
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i64 4, ptr %57, align 8, !tbaa !4
   %558 = call i32 @mallctl(ptr noundef nonnull @.str.221, ptr noundef nonnull %56, ptr noundef nonnull %57, ptr noundef null, i64 noundef 0) #14
   %.not148 = icmp eq i32 %558, 0
@@ -2408,7 +2402,7 @@ emitter_json_object_end.exit:                     ; preds = %543, %emitter_inden
   unreachable
 
 560:                                              ; preds = %557
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, i32 noundef 3, ptr noundef nonnull readonly %56, ptr noundef null, i32 noundef 0, ptr noundef null)
   %.val173 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i207 = icmp ult i32 %.val173, 2
@@ -2416,8 +2410,8 @@ emitter_json_object_end.exit:                     ; preds = %543, %emitter_inden
 
 561:                                              ; preds = %560
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.224)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %58) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   store i64 7, ptr %59, align 8, !tbaa !4
   %562 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 888
@@ -2441,7 +2435,7 @@ tsd_fetch_impl.exit157:                           ; preds = %561, %565
   unreachable
 
 569:                                              ; preds = %tsd_fetch_impl.exit157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %570 = load i32, ptr %56, align 4, !tbaa !26
   %.not264 = icmp eq i32 %570, 0
   br i1 %.not264, label %._crit_edge262, label %.lr.ph261
@@ -2459,7 +2453,7 @@ tsd_fetch_impl.exit157:                           ; preds = %561, %565
   br i1 %spec.select.i.i209, label %575, label %.thread255
 
 .thread255:                                       ; preds = %._crit_edge262
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   br label %emitter_json_object_end.exit252
 
 575:                                              ; preds = %._crit_edge262
@@ -2554,9 +2548,9 @@ emitter_json_key_prefix.exit.i223:                ; preds = %.lr.ph.i.i.i226, %5
   br label %emitter_json_object_begin.exit230
 
 emitter_json_object_begin.exit230:                ; preds = %587, %emitter_json_key_prefix.exit.i223
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i64 7, ptr %60, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   store i64 8, ptr %61, align 8, !tbaa !4
   %607 = load i8, ptr %563, align 8, !tbaa !8
   %.not.i = icmp eq i8 %607, 0
@@ -2578,8 +2572,8 @@ tsd_fetch_impl.exit:                              ; preds = %emitter_json_object
   unreachable
 
 612:                                              ; preds = %tsd_fetch_impl.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.216, i32 noundef 6, ptr noundef %11)
   %.val.i231 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i232 = icmp ult i32 %.val.i231, 2
@@ -2628,7 +2622,7 @@ emitter_json_object_end.exit241:                  ; preds = %612, %emitter_inden
 .loopexit:                                        ; preds = %.lr.ph.i.i215, %575, %580
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.244)
   %.val.i242.pr.pr = load i32, ptr %0, align 8, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %spec.select.i.i243 = icmp ult i32 %.val.i242.pr.pr, 2
   br i1 %spec.select.i.i243, label %626, label %emitter_json_object_end.exit252
 
@@ -2666,32 +2660,32 @@ emitter_indent.exit.i246:                         ; preds = %.lr.ph.i.i249, %629
   br label %emitter_json_object_end.exit252
 
 emitter_json_object_end.exit252:                  ; preds = %560, %.thread255, %.loopexit, %emitter_indent.exit.i246
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #6 {
+define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #5 {
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
@@ -2750,20 +2744,20 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   %65 = alloca i64, align 8
   %66 = alloca i8, align 1
   %67 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 8, ptr %38, align 8, !tbaa !4
   %68 = call i32 @mallctl(ptr noundef nonnull @.str.245, ptr noundef nonnull %25, ptr noundef nonnull %38, ptr noundef null, i64 noundef 0) #14
   %.not = icmp eq i32 %68, 0
@@ -2775,8 +2769,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 70:                                               ; preds = %9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 8, ptr %39, align 8, !tbaa !4
   %71 = call i32 @mallctl(ptr noundef nonnull @.str.246, ptr noundef nonnull %26, ptr noundef nonnull %39, ptr noundef null, i64 noundef 0) #14
   %.not89 = icmp eq i32 %71, 0
@@ -2788,8 +2782,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 73:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 8, ptr %40, align 8, !tbaa !4
   %74 = call i32 @mallctl(ptr noundef nonnull @.str.247, ptr noundef nonnull %27, ptr noundef nonnull %40, ptr noundef null, i64 noundef 0) #14
   %.not90 = icmp eq i32 %74, 0
@@ -2801,8 +2795,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 76:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 8, ptr %41, align 8, !tbaa !4
   %77 = call i32 @mallctl(ptr noundef nonnull @.str.248, ptr noundef nonnull %28, ptr noundef nonnull %41, ptr noundef null, i64 noundef 0) #14
   %.not91 = icmp eq i32 %77, 0
@@ -2814,8 +2808,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 79:                                               ; preds = %76
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 8, ptr %42, align 8, !tbaa !4
   %80 = call i32 @mallctl(ptr noundef nonnull @.str.249, ptr noundef nonnull %29, ptr noundef nonnull %42, ptr noundef null, i64 noundef 0) #14
   %.not92 = icmp eq i32 %80, 0
@@ -2827,8 +2821,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 82:                                               ; preds = %79
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i64 8, ptr %43, align 8, !tbaa !4
   %83 = call i32 @mallctl(ptr noundef nonnull @.str.250, ptr noundef nonnull %30, ptr noundef nonnull %43, ptr noundef null, i64 noundef 0) #14
   %.not93 = icmp eq i32 %83, 0
@@ -2840,8 +2834,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 85:                                               ; preds = %82
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 8, ptr %44, align 8, !tbaa !4
   %86 = call i32 @mallctl(ptr noundef nonnull @.str.251, ptr noundef nonnull %31, ptr noundef nonnull %44, ptr noundef null, i64 noundef 0) #14
   %.not94 = icmp eq i32 %86, 0
@@ -2853,8 +2847,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 88:                                               ; preds = %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 8, ptr %45, align 8, !tbaa !4
   %89 = call i32 @mallctl(ptr noundef nonnull @.str.252, ptr noundef nonnull %32, ptr noundef nonnull %45, ptr noundef null, i64 noundef 0) #14
   %.not95 = icmp eq i32 %89, 0
@@ -2866,8 +2860,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 91:                                               ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 8, ptr %46, align 8, !tbaa !4
   %92 = call i32 @mallctl(ptr noundef nonnull @.str.253, ptr noundef nonnull %33, ptr noundef nonnull %46, ptr noundef null, i64 noundef 0) #14
   %.not96 = icmp eq i32 %92, 0
@@ -2879,8 +2873,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 94:                                               ; preds = %91
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 8, ptr %47, align 8, !tbaa !4
   %95 = call i32 @mallctl(ptr noundef nonnull @.str.254, ptr noundef nonnull %35, ptr noundef nonnull %47, ptr noundef null, i64 noundef 0) #14
   %.not97 = icmp eq i32 %95, 0
@@ -2892,8 +2886,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 97:                                               ; preds = %94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 8, ptr %48, align 8, !tbaa !4
   %98 = call i32 @mallctl(ptr noundef nonnull @.str.255, ptr noundef nonnull %34, ptr noundef nonnull %48, ptr noundef null, i64 noundef 0) #14
   %.not98 = icmp eq i32 %98, 0
@@ -2905,8 +2899,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 100:                                              ; preds = %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 8, ptr %49, align 8, !tbaa !4
   %101 = call i32 @mallctl(ptr noundef nonnull @.str.256, ptr noundef nonnull %36, ptr noundef nonnull %49, ptr noundef null, i64 noundef 0) #14
   %.not99 = icmp eq i32 %101, 0
@@ -2918,8 +2912,8 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 103:                                              ; preds = %100
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 8, ptr %50, align 8, !tbaa !4
   %104 = call i32 @mallctl(ptr noundef nonnull @.str.257, ptr noundef nonnull %37, ptr noundef nonnull %50, ptr noundef null, i64 noundef 0) #14
   %.not100 = icmp eq i32 %104, 0
@@ -2931,7 +2925,7 @@ define internal fastcc void @stats_print_helper(ptr noundef nonnull %0, i1 nound
   unreachable
 
 106:                                              ; preds = %103
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.40)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.258, i32 noundef 6, ptr noundef %25)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.259, i32 noundef 6, ptr noundef %26)
@@ -3006,11 +3000,11 @@ emitter_json_object_end.exit:                     ; preds = %106, %emitter_inden
   br i1 %6, label %132, label %295
 
 132:                                              ; preds = %emitter_json_object_end.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %53) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   store ptr null, ptr %51, align 8, !tbaa !30
   call fastcc void @mutex_stats_init_cols(ptr noundef %51, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %53, ptr noundef %54)
   %133 = load i32, ptr %0, align 8, !tbaa !11
@@ -3044,10 +3038,10 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
 
 emitter_table_row.exit:                           ; preds = %132, %select.unfold._crit_edge.i
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.273)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store i64 7, ptr %57, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
   store i64 8, ptr %58, align 8, !tbaa !4
   %144 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.274, ptr noundef nonnull %56, ptr noundef nonnull %57) #14
   %.not101 = icmp eq i32 %144, 0
@@ -3072,11 +3066,11 @@ emitter_table_row.exit:                           ; preds = %132, %select.unfold
   unreachable
 
 151:                                              ; preds = %146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %59) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i64 7, ptr %60, align 8, !tbaa !4
   %152 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 888
@@ -3100,7 +3094,7 @@ tsd_fetch_impl.exit:                              ; preds = %151, %155
   unreachable
 
 159:                                              ; preds = %tsd_fetch_impl.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %160 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %162 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -3169,12 +3163,12 @@ emitter_indent.exit.i116:                         ; preds = %.lr.ph.i.i119, %191
   br label %emitter_json_object_end.exit122
 
 emitter_json_object_end.exit122:                  ; preds = %187, %emitter_indent.exit.i116
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %59) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %53) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %295
 
 198:                                              ; preds = %159, %emitter_json_object_end.exit134
@@ -3182,7 +3176,7 @@ emitter_json_object_end.exit122:                  ; preds = %187, %emitter_inden
   %199 = getelementptr inbounds nuw [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !24
   %201 = load i64, ptr %55, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 7, ptr %10, align 8, !tbaa !4
   %202 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i.i = icmp eq i8 %202, 0
@@ -3204,12 +3198,12 @@ tsd_fetch_impl.exit.i:                            ; preds = %203, %198
   unreachable
 
 207:                                              ; preds = %tsd_fetch_impl.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store ptr %200, ptr %160, align 8, !tbaa !8
   store i32 5, ptr %161, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 7, ptr %11, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 8, ptr %12, align 8, !tbaa !4
   %208 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i77.i = icmp eq i8 %208, 0
@@ -3231,8 +3225,8 @@ tsd_fetch_impl.exit79.i:                          ; preds = %209, %207
   unreachable
 
 213:                                              ; preds = %tsd_fetch_impl.exit79.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i32 5, ptr %163, align 16, !tbaa !38
   %214 = load i64, ptr %162, align 16, !tbaa !8
   %215 = icmp eq i64 %201, 0
@@ -3253,9 +3247,9 @@ rate_per_second.exit.i:                           ; preds = %219, %217, %213
   %.0.i98.i = phi i64 [ %221, %219 ], [ 0, %213 ], [ %214, %217 ]
   store i64 %.0.i98.i, ptr %164, align 8, !tbaa !8
   store i32 5, ptr %165, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 7, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 8, ptr %14, align 8, !tbaa !4
   %222 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i80.i = icmp eq i8 %222, 0
@@ -3277,8 +3271,8 @@ tsd_fetch_impl.exit82.i:                          ; preds = %223, %rate_per_seco
   unreachable
 
 227:                                              ; preds = %tsd_fetch_impl.exit82.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i32 5, ptr %167, align 16, !tbaa !38
   %228 = load i64, ptr %166, align 16, !tbaa !8
   %229 = icmp eq i64 %228, 0
@@ -3298,9 +3292,9 @@ rate_per_second.exit101.i:                        ; preds = %232, %230, %227
   %.0.i100.i = phi i64 [ %234, %232 ], [ 0, %227 ], [ %228, %230 ]
   store i64 %.0.i100.i, ptr %168, align 8, !tbaa !8
   store i32 5, ptr %169, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 7, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 8, ptr %16, align 8, !tbaa !4
   %235 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i83.i = icmp eq i8 %235, 0
@@ -3322,8 +3316,8 @@ tsd_fetch_impl.exit85.i:                          ; preds = %236, %rate_per_seco
   unreachable
 
 240:                                              ; preds = %tsd_fetch_impl.exit85.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i32 5, ptr %171, align 16, !tbaa !38
   %241 = load i64, ptr %170, align 16, !tbaa !8
   %242 = icmp eq i64 %241, 0
@@ -3343,9 +3337,9 @@ rate_per_second.exit104.i:                        ; preds = %245, %243, %240
   %.0.i103.i = phi i64 [ %247, %245 ], [ 0, %240 ], [ %241, %243 ]
   store i64 %.0.i103.i, ptr %172, align 8, !tbaa !8
   store i32 5, ptr %173, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 7, ptr %17, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 8, ptr %18, align 8, !tbaa !4
   %248 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i86.i = icmp eq i8 %248, 0
@@ -3367,8 +3361,8 @@ tsd_fetch_impl.exit88.i:                          ; preds = %249, %rate_per_seco
   unreachable
 
 253:                                              ; preds = %tsd_fetch_impl.exit88.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i32 5, ptr %175, align 16, !tbaa !38
   %254 = load i64, ptr %174, align 16, !tbaa !8
   %255 = icmp eq i64 %254, 0
@@ -3388,9 +3382,9 @@ rate_per_second.exit107.i:                        ; preds = %258, %256, %253
   %.0.i106.i = phi i64 [ %260, %258 ], [ 0, %253 ], [ %254, %256 ]
   store i64 %.0.i106.i, ptr %176, align 8, !tbaa !8
   store i32 5, ptr %177, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 7, ptr %19, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 8, ptr %20, align 8, !tbaa !4
   %261 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i89.i = icmp eq i8 %261, 0
@@ -3412,8 +3406,8 @@ tsd_fetch_impl.exit91.i:                          ; preds = %262, %rate_per_seco
   unreachable
 
 266:                                              ; preds = %tsd_fetch_impl.exit91.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store i32 5, ptr %179, align 16, !tbaa !38
   %267 = load i64, ptr %178, align 16, !tbaa !8
   %268 = icmp eq i64 %267, 0
@@ -3433,9 +3427,9 @@ rate_per_second.exit110.i:                        ; preds = %271, %269, %266
   %.0.i109.i = phi i64 [ %273, %271 ], [ 0, %266 ], [ %267, %269 ]
   store i64 %.0.i109.i, ptr %180, align 8, !tbaa !8
   store i32 5, ptr %181, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 7, ptr %21, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 8, ptr %22, align 8, !tbaa !4
   %274 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i92.i = icmp eq i8 %274, 0
@@ -3457,12 +3451,12 @@ tsd_fetch_impl.exit94.i:                          ; preds = %275, %rate_per_seco
   unreachable
 
 279:                                              ; preds = %tsd_fetch_impl.exit94.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   store i32 4, ptr %183, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 7, ptr %23, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 4, ptr %24, align 8, !tbaa !4
   %280 = load i8, ptr %153, align 8, !tbaa !8
   %.not.i95.i = icmp eq i8 %280, 0
@@ -3484,8 +3478,8 @@ tsd_fetch_impl.exit97.i:                          ; preds = %281, %279
   unreachable
 
 mutex_stats_read_global.exit:                     ; preds = %tsd_fetch_impl.exit97.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef %200)
   call fastcc void @mutex_stats_emit(ptr noundef %0, ptr noundef nonnull %51, ptr noundef %53, ptr noundef %54)
   %.val.i124 = load i32, ptr %0, align 8, !tbaa !11
@@ -3576,9 +3570,9 @@ emitter_json_object_end.exit145:                  ; preds = %295, %emitter_inden
   br i1 %or.cond3, label %308, label %403
 
 308:                                              ; preds = %emitter_json_object_end.exit145
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.278)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
   store i64 4, ptr %62, align 8, !tbaa !4
   %309 = call i32 @mallctl(ptr noundef nonnull @.str.194, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef null, i64 noundef 0) #14
   %.not104 = icmp eq i32 %309, 0
@@ -3590,16 +3584,16 @@ emitter_json_object_end.exit145:                  ; preds = %295, %emitter_inden
   unreachable
 
 311:                                              ; preds = %308
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i64 3, ptr %64, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %312 = load i32, ptr %61, align 4, !tbaa !26
   %313 = zext i32 %312 to i64
   %314 = call ptr @llvm.stacksave.p0()
   %315 = alloca i8, i64 %313, align 16
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %316 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.279, ptr noundef nonnull %63, ptr noundef nonnull %64) #14
   %.not105 = icmp eq i32 %316, 0
   br i1 %.not105, label %.preheader190, label %319
@@ -3781,7 +3775,7 @@ emitter_json_object_end.exit167:                  ; preds = %emitter_indent.exit
   br i1 %373, label %374, label %387
 
 374:                                              ; preds = %369
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %375 = trunc nuw i64 %indvars.iv204 to i32
   %376 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %67, i64 noundef 20, ptr noundef nonnull @.str.231, i32 noundef %375) #14
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull %67)
@@ -3825,7 +3819,7 @@ emitter_indent.exit.i172:                         ; preds = %.lr.ph.i.i175, %380
   br label %emitter_json_object_end.exit178
 
 emitter_json_object_end.exit178:                  ; preds = %374, %emitter_indent.exit.i172
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %67) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
   %.pre = load i32, ptr %61, align 4, !tbaa !26
   br label %387
 
@@ -3877,39 +3871,39 @@ emitter_indent.exit.i183:                         ; preds = %.lr.ph.i.i186, %396
   br label %emitter_json_object_end.exit189
 
 emitter_json_object_end.exit189:                  ; preds = %.loopexit, %emitter_indent.exit.i183
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void @llvm.stackrestore.p0(ptr %314)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
   br label %403
 
 403:                                              ; preds = %emitter_json_object_end.exit145, %emitter_json_object_end.exit189
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i64 0, 4194305) i64 @je_stats_interval_new_event_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
+define hidden range(i64 0, 4194305) i64 @je_stats_interval_new_event_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   %2 = load i64, ptr @stats_interval_accum_batch, align 8, !tbaa !4
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @je_stats_interval_postponed_event_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #8 {
+define hidden noundef i64 @je_stats_interval_postponed_event_wait(ptr noundef readnone captures(none) %0) local_unnamed_addr #7 {
   ret i64 1
 }
 
@@ -3950,7 +3944,7 @@ locked_inc_mod_u64.exit.thread:                   ; preds = %.thread, %locked_in
 }
 
 ; Function Attrs: nounwind
-declare void @malloc_stats_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @malloc_stats_print(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_stats_boot() local_unnamed_addr #0 {
@@ -3975,7 +3969,7 @@ define hidden zeroext i1 @je_stats_boot() local_unnamed_addr #0 {
   ret i1 %9
 }
 
-declare zeroext i1 @je_counter_accum_init(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare zeroext i1 @je_counter_accum_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_stats_prefork(ptr noundef %0) local_unnamed_addr #0 {
@@ -3983,7 +3977,7 @@ define hidden void @je_stats_prefork(ptr noundef %0) local_unnamed_addr #0 {
   ret void
 }
 
-declare void @je_counter_prefork(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_counter_prefork(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_stats_postfork_parent(ptr noundef %0) local_unnamed_addr #0 {
@@ -3991,7 +3985,7 @@ define hidden void @je_stats_postfork_parent(ptr noundef %0) local_unnamed_addr 
   ret void
 }
 
-declare void @je_counter_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_counter_postfork_parent(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_stats_postfork_child(ptr noundef %0) local_unnamed_addr #0 {
@@ -3999,12 +3993,12 @@ define hidden void @je_stats_postfork_child(ptr noundef %0) local_unnamed_addr #
   ret void
 }
 
-declare void @je_counter_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_counter_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @emitter_printf(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #5 {
+define internal void @emitter_printf(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ...) unnamed_addr #4 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
@@ -4012,22 +4006,22 @@ define internal void @emitter_printf(ptr noundef nonnull readonly captures(none)
   %7 = load ptr, ptr %6, align 8, !tbaa !17
   call void @je_malloc_vcprintf(ptr noundef %5, ptr noundef %7, ptr noundef %1, ptr noundef nonnull %3) #14
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #8
 
-declare void @je_malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_malloc_vcprintf(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #8
 
-declare void @je_malloc_printf(ptr noundef, ...) local_unnamed_addr #3
+declare void @je_malloc_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_dict_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @emitter_dict_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 {
   %.val = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i = icmp ult i32 %.val, 2
   br i1 %spec.select.i, label %4, label %30
@@ -4147,10 +4141,10 @@ emitter_json_object_begin.exit:                   ; preds = %emitter_json_object
   ret void
 }
 
-declare void @je_fxp_print(i32 noundef, ptr noundef) local_unnamed_addr #3
+declare void @je_fxp_print(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_kv_note(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef range(i32 0, 8) %6, ptr noundef readonly captures(none) %7) unnamed_addr #5 {
+define internal fastcc void @emitter_kv_note(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3, ptr noundef readonly captures(none) %4, ptr noundef %5, i32 noundef range(i32 0, 8) %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
   %.val = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i = icmp ult i32 %.val, 2
   br i1 %spec.select.i, label %9, label %32
@@ -4273,7 +4267,7 @@ emitter_json_value.exit:                          ; preds = %40, %32, %emitter_j
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_json_kv(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 4, 8) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc void @emitter_json_kv(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 4, 8) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #4 {
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i.i, label %5, label %emitter_json_value.exit
@@ -4359,7 +4353,7 @@ emitter_json_value.exit:                          ; preds = %4, %emitter_json_ke
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i.i, label %3, label %emitter_json_array_begin.exit
@@ -4448,15 +4442,15 @@ emitter_json_array_begin.exit:                    ; preds = %2, %emitter_json_ke
   ret void
 }
 
-declare i32 @je_ctl_mibnametomib(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @je_ctl_mibnametomib(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @je_ctl_bymibname(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @je_ctl_bymibname(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @emitter_print_value(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #5 {
+define internal fastcc void @emitter_print_value(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #4 {
   %6 = alloca [256 x i8], align 16
   %7 = alloca [10 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %3, label %106 [
     i32 0, label %8
     i32 1, label %18
@@ -4612,7 +4606,7 @@ emitter_gen_fmt.exit44:                           ; preds = %51, %53, %55
 
 58:                                               ; preds = %5
   %59 = load ptr, ptr %4, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull @.str.238, ptr noundef %59) #14
   switch i32 %1, label %65 [
     i32 2, label %61
@@ -4671,7 +4665,7 @@ emitter_gen_fmt.exit17.i:                         ; preds = %68, %emitter_gen_fm
   br i1 %79, label %emitter_gen_fmt.exit17.i, label %emitter_emit_str.exit, !llvm.loop !51
 
 emitter_emit_str.exit:                            ; preds = %emitter_gen_fmt.exit17.us20.i, %emitter_gen_fmt.exit17.us.i, %emitter_gen_fmt.exit17.i, %emitter_gen_fmt.exit.i
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %107
 
 82:                                               ; preds = %5
@@ -4747,19 +4741,19 @@ emitter_gen_fmt.exit47:                           ; preds = %99, %101, %103
   unreachable
 
 107:                                              ; preds = %emitter_gen_fmt.exit47, %emitter_gen_fmt.exit46, %emitter_gen_fmt.exit45, %emitter_emit_str.exit, %emitter_gen_fmt.exit44, %emitter_gen_fmt.exit43, %emitter_gen_fmt.exit42, %emitter_gen_fmt.exit41, %emitter_gen_fmt.exit40, %emitter_gen_fmt.exit
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
-declare i64 @je_malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare i64 @je_malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+declare ptr @je_tsd_fetch_slow(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mutex_stats_init_cols(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #11 {
+define internal fastcc void @mutex_stats_init_cols(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #10 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %6
 
@@ -5237,10 +5231,10 @@ emitter_col_init.exit139:                         ; preds = %emitter_col_init.ex
 }
 
 ; Function Attrs: nounwind
-declare i32 @mallctlnametomib(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @mallctlnametomib(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mutex_stats_emit(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
@@ -5297,10 +5291,10 @@ emitter_table_row.exit:                           ; preds = %select.unfold._crit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare ptr @llvm.stacksave.p0() #9
+declare ptr @llvm.stacksave.p0() #8
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #6 {
+define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #5 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -5502,49 +5496,49 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   %206 = alloca [7 x i64], align 16
   %207 = alloca i64, align 8
   %208 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store ptr %30, ptr %31, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 8, ptr %71, align 8, !tbaa !4
   %209 = call i32 @mallctl(ptr noundef nonnull @.str.199, ptr noundef nonnull %36, ptr noundef nonnull %71, ptr noundef null, i64 noundef 0) #14
   %.not = icmp eq i32 %209, 0
@@ -5556,16 +5550,16 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 211:                                              ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
   %212 = add i32 %1, -4098
   %or.cond = icmp ult i32 %212, -2
   br i1 %or.cond, label %213, label %223
 
 213:                                              ; preds = %211
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %72) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store i64 7, ptr %73, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i64 8, ptr %74, align 8, !tbaa !4
   %214 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.307, ptr noundef nonnull %72, ptr noundef nonnull %73) #14
   %.not121 = icmp eq i32 %214, 0
@@ -5591,17 +5585,17 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 222:                                              ; preds = %216
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %72) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.308, ptr noundef nonnull @.str.308, i32 noundef 8, ptr noundef nonnull readonly %31, ptr noundef null, i32 noundef 0, ptr noundef null)
   br label %223
 
 223:                                              ; preds = %211, %222
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %75) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i64 7, ptr %76, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i64 4, ptr %77, align 8, !tbaa !4
   %224 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.309, ptr noundef nonnull %75, ptr noundef nonnull %76) #14
   %.not123 = icmp eq i32 %224, 0
@@ -5627,14 +5621,14 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 232:                                              ; preds = %226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %75) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311, i32 noundef 3, ptr noundef nonnull readonly %32, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %78) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   store i64 7, ptr %79, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i64 8, ptr %80, align 8, !tbaa !4
   %233 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.274, ptr noundef nonnull %78, ptr noundef nonnull %79) #14
   %.not125 = icmp eq i32 %233, 0
@@ -5659,14 +5653,14 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 240:                                              ; preds = %235
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %78) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.313, i32 noundef 5, ptr noundef nonnull readonly %70, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %81) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
   store i64 7, ptr %82, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   store i64 8, ptr %83, align 8, !tbaa !4
   %241 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.314, ptr noundef nonnull %81, ptr noundef nonnull %82) #14
   %.not127 = icmp eq i32 %241, 0
@@ -5691,14 +5685,14 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 248:                                              ; preds = %243
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %81) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.315, i32 noundef 8, ptr noundef nonnull readonly %33, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %84) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   store i64 7, ptr %85, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
   store i64 8, ptr %86, align 8, !tbaa !4
   %249 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.316, ptr noundef nonnull %84, ptr noundef nonnull %85) #14
   %.not129 = icmp eq i32 %249, 0
@@ -5723,13 +5717,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 256:                                              ; preds = %251
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %84) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %87) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store i64 7, ptr %88, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   store i64 8, ptr %89, align 8, !tbaa !4
   %257 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.317, ptr noundef nonnull %87, ptr noundef nonnull %88) #14
   %.not131 = icmp eq i32 %257, 0
@@ -5754,13 +5748,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 264:                                              ; preds = %259
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %87) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %90) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
   store i64 7, ptr %91, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store i64 8, ptr %92, align 8, !tbaa !4
   %265 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.318, ptr noundef nonnull %90, ptr noundef nonnull %91) #14
   %.not133 = icmp eq i32 %265, 0
@@ -5785,13 +5779,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 272:                                              ; preds = %267
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %90) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %93) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %94) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store i64 7, ptr %94, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store i64 8, ptr %95, align 8, !tbaa !4
   %273 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.319, ptr noundef nonnull %93, ptr noundef nonnull %94) #14
   %.not135 = icmp eq i32 %273, 0
@@ -5816,13 +5810,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 280:                                              ; preds = %275
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %93) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %96) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %97) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
   store i64 7, ptr %97, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 8, ptr %98, align 8, !tbaa !4
   %281 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.320, ptr noundef nonnull %96, ptr noundef nonnull %97) #14
   %.not137 = icmp eq i32 %281, 0
@@ -5847,13 +5841,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 288:                                              ; preds = %283
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %97) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %96) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %99) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store i64 7, ptr %100, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store i64 8, ptr %101, align 8, !tbaa !4
   %289 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.321, ptr noundef nonnull %99, ptr noundef nonnull %100) #14
   %.not139 = icmp eq i32 %289, 0
@@ -5878,13 +5872,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 296:                                              ; preds = %291
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %99) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %102) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store i64 7, ptr %103, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i64 8, ptr %104, align 8, !tbaa !4
   %297 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.322, ptr noundef nonnull %102, ptr noundef nonnull %103) #14
   %.not141 = icmp eq i32 %297, 0
@@ -5909,13 +5903,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 304:                                              ; preds = %299
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %102) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %105) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
   store i64 7, ptr %106, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i64 8, ptr %107, align 8, !tbaa !4
   %305 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.323, ptr noundef nonnull %105, ptr noundef nonnull %106) #14
   %.not143 = icmp eq i32 %305, 0
@@ -5940,13 +5934,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 312:                                              ; preds = %307
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %105) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %108) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
   store i64 7, ptr %109, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store i64 8, ptr %110, align 8, !tbaa !4
   %313 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.324, ptr noundef nonnull %108, ptr noundef nonnull %109) #14
   %.not145 = icmp eq i32 %313, 0
@@ -5971,13 +5965,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 320:                                              ; preds = %315
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %108) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %111) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store i64 7, ptr %112, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store i64 8, ptr %113, align 8, !tbaa !4
   %321 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.325, ptr noundef nonnull %111, ptr noundef nonnull %112) #14
   %.not147 = icmp eq i32 %321, 0
@@ -6002,13 +5996,13 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 328:                                              ; preds = %323
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %111) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %114) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
   store i64 7, ptr %115, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i64 8, ptr %116, align 8, !tbaa !4
   %329 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.326, ptr noundef nonnull %114, ptr noundef nonnull %115) #14
   %.not149 = icmp eq i32 %329, 0
@@ -6033,9 +6027,9 @@ define internal fastcc void @stats_arena_print(ptr noundef nonnull %0, i32 nound
   unreachable
 
 emitter_col_init.exit209:                         ; preds = %331
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %114) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.111, i32 noundef 7, ptr noundef %34)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.114, i32 noundef 7, ptr noundef %35)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.327, i32 noundef 6, ptr noundef %37)
@@ -6047,7 +6041,7 @@ emitter_col_init.exit209:                         ; preds = %331
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.333, i32 noundef 5, ptr noundef %52)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.334, i32 noundef 5, ptr noundef %53)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.335, i32 noundef 5, ptr noundef %54)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %117) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %336 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %337 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store i32 1, ptr %117, align 8, !tbaa !34
@@ -6057,7 +6051,7 @@ emitter_col_init.exit209:                         ; preds = %331
   store i32 9, ptr %339, align 8, !tbaa !38
   %340 = getelementptr inbounds nuw i8, ptr %117, i64 16
   store ptr @.str.336, ptr %340, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %118) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %341 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %342 = getelementptr inbounds nuw i8, ptr %118, i64 32
   store ptr %117, ptr %342, align 8, !tbaa !52
@@ -6069,7 +6063,7 @@ emitter_col_init.exit209:                         ; preds = %331
   store i32 9, ptr %344, align 8, !tbaa !38
   %345 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store ptr @.str.337, ptr %345, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %119) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   %346 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store ptr %118, ptr %346, align 8, !tbaa !52
   store ptr %119, ptr %341, align 8, !tbaa !39
@@ -6080,7 +6074,7 @@ emitter_col_init.exit209:                         ; preds = %331
   store i32 9, ptr %348, align 8, !tbaa !38
   %349 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr @.str.338, ptr %349, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %120) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %350 = getelementptr inbounds nuw i8, ptr %120, i64 32
   store ptr %119, ptr %350, align 8, !tbaa !52
   %351 = getelementptr inbounds nuw i8, ptr %119, i64 24
@@ -6092,7 +6086,7 @@ emitter_col_init.exit209:                         ; preds = %331
   store i32 9, ptr %353, align 8, !tbaa !38
   %354 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr @.str.339, ptr %354, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %121) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   %355 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %356 = getelementptr inbounds nuw i8, ptr %121, i64 32
   store ptr %121, ptr %337, align 8, !tbaa !52
@@ -6107,7 +6101,7 @@ emitter_col_init.exit209:                         ; preds = %331
   store i32 9, ptr %359, align 8, !tbaa !38
   %360 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr @.str.340, ptr %360, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %122) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   %361 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %362 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store ptr %122, ptr %362, align 8, !tbaa !52
@@ -6255,7 +6249,7 @@ select.unfold._crit_edge.i226:                    ; preds = %select.unfold.i221,
   br label %emitter_col_init.exit239
 
 emitter_col_init.exit239:                         ; preds = %select.unfold._crit_edge.i226, %emitter_table_row.exit218
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %123) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %414 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %415 = getelementptr inbounds nuw i8, ptr %123, i64 32
   store i32 0, ptr %123, align 8, !tbaa !34
@@ -6265,7 +6259,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %417, align 8, !tbaa !38
   %418 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr @.str.8, ptr %418, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %124) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   %419 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %420 = getelementptr inbounds nuw i8, ptr %124, i64 32
   store ptr %123, ptr %420, align 8, !tbaa !52
@@ -6277,7 +6271,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %422, align 8, !tbaa !38
   %423 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store ptr @.str.258, ptr %423, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %125) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   %424 = getelementptr inbounds nuw i8, ptr %125, i64 32
   store ptr %124, ptr %424, align 8, !tbaa !52
   store ptr %125, ptr %419, align 8, !tbaa !39
@@ -6288,7 +6282,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %426, align 8, !tbaa !38
   %427 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr @.str.345, ptr %427, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %126) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %428 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr %125, ptr %428, align 8, !tbaa !52
   %429 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -6300,7 +6294,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %431, align 8, !tbaa !38
   %432 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr @.str.286, ptr %432, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %127) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   %433 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %434 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr %127, ptr %415, align 8, !tbaa !52
@@ -6315,7 +6309,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %437, align 8, !tbaa !38
   %438 = getelementptr inbounds nuw i8, ptr %127, i64 16
   store ptr @.str.346, ptr %438, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %128) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   %439 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %440 = getelementptr inbounds nuw i8, ptr %128, i64 32
   store ptr %128, ptr %440, align 8, !tbaa !52
@@ -6336,7 +6330,7 @@ emitter_col_init.exit239:                         ; preds = %select.unfold._crit
   store i32 9, ptr %446, align 8, !tbaa !38
   %447 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr @.str.286, ptr %447, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %129) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   %448 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %129, ptr %448, align 8, !tbaa !39
   %449 = getelementptr inbounds nuw i8, ptr %129, i64 32
@@ -6370,7 +6364,7 @@ emitter_col_init.exit241:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %462, align 8, !tbaa !38
   %463 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr @.str.347, ptr %463, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %130) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   %464 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store ptr %130, ptr %464, align 8, !tbaa !39
   %465 = getelementptr inbounds nuw i8, ptr %130, i64 32
@@ -6404,7 +6398,7 @@ emitter_col_init.exit243:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %478, align 8, !tbaa !38
   %479 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store ptr @.str.286, ptr %479, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %131) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   %480 = getelementptr inbounds nuw i8, ptr %131, i64 24
   store ptr %131, ptr %480, align 8, !tbaa !39
   %481 = getelementptr inbounds nuw i8, ptr %131, i64 32
@@ -6438,7 +6432,7 @@ emitter_col_init.exit245:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %494, align 8, !tbaa !38
   %495 = getelementptr inbounds nuw i8, ptr %131, i64 16
   store ptr @.str.348, ptr %495, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %132) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   %496 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store ptr %132, ptr %496, align 8, !tbaa !39
   %497 = getelementptr inbounds nuw i8, ptr %132, i64 32
@@ -6472,7 +6466,7 @@ emitter_col_init.exit247:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %510, align 8, !tbaa !38
   %511 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store ptr @.str.286, ptr %511, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %133) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %512 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store ptr %133, ptr %512, align 8, !tbaa !39
   %513 = getelementptr inbounds nuw i8, ptr %133, i64 32
@@ -6506,7 +6500,7 @@ emitter_col_init.exit249:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %526, align 8, !tbaa !38
   %527 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr @.str.349, ptr %527, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %134) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   %528 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %134, ptr %528, align 8, !tbaa !39
   %529 = getelementptr inbounds nuw i8, ptr %134, i64 32
@@ -6576,10 +6570,10 @@ emitter_table_row.exit260:                        ; preds = %emitter_col_init.ex
   store i32 5, ptr %542, align 8, !tbaa !38
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.350)
   store ptr @.str.351, ptr %418, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %135) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store i64 7, ptr %136, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store i64 8, ptr %137, align 8, !tbaa !4
   %554 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.352, ptr noundef nonnull %135, ptr noundef nonnull %136) #14
   %.not152 = icmp eq i32 %554, 0
@@ -6604,17 +6598,17 @@ emitter_table_row.exit260:                        ; preds = %emitter_col_init.ex
   unreachable
 
 561:                                              ; preds = %556
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %135) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.258, i32 noundef 6, ptr noundef %55)
   store i32 6, ptr %422, align 8, !tbaa !38
   %562 = load i64, ptr %55, align 8, !tbaa !4
   store i64 %562, ptr %423, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %138) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 7, ptr %139, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store i64 8, ptr %140, align 8, !tbaa !4
   %563 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.353, ptr noundef nonnull %138, ptr noundef nonnull %139) #14
   %.not154 = icmp eq i32 %563, 0
@@ -6639,9 +6633,9 @@ emitter_table_row.exit260:                        ; preds = %emitter_col_init.ex
   unreachable
 
 570:                                              ; preds = %565
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %138) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.345, i32 noundef 5, ptr noundef %56)
   store i32 5, ptr %426, align 8, !tbaa !38
   %571 = load i64, ptr %56, align 8, !tbaa !4
@@ -6664,10 +6658,10 @@ emitter_table_row.exit260:                        ; preds = %emitter_col_init.ex
 rate_per_second.exit:                             ; preds = %570, %575, %577
   %.0.i = phi i64 [ %579, %577 ], [ 0, %570 ], [ %571, %575 ]
   store i64 %.0.i, ptr %432, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %141) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store i64 7, ptr %142, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store i64 8, ptr %143, align 8, !tbaa !4
   %580 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.354, ptr noundef nonnull %141, ptr noundef nonnull %142) #14
   %.not156 = icmp eq i32 %580, 0
@@ -6692,9 +6686,9 @@ rate_per_second.exit:                             ; preds = %570, %575, %577
   unreachable
 
 587:                                              ; preds = %582
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %141) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.346, i32 noundef 5, ptr noundef %57)
   store i32 5, ptr %437, align 8, !tbaa !38
   %588 = load i64, ptr %57, align 8, !tbaa !4
@@ -6717,10 +6711,10 @@ rate_per_second.exit:                             ; preds = %570, %575, %577
 rate_per_second.exit263:                          ; preds = %587, %592, %594
   %.0.i262 = phi i64 [ %596, %594 ], [ 0, %587 ], [ %588, %592 ]
   store i64 %.0.i262, ptr %447, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %144) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %145) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store i64 7, ptr %145, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store i64 8, ptr %146, align 8, !tbaa !4
   %597 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.355, ptr noundef nonnull %144, ptr noundef nonnull %145) #14
   %.not158 = icmp eq i32 %597, 0
@@ -6745,9 +6739,9 @@ rate_per_second.exit263:                          ; preds = %587, %592, %594
   unreachable
 
 604:                                              ; preds = %599
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %144) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.347, i32 noundef 5, ptr noundef %58)
   store i32 5, ptr %462, align 8, !tbaa !38
   %605 = load i64, ptr %58, align 8, !tbaa !4
@@ -6770,10 +6764,10 @@ rate_per_second.exit263:                          ; preds = %587, %592, %594
 rate_per_second.exit266:                          ; preds = %604, %609, %611
   %.0.i265 = phi i64 [ %613, %611 ], [ 0, %604 ], [ %605, %609 ]
   store i64 %.0.i265, ptr %479, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %147) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store i64 7, ptr %148, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store i64 8, ptr %149, align 8, !tbaa !4
   %614 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.356, ptr noundef nonnull %147, ptr noundef nonnull %148) #14
   %.not160 = icmp eq i32 %614, 0
@@ -6798,9 +6792,9 @@ rate_per_second.exit266:                          ; preds = %604, %609, %611
   unreachable
 
 621:                                              ; preds = %616
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %147) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.357, i32 noundef 5, ptr noundef %59)
   store i32 5, ptr %494, align 8, !tbaa !38
   %622 = load i64, ptr %59, align 8, !tbaa !4
@@ -6823,10 +6817,10 @@ rate_per_second.exit266:                          ; preds = %604, %609, %611
 rate_per_second.exit269:                          ; preds = %621, %626, %628
   %.0.i268 = phi i64 [ %630, %628 ], [ 0, %621 ], [ %622, %626 ]
   store i64 %.0.i268, ptr %511, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %150) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store i64 7, ptr %151, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store i64 8, ptr %152, align 8, !tbaa !4
   %631 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.358, ptr noundef nonnull %150, ptr noundef nonnull %151) #14
   %.not162 = icmp eq i32 %631, 0
@@ -6851,9 +6845,9 @@ rate_per_second.exit269:                          ; preds = %621, %626, %628
   unreachable
 
 638:                                              ; preds = %633
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %150) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.359, i32 noundef 5, ptr noundef %60)
   store i32 5, ptr %526, align 8, !tbaa !38
   %639 = load i64, ptr %60, align 8, !tbaa !4
@@ -6948,10 +6942,10 @@ emitter_indent.exit.i:                            ; preds = %.lr.ph.i.i, %663, %
 emitter_json_object_end.exit:                     ; preds = %emitter_table_row.exit281, %emitter_indent.exit.i
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.360)
   store ptr @.str.361, ptr %418, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %153) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %154) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
+  call void @llvm.lifetime.start.p0(ptr nonnull %154)
   store i64 7, ptr %154, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %155) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %155)
   store i64 8, ptr %155, align 8, !tbaa !4
   %670 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.362, ptr noundef nonnull %153, ptr noundef nonnull %154) #14
   %.not164 = icmp eq i32 %670, 0
@@ -6976,17 +6970,17 @@ emitter_json_object_end.exit:                     ; preds = %emitter_table_row.e
   unreachable
 
 677:                                              ; preds = %672
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %155) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %154) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %153) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %155)
+  call void @llvm.lifetime.end.p0(ptr nonnull %154)
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.258, i32 noundef 6, ptr noundef %61)
   store i32 6, ptr %422, align 8, !tbaa !38
   %678 = load i64, ptr %61, align 8, !tbaa !4
   store i64 %678, ptr %423, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %156) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %157) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %156)
+  call void @llvm.lifetime.start.p0(ptr nonnull %157)
   store i64 7, ptr %157, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %158) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %158)
   store i64 8, ptr %158, align 8, !tbaa !4
   %679 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.363, ptr noundef nonnull %156, ptr noundef nonnull %157) #14
   %.not166 = icmp eq i32 %679, 0
@@ -7011,9 +7005,9 @@ emitter_json_object_end.exit:                     ; preds = %emitter_table_row.e
   unreachable
 
 686:                                              ; preds = %681
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %158) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %156) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %158)
+  call void @llvm.lifetime.end.p0(ptr nonnull %157)
+  call void @llvm.lifetime.end.p0(ptr nonnull %156)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.345, i32 noundef 5, ptr noundef %62)
   store i32 5, ptr %426, align 8, !tbaa !38
   %687 = load i64, ptr %62, align 8, !tbaa !4
@@ -7036,10 +7030,10 @@ emitter_json_object_end.exit:                     ; preds = %emitter_table_row.e
 rate_per_second.exit285:                          ; preds = %686, %691, %693
   %.0.i284 = phi i64 [ %695, %693 ], [ 0, %686 ], [ %687, %691 ]
   store i64 %.0.i284, ptr %432, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %159) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %160) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %159)
+  call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store i64 7, ptr %160, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %161) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %161)
   store i64 8, ptr %161, align 8, !tbaa !4
   %696 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.364, ptr noundef nonnull %159, ptr noundef nonnull %160) #14
   %.not168 = icmp eq i32 %696, 0
@@ -7064,9 +7058,9 @@ rate_per_second.exit285:                          ; preds = %686, %691, %693
   unreachable
 
 703:                                              ; preds = %698
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %161) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %160) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %159) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %161)
+  call void @llvm.lifetime.end.p0(ptr nonnull %160)
+  call void @llvm.lifetime.end.p0(ptr nonnull %159)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.346, i32 noundef 5, ptr noundef %63)
   store i32 5, ptr %437, align 8, !tbaa !38
   %704 = load i64, ptr %63, align 8, !tbaa !4
@@ -7089,10 +7083,10 @@ rate_per_second.exit285:                          ; preds = %686, %691, %693
 rate_per_second.exit288:                          ; preds = %703, %708, %710
   %.0.i287 = phi i64 [ %712, %710 ], [ 0, %703 ], [ %704, %708 ]
   store i64 %.0.i287, ptr %447, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %162) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %163) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %162)
+  call void @llvm.lifetime.start.p0(ptr nonnull %163)
   store i64 7, ptr %163, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %164) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %164)
   store i64 8, ptr %164, align 8, !tbaa !4
   %713 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.365, ptr noundef nonnull %162, ptr noundef nonnull %163) #14
   %.not170 = icmp eq i32 %713, 0
@@ -7117,9 +7111,9 @@ rate_per_second.exit288:                          ; preds = %703, %708, %710
   unreachable
 
 720:                                              ; preds = %715
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %164) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %163) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %162) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %164)
+  call void @llvm.lifetime.end.p0(ptr nonnull %163)
+  call void @llvm.lifetime.end.p0(ptr nonnull %162)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.347, i32 noundef 5, ptr noundef %64)
   store i32 5, ptr %462, align 8, !tbaa !38
   %721 = load i64, ptr %64, align 8, !tbaa !4
@@ -7142,10 +7136,10 @@ rate_per_second.exit288:                          ; preds = %703, %708, %710
 rate_per_second.exit291:                          ; preds = %720, %725, %727
   %.0.i290 = phi i64 [ %729, %727 ], [ 0, %720 ], [ %721, %725 ]
   store i64 %.0.i290, ptr %479, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %165) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %166) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %165)
+  call void @llvm.lifetime.start.p0(ptr nonnull %166)
   store i64 7, ptr %166, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %167) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %167)
   store i64 8, ptr %167, align 8, !tbaa !4
   %730 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.366, ptr noundef nonnull %165, ptr noundef nonnull %166) #14
   %.not172 = icmp eq i32 %730, 0
@@ -7170,9 +7164,9 @@ rate_per_second.exit291:                          ; preds = %720, %725, %727
   unreachable
 
 737:                                              ; preds = %732
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %167) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %166) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %165) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %167)
+  call void @llvm.lifetime.end.p0(ptr nonnull %166)
+  call void @llvm.lifetime.end.p0(ptr nonnull %165)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.357, i32 noundef 5, ptr noundef %65)
   store i32 5, ptr %494, align 8, !tbaa !38
   %738 = load i64, ptr %65, align 8, !tbaa !4
@@ -7195,10 +7189,10 @@ rate_per_second.exit291:                          ; preds = %720, %725, %727
 rate_per_second.exit294:                          ; preds = %737, %742, %744
   %.0.i293 = phi i64 [ %746, %744 ], [ 0, %737 ], [ %738, %742 ]
   store i64 %.0.i293, ptr %511, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %168) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %169) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %168)
+  call void @llvm.lifetime.start.p0(ptr nonnull %169)
   store i64 7, ptr %169, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %170) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %170)
   store i64 8, ptr %170, align 8, !tbaa !4
   %747 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.367, ptr noundef nonnull %168, ptr noundef nonnull %169) #14
   %.not174 = icmp eq i32 %747, 0
@@ -7223,9 +7217,9 @@ rate_per_second.exit294:                          ; preds = %737, %742, %744
   unreachable
 
 754:                                              ; preds = %749
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %170) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %169) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %168) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %170)
+  call void @llvm.lifetime.end.p0(ptr nonnull %169)
+  call void @llvm.lifetime.end.p0(ptr nonnull %168)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.359, i32 noundef 5, ptr noundef %66)
   store i32 5, ptr %526, align 8, !tbaa !38
   %755 = load i64, ptr %66, align 8, !tbaa !4
@@ -7457,7 +7451,7 @@ select.unfold._crit_edge.i340:                    ; preds = %select.unfold.i335,
 
 emitter_col_init.exit345:                         ; preds = %select.unfold._crit_edge.i340, %rate_per_second.exit332
   %.not.i346 = phi i1 [ %846, %select.unfold._crit_edge.i340 ], [ false, %rate_per_second.exit332 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %171) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %171)
   %847 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %848 = getelementptr inbounds nuw i8, ptr %171, i64 32
   store i32 0, ptr %171, align 8, !tbaa !34
@@ -7467,7 +7461,7 @@ emitter_col_init.exit345:                         ; preds = %select.unfold._crit
   store i32 9, ptr %850, align 8, !tbaa !38
   %851 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store ptr @.str.8, ptr %851, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %172) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %172)
   %852 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %853 = getelementptr inbounds nuw i8, ptr %172, i64 32
   store ptr %172, ptr %848, align 8, !tbaa !52
@@ -7541,10 +7535,10 @@ emitter_table_row.exit363.critedge:               ; preds = %emitter_col_init.ex
   br label %emitter_table_row.exit363
 
 emitter_table_row.exit363:                        ; preds = %emitter_table_row.exit363.critedge, %select.unfold._crit_edge.i353, %select.unfold._crit_edge.i362
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %173) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %174) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %173)
+  call void @llvm.lifetime.start.p0(ptr nonnull %174)
   store i64 7, ptr %174, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %175) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %175)
   store i64 8, ptr %175, align 8, !tbaa !4
   %880 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.370, ptr noundef nonnull %173, ptr noundef nonnull %174) #14
   %.not176 = icmp eq i32 %880, 0
@@ -7569,9 +7563,9 @@ emitter_table_row.exit363:                        ; preds = %emitter_table_row.e
   unreachable
 
 887:                                              ; preds = %882
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %175) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %174) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %173) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %175)
+  call void @llvm.lifetime.end.p0(ptr nonnull %174)
+  call void @llvm.lifetime.end.p0(ptr nonnull %173)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.264, i32 noundef 6, ptr noundef %40)
   store ptr @.str.371, ptr %851, align 8, !tbaa !8
   %888 = load i64, ptr %40, align 8, !tbaa !4
@@ -7601,10 +7595,10 @@ select.unfold._crit_edge.i371:                    ; preds = %select.unfold.i366
   br label %emitter_table_row.exit372
 
 emitter_table_row.exit372:                        ; preds = %887, %select.unfold._crit_edge.i371
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %176) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %177) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %176)
+  call void @llvm.lifetime.start.p0(ptr nonnull %177)
   store i64 7, ptr %177, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %178) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %178)
   store i64 8, ptr %178, align 8, !tbaa !4
   %898 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.372, ptr noundef nonnull %176, ptr noundef nonnull %177) #14
   %.not178 = icmp eq i32 %898, 0
@@ -7629,9 +7623,9 @@ emitter_table_row.exit372:                        ; preds = %887, %select.unfold
   unreachable
 
 905:                                              ; preds = %900
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %178) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %177) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %176) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %178)
+  call void @llvm.lifetime.end.p0(ptr nonnull %177)
+  call void @llvm.lifetime.end.p0(ptr nonnull %176)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.265, i32 noundef 6, ptr noundef %41)
   store ptr @.str.373, ptr %851, align 8, !tbaa !8
   %906 = load i64, ptr %41, align 8, !tbaa !4
@@ -7661,10 +7655,10 @@ select.unfold._crit_edge.i380:                    ; preds = %select.unfold.i375
   br label %emitter_table_row.exit381
 
 emitter_table_row.exit381:                        ; preds = %905, %select.unfold._crit_edge.i380
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %179) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %180) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %179)
+  call void @llvm.lifetime.start.p0(ptr nonnull %180)
   store i64 7, ptr %180, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %181) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %181)
   store i64 8, ptr %181, align 8, !tbaa !4
   %916 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.374, ptr noundef nonnull %179, ptr noundef nonnull %180) #14
   %.not180 = icmp eq i32 %916, 0
@@ -7689,9 +7683,9 @@ emitter_table_row.exit381:                        ; preds = %905, %select.unfold
   unreachable
 
 923:                                              ; preds = %918
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %181) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %180) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %179) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %181)
+  call void @llvm.lifetime.end.p0(ptr nonnull %180)
+  call void @llvm.lifetime.end.p0(ptr nonnull %179)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.375, i32 noundef 6, ptr noundef %42)
   store ptr @.str.376, ptr %851, align 8, !tbaa !8
   %924 = load i64, ptr %42, align 8, !tbaa !4
@@ -7721,10 +7715,10 @@ select.unfold._crit_edge.i389:                    ; preds = %select.unfold.i384
   br label %emitter_table_row.exit390
 
 emitter_table_row.exit390:                        ; preds = %923, %select.unfold._crit_edge.i389
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %182) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %183) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %182)
+  call void @llvm.lifetime.start.p0(ptr nonnull %183)
   store i64 7, ptr %183, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %184) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %184)
   store i64 8, ptr %184, align 8, !tbaa !4
   %934 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.377, ptr noundef nonnull %182, ptr noundef nonnull %183) #14
   %.not182 = icmp eq i32 %934, 0
@@ -7749,9 +7743,9 @@ emitter_table_row.exit390:                        ; preds = %923, %select.unfold
   unreachable
 
 941:                                              ; preds = %936
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %184) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %183) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %182) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %184)
+  call void @llvm.lifetime.end.p0(ptr nonnull %183)
+  call void @llvm.lifetime.end.p0(ptr nonnull %182)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.378, i32 noundef 6, ptr noundef %43)
   store ptr @.str.379, ptr %851, align 8, !tbaa !8
   %942 = load i64, ptr %43, align 8, !tbaa !4
@@ -7781,10 +7775,10 @@ select.unfold._crit_edge.i398:                    ; preds = %select.unfold.i393
   br label %emitter_table_row.exit399
 
 emitter_table_row.exit399:                        ; preds = %941, %select.unfold._crit_edge.i398
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %185) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %186) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %185)
+  call void @llvm.lifetime.start.p0(ptr nonnull %186)
   store i64 7, ptr %186, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %187) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %187)
   store i64 8, ptr %187, align 8, !tbaa !4
   %952 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.380, ptr noundef nonnull %185, ptr noundef nonnull %186) #14
   %.not184 = icmp eq i32 %952, 0
@@ -7809,9 +7803,9 @@ emitter_table_row.exit399:                        ; preds = %941, %select.unfold
   unreachable
 
 959:                                              ; preds = %954
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %187) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %186) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %185) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %187)
+  call void @llvm.lifetime.end.p0(ptr nonnull %186)
+  call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.261, i32 noundef 6, ptr noundef %45)
   store ptr @.str.381, ptr %851, align 8, !tbaa !8
   %960 = load i64, ptr %45, align 8, !tbaa !4
@@ -7841,10 +7835,10 @@ select.unfold._crit_edge.i407:                    ; preds = %select.unfold.i402
   br label %emitter_table_row.exit408
 
 emitter_table_row.exit408:                        ; preds = %959, %select.unfold._crit_edge.i407
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %188) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %189) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %188)
+  call void @llvm.lifetime.start.p0(ptr nonnull %189)
   store i64 7, ptr %189, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %190) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %190)
   store i64 8, ptr %190, align 8, !tbaa !4
   %970 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.382, ptr noundef nonnull %188, ptr noundef nonnull %189) #14
   %.not186 = icmp eq i32 %970, 0
@@ -7869,9 +7863,9 @@ emitter_table_row.exit408:                        ; preds = %959, %select.unfold
   unreachable
 
 977:                                              ; preds = %972
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %190) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %189) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %188) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %190)
+  call void @llvm.lifetime.end.p0(ptr nonnull %189)
+  call void @llvm.lifetime.end.p0(ptr nonnull %188)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.262, i32 noundef 6, ptr noundef %46)
   store ptr @.str.383, ptr %851, align 8, !tbaa !8
   %978 = load i64, ptr %46, align 8, !tbaa !4
@@ -7901,10 +7895,10 @@ select.unfold._crit_edge.i416:                    ; preds = %select.unfold.i411
   br label %emitter_table_row.exit417
 
 emitter_table_row.exit417:                        ; preds = %977, %select.unfold._crit_edge.i416
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %191) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %192) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %191)
+  call void @llvm.lifetime.start.p0(ptr nonnull %192)
   store i64 7, ptr %192, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %193) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %193)
   store i64 8, ptr %193, align 8, !tbaa !4
   %988 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.384, ptr noundef nonnull %191, ptr noundef nonnull %192) #14
   %.not188 = icmp eq i32 %988, 0
@@ -7929,9 +7923,9 @@ emitter_table_row.exit417:                        ; preds = %977, %select.unfold
   unreachable
 
 995:                                              ; preds = %990
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %193) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %192) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %191) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %193)
+  call void @llvm.lifetime.end.p0(ptr nonnull %192)
+  call void @llvm.lifetime.end.p0(ptr nonnull %191)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.104, i32 noundef 6, ptr noundef %47)
   store ptr @.str.385, ptr %851, align 8, !tbaa !8
   %996 = load i64, ptr %47, align 8, !tbaa !4
@@ -7961,10 +7955,10 @@ select.unfold._crit_edge.i425:                    ; preds = %select.unfold.i420
   br label %emitter_table_row.exit426
 
 emitter_table_row.exit426:                        ; preds = %995, %select.unfold._crit_edge.i425
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %194) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %195) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %194)
+  call void @llvm.lifetime.start.p0(ptr nonnull %195)
   store i64 7, ptr %195, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %196) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %196)
   store i64 8, ptr %196, align 8, !tbaa !4
   %1006 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.386, ptr noundef nonnull %194, ptr noundef nonnull %195) #14
   %.not190 = icmp eq i32 %1006, 0
@@ -7989,9 +7983,9 @@ emitter_table_row.exit426:                        ; preds = %995, %select.unfold
   unreachable
 
 1013:                                             ; preds = %1008
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %196) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %195) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %194) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %196)
+  call void @llvm.lifetime.end.p0(ptr nonnull %195)
+  call void @llvm.lifetime.end.p0(ptr nonnull %194)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.387, i32 noundef 6, ptr noundef %67)
   store ptr @.str.388, ptr %851, align 8, !tbaa !8
   %1014 = load i64, ptr %67, align 8, !tbaa !4
@@ -8021,10 +8015,10 @@ select.unfold._crit_edge.i434:                    ; preds = %select.unfold.i429
   br label %emitter_table_row.exit435
 
 emitter_table_row.exit435:                        ; preds = %1013, %select.unfold._crit_edge.i434
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %197) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %198) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %197)
+  call void @llvm.lifetime.start.p0(ptr nonnull %198)
   store i64 7, ptr %198, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %199) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %199)
   store i64 8, ptr %199, align 8, !tbaa !4
   %1024 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.389, ptr noundef nonnull %197, ptr noundef nonnull %198) #14
   %.not192 = icmp eq i32 %1024, 0
@@ -8049,9 +8043,9 @@ emitter_table_row.exit435:                        ; preds = %1013, %select.unfol
   unreachable
 
 1031:                                             ; preds = %1026
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %199) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %198) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %197) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %199)
+  call void @llvm.lifetime.end.p0(ptr nonnull %198)
+  call void @llvm.lifetime.end.p0(ptr nonnull %197)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.390, i32 noundef 6, ptr noundef %68)
   store ptr @.str.391, ptr %851, align 8, !tbaa !8
   %1032 = load i64, ptr %68, align 8, !tbaa !4
@@ -8081,10 +8075,10 @@ select.unfold._crit_edge.i443:                    ; preds = %select.unfold.i438
   br label %emitter_table_row.exit444
 
 emitter_table_row.exit444:                        ; preds = %1031, %select.unfold._crit_edge.i443
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %200) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %201) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %200)
+  call void @llvm.lifetime.start.p0(ptr nonnull %201)
   store i64 7, ptr %201, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %202) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %202)
   store i64 8, ptr %202, align 8, !tbaa !4
   %1042 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.392, ptr noundef nonnull %200, ptr noundef nonnull %201) #14
   %.not194 = icmp eq i32 %1042, 0
@@ -8109,9 +8103,9 @@ emitter_table_row.exit444:                        ; preds = %1031, %select.unfol
   unreachable
 
 1049:                                             ; preds = %1044
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %202) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %201) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %200) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %202)
+  call void @llvm.lifetime.end.p0(ptr nonnull %201)
+  call void @llvm.lifetime.end.p0(ptr nonnull %200)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.263, i32 noundef 6, ptr noundef %44)
   store ptr @.str.393, ptr %851, align 8, !tbaa !8
   %1050 = load i64, ptr %44, align 8, !tbaa !4
@@ -8141,10 +8135,10 @@ select.unfold._crit_edge.i452:                    ; preds = %select.unfold.i447
   br label %emitter_table_row.exit453
 
 emitter_table_row.exit453:                        ; preds = %1049, %select.unfold._crit_edge.i452
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %203) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %204) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %203)
+  call void @llvm.lifetime.start.p0(ptr nonnull %204)
   store i64 7, ptr %204, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %205) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %205)
   store i64 8, ptr %205, align 8, !tbaa !4
   %1060 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.394, ptr noundef nonnull %203, ptr noundef nonnull %204) #14
   %.not196 = icmp eq i32 %1060, 0
@@ -8169,9 +8163,9 @@ emitter_table_row.exit453:                        ; preds = %1049, %select.unfol
   unreachable
 
 1067:                                             ; preds = %1062
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %205) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %203) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %205)
+  call void @llvm.lifetime.end.p0(ptr nonnull %204)
+  call void @llvm.lifetime.end.p0(ptr nonnull %203)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.395, i32 noundef 6, ptr noundef %69)
   store ptr @.str.396, ptr %851, align 8, !tbaa !8
   %1068 = load i64, ptr %69, align 8, !tbaa !4
@@ -8201,10 +8195,10 @@ select.unfold._crit_edge.i461:                    ; preds = %select.unfold.i456
   br label %emitter_table_row.exit462
 
 emitter_table_row.exit462:                        ; preds = %1067, %select.unfold._crit_edge.i461
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %206) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %207) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %206)
+  call void @llvm.lifetime.start.p0(ptr nonnull %207)
   store i64 7, ptr %207, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %208) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %208)
   store i64 8, ptr %208, align 8, !tbaa !4
   %1078 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.397, ptr noundef nonnull %206, ptr noundef nonnull %207) #14
   %.not198 = icmp eq i32 %1078, 0
@@ -8229,9 +8223,9 @@ emitter_table_row.exit462:                        ; preds = %1067, %select.unfol
   unreachable
 
 1085:                                             ; preds = %1080
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %208) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %207) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %206) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %208)
+  call void @llvm.lifetime.end.p0(ptr nonnull %207)
+  call void @llvm.lifetime.end.p0(ptr nonnull %206)
   call fastcc void @emitter_json_kv(ptr noundef %0, ptr noundef nonnull @.str.398, i32 noundef 6, ptr noundef %48)
   store ptr @.str.399, ptr %851, align 8, !tbaa !8
   %1086 = load i64, ptr %48, align 8, !tbaa !4
@@ -8265,10 +8259,10 @@ emitter_table_row.exit471:                        ; preds = %1085, %select.unfol
 
 1096:                                             ; preds = %emitter_table_row.exit471
   %1097 = load i64, ptr %70, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #14
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr null, ptr %23, align 8, !tbaa !30
   call fastcc void @mutex_stats_init_cols(ptr noundef %23, ptr noundef nonnull @.str.8, ptr noundef nonnull %24, ptr noundef %25, ptr noundef %26)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef nonnull @.str.273)
@@ -8302,8 +8296,8 @@ select.unfold._crit_edge.i.i:                     ; preds = %select.unfold.i.i, 
   br label %emitter_table_row.exit.i
 
 emitter_table_row.exit.i:                         ; preds = %select.unfold._crit_edge.i.i, %1096
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i64 7, ptr %28, align 8, !tbaa !4
   %1109 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 888
@@ -8327,10 +8321,10 @@ tsd_fetch_impl.exit.i:                            ; preds = %1112, %emitter_tabl
   unreachable
 
 1116:                                             ; preds = %tsd_fetch_impl.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %1117 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %227, ptr %1117, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 7, ptr %29, align 8, !tbaa !4
   %1118 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i13.i = icmp eq i8 %1118, 0
@@ -8352,7 +8346,7 @@ tsd_fetch_impl.exit15.i:                          ; preds = %1119, %1116
   unreachable
 
 1123:                                             ; preds = %tsd_fetch_impl.exit15.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %1124 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %1125 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %1126 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -8428,7 +8422,7 @@ emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1158
   %1166 = getelementptr inbounds nuw [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
   %1167 = load ptr, ptr %1166, align 8, !tbaa !24
   call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1167)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 7, ptr %8, align 8, !tbaa !4
   %1168 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i.i.i = icmp eq i8 %1168, 0
@@ -8450,12 +8444,12 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %1169, %1165
   unreachable
 
 1173:                                             ; preds = %tsd_fetch_impl.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store ptr %1167, ptr %1124, align 8, !tbaa !8
   store i32 5, ptr %1125, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 7, ptr %9, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 8, ptr %10, align 8, !tbaa !4
   %1174 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i77.i.i = icmp eq i8 %1174, 0
@@ -8477,8 +8471,8 @@ tsd_fetch_impl.exit79.i.i:                        ; preds = %1175, %1173
   unreachable
 
 1179:                                             ; preds = %tsd_fetch_impl.exit79.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store i32 5, ptr %1127, align 16, !tbaa !38
   %1180 = load i64, ptr %1126, align 16, !tbaa !8
   %1181 = icmp eq i64 %1180, 0
@@ -8494,9 +8488,9 @@ rate_per_second.exit.i.i:                         ; preds = %1182, %1179
   %.0.i98.i.i = phi i64 [ %1183, %1182 ], [ %.mux.i, %1179 ]
   store i64 %.0.i98.i.i, ptr %1131, align 8, !tbaa !8
   store i32 5, ptr %1132, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 7, ptr %11, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 8, ptr %12, align 8, !tbaa !4
   %1184 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i80.i.i = icmp eq i8 %1184, 0
@@ -8518,8 +8512,8 @@ tsd_fetch_impl.exit82.i.i:                        ; preds = %1185, %rate_per_sec
   unreachable
 
 1189:                                             ; preds = %tsd_fetch_impl.exit82.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i32 5, ptr %1134, align 16, !tbaa !38
   %1190 = load i64, ptr %1133, align 16, !tbaa !8
   %1191 = icmp eq i64 %1190, 0
@@ -8535,9 +8529,9 @@ rate_per_second.exit101.i.i:                      ; preds = %1192, %1189
   %.0.i100.i.i = phi i64 [ %1193, %1192 ], [ %.mux32.i, %1189 ]
   store i64 %.0.i100.i.i, ptr %1135, align 8, !tbaa !8
   store i32 5, ptr %1136, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 7, ptr %13, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 8, ptr %14, align 8, !tbaa !4
   %1194 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i83.i.i = icmp eq i8 %1194, 0
@@ -8559,8 +8553,8 @@ tsd_fetch_impl.exit85.i.i:                        ; preds = %1195, %rate_per_sec
   unreachable
 
 1199:                                             ; preds = %tsd_fetch_impl.exit85.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i32 5, ptr %1138, align 16, !tbaa !38
   %1200 = load i64, ptr %1137, align 16, !tbaa !8
   %1201 = icmp eq i64 %1200, 0
@@ -8576,9 +8570,9 @@ rate_per_second.exit104.i.i:                      ; preds = %1202, %1199
   %.0.i103.i.i = phi i64 [ %1203, %1202 ], [ %.mux34.i, %1199 ]
   store i64 %.0.i103.i.i, ptr %1139, align 8, !tbaa !8
   store i32 5, ptr %1140, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 7, ptr %15, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 8, ptr %16, align 8, !tbaa !4
   %1204 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i86.i.i = icmp eq i8 %1204, 0
@@ -8600,8 +8594,8 @@ tsd_fetch_impl.exit88.i.i:                        ; preds = %1205, %rate_per_sec
   unreachable
 
 1209:                                             ; preds = %tsd_fetch_impl.exit88.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   store i32 5, ptr %1142, align 16, !tbaa !38
   %1210 = load i64, ptr %1141, align 16, !tbaa !8
   %1211 = icmp eq i64 %1210, 0
@@ -8617,9 +8611,9 @@ rate_per_second.exit107.i.i:                      ; preds = %1212, %1209
   %.0.i106.i.i = phi i64 [ %1213, %1212 ], [ %.mux36.i, %1209 ]
   store i64 %.0.i106.i.i, ptr %1143, align 8, !tbaa !8
   store i32 5, ptr %1144, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 7, ptr %17, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 8, ptr %18, align 8, !tbaa !4
   %1214 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i89.i.i = icmp eq i8 %1214, 0
@@ -8641,8 +8635,8 @@ tsd_fetch_impl.exit91.i.i:                        ; preds = %1215, %rate_per_sec
   unreachable
 
 1219:                                             ; preds = %tsd_fetch_impl.exit91.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   store i32 5, ptr %1146, align 16, !tbaa !38
   %1220 = load i64, ptr %1145, align 16, !tbaa !8
   %1221 = icmp eq i64 %1220, 0
@@ -8658,9 +8652,9 @@ rate_per_second.exit110.i.i:                      ; preds = %1222, %1219
   %.0.i109.i.i = phi i64 [ %1223, %1222 ], [ %.mux38.i, %1219 ]
   store i64 %.0.i109.i.i, ptr %1147, align 8, !tbaa !8
   store i32 5, ptr %1148, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 7, ptr %19, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 8, ptr %20, align 8, !tbaa !4
   %1224 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i92.i.i = icmp eq i8 %1224, 0
@@ -8682,12 +8676,12 @@ tsd_fetch_impl.exit94.i.i:                        ; preds = %1225, %rate_per_sec
   unreachable
 
 1229:                                             ; preds = %tsd_fetch_impl.exit94.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store i32 4, ptr %1150, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 7, ptr %21, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 4, ptr %22, align 8, !tbaa !4
   %1230 = load i8, ptr %1110, align 8, !tbaa !8
   %.not.i95.i.i = icmp eq i8 %1230, 0
@@ -8709,8 +8703,8 @@ tsd_fetch_impl.exit97.i.i:                        ; preds = %1231, %1229
   unreachable
 
 mutex_stats_read_arena.exit.i:                    ; preds = %tsd_fetch_impl.exit97.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call fastcc void @mutex_stats_emit(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %25, ptr noundef %26)
   %.val.i19.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i20.i = icmp ult i32 %.val.i19.i, 2
@@ -8755,11 +8749,11 @@ emitter_json_object_end.exit29.i:                 ; preds = %emitter_indent.exit
   br i1 %exitcond.not.i, label %1154, label %1165, !llvm.loop !53
 
 stats_arena_mutexes_print.exit:                   ; preds = %1154, %emitter_indent.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %1245
 
 1245:                                             ; preds = %stats_arena_mutexes_print.exit, %emitter_table_row.exit471
@@ -8794,75 +8788,75 @@ stats_arena_mutexes_print.exit:                   ; preds = %1154, %emitter_inde
   br label %1256
 
 1256:                                             ; preds = %1254, %1253
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %172) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %171) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %134) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %133) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %132) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %131) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %130) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %129) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %128) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %127) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %126) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %125) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %124) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %123) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %122) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %121) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %120) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %119) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %118) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %117) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %172)
+  call void @llvm.lifetime.end.p0(ptr nonnull %171)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.stackrestore.p0(ptr) #9
+declare void @llvm.stackrestore.p0(ptr) #8
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3) unnamed_addr #6 {
+define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -9012,9 +9006,9 @@ define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures
   %151 = alloca i64, align 8
   %152 = alloca i64, align 8
   %153 = alloca [6 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 8, ptr %22, align 8, !tbaa !4
   %154 = call i32 @mallctl(ptr noundef nonnull @.str.199, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
   %.not67 = icmp eq i32 %154, 0
@@ -9026,8 +9020,8 @@ define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures
   unreachable
 
 156:                                              ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 4, ptr %23, align 8, !tbaa !4
   %157 = call i32 @mallctl(ptr noundef nonnull @.str.207, ptr noundef nonnull %21, ptr noundef nonnull %23, ptr noundef null, i64 noundef 0) #14
   %.not68 = icmp eq i32 %157, 0
@@ -9039,11 +9033,11 @@ define internal fastcc void @stats_arena_bins_print(ptr noundef nonnull captures
   unreachable
 
 emitter_col_init.exit171:                         ; preds = %156
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %159 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %160 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 1, ptr %26, align 8, !tbaa !34
@@ -9060,8 +9054,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %166, align 8, !tbaa !38
   %167 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @.str.216, ptr %167, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %168 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %169 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %26, ptr %169, align 8, !tbaa !52
@@ -9082,8 +9076,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %175, align 8, !tbaa !38
   %176 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @.str.409, ptr %176, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %177 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %28, ptr %177, align 8, !tbaa !52
   store ptr %30, ptr %168, align 8, !tbaa !39
@@ -9102,8 +9096,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %182, align 8, !tbaa !38
   %183 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr @.str.258, ptr %183, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %32) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %184 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %30, ptr %184, align 8, !tbaa !52
   %185 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -9124,8 +9118,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %191, align 8, !tbaa !38
   %192 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr @.str.345, ptr %192, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %193 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %194 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %34, ptr %160, align 8, !tbaa !52
@@ -9152,8 +9146,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %202, align 8, !tbaa !38
   %203 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr @.str.286, ptr %203, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %204 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %205 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %36, ptr %205, align 8, !tbaa !52
@@ -9194,8 +9188,8 @@ emitter_col_init.exit171:                         ; preds = %156
   store i32 9, ptr %219, align 8, !tbaa !38
   %220 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr @.str.346, ptr %220, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %38) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %221 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %38, ptr %221, align 8, !tbaa !39
   %222 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -9262,8 +9256,8 @@ emitter_col_init.exit175:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %250, align 8, !tbaa !38
   %251 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr @.str.286, ptr %251, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %252 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %40, ptr %252, align 8, !tbaa !39
   %253 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -9330,8 +9324,8 @@ emitter_col_init.exit179:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %281, align 8, !tbaa !38
   %282 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr @.str.347, ptr %282, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %283 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %42, ptr %283, align 8, !tbaa !39
   %284 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -9398,8 +9392,8 @@ emitter_col_init.exit183:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %312, align 8, !tbaa !38
   %313 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr @.str.286, ptr %313, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %314 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %44, ptr %314, align 8, !tbaa !39
   %315 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -9466,8 +9460,8 @@ emitter_col_init.exit187:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %343, align 8, !tbaa !38
   %344 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr @.str.220, ptr %344, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %345 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %46, ptr %345, align 8, !tbaa !39
   %346 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -9534,8 +9528,8 @@ emitter_col_init.exit191:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %374, align 8, !tbaa !38
   %375 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr @.str.417, ptr %375, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %376 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %48, ptr %376, align 8, !tbaa !39
   %377 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -9602,8 +9596,8 @@ emitter_col_init.exit195:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %405, align 8, !tbaa !38
   %406 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @.str.418, ptr %406, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %407 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %50, ptr %407, align 8, !tbaa !39
   %408 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -9670,8 +9664,8 @@ emitter_col_init.exit199:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %436, align 8, !tbaa !38
   %437 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr @.str.419, ptr %437, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %438 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %52, ptr %438, align 8, !tbaa !39
   %439 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -9738,8 +9732,8 @@ emitter_col_init.exit203:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %467, align 8, !tbaa !38
   %468 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr @.str.420, ptr %468, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %469 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %54, ptr %469, align 8, !tbaa !39
   %470 = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -9806,8 +9800,8 @@ emitter_col_init.exit207:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %498, align 8, !tbaa !38
   %499 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr @.str.421, ptr %499, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %500 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %56, ptr %500, align 8, !tbaa !39
   %501 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -9874,8 +9868,8 @@ emitter_col_init.exit211:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %529, align 8, !tbaa !38
   %530 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr @.str.422, ptr %530, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %531 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %58, ptr %531, align 8, !tbaa !39
   %532 = getelementptr inbounds nuw i8, ptr %58, i64 32
@@ -9942,8 +9936,8 @@ emitter_col_init.exit215:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %560, align 8, !tbaa !38
   %561 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr @.str.423, ptr %561, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %562 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store ptr %60, ptr %562, align 8, !tbaa !39
   %563 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -10010,8 +10004,8 @@ emitter_col_init.exit219:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %591, align 8, !tbaa !38
   %592 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr @.str.357, ptr %592, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %593 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %62, ptr %593, align 8, !tbaa !39
   %594 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -10078,8 +10072,8 @@ emitter_col_init.exit223:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %622, align 8, !tbaa !38
   %623 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr @.str.286, ptr %623, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %64) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   %624 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store ptr %64, ptr %624, align 8, !tbaa !39
   %625 = getelementptr inbounds nuw i8, ptr %64, i64 32
@@ -10146,8 +10140,8 @@ emitter_col_init.exit227:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %653, align 8, !tbaa !38
   %654 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr @.str.359, ptr %654, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %66) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %655 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %66, ptr %655, align 8, !tbaa !39
   %656 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -10214,8 +10208,8 @@ emitter_col_init.exit231:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %684, align 8, !tbaa !38
   %685 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr @.str.286, ptr %685, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %68) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %69) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   %686 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %68, ptr %686, align 8, !tbaa !39
   %687 = getelementptr inbounds nuw i8, ptr %68, i64 32
@@ -10282,8 +10276,8 @@ emitter_col_init.exit235:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %715, align 8, !tbaa !38
   %716 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr @.str.426, ptr %716, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %70) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %71) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   %717 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %70, ptr %717, align 8, !tbaa !39
   %718 = getelementptr inbounds nuw i8, ptr %70, i64 32
@@ -10350,8 +10344,8 @@ emitter_col_init.exit239:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %746, align 8, !tbaa !38
   %747 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr @.str.427, ptr %747, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %748 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %72, ptr %748, align 8, !tbaa !39
   %749 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -10418,8 +10412,8 @@ emitter_col_init.exit243:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %777, align 8, !tbaa !38
   %778 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr @.str.286, ptr %778, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %74) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %779 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store ptr %74, ptr %779, align 8, !tbaa !39
   %780 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -10486,8 +10480,8 @@ emitter_col_init.exit247:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %808, align 8, !tbaa !38
   %809 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr @.str.429, ptr %809, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %76) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %77) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %810 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %76, ptr %810, align 8, !tbaa !39
   %811 = getelementptr inbounds nuw i8, ptr %76, i64 32
@@ -10554,8 +10548,8 @@ emitter_col_init.exit251:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %839, align 8, !tbaa !38
   %840 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr @.str.286, ptr %840, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %78) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %79) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %841 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %78, ptr %841, align 8, !tbaa !39
   %842 = getelementptr inbounds nuw i8, ptr %78, i64 32
@@ -10622,8 +10616,8 @@ emitter_col_init.exit255:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %870, align 8, !tbaa !38
   %871 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr @.str.431, ptr %871, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %80) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %81) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
   %872 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store ptr %80, ptr %872, align 8, !tbaa !39
   %873 = getelementptr inbounds nuw i8, ptr %80, i64 32
@@ -10690,8 +10684,8 @@ emitter_col_init.exit259:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %901, align 8, !tbaa !38
   %902 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr @.str.286, ptr %902, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %82) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %83) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %903 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %82, ptr %903, align 8, !tbaa !39
   %904 = getelementptr inbounds nuw i8, ptr %82, i64 32
@@ -10758,8 +10752,8 @@ emitter_col_init.exit263:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %932, align 8, !tbaa !38
   %933 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr @.str.433, ptr %933, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %84) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %85) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
   %934 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %84, ptr %934, align 8, !tbaa !39
   %935 = getelementptr inbounds nuw i8, ptr %84, i64 32
@@ -10826,8 +10820,8 @@ emitter_col_init.exit267:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %963, align 8, !tbaa !38
   %964 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store ptr @.str.286, ptr %964, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %86) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %87) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
   %965 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %86, ptr %965, align 8, !tbaa !39
   %966 = getelementptr inbounds nuw i8, ptr %86, i64 32
@@ -10894,8 +10888,8 @@ emitter_col_init.exit271:                         ; preds = %emitter_col_init.ex
   store i32 9, ptr %994, align 8, !tbaa !38
   %995 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr @.str.435, ptr %995, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %88) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %89) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
   %996 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %88, ptr %996, align 8, !tbaa !39
   %997 = getelementptr inbounds nuw i8, ptr %88, i64 32
@@ -10965,10 +10959,10 @@ emitter_col_init.exit275:                         ; preds = %emitter_col_init.ex
   store ptr @.str.10, ptr %530, align 8, !tbaa !8
   %1027 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr @.str.10, ptr %1027, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %90) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %91) #14
-  call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %92) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %93) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
   br i1 %1, label %1028, label %1030
 
 1028:                                             ; preds = %emitter_col_init.exit275
@@ -11013,8 +11007,8 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %1
 
 emitter_table_row.exit:                           ; preds = %1030, %select.unfold._crit_edge.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.438)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %94) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store i64 7, ptr %95, align 8, !tbaa !4
   %1043 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %1044 = getelementptr inbounds nuw i8, ptr %1043, i64 888
@@ -11038,11 +11032,11 @@ tsd_fetch_impl.exit:                              ; preds = %emitter_table_row.e
   unreachable
 
 1050:                                             ; preds = %tsd_fetch_impl.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
   %1051 = zext i32 %2 to i64
   %1052 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store i64 %1051, ptr %1052, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i64 7, ptr %96, align 8, !tbaa !4
   %1053 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i90 = icmp eq i8 %1053, 0
@@ -11064,9 +11058,9 @@ tsd_fetch_impl.exit92:                            ; preds = %1050, %1054
   unreachable
 
 1058:                                             ; preds = %tsd_fetch_impl.exit92
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %97) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 7, ptr %98, align 8, !tbaa !4
   %1059 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i93 = icmp eq i8 %1059, 0
@@ -11088,7 +11082,7 @@ tsd_fetch_impl.exit95:                            ; preds = %1058, %1060
   unreachable
 
 1064:                                             ; preds = %tsd_fetch_impl.exit95
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
   %1065 = load i32, ptr %21, align 4, !tbaa !26
   %.not400 = icmp eq i32 %1065, 0
   br i1 %.not400, label %._crit_edge, label %.lr.ph
@@ -11162,29 +11156,29 @@ tsd_fetch_impl.exit95:                            ; preds = %1058, %1060
 1129:                                             ; preds = %.lr.ph, %1443
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1443 ]
   %.0371 = phi i1 [ false, %.lr.ph ], [ %1137, %1443 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %105) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %106) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %115) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i64 %indvars.iv, ptr %1066, align 16, !tbaa !4
   store i64 %indvars.iv, ptr %1067, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i64 7, ptr %117, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %118) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store i64 8, ptr %118, align 8, !tbaa !4
   %1130 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i96 = icmp eq i8 %1130, 0
@@ -11206,8 +11200,8 @@ tsd_fetch_impl.exit98:                            ; preds = %1129, %1131
   unreachable
 
 1135:                                             ; preds = %tsd_fetch_impl.exit98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %118) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
   %1136 = load i64, ptr %99, align 8, !tbaa !4
   %1137 = icmp eq i64 %1136, 0
   %.not = xor i1 %.0371, true
@@ -11227,9 +11221,9 @@ tsd_fetch_impl.exit98:                            ; preds = %1129, %1131
   br i1 %spec.select.i, label %1140, label %1443
 
 1140:                                             ; preds = %.thread, %1139, %1138
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i64 7, ptr %119, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i64 8, ptr %120, align 8, !tbaa !4
   %1141 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i99 = icmp eq i8 %1141, 0
@@ -11251,11 +11245,11 @@ tsd_fetch_impl.exit101:                           ; preds = %1140, %1142
   unreachable
 
 1146:                                             ; preds = %tsd_fetch_impl.exit101
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %121) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
   store i64 7, ptr %121, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   store i64 4, ptr %122, align 8, !tbaa !4
   %1147 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i102 = icmp eq i8 %1147, 0
@@ -11277,11 +11271,11 @@ tsd_fetch_impl.exit104:                           ; preds = %1146, %1148
   unreachable
 
 1152:                                             ; preds = %tsd_fetch_impl.exit104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %121) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store i64 7, ptr %123, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %124) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store i64 8, ptr %124, align 8, !tbaa !4
   %1153 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i105 = icmp eq i8 %1153, 0
@@ -11303,11 +11297,11 @@ tsd_fetch_impl.exit107:                           ; preds = %1152, %1154
   unreachable
 
 1158:                                             ; preds = %tsd_fetch_impl.exit107
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %124) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store i64 7, ptr %125, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store i64 4, ptr %126, align 8, !tbaa !4
   %1159 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i108 = icmp eq i8 %1159, 0
@@ -11329,11 +11323,11 @@ tsd_fetch_impl.exit110:                           ; preds = %1158, %1160
   unreachable
 
 1164:                                             ; preds = %tsd_fetch_impl.exit110
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %127) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
   store i64 7, ptr %127, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store i64 8, ptr %128, align 8, !tbaa !4
   %1165 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i111 = icmp eq i8 %1165, 0
@@ -11355,11 +11349,11 @@ tsd_fetch_impl.exit113:                           ; preds = %1164, %1166
   unreachable
 
 1170:                                             ; preds = %tsd_fetch_impl.exit113
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %127) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store i64 7, ptr %129, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %130) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
   store i64 8, ptr %130, align 8, !tbaa !4
   %1171 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i114 = icmp eq i8 %1171, 0
@@ -11381,11 +11375,11 @@ tsd_fetch_impl.exit116:                           ; preds = %1170, %1172
   unreachable
 
 1176:                                             ; preds = %tsd_fetch_impl.exit116
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %130) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i64 7, ptr %131, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store i64 8, ptr %132, align 8, !tbaa !4
   %1177 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i117 = icmp eq i8 %1177, 0
@@ -11407,11 +11401,11 @@ tsd_fetch_impl.exit119:                           ; preds = %1176, %1178
   unreachable
 
 1182:                                             ; preds = %tsd_fetch_impl.exit119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %133) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
   store i64 7, ptr %133, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store i64 8, ptr %134, align 8, !tbaa !4
   %1183 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i120 = icmp eq i8 %1183, 0
@@ -11433,11 +11427,11 @@ tsd_fetch_impl.exit122:                           ; preds = %1182, %1184
   unreachable
 
 1188:                                             ; preds = %tsd_fetch_impl.exit122
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %133) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store i64 7, ptr %135, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store i64 8, ptr %136, align 8, !tbaa !4
   %1189 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i123 = icmp eq i8 %1189, 0
@@ -11459,11 +11453,11 @@ tsd_fetch_impl.exit125:                           ; preds = %1188, %1190
   unreachable
 
 1194:                                             ; preds = %tsd_fetch_impl.exit125
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %137) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
   store i64 7, ptr %137, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store i64 8, ptr %138, align 8, !tbaa !4
   %1195 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i126 = icmp eq i8 %1195, 0
@@ -11485,11 +11479,11 @@ tsd_fetch_impl.exit128:                           ; preds = %1194, %1196
   unreachable
 
 1200:                                             ; preds = %tsd_fetch_impl.exit128
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %137) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 7, ptr %139, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store i64 8, ptr %140, align 8, !tbaa !4
   %1201 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i129 = icmp eq i8 %1201, 0
@@ -11511,11 +11505,11 @@ tsd_fetch_impl.exit131:                           ; preds = %1200, %1202
   unreachable
 
 1206:                                             ; preds = %tsd_fetch_impl.exit131
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %141) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %140)
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.start.p0(ptr nonnull %141)
   store i64 7, ptr %141, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %142)
   store i64 8, ptr %142, align 8, !tbaa !4
   %1207 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i132 = icmp eq i8 %1207, 0
@@ -11537,11 +11531,11 @@ tsd_fetch_impl.exit134:                           ; preds = %1206, %1208
   unreachable
 
 1212:                                             ; preds = %tsd_fetch_impl.exit134
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %142) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %141) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %142)
+  call void @llvm.lifetime.end.p0(ptr nonnull %141)
+  call void @llvm.lifetime.start.p0(ptr nonnull %143)
   store i64 7, ptr %143, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %144) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store i64 8, ptr %144, align 8, !tbaa !4
   %1213 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i135 = icmp eq i8 %1213, 0
@@ -11563,11 +11557,11 @@ tsd_fetch_impl.exit137:                           ; preds = %1212, %1214
   unreachable
 
 1218:                                             ; preds = %tsd_fetch_impl.exit137
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %144) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %143) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %145) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %144)
+  call void @llvm.lifetime.end.p0(ptr nonnull %143)
+  call void @llvm.lifetime.start.p0(ptr nonnull %145)
   store i64 7, ptr %145, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %146) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %146)
   store i64 8, ptr %146, align 8, !tbaa !4
   %1219 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i138 = icmp eq i8 %1219, 0
@@ -11589,11 +11583,11 @@ tsd_fetch_impl.exit140:                           ; preds = %1218, %1220
   unreachable
 
 1224:                                             ; preds = %tsd_fetch_impl.exit140
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %146) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %145) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %147) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %146)
+  call void @llvm.lifetime.end.p0(ptr nonnull %145)
+  call void @llvm.lifetime.start.p0(ptr nonnull %147)
   store i64 7, ptr %147, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %148) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store i64 8, ptr %148, align 8, !tbaa !4
   %1225 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i141 = icmp eq i8 %1225, 0
@@ -11615,11 +11609,11 @@ tsd_fetch_impl.exit143:                           ; preds = %1224, %1226
   unreachable
 
 1230:                                             ; preds = %tsd_fetch_impl.exit143
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %148) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %147) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %149) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %148)
+  call void @llvm.lifetime.end.p0(ptr nonnull %147)
+  call void @llvm.lifetime.start.p0(ptr nonnull %149)
   store i64 7, ptr %149, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %150) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %150)
   store i64 8, ptr %150, align 8, !tbaa !4
   %1231 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i144 = icmp eq i8 %1231, 0
@@ -11641,11 +11635,11 @@ tsd_fetch_impl.exit146:                           ; preds = %1230, %1232
   unreachable
 
 1236:                                             ; preds = %tsd_fetch_impl.exit146
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %150) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %149) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %151) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %150)
+  call void @llvm.lifetime.end.p0(ptr nonnull %149)
+  call void @llvm.lifetime.start.p0(ptr nonnull %151)
   store i64 7, ptr %151, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %152) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store i64 8, ptr %152, align 8, !tbaa !4
   %1237 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i147 = icmp eq i8 %1237, 0
@@ -11667,12 +11661,12 @@ tsd_fetch_impl.exit149:                           ; preds = %1236, %1238
   unreachable
 
 1242:                                             ; preds = %tsd_fetch_impl.exit149
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %152) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %151) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %152)
+  call void @llvm.lifetime.end.p0(ptr nonnull %151)
   br i1 %1, label %1243, label %1311
 
 1243:                                             ; preds = %1242
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 7, ptr %5, align 8, !tbaa !4
   %1244 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i.i = icmp eq i8 %1244, 0
@@ -11694,11 +11688,11 @@ tsd_fetch_impl.exit.i:                            ; preds = %1245, %1243
   unreachable
 
 1249:                                             ; preds = %tsd_fetch_impl.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 5, ptr %1068, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 7, ptr %6, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 8, ptr %7, align 8, !tbaa !4
   %1250 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i74.i = icmp eq i8 %1250, 0
@@ -11720,8 +11714,8 @@ tsd_fetch_impl.exit76.i:                          ; preds = %1251, %1249
   unreachable
 
 1255:                                             ; preds = %tsd_fetch_impl.exit76.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i32 5, ptr %1070, align 16, !tbaa !38
   %1256 = load i64, ptr %1069, align 16, !tbaa !8
   %1257 = icmp eq i64 %1256, 0
@@ -11737,9 +11731,9 @@ rate_per_second.exit.i:                           ; preds = %1255, %1258
   %.0.i95.i = phi i64 [ %1259, %1258 ], [ %.mux, %1255 ]
   store i64 %.0.i95.i, ptr %1074, align 8, !tbaa !8
   store i32 5, ptr %1075, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 7, ptr %8, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 8, ptr %9, align 8, !tbaa !4
   %1260 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i77.i = icmp eq i8 %1260, 0
@@ -11761,8 +11755,8 @@ tsd_fetch_impl.exit79.i:                          ; preds = %1261, %rate_per_sec
   unreachable
 
 1265:                                             ; preds = %tsd_fetch_impl.exit79.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 5, ptr %1077, align 16, !tbaa !38
   %1266 = load i64, ptr %1076, align 16, !tbaa !8
   %1267 = icmp eq i64 %1266, 0
@@ -11778,9 +11772,9 @@ rate_per_second.exit98.i:                         ; preds = %1265, %1268
   %.0.i97.i = phi i64 [ %1269, %1268 ], [ %.mux373, %1265 ]
   store i64 %.0.i97.i, ptr %1078, align 8, !tbaa !8
   store i32 5, ptr %1079, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 7, ptr %10, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 8, ptr %11, align 8, !tbaa !4
   %1270 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i80.i = icmp eq i8 %1270, 0
@@ -11802,8 +11796,8 @@ tsd_fetch_impl.exit82.i:                          ; preds = %1271, %rate_per_sec
   unreachable
 
 1275:                                             ; preds = %tsd_fetch_impl.exit82.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   store i32 5, ptr %1081, align 16, !tbaa !38
   %1276 = load i64, ptr %1080, align 16, !tbaa !8
   %1277 = icmp eq i64 %1276, 0
@@ -11819,9 +11813,9 @@ rate_per_second.exit101.i:                        ; preds = %1275, %1278
   %.0.i100.i = phi i64 [ %1279, %1278 ], [ %.mux375, %1275 ]
   store i64 %.0.i100.i, ptr %1082, align 8, !tbaa !8
   store i32 5, ptr %1083, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 7, ptr %12, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 8, ptr %13, align 8, !tbaa !4
   %1280 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i83.i = icmp eq i8 %1280, 0
@@ -11843,8 +11837,8 @@ tsd_fetch_impl.exit85.i:                          ; preds = %1281, %rate_per_sec
   unreachable
 
 1285:                                             ; preds = %tsd_fetch_impl.exit85.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i32 5, ptr %1085, align 16, !tbaa !38
   %1286 = load i64, ptr %1084, align 16, !tbaa !8
   %1287 = icmp eq i64 %1286, 0
@@ -11860,9 +11854,9 @@ rate_per_second.exit104.i:                        ; preds = %1285, %1288
   %.0.i103.i = phi i64 [ %1289, %1288 ], [ %.mux377, %1285 ]
   store i64 %.0.i103.i, ptr %1086, align 8, !tbaa !8
   store i32 5, ptr %1087, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 7, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 8, ptr %15, align 8, !tbaa !4
   %1290 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i86.i = icmp eq i8 %1290, 0
@@ -11884,8 +11878,8 @@ tsd_fetch_impl.exit88.i:                          ; preds = %1291, %rate_per_sec
   unreachable
 
 1295:                                             ; preds = %tsd_fetch_impl.exit88.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store i32 5, ptr %1089, align 16, !tbaa !38
   %1296 = load i64, ptr %1088, align 16, !tbaa !8
   %1297 = icmp eq i64 %1296, 0
@@ -11901,9 +11895,9 @@ rate_per_second.exit107.i:                        ; preds = %1295, %1298
   %.0.i106.i = phi i64 [ %1299, %1298 ], [ %.mux379, %1295 ]
   store i64 %.0.i106.i, ptr %1090, align 8, !tbaa !8
   store i32 5, ptr %1091, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i64 7, ptr %16, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 8, ptr %17, align 8, !tbaa !4
   %1300 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i89.i = icmp eq i8 %1300, 0
@@ -11925,12 +11919,12 @@ tsd_fetch_impl.exit91.i:                          ; preds = %1301, %rate_per_sec
   unreachable
 
 1305:                                             ; preds = %tsd_fetch_impl.exit91.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i32 4, ptr %1093, align 8, !tbaa !38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 7, ptr %18, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 4, ptr %19, align 8, !tbaa !4
   %1306 = load i8, ptr %1044, align 8, !tbaa !8
   %.not.i92.i = icmp eq i8 %1306, 0
@@ -11952,8 +11946,8 @@ tsd_fetch_impl.exit94.i:                          ; preds = %1307, %1305
   unreachable
 
 mutex_stats_read_arena_bin.exit:                  ; preds = %tsd_fetch_impl.exit94.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %1311
 
 1311:                                             ; preds = %mutex_stats_read_arena_bin.exit, %1242
@@ -12113,7 +12107,7 @@ emitter_json_object_end.exit293:                  ; preds = %1331, %emitter_json
   %1353 = zext i32 %1352 to i64
   %1354 = load i64, ptr %103, align 8, !tbaa !4
   %1355 = mul i64 %1354, %1353
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %153) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %1356 = load i64, ptr %102, align 8, !tbaa !4
   %1357 = icmp eq i64 %1355, 0
   %1358 = icmp ugt i64 %1356, %1355
@@ -12357,28 +12351,28 @@ select.unfold._crit_edge.i330:                    ; preds = %select.unfold.i325,
   br label %emitter_table_row.exit331
 
 emitter_table_row.exit331:                        ; preds = %rate_per_second.exit322, %select.unfold._crit_edge.i330
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %153) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %153)
   br label %1443
 
 1443:                                             ; preds = %1139, %emitter_table_row.exit331
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %106) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %105) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1444 = load i32, ptr %21, align 4, !tbaa !26
   %1445 = zext i32 %1444 to i64
@@ -12434,85 +12428,85 @@ emitter_json_array_end.exit:                      ; preds = %._crit_edge, %emitt
   br label %1460
 
 1460:                                             ; preds = %1459, %emitter_json_array_end.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %97) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %94) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %93) #14
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %92) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %91) #14
-  call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %90) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %89) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %88) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %87) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %86) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %85) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %84) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %83) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %82) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %81) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %80) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %79) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %78) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %77) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %76) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %75) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %74) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %73) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %71) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %70) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %69) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %68) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %67) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %64) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %61) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %59) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %57) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %56) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %44) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %38) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull captures(none) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 {
+define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull captures(none) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #5 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -12557,9 +12551,9 @@ define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull capt
   %45 = alloca i64, align 8
   %46 = alloca i64, align 8
   %47 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 4, ptr %6, align 8, !tbaa !4
   %48 = call i32 @mallctl(ptr noundef nonnull @.str.207, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0) #14
   %.not35 = icmp eq i32 %48, 0
@@ -12571,8 +12565,8 @@ define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull capt
   unreachable
 
 50:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 4, ptr %7, align 8, !tbaa !4
   %51 = call i32 @mallctl(ptr noundef nonnull @.str.221, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #14
   %.not36 = icmp eq i32 %51, 0
@@ -12584,9 +12578,9 @@ define internal fastcc void @stats_arena_lextents_print(ptr noundef nonnull capt
   unreachable
 
 emitter_col_init.exit87:                          ; preds = %50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 1, ptr %8, align 8, !tbaa !34
@@ -12603,8 +12597,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %60, align 8, !tbaa !38
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.216, ptr %61, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %8, ptr %63, align 8, !tbaa !52
@@ -12625,8 +12619,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %69, align 8, !tbaa !38
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.409, ptr %70, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %10, ptr %71, align 8, !tbaa !52
   store ptr %12, ptr %62, align 8, !tbaa !39
@@ -12645,8 +12639,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %76, align 8, !tbaa !38
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.258, ptr %77, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %78 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %12, ptr %78, align 8, !tbaa !52
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -12667,8 +12661,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %85, align 8, !tbaa !38
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @.str.345, ptr %86, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %16, ptr %54, align 8, !tbaa !52
@@ -12695,8 +12689,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %96, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @.str.286, ptr %97, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %18, ptr %99, align 8, !tbaa !52
@@ -12735,8 +12729,8 @@ emitter_col_init.exit87:                          ; preds = %50
   store i32 9, ptr %113, align 8, !tbaa !38
   %114 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @.str.346, ptr %114, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %20, ptr %115, align 8, !tbaa !39
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -12801,8 +12795,8 @@ emitter_col_init.exit91:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %144, align 8, !tbaa !38
   %145 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @.str.286, ptr %145, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %146 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %22, ptr %146, align 8, !tbaa !39
   %147 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -12867,8 +12861,8 @@ emitter_col_init.exit95:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %175, align 8, !tbaa !38
   %176 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @.str.347, ptr %176, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %177 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %24, ptr %177, align 8, !tbaa !39
   %178 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -12933,8 +12927,8 @@ emitter_col_init.exit99:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %206, align 8, !tbaa !38
   %207 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr @.str.286, ptr %207, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %208 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %26, ptr %208, align 8, !tbaa !39
   %209 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -13031,8 +13025,8 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %2
 
 emitter_table_row.exit:                           ; preds = %emitter_col_init.exit103, %select.unfold._crit_edge.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.454)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 7, ptr %29, align 8, !tbaa !4
   %249 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 888
@@ -13056,11 +13050,11 @@ tsd_fetch_impl.exit:                              ; preds = %emitter_table_row.e
   unreachable
 
 256:                                              ; preds = %tsd_fetch_impl.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %257 = zext i32 %1 to i64
   %258 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %257, ptr %258, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 7, ptr %30, align 8, !tbaa !4
   %259 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i45 = icmp eq i8 %259, 0
@@ -13082,9 +13076,9 @@ tsd_fetch_impl.exit47:                            ; preds = %256, %260
   unreachable
 
 264:                                              ; preds = %tsd_fetch_impl.exit47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 7, ptr %32, align 8, !tbaa !4
   %265 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i48 = icmp eq i8 %265, 0
@@ -13106,7 +13100,7 @@ tsd_fetch_impl.exit50:                            ; preds = %264, %266
   unreachable
 
 270:                                              ; preds = %tsd_fetch_impl.exit50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %271 = load i32, ptr %5, align 4, !tbaa !26
   %.not169 = icmp eq i32 %271, 0
   br i1 %.not169, label %._crit_edge, label %.lr.ph
@@ -13136,16 +13130,16 @@ tsd_fetch_impl.exit50:                            ; preds = %264, %266
 290:                                              ; preds = %.lr.ph, %emitter_table_row.exit124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %emitter_table_row.exit124 ]
   %.034163 = phi i1 [ false, %.lr.ph ], [ %310, %emitter_table_row.exit124 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 %indvars.iv, ptr %272, align 16, !tbaa !4
   store i64 %indvars.iv, ptr %273, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 7, ptr %38, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 8, ptr %39, align 8, !tbaa !4
   %291 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i51 = icmp eq i8 %291, 0
@@ -13167,11 +13161,11 @@ tsd_fetch_impl.exit53:                            ; preds = %290, %292
   unreachable
 
 296:                                              ; preds = %tsd_fetch_impl.exit53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 7, ptr %40, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 8, ptr %41, align 8, !tbaa !4
   %297 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i54 = icmp eq i8 %297, 0
@@ -13193,11 +13187,11 @@ tsd_fetch_impl.exit56:                            ; preds = %296, %298
   unreachable
 
 302:                                              ; preds = %tsd_fetch_impl.exit56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 7, ptr %42, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i64 8, ptr %43, align 8, !tbaa !4
   %303 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i57 = icmp eq i8 %303, 0
@@ -13219,8 +13213,8 @@ tsd_fetch_impl.exit59:                            ; preds = %302, %304
   unreachable
 
 308:                                              ; preds = %tsd_fetch_impl.exit59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %309 = load i64, ptr %35, align 8, !tbaa !4
   %310 = icmp eq i64 %309, 0
   %.not = xor i1 %.034163, true
@@ -13232,9 +13226,9 @@ tsd_fetch_impl.exit59:                            ; preds = %302, %304
   br label %312
 
 312:                                              ; preds = %311, %308
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 7, ptr %44, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 8, ptr %45, align 8, !tbaa !4
   %313 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i60 = icmp eq i8 %313, 0
@@ -13256,11 +13250,11 @@ tsd_fetch_impl.exit62:                            ; preds = %312, %314
   unreachable
 
 318:                                              ; preds = %tsd_fetch_impl.exit62
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 7, ptr %46, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 8, ptr %47, align 8, !tbaa !4
   %319 = load i8, ptr %250, align 8, !tbaa !8
   %.not.i63 = icmp eq i8 %319, 0
@@ -13282,8 +13276,8 @@ tsd_fetch_impl.exit65:                            ; preds = %318, %320
   unreachable
 
 324:                                              ; preds = %tsd_fetch_impl.exit65
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i.i, label %325, label %emitter_json_object_begin.exit
@@ -13464,11 +13458,11 @@ select.unfold._crit_edge.i123:                    ; preds = %select.unfold.i118,
   br label %emitter_table_row.exit124
 
 emitter_table_row.exit124:                        ; preds = %select.unfold._crit_edge.i123, %372, %rate_per_second.exit115
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %383 = load i32, ptr %5, align 4, !tbaa !26
   %384 = zext i32 %383 to i64
@@ -13524,35 +13518,35 @@ emitter_json_array_end.exit:                      ; preds = %._crit_edge, %emitt
   br label %399
 
 399:                                              ; preds = %398, %emitter_json_array_end.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: cold nounwind optsize uwtable
-define internal fastcc void @stats_arena_extents_print(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #6 {
+define internal fastcc void @stats_arena_extents_print(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #5 {
 emitter_col_init.exit81:
   %2 = alloca %struct.emitter_col_s, align 8
   %3 = alloca %struct.emitter_col_s, align 8
@@ -13595,8 +13589,8 @@ emitter_col_init.exit81:
   %40 = alloca i64, align 8
   %41 = alloca i64, align 8
   %42 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 1, ptr %2, align 8, !tbaa !34
@@ -13613,8 +13607,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %50, align 8, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.216, ptr %51, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %53, align 8, !tbaa !52
@@ -13635,8 +13629,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %59, align 8, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.409, ptr %60, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %61, align 8, !tbaa !52
   store ptr %6, ptr %52, align 8, !tbaa !39
@@ -13655,8 +13649,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %66, align 8, !tbaa !38
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.456, ptr %67, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %6, ptr %68, align 8, !tbaa !52
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -13677,8 +13671,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %75, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.457, ptr %76, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %10, ptr %44, align 8, !tbaa !52
@@ -13705,8 +13699,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %86, align 8, !tbaa !38
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.458, ptr %87, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %12, ptr %89, align 8, !tbaa !52
@@ -13745,8 +13739,8 @@ emitter_col_init.exit81:
   store i32 9, ptr %103, align 8, !tbaa !38
   %104 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.459, ptr %104, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %14, ptr %105, align 8, !tbaa !39
   %106 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -13811,8 +13805,8 @@ emitter_col_init.exit85:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %134, align 8, !tbaa !38
   %135 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @.str.460, ptr %135, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %136 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %16, ptr %136, align 8, !tbaa !39
   %137 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -13877,8 +13871,8 @@ emitter_col_init.exit89:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %165, align 8, !tbaa !38
   %166 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @.str.265, ptr %166, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %167 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %18, ptr %167, align 8, !tbaa !39
   %168 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -13943,8 +13937,8 @@ emitter_col_init.exit93:                          ; preds = %emitter_col_init.ex
   store i32 9, ptr %196, align 8, !tbaa !38
   %197 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @.str.461, ptr %197, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %198 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %20, ptr %198, align 8, !tbaa !39
   %199 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -14041,8 +14035,8 @@ select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %2
 
 emitter_table_row.exit:                           ; preds = %emitter_col_init.exit97, %select.unfold._crit_edge.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.464)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 7, ptr %23, align 8, !tbaa !4
   %239 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 888
@@ -14066,11 +14060,11 @@ tsd_fetch_impl.exit:                              ; preds = %emitter_table_row.e
   unreachable
 
 246:                                              ; preds = %tsd_fetch_impl.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %247 = zext i32 %1 to i64
   %248 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %247, ptr %248, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 7, ptr %24, align 8, !tbaa !4
   %249 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i39 = icmp eq i8 %249, 0
@@ -14092,7 +14086,7 @@ tsd_fetch_impl.exit41:                            ; preds = %246, %250
   unreachable
 
 254:                                              ; preds = %tsd_fetch_impl.exit41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %255 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -14113,16 +14107,16 @@ tsd_fetch_impl.exit41:                            ; preds = %246, %250
 269:                                              ; preds = %254, %emitter_table_row.exit111
   %indvars.iv = phi i64 [ 0, %254 ], [ %indvars.iv.next, %emitter_table_row.exit111 ]
   %.029151 = phi i1 [ false, %254 ], [ %316, %emitter_table_row.exit111 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 %indvars.iv, ptr %255, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i64 7, ptr %31, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 8, ptr %32, align 8, !tbaa !4
   %270 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i42 = icmp eq i8 %270, 0
@@ -14144,11 +14138,11 @@ tsd_fetch_impl.exit44:                            ; preds = %269, %271
   unreachable
 
 275:                                              ; preds = %tsd_fetch_impl.exit44
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 7, ptr %33, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i64 8, ptr %34, align 8, !tbaa !4
   %276 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i45 = icmp eq i8 %276, 0
@@ -14170,11 +14164,11 @@ tsd_fetch_impl.exit47:                            ; preds = %275, %277
   unreachable
 
 281:                                              ; preds = %tsd_fetch_impl.exit47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 7, ptr %35, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 8, ptr %36, align 8, !tbaa !4
   %282 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i48 = icmp eq i8 %282, 0
@@ -14196,11 +14190,11 @@ tsd_fetch_impl.exit50:                            ; preds = %281, %283
   unreachable
 
 287:                                              ; preds = %tsd_fetch_impl.exit50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i64 7, ptr %37, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 8, ptr %38, align 8, !tbaa !4
   %288 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i51 = icmp eq i8 %288, 0
@@ -14222,11 +14216,11 @@ tsd_fetch_impl.exit53:                            ; preds = %287, %289
   unreachable
 
 293:                                              ; preds = %tsd_fetch_impl.exit53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 7, ptr %39, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i64 8, ptr %40, align 8, !tbaa !4
   %294 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i54 = icmp eq i8 %294, 0
@@ -14248,11 +14242,11 @@ tsd_fetch_impl.exit56:                            ; preds = %293, %295
   unreachable
 
 299:                                              ; preds = %tsd_fetch_impl.exit56
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 7, ptr %41, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 8, ptr %42, align 8, !tbaa !4
   %300 = load i8, ptr %240, align 8, !tbaa !8
   %.not.i57 = icmp eq i8 %300, 0
@@ -14274,8 +14268,8 @@ tsd_fetch_impl.exit59:                            ; preds = %299, %301
   unreachable
 
 305:                                              ; preds = %tsd_fetch_impl.exit59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %306 = load i64, ptr %25, align 8, !tbaa !4
   %307 = load i64, ptr %26, align 8, !tbaa !4
   %308 = add i64 %307, %306
@@ -14447,12 +14441,12 @@ select.unfold._crit_edge.i110:                    ; preds = %select.unfold.i105,
   br label %emitter_table_row.exit111
 
 emitter_table_row.exit111:                        ; preds = %select.unfold._crit_edge.i110, %356, %emitter_json_object_end.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 199
   br i1 %exitcond.not, label %367, label %269, !llvm.loop !56
@@ -14503,27 +14497,27 @@ emitter_json_array_end.exit:                      ; preds = %367, %emitter_inden
   br label %379
 
 379:                                              ; preds = %378, %emitter_json_array_end.exit
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -14665,11 +14659,11 @@ define internal fastcc void @stats_arena_hpa_shard_print(ptr noundef nonnull %0,
   %137 = alloca [7 x i64], align 16
   %138 = alloca i64, align 8
   %139 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %137) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %138) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %136)
+  call void @llvm.lifetime.start.p0(ptr nonnull %137)
+  call void @llvm.lifetime.start.p0(ptr nonnull %138)
   store i64 7, ptr %138, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %139) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %139)
   store i64 8, ptr %139, align 8, !tbaa !4
   %140 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.468, ptr noundef nonnull %137, ptr noundef nonnull %138) #14
   %.not.i = icmp eq i32 %140, 0
@@ -14695,31 +14689,31 @@ define internal fastcc void @stats_arena_hpa_shard_print(ptr noundef nonnull %0,
   unreachable
 
 stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %139) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %138) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %137) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %139)
+  call void @llvm.lifetime.end.p0(ptr nonnull %138)
+  call void @llvm.lifetime.end.p0(ptr nonnull %137)
   call fastcc void @emitter_kv_note(ptr noundef nonnull %0, ptr noundef nonnull @.str.469, ptr noundef nonnull @.str.470, i32 noundef 6, ptr noundef nonnull readonly %136, ptr noundef null, i32 noundef 0, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %136) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.406)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %81) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %84) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %89) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %90) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %92) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %93) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %94) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %80)
+  call void @llvm.lifetime.start.p0(ptr nonnull %81)
+  call void @llvm.lifetime.start.p0(ptr nonnull %82)
+  call void @llvm.lifetime.start.p0(ptr nonnull %83)
+  call void @llvm.lifetime.start.p0(ptr nonnull %84)
+  call void @llvm.lifetime.start.p0(ptr nonnull %85)
+  call void @llvm.lifetime.start.p0(ptr nonnull %86)
+  call void @llvm.lifetime.start.p0(ptr nonnull %87)
+  call void @llvm.lifetime.start.p0(ptr nonnull %88)
+  call void @llvm.lifetime.start.p0(ptr nonnull %89)
+  call void @llvm.lifetime.start.p0(ptr nonnull %90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %91)
+  call void @llvm.lifetime.start.p0(ptr nonnull %92)
+  call void @llvm.lifetime.start.p0(ptr nonnull %93)
+  call void @llvm.lifetime.start.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store i64 7, ptr %95, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i64 8, ptr %96, align 8, !tbaa !4
   %148 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.471, ptr noundef nonnull %94, ptr noundef nonnull %95) #14
   %.not.i8 = icmp eq i32 %148, 0
@@ -14744,13 +14738,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 155:                                              ; preds = %150
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %96) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %95) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %94) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %97) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %98) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %96)
+  call void @llvm.lifetime.end.p0(ptr nonnull %95)
+  call void @llvm.lifetime.end.p0(ptr nonnull %94)
+  call void @llvm.lifetime.start.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %98)
   store i64 7, ptr %98, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %99)
   store i64 8, ptr %99, align 8, !tbaa !4
   %156 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.472, ptr noundef nonnull %97, ptr noundef nonnull %98) #14
   %.not37.i = icmp eq i32 %156, 0
@@ -14775,13 +14769,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 163:                                              ; preds = %158
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %97) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %100) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %99)
+  call void @llvm.lifetime.end.p0(ptr nonnull %98)
+  call void @llvm.lifetime.end.p0(ptr nonnull %97)
+  call void @llvm.lifetime.start.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %101)
   store i64 7, ptr %101, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %102)
   store i64 8, ptr %102, align 8, !tbaa !4
   %164 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.473, ptr noundef nonnull %100, ptr noundef nonnull %101) #14
   %.not39.i = icmp eq i32 %164, 0
@@ -14806,13 +14800,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 171:                                              ; preds = %166
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %100) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %103) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %102)
+  call void @llvm.lifetime.end.p0(ptr nonnull %101)
+  call void @llvm.lifetime.end.p0(ptr nonnull %100)
+  call void @llvm.lifetime.start.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i64 7, ptr %104, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %105)
   store i64 8, ptr %105, align 8, !tbaa !4
   %172 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.474, ptr noundef nonnull %103, ptr noundef nonnull %104) #14
   %.not41.i = icmp eq i32 %172, 0
@@ -14837,13 +14831,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 179:                                              ; preds = %174
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %103) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %106) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %105)
+  call void @llvm.lifetime.end.p0(ptr nonnull %104)
+  call void @llvm.lifetime.end.p0(ptr nonnull %103)
+  call void @llvm.lifetime.start.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %107)
   store i64 7, ptr %107, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i64 8, ptr %108, align 8, !tbaa !4
   %180 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.475, ptr noundef nonnull %106, ptr noundef nonnull %107) #14
   %.not43.i = icmp eq i32 %180, 0
@@ -14868,13 +14862,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 187:                                              ; preds = %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %106) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %109) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %110) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %108)
+  call void @llvm.lifetime.end.p0(ptr nonnull %107)
+  call void @llvm.lifetime.end.p0(ptr nonnull %106)
+  call void @llvm.lifetime.start.p0(ptr nonnull %109)
+  call void @llvm.lifetime.start.p0(ptr nonnull %110)
   store i64 7, ptr %110, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %111) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %111)
   store i64 8, ptr %111, align 8, !tbaa !4
   %188 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.476, ptr noundef nonnull %109, ptr noundef nonnull %110) #14
   %.not45.i = icmp eq i32 %188, 0
@@ -14899,9 +14893,9 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 195:                                              ; preds = %190
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %111) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %110) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %109) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %111)
+  call void @llvm.lifetime.end.p0(ptr nonnull %110)
+  call void @llvm.lifetime.end.p0(ptr nonnull %109)
   %196 = load i64, ptr %82, align 8, !tbaa !4
   %197 = shl i64 %196, 9
   %198 = load i64, ptr %83, align 8, !tbaa !4
@@ -14909,10 +14903,10 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   %200 = add i64 %198, %199
   %201 = sub i64 %197, %200
   store i64 %201, ptr %85, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %112) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %113) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store i64 7, ptr %113, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %114) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %114)
   store i64 8, ptr %114, align 8, !tbaa !4
   %202 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.477, ptr noundef nonnull %112, ptr noundef nonnull %113) #14
   %.not47.i = icmp eq i32 %202, 0
@@ -14937,13 +14931,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 209:                                              ; preds = %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %113) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %112) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %115) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %116) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %114)
+  call void @llvm.lifetime.end.p0(ptr nonnull %113)
+  call void @llvm.lifetime.end.p0(ptr nonnull %112)
+  call void @llvm.lifetime.start.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i64 7, ptr %116, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %117) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %117)
   store i64 8, ptr %117, align 8, !tbaa !4
   %210 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.478, ptr noundef nonnull %115, ptr noundef nonnull %116) #14
   %.not49.i = icmp eq i32 %210, 0
@@ -14968,13 +14962,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 217:                                              ; preds = %212
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %117) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %116) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %115) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %118) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %119) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %117)
+  call void @llvm.lifetime.end.p0(ptr nonnull %116)
+  call void @llvm.lifetime.end.p0(ptr nonnull %115)
+  call void @llvm.lifetime.start.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %119)
   store i64 7, ptr %119, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %120) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i64 8, ptr %120, align 8, !tbaa !4
   %218 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.479, ptr noundef nonnull %118, ptr noundef nonnull %119) #14
   %.not51.i = icmp eq i32 %218, 0
@@ -14999,13 +14993,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 225:                                              ; preds = %220
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %120) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %119) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %118) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %121) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %122) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %120)
+  call void @llvm.lifetime.end.p0(ptr nonnull %119)
+  call void @llvm.lifetime.end.p0(ptr nonnull %118)
+  call void @llvm.lifetime.start.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %122)
   store i64 7, ptr %122, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %123) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %123)
   store i64 8, ptr %123, align 8, !tbaa !4
   %226 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.480, ptr noundef nonnull %121, ptr noundef nonnull %122) #14
   %.not53.i = icmp eq i32 %226, 0
@@ -15030,13 +15024,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 233:                                              ; preds = %228
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %123) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %122) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %121) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %124) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %125) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %123)
+  call void @llvm.lifetime.end.p0(ptr nonnull %122)
+  call void @llvm.lifetime.end.p0(ptr nonnull %121)
+  call void @llvm.lifetime.start.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %125)
   store i64 7, ptr %125, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %126) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %126)
   store i64 8, ptr %126, align 8, !tbaa !4
   %234 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.481, ptr noundef nonnull %124, ptr noundef nonnull %125) #14
   %.not55.i = icmp eq i32 %234, 0
@@ -15061,13 +15055,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 241:                                              ; preds = %236
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %126) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %125) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %124) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %127) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %128) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %126)
+  call void @llvm.lifetime.end.p0(ptr nonnull %125)
+  call void @llvm.lifetime.end.p0(ptr nonnull %124)
+  call void @llvm.lifetime.start.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store i64 7, ptr %128, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %129) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %129)
   store i64 8, ptr %129, align 8, !tbaa !4
   %242 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.482, ptr noundef nonnull %127, ptr noundef nonnull %128) #14
   %.not57.i = icmp eq i32 %242, 0
@@ -15092,13 +15086,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 249:                                              ; preds = %244
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %129) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %128) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %127) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %130) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %131) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %129)
+  call void @llvm.lifetime.end.p0(ptr nonnull %128)
+  call void @llvm.lifetime.end.p0(ptr nonnull %127)
+  call void @llvm.lifetime.start.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %131)
   store i64 7, ptr %131, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %132) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store i64 8, ptr %132, align 8, !tbaa !4
   %250 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.483, ptr noundef nonnull %130, ptr noundef nonnull %131) #14
   %.not59.i = icmp eq i32 %250, 0
@@ -15123,13 +15117,13 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 257:                                              ; preds = %252
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %132) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %131) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %130) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %133) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %134) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %132)
+  call void @llvm.lifetime.end.p0(ptr nonnull %131)
+  call void @llvm.lifetime.end.p0(ptr nonnull %130)
+  call void @llvm.lifetime.start.p0(ptr nonnull %133)
+  call void @llvm.lifetime.start.p0(ptr nonnull %134)
   store i64 7, ptr %134, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %135)
   store i64 8, ptr %135, align 8, !tbaa !4
   %258 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.484, ptr noundef nonnull %133, ptr noundef nonnull %134) #14
   %.not61.i = icmp eq i32 %258, 0
@@ -15154,9 +15148,9 @@ stats_arena_hpa_shard_sec_print.exit:             ; preds = %142
   unreachable
 
 265:                                              ; preds = %260
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %135) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %134) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %133) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %135)
+  call void @llvm.lifetime.end.p0(ptr nonnull %134)
+  call void @llvm.lifetime.end.p0(ptr nonnull %133)
   %266 = load i64, ptr %79, align 8, !tbaa !4
   %267 = load i64, ptr %86, align 8, !tbaa !4
   %268 = load i64, ptr %82, align 8, !tbaa !4
@@ -15304,31 +15298,31 @@ emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %316,
   br label %stats_arena_hpa_shard_counters_print.exit
 
 stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exit74.i, %emitter_indent.exit.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %92) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %90) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %89) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %88) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %85) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %84) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %82) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %80) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %79) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %93)
+  call void @llvm.lifetime.end.p0(ptr nonnull %92)
+  call void @llvm.lifetime.end.p0(ptr nonnull %91)
+  call void @llvm.lifetime.end.p0(ptr nonnull %90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %89)
+  call void @llvm.lifetime.end.p0(ptr nonnull %88)
+  call void @llvm.lifetime.end.p0(ptr nonnull %87)
+  call void @llvm.lifetime.end.p0(ptr nonnull %86)
+  call void @llvm.lifetime.end.p0(ptr nonnull %85)
+  call void @llvm.lifetime.end.p0(ptr nonnull %84)
+  call void @llvm.lifetime.end.p0(ptr nonnull %83)
+  call void @llvm.lifetime.end.p0(ptr nonnull %82)
+  call void @llvm.lifetime.end.p0(ptr nonnull %81)
+  call void @llvm.lifetime.end.p0(ptr nonnull %80)
+  call void @llvm.lifetime.end.p0(ptr nonnull %79)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 7, ptr %11, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 8, ptr %12, align 8, !tbaa !4
   %323 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.501, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
   %.not62.i9 = icmp eq i32 %323, 0
@@ -15353,13 +15347,13 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 330:                                              ; preds = %325
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 7, ptr %14, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 8, ptr %15, align 8, !tbaa !4
   %331 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.502, ptr noundef nonnull %13, ptr noundef nonnull %14) #14
   %.not64.i = icmp eq i32 %331, 0
@@ -15384,13 +15378,13 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 338:                                              ; preds = %333
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 7, ptr %17, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i64 8, ptr %18, align 8, !tbaa !4
   %339 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.503, ptr noundef nonnull %16, ptr noundef nonnull %17) #14
   %.not66.i = icmp eq i32 %339, 0
@@ -15415,13 +15409,13 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 346:                                              ; preds = %341
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i64 7, ptr %20, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 8, ptr %21, align 8, !tbaa !4
   %347 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.504, ptr noundef nonnull %19, ptr noundef nonnull %20) #14
   %.not68.i = icmp eq i32 %347, 0
@@ -15446,13 +15440,13 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 354:                                              ; preds = %349
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 7, ptr %23, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 8, ptr %24, align 8, !tbaa !4
   %355 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.505, ptr noundef nonnull %22, ptr noundef nonnull %23) #14
   %.not70.i = icmp eq i32 %355, 0
@@ -15477,13 +15471,13 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 362:                                              ; preds = %357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 7, ptr %26, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i64 8, ptr %27, align 8, !tbaa !4
   %363 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.506, ptr noundef nonnull %25, ptr noundef nonnull %26) #14
   %.not72.i = icmp eq i32 %363, 0
@@ -15508,9 +15502,9 @@ stats_arena_hpa_shard_counters_print.exit:        ; preds = %rate_per_second.exi
   unreachable
 
 370:                                              ; preds = %365
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %371 = load i64, ptr %7, align 8, !tbaa !4
   %372 = shl i64 %371, 9
   %373 = load i64, ptr %8, align 8, !tbaa !4
@@ -15568,10 +15562,10 @@ emitter_indent.exit.i.i16:                        ; preds = %.lr.ph.i.i.i19, %38
   br label %emitter_json_object_end.exit.i
 
 emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit.i.i16, %370
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i64 7, ptr %29, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i64 8, ptr %30, align 8, !tbaa !4
   %392 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.509, ptr noundef nonnull %28, ptr noundef nonnull %29) #14
   %.not74.i = icmp eq i32 %392, 0
@@ -15596,13 +15590,13 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 399:                                              ; preds = %394
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %28) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(ptr nonnull %29)
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i64 7, ptr %32, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 8, ptr %33, align 8, !tbaa !4
   %400 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.510, ptr noundef nonnull %31, ptr noundef nonnull %32) #14
   %.not76.i = icmp eq i32 %400, 0
@@ -15627,13 +15621,13 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 407:                                              ; preds = %402
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i64 7, ptr %35, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i64 8, ptr %36, align 8, !tbaa !4
   %408 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.511, ptr noundef nonnull %34, ptr noundef nonnull %35) #14
   %.not78.i = icmp eq i32 %408, 0
@@ -15658,13 +15652,13 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 415:                                              ; preds = %410
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %34) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %36)
+  call void @llvm.lifetime.end.p0(ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i64 7, ptr %38, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store i64 8, ptr %39, align 8, !tbaa !4
   %416 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.512, ptr noundef nonnull %37, ptr noundef nonnull %38) #14
   %.not80.i = icmp eq i32 %416, 0
@@ -15689,13 +15683,13 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 423:                                              ; preds = %418
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %39)
+  call void @llvm.lifetime.end.p0(ptr nonnull %38)
+  call void @llvm.lifetime.end.p0(ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store i64 7, ptr %41, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store i64 8, ptr %42, align 8, !tbaa !4
   %424 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.513, ptr noundef nonnull %40, ptr noundef nonnull %41) #14
   %.not82.i = icmp eq i32 %424, 0
@@ -15720,13 +15714,13 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 431:                                              ; preds = %426
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %40) #14
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %43) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %42)
+  call void @llvm.lifetime.end.p0(ptr nonnull %41)
+  call void @llvm.lifetime.end.p0(ptr nonnull %40)
+  call void @llvm.lifetime.start.p0(ptr nonnull %43)
+  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 7, ptr %44, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 8, ptr %45, align 8, !tbaa !4
   %432 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.514, ptr noundef nonnull %43, ptr noundef nonnull %44) #14
   %.not84.i = icmp eq i32 %432, 0
@@ -15751,9 +15745,9 @@ emitter_json_object_end.exit.i:                   ; preds = %emitter_indent.exit
   unreachable
 
 439:                                              ; preds = %434
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %44)
+  call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %440 = load i64, ptr %7, align 8, !tbaa !4
   %441 = shl i64 %440, 9
   %442 = load i64, ptr %8, align 8, !tbaa !4
@@ -15811,8 +15805,8 @@ emitter_indent.exit.i120.i:                       ; preds = %.lr.ph.i.i123.i, %4
   br label %emitter_col_init.exit160.i
 
 emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit.i120.i, %439
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %46) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %46)
+  call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %461 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %462 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i32 1, ptr %46, align 8, !tbaa !34
@@ -15829,8 +15823,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %468, align 8, !tbaa !38
   %469 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr @.str.216, ptr %469, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %48)
+  call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %470 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %471 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %46, ptr %471, align 8, !tbaa !52
@@ -15851,8 +15845,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %477, align 8, !tbaa !38
   %478 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @.str.409, ptr %478, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %50)
+  call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %479 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %48, ptr %479, align 8, !tbaa !52
   store ptr %50, ptr %470, align 8, !tbaa !39
@@ -15871,8 +15865,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %484, align 8, !tbaa !38
   %485 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr @.str.498, ptr %485, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %52)
+  call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %486 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr %50, ptr %486, align 8, !tbaa !52
   %487 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -15893,8 +15887,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %493, align 8, !tbaa !38
   %494 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr @.str.499, ptr %494, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %54)
+  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %495 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %496 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr %52, ptr %496, align 8, !tbaa !52
@@ -15917,8 +15911,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %504, align 8, !tbaa !38
   %505 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr @.str.500, ptr %505, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %56) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %56)
+  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %506 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %507 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr %54, ptr %507, align 8, !tbaa !52
@@ -15939,8 +15933,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %513, align 8, !tbaa !38
   %514 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr @.str.494, ptr %514, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %58) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %58)
+  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %515 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %516 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store ptr %56, ptr %516, align 8, !tbaa !52
@@ -15961,8 +15955,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %522, align 8, !tbaa !38
   %523 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr @.str.495, ptr %523, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %60)
+  call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %524 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %525 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr %58, ptr %525, align 8, !tbaa !52
@@ -15983,8 +15977,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %531, align 8, !tbaa !38
   %532 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr @.str.496, ptr %532, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62) #14
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %62)
+  call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %533 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %534 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %62, ptr %462, align 8, !tbaa !52
@@ -16009,8 +16003,8 @@ emitter_col_init.exit160.i:                       ; preds = %emitter_indent.exit
   store i32 9, ptr %540, align 8, !tbaa !38
   %541 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr @.str.497, ptr %541, align 8, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %64) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %64)
+  call void @llvm.lifetime.start.p0(ptr nonnull %65)
   store i64 7, ptr %65, align 8, !tbaa !4
   %542 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 888
@@ -16034,10 +16028,10 @@ tsd_fetch_impl.exit.i:                            ; preds = %545, %emitter_col_i
   unreachable
 
 549:                                              ; preds = %tsd_fetch_impl.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %65)
   %550 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i64 %143, ptr %550, align 16, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %66)
   store i64 7, ptr %66, align 8, !tbaa !4
   %551 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i94.i = icmp eq i8 %551, 0
@@ -16059,7 +16053,7 @@ tsd_fetch_impl.exit96.i:                          ; preds = %552, %549
   unreachable
 
 556:                                              ; preds = %tsd_fetch_impl.exit96.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %66)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.518)
   %557 = load i32, ptr %0, align 8, !tbaa !11
   %.not.i161.i = icmp eq i32 %557, 2
@@ -16147,9 +16141,9 @@ emitter_json_array_end.exit.i:                    ; preds = %emitter_indent.exit
   %indvars.iv.i = phi i64 [ 0, %emitter_table_row.exit.i ], [ %indvars.iv.next.i, %emitter_json_object_end.exit194.i ]
   %.060230.i = phi i1 [ false, %emitter_table_row.exit.i ], [ %636, %emitter_json_object_end.exit194.i ]
   store i64 %indvars.iv.i, ptr %566, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %67)
   store i64 7, ptr %67, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i64 8, ptr %68, align 8, !tbaa !4
   %591 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i97.i = icmp eq i8 %591, 0
@@ -16171,11 +16165,11 @@ tsd_fetch_impl.exit99.i:                          ; preds = %592, %590
   unreachable
 
 596:                                              ; preds = %tsd_fetch_impl.exit99.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %68) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %68)
+  call void @llvm.lifetime.end.p0(ptr nonnull %67)
+  call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store i64 7, ptr %69, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %70)
   store i64 8, ptr %70, align 8, !tbaa !4
   %597 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i100.i = icmp eq i8 %597, 0
@@ -16197,11 +16191,11 @@ tsd_fetch_impl.exit102.i:                         ; preds = %598, %596
   unreachable
 
 602:                                              ; preds = %tsd_fetch_impl.exit102.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %70)
+  call void @llvm.lifetime.end.p0(ptr nonnull %69)
+  call void @llvm.lifetime.start.p0(ptr nonnull %71)
   store i64 7, ptr %71, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i64 8, ptr %72, align 8, !tbaa !4
   %603 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i103.i = icmp eq i8 %603, 0
@@ -16223,11 +16217,11 @@ tsd_fetch_impl.exit105.i:                         ; preds = %604, %602
   unreachable
 
 608:                                              ; preds = %tsd_fetch_impl.exit105.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %71) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %72)
+  call void @llvm.lifetime.end.p0(ptr nonnull %71)
+  call void @llvm.lifetime.start.p0(ptr nonnull %73)
   store i64 7, ptr %73, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %74)
   store i64 8, ptr %74, align 8, !tbaa !4
   %609 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i106.i = icmp eq i8 %609, 0
@@ -16249,11 +16243,11 @@ tsd_fetch_impl.exit108.i:                         ; preds = %610, %608
   unreachable
 
 614:                                              ; preds = %tsd_fetch_impl.exit108.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %74) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %75) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %74)
+  call void @llvm.lifetime.end.p0(ptr nonnull %73)
+  call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store i64 7, ptr %75, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i64 8, ptr %76, align 8, !tbaa !4
   %615 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i109.i = icmp eq i8 %615, 0
@@ -16275,11 +16269,11 @@ tsd_fetch_impl.exit111.i:                         ; preds = %616, %614
   unreachable
 
 620:                                              ; preds = %tsd_fetch_impl.exit111.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %75) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %77) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %76)
+  call void @llvm.lifetime.end.p0(ptr nonnull %75)
+  call void @llvm.lifetime.start.p0(ptr nonnull %77)
   store i64 7, ptr %77, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %78) #14
+  call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store i64 8, ptr %78, align 8, !tbaa !4
   %621 = load i8, ptr %543, align 8, !tbaa !8
   %.not.i112.i = icmp eq i8 %621, 0
@@ -16301,8 +16295,8 @@ tsd_fetch_impl.exit114.i:                         ; preds = %622, %620
   unreachable
 
 626:                                              ; preds = %tsd_fetch_impl.exit114.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %78) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %77) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %78)
+  call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %627 = load i64, ptr %7, align 8, !tbaa !4
   %628 = shl i64 %627, 9
   %629 = load i64, ptr %8, align 8, !tbaa !4
@@ -16486,31 +16480,31 @@ emitter_json_object_end.exit194.i:                ; preds = %emitter_indent.exit
   br label %stats_arena_hpa_shard_slabs_print.exit
 
 stats_arena_hpa_shard_slabs_print.exit:           ; preds = %emitter_json_array_end.exit.i, %686
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %64) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %62) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %61) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %59) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %58) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %57) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %56) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %53) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %51) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %46) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(ptr nonnull %64)
+  call void @llvm.lifetime.end.p0(ptr nonnull %63)
+  call void @llvm.lifetime.end.p0(ptr nonnull %62)
+  call void @llvm.lifetime.end.p0(ptr nonnull %61)
+  call void @llvm.lifetime.end.p0(ptr nonnull %60)
+  call void @llvm.lifetime.end.p0(ptr nonnull %59)
+  call void @llvm.lifetime.end.p0(ptr nonnull %58)
+  call void @llvm.lifetime.end.p0(ptr nonnull %57)
+  call void @llvm.lifetime.end.p0(ptr nonnull %56)
+  call void @llvm.lifetime.end.p0(ptr nonnull %55)
+  call void @llvm.lifetime.end.p0(ptr nonnull %54)
+  call void @llvm.lifetime.end.p0(ptr nonnull %53)
+  call void @llvm.lifetime.end.p0(ptr nonnull %52)
+  call void @llvm.lifetime.end.p0(ptr nonnull %51)
+  call void @llvm.lifetime.end.p0(ptr nonnull %50)
+  call void @llvm.lifetime.end.p0(ptr nonnull %49)
+  call void @llvm.lifetime.end.p0(ptr nonnull %48)
+  call void @llvm.lifetime.end.p0(ptr nonnull %47)
+  call void @llvm.lifetime.end.p0(ptr nonnull %46)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.val.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i = icmp ult i32 %.val.i, 2
   br i1 %spec.select.i.i, label %687, label %emitter_json_object_end.exit
@@ -16552,6 +16546,12 @@ emitter_json_object_end.exit:                     ; preds = %stats_arena_hpa_sha
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
@@ -16559,17 +16559,17 @@ declare void @llvm.assume(i1 noundef) #12
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }

@@ -506,12 +506,6 @@ define hidden ptr @b2GetWorldFromId(i32 %0) local_unnamed_addr #3 {
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden nonnull ptr @b2GetWorld(i32 noundef %0) local_unnamed_addr #3 {
   %2 = sext i32 %0 to i64
@@ -520,7 +514,7 @@ define hidden nonnull ptr @b2GetWorld(i32 noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @b2GetWorldLocked(i32 noundef %0) local_unnamed_addr #5 {
+define hidden ptr @b2GetWorldLocked(i32 noundef %0) local_unnamed_addr #4 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds %struct.b2World, ptr @b2_worlds, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1783
@@ -568,19 +562,19 @@ define i32 @b2CreateWorld(ptr noundef readonly captures(none) %0) local_unnamed_
   store i16 %20, ptr %19, align 8, !tbaa !82
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 1787
   store i8 1, ptr %23, align 1, !tbaa !79
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2CreateArenaAllocator(ptr dead_on_unwind nonnull writable sret(%struct.b2ArenaAllocator) align 8 %2, i32 noundef 2048) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !84
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @b2CreateBroadPhase(ptr noundef nonnull %24) #22
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 336
   call void @b2CreateGraph(ptr noundef nonnull %25, i32 noundef 16) #22
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 1008
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %3) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 1032
   %28 = call { ptr, i64 } @b2BodyArray_Create(i32 noundef 16) #22
   %29 = extractvalue { ptr, i64 } %28, 0
@@ -596,10 +590,10 @@ define i32 @b2CreateWorld(ptr noundef readonly captures(none) %0) local_unnamed_
   %.sroa.451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1080
   store i64 %34, ptr %.sroa.451.0..sroa_idx, align 8
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 1048
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %4) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %36 = call i32 @b2AllocId(ptr noundef nonnull %35) #22
   %37 = load i32, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 1084
@@ -686,10 +680,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %.sroa.451.0..sroa_idx, align 8, !tbaa !92
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 1208
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %5) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 1256
   %84 = call { ptr, i64 } @b2ShapeArray_Create(i32 noundef 16) #22
   %85 = extractvalue { ptr, i64 } %84, 0
@@ -698,10 +692,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1264
   store i64 %86, ptr %.sroa.449.0..sroa_idx, align 16
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 1232
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %6) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 1272
   %89 = call { ptr, i64 } @b2ChainShapeArray_Create(i32 noundef 4) #22
   %90 = extractvalue { ptr, i64 } %89, 0
@@ -710,10 +704,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %.sroa.447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1280
   store i64 %91, ptr %.sroa.447.0..sroa_idx, align 16
   %92 = getelementptr inbounds nuw i8, ptr %18, i64 1128
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %7) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 1152
   %94 = call { ptr, i64 } @b2ContactArray_Create(i32 noundef 16) #22
   %95 = extractvalue { ptr, i64 } %94, 0
@@ -722,10 +716,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1160
   store i64 %96, ptr %.sroa.445.0..sroa_idx, align 8
   %97 = getelementptr inbounds nuw i8, ptr %18, i64 1088
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %8) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %97, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 1112
   %99 = call { ptr, i64 } @b2JointArray_Create(i32 noundef 16) #22
   %100 = extractvalue { ptr, i64 } %99, 0
@@ -734,10 +728,10 @@ b2SolverSetArray_Push.exit182:                    ; preds = %b2SolverSetArray_Pu
   %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1120
   store i64 %101, ptr %.sroa.443.0..sroa_idx, align 16
   %102 = getelementptr inbounds nuw i8, ptr %18, i64 1168
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @b2CreateIdPool(ptr dead_on_unwind nonnull writable sret(%struct.b2IdPool) align 8 %9) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !88
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 1192
   %104 = call { ptr, i64 } @b2IslandArray_Create(i32 noundef 8) #22
   %105 = extractvalue { ptr, i64 } %104, 0
@@ -1029,7 +1023,7 @@ b2TaskContextArray_Resize.exit:                   ; preds = %b2TaskContextArray_
 declare void @b2InitializeContactRegisters() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @b2CreateArenaAllocator(ptr dead_on_unwind writable sret(%struct.b2ArenaAllocator) align 8, i32 noundef) local_unnamed_addr #2
 
@@ -1058,7 +1052,7 @@ declare { ptr, i64 } @b2IslandArray_Create(i32 noundef) local_unnamed_addr #2
 declare { ptr, i64 } @b2SensorArray_Create(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
-define internal float @b2DefaultFrictionCallback(float noundef %0, i32 %1, float noundef %2, i32 %3) #7 {
+define internal float @b2DefaultFrictionCallback(float noundef %0, i32 %1, float noundef %2, i32 %3) #6 {
   %5 = fmul float %0, %2
   %6 = tail call float @sqrtf(float noundef %5) #22, !tbaa !86
   ret float %6
@@ -1349,7 +1343,7 @@ declare void @b2DestroyIdPool(ptr noundef) local_unnamed_addr #2
 declare void @b2DestroyArenaAllocator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %.sroa.9196.i = alloca %struct.b2Manifold, align 8
   %4 = alloca %struct.b2StepContext, align 8
   %5 = and i32 %0, 65535
@@ -1402,7 +1396,7 @@ define void @b2World_Step(i32 %0, float noundef %1, i32 noundef %2) local_unname
   %33 = tail call float @b2GetMilliseconds(i64 noundef %32) #22
   %34 = getelementptr i8, ptr %7, i64 -192
   store float %33, ptr %34, align 16, !tbaa !189
-  call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %35, i8 0, i64 240, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1799,7 +1793,7 @@ b2MakeSoft.exit81:                                ; preds = %b2MakeSoft.exit74, 
 
 257:                                              ; preds = %255
   %258 = getelementptr inbounds nuw i8, ptr %230, i64 36
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %.sroa.9196.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9196.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.9196.i, ptr noundef nonnull align 4 dereferenceable(112) %258, i64 112, i1 false)
   %259 = load i32, ptr %197, align 16, !tbaa !185
   %260 = load i32, ptr %198, align 4, !tbaa !11
@@ -1849,7 +1843,7 @@ b2ContactBeginTouchEventArray_Push.exit.i:        ; preds = %267, %262, %.b2Cont
   %275 = load i32, ptr %197, align 16, !tbaa !185
   %276 = add nsw i32 %275, 1
   store i32 %276, ptr %197, align 16, !tbaa !185
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.9196.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9196.i)
   %.pre.i = load i32, ptr %247, align 4, !tbaa !240
   br label %277
 
@@ -2056,7 +2050,7 @@ b2Collide.exit:                                   ; preds = %._crit_edge220.i, %
   %371 = getelementptr i8, ptr %370, i64 %.idx
   store i32 0, ptr %371, align 16, !tbaa !188
   store i8 0, ptr %9, align 1, !tbaa !35
-  call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %372
 
 372:                                              ; preds = %3, %359, %19
@@ -2076,7 +2070,7 @@ declare void @b2OverlapSensors(ptr noundef) local_unnamed_addr #2
 declare void @b2GrowArena(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #8 {
+define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = alloca %struct.DrawContext, align 8
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
@@ -2112,7 +2106,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #8 {
   %.val190.i = load i32, ptr %26, align 8, !tbaa !220
   %27 = getelementptr i8, ptr %12, i64 -288
   tail call void @b2SetBitCountAndClear(ptr noundef nonnull %27, i32 noundef %.val190.i) #22
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %13, ptr %3, align 8, !tbaa !262
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %28, align 8, !tbaa !265
@@ -2248,7 +2242,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #8 {
   %107 = fadd float %.sroa.06.4.vec.extract.i200.i, %106
   %.sroa.011.0.vec.insert.i201.i = insertelement <2 x float> poison, float %105, i64 0
   %.sroa.011.4.vec.insert.i202.i = insertelement <2 x float> %.sroa.011.0.vec.insert.i201.i, float %107, i64 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %108 = getelementptr inbounds nuw i8, ptr %70, i64 88
   %109 = load float, ptr %108, align 8, !tbaa !277
   %110 = fpext float %109 to double
@@ -2256,7 +2250,7 @@ define void @b2World_Draw(i32 %0, ptr noundef %1) local_unnamed_addr #8 {
   %112 = load ptr, ptr %40, align 8, !tbaa !273
   %113 = load ptr, ptr %39, align 8, !tbaa !272
   call void %112(<2 x float> %.sroa.011.4.vec.insert.i202.i, ptr noundef nonnull %4, i32 noundef 16777215, ptr noundef %113) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %114
 
 114:                                              ; preds = %96, %92, %89
@@ -2398,7 +2392,7 @@ b2GetBit.exit205.thread.i:                        ; preds = %b2GetBit.exit205.i,
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 144
   %187 = load i32, ptr %186, align 4, !tbaa !287
   %.sroa.028.0.copyload.i = load <2 x float>, ptr %185, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %.lr.ph230.i, label %._crit_edge.i
 
@@ -2421,7 +2415,7 @@ b2GetBit.exit205.thread.i:                        ; preds = %b2GetBit.exit205.i,
   %197 = load i64, ptr %196, align 8, !tbaa !227
   %198 = or i64 %197, %194
   store i64 %198, ptr %196, align 8, !tbaa !227
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load i32, ptr %161, align 4, !tbaa !284
   br label %275
 
@@ -2573,7 +2567,7 @@ b2GetBit.exit205.thread.i:                        ; preds = %b2GetBit.exit205.i,
   br i1 %exitcond254.not.i, label %b2DrawWithBounds.exit, label %60, !llvm.loop !301
 
 b2DrawWithBounds.exit:                            ; preds = %._crit_edge239.i, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 278:                                              ; preds = %17
@@ -2976,7 +2970,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   %indvars.iv325 = phi i64 [ 0, %.lr.ph290.preheader ], [ %indvars.iv.next326, %._crit_edge287 ]
   %498 = load ptr, ptr %494, align 8, !tbaa !305
   %499 = getelementptr inbounds nuw %struct.b2BodySim, ptr %498, i64 %indvars.iv325
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 88
   %501 = load i32, ptr %500, align 4, !tbaa !306
   %502 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %501) #22
@@ -3006,7 +3000,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !206
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %513, i64 76
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !206
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float %.sroa.089.0.copyload, ptr %7, align 16, !tbaa !336
   store float %.sroa.591.0.copyload, ptr %486, align 4, !tbaa !337
   store float %.sroa.7.0.copyload, ptr %487, align 8, !tbaa !336
@@ -3020,12 +3014,12 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   call void %515(ptr noundef nonnull %7, i32 noundef 4, i32 noundef 16766720, ptr noundef %516) #22
   %517 = getelementptr inbounds nuw i8, ptr %513, i64 12
   %518 = load i32, ptr %517, align 4, !tbaa !339
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %518, -1
   br i1 %.not, label %._crit_edge287, label %.lr.ph286, !llvm.loop !340
 
 ._crit_edge287:                                   ; preds = %.lr.ph286, %.lr.ph290
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next326 = add nuw nsw i64 %indvars.iv325, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next326, %wide.trip.count328
   br i1 %exitcond329.not, label %._crit_edge291, label %.lr.ph290, !llvm.loop !341
@@ -3152,7 +3146,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   %580 = fadd float %.sroa.06.4.vec.extract.i248, %579
   %.sroa.011.0.vec.insert.i249 = insertelement <2 x float> poison, float %578, i64 0
   %.sroa.011.4.vec.insert.i250 = insertelement <2 x float> %.sroa.011.0.vec.insert.i249, float %580, i64 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %581 = getelementptr inbounds nuw i8, ptr %570, i64 60
   %582 = load float, ptr %581, align 4, !tbaa !346
   %583 = fcmp ogt float %582, 0.000000e+00
@@ -3163,7 +3157,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   %588 = load ptr, ptr %563, align 8, !tbaa !273
   %589 = load ptr, ptr %562, align 8, !tbaa !272
   call void %588(<2 x float> %.sroa.011.4.vec.insert.i250, ptr noundef nonnull %8, i32 noundef 16777215, ptr noundef %589) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
   br i1 %exitcond344.not, label %._crit_edge301, label %.lr.ph300, !llvm.loop !347
@@ -3216,7 +3210,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 108
   %617 = load i32, ptr %616, align 4, !tbaa !287
   %.sroa.031.0.copyload = load <2 x float>, ptr %615, align 4
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %618 = icmp sgt i32 %617, 0
   br i1 %618, label %.lr.ph307, label %._crit_edge308
 
@@ -3230,7 +3224,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
   br label %622
 
 ._crit_edge308:                                   ; preds = %692, %613
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
   br i1 %exitcond359.not, label %._crit_edge312, label %613, !llvm.loop !349
@@ -3366,7 +3360,7 @@ b2DrawShape.exit:                                 ; preds = %344, %347, %374, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @b2DrawShape(ptr noundef readonly captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #8 {
+define internal fastcc void @b2DrawShape(ptr noundef readonly captures(none) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4, !tbaa !315
   switch i32 %7, label %130 [
@@ -3569,12 +3563,12 @@ define internal fastcc void @b2DrawShape(ptr noundef readonly captures(none) %0,
 declare void @b2DrawJoint(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #5 {
+define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -3599,7 +3593,7 @@ define { ptr, i32 } @b2World_GetBodyEvents(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SensorEvents) align 8 captures(none) initializes((0, 24)) %0, i32 %1) local_unnamed_addr #10 {
+define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2SensorEvents) align 8 captures(none) initializes((0, 24)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -3640,7 +3634,7 @@ define void @b2World_GetSensorEvents(ptr dead_on_unwind noalias writable writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ContactEvents) align 8 captures(none) initializes((0, 40)) %0, i32 %1) local_unnamed_addr #10 {
+define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2ContactEvents) align 8 captures(none) initializes((0, 40)) %0, i32 %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -3691,7 +3685,7 @@ define void @b2World_GetContactEvents(ptr dead_on_unwind noalias writable writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #5 {
+define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #4 {
   %.sroa.5.0.extract.shift = lshr i32 %0, 16
   %2 = and i32 %0, 65535
   %3 = add nsw i32 %2, -129
@@ -3721,7 +3715,7 @@ define zeroext i1 @b2World_IsValid(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #11 {
+define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.8.0.extract.shift = lshr i64 %0, 48
   %2 = and i64 %0, 280925220896768
@@ -3770,7 +3764,7 @@ define zeroext i1 @b2Body_IsValid(i64 %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #11 {
+define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 48
   %2 = and i64 %0, 280925220896768
@@ -3820,7 +3814,7 @@ define zeroext i1 @b2Shape_IsValid(i64 %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #11 {
+define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.6.0.extract.shift = lshr i64 %0, 48
   %2 = and i64 %0, 280925220896768
@@ -3870,7 +3864,7 @@ define zeroext i1 @b2Chain_IsValid(i64 %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #11 {
+define zeroext i1 @b2Joint_IsValid(i64 %0) local_unnamed_addr #10 {
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.6.0.extract.shift = lshr i64 %0, 48
   %2 = and i64 %0, 280925220896768
@@ -3978,7 +3972,7 @@ define void @b2World_EnableSleeping(i32 %0, i1 noundef zeroext %1) local_unnamed
 declare void @b2WakeSolverSet(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #5 {
+define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -3989,7 +3983,7 @@ define zeroext i1 @b2World_IsSleepingEnabled(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4009,7 +4003,7 @@ define void @b2World_EnableWarmStarting(i32 %0, i1 noundef zeroext %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #5 {
+define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4020,7 +4014,7 @@ define zeroext i1 @b2World_IsWarmStartingEnabled(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #11 {
+define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4032,7 +4026,7 @@ define i32 @b2World_GetAwakeBodyCount(i32 %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4052,7 +4046,7 @@ define void @b2World_EnableContinuous(i32 %0, i1 noundef zeroext %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #5 {
+define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4063,7 +4057,7 @@ define zeroext i1 @b2World_IsContinuousEnabled(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unnamed_addr #12 {
+define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4086,7 +4080,7 @@ define void @b2World_SetRestitutionThreshold(i32 %0, float noundef %1) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #5 {
+define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4096,7 +4090,7 @@ define float @b2World_GetRestitutionThreshold(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unnamed_addr #12 {
+define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4119,7 +4113,7 @@ define void @b2World_SetHitEventThreshold(i32 %0, float noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #5 {
+define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4129,7 +4123,7 @@ define float @b2World_GetHitEventThreshold(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #12 {
+define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #11 {
   %5 = and i32 %0, 65535
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %6
@@ -4164,7 +4158,7 @@ define void @b2World_SetContactTuning(i32 %0, float noundef %1, float noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) local_unnamed_addr #12 {
+define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
@@ -4193,7 +4187,7 @@ define void @b2World_SetJointTuning(i32 %0, float noundef %1, float noundef %2) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnamed_addr #12 {
+define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4212,7 +4206,7 @@ define void @b2World_SetMaximumLinearSpeed(i32 %0, float noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #5 {
+define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4222,7 +4216,7 @@ define float @b2World_GetMaximumLinearSpeed(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @b2World_GetProfile(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Profile) align 4 captures(none) initializes((0, 88)) %0, i32 %1) local_unnamed_addr #13 {
+define void @b2World_GetProfile(ptr dead_on_unwind noalias writable writeonly sret(%struct.b2Profile) align 4 captures(none) initializes((0, 88)) %0, i32 %1) local_unnamed_addr #12 {
   %3 = and i32 %1, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4323,7 +4317,7 @@ declare i32 @b2GetMaxArenaAllocation(ptr noundef) local_unnamed_addr #2
 declare i32 @b2GetByteCount() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #14 {
+define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4333,7 +4327,7 @@ define void @b2World_SetUserData(i32 %0, ptr noundef %1) local_unnamed_addr #14 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #5 {
+define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #4 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -4343,7 +4337,7 @@ define ptr @b2World_GetUserData(i32 %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4364,7 +4358,7 @@ define void @b2World_SetFrictionCallback(i32 %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetRestitutionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #12 {
+define void @b2World_SetRestitutionCallback(i32 %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -4598,20 +4592,20 @@ define void @b2World_DumpMemoryStats(i32 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare i32 @b2DynamicTree_GetByteCount(ptr noundef) local_unnamed_addr #2
 
 declare i32 @b2GetHashSetBytes(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #8 {
+define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca %struct.WorldQueryContext, align 8
   %9 = and i32 %0, 65535
   %10 = zext nneg i32 %9 to i64
@@ -4623,7 +4617,7 @@ define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, 
 
 15:                                               ; preds = %7
   %16 = getelementptr i8, ptr %11, i64 -1792
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %16, ptr %8, align 8, !tbaa !412
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %17, align 8, !tbaa !415
@@ -4637,7 +4631,7 @@ define i64 @b2World_OverlapAABB(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, 
   br label %26
 
 21:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %22 = zext i32 %30 to i64
   %23 = shl nuw i64 %22, 32
   %24 = zext i32 %29 to i64
@@ -4716,10 +4710,10 @@ define internal zeroext i1 @TreeQueryCallback(i32 %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #8 {
+define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = alloca %struct.b2Circle, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store <2 x float> %1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store float 0.000000e+00, ptr %11, align 8, !tbaa !320
@@ -4736,7 +4730,7 @@ define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x fl
   %20 = call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef nonnull %10, <2 x float> %2, <2 x float> %3) #22
   %21 = extractvalue { <2 x float>, <2 x float> } %20, 0
   %22 = extractvalue { <2 x float>, <2 x float> } %20, 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %19, ptr %9, align 8, !tbaa !419
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %23, align 8, !tbaa !422
@@ -4757,7 +4751,7 @@ define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x fl
   br label %35
 
 30:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %31 = zext i32 %39 to i64
   %32 = shl nuw i64 %31, 32
   %33 = zext i32 %38 to i64
@@ -4781,12 +4775,12 @@ define i64 @b2World_OverlapPoint(i32 %0, <2 x float> %1, <2 x float> %2, <2 x fl
 
 b2World_OverlapCircle.exit:                       ; preds = %8, %30
   %.sroa.015.0.insert.insert.i = phi i64 [ %34, %30 ], [ 0, %8 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %.sroa.015.0.insert.insert.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #8 {
+define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
@@ -4801,7 +4795,7 @@ define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x f
   %18 = tail call { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef %1, <2 x float> %2, <2 x float> %3) #22
   %19 = extractvalue { <2 x float>, <2 x float> } %18, 0
   %20 = extractvalue { <2 x float>, <2 x float> } %18, 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %17, ptr %9, align 8, !tbaa !419
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %21, align 8, !tbaa !422
@@ -4823,7 +4817,7 @@ define i64 @b2World_OverlapCircle(i32 %0, ptr noundef %1, <2 x float> %2, <2 x f
   br label %34
 
 29:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %30 = zext i32 %38 to i64
   %31 = shl nuw i64 %30, 32
   %32 = zext i32 %37 to i64
@@ -4855,7 +4849,7 @@ declare { <2 x float>, <2 x float> } @b2ComputeCircleAABB(ptr noundef, <2 x floa
 declare void @b2MakeProxy(ptr dead_on_unwind writable sret(%struct.b2ShapeProxy) align 4, ptr noundef, i32 noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #8 {
+define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = alloca %struct.b2DistanceInput, align 4
   %5 = alloca %struct.b2SimplexCache, align 8
   %6 = alloca %struct.b2DistanceOutput, align 4
@@ -4891,7 +4885,7 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
   %24 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %7, ptr noundef %23) #22
   %25 = extractvalue { <2 x float>, <2 x float> } %24, 0
   %26 = extractvalue { <2 x float>, <2 x float> } %24, 1
-  call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false), !tbaa.struct !426
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -4905,9 +4899,9 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
   store <2 x float> %26, ptr %.sroa.42.0..sroa_idx, align 4
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i8 1, ptr %32, align 4, !tbaa !428
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #22
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load float, ptr %33, align 4, !tbaa !430
@@ -4937,9 +4931,9 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
 
 48:                                               ; preds = %18, %36
   %.1 = phi i1 [ %47, %36 ], [ true, %18 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %49
 
 49:                                               ; preds = %3, %14, %48
@@ -4948,7 +4942,7 @@ define internal zeroext i1 @TreeOverlapCallback(i32 %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #8 {
+define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
@@ -4963,7 +4957,7 @@ define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %18 = tail call { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef %1, <2 x float> %2, <2 x float> %3) #22
   %19 = extractvalue { <2 x float>, <2 x float> } %18, 0
   %20 = extractvalue { <2 x float>, <2 x float> } %18, 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %17, ptr %9, align 8, !tbaa !419
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %21, align 8, !tbaa !422
@@ -4985,7 +4979,7 @@ define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   br label %34
 
 29:                                               ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %30 = zext i32 %38 to i64
   %31 = shl nuw i64 %30, 32
   %32 = zext i32 %37 to i64
@@ -5015,7 +5009,7 @@ define i64 @b2World_OverlapCapsule(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
 declare { <2 x float>, <2 x float> } @b2ComputeCapsuleAABB(ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #8 {
+define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #7 {
   %9 = alloca %struct.WorldOverlapContext, align 8
   %10 = and i32 %0, 65535
   %11 = zext nneg i32 %10 to i64
@@ -5030,7 +5024,7 @@ define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   %18 = tail call { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef %1, <2 x float> %2, <2 x float> %3) #22
   %19 = extractvalue { <2 x float>, <2 x float> } %18, 0
   %20 = extractvalue { <2 x float>, <2 x float> } %18, 1
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %17, ptr %9, align 8, !tbaa !419
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %6, ptr %21, align 8, !tbaa !422
@@ -5054,7 +5048,7 @@ define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
   br label %36
 
 31:                                               ; preds = %36
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %32 = zext i32 %40 to i64
   %33 = shl nuw i64 %32, 32
   %34 = zext i32 %39 to i64
@@ -5084,7 +5078,7 @@ define i64 @b2World_OverlapPolygon(i32 %0, ptr noundef %1, <2 x float> %2, <2 x 
 declare { <2 x float>, <2 x float> } @b2ComputePolygonAABB(ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #8 {
+define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #7 {
   %8 = alloca %struct.b2RayCastInput, align 8
   %9 = alloca %struct.WorldRayCastContext, align 8
   %10 = and i32 %0, 65535
@@ -5097,13 +5091,13 @@ define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 
 
 16:                                               ; preds = %7
   %17 = getelementptr i8, ptr %12, i64 -1792
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store <2 x float> %1, ptr %8, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %2, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store float 1.000000e+00, ptr %19, align 8, !tbaa !434
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %17, ptr %9, align 8, !tbaa !436
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %20, align 8, !tbaa !438
@@ -5142,8 +5136,8 @@ define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 
   br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !441
 
 .critedge:                                        ; preds = %26, %33
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %34 = zext i32 %30 to i64
   %35 = shl nuw i64 %34, 32
   %36 = zext i32 %29 to i64
@@ -5158,7 +5152,7 @@ define i64 @b2World_CastRay(i32 %0, <2 x float> %1, <2 x float> %2, i64 %3, i64 
 declare i64 @b2DynamicTree_RayCast(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #8 {
+define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #7 {
   %5 = alloca %struct.b2CastOutput, align 8
   %6 = load ptr, ptr %3, align 8, !tbaa !436
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
@@ -5197,7 +5191,7 @@ define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, p
   %26 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %6, ptr noundef %25) #22
   %27 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %28 = extractvalue { <2 x float>, <2 x float> } %26, 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2RayCastShape(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %5, ptr noundef %0, ptr noundef nonnull %9, <2 x float> %27, <2 x float> %28) #22
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i8, ptr %29, align 8, !tbaa !442, !range !77, !noundef !78
@@ -5244,7 +5238,7 @@ define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, p
 
 55:                                               ; preds = %32, %50, %52
   %.1 = phi float [ %54, %52 ], [ %47, %50 ], [ %47, %32 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %56
 
 56:                                               ; preds = %55, %17
@@ -5253,7 +5247,7 @@ define internal float @RayCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%struct.b2RayResult) align 4 initializes((0, 40)) %0, i32 %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5) local_unnamed_addr #8 {
+define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%struct.b2RayResult) align 4 initializes((0, 40)) %0, i32 %1, <2 x float> %2, <2 x float> %3, i64 %4, i64 %5) local_unnamed_addr #7 {
   %7 = alloca %struct.b2RayCastInput, align 8
   %8 = alloca %struct.WorldRayCastContext, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -5267,13 +5261,13 @@ define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%st
 
 15:                                               ; preds = %6
   %16 = getelementptr i8, ptr %11, i64 -1792
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store <2 x float> %2, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store <2 x float> %3, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float 1.000000e+00, ptr %18, align 8, !tbaa !434
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %16, ptr %8, align 8, !tbaa !436
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @b2RayCastClosestFcn, ptr %19, align 8, !tbaa !438
@@ -5316,8 +5310,8 @@ define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%st
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !449
 
 .critedge:                                        ; preds = %27, %36
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #22
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 37:                                               ; preds = %6, %.critedge
@@ -5325,7 +5319,7 @@ define void @b2World_CastRayClosest(ptr dead_on_unwind noalias writable sret(%st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef float @b2RayCastClosestFcn(i64 %0, <2 x float> %1, <2 x float> %2, float noundef returned %3, ptr noundef writeonly captures(none) initializes((0, 28), (36, 37)) %4) #15 {
+define internal noundef float @b2RayCastClosestFcn(i64 %0, <2 x float> %1, <2 x float> %2, float noundef returned %3, ptr noundef writeonly captures(none) initializes((0, 28), (36, 37)) %4) #14 {
   store i64 %0, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %1, ptr %6, align 4
@@ -5339,7 +5333,7 @@ define internal noundef float @b2RayCastClosestFcn(i64 %0, <2 x float> %1, <2 x 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #8 {
+define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #7 {
   %10 = alloca %struct.b2ShapeCastInput, align 8
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
@@ -5352,7 +5346,7 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
 
 18:                                               ; preds = %9
   %19 = getelementptr i8, ptr %14, i64 -1792
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = load <2 x float>, ptr %1, align 4
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %3, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %20, i64 0
@@ -5382,7 +5376,7 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
   store <2 x float> %4, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store float 1.000000e+00, ptr %35, align 8, !tbaa !455
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %19, ptr %11, align 8, !tbaa !436
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %7, ptr %36, align 8, !tbaa !438
@@ -5421,8 +5415,8 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
   br i1 %exitcond.not, label %.critedge, label %42, !llvm.loop !456
 
 .critedge:                                        ; preds = %42, %49
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %50 = zext i32 %46 to i64
   %51 = shl nuw i64 %50, 32
   %52 = zext i32 %45 to i64
@@ -5437,7 +5431,7 @@ define i64 @b2World_CastCircle(i32 %0, ptr noundef readonly captures(none) %1, <
 declare i64 @b2DynamicTree_ShapeCast(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #8 {
+define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #7 {
   %5 = alloca %struct.b2CastOutput, align 8
   %6 = load ptr, ptr %3, align 8, !tbaa !436
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
@@ -5476,7 +5470,7 @@ define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2,
   %26 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef nonnull %6, ptr noundef %25) #22
   %27 = extractvalue { <2 x float>, <2 x float> } %26, 0
   %28 = extractvalue { <2 x float>, <2 x float> } %26, 1
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @b2ShapeCastShape(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %5, ptr noundef %0, ptr noundef nonnull %9, <2 x float> %27, <2 x float> %28) #22
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i8, ptr %29, align 8, !tbaa !442, !range !77, !noundef !78
@@ -5517,7 +5511,7 @@ define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2,
 
 52:                                               ; preds = %49, %32
   %.1 = phi float [ %47, %32 ], [ %51, %49 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %53
 
 53:                                               ; preds = %52, %17
@@ -5526,7 +5520,7 @@ define internal float @ShapeCastCallback(ptr noundef %0, i32 %1, i32 noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #8 {
+define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #7 {
   %10 = alloca %struct.b2ShapeCastInput, align 8
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
@@ -5539,7 +5533,7 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
 
 18:                                               ; preds = %9
   %19 = getelementptr i8, ptr %14, i64 -1792
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = load <2 x float>, ptr %1, align 4
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %3, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %20, i64 0
@@ -5586,7 +5580,7 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
   store <2 x float> %4, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store float 1.000000e+00, ptr %47, align 8, !tbaa !455
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %19, ptr %11, align 8, !tbaa !436
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %7, ptr %48, align 8, !tbaa !438
@@ -5625,8 +5619,8 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
   br i1 %exitcond.not, label %.critedge, label %54, !llvm.loop !457
 
 .critedge:                                        ; preds = %54, %61
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %62 = zext i32 %58 to i64
   %63 = shl nuw i64 %62, 32
   %64 = zext i32 %57 to i64
@@ -5639,7 +5633,7 @@ define i64 @b2World_CastCapsule(i32 %0, ptr noundef readonly captures(none) %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #8 {
+define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i64 %5, i64 %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #7 {
   %10 = alloca %struct.b2ShapeCastInput, align 4
   %11 = alloca %struct.WorldRayCastContext, align 8
   %12 = and i32 %0, 65535
@@ -5652,7 +5646,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   br i1 %18, label %60, label %19
 
 19:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %21 = load i32, ptr %20, align 4, !tbaa !323
   %22 = icmp sgt i32 %21, 0
@@ -5677,7 +5671,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   store <2 x float> %4, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store float 1.000000e+00, ptr %28, align 4, !tbaa !455
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %15, ptr %11, align 8, !tbaa !436
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %7, ptr %29, align 8, !tbaa !438
@@ -5739,8 +5733,8 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
   br i1 %exitcond42.not, label %.critedge, label %48, !llvm.loop !459
 
 .critedge:                                        ; preds = %48, %55
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #22
-  call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %10) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %56 = zext i32 %52 to i64
   %57 = shl nuw i64 %56, 32
   %58 = zext i32 %51 to i64
@@ -5753,7 +5747,7 @@ define i64 @b2World_CastPolygon(i32 %0, ptr noundef readonly captures(none) %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #14 {
+define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
@@ -5765,7 +5759,7 @@ define void @b2World_SetCustomFilterCallback(i32 %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #14 {
+define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %5
@@ -5777,7 +5771,7 @@ define void @b2World_SetPreSolveCallback(i32 %0, ptr noundef %1, ptr noundef %2)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #16 {
+define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #15 {
   %3 = and i32 %0, 65535
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %4
@@ -5787,7 +5781,7 @@ define void @b2World_SetGravity(i32 %0, <2 x float> %1) local_unnamed_addr #16 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define <2 x float> @b2World_GetGravity(i32 %0) local_unnamed_addr #17 {
+define <2 x float> @b2World_GetGravity(i32 %0) local_unnamed_addr #16 {
   %2 = and i32 %0, 65535
   %3 = zext nneg i32 %2 to i64
   %4 = getelementptr %struct.b2World, ptr @b2_worlds, i64 %3
@@ -5797,7 +5791,7 @@ define <2 x float> @b2World_GetGravity(i32 %0) local_unnamed_addr #17 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca %struct.ExplosionContext, align 8
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
@@ -5820,7 +5814,7 @@ define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) loc
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.017.0.copyload = load float, ptr %18, align 8, !tbaa !206
   %19 = load i64, ptr %1, align 8, !tbaa !468
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %11, ptr %3, align 8, !tbaa !469
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %.sroa.017.0.copyload, ptr %20, align 8, !tbaa !206
@@ -5845,7 +5839,7 @@ define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) loc
   %.sroa.5.12.vec.insert = insertelement <2 x float> %.sroa.5.8.vec.insert, float %29, i64 1
   %30 = getelementptr i8, ptr %6, i64 -1608
   %31 = call i64 @b2DynamicTree_Query(ptr noundef nonnull %30, <2 x float> %.sroa.01.4.vec.insert, <2 x float> %.sroa.5.12.vec.insert, i64 noundef %19, ptr noundef nonnull @ExplosionCallback, ptr noundef nonnull %3) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %2, %10
@@ -5853,7 +5847,7 @@ define void @b2World_Explode(i32 %0, ptr noundef readonly captures(none) %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @ExplosionCallback(i32 %0, i32 noundef %1, ptr noundef %2) #8 {
+define internal noundef zeroext i1 @ExplosionCallback(i32 %0, i32 noundef %1, ptr noundef %2) #7 {
   %4 = alloca %struct.b2DistanceInput, align 4
   %5 = alloca %struct.b2ShapeProxy, align 4
   %6 = alloca %struct.b2SimplexCache, align 8
@@ -5872,14 +5866,14 @@ define internal noundef zeroext i1 @ExplosionCallback(i32 %0, i32 noundef %1, pt
   %17 = tail call { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef %8, ptr noundef %16) #22
   %18 = extractvalue { <2 x float>, <2 x float> } %17, 0
   %19 = extractvalue { <2 x float>, <2 x float> } %17, 1
-  call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @b2MakeShapeDistanceProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %4, ptr noundef %11) #22
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @b2MakeProxy(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeProxy) align 4 %5, ptr noundef nonnull %21, i32 noundef 1, float noundef 0.000000e+00) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %20, ptr noundef nonnull align 4 dereferenceable(72) %5, i64 72, i1 false), !tbaa.struct !426
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store <2 x float> %18, ptr %22, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -5888,9 +5882,9 @@ define internal noundef zeroext i1 @ExplosionCallback(i32 %0, i32 noundef %1, pt
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) @b2Transform_identity, i64 16, i1 false), !tbaa.struct !427
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store i8 1, ptr %24, align 4, !tbaa !428
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #22
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load float, ptr %25, align 8, !tbaa !471
@@ -6044,9 +6038,9 @@ b2Normalize.exit:                                 ; preds = %64, %62, %51
   br label %123
 
 123:                                              ; preds = %33, %3, %86
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 true
 }
 
@@ -6072,7 +6066,7 @@ define void @b2World_RebuildStaticTree(i32 %0) local_unnamed_addr #0 {
 declare i32 @b2DynamicTree_Rebuild(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @b2World_EnableSpeculative(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #14 {
+define void @b2World_EnableSpeculative(i32 %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %3 = zext i1 %1 to i8
   %4 = and i32 %0, 65535
   %5 = zext nneg i32 %4 to i64
@@ -6100,7 +6094,7 @@ define hidden void @b2ValidateContacts(ptr noundef readnone captures(none) %0) l
 declare void @b2SolverSetArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @sqrtf(float noundef) local_unnamed_addr #18
+declare float @sqrtf(float noundef) local_unnamed_addr #17
 
 declare void @b2SensorTaskContextArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -6116,7 +6110,7 @@ declare ptr @b2AllocateArenaItem(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @b2SetBitCountAndClear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @b2CollideTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #8 {
+define internal void @b2CollideTask(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #7 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8, !tbaa !190
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1304
@@ -6336,12 +6330,12 @@ declare ptr @b2GetBodySim(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @b2UpdateContact(ptr noundef, ptr noundef, ptr noundef, <2 x float>, <2 x float>, <2 x float>, ptr noundef, <2 x float>, <2 x float>, <2 x float>) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #19
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #18
 
 declare void @b2ContactSimArray_Reserve(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #8 {
+define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #7 {
   %4 = alloca [4 x %struct.b2Vec2], align 16
   %5 = load ptr, ptr %2, align 8, !tbaa !262
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6459,7 +6453,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !206
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 76
   %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !206
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %.sroa.0.0.copyload, ptr %4, align 16, !tbaa !336
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %.sroa.5.0.copyload, ptr %73, align 4, !tbaa !337
@@ -6479,7 +6473,7 @@ define internal noundef zeroext i1 @DrawQueryCallback(i32 %0, i32 noundef %1, pt
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %82 = load ptr, ptr %81, align 8, !tbaa !272
   call void %80(ptr noundef nonnull %4, i32 noundef 4, i32 noundef 16766720, ptr noundef %82) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %83
 
 83:                                               ; preds = %71, %67
@@ -6500,6 +6494,12 @@ declare <2 x float> @b2GetShapeCentroid(ptr noundef) local_unnamed_addr #2
 
 declare float @b2GetShapeProjectedPerimeter(ptr noundef, <2 x float>) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20
 
@@ -6519,22 +6519,22 @@ attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-mat
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nofree nounwind }
 attributes #22 = { nounwind }

@@ -224,20 +224,20 @@ define internal void @_ZL22preprocess_text_hangulPK18hb_ot_shape_plan_tP11hb_buf
   %74 = load i32, ptr %21, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %21, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %76 = call i32 @hb_font_get_glyph(ptr noundef %2, i32 noundef %42, i32 noundef 0, ptr noundef nonnull %12)
   %.not.i161 = icmp eq i32 %76, 0
   br i1 %.not.i161, label %_ZL18is_zero_width_charP9hb_font_tj.exit.thread, label %_ZL18is_zero_width_charP9hb_font_tj.exit
 
 _ZL18is_zero_width_charP9hb_font_tj.exit.thread:  ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %80
 
 _ZL18is_zero_width_charP9hb_font_tj.exit:         ; preds = %73
   %77 = load i32, ptr %12, align 4
   %78 = call i32 @hb_font_get_glyph_h_advance(ptr noundef %2, i32 noundef %77)
   %79 = icmp eq i32 %78, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %79, label %_ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit, label %80
 
 80:                                               ; preds = %_ZL18is_zero_width_charP9hb_font_tj.exit.thread, %_ZL18is_zero_width_charP9hb_font_tj.exit
@@ -266,7 +266,7 @@ _ZL18is_zero_width_charP9hb_font_tj.exit:         ; preds = %73
   br i1 %.not158, label %96, label %140
 
 96:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
   %97 = load ptr, ptr %25, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
@@ -286,24 +286,24 @@ _ZN9hb_font_t9has_glyphEj.exit:                   ; preds = %96, %103
   %106 = phi ptr [ %105, %103 ], [ null, %96 ]
   %107 = call noundef i32 %99(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %100, i32 noundef 9676, ptr noundef nonnull %11, ptr noundef %106)
   %.not261 = icmp eq i32 %107, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not261, label %140, label %108
 
 108:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %109 = call i32 @hb_font_get_glyph(ptr noundef nonnull %2, i32 noundef %42, i32 noundef 0, ptr noundef nonnull %10)
   %.not.i162 = icmp eq i32 %109, 0
   br i1 %.not.i162, label %_ZL18is_zero_width_charP9hb_font_tj.exit163.thread, label %_ZL18is_zero_width_charP9hb_font_tj.exit163
 
 _ZL18is_zero_width_charP9hb_font_tj.exit163.thread: ; preds = %108
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %113
 
 _ZL18is_zero_width_charP9hb_font_tj.exit163:      ; preds = %108
   %110 = load i32, ptr %10, align 4
   %111 = call i32 @hb_font_get_glyph_h_advance(ptr noundef nonnull %2, i32 noundef %110)
   %112 = icmp eq i32 %111, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %spec.select280 = select i1 %112, i32 9676, i32 %42
   %spec.select281 = select i1 %112, i32 %42, i32 9676
   br label %113
@@ -493,7 +493,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit: ; preds = %163, %149, %._crit_
   %213 = add nuw nsw i32 %211, -2639516
   %214 = add nsw i32 %213, %212
   %215 = add i32 %214, %.0154
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4
   %216 = load ptr, ptr %25, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 48
@@ -513,7 +513,7 @@ _ZN9hb_font_t9has_glyphEj.exit171:                ; preds = %210, %222
   %225 = phi ptr [ %224, %222 ], [ null, %210 ]
   %226 = call noundef i32 %218(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %219, i32 noundef %215, ptr noundef nonnull %9, ptr noundef %225)
   %.not260 = icmp eq i32 %226, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.not260, label %253, label %227
 
 227:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit171
@@ -749,7 +749,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit199:           ; preds = %_ZN11hb_buffer_t10n
   br i1 %351, label %352, label %.thread276
 
 352:                                              ; preds = %349
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %353 = load ptr, ptr %25, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 48
@@ -769,7 +769,7 @@ _ZN9hb_font_t9has_glyphEj.exit201:                ; preds = %352, %359
   %362 = phi ptr [ %361, %359 ], [ null, %352 ]
   %363 = call noundef i32 %355(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %356, i32 noundef %42, ptr noundef nonnull %8, ptr noundef %362)
   %364 = icmp ne i32 %363, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.lhs.trunc277 = trunc nuw i32 %350 to i16
   %365 = udiv i16 %.lhs.trunc277, 588
   %.lhs.trunc278 = trunc nuw i32 %350 to i16
@@ -797,7 +797,7 @@ _ZN9hb_font_t9has_glyphEj.exit201:                ; preds = %352, %359
 381:                                              ; preds = %374
   %382 = add nsw i32 %42, -4519
   %383 = add nuw nsw i32 %382, %378
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %384 = load ptr, ptr %25, align 8
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 48
@@ -817,7 +817,7 @@ _ZN9hb_font_t9has_glyphEj.exit203:                ; preds = %381, %390
   %393 = phi ptr [ %392, %390 ], [ null, %381 ]
   %394 = call noundef i32 %386(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %387, i32 noundef %383, ptr noundef nonnull %7, ptr noundef %393)
   %.not255 = icmp eq i32 %394, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not255, label %421, label %395
 
 395:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit203
@@ -909,7 +909,7 @@ _ZN11hb_buffer_t14replace_glyphsIjEEbjjPKT_.exit216: ; preds = %395, %.lr.ph.i20
   %narrow256 = add nuw nsw i16 %368, 4519
   %443 = zext nneg i16 %narrow256 to i32
   store i32 %443, ptr %29, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
   %444 = load ptr, ptr %25, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 48
@@ -929,11 +929,11 @@ _ZN9hb_font_t9has_glyphEj.exit218:                ; preds = %439, %450
   %453 = phi ptr [ %452, %450 ], [ null, %439 ]
   %454 = call noundef i32 %446(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %447, i32 noundef %441, ptr noundef nonnull %6, ptr noundef %453)
   %.not257 = icmp eq i32 %454, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not257, label %558, label %455
 
 455:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit218
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %456 = load ptr, ptr %25, align 8
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 48
@@ -953,14 +953,14 @@ _ZN9hb_font_t9has_glyphEj.exit220:                ; preds = %455, %462
   %465 = phi ptr [ %464, %462 ], [ null, %455 ]
   %466 = call noundef i32 %458(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %459, i32 noundef %442, ptr noundef nonnull %5, ptr noundef %465)
   %.not258 = icmp eq i32 %466, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not258, label %558, label %467
 
 467:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit220
   br i1 %369, label %480, label %468
 
 468:                                              ; preds = %467
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4
   %469 = load ptr, ptr %25, align 8
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 48
@@ -980,7 +980,7 @@ _ZN9hb_font_t9has_glyphEj.exit222:                ; preds = %468, %475
   %478 = phi ptr [ %477, %475 ], [ null, %468 ]
   %479 = call noundef i32 %471(ptr noundef nonnull align 8 dereferenceable(192) %2, ptr noundef %472, i32 noundef %443, ptr noundef nonnull %4, ptr noundef %478)
   %.not259 = icmp eq i32 %479, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not259, label %.thread248, label %480
 
 480:                                              ; preds = %_ZN9hb_font_t9has_glyphEj.exit222, %467
@@ -1832,10 +1832,10 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(readwrite, argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

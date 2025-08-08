@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 define void @ff_rv30dsp_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.H264ChromaContext, align 8
   %3 = alloca %struct.H264QpelContext, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #4
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @ff_rv34dsp_init(ptr noundef %0) #4
   call void @ff_h264chroma_init(ptr noundef nonnull %2, i32 noundef 8) #4
   call void @ff_h264qpel_init(ptr noundef nonnull %3, i32 noundef 8) #4
@@ -110,22 +110,19 @@ define void @ff_rv30dsp_init(ptr noundef %0) local_unnamed_addr #0 {
   %55 = load ptr, ptr %54, align 8, !tbaa !4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr %55, ptr %56, align 8, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #4
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare void @ff_rv34dsp_init(ptr noundef) local_unnamed_addr #1
 
-declare void @ff_rv34dsp_init(ptr noundef) local_unnamed_addr #2
+declare void @ff_h264chroma_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ff_h264chroma_init(ptr noundef, i32 noundef) local_unnamed_addr #2
-
-declare void @ff_h264qpel_init(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @ff_h264qpel_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc10_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc10_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -143,7 +140,7 @@ define internal void @put_rv30_tpel16_mc10_c(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc20_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc20_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -161,7 +158,7 @@ define internal void @put_rv30_tpel16_mc20_c(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc01_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc01_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -179,7 +176,7 @@ define internal void @put_rv30_tpel16_mc01_c(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc11_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc11_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -593,7 +590,7 @@ put_rv30_tpel16_hv_lowpass.exit:                  ; preds = %281
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc21_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc21_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -1007,7 +1004,7 @@ put_rv30_tpel16_hhv_lowpass.exit:                 ; preds = %281
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc02_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc02_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1025,7 +1022,7 @@ define internal void @put_rv30_tpel16_mc02_c(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc12_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc12_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -1439,7 +1436,7 @@ put_rv30_tpel16_hvv_lowpass.exit:                 ; preds = %281
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel16_mc22_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel16_mc22_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -1737,7 +1734,7 @@ put_rv30_tpel16_hhvv_lowpass.exit:                ; preds = %165
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc10_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc10_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1755,7 +1752,7 @@ define internal void @avg_rv30_tpel16_mc10_c(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc20_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc20_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1773,7 +1770,7 @@ define internal void @avg_rv30_tpel16_mc20_c(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc01_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc01_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1791,7 +1788,7 @@ define internal void @avg_rv30_tpel16_mc01_c(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc11_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc11_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -2233,7 +2230,7 @@ avg_rv30_tpel16_hv_lowpass.exit:                  ; preds = %309
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc21_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc21_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -2675,7 +2672,7 @@ avg_rv30_tpel16_hhv_lowpass.exit:                 ; preds = %309
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc02_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc02_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef readonly %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2693,7 +2690,7 @@ define internal void @avg_rv30_tpel16_mc02_c(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc12_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc12_c(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3135,7 +3132,7 @@ avg_rv30_tpel16_hvv_lowpass.exit:                 ; preds = %309
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel16_mc22_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel16_mc22_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3461,28 +3458,28 @@ avg_rv30_tpel16_hhvv_lowpass.exit:                ; preds = %193
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc10_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc10_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc20_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc20_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc01_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc01_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc11_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc11_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3591,7 +3588,7 @@ put_rv30_tpel8_hv_lowpass.exit:                   ; preds = %72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc21_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc21_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3700,14 +3697,14 @@ put_rv30_tpel8_hhv_lowpass.exit:                  ; preds = %72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc02_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc02_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc12_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc12_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3816,7 +3813,7 @@ put_rv30_tpel8_hvv_lowpass.exit:                  ; preds = %72
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @put_rv30_tpel8_mc22_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @put_rv30_tpel8_mc22_c(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -3896,28 +3893,28 @@ put_rv30_tpel8_hhvv_lowpass.exit:                 ; preds = %43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc10_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc10_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc20_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc20_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc01_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc01_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 12, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc11_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc11_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -4033,7 +4030,7 @@ avg_rv30_tpel8_hv_lowpass.exit:                   ; preds = %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc21_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc21_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -4149,14 +4146,14 @@ avg_rv30_tpel8_hhv_lowpass.exit:                  ; preds = %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc02_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc02_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   tail call fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef %0, ptr noundef %1, i32 noundef %4, i32 noundef %4, i32 noundef 6, i32 noundef 12)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc12_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc12_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -4272,7 +4269,7 @@ avg_rv30_tpel8_hvv_lowpass.exit:                  ; preds = %79
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @avg_rv30_tpel8_mc22_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
+define internal void @avg_rv30_tpel8_mc22_c(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = trunc i64 %2 to i32
   %5 = shl nsw i32 %4, 1
   %sext = shl i64 %2, 32
@@ -4358,11 +4355,8 @@ avg_rv30_tpel8_hhvv_lowpass.exit:                 ; preds = %50
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #3 {
+define internal fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #2 {
   %7 = sext i32 %2 to i64
   %8 = sext i32 %3 to i64
   br label %9
@@ -4551,7 +4545,7 @@ define internal fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #3 {
+define internal fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #2 {
   %7 = sub nsw i32 0, %3
   %8 = sext i32 %7 to i64
   %9 = sext i32 %3 to i64
@@ -4728,7 +4722,7 @@ define internal fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #3 {
+define internal fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #2 {
   %7 = sext i32 %2 to i64
   %8 = sext i32 %3 to i64
   br label %9
@@ -4973,7 +4967,7 @@ define internal fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #3 {
+define internal fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 6, 13) %4, i32 noundef range(i32 6, 13) %5) unnamed_addr #2 {
   %7 = sub nsw i32 0, %3
   %8 = sext i32 %7 to i64
   %9 = sext i32 %3 to i64
@@ -5205,10 +5199,16 @@ define internal fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef captures(none)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 attributes #0 = { cold nounwind optsize uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

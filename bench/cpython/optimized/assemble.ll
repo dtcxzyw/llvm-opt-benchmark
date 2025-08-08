@@ -217,7 +217,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   br i1 %exitcond.not.i20, label %.lr.ph62.us.i, label %.lr.ph.i16, !llvm.loop !31
 
 resolve_jump_offsets.exit:                        ; preds = %._crit_edge.us.i, %22
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %121 = load i32, ptr %120, align 8, !tbaa !32
   %122 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -677,18 +677,18 @@ assemble_emit.exit:                               ; preds = %320
   br i1 %328, label %329, label %assemble_emit.exit.thread
 
 329:                                              ; preds = %assemble_emit.exit
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr null, ptr %15, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !51
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr null, ptr %17, align 8, !tbaa !51
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %331 = load ptr, ptr %330, align 8, !tbaa !52
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %14, align 8, !tbaa !53
   %332 = getelementptr i8, ptr %331, i64 16
   %.val.i.i24 = load i64, ptr %332, align 8, !tbaa !54
@@ -750,16 +750,16 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   br i1 %.not.i.i26, label %.loopexit59.i, label %337, !llvm.loop !58
 
 .thread.i:                                        ; preds = %347, %344, %.critedge.i.i, %329
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr null, ptr %15, align 8, !tbaa !51
   br label %Py_XDECREF.exit.i
 
 .loopexit59.i:                                    ; preds = %_Py_NewRef.exit.i.i, %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store ptr %333, ptr %15, align 8, !tbaa !51
   %356 = call i32 @_PyCompile_ConstCacheMergeOne(ptr noundef %1, ptr noundef nonnull %15) #5
   %357 = icmp slt i32 %356, 0
@@ -798,9 +798,9 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   br i1 %379, label %482, label %380
 
 380:                                              ; preds = %377
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !53
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %382 = load ptr, ptr %381, align 8, !tbaa !62
@@ -943,15 +943,15 @@ _Py_NewRef.exit.i.i:                              ; preds = %352, %348
   br label %compute_localsplus_info.exit.thread.i, !llvm.loop !68
 
 compute_localsplus_info.exit.thread.i:            ; preds = %397, %392, %390, %424, %.lr.ph73.i.i, %..critedge.loopexit_crit_edge79.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %482
 
 .loopexit.i:                                      ; preds = %.critedge61.i.i, %._crit_edge74.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   store ptr %7, ptr %18, align 8, !tbaa !69
   %447 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %448 = load ptr, ptr %0, align 8, !tbaa !71
@@ -1098,10 +1098,10 @@ Py_XDECREF.exit46.i:                              ; preds = %502, %499, %497, %P
   br label %makecode.exit
 
 makecode.exit:                                    ; preds = %Py_XDECREF.exit46.i, %503, %505, %508
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #5
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %assemble_emit.exit.thread
 
 assemble_emit.exit.thread:                        ; preds = %184, %182, %assemble_emit_location.exit.i.i, %.lr.ph.i.i.i, %.lr.ph.i36.i.i, %271, %297, %assemble_emit_location.exit38.i.i, %158, %155, %153, %Py_XDECREF.exit17.i.i, %320, %317, %312, %309, %assemble_exception_table.exit.i, %makecode.exit, %assemble_emit.exit
@@ -1166,7 +1166,7 @@ Py_XDECREF.exit5.i:                               ; preds = %522, %519, %517, %P
   br label %assemble_free.exit
 
 assemble_free.exit:                               ; preds = %Py_XDECREF.exit5.i, %524, %526, %529
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %530
 
 530:                                              ; preds = %8, %assemble_free.exit
@@ -1176,18 +1176,12 @@ assemble_free.exit:                               ; preds = %Py_XDECREF.exit5.i,
 
 declare i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i32 @_PyCompile_ConstCacheMergeOne(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1947,13 +1941,19 @@ declare i32 @PyDict_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @_Py_set_localsplus_info(i32 noundef, ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #5 = { nounwind }
 

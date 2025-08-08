@@ -43,10 +43,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -70,7 +70,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectNextMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectNextMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectNextMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h63b48eb2ca22da89E.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !26
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !27
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hb51df5cf12539b4fE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17haf0cdbc4974b8891E.llvm.2655440603275574690.exit" unwind label %18, !noalias !24
@@ -110,11 +110,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr531dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17haf0cdbc4974b8891E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !26
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !29, !noalias !30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !6
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17haf0cdbc4974b8891E.llvm.2655440603275574690.exit", %2
@@ -142,10 +142,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !36
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !31
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !31
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -169,7 +169,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr550drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDismissed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2307d3b6edc8067fE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !51
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !52
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9538e6b3e63effccE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7f4f3292d744394aE.llvm.2655440603275574690.exit" unwind label %18, !noalias !49
@@ -209,11 +209,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr550dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7f4f3292d744394aE.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !51
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !51
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !54, !noalias !55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !31
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !31
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !31
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7f4f3292d744394aE.llvm.2655440603275574690.exit", %2
@@ -241,10 +241,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -268,7 +268,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr543drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleCaseSensitive$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleCaseSensitive$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleCaseSensitive$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4702c8b4db0f0d93E.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !76
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !77
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h61f0079ebc8d362bE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h3e5822577656f067E.llvm.2655440603275574690.exit" unwind label %18, !noalias !74
@@ -308,11 +308,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr543dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h3e5822577656f067E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !76
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !76
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !79, !noalias !80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !56
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !56
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !56
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h3e5822577656f067E.llvm.2655440603275574690.exit", %2
@@ -340,10 +340,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !86
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !81
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !81
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -367,7 +367,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr519drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..FocusSearch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..FocusSearch$C$search..buffer_search..registrar..ForDeployed$LT$search..FocusSearch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc0847c9f9b2842aaE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !101
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !102
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h76b37eb814c88f76E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h8c958185b163a31eE.llvm.2655440603275574690.exit" unwind label %18, !noalias !99
@@ -407,11 +407,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr519dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h8c958185b163a31eE.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !101
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !101
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !104, !noalias !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !81
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !81
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !81
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h8c958185b163a31eE.llvm.2655440603275574690.exit", %2
@@ -439,10 +439,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !111
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !106
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !106
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -466,7 +466,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectPrevMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectPrevMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectPrevMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3f85372f431e4788E.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !126
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !127
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9d2a1e3f6668b101E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17he7c135c4537f49ccE.llvm.2655440603275574690.exit" unwind label %18, !noalias !124
@@ -506,11 +506,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr531dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17he7c135c4537f49ccE.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !126
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !126
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !129, !noalias !130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !106
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !106
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17he7c135c4537f49ccE.llvm.2655440603275574690.exit", %2
@@ -538,10 +538,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !131
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !136
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !131
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !131
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -565,7 +565,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleSelection$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleSelection$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleSelection$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b35b79ad3ad3e2eE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !151
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !152
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9ad4eac24b2e1c99E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h989b3a253cbbee35E.llvm.2655440603275574690.exit" unwind label %18, !noalias !149
@@ -605,11 +605,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr531dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h989b3a253cbbee35E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !151
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !151
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !154, !noalias !155
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !131
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !131
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !131
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !131
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h989b3a253cbbee35E.llvm.2655440603275574690.exit", %2
@@ -637,10 +637,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !161
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !156
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !156
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !165)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -664,7 +664,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr549drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDeployed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55251ba7d0c461bfE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !176
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !177
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hb479b52713dba85aE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7326289beeeccaedE.llvm.2655440603275574690.exit" unwind label %18, !noalias !174
@@ -704,11 +704,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr549dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7326289beeeccaedE.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !176
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !176
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !179, !noalias !180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !156
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !156
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !156
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h7326289beeeccaedE.llvm.2655440603275574690.exit", %2
@@ -736,10 +736,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !181
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !186
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !181
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !181
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -763,7 +763,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr525drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleReplace$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleReplace$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleReplace$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h45cce70c3b5d0e0dE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !201
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !202
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h934e051b7d74e39aE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hecd45817f71aa8b2E.llvm.2655440603275574690.exit" unwind label %18, !noalias !199
@@ -803,11 +803,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr525dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hecd45817f71aa8b2E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !201
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !201
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !204, !noalias !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !181
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !181
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !181
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hecd45817f71aa8b2E.llvm.2655440603275574690.exit", %2
@@ -835,10 +835,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !206
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !211
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !206
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !206
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -862,7 +862,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr534drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectAllMatches$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectAllMatches$C$search..buffer_search..registrar..WithResults$LT$search..SelectAllMatches$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heee9c43c44c73a27E.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !226
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !227
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h62ab092176b47fa2E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hd0c759177e7aaa56E.llvm.2655440603275574690.exit" unwind label %18, !noalias !224
@@ -902,11 +902,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr534dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hd0c759177e7aaa56E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !226
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !226
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !229, !noalias !230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !206
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !206
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !206
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17hd0c759177e7aaa56E.llvm.2655440603275574690.exit", %2
@@ -934,10 +934,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !236
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !231
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !231
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -961,7 +961,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$editor..actions..Cancel$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$editor..actions..Cancel$C$search..buffer_search..registrar..ForDeployed$LT$editor..actions..Cancel$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41f9fec5126de0c8E.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !251
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !252
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hef9a43ff49ba5aa9E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h90d503deb9738737E.llvm.2655440603275574690.exit" unwind label %18, !noalias !249
@@ -1001,11 +1001,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr531dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h90d503deb9738737E.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !251
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !251
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !254, !noalias !255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !231
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !231
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !231
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h90d503deb9738737E.llvm.2655440603275574690.exit", %2
@@ -1033,10 +1033,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %5), !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.5.0..sroa_idx, i64 712, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %5, align 8, !noalias !261
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !256
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !256
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1060,7 +1060,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleWholeWord$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleWholeWord$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleWholeWord$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cc7a31fc0ea18ffE.llvm.17085741044975272527.exit.i.i"
 
 20:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !276
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !277
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9b6b3f4095628845E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h2d7ac25889372f3bE.llvm.2655440603275574690.exit" unwind label %18, !noalias !274
@@ -1100,11 +1100,11 @@ common.resume:                                    ; preds = %"_ZN4core3ptr531dro
   unreachable
 
 "_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h2d7ac25889372f3bE.llvm.2655440603275574690.exit": ; preds = %20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !276
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !276
   %.sroa.0.0.copyload17 = load i64, ptr %5, align 8, !alias.scope !279, !noalias !280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.59, ptr noundef nonnull align 8 dereferenceable(712) %.sroa.422.0..sroa_idx, i64 712, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !256
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %5), !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !256
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !256
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit"
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$gpui..elements..div..Div$GT$$GT$17h77e9566a9f2dd965E.llvm.2655440603275574690.exit": ; preds = %"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$LT$T$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$16register_handler28_$u7b$$u7b$closure$u7d$$u7d$17h2d7ac25889372f3bE.llvm.2655440603275574690.exit", %2
@@ -1119,9 +1119,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1151,7 +1151,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleWholeWord$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleWholeWord$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleWholeWord$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cc7a31fc0ea18ffE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !293
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !294
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9b6b3f4095628845E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !291
@@ -1175,10 +1175,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !293
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !294, !noalias !295
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleWholeWord$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleWholeWord$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleWholeWord$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5cc7a31fc0ea18ffE.llvm.17085741044975272527.exit.i", %29
@@ -1203,9 +1203,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1235,7 +1235,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr543drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleCaseSensitive$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleCaseSensitive$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleCaseSensitive$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4702c8b4db0f0d93E.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !308
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !309
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h61f0079ebc8d362bE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !306
@@ -1259,10 +1259,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !308
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !309, !noalias !310
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr543drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleCaseSensitive$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleCaseSensitive$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleCaseSensitive$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4702c8b4db0f0d93E.llvm.17085741044975272527.exit.i", %29
@@ -1287,9 +1287,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1319,7 +1319,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr549drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDeployed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55251ba7d0c461bfE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !323
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !323
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !324
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hb479b52713dba85aE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !321
@@ -1343,10 +1343,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !323
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !323
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !324, !noalias !325
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr549drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDeployed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55251ba7d0c461bfE.llvm.17085741044975272527.exit.i", %29
@@ -1371,9 +1371,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1403,7 +1403,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr550drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDismissed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2307d3b6edc8067fE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !338
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !339
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9538e6b3e63effccE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !336
@@ -1427,10 +1427,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !338
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !339, !noalias !340
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr550drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..buffer_search..Deploy$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..buffer_search..Deploy$C$search..buffer_search..registrar..ForDismissed$LT$search..buffer_search..Deploy$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2307d3b6edc8067fE.llvm.17085741044975272527.exit.i", %29
@@ -1455,9 +1455,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1487,7 +1487,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr519drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..FocusSearch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..FocusSearch$C$search..buffer_search..registrar..ForDeployed$LT$search..FocusSearch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc0847c9f9b2842aaE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !353
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !354
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h76b37eb814c88f76E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !351
@@ -1511,10 +1511,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !353
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !354, !noalias !355
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr519drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..FocusSearch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..FocusSearch$C$search..buffer_search..registrar..ForDeployed$LT$search..FocusSearch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc0847c9f9b2842aaE.llvm.17085741044975272527.exit.i", %29
@@ -1539,9 +1539,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1571,7 +1571,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$editor..actions..Cancel$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$editor..actions..Cancel$C$search..buffer_search..registrar..ForDeployed$LT$editor..actions..Cancel$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41f9fec5126de0c8E.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !368
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !369
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hef9a43ff49ba5aa9E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !366
@@ -1595,10 +1595,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !368
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !369, !noalias !370
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$editor..actions..Cancel$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$editor..actions..Cancel$C$search..buffer_search..registrar..ForDeployed$LT$editor..actions..Cancel$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h41f9fec5126de0c8E.llvm.17085741044975272527.exit.i", %29
@@ -1623,9 +1623,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1655,7 +1655,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleSelection$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleSelection$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleSelection$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b35b79ad3ad3e2eE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !383
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !384
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9ad4eac24b2e1c99E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !381
@@ -1679,10 +1679,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !383
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !384, !noalias !385
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleSelection$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleSelection$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleSelection$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5b35b79ad3ad3e2eE.llvm.17085741044975272527.exit.i", %29
@@ -1707,9 +1707,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1739,7 +1739,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectNextMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectNextMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectNextMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h63b48eb2ca22da89E.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !398
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !399
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17hb51df5cf12539b4fE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !396
@@ -1763,10 +1763,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !398
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !398
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !399, !noalias !400
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectNextMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectNextMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectNextMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h63b48eb2ca22da89E.llvm.17085741044975272527.exit.i", %29
@@ -1791,9 +1791,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1823,7 +1823,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr534drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectAllMatches$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectAllMatches$C$search..buffer_search..registrar..WithResults$LT$search..SelectAllMatches$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heee9c43c44c73a27E.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !413
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !414
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h62ab092176b47fa2E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !411
@@ -1847,10 +1847,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !413
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !414, !noalias !415
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr534drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectAllMatches$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectAllMatches$C$search..buffer_search..registrar..WithResults$LT$search..SelectAllMatches$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17heee9c43c44c73a27E.llvm.17085741044975272527.exit.i", %29
@@ -1875,9 +1875,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1907,7 +1907,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectPrevMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectPrevMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectPrevMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3f85372f431e4788E.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !428
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !429
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h9d2a1e3f6668b101E.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !426
@@ -1931,10 +1931,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !428
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !429, !noalias !430
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr531drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..SelectPrevMatch$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..SelectPrevMatch$C$search..buffer_search..registrar..WithResults$LT$search..SelectPrevMatch$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3f85372f431e4788E.llvm.17085741044975272527.exit.i", %29
@@ -1959,9 +1959,9 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [720 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %6, ptr noundef nonnull align 8 dereferenceable(720) %2, i64 720, i1 false)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !5, !noundef !4
@@ -1991,7 +1991,7 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   br label %"_ZN4core3ptr525drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleReplace$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleReplace$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleReplace$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h45cce70c3b5d0e0dE.llvm.17085741044975272527.exit.i"
 
 21:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !443
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !443
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !444
   invoke void @_ZN4gpui8elements3div13Interactivity9on_action17h934e051b7d74e39aE.llvm.17085741044975272527(ptr noalias noundef nonnull align 8 dereferenceable(664) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
           to label %28 unwind label %19, !noalias !441
@@ -2015,10 +2015,10 @@ define hidden void @"_ZN132_$LT$search..buffer_search..registrar..DivRegistrar$L
   unreachable
 
 28:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !443
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !443
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %6, i64 720, i1 false), !alias.scope !444, !noalias !445
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 .body:                                            ; preds = %"_ZN4core3ptr525drop_in_place$LT$gpui..window..ViewContext$LT$terminal_view..terminal_panel..TerminalPanel$GT$..listener$LT$search..ToggleReplace$C$$LT$search..buffer_search..registrar..DivRegistrar$LT$terminal_view..terminal_panel..TerminalPanel$GT$$u20$as$u20$search..buffer_search..registrar..SearchActionsRegistrar$GT$..register_handler$LT$search..ToggleReplace$C$search..buffer_search..registrar..ForDeployed$LT$search..ToggleReplace$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h45cce70c3b5d0e0dE.llvm.17085741044975272527.exit.i", %29
@@ -2253,7 +2253,7 @@ define hidden void @_ZN3std3sys9backtrace26__rust_end_short_backtrace17h88f6fed1
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
 define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17hfd4cd3eb1cec5808E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !447, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -11978,13 +11978,13 @@ define hidden void @"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b
 define hidden noundef nonnull ptr @_ZN8blocking7unblock17h30759662cc50b0e4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1171
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
   %4 = call noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17hcb940c51b43ddb84E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext true), !noalias !1171
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !1171
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1171
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1171
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1171
   store ptr %4, ptr %3, align 8, !noalias !1171
   %5 = load ptr, ptr %4, align 8, !noalias !1171, !nonnull !4, !align !5, !noundef !4
   %6 = load ptr, ptr %5, align 8, !noalias !1171, !nonnull !4, !noundef !4
@@ -12007,7 +12007,7 @@ define hidden noundef nonnull ptr @_ZN8blocking7unblock17h30759662cc50b0e4E(ptr 
   resume { ptr, i32 } %8
 
 _ZN8blocking8Executor5spawn17hd98177b6c1fdf60aE.llvm.2655440603275574690.exit: ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !1171
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1171
   ret ptr %4
 }
 
@@ -12015,11 +12015,11 @@ _ZN8blocking8Executor5spawn17hd98177b6c1fdf60aE.llvm.2655440603275574690.exit: ;
 define hidden noundef nonnull ptr @_ZN8blocking8Executor5spawn17hd98177b6c1fdf60aE.llvm.2655440603275574690(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %3 = alloca [8 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %4 = call noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17hcb940c51b43ddb84E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, i1 noundef zeroext true)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !5, !noundef !4
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
@@ -12033,7 +12033,7 @@ define hidden noundef nonnull ptr @_ZN8blocking8Executor5spawn17hd98177b6c1fdf60
           to label %12 unwind label %10
 
 9:                                                ; preds = %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %4
 
 10:                                               ; preds = %7
@@ -12109,12 +12109,6 @@ declare void @_ZN7project14worktree_store14WorktreeHandle7upgrade17h686151ee3b48
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN8blocking8Executor8schedule17h3fa83c880505ea94E(ptr noundef nonnull align 8, ptr noundef nonnull) unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
-
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef nonnull ptr @"_ZN10async_task3raw28RawTask$LT$F$C$T$C$S$C$M$GT$8allocate17hcb940c51b43ddb84E"(ptr noalias noundef align 8 captures(none) dereferenceable(32), i1 noundef zeroext) unnamed_addr #0
 
@@ -12165,6 +12159,12 @@ declare hidden void @_ZN4gpui8elements3div13Interactivity9on_action17hef9a43ff49
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(664) ptr @"_ZN84_$LT$gpui..elements..div..Div$u20$as$u20$gpui..elements..div..InteractiveElement$GT$13interactivity17h18e7a60333ec5d0eE"(ptr noalias noundef align 8 dereferenceable(720)) unnamed_addr #0
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

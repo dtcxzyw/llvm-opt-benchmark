@@ -1082,14 +1082,8 @@ compute_kafka_api_names.exit:                     ; preds = %1
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: null_pointer_is_valid
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_kafka() local_unnamed_addr #0 {
@@ -1103,7 +1097,7 @@ define hidden void @proto_reg_handoff_kafka() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kafka_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
@@ -1113,31 +1107,31 @@ define internal i32 @dissect_kafka_tcp(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_kafka_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
@@ -2101,37 +2095,37 @@ proto_item_set_generated.exit670:                 ; preds = %kafka_check_support
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc signext i16 @kafka_check_supported_api_version(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
@@ -2319,8 +2313,8 @@ define internal fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_tagged_fields, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef nonnull @.str.640)
   %12 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %3, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2)
@@ -2352,11 +2346,11 @@ define internal fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noun
 .lr.ph.i:                                         ; preds = %.preheader.i, %24
   %.02127.i = phi i32 [ %25, %24 ], [ 0, %.preheader.i ]
   %.02226.i = phi i32 [ %.0.i13.i, %24 ], [ %18, %.preheader.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = load i32, ptr @ett_kafka_tagged_field, align 4
   %27 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %.02226.i, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %7, ptr noundef nonnull @.str.641)
   %28 = load i32, ptr @hf_kafka_tagged_field_tag, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %29 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.02226.i, i32 noundef 10, ptr noundef nonnull %6, i32 noundef 2)
   %30 = load i64, ptr %6, align 8
   %31 = call ptr @proto_tree_add_uint64(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.02226.i, i32 noundef %29, i64 noundef %30)
@@ -2374,9 +2368,9 @@ define internal fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noun
 
 dissect_kafka_varuint.exit.i:                     ; preds = %36, %33
   %.0.i.i = phi i32 [ %35, %33 ], [ %37, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = load i32, ptr @hf_kafka_tagged_field_data, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 10, ptr noundef nonnull %5, i32 noundef 2)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %45
@@ -2400,10 +2394,10 @@ dissect_kafka_varuint.exit.i:                     ; preds = %36, %33
 
 dissect_kafka_tagged_field.exit:                  ; preds = %41, %45
   %.0.i13.i = phi i32 [ %44, %41 ], [ %52, %45 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %53 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %53, ptr noundef %0, i32 noundef %.0.i13.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %54 = icmp eq i32 %.0.i13.i, %.02226.i
   br i1 %54, label %.loopexit.sink.split.i, label %24
 
@@ -2422,8 +2416,8 @@ dissect_kafka_array_elements.exit:                ; preds = %24, %.preheader.i, 
 
 58:                                               ; preds = %dissect_kafka_array_elements.exit, %14
   %.0 = phi i32 [ %16, %14 ], [ %.0.i, %dissect_kafka_array_elements.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
@@ -2464,7 +2458,7 @@ define internal fastcc i32 @dissect_kafka_produce_request(ptr noundef %0, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %or.cond = icmp ult i16 %4, 15
   br i1 %or.cond, label %7, label %11
 
@@ -2544,14 +2538,14 @@ define internal fastcc i32 @dissect_kafka_fetch_request(ptr noundef %0, ptr noun
 
 .thread72:                                        ; preds = %47, %52, %49
   %.6 = phi i32 [ %53, %52 ], [ %51, %49 ], [ %.4, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_offsets_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_replica, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -2581,7 +2575,7 @@ define internal fastcc i32 @dissect_kafka_offsets_request(ptr noundef %0, ptr no
 
 24:                                               ; preds = %22, %15
   %.1 = phi i32 [ %23, %22 ], [ %20, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -2691,7 +2685,7 @@ define internal fastcc i32 @dissect_kafka_leader_and_isr_request(ptr noundef %0,
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_kafka_controller_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
@@ -2775,7 +2769,7 @@ define internal fastcc i32 @dissect_kafka_stop_replica_request(ptr noundef %0, p
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.677, i32 noundef %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5
 }
 
@@ -2858,9 +2852,9 @@ define internal fastcc i32 @dissect_kafka_controlled_shutdown_request(ptr nounde
 define internal fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @hf_kafka_consumer_group, align 4
   %9 = icmp sgt i16 %4, 7
   %10 = zext i1 %9 to i32
@@ -2917,15 +2911,15 @@ define internal fastcc i32 @dissect_kafka_offset_commit_request(ptr noundef %0, 
   %40 = load i32, ptr %7, align 4
   %41 = call ptr @tvb_get_string_enc(ptr noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef %40, i32 noundef 2)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.696, ptr noundef %41)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_offset_fetch_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %or.cond = icmp ult i16 %4, 8
   br i1 %or.cond, label %13, label %7
 
@@ -2967,7 +2961,7 @@ define internal fastcc i32 @dissect_kafka_offset_fetch_request(ptr noundef %0, p
 
 .thread46:                                        ; preds = %7, %24, %23
   %.3 = phi i32 [ %25, %24 ], [ %18, %23 ], [ %3, %7 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -2976,9 +2970,9 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp eq i16 %4, 0
   br i1 %9, label %.thread, label %19
 
@@ -3038,9 +3032,9 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_request(ptr noundef %
 
 .thread48:                                        ; preds = %25, %38, %36
   %.4 = phi i32 [ %39, %38 ], [ %30, %36 ], [ %.1, %25 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
@@ -3051,11 +3045,11 @@ define internal fastcc i32 @dissect_kafka_join_group_request(ptr noundef %0, ptr
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_kafka_consumer_group, align 4
   %12 = icmp sgt i16 %4, 5
   %13 = zext i1 %12 to i32
@@ -3140,11 +3134,11 @@ kafka_tvb_get_string.exit58:                      ; preds = %kafka_tvb_get_strin
 
 60:                                               ; preds = %58, %kafka_tvb_get_string.exit58
   %.3 = phi i32 [ %59, %58 ], [ %.2, %kafka_tvb_get_string.exit58 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -3154,10 +3148,10 @@ define internal fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @hf_kafka_consumer_group, align 4
   %11 = icmp sgt i16 %4, 3
   %12 = zext i1 %11 to i32
@@ -3197,10 +3191,10 @@ define internal fastcc i32 @dissect_kafka_heartbeat_request(ptr noundef %0, ptr 
 
 37:                                               ; preds = %35, %23
   %.1 = phi i32 [ %36, %35 ], [ %.0, %23 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -3211,11 +3205,11 @@ define internal fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, pt
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_kafka_consumer_group, align 4
   %12 = icmp sgt i16 %4, 3
   %13 = zext i1 %12 to i32
@@ -3266,11 +3260,11 @@ define internal fastcc i32 @dissect_kafka_leave_group_request(ptr noundef %0, pt
 
 .thread:                                          ; preds = %15, %29, %43, %31
   %.1 = phi i32 [ %44, %43 ], [ %34, %31 ], [ %14, %29 ], [ %17, %15 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -3281,11 +3275,11 @@ define internal fastcc noundef i32 @dissect_kafka_sync_group_request(ptr noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @hf_kafka_consumer_group, align 4
   %12 = icmp sgt i16 %4, 3
   %13 = zext i1 %12 to i32
@@ -3338,11 +3332,11 @@ define internal fastcc noundef i32 @dissect_kafka_sync_group_request(ptr noundef
   %46 = load i32, ptr %10, align 4
   %47 = call ptr @tvb_get_string_enc(ptr noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef %46, i32 noundef 2)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.704, ptr noundef %43, ptr noundef %47)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -3390,7 +3384,7 @@ define internal fastcc i32 @dissect_kafka_api_versions_request(ptr noundef %0, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.713)
   %9 = icmp sgt i16 %4, 4
@@ -3416,14 +3410,14 @@ define internal fastcc i32 @dissect_kafka_create_topics_request(ptr noundef %0, 
 
 .thread:                                          ; preds = %5, %21, %17
   %.1 = phi i32 [ %22, %21 ], [ %20, %17 ], [ %15, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_delete_topics_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 5
   br i1 %7, label %.thread, label %12
 
@@ -3466,14 +3460,14 @@ define internal fastcc i32 @dissect_kafka_delete_topics_request(ptr noundef %0, 
 
 27:                                               ; preds = %25, %20
   %.3 = phi i32 [ %26, %25 ], [ %23, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_delete_records_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.669)
   %9 = call fastcc i32 @dissect_kafka_array(ptr noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_delete_records_request_topic, ptr noundef null)
@@ -3482,7 +3476,7 @@ define internal fastcc noundef i32 @dissect_kafka_delete_records_request(ptr nou
   %11 = load i32, ptr @hf_kafka_timeout, align 4
   %12 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0)
   %13 = add i32 %9, 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %13
 }
 
@@ -3523,7 +3517,7 @@ define internal fastcc i32 @dissect_kafka_init_producer_id_request(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 2
   br i1 %7, label %8, label %15
 
@@ -3556,14 +3550,14 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_reques
   %18 = call fastcc i32 @dissect_kafka_array(ptr noundef %17, ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_offset_for_leader_epoch_request_topic, ptr noundef null)
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %18)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_transactional_id, align 4
   %8 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null, ptr noundef null)
   %9 = load i32, ptr @hf_kafka_producer_id, align 4
@@ -3577,7 +3571,7 @@ define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_request(
   %17 = call fastcc i32 @dissect_kafka_array(ptr noundef %16, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_add_partitions_to_txn_request_topic, ptr noundef null)
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %17
 }
 
@@ -3615,20 +3609,20 @@ define internal fastcc noundef i32 @dissect_kafka_end_txn_request(ptr noundef %0
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_markers, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.724)
   %9 = call fastcc i32 @dissect_kafka_array(ptr noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_write_txn_markers_request_marker, ptr noundef null)
   %10 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_txn_offset_commit_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_transactional_id, align 4
   %8 = icmp sgt i16 %4, 2
   %9 = zext i1 %8 to i32
@@ -3668,7 +3662,7 @@ define internal fastcc i32 @dissect_kafka_txn_offset_commit_request(ptr noundef 
 
 34:                                               ; preds = %32, %27
   %.3 = phi i32 [ %33, %32 ], [ %30, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -3716,7 +3710,7 @@ define internal fastcc i32 @dissect_kafka_describe_acls_request(ptr noundef %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_creations, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.727)
   %9 = icmp sgt i16 %4, 1
@@ -3732,14 +3726,14 @@ define internal fastcc i32 @dissect_kafka_create_acls_request(ptr noundef %0, pt
 
 15:                                               ; preds = %13, %5
   %.0 = phi i32 [ %14, %13 ], [ %11, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_delete_acls_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_filter, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.729)
   %9 = icmp sgt i16 %4, 1
@@ -3755,14 +3749,14 @@ define internal fastcc i32 @dissect_kafka_delete_acls_request(ptr noundef %0, pt
 
 15:                                               ; preds = %13, %5
   %.0 = phi i32 [ %14, %13 ], [ %11, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_describe_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_resources, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.731)
   %9 = icmp sgt i16 %4, 3
@@ -3792,14 +3786,14 @@ define internal fastcc i32 @dissect_kafka_describe_configs_request(ptr noundef %
 
 .thread27:                                        ; preds = %5, %14, %23, %19
   %.2 = phi i32 [ %24, %23 ], [ %22, %19 ], [ %17, %14 ], [ %11, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_resources, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.731)
   %9 = call fastcc i32 @dissect_kafka_array(ptr noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_config_request_resource, ptr noundef null)
@@ -3808,40 +3802,40 @@ define internal fastcc noundef i32 @dissect_kafka_alter_configs_request(ptr noun
   %12 = add i32 %9, 1
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_log_dirs, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.735)
   %9 = call fastcc i32 @dissect_kafka_array(ptr noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_replica_log_dirs_request_log_dir, ptr noundef null)
   %10 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.669)
   %9 = call fastcc i32 @dissect_kafka_array(ptr noundef %8, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_describe_log_dirs_request_topic, ptr noundef null)
   %10 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_partitions_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.669)
   %9 = icmp sgt i16 %4, 1
@@ -3863,7 +3857,7 @@ define internal fastcc i32 @dissect_kafka_create_partitions_request(ptr noundef 
 
 21:                                               ; preds = %19, %5
   %.0 = phi i32 [ %20, %19 ], [ %18, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3887,7 +3881,7 @@ define internal fastcc i32 @dissect_kafka_sasl_authenticate_request(ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_renewers, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.737)
   %9 = icmp sgt i16 %4, 1
@@ -3906,7 +3900,7 @@ define internal fastcc i32 @dissect_kafka_create_delegation_token_request(ptr no
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %15, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -3953,7 +3947,7 @@ define internal fastcc i32 @dissect_kafka_expire_delegation_token_request(ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_describe_delegation_token_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_owners, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.739)
   %9 = icmp sgt i16 %4, 1
@@ -3969,14 +3963,14 @@ define internal fastcc i32 @dissect_kafka_describe_delegation_token_request(ptr 
 
 15:                                               ; preds = %13, %5
   %.0 = phi i32 [ %14, %13 ], [ %11, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_delete_groups_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_groups, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.697)
   %9 = icmp sgt i16 %4, 1
@@ -3992,14 +3986,14 @@ define internal fastcc noundef i32 @dissect_kafka_delete_groups_request(ptr noun
   %.0 = phi i32 [ %13, %12 ], [ %11, %5 ]
   %15 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_elect_leaders_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 0
   br i1 %7, label %8, label %12
 
@@ -4029,14 +4023,14 @@ define internal fastcc i32 @dissect_kafka_elect_leaders_request(ptr noundef %0, 
 
 24:                                               ; preds = %22, %12
   %.1 = phi i32 [ %23, %22 ], [ %21, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_resources, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.731)
   %9 = icmp sgt i16 %4, 0
@@ -4055,14 +4049,14 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_request(ptr noundef 
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %15, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_timeout, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -4071,14 +4065,14 @@ define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_partition_reassignments_request_topic, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_list_partition_reassignments_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_timeout, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -4090,14 +4084,14 @@ define internal fastcc i32 @dissect_kafka_list_partition_reassignments_request(p
   %15 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %14)
   %16 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_offset_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_consumer_group, align 4
   %8 = tail call fastcc i32 @dissect_kafka_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef null, ptr noundef null)
   %9 = load i32, ptr @ett_kafka_topics, align 4
@@ -4105,7 +4099,7 @@ define internal fastcc noundef i32 @dissect_kafka_offset_delete_request(ptr noun
   %11 = call fastcc i32 @dissect_kafka_array(ptr noundef %10, ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_offset_delete_request_topic, ptr noundef null)
   %12 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %12, ptr noundef %0, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %11
 }
 
@@ -4142,16 +4136,16 @@ define internal fastcc i32 @dissect_kafka_allocate_producer_ids_request(ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_produce_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
@@ -4179,7 +4173,7 @@ define internal fastcc i32 @dissect_kafka_produce_response(ptr noundef %0, ptr n
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 0
   br i1 %7, label %8, label %.thread
 
@@ -4229,14 +4223,14 @@ dissect_kafka_error.exit:                         ; preds = %13, %17
 
 34:                                               ; preds = %32, %.thread
   %.2 = phi i32 [ %33, %32 ], [ %30, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_offsets_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 1
   br i1 %7, label %8, label %12
 
@@ -4263,14 +4257,14 @@ define internal fastcc i32 @dissect_kafka_offsets_response(ptr noundef %0, ptr n
 
 21:                                               ; preds = %19, %12
   %.1 = phi i32 [ %20, %19 ], [ %17, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_metadata_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 2
   br i1 %7, label %8, label %12
 
@@ -4335,7 +4329,7 @@ define internal fastcc i32 @dissect_kafka_metadata_response(ptr noundef %0, ptr 
 
 41:                                               ; preds = %39, %38
   %.4 = phi i32 [ %40, %39 ], [ %.3, %38 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
@@ -4501,8 +4495,8 @@ define internal fastcc i32 @dissect_kafka_offset_commit_response(ptr noundef %0,
 define internal fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = icmp sgt i16 %4, 2
   br i1 %8, label %9, label %13
@@ -4571,8 +4565,8 @@ define internal fastcc i32 @dissect_kafka_offset_fetch_response(ptr noundef %0, 
 
 .thread56:                                        ; preds = %33, %14, %41, %39
   %.4 = phi i32 [ %42, %41 ], [ %40, %39 ], [ %19, %14 ], [ %.0, %33 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
@@ -4582,7 +4576,7 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = icmp sgt i16 %4, 0
   br i1 %10, label %11, label %15
 
@@ -4627,9 +4621,9 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
 
 ._crit_edge:                                      ; preds = %25, %28
   %.2.ph = phi i32 [ %32, %28 ], [ %26, %25 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %33 = load i32, ptr @ett_kafka_broker, align 4
   %34 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.2.ph, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %6, ptr noundef nonnull @.str.755)
   %35 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2.ph)
@@ -4676,9 +4670,9 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
   br label %64
 
 63:                                               ; preds = %56, %50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %40, label %64, label %.thread59
 
 64:                                               ; preds = %.thread56, %63
@@ -4688,7 +4682,7 @@ define internal fastcc i32 @dissect_kafka_find_coordinator_response(ptr noundef 
 
 .thread59:                                        ; preds = %57, %64, %63
   %.4 = phi i32 [ %65, %64 ], [ %46, %63 ], [ %.0, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.4
 }
 
@@ -4697,10 +4691,10 @@ define internal fastcc i32 @dissect_kafka_join_group_response(ptr noundef %0, pt
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp sgt i16 %4, 1
   br i1 %9, label %10, label %14
 
@@ -4781,9 +4775,9 @@ dissect_kafka_error.exit:                         ; preds = %14, %18
 
 59:                                               ; preds = %57, %43
   %.3 = phi i32 [ %58, %57 ], [ %48, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -4831,7 +4825,7 @@ dissect_kafka_error.exit:                         ; preds = %11, %15
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_leave_group_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 0
   br i1 %7, label %8, label %12
 
@@ -4879,7 +4873,7 @@ dissect_kafka_error.exit:                         ; preds = %12, %16
 
 .thread:                                          ; preds = %dissect_kafka_error.exit, %30, %23
   %.2 = phi i32 [ %31, %30 ], [ %28, %23 ], [ %21, %dissect_kafka_error.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -4969,7 +4963,7 @@ define internal fastcc i32 @dissect_kafka_describe_groups_response(ptr noundef %
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_list_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 0
   br i1 %7, label %8, label %12
 
@@ -5012,14 +5006,14 @@ dissect_kafka_error.exit:                         ; preds = %12, %16
 
 30:                                               ; preds = %28, %dissect_kafka_error.exit
   %.1 = phi i32 [ %29, %28 ], [ %26, %dissect_kafka_error.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_sasl_handshake_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %7 = load i32, ptr @hf_kafka_error, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0)
@@ -5076,7 +5070,7 @@ dissect_kafka_array.exit:                         ; preds = %24, %dissect_kafka_
   %.0.i = phi i32 [ %18, %.preheader.i.i15.i ], [ %.0.i.ph, %dissect_kafka_array.exit.sink.split ], [ %27, %24 ]
   %31 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %31, ptr noundef %0, i32 noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0.i
 }
 
@@ -5122,7 +5116,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 1
   br i1 %7, label %8, label %12
 
@@ -5149,14 +5143,14 @@ define internal fastcc i32 @dissect_kafka_create_topics_response(ptr noundef %0,
 
 21:                                               ; preds = %19, %12
   %.1 = phi i32 [ %20, %19 ], [ %17, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 2
   br i1 %7, label %8, label %12
 
@@ -5183,14 +5177,14 @@ define internal fastcc i32 @dissect_kafka_delete_topics_response(ptr noundef %0,
 
 21:                                               ; preds = %19, %12
   %.1 = phi i32 [ %20, %19 ], [ %17, %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_delete_records_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5199,7 +5193,7 @@ define internal fastcc noundef i32 @dissect_kafka_delete_records_response(ptr no
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_delete_records_response_topic, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
@@ -5245,7 +5239,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp sgt i16 %4, 1
   br i1 %7, label %8, label %12
 
@@ -5262,14 +5256,14 @@ define internal fastcc noundef i32 @dissect_kafka_offset_for_leader_epoch_respon
   %15 = call fastcc i32 @dissect_kafka_array(ptr noundef %14, ptr noundef %0, ptr noundef %1, i32 noundef %.0, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_offset_for_leader_epoch_response_topic, ptr noundef null)
   %16 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %16, ptr noundef %0, i32 noundef %15)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5278,7 +5272,7 @@ define internal fastcc noundef i32 @dissect_kafka_add_partitions_to_txn_response
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_add_partitions_to_txn_response_topic, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
@@ -5333,7 +5327,7 @@ dissect_kafka_error.exit:                         ; preds = %4, %11
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5342,14 +5336,14 @@ define internal fastcc noundef i32 @dissect_kafka_write_txn_markers_response(ptr
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_write_txn_markers_response_marker, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_txn_offset_commit_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5368,14 +5362,14 @@ define internal fastcc i32 @dissect_kafka_txn_offset_commit_response(ptr noundef
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_describe_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5412,14 +5406,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %.0 = phi i32 [ %27, %26 ], [ %25, %dissect_kafka_error.exit ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5438,14 +5432,14 @@ define internal fastcc i32 @dissect_kafka_create_acls_response(ptr noundef %0, p
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_delete_acls_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5465,14 +5459,14 @@ define internal fastcc i32 @dissect_kafka_delete_acls_response(ptr noundef %0, p
 
 19:                                               ; preds = %17, %5
   %.0 = phi i32 [ %18, %17 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_describe_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5491,14 +5485,14 @@ define internal fastcc i32 @dissect_kafka_describe_configs_response(ptr noundef 
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5507,14 +5501,14 @@ define internal fastcc noundef i32 @dissect_kafka_alter_configs_response(ptr nou
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_configs_response_resource, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5523,14 +5517,14 @@ define internal fastcc noundef i32 @dissect_kafka_alter_replica_log_dirs_respons
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_replica_log_dirs_response_topic, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5539,14 +5533,14 @@ define internal fastcc noundef i32 @dissect_kafka_describe_log_dirs_response(ptr
   %12 = call fastcc i32 @dissect_kafka_array(ptr noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_describe_log_dirs_response_log_dir, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_create_partitions_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5565,7 +5559,7 @@ define internal fastcc i32 @dissect_kafka_create_partitions_response(ptr noundef
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -5737,7 +5731,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %9
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_describe_delegation_token_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_kafka_error, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0)
@@ -5772,14 +5766,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %10
 
 27:                                               ; preds = %25, %dissect_kafka_error.exit
   %.0 = phi i32 [ %26, %25 ], [ %24, %dissect_kafka_error.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_delete_groups_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5798,14 +5792,14 @@ define internal fastcc noundef i32 @dissect_kafka_delete_groups_response(ptr nou
   %.0 = phi i32 [ %16, %15 ], [ %14, %5 ]
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_elect_leaders_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5848,14 +5842,14 @@ dissect_kafka_error.exit:                         ; preds = %11, %15
 
 30:                                               ; preds = %28, %21
   %.1 = phi i32 [ %29, %28 ], [ %26, %21 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5874,14 +5868,14 @@ define internal fastcc i32 @dissect_kafka_inc_alter_configs_response(ptr noundef
 
 18:                                               ; preds = %16, %5
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_alter_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5908,14 +5902,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %23 = call fastcc i32 @dissect_kafka_array(ptr noundef %22, ptr noundef %0, ptr noundef %1, i32 noundef %20, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_partition_reassignments_response_topic, ptr noundef null)
   %24 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %24, ptr noundef %0, i32 noundef %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_list_partition_reassignments_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -5945,14 +5939,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %26 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %26, ptr noundef %0, i32 noundef %25)
   %27 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_kafka_offset_delete_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %8 = load i32, ptr @hf_kafka_error, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0)
@@ -5977,14 +5971,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %10
   %21 = call fastcc i32 @dissect_kafka_array(ptr noundef %20, ptr noundef %0, ptr noundef %1, i32 noundef %18, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_offset_delete_response_topic, ptr noundef null)
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_describe_cluster_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @hf_kafka_throttle_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0)
   %9 = add i32 %3, 4
@@ -6033,7 +6027,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0)
   %40 = add i32 %36, 4
   %41 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %40)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %41
 }
 
@@ -6069,21 +6063,21 @@ dissect_kafka_error.exit:                         ; preds = %4, %11
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_compact_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = call i32 @tvb_get_varint(ptr noundef %2, i32 noundef %4, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %19
@@ -6168,33 +6162,33 @@ kafka_tvb_get_string.exit:                        ; preds = %24, %30
 
 43:                                               ; preds = %._crit_edge, %17
   %.0 = phi i32 [ %18, %17 ], [ %.038, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_varint(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_varint(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i16 noundef signext %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
@@ -6203,7 +6197,7 @@ define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %41, label %10
 
 10:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %11 = call i32 @tvb_get_varint(ptr noundef %1, i32 noundef %3, i32 noundef 10, ptr noundef nonnull %9, i32 noundef 2)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
@@ -6270,7 +6264,7 @@ dissect_kafka_array_elements.exit.i:              ; preds = %31, %.loopexit.sink
 
 dissect_kafka_compact_array.exit:                 ; preds = %13, %20, %dissect_kafka_array_elements.exit.i, %37
   %.0.i = phi i32 [ %16, %13 ], [ %23, %20 ], [ %.0.i.i, %37 ], [ %.0.i.i, %dissect_kafka_array_elements.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_kafka_regular_array.exit
 
 41:                                               ; preds = %8
@@ -6331,9 +6325,9 @@ define internal i32 @dissect_kafka_produce_request_topic(ptr noundef %0, ptr nou
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -6358,16 +6352,16 @@ define internal i32 @dissect_kafka_produce_request_topic(ptr noundef %0, ptr nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.642, ptr noundef %24)
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kafka_produce_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 14, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -6389,7 +6383,7 @@ define internal i32 @dissect_kafka_produce_request_partition(ptr noundef %0, ptr
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.644, i32 noundef %11)
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %20, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -6397,8 +6391,8 @@ define internal i32 @dissect_kafka_produce_request_partition(ptr noundef %0, ptr
 define internal fastcc i32 @dissect_kafka_message_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %25, label %8
 
@@ -6441,8 +6435,8 @@ define internal fastcc i32 @dissect_kafka_message_set(ptr noundef %0, ptr nounde
 
 30:                                               ; preds = %21, %18, %28, %25, %11
   %.0 = phi i32 [ %17, %11 ], [ %24, %21 ], [ %19, %18 ], [ %29, %28 ], [ %27, %25 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -6468,7 +6462,7 @@ define internal fastcc noundef i32 @dissect_kafka_regular_message_set(ptr nounde
   %24 = alloca ptr, align 8
   %25 = alloca i32, align 4
   %26 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %27 = add i32 %4, %3
   %28 = load i32, ptr @ett_kafka_message_set, align 4
   %29 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %28, ptr noundef nonnull %26, ptr noundef nonnull @.str.645)
@@ -6523,10 +6517,10 @@ define internal fastcc noundef i32 @dissect_kafka_regular_message_set(ptr nounde
   br i1 %56, label %57, label %128
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %58 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %45, i32 noundef 0)
   %59 = add i32 %58, 12
   %60 = load i32, ptr @ett_kafka_message, align 4
@@ -6640,16 +6634,16 @@ show_compression_reduction.exit.i28:              ; preds = %117, %114, %108, %1
 
 dissect_kafka_message_old.exit:                   ; preds = %90, %97, %126
   %.0.i24 = phi i32 [ %.1.i, %126 ], [ %86, %97 ], [ %.069.i, %90 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_kafka_message.exit
 
 128:                                              ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %129 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %45, i32 noundef 0)
   %130 = add i32 %129, 12
   %131 = load i32, ptr @ett_kafka_batch, align 4
@@ -6765,9 +6759,9 @@ show_compression_reduction.exit.i:                ; preds = %204, %201, %195, %1
   %209 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %.0.i.i, %dissect_kafka_record.exit.i ]
   %.094104.i = phi i32 [ 0, %.lr.ph.i ], [ %333, %dissect_kafka_record.exit.i ]
   %210 = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %211 = load i32, ptr @ett_kafka_record, align 4
   %212 = call ptr @proto_tree_add_subtree(ptr noundef %132, ptr noundef %210, i32 noundef %209, i32 noundef -1, i32 noundef %211, ptr noundef nonnull %20, ptr noundef nonnull @.str.662)
   %213 = call i32 @tvb_get_varint(ptr noundef %210, i32 noundef %209, i32 noundef 5, ptr noundef nonnull %21, i32 noundef 8)
@@ -6799,8 +6793,8 @@ show_compression_reduction.exit.i:                ; preds = %204, %201, %195, %1
   %231 = call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %230, ptr noundef %210, i32 noundef %227, i32 noundef 1, i32 noundef 0)
   %232 = add i32 %227, 1
   %233 = load i32, ptr @hf_kafka_message_timestamp, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %234 = call i32 @tvb_get_varint(ptr noundef %210, i32 noundef %232, i32 noundef 10, ptr noundef nonnull %19, i32 noundef 8)
   %235 = load i64, ptr %19, align 8
   %236 = add i64 %235, %168
@@ -6825,10 +6819,10 @@ show_compression_reduction.exit.i:                ; preds = %204, %201, %195, %1
 
 dissect_kafka_timestamp_delta.exit.i.i:           ; preds = %246, %243
   %.0.i.i.i = phi i32 [ %245, %243 ], [ %247, %246 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %248 = load i32, ptr @hf_kafka_offset, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %249 = call i32 @tvb_get_varint(ptr noundef %210, i32 noundef %.0.i.i.i, i32 noundef 10, ptr noundef nonnull %17, i32 noundef 8)
   %250 = load i64, ptr %17, align 8
   %251 = add i64 %250, %134
@@ -6847,7 +6841,7 @@ dissect_kafka_timestamp_delta.exit.i.i:           ; preds = %246, %243
 
 dissect_kafka_offset_delta.exit.i.i:              ; preds = %257, %254
   %.0.i52.i.i = phi i32 [ %256, %254 ], [ %258, %257 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %259 = load i32, ptr @hf_kafka_message_key, align 4
   %260 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %210, ptr noundef %1, ptr noundef %212, i32 noundef %259, i32 noundef %.0.i52.i.i, ptr noundef nonnull %22)
   %261 = load i8, ptr %22, align 1, !range !9, !noundef !10
@@ -6862,9 +6856,9 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %257, %254
   br i1 %267, label %dissect_kafka_record.exit.i, label %268
 
 268:                                              ; preds = %263
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i8 0, ptr %16, align 1
   %269 = load i32, ptr @ett_kafka_record_headers, align 4
   %270 = call ptr @proto_tree_add_subtree(ptr noundef %212, ptr noundef %210, i32 noundef %265, i32 noundef -1, i32 noundef %269, ptr noundef nonnull %14, ptr noundef nonnull @.str.666)
@@ -6898,12 +6892,12 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %257, %254
 .lr.ph.i.i.i:                                     ; preds = %283, %dissect_kafka_record_headers_header.exit.i.i.i
   %.026.i.i.i = phi i32 [ %321, %dissect_kafka_record_headers_header.exit.i.i.i ], [ 0, %283 ]
   %.02125.i.i.i = phi i32 [ %317, %dissect_kafka_record_headers_header.exit.i.i.i ], [ %285, %283 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %287 = load i32, ptr @ett_kafka_record_headers_header, align 4
   %288 = call ptr @proto_tree_add_subtree(ptr noundef %270, ptr noundef %210, i32 noundef %.02125.i.i.i, i32 noundef -1, i32 noundef %287, ptr noundef nonnull %12, ptr noundef nonnull @.str.667)
   %289 = load i32, ptr @hf_kafka_record_header_key, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @.str.663, ptr %13, align 8
   %290 = call i32 @tvb_get_varint(ptr noundef %210, i32 noundef %.02125.i.i.i, i32 noundef 5, ptr noundef nonnull %11, i32 noundef 8)
   %291 = icmp eq i32 %290, 0
@@ -6957,7 +6951,7 @@ dissect_kafka_offset_delta.exit.i.i:              ; preds = %257, %254
 
 dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %312, %292
   %.0.i.i.i.i.i = phi i32 [ %295, %292 ], [ %315, %312 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %316 = load i32, ptr @hf_kafka_record_header_value, align 4
   %317 = call fastcc i32 @dissect_kafka_bytes_new(ptr noundef %210, ptr noundef %1, ptr noundef %288, i32 noundef %316, i32 noundef %.0.i.i.i.i.i, ptr noundef nonnull %16)
   %318 = load ptr, ptr %12, align 8
@@ -6965,8 +6959,8 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %312, %292
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %318, ptr noundef nonnull @.str.668, ptr noundef %319)
   %320 = load ptr, ptr %12, align 8
   call void @proto_item_set_end(ptr noundef %320, ptr noundef %210, i32 noundef %317)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %321 = add i32 %.026.i.i.i, 1
   %322 = sext i32 %321 to i64
   %323 = load i64, ptr %15, align 8
@@ -6984,9 +6978,9 @@ dissect_kafka_record_headers_header.exit.i.i.i:   ; preds = %312, %292
 
 dissect_kafka_record_headers.exit.i.i:            ; preds = %._crit_edge.i.i.i, %273
   %.020.i.i.i = phi i32 [ %276, %273 ], [ %.021.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not.i96.i = icmp eq i32 %.020.i.i.i, %229
   br i1 %.not.i96.i, label %331, label %328
 
@@ -7002,9 +6996,9 @@ dissect_kafka_record_headers.exit.i.i:            ; preds = %._crit_edge.i.i.i, 
 
 dissect_kafka_record.exit.i:                      ; preds = %331, %263, %dissect_kafka_offset_delta.exit.i.i, %222, %215
   %.0.i.i = phi i32 [ %218, %215 ], [ %225, %222 ], [ %229, %331 ], [ %229, %dissect_kafka_offset_delta.exit.i.i ], [ %229, %263 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %22)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i32 %.0.i.i, ptr %25, align 4
   %333 = add nuw i32 %.094104.i, 1
   %exitcond.not.i = icmp eq i32 %333, %184
@@ -7016,9 +7010,9 @@ dissect_kafka_record.exit.i:                      ; preds = %331, %263, %dissect
 
 dissect_kafka_message_new.exit:                   ; preds = %dissect_kafka_record.exit.i, %143, %show_compression_reduction.exit.i, %334
   %.0.i23 = phi i32 [ %147, %143 ], [ %187, %334 ], [ %187, %show_compression_reduction.exit.i ], [ %187, %dissect_kafka_record.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %dissect_kafka_message.exit
 
 dissect_kafka_message.exit:                       ; preds = %dissect_kafka_message_old.exit, %dissect_kafka_message_new.exit
@@ -7041,24 +7035,24 @@ dissect_kafka_message.exit:                       ; preds = %dissect_kafka_messa
   %.0.lcssa38 = phi i32 [ %.0.lcssa, %336 ], [ %.0.lcssa, %._crit_edge ], [ %27, %49 ], [ %27, %40 ]
   %339 = load ptr, ptr %26, align 8
   call void @proto_item_set_end(ptr noundef %339, ptr noundef %0, i32 noundef %.0.lcssa38)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %26)
   ret i32 %.0.lcssa38
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
@@ -7197,7 +7191,7 @@ define internal fastcc noundef zeroext i1 @decompress(ptr noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %43, label %44
 
 43:                                               ; preds = %42
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.651, ptr noundef nonnull @.str.637, i32 noundef 1910, ptr noundef nonnull @.str.652, ptr noundef nonnull @.str.653) #10
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.651, ptr noundef nonnull @.str.637, i32 noundef 1910, ptr noundef nonnull @.str.652, ptr noundef nonnull @.str.653) #9
   unreachable
 
 44:                                               ; preds = %42
@@ -7241,13 +7235,13 @@ define internal fastcc noundef zeroext i1 @decompress(ptr noundef %0, ptr nounde
   br label %decompress_snappy.exit
 
 56:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %58 = load ptr, ptr %57, align 8
@@ -7385,7 +7379,7 @@ switch.lookup:                                    ; preds = %107
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr %57, align 8
-  %132 = call ptr @wmem_realloc(ptr noundef %131, ptr noundef %122, i64 noundef %129) #11
+  %132 = call ptr @wmem_realloc(ptr noundef %131, ptr noundef %122, i64 noundef %129) #10
   %.pr.i = load i64, ptr %12, align 8
   br label %133
 
@@ -7418,7 +7412,7 @@ switch.lookup:                                    ; preds = %107
   br i1 %exitcond.not.i40, label %146, label %147
 
 146:                                              ; preds = %139
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.651, ptr noundef nonnull @.str.637, i32 noundef 1837, ptr noundef nonnull @.str.652, ptr noundef nonnull @.str.653) #10
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.651, ptr noundef nonnull @.str.637, i32 noundef 1837, ptr noundef nonnull @.str.652, ptr noundef nonnull @.str.653) #9
   unreachable
 
 147:                                              ; preds = %139
@@ -7466,11 +7460,11 @@ switch.lookup:                                    ; preds = %107
 
 decompress_lz4.exit:                              ; preds = %153, %156
   %.0436366.i = phi i1 [ false, %156 ], [ true, %153 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %decompress_snappy.exit
 
 159:                                              ; preds = %20
@@ -7518,78 +7512,78 @@ decompress_snappy.exit:                           ; preds = %168, %165, %162, %1
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_int64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_int64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_get_int32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @tvb_get_int32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_child_uncompress_snappy(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_child_uncompress_snappy(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_composite() local_unnamed_addr #2
+declare ptr @tvb_new_composite() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_composite_append(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @tvb_composite_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @tvb_composite_finalize(ptr noundef) local_unnamed_addr #2
+declare void @tvb_composite_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @LZ4F_createDecompressionContext(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @LZ4F_createDecompressionContext(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @LZ4F_isError(i64 noundef) local_unnamed_addr #2
+declare i32 @LZ4F_isError(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @LZ4F_getFrameInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @LZ4F_getFrameInfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @LZ4F_decompress(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @LZ4F_decompress(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+declare ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @LZ4F_freeDecompressionContext(ptr noundef) local_unnamed_addr #2
+declare i64 @LZ4F_freeDecompressionContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_child_uncompress_zstd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_child_uncompress_zstd(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @tvb_child_uncompress_zlib(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @tvb_child_uncompress_zlib(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare signext i16 @tvb_get_int16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare signext i16 @tvb_get_int16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %5, align 1
   %8 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %4, i32 noundef 5, ptr noundef nonnull %7, i32 noundef 8)
   %9 = icmp eq i32 %8, 0
@@ -7642,24 +7636,24 @@ define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef 
 
 33:                                               ; preds = %29, %10
   %.0 = phi i32 [ %13, %10 ], [ %32, %29 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_fetch_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
@@ -7668,12 +7662,12 @@ define internal noundef i32 @dissect_kafka_fetch_request_topic(ptr noundef %0, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_topic, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %or.cond = icmp ult i16 %4, 13
@@ -7718,11 +7712,11 @@ define internal noundef i32 @dissect_kafka_fetch_request_topic(ptr noundef %0, p
   %34 = load ptr, ptr %6, align 8
   %35 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.672, i32 noundef %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -7732,11 +7726,11 @@ define internal noundef i32 @dissect_kafka_fetch_request_forgotten_topics_data(p
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_request_forgotten_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.674)
   %or.cond = icmp ult i16 %4, 13
@@ -7777,17 +7771,17 @@ define internal noundef i32 @dissect_kafka_fetch_request_forgotten_topics_data(p
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.672, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kafka_fetch_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef 16, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -7846,12 +7840,12 @@ define internal i32 @dissect_kafka_fetch_request_partition(ptr noundef %0, ptr n
   %.3 = phi i32 [ %40, %39 ], [ %38, %32 ], [ %31, %.thread37 ]
   %42 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.673, i32 noundef %11, i64 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_fetch_request_forgottent_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
@@ -7864,7 +7858,7 @@ define internal noundef i32 @dissect_kafka_fetch_request_forgottent_topic_partit
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offsets_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topic, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %9 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -7882,14 +7876,14 @@ define internal noundef i32 @dissect_kafka_offsets_request_topic(ptr noundef %0,
   %.0 = phi i32 [ %15, %14 ], [ %13, %5 ]
   %17 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offsets_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -7948,14 +7942,14 @@ dissect_kafka_offset_time.exit:                   ; preds = %18, %.sink.split.i
   call void @proto_item_set_end(ptr noundef %33, ptr noundef %0, i32 noundef %.2)
   %34 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.644, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_metadata_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topic, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %9 = icmp sgt i16 %4, 9
@@ -7983,7 +7977,7 @@ define internal noundef i32 @dissect_kafka_metadata_request_topic(ptr noundef %0
   %.1 = phi i32 [ %20, %19 ], [ %18, %14 ]
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -7993,10 +7987,10 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_partition_stat
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_partition, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %12 = icmp slt i16 %4, 2
@@ -8110,10 +8104,10 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_partition_stat
 
 77:                                               ; preds = %75, %68
   %.5112 = phi i32 [ %.5116, %75 ], [ %.5113, %68 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5112
 }
 
@@ -8122,9 +8116,9 @@ define internal i32 @dissect_kafka_leader_and_isr_request_topic_state(ptr nounde
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -8159,9 +8153,9 @@ define internal i32 @dissect_kafka_leader_and_isr_request_topic_state(ptr nounde
   %30 = load i32, ptr %8, align 4
   %31 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef %29, i32 noundef %30, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.642, ptr noundef %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -8170,9 +8164,9 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_live_leader(pt
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_broker, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.684)
   %11 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -8204,14 +8198,14 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_request_live_leader(pt
   %31 = load i32, ptr %8, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.685, i32 noundef %11, ptr noundef %32, i32 noundef %19)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_leader_and_isr_request_isr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
@@ -8234,9 +8228,9 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_ungrouped_partit
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -8254,9 +8248,9 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_ungrouped_partit
   %22 = load i32, ptr %8, align 4
   %23 = call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.682, ptr noundef %23, i32 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -8266,10 +8260,10 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_topic(ptr nounde
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = add i16 %4, -1
@@ -8314,10 +8308,10 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_topic(ptr nounde
   br label %35
 
 35:                                               ; preds = %28, %26
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -8327,10 +8321,10 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_topic_state(ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = icmp sgt i16 %4, 2
@@ -8363,10 +8357,10 @@ define internal noundef i32 @dissect_kafka_stop_replica_request_topic_state(ptr 
 
 30:                                               ; preds = %13, %15
   %.031 = phi i32 [ %21, %15 ], [ %3, %13 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.031
 }
 
@@ -8405,9 +8399,9 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_topic(ptr nou
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -8444,9 +8438,9 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_topic(ptr nou
   %31 = load i32, ptr %8, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.687, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -8456,10 +8450,10 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_partition(ptr
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_partition, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %12 = icmp slt i16 %4, 5
@@ -8537,10 +8531,10 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_partition(ptr
 
 61:                                               ; preds = %54, %52
   %.173 = phi i32 [ %45, %54 ], [ %.174, %52 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.173
 }
 
@@ -8549,7 +8543,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = load i32, ptr @ett_kafka_broker, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.684)
   %11 = load i32, ptr @hf_kafka_broker_nodeid, align 4
@@ -8560,8 +8554,8 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = load i32, ptr @hf_kafka_broker_host, align 4
   %18 = call fastcc i32 @dissect_kafka_string(ptr noundef %10, i32 noundef %17, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %19 = load i32, ptr @hf_kafka_broker_port, align 4
@@ -8575,8 +8569,8 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   %27 = load i32, ptr %8, align 4
   %28 = call ptr @tvb_get_string_enc(ptr noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.685, i32 noundef %12, ptr noundef %28, i32 noundef %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 29:                                               ; preds = %5
@@ -8610,7 +8604,7 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_broker(ptr no
   %.2 = phi i32 [ %41, %40 ], [ %38, %36 ], [ %34, %.thread42 ], [ %14, %29 ], [ %22, %16 ]
   %42 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %.2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -8627,9 +8621,9 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_endpoint(ptr 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_broker_end_point, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.692)
   %11 = load i32, ptr @hf_kafka_broker_port, align 4
@@ -8673,9 +8667,9 @@ define internal noundef i32 @dissect_kafka_update_metadata_request_endpoint(ptr 
   %38 = load i32, ptr %8, align 4
   %39 = call ptr @tvb_get_string_enc(ptr noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.693, ptr noundef %34, ptr noundef %39, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -8684,9 +8678,9 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_topic(ptr nound
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -8711,16 +8705,16 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_topic(ptr nound
   %24 = load i32, ptr %8, align 4
   %25 = call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.687, ptr noundef %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_commit_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -8768,7 +8762,7 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_partition(ptr n
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %.2)
   %36 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.673, i32 noundef %9, i64 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -8776,8 +8770,8 @@ define internal noundef i32 @dissect_kafka_offset_commit_request_partition(ptr n
 define internal fastcc noundef i32 @dissect_kafka_offset_fetch_request_topics(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @ett_kafka_topics, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.669)
@@ -8800,15 +8794,15 @@ define internal fastcc noundef i32 @dissect_kafka_offset_fetch_request_topics(pt
   br label %19
 
 19:                                               ; preds = %18, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_fetch_request_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_group_protocols, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.540)
   %9 = icmp sgt i16 %4, 7
@@ -8846,7 +8840,7 @@ define internal noundef i32 @dissect_kafka_offset_fetch_request_group(ptr nounde
   %.4 = phi i32 [ %22, %21 ], [ %3, %19 ]
   %24 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %24, ptr noundef %0, i32 noundef %.4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
@@ -8857,12 +8851,12 @@ define internal noundef i32 @dissect_kafka_offset_fetch_request_topic(ptr nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_topic, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %13 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -8892,11 +8886,11 @@ define internal noundef i32 @dissect_kafka_offset_fetch_request_topic(ptr nounde
   %30 = call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef %29, i32 noundef 2)
   %31 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.701, ptr noundef %30, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -8920,9 +8914,9 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_group_protocol, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.705)
   %11 = load i32, ptr @hf_kafka_protocol_name, align 4
@@ -8948,9 +8942,9 @@ define internal noundef i32 @dissect_kafka_join_group_request_group_protocols(pt
   %25 = load i32, ptr %8, align 4
   %26 = call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.706, ptr noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -8961,7 +8955,7 @@ define internal fastcc i32 @dissect_kafka_bytes(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %35, label %8
 
 8:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = call i32 @tvb_get_varint(ptr noundef %2, i32 noundef %4, i32 noundef 10, ptr noundef nonnull %7, i32 noundef 2)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
@@ -9005,7 +8999,7 @@ define internal fastcc i32 @dissect_kafka_bytes(ptr noundef %0, i32 noundef %1, 
 
 dissect_kafka_compact_bytes.exit:                 ; preds = %11, %30
   %.0.i = phi i32 [ %14, %11 ], [ %.038.i, %30 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %37
 
 35:                                               ; preds = %6
@@ -9024,11 +9018,11 @@ define internal noundef i32 @dissect_kafka_leave_group_request_member(ptr nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_group_member, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.708)
   %13 = load i32, ptr @hf_kafka_member_id, align 4
@@ -9079,11 +9073,11 @@ define internal noundef i32 @dissect_kafka_leave_group_request_member(ptr nounde
   br label %40
 
 40:                                               ; preds = %39, %35
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -9092,9 +9086,9 @@ define internal noundef i32 @dissect_kafka_sync_group_request_group_assignment(p
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_group_assignment, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.712)
   %11 = load i32, ptr @hf_kafka_member_id, align 4
@@ -9120,9 +9114,9 @@ define internal noundef i32 @dissect_kafka_sync_group_request_group_assignment(p
   %25 = load i32, ptr %8, align 4
   %26 = call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.710, ptr noundef %26)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -9141,10 +9135,10 @@ define internal noundef i32 @dissect_kafka_create_topics_request_create_topic_re
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.714)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9184,17 +9178,17 @@ define internal noundef i32 @dissect_kafka_create_topics_request_create_topic_re
   %38 = load i32, ptr %9, align 4
   %39 = call ptr @tvb_get_string_enc(ptr noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %38, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.687, ptr noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_create_topics_request_replica_assignment(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_replica_assignment, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.717)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -9215,7 +9209,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_replica_assignm
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %.0)
   %19 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.718, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -9226,11 +9220,11 @@ define internal noundef i32 @dissect_kafka_create_topics_request_config(ptr noun
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_config, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.719)
   %13 = load i32, ptr @hf_kafka_config_key, align 4
@@ -9260,11 +9254,11 @@ define internal noundef i32 @dissect_kafka_create_topics_request_config(ptr noun
   %31 = load i32, ptr %10, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.720, ptr noundef %28, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -9279,7 +9273,7 @@ define internal noundef i32 @dissect_kafka_create_topics_request_replica(ptr nou
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_topics_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %9 = icmp sgt i16 %4, 5
@@ -9297,7 +9291,7 @@ define internal noundef i32 @dissect_kafka_delete_topics_request_topic(ptr nound
   %.0 = phi i32 [ %15, %10 ], [ %3, %5 ]
   %17 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -9316,10 +9310,10 @@ define internal noundef i32 @dissect_kafka_delete_records_request_topic(ptr noun
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9338,17 +9332,17 @@ define internal noundef i32 @dissect_kafka_delete_records_request_topic(ptr noun
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.687, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_records_request_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -9374,12 +9368,12 @@ define internal noundef i32 @dissect_kafka_delete_records_request_topic_partitio
   br label %22
 
 22:                                               ; preds = %21, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @tvb_get_ntohi64(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @tvb_get_ntohi64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
@@ -9387,10 +9381,10 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_request_topic
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9409,17 +9403,17 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_request_topic
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.642, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_request_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -9444,7 +9438,7 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_request_topic
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %21)
   %23 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.644, i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
@@ -9454,10 +9448,10 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_request_topic(p
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9506,10 +9500,10 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %35 = load i32, ptr %7, align 4
   %36 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef %35, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.687, ptr noundef %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -9517,8 +9511,8 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
 define internal noundef i32 @dissect_kafka_write_txn_markers_request_marker(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_marker, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.725)
   %10 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %3)
@@ -9543,8 +9537,8 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_request_marker(ptr 
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %25)
   %28 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.726, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
@@ -9554,10 +9548,10 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_request_topic(ptr n
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9606,10 +9600,10 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %35 = load i32, ptr %7, align 4
   %36 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef %35, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.687, ptr noundef %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -9619,10 +9613,10 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_topic(ptr n
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9651,17 +9645,17 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_topic(ptr n
   %28 = load i32, ptr %7, align 4
   %29 = call ptr @tvb_get_string_enc(ptr noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %28, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.687, ptr noundef %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_txn_offset_commit_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -9699,14 +9693,14 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_request_partition(p
   call void @proto_item_set_end(ptr noundef %30, ptr noundef %0, i32 noundef %.1)
   %31 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.673, i32 noundef %9, i64 noundef %13)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_create_acls_request_creation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_creation, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.728)
   %9 = load i32, ptr @hf_kafka_acl_resource_type, align 4
@@ -9747,14 +9741,14 @@ define internal noundef i32 @dissect_kafka_create_acls_request_creation(ptr noun
   %.1 = phi i32 [ %33, %32 ], [ %31, %21 ]
   %35 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_acls_request_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_filter, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.730)
   %9 = load i32, ptr @hf_kafka_acl_resource_type, align 4
@@ -9795,7 +9789,7 @@ define internal noundef i32 @dissect_kafka_delete_acls_request_filter(ptr nounde
   %.1 = phi i32 [ %33, %32 ], [ %31, %21 ]
   %35 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -9803,8 +9797,8 @@ define internal noundef i32 @dissect_kafka_delete_acls_request_filter(ptr nounde
 define internal noundef i32 @dissect_kafka_describe_config_request_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_resource, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %10 = load i32, ptr @hf_kafka_config_resource_type, align 4
@@ -9827,8 +9821,8 @@ define internal noundef i32 @dissect_kafka_describe_config_request_resource(ptr 
   %.0 = phi i32 [ %21, %20 ], [ %19, %5 ]
   %23 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %23, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -9845,8 +9839,8 @@ define internal i32 @dissect_kafka_describe_config_request_entry(ptr noundef %0,
 define internal noundef i32 @dissect_kafka_alter_config_request_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_resource, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %10 = load i32, ptr @hf_kafka_config_resource_type, align 4
@@ -9859,15 +9853,15 @@ define internal noundef i32 @dissect_kafka_alter_config_request_resource(ptr nou
   %17 = call fastcc i32 @dissect_kafka_array(ptr noundef %16, ptr noundef %0, ptr noundef %1, i32 noundef %14, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_config_request_entry, ptr noundef null)
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_alter_config_request_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_config_entry, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.734)
   %9 = load i32, ptr @hf_kafka_config_key, align 4
@@ -9876,7 +9870,7 @@ define internal noundef i32 @dissect_kafka_alter_config_request_entry(ptr nounde
   %12 = call fastcc i32 @dissect_kafka_string(ptr noundef %8, i32 noundef %11, ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef 0, ptr noundef null, ptr noundef null)
   %13 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %12
 }
 
@@ -9884,8 +9878,8 @@ define internal noundef i32 @dissect_kafka_alter_config_request_entry(ptr nounde
 define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_request_log_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_log_dir, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.322)
   %10 = load i32, ptr @hf_kafka_log_dir, align 4
@@ -9895,8 +9889,8 @@ define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_request_log_di
   %14 = call fastcc i32 @dissect_kafka_array(ptr noundef %13, ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_replica_log_dirs_request_topic, ptr noundef null)
   %15 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %14
 }
 
@@ -9906,10 +9900,10 @@ define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_request_topic(
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_resource, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -9956,10 +9950,10 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %34 = load i32, ptr %9, align 4
   %35 = call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef %34, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.642, ptr noundef %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -9969,10 +9963,10 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_request_topic(ptr n
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_resource, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10019,10 +10013,10 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %34 = load i32, ptr %9, align 4
   %35 = call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef %34, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.642, ptr noundef %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -10032,10 +10026,10 @@ define internal noundef i32 @dissect_kafka_create_partitions_request_topic(ptr n
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_resource, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10067,10 +10061,10 @@ define internal noundef i32 @dissect_kafka_create_partitions_request_topic(ptr n
   %31 = load i32, ptr %9, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.642, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10085,7 +10079,7 @@ define internal noundef i32 @dissect_kafka_create_partitions_request_broker(ptr 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_create_delegation_token_request_renewer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_renewer, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.738)
   %9 = load i32, ptr @hf_kafka_token_principal_type, align 4
@@ -10104,14 +10098,14 @@ define internal noundef i32 @dissect_kafka_create_delegation_token_request_renew
   %.0 = phi i32 [ %16, %15 ], [ %14, %5 ]
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_describe_delegation_token_request_owner(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_owner, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.740)
   %9 = load i32, ptr @hf_kafka_token_principal_type, align 4
@@ -10130,7 +10124,7 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_request_own
   %.0 = phi i32 [ %16, %15 ], [ %14, %5 ]
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10147,8 +10141,8 @@ define internal i32 @dissect_kafka_delete_groups_request_group(ptr noundef %0, p
 define internal noundef i32 @dissect_kafka_elect_leaders_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @ett_kafka_partitions, align 4
@@ -10168,8 +10162,8 @@ define internal noundef i32 @dissect_kafka_elect_leaders_request_topic(ptr nound
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10185,8 +10179,8 @@ define internal noundef i32 @dissect_kafka_elect_leaders_request_partition(ptr n
 define internal noundef i32 @dissect_kafka_inc_alter_config_request_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_resource, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %10 = load i32, ptr @hf_kafka_config_resource_type, align 4
@@ -10211,15 +10205,15 @@ define internal noundef i32 @dissect_kafka_inc_alter_config_request_resource(ptr
   %.0 = phi i32 [ %22, %21 ], [ %19, %5 ]
   %24 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %24, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_inc_alter_config_request_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_config_entry, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.734)
   %9 = load i32, ptr @hf_kafka_config_key, align 4
@@ -10241,7 +10235,7 @@ define internal noundef i32 @dissect_kafka_inc_alter_config_request_entry(ptr no
   %.0 = phi i32 [ %19, %18 ], [ %17, %5 ]
   %21 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %21, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10249,8 +10243,8 @@ define internal noundef i32 @dissect_kafka_inc_alter_config_request_entry(ptr no
 define internal noundef i32 @dissect_kafka_alter_partition_reassignments_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10260,8 +10254,8 @@ define internal noundef i32 @dissect_kafka_alter_partition_reassignments_request
   %14 = call fastcc i32 @dissect_kafka_array(ptr noundef %13, ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_partition_reassignments_request_partition, ptr noundef null)
   %15 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %14
 }
 
@@ -10269,8 +10263,8 @@ define internal noundef i32 @dissect_kafka_alter_partition_reassignments_request
 define internal noundef i32 @dissect_kafka_alter_partition_reassignments_request_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_partition, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %10 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -10312,8 +10306,8 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %.0.i = phi i32 [ %17, %.preheader.i.i15.i ], [ %17, %dissect_kafka_array.exit.sink.split ], [ %25, %.preheader ]
   %29 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %29, ptr noundef %0, i32 noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
@@ -10321,8 +10315,8 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
 define internal i32 @dissect_kafka_list_partition_reassignments_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10335,8 +10329,8 @@ define internal i32 @dissect_kafka_list_partition_reassignments_request_topic(pt
   %17 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %16)
   %18 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %18
 }
 
@@ -10352,8 +10346,8 @@ define internal noundef i32 @dissect_kafka_list_partition_reassignments_request_
 define internal noundef i32 @dissect_kafka_offset_delete_request_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10395,44 +10389,44 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %.0.i)
   %28 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0.i
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_multimap_lookup32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_multimap_lookup32(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wmem_multimap_insert32(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wmem_multimap_insert32(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_multimap_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare noalias ptr @wmem_multimap_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #6
+declare i32 @g_direct_hash(ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #6
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: null_pointer_is_valid
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wmem_multimap_lookup32_le(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @wmem_multimap_lookup32_le(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_produce_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10454,8 +10448,8 @@ define internal noundef i32 @dissect_kafka_produce_response_topic(ptr noundef %0
   %.0 = phi i32 [ %19, %18 ], [ %16, %5 ]
   %21 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %21, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10463,8 +10457,8 @@ define internal noundef i32 @dissect_kafka_produce_response_topic(ptr noundef %0
 define internal noundef i32 @dissect_kafka_produce_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_partition, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %10 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -10546,15 +10540,15 @@ dissect_kafka_error.exit:                         ; preds = %5, %17
   call void @proto_item_set_end(ptr noundef %52, ptr noundef %0, i32 noundef %.4)
   %53 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.673, i32 noundef %12, i64 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_produce_response_partition_record_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_record_error, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.743)
   %9 = load i32, ptr @hf_kafka_batch_index, align 4
@@ -10574,7 +10568,7 @@ define internal noundef i32 @dissect_kafka_produce_response_partition_record_err
   %.0 = phi i32 [ %17, %16 ], [ %15, %5 ]
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -10583,9 +10577,9 @@ define internal noundef i32 @dissect_kafka_fetch_response_topic(ptr noundef %0, 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
@@ -10631,9 +10625,9 @@ define internal noundef i32 @dissect_kafka_fetch_response_topic(ptr noundef %0, 
   %32 = load ptr, ptr %6, align 8
   %33 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.672, i32 noundef %33)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -10641,7 +10635,7 @@ define internal noundef i32 @dissect_kafka_fetch_response_topic(ptr noundef %0, 
 define internal noundef i32 @dissect_kafka_fetch_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_partition, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.643)
   %10 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -10686,7 +10680,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %17
 
 36:                                               ; preds = %28, %32
   %.1.ph = phi i32 [ %31, %28 ], [ %35, %32 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = load i32, ptr @ett_kafka_aborted_transactions, align 4
   %38 = call ptr @proto_tree_add_subtree(ptr noundef %9, ptr noundef %0, i32 noundef %.1.ph, i32 noundef -1, i32 noundef %37, ptr noundef nonnull %6, ptr noundef nonnull @.str.744)
   %39 = icmp samesign ugt i16 %4, 11
@@ -10694,7 +10688,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %17
   %41 = call fastcc i32 @dissect_kafka_array(ptr noundef %38, ptr noundef %0, ptr noundef %1, i32 noundef %.1.ph, i32 noundef %40, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_aborted_transaction, ptr noundef null)
   %42 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %41)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = icmp samesign ugt i16 %4, 10
   br i1 %43, label %45, label %.thread55
 
@@ -10722,14 +10716,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %17
   call void @proto_item_set_end(ptr noundef %55, ptr noundef %0, i32 noundef %.4)
   %56 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.673, i32 noundef %12, i64 noundef %25)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_aborted_transaction(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_aborted_transaction, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.541)
   %9 = load i32, ptr @hf_kafka_producer_id, align 4
@@ -10749,14 +10743,14 @@ define internal noundef i32 @dissect_kafka_aborted_transaction(ptr noundef %0, p
   %.0 = phi i32 [ %17, %16 ], [ %14, %5 ]
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offsets_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topic, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %9 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -10774,14 +10768,14 @@ define internal noundef i32 @dissect_kafka_offsets_response_topic(ptr noundef %0
   %.0 = phi i32 [ %15, %14 ], [ %13, %5 ]
   %17 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %17, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offsets_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -10888,7 +10882,7 @@ dissect_kafka_array.exit:                         ; preds = %.sink.split.i, %42
   call void @proto_item_set_end(ptr noundef %59, ptr noundef %0, i32 noundef %.2)
   %60 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.644, i32 noundef %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -10897,9 +10891,9 @@ define internal i32 @dissect_kafka_metadata_broker(ptr noundef %0, ptr noundef %
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_broker, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.581)
   %11 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -10937,9 +10931,9 @@ define internal i32 @dissect_kafka_metadata_broker(ptr noundef %0, ptr noundef %
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.685, i32 noundef %11, ptr noundef %34, i32 noundef %19)
   %35 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -10948,9 +10942,9 @@ define internal noundef i32 @dissect_kafka_metadata_topic(ptr noundef %0, ptr no
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -11020,9 +11014,9 @@ dissect_kafka_error.exit:                         ; preds = %5, %14
   %.3 = phi i32 [ %48, %47 ], [ %46, %43 ], [ %36, %.thread44 ], [ %41, %37 ]
   %49 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %49, ptr noundef %0, i32 noundef %.3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -11030,8 +11024,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %14
 define internal noundef i32 @dissect_kafka_metadata_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_partition, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %10 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -11101,8 +11095,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   call void @proto_item_set_end(ptr noundef %50, ptr noundef %0, i32 noundef %.2)
   %51 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.644, i32 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -11135,9 +11129,9 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_response_partition(ptr
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_partition, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %or.cond = icmp ult i16 %4, 5
@@ -11198,16 +11192,16 @@ dissect_kafka_error_ret.exit:                     ; preds = %16, %24
   br label %44
 
 44:                                               ; preds = %35, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_leader_and_isr_response_topic_state(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topic, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %9 = icmp sgt i16 %4, 4
@@ -11233,7 +11227,7 @@ define internal noundef i32 @dissect_kafka_leader_and_isr_response_topic_state(p
   %.2 = phi i32 [ %17, %16 ], [ %3, %14 ]
   %19 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %19, ptr noundef %0, i32 noundef %.2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -11242,9 +11236,9 @@ define internal noundef i32 @dissect_kafka_stop_replica_response_partition(ptr n
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_partition, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -11290,9 +11284,9 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %22
   %38 = sext i16 %19 to i32
   %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.628)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.749, ptr noundef %37, i32 noundef %15, ptr noundef %39)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11301,9 +11295,9 @@ define internal noundef i32 @dissect_kafka_controlled_shutdown_response_partitio
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_partition, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.750)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -11331,9 +11325,9 @@ define internal noundef i32 @dissect_kafka_controlled_shutdown_response_partitio
   %27 = load i32, ptr %8, align 4
   %28 = call ptr @tvb_get_string_enc(ptr noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.751, ptr noundef %28, i32 noundef %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11342,9 +11336,9 @@ define internal noundef i32 @dissect_kafka_offset_commit_response_response(ptr n
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -11369,16 +11363,16 @@ define internal noundef i32 @dissect_kafka_offset_commit_response_response(ptr n
   %24 = load i32, ptr %8, align 4
   %25 = call ptr @tvb_get_string_enc(ptr noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.642, ptr noundef %25)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_commit_response_partition_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -11416,7 +11410,7 @@ dissect_kafka_error_ret.exit:                     ; preds = %5, %16
   %28 = sext i16 %13 to i32
   %29 = call ptr @val_to_str(i32 noundef %28, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.628)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.752, i32 noundef %9, ptr noundef %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11427,11 +11421,11 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_topic(ptr nound
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4
   %11 = load i32, ptr @ett_kafka_topic, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
@@ -11462,11 +11456,11 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_topic(ptr nound
   %30 = call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef %29, i32 noundef 2)
   %31 = load i32, ptr %10, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.701, ptr noundef %30, i32 noundef %31)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11474,8 +11468,8 @@ define internal noundef i32 @dissect_kafka_offset_fetch_response_topic(ptr nound
 define internal noundef i32 @dissect_kafka_offset_fetch_response_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topics, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.540)
   %10 = load i32, ptr @hf_kafka_group_id, align 4
@@ -11513,15 +11507,15 @@ dissect_kafka_error.exit:                         ; preds = %5, %21
   %.0 = phi i32 [ %28, %27 ], [ %26, %dissect_kafka_error.exit ]
   %30 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %30, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_fetch_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -11586,7 +11580,7 @@ dissect_kafka_error.exit:                         ; preds = %22, %30
   %.1 = phi i32 [ %42, %41 ], [ %35, %40 ]
   %44 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %44, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -11595,9 +11589,9 @@ define internal noundef i32 @dissect_kafka_find_coordinator_response_coordinator
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_broker, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.755)
   %11 = load i32, ptr @hf_kafka_coordinator_key, align 4
@@ -11653,9 +11647,9 @@ dissect_kafka_error.exit:                         ; preds = %5, %28
   br label %47
 
 47:                                               ; preds = %46, %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %36
 }
 
@@ -11664,9 +11658,9 @@ define internal noundef i32 @dissect_kafka_join_group_response_member(ptr nounde
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_group_member, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.708)
   %11 = load i32, ptr @hf_kafka_member_id, align 4
@@ -11703,9 +11697,9 @@ define internal noundef i32 @dissect_kafka_join_group_response_member(ptr nounde
   %31 = load i32, ptr %8, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.710, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -11716,11 +11710,11 @@ define internal noundef i32 @dissect_kafka_leave_group_response_member(ptr nound
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_group_member, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.708)
   %13 = load i32, ptr @hf_kafka_member_id, align 4
@@ -11777,11 +11771,11 @@ dissect_kafka_error.exit:                         ; preds = %5, %22
   br label %45
 
 45:                                               ; preds = %44, %40
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -11791,10 +11785,10 @@ define internal noundef i32 @dissect_kafka_describe_groups_response_group(ptr no
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_group, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.540)
   %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -11860,10 +11854,10 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
 kafka_tvb_get_string.exit:                        ; preds = %.thread, %46
   %.0.i = phi ptr [ %50, %46 ], [ @.str.639, %.thread ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.696, ptr noundef %.0.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -11874,12 +11868,12 @@ define internal i32 @dissect_kafka_describe_groups_response_member(ptr noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 -1, ptr %10, align 4
   %11 = load i32, ptr @ett_kafka_group_member, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.708)
@@ -11970,11 +11964,11 @@ kafka_tvb_get_string.exit51:                      ; preds = %kafka_tvb_get_strin
 
 58:                                               ; preds = %kafka_tvb_get_string.exit51, %kafka_tvb_get_string.exit
   %.153 = phi i32 [ %.154, %kafka_tvb_get_string.exit51 ], [ %29, %kafka_tvb_get_string.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.153
 }
 
@@ -11985,11 +11979,11 @@ define internal noundef i32 @dissect_kafka_list_groups_response_group(ptr nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i32, ptr @ett_kafka_group, align 4
   %12 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull @.str.540)
   %13 = load i32, ptr @hf_kafka_consumer_group, align 4
@@ -12019,18 +12013,18 @@ define internal noundef i32 @dissect_kafka_list_groups_response_group(ptr nounde
   %31 = load i32, ptr %10, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.759, ptr noundef %28, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_api_version, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.78)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -12159,7 +12153,7 @@ kafka_is_api_version_supported.exit:              ; preds = %41
 
 75:                                               ; preds = %73, %71
   %.0 = phi i32 [ %74, %73 ], [ %20, %71 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -12169,10 +12163,10 @@ define internal noundef i32 @dissect_kafka_create_topics_response_topic(ptr noun
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12250,17 +12244,17 @@ kafka_tvb_get_string.exit:                        ; preds = %.thread61, %51
   %56 = sext i16 %22 to i32
   %57 = call ptr @val_to_str(i32 noundef %56, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.628)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.765, ptr noundef %.0.i, ptr noundef %57)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_create_topics_response_topic_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_config_entry, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.766)
   %9 = load i32, ptr @hf_kafka_config_key, align 4
@@ -12281,7 +12275,7 @@ define internal noundef i32 @dissect_kafka_create_topics_response_topic_config(p
   %24 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %23)
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %24
 }
 
@@ -12290,9 +12284,9 @@ define internal noundef i32 @dissect_kafka_delete_topics_response_topic_error_co
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.768)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12355,9 +12349,9 @@ dissect_kafka_error_ret.exit:                     ; preds = %20, %24
   %44 = sext i16 %21 to i32
   %45 = call ptr @val_to_str(i32 noundef %44, ptr noundef nonnull @kafka_errors, ptr noundef nonnull @.str.628)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.765, ptr noundef %43, ptr noundef %45)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.2
 }
 
@@ -12367,10 +12361,10 @@ define internal noundef i32 @dissect_kafka_delete_records_response_topic(ptr nou
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12389,17 +12383,17 @@ define internal noundef i32 @dissect_kafka_delete_records_response_topic(ptr nou
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.687, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_records_response_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -12431,7 +12425,7 @@ define internal noundef i32 @dissect_kafka_delete_records_response_topic_partiti
   br label %28
 
 28:                                               ; preds = %25, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
@@ -12441,10 +12435,10 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_response_topi
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12463,17 +12457,17 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_response_topi
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.642, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_response_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -12515,7 +12509,7 @@ define internal noundef i32 @dissect_kafka_offset_for_leader_epoch_response_topi
   br label %33
 
 33:                                               ; preds = %30, %29
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
@@ -12525,10 +12519,10 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_response_topic(
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12547,17 +12541,17 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_response_topic(
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.687, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_add_partitions_to_txn_response_topic_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -12585,7 +12579,7 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_response_topic_
   br label %24
 
 24:                                               ; preds = %21, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -12593,8 +12587,8 @@ define internal noundef i32 @dissect_kafka_add_partitions_to_txn_response_topic_
 define internal noundef i32 @dissect_kafka_write_txn_markers_response_marker(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_marker, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.725)
   %10 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %3)
@@ -12610,8 +12604,8 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_response_marker(ptr
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %16)
   %19 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.726, i64 noundef %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -12621,10 +12615,10 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_response_topic(ptr 
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12643,17 +12637,17 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_response_topic(ptr 
   %23 = load i32, ptr %7, align 4
   %24 = call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.687, ptr noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_write_txn_markers_response_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -12681,7 +12675,7 @@ define internal noundef i32 @dissect_kafka_write_txn_markers_response_partition(
   br label %24
 
 24:                                               ; preds = %21, %20
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
@@ -12691,10 +12685,10 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_topic(ptr 
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %8, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -12723,17 +12717,17 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_topic(ptr 
   %28 = load i32, ptr %7, align 4
   %29 = call ptr @tvb_get_string_enc(ptr noundef %26, ptr noundef %0, i32 noundef %27, i32 noundef %28, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.687, ptr noundef %29)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_txn_offset_commit_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -12770,7 +12764,7 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_partition(
   br label %28
 
 28:                                               ; preds = %25, %24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -12778,8 +12772,8 @@ define internal noundef i32 @dissect_kafka_txn_offset_commit_response_partition(
 define internal noundef i32 @dissect_kafka_describe_acls_response_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_resource, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %10 = load i32, ptr @hf_kafka_acl_resource_type, align 4
@@ -12815,15 +12809,15 @@ define internal noundef i32 @dissect_kafka_describe_acls_response_resource(ptr n
   %.1 = phi i32 [ %28, %27 ], [ %25, %22 ]
   %30 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %30, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_kafka_describe_acls_response_resource_acl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.772)
   %9 = load i32, ptr @hf_kafka_acl_principal, align 4
@@ -12846,14 +12840,14 @@ define internal i32 @dissect_kafka_describe_acls_response_resource_acl(ptr nound
 
 23:                                               ; preds = %21, %5
   %.0 = phi i32 [ %22, %21 ], [ %20, %5 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_create_acls_response_creation(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_creation, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.728)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -12886,7 +12880,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   %.0 = phi i32 [ %23, %22 ], [ %21, %dissect_kafka_error.exit ]
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -12894,8 +12888,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
 define internal noundef i32 @dissect_kafka_delete_acls_response_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_acl_creation, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.730)
   %10 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -12933,15 +12927,15 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %.0 = phi i32 [ %28, %27 ], [ %25, %dissect_kafka_error.exit ]
   %30 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %30, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_acls_response_match(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_acl_filter_match, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.563)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -13000,7 +12994,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   %.1 = phi i32 [ %44, %43 ], [ %42, %32 ]
   %46 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %46, ptr noundef %0, i32 noundef %.1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.1
 }
 
@@ -13008,8 +13002,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
 define internal noundef i32 @dissect_kafka_describe_configs_response_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_resource, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %10 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -13052,8 +13046,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %13
   %.0 = phi i32 [ %33, %32 ], [ %30, %dissect_kafka_error.exit ]
   %35 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %35, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -13063,10 +13057,10 @@ define internal noundef i32 @dissect_kafka_describe_configs_response_entry(ptr n
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_config_entry, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.734)
   %12 = load i32, ptr @hf_kafka_config_key, align 4
@@ -13122,10 +13116,10 @@ define internal noundef i32 @dissect_kafka_describe_configs_response_entry(ptr n
   %47 = load i32, ptr %9, align 4
   %48 = call ptr @tvb_get_string_enc(ptr noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef %47, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.775, ptr noundef %48)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.3
 }
 
@@ -13134,9 +13128,9 @@ define internal noundef i32 @dissect_kafka_describe_configs_response_synonym(ptr
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_config_synonym, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.776)
   %11 = load i32, ptr @hf_kafka_config_key, align 4
@@ -13164,16 +13158,16 @@ define internal noundef i32 @dissect_kafka_describe_configs_response_synonym(ptr
   %27 = load i32, ptr %8, align 4
   %28 = call ptr @tvb_get_string_enc(ptr noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.775, ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_alter_configs_response_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_resource, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -13201,7 +13195,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   %24 = call fastcc i32 @dissect_kafka_string(ptr noundef %8, i32 noundef %23, ptr noundef %0, ptr noundef %1, i32 noundef %22, i32 noundef 0, ptr noundef null, ptr noundef null)
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %24
 }
 
@@ -13211,10 +13205,10 @@ define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_response_topic
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_log_dir, align 4
@@ -13231,17 +13225,17 @@ define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_response_topic
   %22 = load i32, ptr %9, align 4
   %23 = call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.642, ptr noundef %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_alter_replica_log_dirs_response_partition(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -13268,7 +13262,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.644, i32 noundef %9)
   %23 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %23, ptr noundef %0, i32 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
@@ -13278,10 +13272,10 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_response_log_dir(pt
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_log_dir, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.322)
   %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -13314,10 +13308,10 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
   %31 = load i32, ptr %9, align 4
   %32 = call ptr @tvb_get_string_enc(ptr noundef %29, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.777, ptr noundef %32)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %25
 }
 
@@ -13327,10 +13321,10 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_response_topic(ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %10 = load i32, ptr @ett_kafka_topic, align 4
   %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %12 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13347,17 +13341,17 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_response_topic(ptr 
   %22 = load i32, ptr %9, align 4
   %23 = call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.642, ptr noundef %23)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %16
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_describe_log_dirs_response_partition(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3)
@@ -13377,7 +13371,7 @@ define internal noundef i32 @dissect_kafka_describe_log_dirs_response_partition(
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %21)
   %23 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.644, i32 noundef %9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
 
@@ -13386,9 +13380,9 @@ define internal noundef i32 @dissect_kafka_create_partitions_response_topic(ptr 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i32, ptr @ett_kafka_topic, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %11 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13430,9 +13424,9 @@ dissect_kafka_error.exit:                         ; preds = %5, %18
   %34 = load i32, ptr %8, align 4
   %35 = call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %33, i32 noundef %34, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.642, ptr noundef %35)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -13440,8 +13434,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %18
 define internal noundef i32 @dissect_kafka_describe_delegation_token_response_token(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_token, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.779)
   %10 = load i32, ptr @hf_kafka_token_principal_type, align 4
@@ -13478,15 +13472,15 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_response_to
   %.0 = phi i32 [ %34, %33 ], [ %31, %5 ]
   %36 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %36, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_describe_delegation_token_response_renewer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_renewer, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.738)
   %9 = load i32, ptr @hf_kafka_token_principal_type, align 4
@@ -13505,14 +13499,14 @@ define internal noundef i32 @dissect_kafka_describe_delegation_token_response_re
   %.0 = phi i32 [ %16, %15 ], [ %14, %5 ]
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_delete_groups_response_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_group, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.540)
   %9 = load i32, ptr @hf_kafka_consumer_group, align 4
@@ -13545,7 +13539,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %.0 = phi i32 [ %23, %22 ], [ %21, %dissect_kafka_error.exit ]
   %25 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %25, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -13553,8 +13547,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
 define internal noundef i32 @dissect_kafka_elect_leaders_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13576,15 +13570,15 @@ define internal noundef i32 @dissect_kafka_elect_leaders_response_topic(ptr noun
   %.0 = phi i32 [ %19, %18 ], [ %16, %5 ]
   %21 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %21, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_elect_leaders_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -13620,14 +13614,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
   %.0 = phi i32 [ %26, %25 ], [ %24, %dissect_kafka_error.exit ]
   %28 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_inc_alter_configs_response_resource(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_resource, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.732)
   %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
@@ -13665,7 +13659,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
   %.0 = phi i32 [ %28, %27 ], [ %26, %dissect_kafka_error.exit ]
   %30 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %30, ptr noundef %0, i32 noundef %.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
 
@@ -13673,8 +13667,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %12
 define internal noundef i32 @dissect_kafka_alter_partition_reassignments_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13684,15 +13678,15 @@ define internal noundef i32 @dissect_kafka_alter_partition_reassignments_respons
   %14 = call fastcc i32 @dissect_kafka_array(ptr noundef %13, ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef 0, i16 noundef signext %4, ptr noundef nonnull @dissect_kafka_alter_partition_reassignments_response_partition, ptr noundef null)
   %15 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_alter_partition_reassignments_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -13719,7 +13713,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %23 = call fastcc i32 @dissect_kafka_string(ptr noundef %8, i32 noundef %22, ptr noundef %0, ptr noundef %1, i32 noundef %21, i32 noundef 0, ptr noundef null, ptr noundef null)
   %24 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %24, ptr noundef %0, i32 noundef %23)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %23
 }
 
@@ -13727,8 +13721,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
 define internal noundef i32 @dissect_kafka_list_partition_reassignments_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13741,8 +13735,8 @@ define internal noundef i32 @dissect_kafka_list_partition_reassignments_response
   %17 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %16)
   %18 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %18, ptr noundef %0, i32 noundef %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %17
 }
 
@@ -13750,8 +13744,8 @@ define internal noundef i32 @dissect_kafka_list_partition_reassignments_response
 define internal noundef i32 @dissect_kafka_list_partition_reassignments_response_partition(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_partition, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %10 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -13796,8 +13790,8 @@ dissect_kafka_error.exit:                         ; preds = %5, %17
   %39 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef %37)
   %40 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %40, ptr noundef %0, i32 noundef %39)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %39
 }
 
@@ -13813,8 +13807,8 @@ define internal noundef i32 @dissect_kafka_list_partition_reassignments_response
 define internal noundef i32 @dissect_kafka_offset_delete_response_topic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = load i32, ptr @ett_kafka_topic, align 4
   %9 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.558)
   %10 = load i32, ptr @hf_kafka_topic_name, align 4
@@ -13826,15 +13820,15 @@ define internal noundef i32 @dissect_kafka_offset_delete_response_topic(ptr noun
   call void @proto_item_set_end(ptr noundef %15, ptr noundef %0, i32 noundef %14)
   %16 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %16, ptr noundef %0, i32 noundef %14)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_offset_delete_response_topic_partition(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i16 signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_partition, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.643)
   %9 = load i32, ptr @hf_kafka_partition_id, align 4
@@ -13858,14 +13852,14 @@ dissect_kafka_error.exit:                         ; preds = %5, %15
   %20 = add i32 %3, 6
   %21 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %21, ptr noundef %0, i32 noundef %20)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_kafka_describe_cluster_response_broker(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4) #0 {
   %6 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr @ett_kafka_topics, align 4
   %8 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %6, ptr noundef nonnull @.str.581)
   %9 = load i32, ptr @hf_kafka_broker_nodeid, align 4
@@ -13883,9 +13877,15 @@ define internal noundef i32 @dissect_kafka_describe_cluster_response_broker(ptr 
   %21 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %20)
   %22 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %22, ptr noundef %0, i32 noundef %21)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %21
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
@@ -13894,17 +13894,16 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { allocsize(1) }
-attributes #9 = { nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { allocsize(2) }
+attributes #9 = { noreturn }
+attributes #10 = { allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

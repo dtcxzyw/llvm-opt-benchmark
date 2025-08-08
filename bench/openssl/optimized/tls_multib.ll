@@ -89,8 +89,8 @@ declare i64 @tls_get_max_records_default(ptr noundef, i8 noundef zeroext, i64 no
 define range(i32 0, 2) i32 @tls_write_records_multiblock(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [13 x i8], align 8
   %5 = alloca %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM, align 8
-  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %4) #3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i64 %2, label %.loopexit12 [
     i64 8, label %.lr.ph.i.preheader
     i64 4, label %.lr.ph.i.preheader
@@ -275,8 +275,8 @@ tls_write_records_multiblock_int.exit.sink.split: ; preds = %83, %56, %79
   br label %tls_write_records_multiblock_int.exit
 
 tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_multiblock_int.exit.sink.split, %tls_is_multiblock_capable.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %109
 
 .loopexit:                                        ; preds = %.preheader.i, %90
@@ -284,13 +284,13 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   store i64 0, ptr %105, align 8, !tbaa !44
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %77, ptr %106, align 8, !tbaa !45
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %108
 
 .loopexit12:                                      ; preds = %.lr.ph.i, %12, %17, %43, %40, %37, %33, %29, %._crit_edge.i, %3
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %4) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %107 = tail call i32 @tls_write_records_default(ptr noundef %0, ptr noundef %1, i64 noundef %2) #3
   %.not = icmp eq i32 %107, 0
   br i1 %.not, label %109, label %108
@@ -303,13 +303,7 @@ tls_write_records_multiblock_int.exit:            ; preds = %tls_write_records_m
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare i32 @tls_write_records_default(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #1
 
@@ -324,6 +318,12 @@ declare void @ERR_new() local_unnamed_addr #1
 declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @ossl_rlayer_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

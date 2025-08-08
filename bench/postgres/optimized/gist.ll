@@ -125,10 +125,7 @@ define dso_local noundef i64 @gisthandler(ptr noundef readnone captures(none) %0
   ret i64 %42
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-declare ptr @gistbuild(ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @gistbuild(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistbuildempty(ptr noundef %0) #0 {
@@ -184,36 +181,33 @@ define dso_local noundef zeroext i1 @gistinsert(ptr noundef %0, ptr noundef %1, 
   ret i1 false
 }
 
-declare ptr @gistbulkdelete(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare ptr @gistbulkdelete(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @gistvacuumcleanup(ptr noundef, ptr noundef) #2
+declare ptr @gistvacuumcleanup(ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @gistcanreturn(ptr noundef, i32 noundef) #2
+declare zeroext i1 @gistcanreturn(ptr noundef, i32 noundef) #1
 
-declare void @gistcostestimate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare void @gistcostestimate(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @gistoptions(i64 noundef, i1 noundef zeroext) #2
+declare ptr @gistoptions(i64 noundef, i1 noundef zeroext) #1
 
-declare zeroext i1 @gistproperty(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+declare zeroext i1 @gistproperty(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i1 @gistvalidate(i32 noundef) #2
+declare zeroext i1 @gistvalidate(i32 noundef) #1
 
-declare void @gistadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+declare void @gistadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare ptr @gistbeginscan(ptr noundef, i32 noundef, i32 noundef) #2
+declare ptr @gistbeginscan(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare void @gistrescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
+declare void @gistrescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-declare zeroext i1 @gistgettuple(ptr noundef, i32 noundef) #2
+declare zeroext i1 @gistgettuple(ptr noundef, i32 noundef) #1
 
-declare i64 @gistgetbitmap(ptr noundef, ptr noundef) #2
+declare i64 @gistgetbitmap(ptr noundef, ptr noundef) #1
 
-declare void @gistendscan(ptr noundef) #2
+declare void @gistendscan(ptr noundef) #1
 
-declare zeroext i16 @gisttranslatecmptype(i32 noundef, i32 noundef, i32 noundef) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare zeroext i16 @gisttranslatecmptype(i32 noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @createTempGistContext() local_unnamed_addr #0 {
@@ -222,20 +216,20 @@ define dso_local ptr @createTempGistContext() local_unnamed_addr #0 {
   ret ptr %2
 }
 
-declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @ExtendBufferedRel(ptr noundef byval(%struct.BufferManagerRelation) align 8, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ExtendBufferedRel(ptr noundef byval(%struct.BufferManagerRelation) align 8, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-declare void @GISTInitBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @GISTInitBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #2
+declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
-declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #2
+declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #0 {
@@ -459,10 +453,10 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   ret ptr %15
 }
 
-declare ptr @gistFormTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare ptr @gistFormTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
@@ -475,8 +469,8 @@ define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef 
   %13 = alloca %struct.GISTInsertStack, align 8
   %14 = alloca %struct.GISTInsertState, align 8
   %15 = zext i1 %5 to i8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -783,7 +777,7 @@ gistformdownlink.exit.i:                          ; preds = %._crit_edge.thread.
   br label %113
 
 gistfixsplit.exit:                                ; preds = %gistformdownlink.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %186 = load ptr, ptr %111, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4
@@ -821,7 +815,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %205 = load i32, ptr %202, align 8
   %206 = load i32, ptr %198, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = call i32 @BufferGetBlockNumber(i32 noundef %208) #8
@@ -845,7 +839,7 @@ list_length.exit.i:                               ; preds = %gistfixsplit.exit
   br label %gistinserttuples.exit
 
 gistinserttuples.exit:                            ; preds = %213, %215
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %211, label %216, label %217
 
 216:                                              ; preds = %gistinserttuples.exit
@@ -879,7 +873,7 @@ gistfinishsplit.exit:                             ; preds = %217, %gistfixsplit.
   store i16 0, ptr %112, align 2
   %232 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i8 1, ptr %232, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %233 = load i32, ptr %56, align 4
   call void @UnlockReleaseBuffer(i32 noundef %233) #8
   %234 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 32
@@ -1012,9 +1006,9 @@ BufferGetPage.exit136:                            ; preds = %291, %297
   br i1 %.not122, label %305, label %.backedge
 
 305:                                              ; preds = %BufferGetPage.exit136, %285
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %284, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %306 = load i32, ptr %56, align 4
   %307 = call i32 @BufferGetBlockNumber(i32 noundef %306) #8
   call void @CheckForSerializableConflictIn(ptr noundef %0, ptr noundef null, i32 noundef %307) #8
@@ -1031,8 +1025,8 @@ BufferGetPage.exit136:                            ; preds = %291, %297
   br label %gistinserttuple.exit
 
 gistinserttuple.exit:                             ; preds = %305, %313
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %311, label %314, label %320
 
 314:                                              ; preds = %gistinserttuple.exit
@@ -1139,9 +1133,9 @@ BufferGetPage.exit138:                            ; preds = %331, %337
   br label %.backedge
 
 369:                                              ; preds = %357, %352, %325
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %370 = load i32, ptr %56, align 4
   %371 = call i32 @BufferGetBlockNumber(i32 noundef %370) #8
   call void @CheckForSerializableConflictIn(ptr noundef %0, ptr noundef null, i32 noundef %371) #8
@@ -1158,8 +1152,8 @@ BufferGetPage.exit138:                            ; preds = %331, %337
   br label %gistinserttuple.exit140
 
 gistinserttuple.exit140:                          ; preds = %369, %377
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %378 = load i32, ptr %56, align 4
   call void @LockBuffer(i32 noundef %378, i32 noundef 0) #8
   br label %379
@@ -1175,12 +1169,12 @@ gistinserttuple.exit140:                          ; preds = %369, %377
   br i1 %.not127, label %384, label %379, !llvm.loop !12
 
 384:                                              ; preds = %379
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 }
 
-declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @gistplacetopage(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8, ptr noundef captures(none) %9, i1 noundef zeroext %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #0 {
@@ -1246,7 +1240,7 @@ BufferGetPage.exit:                               ; preds = %20, %26
   br i1 %or.cond.not, label %54, label %.thread
 
 54:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 816, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %55 = getelementptr i8, ptr %.0.i.i, i64 12
   %.val.i = load i16, ptr %55, align 4
   %56 = icmp ult i16 %.val.i, 25
@@ -1370,13 +1364,13 @@ BufferGetPage.exit:                               ; preds = %20, %26
   br label %123
 
 123:                                              ; preds = %116, %._crit_edge.i, %54
-  call void @llvm.lifetime.end.p0(i64 816, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %124 = call zeroext i1 @gistnospace(ptr noundef nonnull %.0.i.i, ptr noundef %4, i32 noundef %5, i16 noundef zeroext %6, i64 noundef %1) #8
   br i1 %124, label %.thread, label %.thread319
 
 .thread:                                          ; preds = %47, %123
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %125 = icmp ne i32 %18, 0
   %126 = call ptr @gistextractpage(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %15) #8
   %127 = add i16 %6, -1
@@ -1990,8 +1984,8 @@ BufferGetPage.exit313:                            ; preds = %405, %411
   br i1 %.not296, label %.loopexit, label %.lr.ph378, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph378, %.preheader, %._crit_edge373
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %501
 
 .thread319:                                       ; preds = %45, %123
@@ -2071,7 +2065,7 @@ BufferGetPage.exit313:                            ; preds = %405, %411
   br i1 %488, label %489, label %493
 
 489:                                              ; preds = %485, %478
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   br i1 %453, label %490, label %491
 
 490:                                              ; preds = %489
@@ -2081,7 +2075,7 @@ BufferGetPage.exit313:                            ; preds = %405, %411
 491:                                              ; preds = %490, %489
   %.0262 = phi i32 [ 1, %490 ], [ 0, %489 ]
   %492 = call i64 @gistXLogUpdate(i32 noundef %3, ptr noundef nonnull %17, i32 noundef %.0262, ptr noundef %4, i32 noundef %5, i32 noundef %8) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %495
 
 493:                                              ; preds = %485, %481, %472
@@ -2163,30 +2157,30 @@ BufferGetPage.exit315:                            ; preds = %504, %510
   ret i1 %.0263.in317
 }
 
-declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
+declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold
-declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
-declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @gistnospace(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @gistnospace(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-declare ptr @gistextractpage(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gistextractpage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
-declare ptr @gistjoinvector(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @gistjoinvector(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.GistSplitVector, align 8
-  call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @check_stack_depth() #8
   %7 = icmp eq i32 %3, 1
   br i1 %7, label %8, label %19
@@ -2346,79 +2340,79 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 100:                                              ; preds = %88, %86
   %.164 = phi ptr [ %89, %88 ], [ %82, %86 ]
-  call void @llvm.lifetime.end.p0(i64 648, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.164
 }
 
-declare ptr @PageGetTempPageCopySpecial(ptr noundef) local_unnamed_addr #2
+declare ptr @PageGetTempPageCopySpecial(ptr noundef) local_unnamed_addr #1
 
-declare i32 @gistNewBuffer(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @gistNewBuffer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @PredicateLockPageSplit(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @palloc(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
-declare ptr @gistfillitupvec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gistfillitupvec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
+declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @XLogEnsureRecordSpace(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @XLogEnsureRecordSpace(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PageRestoreTempPage(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @PageRestoreTempPage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i64 @gistXLogSplit(i1 noundef zeroext, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @gistXLogSplit(i1 noundef zeroext, ptr noundef, i32 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @gistGetFakeLSN(ptr noundef) local_unnamed_addr #2
+declare i64 @gistGetFakeLSN(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i1 @PageIndexTupleOverwrite(ptr noundef, i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #2
+declare zeroext i1 @PageIndexTupleOverwrite(ptr noundef, i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @PageIndexTupleDelete(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare void @gistfillbuffer(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #2
+declare void @gistfillbuffer(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i64 @gistXLogUpdate(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @gistXLogUpdate(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #2
+declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #2
+declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
-declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @ReadBuffer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @gistcheckpage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @gistcheckpage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @BufferGetLSNAtomic(i32 noundef) local_unnamed_addr #2
+declare i64 @BufferGetLSNAtomic(i32 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @gistchoose(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i16 @gistchoose(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
+declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-declare ptr @gistgetadjusted(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @gistgetadjusted(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
+declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-declare void @check_stack_depth() local_unnamed_addr #2
+declare void @check_stack_depth() local_unnamed_addr #1
 
-declare i32 @errcode(i32 noundef) local_unnamed_addr #2
+declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
-declare void @gistSplitByKey(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @gistSplitByKey(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i1 @gistfitpage(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare zeroext i1 @gistfitpage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @CreateTupleDescTruncatedCopy(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @CreateTupleDescTruncatedCopy(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @fmgr_info_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @fmgr_info_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #2
+declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @index_getprocid(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #2
+declare i32 @index_getprocid(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeGISTstate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -2427,12 +2421,12 @@ define dso_local void @freeGISTstate(ptr noundef readonly captures(none) %0) loc
   ret void
 }
 
-declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
+declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gistfinishsplit(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -2479,7 +2473,7 @@ list_length.exit:                                 ; preds = %5
   store i16 0, ptr %29, align 2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 1, ptr %34, align 8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 35:                                               ; preds = %.lr.ph, %49
@@ -2512,7 +2506,7 @@ list_length.exit:                                 ; preds = %5
   br i1 %50, label %35, label %._crit_edge, !llvm.loop !11
 }
 
-declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #2
+declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @gistFindCorrectParent(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
@@ -2923,16 +2917,16 @@ BufferGetPage.exit82:                             ; preds = %206, %212
   ret void
 }
 
-declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
+declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
-declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #2
+declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #1
 
-declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #2
+declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @gistinserttuples(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
@@ -2982,17 +2976,23 @@ define internal fastcc noundef zeroext i1 @gistinserttuples(ptr noundef nonnull 
   br label %36
 
 36:                                               ; preds = %33, %34, %32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %25
 }
 
-declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @index_compute_xid_horizon_for_tuples(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @index_compute_xid_horizon_for_tuples(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @PageIndexMultiDelete(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i64 @gistXLogDelete(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @gistXLogDelete(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
@@ -3004,11 +3004,11 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #7
 declare i16 @llvm.umax.i16(i16, i16) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }

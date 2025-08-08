@@ -715,7 +715,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.
   %y.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 0, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   store ptr null, ptr %end.i, align 8
   %call.i = call double @strtod(ptr noundef %input, ptr noundef nonnull %end.i) #13
   store double %call.i, ptr %p, align 8
@@ -748,18 +748,18 @@ if.end12.i:                                       ; preds = %while.cond.i
   br i1 %cmp15.not.i, label %if.then, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread: ; preds = %while.cond.i, %if.end12.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %return
 
 if.then:                                          ; preds = %if.end12.i
   store ptr %8, ptr %input.addr, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   %call1 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %output)
   %call2 = call fastcc noundef zeroext i1 @_ZN7msdfgenL11readContourIPKcTnPFiPT_EXadL_ZNS_9readCharSEPS2_EETnPFiS4_RNS_7Vector2EEXadL_ZNS_10readCoordSES7_S9_EEEEbS4_RNS_7ContourEPKS8_iRb(ptr noundef %input.addr, ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull %p, i32 noundef -1, ptr noundef nonnull align 1 dereferenceable(1) %locColorsSpec)
   br label %return
 
 if.else5:                                         ; preds = %_ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.backedge, %if.else5
@@ -902,7 +902,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i)
   store ptr null, ptr %end.i, align 8
   %0 = load ptr, ptr %input, align 8
   %call.i = call double @strtod(ptr noundef %0, ptr noundef nonnull %end.i) #13
@@ -940,16 +940,16 @@ if.end12.i:                                       ; preds = %while.cond.i
   br i1 %cmp15.not.i, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread: ; preds = %while.cond.i, %if.end12.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %return
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit:   ; preds = %if.end12.i
   store ptr %4, ptr %input, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %if.end6
 
 land.rhs:                                         ; preds = %if.else
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i)
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.backedge, %land.rhs
@@ -1021,7 +1021,7 @@ _ZN7msdfgen9readCharSEPPKc.exit44.thread:         ; preds = %do.body.i37
   br label %return
 
 if.end12:                                         ; preds = %_ZN7msdfgen9readCharSEPPKc.exit44
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i45)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i45)
   store ptr null, ptr %end.i45, align 8
   %call.i46 = call double @strtod(ptr noundef nonnull %incdec.ptr.i39, ptr noundef nonnull %end.i45) #13
   store double %call.i46, ptr %arrayidx14, align 16
@@ -1057,12 +1057,12 @@ if.end12.i51:                                     ; preds = %while.cond.i49
   br i1 %cmp15.not.i55, label %if.then17, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit59.thread: ; preds = %if.end12.i51, %while.cond.i49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i45)
   br label %return
 
 if.then17:                                        ; preds = %if.end12.i51
   store ptr %11, ptr %input, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i45)
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 16
   %agg.tmp.sroa.2.0.copyload = load double, ptr %start.sroa.5.0.p.sroa_idx, align 8
   %call.i60 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %agg.tmp.sroa.0.0.copyload, double %agg.tmp.sroa.2.0.copyload, double %call.i46, double %call14.i53, i32 noundef 7)
@@ -1087,7 +1087,7 @@ lpad:                                             ; preds = %if.then17
   br label %eh.resume
 
 if.else26:                                        ; preds = %if.end12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i45)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i45)
   br label %do.body.i62
 
 do.body.i62:                                      ; preds = %do.body.i62.backedge, %if.else26
@@ -1180,7 +1180,7 @@ do.body.i72.backedge:                             ; preds = %do.body.i72, %do.bo
 READ_CONTROL_POINTS:                              ; preds = %do.body.i62, %do.body.i72
   %17 = phi ptr [ %incdec.ptr.i74, %do.body.i72 ], [ %incdec.ptr.i64, %do.body.i62 ]
   %color.1 = phi i32 [ %color.2, %do.body.i72 ], [ 7, %do.body.i62 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i.i)
   store ptr null, ptr %end.i.i, align 8
   %call.i.i = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %end.i.i) #13
   store double %call.i.i, ptr %arrayidx14, align 16
@@ -1216,11 +1216,11 @@ if.end12.i.i:                                     ; preds = %while.cond.i.i
   br i1 %cmp15.not.i.i, label %if.then.i, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit.thread.i: ; preds = %if.end12.i.i, %while.cond.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br label %return
 
 if.then.i:                                        ; preds = %if.end12.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i.backedge, %if.then.i
@@ -1241,7 +1241,7 @@ do.body.i.i.backedge:                             ; preds = %do.body.i.i, %do.bo
   br label %do.body.i.i
 
 sw.epilog.i:                                      ; preds = %do.body.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i10.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i10.i)
   store ptr null, ptr %end.i10.i, align 8
   %call.i11.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i8.i, ptr noundef nonnull %end.i10.i) #13
   store double %call.i11.i, ptr %arrayidx3.i, align 16
@@ -1277,11 +1277,11 @@ if.end12.i16.i:                                   ; preds = %while.cond.i14.i
   br i1 %cmp15.not.i20.i, label %land.lhs.true.i, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit24.thread.i: ; preds = %if.end12.i16.i, %sw.epilog.i, %while.cond.i14.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i10.i)
   br label %return
 
 land.lhs.true.i:                                  ; preds = %if.end12.i16.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i10.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i10.i)
   br label %do.body.i26.i
 
 do.body.i26.i:                                    ; preds = %do.body.i26.i.backedge, %land.lhs.true.i
@@ -1301,7 +1301,7 @@ do.body.i26.i.backedge:                           ; preds = %do.body.i26.i, %do.
   br label %do.body.i26.i
 
 land.lhs.true10.i:                                ; preds = %READ_CONTROL_POINTS
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i.i)
   br label %do.body.i35.i
 
 do.body.i35.i:                                    ; preds = %do.body.i35.i.backedge, %land.lhs.true10.i
@@ -1348,7 +1348,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i62, %do.bo
   %add = add nuw nsw i32 %controlPoints.0, 1
   %idxprom = zext nneg i32 %add to i64
   %arrayidx55 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i90)
+  call void @llvm.lifetime.start.p0(ptr nonnull %end.i90)
   store ptr null, ptr %end.i90, align 8
   %call.i91 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %end.i90) #13
   store double %call.i91, ptr %arrayidx55, align 16
@@ -1385,16 +1385,16 @@ if.end12.i96:                                     ; preds = %while.cond.i94
   br i1 %cmp15.not.i100, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104, label %_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104.thread: ; preds = %if.end12.i96, %while.cond.i94
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i90)
   br label %return
 
 _ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E.exit104: ; preds = %if.end12.i96
   store ptr %36, ptr %input, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i90)
   br label %if.end71
 
 if.else61:                                        ; preds = %FINISH_EDGE
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i90)
+  call void @llvm.lifetime.end.p0(ptr nonnull %end.i90)
   br label %do.body.i106
 
 do.body.i106:                                     ; preds = %do.body.i106.backedge, %if.else61
@@ -1735,10 +1735,10 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

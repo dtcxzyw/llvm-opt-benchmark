@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @stanag4607_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
   %6 = call zeroext i1 @wtap_read_bytes(ptr noundef %5, ptr noundef nonnull %4, i32 noundef 2, ptr noundef %1, ptr noundef %2)
   br i1 %6, label %10, label %7
@@ -52,7 +52,7 @@ define hidden range(i32 -1, 2) i32 @stanag4607_open(ptr noundef %0, ptr noundef 
   store i32 156, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %20, align 8
-  %21 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #7
+  %21 = call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
   store i64 0, ptr %21, align 8
@@ -67,24 +67,18 @@ define hidden range(i32 -1, 2) i32 @stanag4607_open(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %10, %12, %16, %7
   %.0 = phi i32 [ 1, %16 ], [ %9, %7 ], [ 0, %10 ], [ -1, %12 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: null_pointer_is_valid
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @stanag4607_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
@@ -119,7 +113,7 @@ define internal zeroext i1 @stanag4607_seek_read(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_stanag4607() local_unnamed_addr #0 {
@@ -130,13 +124,13 @@ define hidden void @register_stanag4607() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef %3) unnamed_addr #0 {
@@ -145,8 +139,8 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   %7 = alloca [39 x i8], align 16
   %8 = alloca %struct.tm, align 8
   %9 = alloca [19 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %2, align 4
   %10 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 37, ptr noundef %2, ptr noundef %3)
   br i1 %10, label %11, label %119
@@ -234,8 +228,8 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   ]
 
 56:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 39, ptr nonnull %7) #6
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 39, ptr noundef %2, ptr noundef %3)
   br i1 %57, label %.thread4, label %.critedge
 
@@ -269,11 +263,11 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   store i32 0, ptr %8, align 8
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %77, align 8
-  %78 = call i64 @mktime(ptr noundef nonnull %8) #6
+  %78 = call i64 @mktime(ptr noundef nonnull %8) #7
   store i64 %78, ptr %.96.val, align 8
   store i64 %78, ptr %52, align 8
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
 79:                                               ; preds = %47
@@ -287,7 +281,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   br label %105
 
 84:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %85 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 19, ptr noundef %2, ptr noundef %3)
   br i1 %85, label %86, label %.critedge76
 
@@ -311,7 +305,7 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   %103 = zext i8 %102 to i32
   %104 = or disjoint i32 %100, %103
   store i32 %104, ptr %5, align 4
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %105
 
 105:                                              ; preds = %86, %81
@@ -344,50 +338,56 @@ define internal fastcc zeroext i1 @stanag4607_read_file(ptr captures(none) %.96.
   br label %119
 
 .critedge:                                        ; preds = %56
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #6
-  call void @llvm.lifetime.end.p0(i64 39, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %119
 
 .critedge76:                                      ; preds = %84
-  call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %119
 
 119:                                              ; preds = %.thread, %.critedge76, %79, %.critedge, %4, %116, %45, %41, %17
   %.0 = phi i1 [ false, %41 ], [ false, %45 ], [ %118, %116 ], [ false, %17 ], [ false, %4 ], [ false, %.critedge ], [ false, %79 ], [ false, %.critedge76 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 37, ptr nonnull %6) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
-declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #5
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(0) }
+attributes #6 = { allocsize(0) }
+attributes #7 = { nounwind }
 attributes #8 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

@@ -95,14 +95,8 @@ define hidden range(i32 0, 2) i32 @ev_token_bucket_update_(ptr noundef captures(
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ev_token_bucket_get_tick_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define hidden i32 @ev_token_bucket_get_tick_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8
   %4 = mul i64 %3, 1000
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118,9 +112,9 @@ define hidden i32 @ev_token_bucket_get_tick_(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread63, label %7
 
@@ -189,31 +183,31 @@ define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 33:                                               ; preds = %25, %21, %17, %14, %7, %27
   %.0 = phi ptr [ %26, %27 ], [ null, %7 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %25 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
-declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @ev_token_bucket_cfg_free(ptr noundef %0) local_unnamed_addr #3 {
+define void @ev_token_bucket_cfg_free(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @event_mm_free_(ptr noundef %0) #10
   ret void
 }
 
-declare void @event_mm_free_(ptr noundef) local_unnamed_addr #4
+declare void @event_mm_free_(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_read_max_(ptr noundef %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_read_max_(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 noundef 0)
   ret i64 %2
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
+define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %3 = alloca %struct.timeval, align 8
   %.not = icmp eq i32 %1, 0
   %.in.v = select i1 %.not, i64 456, i64 464
@@ -231,7 +225,7 @@ define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 nounde
   br i1 %.not43, label %58, label %10
 
 10:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load ptr, ptr %0, align 8
   %12 = call i32 @event_base_gettimeofday_cached(ptr noundef %11, ptr noundef nonnull %3) #10
   %13 = load ptr, ptr %5, align 8
@@ -289,7 +283,7 @@ define internal fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 nounde
   br label %bufferevent_update_buckets.exit
 
 bufferevent_update_buckets.exit:                  ; preds = %10, %29, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %55 = load ptr, ptr %5, align 8
   %. = select i1 %.not, i64 24, i64 32
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.
@@ -377,13 +371,13 @@ bufferevent_update_buckets.exit:                  ; preds = %10, %29, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_write_max_(ptr noundef %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_write_max_(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call fastcc i64 @bufferevent_get_rlim_max_(ptr noundef %0, i32 noundef 1)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_decrement_read_buckets_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_decrement_read_buckets_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -554,16 +548,16 @@ bev_group_suspend_reading_.exit:                  ; preds = %77, %64, %82, %80
   ret i32 %.026
 }
 
-declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_suspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
-declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @event_del(ptr noundef) local_unnamed_addr #4
+declare i32 @event_del(ptr noundef) local_unnamed_addr #3
 
-declare void @bufferevent_unsuspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_unsuspend_read_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bev_group_unsuspend_reading_(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @bev_group_unsuspend_reading_(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
@@ -687,7 +681,7 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_decrement_write_buckets_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_decrement_write_buckets_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -858,12 +852,12 @@ bev_group_suspend_writing_.exit:                  ; preds = %77, %64, %82, %80
   ret i32 %.026
 }
 
-declare void @bufferevent_suspend_write_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_suspend_write_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
-declare void @bufferevent_unsuspend_write_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
+declare void @bufferevent_unsuspend_write_(ptr noundef, i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bev_group_unsuspend_writing_(ptr noundef %0) unnamed_addr #3 {
+define internal fastcc void @bev_group_unsuspend_writing_(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -3
@@ -987,9 +981,9 @@ EVLOCK_TRY_LOCK_.exit32.thread:                   ; preds = %.lr.ph43, %EVLOCK_T
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_set_rate_limit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_set_rate_limit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1158,20 +1152,20 @@ ev_token_bucket_init_.exit:                       ; preds = %43
   br label %89
 
 89:                                               ; preds = %86, %84
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
-declare i32 @event_initialized(ptr noundef) local_unnamed_addr #4
+declare i32 @event_initialized(ptr noundef) local_unnamed_addr #3
 
-declare i32 @event_base_gettimeofday_cached(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @event_base_gettimeofday_cached(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @bev_refill_callback_(i32 %0, i16 signext %1, ptr noundef %2) #3 {
+define internal void @bev_refill_callback_(i32 %0, i16 signext %1, ptr noundef %2) #2 {
   %4 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -1323,14 +1317,14 @@ ev_token_bucket_update_.exit:                     ; preds = %21, %43
   br label %97
 
 97:                                               ; preds = %92, %94, %16, %18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bufferevent_rate_limit_group_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define ptr @bufferevent_rate_limit_group_new(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 @event_base_gettimeofday_cached(ptr noundef %0, ptr noundef nonnull %3) #10
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1396,14 +1390,14 @@ define ptr @bufferevent_rate_limit_group_new(ptr noundef %0, ptr noundef %1) loc
   br label %48
 
 48:                                               ; preds = %2, %32
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bev_group_refill_callback_(i32 %0, i16 signext %1, ptr noundef %2) #3 {
+define internal void @bev_group_refill_callback_(i32 %0, i16 signext %1, ptr noundef %2) #2 {
   %4 = alloca %struct.timeval, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %6 = tail call ptr @event_get_base(ptr noundef nonnull %5) #10
   %7 = call i32 @event_base_gettimeofday_cached(ptr noundef %6, ptr noundef nonnull %4) #10
@@ -1526,7 +1520,7 @@ ev_token_bucket_update_.exit:                     ; preds = %13, %31
   br label %80
 
 80:                                               ; preds = %77, %75
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -1553,10 +1547,10 @@ define range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_min_share(ptr noun
   ret i32 %.011
 }
 
-declare i32 @evutil_weakrand_seed_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @evutil_weakrand_seed_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_cfg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_rate_limit_group_set_cfg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1656,7 +1650,7 @@ bufferevent_rate_limit_group_set_min_share.exit:  ; preds = %42, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bufferevent_rate_limit_group_free(ptr noundef %0) local_unnamed_addr #3 {
+define void @bufferevent_rate_limit_group_free(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1694,7 +1688,7 @@ define void @bufferevent_rate_limit_group_free(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_add_to_rate_limit_group(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_add_to_rate_limit_group(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1833,13 +1827,13 @@ define range(i32 -1, 1) i32 @bufferevent_add_to_rate_limit_group(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bufferevent_remove_from_rate_limit_group(ptr noundef %0) local_unnamed_addr #3 {
+define noundef i32 @bufferevent_remove_from_rate_limit_group(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @bufferevent_remove_from_rate_limit_group_internal_(ptr noundef %0, i32 noundef 1)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @bufferevent_remove_from_rate_limit_group_internal_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden noundef i32 @bufferevent_remove_from_rate_limit_group_internal_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1937,7 +1931,7 @@ define hidden noundef i32 @bufferevent_remove_from_rate_limit_group_internal_(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_read_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_read_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timeval, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
@@ -1962,7 +1956,7 @@ define i64 @bufferevent_get_read_limit(ptr noundef readonly captures(none) %0) l
   br i1 %.not15, label %62, label %14
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = load ptr, ptr %0, align 8
   %16 = call i32 @event_base_gettimeofday_cached(ptr noundef %15, ptr noundef nonnull %2) #10
   %17 = load ptr, ptr %9, align 8
@@ -2022,7 +2016,7 @@ define i64 @bufferevent_get_read_limit(ptr noundef readonly captures(none) %0) l
 
 bufferevent_update_buckets.exit:                  ; preds = %14, %33, %36
   %59 = phi ptr [ %17, %14 ], [ %17, %33 ], [ %.pre, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load i64, ptr %60, align 8
   br label %62
@@ -2043,7 +2037,7 @@ bufferevent_update_buckets.exit:                  ; preds = %14, %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_write_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_write_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timeval, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
@@ -2068,7 +2062,7 @@ define i64 @bufferevent_get_write_limit(ptr noundef readonly captures(none) %0) 
   br i1 %.not15, label %62, label %14
 
 14:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = load ptr, ptr %0, align 8
   %16 = call i32 @event_base_gettimeofday_cached(ptr noundef %15, ptr noundef nonnull %2) #10
   %17 = load ptr, ptr %9, align 8
@@ -2128,7 +2122,7 @@ define i64 @bufferevent_get_write_limit(ptr noundef readonly captures(none) %0) 
 
 bufferevent_update_buckets.exit:                  ; preds = %14, %33, %36
   %59 = phi ptr [ %17, %14 ], [ %17, %33 ], [ %.pre, %36 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i64, ptr %60, align 8
   br label %62
@@ -2149,7 +2143,7 @@ bufferevent_update_buckets.exit:                  ; preds = %14, %33, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @bufferevent_set_max_single_read(ptr noundef captures(none) initializes((456, 464)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define i32 @bufferevent_set_max_single_read(ptr noundef captures(none) initializes((456, 464)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2181,10 +2175,10 @@ define i32 @bufferevent_set_max_single_read(ptr noundef captures(none) initializ
   ret i32 %12
 }
 
-declare i32 @evbuffer_set_max_read(ptr noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @evbuffer_set_max_read(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bufferevent_set_max_single_write(ptr noundef captures(none) initializes((464, 472)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @bufferevent_set_max_single_write(ptr noundef captures(none) initializes((464, 472)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2214,7 +2208,7 @@ define noundef i32 @bufferevent_set_max_single_write(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_max_single_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_max_single_read(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2245,7 +2239,7 @@ define i64 @bufferevent_get_max_single_read(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_max_single_write(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_max_single_write(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2276,7 +2270,7 @@ define i64 @bufferevent_get_max_single_write(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_max_to_read(ptr noundef %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_max_to_read(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2303,7 +2297,7 @@ define i64 @bufferevent_get_max_to_read(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_get_max_to_write(ptr noundef %0) local_unnamed_addr #3 {
+define i64 @bufferevent_get_max_to_write(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2330,7 +2324,7 @@ define i64 @bufferevent_get_max_to_write(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bufferevent_get_token_bucket_cfg(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define ptr @bufferevent_get_token_bucket_cfg(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2368,7 +2362,7 @@ define ptr @bufferevent_get_token_bucket_cfg(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_rate_limit_group_get_read_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_rate_limit_group_get_read_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2399,7 +2393,7 @@ define i64 @bufferevent_rate_limit_group_get_read_limit(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @bufferevent_rate_limit_group_get_write_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
+define i64 @bufferevent_rate_limit_group_get_write_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2430,7 +2424,7 @@ define i64 @bufferevent_rate_limit_group_get_write_limit(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_decrement_read_limit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_decrement_read_limit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2503,7 +2497,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_read_limit(ptr noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bufferevent_decrement_write_limit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @bufferevent_decrement_write_limit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2576,7 +2570,7 @@ define range(i32 -1, 1) i32 @bufferevent_decrement_write_limit(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bufferevent_rate_limit_group_decrement_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @bufferevent_rate_limit_group_decrement_read(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2665,7 +2659,7 @@ bev_group_suspend_reading_.exit:                  ; preds = %29, %14, %35, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bufferevent_rate_limit_group_decrement_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i32 @bufferevent_rate_limit_group_decrement_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2779,14 +2773,14 @@ define void @bufferevent_rate_limit_group_get_totals(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @bufferevent_rate_limit_group_reset_totals(ptr noundef writeonly captures(none) initializes((96, 112)) %0) local_unnamed_addr #7 {
+define void @bufferevent_rate_limit_group_reset_totals(ptr noundef writeonly captures(none) initializes((96, 112)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr noundef captures(none) initializes((456, 480)) %0) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr noundef captures(none) initializes((456, 480)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -2801,9 +2795,15 @@ define hidden range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr noundef captur
   ret i32 %.
 }
 
-declare i32 @evutil_weakrand_range_(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @evutil_weakrand_range_(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @event_get_base(ptr noundef) local_unnamed_addr #4
+declare ptr @event_get_base(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8
@@ -2818,13 +2818,13 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }

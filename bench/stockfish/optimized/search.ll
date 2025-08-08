@@ -2348,7 +2348,7 @@ _ZNK9Stockfish10ThreadPool14nodes_searchedEv.exit235: ; preds = %.lr.ph.i.i230, 
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit: ; preds = %702, %._crit_edge.i.i.i, %727, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i, %.loopexit.split.loop.exit42.i.i.i, %.loopexit.split.loop.exit44.i.i.i, %.loopexit.split.loop.exit46.i.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %727 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %689, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %744, %.loopexit.split.loop.exit42.i.i.i ], [ %745, %.loopexit.split.loop.exit44.i.i.i ], [ %746, %.loopexit.split.loop.exit46.i.i.i ], [ %.sroa.032.051.i.i.i, %702 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(56) %688, i64 32, i1 false)
   %747 = getelementptr inbounds nuw i8, ptr %688, i64 32
   %748 = load ptr, ptr %747, align 8
@@ -2371,7 +2371,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorI
   store ptr %748, ptr %753, align 8
   store ptr %750, ptr %755, align 8
   store ptr %752, ptr %757, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   br label %759
 
 759:                                              ; preds = %.critedge.thread, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS2_4MoveEET_SB_SB_RKT0_.exit, %.critedge
@@ -10733,7 +10733,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveE
   br label %_ZN9Stockfish6Search8RootMoveD2Ev.exit
 
 47:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.pn19, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx.i, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %.pn19, i64 88
@@ -10815,7 +10815,7 @@ _ZN9Stockfish6Search8RootMoveaSEOS1_.exit.i:      ; preds = %70, %.lr.ph.i
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit: ; preds = %._crit_edge.i, %81
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %_ZN9Stockfish6Search8RootMoveD2Ev.exit
 
 _ZN9Stockfish6Search8RootMoveD2Ev.exit:           ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, %46, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit
@@ -10862,7 +10862,7 @@ define linkonce_odr dso_local void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.tr74, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %.tr74, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -10885,7 +10885,7 @@ define linkonce_odr dso_local void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__
   store ptr %24, ptr %29, align 8
   store ptr %26, ptr %31, align 8
   store ptr %28, ptr %33, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   br label %.loopexit
 
 35:                                               ; preds = %9
@@ -11029,7 +11029,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.sroa.0.08.i = phi ptr [ %30, %.lr.ph.i ], [ %1, %7 ]
   %.sroa.04.07.i = phi ptr [ %29, %.lr.ph.i ], [ %0, %7 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.04.07.i, i64 32, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -11052,7 +11052,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   store ptr %18, ptr %23, align 8
   store ptr %20, ptr %25, align 8
   store ptr %22, ptr %27, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i)
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 56
   %.not.i = icmp eq ptr %29, %1
@@ -11083,7 +11083,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   %.059 = phi i64 [ %54, %.lr.ph61 ], [ 0, %.lr.ph61.preheader ]
   %.sroa.020.058 = phi ptr [ %53, %.lr.ph61 ], [ %39, %.lr.ph61.preheader ]
   %.sroa.021.157 = phi ptr [ %52, %.lr.ph61 ], [ %.sroa.021.0, %.lr.ph61.preheader ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.021.157, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.021.157, i64 32
   %41 = load ptr, ptr %40, align 8
@@ -11106,7 +11106,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   store ptr %41, ptr %46, align 8
   store ptr %43, ptr %48, align 8
   store ptr %45, ptr %50, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.021.157, i64 56
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.020.058, i64 56
   %54 = add nuw nsw i64 %.059, 1
@@ -11136,7 +11136,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   %.sroa.021.354 = phi ptr [ %64, %.lr.ph ], [ %62, %59 ]
   %64 = getelementptr inbounds i8, ptr %.sroa.021.354, i64 -56
   %65 = getelementptr inbounds i8, ptr %.sroa.0.055, i64 -56
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i18)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %64, i64 32, i1 false)
   %66 = getelementptr inbounds i8, ptr %.sroa.021.354, i64 -24
   %67 = load ptr, ptr %66, align 8
@@ -11159,7 +11159,7 @@ define linkonce_odr dso_local ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iter
   store ptr %67, ptr %72, align 8
   store ptr %69, ptr %74, align 8
   store ptr %71, ptr %76, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i18)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i18)
   %78 = add nuw nsw i64 %.01556, 1
   %exitcond.not = icmp eq i64 %78, %.050
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -12885,10 +12885,10 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

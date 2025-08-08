@@ -530,9 +530,6 @@ define internal i32 @dissect_zbee_zcl_ias_zone(ptr noundef %0, ptr noundef reado
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -578,7 +575,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %.047.us = phi i32 [ %.2.us, %32 ], [ 4, %.lr.ph ]
   %.04446.us = phi i32 [ %33, %32 ], [ 0, %.lr.ph ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047.us)
   %20 = zext i16 %19 to i64
   %21 = mul nuw nsw i64 %20, 60
@@ -600,7 +597,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
 
 32:                                               ; preds = %25, %.lr.ph.split.us
   %.2.us = phi i32 [ %31, %25 ], [ %24, %.lr.ph.split.us ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = add nuw nsw i32 %.04446.us, 1
   %exitcond59.not = icmp eq i32 %33, %6
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
@@ -611,7 +608,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %.047.us48 = phi i32 [ %45, %.lr.ph.split.split.us ], [ 4, %.lr.ph.split ]
   %.04446.us49 = phi i32 [ %46, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047.us48)
   %35 = zext i16 %34 to i64
   %36 = mul nuw nsw i64 %35, 60
@@ -626,7 +623,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %43 = fdiv float %41, 1.000000e+02
   %44 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef %39, i32 noundef 2, float noundef %43)
   %45 = add nuw nsw i32 %.047.us48, 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %46 = add nuw nsw i32 %.04446.us49, 1
   %exitcond58.not = icmp eq i32 %46, %6
   br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !11
@@ -634,7 +631,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.047 = phi i32 [ %64, %.lr.ph.split.split ], [ 4, %.lr.ph.split ]
   %.04446 = phi i32 [ %65, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.047)
   %48 = zext i16 %47 to i64
   %49 = mul nuw nsw i64 %48, 60
@@ -655,7 +652,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %62 = fdiv float %60, 1.000000e+02
   %63 = call ptr @proto_tree_add_float(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %58, i32 noundef 2, float noundef %62)
   %64 = add nuw nsw i32 %.047, 6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %65 = add nuw nsw i32 %.04446, 1
   %exitcond.not = icmp eq i32 %65, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
@@ -666,9 +663,6 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -694,10 +688,15 @@ declare void @dissect_zcl_attr_data(ptr noundef, ptr noundef, ptr noundef, i32 n
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

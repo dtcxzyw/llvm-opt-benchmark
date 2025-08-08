@@ -60,11 +60,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl10predicates27triangle_tria
   %13 = alloca %class.anon.5, align 8
   store i8 0, ptr %6, align 1, !tbaa !4
   tail call void @_ZN3igl10predicates9exactinitEv()
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 4, !tbaa !8
   %14 = tail call noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %0)
   %15 = tail call noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %1)
@@ -100,13 +100,13 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi
   br i1 %spec.select.i167, label %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread, label %31
 
 31:                                               ; preds = %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %9, ptr %11, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %33, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %11, ptr %12, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %34, align 8, !tbaa !10
@@ -114,7 +114,7 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi
   store ptr %8, ptr %35, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %10, ptr %36, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %12, ptr %13, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %6, ptr %37, align 8, !tbaa !12
@@ -218,28 +218,25 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi
 
 78:                                               ; preds = %75, %73, %71, %68, %66, %63, %61, %57, %55, %51, %47, %45, %42
   %.2 = phi i1 [ %43, %42 ], [ %46, %45 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ %62, %61 ], [ %64, %63 ], [ %67, %66 ], [ %69, %68 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread
 
 _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread: ; preds = %22, %7, %78, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit
   %.0 = phi i1 [ false, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit ], [ %.2, %78 ], [ false, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168 ], [ false, %7 ], [ false, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 declare void @_ZN3igl10predicates9exactinitEv() local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 declare noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_NS0_11OrientationESB_SB_E_clESA_SA_SA_SA_SA_SA_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_NS0_11OrientationESB_SB_E_clESA_SA_SA_SA_SA_SA_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 comdat align 2 {
   switch i32 %7, label %55 [
     i32 1, label %11
     i32 -1, label %33
@@ -416,7 +413,7 @@ _ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0EL
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_E_clESA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_E_clESA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.25", align 16
   %9 = alloca %"class.Eigen::Matrix.25", align 16
   %10 = alloca %"class.Eigen::Matrix.25", align 16
@@ -462,12 +459,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
   %50 = fcmp olt double %43, 0.000000e+00
   %51 = fneg double %43
   %52 = select i1 %50, double %51, double %43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %53 = fcmp ule double %46, %52
   %54 = fcmp ult double %46, %49
   %or.cond = select i1 %53, i1 true, i1 %54
@@ -568,17 +565,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
 102:                                              ; preds = %82, %92, %56
   %103 = load ptr, ptr %0, align 8, !tbaa !22
   %104 = call noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %104
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_Rb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #0 comdat {
@@ -590,11 +584,11 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl10predicates27triangle_tria
   %13 = alloca %class.anon.19, align 8
   store i8 0, ptr %6, align 1, !tbaa !4
   tail call void @_ZN3igl10predicates9exactinitEv()
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 -1, ptr %9, align 4, !tbaa !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 1, ptr %10, align 4, !tbaa !8
   %14 = tail call noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %0)
   %15 = tail call noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %1)
@@ -630,13 +624,13 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi
   br i1 %spec.select.i167, label %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread, label %31
 
 31:                                               ; preds = %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %9, ptr %11, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %33, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %11, ptr %12, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %9, ptr %34, align 8, !tbaa !10
@@ -644,7 +638,7 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi
   store ptr %8, ptr %35, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %10, ptr %36, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %12, ptr %13, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %6, ptr %37, align 8, !tbaa !12
@@ -748,23 +742,23 @@ _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi
 
 78:                                               ; preds = %75, %73, %71, %68, %66, %63, %61, %57, %55, %51, %47, %45, %42
   %.2 = phi i1 [ %43, %42 ], [ %46, %45 ], [ %48, %47 ], [ %52, %51 ], [ %56, %55 ], [ %58, %57 ], [ %62, %61 ], [ %64, %63 ], [ %67, %66 ], [ %69, %68 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread
 
 _ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit.thread: ; preds = %22, %7, %78, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit
   %.0 = phi i1 [ false, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit ], [ %.2, %78 ], [ false, %_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlNS0_11OrientationES9_S9_E_clES9_S9_S9_.exit168 ], [ false, %7 ], [ false, %22 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 declare noundef i32 @_ZN3igl10predicates8orient3dIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_NS0_11OrientationESB_SB_E_clESA_SA_SA_SA_SA_SA_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_NS0_11OrientationESB_SB_E_clESA_SA_SA_SA_SA_SA_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #2 comdat align 2 {
   switch i32 %7, label %55 [
     i32 1, label %11
     i32 -1, label %33
@@ -941,7 +935,7 @@ _ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1EL
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_E_clESA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKS4_SA_SA_SA_SA_SA_E_clESA_SA_SA_SA_SA_SA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.Eigen::Matrix.25", align 16
   %9 = alloca %"class.Eigen::Matrix.25", align 16
   %10 = alloca %"class.Eigen::Matrix.25", align 16
@@ -987,12 +981,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
   %50 = fcmp olt double %43, 0.000000e+00
   %51 = fneg double %43
   %52 = select i1 %50, double %51, double %43
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %53 = fcmp ule double %46, %52
   %54 = fcmp ult double %46, %49
   %or.cond = select i1 %53, i1 true, i1 %54
@@ -1093,19 +1087,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
 102:                                              ; preds = %82, %92, %56
   %103 = load ptr, ptr %0, align 8, !tbaa !30
   %104 = call noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %13)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %104
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = alloca %class.anon.44, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %0, align 8, !tbaa !32
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1146,22 +1140,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
 
 30:                                               ; preds = %28, %26, %23, %21
   %.0 = phi i1 [ %22, %21 ], [ %24, %23 ], [ %27, %26 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #4
+declare double @llvm.fmuladd.f64(double, double, double) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 declare noundef i32 @_ZN3igl10predicates8orient2dIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = alloca %class.anon.45, align 8
   %9 = alloca %class.anon.46, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load ptr, ptr %0, align 8, !tbaa !36
   store ptr %10, ptr %8, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1172,7 +1166,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !39
   store ptr %16, ptr %14, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %17, align 8, !tbaa !10
@@ -1229,13 +1223,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangl
 
 40:                                               ; preds = %23, %38, %36, %34, %29, %27, %24
   %.0 = phi i1 [ %25, %24 ], [ %28, %27 ], [ %30, %29 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ true, %23 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E0_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E0_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = tail call noundef i32 @_ZN3igl10predicates8orient2dIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %17, label %9
@@ -1286,7 +1280,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triang
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = tail call noundef i32 @_ZN3igl10predicates8orient2dIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %26, label %9
@@ -1362,9 +1356,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triang
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = alloca %class.anon.64, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr %0, align 8, !tbaa !40
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1405,15 +1399,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZN3igl10predicates27triangle
 
 30:                                               ; preds = %28, %26, %23, %21
   %.0 = phi i1 [ %22, %21 ], [ %24, %23 ], [ %27, %26 ], [ %29, %28 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = alloca %class.anon.65, align 8
   %9 = alloca %class.anon.66, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = load ptr, ptr %0, align 8, !tbaa !44
   store ptr %10, ptr %8, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1424,7 +1418,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangl
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !47
   store ptr %16, ptr %14, align 8, !tbaa !10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %10, ptr %9, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %17, align 8, !tbaa !10
@@ -1481,13 +1475,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZN3igl10predicates27triangl
 
 40:                                               ; preds = %23, %38, %36, %34, %29, %27, %24
   %.0 = phi i1 [ %25, %24 ], [ %28, %27 ], [ %30, %29 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ], [ true, %23 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #5
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E0_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E0_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = tail call noundef i32 @_ZN3igl10predicates8orient2dIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %17, label %9
@@ -1538,7 +1532,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triang
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #3 comdat align 2 {
+define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triangle_triangle_intersectIN5Eigen6MatrixIdLi1ELi3ELi1ELi1ELi3EEEEEbRKT_S7_S7_S7_S7_S7_RbENKUlRKNS3_IdLi2ELi1ELi0ELi2ELi1EEESB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_ENKUlSB_SB_SB_SB_SB_SB_E_clESB_SB_SB_SB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6) local_unnamed_addr #2 comdat align 2 {
   %8 = tail call noundef i32 @_ZN3igl10predicates8orient2dIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEENS0_11OrientationERKNS2_10MatrixBaseIT_EESA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %.not = icmp eq i32 %8, -1
   br i1 %.not, label %26, label %9
@@ -1613,12 +1607,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZZZZN3igl10predicates27triang
   ret i1 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
+attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

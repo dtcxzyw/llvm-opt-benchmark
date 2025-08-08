@@ -1315,7 +1315,7 @@ _ZNK6vframe11stack_chunkEv.exit1:                 ; preds = %_ZNK6vframe11stack_
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = ptrtoint ptr %7 to i64
   %13 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !15
   %14 = sext i32 %13 to i64
@@ -1375,7 +1375,7 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZNK6vfr
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %42, ptr %.sroa.9.0..sroa_idx.i, align 8
   %47 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 48:                                               ; preds = %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, %_ZNK6vframe11stack_chunkEv.exit.thread
@@ -1540,7 +1540,7 @@ define hidden noundef i32 @_ZNK17interpretedVFrame3bciEv(ptr noundef nonnull ali
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(5064) %0) #11
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 5056
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -1567,7 +1567,7 @@ _ZNK6vframe11stack_chunkEv.exit1.i:               ; preds = %_ZNK6vframe11stack_
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %16 = ptrtoint ptr %11 to i64
   %17 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !19
   %18 = sext i32 %17 to i64
@@ -1627,12 +1627,12 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit.i: ; preds = %38, %_
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %46, ptr %.sroa.9.0..sroa_idx.i.i, align 8
   %51 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK17interpretedVFrame3bcpEv.exit
 
 _ZNK17interpretedVFrame3bcpEv.exit:               ; preds = %_ZNK6vframe11stack_chunkEv.exit.thread.i, %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit.i
   %52 = phi ptr [ %14, %_ZNK6vframe11stack_chunkEv.exit.thread.i ], [ %51, %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %53 = call noundef i32 @_ZNK6Method8bci_fromEPh(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %52) #11
   ret i32 %53
 }
@@ -1669,7 +1669,7 @@ _ZNK6vframe11stack_chunkEv.exit1:                 ; preds = %_ZNK6vframe11stack_
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = ptrtoint ptr %7 to i64
   %13 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !22
   %14 = sext i32 %13 to i64
@@ -1729,7 +1729,7 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %_ZNK6
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %42, ptr %.sroa.9.0..sroa_idx.i, align 8
   %47 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %48
 
 48:                                               ; preds = %_ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit, %_ZNK6vframe11stack_chunkEv.exit.thread
@@ -1865,7 +1865,7 @@ _ZNK6vframe11stack_chunkEv.exit:                  ; preds = %50, %53
   br label %103
 
 67:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.011.0.copyload.i.i = load ptr, ptr %6, align 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
@@ -1924,7 +1924,7 @@ _ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i:
   store ptr %.sroa.76.0.i.i, ptr %.sroa.76.0..sroa_idx.i.i, align 8
   store ptr %97, ptr %.sroa.9.0..sroa_idx.i.i, align 8
   %102 = call noundef ptr @_ZNK5frame37interpreter_frame_expression_stack_atEi(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %.020.i) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %103
 
 103:                                              ; preds = %_ZNK17stackChunkOopDesc37interpreter_frame_expression_stack_atERK5framei.exit.i, %60
@@ -2139,7 +2139,7 @@ _ZNK20StackValueCollection3addEP10StackValue.exit.us.i: ; preds = %197, %_ZL31cr
 
 .split16.i:                                       ; preds = %.split16.i.preheader, %_ZNK20StackValueCollection3addEP10StackValue.exit.i36
   %.022.i = phi i32 [ %280, %_ZNK20StackValueCollection3addEP10StackValue.exit.i36 ], [ 0, %.split16.i.preheader ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %212 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4, !noalias !31
   %213 = sext i32 %212 to i64
   %214 = add nsw i64 %213, %155
@@ -2180,7 +2180,7 @@ _ZNK17stackChunkOopDesc26interpreter_frame_local_atERK5framei.exit.i: ; preds = 
   store ptr %.sroa.76.0.i.i32, ptr %.sroa.76.0..sroa_idx.i.i23, align 8
   store ptr %234, ptr %.sroa.9.0..sroa_idx.i.i24, align 8
   %236 = call noundef ptr @_ZNK5frame26interpreter_frame_local_atEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %.022.i) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %237 = shl nuw nsw i32 %.022.i, 1
   %238 = load i32, ptr %16, align 8
   %239 = icmp slt i32 %238, 257
@@ -2314,11 +2314,11 @@ define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(
 
 25:                                               ; preds = %.lr.ph, %_ZNK6HandleclEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6HandleclEv.exit ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %24, i64 56, i1 false)
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = call noundef ptr @_ZNK5frame26interpreter_frame_local_atEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %26) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -4124,7 +4124,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   br label %84
 
 10:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.011.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -4192,10 +4192,10 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %41, ptr %.sroa.9.0..sroa_idx.i, align 8
   %46 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i6 = load ptr, ptr %4, align 8
   %47 = load ptr, ptr %.sroa.0.0.copyload.i6, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.011.0.copyload.i7 = load ptr, ptr %0, align 8
   %.sroa.2.0.copyload.i9 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -4259,7 +4259,7 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17sta
   %.sroa.9.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %78, ptr %.sroa.9.0..sroa_idx.i24, align 8
   %83 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -5373,10 +5373,10 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

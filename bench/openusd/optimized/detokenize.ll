@@ -75,7 +75,7 @@ define hidden void @av1_decode_palette_tokens(ptr noundef readonly captures(none
   %60 = add nsw i32 %57, %59
   %61 = ashr i32 %41, %45
   %62 = add nsw i32 %55, %61
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i.i.i = icmp eq i8 %.fr, 0
   %63 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %23, i1 true)
   %64 = sub nuw nsw i32 32, %63
@@ -349,7 +349,7 @@ aom_read_symbol_.exit.i:                          ; preds = %update_cdf.exit.i.i
   br i1 %exitcond104.not.i, label %decode_color_map_tokens.exit, label %188, !llvm.loop !13
 
 decode_color_map_tokens.exit:                     ; preds = %188, %.loopexit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -378,10 +378,10 @@ declare i32 @llvm.smax.i32(i32, i32) #5
 declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

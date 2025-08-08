@@ -3035,11 +3035,11 @@ define hidden void @_ZN22SystemDictionaryShared22check_excluded_classesEv() loca
   %26 = load ptr, ptr %9, align 8
   store ptr %26, ptr %25, align 8
   %27 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 127112
   %29 = load i32, ptr %28, align 8
@@ -3076,9 +3076,9 @@ define hidden void @_ZN22SystemDictionaryShared22check_excluded_classesEv() loca
   br i1 %or.cond.i.i.i.i, label %.preheader.i.i.i.i, label %_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesI37UnregisteredClassesDuplicationCheckerEEvPT_.exit, !llvm.loop !14
 
 _ZNK24DumpTimeSharedClassTable24iterate_all_live_classesI37UnregisteredClassesDuplicationCheckerEEvPT_.exit: ; preds = %._crit_edge.i.i.i.i, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN37UnregisteredClassesDuplicationChecker23mark_duplicated_classesEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %38 = load i64, ptr %24, align 8
   %39 = and i64 %38, 1
@@ -3265,7 +3265,7 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
 "_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvT_.exit": ; preds = %"_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvT_.exit.loopexit", %_ZN12ResourceMarkD2Ev.exit
   %111 = phi ptr [ %.pre, %"_ZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZN22SystemDictionaryShared22check_excluded_classesEvE3$_0EEvT_.exit.loopexit" ], [ %49, %_ZN12ResourceMarkD2Ev.exit ]
   call void @_ZN24DumpTimeSharedClassTable13update_countsEv(ptr noundef nonnull align 8 dereferenceable(127124) %111) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %112 = load ptr, ptr @_ZN22SystemDictionaryShared39_dumptime_lambda_proxy_class_dictionaryE, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 1096
   br label %114
@@ -3308,7 +3308,7 @@ _ZN22SystemDictionaryShared13warn_excludedEP13InstanceKlassPKc.exit.i.i.i.i.i: ;
   br i1 %exitcond.not.i.i, label %_ZN22SystemDictionaryShared37cleanup_lambda_proxy_class_dictionaryEv.exit, label %114, !llvm.loop !18
 
 _ZN22SystemDictionaryShared37cleanup_lambda_proxy_class_dictionaryEv.exit: ; preds = %._crit_edge.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -5516,13 +5516,13 @@ define hidden noundef i64 @_ZN22SystemDictionaryShared25estimate_size_for_archiv
   %3 = alloca %class.EstimateSizeForArchive, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %2, ptr %1, align 8
   call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI22EstimateSizeForArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %4, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %5 = load i64, ptr %3, align 8
   %6 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
   %.0.in.i = getelementptr inbounds nuw i8, ptr %6, i64 127116
@@ -5660,13 +5660,13 @@ define hidden void @_ZN22SystemDictionaryShared16write_dictionaryEP23RunTimeShar
   %12 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   store ptr %12, ptr %11, align 8
   %13 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8
   call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %13, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %14 = select i1 %1, ptr @.str.54, ptr @.str.55
   call void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %0, ptr noundef nonnull %14) #18
   call void @_ZN22CompactHashtableWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #18
@@ -5686,9 +5686,9 @@ define hidden void @_ZN22SystemDictionaryShared16write_to_archiveEb(i1 noundef z
   %10 = alloca %class.CompactHashtableWriter, align 8
   %11 = alloca %class.CopySharedClassInfoToArchive, align 8
   %12 = select i1 %0, ptr @_ZN22SystemDictionaryShared15_static_archiveE, ptr @_ZN22SystemDictionaryShared16_dynamic_archiveE
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
@@ -5702,22 +5702,22 @@ define hidden void @_ZN22SystemDictionaryShared16write_to_archiveEb(i1 noundef z
   %16 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   store ptr %16, ptr %15, align 8
   %17 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %11, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %8, ptr %7, align 8
   call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %17, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %12, ptr noundef nonnull @.str.54) #18
   call void @_ZN22CompactHashtableWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %18 = select i1 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZN22SystemDictionaryShared15_static_archiveE, i64 32), ptr getelementptr inbounds nuw (i8, ptr @_ZN22SystemDictionaryShared16_dynamic_archiveE, i64 32)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %19 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
@@ -5731,18 +5731,18 @@ define hidden void @_ZN22SystemDictionaryShared16write_to_archiveEb(i1 noundef z
   %22 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   store ptr %22, ptr %21, align 8
   %23 = load ptr, ptr @_ZN22SystemDictionaryShared15_dumptime_tableE, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %6, ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   call void @_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11iterate_allIZNK24DumpTimeSharedClassTable24iterate_all_live_classesIZNKSI_24iterate_all_live_classesI28CopySharedClassInfoToArchiveEEvSA_EUlS2_RS3_E_EEvS9_EUlS2_SM_E_EEvS9_(ptr noundef nonnull align 8 dereferenceable(127124) %23, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %18, ptr noundef nonnull @.str.55) #18
   call void @_ZN22CompactHashtableWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = select i1 %0, ptr getelementptr inbounds nuw (i8, ptr @_ZN22SystemDictionaryShared15_static_archiveE, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZN22SystemDictionaryShared16_dynamic_archiveE, i64 64)
   call void @_ZN22SystemDictionaryShared35write_lambda_proxy_class_dictionaryEP26LambdaProxyClassDictionary(ptr noundef nonnull %24)
   ret void
@@ -9212,10 +9212,10 @@ declare i32 @llvm.ctpop.i32(i32) #16
 declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #16

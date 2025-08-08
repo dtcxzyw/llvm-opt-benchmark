@@ -34,7 +34,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoN9Imath_3_24halfE(
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZrsRSiRN9Imath_3_24halfE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) initializes((0, 2)) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIfEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %5 = load float, ptr %3, align 4, !tbaa !9
   %6 = bitcast float %5 to i32
@@ -116,15 +116,9 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZrsRSiRN9Imath_3_24half
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %15, %18, %28, %30, %39, %53, %56
   %.0.i.i = phi i16 [ %25, %18 ], [ %29, %28 ], [ %38, %30 ], [ %16, %15 ], [ %11, %39 ], [ %57, %56 ], [ %51, %53 ]
   store i16 %.0.i.i, ptr %1, align 2, !tbaa !12
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %0
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z9printBitsRSoN9Imath_3_24halfE(ptr noundef nonnull align 8 dereferenceable(8) %0, i16 %1) local_unnamed_addr #3 {
@@ -142,7 +136,7 @@ define void @_Z9printBitsRSoN9Imath_3_24halfE(ptr noundef nonnull align 8 derefe
   %9 = and i32 %8, %5
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, i8 48, i8 49
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %10, ptr %4, align 1, !tbaa !8
   %11 = load ptr, ptr %0, align 8, !tbaa !14
   %12 = getelementptr i8, ptr %11, i64 -24
@@ -162,14 +156,14 @@ define void @_Z9printBitsRSoN9Imath_3_24halfE(ptr noundef nonnull align 8 derefe
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %17, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i32 %.011, label %32 [
     i32 15, label %21
     i32 10, label %21
   ]
 
 21:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !8
   %22 = load ptr, ptr %0, align 8, !tbaa !14
   %23 = getelementptr i8, ptr %22, i64 -24
@@ -189,7 +183,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %17, %19
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10: ; preds = %28, %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 32:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10
@@ -214,7 +208,7 @@ define void @_Z9printBitsRSof(ptr noundef nonnull align 8 dereferenceable(8) %0,
   %9 = and i32 %8, %5
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, i8 48, i8 49
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 %10, ptr %4, align 1, !tbaa !8
   %11 = load ptr, ptr %0, align 8, !tbaa !14
   %12 = getelementptr i8, ptr %11, i64 -24
@@ -234,13 +228,13 @@ define void @_Z9printBitsRSof(ptr noundef nonnull align 8 dereferenceable(8) %0,
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %17, %19
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = and i32 %.011, 2147483639
   %or.cond = icmp eq i32 %21, 23
   br i1 %or.cond, label %22, label %33
 
 22:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 32, ptr %3, align 1, !tbaa !8
   %23 = load ptr, ptr %0, align 8, !tbaa !14
   %24 = getelementptr i8, ptr %23, i64 -24
@@ -260,7 +254,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %17, %19
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10: ; preds = %29, %31
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 33:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
@@ -270,7 +264,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit10: ; preds = %29, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z9printBitsPcN9Imath_3_24halfE(ptr noundef writeonly captures(none) %0, i16 %1) local_unnamed_addr #5 {
+define void @_Z9printBitsPcN9Imath_3_24halfE(ptr noundef writeonly captures(none) %0, i16 %1) local_unnamed_addr #4 {
   %3 = zext i16 %1 to i32
   br label %6
 
@@ -310,7 +304,7 @@ define void @_Z9printBitsPcN9Imath_3_24halfE(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z9printBitsPcf(ptr noundef writeonly captures(none) %0, float noundef %1) local_unnamed_addr #5 {
+define void @_Z9printBitsPcf(ptr noundef writeonly captures(none) %0, float noundef %1) local_unnamed_addr #4 {
   %3 = bitcast float %1 to i32
   br label %6
 
@@ -359,11 +353,17 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_half.cpp() #6 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_half.cpp() #5 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #7
@@ -372,9 +372,9 @@ attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 

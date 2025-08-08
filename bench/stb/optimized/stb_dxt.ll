@@ -20,14 +20,8 @@ define range(i32 -8388608, 8388608) i32 @stb__Mul8Bit(i32 noundef %0, i32 nounde
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__From16Bit(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define void @stb__From16Bit(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = lshr i16 %1, 11
   %4 = lshr i16 %1, 5
   %5 = and i16 %4, 63
@@ -85,7 +79,7 @@ define range(i32 -715827882, 715827883) i32 @stb__Lerp13(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stb__Lerp13RGB(ptr noundef writeonly captures(none) initializes((0, 3)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define void @stb__Lerp13RGB(ptr noundef writeonly captures(none) initializes((0, 3)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !3
   %5 = zext i8 %4 to i16
   %6 = load i8, ptr %2, align 1, !tbaa !3
@@ -123,7 +117,7 @@ define void @stb__Lerp13RGB(ptr noundef writeonly captures(none) initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__EvalColors(ptr noundef writeonly captures(none) initializes((0, 11), (12, 15)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+define void @stb__EvalColors(ptr noundef writeonly captures(none) initializes((0, 11), (12, 15)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = lshr i16 %1, 11
   %5 = lshr i16 %1, 5
   %6 = and i16 %5, 63
@@ -205,7 +199,7 @@ define void @stb__EvalColors(ptr noundef writeonly captures(none) initializes((0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
   %4 = alloca [4 x i32], align 16
   %5 = load i8, ptr %1, align 1, !tbaa !3
@@ -228,8 +222,8 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 %20, %23
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %25
 
 25:                                               ; preds = %2, %25
@@ -310,23 +304,23 @@ define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %79, label %69, !llvm.loop !11
 
 79:                                               ; preds = %69
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
+define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca [6 x float], align 16
   %5 = alloca [6 x i32], align 16
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = alloca [3 x i32], align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #10
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %9
 
 9:                                                ; preds = %3, %20
@@ -616,19 +610,19 @@ define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %0, pt
   %216 = lshr i16 %215, 8
   %217 = add nuw i16 %211, %216
   store i16 %217, ptr %2, align 2, !tbaa !20
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #6
+declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #6
+declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i16 @stb__Quantize5(float noundef %0) local_unnamed_addr #0 {
@@ -665,7 +659,7 @@ define zeroext i16 @stb__Quantize6(float noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = load i16, ptr %2, align 2, !tbaa !20
   %6 = load i16, ptr %1, align 2, !tbaa !20
   %7 = shl i32 %3, 2
@@ -912,10 +906,10 @@ define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = alloca [16 x i32], align 16
@@ -923,9 +917,9 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #10
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = and i32 %2, 2
   %.not = icmp ne i32 %11, 0
   %12 = load i32, ptr %1, align 4
@@ -1070,8 +1064,8 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   %114 = zext nneg i16 %66 to i32
   %115 = zext nneg i16 %81 to i32
   %116 = sub nsw i32 %114, %115
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %117
 
 117:                                              ; preds = %117, %54
@@ -1152,8 +1146,8 @@ define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %0, pt
   br i1 %.not.i, label %stb__MatchColorsBlock.exit, label %161, !llvm.loop !11
 
 stb__MatchColorsBlock.exit:                       ; preds = %161
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %171
 
 171:                                              ; preds = %.thread, %stb__MatchColorsBlock.exit
@@ -1263,8 +1257,8 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   %241 = zext nneg i16 %203 to i32
   %242 = zext nneg i16 %215 to i32
   %243 = sub nsw i32 %241, %242
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %244
 
 244:                                              ; preds = %244, %192
@@ -1342,8 +1336,8 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   br i1 %.not.i68, label %295, label %285, !llvm.loop !11
 
 295:                                              ; preds = %285
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %296 = icmp eq i32 %.1.i66, %.280
   br i1 %296, label %.thread70, label %186
 
@@ -1361,14 +1355,14 @@ stb__MatchColorsBlock.exit:                       ; preds = %161
   store i16 %301, ptr %303, align 1
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.5, ptr %304, align 1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #10
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load i8, ptr %1, align 1, !tbaa !3
   %5 = zext i8 %4 to i32
   %6 = sext i32 %2 to i64
@@ -1462,9 +1456,9 @@ define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca [16 x [4 x i8]], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.loopexit, label %6
 
@@ -1577,12 +1571,12 @@ stb__CompressAlphaBlock.exit:                     ; preds = %53
   %.011 = phi ptr [ %1, %4 ], [ %5, %.loopexit.loopexit ]
   %.010 = phi ptr [ %0, %4 ], [ %56, %.loopexit.loopexit ]
   call void @stb__CompressColorBlock(ptr noundef %.010, ptr noundef %.011, i32 noundef %3)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %1, align 1, !tbaa !3
   %4 = zext i8 %3 to i32
   br label %5
@@ -1673,7 +1667,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %46
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load i8, ptr %1, align 1, !tbaa !3
   %4 = zext i8 %3 to i32
   br label %5
@@ -1855,6 +1849,12 @@ stb__CompressAlphaBlock.exit30:                   ; preds = %96
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
@@ -1871,16 +1871,15 @@ declare i16 @llvm.umin.i16(i16, i16) #9
 declare i16 @llvm.umax.i16(i16, i16) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

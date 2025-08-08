@@ -759,9 +759,6 @@ sentinelGenerateInitialMonitorEvents.exit:        ; preds = %.lr.ph.i, %sentinel
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
-
 declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -822,13 +819,10 @@ define dso_local void @sentinelGenerateInitialMonitorEvents() local_unnamed_addr
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
-
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @createSentinelAddr(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [46 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %or.cond = icmp ugt i32 %1, 65535
   br i1 %or.cond, label %5, label %7
 
@@ -883,14 +877,14 @@ define dso_local noalias noundef ptr @createSentinelAddr(ptr noundef %0, i32 nou
 
 29:                                               ; preds = %23, %21, %5
   %.0 = phi ptr [ null, %5 ], [ %24, %23 ], [ null, %21 ]
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
 
 declare i32 @anetResolve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #9
+declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #8
 
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #1
 
@@ -928,7 +922,7 @@ declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !86
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -959,15 +953,15 @@ define dso_local range(i32 0, 2) i32 @sentinelAddrOrHostnameEqual(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [46 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
   %.not = icmp eq i32 %4, 0
   %5 = zext i1 %.not to i32
@@ -983,12 +977,12 @@ define dso_local range(i32 0, 2) i32 @sentinelAddrEqualsHostname(ptr noundef rea
   %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef %.sink8) #34
   %.0.in = icmp eq i32 %11, 0
   %.0 = zext i1 %.0.in to i32
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @announceSentinelAddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define dso_local ptr @announceSentinelAddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
   %.not = icmp eq i32 %2, 0
   %.in.idx = select i1 %.not, i64 8, i64 0
@@ -1015,7 +1009,7 @@ define dso_local ptr @announceSentinelAddrAndPort(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -1025,8 +1019,8 @@ declare ptr @sdsempty() local_unnamed_addr #1
 define dso_local void @sentinelEvent(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = alloca [1024 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i8, ptr %3, align 1, !tbaa !79
   %8 = icmp eq i8 %7, 37
   br i1 %8, label %9, label %51
@@ -1180,8 +1174,8 @@ sentinelRedisInstanceTypeStr.exit63:              ; preds = %13, %37, %38
   br label %.thread69
 
 .thread69:                                        ; preds = %64, %76, %.thread71, %82, %65
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -1189,7 +1183,7 @@ sentinelRedisInstanceTypeStr.exit63:              ; preds = %13, %37, %38
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local nonnull ptr @sentinelRedisInstanceTypeStr(ptr noundef readonly captures(none) %0) local_unnamed_addr #14 {
+define dso_local nonnull ptr @sentinelRedisInstanceTypeStr(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load i32, ptr %0, align 8, !tbaa !34
   %3 = and i32 %2, 1
   %.not = icmp eq i32 %3, 0
@@ -1212,16 +1206,16 @@ define dso_local nonnull ptr @sentinelRedisInstanceTypeStr(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #15
+declare void @llvm.va_start.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #15
+declare void @llvm.va_end.p0(ptr) #14
 
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1234,8 +1228,8 @@ define dso_local void @sentinelScheduleScriptExecution(ptr noundef %0, ...) loca
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca [17 x ptr], align 16
   %4 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #30
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1305,7 +1299,7 @@ define dso_local void @sentinelScheduleScriptExecution(ptr noundef %0, ...) loca
   br i1 %40, label %41, label %64
 
 41:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @listRewind(ptr noundef nonnull %37, ptr noundef nonnull %4) #30
   br label %42
 
@@ -1361,12 +1355,12 @@ sentinelReleaseScriptJob.exit:                    ; preds = %.lr.ph.i, %49
   unreachable
 
 63:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %63, %24
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3) #30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1405,7 +1399,7 @@ define dso_local void @sentinelReleaseScriptJob(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1418,12 +1412,12 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #17
+declare void @abort() local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sentinelGetScriptListNodeByPid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 88), align 8, !tbaa !70
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %2) #30
   %4 = call ptr @listNext(ptr noundef nonnull %2) #30
@@ -1452,14 +1446,14 @@ define dso_local ptr @sentinelGetScriptListNodeByPid(i32 noundef %0) local_unnam
 
 .thread:                                          ; preds = %14, %10, %1
   %.lcssa = phi ptr [ null, %1 ], [ %5, %10 ], [ null, %14 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelRunPendingScripts() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i64 @mstime() #30
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 88), align 8, !tbaa !70
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %1) #30
@@ -1541,7 +1535,7 @@ define dso_local void @sentinelRunPendingScripts() local_unnamed_addr #0 {
   br i1 %43, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %41, %0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1554,10 +1548,10 @@ declare void @connTypeCleanupAll() local_unnamed_addr #1
 declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: noreturn
-declare void @_exit(i32 noundef) local_unnamed_addr #18
+declare void @_exit(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local range(i64 1, -9223372036854775808) i64 @sentinelScriptRetryDelay(i32 noundef %0) local_unnamed_addr #19 {
+define dso_local range(i64 1, -9223372036854775808) i64 @sentinelScriptRetryDelay(i32 noundef %0) local_unnamed_addr #18 {
   %2 = load i64, ptr @sentinel_script_retry_delay, align 8, !tbaa !107
   %3 = icmp sgt i32 %0, 1
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -1579,7 +1573,7 @@ define dso_local range(i64 1, -9223372036854775808) i64 @sentinelScriptRetryDela
 define dso_local void @sentinelCollectTerminatedScripts() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = call i32 @waitpid(i32 noundef -1, ptr noundef nonnull %2, i32 noundef 1) #30
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -1596,7 +1590,7 @@ define dso_local void @sentinelCollectTerminatedScripts() local_unnamed_addr #0 
   %spec.select = select i1 %11, i32 %9, i32 0
   %12 = zext nneg i32 %5 to i64
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef nonnull @.str.27, i64 noundef %12, i32 noundef %8, i32 noundef %spec.select)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 88), align 8, !tbaa !70
   call void @listRewind(ptr noundef %13, ptr noundef nonnull %1) #30
   %14 = call ptr @listNext(ptr noundef nonnull %1) #30
@@ -1624,7 +1618,7 @@ define dso_local void @sentinelCollectTerminatedScripts() local_unnamed_addr #0 
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !104
 
 .loopexit:                                        ; preds = %24, %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !77
   %27 = icmp sgt i32 %26, 3
   br i1 %27, label %66, label %28, !llvm.loop !109
@@ -1635,7 +1629,7 @@ define dso_local void @sentinelCollectTerminatedScripts() local_unnamed_addr #0 
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %31 = icmp ne i32 %spec.select, 0
   %32 = icmp eq i32 %8, 1
   %or.cond = or i1 %32, %31
@@ -1723,7 +1717,7 @@ sentinelReleaseScriptJob.exit:                    ; preds = %.lr.ph.i26, %54
   br i1 %68, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %66, %0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1732,7 +1726,7 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelKillTimedoutScripts() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = tail call i64 @mstime() #30
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 88), align 8, !tbaa !70
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %1) #30
@@ -1775,7 +1769,7 @@ define dso_local void @sentinelKillTimedoutScripts() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %25, %0
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -1785,7 +1779,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listIter, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 88), align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !96
@@ -1887,7 +1881,7 @@ define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnam
   br i1 %.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !113
 
 ._crit_edge46:                                    ; preds = %44, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1903,8 +1897,8 @@ declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr 
 define dso_local void @sentinelCallClientReconfScript(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = icmp eq ptr %9, null
@@ -1935,8 +1929,8 @@ define dso_local void @sentinelCallClientReconfScript(ptr noundef readonly captu
   br label %28
 
 28:                                               ; preds = %5, %11
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2127,7 +2121,7 @@ instanceLinkCloseConnection.exit26:               ; preds = %instanceLinkCloseCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @sentinelDiscardReplyCallback(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #20 {
+define dso_local void @sentinelDiscardReplyCallback(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #19 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = load ptr, ptr %4, align 8, !tbaa !126
   %.not = icmp eq ptr %5, null
@@ -2784,7 +2778,7 @@ instanceLinkCloseConnection.exit31:               ; preds = %36, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @instanceLinkConnectionError(ptr noundef readonly captures(address) %0) local_unnamed_addr #20 {
+define dso_local void @instanceLinkConnectionError(ptr noundef readonly captures(address) %0) local_unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8, !tbaa !126
   %.not = icmp eq ptr %3, null
@@ -2815,7 +2809,7 @@ define dso_local void @instanceLinkConnectionError(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @sentinelLinkEstablishedCallback(ptr noundef readonly captures(address) %0, i32 noundef %1) #20 {
+define dso_local void @sentinelLinkEstablishedCallback(ptr noundef readonly captures(address) %0, i32 noundef %1) #19 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %instanceLinkConnectionError.exit, label %3
 
@@ -2850,7 +2844,7 @@ instanceLinkConnectionError.exit:                 ; preds = %13, %3, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @sentinelDisconnectCallback(ptr noundef readonly captures(address) %0, i32 %1) #20 {
+define dso_local void @sentinelDisconnectCallback(ptr noundef readonly captures(address) %0, i32 %1) #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8, !tbaa !126
   %.not.i = icmp eq ptr %4, null
@@ -3623,7 +3617,7 @@ define dso_local range(i32 0, 2) i32 @sentinelRedisInstanceNoDownFor(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @sentinelGetCurrentMasterAddress(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
+define dso_local ptr @sentinelGetCurrentMasterAddress(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 8, !tbaa !34
   %3 = and i32 %2, 64
   %.not = icmp eq i32 %3, 0
@@ -3654,7 +3648,7 @@ define dso_local ptr @sentinelGetCurrentMasterAddress(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelPropagateDownAfterPeriod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3697,7 +3691,7 @@ define dso_local void @sentinelPropagateDownAfterPeriod(ptr noundef readonly cap
   br i1 %.not, label %._crit_edge17, label %10, !llvm.loop !182
 
 ._crit_edge17:                                    ; preds = %._crit_edge, %1
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -3818,7 +3812,7 @@ define dso_local void @freeSentinelConfig() local_unnamed_addr #0 {
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read) uwtable
-define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readonly captures(none) %0) local_unnamed_addr #21 {
+define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -3942,13 +3936,13 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #1
 define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
   %1 = alloca %struct.listIter, align 8
   %2 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   %4 = icmp eq ptr %3, null
   br i1 %4, label %49, label %5
 
 5:                                                ; preds = %0
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = load ptr, ptr %3, align 8, !tbaa !185
   store ptr %6, ptr %2, align 16, !tbaa !195
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4019,11 +4013,11 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   call void @zfree(ptr noundef %48) #30
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %49
 
 49:                                               ; preds = %0, %39
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -4106,7 +4100,7 @@ define dso_local noundef ptr @sentinelHandleConfiguration(ptr noundef readonly c
   br i1 %48, label %sentinelCheckCreateInstanceErrors.exit.thread, label %49
 
 49:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 160
   %51 = load ptr, ptr %50, align 8, !tbaa !18
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4145,7 +4139,7 @@ define dso_local noundef ptr @sentinelHandleConfiguration(ptr noundef readonly c
   br i1 %.not.i, label %sentinelPropagateDownAfterPeriod.exit, label %.lr.ph16.i, !llvm.loop !182
 
 sentinelPropagateDownAfterPeriod.exit:            ; preds = %._crit_edge.i, %49
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 66:                                               ; preds = %31
@@ -4676,7 +4670,7 @@ sentinelCheckCreateInstanceErrors.exit.thread:    ; preds = %256, %255, %254, %2
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #22
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 declare i32 @yesnotoi(ptr noundef) local_unnamed_addr #1
 
@@ -5159,7 +5153,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 declare ptr @sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #23 {
+define internal fastcc i64 @sdslen(ptr noundef readonly captures(none) %0) unnamed_addr #22 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !79
   %4 = zext i8 %3 to i32
@@ -5318,7 +5312,7 @@ declare i32 @redisAsyncCommand(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelSetClientName(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.148, ptr noundef nonnull @sentinel, ptr noundef %2) #30
   %6 = tail call ptr @sdsnew(ptr noundef nonnull @.str.150) #30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -5345,7 +5339,7 @@ define dso_local void @sentinelSetClientName(ptr noundef %0, ptr noundef %1, ptr
   br label %21
 
 21:                                               ; preds = %15, %3
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -5806,7 +5800,7 @@ define dso_local void @sentinelRefreshInstanceInfo(ptr noundef initializes((192,
   %5 = alloca [32 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   tail call void @sdsfree(ptr noundef %9) #30
@@ -6742,8 +6736,8 @@ sentinelFlushConfig.exit271:                      ; preds = %427, %429, %433, %4
   %443 = load ptr, ptr %442, align 8, !tbaa !29
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %445 = load ptr, ptr %444, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %446 = getelementptr inbounds nuw i8, ptr %441, i64 328
   %447 = load ptr, ptr %446, align 8, !tbaa !23
   %448 = icmp eq ptr %447, null
@@ -6774,8 +6768,8 @@ sentinelFlushConfig.exit271:                      ; preds = %427, %429, %433, %4
 
 sentinelCallClientReconfScript.exit:              ; preds = %439, %449
   %464 = phi ptr [ %441, %439 ], [ %.pre323, %449 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %465 = call i32 @sentinelForceHelloUpdateForMaster(ptr noundef %464)
   br label %.thread305
 
@@ -6862,7 +6856,7 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
 515:                                              ; preds = %506
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %517 = load ptr, ptr %516, align 8, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %518 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
   %.not.i272 = icmp eq i32 %518, 0
   %519 = zext i1 %.not.i272 to i32
@@ -6877,7 +6871,7 @@ sentinelRedisInstanceNoDownFor.exit.thread:       ; preds = %485, %sentinelRedis
   %524 = load ptr, ptr %523, align 8, !tbaa !87
   %525 = call i32 @strcasecmp(ptr noundef %524, ptr noundef %.sink8.i) #34
   %.0.in.i.not = icmp eq i32 %525, 0
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.0.in.i.not, label %.thread305, label %._crit_edge321
 
 ._crit_edge321:                                   ; preds = %515
@@ -6975,7 +6969,7 @@ sentinelRedisInstanceNoDownFor.exit278.thread:    ; preds = %544, %sentinelRedis
   %577 = load ptr, ptr %576, align 8, !tbaa !36
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 32
   %579 = load ptr, ptr %578, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %580 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
   %.not.i279 = icmp eq i32 %580, 0
   %581 = zext i1 %.not.i279 to i32
@@ -6990,7 +6984,7 @@ sentinelRedisInstanceNoDownFor.exit278.thread:    ; preds = %544, %sentinelRedis
   %586 = load ptr, ptr %585, align 8, !tbaa !87
   %587 = call i32 @strcasecmp(ptr noundef %586, ptr noundef nonnull %.sink8.i283) #34
   %.0.in.i284.not = icmp eq i32 %587, 0
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.0.in.i284.not, label %588, label %603
 
 588:                                              ; preds = %573
@@ -7034,7 +7028,7 @@ sentinelRedisInstanceNoDownFor.exit278.thread:    ; preds = %544, %sentinelRedis
   br label %613
 
 613:                                              ; preds = %.thread305, %610, %606, %603, %396
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
 
@@ -7043,19 +7037,19 @@ declare ptr @sdssplitlen(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #22
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @sentinelSimFailureCrash() local_unnamed_addr #24 {
+define dso_local void @sentinelSimFailureCrash() local_unnamed_addr #23 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !77
   %2 = icmp sgt i32 %1, 3
   br i1 %2, label %4, label %3
@@ -7158,7 +7152,7 @@ sentinelForceHelloUpdateDictOfRedisInstances.exit13: ; preds = %35, %sentinelFor
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @sentinelSendSlaveOf(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %5
 
@@ -7306,7 +7300,7 @@ define dso_local range(i32 -1, 1) i32 @sentinelSendSlaveOf(ptr noundef %0, ptr n
 
 .loopexit:                                        ; preds = %61, %.critedge, %41, %26, %12, %90
   %.040 = phi i32 [ 0, %90 ], [ -1, %12 ], [ -1, %26 ], [ -1, %41 ], [ -1, %.critedge ], [ -1, %61 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.040
 }
 
@@ -7480,7 +7474,7 @@ define dso_local void @sentinelProcessHelloMessage(ptr noundef %0, i32 noundef %
   %4 = alloca [32 x i8], align 16
   %5 = alloca [46 x i8], align 16
   %6 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %1 to i64
   %8 = call ptr @sdssplitlen(ptr noundef %0, i64 noundef %7, ptr noundef nonnull @.str.191, i32 noundef 1, ptr noundef nonnull %6) #30
   %9 = load i32, ptr %6, align 4, !tbaa !78
@@ -7686,7 +7680,7 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
 119:                                              ; preds = %114
   %120 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %121 = load ptr, ptr %120, align 8, !tbaa !87
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 144), align 8, !tbaa !85
   %.not.i = icmp eq i32 %122, 0
   %123 = zext i1 %.not.i to i32
@@ -7701,7 +7695,7 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   %128 = load ptr, ptr %127, align 8, !tbaa !87
   %129 = call i32 @strcasecmp(ptr noundef %128, ptr noundef %.sink8.i) #34
   %.0.in.i.not = icmp eq i32 %129, 0
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.0.in.i.not, label %169, label %130
 
 130:                                              ; preds = %119, %114
@@ -7736,8 +7730,8 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   %151 = load ptr, ptr %138, align 8, !tbaa !87
   %152 = call i32 @sentinelResetMasterAndChangeAddress(ptr noundef nonnull %16, ptr noundef %151, i32 noundef %25)
   %153 = load ptr, ptr %115, align 8, !tbaa !29
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 328
   %155 = load ptr, ptr %154, align 8, !tbaa !23
   %156 = icmp eq ptr %155, null
@@ -7763,8 +7757,8 @@ sentinelFlushConfig.exit92:                       ; preds = %99, %101, %105, %10
   br label %sentinelCallClientReconfScript.exit
 
 sentinelCallClientReconfScript.exit:              ; preds = %130, %157
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @sdsfree(ptr noundef %143) #30
   call void @sdsfree(ptr noundef %146) #30
   call void @zfree(ptr noundef nonnull %141) #30
@@ -7779,7 +7773,7 @@ sentinelCallClientReconfScript.exit:              ; preds = %130, %157
 .critedge90:                                      ; preds = %109, %2, %169, %11
   %172 = load i32, ptr %6, align 4, !tbaa !78
   call void @sdsfreesplitres(ptr noundef %8, i32 noundef %172) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -7787,8 +7781,8 @@ sentinelCallClientReconfScript.exit:              ; preds = %130, %157
 define dso_local range(i32 -1, 1) i32 @sentinelSendHello(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [46 x i8], align 16
   %3 = alloca [1070 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %2) #30
-  call void @llvm.lifetime.start.p0(i64 1070, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 8, !tbaa !34
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -7906,8 +7900,8 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %16, %20
 
 69:                                               ; preds = %42, %27, %sentinelGetCurrentMasterAddress.exit, %64
   %.0 = phi i32 [ 0, %64 ], [ -1, %sentinelGetCurrentMasterAddress.exit ], [ -1, %27 ], [ -1, %42 ]
-  call void @llvm.lifetime.end.p0(i64 1070, ptr nonnull %3) #30
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
 
@@ -8069,7 +8063,7 @@ define dso_local void @sentinelSendPeriodicCommands(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @getLogLevel() local_unnamed_addr #25 {
+define dso_local noundef nonnull ptr @getLogLevel() local_unnamed_addr #24 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !77
   %2 = icmp ult i32 %1, 5
   br i1 %2, label %switch.lookup, label %4
@@ -8088,7 +8082,7 @@ switch.lookup:                                    ; preds = %0
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelConfigSetCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @sentinelConfigSetCommand.options_dict, align 8, !tbaa !180
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %populateDict.exit
@@ -8583,7 +8577,7 @@ sdslen.exit133.thread:                            ; preds = %210, %sdslen.exit13
 
 .thread140:                                       ; preds = %249, %._crit_edge, %30, %33, %44, %._crit_edge.thread, %251
   call void @dictRelease(ptr noundef %14) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -8840,12 +8834,12 @@ getLogLevel.exit:                                 ; preds = %76, %switch.lookup
 declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @setDeferredMapLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @sentinelFailoverStateStr(i32 noundef %0) local_unnamed_addr #26 {
+define dso_local noundef nonnull ptr @sentinelFailoverStateStr(i32 noundef %0) local_unnamed_addr #25 {
   %2 = icmp ult i32 %0, 7
   br i1 %2, label %switch.lookup, label %4
 
@@ -9443,7 +9437,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
   %12 = load ptr, ptr %11, align 8, !tbaa !262
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !263
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = call i32 @strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.273) #34
   %16 = icmp eq i32 %15, 0
   %17 = sub i32 %.0266, %8
@@ -9733,12 +9727,12 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 
 172:                                              ; preds = %160
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.286, ptr noundef %14) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %184
 
 173:                                              ; preds = %.thread247, %.thread244, %.thread241, %.thread238, %.thread235, %.thread232, %.thread229, %.thread226, %.thread223, %.thread220, %.thread217, %.thread214, %.thread
   %.1.ph = phi i32 [ %164, %.thread247 ], [ %152, %.thread244 ], [ %140, %.thread241 ], [ %128, %.thread238 ], [ %116, %.thread235 ], [ %104, %.thread232 ], [ %92, %.thread229 ], [ %80, %.thread226 ], [ %68, %.thread223 ], [ %56, %.thread220 ], [ %44, %.thread217 ], [ %32, %.thread214 ], [ %20, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %174 = add nsw i32 %.1.ph, 1
   %175 = load i32, ptr %3, align 8, !tbaa !252
   %176 = icmp slt i32 %174, %175
@@ -9751,7 +9745,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 
 178:                                              ; preds = %19, %31, %43, %55, %67, %79, %91, %103, %115, %127, %139, %151, %163
   %.pre-phi = phi i64 [ %21, %19 ], [ %33, %31 ], [ %45, %43 ], [ %57, %55 ], [ %69, %67 ], [ %81, %79 ], [ %93, %91 ], [ %105, %103 ], [ %117, %115 ], [ %129, %127 ], [ %141, %139 ], [ %153, %151 ], [ %165, %163 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %179 = load ptr, ptr %6, align 8, !tbaa !261
   %180 = getelementptr inbounds ptr, ptr %179, i64 %.pre-phi
   %181 = load ptr, ptr %180, align 8, !tbaa !262
@@ -9953,10 +9947,10 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %16, label %.thread400
 
 16:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(376) %2, ptr noundef nonnull align 16 dereferenceable(376) @__const.sentinelCommand.help, i64 376, i1 false)
   call void @addReplyHelp(ptr noundef nonnull %0, ptr noundef nonnull %2) #30
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
 17:                                               ; preds = %1
@@ -10086,10 +10080,10 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   br i1 %.not251, label %64, label %112
 
 64:                                               ; preds = %62
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !174
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not252 = icmp eq i32 %12, 6
   br i1 %.not252, label %65, label %111
 
@@ -10192,15 +10186,15 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   br label %.thread344
 
 .thread344:                                       ; preds = %69, %65, %110, %106
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 111:                                              ; preds = %64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread405
 
 112:                                              ; preds = %62
@@ -10355,9 +10349,9 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   br i1 %.not270, label %181, label %232
 
 181:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not271 = icmp eq i32 %12, 6
   br i1 %.not271, label %182, label %231
 
@@ -10451,15 +10445,15 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %.thread356
 
 .thread356:                                       ; preds = %194, %205, %182, %186, %228, %sentinelCheckCreateInstanceErrors.exit
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
 231:                                              ; preds = %181
-  call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread405
 
 232:                                              ; preds = %179
@@ -10508,7 +10502,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br i1 %.not279, label %254, label %277
 
 254:                                              ; preds = %252
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.not280 = icmp eq i32 %12, 3
   br i1 %.not280, label %255, label %276
 
@@ -10557,11 +10551,11 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %.thread371
 
 .thread371:                                       ; preds = %255, %275, %265
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 276:                                              ; preds = %254
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread405
 
 277:                                              ; preds = %252
@@ -10621,7 +10615,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 
 299:                                              ; preds = %297
   %300 = tail call i64 @mstime() #30
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %10) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %10, ptr noundef nonnull align 8 dereferenceable(120) @instancesDictType, i64 120, i1 false), !tbaa.struct !272
   %301 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr null, ptr %301, align 8, !tbaa !274
@@ -10812,7 +10806,7 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
   br label %396
 
 396:                                              ; preds = %395, %._crit_edge386
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 397:                                              ; preds = %295
@@ -11272,7 +11266,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   %36 = load ptr, ptr %35, align 8, !tbaa !262
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !263
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %39 = call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull @.str.70) #34
   %40 = icmp eq i32 %39, 0
   %41 = icmp sgt i32 %32, 0
@@ -11293,7 +11287,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 
 51:                                               ; preds = %42
   store i64 %49, ptr %24, align 8, !tbaa !157
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %52 = load ptr, ptr %25, align 8, !tbaa !18
   %53 = load ptr, ptr %27, align 8, !tbaa !5
   store ptr %53, ptr %26, align 8, !tbaa !180
@@ -11302,7 +11296,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   br i1 %.not13.i, label %.thread251, label %.lr.ph16.i
 
 .thread251:                                       ; preds = %51
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread273
 
 .lr.ph16.i:                                       ; preds = %51, %._crit_edge.i
@@ -11332,7 +11326,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   br i1 %.not.i247, label %64, label %.lr.ph16.i, !llvm.loop !182
 
 64:                                               ; preds = %._crit_edge.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread273
 
 65:                                               ; preds = %29
@@ -11686,11 +11680,11 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   br label %sentinelGetMasterByNameOrReplyError.exit
 
 .thread260:                                       ; preds = %129, %124, %106, %101, %226
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %260
 
 sentinelGetMasterByNameOrReplyError.exit:         ; preds = %250, %241, %239
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %251 = add nsw i32 %.2, 1
   %252 = load i32, ptr %12, align 8, !tbaa !252
   %253 = icmp slt i32 %251, %252
@@ -11708,7 +11702,7 @@ sentinelGetMasterByNameOrReplyError.exit._crit_edge: ; preds = %sentinelGetMaste
 .thread:                                          ; preds = %.thread.loopexit, %211
   %254 = phi ptr [ %33, %211 ], [ %.pre, %.thread.loopexit ]
   %.2196.ph = phi i32 [ %213, %211 ], [ %.2196.ph.ph, %.thread.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %255 = sext i32 %.2196.ph to i64
   %256 = getelementptr inbounds ptr, ptr %254, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !262
@@ -11765,11 +11759,11 @@ define dso_local void @sentinelInfoCommand(ptr noundef %0) local_unnamed_addr #0
   %2 = alloca [6 x ptr], align 16
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, ptr noundef nonnull align 16 dereferenceable(48) @__const.sentinelInfoCommand.sentinel_sections, i64 48, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !78
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !78
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !261
@@ -11991,9 +11985,9 @@ sdslen.exit.thread:                               ; preds = %37, %60, %sdslen.ex
 
 119:                                              ; preds = %118, %116
   call void @addReplyBulkSds(ptr noundef %0, ptr noundef %.041) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #30
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -12569,7 +12563,7 @@ define dso_local void @sentinelAskMasterStateToOtherSentinels(ptr noundef readon
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %16 = load i64, ptr %15, align 8, !tbaa !156
   %17 = sub nsw i64 %14, %16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i64, ptr @sentinel_ask_period, align 8, !tbaa !107
   %19 = mul nsw i64 %18, 5
   %20 = icmp sgt i64 %17, %19
@@ -12653,7 +12647,7 @@ define dso_local void @sentinelAskMasterStateToOtherSentinels(ptr noundef readon
   br label %72
 
 72:                                               ; preds = %42, %67, %36, %30, %26
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %73 = call ptr @dictNext(ptr noundef %6) #30
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %._crit_edge, label %11
@@ -12669,7 +12663,7 @@ declare i32 @rand() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @sentinelLeaderIncr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @dictAddRaw(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #30
   %5 = load ptr, ptr %3, align 8, !tbaa !291
   %.not = icmp eq ptr %5, null
@@ -12698,7 +12692,7 @@ define dso_local noundef i32 @sentinelLeaderIncr(ptr noundef %0, ptr noundef %1)
 
 14:                                               ; preds = %13, %6
   %.0 = phi i32 [ %10, %6 ], [ 1, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }
 
@@ -12713,7 +12707,7 @@ define dso_local ptr @sentinelGetLeader(ptr noundef captures(address_is_null) %0
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load i32, ptr %0, align 8, !tbaa !34
   %7 = and i32 %6, 80
   %.not = icmp eq i32 %7, 0
@@ -12756,7 +12750,7 @@ define dso_local ptr @sentinelGetLeader(ptr noundef captures(address_is_null) %0
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = call ptr @dictAddRaw(ptr noundef %10, ptr noundef nonnull %25, ptr noundef nonnull %4) #30
   %33 = load ptr, ptr %4, align 8, !tbaa !291
   %.not.i = icmp eq ptr %33, null
@@ -12783,7 +12777,7 @@ define dso_local ptr @sentinelGetLeader(ptr noundef captures(address_is_null) %0
   br label %sentinelLeaderIncr.exit
 
 sentinelLeaderIncr.exit:                          ; preds = %34, %40
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %41
 
 41:                                               ; preds = %sentinelLeaderIncr.exit, %26, %.lr.ph
@@ -12842,7 +12836,7 @@ sentinelLeaderIncr.exit:                          ; preds = %34, %40
   br i1 %or.cond, label %57, label %69
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %58 = call ptr @dictAddRaw(ptr noundef %10, ptr noundef nonnull %54, ptr noundef nonnull %3) #30
   %59 = load ptr, ptr %3, align 8, !tbaa !291
   %.not.i62 = icmp eq ptr %59, null
@@ -12872,7 +12866,7 @@ sentinelLeaderIncr.exit:                          ; preds = %34, %40
 
 sentinelLeaderIncr.exit65:                        ; preds = %60, %67
   %.0.i63 = phi i64 [ %64, %60 ], [ 1, %67 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = icmp uge i64 %.0.lcssa87, %.0.i63
   %brmerge.not = and i1 %68, %.not5589
   %.0.i63.mux = call i64 @llvm.umax.i64(i64 %.0.lcssa87, i64 %.0.i63)
@@ -12906,7 +12900,7 @@ sentinelLeaderIncr.exit65:                        ; preds = %60, %67
   %81 = phi ptr [ %80, %79 ], [ null, %69 ], [ null, %74 ], [ null, %.thread ], [ null, %sentinelLeaderIncr.exit65 ]
   call void @sdsfree(ptr noundef %54) #30
   call void @dictRelease(ptr noundef %10) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %81
 }
 
@@ -12937,11 +12931,11 @@ define dso_local range(i32 0, 2) i32 @sentinelStartFailoverIfNeeded(ptr noundef 
   br i1 %.not12, label %29, label %18
 
 18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %19 = add nsw i64 %13, %9
   %20 = sdiv i64 %19, 1000
   store i64 %20, ptr %2, align 8, !tbaa !174
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = call ptr @ctime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #30
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %22, align 8, !tbaa !79
@@ -12956,8 +12950,8 @@ define dso_local range(i32 0, 2) i32 @sentinelStartFailoverIfNeeded(ptr noundef 
   br label %27
 
 27:                                               ; preds = %18, %26
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %3) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %29
 
 28:                                               ; preds = %6
@@ -12973,7 +12967,7 @@ define dso_local range(i32 0, 2) i32 @sentinelStartFailoverIfNeeded(ptr noundef 
 declare ptr @ctime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read) uwtable
-define dso_local i32 @compareSlavesForPromotion(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
+define dso_local i32 @compareSlavesForPromotion(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = load ptr, ptr %0, align 8, !tbaa !282
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load i32, ptr %4, align 8, !tbaa !159
@@ -13023,7 +13017,7 @@ define dso_local i32 @compareSlavesForPromotion(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sentinelFailoverWaitStart(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
@@ -13765,11 +13759,11 @@ define dso_local void @sentinelHandleRedisInstance(ptr noundef %0) local_unnamed
   br i1 %.not12.i, label %sentinelStartFailoverIfNeeded.exit.thread, label %30
 
 30:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = add nsw i64 %25, %21
   %32 = sdiv i64 %31, 1000
   store i64 %32, ptr %2, align 8, !tbaa !174
-  call void @llvm.lifetime.start.p0(i64 26, ptr nonnull %3) #30
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call ptr @ctime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #30
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %34, align 8, !tbaa !79
@@ -13784,8 +13778,8 @@ define dso_local void @sentinelHandleRedisInstance(ptr noundef %0) local_unnamed
   br label %39
 
 39:                                               ; preds = %38, %30
-  call void @llvm.lifetime.end.p0(i64 26, ptr nonnull %3) #30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #30
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %sentinelStartFailoverIfNeeded.exit.thread
 
 40:                                               ; preds = %18
@@ -13935,7 +13929,7 @@ sentinelCheckTiltCondition.exit:                  ; preds = %0, %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #22
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
 define internal void @redisAeAddRead(ptr noundef %0) #0 {
@@ -14075,6 +14069,12 @@ define internal void @redisAeWriteEvent(ptr readnone captures(none) %0, i32 %1, 
 
 declare void @redisAsyncHandleWrite(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #27
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #27
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #28
 
@@ -14095,26 +14095,26 @@ attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-ma
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree norecurse nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #29 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #30 = { nounwind }

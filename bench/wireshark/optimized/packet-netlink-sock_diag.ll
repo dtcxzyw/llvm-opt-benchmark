@@ -285,7 +285,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.netlink_sock_diag_info_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %6
 
@@ -295,7 +295,7 @@ define internal i32 @dissect_netlink_sock_diag(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %6, %4
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172, i32 noundef 968, ptr noundef nonnull @.str.173) #5
   unreachable
 
 10:                                               ; preds = %6
@@ -694,7 +694,7 @@ dissect_sock_diag_packet_request.exit.i:          ; preds = %245, %243
 
 dissect_sock_diag_by_family.exit:                 ; preds = %287, %dissect_sock_diag_packet_request.exit.i, %199, %dissect_sock_diag_netlink_request.exit.i, %134, %dissect_sock_diag_inet_request.exit.i, %dissect_sock_diag_unix_reply.exit.i, %dissect_sock_diag_unix_request.exit.i, %24, %10
   %.0 = phi i32 [ %21, %10 ], [ %21, %24 ], [ %77, %dissect_sock_diag_unix_request.exit.i ], [ %108, %dissect_sock_diag_unix_reply.exit.i ], [ %133, %dissect_sock_diag_inet_request.exit.i ], [ %155, %134 ], [ %198, %dissect_sock_diag_netlink_request.exit.i ], [ %234, %199 ], [ %286, %dissect_sock_diag_packet_request.exit.i ], [ %310, %287 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
 
@@ -708,11 +708,8 @@ define hidden void @proto_reg_handoff_netlink_sock_diag() local_unnamed_addr #0 
 ; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -728,9 +725,6 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_netlink_header(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -790,14 +784,14 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   br i1 %28, label %29, label %dissect_sock_diag_meminfo.exit
 
 29:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = load i32, ptr @hf_netlink_sock_diag_unix_peer_inode, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %5, i32 noundef 4, i32 noundef %32, ptr noundef nonnull %8)
   %34 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.177, i32 noundef %34)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_sock_diag_meminfo.exit
 
 35:                                               ; preds = %7
@@ -948,7 +942,7 @@ _dissect_padding.exit:                            ; preds = %16, %18
   br label %_dissect_padding.exit47
 
 36:                                               ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.172, i32 noundef 605) #5
   unreachable
 
 _dissect_padding.exit47:                          ; preds = %27, %25, %30
@@ -1139,16 +1133,21 @@ dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, 
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

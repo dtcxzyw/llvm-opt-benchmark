@@ -356,12 +356,6 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i32 -6542, 1) i32 @__unw_get_reg(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %.b1.i = load i1, ptr @_ZZ7logAPIsE7checked, align 1
@@ -449,7 +443,7 @@ logAPIs.exit:                                     ; preds = %3
   br i1 %23, label %24, label %44
 
 24:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %0, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
@@ -477,7 +471,7 @@ logAPIs.exit:                                     ; preds = %3
   br label %43
 
 43:                                               ; preds = %33, %24
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
 44:                                               ; preds = %14, %19, %43
@@ -929,8 +923,8 @@ define linkonce_odr hidden void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressS
 define dso_local void @__unw_add_dynamic_fde(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::FDE_Info", align 8
   %3 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::CIE_Info", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) @_ZN9libunwind17LocalAddressSpace17sThisAddressSpaceE, i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %12
@@ -952,15 +946,15 @@ define dso_local void @__unw_add_dynamic_fde(i64 noundef %0) local_unnamed_addr 
   br label %17
 
 17:                                               ; preds = %12, %6
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
   %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = inttoptr i64 %1 to ptr
   %.0.copyload.i = load i32, ptr %7, align 1
   %8 = zext i32 %.0.copyload.i to i64
@@ -1106,7 +1100,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %63
 
 85:                                               ; preds = %17, %24, %26, %77, %14
   %.0 = phi ptr [ @.str.149, %14 ], [ @.str.150, %17 ], [ null, %77 ], [ %27, %26 ], [ @.str.151, %24 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0
 }
 
@@ -1250,8 +1244,8 @@ define linkonce_odr hidden void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressS
 define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::CIE_Info", align 8
   %3 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::FDE_Info", align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #15
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = inttoptr i64 %0 to ptr
   %.0.copyload.i8 = load i32, ptr %4, align 1
   %.not9 = icmp eq i32 %.0.copyload.i8, 0
@@ -1296,8 +1290,8 @@ define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %17, %22, %1
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
 
@@ -1319,7 +1313,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %9, i8 0, i64 18, i1 false)
   store i64 %1, ptr %2, align 8, !tbaa !39
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = inttoptr i64 %1 to ptr
   %.0.copyload.i = load i32, ptr %14, align 1
   %15 = zext i32 %.0.copyload.i to i64
@@ -1661,7 +1655,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92: ; preds = %146
 
 175:                                              ; preds = %.loopexit, %28, %26, %23
   %.063 = phi ptr [ null, %23 ], [ @.str.152, %26 ], [ null, %.loopexit ], [ @.str.153, %28 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.063
 }
 
@@ -1672,7 +1666,7 @@ define dso_local void @__unw_remove_dynamic_eh_frame_section(i64 noundef %0) loc
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
 define hidden zeroext i1 @logUnwinding() local_unnamed_addr #1 {
@@ -1721,10 +1715,10 @@ define hidden zeroext i1 @logDWARF() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9libunwind20AbstractUnwindCursorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
@@ -1979,7 +1973,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(258) %0, i32 noundef -1) #15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %10 = inttoptr i64 %9 to ptr
   %11 = call i32 @dladdr(ptr noundef %10, ptr noundef nonnull %5) #15
   %12 = icmp ne i32 %11, 0
@@ -1999,7 +1993,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
   br label %_ZN9libunwind17LocalAddressSpace16findFunctionNameEmPcmPm.exit
 
 _ZN9libunwind17LocalAddressSpace16findFunctionNameEmPcmPm.exit: ; preds = %4, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %or.cond.i
 }
 
@@ -2031,7 +2025,7 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
   %20 = load i8, ptr %19, align 1, !tbaa !74, !range !10, !noundef !44
   %21 = zext nneg i8 %20 to i64
   %.1 = add i64 %spec.select, %21
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !70
   %24 = load i8, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE19dlFindObjectChecked, align 1, !tbaa !6, !range !10, !noundef !44
@@ -2050,7 +2044,7 @@ thread-pre-split.i:                               ; preds = %17
 
 28:                                               ; preds = %thread-pre-split.i, %26
   %29 = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %27, %26 ]
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %57, label %30
 
@@ -2067,7 +2061,7 @@ thread-pre-split.i:                               ; preds = %17
   br i1 %37, label %_ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit.thread, label %38
 
 _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit.thread: ; preds = %34
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %67
 
 38:                                               ; preds = %34
@@ -2086,7 +2080,7 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
   store i64 %47, ptr %48, align 8, !tbaa !88
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 -1, ptr %49, align 8, !tbaa !89
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = add i64 %47, -1
   %51 = call noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE11decodeEHHdrERS1_mmRNS2_12EHHeaderInfoE(ptr noundef nonnull align 1 dereferenceable(1) %23, i64 noundef %47, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(32) %5)
   br i1 %51, label %52, label %56
@@ -2100,11 +2094,11 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
   br label %56
 
 56:                                               ; preds = %52, %38
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit
 
 57:                                               ; preds = %30, %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %23, ptr %6, align 8, !tbaa !94
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %58, align 8, !tbaa !97
@@ -2112,12 +2106,12 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
   store i64 %.1, ptr %59, align 8, !tbaa !98
   %60 = call i32 @dl_iterate_phdr(ptr noundef nonnull @_ZN9libunwindL24findUnwindSectionsByPhdrEP12dl_phdr_infomPv, ptr noundef nonnull %6) #15
   %61 = icmp ne i32 %60, 0
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit
 
 _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit: ; preds = %56, %57
   %.0.i = phi i1 [ %51, %56 ], [ %61, %57 ]
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %63 = load i64, ptr %62, align 8
   %64 = icmp ne i64 %63, 0
@@ -2134,27 +2128,27 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
   br i1 %.not, label %101, label %69
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %70 = load ptr, ptr %22, align 8, !tbaa !70
   %71 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %70, i64 noundef %68, ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext false)
   %.not23 = icmp eq ptr %71, null
   br i1 %.not23, label %72, label %.critedge
 
 72:                                               ; preds = %69
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %3, i8 0, i64 552, i1 false)
   %73 = load ptr, ptr %22, align 8, !tbaa !70
   %74 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %.1, i32 noundef 1, ptr noundef nonnull %3)
   br i1 %74, label %75, label %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit
 
 _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit: ; preds = %72
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit, %69
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %101
 
 75:                                               ; preds = %72
@@ -2193,9 +2187,9 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
   store i32 %98, ptr %99, align 4, !tbaa !108
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 0, ptr %100, align 8, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %3) #15
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %103
 
 101:                                              ; preds = %.critedge, %67
@@ -2204,7 +2198,7 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
   br label %103
 
 103:                                              ; preds = %101, %75, %65
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %104
 
 104:                                              ; preds = %103, %15
@@ -2229,7 +2223,7 @@ _ZN9libunwind16Registers_x86_6415getRegisterNameEi.exit: ; preds = %2, %switch.l
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE13stepWithDwarfERS1_mmRS2_Rbb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
@@ -2237,21 +2231,21 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %8 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::CIE_Info", align 8
   %9 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::PrologInfo", align 8
   %.sroa.24 = alloca { i64, i64, i64, i64 }, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %75
 
 12:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %9, i8 0, i64 552, i1 false)
   %13 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 noundef %1, i32 noundef 1, ptr noundef nonnull %9)
   br i1 %13, label %14, label %.sink.split
 
 14:                                               ; preds = %12
   %15 = call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE6getCFAERS1_RKNS_10CFI_ParserIS1_E10PrologInfoERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(552) %9, ptr noundef nonnull align 8 dereferenceable(168) %3)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.24)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.24)
   %.sroa.0.0.copyload = load i64, ptr %3, align 8, !tbaa !18
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
@@ -2543,18 +2537,18 @@ _ZN9libunwind16Registers_x86_6411setRegisterEim.exit: ; preds = %49, %48, %47, %
 
 .loopexit:                                        ; preds = %30, %.critedge
   %.1 = phi i32 [ 1, %.critedge ], [ -6542, %30 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.24)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.24)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %.loopexit
   %.3.ph = phi i32 [ %.1, %.loopexit ], [ -6546, %12 ]
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %75
 
 75:                                               ; preds = %.sink.split, %6
   %.3 = phi i32 [ -6546, %6 ], [ %.3.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.3
 }
 
@@ -2563,7 +2557,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %7 = alloca [2 x %struct.ParseInfo], align 16
   %8 = alloca i64, align 8
   %9 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::PrologInfo", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !64
   store i64 %11, ptr %7, align 16, !tbaa !114
@@ -2605,14 +2599,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %.0213.idx875 = phi i64 [ 0, %6 ], [ %.0213.add, %._crit_edge ]
   %.sroa.0.0874 = phi ptr [ null, %6 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %.0213.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0213.idx875
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %40 = load i64, ptr %.0213.ptr, align 8, !tbaa !114
   store i64 %40, ptr %8, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !116
   %43 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 16
   %44 = load i64, ptr %43, align 8, !tbaa !117
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %.b1.i = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i, label %._crit_edge.i, label %logDWARF.exit
 
@@ -5211,21 +5205,21 @@ logDWARF.exit558:                                 ; preds = %1291
   br i1 %.not254, label %._crit_edge, label %57, !llvm.loop !129
 
 .loopexit:                                        ; preds = %430, %1206, %1272, %179, %227, %274, %321, %393, %400, %494, %537, %651, %729, %821, %896, %970, %1039, %1152, %1296, %logDWARF.exit558, %._crit_edge.i556
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge256
 
 ._crit_edge:                                      ; preds = %1299, %52
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0874, %52 ], [ %.sroa.0.2, %1299 ]
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %9) #15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.0213.add = add nuw nsw i64 %.0213.idx875, 24
   %.not = icmp eq i64 %.0213.add, 48
   br i1 %.not, label %.critedge256, label %39
 
 .critedge256:                                     ; preds = %._crit_edge, %.loopexit
   %.not869 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.not869
 }
 
@@ -5337,7 +5331,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %3, %3, %5, %6, 
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE16getSavedRegisterERS1_RKS2_mRKNS_10CFI_ParserIS1_E16RegisterLocationE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 comdat align 2 {
@@ -5502,7 +5496,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %25, %29, %31, %
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #9 comdat align 2 {
+define linkonce_odr hidden noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2, i8 noundef zeroext %3, i64 noundef %4) local_unnamed_addr #8 comdat align 2 {
   %6 = load i64, ptr %1, align 8, !tbaa !18
   %7 = inttoptr i64 %6 to ptr
   %8 = zext i8 %3 to i32
@@ -5790,7 +5784,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %29
   %33 = ptrtoint ptr %31 to i64
   %34 = add i64 %30, %33
-  call void @llvm.lifetime.start.p0(i64 800, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %35, align 8, !tbaa !18
   %36 = icmp ugt i64 %34, %33
@@ -7053,14 +7047,14 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit264: ; preds = %_ZN9libunwin
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit
   %560 = phi i64 [ %3, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ], [ %.pre, %._crit_edge.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %560
 }
 
-declare void @__libunwind_Registers_x86_64_jumpto(ptr noundef) local_unnamed_addr #10
+declare void @__libunwind_Registers_x86_64_jumpto(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #11
+declare i32 @dladdr(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
@@ -7070,8 +7064,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
   %5 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::PrologInfo", align 8
   %6 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::FDE_Info", align 8
   %7 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::CIE_Info", align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #15
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not39 = icmp eq i32 %3, 0
   br i1 %.not39, label %.thread, label %8
 
@@ -7131,7 +7125,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
 .thread61:                                        ; preds = %8, %20, %29, %.thread56
   %.0335564 = phi i1 [ true, %.thread56 ], [ false, %29 ], [ true, %20 ], [ true, %8 ]
   %44 = load i64, ptr %2, align 8, !tbaa !84
-  call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, i8 0, i64 552, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !70
@@ -7139,7 +7133,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
   br i1 %47, label %48, label %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit
 
 _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit: ; preds = %.thread61
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
 48:                                               ; preds = %.thread61
@@ -7178,7 +7172,7 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
   store i32 %71, ptr %72, align 4, !tbaa !108
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %44, ptr %73, align 8, !tbaa !109
-  call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %or.cond = and i1 %.not39, %.0335564
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %75 = load i64, ptr %74, align 8
@@ -7193,8 +7187,8 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
 
 79:                                               ; preds = %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit, %.thread56, %48, %77
   %.0 = phi i1 [ true, %77 ], [ true, %48 ], [ false, %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit ], [ false, %.thread56 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #15
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0
 }
 
@@ -7286,12 +7280,12 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind13DwarfFDECacheINS_17LocalA
 }
 
 ; Function Attrs: nounwind
-declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #11
+declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE11decodeEHHdrERS1_mmRNS2_12EHHeaderInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sub i64 %2, %1
   %7 = icmp ult i64 %6, 4
   br i1 %7, label %8, label %15
@@ -7355,11 +7349,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 
 41:                                               ; preds = %17, %36, %8, %10
   %.0 = phi i1 [ false, %10 ], [ false, %8 ], [ true, %36 ], [ false, %17 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
 
-declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #10
+declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsByPhdrEP12dl_phdr_infomPv(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
@@ -7427,7 +7421,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
   br i1 %39, label %40, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
 
 40:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load i64, ptr %41, align 8, !tbaa !144
   %43 = add i64 %42, %11
@@ -7444,7 +7438,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
   br i1 %51, label %52, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit
 
 _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit: ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
 
 52:                                               ; preds = %40
@@ -7454,7 +7448,7 @@ _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dat
   store i64 %53, ptr %55, align 8, !tbaa !92
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i64 -1, ptr %56, align 8, !tbaa !93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread: ; preds = %33, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit
@@ -7471,7 +7465,7 @@ _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE7findFDEERS1_mmmmPNS2_8FDE_InfoEPNS2_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 comdat align 2 {
   %8 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %.not = icmp eq i64 %4, 0
   %9 = select i1 %.not, i64 %2, i64 %4
   store i64 %9, ptr %8, align 8, !tbaa !18
@@ -7643,7 +7637,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %76
 
 .thread89:                                        ; preds = %.thread, %24, %7, %90
   %.7 = phi i1 [ true, %90 ], [ false, %7 ], [ false, %24 ], [ false, %.thread ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.7
 }
 
@@ -7653,7 +7647,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
   %8 = alloca i64, align 8
   %9 = zext i32 %3 to i64
   %10 = add i64 %2, %9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %11 = call noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE11decodeEHHdrERS1_mmRNS2_12EHHeaderInfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %2, i64 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %7)
   br i1 %11, label %12, label %53
 
@@ -7667,7 +7661,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load i8, ptr %17, align 8, !tbaa !134
   %19 = call noundef i64 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE17getTableEntrySizeEh(i8 noundef zeroext %18)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = load i64, ptr %13, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %22
@@ -7734,12 +7728,12 @@ _ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE16decodeTableEntryERS1_Rmm
 
 52:                                               ; preds = %47, %51
   %.1 = phi i1 [ false, %51 ], [ true, %47 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
 53:                                               ; preds = %12, %6, %52
   %.0 = phi i1 [ %.1, %52 ], [ false, %6 ], [ false, %12 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
 
@@ -7785,19 +7779,25 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind14EHHeaderParserINS_17Local
 }
 
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #11
+declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
@@ -7805,17 +7805,17 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nofree nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { cold nounwind }

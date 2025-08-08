@@ -291,7 +291,7 @@ define hidden void @cmsCIECAM02Forward(ptr noundef readonly captures(none) %0, p
   %17 = fmul double %8, 1.360000e-02
   %18 = tail call double @llvm.fmuladd.f64(double %6, double 3.000000e-03, double %17)
   %19 = tail call double @llvm.fmuladd.f64(double %10, double 9.834000e-01, double %18)
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.14.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %13, ptr %.sroa.14.0..sroa_idx64, align 8
   %.sroa.14.sroa.11.0..sroa.14.0..sroa_idx64.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -359,7 +359,7 @@ ChromaticAdaptation.exit:                         ; preds = %26
   %.sroa.9181.0.copyload = load double, ptr %.sroa.16124.0..sroa_idx135, align 8
   %.sroa.10182.sroa.0.0.copyload = load double, ptr %.sroa.17.0..sroa_idx148, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.17.sroa.11, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.17.sroa.11.0..sroa.17.0..sroa_idx148.sroa_idx, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = fmul double %.sroa.4176.sroa.4.sroa.2.0.copyload, 0x3FCBE83EA743F4F8
   %36 = tail call double @llvm.fmuladd.f64(double %.sroa.4176.sroa.4.sroa.0.0.copyload, double 0x3FE7B619F212AE38, double %35)
   %37 = tail call double @llvm.fmuladd.f64(double %.sroa.4176.sroa.4.sroa.3.0.copyload, double 0x3FA4FEB5CD1DD6DE, double %36)
@@ -369,7 +369,7 @@ ChromaticAdaptation.exit:                         ; preds = %26
   %41 = fmul double %.sroa.4176.sroa.4.sroa.2.0.copyload, -5.698000e-03
   %42 = tail call double @llvm.fmuladd.f64(double %.sroa.4176.sroa.4.sroa.0.0.copyload, double 0xBF83B7D84901D191, double %41)
   %43 = tail call double @llvm.fmuladd.f64(double %.sroa.4176.sroa.4.sroa.3.0.copyload, double 0x3FF03EC679CC74B8, double %42)
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.14.sroa.15.sroa.15.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
   store double %37, ptr %.sroa.14.sroa.15.sroa.15.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx, align 8
   %.sroa.14.sroa.15.sroa.17.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -452,7 +452,7 @@ NonlinearCompression.exit:                        ; preds = %67
   %71 = load double, ptr %.sroa.14.sroa.15.sroa.21.sroa.13.0..sroa.14.sroa.15.sroa.21.0..sroa.14.sroa.15.0..sroa.14.0..sroa_idx66.sroa_idx.sroa_idx.sroa_idx, align 8, !noalias !18
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %73 = load double, ptr %72, align 8, !noalias !18
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = fmul double %70, 1.200000e+01
   %75 = fdiv double %74, 1.100000e+01
   %76 = fsub double %69, %75
@@ -679,7 +679,7 @@ InverseCorrelates.exit:                           ; preds = %52, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.15.sroa.0, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, i8 0, i64 56, i1 false)
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.sroa.14.sroa.0.sroa.17.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.14.sroa.0.sroa.19.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 80
   %.sroa.14.sroa.0.sroa.21.0..sroa.14.0..sroa_idx63.sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -749,7 +749,7 @@ InverseNonlinearity.exit:                         ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.16.0..sroa_idx119, i64 24, i1 false)
   %.sroa.9180.0.copyload = load double, ptr %.sroa.16123.0..sroa_idx134, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.17.0..sroa_idx147, i64 56, i1 false)
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %108 = fmul double %.sroa.4175.sroa.0.sroa.6.0.copyload, 0xBFE16E5EA75C2336
   %109 = tail call double @llvm.fmuladd.f64(double %.sroa.4175.sroa.0.sroa.5.0.copyload, double 0x3FF8F249DF5F3018, double %108)
   %110 = tail call double @llvm.fmuladd.f64(double %.sroa.4175.sroa.0.sroa.7.0.copyload, double 0xBF8D91DEAABEDCA0, double %109)
@@ -759,7 +759,7 @@ InverseNonlinearity.exit:                         ; preds = %92
   %114 = fmul double %.sroa.4175.sroa.0.sroa.6.0.copyload, 0x3F756044DD566727
   %115 = tail call double @llvm.fmuladd.f64(double %.sroa.4175.sroa.0.sroa.5.0.copyload, double 0x3F8611789ABDD357, double %114)
   %116 = tail call double @llvm.fmuladd.f64(double %.sroa.4175.sroa.0.sroa.7.0.copyload, double 0x3FEF7CF9CCDE6036, double %115)
-  call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.sroa.14.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.14.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -828,7 +828,7 @@ InverseChromaticAdaptation.exit:                  ; preds = %123
   %.sroa.4155.sroa.0.sroa.0.sroa.0.0.copyload = load double, ptr %.sroa.14.0..sroa_idx65, align 8
   %.sroa.4155.sroa.0.sroa.0.sroa.2.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.0.sroa.11.0..sroa.14.0..sroa_idx65.sroa_idx, align 8
   %.sroa.4155.sroa.0.sroa.0.sroa.3.0.copyload = load double, ptr %.sroa.14.sroa.0.sroa.0.sroa.13.0..sroa.14.0..sroa_idx65.sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %133 = fmul double %.sroa.4155.sroa.0.sroa.0.sroa.2.0.copyload, -2.788690e-01
   %134 = tail call double @llvm.fmuladd.f64(double %.sroa.4155.sroa.0.sroa.0.sroa.0.0.copyload, double 0x3FF189B951C5C572, double %133)
   %135 = tail call double @llvm.fmuladd.f64(double %.sroa.4155.sroa.0.sroa.0.sroa.3.0.copyload, double 1.827450e-01, double %134)
@@ -868,10 +868,10 @@ declare double @sin(double noundef) local_unnamed_addr #5
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

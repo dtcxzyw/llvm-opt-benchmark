@@ -45,9 +45,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @protocol_v2_advertise_capabilities(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.strbuf, align 8
   %3 = alloca %struct.strbuf, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) @__const.protocol_v2_advertise_capabilities.value, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.protocol_v2_advertise_capabilities.value, i64 24, i1 false)
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef 1, ptr noundef nonnull @.str) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -60,8 +60,8 @@ define dso_local void @protocol_v2_advertise_capabilities(ptr noundef %0) local_
   call void @packet_flush(i32 noundef 1) #7
   call void @strbuf_release(ptr noundef nonnull %2) #7
   call void @strbuf_release(ptr noundef nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 9:                                                ; preds = %1, %strbuf_setlen.exit17
@@ -171,24 +171,18 @@ strbuf_setlen.exit17:                             ; preds = %strbuf_setlen.exit,
   br i1 %exitcond.not, label %8, label %9, !llvm.loop !17
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
-declare void @packet_write_fmt(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
+declare void @packet_write_fmt(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @packet_write(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @packet_write(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @packet_flush(i32 noundef) local_unnamed_addr #2
 
-declare void @packet_flush(i32 noundef) local_unnamed_addr #3
-
-declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
+declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @protocol_v2_serve_loop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -215,7 +209,7 @@ define dso_local void @protocol_v2_serve_loop(ptr noundef %0, i32 noundef %1) lo
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.packet_reader, align 8
-  call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @packet_reader_init(ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, i64 noundef 0, i32 noundef 7) #7
   %3 = call i32 @packet_reader_peek(ptr noundef nonnull %2) #7
   %4 = icmp eq i32 %3, 0
@@ -479,7 +473,7 @@ hash_algo_by_ptr.exit:                            ; preds = %85, %.split.loop.ex
 
 .loopexit37:                                      ; preds = %73, %1, %93
   %.09 = phi i32 [ 0, %93 ], [ 1, %1 ], [ 1, %73 ]
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.09
 }
 
@@ -498,16 +492,16 @@ define internal noundef i32 @agent_advertise(ptr readnone captures(none) %0, ptr
   ret i32 1
 }
 
-declare i32 @ls_refs_advertise(ptr noundef, ptr noundef) #3
+declare i32 @ls_refs_advertise(ptr noundef, ptr noundef) #2
 
-declare i32 @ls_refs(ptr noundef, ptr noundef) #3
+declare i32 @ls_refs(ptr noundef, ptr noundef) #2
 
-declare i32 @upload_pack_advertise(ptr noundef, ptr noundef) #3
+declare i32 @upload_pack_advertise(ptr noundef, ptr noundef) #2
 
-declare i32 @upload_pack_v2(ptr noundef, ptr noundef) #3
+declare i32 @upload_pack_v2(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @always_advertise(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #4 {
+define internal noundef i32 @always_advertise(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #3 {
   ret i32 1
 }
 
@@ -622,48 +616,54 @@ define internal i32 @object_info_advertise(ptr noundef %0, ptr readnone captures
   ret i32 %9
 }
 
-declare i32 @cap_object_info(ptr noundef, ptr noundef) #3
+declare i32 @cap_object_info(ptr noundef, ptr noundef) #2
 
-declare i32 @bundle_uri_advertise(ptr noundef, ptr noundef) #3
+declare i32 @bundle_uri_advertise(ptr noundef, ptr noundef) #2
 
-declare i32 @bundle_uri_command(ptr noundef, ptr noundef) #3
+declare i32 @bundle_uri_command(ptr noundef, ptr noundef) #2
 
-declare ptr @git_user_agent_sanitized() local_unnamed_addr #3
+declare ptr @git_user_agent_sanitized() local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #5
+declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @hash_algo_by_name(ptr noundef) local_unnamed_addr #3
+declare i32 @hash_algo_by_name(ptr noundef) local_unnamed_addr #2
 
-declare i32 @repo_config_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare i32 @repo_config_get_bool(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @trace2_session_id() local_unnamed_addr #3
+declare ptr @trace2_session_id() local_unnamed_addr #2
 
-declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
-declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #3
+declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
-declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
+declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare void @packet_reader_init(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
+declare void @packet_reader_init(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @packet_reader_peek(ptr noundef) local_unnamed_addr #3
+declare i32 @packet_reader_peek(ptr noundef) local_unnamed_addr #2
 
-declare i32 @packet_reader_read(ptr noundef) local_unnamed_addr #3
+declare i32 @packet_reader_read(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { noreturn nounwind }

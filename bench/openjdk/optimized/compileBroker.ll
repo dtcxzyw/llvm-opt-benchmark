@@ -2198,7 +2198,7 @@ define hidden void @_ZN13CompileBroker21init_compiler_threadsEv() local_unnamed_
 48:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %_ZN12ResourceMarkD2Ev.exit ]
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13CompileBroker10_compilersE, i64 8), align 8
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef ptr %51(ptr noundef nonnull align 8 dereferenceable(96) %49) #20
@@ -2210,14 +2210,14 @@ define hidden void @_ZN13CompileBroker21init_compiler_threadsEv() local_unnamed_
   br i1 %.not.i, label %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit, label %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit.thread
 
 _ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit.thread: ; preds = %48
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 _ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit: ; preds = %48
   %57 = call noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr %55, i32 noundef 0) #20
   %.pre = load ptr, ptr %42, align 8
   %58 = icmp eq ptr %.pre, null
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %58, label %59, label %.loopexit
 
 59:                                               ; preds = %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit
@@ -2307,7 +2307,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %._ZN12ResourceMarkD
 101:                                              ; preds = %.lr.ph67, %_ZN12ResourceMarkD2Ev.exit48
   %indvars.iv71 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next72.pre-phi, %_ZN12ResourceMarkD2Ev.exit48 ]
   %102 = load ptr, ptr @_ZN13CompileBroker10_compilersE, align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = call noundef ptr %104(ptr noundef nonnull align 8 dereferenceable(96) %102) #20
@@ -2319,14 +2319,14 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %._ZN12ResourceMarkD
   br i1 %.not.i42, label %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit44, label %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit44.thread
 
 _ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit44.thread: ; preds = %101
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %.loopexit
 
 _ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit44: ; preds = %101
   %110 = call noundef ptr @_ZN10JNIHandles11make_globalE6HandleN17AllocFailStrategy13AllocFailEnumE(ptr %108, i32 noundef 0) #20
   %.pre74 = load ptr, ptr %46, align 8
   %111 = icmp eq ptr %.pre74, null
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %_ZL22create_compiler_threadP16AbstractCompileriP10JavaThread.exit44
@@ -4067,7 +4067,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread74: ; 
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %63, ptr %9, align 8
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %64, align 8
@@ -4104,7 +4104,7 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
   store ptr %63, ptr %84, align 8
   call void @_ZN12ConstantPool29resolve_string_constants_implERK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %7) #20
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not79 = icmp eq ptr %86, null
@@ -6545,7 +6545,7 @@ _ZN13CompileBroker13compiler_nameEi.exit196:      ; preds = %490, %_ZN13CompileB
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE21ELS1_19ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #20
   %549 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i197 = icmp eq ptr %549, null
@@ -6593,7 +6593,7 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %550, %_ZN11MutexLoc
 
 _ZL15codecache_printP12outputStreamb.exit:        ; preds = %560, %_ZN11MutexLockerD2Ev.exit.i
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #20
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %18) #20
   br label %562
 
@@ -6603,7 +6603,7 @@ _ZL15codecache_printP12outputStreamb.exit:        ; preds = %560, %_ZN11MutexLoc
   br i1 %564, label %565, label %572
 
 565:                                              ; preds = %562
-  call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %2, i64 noundef 0) #20
   %566 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i.i199 = icmp eq ptr %566, null
@@ -6627,7 +6627,7 @@ _ZL15codecache_printb.exit:                       ; preds = %_ZN11MutexLockerC2E
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %569, ptr noundef nonnull @.str.16, ptr noundef %571) #20
   call void @_ZN9ttyLocker11release_ttyEl(i64 noundef %568) #20
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #20
-  call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %572
 
 572:                                              ; preds = %_ZL15codecache_printb.exit, %562
@@ -10125,7 +10125,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread:          ; preds = %1, %_ZNK11RegisterM
   br label %84
 
 10:                                               ; preds = %_ZNK11RegisterMap7in_contEv.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.011.0.copyload.i = load ptr, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -10193,10 +10193,10 @@ _ZN17stackChunkOopDesc24interpreter_frame_methodERK5frame.exit: ; preds = %10, %
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %41, ptr %.sroa.9.0..sroa_idx.i, align 8
   %46 = call noundef ptr @_ZNK5frame24interpreter_frame_methodEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload.i6 = load ptr, ptr %4, align 8
   %47 = load ptr, ptr %.sroa.0.0.copyload.i6, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %.sroa.011.0.copyload.i7 = load ptr, ptr %0, align 8
   %.sroa.2.0.copyload.i9 = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.4.0.copyload.i11 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -10260,7 +10260,7 @@ _ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit: ; preds = %_ZN17sta
   %.sroa.9.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %78, ptr %.sroa.9.0..sroa_idx.i24, align 8
   %83 = call noundef ptr @_ZNK5frame21interpreter_frame_bcpEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %84
 
 84:                                               ; preds = %_ZN17stackChunkOopDesc21interpreter_frame_bcpERK5frame.exit, %_ZNK11RegisterMap7in_contEv.exit.thread
@@ -11352,10 +11352,10 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

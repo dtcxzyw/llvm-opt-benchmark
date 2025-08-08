@@ -201,9 +201,9 @@ define hidden void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 
 define hidden void @_ZN20VirtualMemorySummary8snapshotEP21VirtualMemorySnapshot(ptr noundef writeonly %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadCritical, align 1
   %3 = alloca %class.SnapshotThreadStackWalker, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25SnapshotThreadStackWalker, i64 16), ptr %3, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
   %4 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -230,8 +230,8 @@ define hidden void @_ZN20VirtualMemorySummary8snapshotEP21VirtualMemorySnapshot(
 
 _ZN20VirtualMemoryTracker22snapshot_thread_stacksEv.exit: ; preds = %7, %.lr.ph.i.i, %1, %5
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %12
 
 12:                                               ; preds = %12, %_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv.exit
@@ -252,7 +252,7 @@ define hidden void @_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv() local_
   %1 = alloca %class.ThreadCritical, align 1
   %2 = alloca %class.SnapshotThreadStackWalker, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV25SnapshotThreadStackWalker, i64 16), ptr %2, align 8
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #14
   %3 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
   %.not.i = icmp eq ptr %3, null
@@ -279,7 +279,7 @@ define hidden void @_ZN20VirtualMemoryTracker22snapshot_thread_stacksEv() local_
 
 _ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit: ; preds = %6, %.lr.ph.i, %0, %4
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
@@ -770,7 +770,7 @@ _ZNK19VirtualMemoryRegion14contain_regionEPhm.exit.thread: ; preds = %_ZNK19Virt
   %93 = load i64, ptr %92, align 8
   %94 = sub i64 %93, %2
   store i64 %94, ptr %92, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
   %95 = load ptr, ptr %.us-phi74, align 8
   %96 = icmp eq ptr %95, %1
   %97 = load i64, ptr %82, align 8
@@ -823,7 +823,7 @@ _ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS
 
 _ZN20ReservedMemoryRegion25remove_uncommitted_regionEP14LinkedListNodeI21CommittedMemoryRegionEPhm.exit: ; preds = %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit.i, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i
   %.0.i = phi i1 [ true, %_ZN19VirtualMemoryRegion14exclude_regionEPhm.exit.i ], [ %115, %_ZN16SortedLinkedListI21CommittedMemoryRegionXadL_Z24compare_committed_regionRKS0_S2_EELN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE3addES2_.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.3.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
   br label %_ZN14LinkedListImplI21CommittedMemoryRegionLN6AnyObj15allocation_typeE2EL8MEMFLAGS12ELN17AllocFailStrategy13AllocFailEnumE1EE12remove_afterEP14LinkedListNodeIS0_E.exit
 
 116:                                              ; preds = %88
@@ -2297,7 +2297,7 @@ define hidden noundef zeroext i1 @_ZN20VirtualMemoryTracker23print_containing_re
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN22NativeCallStackPrinterC1EP12outputStream(ptr noundef nonnull align 8 dereferenceable(2408) %7, ptr noundef %1) #14
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
   %8 = load ptr, ptr @_ZN20VirtualMemoryTracker17_reserved_regionsE, align 8
   %.not.i = icmp eq ptr %8, null
@@ -2329,7 +2329,7 @@ _ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit.loope
 _ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit: ; preds = %_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit.loopexit, %2, %9
   %16 = phi i1 [ false, %2 ], [ false, %9 ], [ %.ph, %_ZN20VirtualMemoryTracker19walk_virtual_memoryEP19VirtualMemoryWalker.exit.loopexit ]
   call void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV17PrintRegionWalker, i64 16), ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %18
@@ -4195,10 +4195,10 @@ __cxx_global_var_init.4.exit:                     ; preds = %1
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

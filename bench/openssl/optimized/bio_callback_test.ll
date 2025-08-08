@@ -79,11 +79,11 @@ define internal range(i32 0, 2) i32 @test_bio_callback_ex() #0 {
   %1 = alloca [5 x i8], align 1
   %2 = alloca [6 x i8], align 1
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @__const.test_bio_callback.test1, i64 5, i1 false)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @__const.test_bio_callback.test2, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr @my_param_count, align 4, !tbaa !4
   %4 = tail call ptr @BIO_s_mem() #7
   %5 = tail call ptr @BIO_new(ptr noundef %4) #7
@@ -703,9 +703,9 @@ define internal range(i32 0, 2) i32 @test_bio_callback_ex() #0 {
   %.0 = phi i32 [ 0, %313 ], [ 0, %306 ], [ 0, %303 ], [ 0, %300 ], [ 0, %297 ], [ 0, %294 ], [ 0, %291 ], [ 0, %288 ], [ %spec.select, %309 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_argp, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
@@ -714,11 +714,11 @@ define internal range(i32 0, 2) i32 @test_bio_callback() #0 {
   %1 = alloca [5 x i8], align 1
   %2 = alloca [6 x i8], align 1
   %3 = alloca [16 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %1) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @__const.test_bio_callback.test1, i64 5, i1 false)
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @__const.test_bio_callback.test2, i64 6, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr @my_param_count, align 4, !tbaa !4
   %4 = tail call ptr @BIO_s_mem() #7
   %5 = tail call ptr @BIO_new(ptr noundef %4) #7
@@ -1210,17 +1210,14 @@ define internal range(i32 0, 2) i32 @test_bio_callback() #0 {
   %.0 = phi i32 [ 0, %243 ], [ 0, %237 ], [ 0, %234 ], [ 0, %231 ], [ 0, %228 ], [ 0, %225 ], [ 0, %222 ], [ 0, %219 ], [ %spec.select, %240 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_b, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) @my_param_argp, i8 0, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #7
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %1) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
 
@@ -1229,7 +1226,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #1
 declare void @BIO_set_callback_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal range(i64 -2147483648, 2147483648) i64 @my_bio_cb_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #4 {
+define internal range(i64 -2147483648, 2147483648) i64 @my_bio_cb_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #3 {
   %9 = load i32, ptr @my_param_count, align 4, !tbaa !4
   %10 = icmp sgt i32 %9, 4
   br i1 %10, label %27, label %11
@@ -1292,15 +1289,12 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @BIO_set_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef i64 @my_bio_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #6 {
+define internal noundef i64 @my_bio_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #5 {
   %7 = load i32, ptr @my_param_count, align 4, !tbaa !4
   %8 = icmp sgt i32 %7, 4
   br i1 %8, label %18, label %9
@@ -1328,13 +1322,19 @@ define internal noundef i64 @my_bio_callback(ptr noundef %0, i32 noundef %1, ptr
   ret i64 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

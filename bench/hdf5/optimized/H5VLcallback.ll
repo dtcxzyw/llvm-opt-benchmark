@@ -541,7 +541,7 @@ define range(i32 -1, -2147483648) i32 @H5VLinitialize(i64 noundef %0, i64 nounde
   br i1 %.not, label %35, label %14
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.thread, label %17
@@ -561,11 +561,11 @@ define range(i32 -1, -2147483648) i32 @H5VLinitialize(i64 noundef %0, i64 nounde
   %24 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %25 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLinitialize, i32 noundef %.sink, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 27:                                               ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = icmp slt i32 %21, 0
   br i1 %28, label %29, label %35
 
@@ -584,21 +584,15 @@ define range(i32 -1, -2147483648) i32 @H5VLinitialize(i64 noundef %0, i64 nounde
   ret i32 %.01324
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
+declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #2
+declare i32 @H5_user_cb_restore(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5_user_cb_restore(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
-
-declare i32 @H5E_dump_api_stack() local_unnamed_addr #2
+declare i32 @H5E_dump_api_stack() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5VLterminate(i64 noundef %0) local_unnamed_addr #0 {
@@ -621,7 +615,7 @@ define range(i32 -1, -2147483648) i32 @H5VLterminate(i64 noundef %0) local_unnam
   br i1 %.not, label %34, label %13
 
 13:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %2) #7
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.thread, label %16
@@ -641,11 +635,11 @@ define range(i32 -1, -2147483648) i32 @H5VLterminate(i64 noundef %0) local_unnam
   %23 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %24 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %25 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLterminate, i32 noundef %.sink, i64 noundef %23, i64 noundef %24, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %32
 
 26:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = icmp slt i32 %20, 0
   br i1 %27, label %28, label %34
 
@@ -771,7 +765,7 @@ define range(i32 -1, 1) i32 @H5VL_copy_connector_info(ptr noundef readonly captu
   br i1 %.not27, label %44, label %25
 
 25:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -791,11 +785,11 @@ define range(i32 -1, 1) i32 @H5VL_copy_connector_info(ptr noundef readonly captu
   %35 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %36 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_copy_connector_info, i32 noundef %.sink, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %60
 
 38:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq ptr %32, null
   br i1 %39, label %40, label %59
 
@@ -842,13 +836,13 @@ define range(i32 -1, 1) i32 @H5VL_copy_connector_info(ptr noundef readonly captu
   ret i32 %.023
 }
 
-declare i32 @H5VL__init_package() local_unnamed_addr #2
+declare i32 @H5VL__init_package() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VLcopy_connector_info(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -955,7 +949,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_cmp_connector_info(ptr noundef reado
   br i1 %.not, label %54, label %35
 
 35:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.thread, label %38
@@ -975,11 +969,11 @@ define range(i32 -1, -2147483648) i32 @H5VL_cmp_connector_info(ptr noundef reado
   %45 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %46 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %47 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_cmp_connector_info, i32 noundef %.sink, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %58
 
 48:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %49 = icmp slt i32 %42, 0
   br i1 %49, label %50, label %58
 
@@ -1002,12 +996,12 @@ define range(i32 -1, -2147483648) i32 @H5VL_cmp_connector_info(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VLcmp_connector_info(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %5, i8 0, i64 480, i1 false)
   %6 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %7 = trunc nuw i8 %6 to i1
@@ -1094,20 +1088,20 @@ define range(i32 -1, 1) i32 @H5VLcmp_connector_info(ptr noundef %0, i64 noundef 
 
 52:                                               ; preds = %.thread30, %.thread24
   %.0131927 = phi i32 [ -1, %.thread24 ], [ 0, %.thread30 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0131927
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-declare i32 @H5_init_library() local_unnamed_addr #2
+declare i32 @H5_init_library() local_unnamed_addr #1
 
-declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #2
+declare i32 @H5CX_push(ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5E_clear_stack() local_unnamed_addr #2
+declare i32 @H5E_clear_stack() local_unnamed_addr #1
 
-declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #2
+declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1156,7 +1150,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef read
   br i1 %.not, label %43, label %24
 
 24:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27
@@ -1176,11 +1170,11 @@ define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef read
   %34 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %35 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_free_connector_info, i32 noundef %.sink, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %45
 
 37:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = icmp slt i32 %31, 0
   br i1 %38, label %39, label %45
 
@@ -1199,7 +1193,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_free_connector_info(ptr noundef read
   ret i32 %.014
 }
 
-declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #2
+declare ptr @H5MM_xfree_const(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VLfree_connector_info(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1258,7 +1252,7 @@ define range(i32 -1, -2147483648) i32 @H5VLconnector_info_to_str(ptr noundef %0,
   br i1 %.not26, label %35, label %16
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -1278,11 +1272,11 @@ define range(i32 -1, -2147483648) i32 @H5VLconnector_info_to_str(ptr noundef %0,
   %26 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %27 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLconnector_info_to_str, i32 noundef %.sink, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 29:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = icmp slt i32 %23, 0
   br i1 %30, label %31, label %39
 
@@ -1332,7 +1326,7 @@ define range(i32 -1, -2147483648) i32 @H5VL__connector_str_to_info(ptr noundef %
   br i1 %.not16, label %35, label %16
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %17 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -1352,11 +1346,11 @@ define range(i32 -1, -2147483648) i32 @H5VL__connector_str_to_info(ptr noundef %
   %26 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %27 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__connector_str_to_info, i32 noundef %.sink, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 29:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %30 = icmp slt i32 %23, 0
   br i1 %30, label %31, label %37
 
@@ -1442,7 +1436,7 @@ define ptr @H5VLget_object(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %.not, label %.thread22, label %20
 
 20:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread26, label %23
@@ -1462,11 +1456,11 @@ define ptr @H5VLget_object(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLget_object, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
 33:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread22
 
 .thread:                                          ; preds = %12, %5, %.thread26
@@ -1499,7 +1493,7 @@ define range(i32 -1, -2147483648) i32 @H5VLget_wrap_ctx(ptr noundef %0, i64 noun
   br i1 %.not, label %34, label %15
 
 15:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.thread, label %18
@@ -1519,11 +1513,11 @@ define range(i32 -1, -2147483648) i32 @H5VLget_wrap_ctx(ptr noundef %0, i64 noun
   %25 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %26 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLget_wrap_ctx, i32 noundef %.sink, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %35
 
 28:                                               ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = icmp slt i32 %22, 0
   br i1 %29, label %30, label %37
 
@@ -1588,7 +1582,7 @@ define ptr @H5VL_wrap_object(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not, label %40, label %22
 
 22:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -1607,11 +1601,11 @@ define ptr @H5VL_wrap_object(ptr noundef readonly captures(none) %0, ptr noundef
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_wrap_object, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %40
 
 34:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -1713,7 +1707,7 @@ define ptr @H5VL_unwrap_object(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not, label %40, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -1732,11 +1726,11 @@ define ptr @H5VL_unwrap_object(ptr noundef readonly captures(none) %0, ptr nound
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_unwrap_object, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %40
 
 34:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -1812,7 +1806,7 @@ define range(i32 -1, -2147483648) i32 @H5VLfree_wrap_ctx(ptr noundef %0, i64 nou
   br i1 %.not, label %32, label %11
 
 11:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.thread, label %14
@@ -1832,11 +1826,11 @@ define range(i32 -1, -2147483648) i32 @H5VLfree_wrap_ctx(ptr noundef %0, i64 nou
   %21 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %22 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %23 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VLfree_wrap_ctx, i32 noundef %.sink, i64 noundef %21, i64 noundef %22, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %30
 
 24:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp slt i32 %18, 0
   br i1 %25, label %26, label %32
 
@@ -1933,7 +1927,7 @@ define ptr @H5VL_attr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   ret ptr %.1
 }
 
-declare i32 @H5VL_set_vol_wrapper(ptr noundef) local_unnamed_addr #2
+declare i32 @H5VL_set_vol_wrapper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) unnamed_addr #0 {
@@ -1959,7 +1953,7 @@ define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, pt
   br label %43
 
 26:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %27 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %11) #7
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.thread, label %29
@@ -1977,11 +1971,11 @@ define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, pt
   %34 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %35 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_create, i32 noundef %.sink, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %43
 
 37:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %38 = icmp eq ptr %31, null
   br i1 %38, label %39, label %43
 
@@ -1996,7 +1990,7 @@ define internal fastcc ptr @H5VL__attr_create(ptr noundef %0, ptr noundef %1, pt
   ret ptr %.019
 }
 
-declare i32 @H5VL_reset_vol_wrapper() local_unnamed_addr #2
+declare i32 @H5VL_reset_vol_wrapper() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VLattr_create(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef %9) local_unnamed_addr #0 {
@@ -2143,7 +2137,7 @@ define internal fastcc ptr @H5VL__attr_open(ptr noundef %0, ptr noundef %1, ptr 
   br label %40
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
@@ -2161,11 +2155,11 @@ define internal fastcc ptr @H5VL__attr_open(ptr noundef %0, ptr noundef %1, ptr 
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_open, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -2326,7 +2320,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_read(ptr nound
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -2344,11 +2338,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_read(ptr nound
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_read, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -2509,7 +2503,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_write(ptr noun
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -2527,11 +2521,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_write(ptr noun
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_write, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -2692,7 +2686,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_get(ptr nounde
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -2710,11 +2704,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_get(ptr nounde
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_get, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -2884,7 +2878,7 @@ define internal fastcc i32 @H5VL__attr_specific(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -2902,11 +2896,11 @@ define internal fastcc i32 @H5VL__attr_specific(ptr noundef %0, ptr noundef %1, 
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_specific, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -3066,7 +3060,7 @@ define internal i32 @H5VL__attr_optional(ptr noundef %0, ptr noundef readonly ca
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -3084,11 +3078,11 @@ define internal i32 @H5VL__attr_optional(ptr noundef %0, ptr noundef readonly ca
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -3151,11 +3145,11 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
@@ -3258,9 +3252,9 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
 
 67:                                               ; preds = %64, %.thread34
   %.0212937 = phi i32 [ -1, %.thread34 ], [ %45, %64 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0212937
 }
 
@@ -3329,7 +3323,7 @@ define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef
   ret i32 %.0
 }
 
-declare i32 @H5ES_insert(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+declare i32 @H5ES_insert(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_attr_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -3434,7 +3428,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_close(ptr noun
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -3452,11 +3446,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__attr_close(ptr noun
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__attr_close, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -3616,7 +3610,7 @@ define internal fastcc ptr @H5VL__dataset_create(ptr noundef %0, ptr noundef %1,
   br label %44
 
 27:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %28 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %12) #7
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.thread, label %30
@@ -3634,11 +3628,11 @@ define internal fastcc ptr @H5VL__dataset_create(ptr noundef %0, ptr noundef %1,
   %35 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %36 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_create, i32 noundef %.sink, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %44
 
 38:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %39 = icmp eq ptr %32, null
   br i1 %39, label %40, label %44
 
@@ -3798,7 +3792,7 @@ define internal fastcc ptr @H5VL__dataset_open(ptr noundef %0, ptr noundef %1, p
   br label %40
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
@@ -3816,11 +3810,11 @@ define internal fastcc ptr @H5VL__dataset_open(ptr noundef %0, ptr noundef %1, p
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_open, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -3881,7 +3875,7 @@ define ptr @H5VLdataset_open(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_dataset_read(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.H5VL_object_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i8, ptr @H5VL_init_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
   %13 = load i8, ptr @H5_libterm_g, align 1, !range !35
@@ -3959,7 +3953,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_read(i64 noundef %0, ptr noundef %1, p
 
 51:                                               ; preds = %19, %32, %44, %47, %23
   %.1 = phi i32 [ -1, %47 ], [ %.0.ph, %44 ], [ 0, %23 ], [ -1, %19 ], [ -1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
@@ -3987,7 +3981,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_read(i64 no
   br label %42
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %10) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -4005,11 +3999,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_read(i64 no
   %33 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %34 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_read, i32 noundef %.sink, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = icmp slt i32 %30, 0
   br i1 %37, label %38, label %42
 
@@ -4132,7 +4126,7 @@ define range(i32 -1, 1) i32 @H5VLdataset_read(i64 noundef %0, ptr noundef %1, i6
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_dataset_write(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.H5VL_object_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = load i8, ptr @H5VL_init_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
   %13 = load i8, ptr @H5_libterm_g, align 1, !range !35
@@ -4210,7 +4204,7 @@ define range(i32 -1, 1) i32 @H5VL_dataset_write(i64 noundef %0, ptr noundef %1, 
 
 51:                                               ; preds = %19, %32, %44, %47, %23
   %.1 = phi i32 [ -1, %47 ], [ %.0.ph, %44 ], [ 0, %23 ], [ -1, %19 ], [ -1, %32 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1
 }
 
@@ -4238,7 +4232,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
   br label %42
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %10) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -4256,11 +4250,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_write(i64 n
   %33 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %34 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_write, i32 noundef %.sink, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = icmp slt i32 %30, 0
   br i1 %37, label %38, label %42
 
@@ -4483,7 +4477,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -4501,11 +4495,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_get(ptr nou
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_get, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -4666,7 +4660,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -4684,11 +4678,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_specific(pt
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_specific, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -4849,7 +4843,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -4867,11 +4861,11 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__dataset_optional(ptr nound
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -4934,11 +4928,11 @@ define range(i32 -1, 1) i32 @H5VLdataset_optional_op(ptr noundef %0, ptr noundef
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
@@ -5041,9 +5035,9 @@ define range(i32 -1, 1) i32 @H5VLdataset_optional_op(ptr noundef %0, ptr noundef
 
 67:                                               ; preds = %64, %.thread33
   %.0212836 = phi i32 [ -1, %.thread33 ], [ 0, %64 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0212836
 }
 
@@ -5150,7 +5144,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -5168,11 +5162,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__dataset_close(ptr n
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__dataset_close, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -5332,7 +5326,7 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
   br label %43
 
 26:                                               ; preds = %18
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %27 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %11) #7
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.thread, label %29
@@ -5350,11 +5344,11 @@ define internal fastcc ptr @H5VL__datatype_commit(ptr noundef %0, ptr noundef %1
   %34 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %35 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_commit, i32 noundef %.sink, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %43
 
 37:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %38 = icmp eq ptr %31, null
   br i1 %38, label %39, label %43
 
@@ -5514,7 +5508,7 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
   br label %40
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
@@ -5532,11 +5526,11 @@ define internal fastcc ptr @H5VL__datatype_open(ptr noundef %0, ptr noundef %1, 
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_open, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -5697,7 +5691,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -5715,11 +5709,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_get(ptr no
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_get, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -5880,7 +5874,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -5898,11 +5892,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_specific(p
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_specific, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -6063,7 +6057,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -6081,11 +6075,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_optional(p
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -6242,11 +6236,11 @@ define range(i32 -1, 1) i32 @H5VLdatatype_optional_op(ptr noundef %0, ptr nounde
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
@@ -6360,13 +6354,13 @@ define range(i32 -1, 1) i32 @H5VLdatatype_optional_op(ptr noundef %0, ptr nounde
 
 74:                                               ; preds = %71, %.thread36
   %.0233139 = phi i32 [ -1, %.thread36 ], [ 0, %71 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0233139
 }
 
-declare i32 @H5T_invoke_vol_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5T_invoke_vol_optional(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_datatype_close(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -6471,7 +6465,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -6489,11 +6483,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__datatype_close(ptr 
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_close, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -6628,7 +6622,7 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
   br label %40
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
@@ -6646,11 +6640,11 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_create, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -6668,7 +6662,7 @@ define internal fastcc ptr @H5VL__file_create(ptr noundef readonly captures(none
 ; Function Attrs: nounwind uwtable
 define ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5VL_connector_prop_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = tail call ptr @H5I_object(i64 noundef %3) #7
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14, !prof !41
@@ -6709,13 +6703,13 @@ define ptr @H5VLfile_create(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 
 
 32:                                               ; preds = %21, %30
   %.01217 = phi ptr [ null, %30 ], [ %24, %21 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.01217
 }
 
-declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
+declare ptr @H5I_object(i64 noundef) local_unnamed_addr #1
 
-declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_peek(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
@@ -6762,7 +6756,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   br i1 %27, label %28, label %63
 
 28:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 1, !tbaa !33
   call void @H5VL__is_default_conn(i64 noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %7) #7
   %29 = load i8, ptr %7, align 1, !tbaa !33, !range !35, !noundef !36
@@ -6770,7 +6764,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
   br i1 %30, label %31, label %58
 
 31:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !90
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %32, align 8, !tbaa !92
@@ -6814,7 +6808,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 
 57:                                               ; preds = %41, %53, %46, %36
   %.127 = phi ptr [ null, %36 ], [ null, %46 ], [ null, %53 ], [ %44, %41 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %62
 
 58:                                               ; preds = %28
@@ -6825,7 +6819,7 @@ define ptr @H5VL_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 
 62:                                               ; preds = %57, %58
   %.2 = phi ptr [ %.127, %57 ], [ null, %58 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %63
 
 63:                                               ; preds = %62, %21, %24, %17
@@ -6857,7 +6851,7 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -6875,11 +6869,11 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_open, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp eq ptr %27, null
   br i1 %34, label %35, label %39
 
@@ -6894,16 +6888,16 @@ define internal fastcc ptr @H5VL__file_open(ptr noundef readonly captures(none) 
   ret ptr %.015
 }
 
-declare void @H5VL__is_default_conn(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare void @H5VL__is_default_conn(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @H5PL_iterate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5PL_iterate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct.H5VL_file_specific_args_t, align 8
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !33
   %6 = load i8, ptr @H5VL_init_g, align 1, !tbaa !33, !range !35, !noundef !36
   %7 = trunc nuw i8 %6 to i1
@@ -7029,15 +7023,15 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
 
 78:                                               ; preds = %.thread41, %68, %74, %71, %3
   %.0 = phi i32 [ -1, %74 ], [ %.2, %71 ], [ %.2, %68 ], [ 0, %3 ], [ -1, %.thread41 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5VL_connector_prop_t, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = tail call ptr @H5I_object(i64 noundef %2) #7
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13, !prof !41
@@ -7078,7 +7072,7 @@ define ptr @H5VLfile_open(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 no
 
 31:                                               ; preds = %20, %29
   %.01116 = phi ptr [ null, %29 ], [ %23, %20 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.01116
 }
 
@@ -7185,7 +7179,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -7203,11 +7197,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_get(ptr nounde
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_get, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -7309,7 +7303,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   br i1 %switch.not, label %24, label %38
 
 24:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.024.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.024 = load i64, ptr %.024.in, align 8, !tbaa !98
   %25 = tail call ptr @H5I_object(i64 noundef %.024) #7
@@ -7334,7 +7328,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %27, %34
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread49
 
 38:                                               ; preds = %21
@@ -7357,7 +7351,7 @@ define range(i32 -1, 1) i32 @H5VL_file_specific(ptr noundef %0, ptr noundef %1, 
 48:                                               ; preds = %31
   %49 = load ptr, ptr %5, align 8, !tbaa !88
   %50 = load ptr, ptr %49, align 8, !tbaa !7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %51
 
@@ -7423,7 +7417,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -7441,11 +7435,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_specific(ptr n
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_specific, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -7596,7 +7590,7 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -7614,11 +7608,11 @@ define internal range(i32 -1, -2147483648) i32 @H5VL__file_optional(ptr noundef 
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -7681,11 +7675,11 @@ define range(i32 -1, 1) i32 @H5VLfile_optional_op(ptr noundef %0, ptr noundef %1
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
@@ -7788,9 +7782,9 @@ define range(i32 -1, 1) i32 @H5VLfile_optional_op(ptr noundef %0, ptr noundef %1
 
 67:                                               ; preds = %64, %.thread33
   %.0212836 = phi i32 [ -1, %.thread33 ], [ 0, %64 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0212836
 }
 
@@ -7897,7 +7891,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -7915,11 +7909,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__file_close(ptr noun
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__file_close, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -8079,7 +8073,7 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
   br label %42
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %10) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -8097,11 +8091,11 @@ define internal fastcc ptr @H5VL__group_create(ptr noundef %0, ptr noundef %1, p
   %33 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %34 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_create, i32 noundef %.sink, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = icmp eq ptr %30, null
   br i1 %37, label %38, label %42
 
@@ -8261,7 +8255,7 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
   br label %40
 
 23:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %8) #7
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.thread, label %26
@@ -8279,11 +8273,11 @@ define internal fastcc ptr @H5VL__group_open(ptr noundef %0, ptr noundef %1, ptr
   %31 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %32 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %33 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_open, i32 noundef %.sink, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
 34:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %35 = icmp eq ptr %28, null
   br i1 %35, label %36, label %40
 
@@ -8444,7 +8438,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -8462,11 +8456,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_get(ptr nound
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_get, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -8627,7 +8621,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -8645,11 +8639,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_specific(ptr 
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_specific, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -8809,7 +8803,7 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -8827,11 +8821,11 @@ define internal i32 @H5VL__group_optional(ptr noundef %0, ptr noundef readonly c
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -8894,11 +8888,11 @@ define range(i32 -1, -2147483648) i32 @H5VLgroup_optional_op(ptr noundef %0, ptr
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %10, i8 0, i64 480, i1 false)
   %11 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %12 = trunc nuw i8 %11 to i1
@@ -9001,9 +8995,9 @@ define range(i32 -1, -2147483648) i32 @H5VLgroup_optional_op(ptr noundef %0, ptr
 
 67:                                               ; preds = %64, %.thread34
   %.0212937 = phi i32 [ -1, %.thread34 ], [ %45, %64 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %10) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0212937
 }
 
@@ -9110,7 +9104,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -9128,11 +9122,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__group_close(ptr nou
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__group_close, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -9193,7 +9187,7 @@ define range(i32 -1, 1) i32 @H5VLgroup_close(ptr noundef %0, i64 noundef %1, i64
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5VL_object_t, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load i8, ptr @H5VL_init_g, align 1, !tbaa !33, !range !35, !noundef !36
   %10 = trunc nuw i8 %9 to i1
   %11 = load i8, ptr @H5_libterm_g, align 1, !range !35
@@ -9286,7 +9280,7 @@ define range(i32 -1, 1) i32 @H5VL_link_create(ptr noundef %0, ptr noundef readon
 
 58:                                               ; preds = %17, %37, %51, %54, %21
   %.1 = phi i32 [ -1, %54 ], [ %.0.ph, %51 ], [ 0, %21 ], [ -1, %17 ], [ -1, %37 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.1
 }
 
@@ -9314,7 +9308,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
   br label %41
 
 24:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %9) #7
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread, label %27
@@ -9332,11 +9326,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_create(ptr nou
   %32 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %33 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %34 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_create, i32 noundef %.sink, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %41
 
 35:                                               ; preds = %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %36 = icmp slt i32 %29, 0
   br i1 %36, label %37, label %41
 
@@ -9499,7 +9493,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
   br label %42
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %10) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -9517,11 +9511,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_copy(ptr nound
   %33 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %34 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_copy, i32 noundef %.sink, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = icmp slt i32 %30, 0
   br i1 %37, label %38, label %42
 
@@ -9684,7 +9678,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
   br label %42
 
 25:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %26 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %10) #7
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %28
@@ -9702,11 +9696,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_move(ptr nound
   %33 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %34 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %35 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_move, i32 noundef %.sink, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %42
 
 36:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %37 = icmp slt i32 %30, 0
   br i1 %37, label %38, label %42
 
@@ -9857,7 +9851,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -9875,11 +9869,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_get(ptr nounde
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_get, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -10039,7 +10033,7 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -10057,11 +10051,11 @@ define internal fastcc i32 @H5VL__link_specific(ptr noundef %0, ptr noundef %1, 
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_specific, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -10222,7 +10216,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -10240,11 +10234,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__link_optional(ptr n
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__link_optional, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -10308,12 +10302,12 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
   %11 = alloca %struct.H5VL_loc_params_t, align 8
   %12 = alloca ptr, align 8
   %13 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %13, i8 0, i64 480, i1 false)
   %14 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -10459,14 +10453,14 @@ define range(i32 -1, 1) i32 @H5VLlink_optional_op(ptr noundef %0, ptr noundef %1
 
 97:                                               ; preds = %.thread52, %94
   %.1304555 = phi i32 [ %.1304556, %.thread52 ], [ %.029, %94 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1304555
 }
 
-declare i32 @H5VL_setup_name_args(i64 noundef, ptr noundef, i1 noundef zeroext, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5VL_setup_name_args(i64 noundef, ptr noundef, i1 noundef zeroext, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5VL_object_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -10570,7 +10564,7 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -10588,11 +10582,11 @@ define internal fastcc ptr @H5VL__object_open(ptr noundef %0, ptr noundef %1, pt
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_open, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp eq ptr %27, null
   br i1 %34, label %35, label %39
 
@@ -10773,7 +10767,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
   br label %44
 
 27:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %28 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %12) #7
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %.thread, label %30
@@ -10791,11 +10785,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_copy(ptr nou
   %35 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %36 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %37 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_copy, i32 noundef %.sink, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %44
 
 38:                                               ; preds = %30
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %39 = icmp slt i32 %32, 0
   br i1 %39, label %40, label %44
 
@@ -10958,7 +10952,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -10976,11 +10970,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_get(ptr noun
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_get, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -11140,7 +11134,7 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -11158,11 +11152,11 @@ define internal fastcc i32 @H5VL__object_specific(ptr noundef %0, ptr noundef %1
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_specific, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -11323,7 +11317,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -11341,11 +11335,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__object_optional(ptr
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__object_optional, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -11409,12 +11403,12 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
   %11 = alloca %struct.H5VL_loc_params_t, align 8
   %12 = alloca ptr, align 8
   %13 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !65
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !40
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %13) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %13, i8 0, i64 480, i1 false)
   %14 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %15 = trunc nuw i8 %14 to i1
@@ -11560,10 +11554,10 @@ define range(i32 -1, 1) i32 @H5VLobject_optional_op(ptr noundef %0, ptr noundef 
 
 97:                                               ; preds = %.thread52, %94
   %.1304555 = phi i32 [ %.1304556, %.thread52 ], [ %.029, %94 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %13) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.1304555
 }
 
@@ -11670,7 +11664,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -11688,11 +11682,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_get_conn
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__introspect_get_conn_cls, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -11810,7 +11804,7 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
   br label %45
 
 28:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %29 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %.thread, label %31
@@ -11828,11 +11822,11 @@ define range(i32 -1, -2147483648) i32 @H5VL_introspect_get_cap_flags(ptr noundef
   %36 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %37 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_introspect_get_cap_flags, i32 noundef %.sink, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %45
 
 39:                                               ; preds = %31
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = icmp slt i32 %33, 0
   br i1 %40, label %41, label %45
 
@@ -11993,7 +11987,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -12011,11 +12005,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__introspect_opt_quer
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__introspect_opt_query, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -12166,7 +12160,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -12184,11 +12178,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_wait(ptr no
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_wait, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -12339,7 +12333,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -12357,11 +12351,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_notify(ptr 
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_notify, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -12512,7 +12506,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
   br label %36
 
 19:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %.thread, label %22
@@ -12530,11 +12524,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_cancel(ptr 
   %27 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %28 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_cancel, i32 noundef %.sink, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 30:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = icmp slt i32 %24, 0
   br i1 %31, label %32, label %36
 
@@ -12685,7 +12679,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
   br label %36
 
 19:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %.thread, label %22
@@ -12703,11 +12697,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_specific(pt
   %27 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %28 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_specific, i32 noundef %.sink, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 30:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = icmp slt i32 %24, 0
   br i1 %31, label %32, label %36
 
@@ -12858,7 +12852,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
   br label %36
 
 19:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %4) #7
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %.thread, label %22
@@ -12876,11 +12870,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_optional(pt
   %27 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %28 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_optional, i32 noundef %.sink, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 
 30:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %31 = icmp slt i32 %24, 0
   br i1 %31, label %32, label %36
 
@@ -12931,7 +12925,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional(ptr noundef %0, i64 noundef %1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
-  call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %4, i8 0, i64 480, i1 false)
   %5 = load i8, ptr @H5_libinit_g, align 1, !tbaa !33, !range !35, !noundef !36
   %6 = trunc nuw i8 %5 to i1
@@ -13045,7 +13039,7 @@ define range(i32 -1, 1) i32 @H5VLrequest_optional_op(ptr noundef %0, i64 noundef
 
 69:                                               ; preds = %66, %.thread28
   %.0162331 = phi i32 [ -1, %.thread28 ], [ 0, %66 ]
-  call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0162331
 }
 
@@ -13152,7 +13146,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
   br label %35
 
 18:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %3) #7
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %.thread, label %21
@@ -13170,11 +13164,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__request_free(ptr no
   %26 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %27 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %28 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__request_free, i32 noundef %.sink, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
 29:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = icmp slt i32 %23, 0
   br i1 %30, label %31, label %35
 
@@ -13302,7 +13296,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -13320,11 +13314,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_put(ptr nounde
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_put, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -13462,7 +13456,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
   br label %39
 
 22:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %7) #7
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %.thread, label %25
@@ -13480,11 +13474,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_get(ptr nounde
   %30 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %31 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_get, i32 noundef %.sink, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %39
 
 33:                                               ; preds = %25
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %34 = icmp slt i32 %27, 0
   br i1 %34, label %35, label %39
 
@@ -13622,7 +13616,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -13640,11 +13634,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_specific(ptr n
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_specific, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -13782,7 +13776,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
   br label %37
 
 20:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %5) #7
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.thread, label %23
@@ -13800,11 +13794,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__blob_optional(ptr n
   %28 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %29 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %30 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__blob_optional, i32 noundef %.sink, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
 31:                                               ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %33, label %37
 
@@ -13964,7 +13958,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
   br i1 %.not, label %43, label %26
 
 26:                                               ; preds = %23
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %27 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %.thread, label %29
@@ -13982,11 +13976,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_cmp(ptr nound
   %34 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %35 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %36 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__token_cmp, i32 noundef %.sink, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %45
 
 37:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %38 = icmp slt i32 %31, 0
   br i1 %38, label %39, label %45
 
@@ -14133,7 +14127,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
   br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -14151,11 +14145,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_to_str(ptr no
   %24 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %25 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__token_to_str, i32 noundef %.sink, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 27:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = icmp slt i32 %21, 0
   br i1 %28, label %29, label %34
 
@@ -14311,7 +14305,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -14329,11 +14323,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5VL__token_from_str(ptr 
   %24 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %25 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %26 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__token_from_str, i32 noundef %.sink, i64 noundef %24, i64 noundef %25, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
 27:                                               ; preds = %19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = icmp slt i32 %21, 0
   br i1 %28, label %29, label %34
 
@@ -14517,7 +14511,7 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
   br label %38
 
 21:                                               ; preds = %13
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %22 = call i32 @H5_user_cb_prepare(ptr noundef nonnull %6) #7
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -14535,11 +14529,11 @@ define internal fastcc i32 @H5VL__optional(ptr noundef %0, ptr noundef readonly 
   %29 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !3
   %30 = load i64, ptr %H5E_CANTSET_g.sink, align 8, !tbaa !3
   %31 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__optional, i32 noundef %.sink, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.2) #7
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
 32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = icmp slt i32 %26, 0
   br i1 %33, label %34, label %38
 
@@ -14597,25 +14591,31 @@ define i32 @H5VLoptional(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nou
   ret i32 %.01016
 }
 
-declare ptr @H5VL__register_connector_by_class(ptr noundef, i64 noundef) local_unnamed_addr #2
+declare ptr @H5VL__register_connector_by_class(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-declare i64 @H5P_copy_plist(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+declare i64 @H5P_copy_plist(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare i32 @H5P_set_vol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+declare i32 @H5P_set_vol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @H5E_pause_stack() local_unnamed_addr #2
+declare void @H5E_pause_stack() local_unnamed_addr #1
 
-declare void @H5E_resume_stack() local_unnamed_addr #2
+declare void @H5E_resume_stack() local_unnamed_addr #1
 
-declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #2
+declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }
 attributes #9 = { nounwind willreturn memory(read) }

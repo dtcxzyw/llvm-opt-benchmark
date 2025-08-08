@@ -35,7 +35,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3
   store i32 0, ptr %3, align 4, !noalias !3
   %6 = icmp samesign ult i32 %1, 2048
   br i1 %6, label %29, label %7
@@ -88,7 +88,7 @@ _ZN4core4char7methods15encode_utf8_raw17h110904658798e68fE.exit.i: ; preds = %29
   %35 = or disjoint i8 %34, -128
   store i8 %35, ptr %.sink.i.sroa.phi.i, align 1, !alias.scope !6, !noalias !3
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17he435a9e90b5ea3ffE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.0.1.i.sroa.phi.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.913a4f89188f2489508563e3abdb33e0.5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !3
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3
   br label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit
 
 36:                                               ; preds = %2
@@ -146,7 +146,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
   tail call void @_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %22)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = tail call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h702703188cd01f13E"(i8 noundef %11)
   call void @_ZN19ruff_python_literal6escape13UnicodeEscape11repr_layout17h81fd508b46726f24E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %23)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -159,8 +159,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   br i1 %28, label %34, label %37
 
 "_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit": ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %29 = tail call noundef i8 @_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h51d640092216043eE(i8 noundef %11)
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 %29, ptr %30, align 8
@@ -170,7 +170,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   store ptr %9, ptr %10, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN75_$LT$ruff_python_ast..nodes..DisplayFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h3e5ad30dddd555a3E", ptr %.sroa.42.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !15
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !15
   store ptr @anon.913a4f89188f2489508563e3abdb33e0.15, ptr %6, align 8, !noalias !19
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !19
@@ -181,8 +181,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !19
   %32 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.913a4f89188f2489508563e3abdb33e0.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !20
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !15
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !15
   br i1 %32, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit", !prof !21
 
 33:                                               ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit"
@@ -190,9 +189,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit": ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit"
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %43
 
 34:                                               ; preds = %16
@@ -202,14 +200,13 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   br label %37
 
 37:                                               ; preds = %16, %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %11)
   store ptr %8, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = zext i1 %38 to i8
   store i8 %40, ptr %39, align 8
   %41 = call noundef zeroext i1 @_ZN19ruff_python_literal6escape7StrRepr5write17hb0ec9d39a0666dc1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   br i1 %41, label %42, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3", !prof !22
 
 42:                                               ; preds = %37
@@ -217,9 +214,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17h5
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3": ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %43
 
 43:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit"
@@ -249,7 +245,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
   tail call void @_ZN19ruff_python_codegen9generator9Generator1p17h945a79d7e53ba346E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %21, i64 noundef %22)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = tail call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h702703188cd01f13E"(i8 noundef %11)
   call void @_ZN19ruff_python_literal6escape13UnicodeEscape11repr_layout17h81fd508b46726f24E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %23)
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -262,8 +258,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   br i1 %28, label %34, label %37
 
 "_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit": ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %29 = tail call noundef i8 @_ZN15ruff_python_ast5nodes11StringFlags19as_any_string_flags17h51d640092216043eE(i8 noundef %11)
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 %29, ptr %30, align 8
@@ -273,7 +269,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   store ptr %9, ptr %10, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @"_ZN75_$LT$ruff_python_ast..nodes..DisplayFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h3e5ad30dddd555a3E", ptr %.sroa.42.0..sroa_idx, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !23
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !23
   store ptr @anon.913a4f89188f2489508563e3abdb33e0.15, ptr %6, align 8, !noalias !27
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8, !noalias !27
@@ -284,8 +280,7 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !27
   %32 = call noundef zeroext i1 @_ZN4core3fmt5write17hfe57b7174b7d8eabE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.913a4f89188f2489508563e3abdb33e0.9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6), !noalias !28
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !23
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !23
   br i1 %32, label %33, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit", !prof !21
 
 33:                                               ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit"
@@ -293,9 +288,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit": ; preds = %"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4ea6c56960c42716E.exit"
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %43
 
 34:                                               ; preds = %16
@@ -305,14 +299,13 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   br label %37
 
 37:                                               ; preds = %16, %34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %11)
   store ptr %8, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = zext i1 %38 to i8
   store i8 %40, ptr %39, align 8
   %41 = call noundef zeroext i1 @_ZN19ruff_python_literal6escape7StrRepr5write17hb0ec9d39a0666dc1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
   br i1 %41, label %42, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3", !prof !22
 
 42:                                               ; preds = %37
@@ -320,9 +313,8 @@ define hidden void @_ZN19ruff_python_codegen9generator9Generator10p_str_repr17ha
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3": ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %43
 
 43:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit3", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf64cd1e6ec3ea1b1E.exit"
@@ -396,10 +388,10 @@ declare hidden noundef i8 @_ZN15ruff_python_ast5nodes11StringFlags19as_any_strin
 declare noundef zeroext i1 @"_ZN75_$LT$ruff_python_ast..nodes..DisplayFlags$u20$as$u20$core..fmt..Display$GT$3fmt17h3e5ad30dddd555a3E"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5

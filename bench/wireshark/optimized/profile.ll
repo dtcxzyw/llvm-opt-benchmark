@@ -100,26 +100,20 @@ define hidden ptr @get_profile_parent(ptr noundef readonly captures(ret: address
   ret ptr %.014
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_list_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noalias ptr @apply_profile_changes() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @edited_profiles, align 8
   %5 = tail call ptr @g_list_first(ptr noundef %4)
   %.not92 = icmp eq ptr %5, null
@@ -184,9 +178,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %1, align 8
-  %35 = tail call ptr @__errno_location() #9
+  %35 = tail call ptr @__errno_location() #8
   %36 = load i32, ptr %35, align 4
-  %37 = call ptr @g_strerror(i32 noundef %36) #9
+  %37 = call ptr @g_strerror(i32 noundef %36) #8
   %38 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef %34, ptr noundef %37)
   %39 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %39)
@@ -212,9 +206,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %2, align 8
   %53 = load ptr, ptr %1, align 8
-  %54 = tail call ptr @__errno_location() #9
+  %54 = tail call ptr @__errno_location() #8
   %55 = load i32, ptr %54, align 4
-  %56 = call ptr @g_strerror(i32 noundef %55) #9
+  %56 = call ptr @g_strerror(i32 noundef %55) #8
   %57 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %56)
   %58 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %58)
@@ -276,9 +270,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %1, align 8
-  %86 = tail call ptr @__errno_location() #9
+  %86 = tail call ptr @__errno_location() #8
   %87 = load i32, ptr %86, align 4
-  %88 = call ptr @g_strerror(i32 noundef %87) #9
+  %88 = call ptr @g_strerror(i32 noundef %87) #8
   %89 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %85, ptr noundef %88)
   %90 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %90)
@@ -325,9 +319,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 110:                                              ; preds = %107
   %111 = load ptr, ptr %1, align 8
   %112 = load ptr, ptr %2, align 8
-  %113 = tail call ptr @__errno_location() #9
+  %113 = tail call ptr @__errno_location() #8
   %114 = load i32, ptr %113, align 4
-  %115 = call ptr @g_strerror(i32 noundef %114) #9
+  %115 = call ptr @g_strerror(i32 noundef %114) #8
   %116 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %111, ptr noundef %112, ptr noundef %115)
   %117 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %117)
@@ -407,9 +401,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 151:                                              ; preds = %.critedge
   %152 = load ptr, ptr %1, align 8
-  %153 = tail call ptr @__errno_location() #9
+  %153 = tail call ptr @__errno_location() #8
   %154 = load i32, ptr %153, align 4
-  %155 = call ptr @g_strerror(i32 noundef %154) #9
+  %155 = call ptr @g_strerror(i32 noundef %154) #8
   %156 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %152, ptr noundef %155)
   %157 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %157)
@@ -451,9 +445,9 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %171
-  %178 = tail call ptr @__errno_location() #9
+  %178 = tail call ptr @__errno_location() #8
   %179 = load i32, ptr %178, align 4
-  %180 = call ptr @g_strerror(i32 noundef %179) #9
+  %180 = call ptr @g_strerror(i32 noundef %179) #8
   %181 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef %174, ptr noundef %180)
   call void @g_free(ptr noundef %174)
   br label %save_profile_settings.exit
@@ -482,9 +476,9 @@ save_profile_settings.exit:                       ; preds = %182, %177, %167, %.
 
 193:                                              ; preds = %._crit_edge119, %33, %15
   %.0 = phi ptr [ %16, %15 ], [ %38, %33 ], [ null, %._crit_edge119 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret ptr %.0
 }
 
@@ -528,10 +522,10 @@ declare zeroext i1 @write_profile_recent() local_unnamed_addr #1
 declare i32 @create_persconffile_profile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @g_strerror(i32 noundef) local_unnamed_addr #4
+declare ptr @g_strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #4
+declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @copy_persconffile_profile(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -572,7 +566,7 @@ define hidden void @copy_profile_list() local_unnamed_addr #0 {
   %10 = load i8, ptr %9, align 4, !range !10, !noundef !11
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %12 = load i8, ptr %11, align 1, !range !10, !noundef !11
-  %13 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %13 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %14 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %14, ptr %13, align 8
   %15 = tail call noalias ptr @g_strdup(ptr noundef %6)
@@ -617,7 +611,7 @@ define hidden void @copy_profile_list() local_unnamed_addr #0 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @add_to_profile_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @edited_profiles, align 8
-  %8 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %8 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %9 = zext i1 %5 to i8
   %10 = zext i1 %4 to i8
   %11 = zext i1 %3 to i8
@@ -727,7 +721,7 @@ thread-pre-split:                                 ; preds = %1
 define hidden void @init_profile_list() local_unnamed_addr #0 {
   tail call void @empty_profile_list(i1 noundef zeroext true)
   %1 = load ptr, ptr @edited_profiles, align 8
-  %2 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %2 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %3 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
   store ptr %3, ptr %2, align 8
   %4 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
@@ -793,7 +787,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %.058 = phi ptr [ %42, %.lr.ph60 ], [ %27, %25 ]
   %28 = load ptr, ptr %.058, align 8
   %29 = load ptr, ptr @edited_profiles, align 8
-  %30 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %30 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %31 = tail call noalias ptr @g_strdup(ptr noundef %28)
   store ptr %31, ptr %30, align 8
   %32 = tail call noalias ptr @g_strdup(ptr noundef %28)
@@ -866,7 +860,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
   %.168 = phi ptr [ %71, %.lr.ph70 ], [ %57, %55 ]
   %58 = load ptr, ptr %.168, align 8
   %59 = load ptr, ptr @edited_profiles, align 8
-  %60 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #10
+  %60 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   %61 = tail call noalias ptr @g_strdup(ptr noundef %58)
   store ptr %61, ptr %60, align 8
   %62 = tail call noalias ptr @g_strdup(ptr noundef %58)
@@ -945,13 +939,13 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @get_global_profiles_dir() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef zeroext i1 @delete_current_profile() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = tail call ptr @get_profile_name()
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = tail call zeroext i1 @profile_exists(ptr noundef %2, i1 noundef zeroext false)
   br i1 %3, label %4, label %16
 
@@ -967,9 +961,9 @@ define hidden noundef zeroext i1 @delete_current_profile() local_unnamed_addr #0
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %1, align 8
-  %11 = tail call ptr @__errno_location() #9
+  %11 = tail call ptr @__errno_location() #8
   %12 = load i32, ptr %11, align 4
-  %13 = call ptr @g_strerror(i32 noundef %12) #9
+  %13 = call ptr @g_strerror(i32 noundef %12) #8
   %14 = call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %10, ptr noundef %13)
   %15 = load ptr, ptr %1, align 8
   call void @g_free(ptr noundef %15)
@@ -977,7 +971,7 @@ define hidden noundef zeroext i1 @delete_current_profile() local_unnamed_addr #0
 
 16:                                               ; preds = %0, %4, %9, %6
   %.0 = phi i1 [ true, %6 ], [ false, %9 ], [ false, %4 ], [ false, %0 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %.0
 }
 
@@ -988,7 +982,7 @@ declare ptr @get_profile_name() local_unnamed_addr #1
 declare zeroext i1 @profile_exists(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
-declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
+declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1000,7 +994,7 @@ declare ptr @g_list_remove_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_list_free_1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @read_prefs_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1024,7 +1018,7 @@ define internal noundef i32 @set_profile_setting(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @get_profile_dir(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -1038,17 +1032,22 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: null_pointer_is_valid
 declare ptr @application_flavor_name_proper() local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(none) }
-attributes #10 = { allocsize(0) }
+attributes #8 = { nounwind willreturn memory(none) }
+attributes #9 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -19,7 +19,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %4 = alloca i64, align 8
   %5 = alloca %struct.diff_populate_filespec_options, align 8
   %6 = alloca %struct.diff_queue_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = lshr i32 %1, 16
   %8 = and i32 %1, 65535
@@ -76,14 +76,14 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !25
-  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %35) #11
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %35) #10
   %.not42 = icmp eq i32 %36, 0
   br i1 %.not42, label %37, label %125
 
 37:                                               ; preds = %31
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %38 = icmp slt i16 %21, -28672
   %39 = icmp sgt i16 %26, -28673
@@ -115,7 +115,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = call i32 @repo_has_promisor_remote(ptr noundef %50) #10
+  %53 = call i32 @repo_has_promisor_remote(ptr noundef %50) #11
   %.not57.i = icmp eq i32 %53, 0
   br i1 %.not57.i, label %55, label %54
 
@@ -125,12 +125,12 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   br label %55
 
 55:                                               ; preds = %54, %52, %49
-  %56 = call i32 @diff_populate_filespec(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %5) #10
+  %56 = call i32 @diff_populate_filespec(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %5) #11
   %.not58.i = icmp eq i32 %56, 0
   br i1 %.not58.i, label %57, label %should_break.exit.thread
 
 57:                                               ; preds = %55
-  %58 = call i32 @diff_populate_filespec(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %5) #10
+  %58 = call i32 @diff_populate_filespec(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %5) #11
   %.not59.i = icmp eq i32 %58, 0
   br i1 %.not59.i, label %59, label %should_break.exit.thread
 
@@ -148,7 +148,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
 65:                                               ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %67 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %68 = call i32 @diffcore_count_changes(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %24, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  %68 = call i32 @diffcore_count_changes(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %24, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not61.i = icmp eq i32 %68, 0
   br i1 %.not61.i, label %69, label %should_break.exit.thread
 
@@ -194,24 +194,24 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %or.cond.i, label %should_break.exit.thread, label %99
 
 should_break.exit.thread:                         ; preds = %48, %57, %55, %59, %65, %84, %95
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %18, align 8, !tbaa !14
   br label %125
 
 99:                                               ; preds = %91, %95, %69, %37
   %.1 = phi i32 [ %82, %69 ], [ 60000, %37 ], [ %82, %95 ], [ %82, %91 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %100 = icmp slt i32 %.1, %spec.store.select1
   %101 = load ptr, ptr %18, align 8, !tbaa !14
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %103 = load ptr, ptr %102, align 8, !tbaa !25
-  %104 = call ptr @alloc_filespec(ptr noundef %103) #10
+  %104 = call ptr @alloc_filespec(ptr noundef %103) #11
   %105 = load ptr, ptr %18, align 8, !tbaa !14
-  %106 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %105, ptr noundef %104) #10
+  %106 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %105, ptr noundef %104) #11
   %107 = trunc i32 %.1 to i16
   %108 = select i1 %100, i16 0, i16 %107
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
@@ -223,9 +223,9 @@ should_break.exit.thread:                         ; preds = %48, %57, %55, %59, 
   %113 = load ptr, ptr %23, align 8, !tbaa !24
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %115 = load ptr, ptr %114, align 8, !tbaa !25
-  %116 = call ptr @alloc_filespec(ptr noundef %115) #10
+  %116 = call ptr @alloc_filespec(ptr noundef %115) #11
   %117 = load ptr, ptr %23, align 8, !tbaa !24
-  %118 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %116, ptr noundef %117) #10
+  %118 = call ptr @diff_queue(ptr noundef nonnull %6, ptr noundef %116, ptr noundef %117) #11
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i16 %108, ptr %119, align 8, !tbaa !33
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 19
@@ -233,19 +233,19 @@ should_break.exit.thread:                         ; preds = %48, %57, %55, %59, 
   %122 = or i8 %121, 1
   store i8 %122, ptr %120, align 1
   %123 = load ptr, ptr %18, align 8, !tbaa !14
-  call void @diff_free_filespec_blob(ptr noundef %123) #10
+  call void @diff_free_filespec_blob(ptr noundef %123) #11
   %124 = load ptr, ptr %23, align 8, !tbaa !24
-  call void @diff_free_filespec_blob(ptr noundef %124) #10
-  call void @free(ptr noundef nonnull %18) #10
+  call void @diff_free_filespec_blob(ptr noundef %124) #11
+  call void @free(ptr noundef nonnull %18) #11
   br label %129
 
 125:                                              ; preds = %29, %29, %27, %27, %should_break.exit.thread, %31, %22, %15
   %126 = phi ptr [ %19, %29 ], [ %19, %29 ], [ %19, %27 ], [ %19, %27 ], [ %.pre, %should_break.exit.thread ], [ %19, %31 ], [ %19, %22 ], [ %19, %15 ]
-  call void @diff_free_filespec_data(ptr noundef %126) #10
+  call void @diff_free_filespec_data(ptr noundef %126) #11
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !24
-  call void @diff_free_filespec_data(ptr noundef %128) #10
-  call void @diff_q(ptr noundef nonnull %6, ptr noundef nonnull %18) #10
+  call void @diff_free_filespec_data(ptr noundef %128) #11
+  call void @diff_q(ptr noundef nonnull %6, ptr noundef nonnull %18) #11
   br label %129
 
 129:                                              ; preds = %125, %99
@@ -257,44 +257,38 @@ should_break.exit.thread:                         ; preds = %48, %57, %55, %59, 
 
 ._crit_edge:                                      ; preds = %129, %2
   %133 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  call void @free(ptr noundef %133) #10
+  call void @free(ptr noundef %133) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
-
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
-declare ptr @alloc_filespec(ptr noundef) local_unnamed_addr #4
+declare ptr @alloc_filespec(ptr noundef) local_unnamed_addr #3
 
-declare ptr @diff_queue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare ptr @diff_queue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @diff_free_filespec_blob(ptr noundef) local_unnamed_addr #4
+declare void @diff_free_filespec_blob(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+declare void @diff_free_filespec_data(ptr noundef) local_unnamed_addr #3
 
-declare void @diff_free_filespec_data(ptr noundef) local_unnamed_addr #4
-
-declare void @diff_q(ptr noundef, ptr noundef) local_unnamed_addr #4
+declare void @diff_q(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %1 = alloca %struct.diff_queue_struct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #10
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %3 = icmp sgt i32 %2, 0
@@ -325,7 +319,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %19) #11
+  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %19) #10
   %.not32 = icmp eq i32 %20, 0
   br i1 %.not32, label %.preheader, label %78
 
@@ -357,12 +351,12 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %37) #11
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %37) #10
   %.not34 = icmp eq i32 %38, 0
   br i1 %.not34, label %39, label %77
 
 39:                                               ; preds = %30
-  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %37) #11
+  %40 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %37) #10
   %.not35 = icmp eq i32 %40, 0
   br i1 %.not35, label %41, label %77
 
@@ -418,7 +412,7 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   unreachable
 
 .thread:                                          ; preds = %59
-  %65 = call ptr @diff_queue(ptr noundef nonnull %1, ptr noundef nonnull %44, ptr noundef nonnull %61) #10
+  %65 = call ptr @diff_queue(ptr noundef nonnull %1, ptr noundef nonnull %44, ptr noundef nonnull %61) #11
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %67 = load i16, ptr %66, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -429,11 +423,11 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %70, align 4, !tbaa !39
   %73 = load ptr, ptr %49, align 8, !tbaa !24
-  call void @free_filespec(ptr noundef %73) #10
+  call void @free_filespec(ptr noundef %73) #11
   %74 = load ptr, ptr %spec.select24.i, align 8, !tbaa !14
-  call void @free_filespec(ptr noundef %74) #10
-  call void @free(ptr noundef nonnull %spec.select.i) #10
-  call void @free(ptr noundef nonnull %spec.select24.i) #10
+  call void @free_filespec(ptr noundef %74) #11
+  call void @free(ptr noundef nonnull %spec.select.i) #11
+  call void @free(ptr noundef nonnull %spec.select24.i) #11
   %75 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv52
   store ptr null, ptr %76, align 8, !tbaa !12
@@ -445,11 +439,11 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %77, %.preheader
-  call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #10
+  call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
   br label %79
 
 78:                                               ; preds = %12, %8
-  call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #10
+  call void @diff_q(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
   br label %79
 
 79:                                               ; preds = %.thread, %._crit_edge, %78, %.lr.ph46
@@ -462,24 +456,30 @@ define dso_local void @diffcore_merge_broken() local_unnamed_addr #0 {
 
 ._crit_edge47:                                    ; preds = %79, %0
   %83 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !11
-  call void @free(ptr noundef %83) #10
+  call void @free(ptr noundef %83) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #10
+  call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
 
-declare i32 @repo_has_promisor_remote(ptr noundef) local_unnamed_addr #4
+declare i32 @repo_has_promisor_remote(ptr noundef) local_unnamed_addr #3
 
-declare void @diff_queued_diff_prefetch(ptr noundef) #4
+declare void @diff_queued_diff_prefetch(ptr noundef) #3
 
-declare i32 @diff_populate_filespec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @diff_populate_filespec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @diffcore_count_changes(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
+declare i32 @diffcore_count_changes(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
-declare void @die(ptr noundef, ...) local_unnamed_addr #7
+declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
-declare void @free_filespec(ptr noundef) local_unnamed_addr #4
+declare void @free_filespec(ptr noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
@@ -494,17 +494,17 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 attributes #12 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
